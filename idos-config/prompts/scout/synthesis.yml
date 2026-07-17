@@ -1,29 +1,46 @@
-# Scout: Overall Screening Synthesis
-# Synthesizes all dimension scores into a final screening recommendation.
+# Scout: Overall Screening Synthesis (Spanish Output)
 system_prompt: >
-  You are a senior screening analyst. Synthesize the results from all screening
-  dimensions (size/liquidity, momentum, value, quality) into a final recommendation.
-  Apply the configured weights and exercise judgment on conflicting signals.
+  Eres un analista senior de screening para una Family Office.
+  Sintetiza los resultados de todas las dimensiones de screening
+  (tamaño/liquidez, momentum, valor, calidad) en una recomendación final.
+  Aplica los pesos configurados y ejerce juicio sobre señales conflictivas.
+  Responde SIEMPRE en ESPAÑOL.
 
 user_prompt: >
-  Synthesize the screening results for {ticker}:
+  Sintetiza los resultados de screening para {ticker}:
 
-  Dimension Scores:
-  - Size & Liquidity: {size_score}/100 (weight: {size_weight})
-  - Momentum: {momentum_score}/100 (weight: {momentum_weight})
-  - Value: {value_score}/100 (weight: {value_weight})
-  - Quality: {quality_score}/100 (weight: {quality_weight})
+  Scores por Dimensión:
+  - Tamaño & Liquidez: {size_score}/100 (peso: {size_weight})
+  - Momentum: {momentum_score}/100 (peso: {momentum_weight})
+  - Valor: {value_score}/100 (peso: {value_weight})
+  - Calidad: {quality_score}/100 (peso: {quality_weight})
 
-  Minimum Score Threshold: {min_score}/100
+  Portfolio Fit Score: {portfolio_fit_score}/100
+  Score Mínimo Requerido: {min_score}/100
   Sector: {sector}
 
-  Instructions:
-  1. Calculate weighted composite score
-  2. Override if any dimension has a critical red flag (score < {red_flag_threshold})
-  3. Provide a clear pass/fail recommendation
-  4. If passing, suggest an initial conviction range
+  Override Triggers:
+  - Score Calidad < 30: OVERRIDE RECHAZAR (calidad insuficiente)
+  - Score Tamaño < 40: OVERRIDE RECHAZAR (liquidez insuficiente)
+  - Portfolio Fit < 30: OVERRIDE REVISAR (ajuste de cartera insuficiente)
+  - Value Trap activo: OVERRIDE RECHAZAR
 
-  Respond in JSON format:
-  {{"composite_score": NN, "passed": true/false,
-    "initial_conviction_range": [min, max], "red_flags": [...],
-    "recommendation": "...", "reasoning": "..."}}
+  Instrucciones:
+  1. Calcula composite_score = suma_ponderada * penalización_dimensión_mínima
+     penalización = 1 - ((100 - min_dimension_score) * 0.005)
+  2. Aplica override triggers si corresponde
+  3. Sugiere tamaño de posición sugerido como % del AUM
+
+  Responde en JSON:
+  {{"score_compuesto": NN, "aprobado": true/false,
+    "rango_conviccion_inicial": [min, max],
+    "override_aplicado": "...", "override_trigger": "...",
+    "banderas_rojas": [...],
+    "tamano_posicion_pct_aum": [min, max],
+    "recomendacion": "...", "razonamiento": "..."}}
+
+category: scout
+metadata:
+  version: "2.0"
+  author: "FO Senior Analyst"
+  description: "Synthesis con override triggers, portfolio fit y position sizing"

@@ -1,58 +1,71 @@
-# Research: Deep Due Diligence (DDD)
-# Comprehensive business analysis for the DeepDueDiligenceWorker.
+# Research: Deep Due Diligence (SDD Domain Structure, Spanish Output)
 system_prompt: >
-  You are a deep due diligence analyst. Your role is to produce a comprehensive,
-  structured analysis of a company for investment decision-making. Be thorough,
-  objective, and evidence-based. Distinguish between facts, informed judgments,
-  and open questions. Structure your output according to the template provided.
+  Eres un analista de deep due diligence para una Family Office.
+  Produce un análisis estructurado y completo sobre 7 dominios SDD explícitos.
+  Sé objetivo, basado en evidencia. Distingue entre hechos verificados,
+  inferencias del LLM y preguntas abiertas. Responde SIEMPRE en ESPAÑOL.
 
 user_prompt: >
-  Perform deep due diligence on {ticker} ({name}):
+  Realiza Deep Due Diligence sobre {ticker} ({name}):
 
-  Company Profile:
+  Perfil de la Compañía:
   - Sector: {sector}
-  - Business Model: {business_model}
-  - Products/Services: {products}
-  - Geographic Presence: {geography}
-  - Moat Description: {moat_description}
+  - Modelo de Negocio: {business_model}
+  - Productos/Servicios: {products}
+  - Presencia Geográfica: {geography}
+  - Moat: {moat_description}
 
-  Financial Summary (TTM):
+  Resumen Financiero (TTM):
   - Revenue: ${revenue:,.0f}M
-  - Revenue Growth: {revenue_growth:+.1f}%
-  - Operating Margin: {operating_margin:.1f}%
+  - Crecimiento Revenue: {revenue_growth:+.1f}%
+  - Margen Operativo: {operating_margin:.1f}%
   - ROIC: {roic:.1f}%
-  - Debt/Equity: {debt_to_equity:.1f}x
-  - FCF Yield: {fcf_yield:.1f}%
+  - Excess Return ROIC - WACC: {excess_return_roic_wacc:+.1f}%
+  - FCF Ajustado: {fcf_adjusted:,.0f}M
+  - D/E: {debt_to_equity:.1f}x
+  - Perfil Vencimiento Deuda: {debt_maturity_profile}
+  - Interest Coverage: {interest_coverage_ratio:.1f}x
 
   Management:
-  - CEO Tenure: {ceo_tenure} years
+  - Antigüedad CEO: {ceo_tenure} años
   - Insider Ownership: {insider_ownership:.1f}%
-  - Capital Allocation Track Record: {capital_allocation}
+  - Track Record Asignación Capital: {capital_allocation}
 
-  Recent Developments:
+  Desarrollos Recientes:
   {recent_events}
 
-  Instructions - analyze in order:
-  1. Business Quality - assess competitive position, moat durability, business model resilience
-  2. Management Quality - evaluate capital allocation, alignment, track record
-  3. Financial Health - analyze balance sheet strength, cash flow generation
-  4. Growth Prospects - identify organic and inorganic growth drivers
-  5. Risk Assessment - categorize risks by probability and impact
-  6. Catalysts - identify specific events that could unlock value
-  7. Valuation Opinion - provide a clear undervalued/fair/overvalued view
-  8. Thesis Statement - one-paragraph investment thesis
+  Instrucciones - Analiza los 7 dominios SDD en orden:
+  1. Business Quality - posición competitiva, durabilidad del moat, resiliencia del modelo
+  2. Financial Health - balance, generación de caja, perfil de deuda
+  3. Management Quality - asignación de capital, alineación, track record
+  4. Growth Prospects - impulsores orgánicos e inorgánicos, visibilidad de revenue
+  5. ESG & Supply Chain - riesgos ESG, concentración de proveedores, dependencias
+  6. Risk Assessment - categoriza por probabilidad e impacto
+  7. Catalysts & Valuation - eventos que pueden liberar valor, opinión de valoración
 
-  Respond in JSON format:
+  Calidad de Evidencia:
+  - verified_facts: hechos confirmados por fuentes múltiples
+  - llm_inferences: inferencias del analista basadas en datos disponibles
+  - open_questions: lo que no se sabe y necesita investigación
+
+  Responde en JSON:
   {{
-    "executive_summary": "...",
-    "business_quality": "exceptional|good|fair|weak",
-    "management_quality": "exceptional|good|fair|weak",
-    "financial_health": "strong|adequate|weak",
-    "competitive_position": "...",
-    "risks_identified": [{{"risk": "...", "probability": "high|med|low", "impact": "high|med|low"}}],
-    "catalysts": [{{"description": "...", "impact": "high|med|low", "timeline": "short|med|long"}}],
-    "valuation_opinion": "undervalued|fair|overvalued",
-    "thesis_statement": "...",
-    "overall_score": 0-100,
-    "open_questions": ["..."]
+    "resumen_ejecutivo": "...",
+    "dominio_business_quality": {{"rating": "excepcional|buena|regular|debil", "analisis": "..."}},
+    "dominio_financial_health": {{"rating": "fuerte|adecuada|debil", "analisis": "..."}},
+    "dominio_management": {{"rating": "excepcional|bueno|regular|debil", "analisis": "..."}},
+    "dominio_growth": {{"rating": "fuerte|moderado|debil", "analisis": "..."}},
+    "dominio_esg_supply_chain": {{"rating": "bajo_riesgo|medio_riesgo|alto_riesgo", "analisis": "..."}},
+    "dominio_riesgos": [{{"riesgo": "...", "probabilidad": "alta|media|baja", "impacto": "alto|medio|bajo"}}],
+    "dominio_catalizadores": [{{"descripcion": "...", "impacto": "alto|medio|bajo", "timeline": "corto|medio|largo"}}],
+    "opinion_valoracion": "infravalorado|justo|sobrevalorado",
+    "tesis_inversion": "...",
+    "calidad_evidencia": {{"hechos_verificados": [...], "inferencias_llm": [...], "preguntas_abiertas": [...]}},
+    "score_general": 0-100
   }}
+
+category: research
+metadata:
+  version: "2.0"
+  author: "FO Senior Analyst"
+  description: "Deep Due Diligence estructurado en 7 dominios SDD con ESG y calidad de evidencia"

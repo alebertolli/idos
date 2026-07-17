@@ -1,60 +1,65 @@
-# Research: AOIF Protocol (Analysis Opinion Integration Framework)
-# 8-step sequential analysis protocol for structured investment opinions.
+# Research: AOIF Protocol (Análisis-Integración, Spanish Output)
 system_prompt: >
-  You are an AOIF (Analysis Opinion Integration Framework) analyst.
-  Follow the 8-step protocol strictly in order. Each step builds on the
-  previous one. Do not skip steps. Produce structured JSON output for each step.
+  Eres un analista AOIF (Análisis Opinión Integración Framework).
+  Sigue estrictamente el protocolo de 8 pasos en orden. Cada paso
+  construye sobre el anterior. No omitas pasos. Responde SIEMPRE en ESPAÑOL.
 
 user_prompt: >
-  Execute AOIF protocol for {ticker} ({name}):
+  Ejecuta protocolo AOIF para {ticker} ({name}):
 
-  Company Data:
+  Datos de la Compañía:
   {company_data}
 
-  Step 1 - Business Understanding:
-  Describe the business model, revenue drivers, customer segments, and value chain.
-  {{"business_model": "...", "products": [...], "customer_segments": [...],
-    "value_chain": "...", "status": "completed"}}
+  Paso 1 - Entendimiento del Negocio:
+  Describe el modelo de negocio, drivers de revenue, segmentos de clientes y cadena de valor.
+  {{"modelo_negocio": "...", "productos": [...], "segmentos_clientes": [...],
+    "cadena_valor": "...", "status": "completado"}}
 
-  Step 2 - Financial Analysis:
-  Analyze revenue trends, margins, returns, and cash flow.
-  {{"roic": {roic}, "operating_margin": {operating_margin},
-    "revenue_growth": {revenue_growth}, "fcf_conversion": "...",
-    "trend_quality": "improving|stable|deteriorating", "status": "completed"}}
+  Paso 2 - Análisis Financiero:
+  Analiza tendencias de revenue, márgenes, retornos y flujo de caja.
+  {{"roic": {roic}, "margen_operativo": {operating_margin},
+    "crecimiento_revenue": {revenue_growth}, "conversion_fcf": "...",
+    "calidad_tendencia": "mejorando|estable|deteriorando", "status": "completado"}}
 
-  Step 3 - Competitive Analysis:
-  Assess moat, competitive position, and industry dynamics.
-  {{"moat": "...", "moat_width": "wide|narrow|none",
-    "competitive_position": "leader|challenger|follower",
-    "industry_dynamics": "...", "status": "completed"}}
+  Paso 3 - Análisis Competitivo:
+  Evalúa el moat, posición competitiva y dinámica de la industria.
+  {{"moat": "...", "amplitud_moat": "amplio|estrecho|ninguno",
+    "posicion_competitiva": "lider|retador|seguidor",
+    "dinamica_industria": "...", "status": "completado"}}
 
-  Step 4 - Management Evaluation:
-  Evaluate leadership quality, incentives, and capital allocation.
-  {{"quality": "exceptional|good|fair|weak",
-    "capital_allocation": "value_creative|neutral|value_destructive",
-    "insider_alignment": "strong|moderate|weak", "status": "completed"}}
+  Paso 4 - Evaluación del Management:
+  Evalúa calidad del liderazgo, incentivos y asignación de capital.
+  {{"calidad": "excepcional|buena|regular|debil",
+    "asignacion_capital": "crea_valor|neutral|destruye_valor",
+    "alineamiento_insiders": "fuerte|moderado|debil", "status": "completado"}}
 
-  Step 5 - Risk Assessment:
-  Categorize and prioritize risks.
-  {{"risks": [{{"risk": "...", "category": "business|financial|regulatory|macro",
-                 "probability": "high|med|low", "impact": "high|med|low"}}],
-    "status": "completed"}}
+  Paso 5 - Evaluación de Riesgos:
+  Categoriza y prioriza riesgos.
+  {{"riesgos": [{{"riesgo": "...", "categoria": "negocio|financiero|regulatorio|macro",
+                  "probabilidad": "alta|media|baja", "impacto": "alto|medio|bajo"}}],
+    "status": "completado"}}
 
-  Step 6 - Valuation Analysis:
-  Analyze current valuation against intrinsic value estimates.
-  {{"pe_ratio": {pe_ratio}, "ev_ebitda": {ev_ebitda},
-    "fcf_yield": {fcf_yield}, "intrinsic_value_estimate": "...",
-    "margin_of_safety": "adequate|insufficient", "status": "completed"}}
+  Paso 6 - Análisis de Valoración:
+  Analiza valoración actual vs estimación de valor intrínseco.
+  {{"per": {pe_ratio}, "ev_ebitda": {ev_ebitda},
+    "fcf_yield": {fcf_yield}, "valor_intrinseco_estimado": "...",
+    "margen_seguridad": "adecuado|insuficiente", "status": "completado"}}
 
-  Step 7 - Scenario Analysis:
-  Define base, bull, and bear case scenarios with probabilities.
-  {{"base_case": {{"probability": 0.60, "description": "...", "target_price": N}},
-    "bull_case": {{"probability": 0.20, "description": "...", "target_price": N}},
-    "bear_case": {{"probability": 0.20, "description": "...", "target_price": N}},
-    "expected_value": N, "status": "completed"}}
+  Paso 7 - Análisis de Escenarios:
+  Define casos base, alcista y bajista con probabilidades.
+  {{"caso_base": {{"probabilidad": 0.60, "descripcion": "...", "precio_objetivo": N}},
+    "caso_alcista": {{"probabilidad": 0.20, "descripcion": "...", "precio_objetivo": N}},
+    "caso_bajista": {{"probabilidad": 0.20, "descripcion": "...", "precio_objetivo": N}},
+    "valor_esperado": N, "status": "completado"}}
 
-  Step 8 - Thesis Formulation:
-  Produce the final investment thesis and recommendation.
-  {{"thesis": "...", "recommendation": "buy|hold|sell|pass",
-    "conviction_range": [min, max], "key_monitor_points": [...],
-    "status": "completed"}}
+  Paso 8 - Formulación de Tesis:
+  Produce la tesis de inversión final y recomendación.
+  {{"tesis": "...", "recomendacion": "comprar|mantener|vender|pasar",
+    "rango_conviccion": [min, max], "puntos_monitoreo_clave": [...],
+    "status": "completado"}}
+
+category: research
+metadata:
+  version: "2.0"
+  author: "FO Senior Analyst"
+  description: "AOIF 8-step protocol en español con salida JSON"

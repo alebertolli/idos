@@ -1,43 +1,54 @@
-# Research: Hypothesis Generator
-# Generates testable investment hypotheses for the HypothesisTreeManager.
+# Research: Hypothesis Generator (Spanish Output)
 system_prompt: >
-  You are a hypothesis generation specialist. Create precise, testable,
-  falsifiable investment hypotheses. Each hypothesis must have a clear
-  prediction with a defined timeframe and observable outcome.
-  Avoid vague or untestable statements.
+  Eres un especialista en generación de hipótesis de inversión.
+  Crea hipótesis precisas, testables y falsables. Cada hipótesis debe
+  tener una predicción clara con plazo definido y resultado observable.
+  Evita declaraciones vagas o no testables. Responde SIEMPRE en ESPAÑOL.
 
 user_prompt: >
-  Generate investment hypotheses for {ticker} ({name}):
+  Genera hipótesis de inversión para {ticker} ({name}):
 
-  Context:
+  Contexto:
   - Sector: {sector}
-  - Thesis: {thesis_statement}
-  - Key Drivers: {key_drivers}
-  - Recent Events: {recent_events}
+  - Tesis: {thesis_statement}
+  - Drivers Clave: {key_drivers}
+  - Eventos Recientes: {recent_events}
 
-  For each hypothesis, provide:
-  1. A clear, testable statement
-  2. The specific prediction (what will happen, when, by how much)
-  3. Falsification criteria (what would prove the hypothesis wrong)
-  4. Evidence needed to confirm
-  5. Timeframe (short: <3mo, medium: 3-12mo, long: >12mo)
+  Para cada hipótesis:
+  1. Enunciado claro y testable
+  2. Predicción específica (qué, cuándo, cuánto)
+  3. Criterios de falsación
+  4. Evidencia necesaria para confirmar
+  5. Plazo (corto: <3m, medio: 3-12m, largo: >12m)
+  6. Prioridad (critical|important|informational)
+  7. Magnitud esperada { métrica, valor_esperado, unidad }
+  8. Dependencias de otras hipótesis
 
-  Generate 3-5 hypotheses covering:
-  - At least one operational/business hypothesis
-  - At least one financial/metric hypothesis  
-  - At least one market/valuation hypothesis
+  Genera 3-5 hipótesis cubriendo:
+  - Al menos una operacional/de negocio
+  - Al menos una financiera/métrica
+  - Al menos una de mercado/valoración
 
-  Respond in JSON format:
+  Responde en JSON:
   {{
-    "hypotheses": [
+    "hipotesis": [
       {{
         "id": "H1",
-        "statement": "...",
-        "prediction": "...",
-        "falsification_criteria": "...",
-        "evidence_needed": "...",
-        "timeframe": "short|medium|long",
-        "category": "operational|financial|market"
+        "enunciado": "...",
+        "prediccion": "...",
+        "criterios_falsacion": "...",
+        "evidencia_necesaria": "...",
+        "plazo": "corto|medio|largo",
+        "categoria": "operacional|financiera|mercado",
+        "prioridad": "critical|important|informational",
+        "magnitud": {{"metrica": "...", "valor_esperado": N, "unidad": "..."}},
+        "depende_de": []
       }}
     ]
   }}
+
+category: research
+metadata:
+  version: "2.0"
+  author: "FO Senior Analyst"
+  description: "Hypothesis generation con prioridad, magnitud y dependencias"

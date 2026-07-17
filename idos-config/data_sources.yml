@@ -1,0 +1,44 @@
+# IDOS — Configuración de Fuentes de Datos Financieros
+# Define prioridades, TTLs y parámetros de cada fuente.
+
+sources:
+  stockanalysis_com:
+    enabled: true
+    priority: 1
+    base_url: "https://stockanalysis.com/stocks/{ticker}/statistics/"
+    delay: 1.0
+    timeout: 30
+    user_agent_rotation: true
+    ttl_seconds: 43200  # 12h
+
+  yahoo_finance:
+    enabled: true
+    priority: 2
+    period: "1y"
+    timeout: 30
+    ttl_seconds: 3600  # 1h
+
+  finviz_com:
+    enabled: true
+    priority: 3
+    base_url: "https://finviz.com/quote.ashx?t={ticker}"
+    delay: 1.5
+    timeout: 30
+    ttl_seconds: 43200  # 12h
+
+  sec_edgar:
+    enabled: true
+    priority: 4
+    delay: 0.5
+    timeout: 30
+    ttl_seconds: 86400  # 24h
+    user_agent: "IDOS FamilyOffice research@familyoffice.com"
+
+cache:
+  enabled: true
+  default_ttl_seconds: 3600
+  max_age_days: 30
+
+validation:
+  tolerance_pct: 20.0
+  required_sources: 1  # mínimo de fuentes requeridas para considerar datos válidos

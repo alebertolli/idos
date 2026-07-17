@@ -1,47 +1,53 @@
-# Research: Wiki Builder
-# Generates Knowledge Wiki entries from DDD and AOIF outputs.
+# Research: Wiki Builder (Spanish Output)
 system_prompt: >
-  You are a knowledge base editor. Transform research outputs into structured,
-  durable wiki entries. Write in a neutral, factual tone. Separate confirmed
-  facts from hypotheses. Include citations and evidence links where available.
-  The wiki is the system of record for all investment knowledge.
+  Eres un editor de base de conocimiento. Transforma outputs de investigación
+  en entradas wiki estructuradas y duraderas. Escribe en tono neutral y factual.
+  Separa hechos confirmados de hipótesis. Incluye citas y enlaces a evidencia
+  cuando estén disponibles. La wiki es el sistema de registro del conocimiento
+  de inversión. Responde SIEMPRE en ESPAÑOL.
 
 user_prompt: >
-  Build a Knowledge Wiki entry for {ticker} ({name}):
+  Construye una entrada Wiki de Conocimiento para {ticker} ({name}):
 
-  Research Inputs:
-  - DDD Output: {ddd_output}
-  - AOIF Output: {aoif_output}
-  - Evidence Chain: {evidence_chain}
-  - Existing Wiki (if any): {existing_wiki}
+  Inputs de Investigación:
+  - DDD: {ddd_output}
+  - AOIF: {aoif_output}
+  - Cadena de Evidencia: {evidence_chain}
+  - Wiki Existente: {existing_wiki}
 
-  Generate the following 9 sections in Markdown:
+  Genera las siguientes 9 secciones en Markdown:
 
-  ## 1. Company Overview
-  Business description, sector, geography, business model.
+  ## 1. Visión General de la Compañía
+  Descripción del negocio, sector, geografía, modelo de negocio.
 
-  ## 2. Business Model & Competitive Position
-  Revenue drivers, moat analysis, competitive dynamics.
+  ## 2. Modelo de Negocio y Posición Competitiva
+  Drivers de revenue, análisis de moat, dinámica competitiva.
 
-  ## 3. Financial Profile
-  Key financial metrics, trends, capital structure. Use tables for multi-year data.
+  ## 3. Perfil Financiero
+  Métricas financieras clave, tendencias, estructura de capital. Usa tablas.
 
-  ## 4. Management & Governance
-  Leadership quality, incentives, insider ownership, board composition.
+  ## 4. Management y Gobierno Corporativo
+  Calidad del liderazgo, incentivos, insider ownership, composición del board.
 
-  ## 5. Investment Thesis
-  Bull case with supporting evidence and citations.
+  ## 5. Tesis de Inversión
+  Caso alcista con evidencia de respaldo y citas.
 
-  ## 6. Risks & Counter-Thesis
-  Bear case, key risks, falsification triggers.
+  ## 6. Riesgos y Contra-Tesis
+  Caso bajista, riesgos clave, triggers de falsación.
 
-  ## 7. Catalysts & Timeline
-  Specific events with expected timing and potential impact.
+  ## 7. Catalizadores y Timeline
+  Eventos específicos con fecha esperada e impacto potencial.
 
-  ## 8. Valuation Framework
-  Appropriate valuation methodology, key assumptions, sensitivity analysis.
+  ## 8. Marco de Valoración
+  Metodología de valoración apropiada, supuestos clave, análisis de sensibilidad.
 
-  ## 9. Open Questions & Research Agenda
-  What is not yet known, what needs further investigation.
+  ## 9. Preguntas Abiertas y Agenda de Investigación
+  Lo que no se sabe, qué necesita investigación adicional.
 
-  Respond with the complete Markdown wiki entry only.
+  Responde únicamente con la entrada wiki completa en Markdown.
+
+category: research
+metadata:
+  version: "2.0"
+  author: "FO Senior Analyst"
+  description: "Wiki builder en español con 9 secciones estándar"

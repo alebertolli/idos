@@ -1,29 +1,45 @@
-# Scout: Momentum Screening
-# Evaluates price momentum over multiple timeframes.
+# Scout: Momentum Screening (Spanish Output)
 system_prompt: >
-  You are a technical screening assistant specializing in momentum analysis.
-  Evaluate price trends across multiple timeframes and assess the quality
-  of the momentum signal. Avoid overreacting to short-term noise.
+  Eres un asistente de análisis técnico para screening de momentum.
+  Evalúa tendencias de precio en múltiples temporalidades y la calidad
+  de la señal de momentum. Responde SIEMPRE en ESPAÑOL.
 
 user_prompt: >
-  Evaluate the momentum profile for {ticker}:
+  Evalúa el perfil de momentum para {ticker}:
 
-  Price Data:
-  - Current Price: ${current_price:.2f}
-  - 1-Month Change: {price_change_1m:+.1f}%
-  - 3-Month Change: {price_change_3m:+.1f}%
-  - 6-Month Change: {price_change_6m:+.1f}%
-  - 12-Month Change: {price_change_12m:+.1f}%
-  - 52-Week High: ${high_52w:.2f}
-  - 52-Week Low: ${low_52w:.2f}
-  - % from 52-Week High: {pct_from_high:+.1f}%
+  Datos de Precio:
+  - Precio Actual: ${current_price:.2f}
+  - Cambio 1 Mes: {price_change_1m:+.1f}%
+  - Cambio 3 Meses: {price_change_3m:+.1f}%
+  - Cambio 6 Meses: {price_change_6m:+.1f}%
+  - Cambio 12 Meses: {price_change_12m:+.1f}%
+  - % desde Máx 52 Sem: {pct_from_52w_high:+.1f}%
+  - RSI (14d): {rsi_14d:.1f}
+  - Ratio Volumen vs Media 50d: {volume_ratio_50d:.1f}x
+  - Fuerza Relativa vs Sector: {relative_strength_vs_sector:+.1f}%
 
-  Instructions:
-  1. Assess trend consistency across timeframes
-  2. Check if the stock is near 52-week high (positive momentum) or low (negative)
-  3. Identify potential momentum traps (sudden spikes without volume confirmation)
+  Scoring:
+  - 40% Tendencia: peso en consistencia multi-temporalidad
+  - 30% Consistencia: qué tan alineadas están las temporalidades
+  - 20% Posición en Rango: % desde 52w high
+  - 10% Volumen: confirmación volumétrica de la tendencia
 
-  Respond in JSON format:
-  {{"trend_direction": "up"|"down"|"neutral", "trend_consistency": "high"|"medium"|"low",
-    "score": 0-100, "near_high": true/false, "momentum_trap_risk": true/false,
-    "reasoning": "..."}}
+  Instrucciones:
+  1. Evalúa consistencia de tendencia entre temporalidades
+  2. Identifica si está cerca de 52w high (momentum positivo) o low (negativo)
+  3. Detecta momentum traps (picos sin confirmación de volumen)
+  4. Asigna momentum_quality_score separado (0-100)
+
+  Responde en JSON:
+  {{"direccion_tendencia": "alcista"|"bajista"|"neutral",
+    "consistencia_tendencia": "alta"|"media"|"baja",
+    "score_momentum": 0-100, "pct_desde_52w_max": NN.N,
+    "riesgo_momentum_trap": true/false,
+    "momentum_quality_score": 0-100,
+    "razonamiento": "..."}}
+
+category: scout
+metadata:
+  version: "2.0"
+  author: "FO Senior Analyst"
+  description: "Momentum screening con RSI, volumen relativo y fuerza sectorial"

@@ -1,29 +1,42 @@
-# Scout: Size & Liquidity Screening
-# Evaluates whether a company meets minimum market cap and liquidity thresholds.
+# Scout: Size & Liquidity Screening (Spanish Output)
 system_prompt: >
-  You are a financial screening assistant. Your task is to evaluate whether a company
-  meets minimum market capitalization and liquidity requirements for investment consideration.
-  Be precise with numerical thresholds and respond in the specified JSON format.
+  Eres un asistente de screening financiero para una Family Office.
+  Evalúa si una empresa cumple los umbrales mínimos de capitalización y liquidez.
+  Responde SIEMPRE en ESPAÑOL. Usa números precisos y formato JSON estricto.
 
 user_prompt: >
-  Evaluate the following company for Size & Liquidity screening:
+  Evalúa Tamaño y Liquidez para {ticker} ({name}):
 
-  Ticker: {ticker}
-  Company Name: {name}
   Sector: {sector}
 
-  Financial Data:
-  - Market Capitalization: ${market_cap:,.0f}
-  - Average Daily Volume: {avg_volume:,.0f} shares
-  - Average Dollar Volume: ${dollar_volume:,.0f}
+  Datos Financieros:
+  - Market Cap: ${market_cap:,.0f}
+  - ADV (Vol Promedio Diario): {avg_volume:,.0f} acciones
+  - ADV en USD: ${adv_usd:,.0f}
+  - Free Float: {free_float_pct:.1f}%
+  - Días para liquidar 2% del float: {days_to_liquidate_2pct:.1f}
+  - Spread Promedio (bps): {avg_spread_bps:.1f}
 
-  Instructions:
-  1. Classify size as: Mega-Cap (>$200B), Large-Cap ($10B-$200B), Mid-Cap ($2B-$10B),
-     Small-Cap ($300M-$2B), or Micro-Cap (<$300M)
-  2. Assess liquidity: check if average daily volume exceeds $1M in dollar volume
-  3. Determine if the company passes the minimum size threshold (Mid-Cap or above preferred)
+  Umbrales Configurables:
+  - Min ADV USD: ${min_dollar_volume:,.0f}
+  - Min Market Cap: $2B (hard pass/fail)
+  - Max días para liquidar 2%: 5
 
-  Respond in JSON format:
-  {{"market_cap_classification": "...", "pass_size_threshold": true/false,
-    "pass_liquidity_threshold": true/false, "score": 0-100,
-    "reasoning": "..."}}
+  Instrucciones:
+  1. Clasifica tamaño según: Mega-Cap (>$200B), Large-Cap ($10B-$200B),
+     Mid-Cap ($2B-$10B), Small-Cap ($300M-$2B), Micro-Cap (<$300M)
+  2. Pasa si market cap >= $2B (hard fail si no)
+  3. Scoring: 70% liquidez, 30% tamaño
+  4. Verifica que días para liquidar 2% <= 5
+
+  Responde en JSON:
+  {{"clasificacion_market_cap": "...", "pasa_umbral_tamano": true/false,
+    "pasa_umbral_liquidez": true/false, "score": 0-100,
+    "dias_liquidar_2pct": N, "avg_spread_bps": N,
+    "razonamiento": "..."}}
+
+category: scout
+metadata:
+  version: "2.0"
+  author: "FO Senior Analyst"
+  description: "Size & Liquidity screening con umbrales configurables"

@@ -1,28 +1,43 @@
-# Scout: Value Screening
-# Evaluates valuation attractiveness using multiple metrics.
+# Scout: Value Screening (Spanish Output)
 system_prompt: >
-  You are a value screening assistant. Assess whether a company trades at
-  an attractive valuation relative to its earnings, cash flows, and book value.
-  Consider sector-specific valuation norms.
+  Eres un asistente de valoración para screening de inversiones.
+  Evalúa si una empresa cotiza a una valoración atractiva considerando
+  múltiplos, crecimiento y normas sectoriales. Responde SIEMPRE en ESPAÑOL.
 
 user_prompt: >
-  Evaluate the valuation profile for {ticker} ({name}):
+  Evalúa el perfil de valoración para {ticker} ({name}):
 
-  Valuation Metrics:
-  - P/E Ratio (TTM): {pe_ratio:.1f}x
-  - Forward P/E: {forward_pe:.1f}x
+  Métricas de Valoración:
+  - PER (TTM): {pe_ratio:.1f}x
+  - Forward PER: {forward_pe:.1f}x
+  - PEG Ratio: {peg_ratio:.1f}x
   - EV/EBITDA: {ev_ebitda:.1f}x
   - Price/Book: {price_to_book:.1f}x
   - FCF Yield: {fcf_yield:.1f}%
+  - FCF Conversion: {fcf_conversion_pct:.1f}%
+  - Buyback Yield: {buyback_yield:.1f}%
   - Dividend Yield: {dividend_yield:.1f}%
-  - Sector Average P/E: {sector_avg_pe:.1f}x
 
-  Instructions:
-  1. Compare each metric to historical averages and sector peers
-  2. Identify if the company is trading at a discount or premium
-  3. Flag potential value traps (low P/E but declining fundamentals)
+  Referencias:
+  - PER Histórico 5a Percentil: {pe_percentile_5y:.0f}
+  - PB Histórico 5a Percentil: {pb_percentile_5y:.0f}
+  - PER Promedio Sector: {sector_avg_pe:.1f}x
+  - EV/EBITDA Promedio Sector: {sector_avg_ev_ebitda:.1f}x
+  - PB Promedio Sector: {sector_avg_pb:.1f}x
 
-  Respond in JSON format:
-  {{"valuation_status": "undervalued"|"fair"|"overvalued",
-    "discount_to_sector_pct": +/-NN.N, "score": 0-100,
-    "value_trap_risk": true/false, "reasoning": "..."}}
+  Instrucciones:
+  1. Compara cada métrica vs promedios históricos y pares sectoriales
+  2. Identifica descuento o prima vs sector
+  3. Value Trap Risk = true si (PER < 10 AND revenue_growth_3y < 0 AND D/E > 2)
+
+  Responde en JSON:
+  {{"estado_valoracion": "infravalorado"|"justo"|"sobrevalorado",
+    "descuento_vs_sector_pct": +/-NN.N, "score": 0-100,
+    "riesgo_value_trap": true/false,
+    "razonamiento": "..."}}
+
+category: scout
+metadata:
+  version: "2.0"
+  author: "FO Senior Analyst"
+  description: "Value screening con percentiles históricos y referencias sectoriales"
