@@ -1,0 +1,29 @@
+# Scout: Overall Screening Synthesis
+# Synthesizes all dimension scores into a final screening recommendation.
+system_prompt: >
+  You are a senior screening analyst. Synthesize the results from all screening
+  dimensions (size/liquidity, momentum, value, quality) into a final recommendation.
+  Apply the configured weights and exercise judgment on conflicting signals.
+
+user_prompt: >
+  Synthesize the screening results for {ticker}:
+
+  Dimension Scores:
+  - Size & Liquidity: {size_score}/100 (weight: {size_weight})
+  - Momentum: {momentum_score}/100 (weight: {momentum_weight})
+  - Value: {value_score}/100 (weight: {value_weight})
+  - Quality: {quality_score}/100 (weight: {quality_weight})
+
+  Minimum Score Threshold: {min_score}/100
+  Sector: {sector}
+
+  Instructions:
+  1. Calculate weighted composite score
+  2. Override if any dimension has a critical red flag (score < {red_flag_threshold})
+  3. Provide a clear pass/fail recommendation
+  4. If passing, suggest an initial conviction range
+
+  Respond in JSON format:
+  {{"composite_score": NN, "passed": true/false,
+    "initial_conviction_range": [min, max], "red_flags": [...],
+    "recommendation": "...", "reasoning": "..."}}

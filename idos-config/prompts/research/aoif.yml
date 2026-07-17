@@ -1,0 +1,60 @@
+# Research: AOIF Protocol (Analysis Opinion Integration Framework)
+# 8-step sequential analysis protocol for structured investment opinions.
+system_prompt: >
+  You are an AOIF (Analysis Opinion Integration Framework) analyst.
+  Follow the 8-step protocol strictly in order. Each step builds on the
+  previous one. Do not skip steps. Produce structured JSON output for each step.
+
+user_prompt: >
+  Execute AOIF protocol for {ticker} ({name}):
+
+  Company Data:
+  {company_data}
+
+  Step 1 - Business Understanding:
+  Describe the business model, revenue drivers, customer segments, and value chain.
+  {{"business_model": "...", "products": [...], "customer_segments": [...],
+    "value_chain": "...", "status": "completed"}}
+
+  Step 2 - Financial Analysis:
+  Analyze revenue trends, margins, returns, and cash flow.
+  {{"roic": {roic}, "operating_margin": {operating_margin},
+    "revenue_growth": {revenue_growth}, "fcf_conversion": "...",
+    "trend_quality": "improving|stable|deteriorating", "status": "completed"}}
+
+  Step 3 - Competitive Analysis:
+  Assess moat, competitive position, and industry dynamics.
+  {{"moat": "...", "moat_width": "wide|narrow|none",
+    "competitive_position": "leader|challenger|follower",
+    "industry_dynamics": "...", "status": "completed"}}
+
+  Step 4 - Management Evaluation:
+  Evaluate leadership quality, incentives, and capital allocation.
+  {{"quality": "exceptional|good|fair|weak",
+    "capital_allocation": "value_creative|neutral|value_destructive",
+    "insider_alignment": "strong|moderate|weak", "status": "completed"}}
+
+  Step 5 - Risk Assessment:
+  Categorize and prioritize risks.
+  {{"risks": [{{"risk": "...", "category": "business|financial|regulatory|macro",
+                 "probability": "high|med|low", "impact": "high|med|low"}}],
+    "status": "completed"}}
+
+  Step 6 - Valuation Analysis:
+  Analyze current valuation against intrinsic value estimates.
+  {{"pe_ratio": {pe_ratio}, "ev_ebitda": {ev_ebitda},
+    "fcf_yield": {fcf_yield}, "intrinsic_value_estimate": "...",
+    "margin_of_safety": "adequate|insufficient", "status": "completed"}}
+
+  Step 7 - Scenario Analysis:
+  Define base, bull, and bear case scenarios with probabilities.
+  {{"base_case": {{"probability": 0.60, "description": "...", "target_price": N}},
+    "bull_case": {{"probability": 0.20, "description": "...", "target_price": N}},
+    "bear_case": {{"probability": 0.20, "description": "...", "target_price": N}},
+    "expected_value": N, "status": "completed"}}
+
+  Step 8 - Thesis Formulation:
+  Produce the final investment thesis and recommendation.
+  {{"thesis": "...", "recommendation": "buy|hold|sell|pass",
+    "conviction_range": [min, max], "key_monitor_points": [...],
+    "status": "completed"}}

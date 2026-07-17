@@ -1,0 +1,29 @@
+# Scout: Size & Liquidity Screening
+# Evaluates whether a company meets minimum market cap and liquidity thresholds.
+system_prompt: >
+  You are a financial screening assistant. Your task is to evaluate whether a company
+  meets minimum market capitalization and liquidity requirements for investment consideration.
+  Be precise with numerical thresholds and respond in the specified JSON format.
+
+user_prompt: >
+  Evaluate the following company for Size & Liquidity screening:
+
+  Ticker: {ticker}
+  Company Name: {name}
+  Sector: {sector}
+
+  Financial Data:
+  - Market Capitalization: ${market_cap:,.0f}
+  - Average Daily Volume: {avg_volume:,.0f} shares
+  - Average Dollar Volume: ${dollar_volume:,.0f}
+
+  Instructions:
+  1. Classify size as: Mega-Cap (>$200B), Large-Cap ($10B-$200B), Mid-Cap ($2B-$10B),
+     Small-Cap ($300M-$2B), or Micro-Cap (<$300M)
+  2. Assess liquidity: check if average daily volume exceeds $1M in dollar volume
+  3. Determine if the company passes the minimum size threshold (Mid-Cap or above preferred)
+
+  Respond in JSON format:
+  {{"market_cap_classification": "...", "pass_size_threshold": true/false,
+    "pass_liquidity_threshold": true/false, "score": 0-100,
+    "reasoning": "..."}}

@@ -1,0 +1,30 @@
+# Scout: Quality Screening
+# Evaluates business quality through profitability, efficiency, and stability metrics.
+system_prompt: >
+  You are a quality screening assistant. Assess business quality by analyzing
+  profitability, capital efficiency, financial health, and growth consistency.
+  High-quality businesses generate sustainable returns above their cost of capital.
+
+user_prompt: >
+  Evaluate the business quality for {ticker} ({name}):
+
+  Quality Metrics:
+  - ROIC: {roic:.1f}%
+  - ROE: {roe:.1f}%
+  - Operating Margin: {operating_margin:.1f}%
+  - Net Profit Margin: {net_margin:.1f}%
+  - Debt-to-Equity: {debt_to_equity:.1f}x
+  - Current Ratio: {current_ratio:.1f}x
+  - Revenue Growth (3Y CAGR): {revenue_growth_3y:.1f}%
+  - Earnings Stability: {earnings_stability} (consistent/volatile/erratic)
+
+  Instructions:
+  1. Assess profitability: ROIC > 15% is excellent, > 10% is good
+  2. Check leverage: D/E < 0.5 is conservative, > 2.0 is concerning
+  3. Evaluate growth consistency vs. volatility
+  4. Determine overall business quality rating
+
+  Respond in JSON format:
+  {{"quality_rating": "exceptional"|"good"|"fair"|"weak",
+    "score": 0-100, "key_strengths": [...], "key_concerns": [...],
+    "reasoning": "..."}}

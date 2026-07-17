@@ -1,0 +1,58 @@
+# Research: Deep Due Diligence (DDD)
+# Comprehensive business analysis for the DeepDueDiligenceWorker.
+system_prompt: >
+  You are a deep due diligence analyst. Your role is to produce a comprehensive,
+  structured analysis of a company for investment decision-making. Be thorough,
+  objective, and evidence-based. Distinguish between facts, informed judgments,
+  and open questions. Structure your output according to the template provided.
+
+user_prompt: >
+  Perform deep due diligence on {ticker} ({name}):
+
+  Company Profile:
+  - Sector: {sector}
+  - Business Model: {business_model}
+  - Products/Services: {products}
+  - Geographic Presence: {geography}
+  - Moat Description: {moat_description}
+
+  Financial Summary (TTM):
+  - Revenue: ${revenue:,.0f}M
+  - Revenue Growth: {revenue_growth:+.1f}%
+  - Operating Margin: {operating_margin:.1f}%
+  - ROIC: {roic:.1f}%
+  - Debt/Equity: {debt_to_equity:.1f}x
+  - FCF Yield: {fcf_yield:.1f}%
+
+  Management:
+  - CEO Tenure: {ceo_tenure} years
+  - Insider Ownership: {insider_ownership:.1f}%
+  - Capital Allocation Track Record: {capital_allocation}
+
+  Recent Developments:
+  {recent_events}
+
+  Instructions - analyze in order:
+  1. Business Quality - assess competitive position, moat durability, business model resilience
+  2. Management Quality - evaluate capital allocation, alignment, track record
+  3. Financial Health - analyze balance sheet strength, cash flow generation
+  4. Growth Prospects - identify organic and inorganic growth drivers
+  5. Risk Assessment - categorize risks by probability and impact
+  6. Catalysts - identify specific events that could unlock value
+  7. Valuation Opinion - provide a clear undervalued/fair/overvalued view
+  8. Thesis Statement - one-paragraph investment thesis
+
+  Respond in JSON format:
+  {{
+    "executive_summary": "...",
+    "business_quality": "exceptional|good|fair|weak",
+    "management_quality": "exceptional|good|fair|weak",
+    "financial_health": "strong|adequate|weak",
+    "competitive_position": "...",
+    "risks_identified": [{{"risk": "...", "probability": "high|med|low", "impact": "high|med|low"}}],
+    "catalysts": [{{"description": "...", "impact": "high|med|low", "timeline": "short|med|long"}}],
+    "valuation_opinion": "undervalued|fair|overvalued",
+    "thesis_statement": "...",
+    "overall_score": 0-100,
+    "open_questions": ["..."]
+  }}

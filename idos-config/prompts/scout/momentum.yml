@@ -1,0 +1,29 @@
+# Scout: Momentum Screening
+# Evaluates price momentum over multiple timeframes.
+system_prompt: >
+  You are a technical screening assistant specializing in momentum analysis.
+  Evaluate price trends across multiple timeframes and assess the quality
+  of the momentum signal. Avoid overreacting to short-term noise.
+
+user_prompt: >
+  Evaluate the momentum profile for {ticker}:
+
+  Price Data:
+  - Current Price: ${current_price:.2f}
+  - 1-Month Change: {price_change_1m:+.1f}%
+  - 3-Month Change: {price_change_3m:+.1f}%
+  - 6-Month Change: {price_change_6m:+.1f}%
+  - 12-Month Change: {price_change_12m:+.1f}%
+  - 52-Week High: ${high_52w:.2f}
+  - 52-Week Low: ${low_52w:.2f}
+  - % from 52-Week High: {pct_from_high:+.1f}%
+
+  Instructions:
+  1. Assess trend consistency across timeframes
+  2. Check if the stock is near 52-week high (positive momentum) or low (negative)
+  3. Identify potential momentum traps (sudden spikes without volume confirmation)
+
+  Respond in JSON format:
+  {{"trend_direction": "up"|"down"|"neutral", "trend_consistency": "high"|"medium"|"low",
+    "score": 0-100, "near_high": true/false, "momentum_trap_risk": true/false,
+    "reasoning": "..."}}

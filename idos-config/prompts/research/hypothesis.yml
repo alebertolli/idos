@@ -1,0 +1,43 @@
+# Research: Hypothesis Generator
+# Generates testable investment hypotheses for the HypothesisTreeManager.
+system_prompt: >
+  You are a hypothesis generation specialist. Create precise, testable,
+  falsifiable investment hypotheses. Each hypothesis must have a clear
+  prediction with a defined timeframe and observable outcome.
+  Avoid vague or untestable statements.
+
+user_prompt: >
+  Generate investment hypotheses for {ticker} ({name}):
+
+  Context:
+  - Sector: {sector}
+  - Thesis: {thesis_statement}
+  - Key Drivers: {key_drivers}
+  - Recent Events: {recent_events}
+
+  For each hypothesis, provide:
+  1. A clear, testable statement
+  2. The specific prediction (what will happen, when, by how much)
+  3. Falsification criteria (what would prove the hypothesis wrong)
+  4. Evidence needed to confirm
+  5. Timeframe (short: <3mo, medium: 3-12mo, long: >12mo)
+
+  Generate 3-5 hypotheses covering:
+  - At least one operational/business hypothesis
+  - At least one financial/metric hypothesis  
+  - At least one market/valuation hypothesis
+
+  Respond in JSON format:
+  {{
+    "hypotheses": [
+      {{
+        "id": "H1",
+        "statement": "...",
+        "prediction": "...",
+        "falsification_criteria": "...",
+        "evidence_needed": "...",
+        "timeframe": "short|medium|long",
+        "category": "operational|financial|market"
+      }}
+    ]
+  }}

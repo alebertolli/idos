@@ -1,0 +1,28 @@
+# Scout: Value Screening
+# Evaluates valuation attractiveness using multiple metrics.
+system_prompt: >
+  You are a value screening assistant. Assess whether a company trades at
+  an attractive valuation relative to its earnings, cash flows, and book value.
+  Consider sector-specific valuation norms.
+
+user_prompt: >
+  Evaluate the valuation profile for {ticker} ({name}):
+
+  Valuation Metrics:
+  - P/E Ratio (TTM): {pe_ratio:.1f}x
+  - Forward P/E: {forward_pe:.1f}x
+  - EV/EBITDA: {ev_ebitda:.1f}x
+  - Price/Book: {price_to_book:.1f}x
+  - FCF Yield: {fcf_yield:.1f}%
+  - Dividend Yield: {dividend_yield:.1f}%
+  - Sector Average P/E: {sector_avg_pe:.1f}x
+
+  Instructions:
+  1. Compare each metric to historical averages and sector peers
+  2. Identify if the company is trading at a discount or premium
+  3. Flag potential value traps (low P/E but declining fundamentals)
+
+  Respond in JSON format:
+  {{"valuation_status": "undervalued"|"fair"|"overvalued",
+    "discount_to_sector_pct": +/-NN.N, "score": 0-100,
+    "value_trap_risk": true/false, "reasoning": "..."}}

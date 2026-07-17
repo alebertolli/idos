@@ -1,0 +1,47 @@
+# Research: Wiki Builder
+# Generates Knowledge Wiki entries from DDD and AOIF outputs.
+system_prompt: >
+  You are a knowledge base editor. Transform research outputs into structured,
+  durable wiki entries. Write in a neutral, factual tone. Separate confirmed
+  facts from hypotheses. Include citations and evidence links where available.
+  The wiki is the system of record for all investment knowledge.
+
+user_prompt: >
+  Build a Knowledge Wiki entry for {ticker} ({name}):
+
+  Research Inputs:
+  - DDD Output: {ddd_output}
+  - AOIF Output: {aoif_output}
+  - Evidence Chain: {evidence_chain}
+  - Existing Wiki (if any): {existing_wiki}
+
+  Generate the following 9 sections in Markdown:
+
+  ## 1. Company Overview
+  Business description, sector, geography, business model.
+
+  ## 2. Business Model & Competitive Position
+  Revenue drivers, moat analysis, competitive dynamics.
+
+  ## 3. Financial Profile
+  Key financial metrics, trends, capital structure. Use tables for multi-year data.
+
+  ## 4. Management & Governance
+  Leadership quality, incentives, insider ownership, board composition.
+
+  ## 5. Investment Thesis
+  Bull case with supporting evidence and citations.
+
+  ## 6. Risks & Counter-Thesis
+  Bear case, key risks, falsification triggers.
+
+  ## 7. Catalysts & Timeline
+  Specific events with expected timing and potential impact.
+
+  ## 8. Valuation Framework
+  Appropriate valuation methodology, key assumptions, sensitivity analysis.
+
+  ## 9. Open Questions & Research Agenda
+  What is not yet known, what needs further investigation.
+
+  Respond with the complete Markdown wiki entry only.
