@@ -1,0 +1,17 @@
+[project]
+name = "idos"
+version = "0.1.0"
+description = "Investment Decision Operating System"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+    "typer>=0.9",
+    "rich>=13.0",
+]
+
+[project.scripts]
+idos = "idos.cli.main:app"
+
+[tool.pytest.ini_options]
+testpaths = ["idos-core/tests"]
