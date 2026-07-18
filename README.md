@@ -100,43 +100,50 @@ cruzadamente cuando hay múltiples fuentes disponibles.
 
 ## 3. Uso del CLI
 
-Todos los comandos en español:
+El CLI se llama con `python -m idos.cli.main` o mediante el entry point `idos`
+(si el directorio `Scripts` de Python está en PATH).
+
+```bash
+# Opción A: entry point (requiere PATH configurado)
+idos <comando>
+
+# Opción B: módulo Python (siempre funciona)
+python -m idos.cli.main <comando>
+```
+
+En adelante se muestra con `idos`, pero si no lo encuentra usá la opción B.
 
 ### 3.1 Gestión de Compañías
 
 ```bash
-idos compañía agregar MELI        # Agrega compañía al knowledge base
-idos compañía mostrar MELI        # Muestra datos de compañía
+idos company-add MELI             # Agrega compañía al knowledge base
+idos company-show MELI            # Muestra datos de compañía
 ```
 
 ### 3.2 Gestión de Oportunidades
 
 ```bash
-idos opp crear MELI               # Crea nueva oportunidad de inversión
-idos opp listar                   # Lista oportunidades activas
-idos opp transicionar OPP-001 ENTRY_PENDING  # Avanza en el lifecycle
+idos opp-create MELI              # Crea nueva oportunidad de inversión
+idos opp-list                     # Lista oportunidades activas
+idos opp-transition OPP-001 ENTRY_PENDING  # Avanza en el lifecycle
 ```
 
 ### 3.3 Monitoreo de Cartera
 
 ```bash
 idos watchlist                    # Muestra watchlist activa
-idos posiciones                   # Lista posiciones abiertas
+idos position-list                # Lista posiciones abiertas
 idos dashboard                    # Resumen general del sistema
 idos event-log                    # Log de eventos recientes
 ```
 
-### 3.4 Ejecución de Workers
+### 3.4 Workers
+
+Los workers se ejecutan desde los workflows de GitHub Actions o vía script:
 
 ```bash
-# Ejecutar screening completo
-idos worker scout
-
-# Refrescar datos financieros
-idos worker refresh
-
-# Ver estado de workers
-idos worker status
+python -m idos.workers.data.scout_worker --help
+python -c "from idos.workers.data.scout_worker import ScoutWorker; ..."
 ```
 
 ---
@@ -409,7 +416,7 @@ Los puntos clave validados:
 
 ```bash
 cd idos-core
-python -m pytest -v        # 271 tests
+python -m pytest -v        # 326+ tests
 ```
 
 ---
@@ -417,14 +424,13 @@ python -m pytest -v        # 271 tests
 ## 11. Comandos Rápidos
 
 ```bash
+# Si `idos` no está en PATH, anteponer: python -m idos.cli.main <comando>
 idos init                  # Inicializar sistema
 idos dashboard             # Dashboard general
 idos watchlist             # Ver watchlist
-idos posiciones            # Ver posiciones
+idos position-list         # Ver posiciones
 idos event-log             # Ver eventos recientes
-idos worker scout          # Ejecutar screening manual
-idos worker refresh        # Refrescar datos financieros
-idos worker status         # Estado de workers
+idos opp-list              # Listar oportunidades
 ```
 
 ---
