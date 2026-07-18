@@ -30,10 +30,13 @@ jobs:
           w = ScoutWorker({'universe_path': 'idos-config/universe/watchlist.md'})
           r = w.execute({'force_refresh': True})
           print(f'=== SCOUT COMPLETE ===')
+          print(f'Status: {r.status}')
           print(f'Screened: {r.output.get(\"tickers_screened\", 0)}')
           print(f'Passed: {r.output.get(\"passed_count\", 0)}')
+          if r.status == 'failed':
+              print(f'Error: {r.error}')
           for res in r.output.get('results', []):
-              print(f\"  {res['ticker']}: {res['score']} passed={res['passed']}\")
+              print(f\"  {res['ticker']}: score={res['scout_score']} rank={res['rank']} reason={res['reason']}\")
           "
       - name: Notify
         run: |

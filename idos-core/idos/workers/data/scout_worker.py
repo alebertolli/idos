@@ -33,7 +33,11 @@ class ScoutWorker(BaseWorker):
                 "max_tickers": context.get("max_tickers", 0),
             }
             refresh_result = self.data_refresher.execute(refresh_ctx)
-            data_map = refresh_result.output.get("data", {})
+            if refresh_result.status == "failed":
+                print(f"[SCOUT] Data refresh failed: {refresh_result.error}")
+                data_map = {}
+            else:
+                data_map = refresh_result.output.get("data", {})
             print(f"[SCOUT] Data refreshed for {len(data_map)} tickers")
         else:
             data_map = {}
@@ -53,6 +57,7 @@ class ScoutWorker(BaseWorker):
 
             screened.append({
                 "ticker": ticker,
+                "scout_score": scout_result.score,
                 "score": scout_result.score,
                 "passed": scout_result.passed,
                 "details": scout_result.details,
@@ -61,17 +66,19 @@ class ScoutWorker(BaseWorker):
 
         ranked = self.ranking.rank(screened)
 
-        passed = [r for r in ranked if r.get("passed")]
-        print(f"\n[SCOUT] Done: {len(screened)} screened, {len(passed)} passed")
-        if passed:
+        passed_entries = [e for e in screened if e["passed"]]
+        passed_ranked = [r for r in ranked if any(e["ticker"] == r.ticker and e["passed"] for e in screened)]
+        print(f"\n[SCOUT] Done: {len(screened)} screened, {len(passed_entries)} passed")
+        if passed_ranked:
             print("[SCOUT] Passed:")
-            for r in passed:
-                print(f"  {r['ticker']}: score={r['score']} rank={r.get('rank', '?')}")
+            for r in passed_ranked:
+                print(f"  {r.ticker}: score={r.scout_score} rank={r.rank}")
 
         return {
             "tickers_screened": len(screened),
             "passed_count": sum(1 for s in screened if s["passed"]),
-            "results": ranked,
+            "results": [{"ticker": r.ticker, "scout_score": r.scout_score, "conviction_score": r.conviction_score,
+                         "combined_score": r.combined_score, "rank": r.rank, "reason": r.reason} for r in ranked],
             "watchlist_size": len(self.watchlist.entries),
         }
 
