@@ -73,10 +73,8 @@ jobs:
               e.execute({'subject': 'IDOS Weekly Digest', 'body': digest_text})
               print('Digest sent via Email')
           "
-      - name: Commit digest
-        run: |
-          git config user.name "idos-bot"
-          git config user.email "bot@idos.local"
-          git add cache/ -A
-          git diff --cached --quiet || git commit -m "chore: weekly digest $(date +%Y-%m-%d)"
-          git push
+      - name: Upload digest artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-digest-${{ github.run_id }}
+          path: cache/weekly_digest.md
