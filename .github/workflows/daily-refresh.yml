@@ -42,7 +42,8 @@ jobs:
                   if r2.status == 'success': results[f'{t}_yf'] = r2.output
               except Exception as e: results[f'{t}_yf_err'] = str(e)
           print(f'Refreshed {len(tickers)} tickers')
-          with open('cache/last_refresh.json','w') as f: json.dump(results, f)
+           Path('cache').mkdir(parents=True, exist_ok=True)
+           with open('cache/last_refresh.json','w') as f: json.dump(results, f)
           "
       - name: Commit cache
         run: |
