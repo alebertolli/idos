@@ -454,15 +454,10 @@
 
 | Ticker | Nombre | Catalizador | Timeline |
 |--------|--------|-------------|----------|
-| SE | Sea Limited | Recuperación Garena + Shopee profitability | Q4 2026 |
-| DLO | dLocal | Pagos LatAm, expansión México | Q3 2026 |
-| ASML | ASML Holding | Lithography monopoly, AI demanda | Q4 2026 |
-| COST | Costco | membership growth, Internacional | Q3 2026 |
-| SPOT | Spotify | Margen improvement, audiobooks | Q4 2026 |
+
 
 ## Exclusiones / No Invertible
 
 | Ticker | Razón |
 |--------|-------|
-| TSLA | Volatilidad excesiva, governance risk |
-| XOM | Transición energética, secular decline |
+
