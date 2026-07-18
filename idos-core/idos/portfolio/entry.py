@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from datetime import datetime, UTC
-from typing import Any
+from typing import Any, Optional
+from idos.ai.llm import LLMClient
+from idos.ai.prompts import PromptRegistry
 from idos.portfolio.wyckoff import WyckoffAnalyzer, WyckoffPhase
 
 
@@ -20,9 +22,18 @@ class EntrySignal:
 
 
 class EntryEngine:
-    def __init__(self, wyckoff_analyzer: WyckoffAnalyzer | None = None,
-                 min_margin_of_safety: float = 20.0):
-        self.wyckoff = wyckoff_analyzer or WyckoffAnalyzer()
+    def __init__(self,
+                 wyckoff_analyzer: WyckoffAnalyzer | None = None,
+                 min_margin_of_safety: float = 20.0,
+                 llm_client: Optional[LLMClient] = None,
+                 prompt_registry: Optional[PromptRegistry] = None):
+        if wyckoff_analyzer:
+            self.wyckoff = wyckoff_analyzer
+        else:
+            self.wyckoff = WyckoffAnalyzer(
+                llm_client=llm_client,
+                prompt_registry=prompt_registry,
+            )
         self.min_margin_of_safety = min_margin_of_safety
 
     def evaluate(self, ticker: str, context: dict[str, Any]) -> EntrySignal:

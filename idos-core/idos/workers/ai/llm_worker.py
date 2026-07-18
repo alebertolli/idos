@@ -16,9 +16,7 @@ class LLMWorker(BaseWorker):
             model=config.get("model", ""),
         )
         prompts_path = config.get("prompts_path", "")
-        self.registry = PromptRegistry()
-        if prompts_path:
-            self.registry.load(prompts_path)
+        self.registry = PromptRegistry(prompts_path) if prompts_path else PromptRegistry()
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         prompt_name = context.get("prompt_name", "")

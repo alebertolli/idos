@@ -1,0 +1,118 @@
+# Portfolio: Wyckoff Method Analysis (Spanish Output)
+system_prompt: >
+  Eres un analista técnico experto en el Método Wyckoff para una Family Office.
+  Aplica las 3 Leyes de Wyckoff (Oferta/Demanda, Causa/Efecto, Esfuerzo/Resultado)
+  para determinar la fase del mercado y si existe señal de entrada.
+  Sé prudente: si hay duda, responde NEUTRAL. Wyckoff enseña que es mejor
+  perder una oportunidad que actuar con duda. Responde SIEMPRE en ESPAÑOL.
+
+user_prompt: >
+  Analiza estructura Wyckoff para {ticker}:
+
+  Datos de Precio:
+  - Precio Actual: ${current_price:.2f}
+  - Máximo 52 Semanas: ${high_52w:.2f}
+  - Mínimo 52 Semanas: ${low_52w:.2f}
+  - Media Móvil 50d: ${ma_50d:.2f}
+  - Media Móvil 200d: ${ma_200d:.2f}
+  - Distancia a MA50: {pct_from_ma50:+.1f}%
+  - Distancia a MA200: {pct_from_ma200:+.1f}%
+  - % desde Máx 52 Sem: {pct_from_52w_high:+.1f}%
+  - % desde Mín 52 Sem: {pct_from_52w_low:+.1f}%
+
+  Tendencia Reciente (últimos 60 días):
+  - Tendencia general: {recent_trend}
+  - Spread de barras (amplitud): {bar_spread_description}
+  - Volumen relativo: {volume_description}
+  - Soportes clave identificados: {support_levels}
+  - Resistencias clave identificadas: {resistance_levels}
+
+  Fase Algorítmica Actual (referencia):
+  {algorithmic_phase}
+
+  Instrucciones - Aplica las 3 Leyes de Wyckoff en orden:
+
+  1. Ley de Oferta y Demanda:
+     - ¿Predominan barras de demanda (spread amplio, cierre alto, volumen alto)?
+     - ¿Predominan barras de oferta (spread amplio, cierre bajo, volumen alto)?
+     - ¿Hay estrechamiento de spreads con volumen decreciente?
+
+  2. Ley de Causa y Efecto:
+     - ¿Hay un Rango de Trading (TR) lateral identificable?
+     - ¿Cuánto tiempo lleva formándose? (la causa lateral es proporcional al efecto vertical)
+     - ¿Se puede estimar un conteo P&F aproximado para el objetivo de precio?
+
+  3. Ley de Esfuerzo vs Resultado:
+     - ¿Hay barras con volumen alto pero spread pequeño (esfuerzo sin resultado)?
+     - ¿Hay barras con volumen bajo pero spread amplio (resultado sin esfuerzo)?
+
+  Evalúa estos eventos Wyckoff (marca los observados):
+  - Preliminary Support (PS): Volumen alto, spread amplio, primer signo de compra
+  - Selling Climax (SC): Volumen extremo, spread muy amplio, liquidación final
+  - Automatic Rally (AR): Reacción alcista tras SC con volumen decreciente
+  - Secondary Test (ST): Nuevo test del soporte con menor volumen que SC
+  - Spring: Penetración temporal del soporte con volumen bajo, recuperación rápida
+  - Last Point of Support (LPS): Retroceso a soporte con volumen agotado tras SOS
+  - Sign of Strength (SOS): Ruptura de resistencia con volumen creciente
+  - LPSY / BC: Señales de distribución si aplica
+
+  Aplica las 9 Pruebas de Compra (binario: Pasa/NoPasa):
+  1. Objetivo de caída cumplido: ¿Se completó el movimiento bajista?
+  2. Actividad alcista: ¿Volumen aumenta en rallies, disminuye en reacciones?
+  3. Parada crítica: ¿Existen PS y SC identificables?
+  4. Fortaleza relativa: (no disponible sin índice de referencia)
+  5. Línea de suministro rota: ¿Se rompió la tendencia bajista?
+  6. Soportes crecientes: ¿Mínimos más altos?
+  7. Máximos crecientes: ¿Picos más altos?
+  8. Base construida: ¿Suficiente causa lateral?
+  9. Relación 3:1: ¿Beneficio potencial >= 3x riesgo del Stop Loss?
+
+  Identifica el Punto de Entrada (si aplica):
+  - Spring No.3: Penetración de soporte con volumen extremadamente bajo
+  - Test de Spring No.2: Reacción al soporte con volumen menor que el original
+  - LPS: Retroceso con volumen agotado tras SOS
+  - JAC: Cruzando resistencia con volumen alto
+
+  Responde en JSON:
+  {{
+    "fase_wyckoff": "acumulacion|markup|distribucion|markdown|absorcion|desconocida",
+    "eventos_wyckoff_detectados": [
+      {{"evento": "PS|SC|AR|ST|Spring|LPS|SOS|LPSY|BC|Ninguno",
+        "descripcion": "...", "confianza": "alta|media|baja"}}
+    ],
+    "pruebas_compra": {{
+      "prueba_1_objetivo_caida": "Pasa|NoPasa|N/A",
+      "prueba_2_actividad_alcista": "Pasa|NoPasa|N/A",
+      "prueba_3_parada_critica": "Pasa|NoPasa|N/A",
+      "prueba_4_fortaleza_relativa": "Pasa|NoPasa|N/A",
+      "prueba_5_linea_suministro": "Pasa|NoPasa|N/A",
+      "prueba_6_soportes_crecientes": "Pasa|NoPasa|N/A",
+      "prueba_7_maximos_crecientes": "Pasa|NoPasa|N/A",
+      "prueba_8_base_construida": "Pasa|NoPasa|N/A",
+      "prueba_9_relacion_3_1": "Pasa|NoPasa|N/A",
+      "pruebas_pasan": N,
+      "total_pruebas": 9
+    }},
+    "punto_entrada": "spring_3|test_spring_2|lps|jac|ninguno|no_aplica",
+    "precio_objetivo_wyckoff": {{
+      "estimado": N,
+      "metodo": "conteo_pnf|causa_efecto|no_determinable",
+      "razonamiento": "..."
+    }},
+    "stop_loss_sugerido": {{
+      "precio": N,
+      "distancia_pct": N.N,
+      "fundamento": "..."
+    }},
+    "senal_entrada": "COMPRAR|MANTENER|NEUTRAL",
+    "justificacion": "...",
+    "confianza": "alta|media|baja",
+    "datos_suficientes": true|false,
+    "limitaciones": "..."
+  }}
+
+category: portfolio
+metadata:
+  version: "1.0"
+  author: "FO Senior Analyst"
+  description: "Wyckoff Method analysis para Entry Engine usando datos OHLCV existentes (price_history, volume_history)"

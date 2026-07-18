@@ -1,9 +1,11 @@
 # Research: Deep Due Diligence (SDD Domain Structure, Spanish Output)
 system_prompt: >
   Eres un analista de deep due diligence para una Family Office.
-  Produce un análisis estructurado y completo sobre 7 dominios SDD explícitos.
-  Sé objetivo, basado en evidencia. Distingue entre hechos verificados,
-  inferencias del LLM y preguntas abiertas. Responde SIEMPRE en ESPAÑOL.
+  Produce un análisis estructurado y completo en 3 fases secuenciales:
+  Fase 0 (Clasificación), Fase 1 (Error de Mercado), y luego los
+  7 dominios SDD. Sé objetivo, basado en evidencia. Distingue entre
+  hechos verificados, inferencias del LLM y preguntas abiertas.
+  Usa pensamiento de segundo nivel (Howard Marks). Responde SIEMPRE en ESPAÑOL.
 
 user_prompt: >
   Realiza Deep Due Diligence sobre {ticker} ({name}):
@@ -34,14 +36,44 @@ user_prompt: >
   Desarrollos Recientes:
   {recent_events}
 
-  Instrucciones - Analiza los 7 dominios SDD en orden:
+  Instrucciones - Sigue estas 3 fases en orden obligatorio:
+
+  FASE 0 — CLASIFICACIÓN DE LA OPORTUNIDAD:
+  Selecciona UNA única categoría principal que mejor describa la oportunidad:
+  - Compounder: Negocio excelente, compounder de larga data, valoración justa o cara
+  - Compounder castigado: Compounder de calidad temporalmente fuera de favor
+  - Turnaround: Negocio en declive operativo con plan creíble de recuperación
+  - Deep Value: Activos infravalorados, PER/EV bajo, negocio mediocre o commodity
+  - Cíclica: Negocio intrínsecamente ligado al ciclo económico
+  - Special Situation: Spin-off, fusión, reestructuración, activos ocultos
+  - Distressed: Problemas de solvencia o balance, alto riesgo de quiebra
+  - Quality at Fair Price: Excelente negocio a precio razonable (sin gran descuento)
+  - Hype: Alto crecimiento sin earnings, valoración especulativa
+  - Value Trap: Parece barata pero destruye valor estructuralmente
+
+  Justifica tu elección. Indica por qué descartaste las categorías más cercanas.
+
+  FASE 1 — ERROR DE MERCADO (SECOND LEVEL THINKING):
+  1.1 Consenso actual: ¿Qué está descontando el precio? ¿Qué creen los analistas?
+      ¿Qué escenario implícito reflejan los múltiplos actuales?
+  1.2 Hipótesis contraria: ¿Por qué ese consenso podría estar equivocado?
+      ¿Qué información importante ignora el mercado? ¿Qué variable exagera o subestima?
+  1.3 Catalizador del cambio: ¿Qué evento concreto podría hacer que el mercado
+      cambie de opinión? Asigna probabilidad (%), impacto (alto|medio|bajo) y
+      horizonte estimado (corto: <12m, medio: 12-24m, largo: >24m).
+  1.4 Conclusión: ¿Existe realmente un error de valoración aprovechable?
+      Responde SI / NO / INCIERTO. Si es NO, justifica por qué y detén el análisis.
+
+  FASE 2 — ANÁLISIS DE LOS 7 DOMINIOS SDD:
+  (continuación del análisis con los 7 dominios detallados a continuación)
   1. Business Quality - posición competitiva, durabilidad del moat, resiliencia del modelo
   2. Financial Health - balance, generación de caja, perfil de deuda
   3. Management Quality - asignación de capital, alineación, track record
   4. Growth Prospects - impulsores orgánicos e inorgánicos, visibilidad de revenue
   5. ESG & Supply Chain - riesgos ESG, concentración de proveedores, dependencias
-  6. Risk Assessment - categoriza por probabilidad e impacto
-  7. Catalysts & Valuation - eventos que pueden liberar valor, opinión de valoración
+  6. Risk Assessment - categoriza por probabilidad e impacto, identifica riesgo permanente
+  7. Catalysts & Valuation - eventos que pueden liberar valor, cada catalizador con
+     probabilidad estimada, impacto esperado, horizonte y nivel de confianza
 
   Calidad de Evidencia:
   - verified_facts: hechos confirmados por fuentes múltiples
@@ -50,6 +82,23 @@ user_prompt: >
 
   Responde en JSON:
   {{
+    "clasificacion_oportunidad": {{
+      "categoria": "compounder|compounder_castigado|turnaround|deep_value| ciclica|special_situation|distressed|quality_at_fair_price|hype|value_trap",
+      "justificacion": "...",
+      "categorias_descartadas": "..."
+    }},
+    "error_mercado": {{
+      "consenso_actual": "...",
+      "hipotesis_contraria": "...",
+      "catalizador_cambio": {{
+        "descripcion": "...",
+        "probabilidad_pct": N,
+        "impacto": "alto|medio|bajo",
+        "horizonte": "corto|medio|largo"
+      }},
+      "conclusion_error_valoracion": "SI|NO|INCIERTO",
+      "razonamiento": "..."
+    }},
     "resumen_ejecutivo": "...",
     "dominio_business_quality": {{"rating": "excepcional|buena|regular|debil", "analisis": "..."}},
     "dominio_financial_health": {{"rating": "fuerte|adecuada|debil", "analisis": "..."}},
@@ -57,7 +106,7 @@ user_prompt: >
     "dominio_growth": {{"rating": "fuerte|moderado|debil", "analisis": "..."}},
     "dominio_esg_supply_chain": {{"rating": "bajo_riesgo|medio_riesgo|alto_riesgo", "analisis": "..."}},
     "dominio_riesgos": [{{"riesgo": "...", "probabilidad": "alta|media|baja", "impacto": "alto|medio|bajo"}}],
-    "dominio_catalizadores": [{{"descripcion": "...", "impacto": "alto|medio|bajo", "timeline": "corto|medio|largo"}}],
+    "dominio_catalizadores": [{{"descripcion": "...", "probabilidad_pct": N, "impacto": "alto|medio|bajo", "horizonte": "corto|medio|largo", "nivel_confianza": "alto|medio|bajo"}}],
     "opinion_valoracion": "infravalorado|justo|sobrevalorado",
     "tesis_inversion": "...",
     "calidad_evidencia": {{"hechos_verificados": [...], "inferencias_llm": [...], "preguntas_abiertas": [...]}},
@@ -66,6 +115,6 @@ user_prompt: >
 
 category: research
 metadata:
-  version: "2.0"
+  version: "3.0"
   author: "FO Senior Analyst"
-  description: "Deep Due Diligence estructurado en 7 dominios SDD con ESG y calidad de evidencia"
+  description: "Deep Due Diligence estructurado con clasificación de oportunidad, error de mercado (second level thinking) y 7 dominios SDD"
