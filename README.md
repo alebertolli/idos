@@ -28,6 +28,7 @@ Crea la estructura de directorios:
 ```
 idos-config/
   universe/watchlist.md       ← tickers a monitorear
+  universe/operable.yml       ← lista de activos operables (CEDEARs + broker)
   data_sources.yml            ← fuentes de datos financieros
   rules/entry_rules.yml       ← reglas de entrada (asimetría 3:1, etc.)
   prompts/scout/              ← 5 prompts de screening
@@ -105,6 +106,22 @@ Edita `idos-config/universe/watchlist.md`.
 
 Validación cruzada automática cuando hay múltiples fuentes disponibles.
 
+### 2.3 Lista de Activos Operables
+
+El archivo `idos-config/universe/operable.yml` contiene la lista curada de
+activos que realmente se pueden operar (CEDEARs en BYMA + acciones US directas
+disponibles en tu broker). Se usa como pre-filter del scout para que solo
+pasen a análisis los tickers que puedas comprar.
+
+Mantenimiento manual via CLI:
+
+```bash
+idos operable-add AAPL --name "Apple Inc." --type cedear --source broker_ppi
+idos operable-list
+idos operable-check MELI
+idos operable-import ./lista_cedears.csv
+```
+
 ---
 
 ## 3. Uso del CLI
@@ -146,6 +163,19 @@ idos position-exit MELI --reason thesis_broken  # Cierra posición + post-mortem
 idos dashboard                    # Resumen general del sistema
 idos event-log                    # Log de eventos recientes
 idos schedule-status              # Estado del scheduler
+```
+
+### 3.4 Gestión de Activos Operables
+
+```bash
+idos operable-add AAPL --name "Apple Inc." --type cedear --source broker_ppi  # Agrega activo operable
+idos operable-remove AAPL           # Elimina activo
+idos operable-list                  # Lista todos los activos operables
+idos operable-list --type cedear    # Filtra por tipo
+idos operable-list --source broker_ppi  # Filtra por fuente
+idos operable-check MELI            # Verifica si un ticker está en la lista
+idos operable-import ./cedears.csv  # Importación masiva desde CSV
+idos operable-stats                 # Estadísticas por tipo y fuente
 ```
 
 ---
@@ -409,9 +439,14 @@ idos position-list         # Posiciones activas
 idos position-exit MELI --reason manual  # Salida + post-mortem
 idos event-log             # Eventos recientes
 idos schedule-status       # Estado del scheduler
+idos operable-list         # Activos operables
+idos operable-check MELI   # Verificar si es operable
+idos operable-add AAPL --type cedear  # Agregar activo operable
+idos operable-import ./lista.csv      # Importación masiva
+idos operable-stats                   # Estadísticas
 ```
 
 ---
 
 *IDOS v0.2.0 — Family Office Investment Decision Operating System*
-*326+ tests · 17 comandos CLI · Ciclo de vida completo · Dual-mode Wyckoff*
+*326+ tests · 23 comandos CLI · Ciclo de vida completo · Dual-mode Wyckoff*

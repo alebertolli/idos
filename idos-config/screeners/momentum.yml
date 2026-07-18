@@ -1,0 +1,27 @@
+name: "Momentum"
+description: "Empresas con tendencia alcista y volumen confirmando"
+finviz_ref: "https://finviz.com/screener.ashx?v=132&f=tech_rel_per6m_over"
+expected_pass_rate: 0.20
+mode: all
+
+rules:
+  - field: price_change_3m
+    operator: gt
+    value: 5
+    weight: 3
+  - field: rsi_14
+    operator: gt
+    value: 50
+    weight: 2
+  - field: price_change_12m
+    operator: gt
+    value: 5
+    weight: 2
+  - field: relative_volume
+    operator: gt
+    value: 0.8
+    weight: 1
+  - field: price_change_1m
+    operator: gt
+    value: 0
+    weight: 1

@@ -5,6 +5,7 @@ from typing import Any
 from idos.discovery.scout import ScoutEngine, ScoutResult
 from idos.discovery.watchlist import WatchlistManager
 from idos.discovery.ranking import RankingSystem
+from idos.discovery.operability import OperabilityFilter
 from idos.workers.base import BaseWorker
 from idos.workers.data.refresh_worker import DataRefreshWorker
 from idos.data.journal import JournalRepository
@@ -37,6 +38,17 @@ class ScoutWorker(BaseWorker):
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         tickers = context.get("tickers") or self._load_tickers()
         force_refresh = context.get("force_refresh", False)
+
+        operable = OperabilityFilter(
+            self.config.get("operable_path", "idos-config/universe/operable.yml")
+        )
+        before = len(tickers)
+        tickers = [t for t in tickers if operable.is_operable(t)]
+        if before != len(tickers):
+            print(f"[SCOUT] Operability filter: {before} -> {len(tickers)} tickers")
+        if not tickers:
+            print("[SCOUT] No operable tickers to screen")
+            return {"tickers_screened": 0, "passed_count": 0, "results": [], "watchlist_size": 0}
 
         print(f"\n[SCOUT] Screening {len(tickers)} tickers (refresh={force_refresh})")
 

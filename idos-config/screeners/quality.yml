@@ -1,0 +1,27 @@
+name: "Quality"
+description: "Negocios de alta calidad con ventajas competitivas"
+finviz_ref: "https://finviz.com/screener.ashx?v=134&f=fa_roe_q_plus,fa_roic_q_plus"
+expected_pass_rate: 0.10
+mode: all
+
+rules:
+  - field: roic_pct
+    operator: gt
+    value: 10
+    weight: 3
+  - field: operating_margin_pct
+    operator: gt
+    value: 15
+    weight: 2
+  - field: debt_equity_ratio
+    operator: lt
+    value: 1.5
+    weight: 2
+  - field: roe_pct
+    operator: gt
+    value: 15
+    weight: 2
+  - field: current_ratio
+    operator: gt
+    value: 1.2
+    weight: 1

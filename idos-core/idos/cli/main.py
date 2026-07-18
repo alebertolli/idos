@@ -18,6 +18,7 @@ from idos.models.journal import Opportunity, CaseFile
 from idos.events.bus import get_event_bus
 from idos.events.types import Event
 from idos.telemetry.trace import get_tracer
+from idos.discovery.operability import OperabilityFilter
 
 app = typer.Typer(name="idos", help="Investment Decision Operating System")
 console = Console()
@@ -140,11 +141,19 @@ def opp_transition(opp_id: str, target: str):
 def watchlist():
     ctx = _get_context()
     _, _, journal = _get_stores(ctx)
+    filepath = ctx.journal_path / "portfolio" / "watchlist.yml"
+    console.print(f"[dim]Reading: {filepath}[/dim]")
+    if not filepath.exists():
+        console.print(f"[yellow]File not found: {filepath}[/yellow]")
+        return
+    import yaml
+    raw = yaml.safe_load(filepath.read_text(encoding="utf-8"))
+    console.print(f"[dim]YAML entries: {len(raw.get('entries', [])) if raw else 0}[/dim]")
     entries = journal.load_watchlist()
     if not entries:
         console.print("[yellow]Watchlist is empty[/yellow]")
         return
-    table = Table(title="Watchlist")
+    table = Table(title=f"Watchlist ({len(entries)} entries)")
     table.add_column("Ticker")
     table.add_column("Score")
     table.add_column("Added")
@@ -537,3 +546,116 @@ def scout(tickers: str = "", force_refresh: bool = False):
 
 if __name__ == "__main__":
     app()
+
+
+# ──────────────────────────────────────────────
+# OPERABLE ASSETS MANAGEMENT
+# ──────────────────────────────────────────────
+
+def _get_operable_filter() -> OperabilityFilter:
+    ctx = _get_context()
+    path = str(ctx.config_path.parent / "idos-config/universe/operable.yml")
+    return OperabilityFilter(path)
+
+
+@app.command()
+def operable_add(ticker: str, name: str = "", type: str = "us_equity",
+                 source: str = "manual", ratio: str = "",
+                 byma_symbol: str = "", notes: str = ""):
+    """Agrega un activo a la lista de operables."""
+    op = _get_operable_filter()
+    if op.is_operable(ticker):
+        console.print(f"[yellow]{ticker.upper()} ya esta en la lista[/yellow]")
+        return
+    entry = op.add(ticker, name=name, type=type, source=source,
+                   ratio=ratio, byma_symbol=byma_symbol, notes=notes)
+    console.print(f"[green]{ticker.upper()} agregado a la lista de operables[/green]")
+    console.print(f"  Tipo: {entry['type']} | Fuente: {entry['source']}")
+
+
+@app.command()
+def operable_remove(ticker: str):
+    """Elimina un activo de la lista de operables."""
+    op = _get_operable_filter()
+    if op.remove(ticker):
+        console.print(f"[green]{ticker.upper()} eliminado de la lista de operables[/green]")
+    else:
+        console.print(f"[red]{ticker.upper()} no encontrado en la lista[/red]")
+
+
+@app.command()
+def operable_list(type: str = "", source: str = ""):
+    """Lista activos operables, opcionalmente filtrados por tipo o fuente."""
+    op = _get_operable_filter()
+    entries = op.list(type=type, source=source)
+    if not entries:
+        console.print("[yellow]No hay activos operables registrados[/yellow]")
+        return
+    table = Table(title=f"Activos Operables ({len(entries)})")
+    table.add_column("Ticker", style="cyan")
+    table.add_column("Nombre")
+    table.add_column("Tipo")
+    table.add_column("Fuente")
+    table.add_column("Ratio")
+    table.add_column("Byma")
+    table.add_column("Actualizado")
+    for e in entries:
+        table.add_row(
+            e["ticker"],
+            e.get("name", ""),
+            e.get("type", ""),
+            e.get("source", ""),
+            e.get("ratio", "N/A"),
+            e.get("byma_symbol", "N/A"),
+            e.get("updated_at", ""),
+        )
+    console.print(table)
+
+
+@app.command()
+def operable_check(ticker: str):
+    """Verifica si un ticker esta en la lista de operables."""
+    op = _get_operable_filter()
+    entry = op.check(ticker)
+    if entry:
+        console.print(f"[green]{ticker.upper()} ES operable[/green]")
+        console.print(f"  Nombre: {entry.get('name', 'N/A')}")
+        console.print(f"  Tipo: {entry.get('type', 'N/A')}")
+        console.print(f"  Fuente: {entry.get('source', 'N/A')}")
+        console.print(f"  Ratio: {entry.get('ratio', 'N/A')}")
+        console.print(f"  Byma: {entry.get('byma_symbol', 'N/A')}")
+    else:
+        console.print(f"[red]{ticker.upper()} NO esta en la lista de operables[/red]")
+
+
+@app.command()
+def operable_import(file: str):
+    """Importa activos desde un archivo CSV (columna 'ticker' requerida)."""
+    op = _get_operable_filter()
+    try:
+        added, skipped = op.import_csv(file)
+        console.print(f"[green]Importacion completada: {added} agregados, {skipped} omitidos[/green]")
+    except FileNotFoundError:
+        console.print(f"[red]Archivo no encontrado: {file}[/red]")
+    except Exception as e:
+        console.print(f"[red]Error en importacion: {e}[/red]")
+
+
+@app.command()
+def operable_stats():
+    """Muestra estadisticas de la lista de operables."""
+    op = _get_operable_filter()
+    s = op.stats()
+    if s["total"] == 0:
+        console.print("[yellow]No hay activos operables registrados[/yellow]")
+        return
+    info = Panel.fit(
+        f"[bold]Activos Operables: {s['total']}[/bold]\n\n"
+        + "Por tipo:\n"
+        + "\n".join(f"  {k}: {v}" for k, v in s["by_type"].items())
+        + "\n\nPor fuente:\n"
+        + "\n".join(f"  {k}: {v}" for k, v in s["by_source"].items())
+        + f"\n\nUltima actualizacion: {s['last_updated'] or 'N/A'}",
+        title="Operability Stats",
+    )
+    console.print(info)
