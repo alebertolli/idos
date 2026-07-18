@@ -18,53 +18,75 @@ class DigestWorker(BaseWorker):
 
         print(f"[DIGEST] Generating digest: {len(scout_results)} scout results, {len(risk_alerts)} alerts, {len(positions)} positions, {len(opportunities)} opportunities")
 
+        now = datetime.now(timezone.utc)
+        week_start = now.strftime("%Y-%m-%d")
         lines: list[str] = []
-        lines.append(f"# 📊 IDOS Weekly Digest — {datetime.now(timezone.utc).strftime('%Y-%m-%d')}")
+        lines.append(f"# 📊 IDOS Weekly Digest — {week_start}")
         lines.append("")
-        lines.append("## Resumen de la Semana")
+        lines.append(f"_Generado: {now.strftime('%Y-%m-%d %H:%M UTC')}_")
         lines.append("")
 
         passed = [s for s in scout_results if s.get("passed")]
-        lines.append(f"- **Oportunidades identificadas:** {len(passed)}")
-        lines.append(f"- **Alertas de riesgo activas:** {len(risk_alerts)}")
-        lines.append(f"- **Posiciones activas:** {len(positions)}")
+        lines.append("## Resumen de la Semana")
+        lines.append("")
+        lines.append(f"- 🟢 **Oportunidades identificadas:** {len(passed)}")
+        lines.append(f"- 🟡 **Alertas de riesgo activas:** {len(risk_alerts)}")
+        lines.append(f"- 🔵 **Posiciones activas:** {len(positions)}")
+        lines.append(f"- 🔍 **Tickers evaluados:** {len(scout_results)}")
         lines.append("")
 
         if passed:
-            lines.append("### Nuevas Oportunidades de Screening")
+            lines.append("### 🟢 Nuevas Oportunidades de Screening")
             lines.append("")
-            lines.append("| Ticker | Score | Razón |")
-            lines.append("|--------|-------|-------|")
-            for s in passed:
-                lines.append(f"| {s['ticker']} | {s.get('score', 'N/A')} | {s.get('reason', '')} |")
+            lines.append("| # | Ticker | Score | Rank | Razón |")
+            lines.append("|---|--------|-------|------|-------|")
+            for s in sorted(passed, key=lambda x: x.get("rank", 99)):
+                score = s.get("scout_score") or s.get("score", "N/A")
+                lines.append(f"| {s.get('rank', '-')} | **{s['ticker']}** | {score} | #{s.get('rank', '-')} | {s.get('reason', '')} |")
+            lines.append("")
+
+        if not passed and len(scout_results) > 0:
+            lines.append("### ℹ️ Screening Completado")
+            lines.append("")
+            lines.append("Se evaluaron todos los tickers pero ninguno superó el umbral mínimo de score.")
             lines.append("")
 
         if risk_alerts:
-            lines.append("### Alertas de Riesgo")
+            lines.append("### 🟡 Alertas de Riesgo")
             lines.append("")
             for alert in risk_alerts:
                 lines.append(f"- 🔴 **{alert.get('ticker')}**: {alert.get('message', '')}")
             lines.append("")
 
         if opportunities:
-            lines.append("### Estado de Oportunidades")
+            lines.append("### 📌 Estado de Oportunidades")
             lines.append("")
             lines.append("| ID | Ticker | Estado | Convicción |")
             lines.append("|-----|--------|--------|------------|")
             for opp in opportunities:
                 lines.append(
-                    f"| {opp.get('id', '')} | {opp.get('ticker', '')} "
+                    f"| {opp.get('id', '')} | **{opp.get('ticker', '')}** "
                     f"| {opp.get('status', '')} | {opp.get('conviction', 'N/A')} |"
                 )
             lines.append("")
 
+        if positions:
+            lines.append("### 📊 Cartera Activa")
+            lines.append("")
+            lines.append("| Ticker | Peso | P/L |")
+            lines.append("|--------|------|-----|")
+            for p in positions:
+                lines.append(f"| **{p.get('ticker', '')}** | {p.get('weight', 'N/A')}% | {p.get('pnl_pct', 'N/A')}% |")
+            lines.append("")
+
+        lines.append("")
         lines.append("---")
-        lines.append("*Generado automáticamente por IDOS*")
+        lines.append(f"*🤖 Generado automáticamente por IDOS — {now.strftime('%Y-%m-%d %H:%M UTC')}*")
 
         digest_text = "\n".join(lines)
         return {
             "digest": digest_text,
-            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "generated_at": now.isoformat(),
             "line_count": len(lines),
             "summary": {
                 "opportunities": len(passed),

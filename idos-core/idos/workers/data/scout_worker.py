@@ -74,11 +74,14 @@ class ScoutWorker(BaseWorker):
             for r in passed_ranked:
                 print(f"  {r.ticker}: score={r.scout_score} rank={r.rank}")
 
+        passed_tickers = {e["ticker"] for e in screened if e["passed"]}
         return {
             "tickers_screened": len(screened),
-            "passed_count": sum(1 for s in screened if s["passed"]),
-            "results": [{"ticker": r.ticker, "scout_score": r.scout_score, "conviction_score": r.conviction_score,
-                         "combined_score": r.combined_score, "rank": r.rank, "reason": r.reason} for r in ranked],
+            "passed_count": len(passed_entries),
+            "results": [{"ticker": r.ticker, "scout_score": r.scout_score, "score": r.scout_score,
+                         "conviction_score": r.conviction_score,
+                         "combined_score": r.combined_score, "rank": r.rank, "reason": r.reason,
+                         "passed": r.ticker in passed_tickers} for r in ranked],
             "watchlist_size": len(self.watchlist.entries),
         }
 
