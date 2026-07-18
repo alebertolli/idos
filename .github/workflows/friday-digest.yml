@@ -8,6 +8,17 @@ on:
 jobs:
   digest:
     runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
+      IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
+      IDOS_SMTP_HOST: ${{ secrets.IDOS_SMTP_HOST }}
+      IDOS_SMTP_PORT: ${{ secrets.IDOS_SMTP_PORT }}
+      IDOS_SMTP_USER: ${{ secrets.IDOS_SMTP_USER }}
+      IDOS_SMTP_PASS: ${{ secrets.IDOS_SMTP_PASS }}
+      IDOS_FROM_ADDR: ${{ secrets.IDOS_FROM_ADDR }}
+      IDOS_TO_ADDR: ${{ secrets.IDOS_TO_ADDR }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -16,9 +27,6 @@ jobs:
       - name: Install
         run: pip install -e idos-core
       - name: Generate digest
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           python -c "
           from idos.workers.data.digest_worker import DigestWorker
@@ -38,15 +46,6 @@ jobs:
           print(f'Digest generated: {r.output.get(\"line_count\", 0)} lines')
           "
       - name: Send notifications
-        env:
-          IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
-          IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
-          IDOS_SMTP_HOST: ${{ secrets.IDOS_SMTP_HOST }}
-          IDOS_SMTP_PORT: ${{ secrets.IDOS_SMTP_PORT }}
-          IDOS_SMTP_USER: ${{ secrets.IDOS_SMTP_USER }}
-          IDOS_SMTP_PASS: ${{ secrets.IDOS_SMTP_PASS }}
-          IDOS_FROM_ADDR: ${{ secrets.IDOS_FROM_ADDR }}
-          IDOS_TO_ADDR: ${{ secrets.IDOS_TO_ADDR }}
         run: |
           python -c "
           import os

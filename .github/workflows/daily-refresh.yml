@@ -8,6 +8,9 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -16,9 +19,6 @@ jobs:
       - name: Install
         run: pip install -e idos-core
       - name: Refresh data
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           python -c "
           from idos.workers.data.stockanalysis import StockAnalysisWorker
