@@ -29,6 +29,7 @@ Crea la estructura de directorios:
 idos-config/
   universe/watchlist.md       ← tickers a monitorear
   universe/operable.yml       ← lista de activos operables (CEDEARs + broker)
+  screeners/                  ← 5 screeners programaticos (value, growth, etc.)
   data_sources.yml            ← fuentes de datos financieros
   rules/entry_rules.yml       ← reglas de entrada (asimetría 3:1, etc.)
   prompts/scout/              ← 5 prompts de screening
@@ -122,6 +123,26 @@ idos operable-check MELI
 idos operable-import ./lista_cedears.csv
 ```
 
+### 2.4 Screeners Programaticos
+
+Directorio `idos-config/screeners/` con 5 screeners inspirados en Finviz. Cada
+screener es un conjunto de reglas programaticas (sin LLM) que filtran tickers
+por multiples fundamentales o tecnicos.
+
+| Screener | Descripcion | Reglas |
+|----------|-------------|--------|
+| `value.yml` | Multiples bajos vs sector | PE < 20, PB < 3, EV/EBITDA < 15, FCF Yield > 3% |
+| `growth.yml` | Crecimiento y rentabilidad | Revenue Growth > 10%, ROE > 12%, ROIC > 8% |
+| `momentum.yml` | Tendencia alcista | Price 3M > 5%, RSI > 50, Price 12M > 5% |
+| `quality.yml` | Negocios de alta calidad | ROIC > 10%, Op Margin > 15%, D/E < 1.5 |
+| `deep_value.yml` | Infravalorado extremo | PE < 15, PB < 1.5, FCF Yield > 5% |
+
+```bash
+idos screener-list              # Lista screeners disponibles
+idos screener-run AAPL          # Evalua AAPL contra todos los screeners
+idos screener-run AAPL --name value  # Evalua contra screener especifico
+```
+
 ---
 
 ## 3. Uso del CLI
@@ -176,6 +197,14 @@ idos operable-list --source broker_ppi  # Filtra por fuente
 idos operable-check MELI            # Verifica si un ticker está en la lista
 idos operable-import ./cedears.csv  # Importación masiva desde CSV
 idos operable-stats                 # Estadísticas por tipo y fuente
+```
+
+### 3.5 Screeners
+
+```bash
+idos screener-list                  # Lista screeners disponibles (Value, Growth, etc.)
+idos screener-run AAPL              # Evalúa AAPL contra todos los screeners
+idos screener-run AAPL --name value # Evalúa contra screener específico
 ```
 
 ---
@@ -444,9 +473,11 @@ idos operable-check MELI   # Verificar si es operable
 idos operable-add AAPL --type cedear  # Agregar activo operable
 idos operable-import ./lista.csv      # Importación masiva
 idos operable-stats                   # Estadísticas
+idos screener-list                  # Screeners disponibles
+idos screener-run AAPL              # Evaluar ticker contra screeners
 ```
 
 ---
 
 *IDOS v0.2.0 — Family Office Investment Decision Operating System*
-*326+ tests · 23 comandos CLI · Ciclo de vida completo · Dual-mode Wyckoff*
+*360+ tests · 25 comandos CLI · Ciclo de vida completo · Dual-mode Wyckoff*

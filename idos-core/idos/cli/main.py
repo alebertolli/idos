@@ -19,6 +19,7 @@ from idos.events.bus import get_event_bus
 from idos.events.types import Event
 from idos.telemetry.trace import get_tracer
 from idos.discovery.operability import OperabilityFilter
+from idos.discovery.screening import FinvizScreener
 
 app = typer.Typer(name="idos", help="Investment Decision Operating System")
 console = Console()
@@ -544,6 +545,26 @@ def scout(tickers: str = "", force_refresh: bool = False):
     console.print(table)
 
 
+@app.command()
+def telegram_bot(daemon: bool = False):
+    """Inicia el bot de Telegram para responder comandos interactivos."""
+    from idos.workers.notifications.telegram_bot import TelegramBot
+    base = Path.cwd()
+    bot = TelegramBot({"base_path": base})
+    if daemon:
+        console.print("[green]Telegram bot iniciado (polling cada 30s). Ctrl+C para detener.[/green]")
+        try:
+            while True:
+                bot.execute({"single_run": False})
+                import time
+                time.sleep(1)
+        except KeyboardInterrupt:
+            console.print("[yellow]Bot detenido.[/yellow]")
+    else:
+        result = bot.execute({"single_run": True})
+        console.print(f"Procesados {result.output.get('processed', 0)} comandos.")
+
+
 if __name__ == "__main__":
     app()
 
@@ -659,3 +680,69 @@ def operable_stats():
         title="Operability Stats",
     )
     console.print(info)
+
+
+# ──────────────────────────────────────────────
+# SCREENER COMMANDS
+# ──────────────────────────────────────────────
+
+def _get_screener() -> FinvizScreener:
+    ctx = _get_context()
+    path = str(ctx.config_path.parent / "idos-config/screeners")
+    return FinvizScreener(path)
+
+
+@app.command()
+def screener_list():
+    """Lista los screeners disponibles (Value, Growth, Momentum, Quality, Deep Value)."""
+    s = _get_screener()
+    screeners = s.list_screeners()
+    if not screeners:
+        console.print("[yellow]No hay screeners configurados en idos-config/screeners/[/yellow]")
+        return
+    table = Table(title="Screeners Disponibles")
+    table.add_column("Nombre", style="cyan")
+    table.add_column("Descripcion")
+    table.add_column("Reglas")
+    table.add_column("Pass Rate Est.")
+    for scr in screeners:
+        table.add_row(
+            scr["name"],
+            scr["description"],
+            str(scr["rule_count"]),
+            f"{scr['expected_pass_rate']*100:.0f}%",
+        )
+    console.print(table)
+
+
+@app.command()
+def screener_run(ticker: str, name: str = ""):
+    """Evalua un ticker contra uno o todos los screeners."""
+    ctx = _get_context()
+    from idos.workers.data.refresh_worker import DataRefreshWorker
+    worker = DataRefreshWorker({"journal_path": str(ctx.journal_path)})
+    result = worker.execute({"tickers": [ticker], "max_tickers": 1})
+    if result.status == "failed":
+        console.print(f"[red]Error obteniendo datos: {result.error}[/red]")
+        return
+    data = result.output.get("data", {}).get(ticker, {}).get("merged_data", {})
+    if not data:
+        console.print(f"[yellow]No hay datos financieros para {ticker.upper()}[/yellow]")
+        return
+
+    s = _get_screener()
+    if name:
+        passed = s.run(data, name)
+        console.print(f"[bold]Screener: {name}[/bold]")
+        color = "green" if passed else "red"
+        console.print(f"  Resultado: [{color}]{'PASA' if passed else 'NO PASA'}[/{color}]")
+        return
+
+    results = s.run_all(data)
+    table = Table(title=f"Screeners: {ticker.upper()}")
+    table.add_column("Screener", style="cyan")
+    table.add_column("Resultado")
+    for screener_name, passed in results.items():
+        color = "green" if passed else "red"
+        table.add_row(screener_name, f"[{color}]{'PASA' if passed else 'NO PASA'}[/{color}]")
+    console.print(table)

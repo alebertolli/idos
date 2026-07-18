@@ -6,6 +6,7 @@ from idos.discovery.scout import ScoutEngine, ScoutResult
 from idos.discovery.watchlist import WatchlistManager
 from idos.discovery.ranking import RankingSystem
 from idos.discovery.operability import OperabilityFilter
+from idos.discovery.screening import FinvizScreener
 from idos.workers.base import BaseWorker
 from idos.workers.data.refresh_worker import DataRefreshWorker
 from idos.data.journal import JournalRepository
@@ -22,6 +23,9 @@ class ScoutWorker(BaseWorker):
         self.watchlist = WatchlistManager(max_entries=config.get("max_watchlist", 50))
         self.ranking = RankingSystem()
         self.data_refresher = DataRefreshWorker(config)
+        self.screener = FinvizScreener(
+            config.get("screeners_dir", "idos-config/screeners")
+        )
         self.journal_path = config.get("journal_path", "")
 
     def _save_watchlist(self):
@@ -69,8 +73,15 @@ class ScoutWorker(BaseWorker):
             print("[SCOUT] Using cached data")
 
         screened: list[dict[str, Any]] = []
+        screener_passed = 0
+        screener_failed = 0
         for i, ticker in enumerate(tickers, 1):
             financial_data = data_map.get(ticker, {}).get("merged_data", {})
+            screener_results = self.screener.run_all(financial_data)
+            if not any(screener_results.values()):
+                screener_failed += 1
+                continue
+            screener_passed += 1
             scout_result = self._run_scout(ticker, financial_data)
             print(f"[SCOUT] [{i}/{len(tickers)}] {ticker}: score={scout_result.score} passed={scout_result.passed} details={scout_result.details}")
 
@@ -97,6 +108,7 @@ class ScoutWorker(BaseWorker):
         passed_entries = [e for e in screened if e["passed"]]
         passed_ranked = [r for r in ranked if any(e["ticker"] == r.ticker and e["passed"] for e in screened)]
         print(f"\n[SCOUT] Done: {len(screened)} screened, {len(passed_entries)} passed")
+        print(f"[SCOUT] Screener: {screener_passed} passed, {screener_failed} failed")
         if passed_ranked:
             print("[SCOUT] Passed:")
             for r in passed_ranked:
@@ -106,6 +118,8 @@ class ScoutWorker(BaseWorker):
         return {
             "tickers_screened": len(screened),
             "passed_count": len(passed_entries),
+            "screener_passed": screener_passed,
+            "screener_failed": screener_failed,
             "results": [{"ticker": r.ticker, "scout_score": r.scout_score, "score": r.scout_score,
                          "conviction_score": r.conviction_score,
                          "combined_score": r.combined_score, "rank": r.rank, "reason": r.reason,

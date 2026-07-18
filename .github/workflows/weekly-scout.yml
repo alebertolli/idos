@@ -39,6 +39,10 @@ jobs:
               print(f'Error: {r.error}')
           for res in r.output.get('results', []):
               print(f\"  {res['ticker']}: score={res['scout_score']} rank={res['rank']} reason={res['reason']}\")
+          import json
+          os.makedirs('cache', exist_ok=True)
+          with open('cache/scout_results.json', 'w') as f:
+              json.dump({'results': r.output.get('results', []), 'generated_at': str(os.environ.get('GITHUB_RUN_ID', ''))}, f)
           "
       - name: Save & commit results
         run: |
@@ -74,14 +78,45 @@ jobs:
       - name: Notify
         run: |
           python -c "
+          import os, json
           from idos.workers.notifications.telegram import TelegramNotifier
+          token = os.environ.get('IDOS_TELEGRAM_BOT_TOKEN')
+          chat = os.environ.get('IDOS_TELEGRAM_CHAT_ID')
+          if not token or not chat:
+              print('Telegram not configured, skipping notification')
+              exit(0)
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          results = []
+          sr = 'cache/scout_results.json'
+          if os.path.exists(sr):
+              results = json.load(open(sr)).get('results', [])
+          passed = [r for r in results if r.get('passed')]
+          screened = len(results)
+          passed_count = len(passed)
+          top5 = passed[:5]
+          lines = ['📡 *IDOS Weekly Scout*']
+          lines.append(f'🟢 *Pasaron el screening:* {passed_count}/{screened}')
+          lines.append('')
+          if top5:
+              lines.append('*Top resultados:*')
+              for r in top5:
+                  lines.append(f'  {r[\"ticker\"]}: {r.get(\"scout_score\", \"?\")} pts')
+          lines.append('')
+          lines.append('✅ Scout completado sin errores')
+          t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
+          t.execute({'message': '\n'.join(lines)})
+          print('Telegram notification sent')
+          "
+      - name: Notify on failure
+        if: failure()
+        run: |
+          python -c "
           import os
+          from idos.workers.notifications.telegram import TelegramNotifier
           token = os.environ.get('IDOS_TELEGRAM_BOT_TOKEN')
           chat = os.environ.get('IDOS_TELEGRAM_CHAT_ID')
           if token and chat:
               t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
-              t.execute({'message': 'Weekly scout complete — check watchlist for new opportunities'})
-              print('Telegram notification sent')
-          else:
-              print('Telegram not configured, skipping notification')
+              t.execute({'message': '🚨 *IDOS Alert*: Weekly Scout workflow FAILED'})
+              print('Failure alert sent')
           "
