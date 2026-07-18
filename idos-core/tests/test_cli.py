@@ -1,8 +1,6 @@
-"""Smoke tests for CLI commands.
+import os
+from pathlib import Path
 
-Verifies that all CLI commands register and respond without crashing.
-Uses typer.testing.CliRunner for isolated invocation.
-"""
 import pytest
 from typer.testing import CliRunner
 
@@ -14,39 +12,75 @@ runner = CliRunner()
 
 
 class TestCLISmoke:
-    def test_init(self):
-        with runner.isolated_filesystem():
+    def test_init(self, tmp_path: Path):
+        cwd = Path.cwd()
+        try:
+            os.chdir(str(tmp_path))
             result = runner.invoke(app, ["init"])
             assert result.exit_code == 0
             assert "initialized" in result.stdout.lower()
+        finally:
+            os.chdir(str(cwd))
 
-    def test_dashboard(self):
-        result = runner.invoke(app, ["dashboard"])
-        assert result.exit_code == 0
-        assert "idos" in result.stdout.lower()
+    def test_dashboard(self, tmp_path: Path):
+        cwd = Path.cwd()
+        try:
+            os.chdir(str(tmp_path))
+            result = runner.invoke(app, ["dashboard"])
+            assert result.exit_code == 0
+            assert "idos" in result.stdout.lower()
+        finally:
+            os.chdir(str(cwd))
 
-    def test_event_log(self):
-        result = runner.invoke(app, ["event-log"])
-        assert result.exit_code == 0
+    def test_event_log(self, tmp_path: Path):
+        cwd = Path.cwd()
+        try:
+            os.chdir(str(tmp_path))
+            result = runner.invoke(app, ["event-log"])
+            assert result.exit_code == 0
+        finally:
+            os.chdir(str(cwd))
 
-    def test_opp_list(self):
-        result = runner.invoke(app, ["opp-list"])
-        assert result.exit_code == 0
+    def test_opp_list(self, tmp_path: Path):
+        cwd = Path.cwd()
+        try:
+            os.chdir(str(tmp_path))
+            result = runner.invoke(app, ["opp-list"])
+            assert result.exit_code == 0
+        finally:
+            os.chdir(str(cwd))
 
-    def test_watchlist(self):
-        result = runner.invoke(app, ["watchlist"])
-        assert result.exit_code == 0
+    def test_watchlist(self, tmp_path: Path):
+        cwd = Path.cwd()
+        try:
+            os.chdir(str(tmp_path))
+            result = runner.invoke(app, ["watchlist"])
+            assert result.exit_code == 0
+        finally:
+            os.chdir(str(cwd))
 
-    def test_position_list(self):
-        result = runner.invoke(app, ["position-list"])
-        assert result.exit_code == 0
+    def test_position_list(self, tmp_path: Path):
+        cwd = Path.cwd()
+        try:
+            os.chdir(str(tmp_path))
+            result = runner.invoke(app, ["position-list"])
+            assert result.exit_code == 0
+        finally:
+            os.chdir(str(cwd))
 
-    def test_schedule_status(self):
-        result = runner.invoke(app, ["schedule-status"])
-        assert result.exit_code == 0
+    def test_schedule_status(self, tmp_path: Path):
+        cwd = Path.cwd()
+        try:
+            os.chdir(str(tmp_path))
+            result = runner.invoke(app, ["schedule-status"])
+            assert result.exit_code == 0
+        finally:
+            os.chdir(str(cwd))
 
-    def test_company_add_and_show(self):
-        with runner.isolated_filesystem():
+    def test_company_add_and_show(self, tmp_path: Path):
+        cwd = Path.cwd()
+        try:
+            os.chdir(str(tmp_path))
             runner.invoke(app, ["init"])
             result = runner.invoke(app, ["company-add", "TEST", "--name",
                                           "Test Corp", "--sector", "Technology"])
@@ -55,9 +89,13 @@ class TestCLISmoke:
             result = runner.invoke(app, ["company-show", "TEST"])
             assert result.exit_code == 0
             assert "TEST" in result.stdout
+        finally:
+            os.chdir(str(cwd))
 
-    def test_opportunity_crud(self):
-        with runner.isolated_filesystem():
+    def test_opportunity_crud(self, tmp_path: Path):
+        cwd = Path.cwd()
+        try:
+            os.chdir(str(tmp_path))
             runner.invoke(app, ["init"])
             opp_id = "OPP-2026-CLI-001"
 
@@ -67,6 +105,8 @@ class TestCLISmoke:
 
             result = runner.invoke(app, ["opp-list"])
             assert result.exit_code == 0
+        finally:
+            os.chdir(str(cwd))
 
     def test_opp_show_not_found(self):
         result = runner.invoke(app, ["opp-show", "NONEXISTENT"])

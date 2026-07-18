@@ -5,6 +5,24 @@ import pytest
 
 from idos.models.enums import OpportunityStatus
 from idos.workers.ai.research_worker import ResearchWorker
+from idos.workers.base import WorkerStatus
+
+
+def _mock_research_registry() -> MagicMock:
+    registry = MagicMock()
+
+    def get_side_effect(prompt_name: str, category: str = "research"):
+        if prompt_name == "ddd":
+            return "FASE 0 - clasificacion oportunidad for {ticker} ({name})"
+        if prompt_name == "hypothesis":
+            return "Genera hipotesis de inversion para {ticker}"
+        if prompt_name == "aoif":
+            return "AOIF 8-step protocol for {ticker} ({name})"
+        return "template {ticker}"
+
+    registry.get.side_effect = get_side_effect
+    registry.get_system.return_value = "system"
+    return registry
 
 
 class TestResearchWorker:
@@ -20,9 +38,7 @@ class TestResearchWorker:
         ticker, opp_id = seeded_opportunity
         worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
         worker.llm = mock_llm_client
-        worker.registry = MagicMock()
-        worker.registry.get.return_value = "prompt template {ticker} {sector} ..."
-        worker.registry.get_system.return_value = "system prompt"
+        worker.registry = _mock_research_registry()
 
         result = worker.execute({
             "ticker": ticker,
@@ -30,7 +46,7 @@ class TestResearchWorker:
             "base_path": base_path,
         })
 
-        assert result.status == "success"
+        assert result.status == WorkerStatus.SUCCESS
         output = result.output
         assert output["status"] == "completed"
         assert output["score"] > 0
@@ -49,11 +65,10 @@ class TestResearchWorker:
         ticker, opp_id = seeded_opportunity
         worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
         worker.llm = mock_llm_client
-        worker.registry = MagicMock()
-        worker.registry.get.return_value = "template {ticker}"
-        worker.registry.get_system.return_value = "system"
+        worker.registry = _mock_research_registry()
 
-        worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+        result = worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+        assert result.status == WorkerStatus.SUCCESS
 
         opp = tmp_sqlite.get_opportunity(opp_id)
         assert opp is not None
@@ -70,11 +85,10 @@ class TestResearchWorker:
         ticker, opp_id = seeded_opportunity
         worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
         worker.llm = mock_llm_client
-        worker.registry = MagicMock()
-        worker.registry.get.return_value = "template {ticker}"
-        worker.registry.get_system.return_value = "system"
+        worker.registry = _mock_research_registry()
 
-        worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+        result = worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+        assert result.status == WorkerStatus.SUCCESS
 
         ass_path = tmp_journal.opportunity_path(ticker, opp_id) / "assessments"
         assert ass_path.exists()
@@ -101,11 +115,11 @@ class TestResearchWorker:
 
         worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
         worker.llm = mock_llm_client
-        worker.registry = MagicMock()
+        worker.registry = _mock_research_registry()
 
         result = worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
 
-        assert result.status == "success"
+        assert result.status == WorkerStatus.SUCCESS
         assert result.output["status"] == "skipped"
 
     def test_research_requires_ticker_and_opp(
@@ -116,4 +130,4 @@ class TestResearchWorker:
         worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
 
         with pytest.raises(ValueError, match="Both ticker and opp_id"):
-            worker.execute({"ticker": "", "opp_id": "", "base_path": base_path})
+            worker.run({"ticker": "", "opp_id": "", "base_path": base_path})

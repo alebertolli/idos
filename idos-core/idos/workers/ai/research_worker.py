@@ -60,6 +60,7 @@ class ResearchWorker(BaseWorker):
         financial_data = self._load_financial_data(ticker, sqlite)
 
         ddd_result = self._run_prompt("ddd", ticker, {
+            "ticker": ticker,
             "name": company.get("name", ticker),
             "sector": company.get("sector", ""),
             "business_model": company.get("business_model", ""),
@@ -87,6 +88,8 @@ class ResearchWorker(BaseWorker):
         score = ddd_result.get("score_general", 50)
 
         hypothesis_result = self._run_prompt("hypothesis", ticker, {
+            "ticker": ticker,
+            "name": company.get("name", ticker),
             "sector": company.get("sector", ""),
             "thesis_statement": thesis,
             "key_drivers": market_error.get("hipotesis_contraria", ""),
@@ -94,6 +97,8 @@ class ResearchWorker(BaseWorker):
         })
 
         aoif_result = self._run_prompt("aoif", ticker, {
+            "ticker": ticker,
+            "name": company.get("name", ticker),
             "company_data": f"Sector: {company.get('sector', '')}\nBusiness: {company.get('business_model', '')}\nWiki: {wiki[:2000]}",
             "roic": financial_data.get("roic_pct", 0),
             "operating_margin": financial_data.get("operating_margin_pct", 0),

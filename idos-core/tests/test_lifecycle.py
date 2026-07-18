@@ -50,11 +50,9 @@ class TestFullLifecycle:
             "id": opp_id,
             "ticker": ticker,
             "status": OpportunityStatus.DISCOVERED.value,
-            "conviction": {"overall": 50},
+            "conviction": {"overall": 50, "intrinsic_value": 130, "current_price": 95},
             "created_at": "2026-01-01T00:00:00",
             "updated_at": "2026-01-01T00:00:00",
-            "intrinsic_value": 130,
-            "current_price": 95,
         }
         sqlite.save_opportunity(opp)
         journal.save_opportunity(ticker, opp)
@@ -93,7 +91,12 @@ class TestFullLifecycle:
         rw = ResearchWorker({"provider": "test"})
         rw.llm = mock_llm_client
         rw.registry = MagicMock()
-        rw.registry.get.return_value = "template {ticker}"
+        registry_side_effects = {
+            "ddd": "FASE 0 - clasificacion oportunidad for {ticker} ({name})",
+            "hypothesis": "Genera hipotesis de inversion para {ticker}",
+            "aoif": "AOIF 8-step protocol for {ticker} ({name})",
+        }
+        rw.registry.get.side_effect = lambda name, category="research", d=registry_side_effects: d.get(name, "template {ticker}")
         rw.registry.get_system.return_value = "system"
 
         rw_result = rw.execute({

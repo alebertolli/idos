@@ -77,9 +77,10 @@ class ScoutWorker(BaseWorker):
                 "reason": scout_result.reason,
             })
 
-        ranked = self.ranking.rank(screened)
-
-        self._save_watchlist()
+        try:
+            ranked = self.ranking.rank(screened)
+        finally:
+            self._save_watchlist()
 
         passed_entries = [e for e in screened if e["passed"]]
         passed_ranked = [r for r in ranked if any(e["ticker"] == r.ticker and e["passed"] for e in screened)]

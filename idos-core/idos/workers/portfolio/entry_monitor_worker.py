@@ -128,8 +128,8 @@ class EntryMonitorWorker(BaseWorker):
         conviction = opp.get("conviction", {})
         return {
             "price_data": price_data,
-            "intrinsic_value": opp.get("intrinsic_value", 0),
-            "current_price": opp.get("current_price", 0),
+            "intrinsic_value": opp.get("intrinsic_value") or conviction.get("intrinsic_value", 0),
+            "current_price": opp.get("current_price") or conviction.get("current_price", 0),
             "thesis_active": True,
             "portfolio": {"total_weight": 0},
             "proposed_weight": conviction.get("overall", 50) / 100 * 3 if conviction.get("overall") else 1.5,

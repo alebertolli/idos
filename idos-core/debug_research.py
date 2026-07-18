@@ -4,11 +4,7 @@ from pathlib import Path
 from idos.workers.ai.research_worker import ResearchWorker
 from idos.data.sqlite import SQLiteStore
 from idos.models.enums import OpportunityStatus
-import tempfile
-
-print('Creating ResearchWorker...')
-worker = ResearchWorker({'provider': 'test', 'prompts_path': str(Path.cwd())})
-print('ResearchWorker created')
+import tempfile, traceback
 
 tmpdir = Path(tempfile.mkdtemp())
 sqlite = SQLiteStore(tmpdir / 'idos.db')
@@ -18,11 +14,9 @@ sqlite.save_opportunity({
     'status': OpportunityStatus.WATCHLIST.value,
     'conviction': {},
 })
+
 worker = ResearchWorker({'provider': 'test', 'prompts_path': str(tmpdir)})
 worker.llm = MagicMock()
-worker.registry = MagicMock()
-worker.registry.get.return_value = 'template {ticker} {sector} ...'
-worker.registry.get_system.return_value = 'system'
 worker.llm.generate_structured.return_value = {
     "clasificacion_oportunidad": {"categoria": "Compounding Machine"},
     "error_mercado": {"conclusion_error_valoracion": "SI", "hipotesis_contraria": "..."},
@@ -30,11 +24,17 @@ worker.llm.generate_structured.return_value = {
     "score_general": 82,
     "dominio_riesgos": [],
 }
+worker.registry = MagicMock()
+worker.registry.get.return_value = 'prompt template {ticker} ...'
+worker.registry.get_system.return_value = 'system prompt'
 
-result = worker.execute({
-    'ticker': 'TEST',
-    'opp_id': opp_id,
-    'base_path': str(tmpdir),
-})
-print('Status:', result.status)
-print('Error:', result.error)
+try:
+    r = worker.run({
+        'ticker': 'TEST',
+        'opp_id': opp_id,
+        'base_path': str(tmpdir),
+    })
+    print('Success:', r)
+except Exception as e:
+    print('Error:', type(e).__name__, e)
+    traceback.print_exc()

@@ -38,13 +38,29 @@ jobs:
           for res in r.output.get('results', []):
               print(f\"  {res['ticker']}: score={res['scout_score']} rank={res['rank']} reason={res['reason']}\")
           "
-      - name: Commit results
+      - name: Save & commit results
         run: |
+          python -c "
+          import os, json
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          wl = 'idos-journal/portfolio/watchlist.yml'
+          if os.path.exists(wl):
+              print(f'{wl} exists ({os.path.getsize(wl)} bytes)')
+          else:
+              print(f'{wl} NOT FOUND — creating empty')
+              os.makedirs('idos-journal/portfolio', exist_ok=True)
+              with open(wl, 'w') as f:
+                  json.dump({'entries': []}, f)
+          import glob
+          for f in sorted(glob.glob('idos-journal/**/*', recursive=True) + glob.glob('cache/*')):
+              print(f'  {f} ({os.path.getsize(f)} bytes)' if os.path.isfile(f) else f'  {f}/')
+          "
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add idos-journal/portfolio/watchlist.yml cache/scout_results.json 2>/dev/null || true
+          git add idos-journal/ cache/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
+            git status --short
           else
             git commit -m "chore: weekly scout results $(date +%Y-%m-%d)"
             git push
