@@ -67,6 +67,12 @@ class SchedulerService:
             schedule.every().monday.at(job.at_time or "09:00").do(job.run)
         elif job.interval_type == "friday":
             schedule.every().friday.at(job.at_time or "17:00").do(job.run)
+        elif job.interval_type == "months":
+            schedule.every(job.interval_value * 30).days.at(job.at_time or "09:00").do(job.run)
+        elif job.interval_type == "quarterly":
+            schedule.every(90).days.at(job.at_time or "09:00").do(job.run)
+        elif job.interval_type == "semiannual":
+            schedule.every(180).days.at(job.at_time or "09:00").do(job.run)
 
     def unregister(self, name: str):
         self._jobs.pop(name, None)
