@@ -16,6 +16,8 @@ class DigestWorker(BaseWorker):
         positions = context.get("positions", [])
         opportunities = context.get("opportunities", [])
 
+        print(f"[DIGEST] Generating digest: {len(scout_results)} scout results, {len(risk_alerts)} alerts, {len(positions)} positions, {len(opportunities)} opportunities")
+
         lines: list[str] = []
         lines.append(f"# 📊 IDOS Weekly Digest — {datetime.now(timezone.utc).strftime('%Y-%m-%d')}")
         lines.append("")

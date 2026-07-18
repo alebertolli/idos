@@ -29,6 +29,7 @@ jobs:
       - name: Generate digest
         run: |
           python -c "
+          import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
           from idos.workers.data.digest_worker import DigestWorker
           from pathlib import Path
           import os, json

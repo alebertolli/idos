@@ -25,6 +25,8 @@ class ScoutWorker(BaseWorker):
         tickers = context.get("tickers") or self._load_tickers()
         force_refresh = context.get("force_refresh", False)
 
+        print(f"\n[SCOUT] Screening {len(tickers)} tickers (refresh={force_refresh})")
+
         if force_refresh or context.get("refresh_data", False):
             refresh_ctx = {
                 "tickers": tickers,
@@ -32,13 +34,16 @@ class ScoutWorker(BaseWorker):
             }
             refresh_result = self.data_refresher.execute(refresh_ctx)
             data_map = refresh_result.output.get("data", {})
+            print(f"[SCOUT] Data refreshed for {len(data_map)} tickers")
         else:
             data_map = {}
+            print("[SCOUT] Using cached data")
 
         screened: list[dict[str, Any]] = []
-        for ticker in tickers:
+        for i, ticker in enumerate(tickers, 1):
             financial_data = data_map.get(ticker, {}).get("merged_data", {})
             scout_result = self._run_scout(ticker, financial_data)
+            print(f"[SCOUT] [{i}/{len(tickers)}] {ticker}: score={scout_result.score} passed={scout_result.passed} details={scout_result.details}")
 
             self.watchlist.add(
                 ticker=ticker,
@@ -55,6 +60,13 @@ class ScoutWorker(BaseWorker):
             })
 
         ranked = self.ranking.rank(screened)
+
+        passed = [r for r in ranked if r.get("passed")]
+        print(f"\n[SCOUT] Done: {len(screened)} screened, {len(passed)} passed")
+        if passed:
+            print("[SCOUT] Passed:")
+            for r in passed:
+                print(f"  {r['ticker']}: score={r['score']} rank={r.get('rank', '?')}")
 
         return {
             "tickers_screened": len(screened),

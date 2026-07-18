@@ -21,6 +21,7 @@ jobs:
       - name: Refresh data
         run: |
           python -c "
+          import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
           from idos.workers.data.stockanalysis import StockAnalysisWorker
           from idos.workers.data.yahoo import YahooFinanceWorker
           from idos.workers.data.cache import DataCache
@@ -32,21 +33,33 @@ jobs:
           tickers = re.findall(r'^\|\s*([A-Z]+)\s*\|', content, re.MULTILINE)
           seen = set()
           tickers = [t for t in tickers if not (t in seen or seen.add(t))]
-          print(f'Loading {len(tickers)} tickers from watchlist.md')
-          cache = DataCache()
+          print(f'[REFRESH] Loading {len(tickers)} tickers from watchlist.md')
           sa = StockAnalysisWorker()
           yf = YahooFinanceWorker()
           results = {}
-          for t in tickers:
+          for i, t in enumerate(tickers, 1):
+              print(f'[REFRESH] [{i}/{len(tickers)}] {t}...', end=' ')
               try:
                   r1 = sa.execute({'ticker': t})
-                  if r1.status == 'success': results[f'{t}_sa'] = r1.output
-              except Exception as e: results[f'{t}_sa_err'] = str(e)
+                  if r1.status == 'success':
+                      results[f'{t}_sa'] = r1.output
+                      print(f'SA=ok', end=' ')
+                  else:
+                      print(f'SA=fail({r1.error})', end=' ')
+              except Exception as e:
+                  results[f'{t}_sa_err'] = str(e)
+                  print(f'SA=err({e})', end=' ')
               try:
                   r2 = yf.execute({'ticker': t, 'period': '1y'})
-                  if r2.status == 'success': results[f'{t}_yf'] = r2.output
-              except Exception as e: results[f'{t}_yf_err'] = str(e)
-          print(f'Refreshed {len(tickers)} tickers')
+                  if r2.status == 'success':
+                      results[f'{t}_yf'] = r2.output
+                      print(f'YF=ok')
+                  else:
+                      print(f'YF=fail({r2.error})')
+              except Exception as e:
+                  results[f'{t}_yf_err'] = str(e)
+                  print(f'YF=err({e})')
+          print(f'[REFRESH] Done: {len(tickers)} tickers refreshed')
           Path('cache').mkdir(parents=True, exist_ok=True)
           with open('cache/last_refresh.json','w') as f: json.dump(results, f)
           "

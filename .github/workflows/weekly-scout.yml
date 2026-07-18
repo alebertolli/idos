@@ -23,11 +23,13 @@ jobs:
       - name: Run scout
         run: |
           python -c "
+          import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
           from idos.workers.data.scout_worker import ScoutWorker
           import os
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
           w = ScoutWorker({'universe_path': 'idos-config/universe/watchlist.md'})
           r = w.execute({'force_refresh': True})
+          print(f'=== SCOUT COMPLETE ===')
           print(f'Screened: {r.output.get(\"tickers_screened\", 0)}')
           print(f'Passed: {r.output.get(\"passed_count\", 0)}')
           for res in r.output.get('results', []):

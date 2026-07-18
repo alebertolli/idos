@@ -45,24 +45,38 @@ class LLMClient:
         system_prompt: str = "",
         temperature: float = 0.3,
         max_tokens: int = 4096,
+        label: str = "",
     ) -> LLMResponse:
+        label = label or f"{self.provider}/{self.model}"
+        _trunc = lambda s, n=200: (s[:n] + "...") if len(s) > n else s
+        print(f"\n{'='*60}")
+        print(f"[LLM] {label}")
+        print(f"[LLM] SYSTEM: {_trunc(system_prompt)}")
+        print(f"[LLM] PROMPT: {_trunc(prompt)}")
         start = time.time()
         try:
             if self.provider == "openai":
-                return self._call_openai(prompt, system_prompt, temperature, max_tokens)
-            if self.provider == "openrouter":
-                return self._call_openrouter(prompt, system_prompt, temperature, max_tokens)
-            if self.provider == "gemini":
-                return self._call_gemini(prompt, system_prompt, temperature, max_tokens)
-            return self._call_generic(prompt, system_prompt, temperature, max_tokens)
+                resp = self._call_openai(prompt, system_prompt, temperature, max_tokens)
+            elif self.provider == "openrouter":
+                resp = self._call_openrouter(prompt, system_prompt, temperature, max_tokens)
+            elif self.provider == "gemini":
+                resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens)
+            else:
+                resp = self._call_generic(prompt, system_prompt, temperature, max_tokens)
         except Exception as e:
-            return LLMResponse(
+            resp = LLMResponse(
                 content="",
                 model=self.model,
                 success=False,
                 error=str(e),
                 latency_ms=int((time.time() - start) * 1000),
             )
+        if resp.success:
+            print(f"[LLM] RESPONSE ({resp.latency_ms}ms, {resp.tokens_in}→{resp.tokens_out} tok): {_trunc(resp.content, 500)}")
+        else:
+            print(f"[LLM] ERROR ({resp.latency_ms}ms): {resp.error}")
+        print(f"{'='*60}\n")
+        return resp
 
     def generate_structured(
         self,
