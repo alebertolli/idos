@@ -22,8 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pydantic pyyaml typer rich requests beautifulsoup4 lxml yfinance schedule python-telegram-bot aiofiles
-      - name: Run tests
-        run: |
           pip install -e idos-core
-          python -m pytest idos-core/tests/ -v
+          pip install pytest
+      - name: Run tests
+        run: python -m pytest idos-core/tests/ -v

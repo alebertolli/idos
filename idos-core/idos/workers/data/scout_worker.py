@@ -60,7 +60,7 @@ class ScoutWorker(BaseWorker):
             "tickers_screened": len(screened),
             "passed_count": sum(1 for s in screened if s["passed"]),
             "results": ranked,
-            "watchlist_size": len(self.watchlist.get_all()),
+            "watchlist_size": len(self.watchlist.entries),
         }
 
     def _run_scout(self, ticker: str, financial_data: dict[str, Any]) -> ScoutResult:
