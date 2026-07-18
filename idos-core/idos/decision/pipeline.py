@@ -1,7 +1,8 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from datetime import datetime, UTC
 from enum import StrEnum
 from typing import Any
+import json
 
 
 class PipelineStage(StrEnum):
@@ -28,6 +29,9 @@ class PipelineContext:
         if not self.started_at:
             self.started_at = datetime.now(UTC).isoformat()
 
+    def snapshot(self) -> dict[str, Any]:
+        return {k: v for k, v in asdict(self).items() if v}
+
 
 class PipelineStageHandler:
     def process(self, stage: PipelineStage, ctx: PipelineContext) -> PipelineContext:
@@ -38,11 +42,19 @@ class PipelineStageHandler:
 
 
 class DecisionPipeline(PipelineStageHandler):
-    def run(self, ctx: PipelineContext) -> PipelineContext:
+    def run(self, ctx: PipelineContext, verbose: bool = True) -> PipelineContext:
         stages = list(PipelineStage)
         for stage in stages:
+            before = ctx.snapshot()
             ctx = self.process(stage, ctx)
+            after = ctx.snapshot()
+            if verbose:
+                diff = {k: after[k] for k in after if k not in before or before[k] != after[k]}
+                print(json.dumps({"stage": stage.value, "output": diff}, default=str))
         ctx.completed_at = datetime.now(UTC).isoformat()
+        if verbose:
+            summary = {k: v for k, v in ctx.snapshot().items() if k not in ("started_at", "completed_at", "data")}
+            print(json.dumps({"stage": "PIPELINE_COMPLETE", "output": summary}, default=str))
         return ctx
 
     def handle_event_classification(self, ctx: PipelineContext) -> PipelineContext:
