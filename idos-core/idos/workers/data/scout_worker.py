@@ -83,15 +83,25 @@ class ScoutWorker(BaseWorker):
         }
 
     def _run_scout(self, ticker: str, financial_data: dict[str, Any]) -> ScoutResult:
+        def _num(v: Any, default: float = 0.0) -> float:
+            if isinstance(v, (int, float)):
+                return float(v)
+            if isinstance(v, str):
+                try:
+                    return float(v.replace(",", "").replace("$", "").replace("%", ""))
+                except (ValueError, TypeError):
+                    pass
+            return default
+
         metrics = {
-            "market_cap": financial_data.get("market_cap", 0),
-            "avg_volume": financial_data.get("volume_avg", 0) or financial_data.get("avg_volume", 0),
-            "pe_ratio": financial_data.get("pe_ratio_ttm") or financial_data.get("pe_ratio", 0),
-            "ev_ebitda": financial_data.get("ev_ebitda", 0),
-            "roic": financial_data.get("roic_pct", 0),
-            "operating_margin": financial_data.get("operating_margin_pct", 0),
-            "debt_to_equity": financial_data.get("debt_equity_ratio", 0),
-            "revenue_growth": financial_data.get("revenue_growth_pct", 0),
+            "market_cap": _num(financial_data.get("market_cap")),
+            "avg_volume": _num(financial_data.get("volume_avg")) or _num(financial_data.get("avg_volume")),
+            "pe_ratio": _num(financial_data.get("pe_ratio_ttm")) or _num(financial_data.get("pe_ratio")),
+            "ev_ebitda": _num(financial_data.get("ev_ebitda")),
+            "roic": _num(financial_data.get("roic_pct")),
+            "operating_margin": _num(financial_data.get("operating_margin_pct")),
+            "debt_to_equity": _num(financial_data.get("debt_equity_ratio")),
+            "revenue_growth": _num(financial_data.get("revenue_growth_pct")),
         }
         data = {"metrics": metrics}
         return self.scout_engine.scan(ticker=ticker, data=data)
