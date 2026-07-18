@@ -4,6 +4,7 @@ from typing import Any, Optional
 
 from idos.workers.base import BaseWorker
 from idos.workers.data.stockanalysis import StockAnalysisWorker
+from idos.workers.data.yahoo import YahooFinanceWorker
 from idos.workers.data.cache import DataCache
 from idos.workers.data.validator import DataValidator
 
@@ -19,6 +20,7 @@ class DataRefreshWorker(BaseWorker):
         self.universe_path = config.get("universe_path", "")
         self.sources = {
             "stockanalysis": StockAnalysisWorker(config),
+            "yfinance": YahooFinanceWorker(config),
         }
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
@@ -40,6 +42,7 @@ class DataRefreshWorker(BaseWorker):
 
             try:
                 source_data = {}
+                print(f"[REFRESH] {ticker}: fetching stockanalysis...", end=" ")
                 sa_data = self.sources["stockanalysis"].execute({"ticker": ticker})
                 if sa_data.status == "success":
                     source_data["stockanalysis.com"] = sa_data.output
@@ -49,6 +52,24 @@ class DataRefreshWorker(BaseWorker):
                         source="stockanalysis.com",
                         ttl_seconds=43200,
                     )
+                    print("ok")
+                else:
+                    print(f"fail ({sa_data.error})")
+
+                if "stockanalysis.com" not in source_data:
+                    print(f"[REFRESH] {ticker}: fetching yfinance...", end=" ")
+                    yf_data = self.sources["yfinance"].execute({"ticker": ticker})
+                    if yf_data.status == "success":
+                        source_data["yfinance"] = yf_data.output
+                        self.cache.set(
+                            f"raw:yfinance:{ticker}",
+                            yf_data.output,
+                            source="yfinance",
+                            ttl_seconds=43200,
+                        )
+                        print("ok")
+                    else:
+                        print(f"fail ({yf_data.error})")
 
                 if len(source_data) > 0:
                     validated = self.validator.cross_validate(source_data)
