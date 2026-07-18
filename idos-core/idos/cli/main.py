@@ -500,5 +500,40 @@ def schedule_status():
     console.print(table)
 
 
+@app.command()
+def scout(tickers: str = "", force_refresh: bool = False):
+    """Ejecuta screening sobre watchlist.md o lista de tickers."""
+    ctx = _get_context()
+    config = {
+        "universe_path": str(ctx.config_path.parent / "idos-config/universe/watchlist.md"),
+        "journal_path": str(ctx.journal_path),
+    }
+    if tickers:
+        ticker_list = [t.strip().upper() for t in tickers.split(",") if t.strip()]
+        config["tickers"] = ticker_list
+
+    from idos.workers.data.scout_worker import ScoutWorker
+    worker = ScoutWorker(config)
+    result = worker.execute({
+        "force_refresh": force_refresh,
+        "tickers": ticker_list if tickers else None,
+    })
+
+    if result.status == "failed":
+        console.print(f"[red]Scout failed: {result.error}[/red]")
+        return
+
+    output = result.output
+    passed = [r for r in output.get("results", []) if r.get("passed")]
+    table = Table(title=f"Scout Results ({output.get('tickers_screened', 0)} screened, {output.get('passed_count', 0)} passed)")
+    table.add_column("Ticker", style="cyan")
+    table.add_column("Score")
+    table.add_column("Rank")
+    table.add_column("Reason")
+    for r in sorted(passed, key=lambda x: x.get("rank", 99)):
+        table.add_row(r["ticker"], str(r.get("scout_score", "")), str(r.get("rank", "")), r.get("reason", ""))
+    console.print(table)
+
+
 if __name__ == "__main__":
     app()
