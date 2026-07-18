@@ -57,10 +57,10 @@ jobs:
           "
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add idos-journal/ cache/ 2>/dev/null || true
+          git add idos-journal/portfolio/watchlist.yml cache/scout_results.json 2>&1 || echo "git add exit: $?"
           if git diff --cached --quiet; then
             echo "No changes to commit"
-            git status --short
+            git status --short -- idos-journal/ cache/
           else
             git commit -m "chore: weekly scout results $(date +%Y-%m-%d)"
             git push

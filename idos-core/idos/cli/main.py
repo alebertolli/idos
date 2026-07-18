@@ -78,7 +78,7 @@ def company_show(ticker: str):
 def opp_create(ticker: str):
     ctx = _get_context()
     sqlite, knowledge, journal = _get_stores(ctx)
-    opp_id = f"OPP-{datetime.now(datetime.UTC).strftime('%Y%m%d')}-{len(sqlite.list_opportunities()) + 1:03d}"
+    opp_id = f"OPP-{datetime.now(UTC).strftime('%Y%m%d')}-{len(sqlite.list_opportunities()) + 1:03d}"
     opp = Opportunity(
         id=opp_id,
         ticker=ticker.upper(),

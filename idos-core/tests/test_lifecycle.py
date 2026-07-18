@@ -138,6 +138,7 @@ class TestFullLifecycle:
         assert sqlite.get_opportunity(opp_id)["status"] == "ACCUMULATING"
 
         # ── Step 5: ACCUMULATING → FULL_POSITION ──
+        opp = sqlite.get_opportunity(opp_id)
         for status in ["FULL_POSITION"]:
             transition = state_machine.transition(
                 OpportunityStatus(opp["status"]), OpportunityStatus(status),
@@ -168,12 +169,9 @@ class TestFullLifecycle:
 
         # ── Step 7: MONITORING → EXITED (via ExitEngine) ──
         exit_engine = ExitEngine()
-        exit_signal = exit_engine.evaluate(ticker, {
-            "thesis_active": False,
-            "current_price": 90,
-            "intrinsic_value": 100,
-        })
-        assert exit_signal.thesis_exit is True
+        exit_signal = exit_engine.evaluate_thesis_exit(ticker, thesis_active=False)
+        assert exit_signal is not None
+        assert exit_signal.should_exit is True
 
         transition = state_machine.transition(
             OpportunityStatus(opp["status"]), OpportunityStatus.EXITED,
