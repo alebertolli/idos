@@ -38,6 +38,17 @@ jobs:
           for res in r.output.get('results', []):
               print(f\"  {res['ticker']}: score={res['scout_score']} rank={res['rank']} reason={res['reason']}\")
           "
+      - name: Commit results
+        run: |
+          git config user.name "idos-bot"
+          git config user.email "bot@idos.local"
+          git add idos-journal/portfolio/watchlist.yml cache/scout_results.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: weekly scout results $(date +%Y-%m-%d)"
+            git push
+          fi
       - name: Notify
         run: |
           python -c "

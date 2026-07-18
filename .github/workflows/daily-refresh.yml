@@ -63,6 +63,17 @@ jobs:
           Path('cache').mkdir(parents=True, exist_ok=True)
           with open('cache/last_refresh.json','w') as f: json.dump(results, f)
           "
+      - name: Commit cache
+        run: |
+          git config user.name "idos-bot"
+          git config user.email "bot@idos.local"
+          git add cache/last_refresh.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: daily data refresh $(date +%Y-%m-%d)"
+            git push
+          fi
       - name: Upload cache artifact
         uses: actions/upload-artifact@v4
         with:

@@ -64,6 +64,17 @@ jobs:
               f.write(r.output.get('digest', ''))
           print(f'Digest generated: {r.output.get(\"line_count\", 0)} lines')
           "
+      - name: Commit results
+        run: |
+          git config user.name "idos-bot"
+          git config user.email "bot@idos.local"
+          git add idos-journal/portfolio/watchlist.yml cache/weekly_digest.md 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: weekly digest $(date +%Y-%m-%d)"
+            git push
+          fi
       - name: Send notifications
         run: |
           python -c "
