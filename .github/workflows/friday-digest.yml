@@ -8,6 +8,8 @@ on:
 jobs:
   digest:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
