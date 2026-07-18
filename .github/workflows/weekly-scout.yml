@@ -27,7 +27,7 @@ jobs:
           from idos.workers.data.scout_worker import ScoutWorker
           import os
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
-          w = ScoutWorker({'universe_path': 'idos-config/universe/watchlist.md'})
+          w = ScoutWorker({'universe_path': 'idos-config/universe/watchlist.md', 'journal_path': 'idos-journal'})
           r = w.execute({'force_refresh': True})
           print(f'=== SCOUT COMPLETE ===')
           print(f'Status: {r.status}')

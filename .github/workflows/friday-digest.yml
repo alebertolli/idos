@@ -34,7 +34,7 @@ jobs:
           from pathlib import Path
           import os, json
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
-          w = ScoutWorker({'universe_path': 'idos-config/universe/watchlist.md'})
+          w = ScoutWorker({'universe_path': 'idos-config/universe/watchlist.md', 'journal_path': 'idos-journal'})
           r = w.execute({'force_refresh': True})
           print(f'Scout status: {r.status}')
           results = [res for res in r.output.get('results', []) if res.get('scout_score', 0) >= 50]
