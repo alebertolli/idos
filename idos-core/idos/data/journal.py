@@ -71,6 +71,7 @@ class JournalRepository:
 
     def save_watchlist(self, entries: list[dict[str, Any]]):
         filepath = self.base / "portfolio" / "watchlist.yml"
+        filepath.parent.mkdir(parents=True, exist_ok=True)
         with open(filepath, "w", encoding="utf-8") as f:
             yaml.dump({"entries": entries}, f, default_flow_style=False, allow_unicode=True)
 

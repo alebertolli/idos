@@ -26,6 +26,7 @@ class ScoutWorker(BaseWorker):
     def _save_watchlist(self):
         if not self.journal_path:
             return
+        (Path(self.journal_path) / "portfolio").mkdir(parents=True, exist_ok=True)
         repo = JournalRepository(Path(self.journal_path))
         entries = [{"ticker": e.ticker, "score": e.score, "reason": e.reason,
                      "added_at": e.added_at, "alerts": e.alerts, "notified": e.notified}
