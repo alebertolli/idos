@@ -270,6 +270,7 @@ Workers auxiliares:
 | **DigestWorker** | Genera weekly digest en español | Viernes |
 | **GitQueueWorker** | Commit automático de cambios a git | Cada 10 min |
 | **LLMWorker** | Ejecuta prompts contra LLM configurado | Bajo demanda |
+| **TelegramBot** | Bot interactivo de comandos Telegram | Bajo demanda o daemon |
 
 ---
 
@@ -333,6 +334,54 @@ automáticamente al ejecutar `opp-approve`.
 
 ## 7. Arquitectura de Datos
 
+### Pipeline de Screening
+
+```
+watchlist.md (10,000 tickers)
+    │
+    ▼
+┌─────────────────────────────────────┐
+│ STEP 1: FinvizScreener (0 LLM)      │
+│ Reglas programáticas sobre datos    │
+│ cacheados (Value, Growth, Momentum) │
+└──────────────┬──────────────────────┘
+               │ ~1,000-3,000
+               ▼
+┌─────────────────────────────────────┐
+│ STEP 2: OperabilityFilter (0 LLM)   │
+│ CEDEARs + broker directo            │
+└──────────────┬──────────────────────┘
+               │ ~200-600
+               ▼
+┌─────────────────────────────────────┐
+│ STEP 3: ScoutEngine (0 LLM)         │
+│ Score detallado: size, liquidity,   │
+│ momentum, value, quality            │
+└──────────────┬──────────────────────┘
+               │ ~30-80 (top scored)
+               ▼
+         watchlist.md
+               │
+               ▼
+┌─────────────────────────────────────┐
+│ STEP 4: Data Refresh (scraping)     │
+│ Solo para watchlisted               │
+└──────────────┬──────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────┐
+│ STEP 5: Deep Research (LLM)         │
+│ DDD + AOIF + Hypothesis             │
+└──────────────┬──────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────┐
+│ Decision Board → Portfolio          │
+└─────────────────────────────────────┘
+```
+
+### Fuentes de Datos
+
 ```
 stockanalysis.com ─┐
 yfinance ──────────┤──► DataCache (SQLite con TTL)
@@ -381,6 +430,25 @@ set IDOS_TELEGRAM_BOT_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
 set IDOS_TELEGRAM_CHAT_ID=-123456789
 ```
 
+Además de notificaciones automáticas, hay un **bot interactivo** que responde comandos:
+
+| Comando | Descripción |
+|---------|-------------|
+| `/watchlist` | Watchlist actual con scores |
+| `/dashboard` | Resumen del sistema |
+| `/scout AAPL,GOOGL` | Screening bajo demanda |
+| `/opp-list` | Oportunidades activas |
+| `/position-list` | Posiciones abiertas |
+| `/event-log` | Eventos recientes |
+| `/help` | Lista de comandos |
+
+```bash
+idos telegram-bot                  # Una ejecución
+nohup idos telegram-bot --daemon & # Modo daemon (Codespace)
+```
+
+En workflows GHA, se usa `if: failure()` para alertas inmediatas de fallo.
+
 Prioridades:
 - **🔴 HIGH**: Alertas de riesgo, oportunidades detectadas → Telegram inmediato
 - **🟡 MEDIUM**: Cambios de estado, convicción update → Email digest diario
@@ -414,6 +482,14 @@ idos position-exit MELI --reason thesis_broken  # Cerrar + post-mortem
 idos position-exit MELI --reason valuation_target  # Salida por valoración
 idos position-exit MELI --reason stop_loss  # Stop loss alcanzado
 idos position-exit MELI --reason portfolio_rebalance  # Rotación de capital
+
+# Screening y Watchlist
+idos scout                                # Ejecutar screening completo
+idos watchlist                            # Ver watchlist con scores
+
+# Notificaciones
+idos telegram-bot                         # Procesar comandos Telegram
+idos telegram-bot --daemon                # Modo escucha continua
 
 # Diagnóstico
 idos opp-show MELI                        # Estado + transiciones históricas
@@ -450,7 +526,7 @@ idos opp-show TICKER
 
 ```bash
 cd idos-core
-python -m pytest -v        # 326+ tests
+python -m pytest -v        # 360+ tests
 ```
 
 ---
@@ -468,6 +544,10 @@ idos position-list         # Posiciones activas
 idos position-exit MELI --reason manual  # Salida + post-mortem
 idos event-log             # Eventos recientes
 idos schedule-status       # Estado del scheduler
+idos scout                 # Screening completo
+idos watchlist             # Watchlist con scores
+idos telegram-bot          # Bot Telegram interactivo
+idos telegram-bot --daemon # Modo daemon
 idos operable-list         # Activos operables
 idos operable-check MELI   # Verificar si es operable
 idos operable-add AAPL --type cedear  # Agregar activo operable
@@ -480,4 +560,4 @@ idos screener-run AAPL              # Evaluar ticker contra screeners
 ---
 
 *IDOS v0.2.0 — Family Office Investment Decision Operating System*
-*360+ tests · 25 comandos CLI · Ciclo de vida completo · Dual-mode Wyckoff*
+*360+ tests · 28 comandos CLI · Ciclo de vida completo · Dual-mode Wyckoff*
