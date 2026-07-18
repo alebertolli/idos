@@ -30,6 +30,7 @@ jobs:
         run: |
           python -c "
           from idos.workers.data.digest_worker import DigestWorker
+          from pathlib import Path
           import os, json
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
           w = DigestWorker()
@@ -41,6 +42,7 @@ jobs:
               'risk_alerts': [],
               'opportunities': [],
           })
+          Path('cache').mkdir(parents=True, exist_ok=True)
           with open('cache/weekly_digest.md', 'w') as f:
               f.write(r.output.get('digest', ''))
           print(f'Digest generated: {r.output.get(\"line_count\", 0)} lines')

@@ -24,10 +24,15 @@ jobs:
           from idos.workers.data.stockanalysis import StockAnalysisWorker
           from idos.workers.data.yahoo import YahooFinanceWorker
           from idos.workers.data.cache import DataCache
+          from idos.workers.data.refresh_worker import DataRefreshWorker
           from pathlib import Path
-          import os, json
+          import os, json, re
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
-          tickers = ['GOOGL','AAPL','MSFT','AMZN','META','NVDA','MELI','TSM','ASML','ISRG']
+          content = Path('idos-config/universe/watchlist.md').read_text(encoding='utf-8')
+          tickers = re.findall(r'^\|\s*([A-Z]+)\s*\|', content, re.MULTILINE)
+          seen = set()
+          tickers = [t for t in tickers if not (t in seen or seen.add(t))]
+          print(f'Loading {len(tickers)} tickers from watchlist.md')
           cache = DataCache()
           sa = StockAnalysisWorker()
           yf = YahooFinanceWorker()
