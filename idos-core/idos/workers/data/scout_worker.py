@@ -7,6 +7,7 @@ from idos.discovery.watchlist import WatchlistManager
 from idos.discovery.ranking import RankingSystem
 from idos.workers.base import BaseWorker
 from idos.workers.data.refresh_worker import DataRefreshWorker
+from idos.data.journal import JournalRepository
 
 
 class ScoutWorker(BaseWorker):
@@ -20,6 +21,17 @@ class ScoutWorker(BaseWorker):
         self.watchlist = WatchlistManager(max_entries=config.get("max_watchlist", 50))
         self.ranking = RankingSystem()
         self.data_refresher = DataRefreshWorker(config)
+        self.journal_path = config.get("journal_path", "")
+
+    def _save_watchlist(self):
+        if not self.journal_path:
+            return
+        repo = JournalRepository(Path(self.journal_path))
+        entries = [{"ticker": e.ticker, "score": e.score, "reason": e.reason,
+                     "added_at": e.added_at, "alerts": e.alerts, "notified": e.notified}
+                    for e in self.watchlist.entries]
+        repo.save_watchlist(entries)
+        print(f"[SCOUT] Watchlist saved to {self.journal_path}/portfolio/watchlist.yml ({len(entries)} entries)")
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         tickers = context.get("tickers") or self._load_tickers()
@@ -65,6 +77,8 @@ class ScoutWorker(BaseWorker):
             })
 
         ranked = self.ranking.rank(screened)
+
+        self._save_watchlist()
 
         passed_entries = [e for e in screened if e["passed"]]
         passed_ranked = [r for r in ranked if any(e["ticker"] == r.ticker and e["passed"] for e in screened)]
