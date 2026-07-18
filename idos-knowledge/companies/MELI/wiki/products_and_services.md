@@ -1,0 +1,4 @@
+- MercadoLibre (e-commerce)
+- MercadoPago (payments)
+- MercadoEnvíos (logistics)
+- MercadoCrédito (financing)

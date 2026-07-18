@@ -1,0 +1,2 @@
+- **Credit portfolio expansion** (Impact: high, Timeline: short)
+- **Mexico logistics ramp** (Impact: medium, Timeline: medium)
