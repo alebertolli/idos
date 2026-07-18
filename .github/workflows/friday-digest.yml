@@ -26,6 +26,23 @@ jobs:
           python-version: "3.12"
       - name: Install
         run: pip install -e idos-core
+      - name: Run scout
+        run: |
+          python -c "
+          import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          from idos.workers.data.scout_worker import ScoutWorker
+          from pathlib import Path
+          import os, json
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          w = ScoutWorker({'universe_path': 'idos-config/universe/watchlist.md'})
+          r = w.execute({'force_refresh': True})
+          print(f'Scout status: {r.status}')
+          results = [res for res in r.output.get('results', []) if res.get('scout_score', 0) >= 50]
+          print(f'Passed scout: {len(results)} tickers')
+          Path('cache').mkdir(parents=True, exist_ok=True)
+          with open('cache/scout_results.json', 'w') as f:
+              json.dump({'results': results, 'generated_at': r.output.get('generated_at', '')}, f)
+          "
       - name: Generate digest
         run: |
           python -c "
@@ -34,12 +51,11 @@ jobs:
           from pathlib import Path
           import os, json
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          scout_file = Path('cache/scout_results.json')
+          scout_data = json.loads(scout_file.read_text()) if scout_file.exists() else {'results': []}
           w = DigestWorker()
           r = w.execute({
-              'scout_results': [
-                  {'ticker': 'GOOGL', 'passed': True, 'score': 85, 'reason': 'Moat digital + Cloud'},
-                  {'ticker': 'MELI', 'passed': True, 'score': 78, 'reason': 'Crecimiento LatAm'},
-              ],
+              'scout_results': scout_data.get('results', []),
               'risk_alerts': [],
               'opportunities': [],
           })
