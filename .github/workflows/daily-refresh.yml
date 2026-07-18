@@ -1,0 +1,55 @@
+name: Daily Data Refresh
+
+on:
+  schedule:
+    - cron: "0 8 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          pip install -e idos-core
+          pip install pydantic pyyaml requests beautifulsoup4 lxml yfinance schedule
+      - name: Refresh data
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python -c "
+          from idos.workers.data.stockanalysis import StockAnalysisWorker
+          from idos.workers.data.yahoo import YahooFinanceWorker
+          from idos.workers.data.cache import DataCache
+          from pathlib import Path
+          import os, json
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          tickers = ['GOOGL','AAPL','MSFT','AMZN','META','NVDA','MELI','TSM','ASML','ISRG']
+          cache = DataCache()
+          sa = StockAnalysisWorker()
+          yf = YahooFinanceWorker()
+          results = {}
+          for t in tickers:
+              try:
+                  r1 = sa.execute({'ticker': t})
+                  if r1.status == 'success': results[f'{t}_sa'] = r1.output
+              except Exception as e: results[f'{t}_sa_err'] = str(e)
+              try:
+                  r2 = yf.execute({'ticker': t, 'period': '1y'})
+                  if r2.status == 'success': results[f'{t}_yf'] = r2.output
+              except Exception as e: results[f'{t}_yf_err'] = str(e)
+          print(f'Refreshed {len(tickers)} tickers')
+          with open('cache/last_refresh.json','w') as f: json.dump(results, f)
+          "
+      - name: Commit cache
+        run: |
+          git config user.name "idos-bot"
+          git config user.email "bot@idos.local"
+          git add cache/ -A
+          git diff --cached --quiet || git commit -m "chore: daily data refresh $(date +%Y-%m-%d)"
+          git push

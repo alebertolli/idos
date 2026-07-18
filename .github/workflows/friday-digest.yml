@@ -1,0 +1,85 @@
+name: Friday Weekly Digest
+
+on:
+  schedule:
+    - cron: "0 18 * * 5"
+  workflow_dispatch:
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          pip install -e idos-core
+          pip install pydantic pyyaml requests beautifulsoup4 lxml yfinance schedule
+      - name: Generate digest
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python -c "
+          from idos.workers.data.digest_worker import DigestWorker
+          import os, json
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          w = DigestWorker()
+          r = w.execute({
+              'scout_results': [
+                  {'ticker': 'GOOGL', 'passed': True, 'score': 85, 'reason': 'Moat digital + Cloud'},
+                  {'ticker': 'MELI', 'passed': True, 'score': 78, 'reason': 'Crecimiento LatAm'},
+              ],
+              'risk_alerts': [],
+              'opportunities': [],
+          })
+          with open('cache/weekly_digest.md', 'w') as f:
+              f.write(r.output.get('digest', ''))
+          print(f'Digest generated: {r.output.get(\"line_count\", 0)} lines')
+          "
+      - name: Send notifications
+        env:
+          IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
+          IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
+          IDOS_SMTP_HOST: ${{ secrets.IDOS_SMTP_HOST }}
+          IDOS_SMTP_PORT: ${{ secrets.IDOS_SMTP_PORT }}
+          IDOS_SMTP_USER: ${{ secrets.IDOS_SMTP_USER }}
+          IDOS_SMTP_PASS: ${{ secrets.IDOS_SMTP_PASS }}
+          IDOS_FROM_ADDR: ${{ secrets.IDOS_FROM_ADDR }}
+          IDOS_TO_ADDR: ${{ secrets.IDOS_TO_ADDR }}
+        run: |
+          python -c "
+          import os
+          digest_text = open('cache/weekly_digest.md').read()
+          # Telegram
+          token = os.environ.get('IDOS_TELEGRAM_BOT_TOKEN')
+          chat = os.environ.get('IDOS_TELEGRAM_CHAT_ID')
+          if token and chat:
+              from idos.workers.notifications.telegram import TelegramNotifier
+              t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
+              t.execute({'message': digest_text[:4000]})
+              print('Digest sent via Telegram')
+          # Email
+          smtp_host = os.environ.get('IDOS_SMTP_HOST')
+          if smtp_host:
+              from idos.workers.notifications.email_notifier import EmailNotifier
+              e = EmailNotifier({
+                  'smtp_host': smtp_host,
+                  'smtp_port': os.environ.get('IDOS_SMTP_PORT', '587'),
+                  'smtp_user': os.environ.get('IDOS_SMTP_USER'),
+                  'smtp_pass': os.environ.get('IDOS_SMTP_PASS'),
+                  'from_addr': os.environ.get('IDOS_FROM_ADDR'),
+                  'to_addr': os.environ.get('IDOS_TO_ADDR'),
+              })
+              e.execute({'subject': 'IDOS Weekly Digest', 'body': digest_text})
+              print('Digest sent via Email')
+          "
+      - name: Commit digest
+        run: |
+          git config user.name "idos-bot"
+          git config user.email "bot@idos.local"
+          git add cache/ -A
+          git diff --cached --quiet || git commit -m "chore: weekly digest $(date +%Y-%m-%d)"
+          git push
