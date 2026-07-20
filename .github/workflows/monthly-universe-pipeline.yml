@@ -99,6 +99,13 @@ jobs:
                   if new_wl:
                       lines.append(f'')
                       lines.append(f'✅ *{new_wl} new watchlist additions*')
+                  opp_eligible = o.get('opportunities_eligible', 0)
+                  opp_created = o.get('opportunities_created', 0)
+                  opp_existing = o.get('opportunities_existing', 0)
+                  if opp_eligible:
+                      lines.append(f'')
+                      lines.append(f'🎯 *Oportunidades:* {opp_eligible} elegibles (score >= threshold)')
+                      lines.append(f'  ✨ Creadas: {opp_created} | Existentes: {opp_existing}')
                   fetch_errors = o.get('fetch_errors', 0)
                   if fetch_errors:
                       lines.append(f'⚠️ *{fetch_errors} fetch errors*')
