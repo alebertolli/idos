@@ -346,20 +346,22 @@ jobs:
           smtp_host = os.environ.get('IDOS_SMTP_HOST', '')
           if smtp_host:
               from idos.workers.notifications.email_notifier import EmailNotifier
-              email_body = f'''IDOS DDD Pipeline Report
-
-  Total opps: {total}
-  Research: {len(processed)}
-  Assessments: {len(assessments)}
-  Approved: {approved}
-  Errors: {len(errors)}
-
-  Resultados:
-  {chr(10).join(f\"- {a['ticker']}: conv={a.get('conviction_score','?')}/100 | {a.get('recommendation','?')} | board={'OK' if a.get('board_approved') else 'PENDING'}\" for a in assessments[:20])}
-
-  Ver detalle completo:
-  https://github.com/alebertolli/idos/tree/main/idos-journal/companies
-  '''
+              body_lines = []
+              body_lines.append('IDOS DDD Pipeline Report')
+              body_lines.append('')
+              body_lines.append(f'Total opps: {total}')
+              body_lines.append(f'Research: {len(processed)}')
+              body_lines.append(f'Assessments: {len(assessments)}')
+              body_lines.append(f'Approved: {approved}')
+              body_lines.append(f'Errors: {len(errors)}')
+              body_lines.append('')
+              body_lines.append('Resultados:')
+              for a in assessments[:20]:
+                  body_lines.append(f"- {a['ticker']}: conv={a.get('conviction_score','?')}/100 | {a.get('recommendation','?')} | board={'OK' if a.get('board_approved') else 'PENDING'}")
+              body_lines.append('')
+              body_lines.append('Ver detalle completo:')
+              body_lines.append('https://github.com/alebertolli/idos/tree/main/idos-journal/companies')
+              email_body = chr(10).join(body_lines)
               e = EmailNotifier()
               e.execute({'subject': 'IDOS DDD Pipeline Report', 'body': email_body})
               print('[NOTIFY] Email sent')
