@@ -6,6 +6,11 @@ from idos.ai.llm import LLMClient
 from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
+from idos.learning.feedback import FeedbackCollector, FeedbackRecord
+from idos.learning.hitrate import HitRateTracker
+from idos.learning.loop import ContinuousImprovementLoop
+from idos.learning.patterns import PatternLearner
+from idos.learning.weights import WeightAdjuster
 from idos.models.enums import OpportunityStatus
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
@@ -29,6 +34,15 @@ class PostMortemWorker(BaseWorker):
         prompts_path = config.get("prompts_path", "")
         self.registry = PromptRegistry(prompts_path) if prompts_path else PromptRegistry()
         self.state_machine = OpportunityStateMachine()
+
+        # Learning loop components
+        self.feedback = FeedbackCollector()
+        self.weights = WeightAdjuster()
+        self.patterns = PatternLearner()
+        self.hitrates = HitRateTracker()
+        self.improvement_loop = ContinuousImprovementLoop(
+            self.feedback, self.weights, self.patterns, self.hitrates,
+        )
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         ticker = context.get("ticker", "").upper().strip()
@@ -96,6 +110,10 @@ class PostMortemWorker(BaseWorker):
             "archived": True,
         })
 
+        # Feed learning loop
+        self._feed_learning_loop(ticker, opp_id, decisions, assessments, post_mortem, exit_reason)
+        loop_result = self.improvement_loop.run()
+
         return {
             "ticker": ticker,
             "opp_id": opp_id,
@@ -104,7 +122,57 @@ class PostMortemWorker(BaseWorker):
             "pm_id": pm_id,
             "exit_reason": exit_reason,
             "lessons": post_mortem.get("lessons_learned", []),
+            "learning_loop": {
+                "weights_adjusted": loop_result.weights_adjusted,
+                "patterns_identified": loop_result.patterns_identified,
+                "feedback_processed": loop_result.feedback_processed,
+                "hit_rates_updated": loop_result.hit_rates_updated,
+                "top_patterns": loop_result.top_patterns,
+                "underperformers": loop_result.underperformers,
+            },
         }
+
+    def _feed_learning_loop(self, ticker: str, opp_id: str,
+                            decisions: list[dict], assessments: list[dict],
+                            post_mortem: dict, exit_reason: str):
+        """Extract structured feedback from post-mortem and feed into learning loop."""
+        thesis_correct = post_mortem.get("thesis_was_correct", False)
+        outcome = "success" if thesis_correct else "failure"
+
+        # Record feedback for each engine
+        for a in assessments:
+            engine = a.get("engine", "unknown")
+            score = a.get("score", 0)
+            rec = FeedbackRecord(
+                ticker=ticker,
+                prediction_id=f"{opp_id}-{engine}",
+                predicted_direction="up" if score >= 50 else "down",
+                actual_direction="up" if thesis_correct else "down",
+                predicted_price=0,  # Would come from DDD target
+                actual_price=0,
+                outcome=outcome,
+                engine=engine,
+                analyst="post_mortem",
+                notes=exit_reason,
+            )
+            self.feedback.record(rec)
+
+        # Record pattern observation
+        features = {
+            "exit_reason": exit_reason,
+            "conviction_at_entry": decisions[0].get("conviction_score", 50) if decisions else 50,
+            "sector": assessments[0].get("sector", "unknown") if assessments else "unknown",
+        }
+        self.patterns.observe(ticker, features, outcome)
+
+        # Update hit rates per engine
+        for a in assessments:
+            engine = a.get("engine", "unknown")
+            key = f"engine:{engine}"
+            if thesis_correct:
+                self.hitrates.record_hit(key)
+            else:
+                self.hitrates.record_miss(key)
 
     def _load_decisions(self, ticker: str, opp_id: str, journal: JournalRepository) -> list[dict[str, Any]]:
         dec_path = journal.opportunity_path(ticker, opp_id) / "decisions"

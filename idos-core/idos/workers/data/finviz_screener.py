@@ -104,10 +104,12 @@ class FinvizScreenerScraper(BaseWorker):
         return f"{self.base_url}?{params}"
 
     def _parse_total(self, soup: BeautifulSoup) -> int:
-        header = soup.find("td", class_="count-text")
-        if header:
-            text = header.get_text(strip=True)
-            match = re.search(r"of\s+([\d,]+)", text)
+        total_el = soup.find(id="screener-total")
+        if not total_el:
+            total_el = soup.find(["td", "div", "span"], class_="count-text")
+        if total_el:
+            text = total_el.get_text(strip=True)
+            match = re.search(r"(?:#\d+\s*/|of)\s*([\d,]+)", text)
             if match:
                 return int(match.group(1).replace(",", ""))
         results_label = soup.find(string=re.compile(r"Results:\s*[\d,]+"))
@@ -124,7 +126,7 @@ class FinvizScreenerScraper(BaseWorker):
             rows = table.find_all("tr")
             if len(rows) < 2:
                 continue
-            header_cells = rows[0].find_all("td")
+            header_cells = rows[0].find_all(["td", "th"])
             headers = [c.get_text(strip=True).lower().replace(" ", "_") for c in header_cells]
             if "ticker" not in headers:
                 continue
@@ -133,7 +135,10 @@ class FinvizScreenerScraper(BaseWorker):
                 cells = row.find_all("td")
                 if len(cells) <= ticker_idx:
                     continue
-                ticker = cells[ticker_idx].get_text(strip=True)
+                ticker_cell = cells[ticker_idx]
+                ticker = ticker_cell.get("data-boxover-ticker", "")
+                if not ticker:
+                    ticker = ticker_cell.get_text(strip=True)
                 if not ticker or not re.match(r"^[A-Z.]+$", ticker):
                     continue
                 entry = {"ticker": ticker}

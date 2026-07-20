@@ -139,9 +139,9 @@ class SQLiteStore:
         """, (repo, file_path, content, message, datetime.now(UTC).isoformat()))
         c.commit()
 
-    def get_pending_commits(self) -> list[dict[str, Any]]:
+    def get_pending_commits(self, limit: int = 10) -> list[dict[str, Any]]:
         c = self.conn
-        rows = c.execute("SELECT * FROM pending_commits WHERE status = 'PENDING' ORDER BY id ASC")
+        rows = c.execute("SELECT * FROM pending_commits WHERE status = 'PENDING' ORDER BY id ASC LIMIT ?", (limit,))
         return [dict(r) for r in rows.fetchall()]
 
     def mark_commit_done(self, commit_id: int):

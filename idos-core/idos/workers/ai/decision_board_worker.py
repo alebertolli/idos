@@ -7,6 +7,8 @@ from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.models.enums import OpportunityStatus
+from idos.rules.engine import RulesEngine
+from idos.rules.evaluators import register_default_rules
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
 
@@ -29,6 +31,8 @@ class DecisionBoardWorker(BaseWorker):
         prompts_path = config.get("prompts_path", "")
         self.registry = PromptRegistry(prompts_path) if prompts_path else PromptRegistry()
         self.state_machine = OpportunityStateMachine()
+        self.rules_engine = RulesEngine()
+        register_default_rules(self.rules_engine)
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         ticker = context.get("ticker", "").upper().strip()
@@ -57,9 +61,24 @@ class DecisionBoardWorker(BaseWorker):
         assessments = self._load_assessments(ticker, opp_id, journal)
         rules = self._load_entry_rules(base_path)
 
+        # Deterministic rule evaluation via RulesEngine
+        assessment_scores = {a.get("engine", "unknown"): a.get("score", 0) for a in assessments}
+        conviction = opp.get("conviction", {})
+        context_for_rules = {
+            "assessments": assessment_scores,
+            "conviction": {"overall": conviction.get("overall", 50)},
+            "portfolio": {"position_weight": 0, "sector_exposure": 0},
+            "opportunity": {"asymmetry_ratio": 3.0},
+        }
+        rule_results = self.rules_engine.evaluate_all(context_for_rules)
+        rules_passed = [r.rule_id for r in rule_results if r.passed]
+        rules_failed = [r.rule_id for r in rule_results if not r.passed]
+        all_rules_pass = len(rules_failed) == 0
+
+        # LLM evaluation for explicability (secondary)
         llm_eval = self._llm_evaluate(ticker, assessments, rules)
-        all_rules_pass = llm_eval.get("all_rules_pass", False)
-        recommendation = llm_eval.get("recommendation", "REJECT")
+        recommendation = llm_eval.get("recommendation", "APPROVE" if all_rules_pass else "REJECT")
+        rationale = llm_eval.get("rationale", "")
 
         decision_id = f"dec-{uuid4().hex[:8]}"
         decision = {
@@ -68,8 +87,11 @@ class DecisionBoardWorker(BaseWorker):
             "ticker": ticker,
             "opp_id": opp_id,
             "status": "APPROVED" if all_rules_pass else "REJECTED",
-            "rules_evaluation": llm_eval.get("rules_detail", []),
-            "rationale": llm_eval.get("rationale", ""),
+            "rules_evaluation": {
+                "deterministic": {"passed": rules_passed, "failed": rules_failed},
+                "llm": llm_eval.get("rules_detail", []),
+            },
+            "rationale": rationale,
             "generated_at": datetime.now(UTC).isoformat(),
         }
         journal.save_decision(ticker, opp_id, decision)
@@ -91,6 +113,8 @@ class DecisionBoardWorker(BaseWorker):
             "ticker": ticker,
             "decision": new_status.value,
             "rules_pass": all_rules_pass,
+            "deterministic_passed": rules_passed,
+            "deterministic_failed": rules_failed,
             "decision_id": decision_id,
         })
 
@@ -99,9 +123,11 @@ class DecisionBoardWorker(BaseWorker):
             "opp_id": opp_id,
             "decision": new_status.value,
             "all_rules_pass": all_rules_pass,
+            "deterministic_passed": rules_passed,
+            "deterministic_failed": rules_failed,
             "recommendation": recommendation,
             "decision_id": decision_id,
-            "rules_evaluated": len(llm_eval.get("rules_detail", [])),
+            "rules_evaluated": len(rule_results),
         }
 
     def _load_assessments(self, ticker: str, opp_id: str, journal: JournalRepository) -> list[dict[str, Any]]:
