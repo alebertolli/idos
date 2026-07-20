@@ -1,6 +1,10 @@
 name: DDD Research Pipeline
 
 on:
+  workflow_run:
+    workflows: ["Monthly Universe Pipeline"]
+    types:
+      - completed
   workflow_dispatch:
     inputs:
       ticker:
@@ -8,7 +12,7 @@ on:
         required: false
         type: string
   schedule:
-    - cron: "0 12 * * 1"  # lunes al mediodia UTC
+    - cron: "0 0 2 * *"  # 2do dia de cada mes (post universe)
 
 env:
   GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
