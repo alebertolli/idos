@@ -1,0 +1,120 @@
+assessments:
+  BusinessAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: BusinessAssessmentEngine
+    evidence_ids: []
+    findings: []
+    generated_at: '2026-07-20T03:34:54.477762-03:00'
+    id: BusinessAssessmentEngine-20260720033454
+    recommendation: UNFAVORABLE
+    risks:
+    - detail: 'Low ROIC: 0%'
+      type: CAPITAL_ALLOCATION
+    - detail: 'Thin operating margin: 0%'
+      type: MARGIN
+    score: 32
+    status: COMPLETED
+    version: '1.0'
+  PortfolioAssessmentEngine:
+    confidence: HIGH
+    dependencies: []
+    engine: PortfolioAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: Portfolio has capacity for new position
+      type: POSITIVE
+    - detail: Sector  within diversification limits
+      type: POSITIVE
+    - detail: Only 0 positions, adding increases diversification
+      type: POSITIVE
+    generated_at: '2026-07-20T03:34:54.477820-03:00'
+    id: PortfolioAssessmentEngine-20260720033454
+    recommendation: EXCELLENT_FIT
+    risks: []
+    score: 90
+    status: COMPLETED
+    version: '1.0'
+  RecoveryAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RecoveryAssessmentEngine
+    evidence_ids: []
+    findings:
+    - dimension: business_momentum
+      level: LOW
+      score: 35
+      type: DIMENSION
+    - dimension: valuation_gap
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: market_expectations
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: catalysts
+      level: LOW
+      score: 30
+      type: DIMENSION
+    - dimension: technical_confirmation
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: risk_compression
+      level: MEDIUM
+      score: 60
+      type: DIMENSION
+    generated_at: '2026-07-20T03:34:54.477803-03:00'
+    id: RecoveryAssessmentEngine-20260720033454
+    recommendation: MODERATE
+    risks: []
+    score: 43
+    status: COMPLETED
+    version: '1.0'
+  RiskAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RiskAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: Low leverage
+      type: POSITIVE
+    generated_at: '2026-07-20T03:34:54.477813-03:00'
+    id: RiskAssessmentEngine-20260720033454
+    recommendation: LOW_RISK
+    risks:
+    - detail: 'Current ratio below 1: 0.0x'
+      type: LIQUIDITY
+    score: 70
+    status: COMPLETED
+    version: '1.0'
+  ValuationAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: ValuationAssessmentEngine
+    evidence_ids: []
+    findings: []
+    generated_at: '2026-07-20T03:34:54.477778-03:00'
+    id: ValuationAssessmentEngine-20260720033454
+    recommendation: FAIR
+    risks: []
+    score: 50
+    status: COMPLETED
+    version: '1.0'
+conviction_score: 50
+created_at: '2026-07-20T03:34:54.477875-03:00'
+opportunity_id: OPP-20260720-037
+reasoning: 'Rules blocked: RULE-001, RULE-002, RULE-003, RULE-005'
+recommendation: BLOCKED
+rules_failed:
+- RULE-001
+- RULE-002
+- RULE-003
+- RULE-005
+rules_passed:
+- RULE-004
+- RULE-006
+- RULE-007
+- RULE-008
+type: opportunity:transitioned
