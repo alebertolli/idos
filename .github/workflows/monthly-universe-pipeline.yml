@@ -54,9 +54,6 @@ jobs:
           "
       - name: Save & commit results
         run: |
-          python -c "
-          import os, json, glob
-          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
           git config user.name 'idos-bot'
           git config user.email 'bot@idos.local'
           mkdir -p cache
@@ -68,10 +65,9 @@ jobs:
             echo 'No changes to commit'
           else
             git status --short -- idos-journal/ cache/
-            git commit -m 'chore: monthly universe pipeline $(date +%Y-%m-%d)'
+            git commit -m "chore: monthly universe pipeline $(date +%Y-%m-%d)"
             git push
           fi
-          "
       - name: Notify
         run: |
           python -c "
