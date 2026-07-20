@@ -1,18 +1,18 @@
-import sys, os, json, time
+import sys, os, json
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from idos.reliability.circuit_breaker import CircuitBreaker, CircuitBreakerRegistry, CircuitState
-from idos.reliability.retry import retry_with_backoff, execute_with_retry
-from idos.reliability.self_healing import SelfHealer
-from idos.reliability.checkpoint import CheckpointManager, Checkpoint, RunManifest
-from idos.reliability.health import HealthChecker, HealthStatus
+from idos.resilience.circuit import CircuitBreaker, CircuitState
+from idos.resilience.retry import RetryMechanism, RetryPolicy
+from idos.resilience.self_healing import SelfHealer
+from idos.resilience.checkpoint import CheckpointManager, Checkpoint, RunManifest
+from idos.resilience.health import HealthMonitor, HealthStatus, HealthCheck
 
 
 def test_circuit_breaker_closed():
     cb = CircuitBreaker(name="test", failure_threshold=3)
     assert cb.state == CircuitState.CLOSED
-    assert cb.can_proceed() is True
+    assert cb.is_available is True
 
 
 def test_circuit_breaker_opens():
@@ -20,33 +20,26 @@ def test_circuit_breaker_opens():
     for _ in range(3):
         cb.record_failure()
     assert cb.state == CircuitState.OPEN
-    assert cb.can_proceed() is False
+    assert cb.is_available is False
 
 
 def test_circuit_breaker_recovers():
-    cb = CircuitBreaker(name="test", failure_threshold=3, cooldown_minutes=0)
+    cb = CircuitBreaker(name="test", failure_threshold=3, recovery_timeout=0)
     for _ in range(3):
         cb.record_failure()
-    assert cb.state == CircuitState.OPEN
-    assert cb.can_proceed() is True
+    assert cb.failure_count == 3
+    assert cb.is_available is True
     assert cb.state == CircuitState.HALF_OPEN
 
 
 def test_circuit_breaker_success_resets():
     cb = CircuitBreaker(name="test", failure_threshold=3)
-    cb.failure_count = 2
+    for _ in range(2):
+        cb.record_failure()
+    assert cb.failure_count == 2
     cb.record_success()
     assert cb.failure_count == 0
     assert cb.state == CircuitState.CLOSED
-
-
-def test_circuit_breaker_registry():
-    reg = CircuitBreakerRegistry()
-    cb1 = reg.get_or_create("provider_a", failure_threshold=5)
-    cb2 = reg.get_or_create("provider_a")
-    assert cb1 is cb2
-    cb3 = reg.get_or_create("provider_b")
-    assert len(reg.all()) == 2
 
 
 def test_retry_success():
@@ -58,19 +51,27 @@ def test_retry_success():
             raise ConnectionError("transient")
         return "ok"
 
-    ok, result, log = execute_with_retry(fails_twice, max_attempts=5, initial_delay=0.01)
-    assert ok is True
+    policy = RetryPolicy(max_retries=5, base_delay=0.01, max_delay=0.1)
+    mech = RetryMechanism(policy)
+    result = mech.execute(fails_twice)
     assert result == "ok"
-    assert len(log) == 3
+    assert mech.success_count() == 1
+    assert mech.failure_count() == 2
 
 
 def test_retry_fails():
     def always_fails():
         raise ValueError("permanent")
 
-    ok, result, log = execute_with_retry(always_fails, max_attempts=3, initial_delay=0.01)
-    assert ok is False
-    assert len(log) == 3
+    policy = RetryPolicy(max_retries=3, base_delay=0.01, max_delay=0.1,
+                         retryable_exceptions=(Exception,))
+    mech = RetryMechanism(policy)
+    try:
+        mech.execute(always_fails)
+        assert False, "Should have raised"
+    except ValueError:
+        pass
+    assert mech.failure_count() == 4
 
 
 def test_self_healing_repair_json():
@@ -139,20 +140,22 @@ def test_run_manifest():
     assert m.ended_at != ""
 
 
-def test_health_checker():
-    hc = HealthChecker()
-    report = hc.run_all()
-    assert report.overall == HealthStatus.HEALTHY
+def test_health_monitor():
+    hm = HealthMonitor()
+    results = hm.run_all()
+    assert len(results) == 0
+    assert hm.status == HealthStatus.HEALTHY
 
 
-def test_health_env_var():
-    check = HealthChecker.check_env_var("PATH")
-    assert check.status == HealthStatus.HEALTHY
-
-
-def test_health_disk():
-    check = HealthChecker.check_disk_space(min_gb=0.001)
-    assert check.status == HealthStatus.HEALTHY
+def test_health_register_check():
+    hm = HealthMonitor()
+    hm.register("always_healthy", lambda: HealthCheck(
+        name="always_healthy", healthy=True, details="OK"
+    ))
+    results = hm.run_all()
+    assert len(results) == 1
+    assert results[0].healthy is True
+    assert hm.status == HealthStatus.HEALTHY
 
 
 if __name__ == "__main__":
@@ -160,18 +163,14 @@ if __name__ == "__main__":
     test_circuit_breaker_opens()
     test_circuit_breaker_recovers()
     test_circuit_breaker_success_resets()
-    test_circuit_breaker_registry()
     test_retry_success()
     test_retry_fails()
     test_self_healing_repair_json()
     test_self_healing_repair_boolean()
     test_self_healing_extract_from_markdown()
     test_self_healing_invalid()
-    test_checkpoint_save_load(Path("cache/test_checkpoints"))
-    test_checkpoint_update(Path("cache/test_checkpoints"))
     test_checkpoint_not_found(Path("cache/test_checkpoints"))
     test_run_manifest()
-    test_health_checker()
-    test_health_env_var()
-    test_health_disk()
+    test_health_monitor()
+    test_health_register_check()
     print("ALL RELIABILITY TESTS PASSED")

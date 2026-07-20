@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any
 from idos.data.sqlite import SQLiteStore
 
@@ -14,7 +14,7 @@ class Tracer:
         self._store = store
 
     def start_run(self, worker: str) -> str:
-        run_id = f"RUN-{datetime.now(datetime.UTC).strftime('%Y%m%d-%H%M%S')}-{worker}"
+        run_id = f"RUN-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}-{worker}"
         self._current_run_id = run_id
         return run_id
 

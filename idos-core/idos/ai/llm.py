@@ -263,6 +263,12 @@ class LLMClient:
         )
 
     def _parse_json(self, content: str) -> dict[str, Any]:
+        from idos.resilience.self_healing import SelfHealer
+        healer = SelfHealer()
+        result = healer.parse_with_healing(content)
+        if result is not None:
+            return result
+
         cleaned = content.strip()
         if cleaned.startswith("```"):
             for line in cleaned.split("\n"):

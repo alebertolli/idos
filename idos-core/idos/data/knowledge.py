@@ -46,3 +46,17 @@ class KnowledgeRepository:
             return None
         with open(wiki_path, "r", encoding="utf-8") as f:
             return f.read()
+
+    def get_wiki_text(self, ticker: str) -> str:
+        from idos.knowledge.wiki import AtomicWiki
+        atomic = AtomicWiki(self.base)
+        sections = atomic.all_sections(ticker)
+        if sections:
+            parts = []
+            for s in sections:
+                parts.append(f"## {s.name.replace('_', ' ').title()}\n\n{s.content}")
+            return "\n\n---\n\n".join(parts)
+        wiki = self.load_wiki(ticker)
+        if wiki:
+            return wiki
+        return ""

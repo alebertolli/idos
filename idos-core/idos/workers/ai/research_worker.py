@@ -56,7 +56,7 @@ class ResearchWorker(BaseWorker):
                     "reason": f"Cannot transition from {current_status} to UNDER_DEEP_DD"}
 
         company = knowledge.load_company(ticker) or {}
-        wiki = knowledge.load_wiki(ticker) or ""
+        wiki = knowledge.get_wiki_text(ticker)
         financial_data = self._load_financial_data(ticker, sqlite)
 
         ddd_result = self._run_prompt("ddd", ticker, {
