@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from pydantic import BaseModel, Field
 from typing import Optional
 from idos.models.enums import (
@@ -8,28 +8,26 @@ from idos.models.enums import (
     ReviewType,
 )
 from idos.models.conviction import Conviction
-
+from idos.timezone import AR_TZ
 
 class CaseFile(BaseModel):
     ticker: str
-    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
-    updated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
     opportunity_ids: list[str] = Field(default_factory=list)
     notes: list[dict] = Field(default_factory=list)
-
 
 class Opportunity(BaseModel):
     id: str
     ticker: str
     status: OpportunityStatus = OpportunityStatus.DISCOVERED
-    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
-    updated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
     conviction: Conviction = Field(default_factory=Conviction)
     hypothesis_ids: list[str] = Field(default_factory=list)
     assessment_ids: list[str] = Field(default_factory=list)
     decision_ids: list[str] = Field(default_factory=list)
     review_ids: list[str] = Field(default_factory=list)
-
 
 class Assessment(BaseModel):
     id: str
@@ -43,20 +41,18 @@ class Assessment(BaseModel):
     recommendation: Optional[str] = None
     evidence_ids: list[str] = Field(default_factory=list)
     dependencies: list[str] = Field(default_factory=list)
-    generated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
-
+    generated_at: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
 
 class Decision(BaseModel):
     id: str
     type: DecisionType
     opportunity_id: str
     justification: str
-    executed_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    executed_at: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
     evidence_ids: list[str] = Field(default_factory=list)
     assessment_ids: list[str] = Field(default_factory=list)
     rules_applied: list[str] = Field(default_factory=list)
     author: str = "system"
-
 
 class PortfolioPosition(BaseModel):
     ticker: str
@@ -68,15 +64,13 @@ class PortfolioPosition(BaseModel):
     status: str = "ACTIVE"
     conviction: Conviction = Field(default_factory=Conviction)
 
-
 class Review(BaseModel):
     id: str
     type: ReviewType
     opportunity_id: str
     content: str
-    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
     author: str = "system"
-
 
 class ProvenanceEntry(BaseModel):
     id: str
@@ -84,4 +78,4 @@ class ProvenanceEntry(BaseModel):
     target_field: str
     source: str
     evidence_id: str
-    timestamp: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))

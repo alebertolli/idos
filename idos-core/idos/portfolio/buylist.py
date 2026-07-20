@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class BuyListEntry:
@@ -17,10 +17,9 @@ class BuyListEntry:
 
     def __post_init__(self):
         if not self.added_at:
-            self.added_at = datetime.now(UTC).isoformat()
+            self.added_at = datetime.now(AR_TZ).isoformat()
         if not self.kb_last_update:
             self.kb_last_update = self.added_at
-
 
 class BuyListManager:
     def __init__(self):
@@ -47,7 +46,7 @@ class BuyListManager:
         if entry:
             entry.target_price = target
             entry.buy_zone_top = buy_zone_top
-            entry.kb_last_update = datetime.now(UTC).isoformat()
+            entry.kb_last_update = datetime.now(AR_TZ).isoformat()
 
     def list_ready_to_buy(self, prices: dict[str, float]) -> list[BuyListEntry]:
         ready = []

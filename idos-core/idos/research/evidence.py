@@ -1,8 +1,8 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 from idos.models.knowledge import Evidence
 from idos.models.enums import EvidenceType, ConfidenceLevel
-
+from idos.timezone import AR_TZ
 
 class EvidenceChainManager:
     def __init__(self):
@@ -12,7 +12,7 @@ class EvidenceChainManager:
     def add_evidence(self, description: str, source: str, event_date: str,
                      type: EvidenceType = EvidenceType.OTHER,
                      reliability: ConfidenceLevel = ConfidenceLevel.MEDIUM) -> Evidence:
-        ev_id = f"EVI-{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}-{len(self._chain) + 1:04d}"
+        ev_id = f"EVI-{datetime.now(AR_TZ).strftime('%Y%m%d%H%M%S')}-{len(self._chain) + 1:04d}"
         evidence = Evidence(
             id=ev_id, description=description, type=type,
             source=source, event_date=event_date, reliability=reliability,

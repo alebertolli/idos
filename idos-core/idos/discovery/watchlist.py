@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class WatchlistEntry:
@@ -11,7 +11,6 @@ class WatchlistEntry:
     added_at: str = ""
     alerts: list[str] = field(default_factory=list)
     notified: bool = False
-
 
 class WatchlistManager:
     def __init__(self, max_entries: int = 50):
@@ -31,7 +30,7 @@ class WatchlistManager:
 
         self._entries[ticker.upper()] = WatchlistEntry(
             ticker=ticker.upper(), score=score, reason=reason,
-            added_at=datetime.now(UTC).isoformat(),
+            added_at=datetime.now(AR_TZ).isoformat(),
         )
         return True
 

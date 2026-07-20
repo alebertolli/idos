@@ -1,6 +1,6 @@
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, UTC
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -15,7 +15,7 @@ from idos.discovery.scout import ScoutEngine
 from idos.discovery.watchlist import WatchlistManager
 from idos.discovery.ranking import RankingSystem
 from idos.data.journal import JournalRepository
-
+from idos.timezone import AR_TZ
 
 class UniversePipeline(BaseWorker):
     name = "universe_pipeline"
@@ -28,7 +28,7 @@ class UniversePipeline(BaseWorker):
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         metrics = PipelineMetrics()
-        metrics.started_at = datetime.now(UTC).isoformat()
+        metrics.started_at = datetime.now(AR_TZ).isoformat()
         start_time = time.time()
 
         try:
@@ -41,7 +41,7 @@ class UniversePipeline(BaseWorker):
             metrics.errors.append({"step": "pipeline", "error": str(e)})
 
         metrics.duration_seconds = time.time() - start_time
-        metrics.finished_at = datetime.now(UTC).isoformat()
+        metrics.finished_at = datetime.now(AR_TZ).isoformat()
 
         report = PipelineReportGenerator()
         report_text = report.generate(metrics)

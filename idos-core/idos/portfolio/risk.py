@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class RiskAlert:
@@ -15,8 +15,7 @@ class RiskAlert:
 
     def __post_init__(self):
         if not self.timestamp:
-            self.timestamp = datetime.now(UTC).isoformat()
-
+            self.timestamp = datetime.now(AR_TZ).isoformat()
 
 class RiskEngine:
     def __init__(self, max_drawdown: float = 15.0, stop_loss: float = 20.0,

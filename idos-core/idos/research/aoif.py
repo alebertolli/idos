@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class AOIFStep:
@@ -11,8 +11,7 @@ class AOIFStep:
 
     def __post_init__(self):
         if not self.timestamp:
-            self.timestamp = datetime.now(UTC).isoformat()
-
+            self.timestamp = datetime.now(AR_TZ).isoformat()
 
 @dataclass
 class AOIFResult:
@@ -23,7 +22,6 @@ class AOIFResult:
     inference: str = ""
     completed: bool = False
     completed_at: str = ""
-
 
 class AOIFProtocol:
     STEPS = [
@@ -55,7 +53,7 @@ class AOIFProtocol:
 
         result.inference = f"AOIF analysis completed for {ticker}. Score: {result.score}/100"
         result.completed = True
-        result.completed_at = datetime.now(UTC).isoformat()
+        result.completed_at = datetime.now(AR_TZ).isoformat()
 
         self._results[opportunity_id] = result
         return result

@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class ExitReason(StrEnum):
     THESIS_INVALIDATED = "THESIS_INVALIDATED"
@@ -10,7 +10,6 @@ class ExitReason(StrEnum):
     PORTFOLIO_REPLACEMENT = "PORTFOLIO_REPLACEMENT"
     RISK_CONTROL = "RISK_CONTROL"
     TRAILING_STOP = "TRAILING_STOP"
-
 
 @dataclass
 class ExitSignal:
@@ -26,8 +25,7 @@ class ExitSignal:
 
     def __post_init__(self):
         if not self.generated_at:
-            self.generated_at = datetime.now(UTC).isoformat()
-
+            self.generated_at = datetime.now(AR_TZ).isoformat()
 
 @dataclass
 class TrailingStop:
@@ -36,7 +34,6 @@ class TrailingStop:
     peak_price: float = 0.0
     current_price: float = 0.0
     active: bool = False
-
 
 class ExitEngine:
     def __init__(self, min_conviction_for_hold: int = 40, max_pe_for_hold: float = 35):

@@ -1,14 +1,13 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class Outcome(StrEnum):
     SUCCESS = "success"
     FAILURE = "failure"
     PENDING = "pending"
-
 
 @dataclass
 class FeedbackRecord:
@@ -27,8 +26,7 @@ class FeedbackRecord:
 
     def __post_init__(self):
         if not self.created_at:
-            self.created_at = datetime.now(UTC).isoformat()
-
+            self.created_at = datetime.now(AR_TZ).isoformat()
 
 @dataclass
 class FeedbackSummary:
@@ -38,7 +36,6 @@ class FeedbackSummary:
     pending: int = 0
     hit_rate: float = 0.0
     avg_accuracy: float = 0.0
-
 
 class FeedbackCollector:
     def __init__(self):

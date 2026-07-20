@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 from uuid import uuid4
 
@@ -10,7 +10,7 @@ from idos.data.sqlite import SQLiteStore
 from idos.models.enums import OpportunityStatus
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
-
+from idos.timezone import AR_TZ
 
 class ResearchWorker(BaseWorker):
     """Orchestrates the full research pipeline: DDD -> AOIF -> Hypothesis.
@@ -123,7 +123,7 @@ class ResearchWorker(BaseWorker):
             ],
             "risks": ddd_result.get("dominio_riesgos", []),
             "recommendation": "REVIEW",
-            "generated_at": datetime.now(UTC).isoformat(),
+            "generated_at": datetime.now(AR_TZ).isoformat(),
         }
         journal.save_assessment(ticker, opp_id, assessment)
 
@@ -131,17 +131,17 @@ class ResearchWorker(BaseWorker):
         case_file = journal.load_case_file(ticker) or {
             "ticker": ticker,
             "company_name": company.get("name", ticker),
-            "created_at": datetime.now(UTC).isoformat(),
+            "created_at": datetime.now(AR_TZ).isoformat(),
             "opportunities": [],
         }
         case_file.setdefault("opportunities", [])
         if opp_id not in case_file["opportunities"]:
             case_file["opportunities"].append(opp_id)
-        case_file["last_updated"] = datetime.now(UTC).isoformat()
+        case_file["last_updated"] = datetime.now(AR_TZ).isoformat()
         journal.save_case_file(ticker, case_file)
 
         opp["status"] = OpportunityStatus.UNDER_DEEP_DD.value
-        opp["updated_at"] = datetime.now(UTC).isoformat()
+        opp["updated_at"] = datetime.now(AR_TZ).isoformat()
         sqlite.save_opportunity(opp)
         sqlite.record_transition(opp_id, current_status.value, "UNDER_DEEP_DD",
                                  cause="research_completed", worker="research_worker")

@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class RebalanceProposal:
@@ -14,8 +14,7 @@ class RebalanceProposal:
 
     def __post_init__(self):
         if not self.created_at:
-            self.created_at = datetime.now(UTC).isoformat()
-
+            self.created_at = datetime.now(AR_TZ).isoformat()
 
 class PortfolioRebalancer:
     def __init__(self, max_position_pct: float = 3.0, max_sector_pct: float = 25.0,

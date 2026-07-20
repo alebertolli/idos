@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class AssessmentResult:
@@ -18,11 +18,11 @@ class AssessmentResult:
 
     def __post_init__(self):
         if not self.generated_at:
-            self.generated_at = datetime.now(UTC).isoformat()
+            self.generated_at = datetime.now(AR_TZ).isoformat()
 
     def to_assessment_dict(self, opp_id: str) -> dict[str, Any]:
         return {
-            "id": f"{self.engine}-{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}",
+            "id": f"{self.engine}-{datetime.now(AR_TZ).strftime('%Y%m%d%H%M%S')}",
             "engine": self.engine,
             "version": self.version,
             "status": "COMPLETED",
@@ -35,7 +35,6 @@ class AssessmentResult:
             "dependencies": self.dependencies,
             "generated_at": self.generated_at,
         }
-
 
 class BaseAssessmentEngine:
     name: str = "base"

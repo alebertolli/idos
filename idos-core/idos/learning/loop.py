@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class LoopResult:
@@ -15,8 +15,7 @@ class LoopResult:
 
     def __post_init__(self):
         if not self.completed_at:
-            self.completed_at = datetime.now(UTC).isoformat()
-
+            self.completed_at = datetime.now(AR_TZ).isoformat()
 
 class ContinuousImprovementLoop:
     def __init__(self, feedback_collector, weight_adjuster,

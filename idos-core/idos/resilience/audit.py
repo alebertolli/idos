@@ -1,9 +1,9 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 import hashlib
 import json
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class AuditEntry:
@@ -18,14 +18,13 @@ class AuditEntry:
 
     def __post_init__(self):
         if not self.timestamp:
-            self.timestamp = datetime.now(UTC).isoformat()
+            self.timestamp = datetime.now(AR_TZ).isoformat()
         if not self.hash:
             self.hash = self._compute_hash()
 
     def _compute_hash(self) -> str:
         content = f"{self.timestamp}|{self.action}|{self.entity_type}|{self.entity_id}|{self.actor}|{json.dumps(self.details, sort_keys=True)}|{self.previous_hash}"
         return hashlib.sha256(content.encode()).hexdigest()
-
 
 class AuditTrail:
     def __init__(self):

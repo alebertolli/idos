@@ -1,12 +1,12 @@
 import threading
 import time
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import Any, Callable, Optional
 
 import schedule
 
 from idos.workers.base import BaseWorker
-
+from idos.timezone import AR_TZ
 
 class ScheduledJob:
     def __init__(
@@ -30,14 +30,13 @@ class ScheduledJob:
         self.failures_count = 0
 
     def run(self):
-        self.last_run = datetime.now(timezone.utc)
+        self.last_run = datetime.now(AR_TZ)
         result = self.worker.execute(self.context)
         self.last_result = result
         self.runs_count += 1
         if result.status == "failed":
             self.failures_count += 1
         return result
-
 
 class SchedulerService:
     def __init__(self):

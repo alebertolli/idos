@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class KnowledgeStatus(StrEnum):
     CREATED = "CREATED"
@@ -11,7 +11,6 @@ class KnowledgeStatus(StrEnum):
     UPDATED = "UPDATED"
     DEPRECATED = "DEPRECATED"
     ARCHIVED = "ARCHIVED"
-
 
 @dataclass
 class KnowledgeObject:
@@ -31,7 +30,7 @@ class KnowledgeObject:
     updated_at: str = ""
 
     def __post_init__(self):
-        now = datetime.now(UTC).isoformat()
+        now = datetime.now(AR_TZ).isoformat()
         if not self.created_at:
             self.created_at = now
         if not self.updated_at:
@@ -46,7 +45,7 @@ class KnowledgeObject:
             return True
         try:
             last = datetime.fromisoformat(self.last_review)
-            delta = datetime.now(UTC) - last
+            delta = datetime.now(AR_TZ) - last
             return delta.days >= self.review_frequency_days
         except (ValueError, TypeError):
             return True
@@ -58,7 +57,7 @@ class KnowledgeObject:
         if self.status in order and target in order:
             if order.index(target) >= order.index(self.status):
                 self.status = target
-                self.updated_at = datetime.now(UTC).isoformat()
+                self.updated_at = datetime.now(AR_TZ).isoformat()
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -77,7 +76,6 @@ class KnowledgeObject:
             "created_at": self.created_at,
             "updated_at": self.updated_at,
         }
-
 
 class KnowledgeLifecycle:
     def __init__(self):
@@ -122,7 +120,7 @@ class KnowledgeLifecycle:
         if obj:
             obj.content.update(content)
             obj.version += 1
-            obj.updated_at = datetime.now(UTC).isoformat()
+            obj.updated_at = datetime.now(AR_TZ).isoformat()
             obj.promote(KnowledgeStatus.UPDATED)
 
     def count(self) -> int:

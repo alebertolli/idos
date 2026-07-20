@@ -1,8 +1,8 @@
-from datetime import datetime, timezone
+from datetime import datetime
 from dataclasses import dataclass, field
 from enum import StrEnum
 from typing import Any, Optional
-
+from idos.timezone import AR_TZ
 
 class WorkerStatus(StrEnum):
     PENDING = "pending"
@@ -12,7 +12,6 @@ class WorkerStatus(StrEnum):
     SKIPPED = "skipped"
     PARTIAL_SUCCESS = "partial_success"
     CANCELLED = "cancelled"
-
 
 @dataclass
 class WorkerResult:
@@ -31,7 +30,6 @@ class WorkerResult:
             return (self.completed_at - self.started_at).total_seconds()
         return 0.0
 
-
 class BaseWorker:
     name: str = "base"
 
@@ -43,7 +41,7 @@ class BaseWorker:
         from idos.notifications.center import NotificationCenter, Notification, NotificationPriority
         from idos.telemetry.trace import get_tracer
 
-        started = datetime.now(timezone.utc)
+        started = datetime.now(AR_TZ)
         tracer = get_tracer()
         run_id = tracer.start_run(self.name)
 
@@ -55,7 +53,7 @@ class BaseWorker:
             if isinstance(result, WorkerResult):
                 result.run_id = run_id
                 result.started_at = started
-                result.completed_at = datetime.now(timezone.utc)
+                result.completed_at = datetime.now(AR_TZ)
                 manifest.complete(result.status.value)
                 status = result.status
             else:
@@ -66,7 +64,7 @@ class BaseWorker:
                     worker=self.name,
                     output=result,
                     started_at=started,
-                    completed_at=datetime.now(timezone.utc),
+                    completed_at=datetime.now(AR_TZ),
                     run_id=run_id,
                 )
         except Exception as e:
@@ -78,7 +76,7 @@ class BaseWorker:
                 worker=self.name,
                 error=str(e),
                 started_at=started,
-                completed_at=datetime.now(timezone.utc),
+                completed_at=datetime.now(AR_TZ),
                 run_id=run_id,
             )
 

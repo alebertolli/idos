@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class CostBudget:
@@ -10,7 +10,6 @@ class CostBudget:
     max_monthly_total: int = 10000000
     max_execution_seconds: int = 600
     max_context_size: int = 128000
-
 
 @dataclass
 class UsageRecord:
@@ -23,12 +22,11 @@ class UsageRecord:
 
     def __post_init__(self):
         if not self.timestamp:
-            self.timestamp = datetime.now(UTC).isoformat()
+            self.timestamp = datetime.now(AR_TZ).isoformat()
 
     @property
     def total_tokens(self) -> int:
         return self.tokens_in + self.tokens_out
-
 
 class CostController:
     def __init__(self, budget: CostBudget | None = None):
@@ -51,7 +49,7 @@ class CostController:
         if worker_tokens + estimated_tokens > self.budget.max_tokens_per_worker:
             return False, f"Worker token budget exceeded for {worker}"
 
-        today = datetime.now(UTC).strftime("%Y-%m-%d")
+        today = datetime.now(AR_TZ).strftime("%Y-%m-%d")
         provider_daily = sum(
             r.total_tokens for r in self._records
             if r.provider == provider and r.timestamp.startswith(today)
@@ -59,7 +57,7 @@ class CostController:
         if provider_daily + estimated_tokens > self.budget.max_daily_per_provider:
             return False, f"Daily provider budget exceeded for {provider}"
 
-        this_month = datetime.now(UTC).strftime("%Y-%m")
+        this_month = datetime.now(AR_TZ).strftime("%Y-%m")
         monthly_total = sum(
             r.total_tokens for r in self._records
             if r.timestamp.startswith(this_month)
@@ -73,7 +71,7 @@ class CostController:
         return sum(r.total_tokens for r in self._records if r.worker == worker)
 
     def provider_usage(self, provider: str) -> int:
-        today = datetime.now(UTC).strftime("%Y-%m-%d")
+        today = datetime.now(AR_TZ).strftime("%Y-%m-%d")
         return sum(r.total_tokens for r in self._records if r.provider == provider and r.timestamp.startswith(today))
 
     def total_usage(self) -> int:

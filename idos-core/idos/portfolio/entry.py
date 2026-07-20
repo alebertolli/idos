@@ -1,10 +1,10 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any, Optional
 from idos.ai.llm import LLMClient
 from idos.ai.prompts import PromptRegistry
 from idos.portfolio.wyckoff import WyckoffAnalyzer, WyckoffPhase
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class EntrySignal:
@@ -19,7 +19,6 @@ class EntrySignal:
     margin_of_safety_pct: float = 0.0
     wyckoff_phase: str = ""
     reason: str = ""
-
 
 class EntryEngine:
     def __init__(self,

@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 from uuid import uuid4
 
@@ -6,7 +6,7 @@ from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.portfolio.engine import PortfolioEngine
 from idos.workers.base import BaseWorker
-
+from idos.timezone import AR_TZ
 
 class RebalanceWorker(BaseWorker):
     """Monthly portfolio rebalancing: conviction review, weight optimization, sector limits.
@@ -75,7 +75,7 @@ class RebalanceWorker(BaseWorker):
                     "old_weight": weight,
                     "target_weight": min(weight, self.max_position_weight) if new_status == "REDUCING" else weight,
                     "rationale": "; ".join(actions),
-                    "generated_at": datetime.now(UTC).isoformat(),
+                    "generated_at": datetime.now(AR_TZ).isoformat(),
                 }
                 journal.save_decision(ticker, opp_id, decision)
                 results.append({"ticker": ticker, "actions": actions, "new_status": new_status})
@@ -86,7 +86,6 @@ class RebalanceWorker(BaseWorker):
             "rebalance_proposals": len(results),
             "details": results,
         }
-
 
 class RiskMonitorWorker(BaseWorker):
     """Daily risk monitoring: drawdown, volatility, D/E, concentration, stop loss.

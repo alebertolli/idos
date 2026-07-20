@@ -1,29 +1,26 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
 from pathlib import Path
 import json
-
+from idos.timezone import AR_TZ
 
 class ClaimStatus(StrEnum):
     ACTIVE = "ACTIVE"
     DEPRECATED = "DEPRECATED"
     ARCHIVED = "ARCHIVED"
 
-
 class EvidenceCategory(StrEnum):
     FACT = "FACT"
     INFERENCE = "INFERENCE"
     HYPOTHESIS = "HYPOTHESIS"
-
 
 @dataclass
 class ClaimSource:
     name: str
     url: str = ""
     date: str = ""
-
 
 @dataclass
 class Claim:
@@ -40,7 +37,7 @@ class Claim:
     updated_at: str = ""
 
     def __post_init__(self):
-        now = datetime.now(UTC).isoformat()
+        now = datetime.now(AR_TZ).isoformat()
         if not self.created_at:
             self.created_at = now
         if not self.updated_at:
@@ -70,7 +67,6 @@ class Claim:
         data["sources"] = [ClaimSource(**s) for s in data.get("sources", [])]
         return cls(**data)
 
-
 class ClaimStore:
     def __init__(self, base_path: str | Path = "idos-knowledge"):
         self.base_path = Path(base_path)
@@ -93,7 +89,7 @@ class ClaimStore:
         path.write_text(json.dumps(claim.to_dict(), indent=2, ensure_ascii=False), encoding="utf-8")
 
     def put(self, claim: Claim):
-        claim.updated_at = datetime.now(UTC).isoformat()
+        claim.updated_at = datetime.now(AR_TZ).isoformat()
         self._cache[claim.claim_id] = claim
         self._save(claim)
 

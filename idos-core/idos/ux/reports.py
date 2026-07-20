@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class ReportType(StrEnum):
     DUE_DILIGENCE = "due_diligence"
@@ -10,13 +10,11 @@ class ReportType(StrEnum):
     WEEKLY = "weekly"
     DECISION = "decision"
 
-
 @dataclass
 class ReportSection:
     title: str
     content: str
     level: int = 1
-
 
 @dataclass
 class Report:
@@ -28,8 +26,7 @@ class Report:
 
     def __post_init__(self):
         if not self.generated_at:
-            self.generated_at = datetime.now(UTC).isoformat()
-
+            self.generated_at = datetime.now(AR_TZ).isoformat()
 
 class ReportGenerator:
     def generate_dd_report(self, ticker: str, ddd_result: dict[str, Any]) -> Report:

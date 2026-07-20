@@ -1,15 +1,14 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class ContradictionSeverity(StrEnum):
     LOW = "LOW"
     MEDIUM = "MEDIUM"
     HIGH = "HIGH"
     CRITICAL = "CRITICAL"
-
 
 @dataclass
 class Contradiction:
@@ -27,7 +26,7 @@ class Contradiction:
 
     def __post_init__(self):
         if not self.created_at:
-            self.created_at = datetime.now(UTC).isoformat()
+            self.created_at = datetime.now(AR_TZ).isoformat()
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -44,7 +43,6 @@ class Contradiction:
             "resolved_at": self.resolved_at,
         }
 
-
 class ContradictionDetector:
     def __init__(self):
         self._contradictions: list[Contradiction] = []
@@ -52,7 +50,7 @@ class ContradictionDetector:
 
     def _next_id(self) -> str:
         self._counter += 1
-        return f"CON-{datetime.now(UTC).strftime('%Y%m%d')}-{self._counter:04d}"
+        return f"CON-{datetime.now(AR_TZ).strftime('%Y%m%d')}-{self._counter:04d}"
 
     def evaluate(self, ticker: str, claim_statement: str,
                  new_evidence: str, source: str = "") -> Contradiction | None:
@@ -118,7 +116,7 @@ class ContradictionDetector:
             if c.id == contradiction_id:
                 c.resolved = True
                 c.resolution = resolution
-                c.resolved_at = datetime.now(UTC).isoformat()
+                c.resolved_at = datetime.now(AR_TZ).isoformat()
                 return True
         return False
 

@@ -1,14 +1,13 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class NotificationPriority(StrEnum):
     LOW = "LOW"
     MEDIUM = "MEDIUM"
     HIGH = "HIGH"
-
 
 @dataclass
 class Notification:
@@ -17,9 +16,8 @@ class Notification:
     priority: NotificationPriority = NotificationPriority.LOW
     channel: str = "dashboard"
     source: str = "system"
-    timestamp: datetime = field(default_factory=lambda: datetime.now(UTC))
+    timestamp: datetime = field(default_factory=lambda: datetime.now(AR_TZ))
     metadata: dict[str, Any] = field(default_factory=dict)
-
 
 class NotificationCenter:
     _instance: "NotificationCenter | None" = None
@@ -42,7 +40,6 @@ class NotificationCenter:
 
     def clear(self):
         self._inbox.clear()
-
 
 def get_notification_center() -> NotificationCenter:
     if NotificationCenter._instance is None:

@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from pathlib import Path
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class PipelineMetrics:
@@ -48,7 +48,6 @@ class PipelineMetrics:
             "new_watchlist_count": len(self.new_watchlist),
             "errors": self.errors,
         }
-
 
 class PipelineReportGenerator:
     def generate(self, metrics: PipelineMetrics) -> str:
@@ -99,7 +98,7 @@ class PipelineReportGenerator:
 
     def save(self, report: str, journal_path: str, filename: str = ""):
         if not filename:
-            filename = f"universe-{datetime.now(UTC).strftime('%Y-%m-%d')}.md"
+            filename = f"universe-{datetime.now(AR_TZ).strftime('%Y-%m-%d')}.md"
         reports_dir = Path(journal_path) / "reports"
         reports_dir.mkdir(parents=True, exist_ok=True)
         report_path = reports_dir / filename

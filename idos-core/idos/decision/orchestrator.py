@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
 from idos.decision.engines.base import AssessmentResult
@@ -7,7 +7,7 @@ from idos.decision.conviction import ConvictionCalculator
 from idos.rules.engine import RulesEngine
 from idos.events.bus import get_event_bus
 from idos.events.types import Event
-
+from idos.timezone import AR_TZ
 
 class PipelineStage(StrEnum):
     CLASSIFICATION = "CLASSIFICATION"
@@ -15,7 +15,6 @@ class PipelineStage(StrEnum):
     IMPACT = "IMPACT"
     ORCHESTRATION = "ORCHESTRATION"
     PROPOSAL = "PROPOSAL"
-
 
 @dataclass
 class DecisionProposal:
@@ -31,8 +30,7 @@ class DecisionProposal:
 
     def __post_init__(self):
         if not self.created_at:
-            self.created_at = datetime.now(UTC).isoformat()
-
+            self.created_at = datetime.now(AR_TZ).isoformat()
 
 class DecisionOrchestrator:
     def __init__(self, rules_engine: RulesEngine | None = None):

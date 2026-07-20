@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta, UTC
+from datetime import datetime, timedelta
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class TaskRequirement(StrEnum):
     REASONING = "reasoning"
@@ -10,7 +10,6 @@ class TaskRequirement(StrEnum):
     CLASSIFICATION = "classification"
     EXTRACTION = "extraction"
     CODING = "coding"
-
 
 @dataclass
 class ProviderScore:
@@ -21,7 +20,6 @@ class ProviderScore:
     @property
     def composite(self) -> float:
         return self.trust * 0.5 + self.capability * 0.3 + (1.0 - self.cost) * 0.2
-
 
 @dataclass
 class ProviderRecord:
@@ -47,7 +45,6 @@ class ProviderRecord:
             capability=min(1.0, self.call_count / 100),
             cost=max(0.0, 1.0 - self.avg_latency_ms / 5000),
         )
-
 
 class AdaptiveRouter:
     def __init__(self):

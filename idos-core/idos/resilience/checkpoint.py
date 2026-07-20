@@ -1,9 +1,9 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 from pathlib import Path
 import json
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class Checkpoint:
@@ -16,7 +16,7 @@ class Checkpoint:
 
     def __post_init__(self):
         if not self.timestamp:
-            self.timestamp = datetime.now(UTC).isoformat()
+            self.timestamp = datetime.now(AR_TZ).isoformat()
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -27,7 +27,6 @@ class Checkpoint:
             "context": self.context,
             "timestamp": self.timestamp,
         }
-
 
 @dataclass
 class RunManifest:
@@ -46,11 +45,11 @@ class RunManifest:
 
     def __post_init__(self):
         if not self.started_at:
-            self.started_at = datetime.now(UTC).isoformat()
+            self.started_at = datetime.now(AR_TZ).isoformat()
 
     def complete(self, status: str = "SUCCESS"):
         self.status = status
-        self.ended_at = datetime.now(UTC).isoformat()
+        self.ended_at = datetime.now(AR_TZ).isoformat()
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -67,7 +66,6 @@ class RunManifest:
             "errors": self.errors,
             "git_commit": self.git_commit,
         }
-
 
 class CheckpointManager:
     def __init__(self, base_path: str | Path = "cache/checkpoints"):
@@ -102,7 +100,7 @@ class CheckpointManager:
         cp.progress = progress
         cp.total = total
         cp.last_item = last_item
-        cp.timestamp = datetime.now(UTC).isoformat()
+        cp.timestamp = datetime.now(AR_TZ).isoformat()
         if context:
             cp.context.update(context)
         self.save(cp)

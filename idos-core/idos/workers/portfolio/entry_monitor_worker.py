@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 
 from idos.ai.llm import LLMClient
@@ -10,7 +10,7 @@ from idos.portfolio.entry import EntryEngine
 from idos.portfolio.wyckoff import WyckoffAnalyzer
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
-
+from idos.timezone import AR_TZ
 
 class EntryMonitorWorker(BaseWorker):
     """Monitors APPROVED/ENTRY_PENDING opportunities for entry conditions.
@@ -69,7 +69,7 @@ class EntryMonitorWorker(BaseWorker):
                 return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
                         "reason": "Cannot transition to ENTRY_PENDING"}
             opp["status"] = OpportunityStatus.ENTRY_PENDING.value
-            opp["updated_at"] = datetime.now(UTC).isoformat()
+            opp["updated_at"] = datetime.now(AR_TZ).isoformat()
             sqlite.save_opportunity(opp)
             sqlite.record_transition(opp_id, current_status.value, "ENTRY_PENDING",
                                      cause="entry_monitor_activated", worker="entry_monitor_worker")
@@ -80,7 +80,7 @@ class EntryMonitorWorker(BaseWorker):
         if signal.all_conditions_met:
             new_status = OpportunityStatus.ACCUMULATING
             opp["status"] = new_status.value
-            opp["updated_at"] = datetime.now(UTC).isoformat()
+            opp["updated_at"] = datetime.now(AR_TZ).isoformat()
             sqlite.save_opportunity(opp)
             sqlite.record_transition(opp_id, "ENTRY_PENDING", "ACCUMULATING",
                                      cause="entry_conditions_met", worker="entry_monitor_worker")
@@ -150,7 +150,7 @@ class EntryMonitorWorker(BaseWorker):
             "margin_of_safety_pct": signal.margin_of_safety_pct,
             "wyckoff_phase": signal.wyckoff_phase,
             "rationale": signal.reason,
-            "generated_at": datetime.now(UTC).isoformat(),
+            "generated_at": datetime.now(AR_TZ).isoformat(),
         }
         journal.save_decision(ticker, opp_id, decision)
         sqlite.log_event("entry:executed", {

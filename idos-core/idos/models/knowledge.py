@@ -1,8 +1,8 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from pydantic import BaseModel, Field
 from typing import Optional
 from idos.models.enums import HypothesisStatus, EvidenceType, ConfidenceLevel
-
+from idos.timezone import AR_TZ
 
 class Company(BaseModel):
     ticker: str
@@ -16,7 +16,6 @@ class Company(BaseModel):
     competitors: list[str] = Field(default_factory=list)
     ipo_date: Optional[str] = None
 
-
 class StaticKnowledge(BaseModel):
     business_model: Optional[str] = None
     products: list[str] = Field(default_factory=list)
@@ -25,26 +24,22 @@ class StaticKnowledge(BaseModel):
     management_history: Optional[str] = None
     founder_info: Optional[str] = None
 
-
 class DynamicKnowledge(BaseModel):
-    last_updated: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    last_updated: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
     financials: dict = Field(default_factory=dict)
     metrics: dict = Field(default_factory=dict)
     price_history: list[dict] = Field(default_factory=list)
-
 
 class GeneratedKnowledge(BaseModel):
     aoif_analysis: list[dict] = Field(default_factory=list)
     summaries: list[dict] = Field(default_factory=list)
     events: list[dict] = Field(default_factory=list)
 
-
 class KnowledgeBase(BaseModel):
     ticker: str
     static: StaticKnowledge = Field(default_factory=StaticKnowledge)
     dynamic: DynamicKnowledge = Field(default_factory=DynamicKnowledge)
     generated: GeneratedKnowledge = Field(default_factory=GeneratedKnowledge)
-
 
 class Prediction(BaseModel):
     id: str
@@ -55,13 +50,12 @@ class Prediction(BaseModel):
     observed_value: Optional[float] = None
     status: str = "PENDING"
 
-
 class Hypothesis(BaseModel):
     id: str
     opportunity_id: str
     ticker: str
     version: int = 1
-    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
     horizon: str = "36 months"
     author: str = "system"
     status: HypothesisStatus = HypothesisStatus.DRAFT
@@ -72,7 +66,6 @@ class Hypothesis(BaseModel):
     secondary_hypotheses: list[str] = Field(default_factory=list)
     predictions: list[Prediction] = Field(default_factory=list)
 
-
 class Evidence(BaseModel):
     id: str
     description: str
@@ -81,7 +74,6 @@ class Evidence(BaseModel):
     event_date: str
     reliability: ConfidenceLevel = ConfidenceLevel.MEDIUM
     impact: Optional[str] = None
-
 
 class Rule(BaseModel):
     id: str

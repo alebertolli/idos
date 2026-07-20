@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class WeightAdjustment:
@@ -15,8 +15,7 @@ class WeightAdjustment:
 
     def __post_init__(self):
         if not self.adjusted_at:
-            self.adjusted_at = datetime.now(UTC).isoformat()
-
+            self.adjusted_at = datetime.now(AR_TZ).isoformat()
 
 class WeightAdjuster:
     def __init__(self, base_weights: dict[str, float] | None = None,

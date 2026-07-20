@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 from uuid import uuid4
 
@@ -14,7 +14,7 @@ from idos.learning.weights import WeightAdjuster
 from idos.models.enums import OpportunityStatus
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
-
+from idos.timezone import AR_TZ
 
 class PostMortemWorker(BaseWorker):
     """Generates post-mortem analysis after an opportunity is exited.
@@ -81,7 +81,7 @@ class PostMortemWorker(BaseWorker):
             "opp_id": opp_id,
             "exit_reason": exit_reason,
             "analysis": post_mortem,
-            "generated_at": datetime.now(UTC).isoformat(),
+            "generated_at": datetime.now(AR_TZ).isoformat(),
         }
 
         pm_path = journal.opportunity_path(ticker, opp_id) / "post_mortem"
@@ -91,14 +91,14 @@ class PostMortemWorker(BaseWorker):
             yaml.dump(pm_record, f, default_flow_style=False, allow_unicode=True)
 
         opp["status"] = OpportunityStatus.POST_MORTEM.value
-        opp["updated_at"] = datetime.now(UTC).isoformat()
+        opp["updated_at"] = datetime.now(AR_TZ).isoformat()
         sqlite.save_opportunity(opp)
         sqlite.record_transition(opp_id, current_status.value, "POST_MORTEM",
                                  cause="post_mortem_generated", worker="post_mortem_worker")
 
         if self.state_machine.can_transition(OpportunityStatus.POST_MORTEM, OpportunityStatus.ARCHIVED):
             opp["status"] = OpportunityStatus.ARCHIVED.value
-            opp["updated_at"] = datetime.now(UTC).isoformat()
+            opp["updated_at"] = datetime.now(AR_TZ).isoformat()
             sqlite.save_opportunity(opp)
             sqlite.record_transition(opp_id, "POST_MORTEM", "ARCHIVED",
                                      cause="post_mortem_approved", worker="post_mortem_worker")

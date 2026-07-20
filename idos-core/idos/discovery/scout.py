@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class ScoutResult:
@@ -14,8 +14,7 @@ class ScoutResult:
 
     def __post_init__(self):
         if not self.scanned_at:
-            self.scanned_at = datetime.now(UTC).isoformat()
-
+            self.scanned_at = datetime.now(AR_TZ).isoformat()
 
 class ScoutEngine:
     def __init__(self, min_score: int = 50):

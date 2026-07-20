@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class PredictionResult:
@@ -12,7 +12,6 @@ class PredictionResult:
     tolerance_pct: float
     status: str
     deviation_pct: float = 0.0
-
 
 class PredictionTracker:
     def __init__(self):

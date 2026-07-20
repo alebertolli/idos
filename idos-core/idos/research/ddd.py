@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class DDDResult:
@@ -18,8 +18,7 @@ class DDDResult:
 
     def __post_init__(self):
         if not self.completed_at:
-            self.completed_at = datetime.now(UTC).isoformat()
-
+            self.completed_at = datetime.now(AR_TZ).isoformat()
 
 class DeepDueDiligenceWorker:
     def run(self, ticker: str, data: dict[str, Any]) -> DDDResult:

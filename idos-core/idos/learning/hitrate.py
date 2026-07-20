@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
-
+from datetime import datetime
+from idos.timezone import AR_TZ
 
 @dataclass
 class HitRateStats:
@@ -9,7 +9,6 @@ class HitRateStats:
     misses: int = 0
     pending: int = 0
     hit_rate_pct: float = 0.0
-
 
 class HitRateTracker:
     def __init__(self):
@@ -20,7 +19,7 @@ class HitRateTracker:
             self._records[key] = []
         self._records[key].append({
             "correct": correct,
-            "timestamp": datetime.now(UTC).isoformat(),
+            "timestamp": datetime.now(AR_TZ).isoformat(),
         })
 
     def record_hit(self, key: str):

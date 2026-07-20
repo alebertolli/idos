@@ -1,9 +1,9 @@
 import csv
 import yaml
 from pathlib import Path
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class OperabilityFilter:
     def __init__(self, operable_path: str = "idos-config/universe/operable.yml"):
@@ -50,7 +50,7 @@ class OperabilityFilter:
             "name": name or ticker,
             "type": type,
             "source": source,
-            "updated_at": datetime.now(UTC).strftime("%Y-%m-%d"),
+            "updated_at": datetime.now(AR_TZ).strftime("%Y-%m-%d"),
         }
         if ratio:
             entry["ratio"] = ratio

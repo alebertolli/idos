@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 from idos.decision.orchestrator import DecisionProposal
 from idos.models.enums import DecisionType
@@ -7,7 +7,7 @@ from idos.models.journal import Decision
 from idos.data.journal import JournalRepository
 from idos.events.bus import get_event_bus
 from idos.events.types import Event
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class BoardResolution:
@@ -20,8 +20,7 @@ class BoardResolution:
 
     def __post_init__(self):
         if not self.resolved_at:
-            self.resolved_at = datetime.now(UTC).isoformat()
-
+            self.resolved_at = datetime.now(AR_TZ).isoformat()
 
 class DecisionBoard:
     def __init__(self, journal_repo: JournalRepository | None = None):
@@ -50,7 +49,7 @@ class DecisionBoard:
             approved = False
 
         decision = Decision(
-            id=f"DEC-{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}",
+            id=f"DEC-{datetime.now(AR_TZ).strftime('%Y%m%d%H%M%S')}",
             type=DecisionType.BUY if "buy" in proposal.type.lower() else DecisionType.HOLD,
             opportunity_id=proposal.opportunity_id,
             justification=proposal.reasoning,

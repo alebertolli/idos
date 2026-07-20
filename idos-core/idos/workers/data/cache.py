@@ -1,9 +1,9 @@
 import json
 import sqlite3
 import threading
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta
 from typing import Any, Optional
-
+from idos.timezone import AR_TZ
 
 class DataCache:
     def __init__(self, db_path: str = "idos.db"):
@@ -42,7 +42,7 @@ class DataCache:
         if row is None:
             return None
         expires = datetime.fromisoformat(row["expires_at"])
-        if expires < datetime.now(timezone.utc):
+        if expires < datetime.now(AR_TZ):
             self._conn.execute("DELETE FROM data_cache WHERE cache_key = ?", (cache_key,))
             self._conn.commit()
             return None
@@ -55,7 +55,7 @@ class DataCache:
         source: str,
         ttl_seconds: int = 3600,
     ):
-        now = datetime.now(timezone.utc)
+        now = datetime.now(AR_TZ)
         expires = now + timedelta(seconds=ttl_seconds)
         self._conn.execute(
             """INSERT OR REPLACE INTO data_cache (cache_key, data, created_at, expires_at, source)
@@ -65,7 +65,7 @@ class DataCache:
         self._conn.commit()
 
     def clear_expired(self):
-        now = datetime.now(timezone.utc).isoformat()
+        now = datetime.now(AR_TZ).isoformat()
         self._conn.execute("DELETE FROM data_cache WHERE expires_at < ?", (now,))
         self._conn.commit()
 

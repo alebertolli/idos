@@ -1,9 +1,9 @@
 import sqlite3
 import json
 from pathlib import Path
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class SQLiteStore:
     def __init__(self, db_path: str | Path):
@@ -96,8 +96,8 @@ class SQLiteStore:
         """, (
             opp["id"], opp["ticker"], opp["status"],
             json.dumps(opp.get("conviction", {})),
-            opp.get("created_at", datetime.now(UTC).isoformat()),
-            opp.get("updated_at", datetime.now(UTC).isoformat()),
+            opp.get("created_at", datetime.now(AR_TZ).isoformat()),
+            opp.get("updated_at", datetime.now(AR_TZ).isoformat()),
         ))
         c.commit()
 
@@ -128,7 +128,7 @@ class SQLiteStore:
         c.execute("""
             INSERT INTO state_transitions (opportunity_id, from_status, to_status, cause, worker, timestamp)
             VALUES (?, ?, ?, ?, ?, ?)
-        """, (opp_id, from_status, to_status, cause, worker, datetime.now(UTC).isoformat()))
+        """, (opp_id, from_status, to_status, cause, worker, datetime.now(AR_TZ).isoformat()))
         c.commit()
 
     def enqueue_commit(self, repo: str, file_path: str, content: str, message: str = ""):
@@ -136,7 +136,7 @@ class SQLiteStore:
         c.execute("""
             INSERT INTO pending_commits (repo, file_path, content, message, status, created_at)
             VALUES (?, ?, ?, ?, 'PENDING', ?)
-        """, (repo, file_path, content, message, datetime.now(UTC).isoformat()))
+        """, (repo, file_path, content, message, datetime.now(AR_TZ).isoformat()))
         c.commit()
 
     def get_pending_commits(self, limit: int = 10) -> list[dict[str, Any]]:
@@ -159,7 +159,7 @@ class SQLiteStore:
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (run_id, worker, step, provider, prompt_id,
               tokens_in, tokens_out, latency_ms, status, detail,
-              datetime.now(UTC).isoformat()))
+              datetime.now(AR_TZ).isoformat()))
         c.commit()
 
     def log_event(self, event_type: str, data: dict, source: str = "system", correlation_id: str = ""):
@@ -167,7 +167,7 @@ class SQLiteStore:
         c.execute("""
             INSERT INTO events_log (event_type, data_json, source, correlation_id, timestamp)
             VALUES (?, ?, ?, ?, ?)
-        """, (event_type, json.dumps(data), source, correlation_id, datetime.now(UTC).isoformat()))
+        """, (event_type, json.dumps(data), source, correlation_id, datetime.now(AR_TZ).isoformat()))
         c.commit()
 
     def close(self):

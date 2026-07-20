@@ -1,14 +1,13 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any, Callable
-
+from idos.timezone import AR_TZ
 
 class HealthStatus(StrEnum):
     HEALTHY = "healthy"
     DEGRADED = "degraded"
     UNHEALTHY = "unhealthy"
-
 
 @dataclass
 class HealthCheck:
@@ -19,8 +18,7 @@ class HealthCheck:
 
     def __post_init__(self):
         if not self.checked_at:
-            self.checked_at = datetime.now(UTC).isoformat()
-
+            self.checked_at = datetime.now(AR_TZ).isoformat()
 
 class HealthMonitor:
     def __init__(self):

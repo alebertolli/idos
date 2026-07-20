@@ -1,21 +1,19 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class InboxPriority(StrEnum):
     HIGH = "HIGH"
     MEDIUM = "MEDIUM"
     LOW = "LOW"
 
-
 class InboxStatus(StrEnum):
     PENDING = "PENDING"
     REVIEWED = "REVIEWED"
     APPROVED = "APPROVED"
     REJECTED = "REJECTED"
-
 
 @dataclass
 class InboxItem:
@@ -33,8 +31,7 @@ class InboxItem:
 
     def __post_init__(self):
         if not self.created_at:
-            self.created_at = datetime.now(UTC).isoformat()
-
+            self.created_at = datetime.now(AR_TZ).isoformat()
 
 class DecisionInbox:
     def __init__(self):
@@ -43,7 +40,7 @@ class DecisionInbox:
 
     def _next_id(self) -> str:
         self._counter += 1
-        return f"INBOX-{datetime.now(UTC).strftime('%Y%m%d')}-{self._counter:04d}"
+        return f"INBOX-{datetime.now(AR_TZ).strftime('%Y%m%d')}-{self._counter:04d}"
 
     def add(self, title: str, description: str = "",
             priority: InboxPriority = InboxPriority.MEDIUM,
@@ -69,14 +66,14 @@ class DecisionInbox:
         if item:
             item.status = InboxStatus.APPROVED
             item.resolution = resolution
-            item.resolved_at = datetime.now(UTC).isoformat()
+            item.resolved_at = datetime.now(AR_TZ).isoformat()
 
     def reject(self, item_id: str, resolution: str = ""):
         item = self.get(item_id)
         if item:
             item.status = InboxStatus.REJECTED
             item.resolution = resolution
-            item.resolved_at = datetime.now(UTC).isoformat()
+            item.resolved_at = datetime.now(AR_TZ).isoformat()
 
     def pending(self) -> list[InboxItem]:
         return [i for i in self._items.values() if i.status == InboxStatus.PENDING]

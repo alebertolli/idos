@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class Pattern:
@@ -16,10 +16,9 @@ class Pattern:
 
     def __post_init__(self):
         if not self.created_at:
-            self.created_at = datetime.now(UTC).isoformat()
+            self.created_at = datetime.now(AR_TZ).isoformat()
         if not self.last_observed:
             self.last_observed = self.created_at
-
 
 class PatternLearner:
     def __init__(self, min_occurrences: int = 3):
@@ -29,7 +28,7 @@ class PatternLearner:
 
     def observe(self, ticker: str, features: dict[str, Any], outcome: str):
         record = {"ticker": ticker, "features": dict(features), "outcome": outcome,
-                  "timestamp": datetime.now(UTC).isoformat()}
+                  "timestamp": datetime.now(AR_TZ).isoformat()}
         self._observations.append(record)
         self._match_patterns(record)
 
@@ -37,7 +36,7 @@ class PatternLearner:
         for pid, pattern in self._patterns.items():
             if self._matches(record["features"], pattern.conditions):
                 pattern.occurrence_count += 1
-                pattern.last_observed = datetime.now(UTC).isoformat()
+                pattern.last_observed = datetime.now(AR_TZ).isoformat()
                 if record["outcome"] == "success":
                     old_total = pattern.occurrence_count - 1
                     pattern.success_rate = round(

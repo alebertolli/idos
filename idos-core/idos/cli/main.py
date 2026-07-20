@@ -4,7 +4,7 @@ from pathlib import Path
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Optional
 
 from idos.core.context import IDOSContext
@@ -20,23 +20,21 @@ from idos.events.types import Event
 from idos.telemetry.trace import get_tracer
 from idos.discovery.operability import OperabilityFilter
 from idos.discovery.screening import FinvizScreener
+from idos.timezone import AR_TZ
 
 app = typer.Typer(name="idos", help="Investment Decision Operating System")
 console = Console()
 state_machine = OpportunityStateMachine()
 
-
 def _get_context() -> IDOSContext:
     base = Path.cwd()
     return IDOSContext.create(base)
-
 
 def _get_stores(ctx: IDOSContext) -> tuple[SQLiteStore, KnowledgeRepository, JournalRepository]:
     sqlite = SQLiteStore(ctx.sqlite_path)
     knowledge = KnowledgeRepository(ctx.knowledge_path)
     journal = JournalRepository(ctx.journal_path)
     return sqlite, knowledge, journal
-
 
 @app.command()
 def init():
@@ -48,7 +46,6 @@ def init():
         (base / d).mkdir(parents=True, exist_ok=True)
     console.print("[green]IDOS initialized successfully[/green]")
 
-
 @app.command()
 def company_add(ticker: str, name: str = "", sector: str = ""):
     ctx = _get_context()
@@ -58,7 +55,6 @@ def company_add(ticker: str, name: str = "", sector: str = ""):
     bus = get_event_bus()
     bus.publish_sync("company:created", {"ticker": ticker.upper()})
     console.print(f"[green]Company {ticker.upper()} added[/green]")
-
 
 @app.command()
 def company_show(ticker: str):
@@ -75,12 +71,11 @@ def company_show(ticker: str):
         table.add_row(k, str(v))
     console.print(table)
 
-
 @app.command()
 def opp_create(ticker: str):
     ctx = _get_context()
     sqlite, knowledge, journal = _get_stores(ctx)
-    opp_id = f"OPP-{datetime.now(UTC).strftime('%Y%m%d')}-{len(sqlite.list_opportunities()) + 1:03d}"
+    opp_id = f"OPP-{datetime.now(AR_TZ).strftime('%Y%m%d')}-{len(sqlite.list_opportunities()) + 1:03d}"
     opp = Opportunity(
         id=opp_id,
         ticker=ticker.upper(),
@@ -91,7 +86,6 @@ def opp_create(ticker: str):
     bus = get_event_bus()
     bus.publish_sync("opportunity:created", {"opp_id": opp_id, "ticker": ticker.upper()})
     console.print(f"[green]Opportunity {opp_id} created for {ticker.upper()}[/green]")
-
 
 @app.command()
 def opp_list(status: str = ""):
@@ -111,7 +105,6 @@ def opp_list(status: str = ""):
         conv = opp.get("conviction", {}).get("overall", "N/A")
         table.add_row(opp["id"], opp["ticker"], opp["status"], str(conv), opp["updated_at"][:10])
     console.print(table)
-
 
 @app.command()
 def opp_transition(opp_id: str, target: str):
@@ -137,7 +130,6 @@ def opp_transition(opp_id: str, target: str):
     except Exception as e:
         console.print(f"[red]Transition failed: {e}[/red]")
 
-
 @app.command()
 def watchlist():
     ctx = _get_context()
@@ -162,7 +154,6 @@ def watchlist():
         table.add_row(e.get("ticker", ""), str(e.get("score", "")), e.get("added_at", ""))
     console.print(table)
 
-
 @app.command()
 def position_list():
     ctx = _get_context()
@@ -184,7 +175,6 @@ def position_list():
                       f"${p.get('avg_entry_price', 0):.2f}", f"{p.get('weight_pct', 0):.1f}%",
                       p.get("status", ""))
     console.print(table)
-
 
 @app.command()
 def dashboard():
@@ -208,7 +198,6 @@ def dashboard():
     )
     console.print(info)
 
-
 @app.command()
 def event_log():
     ctx = _get_context()
@@ -225,7 +214,6 @@ def event_log():
     for e in history[-20:]:
         table.add_row(e.type, e.source, e.timestamp.isoformat()[:19])
     console.print(table)
-
 
 # ──────────────────────────────────────────────
 # MANUAL INTERVENTION COMMANDS (no UI required)
@@ -272,7 +260,6 @@ def opp_research(ticker: str, opp_id: str = ""):
     table.add_row("Hypotheses", str(output.get("hypotheses_count", 0)))
     console.print(table)
 
-
 @app.command()
 def opp_approve(ticker: str, opp_id: str = ""):
     """Evalúa DDD vs reglas de entrada (UNDER_DEEP_DD → APPROVED o WATCHLIST)."""
@@ -305,7 +292,6 @@ def opp_approve(ticker: str, opp_id: str = ""):
     console.print(f"Rules pass: {output.get('all_rules_pass')}")
     console.print(f"Decision ID: {output.get('decision_id')}")
 
-
 @app.command()
 def opp_reject(ticker: str, opp_id: str = "", reason: str = "insufficient_evidence"):
     """Rechaza oportunidad y la devuelve a WATCHLIST."""
@@ -327,11 +313,10 @@ def opp_reject(ticker: str, opp_id: str = "", reason: str = "insufficient_eviden
 
     old_status = opp["status"]
     opp["status"] = "WATCHLIST"
-    opp["updated_at"] = datetime.now(UTC).isoformat()
+    opp["updated_at"] = datetime.now(AR_TZ).isoformat()
     sqlite.save_opportunity(opp)
     sqlite.record_transition(opp_id, old_status, "WATCHLIST", cause=reason, worker="cli")
     console.print(f"[yellow]{ticker} ({opp_id}): {old_status} → WATCHLIST (reason: {reason})[/yellow]")
-
 
 @app.command()
 def entry_evaluate(ticker: str, opp_id: str = ""):
@@ -375,7 +360,6 @@ def entry_evaluate(ticker: str, opp_id: str = ""):
     if output.get("entry_executed"):
         console.print("[green]✓ Entry conditions met — position should be accumulating[/green]")
 
-
 @app.command()
 def position_exit(ticker: str, reason: str = "thesis_broken",
                   opp_id: str = ""):
@@ -411,7 +395,7 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
 
     old_status = opp["status"]
     opp["status"] = "EXITED"
-    opp["updated_at"] = datetime.now(UTC).isoformat()
+    opp["updated_at"] = datetime.now(AR_TZ).isoformat()
     sqlite.save_opportunity(opp)
     sqlite.record_transition(opp_id, old_status, "EXITED", cause=reason, worker="cli")
     console.print(f"[yellow]{ticker}: {old_status} → EXITED ({valid_reasons[reason]})[/yellow]")
@@ -420,7 +404,7 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
     if position:
         position["status"] = "CLOSED"
         position["exit_reason"] = reason
-        position["exited_at"] = datetime.now(UTC).isoformat()
+        position["exited_at"] = datetime.now(AR_TZ).isoformat()
         journal.save_position(ticker.upper(), position)
         console.print(f"[yellow]Position closed in journal[/yellow]")
 
@@ -440,7 +424,6 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
     console.print(f"[green]Post-mortem completed. Archived: {pm_output.get('archived')}[/green]")
     for lesson in pm_output.get("lessons", []):
         console.print(f"  • {lesson}")
-
 
 @app.command()
 def opp_show(ticker: str, opp_id: str = ""):
@@ -488,7 +471,6 @@ def opp_show(ticker: str, opp_id: str = ""):
                                 t["cause"], t["timestamp"][:19])
             console.print(t_table)
 
-
 @app.command()
 def schedule_status():
     """Muestra estado de los workers schedule."""
@@ -508,7 +490,6 @@ def schedule_status():
         table.add_row(name, str(info["runs"]), str(info["failures"]),
                       str(info["last_run"]) if info["last_run"] else "N/A")
     console.print(table)
-
 
 @app.command()
 def scout(tickers: str = "", force_refresh: bool = False):
@@ -544,7 +525,6 @@ def scout(tickers: str = "", force_refresh: bool = False):
         table.add_row(r["ticker"], str(r.get("scout_score", "")), str(r.get("rank", "")), r.get("reason", ""))
     console.print(table)
 
-
 @app.command()
 def telegram_bot(daemon: bool = False):
     """Inicia el bot de Telegram para responder comandos interactivos."""
@@ -564,10 +544,8 @@ def telegram_bot(daemon: bool = False):
         result = bot.execute({"single_run": True})
         console.print(f"Procesados {result.output.get('processed', 0)} comandos.")
 
-
 if __name__ == "__main__":
     app()
-
 
 # ──────────────────────────────────────────────
 # OPERABLE ASSETS MANAGEMENT
@@ -577,7 +555,6 @@ def _get_operable_filter() -> OperabilityFilter:
     ctx = _get_context()
     path = str(ctx.config_path.parent / "idos-config/universe/operable.yml")
     return OperabilityFilter(path)
-
 
 @app.command()
 def operable_add(ticker: str, name: str = "", type: str = "us_equity",
@@ -593,7 +570,6 @@ def operable_add(ticker: str, name: str = "", type: str = "us_equity",
     console.print(f"[green]{ticker.upper()} agregado a la lista de operables[/green]")
     console.print(f"  Tipo: {entry['type']} | Fuente: {entry['source']}")
 
-
 @app.command()
 def operable_remove(ticker: str):
     """Elimina un activo de la lista de operables."""
@@ -602,7 +578,6 @@ def operable_remove(ticker: str):
         console.print(f"[green]{ticker.upper()} eliminado de la lista de operables[/green]")
     else:
         console.print(f"[red]{ticker.upper()} no encontrado en la lista[/red]")
-
 
 @app.command()
 def operable_list(type: str = "", source: str = ""):
@@ -632,7 +607,6 @@ def operable_list(type: str = "", source: str = ""):
         )
     console.print(table)
 
-
 @app.command()
 def operable_check(ticker: str):
     """Verifica si un ticker esta en la lista de operables."""
@@ -648,7 +622,6 @@ def operable_check(ticker: str):
     else:
         console.print(f"[red]{ticker.upper()} NO esta en la lista de operables[/red]")
 
-
 @app.command()
 def operable_import(file: str):
     """Importa activos desde un archivo CSV (columna 'ticker' requerida)."""
@@ -660,7 +633,6 @@ def operable_import(file: str):
         console.print(f"[red]Archivo no encontrado: {file}[/red]")
     except Exception as e:
         console.print(f"[red]Error en importacion: {e}[/red]")
-
 
 @app.command()
 def operable_stats():
@@ -681,7 +653,6 @@ def operable_stats():
     )
     console.print(info)
 
-
 # ──────────────────────────────────────────────
 # SCREENER COMMANDS
 # ──────────────────────────────────────────────
@@ -690,7 +661,6 @@ def _get_screener() -> FinvizScreener:
     ctx = _get_context()
     path = str(ctx.config_path.parent / "idos-config/screeners")
     return FinvizScreener(path)
-
 
 @app.command()
 def screener_list():
@@ -713,7 +683,6 @@ def screener_list():
             f"{scr['expected_pass_rate']*100:.0f}%",
         )
     console.print(table)
-
 
 @app.command()
 def screener_run(ticker: str, name: str = ""):
@@ -747,7 +716,6 @@ def screener_run(ticker: str, name: str = ""):
         table.add_row(screener_name, f"[{color}]{'PASA' if passed else 'NO PASA'}[/{color}]")
     console.print(table)
 
-
 # ──────────────────────────────────────────────
 # UNIVERSE PIPELINE COMMANDS
 # ──────────────────────────────────────────────
@@ -774,7 +742,6 @@ def universe_build():
     console.print(f"  Fetched: {output.get('fetch_new', 0)} new, {output.get('fetch_cached', 0)} cached")
     console.print(f"  Scout: {output.get('scout_passed', 0)} passed, {output.get('scout_rejected', 0)} rejected")
 
-
 @app.command()
 def universe_fetch():
     """Fetch datos financieros para tickers operables sin cache."""
@@ -799,7 +766,6 @@ def universe_fetch():
         return
     data = result.output.get("data", {})
     console.print(f"[green]Fetched data for {len(data)} tickers[/green]")
-
 
 @app.command()
 def universe_status():

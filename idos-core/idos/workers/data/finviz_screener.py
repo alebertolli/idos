@@ -7,11 +7,11 @@ import requests
 from bs4 import BeautifulSoup
 
 from idos.workers.base import BaseWorker
+from idos.timezone import AR_TZ
 
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
 ]
-
 
 class FinvizScreenerScraper(BaseWorker):
     name = "finviz_screener_scraper"
@@ -35,10 +35,10 @@ class FinvizScreenerScraper(BaseWorker):
 
         if cache_file.exists():
             import json
-            from datetime import datetime, timezone
+            from datetime import datetime
             cached = json.loads(cache_file.read_text(encoding="utf-8"))
             cached_at = datetime.fromisoformat(cached.get("cached_at", "2000-01-01"))
-            age_days = (datetime.now(timezone.utc) - cached_at).days
+            age_days = (datetime.now(AR_TZ) - cached_at).days
             if age_days < cache_ttl_days:
                 print(f"[FINVIZ-SCREENER] Using cached data ({age_days} days old, {len(cached.get('tickers', []))} tickers)")
                 return {"tickers": cached["tickers"], "total": cached["total"], "from_cache": True}
@@ -82,11 +82,11 @@ class FinvizScreenerScraper(BaseWorker):
 
         cache_path.mkdir(parents=True, exist_ok=True)
         import json
-        from datetime import datetime, timezone
+        from datetime import datetime
         cache_data = {
             "tickers": all_tickers,
             "total": total,
-            "cached_at": datetime.now(timezone.utc).isoformat(),
+            "cached_at": datetime.now(AR_TZ).isoformat(),
         }
         cache_file.write_text(json.dumps(cache_data, indent=2), encoding="utf-8")
 

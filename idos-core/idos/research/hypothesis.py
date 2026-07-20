@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class HypothesisStatus(StrEnum):
     DRAFT = "DRAFT"
@@ -14,18 +14,15 @@ class HypothesisStatus(StrEnum):
     INVALIDATED = "INVALIDATED"
     CLOSED = "CLOSED"
 
-
 class HypothesisPriority(StrEnum):
     CRITICAL = "critical"
     IMPORTANT = "important"
     INFORMATIONAL = "informational"
 
-
 class EvidenceCategory(StrEnum):
     FACT = "FACT"
     INFERENCE = "INFERENCE"
     HYPOTHESIS = "HYPOTHESIS"
-
 
 @dataclass
 class Prediction:
@@ -43,7 +40,6 @@ class Prediction:
         self.met = self.actual_value >= self.expected_value
         return self.met
 
-
 @dataclass
 class FalsificationCondition:
     condition: str = ""
@@ -52,14 +48,12 @@ class FalsificationCondition:
     triggered: bool = False
     triggered_at: str = ""
 
-
 @dataclass
 class EvidenceLink:
     claim: str = ""
     category: EvidenceCategory = EvidenceCategory.FACT
     source: str = ""
     date: str = ""
-
 
 @dataclass
 class Hypothesis:
@@ -82,7 +76,7 @@ class Hypothesis:
     updated_at: str = ""
 
     def __post_init__(self):
-        now = datetime.now(UTC).isoformat()
+        now = datetime.now(AR_TZ).isoformat()
         if not self.created_at:
             self.created_at = now
         if not self.updated_at:
@@ -94,7 +88,7 @@ class Hypothesis:
         target_idx = order.index(target)
         if target_idx >= current_idx:
             self.status = target
-            self.updated_at = datetime.now(UTC).isoformat()
+            self.updated_at = datetime.now(AR_TZ).isoformat()
 
     def check_falsification(self) -> list[str]:
         triggered = []
@@ -124,7 +118,6 @@ class Hypothesis:
                               for f in self.falsification],
         }
 
-
 @dataclass
 class FiveQuestions:
     what_we_believe: str = ""
@@ -137,7 +130,6 @@ class FiveQuestions:
         return all([self.what_we_believe, self.why_we_believe,
                     self.what_should_happen, self.what_proves_us_wrong,
                     self.when_we_stop_believing])
-
 
 class HypothesisManager:
     def __init__(self):

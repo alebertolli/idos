@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 from uuid import uuid4
 
@@ -12,7 +12,7 @@ from idos.rules.engine import RulesEngine
 from idos.rules.evaluators import register_default_rules
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
-
+from idos.timezone import AR_TZ
 
 class DecisionBoardWorker(BaseWorker):
     """Evaluates DDD output against entry rules and proposes approval/rejection.
@@ -116,14 +116,14 @@ class DecisionBoardWorker(BaseWorker):
                 "llm": llm_eval.get("rules_detail", []),
             },
             "rationale": rationale,
-            "generated_at": datetime.now(UTC).isoformat(),
+            "generated_at": datetime.now(AR_TZ).isoformat(),
         }
         journal.save_decision(ticker, opp_id, decision)
 
         new_status = OpportunityStatus.APPROVED if all_rules_pass else OpportunityStatus.WATCHLIST
 
         opp["status"] = new_status.value
-        opp["updated_at"] = datetime.now(UTC).isoformat()
+        opp["updated_at"] = datetime.now(AR_TZ).isoformat()
         sqlite.save_opportunity(opp)
         sqlite.record_transition(opp_id, current_status.value, new_status.value,
                                  cause=f"decision_board_{'approved' if all_rules_pass else 'rejected'}",

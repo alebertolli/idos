@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class Claim:
@@ -14,8 +14,7 @@ class Claim:
 
     def __post_init__(self):
         if not self.last_review:
-            self.last_review = datetime.now(UTC).isoformat()
-
+            self.last_review = datetime.now(AR_TZ).isoformat()
 
 class ClaimsSystem:
     def __init__(self):
@@ -23,7 +22,7 @@ class ClaimsSystem:
 
     def register(self, statement: str, confidence: float = 0.5,
                  sources: list[str] | None = None) -> Claim:
-        claim_id = f"CLAIM-{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}-{len(self._claims) + 1:04d}"
+        claim_id = f"CLAIM-{datetime.now(AR_TZ).strftime('%Y%m%d%H%M%S')}-{len(self._claims) + 1:04d}"
         claim = Claim(id=claim_id, statement=statement, confidence=confidence,
                       sources=sources or [])
         self._claims[claim_id] = claim
@@ -33,14 +32,14 @@ class ClaimsSystem:
         claim = self._claims.get(claim_id)
         if claim:
             claim.confidence = max(0.0, min(1.0, confidence))
-            claim.last_review = datetime.now(UTC).isoformat()
+            claim.last_review = datetime.now(AR_TZ).isoformat()
 
     def add_source(self, claim_id: str, source: str):
         claim = self._claims.get(claim_id)
         if claim:
             if source not in claim.sources:
                 claim.sources.append(source)
-            claim.last_review = datetime.now(UTC).isoformat()
+            claim.last_review = datetime.now(AR_TZ).isoformat()
 
     def deprecate(self, claim_id: str):
         claim = self._claims.get(claim_id)

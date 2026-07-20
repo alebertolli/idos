@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class BiasType(StrEnum):
     CONFIRMATION = "confirmation_bias"
@@ -14,7 +14,6 @@ class BiasType(StrEnum):
     SUNK_COST = "sunk_cost_fallacy"
     HINDSIGHT = "hindsight_bias"
     OTHER = "other"
-
 
 @dataclass
 class BiasEntry:
@@ -28,8 +27,7 @@ class BiasEntry:
 
     def __post_init__(self):
         if not self.identified_at:
-            self.identified_at = datetime.now(UTC).isoformat()
-
+            self.identified_at = datetime.now(AR_TZ).isoformat()
 
 class BehavioralJournal:
     def __init__(self):

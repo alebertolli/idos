@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any, Callable
 import time
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class RetryPolicy:
@@ -11,7 +11,6 @@ class RetryPolicy:
     max_delay: float = 30.0
     backoff_multiplier: float = 2.0
     retryable_exceptions: tuple = (Exception,)
-
 
 class RetryMechanism:
     def __init__(self, policy: RetryPolicy | None = None):
@@ -26,7 +25,7 @@ class RetryMechanism:
                 self._attempts.append({
                     "attempt": attempt + 1,
                     "success": True,
-                    "timestamp": datetime.now(UTC).isoformat(),
+                    "timestamp": datetime.now(AR_TZ).isoformat(),
                 })
                 return result
             except self.policy.retryable_exceptions as e:
@@ -35,7 +34,7 @@ class RetryMechanism:
                     "attempt": attempt + 1,
                     "success": False,
                     "error": str(e),
-                    "timestamp": datetime.now(UTC).isoformat(),
+                    "timestamp": datetime.now(AR_TZ).isoformat(),
                 })
                 if attempt < self.policy.max_retries:
                     delay = min(

@@ -1,9 +1,9 @@
 from dataclasses import dataclass, field, asdict
-from datetime import datetime, UTC
+from datetime import datetime
 from enum import StrEnum
 from typing import Any
 import json
-
+from idos.timezone import AR_TZ
 
 class PipelineStage(StrEnum):
     EVENT_CLASSIFICATION = "EVENT_CLASSIFICATION"
@@ -11,7 +11,6 @@ class PipelineStage(StrEnum):
     KNOWLEDGE_UPDATE = "KNOWLEDGE_UPDATE"
     RULE_INJECTION = "RULE_INJECTION"
     DECISION_PROPOSAL = "DECISION_PROPOSAL"
-
 
 @dataclass
 class PipelineContext:
@@ -27,11 +26,10 @@ class PipelineContext:
 
     def __post_init__(self):
         if not self.started_at:
-            self.started_at = datetime.now(UTC).isoformat()
+            self.started_at = datetime.now(AR_TZ).isoformat()
 
     def snapshot(self) -> dict[str, Any]:
         return {k: v for k, v in asdict(self).items() if v}
-
 
 class PipelineStageHandler:
     def process(self, stage: PipelineStage, ctx: PipelineContext) -> PipelineContext:
@@ -39,7 +37,6 @@ class PipelineStageHandler:
         if method:
             return method(ctx)
         return ctx
-
 
 class DecisionPipeline(PipelineStageHandler):
     def run(self, ctx: PipelineContext, verbose: bool = True) -> PipelineContext:
@@ -51,7 +48,7 @@ class DecisionPipeline(PipelineStageHandler):
             if verbose:
                 diff = {k: after[k] for k in after if k not in before or before[k] != after[k]}
                 print(json.dumps({"stage": stage.value, "output": diff}, default=str))
-        ctx.completed_at = datetime.now(UTC).isoformat()
+        ctx.completed_at = datetime.now(AR_TZ).isoformat()
         if verbose:
             summary = {k: v for k, v in ctx.snapshot().items() if k not in ("started_at", "completed_at", "data")}
             print(json.dumps({"stage": "PIPELINE_COMPLETE", "output": summary}, default=str))

@@ -1,9 +1,9 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 from uuid import uuid4
 from idos.data.sqlite import SQLiteStore
 from idos.models.journal import ProvenanceEntry
-
+from idos.timezone import AR_TZ
 
 class ProvenanceEngine:
     def __init__(self, store: SQLiteStore):
@@ -16,7 +16,7 @@ class ProvenanceEngine:
             target_field=target_field,
             source=source,
             evidence_id=evidence_id,
-            timestamp=datetime.now(UTC),
+            timestamp=datetime.now(AR_TZ),
         )
         c = self._store.conn
         c.execute(

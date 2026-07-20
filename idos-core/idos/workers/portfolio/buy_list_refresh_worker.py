@@ -1,4 +1,4 @@
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
@@ -6,7 +6,7 @@ from idos.portfolio.buylist import BuyListManager
 from idos.portfolio.engine import PortfolioEngine
 from idos.workers.base import BaseWorker
 from idos.models.enums import OpportunityStatus
-
+from idos.timezone import AR_TZ
 
 class BuyListRefreshWorker(BaseWorker):
     """Updates Buy List daily with latest targets, conviction, and buy zones.
@@ -59,7 +59,7 @@ class BuyListRefreshWorker(BaseWorker):
                 existing.buy_zone_top = buy_zone_top
                 existing.max_position_pct = max_pos
                 existing.conviction_score = conviction.get("overall", 0)
-                existing.kb_last_update = datetime.now(UTC).isoformat()
+                existing.kb_last_update = datetime.now(AR_TZ).isoformat()
                 updated += 1
             else:
                 self.buylist.add(type("Entry", (), {

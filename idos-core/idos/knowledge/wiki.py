@@ -1,9 +1,9 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
 from pathlib import Path
 import yaml
-
+from idos.timezone import AR_TZ
 
 @dataclass
 class WikiMetadata:
@@ -26,9 +26,8 @@ class WikiMetadata:
 
     @classmethod
     def fresh(cls) -> "WikiMetadata":
-        now = datetime.now(UTC).isoformat()
+        now = datetime.now(AR_TZ).isoformat()
         return cls(freshness=now, confidence=0.0, last_review=now)
-
 
 @dataclass
 class WikiSection:
@@ -55,7 +54,6 @@ class WikiSection:
             claims=data.get("claims", []),
         )
 
-
 ATOMIC_SECTIONS = [
     "business",
     "management",
@@ -67,7 +65,6 @@ ATOMIC_SECTIONS = [
     "catalysts",
     "investment_thesis",
 ]
-
 
 class AtomicWiki:
     def __init__(self, base_path: str | Path = "idos-knowledge"):
@@ -135,7 +132,7 @@ class AtomicWiki:
     def update_freshness(self, ticker: str, section: str):
         s = self.get_section(ticker, section)
         if s:
-            s.metadata.freshness = datetime.now(UTC).isoformat()
+            s.metadata.freshness = datetime.now(AR_TZ).isoformat()
             self.set_section(ticker, s)
 
     def migrate_from_monolith(self, ticker: str, monolith_path: str | Path):

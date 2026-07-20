@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class RateLimiter:
     def __init__(self, max_calls: int = 10, window_seconds: int = 60):
@@ -10,7 +10,7 @@ class RateLimiter:
         self._calls: dict[str, list[float]] = {}
 
     def _now(self) -> float:
-        return datetime.now(UTC).timestamp()
+        return datetime.now(AR_TZ).timestamp()
 
     def _prune(self, key: str):
         cutoff = self._now() - self.window

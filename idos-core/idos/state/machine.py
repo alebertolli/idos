@@ -1,20 +1,19 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import datetime
 from typing import Any, Callable
 from idos.models.enums import OpportunityStatus
 from idos.core.errors import StateTransitionError
+from idos.timezone import AR_TZ
 
 GuardFn = Callable[[dict[str, Any]], tuple[bool, str]]
-
 
 @dataclass
 class Transition:
     from_status: OpportunityStatus
     to_status: OpportunityStatus
-    timestamp: datetime = field(default_factory=lambda: datetime.now(UTC))
+    timestamp: datetime = field(default_factory=lambda: datetime.now(AR_TZ))
     cause: str = ""
     worker: str = "system"
-
 
 class StateMachine:
     def __init__(self, allowed_transitions: dict[OpportunityStatus, list[OpportunityStatus]]):
@@ -32,7 +31,6 @@ class StateMachine:
             cause=cause,
             worker=worker,
         )
-
 
 class OpportunityStateMachine(StateMachine):
     _transitions: dict[OpportunityStatus, list[OpportunityStatus]] = {

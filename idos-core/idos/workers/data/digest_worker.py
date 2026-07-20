@@ -1,8 +1,8 @@
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import Any
 
 from idos.workers.base import BaseWorker
-
+from idos.timezone import AR_TZ
 
 class DigestWorker(BaseWorker):
     name = "digest_worker"
@@ -18,12 +18,12 @@ class DigestWorker(BaseWorker):
 
         print(f"[DIGEST] Generating digest: {len(scout_results)} scout results, {len(risk_alerts)} alerts, {len(positions)} positions, {len(opportunities)} opportunities")
 
-        now = datetime.now(timezone.utc)
+        now = datetime.now(AR_TZ)
         week_start = now.strftime("%Y-%m-%d")
         lines: list[str] = []
         lines.append(f"# 📊 IDOS Weekly Digest — {week_start}")
         lines.append("")
-        lines.append(f"_Generado: {now.strftime('%Y-%m-%d %H:%M UTC')}_")
+        lines.append(f"_Generado: {now.strftime('%Y-%m-%d %H:%M GMT-3')}_")
         lines.append("")
 
         passed = [s for s in scout_results if s.get("passed")]
@@ -81,7 +81,7 @@ class DigestWorker(BaseWorker):
 
         lines.append("")
         lines.append("---")
-        lines.append(f"*🤖 Generado automáticamente por IDOS — {now.strftime('%Y-%m-%d %H:%M UTC')}*")
+        lines.append(f"*🤖 Generado automáticamente por IDOS — {now.strftime('%Y-%m-%d %H:%M GMT-3')}*")
 
         digest_text = "\n".join(lines)
         return {

@@ -1,14 +1,13 @@
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta, UTC
+from datetime import datetime, timedelta
 from enum import StrEnum
 from typing import Any
-
+from idos.timezone import AR_TZ
 
 class CircuitState(StrEnum):
     CLOSED = "closed"
     OPEN = "open"
     HALF_OPEN = "half_open"
-
 
 @dataclass
 class CircuitBreaker:
@@ -22,35 +21,35 @@ class CircuitBreaker:
 
     def __post_init__(self):
         if not self._last_state_change:
-            self._last_state_change = datetime.now(UTC).isoformat()
+            self._last_state_change = datetime.now(AR_TZ).isoformat()
 
     @property
     def state(self) -> CircuitState:
         if self._state == CircuitState.OPEN:
             if self._last_failure:
                 last = datetime.fromisoformat(self._last_failure)
-                if datetime.now(UTC) - last > timedelta(seconds=self.recovery_timeout):
+                if datetime.now(AR_TZ) - last > timedelta(seconds=self.recovery_timeout):
                     self._state = CircuitState.HALF_OPEN
-                    self._last_state_change = datetime.now(UTC).isoformat()
+                    self._last_state_change = datetime.now(AR_TZ).isoformat()
         return self._state
 
     def record_success(self):
         if self._state == CircuitState.HALF_OPEN:
             self._state = CircuitState.CLOSED
-            self._last_state_change = datetime.now(UTC).isoformat()
+            self._last_state_change = datetime.now(AR_TZ).isoformat()
         self._failure_count = 0
 
     def record_failure(self):
         self._failure_count += 1
-        self._last_failure = datetime.now(UTC).isoformat()
+        self._last_failure = datetime.now(AR_TZ).isoformat()
         if self._failure_count >= self.failure_threshold and self._state != CircuitState.OPEN:
             self._state = CircuitState.OPEN
-            self._last_state_change = datetime.now(UTC).isoformat()
+            self._last_state_change = datetime.now(AR_TZ).isoformat()
 
     def reset(self):
         self._state = CircuitState.CLOSED
         self._failure_count = 0
-        self._last_state_change = datetime.now(UTC).isoformat()
+        self._last_state_change = datetime.now(AR_TZ).isoformat()
 
     @property
     def failure_count(self) -> int:
