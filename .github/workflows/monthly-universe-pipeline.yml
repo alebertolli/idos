@@ -1,0 +1,128 @@
+name: Monthly Universe Pipeline
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"  # primer dia de cada mes a medianoche
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
+      IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+      - name: Run pipeline
+        run: |
+          python -c "
+          import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          import os
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.workers.data.universe_pipeline import UniversePipeline
+          config = {
+              'config_path': 'idos-config',
+              'journal_path': 'idos-journal',
+              'cache_path': 'cache',
+          }
+          w = UniversePipeline(config)
+          r = w.execute({})
+          print(f'=== PIPELINE COMPLETE ===')
+          print(f'Status: {r.status}')
+          if r.status == 'failed':
+              print(f'Error: {r.error}')
+          else:
+              o = r.output
+              print(f'Finviz: {o.get(\"finviz_count\", 0)} tickers')
+              print(f'Operable: {o.get(\"operable_count\", 0)} tickers')
+              print(f'Fetched: {o.get(\"fetch_new\", 0)} new, {o.get(\"fetch_cached\", 0)} cached')
+              print(f'Scout: {o.get(\"scout_passed\", 0)} passed, {o.get(\"scout_rejected\", 0)} rejected')
+              print(f'Duration: {o.get(\"duration_seconds\", 0):.0f}s')
+          import json
+          os.makedirs('cache', exist_ok=True)
+          with open('cache/pipeline_results.json', 'w') as f:
+              json.dump({'status': r.status, 'output': r.output if r.status != 'failed' else {}, 'error': r.error}, f, indent=2)
+          "
+      - name: Save & commit results
+        run: |
+          python -c "
+          import os, json, glob
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          git config user.name 'idos-bot'
+          git config user.email 'bot@idos.local'
+          mkdir -p cache
+          touch cache/pipeline_results.json
+          git add idos-journal/portfolio/watchlist.yml 2>&1 || echo 'add watchlist failed: $?'
+          git add idos-journal/reports/ 2>&1 || echo 'add reports failed: $?'
+          git add cache/pipeline_results.json 2>&1 || echo 'add cache failed: $?'
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git status --short -- idos-journal/ cache/
+            git commit -m 'chore: monthly universe pipeline $(date +%Y-%m-%d)'
+            git push
+          fi
+          "
+      - name: Notify
+        run: |
+          python -c "
+          import os, json
+          from idos.workers.notifications.telegram import TelegramNotifier
+          token = os.environ.get('IDOS_TELEGRAM_BOT_TOKEN')
+          chat = os.environ.get('IDOS_TELEGRAM_CHAT_ID')
+          if not token or not chat:
+              print('Telegram not configured, skipping notification')
+              exit(0)
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          pr = 'cache/pipeline_results.json'
+          if os.path.exists(pr):
+              data = json.load(open(pr))
+              if data.get('status') == 'failed':
+                  msg = f'🚨 *IDOS Alert*: Pipeline FAILED\n{data.get(\"error\", \"unknown\")}'
+              else:
+                  o = data.get('output', {})
+                  lines = ['📡 *IDOS Monthly Universe Pipeline*']
+                  lines.append(f'')
+                  lines.append(f'📊 *Pipeline Results:*')
+                  lines.append(f'  Finviz Screening: {o.get(\"finviz_count\", 0)} tickers')
+                  lines.append(f'  Operable Filter: {o.get(\"operable_count\", 0)} tickers')
+                  lines.append(f'  Data Fetch: {o.get(\"fetch_new\", 0)} new, {o.get(\"fetch_cached\", 0)} cached')
+                  lines.append(f'  Scout: {o.get(\"scout_passed\", 0)} passed, {o.get(\"scout_rejected\", 0)} rejected')
+                  new_wl = o.get('new_watchlist_count', 0)
+                  if new_wl:
+                      lines.append(f'')
+                      lines.append(f'✅ *{new_wl} new watchlist additions*')
+                  fetch_errors = o.get('fetch_errors', 0)
+                  if fetch_errors:
+                      lines.append(f'⚠️ *{fetch_errors} fetch errors*')
+                  lines.append(f'')
+                  lines.append(f'Duration: {o.get(\"duration_seconds\", 0):.0f}s')
+                  msg = '\n'.join(lines)
+          else:
+              msg = '📡 *IDOS Monthly Pipeline*: No results file found'
+          t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
+          t.execute({'message': msg})
+          print('Telegram notification sent')
+          "
+      - name: Notify on failure
+        if: failure()
+        run: |
+          python -c "
+          import os
+          from idos.workers.notifications.telegram import TelegramNotifier
+          token = os.environ.get('IDOS_TELEGRAM_BOT_TOKEN')
+          chat = os.environ.get('IDOS_TELEGRAM_CHAT_ID')
+          if token and chat:
+              t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
+              t.execute({'message': '🚨 *IDOS Alert*: Monthly Universe Pipeline workflow FAILED'})
+              print('Failure alert sent')
+          "
