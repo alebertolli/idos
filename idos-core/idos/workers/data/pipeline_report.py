@@ -28,6 +28,10 @@ class PipelineMetrics:
     scout_rejected: int = 0
     new_watchlist: list[dict] = field(default_factory=list)
 
+    opportunities_created: int = 0
+    opportunities_eligible: int = 0
+    opportunities_existing: int = 0
+
     errors: list[dict] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
@@ -46,6 +50,9 @@ class PipelineMetrics:
             "scout_passed": self.scout_passed,
             "scout_rejected": self.scout_rejected,
             "new_watchlist_count": len(self.new_watchlist),
+            "opportunities_eligible": self.opportunities_eligible,
+            "opportunities_existing": self.opportunities_existing,
+            "opportunities_created": self.opportunities_created,
             "errors": self.errors,
         }
 
@@ -78,8 +85,13 @@ class PipelineReportGenerator:
                 lines.append(f"  ... and {len(metrics.new_watchlist) - 10} more")
             lines.append("")
 
+        if metrics.opportunities_eligible:
+            lines.append(f"  Opportunities: {metrics.opportunities_created} created, "
+                         f"{metrics.opportunities_existing} already exist, "
+                         f"{metrics.opportunities_eligible} eligible")
+            lines.append("")
+
         if metrics.fetch_errors:
-            lines.append(f"Fetch Errors ({len(metrics.fetch_errors)}):")
             for err in metrics.fetch_errors[:5]:
                 lines.append(f"  {err.get('ticker', '?')} — {err.get('error', 'unknown')}")
             lines.append("")

@@ -37,6 +37,7 @@ class UniversePipeline(BaseWorker):
             self._run_pre_score(metrics)
             self._run_fetch(metrics)
             self._run_scout(metrics)
+            self._run_opportunity_creation(metrics)
         except Exception as e:
             metrics.errors.append({"step": "pipeline", "error": str(e)})
 
@@ -181,6 +182,80 @@ class UniversePipeline(BaseWorker):
             print(f"[PIPELINE] Top watchlist:")
             for entry in metrics.new_watchlist[:5]:
                 print(f"  {entry['ticker']}: score={entry['score']} rank={entry['rank']}")
+
+    def _run_opportunity_creation(self, metrics: PipelineMetrics):
+        if not metrics.new_watchlist:
+            return
+        print(f"\n[PIPELINE] STEP 6: Opportunity Creation")
+
+        import yaml
+        scoring_path = Path(self.config_path) / "scoring.yml"
+        min_score = 70
+        if scoring_path.exists():
+            scoring_data = yaml.safe_load(scoring_path.read_text(encoding="utf-8"))
+            min_score = scoring_data.get("scoring", {}).get("min_opportunity_score", 70)
+        print(f"[PIPELINE] Min opportunity score: {min_score}")
+
+        eligible = [e for e in metrics.new_watchlist if e.get("score", 0) >= min_score]
+        metrics.opportunities_eligible = len(eligible)
+        if not eligible:
+            print(f"[PIPELINE] No tickers with score >= {min_score}")
+            return
+
+        journal_base = Path(self.journal_path) if self.journal_path else Path("idos-journal")
+        existing = set()
+        companies_dir = journal_base / "companies"
+        if companies_dir.exists():
+            for d in companies_dir.iterdir():
+                if d.is_dir():
+                    opp_dir = d / "case_file" / "opportunities"
+                    if opp_dir.exists():
+                        for opp in opp_dir.iterdir():
+                            if opp.is_dir():
+                                opp_file = opp / "opportunity.yml"
+                                if opp_file.exists():
+                                    try:
+                                        raw = opp_file.read_text(encoding="utf-8")
+                                        if "ticker:" in raw:
+                                            for line in raw.splitlines():
+                                                if line.strip().startswith("ticker:"):
+                                                    existing.add(line.split(":", 1)[1].strip().strip("'\"").upper())
+                                                    break
+                                    except Exception:
+                                        pass
+
+        from idos.models.enums import OpportunityStatus
+        from idos.models.journal import Opportunity
+        from idos.models.conviction import Conviction
+
+        created = 0
+        date_prefix = datetime.now(AR_TZ).strftime('%Y%m%d')
+        seq = 1
+        for entry in eligible:
+            ticker = entry["ticker"].upper()
+            if ticker in existing:
+                metrics.opportunities_existing += 1
+                continue
+
+            opp_id = f"OPP-{date_prefix}-{seq:03d}"
+            seq += 1
+            opp = Opportunity(
+                id=opp_id,
+                ticker=ticker,
+                status=OpportunityStatus.DISCOVERED,
+                conviction=Conviction(overall=entry.get("score", 0)),
+            )
+            opp_data = opp.model_dump(mode="json")
+            opp_dir = journal_base / "companies" / ticker / "case_file" / "opportunities" / opp_id
+            opp_dir.mkdir(parents=True, exist_ok=True)
+            opp_file = opp_dir / "opportunity.yml"
+            with open(opp_file, "w", encoding="utf-8") as f:
+                yaml.dump(opp_data, f, default_flow_style=False, allow_unicode=True)
+            existing.add(ticker)
+            created += 1
+
+        metrics.opportunities_created = created
+        print(f"[PIPELINE] Opportunities: {created} created, {metrics.opportunities_existing} existing, {len(eligible)} eligible")
 
     def _score_ticker(self, scout: ScoutEngine, ticker: str, data: dict) -> dict:
         def _num(v, default=0.0):

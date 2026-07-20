@@ -1,0 +1,221 @@
+name: DDD Research Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: "Ticker especifico (dejar vacio para todos)"
+        required: false
+        type: string
+  schedule:
+    - cron: "0 12 * * 1"  # lunes al mediodia UTC
+
+env:
+  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+  OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+  IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
+  IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
+
+jobs:
+  ddd:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+
+      - name: Find & Process Opportunities
+        run: |
+          python -c "
+          import sys, os, yaml, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          journal = Path('idos-journal')
+          ticker_filter = os.environ.get('INPUT_TICKER', '')
+
+          # Scan all DISCOVERED opportunities from YAML files
+          opportunities = []
+          companies_dir = journal / 'companies'
+          if companies_dir.exists():
+              for d in sorted(companies_dir.iterdir()):
+                  if not d.is_dir():
+                      continue
+                  ticker = d.name
+                  if ticker_filter and ticker.upper() != ticker_filter.upper():
+                      continue
+                  opp_dir = d / 'case_file' / 'opportunities'
+                  if not opp_dir.exists():
+                      continue
+                  for opp in sorted(opp_dir.iterdir()):
+                      if not opp.is_dir():
+                          continue
+                      yf = opp / 'opportunity.yml'
+                      if not yf.exists():
+                          continue
+                      try:
+                          data = yaml.safe_load(yf.read_text(encoding='utf-8'))
+                          if data and data.get('status') == 'DISCOVERED':
+                              opportunities.append({
+                                  'opp_id': data['id'],
+                                  'ticker': data['ticker'].upper(),
+                                  'score': data.get('conviction', {}).get('overall', 0),
+                              })
+                      except Exception as e:
+                          print(f'[DDD] Error reading {yf}: {e}')
+
+          if not opportunities:
+              print('[DDD] No DISCOVERED opportunities to process')
+              Path('cache/ddd_results.json').write_text(json.dumps({'processed': [], 'status': 'none'}), encoding='utf-8')
+              exit(0)
+
+          print(f'[DDD] Found {len(opportunities)} DISCOVERED opportunities')
+
+          # Process each with ResearchWorker
+          from idos.workers.ai.research_worker import ResearchWorker
+          processed = []
+          errors = []
+
+          for opp in opportunities:
+              ticker = opp['ticker']
+              opp_id = opp['opp_id']
+              print(f'\n[DDD] Processing {ticker} ({opp_id})...')
+
+              try:
+                  # Sync opp to SQLite first (ResearchWorker needs it)
+                  from idos.data.sqlite import SQLiteStore
+                  from idos.models.enums import OpportunityStatus
+                  from idos.models.journal import Opportunity
+                  from idos.models.conviction import Conviction
+
+                  db = SQLiteStore('idos.db')
+                  existing = db.get_opportunity(opp_id)
+                  if not existing:
+                      db.save_opportunity({
+                          'id': opp_id,
+                          'ticker': ticker,
+                          'status': OpportunityStatus.DISCOVERED,
+                          'conviction': {'overall': opp['score']},
+                      })
+
+                  worker = ResearchWorker({
+                      'provider': 'google',
+                      'api_key': os.environ.get('GEMINI_API_KEY', ''),
+                      'model': 'gemini-2.0-flash',
+                      'prompts_path': 'idos-config/prompts',
+                  })
+                  r = worker.execute({
+                      'ticker': ticker,
+                      'opp_id': opp_id,
+                      'base_path': os.environ.get('GITHUB_WORKSPACE', '.'),
+                  })
+                  if r.status == 'success':
+                      output = r.output
+                      status = output.get('status', 'completed')
+                      print(f'[DDD] {ticker}: {status}')
+                      processed.append({'ticker': ticker, 'opp_id': opp_id, 'status': status})
+                  else:
+                      print(f'[DDD] {ticker}: FAILED - {r.error}')
+                      errors.append({'ticker': ticker, 'error': r.error})
+
+              except Exception as e:
+                  print(f'[DDD] {ticker}: ERROR - {e}')
+                  errors.append({'ticker': ticker, 'error': str(e)})
+
+          # Save results
+          results = {'processed': processed, 'errors': errors, 'total': len(opportunities), 'done': len(processed)}
+          Path('cache').mkdir(parents=True, exist_ok=True)
+          Path('cache/ddd_results.json').write_text(json.dumps(results, indent=2), encoding='utf-8')
+          print(f'\n[DDD] Done: {len(processed)} processed, {len(errors)} errors')
+          "
+
+      - name: Generate DDD Digest
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+
+          results_file = 'cache/ddd_results.json'
+          if not Path(results_file).exists():
+              print('[DIGEST] No results file found')
+              exit(0)
+
+          results = json.loads(open(results_file, encoding='utf-8').read())
+          from datetime import datetime, timezone
+          now = datetime.now(timezone.utc)
+
+          lines = []
+          lines.append('# IDOS DDD Research Digest')
+          lines.append(f'')
+          lines.append(f'_Generado: {now.strftime(\"%Y-%m-%d %H:%M UTC")}_')
+          lines.append(f'')
+          lines.append('## Resumen')
+          lines.append(f'')
+          lines.append(f'- 🟢 **Oportunidades procesadas:** {len(results.get(\"processed\", []))}')
+          lines.append(f'- 🔴 **Errores:** {len(results.get(\"errors\", []))}')
+          lines.append(f'- 📊 **Total encontradas:** {results.get(\"total\", 0)}')
+          lines.append('')
+
+          if results.get('processed'):
+              lines.append('### Procesadas')
+              lines.append('')
+              for p in results['processed']:
+                  status = '✅' if p.get('status') == 'completed' else '⚠️'
+                  lines.append(f'- {status} **{p[\"ticker\"]}** ({p[\"opp_id\"]}): {p.get(\"status\", \"?\")}')
+              lines.append('')
+
+          if results.get('errors'):
+              lines.append('### Errores')
+              lines.append('')
+              for e in results['errors']:
+                  lines.append(f'- ❌ **{e[\"ticker\"]}**: {e.get(\"error\", \"?\")}')
+              lines.append('')
+
+          digest = '\n'.join(lines)
+          Path('cache/weekly_digest.md').parent.mkdir(parents=True, exist_ok=True)
+          open('cache/weekly_digest.md', 'w', encoding='utf-8').write(digest)
+          print(f'[DIGEST] Generated: {len(lines)} lines, {len(results.get(\"processed\", []))} processed')
+          "
+
+      - name: Commit results
+        run: |
+          git config user.name "idos-bot"
+          git config user.email "bot@idos.local"
+          git add idos-journal/companies/ idos-journal/reports/ cache/ddd_results.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: ddd research $(date +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Send notification
+        if: success()
+        run: |
+          python -c "
+          import os
+          digest = open('cache/weekly_digest.md', encoding='utf-8').read()
+          token = os.environ.get('IDOS_TELEGRAM_BOT_TOKEN', '')
+          chat = os.environ.get('IDOS_TELEGRAM_CHAT_ID', '')
+          if token and chat:
+              from idos.workers.notifications.telegram import TelegramNotifier
+              t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
+              t.execute({'message': digest[:4000]})
+              print('Notification sent')
+          else:
+              print('Telegram not configured, skipping notification')
+          "
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ddd-results-${{ github.run_id }}
+          path: cache/ddd_results.json
