@@ -7,6 +7,7 @@ from typing import Any
 from idos.workers.base import BaseWorker
 from idos.workers.data.finviz_screener import FinvizScreenerScraper
 from idos.workers.data.refresh_worker import DataRefreshWorker
+from idos.workers.data.cache import DataCache
 from idos.workers.data.pipeline_report import PipelineMetrics, PipelineReportGenerator
 from idos.discovery.operability import OperabilityFilter
 from idos.discovery.screening import FinvizScreener
@@ -213,13 +214,10 @@ class UniversePipeline(BaseWorker):
         }
 
     def _get_cached_data(self, cache_path: Path, ticker: str) -> dict:
-        import json
-        cache_file = cache_path / f"{ticker}.json"
-        if cache_file.exists():
-            try:
-                return json.loads(cache_file.read_text(encoding="utf-8"))
-            except Exception:
-                pass
+        cache = DataCache()
+        data = cache.get(f"merged:{ticker}")
+        if data:
+            return data.get("merged_data", data)
         return {}
 
     def _save_watchlist(self, watchlist: WatchlistManager):

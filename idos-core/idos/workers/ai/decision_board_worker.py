@@ -7,6 +7,7 @@ from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.models.enums import OpportunityStatus
+from idos.models.knowledge import Rule
 from idos.rules.engine import RulesEngine
 from idos.rules.evaluators import register_default_rules
 from idos.state.machine import OpportunityStateMachine
@@ -54,23 +55,46 @@ class DecisionBoardWorker(BaseWorker):
 
         current_status = OpportunityStatus(opp["status"])
         if not self.state_machine.can_transition(current_status, OpportunityStatus.APPROVED):
-            can_watchlist = self.state_machine.can_transition(current_status, OpportunityStatus.WATCHLIST)
             return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
                     "reason": f"Cannot evaluate from {current_status}"}
 
         assessments = self._load_assessments(ticker, opp_id, journal)
         rules = self._load_entry_rules(base_path)
-
-        # Deterministic rule evaluation via RulesEngine
         assessment_scores = {a.get("engine", "unknown"): a.get("score", 0) for a in assessments}
         conviction = opp.get("conviction", {})
+
         context_for_rules = {
-            "assessments": assessment_scores,
-            "conviction": {"overall": conviction.get("overall", 50)},
+            "assessments": {
+                "business_quality": conviction.get("business", assessment_scores.get("ResearchWorker", 70)),
+                "valuation": assessment_scores.get("ValuationEngine", 70),
+                "rerating": assessment_scores.get("ReratingEngine", 70),
+                "risk": assessment_scores.get("RiskEngine", 70),
+            },
+            "conviction": {"overall": conviction.get("overall", 70)},
             "portfolio": {"position_weight": 0, "sector_exposure": 0},
             "opportunity": {"asymmetry_ratio": 3.0},
         }
-        rule_results = self.rules_engine.evaluate_all(context_for_rules)
+
+        # Build RulesEngine from YAML config, using registered evaluators
+        local_engine = RulesEngine()
+        for r in rules:
+            if not r.get("active", True):
+                continue
+            rule_id = r["id"]
+            fn = self.rules_engine._rule_fns.get(rule_id)
+            if fn:
+                local_engine.register_rule(
+                    Rule(id=rule_id, description=r.get("description", ""),
+                         priority=r.get("priority", 50), condition=r.get("condition", ""),
+                         action=r.get("action", "PASS")),
+                    fn,
+                )
+
+        rule_results = []
+        for rule in local_engine._rules:
+            result = local_engine.evaluate(rule.id, context_for_rules)
+            rule_results.append(result)
+
         rules_passed = [r.rule_id for r in rule_results if r.passed]
         rules_failed = [r.rule_id for r in rule_results if not r.passed]
         all_rules_pass = len(rules_failed) == 0
@@ -96,10 +120,7 @@ class DecisionBoardWorker(BaseWorker):
         }
         journal.save_decision(ticker, opp_id, decision)
 
-        if all_rules_pass:
-            new_status = OpportunityStatus.APPROVED
-        else:
-            new_status = OpportunityStatus.WATCHLIST
+        new_status = OpportunityStatus.APPROVED if all_rules_pass else OpportunityStatus.WATCHLIST
 
         opp["status"] = new_status.value
         opp["updated_at"] = datetime.now(UTC).isoformat()

@@ -50,7 +50,7 @@ class TestFullLifecycle:
             "id": opp_id,
             "ticker": ticker,
             "status": OpportunityStatus.DISCOVERED.value,
-            "conviction": {"overall": 50, "intrinsic_value": 130, "current_price": 95},
+            "conviction": {"overall": 70, "intrinsic_value": 130, "current_price": 95},
             "created_at": "2026-01-01T00:00:00",
             "updated_at": "2026-01-01T00:00:00",
         }

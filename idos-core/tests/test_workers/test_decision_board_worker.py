@@ -32,11 +32,28 @@ class TestDecisionBoardWorker:
 
     def test_rejects_poor_opportunity(
         self,
-        seeded_opportunity_under_dd: tuple[str, str],
         mock_llm_reject_client: MagicMock,
         base_path: str,
+        tmp_sqlite,
+        tmp_journal,
     ):
-        ticker, opp_id = seeded_opportunity_under_dd
+        ticker = "POOR"
+        opp_id = "OPP-2026-POOR-001"
+        opp = {
+            "id": opp_id,
+            "ticker": ticker,
+            "status": OpportunityStatus.UNDER_DEEP_DD.value,
+            "conviction": {"overall": 40, "business": 35},
+            "created_at": "2026-01-01T00:00:00",
+            "updated_at": "2026-01-01T00:00:00",
+        }
+        tmp_sqlite.save_opportunity(opp)
+        tmp_journal.save_opportunity(ticker, opp)
+        ass = {"id": "ass-poor", "engine": "ResearchWorker", "score": 35,
+               "confidence": "LOW", "findings": ["Low quality"],
+               "status": "COMPLETED", "generated_at": "2026-01-01T00:00:00"}
+        tmp_journal.save_assessment(ticker, opp_id, ass)
+
         worker = DecisionBoardWorker({"provider": "test"})
         worker.llm = mock_llm_reject_client
 
