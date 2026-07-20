@@ -60,6 +60,7 @@ jobs:
           touch cache/pipeline_results.json
           git add idos-journal/portfolio/watchlist.yml 2>&1 || echo 'add watchlist failed: $?'
           git add idos-journal/reports/ 2>&1 || echo 'add reports failed: $?'
+          git add idos-journal/companies/ 2>&1 || echo 'add companies failed: $?'
           git add cache/pipeline_results.json 2>&1 || echo 'add cache failed: $?'
           if git diff --cached --quiet; then
             echo 'No changes to commit'
