@@ -357,7 +357,7 @@ jobs:
               body_lines.append('')
               body_lines.append('Resultados:')
               for a in assessments[:20]:
-                  body_lines.append(f"- {a['ticker']}: conv={a.get('conviction_score','?')}/100 | {a.get('recommendation','?')} | board={'OK' if a.get('board_approved') else 'PENDING'}")
+                  body_lines.append(f'- {a["ticker"]}: conv={a.get(\"conviction_score\",\"?\")}/100 | {a.get(\"recommendation\",\"?\")} | board={\"OK\" if a.get(\"board_approved\") else \"PENDING\"}')
               body_lines.append('')
               body_lines.append('Ver detalle completo:')
               body_lines.append('https://github.com/alebertolli/idos/tree/main/idos-journal/companies')
