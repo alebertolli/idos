@@ -46,6 +46,7 @@ jobs:
               print(f'Operable: {o.get(\"operable_count\", 0)} tickers')
               print(f'Fetched: {o.get(\"fetch_new\", 0)} new, {o.get(\"fetch_cached\", 0)} cached')
               print(f'Scout: {o.get(\"scout_passed\", 0)} passed, {o.get(\"scout_rejected\", 0)} rejected')
+              print(f'Opportunities: {o.get(\"opportunities_created\", 0)} created, {o.get(\"opportunities_eligible\", 0)} eligible, {o.get(\"opportunities_existing\", 0)} existing')
               print(f'Duration: {o.get(\"duration_seconds\", 0):.0f}s')
           import json
           os.makedirs('cache', exist_ok=True)
