@@ -145,7 +145,7 @@ class UniversePipeline(BaseWorker):
         print(f"\n[PIPELINE] STEP 5: Scout ({len(metrics.finviz_tickers)} tickers)")
         scout_config = {
             "min_score": self.config.get("min_scout_score", 50),
-            "max_watchlist": self.config.get("max_watchlist", 50),
+            "max_watchlist": self.config.get("max_watchlist", 200),
             "screeners_dir": str(Path(self.config_path) / "screeners"),
             "operable_path": str(Path(self.config_path) / "universe/operable.yml"),
             "journal_path": self.journal_path,
