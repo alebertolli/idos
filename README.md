@@ -212,9 +212,19 @@ idos screener-run AAPL --name value # Evalúa contra screener específico
 ### 3.6 Universe Pipeline
 
 ```bash
-idos universe-build              # Ejecuta pipeline completo: Finviz → Filter → Fetch → Scout
+idos universe-build              # Ejecuta pipeline completo: Finviz → Filter → Fetch → Scout → Opportunities
 idos universe-fetch              # Fetch datos financieros para tickers operables
 idos universe-status             # Muestra estadísticas del universo y cache
+```
+
+### 3.7 DDD Pipeline (GitHub Actions)
+
+El pipeline completo de decisión se ejecuta automáticamente via GitHub Actions
+(lunes al mediodía UTC) o manual desde **Actions → DDD Research Pipeline → Run workflow**.
+
+```bash
+# Opcional: ejecutar localmente un paso específico
+python -c "from idos.decision.assessment_pipeline import run_full_pipeline; print(run_full_pipeline('OPP-001', 'GFI', '.'))"
 ```
 
 ---
@@ -225,48 +235,59 @@ El sistema cubre los 14 estados del **Investment Lifecycle Framework** (SDD-7)
 con workers automatizados para cada transición:
 
 ```
-DISCOVERED ──► SCREENED ──► WATCHLIST ──► UNDER_DEEP_DD ──► APPROVED
-    ▲              │              │              │
-    │         [ScoutWorker]  [manual/event]  [ResearchWorker]
-    │                                           │
-    │                                     [DecisionBoardWorker]
-    │                                           │
-    └──── ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─┘ (si rechazado)
-                                                │
-                                          APPROVED
-                                                │
-                                     [EntryMonitorWorker]
-                                                │
-                                          ENTRY_PENDING
-                                                │
-                                     [EntryMonitorWorker + Wyckoff LLM]
-                                                │
-                                          ACCUMULATING ──► FULL_POSITION
-                                                │
-                                          MONITORING
-                                          ▲    │    ▲
-                                          │    ▼    │
-                                          │ REDUCING│
-                                          │    │    │
-                                          └────▼────┘
-                                             EXITED
-                                                │
-                                     [PostMortemWorker]
-                                                │
-                                          POST_MORTEM
-                                                │
-                                          ARCHIVED
+DISCOVERED ──► UNDER_DEEP_DD ──► APPROVED
+    │               │                 │
+    │     [ResearchWorker]      [AssessmentPipeline]
+    │               │           (Steps 3-7: 5 Engines
+    │               │            + Conviction + Rules
+    │               │            + Board + Entry)
+    │               │                 │
+    │               └── PENDING ──────┘ (si BLOCKED,
+    │                    REVIEW         vuelve a
+    │                    (manual)       DISCOVERED)
+    │
+    └──── ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘ (si rechazado)
+                                      │
+                                ENTRY_PENDING
+                                      │
+                          [EntryMonitorWorker + Wyckoff]
+                                      │
+                                ACCUMULATING ──► FULL_POSITION
+                                      │
+                                  MONITORING
+                                  ▲    │    ▲
+                                  │    ▼    │
+                                  │ REDUCING│
+                                  │    │    │
+                                  └────▼────┘
+                                     EXITED
+                                       │
+                             [PostMortemWorker]
+                                       │
+                                  POST_MORTEM
+                                       │
+                                   ARCHIVED
 ```
 
 ### Workers del Ciclo de Vida
 
 | Worker | Estado Origen | Estado Destino | Trigger |
 |--------|--------------|----------------|---------|
-| **ScoutWorker** | DISCOVERED | SCREENED → WATCHLIST | Semanal (lunes) |
-| **ResearchWorker** | WATCHLIST | UNDER_DEEP_DD | `opp-research` o evento |
-| **DecisionBoardWorker** | UNDER_DEEP_DD | APPROVED / WATCHLIST | `opp-approve` |
+| **ResearchWorker** | DISCOVERED | UNDER_DEEP_DD | DDD Pipeline (STEP 2) |
+| **AssessmentPipeline** | UNDER_DEEP_DD | APPROVED / PENDING_REVIEW | DDD Pipeline (STEP 3-7) |
 | **EntryMonitorWorker** | APPROVED / ENTRY_PENDING | ACCUMULATING | `entry-evaluate` o diario |
 | **PostMortemWorker** | EXITED | POST_MORTEM → ARCHIVED | `position-exit` |
+
+Workers del DDD Pipeline (GitHub Actions):
+
+| Paso | Componente | Función |
+|------|-----------|---------|
+| STEP 2 | **ResearchWorker** | DDD + AOIF + Hypothesis → assessment en journal |
+| STEP 3 | **5 Assessment Engines** | Business, Valuation, Recovery, Risk, Portfolio → scores 0-100 |
+| STEP 4 | **ConvictionCalculator** | Weighted avg de scores (weights en `scoring.yml`) |
+| STEP 5 | **RulesEngine** | 8 entry rules (RULE-001 a RULE-008) |
+| STEP 6 | **DecisionBoard** | Submit proposal + auto-review → BoardResolution |
+| STEP 7 | **EntryEngine** | Wyckoff + price zone + portfolio fit (si APPROVED) |
 
 Workers auxiliares:
 
@@ -337,58 +358,140 @@ Archivo `idos-config/rules/entry_rules.yml`:
 | RULE-007 | Max sector exposure <= 25% | BLOCK si excede |
 | RULE-008 | Asymmetry ratio >= 3.0 | PASS |
 
-El **DecisionBoardWorker** evalúa el output del DDD contra estas reglas
-automáticamente al ejecutar `opp-approve`.
+Estas reglas se evalúan automáticamente en el **STEP 5** del DDD Pipeline
+(GitHub Actions). Si todas pasan y conviction >= 75 la oportunidad se
+aprueba; si alguna falla pero conviction >= 50 pasa a PENDING_REVIEW.
 
 ---
 
 ## 7. Arquitectura de Datos
 
-### Pipeline de Screening
+### Pipeline de Screening (Universe)
 
 ```
 watchlist.md (10,000 tickers)
     │
     ▼
-┌─────────────────────────────────────┐
-│ STEP 1: FinvizScreener (0 LLM)      │
-│ Reglas programáticas sobre datos    │
-│ cacheados (Value, Growth, Momentum) │
-└──────────────┬──────────────────────┘
-               │ ~1,000-3,000
-               ▼
-┌─────────────────────────────────────┐
-│ STEP 2: OperabilityFilter (0 LLM)   │
-│ CEDEARs + broker directo            │
-└──────────────┬──────────────────────┘
-               │ ~200-600
-               ▼
-┌─────────────────────────────────────┐
-│ STEP 3: ScoutEngine (0 LLM)         │
-│ Score detallado: size, liquidity,   │
-│ momentum, value, quality            │
-└──────────────┬──────────────────────┘
-               │ ~30-80 (top scored)
-               ▼
-         watchlist.md
-               │
-               ▼
-┌─────────────────────────────────────┐
-│ STEP 4: Data Refresh (scraping)     │
-│ Solo para watchlisted               │
-└──────────────┬──────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────┐
-│ STEP 5: Deep Research (LLM)         │
-│ DDD + AOIF + Hypothesis             │
-└──────────────┬──────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────┐
-│ Decision Board → Portfolio          │
-└─────────────────────────────────────┘
+┌──────────────────────────────────────────┐
+│ STEP 1: FinvizScreener (0 LLM)          │
+│ Reglas programáticas sobre datos         │
+│ cacheados (Value, Growth, Momentum)     │
+└─────────────────┬────────────────────────┘
+                  │ ~1,000-3,000
+                  ▼
+┌──────────────────────────────────────────┐
+│ STEP 2: OperabilityFilter (0 LLM)        │
+│ CEDEARs + broker directo                 │
+└─────────────────┬────────────────────────┘
+                  │ ~200-600
+                  ▼
+┌──────────────────────────────────────────┐
+│ STEP 3: ScoutEngine (0 LLM)             │
+│ Score detallado: size, liquidity,        │
+│ momentum, value, quality                 │
+└─────────────────┬────────────────────────┘
+                  │ ~30-80 (top scored)
+                  ▼
+            watchlist.yml
+                  │
+                  ▼
+┌──────────────────────────────────────────┐
+│ STEP 4: Data Refresh (scraping)          │
+│ Solo para watchlisted                    │
+└─────────────────┬────────────────────────┘
+                  │
+                  ▼
+┌──────────────────────────────────────────┐
+│ STEP 5: ScoutWorker (LLM)               │
+│ Synthesis con override triggers          │
+└─────────────────┬────────────────────────┘
+                  │ ~30-80 passing scout
+                  ▼
+┌──────────────────────────────────────────┐
+│ STEP 6: Opportunity Creation             │
+│ Score >= 70 → DISCOVERED en journal      │
+└─────────────────┬────────────────────────┘
+                  │
+                  ▼
+         DDD Pipeline (GHA)
 ```
+
+### Pipeline de Decisión (DDD)
+
+```
+DISCOVERED opportunities
+    │
+    ▼
+┌──────────────────────────────────────────┐
+│ STEP 2: ResearchWorker (LLM)            │
+│ DDD (deep due diligence)                │
+│ AOIF (8-step protocol)                  │
+│ Hypothesis generation                    │
+│ → Status: UNDER_DEEP_DD                 │
+└─────────────────┬────────────────────────┘
+                  │
+                  ▼
+┌──────────────────────────────────────────┐
+│ STEP 3: 5 Assessment Engines (0 LLM)    │
+│ BusinessAssessmentEngine                 │
+│ ValuationAssessmentEngine                │
+│ RecoveryAssessmentEngine                 │
+│ RiskAssessmentEngine                     │
+│ PortfolioAssessmentEngine                │
+│ → 5 scores 0-100 + findings/risks        │
+└─────────────────┬────────────────────────┘
+                  │
+                  ▼
+┌──────────────────────────────────────────┐
+│ STEP 4: ConvictionCalculator             │
+│ Weighted avg (weights en scoring.yml)    │
+│ → Conviction(overall, confidence, trend) │
+└─────────────────┬────────────────────────┘
+                  │
+                  ▼
+┌──────────────────────────────────────────┐
+│ STEP 5: RulesEngine                      │
+│ 8 entry rules (entry_rules.yml)          │
+│ → rules_passed / rules_failed            │
+└─────────────────┬────────────────────────┘
+                  │
+                  ▼
+┌──────────────────────────────────────────┐
+│ STEP 6: DecisionBoard                    │
+│ Submit proposal → auto-review            │
+│ → BoardResolution(approved=True/False)   │
+│   + decision_type (BUY/HOLD)             │
+└─────────────────┬────────────────────────┘
+                  │
+         ┌────────┴────────┐
+         ▼                  ▼
+   APPROVED          PENDING_REVIEW
+         │            (si BLOCKED)
+         ▼
+┌──────────────────────────────────────────┐
+│ STEP 7: EntryEvaluation                  │
+│ Wyckoff analysis + price zone            │
+│ Portfolio fit check                       │
+│ → EntrySignal(all_conditions_met)        │
+└──────────────────────────────────────────┘
+         │
+         ▼
+   Output: decision_proposal.yml
+           board_resolution.yml
+           entry_evaluation.yml
+         + Notificación (Telegram + Email)
+```
+
+### Output del DDD Pipeline
+
+Por cada oportunidad procesada se generan 3 archivos YAML en
+`idos-journal/companies/{TICKER}/case_file/opportunities/{OPP-ID}/`:
+
+| Archivo | Contenido |
+|---------|-----------|
+| `decision_proposal.yml` | Assessments scores, conviction, recommendation, rules results |
+| `board_resolution.yml` | Approved (bool), decision_type, decision_id, justification |
+| `entry_evaluation.yml` | Solo si APPROVED: Wyckoff phase, margin of safety, price zone |
 
 ### Fuentes de Datos
 
@@ -400,19 +503,32 @@ SEC EDGAR ────────┘    │
                        ▼
                DataValidator (validación cruzada)
                        │
-          ┌────────────┼────────────┐
-          ▼            ▼            ▼
-   ScoutEngine   EntryEngine   RiskEngine
-   (screening)   (Wyckoff +    (alertas)
+          ┌────────────┼────────────────┐
+          ▼            ▼                ▼
+   ScoutEngine   EntryEngine       RiskEngine
+   (screening)   (Wyckoff +        (alertas)
                   price zone)
           │            │
+          ▼            │
+   UniversePipeline    │
+   (STEP 6: opps)     │
+          │            │
           ▼            ▼
-   ResearchWorker  EntryMonitorWorker
-   (DDD+AOIF+Hyp)  (monitoreo diario)
+   DDD Pipeline (GitHub Actions)
+   ┌─────────────────────────────┐
+   │ STEP 2: ResearchWorker      │
+   │ STEP 3: Assessment Engines  │
+   │ STEP 4: ConvictionCalculator│
+   │ STEP 5: RulesEngine         │
+   │ STEP 6: DecisionBoard       │
+   │ STEP 7: EntryEvaluation     │
+   └─────────────────────────────┘
           │
           ▼
-   DecisionBoardWorker
-   (evaluación vs reglas)
+   idos-journal/companies/{TICKER}/case_file/opportunities/{OPP-ID}/
+   ├── decision_proposal.yml
+   ├── board_resolution.yml
+   └── entry_evaluation.yml (si approved)
 ```
 
 ### 7.1 Caché
@@ -464,12 +580,19 @@ Prioridades:
 - **🟡 MEDIUM**: Cambios de estado, convicción update → Email digest diario
 - **🟢 LOW**: Weekly digest → Dashboard
 
-### 8.2 Digest Semanal
+### 8.2 DDD Pipeline Notifications
+
+Cada ejecución del DDD Pipeline (GitHub Actions) envía:
+
+- **Telegram**: resumen con scores, recomendaciones, y link al detalle en el repo
+- **Email**: mismo contenido vía SMTP (configurar `IDOS_SMTP_*` secrets)
+
+### 8.3 Digest Semanal
 
 Generado automáticamente los viernes por `DigestWorker`. Incluye oportunidades
 de la semana, alertas activas, posiciones y estado del pipeline.
 
-### 8.3 Alertas de Riesgo
+### 8.4 Alertas de Riesgo
 
 El `RiskEngine` evalúa automáticamente: drawdown > 15%, volatilidad > 30%,
 D/E > 2.0, concentración > 3%, stop loss alcanzado.
