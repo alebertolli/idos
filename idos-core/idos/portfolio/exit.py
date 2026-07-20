@@ -9,6 +9,7 @@ class ExitReason(StrEnum):
     VALUATION_EXCESSIVE = "VALUATION_EXCESSIVE"
     PORTFOLIO_REPLACEMENT = "PORTFOLIO_REPLACEMENT"
     RISK_CONTROL = "RISK_CONTROL"
+    TRAILING_STOP = "TRAILING_STOP"
 
 
 @dataclass
@@ -28,10 +29,20 @@ class ExitSignal:
             self.generated_at = datetime.now(UTC).isoformat()
 
 
+@dataclass
+class TrailingStop:
+    ticker: str
+    trail_pct: float = 15.0
+    peak_price: float = 0.0
+    current_price: float = 0.0
+    active: bool = False
+
+
 class ExitEngine:
     def __init__(self, min_conviction_for_hold: int = 40, max_pe_for_hold: float = 35):
         self.min_conviction = min_conviction_for_hold
         self.max_pe = max_pe_for_hold
+        self._trailing_stops: dict[str, TrailingStop] = {}
 
     def evaluate_thesis_exit(self, ticker: str, thesis_active: bool,
                               falsification_triggered: bool = False) -> ExitSignal | None:
@@ -80,3 +91,35 @@ class ExitEngine:
                 urgency=urgency, exit_pct=100.0 if current_drawdown > stop_loss else 50.0,
             )
         return None
+
+    def set_trailing_stop(self, ticker: str, entry_price: float, trail_pct: float = 15.0):
+        self._trailing_stops[ticker.upper()] = TrailingStop(
+            ticker=ticker.upper(), trail_pct=trail_pct,
+            peak_price=entry_price, current_price=entry_price, active=True,
+        )
+
+    def evaluate_trailing_stop(self, ticker: str, current_price: float) -> ExitSignal | None:
+        ts = self._trailing_stops.get(ticker.upper())
+        if not ts or not ts.active:
+            return None
+
+        if current_price > ts.peak_price:
+            ts.peak_price = current_price
+        ts.current_price = current_price
+
+        drawdown_from_peak = (ts.peak_price - current_price) / ts.peak_price * 100
+        if drawdown_from_peak >= ts.trail_pct:
+            ts.active = False
+            return ExitSignal(
+                ticker=ticker, should_exit=True,
+                reason=ExitReason.TRAILING_STOP,
+                details=f"Trailing stop triggered: {drawdown_from_peak:.1f}% from peak {ts.peak_price:.2f}",
+                urgency="high", exit_pct=100.0,
+            )
+        return None
+
+    def remove_trailing_stop(self, ticker: str):
+        self._trailing_stops.pop(ticker.upper(), None)
+
+    def get_trailing_stops(self) -> list[TrailingStop]:
+        return [ts for ts in self._trailing_stops.values() if ts.active]

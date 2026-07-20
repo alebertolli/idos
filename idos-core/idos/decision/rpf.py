@@ -32,6 +32,8 @@ class ReratingProbabilityEngine:
             prob = self._calibration["high"]
         elif score >= 70:
             prob = self._calibration["medium"]
+        elif score >= 60:
+            prob = 0.43
         else:
             prob = self._calibration["low"]
 

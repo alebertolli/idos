@@ -7,6 +7,8 @@ class DualProbabilityFramework:
     def __init__(self):
         self.business_engine = BusinessAssessmentEngine()
         self.recovery_engine = RecoveryAssessmentEngine()
+        self.bsp_weight = 0.6
+        self.mrp_weight = 0.4
 
     def evaluate(self, context: dict[str, Any]) -> dict[str, float]:
         bsp_assessment = self.business_engine.evaluate(context)
@@ -24,7 +26,20 @@ class DualProbabilityFramework:
         }
 
     def _combine(self, bsp: float, mrp: float) -> float:
-        return bsp * 0.6 + mrp * 0.4
+        total = self.bsp_weight + self.mrp_weight
+        if total <= 0:
+            return 0.0
+        return (bsp * self.bsp_weight + mrp * self.mrp_weight) / total
+
+    def set_weights(self, bsp_weight: float, mrp_weight: float):
+        self.bsp_weight = bsp_weight
+        self.mrp_weight = mrp_weight
+
+    def calibrate_from_hitrates(self, bsp_hit_rate: float, mrp_hit_rate: float):
+        total = bsp_hit_rate + mrp_hit_rate
+        if total > 0:
+            self.bsp_weight = bsp_hit_rate / total
+            self.mrp_weight = mrp_hit_rate / total
 
     def calculate_position_size(self, tsp: float, bankroll: float, payoff_ratio: float = 3.0) -> float:
         if tsp <= 0 or payoff_ratio <= 0:

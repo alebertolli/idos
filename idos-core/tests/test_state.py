@@ -33,7 +33,7 @@ def test_transition_raises_error():
 
 def test_transition_creates_record():
     sm = OpportunityStateMachine()
-    t = sm.transition(OpportunityStatus.DISCOVERED, OpportunityStatus.SCREENED, cause="scout completed")
+    t = sm.transition(OpportunityStatus.DISCOVERED, OpportunityStatus.SCREENED, cause="scout completed", context={"metrics": {"market_cap": 1_000_000_000}})
     assert t.from_status == OpportunityStatus.DISCOVERED
     assert t.to_status == OpportunityStatus.SCREENED
     assert t.cause == "scout completed"

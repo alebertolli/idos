@@ -73,10 +73,13 @@ class TestFullLifecycle:
 
         assert scout_result.passed, f"Scout should pass: {scout_result.reason}"
 
+        contexts = {"SCREENED": {"metrics": {"market_cap": 10_000_000_000, "avg_volume": 5_000_000, "pe_ratio": 15, "ev_ebitda": 10, "roic": 22, "operating_margin": 25, "debt_to_equity": 0.3, "revenue_growth": 12}},
+                     "WATCHLIST": {"screen_score": scout_result.score}}
         for status in ["SCREENED", "WATCHLIST"]:
             transition = state_machine.transition(
                 OpportunityStatus(opp["status"]), OpportunityStatus(status),
                 cause="scout_passed", worker="scout",
+                context=contexts[status],
             )
             opp["status"] = status
             opp["updated_at"] = "2026-01-01T00:00:01"

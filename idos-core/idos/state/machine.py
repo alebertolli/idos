@@ -1,8 +1,10 @@
 from dataclasses import dataclass, field
 from datetime import datetime, UTC
-from typing import Any
+from typing import Any, Callable
 from idos.models.enums import OpportunityStatus
 from idos.core.errors import StateTransitionError
+
+GuardFn = Callable[[dict[str, Any]], tuple[bool, str]]
 
 
 @dataclass
@@ -52,6 +54,62 @@ class OpportunityStateMachine(StateMachine):
 
     def __init__(self):
         super().__init__(self._transitions)
+        self._guards: dict[tuple[OpportunityStatus, OpportunityStatus], GuardFn] = {}
+        self._register_default_guards()
+
+    def _register_default_guards(self):
+        self.register_guard(
+            OpportunityStatus.DISCOVERED, OpportunityStatus.SCREENED,
+            lambda ctx: (bool(ctx.get("metrics")), "No basic metrics available"),
+        )
+        self.register_guard(
+            OpportunityStatus.SCREENED, OpportunityStatus.WATCHLIST,
+            lambda ctx: (ctx.get("screen_score", 0) >= 30, f"Screen score {ctx.get('screen_score', 0)} < 30"),
+        )
+        self.register_guard(
+            OpportunityStatus.WATCHLIST, OpportunityStatus.UNDER_RESEARCH,
+            lambda ctx: (ctx.get("conviction", 0) >= 20, f"Conviction {ctx.get('conviction', 0)} < 20"),
+        )
+        self.register_guard(
+            OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.UNDER_DEEP_DD,
+            lambda ctx: (ctx.get("conviction", 0) >= 40, f"Conviction {ctx.get('conviction', 0)} < 40"),
+        )
+        self.register_guard(
+            OpportunityStatus.UNDER_DEEP_DD, OpportunityStatus.APPROVED,
+            lambda ctx: (
+                all(ctx.get(k) for k in ("business_score", "technical_score", "valuation_score")),
+                "Not all assessments completed (business, technical, valuation)",
+            ),
+        )
+        self.register_guard(
+            OpportunityStatus.EXITED, OpportunityStatus.POST_MORTEM,
+            lambda ctx: (
+                ctx.get("post_mortem_ready", False),
+                "Post-mortem document not completed",
+            ),
+        )
+
+    def register_guard(self, from_status: OpportunityStatus, to_status: OpportunityStatus, guard_fn: GuardFn):
+        self._guards[(from_status, to_status)] = guard_fn
+
+    def transition(self, current: OpportunityStatus, target: OpportunityStatus,
+                   cause: str = "", worker: str = "system",
+                   context: dict[str, Any] | None = None) -> Transition:
+        if not self.can_transition(current, target):
+            raise StateTransitionError(f"Cannot transition from {current} to {target}")
+
+        guard = self._guards.get((current, target))
+        if guard:
+            passed, reason = guard(context or {})
+            if not passed:
+                raise StateTransitionError(f"Guard blocked: {reason}")
+
+        return Transition(
+            from_status=current,
+            to_status=target,
+            cause=cause,
+            worker=worker,
+        )
 
     def get_next_states(self, current: OpportunityStatus) -> list[OpportunityStatus]:
         return self._allowed.get(current, [])
