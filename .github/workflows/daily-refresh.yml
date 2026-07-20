@@ -24,46 +24,29 @@ jobs:
         run: |
           python -c "
           import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
-          from idos.workers.data.stockanalysis import StockAnalysisWorker
-          from idos.workers.data.yahoo import YahooFinanceWorker
-          from idos.workers.data.cache import DataCache
           from idos.workers.data.refresh_worker import DataRefreshWorker
+          from idos.workers.data.cache import DataCache
           from pathlib import Path
-          import os, json, re
+          import os, json, yaml
+          from datetime import datetime
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
-          content = Path('idos-config/universe/watchlist.md').read_text(encoding='utf-8')
-          tickers = re.findall(r'^\|\s*([A-Z]+)\s*\|', content, re.MULTILINE)
-          seen = set()
-          tickers = [t for t in tickers if not (t in seen or seen.add(t))]
-          print(f'[REFRESH] Loading {len(tickers)} tickers from watchlist.md')
-          sa = StockAnalysisWorker()
-          yf = YahooFinanceWorker()
-          results = {}
-          for i, t in enumerate(tickers, 1):
-              print(f'[REFRESH] [{i}/{len(tickers)}] {t}...', end=' ')
-              try:
-                  r1 = sa.execute({'ticker': t})
-                  if r1.status == 'success':
-                      results[f'{t}_sa'] = r1.output
-                      print(f'SA=ok', end=' ')
-                  else:
-                      print(f'SA=fail({r1.error})', end=' ')
-              except Exception as e:
-                  results[f'{t}_sa_err'] = str(e)
-                  print(f'SA=err({e})', end=' ')
-              try:
-                  r2 = yf.execute({'ticker': t, 'period': '1y'})
-                  if r2.status == 'success':
-                      results[f'{t}_yf'] = r2.output
-                      print(f'YF=ok')
-                  else:
-                      print(f'YF=fail({r2.error})')
-              except Exception as e:
-                  results[f'{t}_yf_err'] = str(e)
-                  print(f'YF=err({e})')
-          print(f'[REFRESH] Done: {len(tickers)} tickers refreshed')
+          wl_path = Path('idos-journal/portfolio/watchlist.yml')
+          if wl_path.exists():
+              wl_data = yaml.safe_load(wl_path.read_text(encoding='utf-8'))
+              tickers = [e['ticker'] for e in wl_data.get('entries', []) if e.get('ticker')]
+          else:
+              tickers = []
+          print(f'[REFRESH] Loading {len(tickers)} tickers from watchlist.yml')
+          refresher = DataRefreshWorker({'universe_path': ''})
+          r = refresher.execute({'tickers': tickers})
+          print(f'[REFRESH] Processed: {r.output.get(\"tickers_processed\", 0)} tickers')
+          errors = r.output.get('errors', [])
+          if errors:
+              for e in errors:
+                  print(f'[REFRESH] Error: {e}')
           Path('cache').mkdir(parents=True, exist_ok=True)
-          with open('cache/last_refresh.json','w') as f: json.dump(results, f)
+          summary = {'refreshed_at': str(datetime.now()), 'tickers': tickers, 'errors': errors}
+          with open('cache/last_refresh.json','w') as f: json.dump(summary, f, indent=2)
           "
       - name: Commit cache
         run: |
