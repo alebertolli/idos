@@ -1,0 +1,31 @@
+# IDOS — Finviz Screener Configuration
+# URL: https://finviz.com/screener.ashx?v=151&f=cap_midover,fa_sales3years_o10,ipodate_more5,sh_avgvol_o50,sh_curvol_o50&ft=2&o=volume
+
+screener:
+  base_url: "https://finviz.com/screener.ashx"
+  view: "151"
+  filters: "cap_midover,fa_sales3years_o10,ipodate_more5,sh_avgvol_o50,sh_curvol_o50"
+  filter_type: "2"
+  sort_by: "volume"
+  delay: 2.0
+  timeout: 30
+  max_pages: 100
+  results_per_page: 20
+  cache_ttl_days: 7
+
+  # Columnas que extrae la tabla de resultados (vista 151)
+  columns:
+    - ticker
+    - company
+    - sector
+    - industry
+    - country
+    - market_cap
+    - pe
+    - fwd_pe
+    - peg
+    - ps
+    - pb
+    - price
+    - change
+    - volume

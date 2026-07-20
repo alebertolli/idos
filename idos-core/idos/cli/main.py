@@ -746,3 +746,79 @@ def screener_run(ticker: str, name: str = ""):
         color = "green" if passed else "red"
         table.add_row(screener_name, f"[{color}]{'PASA' if passed else 'NO PASA'}[/{color}]")
     console.print(table)
+
+
+# ──────────────────────────────────────────────
+# UNIVERSE PIPELINE COMMANDS
+# ──────────────────────────────────────────────
+
+@app.command()
+def universe_build():
+    """Ejecuta el pipeline completo: Finviz → Filter → Fetch → Scout."""
+    ctx = _get_context()
+    config = {
+        "config_path": str(ctx.config_path.parent / "idos-config"),
+        "journal_path": str(ctx.journal_path),
+        "cache_path": str(ctx.config_path.parent / "cache"),
+    }
+    from idos.workers.data.universe_pipeline import UniversePipeline
+    worker = UniversePipeline(config)
+    result = worker.execute({})
+    if result.status == "failed":
+        console.print(f"[red]Pipeline failed: {result.error}[/red]")
+        return
+    output = result.output
+    console.print(f"\n[green]Pipeline completed in {output.get('duration_seconds', 0):.0f}s[/green]")
+    console.print(f"  Finviz: {output.get('finviz_count', 0)} tickers")
+    console.print(f"  Operable: {output.get('operable_count', 0)} tickers")
+    console.print(f"  Fetched: {output.get('fetch_new', 0)} new, {output.get('fetch_cached', 0)} cached")
+    console.print(f"  Scout: {output.get('scout_passed', 0)} passed, {output.get('scout_rejected', 0)} rejected")
+
+
+@app.command()
+def universe_fetch():
+    """Fetch datos financieros para tickers operables sin cache."""
+    ctx = _get_context()
+    from idos.discovery.operability import OperabilityFilter
+    from idos.workers.data.refresh_worker import DataRefreshWorker
+    operable_path = str(ctx.config_path.parent / "idos-config/universe/operable.yml")
+    operable = OperabilityFilter(operable_path)
+    tickers = sorted(operable.tickers)
+    if not tickers:
+        console.print("[yellow]No operable tickers found[/yellow]")
+        return
+    console.print(f"[cyan]Fetching data for {len(tickers)} operable tickers...[/cyan]")
+    config = {
+        "journal_path": str(ctx.journal_path),
+        "cache_path": str(ctx.config_path.parent / "cache"),
+    }
+    refresher = DataRefreshWorker(config)
+    result = refresher.execute({"tickers": tickers})
+    if result.status == "failed":
+        console.print(f"[red]Fetch failed: {result.error}[/red]")
+        return
+    data = result.output.get("data", {})
+    console.print(f"[green]Fetched data for {len(data)} tickers[/green]")
+
+
+@app.command()
+def universe_status():
+    """Muestra estadisticas del universo y cache."""
+    ctx = _get_context()
+    from idos.discovery.operability import OperabilityFilter
+    operable_path = str(ctx.config_path.parent / "idos-config/universe/operable.yml")
+    operable = OperabilityFilter(operable_path)
+    op_stats = operable.stats()
+
+    cache_path = Path(ctx.config_path.parent / "cache")
+    cached_files = list(cache_path.glob("*.json")) if cache_path.exists() else []
+    cached_tickers = [f.stem for f in cached_files if f.stem != "finviz_screener_cache"]
+
+    info = Panel.fit(
+        f"[bold]Universe Status[/bold]\n\n"
+        f"Operable tickers: {op_stats['total']}\n"
+        f"Cached tickers: {len(cached_tickers)}\n"
+        f"Cache directory: {cache_path}",
+        title="Pipeline Status",
+    )
+    console.print(info)

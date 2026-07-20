@@ -1,6 +1,2634 @@
 # Lista de Activos Operables
 # Mantenida manualmente via `idos operable-add/remove/import`
 # Fuente: disponibilidad real en broker + CEDEARs en BYMA
-# Ultima actualizacion: 2026-07-18
+# Ultima actualizacion: 2026-07-19
 
-operable_tickers: []
+operable_tickers:
+  - ticker: AABA
+    name: Altaba Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: AAL
+    name: American Airlines Group Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: AAP
+    name: Advanced Auto Parts Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '14:1'
+  - ticker: AAPL
+    name: Apple Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: ABBV
+    name: AbbVie Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: ABEV
+    name: Ambev S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:3'
+  - ticker: ABEV3
+    name: Ambev S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: ABNB
+    name: Airbnb Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: ABT
+    name: Abbott Labs
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: ACN
+    name: Accenture
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '75:1'
+  - ticker: ACWI
+    name: iShares MSCI ACWI ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '26:1'
+  - ticker: ADBE
+    name: Adobe Systems Incorporated
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '44:1'
+  - ticker: ADGO
+    name: Adecoagro S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: ADI
+    name: Analog Devices
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: ADP
+    name: Automatic Data Processing Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: ADS
+    name: Adidas AG
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '22:1'
+  - ticker: AEG
+    name: Aegon N.V.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: AEM
+    name: Agnico Eagle Mines Limited
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: AI
+    name: C3.AI INC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: AIG
+    name: American International Group (AIG)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: AKO.B
+    name: Embotelladora Andina S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: ALAB
+    name: Astera Labs Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '44:1'
+  - ticker: AMAT
+    name: Applied Materials Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: AMD
+    name: Advanced Micro Devices, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: AMGN
+    name: Amgen Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '30:1'
+  - ticker: AMX
+    name: America Movil
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: AMZN
+    name: Amazon.Com, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '144:1'
+  - ticker: ANF
+    name: Abercrombie & Fitch Co
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: AOCA
+    name: Aluminum Corp Of China
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: ARCO
+    name: Arcos Dorados Holdings Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:2'
+  - ticker: ARKK
+    name: ARK INNOVATION
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: ARM
+    name: ARM Holdings Plc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '27:1'
+  - ticker: ASML
+    name: ASML HOLDING NV
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '146:1'
+  - ticker: ASR
+    name: Grupo Aeroportuario Del Sureste, S.A.B. de C.V.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: ASTS
+    name: AST SpaceMobile Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: ATAD
+    name: Pjsc Tatneft
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: AUY
+    name: Yamana Gold Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: AVGO
+    name: Broadcom Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '39:1'
+  - ticker: AVY
+    name: Avery Dennison Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '18:1'
+  - ticker: AXP
+    name: American Express Co
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: AZN
+    name: Astrazeneca Plc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: B
+    name: Barrick Gold Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: BA
+    name: The Boeing Company
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '24:1'
+  - ticker: BA.C
+    name: Bank Of America Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: BABA
+    name: Alibaba Group Holding Limited
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '9:1'
+  - ticker: BAK
+    name: Braskem SA
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: BAS
+    name: Basf SE
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: BAYN
+    name: Bayer AG
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: BB
+    name: Blackberry Limited
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: BBAR
+    name: BBVA (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: BBAS3
+    name: Banco do Brasil S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: BBD
+    name: Banco Bradesco S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: BBDC3
+    name: Banco Bradesco S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: BBV
+    name: Bilbao Vizcaya Argentaria S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: BCS
+    name: Barclays Bank Plc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: BHP
+    name: Bhp Group Ltd
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: BIDU
+    name: Baidu, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '11:1'
+  - ticker: BIIB
+    name: Biogen Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '13:1'
+  - ticker: BIOX
+    name: Bioceres Crop Solutions Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: BK
+    name: The Bank Of New York Mellon Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: BKNG
+    name: Booking
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '700:1'
+  - ticker: BKR
+    name: Baker Hughes Co
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '7:1'
+  - ticker: BMA
+    name: Banco Macro (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: BMNR
+    name: Bitmine Inmersion Technologies, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: BMY
+    name: Bristol-Myers Squibb Company
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: BNG
+    name: Bunge Limited
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: BP
+    name: BP PCL
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: BPA11
+    name: Banco BTG Pactual S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: BRFS
+    name: BRF S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:3'
+  - ticker: BRKB
+    name: Berkshire Hathaway Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '22:1'
+  - ticker: BSBR
+    name: Banco Santander (Brasil) S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: BSN
+    name: Danone
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: BX
+    name: Blackstone Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '30:1'
+  - ticker: C
+    name: Citigroup Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: CAAP
+    name: Corporación América
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: CAH
+    name: Cardinal Health Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: CAJ
+    name: Canon Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: CAR
+    name: Avis Budget Group Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '26:1'
+  - ticker: CAT
+    name: Caterpillar Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: CBRD
+    name: Companhia Brasileira De Dis NPV ADR
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: CCL
+    name: Carnival
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: CDE
+    name: Coeur Mining Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: CEG
+    name: CONSTELLATION ENERGY CORPORATION
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '45:1'
+  - ticker: CEPU
+    name: ADR Central Puerto
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: CIBR
+    name: First Trust NASDAQ Cybersecurity
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: CL
+    name: Colgate Palmolive Co
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: CLS
+    name: CELESTICA INC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: COIN
+    name: Coinbase Global Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '27:1'
+  - ticker: COP
+    name: ConocoPhillips
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '25:1'
+  - ticker: COPX
+    name: Global X Copper Miners ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '14:1'
+  - ticker: COST
+    name: Costco Wholesale Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '48:1'
+  - ticker: CRWD
+    name: CrowdStrike Holdings
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '79:1'
+  - ticker: CRM
+    name: Salesforce Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '18:1'
+  - ticker: CRWV
+    name: CoreWeave Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '27:1'
+  - ticker: CRESY
+    name: Cresud (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: CS
+    name: Credit Suisse Group
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: CSCO
+    name: Cisco Systems Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: CSNA3
+    name: Companhia Siderúrgica Nacional S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: CVS
+    name: CVS Health
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: CVX
+    name: Chevron Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '16:1'
+  - ticker: CX
+    name: Cemex S.A.B. de CV
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: DAL
+    name: Delta Air Lines
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: DD
+    name: Dupont de Nemours Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: DE
+    name: Deere & Co.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '40:1'
+  - ticker: DECK
+    name: DECKERS OUTDOOR CORPORATION
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '25:1'
+  - ticker: DEO
+    name: Diageo PLC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: DHR
+    name: Danaher Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '54:1'
+  - ticker: DIA
+    name: SPDR DOW JONES INDUSTRIAL
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: DISN
+    name: The Walt Disney Co.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '12:1'
+  - ticker: DOCU
+    name: DocuSign Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '22:1'
+  - ticker: DOW
+    name: DOW Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: DTEA
+    name: Deutsche Telekom Ag
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: E
+    name: Eni Spa
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: EA
+    name: Electronic Arts Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '14:1'
+  - ticker: EBAY
+    name: Ebay Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: EBR
+    name: Centrais Eléctricas Brasileiras S.A. - Eletrobras
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:4'
+  - ticker: ECL
+    name: Ecolab Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '56:1'
+  - ticker: EDN
+    name: Edenor (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: EEM
+    name: ISHARES MSCI EMERGING MARKET
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: EFA
+    name: iShares MSCI EAFE ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '18:1'
+  - ticker: EFX
+    name: Equifax Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '16:1'
+  - ticker: ELP
+    name: Companhia Paranaense de Energía - COPEL
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:3'
+  - ticker: EOAN
+    name: E.On Se
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: EQNR
+    name: Equinor Asa
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: ERIC
+    name: Lm Ericsson Telephone Co.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: ERJ
+    name: Embraer-Empresa Brasileira de Aeronáutica S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: ESGU
+    name: IShares ESG Aware MSCI USA ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '30:1'
+  - ticker: ETHA
+    name: ISHARES ETHEREUM TR ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: ETSY
+    name: Etsy Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '16:1'
+  - ticker: EWJ
+    name: iShares MSCI JAPAN ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '14:1'
+  - ticker: EWY
+    name: iShares MSCI South Korea ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '50:1'
+  - ticker: EWZ
+    name: ISHARES MSCI BRAZIL CAP
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: F
+    name: Ford Motor Company
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: FCX
+    name: Freeport Mcmoran Copper & Gold Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: FDX
+    name: Fedex Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: FMCC
+    name: Freddie Mac (Federal Home Loan)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: FMX
+    name: Fomento Economico Mexicano - Femsa
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: FNMA
+    name: Fed. Natl, Mortgage - Fannie Mae
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: FISV
+    name: Fiserv, Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '11:1'
+  - ticker: FSLR
+    name: First Solar Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '18:1'
+  - ticker: FXI
+    name: ISHARES CHINA LARGE-CAP ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: GDX
+    name: Van Eck Gold Miners ETF/USA
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: GE
+    name: General Electric Co.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: GFI
+    name: Gold Fields Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: GGB
+    name: Gerdau S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:4'
+  - ticker: GILD
+    name: Gilead Sciences, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: GLD
+    name: ETF SPDR GOLD TRUST
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '50:1'
+  - ticker: GLOB
+    name: Globant SA
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: GLNG
+    name: Golar LNG
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: GLW
+    name: Corning Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: GM
+    name: General Motors Co
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: GOOGL
+    name: Alphabet Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '58:1'
+  - ticker: GPRK
+    name: Geopark Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: GRMN
+    name: Garmin Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: GS
+    name: The Goldman Sachs Group, Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '13:1'
+  - ticker: GSK
+    name: GSK Plc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: GT
+    name: Goodyear Tire & Rubber co./the
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: HAL
+    name: Halliburton Co.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: HAPV3
+    name: Hapvida Participacoes E Investimentos S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: HD
+    name: The Home Depot Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '32:1'
+  - ticker: HDB
+    name: Hdfc Bank Limited.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: HHPD
+    name: Hon Hai Precision Industry Co. Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: HIMS
+    name: Hims & Hers Health
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: HL
+    name: Hecla Mining Co .
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: HMC
+    name: Honda Motor Co. Ltd
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: HMY
+    name: Harmony Gold Mining Company Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: HNPIY
+    name: Huaneng Power Intl
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: HOG
+    name: Harley-Davidson Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: HON
+    name: Honeywell International Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: HOOD
+    name: Robinhood Markets Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '29:1'
+  - ticker: HPQ
+    name: Hp Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: HSBC
+    name: Hsbc Holdings Plc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: HSY
+    name: The Hershey Company
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '21:1'
+  - ticker: HUT
+    name: Hut 8 Mining Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:5'
+  - ticker: HWM
+    name: Howmet Aerospace Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: IBB
+    name: iShares Nasdaq Biotechnology ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '27:1'
+  - ticker: IBIT
+    name: ISHARES BITCOIN TRUST
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: IBM
+    name: International Business Machines
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: IBN
+    name: Icici Bank Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: ICLN
+    name: iShares Global Clean Energy ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: IEMG
+    name: iShares Core MSCI Emerging Markets ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '12:1'
+  - ticker: IEUR
+    name: iShares Core MSCI Europe ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '11:1'
+  - ticker: IFF
+    name: International Flavors & Fragrances Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '12:1'
+  - ticker: IJH
+    name: iShares CORE S&P MID-CAP ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '12:1'
+  - ticker: ILF
+    name: IShares Latin America 40 ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: INFY
+    name: Infosys Limited
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: ING
+    name: Ing Groep Nv
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: INTC
+    name: Intel Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: IP
+    name: International Paper Co.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: IREN
+    name: Iren Ltd
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '12:1'
+  - ticker: IRS
+    name: Irsa (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: ISRG
+    name: Intuitive Surgical inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '90:1'
+  - ticker: ITA
+    name: iShares U.S. Aerospace & Defense
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '50:1'
+  - ticker: ITUB
+    name: Itaú Unibanco Holding S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: ITUB3
+    name: Banco Itaú Unibanco S.A
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: IVE
+    name: iShares S&P 500 Value ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '40:1'
+  - ticker: IVV
+    name: IShares Core S&P 500 ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '692:1'
+  - ticker: IVW
+    name: iShares S&P 500 Growth ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: IWM
+    name: ISHARES TRUST RUSSELL 2000
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: JCI
+    name: Johnson Controls International
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: JD
+    name: Jd.Com, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: JMIA
+    name: Adr Jumia Technologies Ag
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: JNJ
+    name: Johnson & Johnson
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: JOYY
+    name: JOYY Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: JPM
+    name: J.P. Morgan & Chase Co.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: KB
+    name: Kb Financial Group Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: KEEL
+    name: Bitfarms Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:5'
+  - ticker: KEP
+    name: Korea Electric Power Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: KGC
+    name: Kinross Gold Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: KMB
+    name: Kimberly-Clark Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: KO
+    name: The Coca Cola Company
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: KOFM
+    name: Coca-Cola Femsa, S.A.B. De C.V.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: LAC
+    name: Lithium Americas Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: LAR
+    name: Lithium Americas (Argentina) Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: LFC
+    name: China Life Insurance
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: LKOD
+    name: Pjsc Lukoil
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: LLY
+    name: Eli Lilly and Company
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '56:1'
+  - ticker: LMT
+    name: Lockheed Martin Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: LND
+    name: Brasilagro - Co Brasileira de Propriedades Agrícolas
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: LOMA
+    name: Loma Negra C.I.A.S.A. (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: LRCX
+    name: Lam Research Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '56:1'
+  - ticker: LREN3
+    name: Lojas Renner S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: LVS
+    name: Las Vegas Sands Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: LYG
+    name: Lloyds Banking Group Plc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: MA
+    name: Mastercard Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '33:1'
+  - ticker: MBG
+    name: Mercedes-Benz Group AG
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: MBT
+    name: Mobile Telesystems
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: MCD
+    name: Mcdonald'S Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '24:1'
+  - ticker: MDLZ
+    name: Mondelez
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: MDT
+    name: Medtronic Public Limited Company
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: MELI
+    name: Mercadolibre
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: META
+    name: Meta Platforms Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '24:1'
+  - ticker: MFG
+    name: Mizuho Financial Group
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: MGLU3
+    name: Magazine Luiza S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: MMC
+    name: Marsh & Mclennan Companies Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '16:1'
+  - ticker: MMM
+    name: 3M Company
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: MO
+    name: Altria Group Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: MOS
+    name: The Mosaic Co
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: MP
+    name: MP Materials Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '23:1'
+  - ticker: MRK
+    name: Merck & Co. Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: MRNA
+    name: Moderna Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '19:1'
+  - ticker: MRVL
+    name: Marvell Technology Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '14:1'
+  - ticker: MSFT
+    name: Microsoft Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '30:1'
+  - ticker: MSI
+    name: Motorola Solutions, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: MSTR
+    name: Microstrategy Inc Cl A New
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: MU
+    name: Micron Technology Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: MUFG
+    name: Mitsubishi Ufj Financial Group
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: MUX
+    name: McEwen Mining Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: NATU3
+    name: NATURA COSMETICOS SA
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: NBIS
+    name: Nebius Group
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '27:1'
+  - ticker: NEC1
+    name: Nec Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:3'
+  - ticker: NEE
+    name: NextEra Energy
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '19:1'
+  - ticker: NEM
+    name: Newmont Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: NFLX
+    name: Netflix, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '48:1'
+  - ticker: NG
+    name: Novagold Resources INC.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:4'
+  - ticker: NGG
+    name: National Grid Plc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: NIO
+    name: NIO Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: NKE
+    name: Nike Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '12:1'
+  - ticker: NLM
+    name: Novolipetsk Steel PJSC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: NMR
+    name: Nomura Holdings, Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: NOKA
+    name: Nokia Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: NOW
+    name: SERVICENOW INC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '172:1'
+  - ticker: NSAN
+    name: Nissan Motor Co., Ltd
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: NTES
+    name: Netease, Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '14:1'
+  - ticker: NUE
+    name: Nucor Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '16:1'
+  - ticker: NVDA
+    name: Nvidia Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '24:1'
+  - ticker: NVS
+    name: Novartis Ag
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: NXE
+    name: Nexgen Energy LTD
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: O
+    name: Realty Income Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '13:1'
+  - ticker: OGZD
+    name: Pjsc Gazprom
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: OKLO
+    name: Oklo Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '28:1'
+  - ticker: ONDS
+    name: Ondas Holdings Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: ORAN
+    name: Orange S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: ORCL
+    name: Oracle Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: ORLY
+    name: O'reilly Automotive Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '222:1'
+  - ticker: OXY
+    name: Occidental Petroleum Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: PAAS
+    name: Pan American Silver Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: PAC
+    name: Grupo Aeroportuario del Pacifico, S.A.B. de C.V.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '16:1'
+  - ticker: PAGS
+    name: Pagseguro Digital Ltd
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: PAM
+    name: Pampa Energía (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: PANW
+    name: Palo Alto Networks Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '50:1'
+  - ticker: PATH
+    name: UIPATH INC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: PBI
+    name: Pitney Bowes Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: PBR
+    name: Petrobras (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: PCAR
+    name: Paccar Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: PCRF
+    name: Panasonic Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: PDD
+    name: PDD HOLDINGS INC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '25:1'
+  - ticker: PEP
+    name: Pepsico Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '18:1'
+  - ticker: PETR3
+    name: Petrobras - Petróleo Brasileiro S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: PFE
+    name: Pfizer Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: PG
+    name: Procter & Gamble
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: PHG
+    name: Koninklijke Philips N.V.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: PINS
+    name: Pinterest
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '7:1'
+  - ticker: PKS
+    name: Posco Holdings Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: PLTR
+    name: Palantir Technologies Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: PM
+    name: Philip Morris International
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '18:1'
+  - ticker: PRIO3
+    name: Petro Rio S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: PSO
+    name: Pearson Plc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: PSQ
+    name: PROSHARES SHORT QQQ
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: PSX
+    name: Phillips 66
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: PTR
+    name: Petrochina Co Ltd
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: PYPL
+    name: Paypal Holdings, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: QCOM
+    name: Qualcomm Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '11:1'
+  - ticker: QQQ
+    name: INVESCO QQQ TRUST
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: RACE
+    name: Ferrari
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '83:1'
+  - ticker: RBLX
+    name: Roblox Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: RCTB4
+    name: Telebras PN
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '17:40'
+  - ticker: RENT3
+    name: Localiza Rent A Car S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: RGTI
+    name: RIGETTI COMPUTING INC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: RIO
+    name: Rio Tinto Plc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: RIOT
+    name: Riot Platforms
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: RKLB
+    name: Rocket Lab Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '12:1'
+  - ticker: ROKU
+    name: Roku
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '13:1'
+  - ticker: ROST
+    name: Ross Stores, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: RSP
+    name: Invesco S&P 500 eql wght ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '30:1'
+  - ticker: RTX
+    name: Raytheon Technologies Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: SAN
+    name: Banco Santander S.A
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:4'
+  - ticker: SAP
+    name: Sap Se
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: SATL
+    name: Satellogic Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: SBS
+    name: Companhia de Saneamento Básico do Estado de São Paulo–Sabesp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:2'
+  - ticker: SBSP3
+    name: Cia Saneamento Básico de SP
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: SBUX
+    name: Starbucks Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '12:1'
+  - ticker: SCCO
+    name: Southern Copper Corp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: SCHW
+    name: Charles Schwab
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '13:1'
+  - ticker: SDA
+    name: SunCar Technology Group Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: SE
+    name: Sea Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '32:1'
+  - ticker: SH
+    name: PROSHARES SHORT S&P500
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: SHEL
+    name: Royal Dutch Shell Plc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: SHOP
+    name: Shopify Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '107:1'
+  - ticker: SHPW
+    name: Shapeways Holdings Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:2'
+  - ticker: SI
+    name: Silvergate Bancorp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: SID
+    name: Companhia Siderúrgica Nacional
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:8'
+  - ticker: SIEGY
+    name: Siemens Ag Adr
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: SLB
+    name: Schlumberger Ltd
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: SLV
+    name: iShares SILVER TRUST
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: SMH
+    name: VAN ECK SEMICONDUCTOR ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '50:1'
+  - ticker: SMSN
+    name: Samsung Electronics Co. Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '14:1'
+  - ticker: SNA
+    name: Snap-On Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: SNDK
+    name: SanDisk
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '170:1'
+  - ticker: SNAP
+    name: Snap Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: SNOW
+    name: Snowflake Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '30:1'
+  - ticker: SNP
+    name: China Petroleum & Chem
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: SONY
+    name: Sony Group Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: SPCE
+    name: Virgin Galactic
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:2'
+  - ticker: SPGI
+    name: S&P Global Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '45:1'
+  - ticker: SPHQ
+    name: Invesco S&P 500 quality ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '14:1'
+  - ticker: SPOT
+    name: Spotify Technology S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '28:1'
+  - ticker: SPXL
+    name: DIREXION DAILY S&P 500 BULL 3X
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '25:1'
+  - ticker: SPY
+    name: SPDR S&P 500
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: STLA
+    name: Stellantis
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: STNE
+    name: StoneCo Ltd
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: SUZ
+    name: Suzano Papel E Celulose S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: SUZB3
+    name: Suzano S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: SUPV
+    name: ADR Banco Supervielle
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: SWKS
+    name: Skyworks Solutions
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '21:1'
+  - ticker: SYY
+    name: Sysco Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: T
+    name: At &T Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: TCOM
+    name: TRIP.COM Group Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: TEAM
+    name: ATLASSIAN CORPORATION
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '47:1'
+  - ticker: TEFO
+    name: Telefonica S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '8:1'
+  - ticker: TEM
+    name: TEMPUS AI INC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '12:1'
+  - ticker: TEO
+    name: Telecom Argentina (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: TEN
+    name: Tenaris
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: TGT
+    name: Target Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '24:1'
+  - ticker: TGS
+    name: Transportadora Gas del Sur (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: TIIAY
+    name: Telecom Italia S.P.A. Ordinary Shares
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: TIMB
+    name: Tim Participações S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: TIMS3
+    name: TIM S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: TJX
+    name: TJX Companies Inc/The
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '22:1'
+  - ticker: TM
+    name: Toyota Motor Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: TMO
+    name: Thermo Fisher Scientific Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '22:1'
+  - ticker: TMUS
+    name: T-mobile
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '33:1'
+  - ticker: TQQQ
+    name: ProShares UltraPro QQQ
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '25:1'
+  - ticker: TRIP
+    name: Tripadvisor, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: TRVV
+    name: The Travelers Cos. Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: TS
+    name: ADR Tenaris
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: TSLA
+    name: Tesla, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: TSM
+    name: Taiwan Semiconductor Manufacturing
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '9:1'
+  - ticker: TTE
+    name: TotalEnergies SE
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: TTM
+    name: Tata Motors Ltd
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: TV
+    name: Grupo Televisa S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: TWLO
+    name: Twilio Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '36:1'
+  - ticker: TWTR
+    name: Twitter, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: TX
+    name: Ternium (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: TXN
+    name: Texas Instruments Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: TXR
+    name: Ternium S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: UAL
+    name: United Airlines Holdings Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: UBER
+    name: Uber Technologies Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: UGP
+    name: Ultrapar Participações S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: UL
+    name: Unilever PLC - Sponsored
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: UN
+    name: NU Holdings Ltd/Cayman Islands
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: UNH
+    name: UnitedHealth Group Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '33:1'
+  - ticker: UNP
+    name: Union Pacific Corp.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: UPST
+    name: Upstart Hldgs Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: URA
+    name: Global X Uranium ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: URBN
+    name: Urban Outfitters INC.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: USB
+    name: U.S. Bancorp
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: USO
+    name: United States Oil Fund
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: V
+    name: Visa Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '18:1'
+  - ticker: VALE
+    name: Vale S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: VALE3
+    name: Vale S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: VEA
+    name: Vanguard FTSE Developed Markets ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: VIG
+    name: VANGUARD DIVIDEND APPRECIATION
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '39:1'
+  - ticker: VIST
+    name: Vista Energy S.A.B. de C.V.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: VIV
+    name: Telefônica Brasil S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: VIVT3
+    name: Telefônica Brasil S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: VOD
+    name: Vodafone Group Plc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: VRSN
+    name: Verisign, Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: VRTX
+    name: VERTEX PHARMACEUTICALS INC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '101:1'
+  - ticker: VST
+    name: VISTRA CORPORATION
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '26:1'
+  - ticker: VXX
+    name: iPath Series B S&P 500 VIX
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: VZ
+    name: Verizon Communications Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: WBA
+    name: Walgreens Boots Alliance Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '3:1'
+  - ticker: WBO
+    name: Weibo Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '6:1'
+  - ticker: WEGE3
+    name: Weg S.A.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: WFC
+    name: Wells Fargo & Co.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '5:1'
+  - ticker: WMT
+    name: Walmart Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '18:1'
+  - ticker: XLB
+    name: The Materials Select Sector SPDR Fund
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '18:1'
+  - ticker: XLC
+    name: The Communication Services Select Sector SPDR Fund
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '19:1'
+  - ticker: XLE
+    name: ENERGY SELECT SECTOR SPDR FUND
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: XLF
+    name: FINANCIAL SELECT SECTOR SPDR FUND
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: XLI
+    name: The Industrial Select Sector SPDR Fund
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '28:1'
+  - ticker: XLK
+    name: The Technology Select Sector SPDR Fund
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '46:1'
+  - ticker: XLP
+    name: The Consumer Staples Select Sector SPDR Fund
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '16:1'
+  - ticker: XLRE
+    name: The Real Estate Select Sector SPDR Fund
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '9:1'
+  - ticker: XLU
+    name: Utilities Select Sector SPDR Fund
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '15:1'
+  - ticker: XLV
+    name: The Health Care Select Sector SPDR Fund
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '29:1'
+  - ticker: XLY
+    name: The Consumer Discretionary Select Sector SPDR Fund
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '43:1'
+  - ticker: XME
+    name: State Street SPDR S&P Metals & Mining ETF
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '30:1'
+  - ticker: XOM
+    name: Exxon Mobil Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '10:1'
+  - ticker: XP
+    name: XP Inc
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: XPEV
+    name: XPENG INC
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '4:1'
+  - ticker: XROX
+    name: Xerox Holding Corporation
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: XYZ
+    name: Square Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '20:1'
+  - ticker: YELP
+    name: Yelp Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: YPF
+    name: YPF (ADR)
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '1:1'
+  - ticker: YZCA
+    name: Yanzhou Coal Mining Co. Ltd.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '2:1'
+  - ticker: ZM
+    name: Zoom Video Communications Inc.
+    type: us_equity
+    source: manual
+    updated_at: '2026-07-19'
+    ratio: '47:1'
