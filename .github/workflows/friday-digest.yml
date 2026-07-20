@@ -36,7 +36,7 @@ jobs:
           from pathlib import Path
           import os, json
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
-          w = ScoutWorker({'universe_path': 'idos-config/universe/watchlist.md', 'journal_path': 'idos-journal'})
+          w = ScoutWorker({'universe_path': 'idos-journal/portfolio/watchlist.yml', 'journal_path': 'idos-journal'})
           r = w.execute({'force_refresh': True})
           print(f'Scout status: {r.status}')
           results = [res for res in r.output.get('results', []) if res.get('scout_score', 0) >= 50]
@@ -51,15 +51,23 @@ jobs:
           import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
           from idos.workers.data.digest_worker import DigestWorker
           from pathlib import Path
-          import os, json
+          import os, json, yaml
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
           scout_file = Path('cache/scout_results.json')
           scout_data = json.loads(scout_file.read_text()) if scout_file.exists() else {'results': []}
+          positions = []
+          pos_dir = Path('idos-journal/portfolio/positions')
+          if pos_dir.exists():
+              for f in pos_dir.glob('*.yml'):
+                  data = yaml.safe_load(f.read_text())
+                  if data:
+                      positions.append(data)
           w = DigestWorker()
           r = w.execute({
               'scout_results': scout_data.get('results', []),
               'risk_alerts': [],
               'opportunities': [],
+              'positions': positions,
           })
           Path('cache').mkdir(parents=True, exist_ok=True)
           with open('cache/weekly_digest.md', 'w') as f:
@@ -70,7 +78,7 @@ jobs:
         run: |
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add idos-journal/portfolio/watchlist.yml cache/weekly_digest.md 2>/dev/null || true
+          git add idos-journal/portfolio/watchlist.yml idos-journal/portfolio/positions/ cache/weekly_digest.md 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

@@ -9,6 +9,7 @@ from idos.discovery.operability import OperabilityFilter
 from idos.discovery.screening import FinvizScreener
 from idos.workers.base import BaseWorker
 from idos.workers.data.refresh_worker import DataRefreshWorker
+from idos.workers.data.cache import DataCache
 from idos.data.journal import JournalRepository
 
 
@@ -152,13 +153,10 @@ class ScoutWorker(BaseWorker):
 
     def _get_cached_data(self, ticker: str) -> dict[str, Any]:
         try:
-            cache_path = Path(self.config.get("cache_path", "cache"))
-            if not cache_path.exists():
-                return {}
-            cache_file = cache_path / f"{ticker}.json"
-            if cache_file.exists():
-                import json
-                return json.loads(cache_file.read_text(encoding="utf-8"))
+            cache = DataCache()
+            data = cache.get(f"merged:{ticker}")
+            if data:
+                return data.get("merged_data", data)
         except Exception:
             pass
         return {}
@@ -193,6 +191,11 @@ class ScoutWorker(BaseWorker):
         path = Path(self.universe_path)
         if not path.exists():
             return self._load_from_operable()
+        if path.suffix in (".yml", ".yaml"):
+            import yaml
+            data = yaml.safe_load(path.read_text(encoding="utf-8"))
+            entries = data.get("entries", []) if data else []
+            return [e.get("ticker", "") for e in entries if e.get("ticker")]
         content = path.read_text(encoding="utf-8")
         tickers = re.findall(r"^\|\s*([A-Z]+)\s*\|", content, re.MULTILINE)
         seen = set()
