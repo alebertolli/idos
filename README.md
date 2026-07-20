@@ -1,6 +1,6 @@
 # IDOS — Investment Decision Operating System
 
-Sistema de gestión de inversiones para Family Office. Automatiza screening,
+Sistema de gestión de inversiones para Family Office. Automatiza screening, due diligence,
 due diligence, monitoreo de cartera, generación de reportes y notificaciones.
 Implementa el ciclo de vida completo de inversión: desde el descubrimiento
 hasta el post-mortem y archive.
@@ -29,7 +29,9 @@ Crea la estructura de directorios:
 idos-config/
   universe/watchlist.md       ← tickers a monitorear
   universe/operable.yml       ← lista de activos operables (CEDEARs + broker)
+  universe/cedears.yml        ← lista de CEDEARs conocidos
   screeners/                  ← 5 screeners programaticos (value, growth, etc.)
+  finviz_screener.yml         ← config de filtros Finviz
   data_sources.yml            ← fuentes de datos financieros
   rules/entry_rules.yml       ← reglas de entrada (asimetría 3:1, etc.)
   prompts/scout/              ← 5 prompts de screening
@@ -205,6 +207,14 @@ idos operable-stats                 # Estadísticas por tipo y fuente
 idos screener-list                  # Lista screeners disponibles (Value, Growth, etc.)
 idos screener-run AAPL              # Evalúa AAPL contra todos los screeners
 idos screener-run AAPL --name value # Evalúa contra screener específico
+```
+
+### 3.6 Universe Pipeline
+
+```bash
+idos universe-build              # Ejecuta pipeline completo: Finviz → Filter → Fetch → Scout
+idos universe-fetch              # Fetch datos financieros para tickers operables
+idos universe-status             # Muestra estadísticas del universo y cache
 ```
 
 ---
@@ -561,3 +571,5 @@ idos screener-run AAPL              # Evaluar ticker contra screeners
 
 *IDOS v0.2.0 — Family Office Investment Decision Operating System*
 *360+ tests · 28 comandos CLI · Ciclo de vida completo · Dual-mode Wyckoff*
+
+<!-- Test auto-commit skill -->
