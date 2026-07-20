@@ -46,6 +46,20 @@ class ScoutWorker(BaseWorker):
         total_input = len(tickers)
 
         # ──────────────────────────────────────────────────────────
+        # STEP 0: Data Fetch (asegurar datos financieros disponibles)
+        # ──────────────────────────────────────────────────────────
+        to_fetch = [t for t in tickers if not self._get_cached_data(t)]
+        if to_fetch:
+            print(f"\n[SCOUT] === STEP 0: Data Fetch ({len(to_fetch)} tickers) ===")
+            refresh_ctx = {"tickers": to_fetch, "max_tickers": context.get("max_tickers", 0)}
+            refresh_result = self.data_refresher.execute(refresh_ctx)
+            if refresh_result.status == "failed":
+                print(f"[SCOUT] Data fetch failed: {refresh_result.error}")
+            else:
+                fetched = refresh_result.output.get("tickers_processed", 0)
+                print(f"[SCOUT] Data fetched for {fetched} tickers")
+
+        # ──────────────────────────────────────────────────────────
         # STEP 1: FinvizScreener (0 LLM, reglas programaticas)
         # ──────────────────────────────────────────────────────────
         print(f"\n[SCOUT] === STEP 1: FinvizScreener ({len(tickers)} tickers) ===")
