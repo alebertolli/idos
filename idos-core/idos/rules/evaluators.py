@@ -1,3 +1,4 @@
+from typing import Any
 from idos.models.knowledge import Rule
 from idos.rules.engine import RulesEngine, RuleFn, RuleResult
 
