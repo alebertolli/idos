@@ -13,6 +13,7 @@ jobs:
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -48,11 +49,71 @@ jobs:
           summary = {'refreshed_at': str(datetime.now()), 'tickers': tickers, 'errors': errors}
           with open('cache/last_refresh.json','w') as f: json.dump(summary, f, indent=2)
           "
+      - name: Check earnings dates
+        run: |
+          python -c "
+          import os, json, yaml
+          from pathlib import Path
+          from datetime import datetime, date
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+
+          earnings_file = Path('idos-config/events/earnings.yml')
+          if not earnings_file.exists():
+              print('[EARNINGS] No earnings config found at idos-config/events/earnings.yml')
+              exit(0)
+
+          data = yaml.safe_load(earnings_file.read_text(encoding='utf-8'))
+          tickers = data.get('tickers', {})
+          today = date.today()
+          triggered = []
+
+          for ticker, info in tickers.items():
+              earnings_date_str = info.get('earnings_date', '')
+              triggered_at = info.get('triggered_at', '')
+              if not earnings_date_str:
+                  continue
+              earnings_date = datetime.strptime(earnings_date_str, '%Y-%m-%d').date()
+              if triggered_at:
+                  print(f'[EARNINGS] {ticker}: already triggered on {triggered_at}')
+                  continue
+              if today < earnings_date:
+                  print(f'[EARNINGS] {ticker}: earnings on {earnings_date_str}, not yet')
+                  continue
+              print(f'[EARNINGS] {ticker}: ready to trigger (earnings_date={earnings_date_str})')
+              info['triggered_at'] = today.isoformat()
+              triggered.append(ticker)
+
+          if triggered:
+              earnings_file.write_text(yaml.dump(data, default_flow_style=False, allow_unicode=True), encoding='utf-8')
+              Path('cache/earnings_trigger.json').write_text(json.dumps({'triggered': triggered}), encoding='utf-8')
+              print(f'[EARNINGS] Marked as triggered: {\", \".join(triggered)}')
+          else:
+              print('[EARNINGS] No tickers to trigger today')
+          "
+
+      - name: Dispatch quarterly-results events
+        run: |
+          if [ ! -f cache/earnings_trigger.json ]; then
+            echo "[DISPATCH] No earnings to dispatch"
+            exit 0
+          fi
+          TICKERS=$(python -c "import json; d=json.load(open('cache/earnings_trigger.json')); print(' '.join(d['triggered']))")
+          for TICKER in $TICKERS; do
+            echo "[DISPATCH] Dispatching quarterly-results for $TICKER"
+            curl -s -X POST \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              https://api.github.com/repos/${{ github.repository }}/dispatches \
+              -d '{"event_type":"quarterly-results","client_payload":{"ticker":"'$TICKER'"}}'
+            echo ""
+          done
+
       - name: Commit cache
         run: |
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
           git add cache/last_refresh.json 2>/dev/null || true
+          git add idos-config/events/earnings.yml 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

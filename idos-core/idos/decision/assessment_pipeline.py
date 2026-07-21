@@ -187,7 +187,7 @@ def _register_assessment_rules(engine: RulesEngine):
     for rule, fn in ASSESSMENT_RULES:
         engine.register_rule(rule, fn)
 
-def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path) -> dict[str, Any]:
+def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_reprocess: bool = False) -> dict[str, Any]:
     bp = Path(base_path)
     sqlite = SQLiteStore(bp / "idos.db")
     knowledge = KnowledgeRepository(bp / "idos-knowledge")
@@ -274,21 +274,23 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path) -> dict[s
         with open(opp_dir / "entry_evaluation.yml", "w", encoding="utf-8") as f:
             yaml.dump(entry_data, f, default_flow_style=False, allow_unicode=True)
 
-    new_status = OpportunityStatus.APPROVED if resolution.approved else OpportunityStatus.UNDER_DEEP_DD
-    opp = sqlite.get_opportunity(opp_id)
-    if opp:
-        old = opp["status"]
-        opp["status"] = new_status.value
-        opp["updated_at"] = datetime.now(AR_TZ).isoformat()
-        sqlite.save_opportunity(opp)
-        sqlite.record_transition(
-            opp_id, old, new_status.value,
-            cause=f"board:{resolution.decision_type.value.lower()}", worker="assessment_pipeline",
-        )
+    if not force_reprocess:
+        new_status = OpportunityStatus.APPROVED if resolution.approved else OpportunityStatus.UNDER_DEEP_DD
+        opp = sqlite.get_opportunity(opp_id)
+        if opp:
+            old = opp["status"]
+            opp["status"] = new_status.value
+            opp["updated_at"] = datetime.now(AR_TZ).isoformat()
+            sqlite.save_opportunity(opp)
+            sqlite.record_transition(
+                opp_id, old, new_status.value,
+                cause=f"board:{resolution.decision_type.value.lower()}", worker="assessment_pipeline",
+            )
 
     yaml_opp = journal.load_opportunity(ticker, opp_id)
     if yaml_opp:
-        yaml_opp["status"] = new_status.value
+        if not force_reprocess:
+            yaml_opp["status"] = new_status.value
         yaml_opp["updated_at"] = datetime.now(AR_TZ).isoformat()
         yaml_opp.setdefault("conviction", {})["overall"] = proposal.conviction_score
         journal.save_opportunity(ticker, yaml_opp)

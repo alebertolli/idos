@@ -8,9 +8,16 @@ on:
   workflow_dispatch:
     inputs:
       ticker:
-        description: "Ticker especifico (dejar vacio para todos)"
+        description: "Ticker específico (vacío = todos)"
         required: false
         type: string
+      force:
+        description: "Reprocesar cualquier estado (ignora can_transition)"
+        required: false
+        type: boolean
+        default: false
+  repository_dispatch:
+    types: [quarterly-results]
   schedule:
     - cron: "0 0 2 * *"  # 2do dia de cada mes (post universe)
 
@@ -39,6 +46,22 @@ jobs:
       - name: Install
         run: pip install -e idos-core
 
+      - name: Set run context
+        run: |
+          TICKER="${{ github.event.inputs.ticker || github.event.client_payload.ticker || '' }}"
+          echo "TICKER=$TICKER" >> $GITHUB_ENV
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo "FORCE=true" >> $GITHUB_ENV
+            echo "EVENT_TYPE=${{ github.event.action }}" >> $GITHUB_ENV
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "FORCE=${{ github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
+            echo "EVENT_TYPE=manual" >> $GITHUB_ENV
+          else
+            echo "FORCE=false" >> $GITHUB_ENV
+            echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
+          fi
+          echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE event=$EVENT_TYPE"
+
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
         run: |
           python -c "
@@ -48,7 +71,13 @@ jobs:
 
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
           journal = Path('idos-journal')
-          ticker_filter = os.environ.get('INPUT_TICKER', '')
+          ticker_filter = os.environ.get('TICKER', '')
+          force = os.environ.get('FORCE', 'false').lower() == 'true'
+          event_type = os.environ.get('EVENT_TYPE', 'monthly')
+
+          if force and not ticker_filter:
+              print('[DDD] Force mode requires a ticker, falling back to DISCOVERED only')
+              force = False
 
           opportunities = []
           companies_dir = journal / 'companies'
@@ -70,21 +99,24 @@ jobs:
                           continue
                       try:
                           data = yaml.safe_load(yf.read_text(encoding='utf-8'))
-                          if data and data.get('status') == 'DISCOVERED':
-                              opportunities.append({
-                                  'opp_id': data['id'],
-                                  'ticker': data['ticker'].upper(),
-                                  'score': data.get('conviction', {}).get('overall', 0),
-                              })
+                          if data:
+                              if force or data.get('status') == 'DISCOVERED':
+                                  opportunities.append({
+                                      'opp_id': data['id'],
+                                      'ticker': data['ticker'].upper(),
+                                      'score': data.get('conviction', {}).get('overall', 0),
+                                      'current_status': data.get('status', 'UNKNOWN'),
+                                  })
                       except Exception as e:
                           print(f'[DDD] Error reading {yf}: {e}')
 
           if not opportunities:
               print('[DDD] No DISCOVERED opportunities to process')
-              Path('cache/ddd_results.json').write_text(json.dumps({'processed': [], 'assessments': [], 'errors': [], 'status': 'none'}), encoding='utf-8')
+              Path('cache/ddd_results.json').write_text(json.dumps({'processed': [], 'assessments': [], 'errors': [], 'status': 'none', 'event_type': event_type, 'force': force}), encoding='utf-8')
               exit(0)
 
-          print(f'[DDD] Found {len(opportunities)} DISCOVERED opportunities')
+          labels = 'FORCE' if force else 'DISCOVERED'
+          print(f'[DDD] Found {len(opportunities)} {labels} opportunities')
 
           from idos.workers.ai.research_worker import ResearchWorker
           from idos.data.sqlite import SQLiteStore
@@ -96,7 +128,8 @@ jobs:
           for opp in opportunities:
               ticker = opp['ticker']
               opp_id = opp['opp_id']
-              print(f'\n[STEP 2] Processing {ticker} ({opp_id})...')
+              cur_status = opp['current_status']
+              print(f'\n[STEP 2] {\"FORCE\" if force else \"NORMAL\"} {ticker} ({opp_id}) status={cur_status}...')
 
               try:
                   db = SQLiteStore('idos.db')
@@ -115,11 +148,15 @@ jobs:
                       'model': 'gemini-2.0-flash',
                       'prompts_path': 'idos-config/prompts',
                   })
-                  r = worker.execute({
+                  ctx = {
                       'ticker': ticker,
                       'opp_id': opp_id,
                       'base_path': os.environ.get('GITHUB_WORKSPACE', '.'),
-                  })
+                  }
+                  if force:
+                      ctx['force_reprocess'] = True
+                      ctx['event_type'] = event_type
+                  r = worker.execute(ctx)
                   if r.status == 'success':
                       output = r.output
                       status = output.get('status', 'completed')
@@ -128,6 +165,8 @@ jobs:
                           'ticker': ticker, 'opp_id': opp_id,
                           'status': status, 'score': output.get('score', 0),
                           'classification': output.get('classification', ''),
+                          'force': force,
+                          'event_type': event_type,
                       })
                   else:
                       print(f'[STEP 2] {ticker}: FAILED - {r.error}')
@@ -137,7 +176,7 @@ jobs:
                   print(f'[STEP 2] {ticker}: ERROR - {e}')
                   errors.append({'ticker': ticker, 'error': str(e)})
 
-          results = {'processed': processed, 'assessments': [], 'errors': errors, 'total': len(opportunities), 'done': len(processed)}
+          results = {'processed': processed, 'assessments': [], 'errors': errors, 'total': len(opportunities), 'done': len(processed), 'event_type': event_type, 'force': force}
           Path('cache').mkdir(parents=True, exist_ok=True)
           Path('cache/ddd_results.json').write_text(json.dumps(results, indent=2), encoding='utf-8')
           print(f'\n[STEP 2] Done: {len(processed)} processed, {len(errors)} errors')
@@ -150,6 +189,8 @@ jobs:
           from pathlib import Path
           sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+
+          force = os.environ.get('FORCE', 'false').lower() == 'true'
 
           results_file = 'cache/ddd_results.json'
           if not Path(results_file).exists():
@@ -172,10 +213,11 @@ jobs:
           for opp in processed:
               ticker = opp['ticker']
               opp_id = opp['opp_id']
-              print(f'\n[STEP 3-7] Running assessment pipeline for {ticker} ({opp_id})...')
+              mode = 'FORCE' if opp.get('force') else 'NORMAL'
+              print(f'\n[STEP 3-7] Running assessment pipeline for {ticker} ({opp_id}) [{mode}]...')
 
               try:
-                  result = run_full_pipeline(opp_id, ticker, os.environ.get('GITHUB_WORKSPACE', '.'))
+                  result = run_full_pipeline(opp_id, ticker, os.environ.get('GITHUB_WORKSPACE', '.'), force_reprocess=opp.get('force', False))
                   assessments.append(result)
                   print(f'[STEP 3-7] {ticker}: conviction={result.get(\"conviction_score\", \"?\")}, recommendation={result.get(\"recommendation\", \"?\")}')
               except Exception as e:
@@ -309,10 +351,21 @@ jobs:
           errors = results.get('errors', [])
           total = results.get('total', 0)
           approved = sum(1 for a in assessments if a.get('board_approved'))
+          event_type = results.get('event_type', 'monthly')
+          force = results.get('force', False)
+
+          mode_label = 'FORCE' if force else 'NORMAL'
+          if event_type == 'quarterly-results':
+              event_label = 'Quarterly Results'
+          elif event_type == 'manual':
+              event_label = 'Manual'
+          else:
+              event_label = 'Monthly'
 
           # Build Telegram message (short version)
           lines = []
           lines.append('*IDOS DDD Pipeline*')
+          lines.append(f'Trigger: {event_label} ({mode_label})')
           lines.append('')
           lines.append(f':bar_chart: {total} oportunidades evaluadas')
           lines.append(f':white_check_mark: {len(processed)} research completados')

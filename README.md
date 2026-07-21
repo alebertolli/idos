@@ -217,15 +217,52 @@ idos universe-fetch              # Fetch datos financieros para tickers operable
 idos universe-status             # Muestra estadísticas del universo y cache
 ```
 
-### 3.7 DDD Pipeline (GitHub Actions)
+### 3.7 DDD Pipeline (GitHub Actions) — Multi-Trigger
 
-El pipeline completo de decisión se ejecuta automáticamente via GitHub Actions
-(lunes al mediodía UTC) o manual desde **Actions → DDD Research Pipeline → Run workflow**.
+El pipeline completo de decisión se ejecuta via GitHub Actions con 4 triggers:
+
+| Trigger | Descripción | Modo |
+|---------|-------------|------|
+| `schedule` (día 2 cada mes) | Batch mensual de oportunidades DISCOVERED | NORMAL |
+| `workflow_run` (Monthly Universe) | Post-universe automático | NORMAL |
+| `workflow_dispatch` (manual) | Ticker específico + flag **force** opcional | NORMAL / FORCE |
+| `repository_dispatch` (quarterly-results) | Post-earnings automático (1 día después) | **FORCE** |
+
+**FORCE mode**: reprocesa la oportunidad en cualquier estado (no solo DISCOVERED),
+regenera research + assessments, pero **no cambia el status** — el usuario revisa
+y decide manualmente.
 
 ```bash
 # Opcional: ejecutar localmente un paso específico
 python -c "from idos.decision.assessment_pipeline import run_full_pipeline; print(run_full_pipeline('OPP-001', 'GFI', '.'))"
 ```
+
+#### 3.7.1 Earnings Event-Driven
+
+Configurar fechas de earnings en `idos-config/events/earnings.yml`:
+
+```yaml
+tickers:
+  AAPL:
+    earnings_date: "2026-07-25"
+    triggered_at: null
+  MSFT:
+    earnings_date: "2026-07-28"
+    triggered_at: null
+```
+
+El **Daily Refresh** (cada día hábil) chequea si `hoy >= earnings_date` y
+dispara un `repository_dispatch` al DDD Pipeline. El campo `triggered_at` se
+actualiza automáticamente para evitar re-disparos.
+
+#### 3.7.2 Manual Force Mode
+
+Desde **Actions → DDD Research Pipeline → Run workflow**:
+
+| Input | Descripción |
+|-------|-------------|
+| `ticker` | Ticker específico (obligatorio en force mode) |
+| `force` | `true` = reprocesa cualquier estado, no cambia status |
 
 ---
 
@@ -273,8 +310,8 @@ DISCOVERED ──► UNDER_DEEP_DD ──► APPROVED
 
 | Worker | Estado Origen | Estado Destino | Trigger |
 |--------|--------------|----------------|---------|
-| **ResearchWorker** | DISCOVERED | UNDER_DEEP_DD | DDD Pipeline (STEP 2) |
-| **AssessmentPipeline** | UNDER_DEEP_DD | APPROVED / PENDING_REVIEW | DDD Pipeline (STEP 3-7) |
+| **ResearchWorker** | DISCOVERED (NORMAL) / cualquier estado (FORCE) | UNDER_DEEP_DD / sin cambio | DDD Pipeline STEP 2 (schedule, workflow_run, workflow_dispatch, repository_dispatch) |
+| **AssessmentPipeline** | UNDER_DEEP_DD (NORMAL) / cualquier estado (FORCE) | APPROVED / PENDING_REVIEW / sin cambio | DDD Pipeline STEP 3-7 |
 | **EntryMonitorWorker** | APPROVED / ENTRY_PENDING | ACCUMULATING | `entry-evaluate` o diario |
 | **PostMortemWorker** | EXITED | POST_MORTEM → ARCHIVED | `position-exit` |
 
@@ -419,15 +456,25 @@ watchlist.md (10,000 tickers)
 ### Pipeline de Decisión (DDD)
 
 ```
-DISCOVERED opportunities
-    │
-    ▼
+┌─ Triggers ──────────────────────────────────┐
+│                                             │
+│  📅 Schedule (día 2) ──────┐               │
+│  🔄 Monthly Universe ──────┤               │
+│  👤 Manual (workflow_dispatch) ─┤           │
+│  📊 Quarterly Results (repo_dispatch) ──┘   │
+│                                             │
+│  FORCE mode: permite reprocesar cualquier   │
+│  estado, no cambia status                   │
+└─────────────────────┬───────────────────────┘
+                      │
+                      ▼
 ┌──────────────────────────────────────────┐
 │ STEP 2: ResearchWorker (LLM)            │
 │ DDD (deep due diligence)                │
 │ AOIF (8-step protocol)                  │
 │ Hypothesis generation                    │
-│ → Status: UNDER_DEEP_DD                 │
+│ → NORMAL: Status → UNDER_DEEP_DD        │
+│ → FORCE:  Status intacto               │
 └─────────────────┬────────────────────────┘
                   │
                   ▼
@@ -480,6 +527,7 @@ DISCOVERED opportunities
            board_resolution.yml
            entry_evaluation.yml
          + Notificación (Telegram + Email)
+         + Event type en notificación
 ```
 
 ### Output del DDD Pipeline
@@ -514,15 +562,19 @@ SEC EDGAR ────────┘    │
    (STEP 6: opps)     │
           │            │
           ▼            ▼
-   DDD Pipeline (GitHub Actions)
-   ┌─────────────────────────────┐
-   │ STEP 2: ResearchWorker      │
-   │ STEP 3: Assessment Engines  │
-   │ STEP 4: ConvictionCalculator│
-   │ STEP 5: RulesEngine         │
-   │ STEP 6: DecisionBoard       │
-   │ STEP 7: EntryEvaluation     │
-   └─────────────────────────────┘
+    DDD Pipeline (GitHub Actions)
+    ┌──────────────────────────────────┐
+    │ Triggers: schedule, workflow_run,│
+    │ workflow_dispatch (force),       │
+    │ repository_dispatch (quarterly)   │
+    ├──────────────────────────────────┤
+    │ STEP 2: ResearchWorker           │
+    │ STEP 3: Assessment Engines       │
+    │ STEP 4: ConvictionCalculator     │
+    │ STEP 5: RulesEngine              │
+    │ STEP 6: DecisionBoard            │
+    │ STEP 7: EntryEvaluation          │
+    └──────────────────────────────────┘
           │
           ▼
    idos-journal/companies/{TICKER}/case_file/opportunities/{OPP-ID}/

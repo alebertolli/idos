@@ -35,6 +35,8 @@ class ResearchWorker(BaseWorker):
         ticker = context.get("ticker", "").upper().strip()
         opp_id = context.get("opp_id", "")
         base_path = context.get("base_path", "")
+        force_reprocess = context.get("force_reprocess", False)
+        event_type = context.get("event_type", "manual")
         if not ticker or not opp_id:
             msg = "Both ticker and opp_id are required"
             raise ValueError(msg)
@@ -51,9 +53,12 @@ class ResearchWorker(BaseWorker):
             raise ValueError(msg)
 
         current_status = OpportunityStatus(opp["status"])
-        if not self.state_machine.can_transition(current_status, OpportunityStatus.UNDER_DEEP_DD):
-            return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
-                    "reason": f"Cannot transition from {current_status} to UNDER_DEEP_DD"}
+        if not force_reprocess:
+            if not self.state_machine.can_transition(current_status, OpportunityStatus.UNDER_DEEP_DD):
+                return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
+                        "reason": f"Cannot transition from {current_status} to UNDER_DEEP_DD"}
+        else:
+            print(f"[FORCE] Reprocessing {ticker} ({opp_id}) from {current_status}, event={event_type}")
 
         company = knowledge.load_company(ticker) or {}
         wiki = knowledge.get_wiki_text(ticker)
@@ -140,16 +145,27 @@ class ResearchWorker(BaseWorker):
         case_file["last_updated"] = datetime.now(AR_TZ).isoformat()
         journal.save_case_file(ticker, case_file)
 
-        opp["status"] = OpportunityStatus.UNDER_DEEP_DD.value
         opp["updated_at"] = datetime.now(AR_TZ).isoformat()
         sqlite.save_opportunity(opp)
-        sqlite.record_transition(opp_id, current_status.value, "UNDER_DEEP_DD",
-                                 cause="research_completed", worker="research_worker")
-        sqlite.log_event("research:completed", {
-            "opp_id": opp_id, "ticker": ticker,
-            "score": score, "hypotheses": len(hypotheses),
-            "classification": classification.get("categoria"),
-        })
+
+        if not force_reprocess:
+            opp["status"] = OpportunityStatus.UNDER_DEEP_DD.value
+            sqlite.save_opportunity(opp)
+            sqlite.record_transition(opp_id, current_status.value, "UNDER_DEEP_DD",
+                                     cause="research_completed", worker="research_worker")
+            sqlite.log_event("research:completed", {
+                "opp_id": opp_id, "ticker": ticker,
+                "score": score, "hypotheses": len(hypotheses),
+                "classification": classification.get("categoria"),
+            })
+        else:
+            sqlite.log_event("research:force_reprocess", {
+                "opp_id": opp_id, "ticker": ticker,
+                "score": score, "hypotheses": len(hypotheses),
+                "classification": classification.get("categoria"),
+                "event_type": event_type,
+                "original_status": current_status.value,
+            })
 
         return {
             "ticker": ticker,
