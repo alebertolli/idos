@@ -113,6 +113,7 @@ jobs:
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
           git add cache/last_refresh.json 2>/dev/null || true
+          git add cache/*.json 2>/dev/null || true
           git add idos-config/events/earnings.yml 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
@@ -124,4 +125,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: daily-refresh-${{ github.run_id }}
-          path: cache/last_refresh.json
+          path: |
+            cache/last_refresh.json
+            cache/*.json

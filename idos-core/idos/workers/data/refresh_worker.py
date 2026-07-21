@@ -80,6 +80,12 @@ class DataRefreshWorker(BaseWorker):
                         source="merged",
                         ttl_seconds=3600,
                     )
+                    import json
+                    cache_dir = Path("cache")
+                    cache_dir.mkdir(parents=True, exist_ok=True)
+                    (cache_dir / f"{ticker}.json").write_text(
+                        json.dumps(validated, default=str, indent=2), encoding="utf-8"
+                    )
                 else:
                     errors.append(f"{ticker}: no data from any source")
             except Exception as e:
