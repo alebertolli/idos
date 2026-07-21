@@ -42,4 +42,19 @@ events:
     ticker: MSFT
   event_type: research:force_reprocess
   source: research_worker
+<<<<<<< HEAD
   timestamp: '2026-07-21T19:28:21.114735'
+=======
+  timestamp: '2026-07-21T21:41:53.106683'
+- data:
+    classification: null
+    event_type: manual
+    hypotheses: 0
+    opp_id: OPP-20260720-018
+    original_status: UNDER_DEEP_DD
+    score: 50
+    ticker: MSFT
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-07-21T22:04:05.331991'
+>>>>>>> 761867b (fix: earnings check NoneType error + broken f-string escape in daily refresh)
