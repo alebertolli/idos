@@ -62,7 +62,7 @@ jobs:
               print('[EARNINGS] No earnings config found at idos-config/events/earnings.yml')
               exit(0)
 
-          data = yaml.safe_load(earnings_file.read_text(encoding='utf-8'))
+          data = yaml.safe_load(earnings_file.read_text(encoding='utf-8')) or {}
           tickers = data.get('tickers', {})
           today = date.today()
           triggered = []
@@ -86,7 +86,7 @@ jobs:
           if triggered:
               earnings_file.write_text(yaml.dump(data, default_flow_style=False, allow_unicode=True), encoding='utf-8')
               Path('cache/earnings_trigger.json').write_text(json.dumps({'triggered': triggered}), encoding='utf-8')
-              print(f'[EARNINGS] Marked as triggered: {\", \".join(triggered)}')
+              print('[EARNINGS] Marked as triggered: ' + ', '.join(triggered))
           else:
               print('[EARNINGS] No tickers to trigger today')
           "
