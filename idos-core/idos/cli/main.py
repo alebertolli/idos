@@ -202,6 +202,12 @@ def dashboard():
     opps = sqlite.list_opportunities()
     if not opps:
         opps = journal.list_all_opportunities()
+    else:
+        journal_opps = journal.list_all_opportunities()
+        existing_ids = {o["id"] for o in opps}
+        for jo in journal_opps:
+            if jo["id"] not in existing_ids:
+                opps.append(jo)
     positions = engine.get_positions()
     watchlist = engine.get_watchlist()
     total_weight = engine.total_weight()
@@ -255,9 +261,10 @@ def opp_research(ticker: str, opp_id: str = "", force: bool = False):
     if not opp_id:
         filter_status = None if force else "WATCHLIST"
         opps = sqlite.list_opportunities(filter_status)
-        if not opps:
+        matching = [o for o in opps if o.get("ticker", "") == ticker.upper()]
+        if not matching:
             opps = journal.list_all_opportunities(filter_status)
-        matching = [o for o in opps if o["ticker"] == ticker.upper()]
+            matching = [o for o in opps if o.get("ticker", "") == ticker.upper()]
         if not matching:
             label = "WATCHLIST" if not force else "any"
             console.print(f"[red]No {label} opportunities found for {ticker.upper()}[/red]")
@@ -313,9 +320,10 @@ def opp_approve(ticker: str, opp_id: str = ""):
 
     if not opp_id:
         opps = sqlite.list_opportunities("UNDER_DEEP_DD")
-        if not opps:
+        matching = [o for o in opps if o.get("ticker", "") == ticker.upper()]
+        if not matching:
             opps = journal.list_all_opportunities("UNDER_DEEP_DD")
-        matching = [o for o in opps if o["ticker"] == ticker.upper()]
+            matching = [o for o in opps if o.get("ticker", "") == ticker.upper()]
         if not matching:
             console.print(f"[red]No UNDER_DEEP_DD opportunities found for {ticker.upper()}[/red]")
             return
@@ -347,9 +355,10 @@ def opp_reject(ticker: str, opp_id: str = "", reason: str = "insufficient_eviden
 
     if not opp_id:
         opps = sqlite.list_opportunities()
-        if not opps:
+        matching = [o for o in opps if o.get("ticker", "") == ticker.upper() and o.get("status") in ("UNDER_DEEP_DD",)]
+        if not matching:
             opps = journal.list_all_opportunities()
-        matching = [o for o in opps if o["ticker"] == ticker.upper() and o["status"] in ("UNDER_DEEP_DD",)]
+            matching = [o for o in opps if o.get("ticker", "") == ticker.upper() and o.get("status") in ("UNDER_DEEP_DD",)]
         if not matching:
             console.print(f"[red]No research-stage opportunities found for {ticker.upper()}[/red]")
             return
@@ -380,10 +389,12 @@ def entry_evaluate(ticker: str, opp_id: str = ""):
 
     if not opp_id:
         opps = sqlite.list_opportunities()
-        if not opps:
+        matching = [o for o in opps if o.get("ticker", "") == ticker.upper()
+                    and o.get("status") in ("APPROVED", "ENTRY_PENDING")]
+        if not matching:
             opps = journal.list_all_opportunities()
-        matching = [o for o in opps if o["ticker"] == ticker.upper()
-                    and o["status"] in ("APPROVED", "ENTRY_PENDING")]
+            matching = [o for o in opps if o.get("ticker", "") == ticker.upper()
+                        and o.get("status") in ("APPROVED", "ENTRY_PENDING")]
         if not matching:
             console.print(f"[red]No APPROVED/ENTRY_PENDING opportunities for {ticker.upper()}[/red]")
             return
@@ -425,10 +436,12 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
 
     if not opp_id:
         opps = sqlite.list_opportunities()
-        if not opps:
+        matching = [o for o in opps if o.get("ticker", "") == ticker.upper()
+                    and o.get("status") in ("MONITORING", "FULL_POSITION", "ACCUMULATING")]
+        if not matching:
             opps = journal.list_all_opportunities()
-        matching = [o for o in opps if o["ticker"] == ticker.upper()
-                    and o["status"] in ("MONITORING", "FULL_POSITION", "ACCUMULATING")]
+            matching = [o for o in opps if o.get("ticker", "") == ticker.upper()
+                        and o.get("status") in ("MONITORING", "FULL_POSITION", "ACCUMULATING")]
         if not matching:
             console.print(f"[red]No active positions found for {ticker.upper()}[/red]")
             return
@@ -501,9 +514,10 @@ def opp_show(ticker: str, opp_id: str = ""):
         opps = [opp] if opp else []
     else:
         opps = sqlite.list_opportunities()
+        opps = [o for o in opps if o.get("ticker", "").upper() == ticker.upper()]
         if not opps:
             opps = journal.list_all_opportunities()
-        opps = [o for o in opps if o.get("ticker", "").upper() == ticker.upper()]
+            opps = [o for o in opps if o.get("ticker", "").upper() == ticker.upper()]
 
     if not opps:
         console.print(f"[red]No opportunities found for {ticker.upper()}[/red]")
