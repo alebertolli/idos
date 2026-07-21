@@ -102,13 +102,16 @@ class ResearchWorker(BaseWorker):
             "tesis_inversion": thesis,
             "score_general": score,
             "dominio_riesgos": ddd_result.get("dominio_riesgos", []),
-            "analisis_competitivo": ddd_result.get("analisis_competitivo", {}),
-            "analisis_financiero": ddd_result.get("analisis_financiero", {}),
-            "analisis_gestion": ddd_result.get("analisis_gestion", {}),
-            "catalizadores": ddd_result.get("catalizadores", []),
-            "escenarios": ddd_result.get("escenarios", {}),
-            "plan_inversion": ddd_result.get("plan_inversion", {}),
-            "raw_prompt_inputs": {
+            "dominio_catalizadores": ddd_result.get("dominio_catalizadores", []),
+            "dominio_business_quality": ddd_result.get("dominio_business_quality", {}),
+            "dominio_financial_health": ddd_result.get("dominio_financial_health", {}),
+            "dominio_management": ddd_result.get("dominio_management", {}),
+            "dominio_growth": ddd_result.get("dominio_growth", {}),
+            "dominio_esg_supply_chain": ddd_result.get("dominio_esg_supply_chain", {}),
+            "opinion_valoracion": ddd_result.get("opinion_valoracion", ""),
+            "resumen_ejecutivo": ddd_result.get("resumen_ejecutivo", ""),
+            "calidad_evidencia": ddd_result.get("calidad_evidencia", {}),
+            "prompt_inputs": {
                 "ticker": ticker,
                 "name": company.get("name", ticker),
                 "sector": company.get("sector", ""),
@@ -121,6 +124,8 @@ class ResearchWorker(BaseWorker):
                 "fcf_adjusted": financial_data.get("fcf_adjusted", 0),
                 "debt_to_equity": financial_data.get("debt_equity_ratio", 0),
                 "pe_ratio": financial_data.get("pe_ratio", 0),
+                "ceo_tenure": financial_data.get("ceo_tenure", 0),
+                "insider_ownership": financial_data.get("insider_ownership", 0),
             },
         }
         report_path = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id / "ddd_report.yml"
@@ -221,15 +226,33 @@ class ResearchWorker(BaseWorker):
 
     def _load_financial_data(self, ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
         data: dict[str, Any] = {}
-        for row in sqlite.conn.execute(
-            "SELECT data_json FROM events_log WHERE event_type LIKE ? AND data_json LIKE ? ORDER BY timestamp DESC LIMIT 1",
-            (f"%{ticker}%", f"%{ticker}%"),
-        ):
-            import json
-            try:
-                data = json.loads(row[0])
-            except (json.JSONDecodeError, IndexError):
-                pass
+        try:
+            for row in sqlite.conn.execute(
+                "SELECT data_json FROM events_log WHERE event_type LIKE ? AND data_json LIKE ? ORDER BY timestamp DESC LIMIT 1",
+                (f"%{ticker}%", f"%{ticker}%"),
+            ):
+                import json
+                try:
+                    data = json.loads(row[0])
+                except (json.JSONDecodeError, IndexError):
+                    pass
+        except Exception:
+            pass
+        if data:
+            return data
+        from pathlib import Path
+        import json
+        for cache_path in [
+            Path.cwd() / "cache" / f"{ticker}_financial.json",
+            Path.cwd() / "cache" / f"{ticker}.json",
+        ]:
+            if cache_path.exists():
+                try:
+                    data = json.loads(cache_path.read_text(encoding="utf-8"))
+                    if data:
+                        return data
+                except Exception:
+                    pass
         return data
 
     def _run_prompt(self, prompt_name: str, ticker: str, kwargs: dict[str, Any]) -> dict[str, Any]:

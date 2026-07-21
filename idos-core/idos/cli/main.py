@@ -560,17 +560,35 @@ def opp_show(ticker: str, opp_id: str = ""):
         opp_id = opp["id"] if "id" in opp else opp.get("id", "?")
         conv = opp.get("conviction", {}).get("overall", "N/A")
 
-        # ── Basic info ──
-        info = Panel.fit(
-            f"[bold]Opportunity: {opp_id}[/bold]\n\n"
-            f"Ticker: {opp.get('ticker', opp_ticker)}\n"
-            f"Status: {opp['status']}\n"
-            f"Conviction: {conv}\n"
-            f"Created: {opp.get('created_at', '?')[:10]}\n"
+        # ── Basic info + metrics ──
+        basic_lines = [
+            f"[bold]Opportunity: {opp_id}[/bold]",
+            f"Ticker: {opp.get('ticker', opp_ticker)}",
+            f"Status: {opp['status']}",
+            f"Conviction: {conv}",
+            f"Created: {opp.get('created_at', '?')[:10]}",
             f"Updated: {opp.get('updated_at', '?')[:10]}",
-            title="Opportunity Detail",
-        )
-        console.print(info)
+        ]
+        ddd_file = ctx.journal_path / "companies" / opp_ticker / "case_file" / "opportunities" / opp_id / "ddd_report.yml"
+        if ddd_file.exists():
+            try:
+                ddd = yaml.safe_load(ddd_file.read_text(encoding="utf-8"))
+                pi = ddd.get("prompt_inputs", {})
+                if pi:
+                    basic_lines.append("")
+                    basic_lines.append("[bold]Métricas del prompt:[/bold]")
+                    basic_lines.append(f"  Revenue: ${pi.get('revenue', 0):,.0f}M")
+                    basic_lines.append(f"  Rev Growth: {pi.get('revenue_growth', 0):+.1f}%")
+                    basic_lines.append(f"  Op Margin: {pi.get('operating_margin', 0):.1f}%")
+                    basic_lines.append(f"  ROIC: {pi.get('roic', 0):.1f}%")
+                    basic_lines.append(f"  FCF: ${pi.get('fcf_adjusted', 0):,.0f}M")
+                    basic_lines.append(f"  D/E: {pi.get('debt_to_equity', 0):.1f}x")
+                    basic_lines.append(f"  P/E: {pi.get('pe_ratio', 0):.1f}x")
+                    basic_lines.append(f"  CEO tenure: {pi.get('ceo_tenure', 0)}y")
+                    basic_lines.append(f"  Insider ownership: {pi.get('insider_ownership', 0):.1f}%")
+            except Exception:
+                pass
+        console.print(Panel.fit("\n".join(basic_lines), title="Opportunity Detail"))
 
         base = ctx.journal_path / "companies" / opp_ticker / "case_file" / "opportunities" / opp_id
 
@@ -583,33 +601,52 @@ def opp_show(ticker: str, opp_id: str = ""):
                 err = ddd.get("error_mercado", {})
                 thesis = ddd.get("tesis_inversion", "")
                 risks = ddd.get("dominio_riesgos", [])
-                scenarios = ddd.get("escenarios", {})
-                catalysts = ddd.get("catalizadores", [])
-                fin = ddd.get("analisis_financiero", {})
-                comp = ddd.get("analisis_competitivo", {})
+                catalysts = ddd.get("dominio_catalizadores", [])
+                bq = ddd.get("dominio_business_quality", {})
+                fh = ddd.get("dominio_financial_health", {})
+                mgmt = ddd.get("dominio_management", {})
+                gr = ddd.get("dominio_growth", {})
+                val = ddd.get("opinion_valoracion", "")
+                evidencias = ddd.get("calidad_evidencia", {})
+                ejecutivo = ddd.get("resumen_ejecutivo", "")
 
-                ddd_lines = ["[bold]DDD Report[/bold]"]
-                ddd_lines.append(f"  Categoría: {cls.get('categoria', 'N/A')}")
-                ddd_lines.append(f"  Subcategoría: {cls.get('subcategoria', 'N/A')}")
-                ddd_lines.append(f"  Score: {ddd.get('score_general', 'N/A')}")
-                ddd_lines.append(f"  Error de mercado: {err.get('conclusion_error_valoracion', 'N/A')}")
-                ddd_lines.append(f"  Tesis: {thesis[:300]}")
-                if fin:
-                    ddd_lines.append(f"  ROIC: {fin.get('roic_pct', 'N/A')}%")
-                    ddd_lines.append(f"  Op Margin: {fin.get('operating_margin_pct', 'N/A')}%")
-                    ddd_lines.append(f"  Revenue Growth: {fin.get('revenue_growth_pct', 'N/A')}%")
-                    ddd_lines.append(f"  FCF Yield: {fin.get('fcf_yield', 'N/A')}%")
-                if comp:
-                    ddd_lines.append(f"  Moat: {comp.get('ventaja_competitiva', 'N/A')[:200]}")
+                lines = ["[bold]DDD Report[/bold]"]
+                if ejecutivo:
+                    lines.append(f"  Resumen: {ejecutivo[:300]}")
+                lines.append(f"  Categoría: {cls.get('categoria', 'N/A')}")
+                lines.append(f"  Justificación: {cls.get('justificacion', 'N/A')[:200]}")
+                lines.append(f"  Score general: {ddd.get('score_general', 'N/A')}/100")
+                lines.append(f"  Error de mercado: {err.get('conclusion_error_valoracion', 'N/A')}")
+                lines.append(f"  Hipótesis contraria: {err.get('hipotesis_contraria', 'N/A')[:200]}")
+                if err.get("catalizador_cambio"):
+                    cc = err["catalizador_cambio"]
+                    lines.append(f"  Catalizador: {cc.get('descripcion', '')[:200]} (prob: {cc.get('probabilidad_pct', '?')}%, impacto: {cc.get('impacto', '?')})")
+                if val:
+                    lines.append(f"  Valuación: {val}")
+                if thesis:
+                    lines.append(f"  Tesis: {thesis[:400]}")
+                if bq:
+                    lines.append(f"  Business Quality: {bq.get('rating', 'N/A')} — {bq.get('analisis', '')[:200]}")
+                if fh:
+                    lines.append(f"  Financial Health: {fh.get('rating', 'N/A')} — {fh.get('analisis', '')[:200]}")
+                if mgmt:
+                    lines.append(f"  Management: {mgmt.get('rating', 'N/A')} — {mgmt.get('analisis', '')[:200]}")
+                if gr:
+                    lines.append(f"  Growth: {gr.get('rating', 'N/A')} — {gr.get('analisis', '')[:200]}")
+                if risks:
+                    lines.append(f"  Riesgos ({len(risks)}):")
+                    for r in risks[:3]:
+                        lines.append(f"    • {r.get('riesgo', '')[:150]} (prob: {r.get('probabilidad', '?')}, impacto: {r.get('impacto', '?')})")
                 if catalysts:
-                    ddd_lines.append(f"  Catalizadores ({len(catalysts)}):")
+                    lines.append(f"  Catalizadores ({len(catalysts)}):")
                     for c in catalysts[:3]:
-                        ddd_lines.append(f"    • {str(c)[:150]}")
-                if scenarios:
-                    ddd_lines.append(f"  Escenarios: base={scenarios.get('base', {}).get('probabilidad', '?')}%, "
-                                     f"alcista={scenarios.get('alcista', {}).get('probabilidad', '?')}%, "
-                                     f"bajista={scenarios.get('bajista', {}).get('probabilidad', '?')}%")
-                console.print(Panel.fit("\n".join(ddd_lines), title="DDD Report"))
+                        lines.append(f"    • {c.get('descripcion', '')[:150]} (prob: {c.get('probabilidad_pct', '?')}%)")
+                if evidencias:
+                    h = evidencias.get("hechos_verificados", [])
+                    i = evidencias.get("inferencias_llm", [])
+                    p = evidencias.get("preguntas_abiertas", [])
+                    lines.append(f"  Evidencia: {len(h)} hechos, {len(i)} inferencias, {len(p)} preguntas abiertas")
+                console.print(Panel.fit("\n".join(lines), title="DDD Report"))
             except Exception as e:
                 console.print(f"[dim]DDD report read error: {e}[/dim]")
 
