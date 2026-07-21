@@ -92,6 +92,43 @@ class ResearchWorker(BaseWorker):
         thesis = ddd_result.get("tesis_inversion", "")
         score = ddd_result.get("score_general", 50)
 
+        ddd_report = {
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "version": "3.0",
+            "generated_at": datetime.now(AR_TZ).isoformat(),
+            "clasificacion_oportunidad": classification,
+            "error_mercado": market_error,
+            "tesis_inversion": thesis,
+            "score_general": score,
+            "dominio_riesgos": ddd_result.get("dominio_riesgos", []),
+            "analisis_competitivo": ddd_result.get("analisis_competitivo", {}),
+            "analisis_financiero": ddd_result.get("analisis_financiero", {}),
+            "analisis_gestion": ddd_result.get("analisis_gestion", {}),
+            "catalizadores": ddd_result.get("catalizadores", []),
+            "escenarios": ddd_result.get("escenarios", {}),
+            "plan_inversion": ddd_result.get("plan_inversion", {}),
+            "raw_prompt_inputs": {
+                "ticker": ticker,
+                "name": company.get("name", ticker),
+                "sector": company.get("sector", ""),
+                "business_model": company.get("business_model", ""),
+                "products": company.get("products", ""),
+                "revenue": financial_data.get("revenue_ttm", 0),
+                "revenue_growth": financial_data.get("revenue_growth_pct", 0),
+                "operating_margin": financial_data.get("operating_margin_pct", 0),
+                "roic": financial_data.get("roic_pct", 0),
+                "fcf_adjusted": financial_data.get("fcf_adjusted", 0),
+                "debt_to_equity": financial_data.get("debt_equity_ratio", 0),
+                "pe_ratio": financial_data.get("pe_ratio", 0),
+            },
+        }
+        report_path = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id / "ddd_report.yml"
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        import yaml as yaml_lib
+        with open(report_path, "w", encoding="utf-8") as f:
+            yaml_lib.dump(ddd_report, f, default_flow_style=False, allow_unicode=True)
+
         hypothesis_result = self._run_prompt("hypothesis", ticker, {
             "ticker": ticker,
             "name": company.get("name", ticker),

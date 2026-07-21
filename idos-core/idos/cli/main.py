@@ -26,6 +26,17 @@ app = typer.Typer(name="idos", help="Investment Decision Operating System")
 console = Console()
 state_machine = OpportunityStateMachine()
 
+def _load_assessment_scores(ticker: str, opp_id: str, ctx) -> dict[str, int]:
+    import yaml
+    dp = ctx.journal_path / "companies" / ticker.upper() / "case_file" / "opportunities" / opp_id / "decision_proposal.yml"
+    if not dp.exists():
+        return {}
+    try:
+        data = yaml.safe_load(dp.read_text(encoding="utf-8"))
+        return data.get("assessments", {}) if data else {}
+    except Exception:
+        return {}
+
 def _get_context() -> IDOSContext:
     base = Path.cwd()
     return IDOSContext.create(base)
@@ -88,24 +99,43 @@ def opp_create(ticker: str):
     console.print(f"[green]Opportunity {opp_id} created for {ticker.upper()}[/green]")
 
 @app.command()
-def opp_list(status: str = ""):
+def opp_list(status: str = "", verbose: bool = False):
     ctx = _get_context()
     sqlite, _, journal = _get_stores(ctx)
     opps = sqlite.list_opportunities(status.upper() if status else None)
-    if not opps:
-        opps = journal.list_all_opportunities(status.upper() if status else None)
+    seen = {o["id"] for o in opps}
+    journal_opps = journal.list_all_opportunities(status.upper() if status else None)
+    for jo in journal_opps:
+        if jo["id"] not in seen:
+            opps.append(jo)
     if not opps:
         console.print("[yellow]No opportunities found[/yellow]")
         return
-    table = Table(title="Opportunities")
+    table = Table(title=f"Opportunities ({len(opps)})")
     table.add_column("ID", style="cyan")
     table.add_column("Ticker")
     table.add_column("Status")
     table.add_column("Conviction")
     table.add_column("Updated")
+    if verbose:
+        table.add_column("Business")
+        table.add_column("Valuation")
+        table.add_column("Risk")
+        table.add_column("Recovery")
+        table.add_column("Portfolio")
     for opp in opps:
         conv = opp.get("conviction", {}).get("overall", "N/A")
-        table.add_row(opp["id"], opp["ticker"], opp["status"], str(conv), opp["updated_at"][:10])
+        row = [opp["id"], opp["ticker"], opp["status"], str(conv), opp.get("updated_at", "?")[:10]]
+        if verbose:
+            scores = _load_assessment_scores(opp["ticker"], opp["id"], ctx)
+            row.extend([
+                str(scores.get("BusinessAssessmentEngine", "?")),
+                str(scores.get("ValuationAssessmentEngine", "?")),
+                str(scores.get("RiskAssessmentEngine", "?")),
+                str(scores.get("RecoveryAssessmentEngine", "?")),
+                str(scores.get("PortfolioAssessmentEngine", "?")),
+            ])
+        table.add_row(*row)
     console.print(table)
 
 @app.command()
@@ -503,37 +533,132 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
 
 @app.command()
 def opp_show(ticker: str, opp_id: str = ""):
-    """Muestra estado completo de una oportunidad."""
+    """Muestra estado completo de una oportunidad incluyendo DDD report y assessments."""
     ctx = _get_context()
     sqlite, _, journal = _get_stores(ctx)
+    opp_ticker = ticker.upper()
 
     if opp_id:
         opp = sqlite.get_opportunity(opp_id)
         if not opp:
-            opp = journal.load_opportunity(ticker.upper(), opp_id)
+            opp = journal.load_opportunity(opp_ticker, opp_id)
         opps = [opp] if opp else []
     else:
         opps = sqlite.list_opportunities()
-        opps = [o for o in opps if o.get("ticker", "").upper() == ticker.upper()]
+        opps = [o for o in opps if o.get("ticker", "").upper() == opp_ticker]
         if not opps:
             opps = journal.list_all_opportunities()
-            opps = [o for o in opps if o.get("ticker", "").upper() == ticker.upper()]
+            opps = [o for o in opps if o.get("ticker", "").upper() == opp_ticker]
 
     if not opps:
-        console.print(f"[red]No opportunities found for {ticker.upper()}[/red]")
+        console.print(f"[red]No opportunities found for {opp_ticker}[/red]")
         return
 
+    import yaml
+
     for opp in opps:
+        opp_id = opp["id"] if "id" in opp else opp.get("id", "?")
+        conv = opp.get("conviction", {}).get("overall", "N/A")
+
+        # ── Basic info ──
         info = Panel.fit(
-            f"[bold]Opportunity: {opp['id']}[/bold]\n\n"
-            f"Ticker: {opp.get('ticker', ticker)}\n"
+            f"[bold]Opportunity: {opp_id}[/bold]\n\n"
+            f"Ticker: {opp.get('ticker', opp_ticker)}\n"
             f"Status: {opp['status']}\n"
-            f"Conviction: {opp.get('conviction', {}).get('overall', 'N/A')}\n"
-            f"Created: {opp.get('created_at', 'N/A')[:10]}\n"
-            f"Updated: {opp.get('updated_at', 'N/A')[:10]}",
+            f"Conviction: {conv}\n"
+            f"Created: {opp.get('created_at', '?')[:10]}\n"
+            f"Updated: {opp.get('updated_at', '?')[:10]}",
             title="Opportunity Detail",
         )
         console.print(info)
+
+        base = ctx.journal_path / "companies" / opp_ticker / "case_file" / "opportunities" / opp_id
+
+        # ── DDD Report ──
+        ddd_file = base / "ddd_report.yml"
+        if ddd_file.exists():
+            try:
+                ddd = yaml.safe_load(ddd_file.read_text(encoding="utf-8"))
+                cls = ddd.get("clasificacion_oportunidad", {})
+                err = ddd.get("error_mercado", {})
+                thesis = ddd.get("tesis_inversion", "")
+                risks = ddd.get("dominio_riesgos", [])
+                scenarios = ddd.get("escenarios", {})
+                catalysts = ddd.get("catalizadores", [])
+                fin = ddd.get("analisis_financiero", {})
+                comp = ddd.get("analisis_competitivo", {})
+
+                ddd_lines = ["[bold]DDD Report[/bold]"]
+                ddd_lines.append(f"  Categoría: {cls.get('categoria', 'N/A')}")
+                ddd_lines.append(f"  Subcategoría: {cls.get('subcategoria', 'N/A')}")
+                ddd_lines.append(f"  Score: {ddd.get('score_general', 'N/A')}")
+                ddd_lines.append(f"  Error de mercado: {err.get('conclusion_error_valoracion', 'N/A')}")
+                ddd_lines.append(f"  Tesis: {thesis[:300]}")
+                if fin:
+                    ddd_lines.append(f"  ROIC: {fin.get('roic_pct', 'N/A')}%")
+                    ddd_lines.append(f"  Op Margin: {fin.get('operating_margin_pct', 'N/A')}%")
+                    ddd_lines.append(f"  Revenue Growth: {fin.get('revenue_growth_pct', 'N/A')}%")
+                    ddd_lines.append(f"  FCF Yield: {fin.get('fcf_yield', 'N/A')}%")
+                if comp:
+                    ddd_lines.append(f"  Moat: {comp.get('ventaja_competitiva', 'N/A')[:200]}")
+                if catalysts:
+                    ddd_lines.append(f"  Catalizadores ({len(catalysts)}):")
+                    for c in catalysts[:3]:
+                        ddd_lines.append(f"    • {str(c)[:150]}")
+                if scenarios:
+                    ddd_lines.append(f"  Escenarios: base={scenarios.get('base', {}).get('probabilidad', '?')}%, "
+                                     f"alcista={scenarios.get('alcista', {}).get('probabilidad', '?')}%, "
+                                     f"bajista={scenarios.get('bajista', {}).get('probabilidad', '?')}%")
+                console.print(Panel.fit("\n".join(ddd_lines), title="DDD Report"))
+            except Exception as e:
+                console.print(f"[dim]DDD report read error: {e}[/dim]")
+
+        # ── Assessments ──
+        ass_dir = base / "assessments"
+        if ass_dir.exists():
+            ass_files = sorted(ass_dir.glob("*.yml"))
+            if ass_files:
+                ass_lines = []
+                for af in ass_files:
+                    try:
+                        ad = yaml.safe_load(af.read_text(encoding="utf-8"))
+                        if ad:
+                            ass_lines.append(f"  {ad.get('engine', '?')}: score={ad.get('score', '?')} "
+                                             f"conf={ad.get('confidence', '?')}")
+                            for f_ in ad.get("findings", [])[:3]:
+                                ass_lines.append(f"    • {f_[:200]}")
+                    except Exception:
+                        pass
+                if ass_lines:
+                    console.print(Panel.fit("\n".join(ass_lines), title="Assessments"))
+
+        # ── Decision Proposal ──
+        dp_file = base / "decision_proposal.yml"
+        if dp_file.exists():
+            try:
+                dp = yaml.safe_load(dp_file.read_text(encoding="utf-8"))
+                dp_lines = [f"  Recommendation: {dp.get('recommendation', '?')}"]
+                dp_lines.append(f"  Conviction score: {dp.get('conviction_score', '?')}")
+                dp_lines.append(f"  Rules passed: {len(dp.get('rules_passed', []))}")
+                dp_lines.append(f"  Rules failed: {len(dp.get('rules_failed', []))}")
+                for k, v in dp.get("assessments", {}).items():
+                    dp_lines.append(f"  {k.replace('AssessmentEngine', '')}: {v}")
+                console.print(Panel.fit("\n".join(dp_lines), title="Decision Proposal"))
+            except Exception:
+                pass
+
+        # ── Board Resolution ──
+        br_file = base / "board_resolution.yml"
+        if br_file.exists():
+            try:
+                br = yaml.safe_load(br_file.read_text(encoding="utf-8"))
+                color = "green" if br.get("approved") else "yellow"
+                br_lines = [f"  Approved: [{color}]{br.get('approved')}[/{color}]"]
+                br_lines.append(f"  Decision type: {br.get('decision_type', '?')}")
+                br_lines.append(f"  Justification: {br.get('justification', 'N/A')[:300]}")
+                console.print(Panel.fit("\n".join(br_lines), title="Board Resolution"))
+            except Exception:
+                pass
 
 @app.command()
 def schedule_status():
