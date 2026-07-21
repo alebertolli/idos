@@ -48,6 +48,34 @@ class JournalRepository:
         with open(filepath, "w", encoding="utf-8") as f:
             yaml.dump(assessment, f, default_flow_style=False, allow_unicode=True)
 
+    def list_all_opportunities(self, status: str | None = None) -> list[dict[str, Any]]:
+        results = []
+        companies_dir = self.base / "companies"
+        if not companies_dir.exists():
+            return results
+        for d in sorted(companies_dir.iterdir()):
+            if not d.is_dir():
+                continue
+            ticker = d.name
+            opp_dir = d / "case_file" / "opportunities"
+            if not opp_dir.exists():
+                continue
+            for opp in sorted(opp_dir.iterdir()):
+                if not opp.is_dir():
+                    continue
+                yf = opp / "opportunity.yml"
+                if not yf.exists():
+                    continue
+                try:
+                    data = yaml.safe_load(yf.read_text(encoding="utf-8"))
+                    if data:
+                        if status is None or data.get("status") == status:
+                            data["ticker"] = ticker
+                            results.append(data)
+                except Exception:
+                    pass
+        return results
+
     def save_decision(self, ticker: str, opp_id: str, decision: dict[str, Any]):
         path = self.opportunity_path(ticker, opp_id) / "decisions"
         path.mkdir(parents=True, exist_ok=True)

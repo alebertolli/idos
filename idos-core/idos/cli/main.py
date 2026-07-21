@@ -90,8 +90,10 @@ def opp_create(ticker: str):
 @app.command()
 def opp_list(status: str = ""):
     ctx = _get_context()
-    sqlite, _, _ = _get_stores(ctx)
+    sqlite, _, journal = _get_stores(ctx)
     opps = sqlite.list_opportunities(status.upper() if status else None)
+    if not opps:
+        opps = journal.list_all_opportunities(status.upper() if status else None)
     if not opps:
         console.print("[yellow]No opportunities found[/yellow]")
         return
