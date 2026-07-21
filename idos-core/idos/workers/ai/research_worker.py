@@ -92,6 +92,12 @@ class ResearchWorker(BaseWorker):
         thesis = ddd_result.get("tesis_inversion", "")
         score = ddd_result.get("score_general", 50)
 
+        _empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
+        if _empty:
+            print(f"[WARN] {ticker}: DDD del LLM vacío — score={score}, clasificacion={classification}, error={ddd_result.get('error','')}")
+        elif score == 50 and not classification and not thesis:
+            print(f"[WARN] {ticker}: DDD con valores por defecto (score=50) — LLM no generó análisis real, error={ddd_result.get('error','')}")
+
         ddd_report = {
             "ticker": ticker,
             "opp_id": opp_id,
@@ -200,6 +206,7 @@ class ResearchWorker(BaseWorker):
                 "score": score, "hypotheses": len(hypotheses),
                 "classification": classification.get("categoria"),
             }
+            event_data["ddd_empty"] = ddd_empty
             sqlite.log_event("research:completed", event_data)
             journal.log_event("research:completed", event_data, source="research_worker")
         else:
@@ -210,9 +217,11 @@ class ResearchWorker(BaseWorker):
                 "event_type": event_type,
                 "original_status": current_status.value,
             }
+            event_data["ddd_empty"] = ddd_empty
             sqlite.log_event("research:force_reprocess", event_data)
             journal.log_event("research:force_reprocess", event_data, source="research_worker")
 
+        ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
         return {
             "ticker": ticker,
             "opp_id": opp_id,
@@ -222,6 +231,7 @@ class ResearchWorker(BaseWorker):
             "market_error_conclusion": market_error.get("conclusion_error_valoracion"),
             "hypotheses_count": len(hypotheses),
             "assessment_id": assessment_id,
+            "ddd_empty": ddd_empty,
         }
 
     def _load_financial_data(self, ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
@@ -239,6 +249,7 @@ class ResearchWorker(BaseWorker):
         except Exception:
             pass
         if data:
+            self._warn_missing_financial(ticker, data, "SQLite")
             return data
         from pathlib import Path
         import json
@@ -248,12 +259,74 @@ class ResearchWorker(BaseWorker):
         ]:
             if cache_path.exists():
                 try:
-                    data = json.loads(cache_path.read_text(encoding="utf-8"))
-                    if data:
-                        return data
+                    raw = json.loads(cache_path.read_text(encoding="utf-8"))
+                    if raw:
+                        if "merged_data" in raw:
+                            raw = raw["merged_data"]
+                        raw = self._normalize_decimal_pcts(raw)
+                        raw = self._enrich_roic(raw)
+                        self._warn_missing_financial(ticker, raw, "cache")
+                        return raw
                 except Exception:
                     pass
+        try:
+            from idos.workers.data.stockanalysis import StockAnalysisWorker
+            sa = StockAnalysisWorker()
+            result = sa.run({"ticker": ticker})
+            if result:
+                cache_dir = Path.cwd() / "cache"
+                cache_dir.mkdir(parents=True, exist_ok=True)
+                (cache_dir / f"{ticker}.json").write_text(
+                    json.dumps(result, default=str, indent=2), encoding="utf-8"
+                )
+                result = self._normalize_decimal_pcts(result)
+                result = self._enrich_roic(result)
+                self._warn_missing_financial(ticker, result, "stockanalysis live")
+                return result
+        except Exception:
+            pass
+        self._warn_missing_financial(ticker, {}, "ninguna")
         return data
+
+    @staticmethod
+    def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:
+        _pct_keys = {"roic_pct", "roe_pct", "roa_pct", "revenue_growth_pct",
+                     "operating_margin_pct", "gross_margin_pct", "net_margin_pct",
+                     "fcf_yield_pct", "eps_growth", "fcf_growth"}
+        vals = [data[k] for k in _pct_keys if isinstance(data.get(k), (int, float))]
+        is_yahoo_format = (sum(abs(v) for v in vals) / len(vals)) < 5 if vals else True
+        for k in _pct_keys:
+            v = data.get(k)
+            if isinstance(v, (int, float)) and is_yahoo_format:
+                data[k] = v * 100
+        de = data.get("debt_equity_ratio")
+        if isinstance(de, (int, float)):
+            if de > 1:
+                data["debt_equity_ratio"] = de / 100
+        return data
+
+    @staticmethod
+    def _enrich_roic(data: dict[str, Any]) -> dict[str, Any]:
+        roic = data.get("roic_pct")
+        if roic is not None and roic != 0:
+            return data
+        roe = data.get("roe_pct")
+        de = data.get("debt_equity_ratio")
+        if roe and isinstance(de, (int, float)):
+            data["roic_pct"] = round(roe / (1 + de), 2)
+        return data
+
+    @staticmethod
+    def _warn_missing_financial(ticker: str, data: dict[str, Any], source: str):
+        _critical = ["roic_pct", "operating_margin_pct", "revenue_growth_pct", "pe_ratio", "debt_equity_ratio"]
+        for key in _critical:
+            val = data.get(key)
+            if val is None or val == 0:
+                print(f"[WARN] {ticker}: {key} es 0 o None (fuente: {source})")
+            elif key in ("pe_ratio", "debt_equity_ratio") and val < 0:
+                print(f"[WARN] {ticker}: {key}={val} es negativo (fuente: {source})")
+        if not data:
+            print(f"[WARN] {ticker}: No hay datos financieros — DDD se generará sin fundamentos")
 
     def _run_prompt(self, prompt_name: str, ticker: str, kwargs: dict[str, Any]) -> dict[str, Any]:
         template = self.registry.get(prompt_name, category="research")
@@ -261,8 +334,22 @@ class ResearchWorker(BaseWorker):
             return {}
         system = self.registry.get_system(prompt_name, category="research") or ""
         formatted = template.format(**kwargs) if isinstance(template, str) else template
-        return self.llm.generate_structured(
+        result = self.llm.generate_structured(
             prompt=formatted,
             system_prompt=system,
             temperature=0.1,
         )
+        if result and not result.get("error"):
+            return result
+        import os
+        fallback_key = os.getenv("GEMINI_API_KEY", "")
+        if fallback_key and self.llm.provider != "gemini":
+            from idos.ai.llm import LLMClient
+            fallback = LLMClient(provider="gemini", model=os.getenv("IDOS_LLM_MODEL_FALLBACK", "gemini-2.0-flash-001"))
+            print(f"[LLM] Fallback: OpenRouter falló, probando Gemini...")
+            return fallback.generate_structured(
+                prompt=formatted,
+                system_prompt=system,
+                temperature=0.1,
+            )
+        return result

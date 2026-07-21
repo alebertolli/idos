@@ -47,7 +47,7 @@ def build_context(
         "pe_historical_avg": financial.get("pe_historical_avg", 0),
         "ev_ebitda": financial.get("ev_ebitda", 0),
         "sector_avg_ev_ebitda": financial.get("sector_avg_ev_ebitda", 0),
-        "fcf_yield": financial.get("fcf_yield", 0),
+        "fcf_yield": financial.get("fcf_yield_pct", 0),
         "eps_growth": financial.get("eps_growth", 0),
         "fcf_growth": financial.get("fcf_growth", 0),
         "eps_revision_trend": financial.get("eps_revision_trend", 0),
@@ -61,6 +61,12 @@ def build_context(
         "volatility_90d": financial.get("volatility_90d", 0),
         "current_ratio": financial.get("current_ratio", 0),
     }
+    _core = {k: v for k, v in metrics.items() if k in ("roic", "operating_margin", "revenue_growth", "pe_ratio", "debt_to_equity")}
+    _zero = sum(1 for v in _core.values() if isinstance(v, (int, float)) and v == 0)
+    if _zero > len(_core) // 2:
+        print(f"[WARN] {ticker}: {_zero}/{len(_core)} métricas CORE en 0 — evaluación será errónea")
+    elif _zero > 0 and _zero <= len(_core) // 2:
+        print(f"[INFO] {ticker}: {_zero}/{len(_core)} métricas core en 0 (parcial)")
 
     company_mgmt = company.get("management", {}) or {}
     mgmt = {
@@ -121,16 +127,97 @@ def build_context(
     }
 
 
+def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:
+    _pct_keys = {"roic_pct", "roe_pct", "roa_pct", "revenue_growth_pct",
+                 "operating_margin_pct", "gross_margin_pct", "net_margin_pct",
+                 "fcf_yield_pct", "eps_growth", "fcf_growth"}
+    vals = [data[k] for k in _pct_keys if isinstance(data.get(k), (int, float))]
+    is_yahoo_format = (sum(abs(v) for v in vals) / len(vals)) < 5 if vals else True
+    for k in _pct_keys:
+        v = data.get(k)
+        if isinstance(v, (int, float)) and is_yahoo_format:
+            data[k] = v * 100
+    de = data.get("debt_equity_ratio")
+    if isinstance(de, (int, float)):
+        if de > 1:
+            data["debt_equity_ratio"] = de / 100
+    return data
+
+def _enrich_roic(data: dict[str, Any]) -> dict[str, Any]:
+    roic = data.get("roic_pct")
+    if roic is not None and roic != 0:
+        return data
+    roe = data.get("roe_pct")
+    de = data.get("debt_equity_ratio")
+    if roe and isinstance(de, (int, float)):
+        data["roic_pct"] = round(roe / (1 + de), 2)
+    return data
+
+_CRITICAL_METRICS = ["roic_pct", "operating_margin_pct", "revenue_growth_pct", "pe_ratio", "debt_equity_ratio"]
+
+def _warn_missing_metrics(ticker: str, data: dict[str, Any], source: str = "financial") -> list[str]:
+    warnings = []
+    for key in _CRITICAL_METRICS:
+        val = data.get(key)
+        if val is None or val == 0:
+            warnings.append(f"[WARN] {ticker}: {key} es 0 o None (fuente: {source})")
+        elif key in ("pe_ratio", "debt_equity_ratio") and val < 0:
+            warnings.append(f"[WARN] {ticker}: {key}={val} es negativo (fuente: {source})")
+    if data.get("roic_pct") is None and data.get("roe_pct") is None:
+        warnings.append(f"[WARN] {ticker}: No se pudo calcular ROIC (sin ROE ni D/E disponibles)")
+    if not data:
+        warnings.append(f"[WARN] {ticker}: No hay datos financieros de ninguna fuente")
+    for w in warnings:
+        print(w)
+    return warnings
+
 def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
-    row = sqlite.conn.execute(
-        "SELECT data_json FROM events_log WHERE data_json LIKE ? OR correlation_id LIKE ? ORDER BY timestamp DESC LIMIT 1",
-        (f"%{ticker}%", f"%{ticker}%"),
-    ).fetchone()
-    if row:
-        try:
-            return json.loads(row[0])
-        except (json.JSONDecodeError, TypeError):
-            pass
+    try:
+        row = sqlite.conn.execute(
+            "SELECT data_json FROM events_log WHERE data_json LIKE ? OR correlation_id LIKE ? ORDER BY timestamp DESC LIMIT 1",
+            (f"%{ticker}%", f"%{ticker}%"),
+        ).fetchone()
+        if row:
+            try:
+                return json.loads(row[0])
+            except (json.JSONDecodeError, TypeError):
+                pass
+    except Exception:
+        pass
+    import json
+    from pathlib import Path
+    for cache_path in [
+        Path("cache") / f"{ticker}_financial.json",
+        Path("cache") / f"{ticker}.json",
+    ]:
+        if cache_path.exists():
+            try:
+                data = json.loads(cache_path.read_text(encoding="utf-8"))
+                if data:
+                    if "merged_data" in data:
+                        data = data["merged_data"]
+                    data = _normalize_decimal_pcts(data)
+                    data = _enrich_roic(data)
+                    _warn_missing_metrics(ticker, data, "cache")
+                    return data
+            except Exception:
+                pass
+    try:
+        from idos.workers.data.stockanalysis import StockAnalysisWorker
+        sa = StockAnalysisWorker()
+        result = sa.run({"ticker": ticker})
+        if result:
+            Path("cache").mkdir(parents=True, exist_ok=True)
+            (Path("cache") / f"{ticker}.json").write_text(
+                json.dumps(result, default=str, indent=2), encoding="utf-8"
+            )
+            result = _normalize_decimal_pcts(result)
+            result = _enrich_roic(result)
+            _warn_missing_metrics(ticker, result, "stockanalysis.com live")
+            return result
+    except Exception:
+        pass
+    _warn_missing_metrics(ticker, {}, "ninguna")
     return {}
 
 
@@ -295,6 +382,11 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         yaml_opp.setdefault("conviction", {})["overall"] = proposal.conviction_score
         journal.save_opportunity(ticker, yaml_opp)
 
+    _all_metrics = context.get("knowledge_base", {}).get("dynamic", {}).get("metrics", {})
+    _core_metrics = {k: v for k, v in _all_metrics.items() if k in ("roic", "operating_margin", "revenue_growth", "pe_ratio", "debt_to_equity")}
+    _zero_core = sum(1 for v in _core_metrics.values() if isinstance(v, (int, float)) and v == 0)
+    _data_quality = "poor" if _zero_core > len(_core_metrics) // 2 else "good"
+
     return {
         "ticker": ticker,
         "opp_id": opp_id,
@@ -307,6 +399,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "assessments": {k: v.score for k, v in proposal.assessments.items()},
         "rules_passed": proposal.rules_passed,
         "rules_failed": proposal.rules_failed,
+        "data_quality": _data_quality,
     }
 
 
@@ -334,9 +427,12 @@ def build_digest(results: list[dict], total: int, errors: list[dict]) -> str:
             opp_id = r["opp_id"]
             conv = r.get("conviction_score", "?")
             rec = r.get("recommendation", "?")
+            dq = r.get("data_quality", "?")
+            dq_flag = " :warning: datos pobres" if dq == "poor" else ""
             line = (
                 f"- {emoji} **{ticker}** ({opp_id}) - "
                 f"Conviction: {conv}/100, Recomendacion: {rec}"
+                f"{dq_flag}"
             )
             if r.get("board_approved"):
                 line += f", Dec: {r.get('decision_type', '?')}"

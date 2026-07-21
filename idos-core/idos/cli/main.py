@@ -340,7 +340,12 @@ def opp_research(ticker: str, opp_id: str = "", force: bool = False):
     table.add_row("Classification", output.get("classification", "N/A"))
     table.add_row("Market Error", output.get("market_error_conclusion", "N/A"))
     table.add_row("Hypotheses", str(output.get("hypotheses_count", 0)))
+    ddd_empty = output.get("ddd_empty", False)
+    if ddd_empty:
+        table.add_row("[red]DDD Quality[/red]", "[red]VACIO (LLM sin datos)[/red]")
     console.print(table)
+    if ddd_empty:
+        console.print("[red]⚠ DDD report vacío — el LLM no generó análisis real (falta API key o datos)[/red]")
 
 @app.command()
 def opp_approve(ticker: str, opp_id: str = ""):
