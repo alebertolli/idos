@@ -153,19 +153,23 @@ class ResearchWorker(BaseWorker):
             sqlite.save_opportunity(opp)
             sqlite.record_transition(opp_id, current_status.value, "UNDER_DEEP_DD",
                                      cause="research_completed", worker="research_worker")
-            sqlite.log_event("research:completed", {
+            event_data = {
                 "opp_id": opp_id, "ticker": ticker,
                 "score": score, "hypotheses": len(hypotheses),
                 "classification": classification.get("categoria"),
-            })
+            }
+            sqlite.log_event("research:completed", event_data)
+            journal.log_event("research:completed", event_data, source="research_worker")
         else:
-            sqlite.log_event("research:force_reprocess", {
+            event_data = {
                 "opp_id": opp_id, "ticker": ticker,
                 "score": score, "hypotheses": len(hypotheses),
                 "classification": classification.get("categoria"),
                 "event_type": event_type,
                 "original_status": current_status.value,
-            })
+            }
+            sqlite.log_event("research:force_reprocess", event_data)
+            journal.log_event("research:force_reprocess", event_data, source="research_worker")
 
         return {
             "ticker": ticker,

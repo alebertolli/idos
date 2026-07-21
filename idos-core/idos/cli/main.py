@@ -111,8 +111,17 @@ def opp_list(status: str = ""):
 @app.command()
 def opp_transition(opp_id: str, target: str):
     ctx = _get_context()
-    sqlite, _, _ = _get_stores(ctx)
+    sqlite, _, journal = _get_stores(ctx)
     opp_data = sqlite.get_opportunity(opp_id)
+    if not opp_data:
+        console.print(f"[yellow]Opportunity {opp_id} not in SQLite, trying journal...[/yellow]")
+        for ticker_dir in (ctx.journal_path / "companies").iterdir():
+            if ticker_dir.is_dir():
+                opp = journal.load_opportunity(ticker_dir.name, opp_id)
+                if opp:
+                    opp_data = opp
+                    opp_data["ticker"] = ticker_dir.name
+                    break
     if not opp_data:
         console.print(f"[red]Opportunity {opp_id} not found[/red]")
         return
@@ -122,6 +131,12 @@ def opp_transition(opp_id: str, target: str):
         transition = state_machine.transition(current, target_status, cause="cli command")
         sqlite.save_opportunity({**opp_data, "status": target_status.value})
         sqlite.record_transition(opp_id, current.value, target_status.value, cause="cli command")
+        journal.log_event("opportunity:transitioned", {
+            "opp_id": opp_id,
+            "ticker": opp_data.get("ticker", ""),
+            "from": current.value,
+            "to": target_status.value,
+        }, source="cli")
         bus = get_event_bus()
         bus.publish_sync("opportunity:transitioned", {
             "opp_id": opp_id,
@@ -185,10 +200,12 @@ def dashboard():
     from idos.portfolio.engine import PortfolioEngine
     engine = PortfolioEngine(journal)
     opps = sqlite.list_opportunities()
+    if not opps:
+        opps = journal.list_all_opportunities()
     positions = engine.get_positions()
     watchlist = engine.get_watchlist()
     total_weight = engine.total_weight()
-    active_opps = [o for o in opps if o["status"] not in ("ARCHIVED", "EXITED")]
+    active_opps = [o for o in opps if o.get("status", "") not in ("ARCHIVED", "EXITED")]
 
     info = Panel.fit(
         f"[bold]IDOS Dashboard[/bold]\n\n"
@@ -201,20 +218,27 @@ def dashboard():
     console.print(info)
 
 @app.command()
-def event_log():
+def event_log(limit: int = 20, ticker: str = ""):
     ctx = _get_context()
-    sqlite, _, _ = _get_stores(ctx)
+    sqlite, _, journal = _get_stores(ctx)
     bus = get_event_bus()
     history = bus.get_history()
     if not history:
+        events = journal.list_events(limit=limit)
+    else:
+        events = [{"timestamp": e.timestamp.isoformat()[:19], "event_type": e.type, "source": e.source, "data": {}} for e in history[-limit:]]
+    if ticker:
+        events = [e for e in events if ticker.upper() in str(e.get("data", {}))]
+    if not events:
         console.print("[yellow]No events[/yellow]")
         return
-    table = Table(title="Recent Events")
+    table = Table(title=f"Recent Events ({'journal' if not bus.get_history() else 'bus'})")
     table.add_column("Type")
     table.add_column("Source")
     table.add_column("Timestamp")
-    for e in history[-20:]:
-        table.add_row(e.type, e.source, e.timestamp.isoformat()[:19])
+    for e in events[:limit]:
+        ts = e.get("timestamp", "")[:19]
+        table.add_row(e.get("event_type", "?"), e.get("source", "?"), ts)
     console.print(table)
 
 # ──────────────────────────────────────────────
@@ -222,37 +246,56 @@ def event_log():
 # ──────────────────────────────────────────────
 
 @app.command()
-def opp_research(ticker: str, opp_id: str = ""):
-    """Ejecuta DDD + AOIF + Hypothesis sobre una oportunidad (WATCHLIST → UNDER_DEEP_DD)."""
+def opp_research(ticker: str, opp_id: str = "", force: bool = False):
+    """Ejecuta DDD + AOIF + Hypothesis sobre una oportunidad.
+    Por defecto busca WATCHLIST → UNDER_DEEP_DD. Con --force reprocesa cualquier estado sin cambiar status."""
     ctx = _get_context()
     sqlite, _, journal = _get_stores(ctx)
 
     if not opp_id:
-        opps = sqlite.list_opportunities("WATCHLIST")
+        filter_status = None if force else "WATCHLIST"
+        opps = sqlite.list_opportunities(filter_status)
+        if not opps:
+            opps = journal.list_all_opportunities(filter_status)
         matching = [o for o in opps if o["ticker"] == ticker.upper()]
         if not matching:
-            console.print(f"[red]No WATCHLIST opportunities found for {ticker.upper()}[/red]")
+            label = "WATCHLIST" if not force else "any"
+            console.print(f"[red]No {label} opportunities found for {ticker.upper()}[/red]")
             return
         opp_id = matching[0]["id"]
 
     opp = sqlite.get_opportunity(opp_id)
     if not opp:
+        opp_yaml = journal.load_opportunity(ticker.upper(), opp_id)
+        if opp_yaml:
+            opp_yaml.setdefault("conviction", {"overall": 50})
+            sqlite.save_opportunity(opp_yaml)
+            opp = opp_yaml
+    if not opp:
         console.print(f"[red]Opportunity {opp_id} not found[/red]")
         return
 
-    console.print(f"[cyan]Researching {ticker} ({opp_id})...[/cyan]")
+    mode = "FORCE" if force else "NORMAL"
+    console.print(f"[cyan]{mode} Researching {ticker} ({opp_id})...[/cyan]")
     from idos.workers.ai.research_worker import ResearchWorker
     worker = ResearchWorker({})
-    result = worker.execute({
+    ctx_worker = {
         "ticker": ticker,
         "opp_id": opp_id,
         "base_path": str(ctx.config_path.parent),
-    })
+    }
+    if force:
+        ctx_worker["force_reprocess"] = True
+        ctx_worker["event_type"] = "manual"
+    result = worker.execute(ctx_worker)
     if result.status == "failed":
         console.print(f"[red]Research failed: {result.error}[/red]")
         return
     output = result.output
-    table = Table(title=f"Research Results: {ticker}")
+    if output.get("status") == "skipped":
+        console.print(f"[yellow]Skipped: {output.get('reason', '')}[/yellow]")
+        return
+    table = Table(title=f"Research Results: {ticker} ({mode})")
     table.add_column("Metric", style="cyan")
     table.add_column("Value")
     table.add_row("Status", output.get("status", "N/A"))
@@ -266,10 +309,12 @@ def opp_research(ticker: str, opp_id: str = ""):
 def opp_approve(ticker: str, opp_id: str = ""):
     """Evalúa DDD vs reglas de entrada (UNDER_DEEP_DD → APPROVED o WATCHLIST)."""
     ctx = _get_context()
-    sqlite, _, _ = _get_stores(ctx)
+    sqlite, _, journal = _get_stores(ctx)
 
     if not opp_id:
         opps = sqlite.list_opportunities("UNDER_DEEP_DD")
+        if not opps:
+            opps = journal.list_all_opportunities("UNDER_DEEP_DD")
         matching = [o for o in opps if o["ticker"] == ticker.upper()]
         if not matching:
             console.print(f"[red]No UNDER_DEEP_DD opportunities found for {ticker.upper()}[/red]")
@@ -302,6 +347,8 @@ def opp_reject(ticker: str, opp_id: str = "", reason: str = "insufficient_eviden
 
     if not opp_id:
         opps = sqlite.list_opportunities()
+        if not opps:
+            opps = journal.list_all_opportunities()
         matching = [o for o in opps if o["ticker"] == ticker.upper() and o["status"] in ("UNDER_DEEP_DD",)]
         if not matching:
             console.print(f"[red]No research-stage opportunities found for {ticker.upper()}[/red]")
@@ -318,16 +365,23 @@ def opp_reject(ticker: str, opp_id: str = "", reason: str = "insufficient_eviden
     opp["updated_at"] = datetime.now(AR_TZ).isoformat()
     sqlite.save_opportunity(opp)
     sqlite.record_transition(opp_id, old_status, "WATCHLIST", cause=reason, worker="cli")
+    journal.save_opportunity(ticker.upper(), opp)
+    journal.log_event("opportunity:rejected", {
+        "opp_id": opp_id, "ticker": ticker.upper(),
+        "from": old_status, "to": "WATCHLIST", "reason": reason,
+    }, source="cli")
     console.print(f"[yellow]{ticker} ({opp_id}): {old_status} → WATCHLIST (reason: {reason})[/yellow]")
 
 @app.command()
 def entry_evaluate(ticker: str, opp_id: str = ""):
     """Evalúa condiciones de entrada para oportunidad APPROVED/ENTRY_PENDING."""
     ctx = _get_context()
-    sqlite, _, _ = _get_stores(ctx)
+    sqlite, _, journal = _get_stores(ctx)
 
     if not opp_id:
         opps = sqlite.list_opportunities()
+        if not opps:
+            opps = journal.list_all_opportunities()
         matching = [o for o in opps if o["ticker"] == ticker.upper()
                     and o["status"] in ("APPROVED", "ENTRY_PENDING")]
         if not matching:
@@ -371,6 +425,8 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
 
     if not opp_id:
         opps = sqlite.list_opportunities()
+        if not opps:
+            opps = journal.list_all_opportunities()
         matching = [o for o in opps if o["ticker"] == ticker.upper()
                     and o["status"] in ("MONITORING", "FULL_POSITION", "ACCUMULATING")]
         if not matching:
@@ -400,6 +456,11 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
     opp["updated_at"] = datetime.now(AR_TZ).isoformat()
     sqlite.save_opportunity(opp)
     sqlite.record_transition(opp_id, old_status, "EXITED", cause=reason, worker="cli")
+    journal.save_opportunity(ticker.upper(), opp)
+    journal.log_event("position:exited", {
+        "opp_id": opp_id, "ticker": ticker.upper(),
+        "from": old_status, "to": "EXITED", "reason": reason,
+    }, source="cli")
     console.print(f"[yellow]{ticker}: {old_status} → EXITED ({valid_reasons[reason]})[/yellow]")
 
     position = journal.load_position(ticker.upper())
@@ -434,10 +495,15 @@ def opp_show(ticker: str, opp_id: str = ""):
     sqlite, _, journal = _get_stores(ctx)
 
     if opp_id:
-        opps = [sqlite.get_opportunity(opp_id)] if sqlite.get_opportunity(opp_id) else []
+        opp = sqlite.get_opportunity(opp_id)
+        if not opp:
+            opp = journal.load_opportunity(ticker.upper(), opp_id)
+        opps = [opp] if opp else []
     else:
         opps = sqlite.list_opportunities()
-        opps = [o for o in opps if o["ticker"] == ticker.upper()]
+        if not opps:
+            opps = journal.list_all_opportunities()
+        opps = [o for o in opps if o.get("ticker", "").upper() == ticker.upper()]
 
     if not opps:
         console.print(f"[red]No opportunities found for {ticker.upper()}[/red]")
@@ -446,7 +512,7 @@ def opp_show(ticker: str, opp_id: str = ""):
     for opp in opps:
         info = Panel.fit(
             f"[bold]Opportunity: {opp['id']}[/bold]\n\n"
-            f"Ticker: {opp['ticker']}\n"
+            f"Ticker: {opp.get('ticker', ticker)}\n"
             f"Status: {opp['status']}\n"
             f"Conviction: {opp.get('conviction', {}).get('overall', 'N/A')}\n"
             f"Created: {opp.get('created_at', 'N/A')[:10]}\n"
@@ -454,24 +520,6 @@ def opp_show(ticker: str, opp_id: str = ""):
             title="Opportunity Detail",
         )
         console.print(info)
-
-        # Show transitions
-        rows = sqlite.conn.execute(
-            "SELECT from_status, to_status, cause, timestamp FROM state_transitions "
-            "WHERE opportunity_id = ? ORDER BY timestamp DESC LIMIT 10",
-            (opp["id"],),
-        )
-        transitions = list(rows.fetchall())
-        if transitions:
-            t_table = Table(title="Recent Transitions")
-            t_table.add_column("From")
-            t_table.add_column("To")
-            t_table.add_column("Cause")
-            t_table.add_column("When")
-            for t in transitions:
-                t_table.add_row(t["from_status"], t["to_status"],
-                                t["cause"], t["timestamp"][:19])
-            console.print(t_table)
 
 @app.command()
 def schedule_status():

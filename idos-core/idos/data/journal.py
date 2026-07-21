@@ -97,6 +97,43 @@ class JournalRepository:
         with open(filepath, "r", encoding="utf-8") as f:
             return yaml.safe_load(f)
 
+    def log_event(self, event_type: str, data: dict[str, Any], source: str = "system"):
+        logs_dir = self.base / "events"
+        logs_dir.mkdir(parents=True, exist_ok=True)
+        from datetime import date, datetime
+        today = date.today().isoformat()
+        filepath = logs_dir / f"{today}.yml"
+        if filepath.exists():
+            existing = yaml.safe_load(filepath.read_text(encoding="utf-8")) or {"events": []}
+        else:
+            existing = {"events": []}
+        existing["events"].append({
+            "timestamp": datetime.now().isoformat(),
+            "event_type": event_type,
+            "source": source,
+            "data": data,
+        })
+        with open(filepath, "w", encoding="utf-8") as f:
+            yaml.dump(existing, f, default_flow_style=False, allow_unicode=True)
+
+    def list_events(self, limit: int = 50) -> list[dict[str, Any]]:
+        logs_dir = self.base / "events"
+        if not logs_dir.exists():
+            return []
+        events = []
+        for f in sorted(logs_dir.iterdir(), reverse=True):
+            if f.suffix != ".yml":
+                continue
+            try:
+                data = yaml.safe_load(f.read_text(encoding="utf-8"))
+                if data and "events" in data:
+                    for e in data["events"]:
+                        e["_file"] = f.name
+                        events.append(e)
+            except Exception:
+                pass
+        return events[:limit]
+
     def save_watchlist(self, entries: list[dict[str, Any]]):
         filepath = self.base / "portfolio" / "watchlist.yml"
         filepath.parent.mkdir(parents=True, exist_ok=True)
