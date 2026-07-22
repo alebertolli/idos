@@ -24,7 +24,7 @@ class EntryMonitorWorker(BaseWorker):
         super().__init__(config)
         llm_client = None
         prompt_registry = None
-        if config.get("provider"):
+        if self.config.get("provider"):
             llm_client = LLMClient(
                 provider=config.get("provider", ""),
                 api_key=config.get("api_key", ""),

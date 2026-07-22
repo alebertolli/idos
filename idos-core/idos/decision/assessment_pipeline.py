@@ -167,7 +167,34 @@ def build_context(
     }
 
 
+def _coerce_numeric(data: dict[str, Any], keys: set[str]) -> None:
+    for k in keys:
+        v = data.get(k)
+        if isinstance(v, str):
+            try:
+                data[k] = float(v)
+            except (ValueError, TypeError):
+                data[k] = 0
+        elif v is None:
+            data[k] = 0
+        elif not isinstance(v, (int, float)):
+            data[k] = 0
+
+_NUMERIC_KEYS = {"pe_ratio", "pe_ratio_ttm", "pe_historical_avg", "peg_ratio", "peg_ratio_ttm", "ev_ebitda", "sector_avg_ev_ebitda",
+    "debt_equity_ratio", "volatility_90d", "current_ratio", "relative_strength",
+    "short_interest_pct", "analyst_consensus", "ceo_tenure", "insider_ownership",
+    "target_price", "recurring_revenue_pct", "fcf_yield",
+    "roic_pct", "roe_pct", "roa_pct", "revenue_growth_pct",
+    "operating_margin_pct", "gross_margin_pct", "net_margin_pct",
+    "fcf_yield_pct", "eps_growth", "fcf_growth", "revenue_growth",
+    "operating_margin", "roic"}
+
 def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:
+    _aliases = {"pe_ratio_ttm": "pe_ratio", "peg_ratio_ttm": "peg_ratio"}
+    for src, dst in _aliases.items():
+        if src in data and (dst not in data or data[dst] is None):
+            data[dst] = data[src]
+    _coerce_numeric(data, _NUMERIC_KEYS)
     _pct_keys = {"roic_pct", "roe_pct", "roa_pct", "revenue_growth_pct",
                  "operating_margin_pct", "gross_margin_pct", "net_margin_pct",
                  "fcf_yield_pct", "eps_growth", "fcf_growth"}

@@ -98,10 +98,10 @@ class RiskMonitorWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        self.max_drawdown_pct = config.get("max_drawdown_pct", 15.0)
-        self.max_volatility_pct = config.get("max_volatility_pct", 30.0)
-        self.max_de_ratio = config.get("max_de_ratio", 2.0)
-        self.max_concentration_pct = config.get("max_concentration_pct", 3.0)
+        self.max_drawdown_pct = self.config.get("max_drawdown_pct", 15.0)
+        self.max_volatility_pct = self.config.get("max_volatility_pct", 30.0)
+        self.max_de_ratio = self.config.get("max_de_ratio", 2.0)
+        self.max_concentration_pct = self.config.get("max_concentration_pct", 3.0)
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         base_path = context.get("base_path", "")

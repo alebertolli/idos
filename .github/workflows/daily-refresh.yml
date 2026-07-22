@@ -64,8 +64,6 @@ jobs:
               exit(0)
 
           data = yaml.safe_load(earnings_file.read_text(encoding='utf-8')) or {}
-          tickers = data.get('tickers', {})
-          data = yaml.safe_load(earnings_file.read_text(encoding='utf-8')) or {}
           tickers = data.get('tickers', {}) or {}
           today = date.today()
           triggered = []
