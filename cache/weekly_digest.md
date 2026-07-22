@@ -1,18 +1,25 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-22 02:08 AR_
+_Generado: 2026-07-22 02:11 AR_
 
 ## Resumen
 
-- :green_circle: **Oportunidades procesadas:** 0
-- :white_check_mark: **Assessment completados:** 0
+- :green_circle: **Oportunidades procesadas:** 1
+- :white_check_mark: **Assessment completados:** 1
 - :bookmark: **Approved:** 0
-- :red_circle: **Errores:** 1
+- :red_circle: **Errores:** 0
 - :bar_chart: **Total encontradas:** 1
 
-### Errores
+### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- :x: **B**: cannot access local variable 'ddd_empty' where it is not associated with a value
+- :white_check_mark: **B** (OPP-20260720-004): score=50, class=None
+
+### STEP 3-7 - Assessment Pipeline
+
+- :warning: **B**
+  - Opp: [OPP-20260720-004](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/B/case_file/opportunities/OPP-20260720-004)
+  - Conviction: 58/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 60 | Recovery: 0 | Risk: 80 | Portfolio: 90
 
 ---
 
