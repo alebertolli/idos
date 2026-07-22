@@ -73,6 +73,15 @@ class DataRefreshWorker(BaseWorker):
 
                 if len(source_data) > 0:
                     validated = self.validator.cross_validate(source_data)
+                    merged = validated.get("merged_data", validated)
+                    try:
+                        import yfinance as yf
+                        yfinfo = yf.Ticker(ticker).info or {}
+                        et = yfinfo.get("earningsTimestamp")
+                        if et:
+                            merged["next_earnings_date"] = et
+                    except Exception:
+                        pass
                     results[ticker] = validated
                     self.cache.set(
                         f"merged:{ticker}",
@@ -84,7 +93,7 @@ class DataRefreshWorker(BaseWorker):
                     cache_dir = Path("cache")
                     cache_dir.mkdir(parents=True, exist_ok=True)
                     (cache_dir / f"{ticker}.json").write_text(
-                        json.dumps(validated, default=str, indent=2), encoding="utf-8"
+                        json.dumps(merged if "merged_data" in validated else validated, default=str, indent=2), encoding="utf-8"
                     )
                 else:
                     errors.append(f"{ticker}: no data from any source")

@@ -63,6 +63,7 @@ class YahooFinanceWorker(BaseWorker):
             "employees": info.get("fullTimeEmployees"),
             "price_target_avg": info.get("targetMeanPrice"),
             "analyst_count": info.get("numberOfAnalystOpinions"),
+            "next_earnings_date": info.get("earningsTimestamp"),
         }
 
         if not history.empty:
