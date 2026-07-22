@@ -17,9 +17,49 @@ from idos.decision.engines.portfolio import PortfolioAssessmentEngine
 from idos.rules.engine import RulesEngine, RuleResult
 from idos.models.knowledge import Rule
 from idos.models.enums import OpportunityStatus
-from idos.portfolio.entry import EntryEngine
+from idos.portfolio.buylist import BuyListManager, BuyListEntry
 from idos.timezone import AR_TZ
 from datetime import datetime
+
+def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, Any],
+                     opp_id: str, bp: Path, knowledge: KnowledgeRepository):
+    target_price = context.get("knowledge_base", {}).get("dynamic", {}).get("metrics", {}).get("target_price", 0)
+    margin = context.get("margin_of_safety", 20.0)
+    buy_zone_top = target_price * (1 + margin / 100) if target_price else 0
+    entry = BuyListEntry(
+        ticker=ticker,
+        target_price=target_price,
+        buy_zone_top=buy_zone_top,
+        max_position_pct=context.get("proposed_weight", 3.0),
+        conviction_score=proposal.conviction_score,
+        horizon="12-36 months",
+        catalysts=context.get("catalysts", []),
+        kb_last_update=proposal.created_at,
+    )
+    buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
+    buylist_path.parent.mkdir(parents=True, exist_ok=True)
+    import yaml
+    existing = {}
+    if buylist_path.exists():
+        existing = yaml.safe_load(buylist_path.read_text(encoding="utf-8")) or {}
+    entries = existing.get("entries", [])
+    entries = [e for e in entries if e.get("ticker") != ticker]
+    entries.append({
+        "ticker": ticker,
+        "opp_id": opp_id,
+        "target_price": target_price,
+        "buy_zone_top": buy_zone_top,
+        "max_position_pct": entry.max_position_pct,
+        "conviction_score": proposal.conviction_score,
+        "horizon": "12-36 months",
+        "catalysts": context.get("catalysts", []),
+        "kb_last_update": proposal.created_at,
+        "added_at": entry.added_at,
+        "monitoring": True,
+    })
+    buylist_path.write_text(yaml.dump({"entries": entries}, default_flow_style=False, allow_unicode=True), encoding="utf-8")
+    print(f"[BUYLIST] {ticker} added to persistent Buy List (target={target_price}, zone={buy_zone_top})")
+
 
 def build_context(
     opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
@@ -259,6 +299,15 @@ def _eval_sector_exposure(ctx):
 def _eval_asymmetry(ctx):
     return RuleResult("RULE-008", True, "No asymmetry data available")
 
+def _eval_competition(ctx):
+    port = ctx.get("portfolio", {})
+    num_pos = port.get("num_positions", 0)
+    return RuleResult("RULE-009", num_pos < 10, f"Posiciones activas: {num_pos}/10 max (competencia por capital)")
+
+def _eval_thesis_active(ctx):
+    thesis = ctx.get("thesis_active", False)
+    return RuleResult("RULE-010", thesis, "Tesis no está activa en la base de conocimiento")
+
 ASSESSMENT_RULES = [
     (Rule(id="RULE-001", description="Minimum business quality score for entry", priority=100, condition="score >= 70", action="PASS"), _eval_business),
     (Rule(id="RULE-002", description="Minimum valuation score for entry", priority=90, condition="score >= 60", action="PASS"), _eval_valuation),
@@ -268,6 +317,8 @@ ASSESSMENT_RULES = [
     (Rule(id="RULE-006", description="Maximum portfolio weight per position", priority=100, condition="weight <= 3.0", action="BLOCK"), _eval_position_weight),
     (Rule(id="RULE-007", description="Maximum sector exposure", priority=90, condition="sector <= 25.0", action="BLOCK"), _eval_sector_exposure),
     (Rule(id="RULE-008", description="Minimum asymmetry ratio 3:1", priority=100, condition="ratio >= 3.0", action="PASS"), _eval_asymmetry),
+    (Rule(id="RULE-009", description="Capital competition - max 10 positions", priority=80, condition="num_positions < 10", action="BLOCK"), _eval_competition),
+    (Rule(id="RULE-010", description="Tesis activa en knowledge base", priority=100, condition="thesis_active", action="PASS"), _eval_thesis_active),
 ]
 
 def _register_assessment_rules(engine: RulesEngine):
@@ -301,21 +352,8 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     board.submit(proposal)
     resolution = board.review()
 
-    entry_signal = None
     if resolution.approved:
-        try:
-            entry_ctx = {
-                "price_data": [],
-                "intrinsic_value": 0,
-                "current_price": 0,
-                "thesis_active": True,
-                "portfolio": context["portfolio"],
-                "proposed_weight": 3.0,
-            }
-            entry_engine = EntryEngine()
-            entry_signal = entry_engine.evaluate(ticker, entry_ctx)
-        except Exception as e:
-            entry_signal = type("obj", (), {"all_conditions_met": False, "reason": str(e)})()
+        _add_to_buylist(ticker, proposal, context, opp_id, bp, knowledge)
 
     opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
     opp_dir.mkdir(parents=True, exist_ok=True)
@@ -344,22 +382,6 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     }
     with open(opp_dir / "board_resolution.yml", "w", encoding="utf-8") as f:
         yaml.dump(resolution_data, f, default_flow_style=False, allow_unicode=True)
-
-    if entry_signal:
-        entry_data = {
-            "all_conditions_met": entry_signal.all_conditions_met,
-            "price_in_zone": entry_signal.price_in_zone,
-            "wyckoff_confirmed": entry_signal.wyckoff_confirmed,
-            "thesis_active": entry_signal.thesis_active,
-            "portfolio_fit": entry_signal.portfolio_fit,
-            "current_price": entry_signal.current_price,
-            "target_price": entry_signal.target_price,
-            "margin_of_safety_pct": entry_signal.margin_of_safety_pct,
-            "wyckoff_phase": entry_signal.wyckoff_phase,
-            "reason": entry_signal.reason,
-        }
-        with open(opp_dir / "entry_evaluation.yml", "w", encoding="utf-8") as f:
-            yaml.dump(entry_data, f, default_flow_style=False, allow_unicode=True)
 
     if not force_reprocess:
         new_status = OpportunityStatus.APPROVED if resolution.approved else OpportunityStatus.UNDER_DEEP_DD

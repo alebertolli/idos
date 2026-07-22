@@ -32,6 +32,17 @@ class StateMachine:
             worker=worker,
         )
 
+def _combined_guard(ctx: dict, checks: list) -> tuple[bool, str]:
+    for key, expected, msg in checks:
+        val = ctx.get(key)
+        if callable(expected):
+            if not expected(val):
+                return False, msg
+        elif val != expected:
+            return False, msg
+    return True, "All guards passed"
+
+
 class OpportunityStateMachine(StateMachine):
     _transitions: dict[OpportunityStatus, list[OpportunityStatus]] = {
         OpportunityStatus.DISCOVERED: [OpportunityStatus.SCREENED],
@@ -74,10 +85,20 @@ class OpportunityStateMachine(StateMachine):
         )
         self.register_guard(
             OpportunityStatus.UNDER_DEEP_DD, OpportunityStatus.APPROVED,
-            lambda ctx: (
-                all(ctx.get(k) for k in ("business_score", "technical_score", "valuation_score")),
-                "Not all assessments completed (business, technical, valuation)",
-            ),
+            lambda ctx: _combined_guard(ctx, [
+                ("case_file_exists", True, "Principio 1 violado: No existe Case File documentado"),
+                ("hypotheses_count", lambda v: v >= 1, "Principio 1 violado: No hay árbol de hipótesis estructurado"),
+                ("assessments_complete", True, "No todas las evaluaciones completadas (business, technical, valuation)"),
+            ]),
+        )
+        self.register_guard(
+            OpportunityStatus.ENTRY_PENDING, OpportunityStatus.ACCUMULATING,
+            lambda ctx: _combined_guard(ctx, [
+                ("thesis_active", True, "Tesis no está activa"),
+                ("price_in_zone", True, "Precio fuera de zona de margen de seguridad"),
+                ("wyckoff_confirmed", True, "Estructura Wyckoff no confirmada"),
+                ("is_averaging_down", False, "Principio 3 violado: No promediar a la baja sin reevaluación"),
+            ]),
         )
         self.register_guard(
             OpportunityStatus.EXITED, OpportunityStatus.POST_MORTEM,
