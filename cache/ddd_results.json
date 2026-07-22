@@ -1,8 +1,52 @@
 {
-  "processed": [],
-  "assessments": [],
+  "processed": [
+    {
+      "ticker": "UBER",
+      "opp_id": "OPP-20260720-039",
+      "status": "completed",
+      "score": 80,
+      "classification": "compounder",
+      "force": true,
+      "event_type": "manual"
+    }
+  ],
+  "assessments": [
+    {
+      "ticker": "UBER",
+      "opp_id": "OPP-20260720-039",
+      "status": "completed",
+      "conviction_score": 52,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": "HOLD",
+      "decision_id": "DEC-20260722152139",
+      "assessments": {
+        "BusinessAssessmentEngine": 59,
+        "ValuationAssessmentEngine": 60,
+        "RecoveryAssessmentEngine": 0,
+        "RiskAssessmentEngine": 70,
+        "PortfolioAssessmentEngine": 90
+      },
+      "rules_passed": [
+        "RULE-002",
+        "RULE-004",
+        "RULE-006",
+        "RULE-007",
+        "RULE-008",
+        "RULE-009"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-003",
+        "RULE-005",
+        "RULE-010"
+      ],
+      "data_quality": "good"
+    }
+  ],
   "errors": [],
-  "status": "none",
+  "total": 1,
+  "done": 1,
   "event_type": "manual",
   "force": true
 }
