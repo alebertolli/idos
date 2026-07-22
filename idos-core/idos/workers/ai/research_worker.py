@@ -294,6 +294,10 @@ class ResearchWorker(BaseWorker):
 
     @staticmethod
     def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:
+        _aliases = {"pe_ratio_ttm": "pe_ratio", "peg_ratio_ttm": "peg_ratio"}
+        for src, dst in _aliases.items():
+            if src in data and dst not in data:
+                data[dst] = data[src]
         _pct_keys = {"roic_pct", "roe_pct", "roa_pct", "revenue_growth_pct",
                      "operating_margin_pct", "gross_margin_pct", "net_margin_pct",
                      "fcf_yield_pct", "eps_growth", "fcf_growth"}
