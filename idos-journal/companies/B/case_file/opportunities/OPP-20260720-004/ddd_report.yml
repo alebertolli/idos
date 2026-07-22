@@ -1,94 +1,37 @@
-calidad_evidencia:
-  hechos_verificados:
-  - crecimiento de ingresos del 14.5%
-  - margen operativo del 50.7%
-  - ROIC del 22.7%
-  inferencias_llm:
-  - excelente calidad de negocio
-  - gestión eficiente
-  preguntas_abiertas:
-  - ¿Cuál es el track record de asignación de capital del CEO?
-  - ¿Qué riesgos ESG o de la cadena de suministro podrían afectar a la empresa?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: Compounder castigado, Turnaround, Deep Value, Cíclica, Special
-    Situation, Distressed, Quality at Fair Price, Hype y Value Trap, ya que no hay
-    indicios de problemas operativos, financieros o de valoración que justifiquen
-    estas categorías.
-  justificacion: La empresa presenta un crecimiento de ingresos del 14.5%, un margen
-    operativo del 50.7% y un ROIC del 22.7%, lo que sugiere una excelente calidad
-    de negocio. Además, la deuda es muy baja con un D/E de 0.1x.
-dominio_business_quality:
-  analisis: La empresa presenta un margen operativo del 50.7% y un ROIC del 22.7%,
-    lo que sugiere una excelente calidad de negocio y una posición competitiva fuerte.
-  rating: excepcional
-dominio_catalizadores:
-- descripcion: cambio en la tendencia de crecimiento
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: medio
-  probabilidad_pct: 20
-dominio_esg_supply_chain:
-  analisis: No hay información disponible sobre riesgos ESG o de la cadena de suministro
-    que sugiera un riesgo significativo.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene una deuda muy baja con un D/E de 0.1x y un flujo de caja
-    ajustado de 0M, lo que sugiere una salud financiera sólida.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa presenta un crecimiento de ingresos del 14.5%, lo que sugiere
-    un impulso de crecimiento sólido.
-  rating: fuerte
-dominio_management:
-  analisis: La antigüedad del CEO es de 0 años, lo que podría ser un riesgo, y no
-    hay información disponible sobre el track record de asignación de capital.
-  rating: regular
-dominio_riesgos:
-- impacto: alto
-  probabilidad: media
-  riesgo: cambio en la tendencia de crecimiento
-- impacto: alto
-  probabilidad: baja
-  riesgo: error en la gestión
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un cambio en la tendencia de crecimiento o un error en la gestión
-      que afecte la rentabilidad
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 20
-  conclusion_error_valoracion: 'NO'
-  consenso_actual: El mercado parece descontar un crecimiento sostenido y una excelente
-    gestión, reflejado en los múltiplos actuales.
-  hipotesis_contraria: El consenso podría estar equivocado si el crecimiento se desacelera
-    significativamente o si surgen problemas de gestión que afecten la rentabilidad.
-  razonamiento: No hay evidencia clara de un error de valoración aprovechable, ya
-    que los múltiplos actuales reflejan la excelente calidad de negocio y el crecimiento
-    sostenido.
-generated_at: '2026-07-22T02:42:19.532375-03:00'
-opinion_valoracion: justo
+calidad_evidencia: {}
+clasificacion_oportunidad: {}
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-07-22T14:13:16.407932-03:00'
+opinion_valoracion: ''
 opp_id: OPP-20260720-004
 prompt_inputs:
-  business_model: ''
+  business_model: Barrick Mining Corporation engages in the exploration, development,
+    production, and sale of mineral properties. It explores for gold, copper, silver,
+    and energy materials. The company was formerly known as Barrick Gold Corporation
+    and changed its name to Barrick Mining Corporation in May 2025. Barrick Mining
+    Corporation was founded in 1983 and is based in Toronto, Canada.
   ceo_tenure: 0
   debt_to_equity: 0.13
   fcf_adjusted: 0
   insider_ownership: 0
   name: B
   operating_margin: 50.74
-  pe_ratio: 0
+  pe_ratio: 9.97
   products: ''
   revenue: 19040000000.0
   revenue_growth: 14.53
   roic: 22.67
-  sector: ''
+  sector: Basic Materials
   ticker: B
-resumen_ejecutivo: La empresa presenta una excelente calidad de negocio, con un crecimiento
-  sostenido y una gestión eficiente. Sin embargo, no hay evidencia de un error de
-  valoración aprovechable.
-score_general: 80
-tesis_inversion: La empresa presenta una excelente calidad de negocio y un crecimiento
-  sostenido, pero no hay evidencia de un error de valoración aprovechable.
+resumen_ejecutivo: ''
+score_general: 50
+tesis_inversion: ''
 ticker: B
 version: '3.0'
