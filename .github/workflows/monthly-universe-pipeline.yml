@@ -68,6 +68,7 @@ jobs:
           else
             git status --short -- idos-journal/ cache/
             git commit -m "chore: monthly universe pipeline $(date +%Y-%m-%d)"
+            git pull --rebase --autostash
             git push
           fi
       - name: Notify

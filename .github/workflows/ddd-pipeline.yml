@@ -335,6 +335,7 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: ddd research $(date +%Y-%m-%d)"
+            git pull --rebase --autostash
             git push
           fi
 

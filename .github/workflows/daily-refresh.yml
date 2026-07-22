@@ -216,6 +216,7 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: daily data refresh $(date +%Y-%m-%d)"
+            git pull --rebase --autostash
             git push
           fi
       - name: Upload cache artifact
