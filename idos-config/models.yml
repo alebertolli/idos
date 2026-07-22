@@ -1,6 +1,9 @@
 llm:
-  default_provider: gemini
+  default_provider: openrouter
   providers:
+    openrouter:
+      model: google/gemini-2.5-pro-exp-03-25:free
+      fallback: google/gemini-2.0-flash-001
     gemini:
       model: gemini-2.5-pro
       fallback: gemini-2.0-flash
