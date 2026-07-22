@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 from idos.data.sqlite import SQLiteStore
+from idos.data.knowledge import KnowledgeRepository
 from idos.workers.base import BaseWorker
 from idos.workers.data.stockanalysis import StockAnalysisWorker
 from idos.workers.data.yahoo import YahooFinanceWorker
@@ -97,6 +98,7 @@ class DataRefreshWorker(BaseWorker):
                     (cache_dir / f"{ticker}.json").write_text(
                         json.dumps(merged if "merged_data" in validated else validated, default=str, indent=2), encoding="utf-8"
                     )
+                    self._save_company_info(ticker)
                     last_date = db.get_last_price_date(ticker)
                     yf_raw = source_data.get("yfinance", {})
                     prices = yf_raw.get("price_history", [])
@@ -129,6 +131,36 @@ class DataRefreshWorker(BaseWorker):
             "errors": errors,
             "data": results,
         }
+
+    @staticmethod
+    def _save_company_info(ticker: str):
+        try:
+            from pathlib import Path
+            import yaml
+            base = Path.cwd() / "idos-knowledge" / "companies" / ticker
+            company_file = base / "company.yml"
+            if company_file.exists():
+                existing = yaml.safe_load(company_file.read_text(encoding="utf-8")) or {}
+                if existing.get("sector"):
+                    return
+            import yfinance as yf
+            info = yf.Ticker(ticker).info or {}
+            sector = info.get("sector", "")
+            if not sector:
+                return
+            base.mkdir(parents=True, exist_ok=True)
+            existing = {}
+            if company_file.exists():
+                existing = yaml.safe_load(company_file.read_text(encoding="utf-8")) or {}
+            existing.setdefault("ticker", ticker)
+            existing.setdefault("name", info.get("longName", "") or info.get("shortName", "") or ticker)
+            existing.setdefault("sector", sector)
+            existing.setdefault("industry", info.get("industry", ""))
+            existing.setdefault("business_model", (info.get("longBusinessSummary") or "")[:500])
+            company_file.write_text(yaml.dump(existing, default_flow_style=False, allow_unicode=True), encoding="utf-8")
+            print(f"[INFO] {ticker}: company info saved to knowledge repo")
+        except Exception:
+            pass
 
     def _load_tickers_from_universe(self) -> list[str]:
         if not self.universe_path:

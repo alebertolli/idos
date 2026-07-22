@@ -66,6 +66,11 @@ class ResearchWorker(BaseWorker):
         company = knowledge.load_company(ticker) or {}
         wiki = knowledge.get_wiki_text(ticker)
         financial_data = self._load_financial_data(ticker, sqlite)
+        if not company.get("sector"):
+            company = self._enrich_company_info(ticker, company, knowledge)
+            if not wiki and company.get("business_model"):
+                wiki = company["business_model"]
+                knowledge.save_wiki_text(ticker, wiki)
 
         ddd_result = self._run_prompt("ddd", ticker, {
             "ticker": ticker,
@@ -323,6 +328,33 @@ class ResearchWorker(BaseWorker):
         if roe and isinstance(de, (int, float)):
             data["roic_pct"] = round(roe / (1 + de), 2)
         return data
+
+    @staticmethod
+    def _enrich_company_info(ticker: str, company: dict[str, Any], knowledge: Any) -> dict[str, Any]:
+        if company.get("sector"):
+            return company
+        try:
+            import yfinance as yf
+            tk = yf.Ticker(ticker)
+            info = tk.info or {}
+            changed = False
+            for k, src in [("sector", "sector"), ("industry", "industry"),
+                           ("business_model", "longBusinessSummary")]:
+                if not company.get(k) and info.get(src):
+                    company[k] = info[src]
+                    changed = True
+            if not company.get("name") and info.get("longName"):
+                company["name"] = info["longName"]
+                changed = True
+            if changed:
+                try:
+                    knowledge.save_company(ticker, company)
+                    print(f"[INFO] {ticker}: company info enriched from YahooFinance")
+                except Exception:
+                    pass
+        except Exception as e:
+            print(f"[WARN] {ticker}: no se pudo enriquecer info corporativa: {e}")
+        return company
 
     @staticmethod
     def _warn_missing_financial(ticker: str, data: dict[str, Any], source: str):
