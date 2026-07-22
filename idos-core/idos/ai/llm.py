@@ -96,6 +96,19 @@ class LLMClient:
 
         return self._parse_json(resp.content)
 
+    def _request_with_retry(self, method: str, url: str, **kwargs) -> requests.Response:
+        max_retries = 3
+        for attempt in range(max_retries):
+            resp = requests.request(method, url, **kwargs)
+            if resp.status_code == 429 and attempt < max_retries - 1:
+                wait = 2 ** (attempt + 1)
+                print(f"[LLM] Rate limited (429), retrying in {wait}s (attempt {attempt + 1}/{max_retries})")
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            return resp
+        return resp
+
     def _call_openai(
         self,
         prompt: str,
@@ -109,8 +122,7 @@ class LLMClient:
             messages.append({"role": "system", "content": system_prompt})
         messages.append({"role": "user", "content": prompt})
 
-        resp = requests.post(
-            "https://api.openai.com/v1/chat/completions",
+        resp = self._request_with_retry("POST", "https://api.openai.com/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {self.api_key}",
                 "Content-Type": "application/json",
@@ -123,7 +135,6 @@ class LLMClient:
             },
             timeout=self.timeout,
         )
-        resp.raise_for_status()
         data = resp.json()
         choice = data["choices"][0]
         usage = data.get("usage", {})
@@ -150,8 +161,7 @@ class LLMClient:
             messages.append({"role": "system", "content": system_prompt})
         messages.append({"role": "user", "content": prompt})
 
-        resp = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
+        resp = self._request_with_retry("POST", "https://openrouter.ai/api/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {self.api_key}",
                 "Content-Type": "application/json",
@@ -165,7 +175,6 @@ class LLMClient:
             },
             timeout=self.timeout,
         )
-        resp.raise_for_status()
         data = resp.json()
         choice = data["choices"][0]
         usage = data.get("usage", {})
@@ -197,8 +206,7 @@ class LLMClient:
         else:
             contents.append({"role": "user", "parts": [{"text": prompt}]})
 
-        resp = requests.post(
-            url,
+        resp = self._request_with_retry("POST", url,
             json={
                 "contents": contents,
                 "generationConfig": {
@@ -208,7 +216,6 @@ class LLMClient:
             },
             timeout=self.timeout,
         )
-        resp.raise_for_status()
         data = resp.json()
         candidate = data["candidates"][0]
         text = candidate["content"]["parts"][0]["text"]
@@ -237,8 +244,7 @@ class LLMClient:
             messages.append({"role": "system", "content": system_prompt})
         messages.append({"role": "user", "content": prompt})
 
-        resp = requests.post(
-            f"{base_url}/chat/completions",
+        resp = self._request_with_retry("POST", f"{base_url}/chat/completions",
             headers={
                 "Authorization": f"Bearer {self.api_key}",
                 "Content-Type": "application/json",
@@ -251,7 +257,6 @@ class LLMClient:
             },
             timeout=self.timeout,
         )
-        resp.raise_for_status()
         data = resp.json()
         choice = data["choices"][0]
 

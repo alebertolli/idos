@@ -171,11 +171,19 @@ jobs:
                   print(f'[POSTMORTEM] {ticker} ({opp_id}): post-mortem ya existe, skip')
                   continue
               print(f'[POSTMORTEM] {ticker} ({opp_id}): generando post-mortem...')
+              import yaml as _yaml
+              _models_cfg = {}
+              _mp = Path('idos-config/models.yml')
+              if _mp.exists():
+                  _models_cfg = _yaml.safe_load(_mp.read_text(encoding='utf-8')) or {}
+              _llm_cfg = _models_cfg.get('llm', {})
+              _provider = _llm_cfg.get('default_provider', 'gemini')
+              _model = _llm_cfg.get('providers', {}).get(_provider, {}).get('model', 'gemini-2.0-flash')
               from idos.workers.learning.post_mortem_worker import PostMortemWorker
               w = PostMortemWorker({
-                  'provider': 'google',
+                  'provider': _provider,
                   'api_key': os.environ.get('GEMINI_API_KEY', ''),
-                  'model': 'gemini-2.0-flash',
+                  'model': _model,
                   'prompts_path': 'idos-config/prompts',
               })
               result = w.execute({
