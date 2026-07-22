@@ -70,7 +70,7 @@ class ResearchWorker(BaseWorker):
             company = self._enrich_company_info(ticker, company, knowledge)
             if not wiki and company.get("business_model"):
                 wiki = company["business_model"]
-                knowledge.save_wiki_text(ticker, wiki)
+                knowledge.save_wiki(ticker, wiki)
 
         ddd_result = self._run_prompt("ddd", ticker, {
             "ticker": ticker,
