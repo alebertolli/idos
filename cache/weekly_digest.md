@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-22 02:19 AR_
+_Generado: 2026-07-22 02:30 AR_
 
 ## Resumen
 
@@ -12,14 +12,14 @@ _Generado: 2026-07-22 02:19 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- :white_check_mark: **B** (OPP-20260720-004): score=50, class=None
+- :white_check_mark: **MSFT** (OPP-20260720-018): score=50, class=None
 
 ### STEP 3-7 - Assessment Pipeline
 
-- :warning: **B**
-  - Opp: [OPP-20260720-004](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/B/case_file/opportunities/OPP-20260720-004)
-  - Conviction: 58/100 | Rec: BLOCKED
-  - Scores: Business: 72 | Valuation: 60 | Recovery: 0 | Risk: 80 | Portfolio: 90
+- :warning: **MSFT**
+  - Opp: [OPP-20260720-018](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MSFT/case_file/opportunities/OPP-20260720-018)
+  - Conviction: 54/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 50 | Recovery: 0 | Risk: 70 | Portfolio: 90
 
 ---
 
