@@ -14,6 +14,8 @@ class LLMWorker(BaseWorker):
             provider=config.get("provider", ""),
             api_key=config.get("api_key", ""),
             model=config.get("model", ""),
+            fallback_model=config.get("fallback_model", ""),
+            fallback_providers=config.get("fallback_providers", []),
         )
         prompts_path = config.get("prompts_path", "")
         self.registry = PromptRegistry(prompts_path) if prompts_path else PromptRegistry()

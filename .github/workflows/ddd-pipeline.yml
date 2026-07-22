@@ -151,11 +151,13 @@ jobs:
                   _provider = _llm_cfg.get('default_provider', 'gemini')
                   _model = _llm_cfg.get('providers', {}).get(_provider, {}).get('model', 'gemini-2.0-flash')
                   _fallback = _llm_cfg.get('providers', {}).get(_provider, {}).get('fallback', 'gemini-2.0-flash')
+                  _fb_list = _llm_cfg.get('fallback_order', [])
                   worker = ResearchWorker({
                       'provider': _provider,
-                      'api_key': os.environ.get('GEMINI_API_KEY', ''),
+                      'api_key': os.environ.get('OPENROUTER_API_KEY', ''),
                       'model': _model,
                       'fallback_model': _fallback,
+                      'fallback_providers': _fb_list,
                       'prompts_path': 'idos-config/prompts',
                   })
                   ctx = {

@@ -27,6 +27,7 @@ class ResearchWorker(BaseWorker):
             api_key=config.get("api_key", ""),
             model=config.get("model", ""),
             fallback_model=config.get("fallback_model", ""),
+            fallback_providers=config.get("fallback_providers", []),
         )
         prompts_path = config.get("prompts_path", "")
         self.registry = PromptRegistry(prompts_path) if prompts_path else PromptRegistry()
@@ -339,17 +340,4 @@ class ResearchWorker(BaseWorker):
             system_prompt=system,
             temperature=0.1,
         )
-        if result and not result.get("error"):
-            return result
-        import os
-        fallback_key = os.getenv("GEMINI_API_KEY", "")
-        if fallback_key and self.llm.provider != "gemini":
-            from idos.ai.llm import LLMClient
-            fallback = LLMClient(provider="gemini", model=os.getenv("IDOS_LLM_MODEL_FALLBACK", "gemini-2.0-flash-001"))
-            print(f"[LLM] Fallback: OpenRouter falló, probando Gemini...")
-            return fallback.generate_structured(
-                prompt=formatted,
-                system_prompt=system,
-                temperature=0.1,
-            )
         return result

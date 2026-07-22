@@ -25,11 +25,13 @@ class LLMClient:
         api_key: str = "",
         model: str = "",
         fallback_model: str = "",
+        fallback_providers: list[dict[str, str]] | None = None,
     ):
         self.provider = provider or os.getenv("IDOS_LLM_PROVIDER", "openrouter")
         self.api_key = api_key or self._resolve_api_key(self.provider)
         self.model = model or os.getenv("IDOS_LLM_MODEL", "openai/gpt-4o")
         self.fallback_model = fallback_model or os.getenv("IDOS_LLM_FALLBACK_MODEL", "gemini-2.0-flash")
+        self.fallback_providers = fallback_providers or []
         self.timeout = int(os.getenv("IDOS_LLM_TIMEOUT", "60"))
 
     @staticmethod
@@ -38,6 +40,7 @@ class LLMClient:
             "openrouter": os.getenv("OPENROUTER_API_KEY", ""),
             "gemini": os.getenv("GEMINI_API_KEY", ""),
             "openai": os.getenv("OPENAI_API_KEY", ""),
+            "groq": os.getenv("GROQ_API_KEY", ""),
         }
         return key_map.get(provider, os.getenv("OPENROUTER_API_KEY", ""))
 
@@ -49,55 +52,60 @@ class LLMClient:
         max_tokens: int = 4096,
         label: str = "",
     ) -> LLMResponse:
-        label = label or f"{self.provider}/{self.model}"
+        _call_chain = [{"provider": self.provider, "model": self.model, "api_key": self.api_key}]
+        _call_chain += self.fallback_providers
         _trunc = lambda s, n=200: (s[:n] + "...") if len(s) > n else s
-        print(f"\n{'='*60}")
-        print(f"[LLM] {label}")
-        print(f"[LLM] SYSTEM: {_trunc(system_prompt)}")
-        print(f"[LLM] PROMPT: {_trunc(prompt)}")
+        first_error = ""
         start = time.time()
-        try:
-            if self.provider == "openai":
-                resp = self._call_openai(prompt, system_prompt, temperature, max_tokens)
-            elif self.provider == "openrouter":
-                resp = self._call_openrouter(prompt, system_prompt, temperature, max_tokens)
-            elif self.provider == "gemini":
-                resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens)
+        for idx, entry in enumerate(_call_chain):
+            prov = entry["provider"]
+            modl = entry.get("model", self.model)
+            akey = entry.get("api_key", self._resolve_api_key(prov))
+            lbl = entry.get("label", f"{prov}/{modl}")
+            if idx > 0:
+                print(f"\n{'='*60}")
+                print(f"[LLM] Fallback {idx}: {lbl}")
             else:
-                resp = self._call_generic(prompt, system_prompt, temperature, max_tokens)
-        except requests.HTTPError as e:
-            if e.response is not None and e.response.status_code == 429 and self.fallback_model and self.provider == "gemini":
-                orig_model = self.model
-                self.model = self.fallback_model
-                print(f"[LLM] 429 en {orig_model}, fallback a {self.fallback_model}...")
-                try:
-                    resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens)
-                except Exception as e2:
-                    resp = LLMResponse(
-                        content="", model=self.model, success=False, error=str(e2),
-                        latency_ms=int((time.time() - start) * 1000),
-                    )
-                finally:
-                    self.model = orig_model
-            else:
-                resp = LLMResponse(
-                    content="", model=self.model, success=False, error=str(e),
-                    latency_ms=int((time.time() - start) * 1000),
-                )
-        except Exception as e:
-            resp = LLMResponse(
-                content="",
-                model=self.model,
-                success=False,
-                error=str(e),
-                latency_ms=int((time.time() - start) * 1000),
-            )
-        if resp.success:
-            print(f"[LLM] RESPONSE ({resp.latency_ms}ms, {resp.tokens_in}→{resp.tokens_out} tok): {_trunc(resp.content, 500)}")
-        else:
-            print(f"[LLM] ERROR ({resp.latency_ms}ms): {resp.error}")
+                print(f"\n{'='*60}")
+                print(f"[LLM] {lbl}")
+            print(f"[LLM] SYSTEM: {_trunc(system_prompt)}")
+            print(f"[LLM] PROMPT: {_trunc(prompt)}")
+            try:
+                if prov == "openai":
+                    resp = self._call_openai(prompt, system_prompt, temperature, max_tokens, akey, modl)
+                elif prov == "openrouter":
+                    resp = self._call_openrouter(prompt, system_prompt, temperature, max_tokens, akey, modl)
+                elif prov == "gemini":
+                    resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens, akey, modl)
+                elif prov == "groq":
+                    resp = self._call_groq(prompt, system_prompt, temperature, max_tokens, akey, modl)
+                else:
+                    resp = self._call_generic(prompt, system_prompt, temperature, max_tokens, akey, modl)
+            except requests.HTTPError as e:
+                fbk = entry.get("fallback_model", "")
+                if e.response is not None and e.response.status_code == 429 and fbk and prov == "gemini":
+                    print(f"[LLM] 429 en {modl}, fallback a {fbk}...")
+                    try:
+                        resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens, akey, fbk)
+                    except Exception as e2:
+                        print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {e2}")
+                        if not first_error: first_error = str(e2)
+                        continue
+                else:
+                    print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {e}")
+                    if not first_error: first_error = str(e)
+                    continue
+            except Exception as e:
+                print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {e}")
+                if not first_error: first_error = str(e)
+                continue
+            if resp.success:
+                print(f"[LLM] RESPONSE ({resp.latency_ms}ms, {resp.tokens_in}→{resp.tokens_out} tok): {_trunc(resp.content, 500)}")
+            print(f"{'='*60}\n")
+            return resp
         print(f"{'='*60}\n")
-        return resp
+        return LLMResponse(content="", success=False, error=first_error,
+                           latency_ms=int((time.time() - start) * 1000))
 
     def generate_structured(
         self,
@@ -136,7 +144,11 @@ class LLMClient:
         system_prompt: str,
         temperature: float,
         max_tokens: int,
+        api_key: str = "",
+        model: str = "",
     ) -> LLMResponse:
+        _key = api_key or self.api_key
+        _mod = model or self.model
         start = time.time()
         messages = []
         if system_prompt:
@@ -145,11 +157,11 @@ class LLMClient:
 
         resp = self._request_with_retry("POST", "https://api.openai.com/v1/chat/completions",
             headers={
-                "Authorization": f"Bearer {self.api_key}",
+                "Authorization": f"Bearer {_key}",
                 "Content-Type": "application/json",
             },
             json={
-                "model": self.model,
+                "model": _mod,
                 "messages": messages,
                 "temperature": temperature,
                 "max_tokens": max_tokens,
@@ -175,7 +187,11 @@ class LLMClient:
         system_prompt: str,
         temperature: float,
         max_tokens: int,
+        api_key: str = "",
+        model: str = "",
     ) -> LLMResponse:
+        _key = api_key or self.api_key
+        _mod = model or self.model
         start = time.time()
         messages = []
         if system_prompt:
@@ -184,12 +200,12 @@ class LLMClient:
 
         resp = self._request_with_retry("POST", "https://openrouter.ai/api/v1/chat/completions",
             headers={
-                "Authorization": f"Bearer {self.api_key}",
+                "Authorization": f"Bearer {_key}",
                 "Content-Type": "application/json",
                 "HTTP-Referer": "https://github.com/alebertolli/idos",
             },
             json={
-                "model": self.model,
+                "model": _mod,
                 "messages": messages,
                 "temperature": temperature,
                 "max_tokens": max_tokens,
@@ -202,7 +218,7 @@ class LLMClient:
 
         return LLMResponse(
             content=choice["message"]["content"],
-            model=data.get("model", self.model),
+            model=data.get("model", _mod),
             tokens_in=usage.get("prompt_tokens", 0),
             tokens_out=usage.get("completion_tokens", 0),
             latency_ms=int((time.time() - start) * 1000),
@@ -215,11 +231,15 @@ class LLMClient:
         system_prompt: str,
         temperature: float,
         max_tokens: int,
+        api_key: str = "",
+        model: str = "",
     ) -> LLMResponse:
+        _key = api_key or self.api_key
+        _mod = model or self.model
         start = time.time()
         url = (
             f"https://generativelanguage.googleapis.com/v1beta/models/"
-            f"{self.model}:generateContent?key={self.api_key}"
+            f"{_mod}:generateContent?key={_key}"
         )
         contents = []
         if system_prompt:
@@ -244,9 +264,52 @@ class LLMClient:
         usage = data.get("usageMetadata", {})
         return LLMResponse(
             content=text,
-            model=self.model,
+            model=_mod,
             tokens_in=usage.get("promptTokenCount", 0),
             tokens_out=usage.get("candidatesTokenCount", 0),
+            latency_ms=int((time.time() - start) * 1000),
+            success=True,
+        )
+
+    def _call_groq(
+        self,
+        prompt: str,
+        system_prompt: str,
+        temperature: float,
+        max_tokens: int,
+        api_key: str = "",
+        model: str = "",
+    ) -> LLMResponse:
+        _key = api_key or self.api_key
+        _mod = model or self.model
+        start = time.time()
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "user", "content": prompt})
+
+        resp = self._request_with_retry("POST", "https://api.groq.com/openai/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {_key}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "model": _mod,
+                "messages": messages,
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+            },
+            timeout=self.timeout,
+        )
+        data = resp.json()
+        choice = data["choices"][0]
+        usage = data.get("usage", {})
+
+        return LLMResponse(
+            content=choice["message"]["content"],
+            model=data.get("model", _mod),
+            tokens_in=usage.get("prompt_tokens", 0),
+            tokens_out=usage.get("completion_tokens", 0),
             latency_ms=int((time.time() - start) * 1000),
             success=True,
         )
@@ -257,7 +320,11 @@ class LLMClient:
         system_prompt: str,
         temperature: float,
         max_tokens: int,
+        api_key: str = "",
+        model: str = "",
     ) -> LLMResponse:
+        _key = api_key or self.api_key
+        _mod = model or self.model
         start = time.time()
         base_url = os.getenv("IDOS_LLM_BASE_URL", "https://api.openai.com/v1")
         messages = []
@@ -267,11 +334,11 @@ class LLMClient:
 
         resp = self._request_with_retry("POST", f"{base_url}/chat/completions",
             headers={
-                "Authorization": f"Bearer {self.api_key}",
+                "Authorization": f"Bearer {_key}",
                 "Content-Type": "application/json",
             },
             json={
-                "model": self.model,
+                "model": _mod,
                 "messages": messages,
                 "temperature": temperature,
                 "max_tokens": max_tokens,

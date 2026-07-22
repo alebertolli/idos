@@ -2,13 +2,26 @@ llm:
   default_provider: openrouter
   providers:
     openrouter:
-      model: google/gemini-2.5-pro-exp-03-25:free
-      fallback: google/gemini-2.0-flash-001
+      model: meta-llama/llama-3.3-70b-instruct:free
+      fallback: google/gemma-4-31b-it:free
+    groq:
+      model: llama-3.3-70b-versatile
+      fallback: llama-3.1-8b-instant
     gemini:
-      model: gemini-2.5-pro
-      fallback: gemini-2.0-flash
+      model: gemini-2.0-flash
+      fallback: gemini-2.0-flash-lite
     openai:
       model: gpt-4o
       fallback: gpt-4o-mini
+  fallback_order:
+    - provider: openrouter
+      model: meta-llama/llama-3.3-70b-instruct:free
+      fallback_model: google/gemma-4-31b-it:free
+    - provider: groq
+      model: llama-3.3-70b-versatile
+      fallback_model: llama-3.1-8b-instant
+    - provider: gemini
+      model: gemini-2.0-flash
+      fallback_model: gemini-2.0-flash-lite
   max_tokens_per_worker: 100000
   max_daily_tokens: 1000000
