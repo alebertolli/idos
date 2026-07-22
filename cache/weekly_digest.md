@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-22 15:50 AR_
+_Generado: 2026-07-22 16:03 AR_
 
 ## Resumen
 
@@ -18,8 +18,8 @@ _Generado: 2026-07-22 15:50 AR_
 
 - :warning: **UBER**
   - Opp: [OPP-20260720-039](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/UBER/case_file/opportunities/OPP-20260720-039)
-  - Conviction: 52/100 | Rec: BLOCKED
-  - Scores: Business: 59 | Valuation: 60 | Recovery: 0 | Risk: 70 | Portfolio: 90
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 59 | Valuation: 60 | Recovery: 52 | Risk: 70 | Portfolio: 90
 
 ---
 
