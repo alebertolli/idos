@@ -300,7 +300,7 @@ jobs:
                   status = ':white_check_mark:' if p.get('status') == 'completed' else ':warning:'
                   ticker = p.get('ticker', '?')
                   opp_id = p.get('opp_id', '?')
-                  lines.append(f'- {status} **{ticker}** ({opp_id}): score={p.get("score", "?")}, class={p.get("classification", "?")}')
+                  lines.append(f'- {status} **{ticker}** ({opp_id}): score={p.get(\"score\", \"?\")}, class={p.get(\"classification\", \"?\")}')
               lines.append('')
 
           if assessments and isinstance(assessments, list):
@@ -437,8 +437,8 @@ jobs:
                       t = a.get('ticker', '?')
                       cv = a.get('conviction_score', '?')
                       rc = a.get('recommendation', '?')
-                      ba = a.get('board_approved', False)
-                      body_lines.append(f'- {t}: conv={cv}/100 | rec={rc} | board={"OK" if ba else "PENDING"}')
+                      ba = 'OK' if a.get('board_approved', False) else 'PENDING'
+                      body_lines.append(f'- {t}: conv={cv}/100 | rec={rc} | board={ba}')
                   body_lines.append('')
                   body_lines.append('Ver detalle completo:')
                   body_lines.append('https://github.com/alebertolli/idos/tree/main/idos-journal/companies')
