@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-22 14:13 AR_
+_Generado: 2026-07-22 14:28 AR_
 
 ## Resumen
 
@@ -12,7 +12,7 @@ _Generado: 2026-07-22 14:13 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- :white_check_mark: **B** (OPP-20260720-004): score=50, class=None
+- :white_check_mark: **B** (OPP-20260720-004): score=80, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
