@@ -83,7 +83,7 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: weekly digest $(date +%Y-%m-%d)"
-            git pull --rebase --autostash
+            git pull --rebase --autostash -X theirs
             git push
           fi
       - name: Send notifications
