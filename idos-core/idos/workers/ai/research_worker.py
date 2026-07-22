@@ -26,6 +26,7 @@ class ResearchWorker(BaseWorker):
             provider=config.get("provider", ""),
             api_key=config.get("api_key", ""),
             model=config.get("model", ""),
+            fallback_model=config.get("fallback_model", ""),
         )
         prompts_path = config.get("prompts_path", "")
         self.registry = PromptRegistry(prompts_path) if prompts_path else PromptRegistry()
@@ -92,10 +93,10 @@ class ResearchWorker(BaseWorker):
         thesis = ddd_result.get("tesis_inversion", "")
         score = ddd_result.get("score_general", 50)
 
-        _empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
-        if _empty:
+        ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
+        if ddd_empty:
             print(f"[WARN] {ticker}: DDD del LLM vacío — score={score}, clasificacion={classification}, error={ddd_result.get('error','')}")
-        elif score == 50 and not classification and not thesis:
+        elif not ddd_empty and score == 50 and not classification and not thesis:
             print(f"[WARN] {ticker}: DDD con valores por defecto (score=50) — LLM no generó análisis real, error={ddd_result.get('error','')}")
 
         ddd_report = {
@@ -221,7 +222,6 @@ class ResearchWorker(BaseWorker):
             sqlite.log_event("research:force_reprocess", event_data)
             journal.log_event("research:force_reprocess", event_data, source="research_worker")
 
-        ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
         return {
             "ticker": ticker,
             "opp_id": opp_id,

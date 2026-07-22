@@ -179,11 +179,13 @@ jobs:
               _llm_cfg = _models_cfg.get('llm', {})
               _provider = _llm_cfg.get('default_provider', 'gemini')
               _model = _llm_cfg.get('providers', {}).get(_provider, {}).get('model', 'gemini-2.0-flash')
+              _fallback = _llm_cfg.get('providers', {}).get(_provider, {}).get('fallback', 'gemini-2.0-flash')
               from idos.workers.learning.post_mortem_worker import PostMortemWorker
               w = PostMortemWorker({
                   'provider': _provider,
                   'api_key': os.environ.get('GEMINI_API_KEY', ''),
                   'model': _model,
+                  'fallback_model': _fallback,
                   'prompts_path': 'idos-config/prompts',
               })
               result = w.execute({

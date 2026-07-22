@@ -24,10 +24,12 @@ class LLMClient:
         provider: str = "",
         api_key: str = "",
         model: str = "",
+        fallback_model: str = "",
     ):
         self.provider = provider or os.getenv("IDOS_LLM_PROVIDER", "openrouter")
         self.api_key = api_key or self._resolve_api_key(self.provider)
         self.model = model or os.getenv("IDOS_LLM_MODEL", "openai/gpt-4o")
+        self.fallback_model = fallback_model or os.getenv("IDOS_LLM_FALLBACK_MODEL", "gemini-2.0-flash")
         self.timeout = int(os.getenv("IDOS_LLM_TIMEOUT", "60"))
 
     @staticmethod
@@ -63,6 +65,25 @@ class LLMClient:
                 resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens)
             else:
                 resp = self._call_generic(prompt, system_prompt, temperature, max_tokens)
+        except requests.HTTPError as e:
+            if e.response is not None and e.response.status_code == 429 and self.fallback_model and self.provider == "gemini":
+                orig_model = self.model
+                self.model = self.fallback_model
+                print(f"[LLM] 429 en {orig_model}, fallback a {self.fallback_model}...")
+                try:
+                    resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens)
+                except Exception as e2:
+                    resp = LLMResponse(
+                        content="", model=self.model, success=False, error=str(e2),
+                        latency_ms=int((time.time() - start) * 1000),
+                    )
+                finally:
+                    self.model = orig_model
+            else:
+                resp = LLMResponse(
+                    content="", model=self.model, success=False, error=str(e),
+                    latency_ms=int((time.time() - start) * 1000),
+                )
         except Exception as e:
             resp = LLMResponse(
                 content="",
