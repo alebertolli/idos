@@ -398,23 +398,23 @@ jobs:
           lines.append(f':bookmark: {approved} approved por el board')
           lines.append(f':red_circle: {len(errors)} errores')
           lines.append('')
-           if assessments and isinstance(assessments, list):
-               lines.append('*Resultados:*')
-               for a in assessments:
-                   if not isinstance(a, dict):
-                       continue
-                   ticker = a.get('ticker', '?')
-                   conv = a.get('conviction_score', '?')
-                   rec = a.get('recommendation', '?')
-                   dec = a.get('decision_type', '?') if a.get('board_approved') else '-'
-                   lines.append(f'- {ticker}: conv={conv}/100, rec={rec}, dec={dec}')
-                   failed = a.get('rules_failed', [])
-                   details = a.get('rules_details', {})
-                   if failed:
-                       for rid in failed:
-                           d = details.get(rid, '')
-                           lines.append(f'  -> {rid}: {d}')
-               lines.append('')
+          if assessments and isinstance(assessments, list):
+              lines.append('*Resultados:*')
+              for a in assessments:
+                  if not isinstance(a, dict):
+                      continue
+                  ticker = a.get('ticker', '?')
+                  conv = a.get('conviction_score', '?')
+                  rec = a.get('recommendation', '?')
+                  dec = a.get('decision_type', '?') if a.get('board_approved') else '-'
+                  lines.append(f'- {ticker}: conv={conv}/100, rec={rec}, dec={dec}')
+                  failed = a.get('rules_failed', [])
+                  details = a.get('rules_details', {})
+                  if failed:
+                      for rid in failed:
+                          d = details.get(rid, '')
+                          lines.append(f'  -> {rid}: {d}')
+              lines.append('')
           lines.append('[Ver detalle completo en repositorio](https://github.com/alebertolli/idos/tree/main/idos-journal/companies)')
           telegram_msg = '\n'.join(lines)
 
@@ -451,13 +451,14 @@ jobs:
                       cv = a.get('conviction_score', '?')
                       rc = a.get('recommendation', '?')
                       ba = 'OK' if a.get('board_approved', False) else 'PENDING'
-                   body_lines.append(f'- {t}: conv={cv}/100 | rec={rc} | board={ba}')
-                   failed = a.get('rules_failed', [])
-                   details = a.get('rules_details', {})
-                   for rid in failed:
-                       d = details.get(rid, '')
-                       body_lines.append(f'    {rid}: {d}')
-                   body_lines.append('')
+                      body_lines.append(f'- {t}: conv={cv}/100 | rec={rc} | board={ba}')
+                      failed = a.get('rules_failed', [])
+                      details = a.get('rules_details', {})
+                      if failed:
+                          for rid in failed:
+                              d = details.get(rid, '')
+                              body_lines.append(f'    {rid}: {d}')
+                      body_lines.append('')
                   body_lines.append('Ver detalle completo:')
                   body_lines.append('https://github.com/alebertolli/idos/tree/main/idos-journal/companies')
                   email_body = chr(10).join(body_lines)
