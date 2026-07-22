@@ -1,8 +1,89 @@
 {
-  "processed": [],
-  "assessments": [],
+  "processed": [
+    {
+      "ticker": "HDB",
+      "opp_id": "OPP-20260721-001",
+      "status": "skipped",
+      "score": 0,
+      "classification": "",
+      "force": false,
+      "event_type": "monthly"
+    },
+    {
+      "ticker": "HL",
+      "opp_id": "OPP-20260721-002",
+      "status": "skipped",
+      "score": 0,
+      "classification": "",
+      "force": false,
+      "event_type": "monthly"
+    }
+  ],
+  "assessments": [
+    {
+      "ticker": "HDB",
+      "opp_id": "OPP-20260721-001",
+      "status": "completed",
+      "conviction_score": 50,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": "HOLD",
+      "decision_id": "DEC-20260721234107",
+      "assessments": {
+        "BusinessAssessmentEngine": 32,
+        "ValuationAssessmentEngine": 50,
+        "RecoveryAssessmentEngine": 43,
+        "RiskAssessmentEngine": 70,
+        "PortfolioAssessmentEngine": 90
+      },
+      "rules_passed": [
+        "RULE-004",
+        "RULE-006",
+        "RULE-007",
+        "RULE-008"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-002",
+        "RULE-003",
+        "RULE-005"
+      ],
+      "data_quality": "poor"
+    },
+    {
+      "ticker": "HL",
+      "opp_id": "OPP-20260721-002",
+      "status": "completed",
+      "conviction_score": 54,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": "HOLD",
+      "decision_id": "DEC-20260721234107",
+      "assessments": {
+        "BusinessAssessmentEngine": 68,
+        "ValuationAssessmentEngine": 50,
+        "RecoveryAssessmentEngine": 0,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 90
+      },
+      "rules_passed": [
+        "RULE-004",
+        "RULE-006",
+        "RULE-007",
+        "RULE-008"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-002",
+        "RULE-003",
+        "RULE-005"
+      ],
+      "data_quality": "good"
+    }
+  ],
   "errors": [],
-  "status": "none",
-  "event_type": "manual",
+  "total": 2,
+  "done": 2,
+  "event_type": "monthly",
   "force": false
 }
