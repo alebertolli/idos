@@ -18,9 +18,10 @@ class RebalanceWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        self.max_position_weight = config.get("max_position_weight", 3.0)
-        self.max_sector_exposure = config.get("max_sector_exposure", 25.0)
-        self.min_conviction_hold = config.get("min_conviction_hold", 50)
+        cfg = config or {}
+        self.max_position_weight = cfg.get("max_position_weight", 3.0)
+        self.max_sector_exposure = cfg.get("max_sector_exposure", 25.0)
+        self.min_conviction_hold = cfg.get("min_conviction_hold", 50)
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         base_path = context.get("base_path", "")
