@@ -148,7 +148,7 @@ class ResearchWorker(BaseWorker):
         with open(report_path, "w", encoding="utf-8") as f:
             yaml_lib.dump(ddd_report, f, default_flow_style=False, allow_unicode=True)
 
-        time.sleep(2)
+        time.sleep(15)
         hypothesis_result = self._run_prompt("hypothesis", ticker, {
             "ticker": ticker,
             "name": company.get("name", ticker),
@@ -158,7 +158,7 @@ class ResearchWorker(BaseWorker):
             "recent_events": financial_data.get("recent_events", ""),
         })
 
-        time.sleep(2)
+        time.sleep(15)
         aoif_result = self._run_prompt("aoif", ticker, {
             "ticker": ticker,
             "name": company.get("name", ticker),
@@ -337,6 +337,10 @@ class ResearchWorker(BaseWorker):
             import yfinance as yf
             tk = yf.Ticker(ticker)
             info = tk.info or {}
+            resolved = (info.get("symbol") or ticker).upper().strip()
+            if resolved != ticker:
+                print(f"[WARN] {ticker}: yfinance resolved to {resolved}, skipping enrich")
+                return company
             changed = False
             for k, src in [("sector", "sector"), ("industry", "industry"),
                            ("business_model", "longBusinessSummary")]:

@@ -144,7 +144,12 @@ class DataRefreshWorker(BaseWorker):
                 if existing.get("sector"):
                     return
             import yfinance as yf
-            info = yf.Ticker(ticker).info or {}
+            tk = yf.Ticker(ticker)
+            info = tk.info or {}
+            resolved = (info.get("symbol") or ticker).upper().strip()
+            if resolved != ticker:
+                print(f"[WARN] {ticker}: yfinance resolved to {resolved}, skipping yfinance company info")
+                return
             sector = info.get("sector", "")
             if not sector:
                 return

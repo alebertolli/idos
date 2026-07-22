@@ -266,7 +266,7 @@ jobs:
           from idos.timezone import AR_TZ
 
           processed = results.get('processed', [])
-          assessments = results.get('assessments', [])
+           assessments = results.get('assessments', [])
           errors = results.get('errors', [])
           total = results.get('total', 0)
 
@@ -284,7 +284,7 @@ jobs:
           lines.append(f'- :green_circle: **Oportunidades procesadas:** {len(processed)}')
           lines.append(f'- :white_check_mark: **Assessment completados:** {len(assessments)}')
 
-          approved = sum(1 for a in assessments if a.get('board_approved'))
+          approved = sum(1 for a in assessments if isinstance(a, dict) and a.get('board_approved'))
           lines.append(f'- :bookmark: **Approved:** {approved}')
 
           lines.append(f'- :red_circle: **Errores:** {len(errors)}')
@@ -295,16 +295,22 @@ jobs:
               lines.append('### STEP 2 - Research (DDD + AOIF + Hypothesis)')
               lines.append('')
               for p in processed:
+                  if not isinstance(p, dict):
+                      continue
                   status = ':white_check_mark:' if p.get('status') == 'completed' else ':warning:'
-                  lines.append(f'- {status} **{p[\"ticker\"]}** ({p[\"opp_id\"]}): score={p.get(\"score\", \"?\")}, class={p.get(\"classification\", \"?\")}')
+                  ticker = p.get('ticker', '?')
+                  opp_id = p.get('opp_id', '?')
+                  lines.append(f'- {status} **{ticker}** ({opp_id}): score={p.get("score", "?")}, class={p.get("classification", "?")}')
               lines.append('')
 
-          if assessments:
+          if assessments and isinstance(assessments, list):
               lines.append('### STEP 3-7 - Assessment Pipeline')
               lines.append('')
               for a in assessments:
-                  ticker = a['ticker']
-                  opp_id = a['opp_id']
+                  if not isinstance(a, dict):
+                      continue
+                  ticker = a.get('ticker', '?')
+                  opp_id = a.get('opp_id', '?')
                   conv = a.get('conviction_score', '?')
                   rec = a.get('recommendation', '?')
                   board_ok = a.get('board_approved', False)
@@ -363,7 +369,7 @@ jobs:
           assessments = results.get('assessments', [])
           errors = results.get('errors', [])
           total = results.get('total', 0)
-          approved = sum(1 for a in assessments if a.get('board_approved'))
+          approved = sum(1 for a in assessments if isinstance(a, dict) and a.get('board_approved'))
           event_type = results.get('event_type', 'monthly')
           force = results.get('force', False)
 
@@ -385,10 +391,12 @@ jobs:
           lines.append(f':bookmark: {approved} approved por el board')
           lines.append(f':red_circle: {len(errors)} errores')
           lines.append('')
-          if assessments:
+          if assessments and isinstance(assessments, list):
               lines.append('*Resultados:*')
               for a in assessments:
-                  ticker = a['ticker']
+                  if not isinstance(a, dict):
+                      continue
+                  ticker = a.get('ticker', '?')
                   conv = a.get('conviction_score', '?')
                   rec = a.get('recommendation', '?')
                   dec = a.get('decision_type', '?') if a.get('board_approved') else '-'
@@ -411,26 +419,35 @@ jobs:
           # Send Email
           smtp_host = os.environ.get('IDOS_SMTP_HOST', '')
           if smtp_host:
-              from idos.workers.notifications.email_notifier import EmailNotifier
-              body_lines = []
-              body_lines.append('IDOS DDD Pipeline Report')
-              body_lines.append('')
-              body_lines.append(f'Total opps: {total}')
-              body_lines.append(f'Research: {len(processed)}')
-              body_lines.append(f'Assessments: {len(assessments)}')
-              body_lines.append(f'Approved: {approved}')
-              body_lines.append(f'Errors: {len(errors)}')
-              body_lines.append('')
-              body_lines.append('Resultados:')
-              for a in assessments[:20]:
-                  body_lines.append(f'- {a["ticker"]}: conv={a.get(\"conviction_score\",\"?\")}/100 | {a.get(\"recommendation\",\"?\")} | board={\"OK\" if a.get(\"board_approved\") else \"PENDING\"}')
-              body_lines.append('')
-              body_lines.append('Ver detalle completo:')
-              body_lines.append('https://github.com/alebertolli/idos/tree/main/idos-journal/companies')
-              email_body = chr(10).join(body_lines)
-              e = EmailNotifier()
-              e.execute({'subject': 'IDOS DDD Pipeline Report', 'body': email_body})
-              print('[NOTIFY] Email sent')
+              try:
+                  from idos.workers.notifications.email_notifier import EmailNotifier
+                  body_lines = []
+                  body_lines.append('IDOS DDD Pipeline Report')
+                  body_lines.append('')
+                  body_lines.append(f'Total opps: {total}')
+                  body_lines.append(f'Research: {len(processed)}')
+                  body_lines.append(f'Assessments: {len(assessments)}')
+                  body_lines.append(f'Approved: {approved}')
+                  body_lines.append(f'Errors: {len(errors)}')
+                  body_lines.append('')
+                  body_lines.append('Resultados:')
+                  for a in (assessments if isinstance(assessments, list) else []):
+                      if not isinstance(a, dict):
+                          continue
+                      t = a.get('ticker', '?')
+                      cv = a.get('conviction_score', '?')
+                      rc = a.get('recommendation', '?')
+                      ba = a.get('board_approved', False)
+                      body_lines.append(f'- {t}: conv={cv}/100 | rec={rc} | board={"OK" if ba else "PENDING"}')
+                  body_lines.append('')
+                  body_lines.append('Ver detalle completo:')
+                  body_lines.append('https://github.com/alebertolli/idos/tree/main/idos-journal/companies')
+                  email_body = chr(10).join(body_lines)
+                  e = EmailNotifier()
+                  e.execute({'subject': 'IDOS DDD Pipeline Report', 'body': email_body})
+                  print('[NOTIFY] Email sent')
+              except Exception as email_err:
+                  print(f'[NOTIFY] Email error: {email_err}')
           else:
               print('[NOTIFY] Email not configured')
           "
