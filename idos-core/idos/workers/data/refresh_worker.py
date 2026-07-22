@@ -2,6 +2,7 @@ import re
 from pathlib import Path
 from typing import Any, Optional
 
+from idos.data.sqlite import SQLiteStore
 from idos.workers.base import BaseWorker
 from idos.workers.data.stockanalysis import StockAnalysisWorker
 from idos.workers.data.yahoo import YahooFinanceWorker
@@ -40,6 +41,7 @@ class DataRefreshWorker(BaseWorker):
                 results[ticker] = cached
                 continue
 
+            db = SQLiteStore(Path.cwd() / "idos.db")
             try:
                 source_data = {}
                 print(f"[REFRESH] {ticker}: fetching stockanalysis...", end=" ")
@@ -95,6 +97,27 @@ class DataRefreshWorker(BaseWorker):
                     (cache_dir / f"{ticker}.json").write_text(
                         json.dumps(merged if "merged_data" in validated else validated, default=str, indent=2), encoding="utf-8"
                     )
+                    last_date = db.get_last_price_date(ticker)
+                    yf_raw = source_data.get("yfinance", {})
+                    prices = yf_raw.get("price_history", [])
+                    dates = yf_raw.get("price_history_dates", [])
+                    volumes = yf_raw.get("volume_history", [])
+                    if prices and dates and len(prices) == len(dates):
+                        new_rows = []
+                        for i in range(len(prices)):
+                            d = dates[i]
+                            if last_date and d <= last_date:
+                                continue
+                            new_rows.append({
+                                "date": d,
+                                "close": prices[i],
+                                "volume": volumes[i] if i < len(volumes) else 0,
+                            })
+                        if new_rows:
+                            db.save_price_history(ticker, new_rows)
+                            print(f"[REFRESH] {ticker}: {len(new_rows)} nuevos registros en price_history")
+                    else:
+                        print(f"[REFRESH] {ticker}: sin price_history de yfinance")
                 else:
                     errors.append(f"{ticker}: no data from any source")
             except Exception as e:

@@ -86,6 +86,24 @@ class SQLiteStore:
                 timestamp TEXT NOT NULL
             );
         """)
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS price_history (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                ticker TEXT NOT NULL,
+                date TEXT NOT NULL,
+                open REAL DEFAULT 0,
+                high REAL DEFAULT 0,
+                low REAL DEFAULT 0,
+                close REAL DEFAULT 0,
+                volume REAL DEFAULT 0,
+                updated_at TEXT NOT NULL,
+                UNIQUE(ticker, date)
+            );
+        """)
+        c.execute("""
+            CREATE INDEX IF NOT EXISTS idx_price_history_ticker 
+            ON price_history(ticker, date DESC)
+        """)
         c.commit()
 
     def save_opportunity(self, opp: dict[str, Any]):
@@ -169,6 +187,50 @@ class SQLiteStore:
             VALUES (?, ?, ?, ?, ?)
         """, (event_type, json.dumps(data), source, correlation_id, datetime.now(AR_TZ).isoformat()))
         c.commit()
+
+    def save_price_history(self, ticker: str, rows: list[dict[str, Any]]):
+        c = self.conn
+        now = datetime.now(AR_TZ).isoformat()
+        for r in rows:
+            date_str = r.get("date", "")
+            if not date_str:
+                continue
+            c.execute("""
+                INSERT OR REPLACE INTO price_history (ticker, date, open, high, low, close, volume, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                ticker.upper(), date_str,
+                r.get("open", 0), r.get("high", 0),
+                r.get("low", 0), r.get("close", 0),
+                r.get("volume", 0), now,
+            ))
+        c.commit()
+
+    def get_price_history(self, ticker: str, limit: int = 365) -> list[dict[str, Any]]:
+        c = self.conn
+        rows = c.execute("""
+            SELECT date, open, high, low, close, volume
+            FROM price_history
+            WHERE ticker = ?
+            ORDER BY date DESC
+            LIMIT ?
+        """, (ticker.upper(), limit))
+        results = []
+        for row in rows.fetchall():
+            r = dict(row)
+            if r.get("close"):
+                results.append(r)
+        results.reverse()
+        return results
+
+    def get_last_price_date(self, ticker: str) -> str | None:
+        c = self.conn
+        row = c.execute("""
+            SELECT date FROM price_history
+            WHERE ticker = ?
+            ORDER BY date DESC LIMIT 1
+        """, (ticker.upper(),)).fetchone()
+        return row["date"] if row else None
 
     def close(self):
         if self._conn:

@@ -1,0 +1,95 @@
+name: Monthly Rebalance
+
+on:
+  schedule:
+    - cron: "0 6 3 * *"  # 3er dia de cada mes a las 06:00 (tras universe + DDD)
+  workflow_dispatch:
+
+jobs:
+  rebalance:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
+      IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+      - name: Run Rebalance
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.workers.portfolio.rebalance_worker import RebalanceWorker
+          w = RebalanceWorker()
+          result = w.execute({'base_path': os.environ.get('GITHUB_WORKSPACE', '.')})
+          r = result.output if hasattr(result, 'output') else result
+          print(f'[REBALANCE] Estado: {r.get(\"status\", \"?\")}')
+          print(f'[REBALANCE] Posiciones revisadas: {r.get(\"positions_reviewed\", 0)}')
+          print(f'[REBALANCE] Propuestas de rebalanceo: {r.get(\"rebalance_proposals\", 0)}')
+          proposals = r.get('details', [])
+          for p in proposals:
+              print(f'  {p[\"ticker\"]}: {p[\"new_status\"]} — {\"; \".join(p[\"actions\"])}')
+          Path('cache').mkdir(parents=True, exist_ok=True)
+          Path('cache/rebalance_result.json').write_text(json.dumps(r, indent=2), encoding='utf-8')
+          "
+      - name: Commit results
+        run: |
+          git config user.name "idos-bot"
+          git config user.email "bot@idos.local"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: monthly rebalance $(date +%Y-%m-%d)"
+            git push
+          fi
+      - name: Notify
+        if: always()
+        run: |
+          python -c "
+          import os, json
+          from pathlib import Path
+          result_file = Path('cache/rebalance_result.json')
+          if not result_file.exists():
+              exit(0)
+          r = json.loads(result_file.read_text(encoding='utf-8'))
+          proposals = r.get('details', [])
+          lines = ['*IDOS Monthly Rebalance*']
+          lines.append('')
+          lines.append(f'Posiciones revisadas: {r.get(\"positions_reviewed\", 0)}')
+          lines.append(f'Propuestas: {r.get(\"rebalance_proposals\", 0)}')
+          if proposals:
+              lines.append('')
+              lines.append('*Acciones:*')
+              for p in proposals:
+                  lines.append(f'- {p[\"ticker\"]}: {p[\"new_status\"]}')
+          token = os.environ.get('IDOS_TELEGRAM_BOT_TOKEN')
+          chat = os.environ.get('IDOS_TELEGRAM_CHAT_ID')
+          if token and chat:
+              from idos.workers.notifications.telegram import TelegramNotifier
+              t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
+              t.execute({'message': chr(10).join(lines)})
+              print('[NOTIFY] Telegram sent')
+          "
+      - name: Notify on failure
+        if: failure()
+        run: |
+          python -c "
+          import os
+          token = os.environ.get('IDOS_TELEGRAM_BOT_TOKEN')
+          chat = os.environ.get('IDOS_TELEGRAM_CHAT_ID')
+          if token and chat:
+              from idos.workers.notifications.telegram import TelegramNotifier
+              t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
+              t.execute({'message': '🚨 *IDOS Alert*: Monthly Rebalance workflow FAILED'})
+          "

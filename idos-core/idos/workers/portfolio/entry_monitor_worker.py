@@ -106,24 +106,48 @@ class EntryMonitorWorker(BaseWorker):
     def _build_entry_context(self, ticker: str, opp: dict[str, Any],
                               sqlite: SQLiteStore, journal: JournalRepository) -> dict[str, Any]:
         import json
+        from pathlib import Path
+
         price_data: list[dict[str, Any]] = []
-        for row in sqlite.conn.execute(
-            "SELECT data_json FROM events_log WHERE event_type LIKE ? ORDER BY timestamp DESC LIMIT 1",
-            (f"%{ticker}%",),
-        ):
-            try:
-                data = json.loads(row[0])
-                yf = data.get("yfinance", {})
-                prices = yf.get("price_history", [])
-                volumes = yf.get("volume_history", [])
-                if prices and volumes:
-                    min_len = min(len(prices), len(volumes))
-                    price_data = [
-                        {"close": prices[i], "volume": volumes[i]}
-                        for i in range(min_len)
-                    ]
-            except (json.JSONDecodeError, IndexError, TypeError):
-                pass
+
+        db_rows = sqlite.get_price_history(ticker, limit=365)
+        if db_rows:
+            price_data = [
+                {"close": r["close"], "volume": r.get("volume", 0)}
+                for r in db_rows if r.get("close")
+            ]
+            print(f"[ENTRY] {ticker}: {len(price_data)} registros desde price_history")
+
+        if not price_data:
+            cache_path = Path("cache") / f"{ticker}.json"
+            if cache_path.exists():
+                try:
+                    raw = json.loads(cache_path.read_text(encoding="utf-8"))
+                    if isinstance(raw, dict):
+                        prices = raw.get("price_history", [])
+                        volumes = raw.get("volume_history", [])
+                        dates = raw.get("price_history_dates", [])
+                        if not prices and "yfinance" in raw:
+                            prices = raw["yfinance"].get("price_history", [])
+                            volumes = raw["yfinance"].get("volume_history", [])
+                            dates = raw["yfinance"].get("price_history_dates", [])
+                        if not prices:
+                            merged = raw.get("merged_data", {})
+                            prices = merged.get("price_history", [])
+                            volumes = merged.get("volume_history", [])
+                            dates = merged.get("price_history_dates", [])
+                        if prices and volumes:
+                            min_len = min(len(prices), len(volumes))
+                            price_data = [
+                                {"close": prices[i], "volume": volumes[i]}
+                                for i in range(min_len)
+                            ]
+                            print(f"[ENTRY] {ticker}: {len(price_data)} registros desde cache/{ticker}.json")
+                except Exception as e:
+                    print(f"[ENTRY] {ticker}: error leyendo cache: {e}")
+
+        if not price_data:
+            print(f"[ENTRY] {ticker}: sin datos de precio disponibles (ni SQLite ni cache)")
 
         conviction = opp.get("conviction", {})
         return {

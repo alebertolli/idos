@@ -93,6 +93,101 @@ jobs:
               print('[EARNINGS] No tickers to trigger today')
           "
 
+      - name: Entry Monitor - Check Buy List
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
+          buylist_path = bp / 'idos-journal' / 'portfolio' / 'buylist.yml'
+          if not buylist_path.exists():
+              print('[ENTRY] No Buy List found')
+              exit(0)
+          import yaml
+          data = yaml.safe_load(buylist_path.read_text(encoding='utf-8')) or {}
+          entries = [e for e in data.get('entries', []) if e.get('monitoring', True)]
+          print(f'[ENTRY] Monitoreando {len(entries)} oportunidades en Buy List')
+          for e in entries:
+              ticker = e['ticker']
+              opp_id = e.get('opp_id', '')
+              if not opp_id:
+                  print(f'[ENTRY] {ticker}: sin opp_id, skip')
+                  continue
+              from idos.workers.portfolio.entry_monitor_worker import EntryMonitorWorker
+              w = EntryMonitorWorker()
+              result = w.execute({'ticker': ticker, 'opp_id': opp_id, 'base_path': str(bp)})
+              r = result.output if hasattr(result, 'output') else result
+              if r.get('entry_executed'):
+                  print(f'[ENTRY] {ticker}: CONDICIONES CUMPLIDAS - Ejecutando entrada!')
+              else:
+                  print(f'[ENTRY] {ticker}: {r.get(\"reason\", \"esperando condiciones\")}')
+          "
+      - name: Risk Monitor - Daily stop-loss check
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.workers.portfolio.rebalance_worker import RiskMonitorWorker
+          w = RiskMonitorWorker()
+          result = w.execute({'base_path': os.environ.get('GITHUB_WORKSPACE', '.')})
+          r = result.output if hasattr(result, 'output') else result
+          alerts = r.get('alerts', [])
+          if alerts:
+              print(f'[RISK] {len(alerts)} alertas generadas:')
+              for a in alerts:
+                  print(f'  [{a[\"severity\"]}] {a[\"ticker\"]}: {a[\"message\"]}')
+          else:
+              print(f'[RISK] {r.get(\"positions_checked\", 0)} posiciones revisadas, sin alertas')
+          "
+      - name: Post-Mortem - Check exited opportunities
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.data.sqlite import SQLiteStore
+          from idos.data.journal import JournalRepository
+          from idos.models.enums import OpportunityStatus
+          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
+          sqlite = SQLiteStore(bp / 'idos.db')
+          journal = JournalRepository(bp / 'idos-journal')
+
+          exited = sqlite.list_opportunities(status=OpportunityStatus.EXITED.value)
+          if not exited:
+              print('[POSTMORTEM] No hay oportunidades EXITED pendientes')
+              exit(0)
+
+          print(f'[POSTMORTEM] {len(exited)} oportunidades EXITED encontradas')
+          for opp in exited:
+              ticker = opp['ticker']
+              opp_id = opp['id']
+              pm_dir = journal.opportunity_path(ticker, opp_id) / 'post_mortem'
+              if pm_dir.exists() and list(pm_dir.iterdir()):
+                  print(f'[POSTMORTEM] {ticker} ({opp_id}): post-mortem ya existe, skip')
+                  continue
+              print(f'[POSTMORTEM] {ticker} ({opp_id}): generando post-mortem...')
+              from idos.workers.learning.post_mortem_worker import PostMortemWorker
+              w = PostMortemWorker({
+                  'provider': 'google',
+                  'api_key': os.environ.get('GEMINI_API_KEY', ''),
+                  'model': 'gemini-2.0-flash',
+                  'prompts_path': 'idos-config/prompts',
+              })
+              result = w.execute({
+                  'ticker': ticker,
+                  'opp_id': opp_id,
+                  'base_path': str(bp),
+                  'exit_reason': opp.get('exit_reason', 'unknown'),
+              })
+              r = result.output if hasattr(result, 'output') else result
+              status = r.get('status', 'failed')
+              print(f'[POSTMORTEM] {ticker} ({opp_id}): {status}' + (f' — {r.get(\"pm_id\", \"\")}' if status == 'completed' else ''))
+          "
       - name: Dispatch quarterly-results events
         run: |
           if [ ! -f cache/earnings_trigger.json ]; then
