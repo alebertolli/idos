@@ -14,9 +14,6 @@ llm:
       model: gpt-4o
       fallback: gpt-4o-mini
   fallback_order:
-    - provider: openrouter
-      model: meta-llama/llama-3.3-70b-instruct:free
-      fallback_model: google/gemma-4-31b-it:free
     - provider: groq
       model: llama-3.3-70b-versatile
       fallback_model: llama-3.1-8b-instant
