@@ -155,7 +155,6 @@ jobs:
                   _fb_list = _llm_cfg.get('fallback_order', [])
                   worker = ResearchWorker({
                       'provider': _provider,
-                      'api_key': os.environ.get('OPENROUTER_API_KEY', ''),
                       'model': _model,
                       'fallback_model': _fallback,
                       'fallback_providers': _fb_list,

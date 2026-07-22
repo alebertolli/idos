@@ -1,3 +1,4 @@
+import time
 from datetime import datetime
 from typing import Any
 from uuid import uuid4
@@ -142,6 +143,7 @@ class ResearchWorker(BaseWorker):
         with open(report_path, "w", encoding="utf-8") as f:
             yaml_lib.dump(ddd_report, f, default_flow_style=False, allow_unicode=True)
 
+        time.sleep(2)
         hypothesis_result = self._run_prompt("hypothesis", ticker, {
             "ticker": ticker,
             "name": company.get("name", ticker),
@@ -151,6 +153,7 @@ class ResearchWorker(BaseWorker):
             "recent_events": financial_data.get("recent_events", ""),
         })
 
+        time.sleep(2)
         aoif_result = self._run_prompt("aoif", ticker, {
             "ticker": ticker,
             "name": company.get("name", ticker),

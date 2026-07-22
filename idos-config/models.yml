@@ -1,22 +1,22 @@
 llm:
-  default_provider: openrouter
+  default_provider: groq
   providers:
-    openrouter:
-      model: meta-llama/llama-3.3-70b-instruct:free
-      fallback: google/gemma-4-31b-it:free
     groq:
       model: llama-3.3-70b-versatile
       fallback: llama-3.1-8b-instant
     gemini:
       model: gemini-2.0-flash
       fallback: gemini-2.0-flash-lite
+    openrouter:
+      model: google/gemma-4-31b-it:free
+      fallback: openrouter/free
     openai:
       model: gpt-4o
       fallback: gpt-4o-mini
   fallback_order:
-    - provider: groq
-      model: llama-3.3-70b-versatile
-      fallback_model: llama-3.1-8b-instant
+    - provider: openrouter
+      model: google/gemma-4-31b-it:free
+      fallback_model: openrouter/free
     - provider: gemini
       model: gemini-2.0-flash
       fallback_model: gemini-2.0-flash-lite
