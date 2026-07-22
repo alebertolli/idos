@@ -324,15 +324,15 @@ jobs:
                   lines.append(f'  - Opp: [{opp_id}]({link})')
                   lines.append(f'  - Conviction: {conv}/100 | Rec: {rec}' + (f' | Dec: {dec_type}' if board_ok else ''))
                   if scores:
-                       lines.append(f'  - Scores: {scores}')
+                      lines.append(f'  - Scores: {scores}')
                   failed = a.get('rules_failed', [])
                   details = a.get('rules_details', {})
                   if failed:
-                       lines.append(f'  - Rules BLOCKED:')
-                       for rid in failed:
-                           d = details.get(rid, '')
-                           lines.append(f'    - :no_entry: {rid}: {d}')
-               lines.append('')
+                      lines.append(f'  - Rules BLOCKED:')
+                      for rid in failed:
+                          d = details.get(rid, '')
+                          lines.append(f'    - :no_entry: {rid}: {d}')
+              lines.append('')
 
           if errors:
               lines.append('### Errores')
