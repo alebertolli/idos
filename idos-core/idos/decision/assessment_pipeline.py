@@ -448,6 +448,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "assessments": {k: v.score for k, v in proposal.assessments.items()},
         "rules_passed": proposal.rules_passed,
         "rules_failed": proposal.rules_failed,
+        "rules_details": proposal.rules_details,
         "data_quality": _data_quality,
     }
 

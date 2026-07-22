@@ -25,6 +25,7 @@ class DecisionProposal:
     rules_failed: list[str]
     conviction_score: int
     recommendation: str
+    rules_details: dict[str, str] = field(default_factory=dict)
     reasoning: str = ""
     created_at: str = ""
 
@@ -51,7 +52,7 @@ class DecisionOrchestrator:
 
         assessments = self._run_assessments(context)
         conv = self.conviction_calc.calculate(assessments)
-        rules_passed, rules_failed = self._evaluate_rules(context, assessments, conv)
+        rules_passed, rules_failed, rules_details = self._evaluate_rules(context, assessments, conv)
 
         if rules_failed:
             recommendation = "BLOCKED"
@@ -73,6 +74,7 @@ class DecisionOrchestrator:
             rules_failed=rules_failed,
             conviction_score=conv.overall,
             recommendation=recommendation,
+            rules_details=rules_details,
             reasoning=reasoning,
         )
 
@@ -129,15 +131,16 @@ class DecisionOrchestrator:
 
     def _evaluate_rules(self, context: dict[str, Any],
                         assessments: dict[str, AssessmentResult],
-                        conviction: Any) -> tuple[list[str], list[str]]:
+                        conviction: Any) -> tuple[list[str], list[str], dict[str, str]]:
         if not self.rules_engine:
-            return [], []
+            return [], [], {}
         ctx = {**context, "assessments": {k: v.score for k, v in assessments.items()},
                "conviction": {"overall": conviction.overall}}
-        passed, failed = [], []
+        passed, failed, details = [], [], {}
         for result in self.rules_engine.evaluate_all(ctx):
             if result.passed:
                 passed.append(result.rule_id)
             else:
                 failed.append(result.rule_id)
-        return passed, failed
+            details[result.rule_id] = result.details
+        return passed, failed, details
