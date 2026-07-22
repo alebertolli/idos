@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-22 01:53 AR_
+_Generado: 2026-07-22 02:04 AR_
 
 ## Resumen
 
@@ -12,7 +12,7 @@ _Generado: 2026-07-22 01:53 AR_
 
 ### Errores
 
-- :x: **B**: ' métrica, valor_esperado, unidad '
+- :x: **B**: cannot access local variable 'ddd_empty' where it is not associated with a value
 
 ---
 
