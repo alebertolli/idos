@@ -362,18 +362,14 @@ class LLMClient:
         if result is not None:
             return result
 
+        import re
         cleaned = content.strip()
-        if cleaned.startswith("```"):
-            for line in cleaned.split("\n"):
-                if line.strip().startswith("{"):
-                    cleaned = line.strip()
-                    break
-            else:
-                cleaned = cleaned.replace("```json", "").replace("```", "").strip()
+        cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned)
+        cleaned = re.sub(r"\s*```$", "", cleaned)
+        cleaned = cleaned.strip()
         try:
             return json.loads(cleaned)
         except json.JSONDecodeError:
-            import re
             match = re.search(r"\{.*\}", cleaned, re.DOTALL)
             if match:
                 try:
