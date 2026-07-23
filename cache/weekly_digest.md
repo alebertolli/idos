@@ -1,21 +1,100 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-22 23:36 AR_
+_Generado: 2026-07-23 00:10 AR_
 
 ## Resumen
 
-- :green_circle: **Oportunidades procesadas:** 1
-- :white_check_mark: **Assessment completados:** 1
+- :green_circle: **Oportunidades procesadas:** 46
+- :white_check_mark: **Assessment completados:** 46
 - :bookmark: **Approved:** 0
 - :red_circle: **Errores:** 0
-- :bar_chart: **Total encontradas:** 1
+- :bar_chart: **Total encontradas:** 46
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- :white_check_mark: **ASML** (OPP-20260720-028): score=80, class=compounder
+- :warning: **ABNB** (OPP-20260720-030): score=0, class=
+- :warning: **ADBE** (OPP-20260720-011): score=0, class=
+- :warning: **AEM** (OPP-20260720-007): score=0, class=
+- :warning: **ANF** (OPP-20260720-019): score=0, class=
+- :warning: **ASML** (OPP-20260720-028): score=0, class=
+- :warning: **AXP** (OPP-20260720-029): score=0, class=
+- :warning: **B** (OPP-20260720-004): score=0, class=
+- :warning: **BCS** (OPP-20260720-032): score=0, class=
+- :warning: **BKNG** (OPP-20260720-022): score=0, class=
+- :warning: **C** (OPP-20260720-038): score=0, class=
+- :warning: **CCL** (OPP-20260720-023): score=0, class=
+- :warning: **CDE** (OPP-20260720-017): score=0, class=
+- :warning: **DECK** (OPP-20260720-012): score=0, class=
+- :warning: **FSLR** (OPP-20260720-006): score=0, class=
+- :warning: **GFI** (OPP-20260720-001): score=0, class=
+- :warning: **GOOGL** (OPP-20260720-024): score=0, class=
+- :warning: **HDB** (OPP-20260721-001): score=0, class=
+- :warning: **HL** (OPP-20260721-002): score=0, class=
+- :warning: **HMY** (OPP-20260720-010): score=0, class=
+- :warning: **ING** (OPP-20260720-027): score=0, class=
+- :warning: **ISRG** (OPP-20260720-035): score=0, class=
+- :warning: **ITUB** (OPP-20260720-041): score=0, class=
+- :warning: **JPM** (OPP-20260720-034): score=0, class=
+- :warning: **KGC** (OPP-20260720-003): score=0, class=
+- :warning: **LVS** (OPP-20260720-021): score=0, class=
+- :warning: **LYG** (OPP-20260720-037): score=0, class=
+- :warning: **META** (OPP-20260720-016): score=0, class=
+- :warning: **MSFT** (OPP-20260720-018): score=0, class=
+- :warning: **NEM** (OPP-20260720-009): score=0, class=
+- :warning: **NFLX** (OPP-20260720-043): score=0, class=
+- :warning: **NVDA** (OPP-20260720-044): score=0, class=
+- :warning: **PAAS** (OPP-20260720-002): score=0, class=
+- :warning: **PDD** (OPP-20260720-005): score=0, class=
+- :warning: **PLTR** (OPP-20260720-042): score=0, class=
+- :warning: **SAN** (OPP-20260720-033): score=0, class=
+- :warning: **SAP** (OPP-20260720-013): score=0, class=
+- :warning: **SBS** (OPP-20260720-014): score=0, class=
+- :warning: **SCCO** (OPP-20260720-025): score=0, class=
+- :warning: **SHOP** (OPP-20260720-031): score=0, class=
+- :warning: **SPGI** (OPP-20260720-026): score=0, class=
+- :warning: **TCOM** (OPP-20260720-008): score=0, class=
+- :warning: **TSM** (OPP-20260720-015): score=0, class=
+- :warning: **UBER** (OPP-20260720-039): score=0, class=
+- :warning: **USB** (OPP-20260720-036): score=0, class=
+- :warning: **VRTX** (OPP-20260720-020): score=0, class=
+- :warning: **WFC** (OPP-20260720-040): score=0, class=
 
 ### STEP 3-7 - Assessment Pipeline
 
+- :warning: **ABNB**
+  - Opp: [OPP-20260720-030](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ABNB/case_file/opportunities/OPP-20260720-030)
+  - Conviction: 64/100 | Rec: BLOCKED
+  - Scores: Business: 63 | Valuation: 60 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 63/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-005: Conviction: 64/100
+- :warning: **ADBE**
+  - Opp: [OPP-20260720-011](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ADBE/case_file/opportunities/OPP-20260720-011)
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 60 | Recovery: 50 | Risk: 60 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 68/100
+    - :no_entry: RULE-003: Rerating: 50/100
+    - :no_entry: RULE-005: Conviction: 63/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **AEM**
+  - Opp: [OPP-20260720-007](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AEM/case_file/opportunities/OPP-20260720-007)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 68/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **ANF**
+  - Opp: [OPP-20260720-019](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ANF/case_file/opportunities/OPP-20260720-019)
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Scores: Business: 60 | Valuation: 60 | Recovery: 50 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 60/100
+    - :no_entry: RULE-003: Rerating: 50/100
+    - :no_entry: RULE-005: Conviction: 62/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
 - :warning: **ASML**
   - Opp: [OPP-20260720-028](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ASML/case_file/opportunities/OPP-20260720-028)
   - Conviction: 67/100 | Rec: BLOCKED
@@ -23,6 +102,363 @@ _Generado: 2026-07-22 23:36 AR_
   - Rules BLOCKED:
     - :no_entry: RULE-002: Valuation: 50/100
     - :no_entry: RULE-003: Rerating: 52/100
+- :warning: **AXP**
+  - Opp: [OPP-20260720-029](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AXP/case_file/opportunities/OPP-20260720-029)
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 60 | Recovery: 49 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 58/100
+    - :no_entry: RULE-003: Rerating: 49/100
+    - :no_entry: RULE-005: Conviction: 63/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **B**
+  - Opp: [OPP-20260720-004](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/B/case_file/opportunities/OPP-20260720-004)
+  - Conviction: 68/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-003: Rerating: 52/100
+- :warning: **BCS**
+  - Opp: [OPP-20260720-032](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/BCS/case_file/opportunities/OPP-20260720-032)
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 50 | Recovery: 47 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 58/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 47/100
+    - :no_entry: RULE-005: Conviction: 59/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **BKNG**
+  - Opp: [OPP-20260720-022](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/BKNG/case_file/opportunities/OPP-20260720-022)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 68/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **C**
+  - Opp: [OPP-20260720-038](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/C/case_file/opportunities/OPP-20260720-038)
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 76 | Valuation: 50 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **CCL**
+  - Opp: [OPP-20260720-023](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/CCL/case_file/opportunities/OPP-20260720-023)
+  - Conviction: 60/100 | Rec: BLOCKED
+  - Scores: Business: 54 | Valuation: 60 | Recovery: 49 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 54/100
+    - :no_entry: RULE-003: Rerating: 49/100
+    - :no_entry: RULE-005: Conviction: 60/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **CDE**
+  - Opp: [OPP-20260720-017](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/CDE/case_file/opportunities/OPP-20260720-017)
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Scores: Business: 66 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 66/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **DECK**
+  - Opp: [OPP-20260720-012](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/DECK/case_file/opportunities/OPP-20260720-012)
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Scores: Business: 64 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 64/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **FSLR**
+  - Opp: [OPP-20260720-006](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/FSLR/case_file/opportunities/OPP-20260720-006)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 68/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **GFI**
+  - Opp: [OPP-20260720-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/GFI/case_file/opportunities/OPP-20260720-001)
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 60 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **GOOGL**
+  - Opp: [OPP-20260720-024](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/GOOGL/case_file/opportunities/OPP-20260720-024)
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 50 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **HDB**
+  - Opp: [OPP-20260721-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/HDB/case_file/opportunities/OPP-20260721-001)
+  - Conviction: 60/100 | Rec: BLOCKED
+  - Scores: Business: 62 | Valuation: 50 | Recovery: 47 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 62/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 47/100
+    - :no_entry: RULE-005: Conviction: 60/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **HL**
+  - Opp: [OPP-20260721-002](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/HL/case_file/opportunities/OPP-20260721-002)
+  - Conviction: 64/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 50 | Recovery: 50 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 68/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 50/100
+    - :no_entry: RULE-005: Conviction: 64/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **HMY**
+  - Opp: [OPP-20260720-010](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/HMY/case_file/opportunities/OPP-20260720-010)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 60 | Recovery: 54 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-003: Rerating: 54/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **ING**
+  - Opp: [OPP-20260720-027](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ING/case_file/opportunities/OPP-20260720-027)
+  - Conviction: 61/100 | Rec: BLOCKED
+  - Scores: Business: 63 | Valuation: 50 | Recovery: 50 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 63/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 50/100
+    - :no_entry: RULE-005: Conviction: 61/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **ISRG**
+  - Opp: [OPP-20260720-035](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ISRG/case_file/opportunities/OPP-20260720-035)
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 50 | Recovery: 50 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 50/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **ITUB**
+  - Opp: [OPP-20260720-041](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ITUB/case_file/opportunities/OPP-20260720-041)
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 50 | Recovery: 50 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 68/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 50/100
+    - :no_entry: RULE-005: Conviction: 62/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **JPM**
+  - Opp: [OPP-20260720-034](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/JPM/case_file/opportunities/OPP-20260720-034)
+  - Conviction: 61/100 | Rec: BLOCKED
+  - Scores: Business: 63 | Valuation: 50 | Recovery: 50 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 63/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 50/100
+    - :no_entry: RULE-005: Conviction: 61/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **KGC**
+  - Opp: [OPP-20260720-003](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/KGC/case_file/opportunities/OPP-20260720-003)
+  - Conviction: 68/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **LVS**
+  - Opp: [OPP-20260720-021](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/LVS/case_file/opportunities/OPP-20260720-021)
+  - Conviction: 64/100 | Rec: BLOCKED
+  - Scores: Business: 64 | Valuation: 60 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 64/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-005: Conviction: 64/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **LYG**
+  - Opp: [OPP-20260720-037](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/LYG/case_file/opportunities/OPP-20260720-037)
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 50 | Recovery: 47 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 58/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 47/100
+    - :no_entry: RULE-005: Conviction: 59/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **META**
+  - Opp: [OPP-20260720-016](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/META/case_file/opportunities/OPP-20260720-016)
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 76 | Valuation: 50 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **MSFT**
+  - Opp: [OPP-20260720-018](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MSFT/case_file/opportunities/OPP-20260720-018)
+  - Conviction: 64/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 50 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-005: Conviction: 64/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **NEM**
+  - Opp: [OPP-20260720-009](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/NEM/case_file/opportunities/OPP-20260720-009)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 68/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **NFLX**
+  - Opp: [OPP-20260720-043](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/NFLX/case_file/opportunities/OPP-20260720-043)
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 50 | Recovery: 48 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 48/100
+    - :no_entry: RULE-005: Conviction: 63/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **NVDA**
+  - Opp: [OPP-20260720-044](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/NVDA/case_file/opportunities/OPP-20260720-044)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 76 | Valuation: 50 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **PAAS**
+  - Opp: [OPP-20260720-002](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/PAAS/case_file/opportunities/OPP-20260720-002)
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Scores: Business: 67 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 67/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **PDD**
+  - Opp: [OPP-20260720-005](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/PDD/case_file/opportunities/OPP-20260720-005)
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 63 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 63/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **PLTR**
+  - Opp: [OPP-20260720-042](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/PLTR/case_file/opportunities/OPP-20260720-042)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 76 | Valuation: 50 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **SAN**
+  - Opp: [OPP-20260720-033](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/SAN/case_file/opportunities/OPP-20260720-033)
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 50 | Recovery: 47 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 58/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 47/100
+    - :no_entry: RULE-005: Conviction: 59/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **SAP**
+  - Opp: [OPP-20260720-013](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/SAP/case_file/opportunities/OPP-20260720-013)
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Scores: Business: 67 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 67/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **SBS**
+  - Opp: [OPP-20260720-014](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/SBS/case_file/opportunities/OPP-20260720-014)
+  - Conviction: 58/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 40 | Recovery: 47 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 58/100
+    - :no_entry: RULE-002: Valuation: 40/100
+    - :no_entry: RULE-003: Rerating: 47/100
+    - :no_entry: RULE-005: Conviction: 58/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **SCCO**
+  - Opp: [OPP-20260720-025](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/SCCO/case_file/opportunities/OPP-20260720-025)
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 50 | Recovery: 48 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 68/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 48/100
+    - :no_entry: RULE-005: Conviction: 62/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **SHOP**
+  - Opp: [OPP-20260720-031](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/SHOP/case_file/opportunities/OPP-20260720-031)
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 50 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **SPGI**
+  - Opp: [OPP-20260720-026](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/SPGI/case_file/opportunities/OPP-20260720-026)
+  - Conviction: 57/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 50 | Recovery: 47 | Risk: 60 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 58/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 47/100
+    - :no_entry: RULE-005: Conviction: 57/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **TCOM**
+  - Opp: [OPP-20260720-008](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/TCOM/case_file/opportunities/OPP-20260720-008)
+  - Conviction: 60/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 50 | Recovery: 47 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 58/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 47/100
+    - :no_entry: RULE-005: Conviction: 60/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **TSM**
+  - Opp: [OPP-20260720-015](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/TSM/case_file/opportunities/OPP-20260720-015)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 76 | Valuation: 50 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **UBER**
+  - Opp: [OPP-20260720-039](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/UBER/case_file/opportunities/OPP-20260720-039)
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 59 | Valuation: 60 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 59/100
+    - :no_entry: RULE-003: Rerating: 52/100
+    - :no_entry: RULE-005: Conviction: 63/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **USB**
+  - Opp: [OPP-20260720-036](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/USB/case_file/opportunities/OPP-20260720-036)
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 50 | Recovery: 47 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 58/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 47/100
+    - :no_entry: RULE-005: Conviction: 59/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **VRTX**
+  - Opp: [OPP-20260720-020](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/VRTX/case_file/opportunities/OPP-20260720-020)
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 50 | Recovery: 50 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 50/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
+- :warning: **WFC**
+  - Opp: [OPP-20260720-040](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/WFC/case_file/opportunities/OPP-20260720-040)
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 50 | Recovery: 47 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - :no_entry: RULE-001: Business quality: 58/100
+    - :no_entry: RULE-002: Valuation: 50/100
+    - :no_entry: RULE-003: Rerating: 47/100
+    - :no_entry: RULE-005: Conviction: 59/100
+    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
 
 ---
 
