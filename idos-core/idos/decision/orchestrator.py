@@ -58,7 +58,7 @@ class DecisionOrchestrator:
             recommendation = "BLOCKED"
             reasoning = f"Rules blocked: {', '.join(rules_failed)}"
         else:
-            if conv.overall >= 75:
+            if conv.overall >= 70:
                 recommendation = "APPROVE"
             elif conv.overall >= 50:
                 recommendation = "PENDING_REVIEW"

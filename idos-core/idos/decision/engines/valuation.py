@@ -4,13 +4,24 @@ from idos.decision.engines.base import BaseAssessmentEngine, AssessmentResult
 
 class ValuationAssessmentEngine(BaseAssessmentEngine):
     name = "ValuationAssessmentEngine"
-    version = "1.0"
+    version = "1.1"
 
     def evaluate(self, context: dict[str, Any]) -> AssessmentResult:
         metrics = context.get("knowledge_base", {}).get("dynamic", {}).get("metrics", {})
         score = 50
         findings = []
         risks = []
+
+        price_margin = context.get("price_margin", 0)
+        if price_margin > 30:
+            score += 15
+            findings.append({"type": "POSITIVE", "detail": f"Price target upside: {price_margin:.1f}%"})
+        elif price_margin > 20:
+            score += 10
+            findings.append({"type": "POSITIVE", "detail": f"Price target upside: {price_margin:.1f}%"})
+        elif price_margin < 0:
+            score -= 10
+            risks.append({"type": "VALUATION", "detail": f"Price target below current: {price_margin:.1f}%"})
 
         pe_current = metrics.get("pe_ratio", 0)
         pe_historical = metrics.get("pe_historical_avg", 0)
