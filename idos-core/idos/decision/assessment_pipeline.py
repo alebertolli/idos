@@ -152,6 +152,17 @@ def build_context(
         cv = opp.get("conviction", {}) or {}
         margin_of_safety = cv.get("margin_of_safety", 20.0)
 
+    opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
+    ddd_report_path = opp_dir / "ddd_report.yml"
+    thesis_active = False
+    if ddd_report_path.exists():
+        try:
+            report = yaml.safe_load(ddd_report_path.read_text(encoding="utf-8"))
+            if report and report.get("tesis_inversion"):
+                thesis_active = True
+        except Exception:
+            pass
+
     return {
         "knowledge_base": {"dynamic": {"metrics": metrics}, "static": static},
         "portfolio": portfolio,
@@ -164,6 +175,7 @@ def build_context(
         "opportunity_id": opp_id,
         "ticker": ticker,
         "force_relevance": True,
+        "thesis_active": thesis_active,
     }
 
 

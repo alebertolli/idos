@@ -1,0 +1,189 @@
+name: Board Review
+
+on:
+  schedule:
+    - cron: "0 6 4 * *"  # dia 4 de cada mes (post universe+DDD+rebalance)
+  workflow_dispatch:
+
+env:
+  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+  OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+  GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+  IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
+  IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
+  IDOS_SMTP_HOST: ${{ secrets.IDOS_SMTP_HOST }}
+  IDOS_SMTP_PORT: ${{ secrets.IDOS_SMTP_PORT }}
+  IDOS_SMTP_USER: ${{ secrets.IDOS_SMTP_USER }}
+  IDOS_SMTP_PASS: ${{ secrets.IDOS_SMTP_PASS }}
+  IDOS_FROM_ADDR: ${{ secrets.IDOS_FROM_ADDR }}
+  IDOS_TO_ADDR: ${{ secrets.IDOS_TO_ADDR }}
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+
+      - name: Scan board proposals
+        run: |
+          python -c "
+          import os, json, yaml
+          from pathlib import Path
+
+          base = Path('idos-journal/companies')
+          proposals = []
+
+          for company_dir in sorted(base.iterdir()):
+              if not company_dir.is_dir():
+                  continue
+              ticker = company_dir.name
+              opps_dir = company_dir / 'case_file' / 'opportunities'
+              if not opps_dir.exists():
+                  continue
+              for opp_dir in sorted(opps_dir.iterdir()):
+                  if not opp_dir.is_dir():
+                      continue
+                  dp = opp_dir / 'decision_proposal.yml'
+                  br = opp_dir / 'board_resolution.yml'
+                  if not dp.exists():
+                      continue
+                  try:
+                      data = yaml.safe_load(dp.read_text(encoding='utf-8'))
+                  except Exception as e:
+                      data = None
+                  if not data:
+                      continue
+                  opp_id = opp_dir.name
+                  recommendation = data.get('recommendation', 'UNKNOWN')
+                  conviction = data.get('conviction_score', 0)
+                  rules_failed = data.get('rules_failed', [])
+                  reasoning = data.get('reasoning', '')
+                  created = data.get('created_at', '')
+
+                  decided = br.exists()
+                  approved = False
+                  if decided:
+                      try:
+                          br_data = yaml.safe_load(br.read_text(encoding='utf-8'))
+                          approved = br_data.get('approved', False)
+                      except Exception:
+                          pass
+                  elif recommendation == 'APPROVE':
+                      approved = True
+                  elif recommendation == 'BLOCKED':
+                      approved = False
+
+                  status = 'DECIDED' if decided else 'PENDING_REVIEW' if recommendation == 'PENDING_REVIEW' else ('AUTO_APPROVED' if recommendation == 'APPROVE' else 'AUTO_BLOCKED')
+
+                  proposals.append({
+                      'ticker': ticker,
+                      'opp_id': opp_id,
+                      'recommendation': recommendation,
+                      'conviction': conviction,
+                      'rules_failed': rules_failed,
+                      'reasoning': reasoning,
+                      'status': status,
+                      'approved': approved,
+                      'created_at': created[:10] if created else '',
+                  })
+
+          Path('cache').mkdir(parents=True, exist_ok=True)
+          with open('cache/board_proposals.json', 'w', encoding='utf-8') as f:
+              json.dump(proposals, f, indent=2, ensure_ascii=False)
+          print(f'Scanned {len(proposals)} proposals')
+          pending = [p for p in proposals if p['status'] == 'PENDING_REVIEW']
+          approved_list = [p for p in proposals if p['status'] == 'AUTO_APPROVED' or (p['status'] == 'DECIDED' and p['approved'])]
+          blocked_list = [p for p in proposals if p['status'] == 'AUTO_BLOCKED' or (p['status'] == 'DECIDED' and not p['approved'] and p['recommendation'] != 'PENDING_REVIEW')]
+          print(f'  PENDING_REVIEW: {len(pending)}')
+          print(f'  APPROVED: {len(approved_list)}')
+          print(f'  BLOCKED: {len(blocked_list)}')
+          "
+
+      - name: Send Board Review
+        run: |
+          python -c "
+          import os, json
+          proposals = json.loads(open('cache/board_proposals.json', encoding='utf-8').read())
+
+          pending = [p for p in proposals if p['status'] == 'PENDING_REVIEW']
+          approved_list = [p for p in proposals if p['status'] in ('AUTO_APPROVED', 'DECIDED') and p['approved']]
+          blocked_list = [p for p in proposals if p['status'] in ('AUTO_BLOCKED', 'DECIDED') and not p['approved'] and p['status'] != 'PENDING_REVIEW']
+
+          lines = []
+          lines.append('*IDOS Board Review*')
+          lines.append(f'Total proposals: {len(proposals)}')
+          lines.append('')
+
+          if pending:
+              lines.append(f'*:warning: PENDING_REVIEW ({len(pending)}):*')
+              for p in pending:
+                  t = p['ticker']
+                  oid = p['opp_id']
+                  cv = p['conviction']
+                  rf = p['rules_failed']
+                  rsn = p['reasoning'][:80] if p['reasoning'] else ''
+                  lines.append(f'- {t} ({oid}) | conv={cv}/100')
+                  if rf:
+                      lines.append(f'  -> Blocked by: {\", \".join(rf)}')
+                  lines.append(f'  -> {rsn}')
+              lines.append('')
+          else:
+              lines.append(':white_check_mark: No hay propuestas pendientes de revision')
+              lines.append('')
+
+          if approved_list:
+              lines.append(f'*:green_circle: APPROVED ({len(approved_list)}):*')
+              for p in approved_list:
+                  lines.append(f'- {p[\"ticker\"]} ({p[\"opp_id\"]}) | conv={p[\"conviction\"]}/100')
+              lines.append('')
+
+          if blocked_list:
+              lines.append(f'*:red_circle: BLOCKED ({len(blocked_list)}):*')
+              for p in blocked_list:
+                  t = p['ticker']
+                  oid = p['opp_id']
+                  cv = p['conviction']
+                  rf = p['rules_failed']
+                  lines.append(f'- {t} ({oid}) | conv={cv}/100')
+                  if rf:
+                      lines.append(f'  -> Rules: {\", \".join(rf)}')
+              lines.append('')
+
+          report = '\n'.join(lines)
+
+          # Save report
+          with open('cache/board_review.md', 'w', encoding='utf-8') as f:
+              f.write(report)
+
+          # Telegram
+          token = os.environ.get('IDOS_TELEGRAM_BOT_TOKEN', '')
+          chat = os.environ.get('IDOS_TELEGRAM_CHAT_ID', '')
+          if token and chat:
+              from idos.workers.notifications.telegram import TelegramNotifier
+              t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
+              t.execute({'message': report[:4000], 'parse_mode': 'Markdown'})
+              print('[NOTIFY] Board review sent via Telegram')
+
+          # Email
+          smtp_host = os.environ.get('IDOS_SMTP_HOST', '')
+          if smtp_host:
+              from idos.workers.notifications.email_notifier import EmailNotifier
+              e = EmailNotifier()
+              e.execute({'subject': 'IDOS Board Review', 'body': report})
+              print('[NOTIFY] Board review sent via Email')
+          "
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: board-review-${{ github.run_id }}
+          path: |
+            cache/board_proposals.json
+            cache/board_review.md
