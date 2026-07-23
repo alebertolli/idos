@@ -23,6 +23,7 @@ Total: 11 companies tracked
 - 📄 [[PDD|PDD Holdings Inc.]]
 
 ## Financial Services
+- 📄 [[HDB|HDFC Bank Limited]]
 - 📄 [[JPM|JPMorgan Chase & Co.]]
 
 ## Technology
