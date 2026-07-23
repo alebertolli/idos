@@ -12,16 +12,16 @@ _Generado: 2026-07-23 17:29 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **SAP** (OPP-20260720-013): score=50, class=None
+- ✅ **DECK** (OPP-20260720-012): score=50, class=None
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **SAP**
-  - Opp: [OPP-20260720-013](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/SAP/case_file/opportunities/OPP-20260720-013)
-  - Conviction: 72/100 | Rec: BLOCKED
-  - Scores: Business: 67 | Valuation: 80 | Recovery: 54 | Risk: 80 | Portfolio: 90
+- ⚠️ **DECK**
+  - Opp: [OPP-20260720-012](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/DECK/case_file/opportunities/OPP-20260720-012)
+  - Conviction: 71/100 | Rec: BLOCKED
+  - Scores: Business: 64 | Valuation: 80 | Recovery: 54 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 67/100
+    - 🚫 RULE-001: Business quality: 64/100
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
