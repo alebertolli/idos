@@ -1,1 +1,1 @@
-To be formulated
+Banco Santander, S.A. es un compounder con un potencial de crecimiento moderado y una valoración razonable. La empresa tiene una posición competitiva en el mercado financiero y una cartera diversificada de productos y servicios.
