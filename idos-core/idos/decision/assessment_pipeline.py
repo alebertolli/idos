@@ -151,6 +151,18 @@ def build_context(
     if opp:
         cv = opp.get("conviction", {}) or {}
         margin_of_safety = cv.get("margin_of_safety", 20.0)
+    try:
+        import yfinance as yf
+        _s = yf.Ticker(ticker)
+        _i = _s.info or {}
+        _cp = _i.get("currentPrice") or _i.get("regularMarketPrice")
+        _tp = _i.get("targetMeanPrice")
+        if _cp and _tp:
+            price_margin = round((_tp - _cp) / _cp * 100, 1)
+        else:
+            price_margin = margin_of_safety
+    except Exception:
+        price_margin = margin_of_safety
 
     opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
     ddd_report_path = opp_dir / "ddd_report.yml"
@@ -190,6 +202,7 @@ def build_context(
         "portfolio": portfolio,
         "company": company_info,
         "margin_of_safety": margin_of_safety,
+        "price_margin": price_margin,
         "catalysts": catalysts,
         "risk_events": risk_events,
         "proposed_weight": 3.0,
@@ -335,12 +348,12 @@ def _eval_business(ctx):
     return RuleResult("RULE-001", s >= 70, f"Business quality: {s}/100")
 
 def _eval_valuation(ctx):
-    s = ctx.get("assessments", {}).get("ValuationAssessmentEngine", 0)
-    return RuleResult("RULE-002", s >= 60, f"Valuation: {s}/100")
+    pm = ctx.get("price_margin", 0)
+    return RuleResult("RULE-002", pm > 20, f"Price target margin: {pm:.1f}%")
 
 def _eval_recovery(ctx):
     s = ctx.get("assessments", {}).get("RecoveryAssessmentEngine", 0)
-    return RuleResult("RULE-003", s >= 60, f"Rerating: {s}/100")
+    return RuleResult("RULE-003", s >= 50, f"Rerating: {s}/100")
 
 def _eval_risk(ctx):
     s = ctx.get("assessments", {}).get("RiskAssessmentEngine", 0)
@@ -373,21 +386,16 @@ def _eval_competition(ctx):
     num_pos = port.get("num_positions", 0)
     return RuleResult("RULE-009", num_pos < 10, f"Posiciones activas: {num_pos}/10 max (competencia por capital)")
 
-def _eval_thesis_active(ctx):
-    thesis = ctx.get("thesis_active", False)
-    return RuleResult("RULE-010", thesis, "Tesis no está activa en la base de conocimiento")
-
 ASSESSMENT_RULES = [
     (Rule(id="RULE-001", description="Minimum business quality score for entry", priority=100, condition="score >= 70", action="PASS"), _eval_business),
-    (Rule(id="RULE-002", description="Minimum valuation score for entry", priority=90, condition="score >= 60", action="PASS"), _eval_valuation),
-    (Rule(id="RULE-003", description="Minimum rerating probability score", priority=80, condition="score >= 60", action="PASS"), _eval_recovery),
+    (Rule(id="RULE-002", description="Price target vs current price margin > 20%", priority=90, condition="price_margin > 20", action="PASS"), _eval_valuation),
+    (Rule(id="RULE-003", description="Minimum rerating probability score", priority=80, condition="score >= 50", action="PASS"), _eval_recovery),
     (Rule(id="RULE-004", description="Maximum risk score allowed", priority=100, condition="score >= 50", action="PASS"), _eval_risk),
     (Rule(id="RULE-005", description="Minimum overall conviction for entry", priority=95, condition="conviction >= 65", action="PASS"), _eval_conviction),
     (Rule(id="RULE-006", description="Maximum portfolio weight per position", priority=100, condition="weight <= 3.0", action="BLOCK"), _eval_position_weight),
     (Rule(id="RULE-007", description="Maximum sector exposure", priority=90, condition="sector <= 25.0", action="BLOCK"), _eval_sector_exposure),
     (Rule(id="RULE-008", description="Minimum asymmetry ratio 3:1", priority=100, condition="ratio >= 3.0", action="PASS"), _eval_asymmetry),
     (Rule(id="RULE-009", description="Capital competition - max 10 positions", priority=80, condition="num_positions < 10", action="BLOCK"), _eval_competition),
-    (Rule(id="RULE-010", description="Tesis activa en knowledge base", priority=100, condition="thesis_active", action="PASS"), _eval_thesis_active),
 ]
 
 def _register_assessment_rules(engine: RulesEngine):
