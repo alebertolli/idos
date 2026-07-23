@@ -12,16 +12,16 @@ _Generado: 2026-07-23 16:10 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **LVS** (OPP-20260720-021): score=62, class=ciclica
+- ✅ **HDB** (OPP-20260721-001): score=82, class=compounder_castigado
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **LVS**
-  - Opp: [OPP-20260720-021](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/LVS/case_file/opportunities/OPP-20260720-021)
-  - Conviction: 66/100 | Rec: BLOCKED
-  - Scores: Business: 59 | Valuation: 70 | Recovery: 56 | Risk: 70 | Portfolio: 90
+- ⚠️ **HDB**
+  - Opp: [OPP-20260721-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/HDB/case_file/opportunities/OPP-20260721-001)
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 70 | Recovery: 54 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 59/100
+    - 🚫 RULE-001: Business quality: 58/100
 
 ---
 

@@ -1,1 +1,1 @@
-To be formulated
+Inversión en un líder de mercado con calidad excepcional que atraviesa un 'ruido' operativo temporal debido a una fusión masiva. La tesis se basa en que la escala resultante y el crecimiento del PIB de India impulsarán el valor a largo plazo, superando la presión actual sobre los márgenes.

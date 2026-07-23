@@ -37,26 +37,26 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 13.84
 - **Operating Margin**: 36.78
-- **Revenue Growth**: 12.25
+- **Revenue Growth**: -4.94
 - **FCF Yield**: 0
 - **Debt/Equity**: 0
-- **PER**: 14.38
+- **PER**: 14.28
 - **EV/EBITDA**: 0
 
 ---
 
 ## Catalysts
-
-To be identified
+- **Catalyst** (Impact: medium, Timeline: medium)
+- **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-To be formulated
+Inversión en un líder de mercado con calidad excepcional que atraviesa un 'ruido' operativo temporal debido a una fusión masiva. La tesis se basa en que la escala resultante y el crecimiento del PIB de India impulsarán el valor a largo plazo, superando la presión actual sobre los márgenes.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[JPM|JPMorgan Chase & Co.]]
+- **Same Sector**: [[JPM|JPMorgan Chase & Co.]], [[SAN|Banco Santander, S.A.]]
