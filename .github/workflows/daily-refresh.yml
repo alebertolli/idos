@@ -50,6 +50,22 @@ jobs:
           summary = {'refreshed_at': str(datetime.now()), 'tickers': tickers, 'errors': errors}
           with open('cache/last_refresh.json','w') as f: json.dump(summary, f, indent=2)
           "
+      - name: Populate earnings calendar from yfinance cache
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.workers.data.earnings_calendar import populate_earnings
+          result = populate_earnings()
+          print(f'[EARNINGS-CALENDAR] {result[\"tickers_found\"]} tickers con earnings')
+          if result['added']:
+              print(f'[EARNINGS-CALENDAR] Nuevos: {\", \".join(result[\"added\"])}')
+          if result['updated']:
+              print(f'[EARNINGS-CALENDAR] Actualizados: {\", \".join(result[\"updated\"])}')
+          if not result['added'] and not result['updated']:
+              print('[EARNINGS-CALENDAR] Calendario actualizado, sin cambios')
+          "
       - name: Check earnings dates
         run: |
           python -c "
@@ -72,6 +88,9 @@ jobs:
               earnings_date_str = info.get('earnings_date', '')
               triggered_at = info.get('triggered_at', '')
               if not earnings_date_str:
+                  continue
+              if info.get('alias_of'):
+                  print(f'[EARNINGS] {ticker}: alias of {info[\"alias_of\"]}, skip (primary will trigger)')
                   continue
               earnings_date = datetime.strptime(earnings_date_str, '%Y-%m-%d').date()
               if triggered_at:

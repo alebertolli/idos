@@ -1,13 +1,291 @@
 tickers:
-  # Fechas de earnings del proximo quarter.
-  # triggered_at se actualiza automaticamente cuando se dispara el evento.
-  # Ejemplo:
-  # AAPL:
-  #   earnings_date: "2026-07-25"
-  #   triggered_at: null
-  # MSFT:
-  #   earnings_date: "2026-07-28"
-  #   triggered_at: null
-  # NVDA:
-  #   earnings_date: "2026-08-20"
-  #   triggered_at: null
+  ABNB:
+    earnings_date: '2026-08-06'
+    triggered_at: null
+  ADBE:
+    earnings_date: '2026-09-10'
+    triggered_at: null
+  AEM:
+    earnings_date: '2026-07-29'
+    triggered_at: null
+  AMD:
+    earnings_date: '2026-08-04'
+    triggered_at: null
+  AMGN:
+    earnings_date: '2026-08-04'
+    triggered_at: null
+  AMZN:
+    earnings_date: '2026-07-30'
+    triggered_at: null
+  ANF:
+    earnings_date: '2026-05-27'
+    triggered_at: auto-skip (stale)
+  ASML:
+    earnings_date: '2026-10-14'
+    triggered_at: null
+  ASR:
+    earnings_date: '2026-07-23'
+    triggered_at: null
+  ASTS:
+    earnings_date: '2026-05-11'
+    triggered_at: auto-skip (stale)
+  AVGO:
+    earnings_date: '2026-06-03'
+    triggered_at: auto-skip (stale)
+  AXP:
+    earnings_date: '2026-07-24'
+    triggered_at: null
+  B:
+    earnings_date: '2026-08-10'
+    triggered_at: null
+  BA:
+    earnings_date: '2026-07-28'
+    triggered_at: null
+  BCS:
+    earnings_date: '2026-07-28'
+    triggered_at: null
+  BKNG:
+    earnings_date: '2026-08-04'
+    triggered_at: null
+  C:
+    earnings_date: '2026-10-13'
+    triggered_at: null
+  CAAP:
+    earnings_date: '2026-05-13'
+    triggered_at: auto-skip (stale)
+  CCL:
+    earnings_date: '2026-06-23'
+    triggered_at: auto-skip (stale)
+  CDE:
+    earnings_date: '2026-08-05'
+    triggered_at: null
+  CLS:
+    earnings_date: '2026-07-27'
+    triggered_at: null
+  COIN:
+    earnings_date: '2026-07-30'
+    triggered_at: null
+  CRWD:
+    earnings_date: '2026-06-03'
+    triggered_at: auto-skip (stale)
+  DECK:
+    earnings_date: '2026-07-23'
+    triggered_at: null
+  FMX:
+    earnings_date: '2026-07-28'
+    triggered_at: null
+  FSLR:
+    earnings_date: '2026-07-30'
+    triggered_at: null
+  GFI:
+    earnings_date: '2026-08-25'
+    triggered_at: null
+  GLNG:
+    earnings_date: '2026-08-13'
+    triggered_at: null
+  GOOGL:
+    earnings_date: '2026-07-22'
+    triggered_at: null
+    alias_of: GOOG
+  GRMN:
+    earnings_date: '2026-07-29'
+    triggered_at: null
+  GS:
+    earnings_date: '2026-10-13'
+    triggered_at: null
+  HDB:
+    earnings_date: '2026-07-18'
+    triggered_at: null
+  HIMS:
+    earnings_date: '2026-08-10'
+    triggered_at: null
+  HL:
+    earnings_date: '2026-05-05'
+    triggered_at: auto-skip (stale)
+  HSBC:
+    earnings_date: '2026-08-04'
+    triggered_at: null
+  HUT:
+    earnings_date: '2026-08-04'
+    triggered_at: null
+  HWM:
+    earnings_date: '2026-08-06'
+    triggered_at: null
+  IBN:
+    earnings_date: '2026-07-18'
+    triggered_at: null
+  ING:
+    earnings_date: '2026-07-30'
+    triggered_at: null
+  ISRG:
+    earnings_date: '2026-07-16'
+    triggered_at: auto-skip (stale)
+  ITUB:
+    earnings_date: '2026-08-04'
+    triggered_at: null
+  JPM:
+    earnings_date: '2026-10-13'
+    triggered_at: null
+  KEEL:
+    earnings_date: '2026-05-11'
+    triggered_at: auto-skip (stale)
+  KGC:
+    earnings_date: '2026-07-29'
+    triggered_at: null
+  LLY:
+    earnings_date: '2026-08-05'
+    triggered_at: null
+  LVS:
+    earnings_date: '2026-07-22'
+    triggered_at: null
+  LYG:
+    earnings_date: '2026-07-30'
+    triggered_at: null
+  MA:
+    earnings_date: '2026-07-30'
+    triggered_at: null
+  MELI:
+    earnings_date: '2026-08-05'
+    triggered_at: null
+  META:
+    earnings_date: '2026-07-29'
+    triggered_at: null
+  MFG:
+    earnings_date: '2026-07-30'
+    triggered_at: null
+  MRVL:
+    earnings_date: '2026-05-27'
+    triggered_at: auto-skip (stale)
+  MSFT:
+    earnings_date: '2026-07-29'
+    triggered_at: null
+  MUFG:
+    earnings_date: '2026-08-03'
+    triggered_at: null
+  NEM:
+    earnings_date: '2026-07-23'
+    triggered_at: null
+  NFLX:
+    earnings_date: '2026-07-16'
+    triggered_at: auto-skip (stale)
+  NIO:
+    earnings_date: '2026-05-21'
+    triggered_at: auto-skip (stale)
+  NMR:
+    earnings_date: '2026-07-29'
+    triggered_at: null
+  NOW:
+    earnings_date: '2026-07-22'
+    triggered_at: null
+  NVDA:
+    earnings_date: '2026-08-26'
+    triggered_at: null
+  O:
+    earnings_date: '2026-08-05'
+    triggered_at: null
+  ONDS:
+    earnings_date: '2026-05-14'
+    triggered_at: auto-skip (stale)
+  ORCL:
+    earnings_date: '2026-06-10'
+    triggered_at: auto-skip (stale)
+  PAAS:
+    earnings_date: '2026-08-12'
+    triggered_at: null
+  PAC:
+    earnings_date: '2026-07-14'
+    triggered_at: auto-skip (stale)
+  PANW:
+    earnings_date: '2026-06-02'
+    triggered_at: auto-skip (stale)
+  PATH:
+    earnings_date: '2026-05-28'
+    triggered_at: auto-skip (stale)
+  PDD:
+    earnings_date: '2026-05-27'
+    triggered_at: auto-skip (stale)
+  PINS:
+    earnings_date: '2026-08-04'
+    triggered_at: null
+  PLTR:
+    earnings_date: '2026-08-03'
+    triggered_at: null
+  RACE:
+    earnings_date: '2026-07-30'
+    triggered_at: null
+  RBLX:
+    earnings_date: '2026-07-30'
+    triggered_at: null
+  RIOT:
+    earnings_date: '2026-04-30'
+    triggered_at: auto-skip (stale)
+  RKLB:
+    earnings_date: '2026-05-07'
+    triggered_at: auto-skip (stale)
+  ROKU:
+    earnings_date: '2026-04-30'
+    triggered_at: auto-skip (stale)
+  SAN:
+    earnings_date: '2026-07-22'
+    triggered_at: null
+  SAP:
+    earnings_date: '2026-07-23'
+    triggered_at: null
+  SBS:
+    earnings_date: '2026-08-12'
+    triggered_at: null
+  SE:
+    earnings_date: '2026-05-12'
+    triggered_at: auto-skip (stale)
+  SHOP:
+    earnings_date: '2026-08-05'
+    triggered_at: null
+  SNOW:
+    earnings_date: '2026-05-27'
+    triggered_at: auto-skip (stale)
+  SPGI:
+    earnings_date: '2026-07-28'
+    triggered_at: null
+  SPOT:
+    earnings_date: '2026-08-04'
+    triggered_at: null
+  TCOM:
+    earnings_date: '2026-06-24'
+    triggered_at: auto-skip (stale)
+  TEAM:
+    earnings_date: '2026-08-06'
+    triggered_at: null
+  TSM:
+    earnings_date: '2026-07-16'
+    triggered_at: auto-skip (stale)
+  UBER:
+    earnings_date: '2026-08-05'
+    triggered_at: null
+  UNH:
+    earnings_date: '2026-07-16'
+    triggered_at: auto-skip (stale)
+  USB:
+    earnings_date: '2026-10-15'
+    triggered_at: null
+  V:
+    earnings_date: '2026-07-28'
+    triggered_at: null
+  VIST:
+    earnings_date: '2026-07-16'
+    triggered_at: auto-skip (stale)
+  VRTX:
+    earnings_date: '2026-08-03'
+    triggered_at: null
+  WFC:
+    earnings_date: '2026-10-13'
+    triggered_at: null
+  XPEV:
+    earnings_date: '2026-05-28'
+    triggered_at: auto-skip (stale)
+  XYZ:
+    earnings_date: '2026-08-05'
+    triggered_at: null
+  GOOG:
+    earnings_date: '2026-07-22'
+    triggered_at: null
+    alias_of: ''
