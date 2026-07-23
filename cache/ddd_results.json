@@ -1,8 +1,8 @@
 {
   "processed": [
     {
-      "ticker": "UBER",
-      "opp_id": "OPP-20260720-039",
+      "ticker": "AEM",
+      "opp_id": "OPP-20260720-007",
       "status": "completed",
       "score": 50,
       "classification": null,
@@ -12,24 +12,25 @@
   ],
   "assessments": [
     {
-      "ticker": "UBER",
-      "opp_id": "OPP-20260720-039",
+      "ticker": "AEM",
+      "opp_id": "OPP-20260720-007",
       "status": "completed",
-      "conviction_score": 63,
+      "conviction_score": 67,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260722205830",
+      "decision_id": "DEC-20260722212805",
       "assessments": {
-        "BusinessAssessmentEngine": 59,
+        "BusinessAssessmentEngine": 68,
         "ValuationAssessmentEngine": 60,
         "RecoveryAssessmentEngine": 52,
-        "RiskAssessmentEngine": 70,
+        "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
         "RULE-002",
         "RULE-004",
+        "RULE-005",
         "RULE-006",
         "RULE-007",
         "RULE-008",
@@ -38,15 +39,14 @@
       "rules_failed": [
         "RULE-001",
         "RULE-003",
-        "RULE-005",
         "RULE-010"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 59/100",
+        "RULE-001": "Business quality: 68/100",
         "RULE-002": "Valuation: 60/100",
         "RULE-003": "Rerating: 52/100",
-        "RULE-004": "Risk: 70/100",
-        "RULE-005": "Conviction: 63/100",
+        "RULE-004": "Risk: 80/100",
+        "RULE-005": "Conviction: 67/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
         "RULE-008": "No asymmetry data available",

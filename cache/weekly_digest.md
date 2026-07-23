@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-22 20:58 AR_
+_Generado: 2026-07-22 21:28 AR_
 
 ## Resumen
 
@@ -12,18 +12,17 @@ _Generado: 2026-07-22 20:58 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- :white_check_mark: **UBER** (OPP-20260720-039): score=50, class=None
+- :white_check_mark: **AEM** (OPP-20260720-007): score=50, class=None
 
 ### STEP 3-7 - Assessment Pipeline
 
-- :warning: **UBER**
-  - Opp: [OPP-20260720-039](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/UBER/case_file/opportunities/OPP-20260720-039)
-  - Conviction: 63/100 | Rec: BLOCKED
-  - Scores: Business: 59 | Valuation: 60 | Recovery: 52 | Risk: 70 | Portfolio: 90
+- :warning: **AEM**
+  - Opp: [OPP-20260720-007](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AEM/case_file/opportunities/OPP-20260720-007)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - :no_entry: RULE-001: Business quality: 59/100
+    - :no_entry: RULE-001: Business quality: 68/100
     - :no_entry: RULE-003: Rerating: 52/100
-    - :no_entry: RULE-005: Conviction: 63/100
     - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
 
 ---
