@@ -20,7 +20,7 @@ Total: 11 companies tracked
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
-- 📄 [[LVS|Las Vegas Sands Corp.]]
+- 📄 [[DECK|Deckers Outdoor Corporation]]
 - 📄 [[PDD|PDD Holdings Inc.]]
 
 ## Financial Services
