@@ -567,9 +567,9 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
             cp = context.get("current_price")
             iv = context.get("intrinsic_value")
             if cp:
-                opp["current_price"] = cp
+                opp.setdefault("conviction", {})["current_price"] = cp
             if iv:
-                opp["intrinsic_value"] = iv
+                opp.setdefault("conviction", {})["intrinsic_value"] = iv
             sqlite.save_opportunity(opp)
             sqlite.record_transition(
                 opp_id, old, new_status.value,
