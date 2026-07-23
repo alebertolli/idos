@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 11 companies tracked
+Total: 16 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -21,6 +21,7 @@ Total: 11 companies tracked
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
 - 📄 [[DECK|Deckers Outdoor Corporation]]
+- 📄 [[LVS|Las Vegas Sands Corp.]]
 - 📄 [[PDD|PDD Holdings Inc.]]
 
 ## Financial Services

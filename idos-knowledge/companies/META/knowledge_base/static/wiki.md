@@ -40,17 +40,23 @@ To be evaluated
 - **Revenue Growth**: 20.96
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.36
-- **PER**: 23.42
-- **EV/EBITDA**: 14.6
+- **PER**: 22.82
+- **EV/EBITDA**: 14.62
 
 ---
 
 ## Catalysts
-
-To be identified
+- **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-To be formulated
+Meta Platforms, Inc. es una empresa líder en el mercado de las redes sociales con un historial de crecimiento sólido y una cartera diversificada de productos y servicios. A pesar de los desafíos regulatorios y la competencia, la empresa tiene el potencial para seguir innovando y expandiendo su oferta.
+
+---
+
+## Related Companies
+
+- **Same Sector**: [[GOOG|Alphabet Inc.]]
+- **Same Industry**: [[GOOG|Alphabet Inc.]]
