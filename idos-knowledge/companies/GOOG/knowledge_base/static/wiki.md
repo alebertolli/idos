@@ -1,0 +1,62 @@
+## Business Model
+
+Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides products and services, including ads, Android, Chrome, devices, Gmail, Google Drive, Google Maps, Google Photos, Google Play, Search, and YouTube. It is also involved in the sale of apps and in-app purchases and digital content in Goog
+
+---
+
+## Products & Services
+
+- To be identified
+
+---
+
+## Competitive Moat
+
+To be analyzed
+
+---
+
+## Competition
+
+- To be identified
+
+---
+
+## Management
+
+To be evaluated
+
+---
+
+## Risk Factors
+
+
+
+---
+
+## Financial Highlights
+- **ROIC**: 25.14
+- **Operating Margin**: 33.11
+- **Revenue Growth**: 19.69
+- **FCF Yield**: 0
+- **Debt/Equity**: 0.18
+- **PER**: 15.96
+- **EV/EBITDA**: 23.55
+
+---
+
+## Catalysts
+- **Catalyst** (Impact: medium, Timeline: medium)
+
+---
+
+## Investment Thesis
+
+La empresa es un compounder con un historial de crecimiento sólido y una posición competitiva fuerte en el mercado. La hipótesis contraria sugiere que la empresa podría experimentar un crecimiento más rápido de lo esperado debido a la expansión de su negocio de cloud y la creciente demanda de publicidad en línea.
+
+---
+
+## Related Companies
+
+- **Same Sector**: [[META|Meta Platforms, Inc.]]
+- **Same Industry**: [[META|Meta Platforms, Inc.]]

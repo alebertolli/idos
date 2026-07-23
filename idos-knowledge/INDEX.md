@@ -15,7 +15,7 @@ Total: 16 companies tracked
 - 📄 [[NEM|Newmont Corporation]]
 
 ## Communication Services
-- ⏳ [[GOOG|Alphabet Inc.]]
+- 📄 [[GOOG|Alphabet Inc.]]
 - 📄 [[META|Meta Platforms, Inc.]]
 
 ## Consumer Cyclical

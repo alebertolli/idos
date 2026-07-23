@@ -1,28 +1,25 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-23 17:29 AR_
+_Generado: 2026-07-23 19:42 AR_
 
 ## Resumen
 
-- 🟢 **Oportunidades procesadas:** 0
-- ✅ **Assessment completados:** 0
-- 🔖 **Approved:** 0
+- 🟢 **Oportunidades procesadas:** 1
+- ✅ **Assessment completados:** 1
+- 🔖 **Approved:** 1
 - 🔴 **Errores:** 0
 - 📊 **Total encontradas:** 1
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **DECK** (OPP-20260720-012): score=50, class=None
+- ✅ **GOOG** (OPP-20260723-001): score=80, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **DECK**
-  - Opp: [OPP-20260720-012](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/DECK/case_file/opportunities/OPP-20260720-012)
-  - Conviction: 71/100 | Rec: BLOCKED
-  - Scores: Business: 64 | Valuation: 80 | Recovery: 54 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 64/100
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ✅ **GOOG**
+  - Opp: [OPP-20260723-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/GOOG/case_file/opportunities/OPP-20260723-001)
+  - Conviction: 72/100 | Rec: APPROVE | Dec: HOLD
+  - Scores: Business: 72 | Valuation: 70 | Recovery: 58 | Risk: 80 | Portfolio: 90
 
 ---
 
