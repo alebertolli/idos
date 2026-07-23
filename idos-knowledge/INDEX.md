@@ -7,13 +7,14 @@ aliases:
 
 # IDOS Company Index
 
-Total: 9 companies tracked
+Total: 11 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
 - ⏳ [[B|Barrick Mining Corporation]]
 
 ## Communication Services
+- ⏳ [[GOOG|Alphabet Inc.]]
 - 📄 [[META|Meta Platforms, Inc.]]
 
 ## Consumer Cyclical
@@ -26,6 +27,7 @@ Total: 9 companies tracked
 ## Technology
 - 📄 [[ASML|ASML Holding N.V.]]
 - ⏳ [[MELI|MercadoLibre]]
+- 📄 [[SAP|SAP SE]]
 - 📄 [[UBER|Uber Technologies, Inc.]]
 
 ---

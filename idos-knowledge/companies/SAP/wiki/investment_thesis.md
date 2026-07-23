@@ -1,0 +1,1 @@
+SAP SE es un compounder con un historial de crecimiento estable y una posición competitiva sólida en el mercado de soluciones de aplicación empresarial. La empresa tiene un potencial de crecimiento a largo plazo debido a su capacidad para innovar y expandirse en nuevos mercados.

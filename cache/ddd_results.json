@@ -1,8 +1,62 @@
 {
-  "processed": [],
-  "assessments": [],
+  "processed": [
+    {
+      "ticker": "SAP",
+      "opp_id": "OPP-20260720-013",
+      "status": "completed",
+      "score": 80,
+      "classification": "compounder",
+      "force": true,
+      "event_type": "quarterly-results"
+    }
+  ],
+  "assessments": [
+    {
+      "ticker": "SAP",
+      "opp_id": "OPP-20260720-013",
+      "status": "completed",
+      "conviction_score": 72,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": "HOLD",
+      "decision_id": "DEC-20260723152916",
+      "assessments": {
+        "BusinessAssessmentEngine": 67,
+        "ValuationAssessmentEngine": 80,
+        "RecoveryAssessmentEngine": 56,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 90
+      },
+      "rules_passed": [
+        "RULE-002",
+        "RULE-003",
+        "RULE-004",
+        "RULE-005",
+        "RULE-006",
+        "RULE-007",
+        "RULE-008",
+        "RULE-009"
+      ],
+      "rules_failed": [
+        "RULE-001"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 67/100",
+        "RULE-002": "Price target margin: 67.6%",
+        "RULE-003": "Rerating: 56/100",
+        "RULE-004": "Risk: 80/100",
+        "RULE-005": "Conviction: 72/100",
+        "RULE-006": "Position weight: 3.0%",
+        "RULE-007": "Sector exposure: 3.0%",
+        "RULE-008": "B/R inf:1 \u2705 (upside 120.9% / downside 0.0%)",
+        "RULE-009": "Posiciones activas: 0/10 max (competencia por capital)"
+      },
+      "data_quality": "good"
+    }
+  ],
   "errors": [],
-  "status": "none",
+  "total": 1,
+  "done": 1,
   "event_type": "quarterly-results",
   "force": true
 }
