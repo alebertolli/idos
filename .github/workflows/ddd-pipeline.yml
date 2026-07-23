@@ -281,14 +281,14 @@ jobs:
           lines.append(f'')
           lines.append('## Resumen')
           lines.append(f'')
-          lines.append(f'- :green_circle: **Oportunidades procesadas:** {len(processed)}')
-          lines.append(f'- :white_check_mark: **Assessment completados:** {len(assessments)}')
+          lines.append(f'- 🟢 **Oportunidades procesadas:** {len(processed)}')
+          lines.append(f'- ✅ **Assessment completados:** {len(assessments)}')
 
           approved = sum(1 for a in assessments if isinstance(a, dict) and a.get('board_approved'))
-          lines.append(f'- :bookmark: **Approved:** {approved}')
+          lines.append(f'- 🔖 **Approved:** {approved}')
 
-          lines.append(f'- :red_circle: **Errores:** {len(errors)}')
-          lines.append(f'- :bar_chart: **Total encontradas:** {total}')
+          lines.append(f'- 🔴 **Errores:** {len(errors)}')
+          lines.append(f'- 📊 **Total encontradas:** {total}')
           lines.append('')
 
           if processed:
@@ -297,7 +297,7 @@ jobs:
               for p in processed:
                   if not isinstance(p, dict):
                       continue
-                  status = ':white_check_mark:' if p.get('status') == 'completed' else ':warning:'
+                  status = '✅' if p.get('status') == 'completed' else '⚠️'
                   ticker = p.get('ticker', '?')
                   opp_id = p.get('opp_id', '?')
                   lines.append(f'- {status} **{ticker}** ({opp_id}): score={p.get(\"score\", \"?\")}, class={p.get(\"classification\", \"?\")}')
@@ -318,7 +318,7 @@ jobs:
                   ass = a.get('assessments', {})
                   scores = ' | '.join(f'{k.replace(\"AssessmentEngine\", \"\")}: {v}' for k, v in ass.items())
 
-                  status_emoji = ':white_check_mark:' if board_ok else ':warning:'
+                  status_emoji = '✅' if board_ok else '⚠️'
                   link = f'https://github.com/alebertolli/idos/tree/main/idos-journal/companies/{ticker}/case_file/opportunities/{opp_id}'
                   lines.append(f'- {status_emoji} **{ticker}**')
                   lines.append(f'  - Opp: [{opp_id}]({link})')
@@ -331,14 +331,14 @@ jobs:
                       lines.append(f'  - Rules BLOCKED:')
                       for rid in failed:
                           d = details.get(rid, '')
-                          lines.append(f'    - :no_entry: {rid}: {d}')
+                          lines.append(f'    - 🚫 {rid}: {d}')
               lines.append('')
 
           if errors:
               lines.append('### Errores')
               lines.append('')
               for e in errors:
-                  lines.append(f'- :x: **{e.get(\"ticker\", \"?\")}**: {e.get(\"error\", \"?\")}')
+                  lines.append(f'- ❌ **{e.get(\"ticker\", \"?\")}**: {e.get(\"error\", \"?\")}')
               lines.append('')
 
           lines.append('---')
@@ -393,10 +393,13 @@ jobs:
           lines.append('*IDOS DDD Pipeline*')
           lines.append(f'Trigger: {event_label} ({mode_label})')
           lines.append('')
-          lines.append(f':bar_chart: {total} oportunidades evaluadas')
-          lines.append(f':white_check_mark: {len(processed)} research completados')
-          lines.append(f':bookmark: {approved} approved por el board')
-          lines.append(f':red_circle: {len(errors)} errores')
+          if total == 0:
+              lines.append('No se encontraron oportunidades DISCOVERED para procesar')
+          else:
+              lines.append(f'📊 {total} oportunidades evaluadas')
+              lines.append(f'✅ {len(processed)} research completados')
+              lines.append(f'🔖 {approved} approved por el board')
+              lines.append(f'🔴 {len(errors)} errores')
           lines.append('')
           if assessments and isinstance(assessments, list):
               lines.append('*Resultados:*')

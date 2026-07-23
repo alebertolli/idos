@@ -607,9 +607,9 @@ def build_digest(results: list[dict], total: int, errors: list[dict]) -> str:
         "",
         "## Resumen",
         "",
-        f"- :green_circle: **Procesadas:** {len(results)}/{total}",
-        f"- :red_circle: **Errores:** {len(errors)}",
-        f"- :bar_chart: **Total oportunidades:** {total}",
+        f"- 🟢 **Procesadas:** {len(results)}/{total}",
+        f"- 🔴 **Errores:** {len(errors)}",
+        f"- 📊 **Total oportunidades:** {total}",
         "",
     ]
 
@@ -617,13 +617,13 @@ def build_digest(results: list[dict], total: int, errors: list[dict]) -> str:
         lines.append("### Resultados por oportunidad")
         lines.append("")
         for r in results:
-            emoji = ":white_check_mark:" if r.get("board_approved") else ":warning:"
+            emoji = "✅" if r.get("board_approved") else "⚠️"
             ticker = r["ticker"]
             opp_id = r["opp_id"]
             conv = r.get("conviction_score", "?")
             rec = r.get("recommendation", "?")
             dq = r.get("data_quality", "?")
-            dq_flag = " :warning: datos pobres" if dq == "poor" else ""
+            dq_flag = " ⚠️ datos pobres" if dq == "poor" else ""
             line = (
                 f"- {emoji} **{ticker}** ({opp_id}) - "
                 f"Conviction: {conv}/100, Recomendacion: {rec}"
