@@ -167,7 +167,7 @@ class ResearchWorker(BaseWorker):
             "fcf_yield": financial_data.get("fcf_yield", 0),
         })
 
-        self._build_knowledge_base(ticker, opp_id, company, financial_data, ddd_result, aoif_result, thesis, knowledge)
+        self._build_knowledge_base(ticker, opp_id, company, financial_data, ddd_result, aoif_result, thesis, knowledge, ddd_empty)
 
         assessment_id = f"ass-{uuid4().hex[:8]}"
         assessment = {
@@ -251,6 +251,7 @@ class ResearchWorker(BaseWorker):
         aoif_result: dict[str, Any],
         thesis: str,
         knowledge: Any,
+        ddd_empty: bool = False,
     ):
         from idos.research.wiki import WikiBuilder
         from idos.knowledge.wiki import AtomicWiki, WikiSection, WikiMetadata
@@ -290,8 +291,9 @@ class ResearchWorker(BaseWorker):
         wiki_sections = wiki_builder.build(ticker, wiki_data)
         wiki_md = wiki_builder.render_markdown(wiki_sections)
 
+        ddd_ok = not ddd_empty and not ddd_result.get("error")
         wiki_template = self.registry.get("wiki", category="research")
-        if wiki_template:
+        if wiki_template and ddd_ok:
             existing = knowledge.get_wiki_text(ticker) or wiki_md
             formatted = wiki_template.format(
                 ticker=ticker,
