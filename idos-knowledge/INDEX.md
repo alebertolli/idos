@@ -26,6 +26,7 @@ Total: 11 companies tracked
 ## Financial Services
 - 📄 [[HDB|HDFC Bank Limited]]
 - 📄 [[JPM|JPMorgan Chase & Co.]]
+- 📄 [[SAN|Banco Santander, S.A.]]
 
 ## Technology
 - 📄 [[ASML|ASML Holding N.V.]]
