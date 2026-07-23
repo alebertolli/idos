@@ -41,7 +41,7 @@ class ValuationAssessmentEngine(BaseAssessmentEngine):
         if margin_of_safety > 40:
             score += 10
             findings.append({"type": "POSITIVE", "detail": f"Margin of safety: {margin_of_safety:.0f}%"})
-        elif margin_of_safety > 20:
+        elif margin_of_safety >= 20:
             score += 5
 
         score = max(0, min(100, score))

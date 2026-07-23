@@ -155,11 +155,33 @@ def build_context(
     opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
     ddd_report_path = opp_dir / "ddd_report.yml"
     thesis_active = False
+    catalysts = []
+    risk_events = []
     if ddd_report_path.exists():
         try:
             report = yaml.safe_load(ddd_report_path.read_text(encoding="utf-8"))
-            if report and report.get("tesis_inversion"):
-                thesis_active = True
+            if report:
+                if report.get("tesis_inversion"):
+                    thesis_active = True
+                raw = report.get("dominio_catalizadores", [])
+                _impact_map = {"alto": "high", "medio": "medium", "bajo": "low"}
+                _timeline_map = {"corto": "short", "medio": "long", "largo": "long"}
+                for c in raw:
+                    if isinstance(c, dict):
+                        catalysts.append({
+                            "impact": _impact_map.get(c.get("impacto", "").lower(), "low"),
+                            "timeline": _timeline_map.get(c.get("horizonte", "").lower(), "long"),
+                            "description": c.get("descripcion", ""),
+                        })
+                raw_risks = report.get("dominio_riesgos", [])
+                for r in raw_risks:
+                    if isinstance(r, dict):
+                        risk_events.append({
+                            "type": r.get("tipo", "regulatory"),
+                            "description": r.get("descripcion", ""),
+                            "resolution": r.get("resolucion", "unfavorable"),
+                            "severity": r.get("severidad", "medium"),
+                        })
         except Exception:
             pass
 
@@ -168,8 +190,8 @@ def build_context(
         "portfolio": portfolio,
         "company": company_info,
         "margin_of_safety": margin_of_safety,
-        "catalysts": [],
-        "risk_events": [],
+        "catalysts": catalysts,
+        "risk_events": risk_events,
         "proposed_weight": 3.0,
         "themes": [],
         "opportunity_id": opp_id,
@@ -202,10 +224,18 @@ _NUMERIC_KEYS = {"pe_ratio", "pe_ratio_ttm", "pe_historical_avg", "peg_ratio", "
     "operating_margin", "roic"}
 
 def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:
-    _aliases = {"pe_ratio_ttm": "pe_ratio", "peg_ratio_ttm": "peg_ratio"}
+    _aliases = {"pe_ratio_ttm": "pe_ratio", "peg_ratio_ttm": "peg_ratio",
+                "short_pct_of_float": "short_interest_pct",
+                "eps_growth_this_year_pct": "eps_growth",
+                "eps_growth_next_year_pct": "eps_growth",
+                "eps_growth_5y_pct": "eps_growth"}
     for src, dst in _aliases.items():
         if src in data and (dst not in data or data[dst] is None):
             data[dst] = data[src]
+    _consensus_map = {"strong buy": 5, "buy": 4, "hold": 3, "sell": 2, "strong sell": 1}
+    ac = data.get("analyst_consensus")
+    if isinstance(ac, str) and ac.lower() in _consensus_map:
+        data["analyst_consensus"] = _consensus_map[ac.lower()]
     _coerce_numeric(data, _NUMERIC_KEYS)
     _pct_keys = {"roic_pct", "roe_pct", "roa_pct", "revenue_growth_pct",
                  "operating_margin_pct", "gross_margin_pct", "net_margin_pct",
