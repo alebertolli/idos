@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-23 15:29 AR_
+_Generado: 2026-07-23 15:30 AR_
 
 ## Resumen
 
@@ -12,17 +12,16 @@ _Generado: 2026-07-23 15:29 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **HDB** (OPP-20260721-001): score=50, class=None
+- ✅ **LVS** (OPP-20260720-021): score=60, class=ciclica
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **HDB**
-  - Opp: [OPP-20260721-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/HDB/case_file/opportunities/OPP-20260721-001)
+- ⚠️ **LVS**
+  - Opp: [OPP-20260720-021](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/LVS/case_file/opportunities/OPP-20260720-021)
   - Conviction: 66/100 | Rec: BLOCKED
-  - Scores: Business: 62 | Valuation: 70 | Recovery: 50 | Risk: 70 | Portfolio: 90
+  - Scores: Business: 59 | Valuation: 70 | Recovery: 54 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 62/100
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+    - 🚫 RULE-001: Business quality: 59/100
 
 ---
 

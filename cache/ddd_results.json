@@ -1,29 +1,29 @@
 {
   "processed": [
     {
-      "ticker": "HDB",
-      "opp_id": "OPP-20260721-001",
+      "ticker": "LVS",
+      "opp_id": "OPP-20260720-021",
       "status": "completed",
-      "score": 50,
-      "classification": null,
+      "score": 60,
+      "classification": "ciclica",
       "force": true,
       "event_type": "quarterly-results"
     }
   ],
   "assessments": [
     {
-      "ticker": "HDB",
-      "opp_id": "OPP-20260721-001",
+      "ticker": "LVS",
+      "opp_id": "OPP-20260720-021",
       "status": "completed",
       "conviction_score": 66,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260723152950",
+      "decision_id": "DEC-20260723153000",
       "assessments": {
-        "BusinessAssessmentEngine": 62,
+        "BusinessAssessmentEngine": 59,
         "ValuationAssessmentEngine": 70,
-        "RecoveryAssessmentEngine": 50,
+        "RecoveryAssessmentEngine": 54,
         "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
@@ -37,18 +37,17 @@
         "RULE-009"
       ],
       "rules_failed": [
-        "RULE-001",
-        "RULE-008"
+        "RULE-001"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 62/100",
-        "RULE-002": "Price target margin: 47.3%",
-        "RULE-003": "Rerating: 50/100",
+        "RULE-001": "Business quality: 59/100",
+        "RULE-002": "Price target margin: 42.6%",
+        "RULE-003": "Rerating: 54/100",
         "RULE-004": "Risk: 70/100",
         "RULE-005": "Conviction: 66/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
-        "RULE-008": "No hay datos de DDD para calcular asimetria",
+        "RULE-008": "B/R inf:1 \u2705 (upside 70.2% / downside 0.0%)",
         "RULE-009": "Posiciones activas: 0/10 max (competencia por capital)"
       },
       "data_quality": "good"
