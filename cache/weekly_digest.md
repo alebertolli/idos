@@ -1,27 +1,14 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-23 16:10 AR_
+_Generado: 2026-07-23 17:27 AR_
 
 ## Resumen
 
-- 🟢 **Oportunidades procesadas:** 1
-- ✅ **Assessment completados:** 1
+- 🟢 **Oportunidades procesadas:** 0
+- ✅ **Assessment completados:** 0
 - 🔖 **Approved:** 0
 - 🔴 **Errores:** 0
-- 📊 **Total encontradas:** 1
-
-### STEP 2 - Research (DDD + AOIF + Hypothesis)
-
-- ✅ **HDB** (OPP-20260721-001): score=82, class=compounder_castigado
-
-### STEP 3-7 - Assessment Pipeline
-
-- ⚠️ **HDB**
-  - Opp: [OPP-20260721-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/HDB/case_file/opportunities/OPP-20260721-001)
-  - Conviction: 65/100 | Rec: BLOCKED
-  - Scores: Business: 58 | Valuation: 70 | Recovery: 54 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 58/100
+- 📊 **Total encontradas:** 0
 
 ---
 
