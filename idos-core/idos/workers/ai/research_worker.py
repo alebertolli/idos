@@ -295,13 +295,25 @@ class ResearchWorker(BaseWorker):
         wiki_template = self.registry.get("wiki", category="research")
         if wiki_template and ddd_ok:
             existing = knowledge.get_wiki_text(ticker) or wiki_md
+            import json
+            ddd_json = json.dumps(ddd_result, indent=2, ensure_ascii=False)
+            aoif_json = json.dumps(aoif_result, indent=2, ensure_ascii=False)
+            from idos.knowledge.linker import CrossCompanyLinker
+            linker = CrossCompanyLinker(knowledge.base)
+            related = linker.find_related(ticker)
+            related_strs = []
+            for cat, tickers in related.items():
+                for t in tickers:
+                    related_strs.append(f"[[{t}]]")
+            related_tickers = ", ".join(related_strs) if related_strs else "Ninguna"
             formatted = wiki_template.format(
                 ticker=ticker,
                 name=company.get("name", ticker),
-                ddd_output=str(ddd_result),
-                aoif_output=str(aoif_result),
-                evidence_chain=f"DDD: {str(ddd_result)[:1500]}\n\nAOIF: {str(aoif_result)[:1500]}",
+                ddd_output=ddd_json,
+                aoif_output=aoif_json,
+                evidence_chain=f"DDD:\n{ddd_json[:1500]}\n\nAOIF:\n{aoif_json[:1500]}",
                 existing_wiki=existing,
+                related_tickers=related_tickers,
             )
             wiki_system = self.registry.get_system("wiki", category="research") or ""
             llm_resp = self.llm.generate(
@@ -315,10 +327,20 @@ class ResearchWorker(BaseWorker):
 
         knowledge.save_wiki(ticker, wiki_md)
 
+        from idos.knowledge.linker import CrossCompanyLinker
+        linker = CrossCompanyLinker(knowledge.base)
+        wiki_md = linker.inject_links(ticker, wiki_md)
+        if wiki_md:
+            knowledge.save_wiki(ticker, wiki_md)
+
         atomic = AtomicWiki(knowledge.base)
         monolith_path = knowledge.knowledge_base_path(ticker) / "static" / "wiki.md"
         if monolith_path.exists():
             atomic.migrate_from_monolith(ticker, monolith_path)
+
+        index_path = knowledge.base / "INDEX.md"
+        index_content = knowledge.generate_index()
+        index_path.write_text(index_content, encoding="utf-8")
 
         lifecycle = KnowledgeLifecycle()
         contradiction_detector = ContradictionDetector()

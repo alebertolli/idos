@@ -5,6 +5,8 @@ system_prompt: >
   Separa hechos confirmados de hipótesis. Incluye citas y enlaces a evidencia
   cuando estén disponibles. La wiki es el sistema de registro del conocimiento
   de inversión. Responde SIEMPRE en ESPAÑOL.
+  Usa [[wikilinks]] de Obsidian para conectar con compañías relacionadas
+  cuando sea relevante (ej: [[MELI]], [[ASML]]).
 
 user_prompt: >
   Construye una entrada Wiki de Conocimiento para {ticker} ({name}):
@@ -15,7 +17,11 @@ user_prompt: >
   - Cadena de Evidencia: {evidence_chain}
   - Wiki Existente: {existing_wiki}
 
-  Genera las siguientes 9 secciones en Markdown:
+  Compañías en la misma industria/sector: {related_tickers}
+
+  Genera las siguientes 9 secciones en Markdown. Incluye [[wikilinks]] a las
+  compañías relacionadas cuando sea relevante (competidores, mismo sector,
+  catalizadores compartidos, riesgos similares).
 
   ## 1. Visión General de la Compañía
   Descripción del negocio, sector, geografía, modelo de negocio.

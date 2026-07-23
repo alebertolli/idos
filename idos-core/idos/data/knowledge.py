@@ -60,3 +60,55 @@ class KnowledgeRepository:
         if wiki:
             return wiki
         return ""
+
+    def list_all_tickers(self) -> list[str]:
+        companies_dir = self.base / "companies"
+        if not companies_dir.exists():
+            return []
+        result = []
+        for d in sorted(companies_dir.iterdir()):
+            if d.is_dir() and not d.name.startswith("_") and (d / "company.yml").exists():
+                result.append(d.name)
+        return result
+
+    def list_all_companies(self) -> dict[str, dict[str, Any]]:
+        result: dict[str, dict[str, Any]] = {}
+        for ticker in self.list_all_tickers():
+            company = self.load_company(ticker)
+            if company:
+                result[ticker] = company
+        return result
+
+    def generate_index(self) -> str:
+        companies = self.list_all_companies()
+        by_sector: dict[str, list[tuple[str, str]]] = {}
+        for ticker, data in companies.items():
+            sector = data.get("sector") or data.get("industry") or "Other"
+            name = data.get("name", ticker)
+            by_sector.setdefault(sector, []).append((ticker, name))
+
+        lines = [
+            "---",
+            "id: idos-index",
+            "aliases:",
+            "  - IDOS Company Index",
+            "  - Companies",
+            "---",
+            "",
+            "# IDOS Company Index",
+            "",
+            f"Total: {len(companies)} companies tracked",
+            "",
+        ]
+        for sector in sorted(by_sector):
+            entries = sorted(by_sector[sector], key=lambda x: x[0])
+            lines.append(f"## {sector}")
+            for ticker, name in entries:
+                wiki_path = self.knowledge_base_path(ticker) / "static" / "wiki.md"
+                has_wiki = "📄" if wiki_path.exists() else "⏳"
+                lines.append(f"- {has_wiki} [[{ticker}|{name}]]")
+            lines.append("")
+
+        lines.append("---")
+        lines.append(f"*Generated: auto-updated on each research run*")
+        return "\n".join(lines)
