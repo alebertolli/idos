@@ -40,7 +40,7 @@ To be evaluated
 - **Revenue Growth**: 4.56
 - **FCF Yield**: 0
 - **Debt/Equity**: 0
-- **PER**: 11.04
+- **PER**: 10.58
 - **EV/EBITDA**: 0
 
 ---
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[JPM|JPMorgan Chase & Co.]]
+- **Same Sector**: [[HDB|HDFC Bank Limited]], [[JPM|JPMorgan Chase & Co.]]
 - **Same Industry**: [[JPM|JPMorgan Chase & Co.]]
