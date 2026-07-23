@@ -140,6 +140,11 @@ jobs:
 
           if approved_list:
               lines.append(f'*:green_circle: APPROVED ({len(approved_list)}):*')
+              for p in approved_list:
+                  t = p['ticker']
+                  oid = p['opp_id']
+                  cv = p['conviction']
+                  lines.append(f'- {t} ({oid}) | conv={cv}/100')
               lines.append('')
 
           if blocked_list:
