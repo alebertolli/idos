@@ -64,13 +64,9 @@ class ResearchWorker(BaseWorker):
             print(f"[FORCE] Reprocessing {ticker} ({opp_id}) from {current_status}, event={event_type}")
 
         company = knowledge.load_company(ticker) or {}
-        wiki = knowledge.get_wiki_text(ticker)
         financial_data = self._load_financial_data(ticker, sqlite)
         if not company.get("sector"):
             company = self._enrich_company_info(ticker, company, knowledge)
-            if not wiki and company.get("business_model"):
-                wiki = company["business_model"]
-                knowledge.save_wiki(ticker, wiki)
 
         ddd_result = self._run_prompt("ddd", ticker, {
             "ticker": ticker,
@@ -92,7 +88,7 @@ class ResearchWorker(BaseWorker):
             "ceo_tenure": financial_data.get("ceo_tenure", 0),
             "insider_ownership": financial_data.get("insider_ownership", 0),
             "capital_allocation": financial_data.get("capital_allocation", "N/A"),
-            "recent_events": financial_data.get("recent_events", wiki[:500]),
+            "recent_events": financial_data.get("recent_events", company.get("business_model", "")[:500]),
         })
 
         classification = ddd_result.get("clasificacion_oportunidad", {})
@@ -162,7 +158,7 @@ class ResearchWorker(BaseWorker):
         aoif_result = self._run_prompt("aoif", ticker, {
             "ticker": ticker,
             "name": company.get("name", ticker),
-            "company_data": f"Sector: {company.get('sector', '')}\nBusiness: {company.get('business_model', '')}\nWiki: {wiki[:2000]}",
+            "company_data": f"Sector: {company.get('sector', '')}\nBusiness: {company.get('business_model', '')}",
             "roic": financial_data.get("roic_pct", 0),
             "operating_margin": financial_data.get("operating_margin_pct", 0),
             "revenue_growth": financial_data.get("revenue_growth_pct", 0),
@@ -170,6 +166,8 @@ class ResearchWorker(BaseWorker):
             "ev_ebitda": financial_data.get("ev_ebitda", 0),
             "fcf_yield": financial_data.get("fcf_yield", 0),
         })
+
+        self._build_knowledge_base(ticker, opp_id, company, financial_data, ddd_result, aoif_result, thesis, knowledge)
 
         assessment_id = f"ass-{uuid4().hex[:8]}"
         assessment = {
@@ -242,6 +240,127 @@ class ResearchWorker(BaseWorker):
             "assessment_id": assessment_id,
             "ddd_empty": ddd_empty,
         }
+
+    def _build_knowledge_base(
+        self,
+        ticker: str,
+        opp_id: str,
+        company: dict[str, Any],
+        financial_data: dict[str, Any],
+        ddd_result: dict[str, Any],
+        aoif_result: dict[str, Any],
+        thesis: str,
+        knowledge: Any,
+    ):
+        from idos.research.wiki import WikiBuilder
+        from idos.knowledge.wiki import AtomicWiki, WikiSection, WikiMetadata
+        from idos.knowledge.lifecycle import KnowledgeLifecycle, KnowledgeObject, KnowledgeStatus
+        from idos.knowledge.contradiction import ContradictionDetector
+        from idos.knowledge.claims import ClaimStore, Claim, EvidenceCategory
+
+        products = company.get("products") or []
+        if isinstance(products, str):
+            products = [p.strip() for p in products.split(",") if p.strip()]
+
+        wiki_data = {
+            "knowledge_base": {
+                "static": {
+                    "business_model": company.get("business_model", ""),
+                    "products": products,
+                    "moat_description": company.get("moat_description", ""),
+                    "management_history": company.get("management_history", ""),
+                },
+                "dynamic": {
+                    "metrics": {
+                        "roic": financial_data.get("roic_pct", 0),
+                        "operating_margin": financial_data.get("operating_margin_pct", 0),
+                        "revenue_growth": financial_data.get("revenue_growth_pct", 0),
+                        "fcf_yield": financial_data.get("fcf_yield", 0),
+                        "debt_to_equity": financial_data.get("debt_equity_ratio", 0),
+                        "pe_ratio": financial_data.get("pe_ratio", 0),
+                        "ev_ebitda": financial_data.get("ev_ebitda", 0),
+                    }
+                }
+            },
+            "competitors": company.get("competitors", []),
+            "catalysts": ddd_result.get("dominio_catalizadores", []),
+            "thesis": thesis,
+        }
+        wiki_builder = WikiBuilder()
+        wiki_sections = wiki_builder.build(ticker, wiki_data)
+        wiki_md = wiki_builder.render_markdown(wiki_sections)
+
+        wiki_template = self.registry.get("wiki", category="research")
+        if wiki_template:
+            existing = knowledge.get_wiki_text(ticker) or wiki_md
+            formatted = wiki_template.format(
+                ticker=ticker,
+                name=company.get("name", ticker),
+                ddd_output=str(ddd_result),
+                aoif_output=str(aoif_result),
+                evidence_chain=f"DDD: {str(ddd_result)[:1500]}\n\nAOIF: {str(aoif_result)[:1500]}",
+                existing_wiki=existing,
+            )
+            wiki_system = self.registry.get_system("wiki", category="research") or ""
+            llm_resp = self.llm.generate(
+                prompt=formatted,
+                system_prompt=wiki_system,
+                temperature=0.1,
+                max_tokens=4096,
+            )
+            if llm_resp.success and len(getattr(llm_resp, "content", "")) > 100:
+                wiki_md = llm_resp.content
+
+        knowledge.save_wiki(ticker, wiki_md)
+
+        atomic = AtomicWiki(knowledge.base)
+        monolith_path = knowledge.knowledge_base_path(ticker) / "static" / "wiki.md"
+        if monolith_path.exists():
+            atomic.migrate_from_monolith(ticker, monolith_path)
+
+        lifecycle = KnowledgeLifecycle()
+        contradiction_detector = ContradictionDetector()
+        claim_store = ClaimStore(str(knowledge.base))
+
+        for section in atomic.all_sections(ticker):
+            obj = KnowledgeObject(
+                object_id=f"wiki-{ticker}-{section.name}",
+                object_type="wiki_section",
+                ticker=ticker,
+                content={"section": section.name, "content": section.content[:500]},
+                status=KnowledgeStatus.CREATED,
+                confidence=section.metadata.confidence,
+            )
+            lifecycle.register(obj)
+            lifecycle.verify(obj.object_id)
+            lifecycle.publish(obj.object_id)
+
+        dd_claims = ddd_result.get("calidad_evidencia", {}).get("hechos_verificados", [])
+        for i, fact in enumerate(dd_claims):
+            claim = Claim(
+                claim_id=f"CLAIM-{ticker}-DDD-{i+1}",
+                statement=fact,
+                confidence=0.85,
+                category=EvidenceCategory.FACT,
+                tags=["ddd", ticker],
+            )
+            claim_store.put(claim)
+            contradiction = contradiction_detector.evaluate(
+                ticker=ticker,
+                claim_statement=fact,
+                new_evidence=wiki_md[:2000],
+                source=f"DDD {opp_id}",
+            )
+            if contradiction:
+                print(f"[KB] {ticker}: Contradicción: {contradiction.claim_statement} vs {contradiction.conflicting_evidence[:100]}")
+
+        unresolved = contradiction_detector.unresolved()
+        if unresolved:
+            print(f"[KB] {ticker}: {len(unresolved)} contradicciones sin resolver registradas")
+
+        registered = lifecycle.count()
+        if registered:
+            print(f"[KB] {ticker}: {registered} secciones wiki registradas en KnowledgeLifecycle")
 
     def _load_financial_data(self, ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
         data: dict[str, Any] = {}

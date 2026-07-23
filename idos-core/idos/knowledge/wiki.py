@@ -56,6 +56,8 @@ class WikiSection:
 
 ATOMIC_SECTIONS = [
     "business",
+    "products",
+    "moat",
     "management",
     "competition",
     "risks",
@@ -64,6 +66,7 @@ ATOMIC_SECTIONS = [
     "financial_highlights",
     "catalysts",
     "investment_thesis",
+    "open_questions",
 ]
 
 class AtomicWiki:
@@ -135,6 +138,37 @@ class AtomicWiki:
             s.metadata.freshness = datetime.now(AR_TZ).isoformat()
             self.set_section(ticker, s)
 
+    SECTION_HEADER_ALIASES = {
+        "business_model": "business",
+        "company_overview": "business",
+        "business": "business",
+        "products_and_services": "products",
+        "products_&_services": "products",
+        "products": "products",
+        "competitive_moat": "moat",
+        "moat": "moat",
+        "competition": "competition",
+        "management": "management",
+        "risk_factors": "risks",
+        "risks": "risks",
+        "financial_highlights": "financial_highlights",
+        "catalysts": "catalysts",
+        "valuation": "valuation",
+        "investment_thesis": "investment_thesis",
+        "thesis": "investment_thesis",
+        "timeline": "timeline",
+        "open_questions": "open_questions",
+        "preguntas_abiertas": "open_questions",
+        "vision_general": "business",
+        "modelo_de_negocio": "business",
+        "perfil_financiero": "financial_highlights",
+        "management_y_gobierno": "management",
+        "tesis_de_inversion": "investment_thesis",
+        "riesgos_y_contra_tesis": "risks",
+        "catalizadores_y_timeline": "catalysts",
+        "marco_de_valoracion": "valuation",
+    }
+
     def migrate_from_monolith(self, ticker: str, monolith_path: str | Path):
         content = Path(monolith_path).read_text(encoding="utf-8")
         sections_raw = content.split("\n## ")
@@ -148,6 +182,11 @@ class AtomicWiki:
             name = lines[0].strip().lower().replace(" ", "_").replace("&", "and")
             body = "\n".join(lines[1:]).strip()
             body = body.replace("\n---", "").strip()
+            while body.endswith("---"):
+                body = body[:-3].strip()
+            mapped = self.SECTION_HEADER_ALIASES.get(name, name)
+            if mapped is None:
+                continue
             if name and body:
-                section = WikiSection(name=name, content=body, metadata=WikiMetadata.fresh())
+                section = WikiSection(name=mapped, content=body, metadata=WikiMetadata.fresh())
                 self.set_section(ticker, section)

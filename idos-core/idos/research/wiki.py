@@ -10,16 +10,19 @@ class WikiBuilder:
         static = kb.get("static", {})
         metrics = kb.get("dynamic", {}).get("metrics", {})
 
+        products_list = static.get("products") or ["To be identified"]
+        competitors_list = data.get("competitors") or ["To be identified"]
+
         return {
-            "business_model": self._section("Business Model", static.get("business_model", "To be researched")),
-            "products": self._section("Products & Services", "\n".join(f"- {p}" for p in static.get("products", ["To be identified"]))),
-            "moat": self._section("Competitive Moat", static.get("moat_description", "To be analyzed")),
-            "competition": self._section("Competition", "\n".join(f"- {c}" for c in data.get("competitors", ["To be identified"]))),
-            "management": self._section("Management", static.get("management_history", "To be evaluated")),
+            "business_model": self._section("Business Model", static.get("business_model") or "To be researched"),
+            "products": self._section("Products & Services", "\n".join(f"- {p}" for p in products_list)),
+            "moat": self._section("Competitive Moat", static.get("moat_description") or "To be analyzed"),
+            "competition": self._section("Competition", "\n".join(f"- {c}" for c in competitors_list)),
+            "management": self._section("Management", static.get("management_history") or "To be evaluated"),
             "risks": self._section("Risk Factors", ""),
             "financial_highlights": self._build_financial_section(metrics),
-            "catalysts": self._build_catalyst_section(data.get("catalysts", [])),
-            "thesis": self._section("Investment Thesis", data.get("thesis", "To be formulated")),
+            "catalysts": self._build_catalyst_section(data.get("catalysts") or []),
+            "thesis": self._section("Investment Thesis", data.get("thesis") or "To be formulated"),
         }
 
     def render_markdown(self, wiki_data: dict[str, str]) -> str:
