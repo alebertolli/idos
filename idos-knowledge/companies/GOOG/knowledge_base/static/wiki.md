@@ -46,13 +46,14 @@ To be evaluated
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-La empresa es un compounder con un historial de crecimiento sólido y una posición competitiva fuerte en el mercado. La hipótesis contraria sugiere que la empresa podría experimentar un crecimiento más rápido de lo esperado debido a la expansión de su negocio de cloud y la creciente demanda de publicidad en línea.
+To be formulated
 
 ---
 
