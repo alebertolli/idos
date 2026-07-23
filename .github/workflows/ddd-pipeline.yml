@@ -112,9 +112,38 @@ jobs:
                           print(f'[DDD] Error reading {yf}: {e}')
 
           if not opportunities:
-              print('[DDD] No DISCOVERED opportunities to process')
-              Path('cache/ddd_results.json').write_text(json.dumps({'processed': [], 'assessments': [], 'errors': [], 'status': 'none', 'event_type': event_type, 'force': force}), encoding='utf-8')
-              exit(0)
+              if force and ticker_filter:
+                  print(f'[DDD] Force mode for {ticker_filter} but no opportunity found, creating one on the fly')
+                  from idos.data.sqlite import SQLiteStore
+                  from idos.data.journal import JournalRepository
+                  from datetime import datetime
+                  from idos.timezone import AR_TZ
+                  existing_opps = SQLiteStore('idos.db').list_opportunities()
+                  seq = len(existing_opps) + 1
+                  new_opp_id = f'OPP-{datetime.now(AR_TZ).strftime(\"%Y%m%d\")}-{seq:03d}'
+                  now = datetime.now(AR_TZ).isoformat()
+                  new_opp = {
+                      'id': new_opp_id,
+                      'ticker': ticker_filter.upper(),
+                      'status': 'DISCOVERED',
+                      'conviction': {'overall': 0},
+                      'created_at': now,
+                      'updated_at': now,
+                  }
+                  jr = JournalRepository(journal)
+                  jr.save_opportunity(ticker_filter.upper(), new_opp)
+                  SQLiteStore('idos.db').save_opportunity(new_opp)
+                  opportunities.append({
+                      'opp_id': new_opp_id,
+                      'ticker': ticker_filter.upper(),
+                      'score': 0,
+                      'current_status': 'DISCOVERED',
+                  })
+                  print(f'[DDD] Created new opportunity {new_opp_id} for {ticker_filter.upper()}')
+              else:
+                  print('[DDD] No DISCOVERED opportunities to process')
+                  Path('cache/ddd_results.json').write_text(json.dumps({'processed': [], 'assessments': [], 'errors': [], 'status': 'none', 'event_type': event_type, 'force': force}), encoding='utf-8')
+                  exit(0)
 
           labels = 'FORCE' if force else 'DISCOVERED'
           print(f'[DDD] Found {len(opportunities)} {labels} opportunities')
@@ -380,18 +409,17 @@ jobs:
           event_type = results.get('event_type', 'monthly')
           force = results.get('force', False)
 
-          mode_label = 'FORCE' if force else 'NORMAL'
           if event_type == 'quarterly-results':
-              event_label = 'Quarterly Results'
+              trigger_label = 'Quarterly Results'
           elif event_type == 'manual':
-              event_label = 'Manual'
+              trigger_label = f'Manual' + (f' ({ticker_filter})' if ticker_filter else '')
           else:
-              event_label = 'Monthly'
+              trigger_label = 'Monthly'
 
           # Build Telegram message (short version)
           lines = []
           lines.append('*IDOS DDD Pipeline*')
-          lines.append(f'Trigger: {event_label} ({mode_label})')
+          lines.append(f'Trigger: {trigger_label}')
           lines.append('')
           if total == 0:
               lines.append('No se encontraron oportunidades DISCOVERED para procesar')

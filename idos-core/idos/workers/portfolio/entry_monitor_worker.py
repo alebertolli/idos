@@ -102,6 +102,7 @@ class EntryMonitorWorker(BaseWorker):
             "target_price": signal.target_price,
             "margin_of_safety_pct": signal.margin_of_safety_pct,
             "wyckoff_phase": signal.wyckoff_phase,
+            "reason": signal.reason,
             "entry_executed": signal.all_conditions_met,
         }
 

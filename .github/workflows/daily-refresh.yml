@@ -140,7 +140,18 @@ jobs:
               if r.get('entry_executed'):
                   print(f'[ENTRY] {ticker}: CONDICIONES CUMPLIDAS - Ejecutando entrada!')
               else:
-                  print(f'[ENTRY] {ticker}: {r.get(\"reason\", \"esperando condiciones\")}')
+                  reason = r.get('reason', 'esperando condiciones')
+                  print(f'[ENTRY] {ticker}: {reason}')
+                  pz = r.get('price_in_zone')
+                  ms = r.get('margin_of_safety_pct')
+                  tp = r.get('target_price')
+                  wc = r.get('wyckoff_confirmed')
+                  wp = r.get('wyckoff_phase')
+                  ta = r.get('thesis_active')
+                  pf = r.get('portfolio_fit')
+                  print(f'  price_zone={pz} margin={ms}% target={tp}')
+                  print(f'  wyckoff={wc} phase={wp}')
+                  print(f'  thesis={ta} portfolio_fit={pf}')
           "
       - name: Risk Monitor - Daily stop-loss check
         run: |
