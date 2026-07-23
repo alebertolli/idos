@@ -62,6 +62,8 @@ class YahooFinanceWorker(BaseWorker):
             "industry": info.get("industry"),
             "employees": info.get("fullTimeEmployees"),
             "price_target_avg": info.get("targetMeanPrice"),
+            "price_target_low": info.get("targetLowPrice"),
+            "price_target_high": info.get("targetHighPrice"),
             "analyst_count": info.get("numberOfAnalystOpinions"),
             "next_earnings_date": info.get("earningsTimestamp"),
         }

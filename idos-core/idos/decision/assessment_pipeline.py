@@ -151,14 +151,20 @@ def build_context(
     if opp:
         cv = opp.get("conviction", {}) or {}
         margin_of_safety = cv.get("margin_of_safety", 20.0)
+    current_price = None
+    target_low = None
+    target_mean = None
+    target_high = None
     try:
         import yfinance as yf
         _s = yf.Ticker(ticker)
         _i = _s.info or {}
-        _cp = _i.get("currentPrice") or _i.get("regularMarketPrice")
-        _tp = _i.get("targetMeanPrice")
-        if _cp and _tp:
-            price_margin = round((_tp - _cp) / _cp * 100, 1)
+        current_price = _i.get("currentPrice") or _i.get("regularMarketPrice")
+        target_mean = _i.get("targetMeanPrice")
+        target_low = _i.get("targetLowPrice")
+        target_high = _i.get("targetHighPrice")
+        if current_price and target_mean:
+            price_margin = round((target_mean - current_price) / current_price * 100, 1)
         else:
             price_margin = margin_of_safety
     except Exception:
@@ -169,16 +175,17 @@ def build_context(
     thesis_active = False
     catalysts = []
     risk_events = []
+    raw_catalysts = []
     if ddd_report_path.exists():
         try:
             report = yaml.safe_load(ddd_report_path.read_text(encoding="utf-8"))
             if report:
                 if report.get("tesis_inversion"):
                     thesis_active = True
-                raw = report.get("dominio_catalizadores", [])
+                raw_catalysts = report.get("dominio_catalizadores", [])
                 _impact_map = {"alto": "high", "medio": "medium", "bajo": "low"}
                 _timeline_map = {"corto": "short", "medio": "long", "largo": "long"}
-                for c in raw:
+                for c in raw_catalysts:
                     if isinstance(c, dict):
                         catalysts.append({
                             "impact": _impact_map.get(c.get("impacto", "").lower(), "low"),
@@ -197,6 +204,8 @@ def build_context(
         except Exception:
             pass
 
+    asymmetry = _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
+
     return {
         "knowledge_base": {"dynamic": {"metrics": metrics}, "static": static},
         "portfolio": portfolio,
@@ -205,6 +214,7 @@ def build_context(
         "price_margin": price_margin,
         "catalysts": catalysts,
         "risk_events": risk_events,
+        "asymmetry": asymmetry,
         "proposed_weight": 3.0,
         "themes": [],
         "opportunity_id": opp_id,
@@ -343,6 +353,80 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
     return {}
 
 
+def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high):
+    if not raw_catalysts or not current_price:
+        return None
+    _horizon_years = {"corto": 0.5, "medio": 1.0, "largo": 2.0}
+    _scenario_map = {"alto": "Optimista", "medio": "Base", "bajo": "Fracaso"}
+    _price_map = {"Optimista": target_high, "Base": target_mean, "Fracaso": target_low}
+    scenarios = {"Fracaso": [], "Base": [], "Optimista": []}
+    for c in raw_catalysts:
+        if not isinstance(c, dict):
+            continue
+        impacto = c.get("impacto", "").lower()
+        scenario = _scenario_map.get(impacto)
+        if not scenario:
+            continue
+        prob = c.get("probabilidad_pct", 0)
+        if not isinstance(prob, (int, float)) or prob <= 0:
+            continue
+        horizon = _horizon_years.get(c.get("horizonte", "").lower(), 1.0)
+        scenarios[scenario].append({"prob": prob, "horizon": horizon, "desc": c.get("descripcion", "")})
+    total_prob = sum(sum(c["prob"] for c in sc_list) for sc_list in scenarios.values())
+    if total_prob <= 0:
+        return None
+    total_normalized = 0.0
+    rows = []
+    for scenario in ["Fracaso", "Base", "Optimista"]:
+        cat_list = scenarios[scenario]
+        prob_raw = sum(c["prob"] for c in cat_list)
+        prob_norm = (prob_raw / total_prob) * 100 if total_prob > 0 else 0
+        total_normalized += prob_norm
+        price = _price_map.get(scenario)
+        if price and current_price:
+            retorno = round((price / current_price - 1) * 100, 2)
+        else:
+            retorno = 0
+        contribucion = round(prob_norm / 100 * price, 2) if price and prob_norm > 0 else 0
+        horizon = round(sum(c["prob"] * c["horizon"] for c in cat_list) / prob_raw, 2) if prob_raw > 0 else 1.0
+        rows.append({
+            "escenario": scenario,
+            "probabilidad_pct": round(prob_norm, 1),
+            "precio_objetivo": price,
+            "retorno_pct": retorno,
+            "contribucion_ve": contribucion,
+            "horizonte_years": horizon,
+        })
+    diff = round(100.0 - total_normalized, 1)
+    if abs(diff) > 0.01 and rows:
+        rows.sort(key=lambda r: r["probabilidad_pct"], reverse=True)
+        rows[0]["probabilidad_pct"] = round(rows[0]["probabilidad_pct"] + diff, 1)
+    valor_esperado = round(sum(r["contribucion_ve"] for r in rows), 2)
+    retorno_esperado = round((valor_esperado / current_price - 1) * 100, 2) if current_price else 0
+    total_pct = sum(r["probabilidad_pct"] for r in rows)
+    horizon_avg = sum(r["probabilidad_pct"] * r["horizonte_years"] for r in rows) / total_pct if total_pct > 0 else 1.0
+    if current_price and valor_esperado > 0:
+        cagr = round((valor_esperado / current_price) ** (1 / horizon_avg) - 1, 4)
+        cagr_pct = round(cagr * 100, 2)
+    else:
+        cagr_pct = 0
+    upside = sum(r["probabilidad_pct"] * r["retorno_pct"] for r in rows if r["retorno_pct"] > 0) / 100
+    downside = sum(r["probabilidad_pct"] * r["retorno_pct"] for r in rows if r["retorno_pct"] < 0) / 100
+    abs_downside = abs(downside) if downside < 0 else 0
+    br = round(abs(upside) / abs_downside, 2) if abs_downside > 0 else (float('inf') if upside > 0 else 0)
+    return {
+        "rows": rows,
+        "valor_esperado": valor_esperado,
+        "retorno_esperado_pct": retorno_esperado,
+        "cagr_pct": cagr_pct,
+        "upside_esperado_pct": round(upside, 2),
+        "downside_esperado_pct": round(downside, 2),
+        "benefit_risk_ratio": br,
+        "passes_threshold": br >= 3.0,
+        "horizonte_avg_years": round(horizon_avg, 2),
+    }
+
+
 def _eval_business(ctx):
     s = ctx.get("assessments", {}).get("BusinessAssessmentEngine", 0)
     return RuleResult("RULE-001", s >= 70, f"Business quality: {s}/100")
@@ -379,7 +463,18 @@ def _eval_sector_exposure(ctx):
     return RuleResult("RULE-007", cur + new_ctx <= 25.0, f"Sector exposure: {cur + new_ctx:.1f}%")
 
 def _eval_asymmetry(ctx):
-    return RuleResult("RULE-008", True, "No asymmetry data available")
+    asym = ctx.get("asymmetry")
+    if not asym:
+        return RuleResult("RULE-008", False, "No hay datos de DDD para calcular asimetria")
+    br = asym.get("benefit_risk_ratio", 0)
+    upside = asym.get("upside_esperado_pct", 0)
+    downside = asym.get("downside_esperado_pct", 0)
+    passes = br >= 3.0
+    if passes:
+        detail = f"B/R {br:.1f}:1 ✅ (upside {upside:.1f}% / downside {abs(downside):.1f}%)"
+    else:
+        detail = f"B/R {br:.1f}:1 ❌ (upside {upside:.1f}% / downside {abs(downside):.1f}%)"
+    return RuleResult("RULE-008", passes, detail)
 
 def _eval_competition(ctx):
     port = ctx.get("portfolio", {})
