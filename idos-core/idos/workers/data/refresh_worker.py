@@ -79,10 +79,37 @@ class DataRefreshWorker(BaseWorker):
                     merged = validated.get("merged_data", validated)
                     try:
                         import yfinance as yf
-                        yfinfo = yf.Ticker(ticker).info or {}
+                        yf_ticker = yf.Ticker(ticker)
+                        yfinfo = yf_ticker.info or {}
                         et = yfinfo.get("earningsTimestamp")
                         if et:
                             merged["next_earnings_date"] = et
+                    except Exception:
+                        pass
+
+                    try:
+                        hist = yf.Ticker(ticker).history(period="1y")
+                        if not hist.empty:
+                            prices = hist["Close"].tolist()
+                            volumes = hist["Volume"].tolist()
+                            dates = [str(d.date()) for d in hist.index]
+                            merged.setdefault("price_history", prices)
+                            merged.setdefault("volume_history", volumes)
+                            merged.setdefault("price_history_dates", dates)
+                            last_date = db.get_last_price_date(ticker)
+                            new_rows = []
+                            for i in range(len(prices)):
+                                d = dates[i]
+                                if last_date and d <= last_date:
+                                    continue
+                                new_rows.append({
+                                    "date": d,
+                                    "close": prices[i],
+                                    "volume": volumes[i] if i < len(volumes) else 0,
+                                })
+                            if new_rows:
+                                db.save_price_history(ticker, new_rows)
+                                print(f"[REFRESH] {ticker}: {len(new_rows)} nuevos registros en price_history desde yfinance directo")
                     except Exception:
                         pass
                     results[ticker] = validated

@@ -215,6 +215,8 @@ def build_context(
         "catalysts": catalysts,
         "risk_events": risk_events,
         "asymmetry": asymmetry,
+        "current_price": current_price,
+        "intrinsic_value": target_mean,
         "proposed_weight": 3.0,
         "themes": [],
         "opportunity_id": opp_id,
@@ -562,6 +564,12 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
             old = opp["status"]
             opp["status"] = new_status.value
             opp["updated_at"] = datetime.now(AR_TZ).isoformat()
+            cp = context.get("current_price")
+            iv = context.get("intrinsic_value")
+            if cp:
+                opp["current_price"] = cp
+            if iv:
+                opp["intrinsic_value"] = iv
             sqlite.save_opportunity(opp)
             sqlite.record_transition(
                 opp_id, old, new_status.value,
@@ -574,6 +582,12 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
             yaml_opp["status"] = new_status.value
         yaml_opp["updated_at"] = datetime.now(AR_TZ).isoformat()
         yaml_opp.setdefault("conviction", {})["overall"] = proposal.conviction_score
+        cp = context.get("current_price")
+        iv = context.get("intrinsic_value")
+        if cp:
+            yaml_opp["current_price"] = cp
+        if iv:
+            yaml_opp["intrinsic_value"] = iv
         journal.save_opportunity(ticker, yaml_opp)
 
     _all_metrics = context.get("knowledge_base", {}).get("dynamic", {}).get("metrics", {})
