@@ -37,25 +37,26 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 18.92
 - **Operating Margin**: 23.25
-- **Revenue Growth**: 5.56
+- **Revenue Growth**: 5.42
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.0981
-- **PER**: 17.55
-- **EV/EBITDA**: 9.07
+- **PER**: 17.74
+- **EV/EBITDA**: 14.47
 
 ---
 
 ## Catalysts
+- **Catalyst** (Impact: medium, Timeline: medium)
 - **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-La empresa tiene una posición competitiva en Macao y Singapur, y oportunidades de crecimiento en Asia. Sin embargo, el sector es cíclico y la demanda puede ser volátil.
+LVS es una apuesta a la normalización del turismo en Asia y a la estabilidad de las relaciones China-USA. La inversión se justifica no por el crecimiento, sino por la calidad de los activos y la solidez del balance, esperando que el mercado vuelva a valorar los flujos de caja operativos por encima del miedo regulatorio.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[PDD|PDD Holdings Inc.]]
+- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[DECK|Deckers Outdoor Corporation]], [[PDD|PDD Holdings Inc.]]
