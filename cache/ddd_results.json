@@ -1,49 +1,49 @@
 {
   "processed": [
     {
-      "ticker": "AEM",
-      "opp_id": "OPP-20260720-007",
+      "ticker": "ASML",
+      "opp_id": "OPP-20260720-028",
       "status": "completed",
-      "score": 50,
-      "classification": null,
+      "score": 80,
+      "classification": "compounder",
       "force": true,
       "event_type": "manual"
     }
   ],
   "assessments": [
     {
-      "ticker": "AEM",
-      "opp_id": "OPP-20260720-007",
+      "ticker": "ASML",
+      "opp_id": "OPP-20260720-028",
       "status": "completed",
       "conviction_score": 67,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260722212805",
+      "decision_id": "DEC-20260722233641",
       "assessments": {
-        "BusinessAssessmentEngine": 68,
-        "ValuationAssessmentEngine": 60,
+        "BusinessAssessmentEngine": 76,
+        "ValuationAssessmentEngine": 50,
         "RecoveryAssessmentEngine": 52,
         "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
-        "RULE-002",
+        "RULE-001",
         "RULE-004",
         "RULE-005",
         "RULE-006",
         "RULE-007",
         "RULE-008",
-        "RULE-009"
-      ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-003",
+        "RULE-009",
         "RULE-010"
       ],
+      "rules_failed": [
+        "RULE-002",
+        "RULE-003"
+      ],
       "rules_details": {
-        "RULE-001": "Business quality: 68/100",
-        "RULE-002": "Valuation: 60/100",
+        "RULE-001": "Business quality: 76/100",
+        "RULE-002": "Valuation: 50/100",
         "RULE-003": "Rerating: 52/100",
         "RULE-004": "Risk: 80/100",
         "RULE-005": "Conviction: 67/100",

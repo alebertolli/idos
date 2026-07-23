@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-22 21:28 AR_
+_Generado: 2026-07-22 23:36 AR_
 
 ## Resumen
 
@@ -12,18 +12,17 @@ _Generado: 2026-07-22 21:28 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- :white_check_mark: **AEM** (OPP-20260720-007): score=50, class=None
+- :white_check_mark: **ASML** (OPP-20260720-028): score=80, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- :warning: **AEM**
-  - Opp: [OPP-20260720-007](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AEM/case_file/opportunities/OPP-20260720-007)
+- :warning: **ASML**
+  - Opp: [OPP-20260720-028](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ASML/case_file/opportunities/OPP-20260720-028)
   - Conviction: 67/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Scores: Business: 76 | Valuation: 50 | Recovery: 52 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - :no_entry: RULE-001: Business quality: 68/100
+    - :no_entry: RULE-002: Valuation: 50/100
     - :no_entry: RULE-003: Rerating: 52/100
-    - :no_entry: RULE-010: Tesis no está activa en la base de conocimiento
 
 ---
 
