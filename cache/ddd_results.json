@@ -1,64 +1,8 @@
 {
-  "processed": [
-    {
-      "ticker": "PDD",
-      "opp_id": "OPP-20260720-005",
-      "status": "completed",
-      "score": 50,
-      "classification": null,
-      "force": true,
-      "event_type": "manual"
-    }
-  ],
-  "assessments": [
-    {
-      "ticker": "PDD",
-      "opp_id": "OPP-20260720-005",
-      "status": "completed",
-      "conviction_score": 65,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": "HOLD",
-      "decision_id": "DEC-20260723002440",
-      "assessments": {
-        "BusinessAssessmentEngine": 63,
-        "ValuationAssessmentEngine": 60,
-        "RecoveryAssessmentEngine": 52,
-        "RiskAssessmentEngine": 80,
-        "PortfolioAssessmentEngine": 90
-      },
-      "rules_passed": [
-        "RULE-002",
-        "RULE-004",
-        "RULE-005",
-        "RULE-006",
-        "RULE-007",
-        "RULE-008",
-        "RULE-009"
-      ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-003",
-        "RULE-010"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 63/100",
-        "RULE-002": "Valuation: 60/100",
-        "RULE-003": "Rerating: 52/100",
-        "RULE-004": "Risk: 80/100",
-        "RULE-005": "Conviction: 65/100",
-        "RULE-006": "Position weight: 3.0%",
-        "RULE-007": "Sector exposure: 3.0%",
-        "RULE-008": "No asymmetry data available",
-        "RULE-009": "Posiciones activas: 0/10 max (competencia por capital)",
-        "RULE-010": "Tesis no est\u00e1 activa en la base de conocimiento"
-      },
-      "data_quality": "good"
-    }
-  ],
+  "processed": [],
+  "assessments": [],
   "errors": [],
-  "total": 1,
-  "done": 1,
-  "event_type": "manual",
-  "force": true
+  "status": "none",
+  "event_type": "monthly",
+  "force": false
 }
