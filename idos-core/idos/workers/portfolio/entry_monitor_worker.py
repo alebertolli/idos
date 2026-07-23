@@ -185,3 +185,25 @@ class EntryMonitorWorker(BaseWorker):
             "target": signal.target_price,
             "wyckoff": signal.wyckoff_phase,
         })
+
+        self._notify_entry(ticker, signal)
+
+    def _notify_entry(self, ticker: str, signal: Any):
+        message = (
+            f"**{ticker} - Senal de Entrada Ejecutada**\n\n"
+            f"- Precio: `${signal.current_price:.2f}`\n"
+            f"- Target: `${signal.target_price:.2f}`\n"
+            f"- Margen: `{signal.margin_of_safety_pct:.1f}%`\n"
+            f"- Wyckoff: `{signal.wyckoff_phase}`\n"
+            f"- Decision: `BUY / {signal.reason}`"
+        )
+        print(message)
+        try:
+            from idos.workers.notifications.telegram import TelegramNotifier
+            tg = TelegramNotifier()
+            result = tg.execute({"message": message[:4000]})
+            if result.output.get("status") == "skipped":
+                print(f"[ENTRY NOTIFY] {result.output.get('reason', 'sin configurar')}")
+                print(f"[ENTRY NOTIFY] {result.output.get('hint', 'configura IDOS_TELEGRAM_BOT_TOKEN y IDOS_TELEGRAM_CHAT_ID')}")
+        except Exception as e:
+            print(f"[ENTRY NOTIFY] Telegram error: {e}")
