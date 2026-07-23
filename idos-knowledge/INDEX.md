@@ -12,6 +12,7 @@ Total: 11 companies tracked
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
 - ⏳ [[B|Barrick Mining Corporation]]
+- 📄 [[NEM|Newmont Corporation]]
 
 ## Communication Services
 - ⏳ [[GOOG|Alphabet Inc.]]
