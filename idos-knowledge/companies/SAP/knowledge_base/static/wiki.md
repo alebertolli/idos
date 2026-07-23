@@ -41,18 +41,19 @@ To be evaluated
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.17
 - **PER**: 20.87
-- **EV/EBITDA**: 13.01
+- **EV/EBITDA**: 13.29
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-SAP SE es un compounder con un historial de crecimiento estable y una posición competitiva sólida en el mercado de soluciones de aplicación empresarial. La empresa tiene un potencial de crecimiento a largo plazo debido a su capacidad para innovar y expandirse en nuevos mercados.
+To be formulated
 
 ---
 

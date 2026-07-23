@@ -4,4 +4,4 @@
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.17
 - **PER**: 20.87
-- **EV/EBITDA**: 13.01
+- **EV/EBITDA**: 13.29
