@@ -9,8 +9,8 @@ assessments:
       type: POSITIVE
     - detail: 'Excellent margins: 44.86%'
       type: POSITIVE
-    generated_at: '2026-07-23T00:10:32.630421-03:00'
-    id: BusinessAssessmentEngine-20260723001032
+    generated_at: '2026-07-23T01:30:54.172423-03:00'
+    id: BusinessAssessmentEngine-20260723013054
     recommendation: NEUTRAL
     risks: []
     score: 63
@@ -24,12 +24,12 @@ assessments:
     findings:
     - detail: Portfolio has capacity for new position
       type: POSITIVE
-    - detail: Sector  within diversification limits
+    - detail: Sector Financial Services within diversification limits
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-07-23T00:10:32.630492-03:00'
-    id: PortfolioAssessmentEngine-20260723001032
+    generated_at: '2026-07-23T01:30:54.172502-03:00'
+    id: PortfolioAssessmentEngine-20260723013054
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -47,7 +47,7 @@ assessments:
       type: DIMENSION
     - dimension: valuation_gap
       level: MEDIUM
-      score: 50
+      score: 60
       type: DIMENSION
     - dimension: market_expectations
       level: MEDIUM
@@ -65,11 +65,11 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-07-23T00:10:32.630466-03:00'
-    id: RecoveryAssessmentEngine-20260723001032
+    generated_at: '2026-07-23T01:30:54.172476-03:00'
+    id: RecoveryAssessmentEngine-20260723013054
     recommendation: MODERATE
     risks: []
-    score: 50
+    score: 52
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -80,8 +80,8 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-07-23T00:10:32.630479-03:00'
-    id: RiskAssessmentEngine-20260723001032
+    generated_at: '2026-07-23T01:30:54.172490-03:00'
+    id: RiskAssessmentEngine-20260723013054
     recommendation: LOW_RISK
     risks:
     - detail: 'Current ratio below 1: 0.0x'
@@ -95,28 +95,27 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-07-23T00:10:32.630435-03:00'
-    id: ValuationAssessmentEngine-20260723001032
+    generated_at: '2026-07-23T01:30:54.172441-03:00'
+    id: ValuationAssessmentEngine-20260723013054
     recommendation: FAIR
     risks: []
-    score: 50
+    score: 55
     status: COMPLETED
-    version: '1.0'
-conviction_score: 61
-created_at: '2026-07-23T00:10:32.630552-03:00'
+    version: '1.1'
+conviction_score: 63
+created_at: '2026-07-23T01:30:54.172586-03:00'
 opportunity_id: OPP-20260720-034
-reasoning: 'Rules blocked: RULE-001, RULE-002, RULE-003, RULE-005, RULE-010'
+reasoning: 'Rules blocked: RULE-001, RULE-002, RULE-005, RULE-008'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
 - RULE-002
-- RULE-003
 - RULE-005
-- RULE-010
+- RULE-008
 rules_passed:
+- RULE-003
 - RULE-004
 - RULE-006
 - RULE-007
-- RULE-008
 - RULE-009
 type: opportunity:transitioned
