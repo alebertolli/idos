@@ -10,7 +10,7 @@ class LLMWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        self.client = LLMClient(
+        self.client = config.get("llm_service") or LLMClient(
             provider=config.get("provider", ""),
             api_key=config.get("api_key", ""),
             model=config.get("model", ""),

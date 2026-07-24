@@ -22,9 +22,9 @@ class EntryMonitorWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        llm_client = None
+        llm_client = config.get("llm_service")
         prompt_registry = None
-        if self.config.get("provider"):
+        if not llm_client and self.config.get("provider"):
             llm_client = LLMClient(
                 provider=config.get("provider", ""),
                 api_key=config.get("api_key", ""),
@@ -32,8 +32,8 @@ class EntryMonitorWorker(BaseWorker):
                 fallback_model=config.get("fallback_model", ""),
                 fallback_providers=config.get("fallback_providers", []),
             )
-            prompts_path = config.get("prompts_path", "")
-            prompt_registry = PromptRegistry(prompts_path) if prompts_path else None
+        if self.config.get("prompts_path"):
+            prompt_registry = PromptRegistry(self.config["prompts_path"])
 
         wyckoff = WyckoffAnalyzer(llm_client=llm_client, prompt_registry=prompt_registry)
         self.entry_engine = EntryEngine(

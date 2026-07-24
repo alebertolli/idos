@@ -206,22 +206,12 @@ jobs:
                   print(f'[POSTMORTEM] {ticker} ({opp_id}): post-mortem ya existe, skip')
                   continue
               print(f'[POSTMORTEM] {ticker} ({opp_id}): generando post-mortem...')
-              import yaml as _yaml
-              _models_cfg = {}
+              from idos.ai.service import LLMService
               _mp = Path('idos-config/models.yml')
-              if _mp.exists():
-                  _models_cfg = _yaml.safe_load(_mp.read_text(encoding='utf-8')) or {}
-              _llm_cfg = _models_cfg.get('llm', {})
-              _provider = _llm_cfg.get('default_provider', 'gemini')
-              _model = _llm_cfg.get('providers', {}).get(_provider, {}).get('model', 'gemini-2.0-flash')
-              _fallback = _llm_cfg.get('providers', {}).get(_provider, {}).get('fallback', 'gemini-2.0-flash')
-              _fb_list = _llm_cfg.get('fallback_order', [])
+              _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
               from idos.workers.learning.post_mortem_worker import PostMortemWorker
               w = PostMortemWorker({
-                  'provider': _provider,
-                  'model': _model,
-                  'fallback_model': _fallback,
-                  'fallback_providers': _fb_list,
+                  'llm_service': _llm_svc,
                   'prompts_path': 'idos-config/prompts',
               })
               result = w.execute({

@@ -24,7 +24,7 @@ class DecisionBoardWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        self.llm = LLMClient(
+        self.llm = config.get("llm_service") or LLMClient(
             provider=config.get("provider", ""),
             api_key=config.get("api_key", ""),
             model=config.get("model", ""),

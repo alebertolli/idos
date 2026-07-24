@@ -30,7 +30,7 @@ class LLMClient:
         self.provider = provider or os.getenv("IDOS_LLM_PROVIDER", "openrouter")
         self.api_key = api_key or self._resolve_api_key(self.provider)
         self.model = model or os.getenv("IDOS_LLM_MODEL", "openai/gpt-4o")
-        self.fallback_model = fallback_model or os.getenv("IDOS_LLM_FALLBACK_MODEL", "gemini-2.0-flash")
+        self.fallback_model = fallback_model or os.getenv("IDOS_LLM_FALLBACK_MODEL", "gemini-2.5-flash")
         self.fallback_providers = fallback_providers or []
         self.timeout = int(os.getenv("IDOS_LLM_TIMEOUT", "60"))
 
@@ -83,10 +83,19 @@ class LLMClient:
                     resp = self._call_generic(prompt, system_prompt, temperature, max_tokens, akey, modl)
             except requests.HTTPError as e:
                 fbk = entry.get("fallback_model", "")
-                if e.response is not None and e.response.status_code == 429 and fbk and prov == "gemini":
+                if e.response is not None and e.response.status_code == 429 and fbk:
                     print(f"[LLM] 429 en {modl}, fallback a {fbk}...")
                     try:
-                        resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens, akey, fbk)
+                        if prov == "gemini":
+                            resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens, akey, fbk)
+                        elif prov == "groq":
+                            resp = self._call_groq(prompt, system_prompt, temperature, max_tokens, akey, fbk)
+                        elif prov == "openrouter":
+                            resp = self._call_openrouter(prompt, system_prompt, temperature, max_tokens, akey, fbk)
+                        elif prov == "openai":
+                            resp = self._call_openai(prompt, system_prompt, temperature, max_tokens, akey, fbk)
+                        else:
+                            resp = self._call_generic(prompt, system_prompt, temperature, max_tokens, akey, fbk)
                     except Exception as e2:
                         print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {e2}")
                         if not first_error: first_error = str(e2)
@@ -130,7 +139,8 @@ class LLMClient:
         for attempt in range(max_retries):
             resp = requests.request(method, url, **kwargs)
             if resp.status_code == 429 and attempt < max_retries - 1:
-                wait = 2 ** (attempt + 1)
+                retry_after = resp.headers.get("Retry-After")
+                wait = int(retry_after) if retry_after else 2 ** (attempt + 2)
                 print(f"[LLM] Rate limited (429), retrying in {wait}s (attempt {attempt + 1}/{max_retries})")
                 time.sleep(wait)
                 continue

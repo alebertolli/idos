@@ -3,6 +3,7 @@ from idos.data.knowledge import KnowledgeRepository
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.ai.llm import LLMClient, LLMResponse
+from idos.ai.service import LLMService
 from idos.events.bus import get_event_bus, EventBus
 from idos.events.types import Event
 from idos.state.machine import OpportunityStateMachine, StateMachine, Transition
@@ -88,7 +89,7 @@ def configure(base_path: str):
 
 __all__ = [
     "IDOSContext", "KnowledgeRepository", "JournalRepository", "SQLiteStore",
-    "LLMClient", "LLMResponse",
+    "LLMClient", "LLMResponse", "LLMService",
     "get_event_bus", "EventBus", "Event",
     "OpportunityStateMachine", "StateMachine", "Transition",
     "OpportunityStatus", "HypothesisStatus", "DecisionType", "AssessmentStatus",

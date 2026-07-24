@@ -1,24 +1,41 @@
 llm:
-  default_provider: groq
+  default_provider: gemini
   providers:
+    gemini:
+      model: gemini-2.5-flash
+      fallback: gemini-2.0-flash
+      rpm: 60
+      rpd: 1500
+      task_types:
+        - reasoning
+        - analysis
+        - classification
     groq:
       model: llama-3.3-70b-versatile
       fallback: llama-3.1-8b-instant
-    gemini:
-      model: gemini-2.0-flash
-      fallback: gemini-2.0-flash-lite
+      rpm: 30
+      rpd: 1000
+      task_types:
+        - reasoning
+        - analysis
     openrouter:
       model: google/gemma-4-31b-it:free
       fallback: openrouter/free
-    openai:
-      model: gpt-4o
-      fallback: gpt-4o-mini
+      rpm: 20
+      rpd: 50
+      task_types:
+        - reasoning
+        - analysis
+        - classification
   fallback_order:
+    - provider: groq
+      model: llama-3.3-70b-versatile
+      fallback_model: llama-3.1-8b-instant
     - provider: openrouter
       model: google/gemma-4-31b-it:free
       fallback_model: openrouter/free
-    - provider: gemini
-      model: gemini-2.0-flash
-      fallback_model: gemini-2.0-flash-lite
+  circuit_breaker:
+    failure_threshold: 3
+    recovery_timeout: 60
   max_tokens_per_worker: 100000
   max_daily_tokens: 1000000

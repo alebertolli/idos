@@ -23,7 +23,7 @@ class ResearchWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        self.llm = LLMClient(
+        self.llm = config.get("llm_service") or LLMClient(
             provider=config.get("provider", ""),
             api_key=config.get("api_key", ""),
             model=config.get("model", ""),
@@ -229,10 +229,11 @@ class ResearchWorker(BaseWorker):
             sqlite.log_event("research:force_reprocess", event_data)
             journal.log_event("research:force_reprocess", event_data, source="research_worker")
 
+        ddd_failed = ddd_empty and bool(ddd_result.get("error"))
         return {
             "ticker": ticker,
             "opp_id": opp_id,
-            "status": "completed",
+            "status": "ddd_failed" if ddd_failed else "completed",
             "score": score,
             "classification": classification.get("categoria"),
             "market_error_conclusion": market_error.get("conclusion_error_valoracion"),
