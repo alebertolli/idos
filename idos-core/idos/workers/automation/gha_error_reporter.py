@@ -67,26 +67,27 @@ class GHAErrorReporter:
         return create_issue(title=title, body=body, token=self.token)
 
 
-def _send_telegram_notification(issue_url: str, workflow: str):
-    token = os.environ.get("IDOS_TELEGRAM_BOT_TOKEN")
-    chat = os.environ.get("IDOS_TELEGRAM_CHAT_ID")
-    if not token or not chat:
-        print("[TELEGRAM] Not configured, skipping notification")
-        return
+def _send_email_notification(issue: dict, workflow: str):
     try:
-        msg = (
-            f"\U0001f514 *IDOS Auto-Fix Issue Created*\n\n"
-            f"Workflow: `{workflow}`\n"
-            f"Issue: [Ver en GitHub]({issue_url})"
+        from idos.workers.notifications.email_notifier import EmailNotifier
+        n = EmailNotifier()
+        run_url = f"https://github.com/{REPO}/actions/runs/{issue.get('run_id', '')}" if REPO else ""
+        body = (
+            f"Workflow: {workflow}\n"
+            f"Run: {run_url}\n"
+            f"Issue: {issue.get('html_url', '')}\n\n"
+            f"Title: {issue.get('title', '')}\n"
+            f"Description: An auto-fix issue was created automatically.\n"
+            f"Review it and approve/apply the fix via GitHub Actions (Auto-Fix Agent)."
         )
-        resp = requests.post(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            json={"chat_id": chat, "text": msg, "parse_mode": "Markdown"},
-        )
-        resp.raise_for_status()
-        print(f"[TELEGRAM] Notification sent: {issue_url}")
+        result = n.execute({
+            "subject": f"[IDOS Auto-Fix] {workflow} failed",
+            "body": body,
+        })
+        r = result.output if hasattr(result, "output") else result
+        print(f"[EMAIL] Notification: {r.get('status', '?')}")
     except Exception as e:
-        print(f"[TELEGRAM] Failed to send notification: {e}")
+        print(f"[EMAIL] Failed to send notification: {e}")
 
 
 def main():
@@ -95,8 +96,9 @@ def main():
     rid = sys.argv[2] if len(sys.argv) > 2 else ""
     err = sys.argv[3] if len(sys.argv) > 3 else ""
     issue = reporter.report_failure(workflow=wf, run_id=rid, error_summary=err)
+    issue["run_id"] = rid
     print(f"[AUTO-FIX] Issue created: {issue['html_url']}")
-    _send_telegram_notification(issue["html_url"], wf)
+    _send_email_notification(issue, wf)
 
 
 if __name__ == "__main__":
