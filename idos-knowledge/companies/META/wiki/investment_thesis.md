@@ -1,1 +1,1 @@
-Meta Platforms, Inc. es una empresa líder en el mercado de las redes sociales con un historial de crecimiento sólido y una cartera diversificada de productos y servicios. A pesar de los desafíos regulatorios y la competencia, la empresa tiene el potencial para seguir innovando y expandiendo su oferta.
+To be formulated

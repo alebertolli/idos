@@ -41,18 +41,19 @@ To be evaluated
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.36
 - **PER**: 22.82
-- **EV/EBITDA**: 14.62
+- **EV/EBITDA**: 14.13
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Meta Platforms, Inc. es una empresa líder en el mercado de las redes sociales con un historial de crecimiento sólido y una cartera diversificada de productos y servicios. A pesar de los desafíos regulatorios y la competencia, la empresa tiene el potencial para seguir innovando y expandiendo su oferta.
+To be formulated
 
 ---
 
