@@ -134,8 +134,12 @@ jobs:
                   print(f'[ENTRY] {ticker}: sin opp_id, skip')
                   continue
               from idos.workers.portfolio.entry_monitor_worker import EntryMonitorWorker
+              from idos.workers.base import WorkerStatus
               w = EntryMonitorWorker()
               result = w.execute({'ticker': ticker, 'opp_id': opp_id, 'base_path': str(bp)})
+              if result.status == WorkerStatus.FAILED and result.error:
+                  print(f'[ENTRY] {ticker}: ERROR - {result.error}')
+                  continue
               r = result.output if hasattr(result, 'output') else result
               if r.get('entry_executed'):
                   print(f'[ENTRY] {ticker}: CONDICIONES CUMPLIDAS - Ejecutando entrada!')

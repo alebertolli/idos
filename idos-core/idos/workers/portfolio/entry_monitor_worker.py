@@ -58,8 +58,8 @@ class EntryMonitorWorker(BaseWorker):
 
         opp = sqlite.get_opportunity(opp_id)
         if not opp:
-            msg = f"Opportunity {opp_id} not found"
-            raise ValueError(msg)
+            return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
+                    "reason": f"Opportunity {opp_id} not found in SQLite. Run DDD first."}
 
         current_status = OpportunityStatus(opp["status"])
         if current_status not in (OpportunityStatus.APPROVED, OpportunityStatus.ENTRY_PENDING):
