@@ -412,7 +412,8 @@ jobs:
           if event_type == 'quarterly-results':
               trigger_label = 'Quarterly Results'
           elif event_type == 'manual':
-              trigger_label = f'Manual' + (f' ({ticker_filter})' if ticker_filter else '')
+              ticker_label = os.environ.get('TICKER', '')
+              trigger_label = f'Manual' + (f' ({ticker_label})' if ticker_label else '')
           else:
               trigger_label = 'Monthly'
 
