@@ -26,6 +26,8 @@ def _get_token() -> str:
 
 
 def _gh_get(path: str, token: str) -> Any:
+    if not API_BASE:
+        raise RuntimeError(f"GITHUB_REPOSITORY not set (API_BASE empty) - cannot fetch {path}")
     resp = requests.get(f"{API_BASE}/{path}", headers=_gh_headers(token))
     resp.raise_for_status()
     return resp.json()
@@ -151,14 +153,17 @@ class AutoFixAgent(BaseWorker):
         error_log = ""
         error_summary = ""
         if run_id:
-            jobs = _fetch_run_jobs(run_id, self.token)
-            for job in jobs:
-                for step in job.get("steps", []):
-                    if step.get("conclusion") == "failure":
-                        error_summary = step.get("name", "?")
-                        break
-            raw_logs = _fetch_run_logs(run_id, self.token)
-            error_log = self._extract_error_snippet(raw_logs)
+            try:
+                jobs = _fetch_run_jobs(run_id, self.token)
+                for job in jobs:
+                    for step in job.get("steps", []):
+                        if step.get("conclusion") == "failure":
+                            error_summary = step.get("name", "?")
+                            break
+                raw_logs = _fetch_run_logs(run_id, self.token)
+                error_log = self._extract_error_snippet(raw_logs)
+            except Exception as e:
+                error_log = f"(failed to fetch logs for run {run_id}: {e})"
 
         fix_plan = self._generate_fix_plan(body, error_log, error_summary, issue_number)
 

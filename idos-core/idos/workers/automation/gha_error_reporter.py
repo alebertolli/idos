@@ -1,10 +1,49 @@
 import os
+import re
 import sys
 import requests
 
 
 REPO = os.environ.get("GITHUB_REPOSITORY", "")
 API_BASE = f"https://api.github.com/repos/{REPO}" if REPO else ""
+
+
+def _gh_headers(token: str) -> dict:
+    return {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github.v3+json",
+    }
+
+
+def _fetch_run_logs(run_id: str, token: str) -> str:
+    try:
+        resp = requests.get(
+            f"{API_BASE}/actions/runs/{run_id}/logs",
+            headers=_gh_headers(token),
+        )
+        if resp.status_code == 202:
+            url = resp.json().get("url", "")
+            if url:
+                resp = requests.get(url, headers=_gh_headers(token))
+        resp.raise_for_status()
+        return resp.text
+    except Exception as e:
+        return f"(failed to fetch logs: {e})"
+
+
+def _extract_error_snippet(logs: str) -> str:
+    lines = logs.splitlines()
+    error_lines = []
+    capture = False
+    for i, line in enumerate(lines):
+        lower = line.lower()
+        if any(kw in lower for kw in ["traceback", "error:", "failed:", "runtimewarning", "exception"]):
+            capture = True
+        if capture:
+            error_lines.append(line)
+            if len(error_lines) >= 80:
+                break
+    return "\n".join(error_lines[-80:]) if error_lines else logs[:2000]
 
 
 def create_issue(
@@ -47,10 +86,41 @@ class GHAErrorReporter:
     def __init__(self, token: str = ""):
         self.token = token or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN", "")
 
+    @staticmethod
+    def _fetch_error_from_run(run_id: str) -> str:
+        if not REPO or not run_id or run_id == "0":
+            return ""
+        token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN", "")
+        if not token:
+            return ""
+        try:
+            jobs = requests.get(
+                f"{API_BASE}/actions/runs/{run_id}/jobs",
+                headers=_gh_headers(token),
+            ).json()
+            failed_steps = []
+            for job in jobs.get("jobs", []):
+                for step in job.get("steps", []):
+                    if step.get("conclusion") == "failure":
+                        failed_steps.append(f"[{job.get('name', '?')}] {step.get('name', '?')}")
+            step_names = "; ".join(failed_steps) if failed_steps else ""
+            logs = _fetch_run_logs(run_id, token)
+            snippet = _extract_error_snippet(logs)
+            if snippet:
+                return f"Failed steps: {step_names}\n\n{snippet[:4000]}"
+            return step_names or ""
+        except Exception as e:
+            return f"(auto-fetch error: {e})"
+
     def report_failure(self, workflow: str = "", run_id: str = "", error_summary: str = "") -> dict:
         wf = workflow or os.environ.get("GITHUB_WORKFLOW", "unknown")
         rid = run_id or os.environ.get("GITHUB_RUN_ID", "0")
-        err = error_summary or "Workflow failed (no detail provided)"
+        
+        err = error_summary or os.environ.get("IDOS_ERROR_SUMMARY", "") or "Workflow failed (no detail provided)"
+        
+        auto_fetch = self._fetch_error_from_run(rid)
+        err = err or auto_fetch or "Workflow failed (no detail provided)"
+        
         run_url = f"https://github.com/{REPO}/actions/runs/{rid}" if REPO else f"(run #{rid})"
 
         title = f"[auto-fix] {wf} failed (run #{rid})"
@@ -98,7 +168,18 @@ def _run_auto_analyze(issue_number: int):
         from idos.workers.automation.auto_fix_agent import AutoFixAgent
         agent = AutoFixAgent()
         result = agent.run({"action": "analyze", "issue_number": issue_number})
-        print(f"[AUTO-FIX] Analyze complete: {result.get('status', '?')}")
+        status = "unknown"
+        if isinstance(result, dict):
+            status = result.get('status', '?')
+            if 'status' in result:
+                print(f"[AUTO-FIX] Analyze complete: {status} - PR: {result.get('pr_url', 'N/A')}")
+            else:
+                print(f"[AUTO-FIX] Analyze complete: {status}")
+        elif hasattr(result, 'status'):
+            status = result.status.value if hasattr(result.status, 'value') else str(result.status)
+            print(f"[AUTO-FIX] Analyze complete: {status}")
+        else:
+            print(f"[AUTO-FIX] Analyze result: {result}")
     except Exception as e:
         print(f"[AUTO-FIX] Analyze failed (non-fatal): {e}")
 
@@ -112,7 +193,9 @@ def main():
     issue["run_id"] = rid
     print(f"[AUTO-FIX] Issue created: {issue['html_url']}")
     _send_email_notification(issue, wf)
-    _run_auto_analyze(issue["number"])
+    issue_number = issue.get("number")
+    if issue_number:
+        _run_auto_analyze(issue_number)
 
 
 if __name__ == "__main__":

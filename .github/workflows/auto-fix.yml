@@ -43,8 +43,12 @@ jobs:
               'action': '${{ github.event.inputs.action }}',
               'issue_number': ${{ github.event.inputs.issue_number }},
           })
-          r = result.output if hasattr(result, 'output') else result
+          if result.status.name == 'FAILED':
+              print(f'ERROR: {result.error}')
+              sys.exit(1)
+          r = result.output
           print(f'Status: {r.get(\"status\", \"?\")}')
+          print(f'Details: {r}')
           if 'pr_url' in r:
               print(f'PR: {r[\"pr_url\"]}')
           "
