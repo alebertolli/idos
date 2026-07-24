@@ -62,7 +62,10 @@ class GHAErrorReporter:
             f"| **Run** | [{rid}]({run_url}) |\n"
             f"| **Triggered by** | `{os.environ.get('GITHUB_EVENT_NAME', '?')}` |\n"
             f"| **Branch** | `{os.environ.get('GITHUB_REF_NAME', '?')}` |\n\n"
-            f"### Error\n```\n{err}\n```\n"
+            f"### Error\n```\n{err}\n```\n\n"
+            f"---\n"
+            f"### To approve the fix\n"
+            f"Comment `/idos-apply` on this issue to automatically create a PR with the proposed fix.\n"
         )
         return create_issue(title=title, body=body, token=self.token)
 
@@ -90,6 +93,16 @@ def _send_email_notification(issue: dict, workflow: str):
         print(f"[EMAIL] Failed to send notification: {e}")
 
 
+def _run_auto_analyze(issue_number: int):
+    try:
+        from idos.workers.automation.auto_fix_agent import AutoFixAgent
+        agent = AutoFixAgent()
+        result = agent.run({"action": "analyze", "issue_number": issue_number})
+        print(f"[AUTO-FIX] Analyze complete: {result.get('status', '?')}")
+    except Exception as e:
+        print(f"[AUTO-FIX] Analyze failed (non-fatal): {e}")
+
+
 def main():
     reporter = GHAErrorReporter()
     wf = sys.argv[1] if len(sys.argv) > 1 else ""
@@ -99,6 +112,7 @@ def main():
     issue["run_id"] = rid
     print(f"[AUTO-FIX] Issue created: {issue['html_url']}")
     _send_email_notification(issue, wf)
+    _run_auto_analyze(issue["number"])
 
 
 if __name__ == "__main__":

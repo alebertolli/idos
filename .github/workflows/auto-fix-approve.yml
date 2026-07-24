@@ -1,0 +1,36 @@
+name: Auto-Fix Approve
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  apply:
+    if: github.event.issue.pull_request == null && contains(github.event.comment.body, '/idos-apply')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+      - name: Apply fix
+        run: |
+          python -c "
+          import os
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.workers.automation.auto_fix_agent import AutoFixAgent
+          agent = AutoFixAgent()
+          result = agent.run({'action': 'apply', 'issue_number': ${{ github.event.issue.number }}})
+          r = result.output if hasattr(result, 'output') else result
+          print(f'Status: {r.get(\"status\", \"?\")}')
+          if 'pr_url' in r:
+              print(f'PR: {r[\"pr_url\"]}')
+          "
