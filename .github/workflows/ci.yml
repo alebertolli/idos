@@ -12,6 +12,11 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.11", "3.12"]
+    permissions:
+      contents: read
+      issues: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v4
@@ -26,3 +31,6 @@ jobs:
           pip install pytest
       - name: Run tests
         run: python -m pytest idos-core/tests/ -v
+      - name: 🐛 Report failure as GitHub Issue
+        if: failure()
+        run: python -m idos.workers.automation.gha_error_reporter

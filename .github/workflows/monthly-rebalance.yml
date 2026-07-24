@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: write
     env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -95,3 +97,6 @@ jobs:
               t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
               t.execute({'message': '🚨 *IDOS Alert*: Monthly Rebalance workflow FAILED'})
           "
+      - name: 🐛 Report failure as GitHub Issue
+        if: failure()
+        run: python -m idos.workers.automation.gha_error_reporter

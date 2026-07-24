@@ -1019,3 +1019,101 @@ def universe_status():
         title="Pipeline Status",
     )
     console.print(info)
+
+
+# ── Auto-Fix Agent CLI ──────────────────────────────────────────────────
+
+@app.command()
+def auto_fix_list():
+    """Lista Issues con auto-fix-pendientes."""
+    import requests, os
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN", "")
+    if not token:
+        console.print("[red]GH_TOKEN or GITHUB_TOKEN required[/red]")
+        return
+    repo = "alebertolli/idos"
+    resp = requests.get(
+        f"https://api.github.com/repos/{repo}/issues?labels=auto-fix-proposed,auto-fix-analyzed&state=open",
+        headers={"Authorization": f"Bearer {token}"},
+    )
+    if resp.status_code != 200:
+        console.print(f"[red]API error: {resp.status_code}[/red]")
+        return
+    issues = resp.json()
+    if not issues:
+        console.print("[yellow]No open auto-fix issues found[/yellow]")
+        return
+    table = Table(title="Auto-Fix Issues")
+    table.add_column("#", style="cyan")
+    table.add_column("Title", style="white")
+    table.add_column("Labels", style="green")
+    for issue in issues:
+        labels_str = ", ".join(l["name"] for l in issue.get("labels", []))
+        table.add_row(str(issue["number"]), issue["title"], labels_str)
+    console.print(table)
+
+
+@app.command()
+def auto_fix_show(issue_number: int = typer.Argument(..., help="Issue number")):
+    """Muestra detalle de una Issue + plan de fix."""
+    import requests, os
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN", "")
+    if not token:
+        console.print("[red]GH_TOKEN or GITHUB_TOKEN required[/red]")
+        return
+    repo = "alebertolli/idos"
+    issue = requests.get(
+        f"https://api.github.com/repos/{repo}/issues/{issue_number}",
+        headers={"Authorization": f"Bearer {token}"},
+    ).json()
+    comments = requests.get(
+        f"https://api.github.com/repos/{repo}/issues/{issue_number}/comments",
+        headers={"Authorization": f"Bearer {token}"},
+    ).json()
+
+    panel = Panel.fit(
+        f"[bold]Issue #{issue_number}[/bold]\n\n"
+        f"Title: {issue.get('title', '?')}\n"
+        f"State: {issue.get('state', '?')}\n"
+        f"Labels: {', '.join(l['name'] for l in issue.get('labels', []))}\n"
+        f"URL: {issue.get('html_url', '?')}",
+        title="Issue Details",
+    )
+    console.print(panel)
+
+    for comment in comments:
+        if "## 🔧 Auto-Fix Plan" in comment.get("body", ""):
+            console.print(Panel(comment["body"][:2000], title="Auto-Fix Plan"))
+            break
+    else:
+        console.print("[yellow]No fix plan found yet. Run: idos auto-fix analyze <number>[/yellow]")
+
+
+@app.command()
+def auto_fix_analyze(issue_number: int = typer.Argument(..., help="Issue number")):
+    """Analiza error y genera plan de fix via LLM."""
+    from idos.workers.automation.auto_fix_agent import AutoFixAgent
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN", "")
+    agent = AutoFixAgent({"token": token})
+    with console.status(f"[bold green]Analyzing issue #{issue_number}..."):
+        result = agent.execute({"action": "analyze", "issue_number": issue_number})
+    r = result.output if hasattr(result, "output") else result
+    console.print(f"[green]Analyzed issue #{issue_number}[/green]")
+    if "fix_plan" in r:
+        console.print(Panel(json_lib.dumps(r["fix_plan"], indent=2), title="Fix Plan"))
+    console.print("[bold]Run [cyan]idos auto-fix apply <number>[/cyan] to apply[/bold]")
+
+
+@app.command()
+def auto_fix_apply(issue_number: int = typer.Argument(..., help="Issue number")):
+    """Aplica el plan de fix y crea un Pull Request."""
+    from idos.workers.automation.auto_fix_agent import AutoFixAgent
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN", "")
+    agent = AutoFixAgent({"token": token})
+    with console.status(f"[bold green]Applying fix for issue #{issue_number}..."):
+        result = agent.execute({"action": "apply", "issue_number": issue_number})
+    r = result.output if hasattr(result, "output") else result
+    if r.get("status") == "pr_created":
+        console.print(f"[green]PR created: {r['pr_url']}[/green]")
+    else:
+        console.print(f"[red]Apply failed: {r}[/red]")

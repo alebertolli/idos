@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: write
     env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -115,6 +117,10 @@ jobs:
               e.execute({'subject': 'IDOS Weekly Digest', 'body': digest_text})
               print('Digest sent via Email')
           "
+      - name: 🐛 Report failure as GitHub Issue
+        if: failure()
+        run: python -m idos.workers.automation.gha_error_reporter
+
       - name: Upload digest artifact
         uses: actions/upload-artifact@v4
         with:

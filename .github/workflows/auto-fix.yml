@@ -1,0 +1,50 @@
+name: Auto-Fix Agent
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to perform'
+        required: true
+        default: 'analyze'
+        type: choice
+        options:
+          - analyze
+          - apply
+      issue_number:
+        description: 'GitHub Issue number'
+        required: true
+        type: number
+
+jobs:
+  auto-fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+      - name: Run Auto-Fix Agent
+        run: |
+          python -c "
+          import sys, os
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.workers.automation.auto_fix_agent import AutoFixAgent
+          agent = AutoFixAgent()
+          result = agent.execute({
+              'action': '${{ github.event.inputs.action }}',
+              'issue_number': ${{ github.event.inputs.issue_number }},
+          })
+          r = result.output if hasattr(result, 'output') else result
+          print(f'Status: {r.get(\"status\", \"?\")}')
+          if 'pr_url' in r:
+              print(f'PR: {r[\"pr_url\"]}')
+          "
