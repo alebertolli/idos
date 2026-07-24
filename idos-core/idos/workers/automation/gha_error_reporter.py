@@ -15,7 +15,10 @@ def create_issue(
 ) -> dict:
     token = token or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN", "")
     if not token:
-        raise RuntimeError("GITHUB_TOKEN or GH_TOKEN required")
+        env_keys = [k for k in os.environ if "TOKEN" in k.upper() or "GH_" in k.upper()]
+        raise RuntimeError(
+            f"GITHUB_TOKEN or GH_TOKEN required. Available env vars with TOKEN/GH_: {env_keys}"
+        )
     if not REPO:
         raise RuntimeError("GITHUB_REPOSITORY env var required")
 
