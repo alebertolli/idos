@@ -54,6 +54,7 @@ from idos.knowledge.contradiction import ContradictionDetector, Contradiction
 from idos.provenance.engine import ProvenanceEngine
 from idos.market.prices import PriceProvider
 from idos.sdk.agent import AgentBase
+from idos.workers.automation.gha_error_reporter import GHAErrorReporter, create_issue
 from idos.rules.engine import RulesEngine
 from idos.rules.evaluators import RuleEvaluator
 from idos.decision.orchestrator import DecisionOrchestrator
@@ -122,5 +123,6 @@ __all__ = [
     "PortfolioEngine", "EntryEngine", "ExitEngine", "RiskEngine",
     "PositionSizer", "WyckoffAnalyzer",
     "ScoutEngine", "FinvizScreener", "OperabilityFilter",
+    "GHAErrorReporter", "create_issue",
     "create_context", "configure",
 ]

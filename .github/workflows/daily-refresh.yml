@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: write
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -255,6 +256,10 @@ jobs:
             git pull --rebase --autostash -X theirs
             git push
           fi
+      - name: 🐛 Report failure as GitHub Issue
+        if: failure()
+        run: python -m idos.workers.automation.gha_error_reporter
+
       - name: Upload cache artifact
         uses: actions/upload-artifact@v4
         with:
