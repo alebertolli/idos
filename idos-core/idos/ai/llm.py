@@ -52,7 +52,7 @@ class LLMClient:
         max_tokens: int = 4096,
         label: str = "",
     ) -> LLMResponse:
-        _call_chain = [{"provider": self.provider, "model": self.model, "api_key": self.api_key}]
+        _call_chain = [{"provider": self.provider, "model": self.model, "api_key": self.api_key, "fallback_model": self.fallback_model}]
         _call_chain += self.fallback_providers
         _trunc = lambda s, n=200: (s[:n] + "...") if len(s) > n else s
         first_error = ""
@@ -83,8 +83,8 @@ class LLMClient:
                     resp = self._call_generic(prompt, system_prompt, temperature, max_tokens, akey, modl)
             except requests.HTTPError as e:
                 fbk = entry.get("fallback_model", "")
-                if e.response is not None and e.response.status_code == 429 and fbk:
-                    print(f"[LLM] 429 en {modl}, fallback a {fbk}...")
+                if fbk and e.response is not None and e.response.status_code in (429, 404):
+                    print(f"[LLM] {e.response.status_code} en {modl}, fallback a {fbk}...")
                     try:
                         if prov == "gemini":
                             resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens, akey, fbk)
@@ -141,6 +141,10 @@ class LLMClient:
             if resp.status_code == 429 and attempt < max_retries - 1:
                 retry_after = resp.headers.get("Retry-After")
                 wait = int(retry_after) if retry_after else 2 ** (attempt + 2)
+                if retry_after and int(retry_after) > 120:
+                    print(f"[LLM] Rate limited (429), Retry-After={retry_after}s > 120s, failing immediately")
+                    resp.raise_for_status()
+                    return resp
                 print(f"[LLM] Rate limited (429), retrying in {wait}s (attempt {attempt + 1}/{max_retries})")
                 time.sleep(wait)
                 continue

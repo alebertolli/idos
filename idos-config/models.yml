@@ -2,8 +2,8 @@ llm:
   default_provider: gemini
   providers:
     gemini:
-      model: gemini-2.5-flash
-      fallback: gemini-2.0-flash
+      model: gemini-2.0-flash
+      fallback: gemini-flash-latest
       rpm: 60
       rpd: 1500
       task_types:
