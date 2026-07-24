@@ -143,6 +143,8 @@ jobs:
               r = result.output if hasattr(result, 'output') else result
               if r.get('entry_executed'):
                   print(f'[ENTRY] {ticker}: CONDICIONES CUMPLIDAS - Ejecutando entrada!')
+              elif r.get('status') == 'skipped':
+                  print(f'[ENTRY] {ticker}: SKIP - {r.get("reason", "sin razón")}')
               else:
                   reason = r.get('reason', 'esperando condiciones')
                   print(f'[ENTRY] {ticker}: {reason}')
