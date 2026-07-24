@@ -46,14 +46,14 @@ To be evaluated
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-La empresa es un compounder con un historial de crecimiento sólido y una posición competitiva fuerte en el mercado. El consenso actual puede estar subestimando el potencial de innovación y expansión de la empresa.
+To be formulated
 
 ---
 
