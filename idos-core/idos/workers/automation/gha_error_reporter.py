@@ -67,6 +67,28 @@ class GHAErrorReporter:
         return create_issue(title=title, body=body, token=self.token)
 
 
+def _send_telegram_notification(issue_url: str, workflow: str):
+    token = os.environ.get("IDOS_TELEGRAM_BOT_TOKEN")
+    chat = os.environ.get("IDOS_TELEGRAM_CHAT_ID")
+    if not token or not chat:
+        print("[TELEGRAM] Not configured, skipping notification")
+        return
+    try:
+        msg = (
+            f"\U0001f514 *IDOS Auto-Fix Issue Created*\n\n"
+            f"Workflow: `{workflow}`\n"
+            f"Issue: [Ver en GitHub]({issue_url})"
+        )
+        resp = requests.post(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            json={"chat_id": chat, "text": msg, "parse_mode": "Markdown"},
+        )
+        resp.raise_for_status()
+        print(f"[TELEGRAM] Notification sent: {issue_url}")
+    except Exception as e:
+        print(f"[TELEGRAM] Failed to send notification: {e}")
+
+
 def main():
     reporter = GHAErrorReporter()
     wf = sys.argv[1] if len(sys.argv) > 1 else ""
@@ -74,6 +96,7 @@ def main():
     err = sys.argv[3] if len(sys.argv) > 3 else ""
     issue = reporter.report_failure(workflow=wf, run_id=rid, error_summary=err)
     print(f"[AUTO-FIX] Issue created: {issue['html_url']}")
+    _send_telegram_notification(issue["html_url"], wf)
 
 
 if __name__ == "__main__":
