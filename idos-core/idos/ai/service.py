@@ -201,25 +201,38 @@ class LLMService:
         if not resp.success:
             return {"error": resp.error, "_raw": resp.content}
 
-        healer = SelfHealer()
-        result = healer.parse_with_healing(resp.content)
-        if result is not None:
-            return result
-
         cleaned = resp.content.strip()
         cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned)
         cleaned = re.sub(r"\s*```$", "", cleaned)
         cleaned = cleaned.strip()
+        cleaned = re.sub(r"(?<!\\)\\(?![/\"\\bftnru])", "\\\\", cleaned)
+        cleaned = re.sub(r",\s*([\]}])", r"\1", cleaned)
+
         try:
             return json.loads(cleaned)
         except json.JSONDecodeError:
-            match = re.search(r"\{.*\}", cleaned, re.DOTALL)
-            if match:
-                try:
-                    return json.loads(match.group())
-                except json.JSONDecodeError:
-                    pass
-            return {"error": "Failed to parse JSON", "_raw": resp.content}
+            pass
+
+        collapsed = re.sub(r"\s+", " ", cleaned)
+        try:
+            return json.loads(collapsed)
+        except json.JSONDecodeError:
+            pass
+
+        healer = SelfHealer()
+        result = healer.parse_with_healing(cleaned)
+        if result is not None:
+            return result
+
+        match = re.search(r"\{.*\}", cleaned, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group())
+            except json.JSONDecodeError:
+                pass
+
+        print(f"[LLM] Failed to parse JSON, raw preview: {resp.content[:300]}")
+        return {"error": "Failed to parse JSON", "_raw": resp.content}
 
     def health(self) -> dict[str, Any]:
         status = {}

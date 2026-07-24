@@ -47,6 +47,14 @@ class SelfHealer:
         except json.JSONDecodeError:
             pass
 
+        text = re.sub(r",\s*([\]}])", r"\1", text)
+
+        try:
+            json.loads(text)
+            return text
+        except json.JSONDecodeError:
+            pass
+
         return None
 
     def repair_markdown_frontmatter(self, text: str) -> str | None:
