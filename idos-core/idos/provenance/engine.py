@@ -1,9 +1,12 @@
 from datetime import datetime
 from typing import Any
 from uuid import uuid4
-from idos.data.sqlite import SQLiteStore
+from idos.data.sqlite import SQLiteStore, DatabaseError
 from idos.models.journal import ProvenanceEntry
 from idos.timezone import AR_TZ
+
+class ProvenanceError(Exception):
+    pass
 
 class ProvenanceEngine:
     def __init__(self, store: SQLiteStore):
@@ -18,12 +21,18 @@ class ProvenanceEngine:
             evidence_id=evidence_id,
             timestamp=datetime.now(AR_TZ),
         )
-        c = self._store.conn
-        c.execute(
-            "INSERT INTO provenance_chain (target_id, target_field, source, evidence_id, timestamp) VALUES (?, ?, ?, ?, ?)",
-            (entry.target_id, entry.target_field, entry.source, entry.evidence_id, entry.timestamp.isoformat()),
-        )
-        c.commit()
+        try:
+            c = self._store.conn
+            c.execute(
+                "INSERT INTO provenance_chain (target_id, target_field, source, evidence_id, timestamp) VALUES (?, ?, ?, ?, ?)",
+                (entry.target_id, entry.target_field, entry.source, entry.evidence_id, entry.timestamp.isoformat()),
+            )
+            c.commit()
+        except DatabaseError:
+            raise
+        except Exception as e:
+            c.rollback()
+            raise ProvenanceError(f"Failed to link provenance: {e}") from e
         return entry
 
     def get_chain(self, target_id: str) -> list[dict[str, Any]]:
@@ -47,7 +56,15 @@ class ProvenanceEngine:
         row = c.execute("SELECT COUNT(*) FROM provenance_chain").fetchone()
         return row[0] if row else 0
 
-    def clear(self):
-        c = self._store.conn
-        c.execute("DELETE FROM provenance_chain")
-        c.commit()
+    def clear(self, confirm: bool = False):
+        if not confirm:
+            raise ProvenanceError("clear() requires confirm=True to prevent accidental data loss")
+        try:
+            c = self._store.conn
+            c.execute("DELETE FROM provenance_chain")
+            c.commit()
+        except DatabaseError:
+            raise
+        except Exception as e:
+            c.rollback()
+            raise ProvenanceError(f"Failed to clear provenance chain: {e}") from e

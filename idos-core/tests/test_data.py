@@ -32,6 +32,10 @@ def test_sqlite_opportunity_crud():
 
 def test_sqlite_transition():
     store = SQLiteStore(":memory:")
+    store.save_opportunity({
+        "id": "OPP-001", "ticker": "TEST", "status": "DISCOVERED",
+        "conviction": {}, "created_at": "2026-01-01T00:00:00", "updated_at": "2026-01-01T00:00:00",
+    })
     store.record_transition("OPP-001", "DISCOVERED", "SCREENED", cause="scout ok", worker="ScoutWorker")
     store.record_transition("OPP-001", "SCREENED", "WATCHLIST", cause="score high", worker="ScoutWorker")
     # Just verify no errors

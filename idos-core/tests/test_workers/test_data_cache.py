@@ -32,7 +32,7 @@ def test_cache_clear_source():
     cache.set("a2", {"val": 2}, source="src1", ttl_seconds=60)
     cache.set("b1", {"val": 3}, source="src2", ttl_seconds=60)
 
-    cache.clear_source("src1")
+    cache.clear_source("src1", confirm=True)
     assert cache.get("a1") is None
     assert cache.get("a2") is None
     assert cache.get("b1") is not None
@@ -42,7 +42,7 @@ def test_cache_clear_all():
     cache = DataCache()
     cache.set("k1", {"v": 1}, source="s", ttl_seconds=60)
     cache.set("k2", {"v": 2}, source="s", ttl_seconds=60)
-    cache.clear_all()
+    cache.clear_all(confirm=True)
     assert cache.get("k1") is None
     assert cache.get("k2") is None
 

@@ -1,9 +1,13 @@
 import sqlite3
 import json
+from contextlib import contextmanager
 from pathlib import Path
 from datetime import datetime
 from typing import Any
 from idos.timezone import AR_TZ
+
+class DatabaseError(Exception):
+    pass
 
 class SQLiteStore:
     def __init__(self, db_path: str | Path):
@@ -18,7 +22,18 @@ class SQLiteStore:
             self._conn = sqlite3.connect(str(self.db_path))
             self._conn.row_factory = sqlite3.Row
             self._conn.execute("PRAGMA journal_mode=WAL")
+            self._conn.execute("PRAGMA foreign_keys=ON")
         return self._conn
+
+    @contextmanager
+    def _write_transaction(self):
+        c = self.conn
+        try:
+            yield c
+            c.commit()
+        except sqlite3.Error as e:
+            c.rollback()
+            raise DatabaseError(f"SQLite write failed: {e}") from e
 
     def _init_db(self):
         c = self.conn
@@ -100,24 +115,35 @@ class SQLiteStore:
                 UNIQUE(ticker, date)
             );
         """)
-        c.execute("""
-            CREATE INDEX IF NOT EXISTS idx_price_history_ticker 
-            ON price_history(ticker, date DESC)
+        c.executescript("""
+            CREATE INDEX IF NOT EXISTS idx_price_history_ticker ON price_history(ticker, date DESC);
+            CREATE INDEX IF NOT EXISTS idx_opp_status ON opportunities(status, updated_at DESC);
+            CREATE INDEX IF NOT EXISTS idx_opp_ticker ON opportunities(ticker);
+            CREATE INDEX IF NOT EXISTS idx_transitions_opp ON state_transitions(opportunity_id, timestamp DESC);
+            CREATE INDEX IF NOT EXISTS idx_transitions_status ON state_transitions(from_status, to_status);
+            CREATE INDEX IF NOT EXISTS idx_events_type ON events_log(event_type, timestamp DESC);
+            CREATE INDEX IF NOT EXISTS idx_events_source ON events_log(source);
+            CREATE INDEX IF NOT EXISTS idx_events_correlation ON events_log(correlation_id);
+            CREATE INDEX IF NOT EXISTS idx_telemetry_run ON telemetry_traces(run_id);
+            CREATE INDEX IF NOT EXISTS idx_telemetry_ts ON telemetry_traces(timestamp);
+            CREATE INDEX IF NOT EXISTS idx_telemetry_worker ON telemetry_traces(worker, step);
+            CREATE INDEX IF NOT EXISTS idx_provenance_target ON provenance_chain(target_id);
+            CREATE INDEX IF NOT EXISTS idx_provenance_evidence ON provenance_chain(evidence_id);
+            CREATE INDEX IF NOT EXISTS idx_commits_status ON pending_commits(status);
         """)
         c.commit()
 
     def save_opportunity(self, opp: dict[str, Any]):
-        c = self.conn
-        c.execute("""
-            INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?)
-        """, (
-            opp["id"], opp["ticker"], opp["status"],
-            json.dumps(opp.get("conviction", {})),
-            opp.get("created_at", datetime.now(AR_TZ).isoformat()),
-            opp.get("updated_at", datetime.now(AR_TZ).isoformat()),
-        ))
-        c.commit()
+        with self._write_transaction() as c:
+            c.execute("""
+                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (
+                opp["id"], opp["ticker"], opp["status"],
+                json.dumps(opp.get("conviction", {})),
+                opp.get("created_at", datetime.now(AR_TZ).isoformat()),
+                opp.get("updated_at", datetime.now(AR_TZ).isoformat()),
+            ))
 
     def get_opportunity(self, opp_id: str) -> dict[str, Any] | None:
         c = self.conn
@@ -142,20 +168,18 @@ class SQLiteStore:
         return results
 
     def record_transition(self, opp_id: str, from_status: str, to_status: str, cause: str = "", worker: str = "system"):
-        c = self.conn
-        c.execute("""
-            INSERT INTO state_transitions (opportunity_id, from_status, to_status, cause, worker, timestamp)
-            VALUES (?, ?, ?, ?, ?, ?)
-        """, (opp_id, from_status, to_status, cause, worker, datetime.now(AR_TZ).isoformat()))
-        c.commit()
+        with self._write_transaction() as c:
+            c.execute("""
+                INSERT INTO state_transitions (opportunity_id, from_status, to_status, cause, worker, timestamp)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (opp_id, from_status, to_status, cause, worker, datetime.now(AR_TZ).isoformat()))
 
     def enqueue_commit(self, repo: str, file_path: str, content: str, message: str = ""):
-        c = self.conn
-        c.execute("""
-            INSERT INTO pending_commits (repo, file_path, content, message, status, created_at)
-            VALUES (?, ?, ?, ?, 'PENDING', ?)
-        """, (repo, file_path, content, message, datetime.now(AR_TZ).isoformat()))
-        c.commit()
+        with self._write_transaction() as c:
+            c.execute("""
+                INSERT INTO pending_commits (repo, file_path, content, message, status, created_at)
+                VALUES (?, ?, ?, ?, 'PENDING', ?)
+            """, (repo, file_path, content, message, datetime.now(AR_TZ).isoformat()))
 
     def get_pending_commits(self, limit: int = 10) -> list[dict[str, Any]]:
         c = self.conn
@@ -163,48 +187,40 @@ class SQLiteStore:
         return [dict(r) for r in rows.fetchall()]
 
     def mark_commit_done(self, commit_id: int):
-        c = self.conn
-        c.execute("UPDATE pending_commits SET status = 'DONE' WHERE id = ?", (commit_id,))
-        c.commit()
+        with self._write_transaction() as c:
+            c.execute("UPDATE pending_commits SET status = 'DONE' WHERE id = ?", (commit_id,))
 
     def trace(self, run_id: str, worker: str, step: str, status: str,
               provider: str = "", prompt_id: str = "", tokens_in: int = 0,
               tokens_out: int = 0, latency_ms: int = 0, detail: str = ""):
-        c = self.conn
-        c.execute("""
-            INSERT INTO telemetry_traces (run_id, worker, step, provider, prompt_id,
-                tokens_in, tokens_out, latency_ms, status, detail, timestamp)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, (run_id, worker, step, provider, prompt_id,
-              tokens_in, tokens_out, latency_ms, status, detail,
-              datetime.now(AR_TZ).isoformat()))
-        c.commit()
+        with self._write_transaction() as c:
+            c.execute("""
+                INSERT INTO telemetry_traces (run_id, worker, step, provider, prompt_id,
+                    tokens_in, tokens_out, latency_ms, status, detail, timestamp)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (run_id, worker, step, provider, prompt_id,
+                  tokens_in, tokens_out, latency_ms, status, detail,
+                  datetime.now(AR_TZ).isoformat()))
 
     def log_event(self, event_type: str, data: dict, source: str = "system", correlation_id: str = ""):
-        c = self.conn
-        c.execute("""
-            INSERT INTO events_log (event_type, data_json, source, correlation_id, timestamp)
-            VALUES (?, ?, ?, ?, ?)
-        """, (event_type, json.dumps(data), source, correlation_id, datetime.now(AR_TZ).isoformat()))
-        c.commit()
+        with self._write_transaction() as c:
+            c.execute("""
+                INSERT INTO events_log (event_type, data_json, source, correlation_id, timestamp)
+                VALUES (?, ?, ?, ?, ?)
+            """, (event_type, json.dumps(data), source, correlation_id, datetime.now(AR_TZ).isoformat()))
 
     def save_price_history(self, ticker: str, rows: list[dict[str, Any]]):
-        c = self.conn
-        now = datetime.now(AR_TZ).isoformat()
-        for r in rows:
-            date_str = r.get("date", "")
-            if not date_str:
-                continue
-            c.execute("""
+        with self._write_transaction() as c:
+            now = datetime.now(AR_TZ).isoformat()
+            valid_rows = [
+                (ticker.upper(), r.get("date", ""), r.get("open", 0), r.get("high", 0),
+                 r.get("low", 0), r.get("close", 0), r.get("volume", 0), now)
+                for r in rows if r.get("date")
+            ]
+            c.executemany("""
                 INSERT OR REPLACE INTO price_history (ticker, date, open, high, low, close, volume, updated_at)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            """, (
-                ticker.upper(), date_str,
-                r.get("open", 0), r.get("high", 0),
-                r.get("low", 0), r.get("close", 0),
-                r.get("volume", 0), now,
-            ))
-        c.commit()
+            """, valid_rows)
 
     def get_price_history(self, ticker: str, limit: int = 365) -> list[dict[str, Any]]:
         c = self.conn

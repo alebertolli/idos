@@ -19,6 +19,7 @@ class DataRefreshWorker(BaseWorker):
         super().__init__(config)
         self.cache = DataCache()
         self.validator = DataValidator()
+        self.db = SQLiteStore(Path.cwd() / "idos.db")
         self.universe_path = config.get("universe_path", "")
         self.sources = {
             "stockanalysis": StockAnalysisWorker(config),
@@ -42,7 +43,7 @@ class DataRefreshWorker(BaseWorker):
                 results[ticker] = cached
                 continue
 
-            db = SQLiteStore(Path.cwd() / "idos.db")
+            db = self.db
             try:
                 source_data = {}
                 print(f"[REFRESH] {ticker}: fetching stockanalysis...", end=" ")
