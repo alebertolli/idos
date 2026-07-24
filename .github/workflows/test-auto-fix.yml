@@ -1,0 +1,22 @@
+name: TEST Auto-Fix Issue Creator
+on:
+  workflow_dispatch:
+
+jobs:
+  test-fail:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+      - name: This step will fail on purpose
+        run: exit 1
+      - name: 🐛 Report failure as GitHub Issue
+        if: failure()
+        run: python -m idos.workers.automation.gha_error_reporter
