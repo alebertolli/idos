@@ -58,8 +58,14 @@ class EntryMonitorWorker(BaseWorker):
 
         opp = sqlite.get_opportunity(opp_id)
         if not opp:
-            return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
-                    "reason": f"Opportunity {opp_id} not found in SQLite. Run DDD first."}
+            yaml_opp = journal.load_opportunity(ticker, opp_id)
+            if yaml_opp:
+                sqlite.save_opportunity(yaml_opp)
+                opp = sqlite.get_opportunity(opp_id)
+                print(f"[ENTRY] {ticker}: restored from journal YAML -> SQLite")
+            else:
+                return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
+                        "reason": f"Opportunity {opp_id} not found in SQLite or journal"}
 
         current_status = OpportunityStatus(opp["status"])
         if current_status not in (OpportunityStatus.APPROVED, OpportunityStatus.ENTRY_PENDING):
