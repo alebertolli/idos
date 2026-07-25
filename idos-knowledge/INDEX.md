@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 17 companies tracked
+Total: 18 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -31,6 +31,7 @@ Total: 17 companies tracked
 - 📄 [[SAN|Banco Santander, S.A.]]
 
 ## Technology
+- 📄 [[ADP|Automatic Data Processing, Inc.]]
 - 📄 [[ASML|ASML Holding N.V.]]
 - ⏳ [[MELI|MercadoLibre]]
 - 📄 [[SAP|SAP SE]]

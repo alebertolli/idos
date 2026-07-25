@@ -1,35 +1,33 @@
 {
   "processed": [
     {
-      "ticker": "META",
-      "opp_id": "OPP-20260720-016",
+      "ticker": "ADP",
+      "opp_id": "OPP-20260724-001",
       "status": "completed",
-      "score": 88,
-      "classification": "quality_at_fair_price",
+      "score": 84,
+      "classification": "compounder",
       "force": true,
       "event_type": "manual"
     }
   ],
   "assessments": [
     {
-      "ticker": "META",
-      "opp_id": "OPP-20260720-016",
+      "ticker": "ADP",
+      "opp_id": "OPP-20260724-001",
       "status": "completed",
-      "conviction_score": 73,
-      "recommendation": "APPROVE",
-      "board_approved": true,
+      "conviction_score": 67,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260724024315",
+      "decision_id": "DEC-20260724214803",
       "assessments": {
-        "BusinessAssessmentEngine": 76,
-        "ValuationAssessmentEngine": 70,
-        "RecoveryAssessmentEngine": 64,
+        "BusinessAssessmentEngine": 68,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 56,
         "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
-        "RULE-001",
-        "RULE-002",
         "RULE-003",
         "RULE-004",
         "RULE-005",
@@ -38,16 +36,19 @@
         "RULE-008",
         "RULE-009"
       ],
-      "rules_failed": [],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-002"
+      ],
       "rules_details": {
-        "RULE-001": "Business quality: 76/100",
-        "RULE-002": "Price target margin: 36.3%",
-        "RULE-003": "Rerating: 64/100",
+        "RULE-001": "Business quality: 68/100",
+        "RULE-002": "Price target margin: 3.0%",
+        "RULE-003": "Rerating: 56/100",
         "RULE-004": "Risk: 70/100",
-        "RULE-005": "Conviction: 73/100",
+        "RULE-005": "Conviction: 67/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
-        "RULE-008": "B/R inf:1 \u2705 (upside 57.6% / downside 0.0%)",
+        "RULE-008": "B/R inf:1 \u2705 (upside 3.0% / downside 0.0%)",
         "RULE-009": "Posiciones activas: 0/10 max (competencia por capital)"
       },
       "data_quality": "good"

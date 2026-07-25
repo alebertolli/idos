@@ -1,0 +1,169 @@
+calidad_evidencia:
+  hechos_verificados:
+  - Ingresos TTM de $21.6B con un crecimiento del +6.0%
+  - Margen operativo TTM del 26.6%
+  - ROIC reportado del 55.3%
+  - Relacion Deuda/Capital de 0.7x
+  - 'Estructura de dos segmentos principales: Employer Services y PEO Services'
+  inferencias_llm:
+  - Los costes de cambio otorgan una tasa de retencion de clientes estimada superior
+    al 90% a nivel consolidado
+  - El impacto de nuevos competidores SaaS afecta principalmente a micro-PYMEs pero
+    no amenaza el segmento Enterprise a corto plazo
+  - La cifra de FCF de 0M en el resumen financiero proporcionado corresponde a una
+    falta de dato en el feed de origen y no a la realidad operativa de la caja de
+    ADP
+  preguntas_abiertas:
+  - ¿Cual es el dividendo exacto y la tasa de recompra de acciones ejecutada en el
+    ultimo ejercicio fiscal?
+  - ¿Cual es la tasa de migracion efectiva de clientes antiguos a la nueva plataforma
+    ADP Lyric?
+  - ¿Que impacto marginal tendria una reduccion de 100 puntos basicos en los tipos
+    de interes de la Fed sobre el rendimiento del float?
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: Quality at Fair Price (descartado porque ADP es la definicion
+    clasica de Compounder secular con ventajas competitivas duraderas); Turnaround/Value
+    Trap (descartados dado que la salud operativa e ingresos siguen creciendo al 6%
+    anual sin deterioro estructural); Ciclica (descartado aunque el empleo afecta
+    ligeramente al volumen, el modelo de suscripcion y los costes de cambio otorgan
+    una resiliencia contraciclica masiva).
+  justificacion: ADP es el lider global indiscutible en procesamiento de nominas y
+    gestion de capital humano (HCM), con mas de 75 años de trayectoria, un ROIC excepcional
+    del 55.3% y una retencion de clientes superior al 90%. Exhibe un modelo de negocio
+    altamente recurrente, fuertes costes de cambio y economias de escala.
+dominio_business_quality:
+  analisis: El foso competitivo (Moat) de ADP se basa en altisimos costes de cambio
+    (switching costs) y efectos de red/escala. Cambiar de proveedor de nominas genera
+    un alto riesgo operativo y de cumplimiento fiscal para cualquier empresa. Con
+    productos adaptados a PYMEs (RUN) y grandes corporaciones (Workforce Now, Lyric),
+    ADP procesa la nomina de 1 de cada 6 trabajadores en EE.UU. La durabilidad de
+    su ventaja competitiva es de muy alto grado.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Consolidacion y adopcion acelerada del software ADP Lyric en clientes
+    mid-market y enterprise.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 70
+- descripcion: Expansion de margenes operativos sostenida hacia el 28% gracias a la
+    eficiencia operativa e integracion de IA.
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 60
+dominio_esg_supply_chain:
+  analisis: Riesgo operativo centrado en ciberseguridad, privacidad de datos (GDPR,
+    CCPA) y cumplimiento laboral. ADP gestiona datos sensibles de millones de empleados;
+    una brecha de seguridad seria su mayor riesgo reputacional. En cadena de suministro,
+    la dependencia es baja, limitada a infraestructura cloud propia y de terceros
+    (AWS/Microsoft).
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: El balance presenta un apalancamiento moderado (D/E de 0.7x) respaldado
+    por un flujo de caja operativo predecible y recurrente. Aunque los datos del prompt
+    registran FCF e Interest Coverage como 0M/0.0x por limitacion temporal del reporte,
+    la capacidad real de generacion de caja es masiva. ADP ostenta una calificacion
+    crediticia de grado de inversion AA/A1, permitiendole refinanciar deuda a costes
+    minimos y mantener dividendos crecientes durante mas de 45 años.
+  rating: fuerte
+dominio_growth:
+  analisis: El crecimiento de ingresos del 6.0% anual esta impulsado organicamente
+    por el aumento en el numero de empleados gestionados, el poder de fijacion de
+    precios (2-3% anual) y la expansion del segmento PEO (co-empleo). El crecimiento
+    futuro provendra del escalado internacional, ventas cruzadas de modulos de talento/beneficios
+    y mayores ingresos por custodia de fondos de clientes (float).
+  rating: moderado
+dominio_management:
+  analisis: Maria Black asume la direccion ejecutiva respaldada por una cultura corporativa
+    caracterizada por la promocion interna y la ejecucion disciplinada. La asignacion
+    de capital prioriza la reinversion interna en plataformas cloud, recompras sistematicas
+    de acciones y un dividendo creciente (Dividend Aristocrat). La propiedad directa
+    de insiders es baja (<0.5%), habitual en empresas maduras de gran capitalizacion,
+    pero la alineacion via incentivos variables basados en EPS y ROIC es fuerte.
+  rating: bueno
+dominio_riesgos:
+- impacto: medio
+  probabilidad: media
+  riesgo: Deterioro macroeconomico y aumento del desempleo que reduzcan el numero
+    de empleados procesados por cliente.
+- impacto: medio
+  probabilidad: media
+  riesgo: Presion competitiva de plataformas HCM SaaS nativas de ultima generacion
+    (Rippling, Gusto) en el segmento PYME.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Incidentes graves de ciberseguridad o filtracion masiva de datos de nominas.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aceleracion en la adopcion de ADP Lyric y mayores expansiones de
+      margen operativo superando el 27% mediante automatizacion con IA generativa
+      en atencion al cliente y cumplimiento fiscal.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 65
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado asume que ADP es un activo defensivo de crecimiento
+    maduro y moderado (6-8% en ventas), expuesto a la desaceleracion del empleo formal
+    y a la perdida paulatina de cuota en el segmento PYME frente a competidores puramente
+    cloud/SaaS como Paycom, Paylocity, Gusto o Rippling. Ademas, el consenso asume
+    que los ingresos por fondos de clientes (float) han tocado techo con la moderacion
+    de tipos de interes.
+  hipotesis_contraria: El mercado subestima la capacidad de retencion defensiva de
+    ADP en el segmento Enterprise/Mid-market y la penetracion de su nueva plataforma
+    ADP Lyric, diseñada para competir con la agilidad del software moderno. Asimismo,
+    se infravalora el poder de fijacion de precios (pricing power) recurrente de ADP
+    en entornos inflacionarios, la escala de su segmento PEO (ADP TotalSource) y la
+    estabilidad de las comisiones por intermediacion que no dependen unicamente del
+    ciclo macro economico.
+  razonamiento: Existe un sesgo del mercado al calificar a ADP como una 'legacy tech'
+    vulnerable al SaaS moderno, ignorando que el procesamiento de nominas y cumplimiento
+    regulatorio priman la fiabilidad institucional y la escala sobre la mera interfaz
+    de usuario. No obstante, la desviacion de valoracion es moderada y no extrema.
+generated_at: '2026-07-24T21:46:06.412058-03:00'
+opinion_valoracion: justo
+opp_id: OPP-20260724-001
+prompt_inputs:
+  business_model: Automatic Data Processing, Inc. provides cloud-based human capital
+    management (HCM) solutions worldwide. It operates in two segments, Employer Services
+    and Professional Employer Organization (PEO). The Employer Services segment offers
+    strategic, cloud-based platforms, and human resources (HR) outsourcing solutions.
+    This segment's offerings include RUN Powered by ADP, a software platform for small
+    business payroll, HR, and compliance; ADP Workforce Now, a HCM solution used across
+    mid-sized and large businesses to manage employees; and ADP Lyric HCM, a solution
+    for HR management, payroll, workforce management, talent, and data analytics.
+    The PEO Services segment provides HR and employment administration outsourcing
+    solutions under ADP TotalSource name to businesses through a co-employment model.
+    The segment also provides guidance, user-friendly technology, comprehensive employee
+    benefits, and a risk management, safety, and workers' compensation program. The
+    company was founded in 1949 and is headquartered in Roseland, New Jersey.
+  ceo_tenure: 0
+  debt_to_equity: 0.69
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: Automatic Data Processing, Inc.
+  operating_margin: 26.65
+  pe_ratio: 22.67
+  products: ''
+  revenue: 21600000000.0
+  revenue_growth: 5.96
+  roic: 55.32
+  sector: Technology
+  ticker: ADP
+resumen_ejecutivo: Automatic Data Processing (ADP) representa una de las franquicias
+  financieras y operativas mas robustas del sector tecnologico/servicios. Con $21.6B
+  en ventas TTM, un margen operativo del 26.6% y un retorno sobre el capital invertido
+  (ROIC) del 55.3%, la empresa domina la gestion del capital humano (HCM) global.
+  Aunque enfrenta la competencia de actores SaaS locales y la sensibilidad macroeconomica
+  en el empleo, sus altos costes de cambio y su volumen de datos le otorgan un foso
+  competitivo (moat) infranqueable a medio plazo.
+score_general: 84
+tesis_inversion: ADP es una posicion defensiva de alta calidad (Compounder) idonea
+  para una Family Office que busque preservacion de capital con crecimiento compuesto
+  ajustado por riesgo. Aunque no cotiza con un descuento profundo de margen de seguridad,
+  su negocio de alta rentabilidad sobre el capital (ROIC 55.3%), visibilidad de ingresos
+  y capacidad defensiva ante la inflacion justifican mantener o acumular en momentos
+  de volatilidad del mercado.
+ticker: ADP
+version: '3.0'
