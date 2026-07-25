@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 19 companies tracked
+Total: 20 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -35,6 +35,7 @@ Total: 19 companies tracked
 - 📄 [[ADP|Automatic Data Processing, Inc.]]
 - 📄 [[ASML|ASML Holding N.V.]]
 - ⏳ [[MELI|MercadoLibre]]
+- 📄 [[NOW|ServiceNow, Inc.]]
 - 📄 [[SAP|SAP SE]]
 - 📄 [[UBER|Uber Technologies, Inc.]]
 

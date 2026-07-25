@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-24 23:57 AR_
+_Generado: 2026-07-25 00:11 AR_
 
 ## Resumen
 
@@ -12,14 +12,18 @@ _Generado: 2026-07-24 23:57 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **NU** (OPP-20260724-001): score=91, class=compounder
+- ⚠️ **NOW** (OPP-20260725-001): score=50, class=None
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **NU**
-  - Opp: [OPP-20260724-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/NU/case_file/opportunities/OPP-20260724-001)
-  - Conviction: 68/100 | Rec: PENDING_REVIEW
-  - Scores: Business: 76 | Valuation: 55 | Recovery: 61 | Risk: 70 | Portfolio: 90
+- ⚠️ **NOW**
+  - Opp: [OPP-20260725-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/NOW/case_file/opportunities/OPP-20260725-001)
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Scores: Business: 54 | Valuation: 70 | Recovery: 52 | Risk: 60 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 54/100
+    - 🚫 RULE-005: Conviction: 62/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 
