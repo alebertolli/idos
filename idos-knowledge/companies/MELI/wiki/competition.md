@@ -1,3 +1,0 @@
-- Amazon Brazil
-- Magazine Luiza
-- Shopee

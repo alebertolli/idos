@@ -1,1 +1,0 @@
-LVS es una apuesta a la normalización del turismo en Asia y a la estabilidad de las relaciones China-USA. La inversión se justifica no por el crecimiento, sino por la calidad de los activos y la solidez del balance, esperando que el mercado vuelva a valorar los flujos de caja operativos por encima del miedo regulatorio.
