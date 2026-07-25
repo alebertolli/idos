@@ -557,29 +557,27 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     with open(opp_dir / "board_resolution.yml", "w", encoding="utf-8") as f:
         yaml.dump(resolution_data, f, default_flow_style=False, allow_unicode=True)
 
-    if not force_reprocess:
-        new_status = OpportunityStatus.APPROVED if resolution.approved else OpportunityStatus.UNDER_DEEP_DD
-        opp = sqlite.get_opportunity(opp_id)
-        if opp:
-            old = opp["status"]
-            opp["status"] = new_status.value
-            opp["updated_at"] = datetime.now(AR_TZ).isoformat()
-            cp = context.get("current_price")
-            iv = context.get("intrinsic_value")
-            if cp:
-                opp.setdefault("conviction", {})["current_price"] = cp
-            if iv:
-                opp.setdefault("conviction", {})["intrinsic_value"] = iv
-            sqlite.save_opportunity(opp)
-            sqlite.record_transition(
-                opp_id, old, new_status.value,
-                cause=f"board:{resolution.decision_type.value.lower()}", worker="assessment_pipeline",
-            )
+    new_status = OpportunityStatus.APPROVED if resolution.approved else OpportunityStatus.UNDER_DEEP_DD
+    opp = sqlite.get_opportunity(opp_id)
+    if opp:
+        old = opp["status"]
+        opp["status"] = new_status.value
+        opp["updated_at"] = datetime.now(AR_TZ).isoformat()
+        cp = context.get("current_price")
+        iv = context.get("intrinsic_value")
+        if cp:
+            opp.setdefault("conviction", {})["current_price"] = cp
+        if iv:
+            opp.setdefault("conviction", {})["intrinsic_value"] = iv
+        sqlite.save_opportunity(opp)
+        sqlite.record_transition(
+            opp_id, old, new_status.value,
+            cause=f"board:{resolution.decision_type.value.lower()}", worker="assessment_pipeline",
+        )
 
     yaml_opp = journal.load_opportunity(ticker, opp_id)
     if yaml_opp:
-        if not force_reprocess:
-            yaml_opp["status"] = new_status.value
+        yaml_opp["status"] = new_status.value
         yaml_opp["updated_at"] = datetime.now(AR_TZ).isoformat()
         yaml_opp.setdefault("conviction", {})["overall"] = proposal.conviction_score
         cp = context.get("current_price")
