@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-25 01:47 AR_
+_Generado: 2026-07-25 01:57 AR_
 
 ## Resumen
 
@@ -18,12 +18,12 @@ _Generado: 2026-07-25 01:47 AR_
 
 - ⚠️ **AXP**
   - Opp: [OPP-20260720-029](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AXP/case_file/opportunities/OPP-20260720-029)
-  - Conviction: 64/100 | Rec: BLOCKED
-  - Scores: Business: 58 | Valuation: 55 | Recovery: 57 | Risk: 80 | Portfolio: 90
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 55 | Recovery: 55 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 58/100
     - 🚫 RULE-002: Price target margin: 15.1%
-    - 🚫 RULE-005: Conviction: 64/100
+    - 🚫 RULE-005: Conviction: 63/100
 
 ---
 
