@@ -1,25 +1,29 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-25 00:45 AR_
+_Generado: 2026-07-25 00:51 AR_
 
 ## Resumen
 
 - 🟢 **Oportunidades procesadas:** 1
 - ✅ **Assessment completados:** 1
-- 🔖 **Approved:** 1
+- 🔖 **Approved:** 0
 - 🔴 **Errores:** 0
 - 📊 **Total encontradas:** 1
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **META** (OPP-20260720-016): score=80, class=compounder
+- ✅ **AXP** (OPP-20260720-029): score=80, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ✅ **META**
-  - Opp: [OPP-20260720-016](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/META/case_file/opportunities/OPP-20260720-016)
-  - Conviction: 72/100 | Rec: APPROVE | Dec: HOLD
-  - Scores: Business: 76 | Valuation: 70 | Recovery: 60 | Risk: 70 | Portfolio: 90
+- ⚠️ **AXP**
+  - Opp: [OPP-20260720-029](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AXP/case_file/opportunities/OPP-20260720-029)
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 55 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-002: Price target margin: 15.1%
+    - 🚫 RULE-005: Conviction: 63/100
 
 ---
 
