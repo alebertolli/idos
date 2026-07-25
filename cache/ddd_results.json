@@ -1,54 +1,53 @@
 {
   "processed": [
     {
-      "ticker": "NOW",
-      "opp_id": "OPP-20260725-001",
-      "status": "ddd_failed",
-      "score": 50,
-      "classification": null,
+      "ticker": "META",
+      "opp_id": "OPP-20260720-016",
+      "status": "completed",
+      "score": 88,
+      "classification": "quality_at_fair_price",
       "force": true,
       "event_type": "manual"
     }
   ],
   "assessments": [
     {
-      "ticker": "NOW",
-      "opp_id": "OPP-20260725-001",
+      "ticker": "META",
+      "opp_id": "OPP-20260720-016",
       "status": "completed",
-      "conviction_score": 62,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
+      "conviction_score": 73,
+      "recommendation": "APPROVE",
+      "board_approved": true,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260725001112",
+      "decision_id": "DEC-20260725001551",
       "assessments": {
-        "BusinessAssessmentEngine": 54,
+        "BusinessAssessmentEngine": 76,
         "ValuationAssessmentEngine": 70,
-        "RecoveryAssessmentEngine": 52,
-        "RiskAssessmentEngine": 60,
+        "RecoveryAssessmentEngine": 64,
+        "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
+        "RULE-001",
         "RULE-002",
         "RULE-003",
         "RULE-004",
+        "RULE-005",
         "RULE-006",
         "RULE-007",
+        "RULE-008",
         "RULE-009"
       ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-005",
-        "RULE-008"
-      ],
+      "rules_failed": [],
       "rules_details": {
-        "RULE-001": "Business quality: 54/100",
-        "RULE-002": "Price target margin: 42.0%",
-        "RULE-003": "Rerating: 52/100",
-        "RULE-004": "Risk: 60/100",
-        "RULE-005": "Conviction: 62/100",
+        "RULE-001": "Business quality: 76/100",
+        "RULE-002": "Price target margin: 38.8%",
+        "RULE-003": "Rerating: 64/100",
+        "RULE-004": "Risk: 70/100",
+        "RULE-005": "Conviction: 73/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
-        "RULE-008": "No hay datos de DDD para calcular asimetria",
+        "RULE-008": "B/R inf:1 \u2705 (upside 61.2% / downside 0.0%)",
         "RULE-009": "Posiciones activas: 0/10 max (competencia por capital)"
       },
       "data_quality": "good"
