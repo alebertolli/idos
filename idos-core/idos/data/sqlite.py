@@ -100,8 +100,7 @@ class SQLiteStore:
                 correlation_id TEXT DEFAULT '',
                 timestamp TEXT NOT NULL
             );
-        """)
-        c.execute("""
+
             CREATE TABLE IF NOT EXISTS price_history (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 ticker TEXT NOT NULL,
@@ -114,8 +113,7 @@ class SQLiteStore:
                 updated_at TEXT NOT NULL,
                 UNIQUE(ticker, date)
             );
-        """)
-        c.executescript("""
+
             CREATE INDEX IF NOT EXISTS idx_price_history_ticker ON price_history(ticker, date DESC);
             CREATE INDEX IF NOT EXISTS idx_opp_status ON opportunities(status, updated_at DESC);
             CREATE INDEX IF NOT EXISTS idx_opp_ticker ON opportunities(ticker);
@@ -131,7 +129,6 @@ class SQLiteStore:
             CREATE INDEX IF NOT EXISTS idx_provenance_evidence ON provenance_chain(evidence_id);
             CREATE INDEX IF NOT EXISTS idx_commits_status ON pending_commits(status);
         """)
-        c.commit()
 
     def save_opportunity(self, opp: dict[str, Any]):
         with self._write_transaction() as c:
