@@ -1,15 +1,85 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-25T00:41:18.493592-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - La empresa tiene una base de usuarios grande y leal
+  - La empresa tiene una capacidad para innovar y adaptarse a los cambios en el mercado
+  inferencias_llm:
+  - La empresa tiene un potencial de crecimiento fuerte en el sector de la realidad
+    virtual y la inteligencia artificial
+  - La empresa tiene un riesgo medio en términos de ESG y cadena de suministro
+  preguntas_abiertas:
+  - ¿Cuál es el impacto potencial de la competencia en el mercado de las redes sociales
+    en la empresa?
+  - ¿Cuál es el impacto potencial de la regulación gubernamental en la empresa?
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: Compounder castigado, Turnaround, Deep Value, Cíclica, Special
+    Situation, Distressed, Quality at Fair Price, Hype y Value Trap, ya que no se
+    ajustan a las características y el desempeño de la empresa.
+  justificacion: Meta Platforms, Inc. tiene un historial de crecimiento sólido y una
+    posición competitiva fuerte en el mercado de las redes sociales y la realidad
+    virtual. Su modelo de negocio diversificado y su capacidad para innovar y adaptarse
+    a los cambios en el mercado la convierten en un compounder a largo plazo.
+dominio_business_quality:
+  analisis: La empresa tiene una posición competitiva fuerte en el mercado de las
+    redes sociales y la realidad virtual, con una base de usuarios grande y leal.
+    Su capacidad para innovar y adaptarse a los cambios en el mercado es excelente.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Un avance significativo en la tecnología de realidad virtual
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+- descripcion: Una expansión exitosa en nuevos mercados
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 20
+dominio_esg_supply_chain:
+  analisis: La empresa tiene un riesgo medio en términos de ESG y cadena de suministro,
+    debido a la complejidad de su negocio y la dependencia de proveedores y socios
+    en todo el mundo.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La empresa tiene una salud financiera sólida, con un margen operativo
+    alto y una generación de caja fuerte. Su deuda es manejable y su perfil de deuda
+    es estable.
+  rating: fuerte
+dominio_growth:
+  analisis: La empresa tiene un potencial de crecimiento fuerte en el sector de la
+    realidad virtual y la inteligencia artificial, con una base de usuarios grande
+    y leal y una capacidad para innovar y adaptarse a los cambios en el mercado.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo de gestión de la empresa es experimentado y tiene un historial
+    de éxito en la innovación y la expansión en nuevos mercados.
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Competencia en el mercado de las redes sociales
+- impacto: medio
+  probabilidad: media
+  riesgo: Regulación gubernamental
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un avance significativo en la tecnología de realidad virtual o una
+      expansión exitosa en nuevos mercados
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El mercado parece descontar un crecimiento moderado y una valoración
+    razonable para Meta Platforms, Inc., considerando su posición en el mercado y
+    su historial de innovación.
+  hipotesis_contraria: La hipótesis contraria sería que el mercado subestima el potencial
+    de crecimiento de la empresa en el sector de la realidad virtual y la inteligencia
+    artificial, lo que podría llevar a una valoración más alta.
+  razonamiento: Aunque hay argumentos para creer que el mercado puede estar subestimando
+    el potencial de crecimiento de Meta, también hay factores que sugieren que la
+    valoración actual es razonable considerando los riesgos y desafíos en el sector.
+generated_at: '2026-07-25T00:44:11.069846-03:00'
+opinion_valoracion: justo
 opp_id: OPP-20260720-016
 prompt_inputs:
   business_model: Meta Platforms, Inc. engages in the development of products that
@@ -50,8 +120,16 @@ prompt_inputs:
   roic: 29.8
   sector: Communication Services
   ticker: META
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: Meta Platforms, Inc. es un compounder con un historial de crecimiento
+  sólido y una posición competitiva fuerte en el mercado de las redes sociales y la
+  realidad virtual. Aunque hay argumentos para creer que el mercado puede estar subestimando
+  su potencial de crecimiento, también hay factores que sugieren que la valoración
+  actual es razonable.
+score_general: 80
+tesis_inversion: Meta Platforms, Inc. es un compounder con un historial de crecimiento
+  sólido y una posición competitiva fuerte en el mercado de las redes sociales y la
+  realidad virtual. Aunque hay argumentos para creer que el mercado puede estar subestimando
+  su potencial de crecimiento, también hay factores que sugieren que la valoración
+  actual es razonable.
 ticker: META
 version: '3.0'
