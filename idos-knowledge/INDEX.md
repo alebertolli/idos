@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 18 companies tracked
+Total: 19 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -28,6 +28,7 @@ Total: 18 companies tracked
 - 📄 [[AXP|American Express Company]]
 - 📄 [[HDB|HDFC Bank Limited]]
 - 📄 [[JPM|JPMorgan Chase & Co.]]
+- 📄 [[NU|Nu Holdings Ltd.]]
 - 📄 [[SAN|Banco Santander, S.A.]]
 
 ## Technology

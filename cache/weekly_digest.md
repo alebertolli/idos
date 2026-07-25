@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-24 23:50 AR_
+_Generado: 2026-07-24 23:57 AR_
 
 ## Resumen
 
@@ -12,17 +12,14 @@ _Generado: 2026-07-24 23:50 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **ABNB** (OPP-20260720-030): score=84, class=quality_at_fair_price
+- ✅ **NU** (OPP-20260724-001): score=91, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **ABNB**
-  - Opp: [OPP-20260720-030](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ABNB/case_file/opportunities/OPP-20260720-030)
-  - Conviction: 67/100 | Rec: BLOCKED
-  - Scores: Business: 63 | Valuation: 65 | Recovery: 62 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 63/100
-    - 🚫 RULE-002: Price target margin: 11.3%
+- ⚠️ **NU**
+  - Opp: [OPP-20260724-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/NU/case_file/opportunities/OPP-20260724-001)
+  - Conviction: 68/100 | Rec: PENDING_REVIEW
+  - Scores: Business: 76 | Valuation: 55 | Recovery: 61 | Risk: 70 | Portfolio: 90
 
 ---
 
