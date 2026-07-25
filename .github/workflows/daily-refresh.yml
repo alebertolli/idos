@@ -18,12 +18,6 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/cache@v4
-        with:
-          path: idos.db
-          key: idos-db-${{ github.run_id }}
-          restore-keys: idos-db-
-          save-always: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
