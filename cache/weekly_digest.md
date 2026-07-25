@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-24 21:48 AR_
+_Generado: 2026-07-24 21:54 AR_
 
 ## Resumen
 
@@ -12,17 +12,17 @@ _Generado: 2026-07-24 21:48 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **ADP** (OPP-20260724-001): score=84, class=compounder
+- ✅ **AXP** (OPP-20260720-029): score=84, class=quality_at_fair_price
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **ADP**
-  - Opp: [OPP-20260724-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ADP/case_file/opportunities/OPP-20260724-001)
-  - Conviction: 67/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 65 | Recovery: 56 | Risk: 70 | Portfolio: 90
+- ⚠️ **AXP**
+  - Opp: [OPP-20260720-029](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AXP/case_file/opportunities/OPP-20260720-029)
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 65 | Recovery: 57 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 68/100
-    - 🚫 RULE-002: Price target margin: 3.0%
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-002: Price target margin: 15.1%
 
 ---
 
