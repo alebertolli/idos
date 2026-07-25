@@ -1,128 +1,15 @@
-calidad_evidencia:
-  hechos_verificados:
-  - Revenue TTM $214.96B con crecimiento de +21.5%
-  - Margen Operativo de 41.2% y ROIC de 29.8%
-  - 'Estructura de dos segmentos: Family of Apps (FoA) y Reality Labs (RL)'
-  - Asociaciones estratégicas con NVIDIA, Microsoft, AMD, Broadcom
-  inferencias_llm:
-  - 'Los datos del prompt referentes a ''CEO Antigüedad: 0 años'' e ''Insider Ownership:
-    0.0%'' son errores de plantilla del input data; Mark Zuckerberg es el fundador/CEO
-    desde 2004 y posee aproximadamente el 13% de la compañía con control mayoritario
-    de voto via Clase B.'
-  - El valor FCF reportado como 0M en el prompt responde a un artefacto de carga de
-    datos o al desembolso de CapEx acelerado del trimestre, pero la generación de
-    caja operativa es estructuralmente superior a $60B.
-  preguntas_abiertas:
-  - ¿A qué ritmo la dirección reducirá el burn rate de Reality Labs si la adopción
-    de visores VR sigue siendo un nicho?
-  - ¿Cuál será la tasa final de rendimiento (ROIC) incremental de los centros de datos
-    dedicados exclusivamente al entrenamiento de modelos Llama de tamaño ultra-grande?
-clasificacion_oportunidad:
-  categoria: quality_at_fair_price
-  categorias_descartadas: 'Compounder Castigado: Descartada porque la acción ha cotizado
-    cerca de máximos históricos tras la recuperación del ''Year of Efficiency'', no
-    sufriendo un castigo extremo de valoración en este momento. Hype: Descartada porque
-    posee un negocio nuclear altamente monetizable y rentable (FoA), a diferencia
-    de empresas especulativas sin beneficios. Value Trap: Descartada porque el negocio
-    genera caja masiva y crece a doble dígito, sin estar en declive estructural.'
-  justificacion: Meta Platforms es un Compounder de escala global con efectos de red
-    masivos e insuperables (más de 3.200 millones de usuarios activos diarios en la
-    Familia de Aplicaciones). Genera retornos sobre el capital invertido (ROIC) cercanos
-    al 30% y un margen operativo superior al 40%. Cotiza a múltiplos razonables (PER
-    NTM ~22-25x) considerando su crecimiento de ingresos (+21.5% TTM) y su capacidad
-    para monetizar inversiones en Inteligencia Artificial.
-dominio_business_quality:
-  analisis: Meta posee una ventaja competitiva (Moat) basada en Efectos de Red masivos
-    e insustituibles. La combinación de más de 3.2B de personas conectadas genera
-    costes de cambio sociales altísimos. La densidad de datos de usuarios proporciona
-    una ventaja inalcanzable para la segmentación publicitaria. La transición defensiva
-    exitosa hacia Reels ha neutralizado la amenaza de TikTok, mientras que Threads
-    consolida su posición contra X/Twitter.
-  rating: excepcional
-dominio_catalizadores:
-- descripcion: Aceleración de ingresos por monetización de WhatsApp Business Messaging
-    e integración de Meta AI
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: alto
-  probabilidad_pct: 75
-- descripcion: Racionalización o disciplina de capital en el segmento Reality Labs
-  horizonte: largo
-  impacto: medio
-  nivel_confianza: medio
-  probabilidad_pct: 60
-- descripcion: Éxito comercial de los dispositivos wearables de IA (Ray-Ban Meta Smart
-    Glasses y futuras generaciones)
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: medio
-  probabilidad_pct: 70
-dominio_esg_supply_chain:
-  analisis: Riesgos regulatorios significativos en la UE y EE. UU. (leyes de privacidad
-    GDPR/DMA, investigaciones antitrust, protección de menores). Dependencia de la
-    cadena de suministro de semiconductores de vanguardia (NVIDIA, TSMC) para sus
-    centros de datos de IA. Riesgo reputacional latente sobre la salud mental de adolescentes.
-  rating: medio_riesgo
-dominio_financial_health:
-  analisis: Balance extremadamente sólido con caja neta sustancial y baja relación
-    Deuda/EBITDA. Aunque los datos del prompt registran FCF en $0M por ajuste temporal
-    o ciclo intensivo de CapEx de IA/Hardware, la generación subyacente de FCF operativo
-    antes de CapEx es masiva (> $60B+ anualizados). Solvencia garantizada con perfil
-    de deuda muy holgado (D/E 0.4x).
-  rating: fuerte
-dominio_growth:
-  analisis: 'Crecimiento del +21.5% TTM impulsado por: 1) Recuperación del gasto publicitario
-    global; 2) Incremento del precio por anuncio y volumen de impresiones mediante
-    recomendación de IA; 3) Expansión de WhatsApp Business Messaging en LATAM y Asia;
-    4) Llama y servicios de IA para empresas.'
-  rating: fuerte
-dominio_management:
-  analisis: Mark Zuckerberg (fundador/CEO) controla la compañía mediante acciones
-    de clase B (Dual-class structure). Su historial de asignación de capital ha sido
-    visionario en adquisiciones estratégicas (Instagram por $1B, WhatsApp por $19B)
-    y ha demostrado flexibilidad táctica al ejecutar el 'Year of Efficiency' en 2023.
-    Su alineación con los accionistas es total al ser el principal accionista individual.
-  rating: excepcional
-dominio_riesgos:
-- impacto: medio
-  probabilidad: alta
-  riesgo: Regulación Antitrust y Privacidad (UE/EEUU) que restrinja el uso de datos
-    inter-aplicaciones
-- impacto: medio
-  probabilidad: media
-  riesgo: Sobreinversión en CapEx de IA con retornos inferiores a la tasa de descuento
-    (WACC)
-- impacto: bajo
-  probabilidad: media
-  riesgo: Pérdidas incontroladas y persistentes en Reality Labs sin adopción masiva
-    de hardware VR/AR
-error_mercado:
-  catalizador_cambio:
-    descripcion: Monetización explícita de Meta AI y mensajería comercial (WhatsApp
-      Business) combinada con el incremento medible de retornos publicitarios (ROAS)
-      impulsados por Advantage+ e IA generativa.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 80
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado asume que el incremento masivo en CapEx para infraestructura
-    de Inteligencia Artificial ($37B-$40B+ anuales) y las pérdidas continuas en Reality
-    Labs ($15B-$20B anuales) diluirán permanentemente el margen FCF y el retorno del
-    capital invertido sin una vía clara e inmediata de monetización directa de IA.
-  hipotesis_contraria: 'Pensamiento de 2º nivel (Howard Marks): El mercado infravalora
-    el ROI indirecto del CapEx en IA. La infraestructura de IA no es un ''gasto a
-    fondo perdido'', sino que potencia inmediatamente el core publicitario mediante
-    Advantage+, mejorando la conversión publicitaria, la recomendación de contenidos
-    en Reels y la retención. Además, la estrategia Open Source con Llama evita la
-    dependencia de terceros (Google/Microsoft/OpenAI) y posiciona a Meta como la plataforma
-    por defecto para agentes conversacionales en WhatsApp/Instagram, abriendo un flujo
-    publicitario/SaaS masivo.'
-  razonamiento: Existe un desajuste temporal entre el ciclo de gasto intensivo en
-    capital (CapEx) y la realización del valor por parte de los analistas tradicionales,
-    ofreciendo una ventana de entrada atractiva para inversores de largo plazo que
-    entienden la captura del valor via ad-tech e IA.
-generated_at: '2026-07-25T00:14:15.548742-03:00'
-opinion_valoracion: infravalorado
+calidad_evidencia: {}
+clasificacion_oportunidad: {}
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-07-25T00:41:18.493592-03:00'
+opinion_valoracion: ''
 opp_id: OPP-20260720-016
 prompt_inputs:
   business_model: Meta Platforms, Inc. engages in the development of products that
@@ -163,21 +50,8 @@ prompt_inputs:
   roic: 29.8
   sector: Communication Services
   ticker: META
-resumen_ejecutivo: Meta Platforms (META) representa un activo de calidad superior
-  (Moat de efecto de red directo e indirecto) respaldado por la Family of Apps (Facebook,
-  Instagram, WhatsApp, Messenger, Threads). A pesar de la quema de caja en Reality
-  Labs y el agresivo despliegue de CapEx en infraestructura de IA, la empresa mantiene
-  márgenes operativos del 41.2% y un ROIC del 29.8%. La tesis de inversión se basa
-  en la supremacía publicitaria digital (duopolio con Google), el impulso operativo
-  proporcionado por algoritmos de recomendación de IA y la opcionalidad gratuita de
-  Reality Labs y Meta AI.
-score_general: 88
-tesis_inversion: Meta Platforms representa una de las mejores oportunidades ajustadas
-  por riesgo en el espacio Megacap Tech. El mercado sigue descontando Reality Labs
-  como una pérdida neta y califica el CapEx de IA como un riesgo de margen, ignorando
-  que el negocio central de publicidad digital está ganando cuota de mercado aceleradamente
-  gracias al motor algorítmico de IA. A un múltiplo razonable, el inversor obtiene
-  el monopolio de redes sociales con un rendimiento de capital (ROIC) del ~30% y opcionalidad
-  gratuita en hardware/IA de siguiente generación.
+resumen_ejecutivo: ''
+score_general: 50
+tesis_inversion: ''
 ticker: META
 version: '3.0'
