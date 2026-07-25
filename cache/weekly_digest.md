@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-25 00:51 AR_
+_Generado: 2026-07-25 01:36 AR_
 
 ## Resumen
 
@@ -12,18 +12,20 @@ _Generado: 2026-07-25 00:51 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **AXP** (OPP-20260720-029): score=80, class=compounder
+- ⚠️ **AXP** (OPP-20260720-029): score=50, class=None
 
 ### STEP 3-7 - Assessment Pipeline
 
 - ⚠️ **AXP**
   - Opp: [OPP-20260720-029](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AXP/case_file/opportunities/OPP-20260720-029)
-  - Conviction: 63/100 | Rec: BLOCKED
-  - Scores: Business: 58 | Valuation: 55 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 55 | Recovery: 49 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 58/100
     - 🚫 RULE-002: Price target margin: 15.1%
-    - 🚫 RULE-005: Conviction: 63/100
+    - 🚫 RULE-003: Rerating: 49/100
+    - 🚫 RULE-005: Conviction: 62/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 
