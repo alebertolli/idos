@@ -136,7 +136,11 @@ jobs:
                   continue
               from idos.workers.portfolio.entry_monitor_worker import EntryMonitorWorker
               from idos.workers.base import WorkerStatus
-              w = EntryMonitorWorker()
+              from idos.ai.service import LLMService
+              from pathlib import Path
+              _mp = Path('idos-config/models.yml')
+              _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
+              w = EntryMonitorWorker({'llm_service': _llm_svc})
               result = w.execute({'ticker': ticker, 'opp_id': opp_id, 'base_path': str(bp)})
               if result.status == WorkerStatus.FAILED and result.error:
                   print(f'[ENTRY] {ticker}: ERROR - {result.error}')

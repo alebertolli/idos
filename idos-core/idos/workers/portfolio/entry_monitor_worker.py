@@ -22,15 +22,16 @@ class EntryMonitorWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        llm_client = config.get("llm_service")
+        cfg = self.config or {}
+        llm_client = cfg.get("llm_service")
         prompt_registry = None
-        if not llm_client and self.config.get("provider"):
+        if not llm_client and cfg.get("provider"):
             llm_client = LLMClient(
-                provider=config.get("provider", ""),
-                api_key=config.get("api_key", ""),
-                model=config.get("model", ""),
-                fallback_model=config.get("fallback_model", ""),
-                fallback_providers=config.get("fallback_providers", []),
+                provider=cfg.get("provider", ""),
+                api_key=cfg.get("api_key", ""),
+                model=cfg.get("model", ""),
+                fallback_model=cfg.get("fallback_model", ""),
+                fallback_providers=cfg.get("fallback_providers", []),
             )
         if self.config.get("prompts_path"):
             prompt_registry = PromptRegistry(self.config["prompts_path"])
