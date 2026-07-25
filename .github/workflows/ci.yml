@@ -30,7 +30,10 @@ jobs:
           pip install -e idos-core
           pip install pytest
       - name: Run tests
-        run: python -m pytest idos-core/tests/ -v
+        run: |
+          python -m pytest idos-core/tests/ -v 2>&1 | tee /tmp/ci_test_output.log
       - name: 🐛 Report failure as GitHub Issue
         if: failure()
+        env:
+          IDOS_ERROR_SUMMARY: $(tail -200 /tmp/ci_test_output.log 2>/dev/null || echo "")
         run: python -m idos.workers.automation.gha_error_reporter

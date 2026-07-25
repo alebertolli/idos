@@ -166,18 +166,27 @@ class AutoFixAgent(BaseWorker):
                 error_log = f"(failed to fetch logs for run {run_id}: {e})"
 
         fix_plan = self._generate_fix_plan(body, error_log, error_summary, issue_number)
+        fix_plan["_issue_number"] = issue_number
 
         plan_md = self._format_plan_markdown(fix_plan)
-        _gh_post(
-            f"issues/{issue_number}/comments",
-            {"body": plan_md},
-            self.token,
-        )
-        _gh_patch(
-            f"issues/{issue_number}",
-            {"labels": ["auto-fix-analyzed"]},
-            self.token,
-        )
+        try:
+            _gh_post(
+                f"issues/{issue_number}/comments",
+                {"body": plan_md},
+                self.token,
+            )
+        except Exception as e:
+            print(f"[ERROR] Failed to post fix plan to GitHub: {e}")
+            
+        try:
+            _gh_patch(
+                f"issues/{issue_number}",
+                {"labels": ["auto-fix-analyzed"]},
+                self.token,
+            )
+        except Exception as e:
+            print(f"[ERROR] Failed to update issue labels: {e}")
+            
         return {"status": "analyzed", "issue_number": issue_number, "fix_plan": fix_plan}
 
     def _apply(self, issue_number: int) -> dict[str, Any]:
@@ -275,8 +284,24 @@ class AutoFixAgent(BaseWorker):
     def _fallback_plan(
         self, issue_body: str, error_log: str, error_step: str, fallback_reason: str = ""
     ) -> dict[str, Any]:
+        # Extract the error section from the issue body (between ``` markers)
+        error_from_body = ""
+        body_lines = issue_body.splitlines()
+        in_error_block = False
+        for line in body_lines:
+            if line.strip().startswith("```"):
+                in_error_block = not in_error_block
+                continue
+            if in_error_block:
+                error_from_body += line + "\n"
+        error_from_body = error_from_body.strip()
+        
+        # Use error_log if available, otherwise fall back to extracted body error
+        effective_error = error_log[:4000] if error_log else error_from_body[:2000] if error_from_body else issue_body[:1000]
+        
+        # Extract filenames from error text
         files = []
-        error_lines = error_log.splitlines() if error_log else []
+        error_lines = effective_error.splitlines()
         for line in error_lines:
             m = re.search(r'File "([^"]+)"', line)
             if m:
@@ -285,13 +310,30 @@ class AutoFixAgent(BaseWorker):
                     rel = Path(path).relative_to(Path.cwd())
                 except ValueError:
                     rel = Path(path)
-                if str(rel) not in [f.get("path") for f in files]:
-                    files.append({"path": str(rel), "action": "modify", "description": "Review this file"})
+                path_str = str(rel)
+                if path_str not in [f.get("path") for f in files]:
+                    files.append({"path": path_str, "action": "modify", "description": "Review this file: " + line.strip()[:80]})
+        
+        # If no files extracted but we have error context, look for common paths
+        if not files:
+            if "pytest" in effective_error.lower():
+                files.append({"path": "idos-core/tests/", "action": "modify", "description": "Fix test failure"})
+            elif "import" in effective_error.lower():
+                files.append({"path": "idos-core/idos/", "action": "modify", "description": "Fix import issue"})
+
+        # Build summary from the error
+        first_error_line = ""
+        for line in error_lines:
+            stripped = line.strip()
+            if stripped and not stripped.startswith("File") and not stripped.startswith("Traceback"):
+                first_error_line = stripped[:120]
+                break
+        summary = first_error_line or f"Fix {error_step or 'workflow failure'}"
 
         return {
-            "summary": f"Auto-fix for {error_step or 'workflow failure'}",
-            "root_cause": error_log[:2000] if error_log else issue_body[:1000],
-            "files": files or [{"path": "unknown", "action": "modify", "description": "Review manually"}],
+            "summary": summary,
+            "root_cause": effective_error[:2000],
+            "files": files or [{"path": "unknown", "action": "modify", "description": f"Review workflow error: {error_step or 'unknown'}"}],
             "test_command": "python -m pytest idos-core/tests/ -v",
         }
 

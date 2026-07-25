@@ -1,5 +1,6 @@
 import os
 import re
+import subprocess
 import sys
 import requests
 
@@ -90,36 +91,50 @@ class GHAErrorReporter:
     def _fetch_error_from_run(run_id: str) -> str:
         if not REPO or not run_id or run_id == "0":
             return ""
+        
+        # Try API first
         token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN", "")
-        if not token:
-            return ""
+        if token:
+            try:
+                jobs = requests.get(
+                    f"{API_BASE}/actions/runs/{run_id}/jobs",
+                    headers=_gh_headers(token),
+                ).json()
+                failed_steps = []
+                for job in jobs.get("jobs", []):
+                    for step in job.get("steps", []):
+                        if step.get("conclusion") == "failure":
+                            failed_steps.append(f"[{job.get('name', '?')}] {step.get('name', '?')}")
+                step_names = "; ".join(failed_steps) if failed_steps else ""
+                logs = _fetch_run_logs(run_id, token)
+                snippet = _extract_error_snippet(logs)
+                if snippet:
+                    return f"Failed steps: {step_names}\n\n{snippet[:4000]}"
+                if step_names:
+                    return step_names
+            except Exception:
+                pass  # fall through to gh CLI
+        
+        # Fallback: gh CLI (always available in GHA runners)
         try:
-            jobs = requests.get(
-                f"{API_BASE}/actions/runs/{run_id}/jobs",
-                headers=_gh_headers(token),
-            ).json()
-            failed_steps = []
-            for job in jobs.get("jobs", []):
-                for step in job.get("steps", []):
-                    if step.get("conclusion") == "failure":
-                        failed_steps.append(f"[{job.get('name', '?')}] {step.get('name', '?')}")
-            step_names = "; ".join(failed_steps) if failed_steps else ""
-            logs = _fetch_run_logs(run_id, token)
-            snippet = _extract_error_snippet(logs)
-            if snippet:
-                return f"Failed steps: {step_names}\n\n{snippet[:4000]}"
-            return step_names or ""
-        except Exception as e:
-            return f"(auto-fetch error: {e})"
+            result = subprocess.run(
+                ["gh", "run", "view", run_id, "--log", "--repo", REPO],
+                capture_output=True, text=True, timeout=30,
+            )
+            if result.returncode == 0:
+                snippet = _extract_error_snippet(result.stdout)
+                if snippet:
+                    return snippet[:4000]
+        except Exception:
+            pass
+        
+        return ""
 
     def report_failure(self, workflow: str = "", run_id: str = "", error_summary: str = "") -> dict:
         wf = workflow or os.environ.get("GITHUB_WORKFLOW", "unknown")
         rid = run_id or os.environ.get("GITHUB_RUN_ID", "0")
         
-        err = error_summary or os.environ.get("IDOS_ERROR_SUMMARY", "") or "Workflow failed (no detail provided)"
-        
-        auto_fetch = self._fetch_error_from_run(rid)
-        err = err or auto_fetch or "Workflow failed (no detail provided)"
+        err = error_summary or os.environ.get("IDOS_ERROR_SUMMARY", "") or self._fetch_error_from_run(rid) or "Workflow failed (no detail provided)"
         
         run_url = f"https://github.com/{REPO}/actions/runs/{rid}" if REPO else f"(run #{rid})"
 
