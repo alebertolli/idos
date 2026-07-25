@@ -61,8 +61,8 @@ class TestEntryMonitorWorker:
         ticker, opp_id = seeded_opportunity_approved
 
         opp = tmp_sqlite.get_opportunity(opp_id)
-        opp["conviction"]["intrinsic_value"] = 100
-        opp["conviction"]["current_price"] = 98
+        opp["intrinsic_value"] = 100
+        opp["current_price"] = 98
         tmp_sqlite.save_opportunity(opp)
 
         worker = EntryMonitorWorker({
@@ -122,8 +122,8 @@ class TestEntryMonitorWorker:
         ticker, opp_id = seeded_opportunity_approved
 
         opp = tmp_sqlite.get_opportunity(opp_id)
-        opp["conviction"]["intrinsic_value"] = 200
-        opp["conviction"]["current_price"] = 100
+        opp["intrinsic_value"] = 200
+        opp["current_price"] = 100
         tmp_sqlite.save_opportunity(opp)
 
         worker = EntryMonitorWorker({

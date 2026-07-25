@@ -43,6 +43,8 @@ class SQLiteStore:
                 ticker TEXT NOT NULL,
                 status TEXT NOT NULL DEFAULT 'DISCOVERED',
                 conviction_json TEXT DEFAULT '{}',
+                current_price REAL DEFAULT 0,
+                intrinsic_value REAL DEFAULT 0,
                 created_at TEXT NOT NULL,
                 updated_at TEXT NOT NULL
             );
@@ -129,15 +131,26 @@ class SQLiteStore:
             CREATE INDEX IF NOT EXISTS idx_provenance_evidence ON provenance_chain(evidence_id);
             CREATE INDEX IF NOT EXISTS idx_commits_status ON pending_commits(status);
         """)
+        # migrations for existing databases
+        try:
+            c.execute("ALTER TABLE opportunities ADD COLUMN current_price REAL DEFAULT 0")
+        except Exception:
+            pass
+        try:
+            c.execute("ALTER TABLE opportunities ADD COLUMN intrinsic_value REAL DEFAULT 0")
+        except Exception:
+            pass
 
     def save_opportunity(self, opp: dict[str, Any]):
         with self._write_transaction() as c:
             c.execute("""
-                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?)
+                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 opp["id"], opp["ticker"], opp["status"],
                 json.dumps(opp.get("conviction", {})),
+                opp.get("current_price") or opp.get("conviction", {}).get("current_price", 0),
+                opp.get("intrinsic_value") or opp.get("conviction", {}).get("intrinsic_value", 0),
                 opp.get("created_at", datetime.now(AR_TZ).isoformat()),
                 opp.get("updated_at", datetime.now(AR_TZ).isoformat()),
             ))
