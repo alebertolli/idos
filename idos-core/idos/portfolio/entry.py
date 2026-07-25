@@ -23,7 +23,7 @@ class EntrySignal:
 class EntryEngine:
     def __init__(self,
                  wyckoff_analyzer: WyckoffAnalyzer | None = None,
-                 min_margin_of_safety: float = 20.0,
+                 min_margin_of_safety: float = 30.0,
                  llm_client: Optional[LLMClient] = None,
                  prompt_registry: Optional[PromptRegistry] = None):
         if wyckoff_analyzer:

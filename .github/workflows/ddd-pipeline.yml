@@ -372,6 +372,33 @@ jobs:
           print(f'[DIGEST] Generated: {len(lines)} lines')
           "
 
+      - name: Monthly Portfolio Report
+        run: |
+          python -c "
+          import sys, os, json, calendar
+          from pathlib import Path
+          from datetime import date
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          today = date.today()
+          last_day = calendar.monthrange(today.year, today.month)[1]
+          days_left = last_day - today.day
+          if days_left > 2:
+              print(f'[REPORT] No es fin de mes ({today.day}/{last_day}, faltan {days_left} dias)')
+              exit(0)
+          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.data.journal import JournalRepository
+          from idos.config import load_config
+          journal = JournalRepository(bp / 'idos-journal')
+          cfg = load_config(bp / 'idos-config' / 'portfolio.yml') or {}
+          from idos.workers.portfolio.paper_trader_worker import PaperTraderWorker
+          pw = PaperTraderWorker(cfg)
+          from idos.timezone import AR_TZ
+          from datetime import datetime
+          now = datetime.now(AR_TZ)
+          pr = pw.execute({'action': 'report', 'report_date': now.isoformat(), 'base_path': str(bp)})
+          print(f'[REPORT] Status: {pr.get(\"status\")}, Path: {pr.get(\"report_path\", \"\")}')
+          "
       - name: Commit results
         run: |
           git config user.name "idos-bot"

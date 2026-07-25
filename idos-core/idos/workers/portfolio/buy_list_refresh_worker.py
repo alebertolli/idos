@@ -50,7 +50,7 @@ class BuyListRefreshWorker(BaseWorker):
                 continue
 
             margin_pct = ((intrinsic - current_price) / current_price) * 100
-            buy_zone_top = intrinsic * 0.9
+            buy_zone_top = intrinsic * 0.7
             max_pos = min(3.0, conviction.get("overall", 50) / 100 * 5)
 
             existing = self.buylist.get(ticker)

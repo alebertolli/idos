@@ -69,7 +69,7 @@ class TestEntryMonitorWorker:
             "provider": "test",
             "prompts_path": base_path,
         })
-        worker.entry_engine.min_margin_of_safety = 20.0
+        worker.entry_engine.min_margin_of_safety = 30.0
 
         from idos.portfolio.wyckoff import WyckoffPhase
         with patch.object(worker.entry_engine.wyckoff, "analyze",
@@ -130,7 +130,7 @@ class TestEntryMonitorWorker:
             "provider": "test",
             "prompts_path": base_path,
         })
-        worker.entry_engine.min_margin_of_safety = 20.0
+        worker.entry_engine.min_margin_of_safety = 30.0
 
         from idos.portfolio.wyckoff import WyckoffPhase
         with patch.object(worker.entry_engine.wyckoff, "analyze",

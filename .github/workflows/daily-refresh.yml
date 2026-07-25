@@ -164,6 +164,57 @@ jobs:
                   print(f'  wyckoff={wc} phase={wp}')
                   print(f'  thesis={ta} portfolio_fit={pf}')
           "
+      - name: Paper Trader - Execute Entry
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
+          import yaml
+          buylist_path = bp / 'idos-journal' / 'portfolio' / 'buylist.yml'
+          if not buylist_path.exists():
+              exit(0)
+          data = yaml.safe_load(buylist_path.read_text(encoding='utf-8')) or {}
+          entries = [e for e in data.get('entries', []) if e.get('monitoring', True)]
+          for e in entries:
+              ticker = e['ticker']
+              opp_id = e.get('opp_id', '')
+              if not opp_id:
+                  continue
+              from idos.workers.portfolio.entry_monitor_worker import EntryMonitorWorker
+              from idos.workers.base import WorkerStatus
+              from idos.ai.service import LLMService
+              _mp = Path('idos-config/models.yml')
+              _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
+              w = EntryMonitorWorker({'llm_service': _llm_svc})
+              result = w.execute({'ticker': ticker, 'opp_id': opp_id, 'base_path': str(bp)})
+              r = result.output if hasattr(result, 'output') else result
+              if not r.get('entry_executed') or r.get('status') == 'skipped':
+                  continue
+              from idos.workers.portfolio.paper_trader_worker import PaperTraderWorker
+              from idos.data.journal import JournalRepository
+              journal = JournalRepository(bp / 'idos-journal')
+              opp_yaml = journal.load_opportunity(ticker, opp_id)
+              intrinsic = opp_yaml.get('intrinsic_value', 0) if opp_yaml else 0
+              conviction = opp_yaml.get('conviction', {}).get('overall', 50) if opp_yaml else 50
+              from idos.config import load_config
+              cfg = load_config(bp / 'idos-config' / 'portfolio.yml') or {}
+              pw = PaperTraderWorker(cfg)
+              pr = pw.execute({
+                  'action': 'buy',
+                  'ticker': ticker,
+                  'opp_id': opp_id,
+                  'price': r.get('current_price', 0),
+                  'conviction': conviction,
+                  'intrinsic_value': intrinsic,
+                  'base_path': str(bp),
+              })
+              print(f'[PAPER] {ticker}: {pr.get(\"status\")} - {pr.get(\"reason\", \"\")}')
+              if pr.get('status') == 'executed':
+                  print(f'[PAPER] {ticker}: {pr.get(\"quantity\")} shares @ \${pr.get(\"price\",0):.2f} = \${pr.get(\"value\",0):.2f} SL=\${pr.get(\"stop_loss\",0):.2f}')
+          "
       - name: Risk Monitor - Daily stop-loss check
         run: |
           python -c "
@@ -182,6 +233,73 @@ jobs:
                   print(f'  [{a[\"severity\"]}] {a[\"ticker\"]}: {a[\"message\"]}')
           else:
               print(f'[RISK] {r.get(\"positions_checked\", 0)} posiciones revisadas, sin alertas')
+          "
+      - name: Paper Trader - Execute Exits
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.data.journal import JournalRepository
+          from idos.config import load_config
+          journal = JournalRepository(bp / 'idos-journal')
+          cfg = load_config(bp / 'idos-config' / 'portfolio.yml') or {}
+          from idos.workers.portfolio.paper_trader_worker import PaperTraderWorker
+          pw = PaperTraderWorker(cfg)
+          pos_dir = Path(str(journal.base_path)) / 'paper' / 'positions'
+          if not pos_dir.exists():
+              print('[PAPER] No paper positions to check')
+              exit(0)
+          prices = {}
+          for pf in pos_dir.iterdir():
+              if pf.suffix == '.yml':
+                  import yaml
+                  p = yaml.safe_load(pf.read_text(encoding='utf-8')) or {}
+                  ticker = p.get('ticker', '')
+                  if ticker:
+                      from idos.data.sqlite import SQLiteStore
+                      db = SQLiteStore(bp / 'idos.db')
+                      ph = db.get_price_history(ticker, limit=1)
+                      if ph:
+                          prices[ticker] = ph[0]['close']
+          if prices:
+              pr = pw.execute({'action': 'check_stops', 'current_prices': prices, 'base_path': str(bp)})
+              exits = pr.get('exits', [])
+              for ex in exits:
+                  print(f'[PAPER] STOP LOSS: {ex.get(\"ticker\")} P&L={ex.get(\"pnl_pct\",0):+.2f}%')
+              if not exits:
+                  print('[PAPER] No stop losses triggered')
+          else:
+              print('[PAPER] No prices available for stop check')
+          "
+      - name: Monthly Portfolio Report
+        run: |
+          python -c "
+          import sys, os, json, calendar
+          from pathlib import Path
+          from datetime import date
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          today = date.today()
+          last_day = calendar.monthrange(today.year, today.month)[1]
+          days_left = last_day - today.day
+          if days_left > 2:
+              print(f'[REPORT] No es fin de mes ({today.day}/{last_day}, faltan {days_left} dias)')
+              exit(0)
+          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.data.journal import JournalRepository
+          from idos.config import load_config
+          journal = JournalRepository(bp / 'idos-journal')
+          cfg = load_config(bp / 'idos-config' / 'portfolio.yml') or {}
+          from idos.workers.portfolio.paper_trader_worker import PaperTraderWorker
+          pw = PaperTraderWorker(cfg)
+          from idos.timezone import AR_TZ
+          from datetime import datetime
+          now = datetime.now(AR_TZ)
+          pr = pw.execute({'action': 'report', 'report_date': now.isoformat(), 'base_path': str(bp)})
+          print(f'[REPORT] Status: {pr.get(\"status\")}, Path: {pr.get(\"report_path\", \"\")}')
           "
       - name: Post-Mortem - Check exited opportunities
         run: |
@@ -253,6 +371,7 @@ jobs:
           git add cache/last_refresh.json 2>/dev/null || true
           git add cache/*.json 2>/dev/null || true
           git add idos-config/events/earnings.yml 2>/dev/null || true
+          git add idos-journal/paper/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

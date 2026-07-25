@@ -24,8 +24,8 @@ from datetime import datetime
 def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, Any],
                      opp_id: str, bp: Path, knowledge: KnowledgeRepository):
     target_price = context.get("knowledge_base", {}).get("dynamic", {}).get("metrics", {}).get("target_price", 0)
-    margin = context.get("margin_of_safety", 20.0)
-    buy_zone_top = target_price * (1 + margin / 100) if target_price else 0
+    margin = context.get("margin_of_safety", 30.0)
+    buy_zone_top = target_price * (1 - margin / 100) if target_price else 0
     entry = BuyListEntry(
         ticker=ticker,
         target_price=target_price,
@@ -147,10 +147,10 @@ def build_context(
     company_info = {"sector": company.get("sector", "")}
 
     opp = sqlite.get_opportunity(opp_id)
-    margin_of_safety = 20.0
+    margin_of_safety = 30.0
     if opp:
         cv = opp.get("conviction", {}) or {}
-        margin_of_safety = cv.get("margin_of_safety", 20.0)
+        margin_of_safety = cv.get("margin_of_safety", 30.0)
     current_price = None
     target_low = None
     target_mean = None
