@@ -103,7 +103,7 @@ jobs:
                       try:
                           data = yaml.safe_load(yf.read_text(encoding='utf-8'))
                           if data:
-                              if force or data.get('status') == 'DISCOVERED':
+                              if force or data.get('status') in ('DISCOVERED', 'WATCHLIST'):
                                   opportunities.append({
                                       'opp_id': data['id'],
                                       'ticker': data['ticker'].upper(),
