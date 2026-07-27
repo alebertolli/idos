@@ -127,7 +127,7 @@ class PaperTrader:
 
     def current_positions(self) -> list[dict[str, Any]]:
         positions = []
-        pos_dir = Path(str(self.journal.base_path)) / "paper" / "positions"
+        pos_dir = self.journal.base / "paper" / "positions"
         if pos_dir.exists():
             for f in sorted(pos_dir.iterdir()):
                 if f.suffix == ".yml":
@@ -137,7 +137,7 @@ class PaperTrader:
         return positions
 
     def _position_path(self, ticker: str) -> Path:
-        p = Path(str(self.journal.base_path)) / "paper" / "positions"
+        p = self.journal.base / "paper" / "positions"
         p.mkdir(parents=True, exist_ok=True)
         return p / f"{ticker.upper()}.yml"
 

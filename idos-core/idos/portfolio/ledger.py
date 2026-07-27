@@ -37,7 +37,7 @@ class TradeLedger:
 
     def _ledger_path(self, year: int | None = None) -> Path:
         y = year or datetime.now(AR_TZ).year
-        p = Path(str(self.journal.base_path)) / "paper" / "ledger"
+        p = self.journal.base / "paper" / "ledger"
         p.mkdir(parents=True, exist_ok=True)
         return p / f"{y}.yml"
 

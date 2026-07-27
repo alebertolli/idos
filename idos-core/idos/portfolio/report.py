@@ -118,7 +118,7 @@ def _cost_basis(sells: list, trade) -> float:
 
 
 def save_report(report: str, journal, report_date: str):
-    report_dir = Path(str(journal.base_path)) / "paper" / "reports"
+    report_dir = journal.base / "paper" / "reports"
     report_dir.mkdir(parents=True, exist_ok=True)
     dt = datetime.fromisoformat(report_date) if report_date else datetime.now(AR_TZ)
     filename = dt.strftime("%Y-%m") + ".md"

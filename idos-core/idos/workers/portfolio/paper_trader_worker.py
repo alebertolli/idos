@@ -65,6 +65,6 @@ class PaperTraderWorker(BaseWorker):
             report = generate_monthly_report(ledger, trader, portfolio_config["bankroll"], report_date)
             save_report(report, journal, report_date)
             print(report)
-            return {"status": "completed", "report_path": str(Path(str(journal.base_path)) / "paper" / "reports")}
+            return {"status": "completed", "report_path": str(journal.base / "paper" / "reports")}
 
         return {"status": "error", "reason": f"Unknown action: {action}"}
