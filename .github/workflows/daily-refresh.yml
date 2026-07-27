@@ -248,7 +248,7 @@ jobs:
           cfg = load_config(bp / 'idos-config' / 'portfolio.yml') or {}
           from idos.workers.portfolio.paper_trader_worker import PaperTraderWorker
           pw = PaperTraderWorker(cfg)
-          pos_dir = Path(str(journal.base_path)) / 'paper' / 'positions'
+          pos_dir = journal.base / 'paper' / 'positions'
           if not pos_dir.exists():
               print('[PAPER] No paper positions to check')
               exit(0)
