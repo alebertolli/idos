@@ -1,0 +1,114 @@
+calidad_evidencia:
+  hechos_verificados:
+  - La empresa tiene una larga historia de crecimiento
+  - La empresa tiene una posición competitiva sólida en el sector de la minería de
+    oro
+  - La empresa tiene una buena salud financiera
+  inferencias_llm:
+  - La creencia de que la minería de oro es un sector en declive es una hipótesis
+    que puede ser desafiada por la realidad
+  - La empresa tiene una posición competitiva sólida y una buena salud financiera,
+    lo que sugiere que es un negocio de alta calidad
+  preguntas_abiertas:
+  - ¿Qué impacto tendrá la creciente demanda de oro en la empresa?
+  - ¿Cómo afectará la mejora en la eficiencia operativa de la empresa a su precio?
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: turnaround, deep_value, ciclica, special_situation, distressed,
+    hype, value_trap
+  justificacion: La empresa tiene una larga historia de crecimiento y ha mantenido
+    una posición competitiva en el sector de la minería de oro. El crecimiento de
+    la renta y el margen operativo sugieren una buena salud financiera.
+dominio_business_quality:
+  analisis: La empresa tiene una posición competitiva sólida y una buena salud financiera,
+    lo que sugiere que es un negocio de alta calidad.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: un aumento en la demanda de oro
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 70
+- descripcion: una mejora en la eficiencia operativa de la empresa
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 60
+dominio_esg_supply_chain:
+  analisis: La empresa no tiene riesgos significativos en términos de ESG y su cadena
+    de suministro es estable.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: La empresa tiene una buena salud financiera, con un crecimiento de la
+    renta y un margen operativo sólidos.
+  rating: fuerte
+dominio_growth:
+  analisis: La empresa tiene un crecimiento de la renta sólido y una buena salud financiera,
+    lo que sugiere que el crecimiento futuro es probable.
+  rating: fuerte
+dominio_management:
+  analisis: La falta de experiencia del CEO y la baja participación de los accionistas
+    en la empresa sugieren que la gestión no es de alta calidad.
+  rating: bueno
+dominio_riesgos:
+- impacto: medio
+  probabilidad: media
+  riesgo: riesgo operativo
+- impacto: bajo
+  probabilidad: baja
+  riesgo: riesgo financiero
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un aumento en la demanda de oro o una mejora en la eficiencia operativa
+      de la empresa
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 60
+  conclusion_error_valoracion: SI
+  consenso_actual: El precio de la empresa está influenciado por la creencia de que
+    la minería de oro es un sector en declive y que la empresa no puede mantener su
+    posición competitiva.
+  hipotesis_contraria: La empresa tiene una posición competitiva sólida y una buena
+    salud financiera, lo que sugiere que el precio actual es un error de valoración.
+  razonamiento: La creencia de que la minería de oro es un sector en declive es una
+    hipótesis que puede ser desafiada por la realidad. La empresa tiene una posición
+    competitiva sólida y una buena salud financiera, lo que sugiere que el precio
+    actual es un error de valoración.
+generated_at: '2026-07-27T01:11:12.409914-03:00'
+opinion_valoracion: infravalorado
+opp_id: OPP-20260725-011
+prompt_inputs:
+  business_model: Harmony Gold Mining Company Limited engages in the exploration,
+    extraction, and processing of mineral properties in South Africa, Papua New Guinea,
+    and Australia. The company explores for gold, uranium, silver, and copper deposits.
+    It has nine underground operations in the Witwatersrand Basin; the Kraaipan Greenstone
+    Belt; and various surface source operations in South Africa. In addition, the
+    company owns interests in the Hidden Valley, an open-pit gold and silver mine;
+    and the Wafi-Golpu project located in Morobe Province in Papua New Guinea. Further,
+    it holds interest in Eva Copper Project located in Queensland, Australia. Harmony
+    Gold Mining Company Limited was incorporated in 1950 and is based in Randfontein,
+    South Africa.
+  ceo_tenure: 0
+  debt_to_equity: 0.25
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: Harmony Gold Mining Company Limited
+  operating_margin: 31.31
+  pe_ratio: 10.15
+  products: ''
+  revenue: 4900000000.0
+  revenue_growth: 19.35
+  roic: 28.72
+  sector: Basic Materials
+  ticker: HMY
+resumen_ejecutivo: La empresa Harmony Gold Mining Company Limited es un compounder
+  con una larga historia de crecimiento y una posición competitiva sólida en el sector
+  de la minería de oro. El precio actual es un error de valoración debido a la creencia
+  de que la minería de oro es un sector en declive.
+score_general: 85
+tesis_inversion: La empresa Harmony Gold Mining Company Limited es un compounder con
+  una larga historia de crecimiento y una posición competitiva sólida en el sector
+  de la minería de oro. El precio actual es un error de valoración debido a la creencia
+  de que la minería de oro es un sector en declive.
+ticker: HMY
+version: '3.0'

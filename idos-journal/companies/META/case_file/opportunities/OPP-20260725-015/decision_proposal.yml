@@ -11,8 +11,8 @@ assessments:
       type: POSITIVE
     - detail: 'Excellent margins: 41.21%'
       type: POSITIVE
-    generated_at: '2026-07-27T00:19:53.991259-03:00'
-    id: BusinessAssessmentEngine-20260727001953
+    generated_at: '2026-07-27T02:36:41.905379-03:00'
+    id: BusinessAssessmentEngine-20260727023641
     recommendation: FAVORABLE
     risks: []
     score: 76
@@ -26,12 +26,12 @@ assessments:
     findings:
     - detail: Portfolio has capacity for new position
       type: POSITIVE
-    - detail: Sector  within diversification limits
+    - detail: Sector Communication Services within diversification limits
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-07-27T00:19:53.991360-03:00'
-    id: PortfolioAssessmentEngine-20260727001953
+    generated_at: '2026-07-27T02:36:41.905446-03:00'
+    id: PortfolioAssessmentEngine-20260727023641
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -56,8 +56,8 @@ assessments:
       score: 60
       type: DIMENSION
     - dimension: catalysts
-      level: LOW
-      score: 30
+      level: HIGH
+      score: 85
       type: DIMENSION
     - dimension: technical_confirmation
       level: MEDIUM
@@ -67,11 +67,11 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-07-27T00:19:53.991332-03:00'
-    id: RecoveryAssessmentEngine-20260727001953
+    generated_at: '2026-07-27T02:36:41.905427-03:00'
+    id: RecoveryAssessmentEngine-20260727023641
     recommendation: MODERATE
     risks: []
-    score: 56
+    score: 66
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -80,8 +80,8 @@ assessments:
     engine: RiskAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-07-27T00:19:53.991344-03:00'
-    id: RiskAssessmentEngine-20260727001953
+    generated_at: '2026-07-27T02:36:41.905436-03:00'
+    id: RiskAssessmentEngine-20260727023641
     recommendation: LOW_RISK
     risks: []
     score: 70
@@ -95,20 +95,19 @@ assessments:
     findings:
     - detail: 'Price target upside: 38.8%'
       type: POSITIVE
-    generated_at: '2026-07-27T00:19:53.991287-03:00'
-    id: ValuationAssessmentEngine-20260727001953
+    generated_at: '2026-07-27T02:36:41.905399-03:00'
+    id: ValuationAssessmentEngine-20260727023641
     recommendation: ATTRACTIVE
     risks: []
     score: 70
     status: COMPLETED
     version: '1.1'
-conviction_score: 71
-created_at: '2026-07-27T00:19:53.991461-03:00'
+conviction_score: 73
+created_at: '2026-07-27T02:36:41.905516-03:00'
 opportunity_id: OPP-20260725-015
-reasoning: 'Rules blocked: RULE-008'
-recommendation: BLOCKED
-rules_failed:
-- RULE-008
+reasoning: 'Conviction: 73/100, 9 rules passed'
+recommendation: APPROVE
+rules_failed: []
 rules_passed:
 - RULE-001
 - RULE-002
@@ -117,5 +116,6 @@ rules_passed:
 - RULE-005
 - RULE-006
 - RULE-007
+- RULE-008
 - RULE-009
 type: opportunity:transitioned

@@ -1,0 +1,63 @@
+## Business Model
+
+Trip.com Group Limited, through its subsidiaries, operates as a travel service provider for accommodation reservation, transportation ticketing, packaged tours, in-destination, corporate travel management, and other travel-related services in China and internationally. It acts as an agent for hotel-related transactions and selling air tickets, as well as provides train, long-distance bus, and ferry tickets; travel insurance products, such as flight delay, air accident, and baggage loss coverage; and air-ticket delivery, online check-in and seat selection, express security screening, real-time flight status tracker, and airport VIP lounge services. The company also provides travelers bundled packaged-tour products, such as group, semi-group, and customized and packaged tours with various transportation arrangements, including air, cruise, bus, and car rental services. In addition, it offers integrated transportation and accommodation services; ticket, activity, insurance, visa, and tour guide services; and user support, supplier management, and customer relationship management services; and in-destination products and services. Further, the company provides Trip.Biz, a digital first, full-service, corporate travel management business which provides technology-enabled solutions for organizations managing business travel. Additionally, it offers online advertising and financial services, such as marketing planning and travel media services; Omni-Channel Touchpoints for Users; and Open Platform for Ecosystem Partners. It operates under the Ctrip, Qunar, Trip.com, Travix, Travelfusion, and Skyscanner brand names. The company was formerly known as Ctrip.com International, Ltd. and changed its name to Trip.com Group Limited in October 2019. Trip.com Group Limited was founded in 1999 and is based in Singapore.
+
+---
+
+## Products & Services
+
+- To be identified
+
+---
+
+## Competitive Moat
+
+To be analyzed
+
+---
+
+## Competition
+
+- To be identified
+
+---
+
+## Management
+
+To be evaluated
+
+---
+
+## Risk Factors
+
+
+
+---
+
+## Financial Highlights
+- **ROIC**: 10.87
+- **Operating Margin**: 24.94
+- **Revenue Growth**: 10.19
+- **FCF Yield**: 0
+- **Debt/Equity**: 0.19
+- **PER**: 6.62
+- **EV/EBITDA**: 8.5
+
+---
+
+## Catalysts
+
+To be identified
+
+---
+
+## Investment Thesis
+
+To be formulated
+
+---
+
+## Related Companies
+
+- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[LVS|Las Vegas Sands Corp.]], [[PDD|PDD Holdings Inc.]]
+- **Same Industry**: [[ABNB|Airbnb, Inc.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]]

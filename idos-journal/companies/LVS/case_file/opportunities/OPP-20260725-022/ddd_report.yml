@@ -1,0 +1,111 @@
+calidad_evidencia:
+  hechos_verificados:
+  - La compañía tiene un modelo de negocio establecido y una trayectoria de crecimiento
+    sostenido
+  - La compañía tiene una posición de liderazgo sólida en Macao y Singapur
+  - La compañía tiene un balance sólido y una buena generación de caja
+  inferencias_llm:
+  - El mercado podría estar subestimando la capacidad de la empresa para mantener
+    su posición de liderazgo en Macao y Singapur
+  - El crecimiento potencial de la empresa en el futuro es limitado debido a la competencia
+    en Macao y Singapur
+  preguntas_abiertas:
+  - ¿Qué impacto tendrá un cambio en la política de juego en Macao en la empresa?
+  - ¿Qué impacto tendrá un aumento en la competencia en Singapur en la empresa?
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: deep_value, ciclica, special_situation, distressed, hype,
+    value_trap
+  justificacion: La compañía tiene un modelo de negocio establecido y una trayectoria
+    de crecimiento sostenido, con un margen operativo del 23.2% y un ROIC del 18.9%.
+    Además, tiene una presencia geográfica sólida en Macao y Singapur, y una cartera
+    de activos de alta calidad.
+dominio_business_quality:
+  analisis: La compañía tiene una posición de liderazgo sólida en Macao y Singapur,
+    y una cartera de activos de alta calidad. Su modelo de negocio es estable y tiene
+    una trayectoria de crecimiento sostenido.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Un cambio en la política de juego en Macao
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 40
+- descripcion: Un aumento en la competencia en Singapur
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 20
+dominio_esg_supply_chain:
+  analisis: La compañía tiene un riesgo ESG bajo, con una buena gestión de la sostenibilidad
+    y una buena relación con sus proveedores.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: La compañía tiene un balance sólido, con un D/E de 0.1x y un perfil de
+    deuda bajo. Su generación de caja es estable y su margen operativo es del 23.2%.
+  rating: fuerte
+dominio_growth:
+  analisis: La compañía tiene un crecimiento moderado, con un crecimiento de la renta
+    del 5.4% en el último trimestre. Su crecimiento potencial en el futuro es limitado
+    debido a la competencia en Macao y Singapur.
+  rating: moderado
+dominio_management:
+  analisis: La compañía no tiene un CEO con experiencia, pero su equipo de dirección
+    tiene una buena trayectoria de crecimiento y una buena asignación de capital.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Cambio en la política de juego en Macao
+- impacto: medio
+  probabilidad: media
+  riesgo: Aumento en la competencia en Singapur
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un cambio en la política de juego en Macao o un aumento en la competencia
+      en Singapur
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El precio actual refleja un crecimiento de la empresa en el futuro,
+    con un múltiplo de P/E de 20.3 y un múltiplo de EV/EBITDA de 15.6.
+  hipotesis_contraria: El mercado podría estar subestimando la capacidad de la empresa
+    para mantener su posición de liderazgo en Macao y Singapur, y podría estar sobrevalorando
+    el crecimiento potencial de la empresa en el futuro.
+  razonamiento: No hay suficiente información para determinar con certeza si el mercado
+    está cometiendo un error de valoración.
+generated_at: '2026-07-27T01:29:58.132842-03:00'
+opinion_valoracion: justo
+opp_id: OPP-20260725-022
+prompt_inputs:
+  business_model: Las Vegas Sands Corp., together with its subsidiaries, owns, develops,
+    and operates integrated resorts in Macao and Singapore. It owns and operates The
+    Venetian Macao Resort Hotel, The Londoner Macao, The Parisian Macao, The Plaza
+    Macao and Four Seasons Hotel Macao, and The Sands Macao in Macao, the People's
+    Republic of China; and Marina Bay Sands in Singapore. The company's integrated
+    resorts feature accommodations, gaming, entertainment and retail malls, convention
+    and exhibition facilities, celebrity chef restaurants, and other amenities. The
+    company was founded in 1988 and is based in Las Vegas, Nevada.
+  ceo_tenure: 0
+  debt_to_equity: 0.0981
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: Las Vegas Sands Corp.
+  operating_margin: 23.25
+  pe_ratio: 17.87
+  products: ''
+  revenue: 13720000000.0
+  revenue_growth: 5.42
+  roic: 18.92
+  sector: Consumer Cyclical
+  ticker: LVS
+resumen_ejecutivo: La compañía tiene un modelo de negocio establecido y una trayectoria
+  de crecimiento sostenido, pero el mercado podría estar subestimando la capacidad
+  de la empresa para mantener su posición de liderazgo en Macao y Singapur.
+score_general: 80
+tesis_inversion: La compañía es una buena opción para inversores a largo plazo, pero
+  el mercado podría estar subestimando la capacidad de la empresa para mantener su
+  posición de liderazgo en Macao y Singapur.
+ticker: LVS
+version: '3.0'

@@ -1,0 +1,141 @@
+calidad_evidencia:
+  hechos_verificados:
+  - 'Revenue TTM: $11,030M'
+  - 'Revenue growth YoY: +14.1%'
+  - 'Operating margin: 31.3%'
+  - 'ROIC: 25.2%'
+  - 'Excess Return ROIC - WACC: +0.0%'
+  - 'Debt/Equity: 0.0x'
+  - 'Interest coverage: 0.0x (sin deuda)'
+  - 'FCF Adjusted: 0M (ajuste por CAPEX)'
+  - 'Revenue growth: +14.1%'
+  inferencias_llm:
+  - Se infiere que la empresa genera suficiente cash flow para sostener reinversión
+    y dividendos, aunque el FCF ajustado reportado es 0 indica que las métricas están
+    ajustadas por CAPEX.
+  - Se infiere que la dependencia de ventas de sistemas y servicios crea ingresos
+    recurrentes, pero también vulnerabilidad a la saturación del mercado.
+  - Se infiere que la expansión internacional del Ion podría ser un motor de crecimiento
+    futuro, aunque su adopción está sujeta a regulaciones locales.
+  preguntas_abiertas:
+  - ¿Cuál será el margen operativo a 3 años bajo presión de precios y competencia?
+  - ¿Cuál es el pipeline de nuevos productos y sus fechas de aprobación regulatoria?
+  - ¿Cómo evolucionará la base instalada de sistemas da Vinci en los próximos 5 años?
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: value_trap, hype, distressed, turnaround, deep_value, cyclical,
+    special_situation, quality_at_fair_price
+  justificacion: Negocio con alto ROIC (25.2%), margen operativo sostenido (31.3%),
+    crecimiento de ingresos del 14.1% y moat tecnológico robusto en robótica quirúrgica,
+    lo que indica un modelo de negocio excelente con potencial de compounding a largo
+    plazo.
+dominio_business_quality:
+  analisis: Moat tecnológico y de red robusto, barreras de entrada altas por costo
+    y entrenamiento, diversificación de productos (da Vinci, Ion, instrumentos), y
+    fuerte relación con hospitales que generan ingresos recurrentes de servicio y
+    consumibles.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Lanzamiento de nueva versión da Vinci 5.0 con mejoras de precisión
+    y costos reducidos
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 25
+- descripcion: Acuerdo de reembolso ampliado en Europa para procedimientos con Ion
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 20
+dominio_esg_supply_chain:
+  analisis: Exposición a regulaciones médicas estrictas, riesgos de ciberseguridad
+    y concentración de proveedores de componentes críticos; sin embargo, la empresa
+    tiene programas de cumplimiento y gestión de cadena de suministro.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Balance sin deuda (D/E 0.0x), alta generación de caja operativa, margen
+    operativo del 31.3%, ROIC del 25.2% y cobertura de intereses ilimitada, lo que
+    indica una posición financiera muy sólida.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento orgánico de ingresos del 14% TTM impulsado por expansión internacional
+    y adopción del Ion; sin embargo, depende de ventas de sistemas y servicios, lo
+    que limita la visibilidad de crecimiento a largoo plazo.
+  rating: moderado
+dominio_management:
+  analisis: CEO reciente con poca antigüedad, pero historial de inversión disciplinada
+    y retorno de capital; ownership de insiders en 0% sugiere alineación limitada,
+    aunque la dirección ha demostrado capacidad de escalar operaciones y mantener
+    márgenes.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Presión regulatoria y cambios en políticas de reembolso
+- impacto: medio
+  probabilidad: media
+  riesgo: Competencia de nuevos entrantes en robótica quirúrgica
+- impacto: alto
+  probabilidad: baja
+  riesgo: Obsolescencia tecnológica
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aprobación regulatoria de una nueva generación de sistemas da Vinci
+      o Ion que abra mercados emergentes y amplíe la base instalada.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: 'NO'
+  consenso_actual: Los analistas descuentan un crecimiento de ingresos del 12-15%
+    CAGR, margen operativo estable alrededor del 30%, ROIC >20% y una valoración P/E
+    cercana a 30x, reflejando confianza en la liderazgo del da Vinci y la expansión
+    del Ion.
+  hipotesis_contraria: El mercado subestima la presión de precios y la posible saturación
+    del mercado quirúrgico robótico, así como riesgos regulatorios y de reembolso
+    que podrían erosionar márgenes y crecimiento futuro.
+  razonamiento: Los múltiplos actuales ya incorporan un desempeño sólido y perspectivas
+    de crecimiento, y no se evidencia un desajuste significativo que permita una oportunidad
+    de error de valoración clara.
+generated_at: '2026-07-27T01:17:00.537951-03:00'
+opinion_valoracion: justo
+opp_id: OPP-20260725-032
+prompt_inputs:
+  business_model: Intuitive Surgical, Inc. develops, manufactures, and markets products
+    that enable physicians and healthcare providers to enhance the quality of and
+    access to minimally invasive care in the United States and internationally. It
+    offers the da Vinci Surgical System that enables surgical procedures using a minimally
+    invasive approach; and Ion endoluminal system, which extends its commercial offerings
+    beyond surgery into diagnostic endoluminal procedures enabling minimally invasive
+    biopsies in the lung. The company also provides a suite of stapling, energy, and
+    core instrumentation for its multi-port da Vinci surgical systems; progressive
+    learning pathways to support the use of its technology; infrastructure of customer
+    service and support specialists, a complement of services to its customers, including
+    installation, repair, maintenance, 24/7 technical support, and proactive system
+    health monitoring; and integrated digital capabilities providing connected offerings,
+    streamlining performance for hospitals with program-enhancing insights. It sells
+    its products through direct sales organizations, such as capital and clinical
+    sales teams. Intuitive Surgical, Inc. was incorporated in 1995 and is headquartered
+    in Sunnyvale, California.
+  ceo_tenure: 0
+  debt_to_equity: 0
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: Intuitive Surgical, Inc.
+  operating_margin: 31.28
+  pe_ratio: 38.7
+  products: ''
+  revenue: 11030000000.0
+  revenue_growth: 14.06
+  roic: 25.25
+  sector: Healthcare
+  ticker: ISRG
+resumen_ejecutivo: Intuitive Surgical es un líder en robótica quirúrgica con moat
+  durable, alta rentabilidad y crecimiento orgánico, pero su valoración parece justa;
+  no se identifica un error de valoración evidente que justifique una posición de
+  compra agresiva.
+score_general: 85
+tesis_inversion: Mantener posición con exposición a la upside por expansión del Ion
+  y posibles aprobaciones regulatorias, pero sin esperar retornos desproporcionados;
+  el precio actual refleja adecuadamente la calidad del negocio.
+ticker: ISRG
+version: '3.0'

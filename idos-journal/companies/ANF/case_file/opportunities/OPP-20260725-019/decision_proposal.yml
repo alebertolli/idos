@@ -7,8 +7,8 @@ assessments:
     findings:
     - detail: 'Exceptional ROIC: 24.71%'
       type: POSITIVE
-    generated_at: '2026-07-27T00:19:50.698968-03:00'
-    id: BusinessAssessmentEngine-20260727001950
+    generated_at: '2026-07-27T02:36:36.907854-03:00'
+    id: BusinessAssessmentEngine-20260727023636
     recommendation: NEUTRAL
     risks: []
     score: 60
@@ -22,12 +22,12 @@ assessments:
     findings:
     - detail: Portfolio has capacity for new position
       type: POSITIVE
-    - detail: Sector  within diversification limits
+    - detail: Sector Consumer Cyclical within diversification limits
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-07-27T00:19:50.699039-03:00'
-    id: PortfolioAssessmentEngine-20260727001950
+    generated_at: '2026-07-27T02:36:36.907918-03:00'
+    id: PortfolioAssessmentEngine-20260727023636
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -52,8 +52,8 @@ assessments:
       score: 60
       type: DIMENSION
     - dimension: catalysts
-      level: LOW
-      score: 30
+      level: MEDIUM
+      score: 60
       type: DIMENSION
     - dimension: technical_confirmation
       level: MEDIUM
@@ -63,11 +63,11 @@ assessments:
       level: MEDIUM
       score: 50
       type: DIMENSION
-    generated_at: '2026-07-27T00:19:50.699018-03:00'
-    id: RecoveryAssessmentEngine-20260727001950
+    generated_at: '2026-07-27T02:36:36.907900-03:00'
+    id: RecoveryAssessmentEngine-20260727023636
     recommendation: MODERATE
     risks: []
-    score: 54
+    score: 60
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -76,8 +76,8 @@ assessments:
     engine: RiskAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-07-27T00:19:50.699028-03:00'
-    id: RiskAssessmentEngine-20260727001950
+    generated_at: '2026-07-27T02:36:36.907909-03:00'
+    id: RiskAssessmentEngine-20260727023636
     recommendation: LOW_RISK
     risks: []
     score: 70
@@ -91,27 +91,27 @@ assessments:
     findings:
     - detail: 'FCF Yield: 10.0%'
       type: POSITIVE
-    generated_at: '2026-07-27T00:19:50.698987-03:00'
-    id: ValuationAssessmentEngine-20260727001950
+    generated_at: '2026-07-27T02:36:36.907873-03:00'
+    id: ValuationAssessmentEngine-20260727023636
     recommendation: FAIR
     risks: []
     score: 65
     status: COMPLETED
     version: '1.1'
-conviction_score: 65
-created_at: '2026-07-27T00:19:50.699117-03:00'
+conviction_score: 66
+created_at: '2026-07-27T02:36:36.907990-03:00'
 opportunity_id: OPP-20260725-019
-reasoning: 'Rules blocked: RULE-001, RULE-002, RULE-008'
+reasoning: 'Rules blocked: RULE-001, RULE-002'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
 - RULE-002
-- RULE-008
 rules_passed:
 - RULE-003
 - RULE-004
 - RULE-005
 - RULE-006
 - RULE-007
+- RULE-008
 - RULE-009
 type: opportunity:transitioned

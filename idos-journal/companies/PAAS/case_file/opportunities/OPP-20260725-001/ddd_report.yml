@@ -1,0 +1,157 @@
+calidad_evidencia:
+  hechos_verificados:
+  - 'Revenue TTM: $4,000,000,000'
+  - 'Revenue growth: +10.3%'
+  - 'Operating margin: 36.8%'
+  - 'ROIC: 17.1%'
+  - 'WACC: 0%'
+  - 'D/E: 0.1x'
+  - 'FCF ajustado: 0'
+  - 'Cobertura de intereses: 0.0x (dato incompleto)'
+  - 'CEO tenure: 0 años'
+  - 'Insider ownership: 0.0%'
+  inferencias_llm:
+  - El bajo nivel de deuda sugiere capacidad para financiar expansión sin dilución
+    significativa.
+  - El FCF ajustado cero indica que la empresa reinvierte la mayor parte de su flujo
+    operativo en capital.
+  - Los márgenes altos reflejan una posición competitiva en la extracción y procesamiento
+    de metales.
+  - La falta de información sobre el precio de la acción impide valorar múltiplos,
+    pero los indicadores de rentabilidad son sólidos.
+  preguntas_abiertas:
+  - ¿Cuál es el precio actual de la acción y los múltiplos de valoración (P/E, EV/EBITDA)?
+  - ¿Cuál es la composición real de la deuda y la cobertura de intereses?
+  - ¿Cuál es la probabilidad y el cronograma de la puesta en producción de la expansión
+    de Juanicipio?
+  - ¿Cómo impactarán los cambios regulatorios ESG en Chile y Perú en los costos operativos?
+  - ¿Qué tan duraderas son las reservas de plata y oro en cada mina y cuál es su vida
+    útil restante?
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: compounder;compounder_castigado;turnaround;deep_value;ciclica;special_situation;distressed;hype;value_trap
+  justificacion: La compañía muestra márgenes operativos elevados, ROIC superior al
+    WACC y bajo apalancamiento, lo que indica una calidad de negocio razonable a un
+    precio que refleja adecuadamente sus fundamentals. No presenta los rasgos de un
+    compounder de largo plazo ni de un deep value, y su perfil es más acorde a un
+    negocio de calidad a precio justo.
+dominio_business_quality:
+  analisis: La compañía cuenta con un moat moderado gracias a su portafolio diversificado
+    de minas de plata y oro en varios países, márgenes operativos de 36.8% y bajo
+    endeudamiento (D/E 0.1x). Sin embargo, la exposición a ciclos de precios de metales
+    y la falta de un historial de gestión consolidada limitan su calificación a buena,
+    no excepcional.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Aumento sostenido del precio de la plata impulsado por factores macroeconómicos
+    (inflación, tensiones geopolíticas)
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 20
+- descripcion: Completación y puesta en producción de la expansión de la mina Juanicipio
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+- descripcion: Implementación de programas de eficiencia de costos y automatización
+    en operaciones existentes
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 25
+- descripcion: Revalorización o venta de activos no coreanos para mejorar el balance
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 10
+dominio_esg_supply_chain:
+  analisis: Existen riesgos ESG típicos de la minería (impacto ambiental, relaciones
+    con comunidades) y dependencia de proveedores de equipos y servicios, aunque la
+    diversificación geográfica reduce la concentración de riesgos.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Balance sólido con deuda mínima y cobertura de intereses adecuada, margen
+    operativo alto y ROIC de 17.1% que supera el WACC implícito. El FCF ajustado es
+    cero, lo que indica que la mayor parte del flujo operativo se reinvierte en la
+    expansión de minas, pero la salud financiera global es fuerte.
+  rating: fuerte
+dominio_growth:
+  analisis: El crecimiento de ingresos del 10.3% TTM muestra tracción, pero la visibilidad
+    futura depende de la ejecución de proyectos de desarrollo y de la evolución de
+    los precios de metales, lo que genera un crecimiento moderado y volátil.
+  rating: moderado
+dominio_management:
+  analisis: El CEO recién nombrado y la ausencia de propiedad de insiders generan
+    incertidumbre sobre la asignación de capital y alineación de intereses. No hay
+    historial de decisiones de inversión que demuestre un track record sólido, lo
+    que mantiene la valoración de gestión en nivel regular.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Volatilidad de precios de metales (plata, oro, zinc, cobre)
+- impacto: medio
+  probabilidad: media
+  riesgo: Riesgos operativos y de ejecución de proyectos mineros
+- impacto: alto
+  probabilidad: media
+  riesgo: Regulaciones ESG y normativas ambientales
+- impacto: medio
+  probabilidad: media
+  riesgo: Dependencia de costos de energía e insumos
+error_mercado:
+  catalizador_cambio:
+    descripcion: Puesta en producción exitosa de la expansión de la mina Juanicipio,
+      que añadiría aproximadamente 0.5 millones de onzas de plata anual.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: 'NO'
+  consenso_actual: El mercado valora la empresa basándose en sus márgenes operativos
+    de 36.8%, su ROIC de 17.1% y bajo nivel de deuda, asumiendo un crecimiento moderado
+    y estabilidad de precios de metales.
+  hipotesis_contraria: El consenso subestima la exposición a la volatilidad de los
+    precios de la plata y otros metales, así como el riesgo de que los márgenes se
+    compriman por aumentos de costos, regulaciones ESG y la ausencia de flujo de caja
+    libre positivo, lo que podría indicar una sobrevaloración.
+  razonamiento: No se evidencia una discrepancia clara entre el precio de mercado
+    y los fundamentos financieros; los múltiplos implícitos y los indicadores de rentabilidad
+    aparecen alineados con la calidad y riesgos observados, por lo que no hay un error
+    de valoración explotable.
+generated_at: '2026-07-27T01:58:38.352277-03:00'
+opinion_valoracion: justo
+opp_id: OPP-20260725-001
+prompt_inputs:
+  business_model: Pan American Silver Corp. engages in the exploration, mine development,
+    extraction, processing, refining, and reclamation of mines in Chile, Peru, Brazil,
+    Mexico, Canada, Argentina, Bolivia, and Guatemala. The Silver segment includes
+    the La Colorada, Juanicipio, Cerro Moro, Huaron, and San Vicente mines. The Gold
+    segment comprises the Jacobina, El Peñon, Timmins, Shahuindo, Minera Florida,
+    and Dolores mines. It explores silver, gold, zinc, lead, and copper deposits.
+    The company was formerly known as Pan American Minerals Corp. and changed its
+    name to Pan American Silver Corp. in April 1995. Pan American Silver Corp. was
+    incorporated in 1979 and is headquartered in Vancouver, Canada.
+  ceo_tenure: 0
+  debt_to_equity: 0.11
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: Pan American Silver Corp.
+  operating_margin: 36.8
+  pe_ratio: 14.67
+  products: ''
+  revenue: 4000000000.0
+  revenue_growth: 10.32
+  roic: 17.05
+  sector: Basic Materials
+  ticker: PAAS
+resumen_ejecutivo: Pan American Silver Corp. es una empresa minera diversificada con
+  márgenes sólidos, bajo apalancamiento y ROIC atractivo, pero su gestión es reciente
+  y la visibilidad de crecimiento depende de proyectos mineros y precios de metales.
+  El mercado parece valorarla de forma justa, sin evidencia de subvaloración significativa.
+score_general: 65
+tesis_inversion: La empresa está correctamente valorada; no se detecta una clara oportunidad
+  de compra a precio inferior al valor intrínseco, por lo que la inversión no está
+  subvalorada.
+ticker: PAAS
+version: '3.0'

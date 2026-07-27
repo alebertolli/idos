@@ -1,0 +1,1 @@
+Southern Copper ofrece una plataforma de alto rendimiento con un moat sólido y rentabilidad superior a la media del sector; los inversores deberían mantener exposición mientras monitorizan la evolución del precio del cobre y la ejecución de proyectos de crecimiento.

@@ -1,0 +1,7 @@
+- **ROIC**: 0
+- **Operating Margin**: 0
+- **Revenue Growth**: 0
+- **FCF Yield**: 0
+- **Debt/Equity**: 0
+- **PER**: 0
+- **EV/EBITDA**: 0
