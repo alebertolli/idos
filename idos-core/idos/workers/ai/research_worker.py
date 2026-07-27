@@ -97,6 +97,7 @@ class ResearchWorker(BaseWorker):
         score = ddd_result.get("score_general", 50)
 
         ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
+        ddd_failed = ddd_empty and bool(ddd_result.get("error"))
         if ddd_empty:
             print(f"[WARN] {ticker}: DDD del LLM vacío — score={score}, clasificacion={classification}, error={ddd_result.get('error','')}")
         elif not ddd_empty and score == 50 and not classification and not thesis:
@@ -205,18 +206,28 @@ class ResearchWorker(BaseWorker):
         sqlite.save_opportunity(opp)
 
         if not force_reprocess:
-            opp["status"] = OpportunityStatus.UNDER_DEEP_DD.value
-            sqlite.save_opportunity(opp)
-            sqlite.record_transition(opp_id, current_status.value, "UNDER_DEEP_DD",
-                                     cause="research_completed", worker="research_worker")
-            event_data = {
-                "opp_id": opp_id, "ticker": ticker,
-                "score": score, "hypotheses": len(hypotheses),
-                "classification": classification.get("categoria"),
-            }
-            event_data["ddd_empty"] = ddd_empty
-            sqlite.log_event("research:completed", event_data)
-            journal.log_event("research:completed", event_data, source="research_worker")
+            if ddd_failed:
+                event_data = {
+                    "opp_id": opp_id, "ticker": ticker,
+                    "score": score, "hypotheses": len(hypotheses),
+                    "classification": classification.get("categoria"),
+                    "error": ddd_result.get("error", "ddd_empty"),
+                }
+                sqlite.log_event("research:failed", event_data)
+                journal.log_event("research:failed", event_data, source="research_worker")
+            else:
+                opp["status"] = OpportunityStatus.UNDER_DEEP_DD.value
+                sqlite.save_opportunity(opp)
+                sqlite.record_transition(opp_id, current_status.value, "UNDER_DEEP_DD",
+                                         cause="research_completed", worker="research_worker")
+                event_data = {
+                    "opp_id": opp_id, "ticker": ticker,
+                    "score": score, "hypotheses": len(hypotheses),
+                    "classification": classification.get("categoria"),
+                }
+                event_data["ddd_empty"] = ddd_empty
+                sqlite.log_event("research:completed", event_data)
+                journal.log_event("research:completed", event_data, source="research_worker")
         else:
             event_data = {
                 "opp_id": opp_id, "ticker": ticker,
@@ -228,8 +239,6 @@ class ResearchWorker(BaseWorker):
             event_data["ddd_empty"] = ddd_empty
             sqlite.log_event("research:force_reprocess", event_data)
             journal.log_event("research:force_reprocess", event_data, source="research_worker")
-
-        ddd_failed = ddd_empty and bool(ddd_result.get("error"))
         return {
             "ticker": ticker,
             "opp_id": opp_id,

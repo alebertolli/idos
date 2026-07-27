@@ -557,7 +557,12 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     with open(opp_dir / "board_resolution.yml", "w", encoding="utf-8") as f:
         yaml.dump(resolution_data, f, default_flow_style=False, allow_unicode=True)
 
-    new_status = OpportunityStatus.APPROVED if resolution.approved else OpportunityStatus.UNDER_DEEP_DD
+    if resolution.approved:
+        new_status = OpportunityStatus.APPROVED
+    elif not context.get("asymmetry"):
+        new_status = OpportunityStatus.WATCHLIST
+    else:
+        new_status = OpportunityStatus.UNDER_DEEP_DD
     opp = sqlite.get_opportunity(opp_id)
     if opp:
         old = opp["status"]
