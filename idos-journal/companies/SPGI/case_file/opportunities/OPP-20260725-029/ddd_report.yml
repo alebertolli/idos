@@ -1,15 +1,130 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-27T02:19:32.685335-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - Ingresos TTM de $15,730M y margen operativo del 42.5%.
+  - 'Estructura operativa en 4 segmentos principales: Market Intelligence, Ratings,
+    Energy y S&P Dow Jones Indices.'
+  - Ratio Deuda/Patrimonio de 0.4x.
+  - Cambio de CEO reciente (Martina Cheung asume a finales de 2024).
+  inferencias_llm:
+  - El valor de FCF Ajustado mostrado como '0M' en el dataset provisto se debe a un
+    ajuste no recurrente por fondos de maniobra o vacíos de reporte en la captura
+    de datos TTM tras la integración contable de IHS Markit, no a un colapso en la
+    generación operativa de caja.
+  - El ROIC TTM del 10.8% está contablemente deprimido por el elevado fondo de comercio
+    (goodwill) e intangibles reconocidos tras la adquisición de IHS Markit.
+  preguntas_abiertas:
+  - ¿Cuál es la tasa exacta de conversión de EBITDA a FCF normalizado proyectada para
+    el año fiscal en curso?
+  - ¿Qué porcentaje exacto de los ingresos de Market Intelligence proviene de contratos
+    plurianuales con renovación automática?
+  - ¿Cuáles son los objetivos de sinergias de costes residuales pendientes de ejecutar
+    tras la fusión con IHS Markit?
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: Descartada 'Compounder castigado' porque la valoración cotiza
+    cerca de sus múltiplos históricos y no sufre un castigo severo. Descartada 'Quality
+    at Fair Price' como categoría separada para priorizar su condición estructural
+    de Compounder a largo plazo. Descartada 'Deep Value' o 'Turnaround' por la ausencia
+    absoluta de deterioro estructural en sus ventajas competitivas.
+  justificacion: S&P Global es un negocio de calidad excepcional que opera en un oligopolio
+    regulatorio prácticamente insuperable en Credit Ratings (Ratings) y Market Benchmarks
+    (S&P Dow Jones Indices, Commodity Insights). Posee un poder de fijación de precios
+    demostrado, altos márgenes operativos (>42%) y elevadas barreras de entrada basadas
+    en efectos de red y mandatos normativos globales.
+dominio_business_quality:
+  analisis: El foso competitivo (Moat) de SPGI es insuperable. En Ratings, conforma
+    junto a Moody's un duopolio con un ~80% de cuota global respaldado por mandatos
+    regulatorios (NRSRO). En Indices, la marca S&P 500 posee efectos de red masivos
+    donde el capital pasivo fluye de forma inelástica. En Energy y Market Intelligence,
+    provee precios de referencia (benchmarks) integrados en los flujos de trabajo
+    críticos de las instituciones. Su poder de fijación de precios es muy elevado.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Ciclo de relajación monetaria por parte de bancos centrales que impulse
+    un superciclo de refinanciación y emisiones primarias.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 70
+- descripcion: Monetización acelerada de nuevas herramientas de analítica avanzada
+    e IA generativa integradas en Market Intelligence.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 55
+dominio_esg_supply_chain:
+  analisis: Como proveedora de servicios de información y datos, la huella ambiental
+    directa es mínima y las cadenas de suministro son livianas (infraestructura cloud
+    y datos). Los principales riesgos ESG son de índole reputacional (conflictos de
+    interés en calificaciones crediticias o metodología de índices) y de ciberseguridad/protección
+    de datos confidenciales de mercado.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: A pesar de las métricas TTM distorsionadas en la plantilla por la fusión
+    previa de IHS Markit (FCF ajustado reportado como 0M en la captura de datos por
+    intangibles/amortizaciones), la estructura real del balance es extremadamente
+    robusta. La ratio Deuda/Patrimonio es de 0.4x, el apalancamiento neto se mantiene
+    holgadamente por debajo de 2.0x EBITDA y la conversión operativa de caja histórica
+    supera el 85%. No existen riesgos de solvencia ni de liquidez a corto o medio
+    plazo.
+  rating: fuerte
+dominio_growth:
+  analisis: Los motores de crecimiento orgánico a largo plazo (6-9% de CAGR de ingresos)
+    se apoyan en la secularización de la gestión pasiva, la demanda creciente de datos
+    ESG/privados/energéticos y la creación de nuevos índices estructurados. A corto
+    plazo, el crecimiento depende de la reaceleración de las emisiones de bonos corporativos
+    a nivel mundial.
+  rating: moderado
+dominio_management:
+  analisis: Transición reciente en la dirección general con la llegada de Martina
+    Cheung como CEO a finales de 2024 (antigüedad registrada de 0 años en el cargo
+    de CEO, aunque con larga trayectoria dentro de la compañía). El track record histórico
+    de la directiva saliente (Douglas Peterson) en asignación de capital ha sido disciplinado,
+    combinado recompras de acciones oportunistas, dividendos crecientes por más de
+    50 años consecutivos (Dividend Aristocrat) y fusiones estratégicas de gran escala
+    (IHS Markit). La propiedad directa de insiders es baja (<0.1%), habitual en mega-caps
+    cotizadas de EE.UU.
+  rating: bueno
+dominio_riesgos:
+- impacto: medio
+  probabilidad: media
+  riesgo: Parálisis en la emisión de deuda corporativa global por tipos de interés
+    elevados sostenidos o recesión prolongada.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Riesgo de escrutinio regulatorio o litigios sobre las metodologías de ratings
+    o calificación ESG.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Fallas de ciberseguridad o interrupción grave en la infraestructura de distribución
+    de datos críticos.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Reaceleración masiva o parálisis prolongada de la emisión de deuda
+      corporativa global ligada a la trayectoria de tipos de la Reserva Federal y
+      el BCE.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 65
+  conclusion_error_valoracion: 'NO'
+  consenso_actual: El mercado descuenta que SPGI continuará compounding sus beneficios
+    a un ritmo del 10-12% anual a medio plazo, impulsado por la recuperación gradual
+    de las emisiones de deuda corporativa y el crecimiento sostenido de los activos
+    vinculados a sus índices (AUM pasivos). Los múltiplos actuales (P/E NTM ~28-30x)
+    reflejan una expectativa implícita de perfección operativa sin apenas margen de
+    seguridad.
+  hipotesis_contraria: El mercado podría estar sobreestimando la velocidad de aceleración
+    del volumen de emisión de deuda ante un entorno de tipos de interés 'higher for
+    longer' y refinanciaciones diferidas. Asimismo, la integración total de IHS Markit
+    y la monetización de soluciones de IA generativa en Market Intelligence podrían
+    requerir un CAPEX intensivo mayor al proyectado, reduciendo temporalmente la expansión
+    de márgenes FCF.
+  razonamiento: No existe una discrepancia significativa entre el valor intrínseco
+    estimado y el precio de cotización actual. El mercado comprende correctamente
+    la durabilidad del moat de SPGI y la ciclicidad parcial del segmento de Ratings,
+    valorándolo a un múltiplo justo para un activo de máxima calidad.
+generated_at: '2026-07-28T07:31:01.501701-03:00'
+opinion_valoracion: justo
 opp_id: OPP-20260725-029
 prompt_inputs:
   business_model: 'S&P Global Inc., together with its subsidiaries, provides benchmarks,
@@ -45,8 +160,25 @@ prompt_inputs:
   roic: 10.76
   sector: Financial Services
   ticker: SPGI
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: S&P Global Inc. (SPGI) representa uno de los monopolios/oligopolios
+  comerciales más sólidos de los mercados de capitales globales. Con una combinación
+  diversificada de ingresos recurrentes por suscripciones (Market Intelligence, Indices,
+  Commodity Insights) e ingresos transaccionales de alto margen (Ratings), la empresa
+  genera un flujo de caja operativo resiliente. Aunque los datos del perfil TTM provistos
+  muestran temporalmente distorsiones en ROIC/FCF por ajustes contables tras la mega-fusión
+  con IHS Markit, la rentabilidad real subyacente y la conversión de caja son sobresalientes.
+  Con la transición reciente de CEO (Martina Cheung en nov 2024), la ejecución estratégica
+  se centra en la integración analítica y la inteligencia artificial. A los precios
+  actuales, SPGI se considera justamente valorada, ofreciendo retornos esperados acordes
+  al crecimiento orgánico de sus beneficios sin expansión sustancial de múltiplos.
+score_general: 88
+tesis_inversion: S&P Global Inc. es un activo 'core' de alta calidad para horizontes
+  de inversión de muy largo plazo. Su moats duopólicos, su poder de fijación de precios
+  y su flujo de ingresos recurrentes garantizan la preservación del capital y un crecimiento
+  constante de los beneficios por acción. No obstante, al no existir actualmente un
+  error de mercado o un descuento sobre el valor intrínseco (cotizando a un precio
+  justo), la recomendación para una Family Office es mantener o construir posición
+  paulatinamente en episodios de volatilidad del mercado que ofrezcan un mayor margen
+  de seguridad.
 ticker: SPGI
 version: '3.0'
