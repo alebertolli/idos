@@ -1,80 +1,15 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene una larga historia y una presencia global
-  - La valoración actual es razonable
-  inferencias_llm:
-  - La empresa tiene un moat moderado
-  - La calidad del management es regular
-  preguntas_abiertas:
-  - ¿Cuál es el potencial de crecimiento en sectores específicos?
-  - ¿Cómo afectará la regulación al sector financiero en el futuro?
-clasificacion_oportunidad:
-  categoria: Quality at Fair Price
-  categorias_descartadas: Compounder y Compounder castigado debido a la falta de crecimiento
-    explosivo en el pasado reciente, Turnaround porque no hay indicios de un declive
-    operativo significativo, Deep Value porque la valoración no es particularmente
-    baja, Cíclica porque aunque el sector financiero puede ser cíclico, la diversificación
-    de Barclays la hace menos sensible a los ciclos, Special Situation y Distressed
-    porque no hay eventos especiales o problemas de solvencia aparentes, Hype porque
-    no hay crecimiento especulativo sin earnings, y Value Trap porque no parece destruir
-    valor estructuralmente.
-  justificacion: Barclays PLC es una empresa establecida con una larga historia y
-    una diversificación geográfica y de productos, lo que sugiere una calidad empresarial
-    alta. La valoración actual no parece ni muy alta ni muy baja en comparación con
-    sus pares, lo que indica que el precio es razonable.
-dominio_business_quality:
-  analisis: La empresa tiene una posición competitiva en varios mercados, un moat
-    moderado debido a su escala y reconocimiento de marca, y una resiliencia del modelo
-    de negocio debido a su diversificación.
-  rating: buena
-dominio_catalizadores:
-- descripcion: Aumento en la participación de mercado en sectores de crecimiento
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: medio
-  probabilidad_pct: 20
-dominio_esg_supply_chain:
-  analisis: La empresa tiene un perfil de riesgo ESG moderado, con riesgos asociados
-    a la exposición a sectores contaminantes y a la concentración de proveedores.
-  rating: medio_riesgo
-dominio_financial_health:
-  analisis: La salud financiera de la empresa es adecuada, con un margen operativo
-    del 36.4% y un ROIC del 9.6%, aunque el flujo de caja ajustado es cero y la deuda
-    es significativa.
-  rating: adecuada
-dominio_growth:
-  analisis: Las perspectivas de crecimiento son moderadas, con un crecimiento del
-    5.4% en los ingresos, pero hay potencial para crecimiento en sectores específicos
-    como la banca digital y la gestión de patrimonio.
-  rating: moderado
-dominio_management:
-  analisis: La calidad del management es regular, con un CEO sin experiencia previa
-    y una propiedad interior del 0%, lo que podría ser un factor de riesgo.
-  rating: regular
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: Riesgo de regulación
-- impacto: medio
-  probabilidad: media
-  riesgo: Riesgo de crédito
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un aumento significativo en la participación de mercado en sectores
-      de crecimiento como la banca digital o la gestión de activos sostenibles
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 20
-  conclusion_error_valoracion: INCIERTO
-  consenso_actual: El mercado parece descontar un crecimiento estable pero no explosivo,
-    con una valoración que refleja la calidad y la estabilidad de la empresa.
-  hipotesis_contraria: La hipótesis contraria podría ser que el mercado subestima
-    el potencial de crecimiento de Barclays en mercados emergentes o en sectores específicos
-    como el banca privada y la gestión de patrimonio.
-  razonamiento: No hay un error de valoración claro, pero hay potencial para que el
-    mercado subestime el crecimiento futuro de la empresa.
-generated_at: '2026-07-27T00:50:30.300199-03:00'
-opinion_valoracion: justo
+calidad_evidencia: {}
+clasificacion_oportunidad: {}
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-07-28T07:31:04.278917-03:00'
+opinion_valoracion: ''
 opp_id: OPP-20260725-033
 prompt_inputs:
   business_model: Barclays PLC provides various financial services in the United Kingdom,
@@ -101,12 +36,8 @@ prompt_inputs:
   roic: 9.55
   sector: Financial Services
   ticker: BCS
-resumen_ejecutivo: Barclays PLC es una empresa financiera diversificada con una larga
-  historia y una presencia global. La valoración actual parece razonable, pero hay
-  potencial para crecimiento en sectores específicos.
-score_general: 60
-tesis_inversion: La empresa es una opción razonable para inversores que buscan una
-  exposición estable y diversificada al sector financiero, con potencial para crecimiento
-  en sectores específicos.
+resumen_ejecutivo: ''
+score_general: 50
+tesis_inversion: ''
 ticker: BCS
 version: '3.0'
