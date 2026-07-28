@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 45 companies tracked
+Total: 46 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -51,6 +51,9 @@ Total: 45 companies tracked
 ## Healthcare
 - 📄 [[ISRG|Intuitive Surgical, Inc.]]
 - 📄 [[VRTX|Vertex Pharmaceuticals Incorporated]]
+
+## Industrials
+- 📄 [[BA|The Boeing Company]]
 
 ## Technology
 - 📄 [[ADBE|Adobe Inc.]]
