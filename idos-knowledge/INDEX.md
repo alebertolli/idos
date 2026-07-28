@@ -46,6 +46,7 @@ Total: 46 companies tracked
 - ⏳ [[SAN|Banco Santander, S.A.]]
 - 📄 [[SPGI|S&P Global Inc.]]
 - 📄 [[USB|U.S. Bancorp]]
+- 📄 [[V|Visa Inc.]]
 - 📄 [[WFC|Wells Fargo & Company]]
 
 ## Healthcare
