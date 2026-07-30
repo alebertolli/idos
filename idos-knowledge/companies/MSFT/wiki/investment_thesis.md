@@ -1,0 +1,1 @@
+Microsoft es un activo estratégico esencial en cualquier cartera de largo plazo de una Family Office. Aunque la cotización refleja múltiplos exigentes, la combinación de moat infranqueable, crecimiento de doble dígito, opcionalidad masiva en IA y un balance ultraseguro garantizan una rentabilidad ajustada por riesgo altamente atractiva.

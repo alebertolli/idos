@@ -1,27 +1,25 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-30 07:24 AR_
+_Generado: 2026-07-30 07:25 AR_
 
 ## Resumen
 
 - 🟢 **Oportunidades procesadas:** 1
 - ✅ **Assessment completados:** 1
-- 🔖 **Approved:** 0
+- 🔖 **Approved:** 1
 - 🔴 **Errores:** 0
 - 📊 **Total encontradas:** 1
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ⚠️ **META** (OPP-20260725-015): score=50, class=None
+- ✅ **MSFT** (OPP-20260725-018): score=92, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **META**
-  - Opp: [OPP-20260725-015](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/META/case_file/opportunities/OPP-20260725-015)
-  - Conviction: 71/100 | Rec: BLOCKED
-  - Scores: Business: 76 | Valuation: 70 | Recovery: 56 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ✅ **MSFT**
+  - Opp: [OPP-20260725-018](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MSFT/case_file/opportunities/OPP-20260725-018)
+  - Conviction: 72/100 | Rec: APPROVE | Dec: HOLD
+  - Scores: Business: 72 | Valuation: 70 | Recovery: 62 | Risk: 80 | Portfolio: 90
 
 ---
 
