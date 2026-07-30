@@ -1,1 +1,1 @@
-Agnico Eagle Mines representa la mejor forma de implementar una posición estratégica en oro para una Family Office. La compañía ofrece un perfil asimétrico: protección a la baja gracias a su bajo coste de producción y seguridad jurisdiccional en Canadá/Australia, combinada con un alto apalancamiento operativo al precio del oro. Si bien las acciones mineras son intrínsecamente cíclicas, la disciplina de capital de AEM y su rentabilidad operativa (ROIC 23.6%) justifican una prima de valoración que el mercado aún no ha integrado por completo.
+To be formulated
