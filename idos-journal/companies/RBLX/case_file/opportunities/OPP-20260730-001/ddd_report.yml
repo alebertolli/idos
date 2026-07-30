@@ -1,70 +1,15 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene un crecimiento del 29.6% en ingresos
-  - La empresa tiene un margen operativo negativo del -22.9%
-  inferencias_llm:
-  - La valoración actual de la empresa parece especulativa
-  preguntas_abiertas:
-  - ¿Puede la empresa mantener su crecimiento a largo plazo?
-  - ¿Puede la empresa expandir sus márgenes operativos en el futuro?
-clasificacion_oportunidad:
-  categoria: hype
-  categorias_descartadas: Compounder, Compounder castigado, Turnaround, Deep Value,
-    Cíclica, Special Situation, Distressed, Quality at Fair Price, Value Trap
-  justificacion: La empresa tiene un crecimiento del 29.6% en ingresos, pero un margen
-    operativo negativo del -22.9% y un ROIC del -35.3%. Esto sugiere que la empresa
-    está creciendo rápidamente, pero no generando suficientes ganancias para justificar
-    su valoración actual.
-dominio_business_quality:
-  analisis: La empresa tiene una plataforma de juegos en línea popular, pero su modelo
-    de negocio no es único y enfrenta competencia intensa.
-  rating: regular
-dominio_catalizadores:
-- descripcion: Un informe financiero decepcionante
-  horizonte: corto
-  impacto: alto
-  nivel_confianza: alto
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: La empresa no tiene un impacto significativo en el medio ambiente y no
-    enfrenta riesgos significativos en su cadena de suministro.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene un margen operativo negativo y un ROIC negativo, lo que
-    sugiere que no está generando suficientes ganancias para justificar su valoración
-    actual.
-  rating: debil
-dominio_growth:
-  analisis: La empresa tiene un crecimiento rápido en ingresos, pero es importante
-    evaluar si este crecimiento es sostenible a largo plazo.
-  rating: fuerte
-dominio_management:
-  analisis: La empresa no tiene un historial de generación de ganancias y su equipo
-    de gestión no tiene experiencia en la generación de valor para los accionistas.
-  rating: debil
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: Competencia intensa
-- impacto: alto
-  probabilidad: alta
-  riesgo: No generación de ganancias
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un informe financiero decepcionante o una disminución en el crecimiento
-      de los ingresos
-    horizonte: corto
-    impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado está descontando un crecimiento continuo y una expansión
-    de los márgenes operativos en el futuro.
-  hipotesis_contraria: La empresa puede no ser capaz de mantener su crecimiento y
-    expandir sus márgenes operativos, lo que llevaría a una corrección en su valoración.
-  razonamiento: La valoración actual de la empresa parece especulativa y no se basa
-    en fundamentos sólidos.
-generated_at: '2026-07-30T02:12:19.061262-03:00'
-opinion_valoracion: sobrevalorado
+calidad_evidencia: {}
+clasificacion_oportunidad: {}
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-07-30T07:19:48.853055-03:00'
+opinion_valoracion: ''
 opp_id: OPP-20260730-001
 prompt_inputs:
   business_model: Roblox Corporation operates an immersive platform for connection
@@ -87,10 +32,8 @@ prompt_inputs:
   roic: -35.29
   sector: Communication Services
   ticker: RBLX
-resumen_ejecutivo: La empresa tiene un crecimiento rápido, pero su valoración parece
-  especulativa y no se basa en fundamentos sólidos.
-score_general: 40
-tesis_inversion: No invertir en esta empresa debido a su valoración especulativa y
-  falta de fundamentos sólidos.
+resumen_ejecutivo: ''
+score_general: 50
+tesis_inversion: ''
 ticker: RBLX
 version: '3.0'
