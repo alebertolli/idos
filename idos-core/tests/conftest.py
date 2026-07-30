@@ -116,6 +116,9 @@ MOCK_POST_MORTEM: dict[str, Any] = {
     "methodological_errors": ["Sesgo de confirmación en DDD"],
     "biases_detected": ["Anchoring en estimaciones de crecimiento"],
     "would_invest_again": False,
+    "wyckoff_accuracy": "incorrecta",
+    "wyckoff_phase_was_correct": False,
+    "wyckoff_lessons": ["La fase de acumulacion no se confirmo en retrospectiva"],
 }
 
 MOCK_ENTRY_LLM_RESPONSE: dict[str, Any] = {

@@ -39,7 +39,15 @@ class PostMortemWorker(BaseWorker):
 
         # Learning loop components
         self.feedback = FeedbackCollector()
-        self.weights = WeightAdjuster()
+        self.weights = WeightAdjuster(base_weights={
+            "BusinessAssessmentEngine": 0.25,
+            "ValuationAssessmentEngine": 0.20,
+            "RecoveryAssessmentEngine": 0.15,
+            "RiskAssessmentEngine": 0.10,
+            "PortfolioAssessmentEngine": 0.10,
+            "wyckoff": 0.10,
+            "ResearchWorker": 0.10,
+        })
         self.patterns = PatternLearner()
         self.hitrates = HitRateTracker()
         self.improvement_loop = ContinuousImprovementLoop(
@@ -73,8 +81,9 @@ class PostMortemWorker(BaseWorker):
         decisions = self._load_decisions(ticker, opp_id, journal)
         assessments = self._load_assessments(ticker, opp_id, journal)
         position = journal.load_position(ticker)
+        wyckoff_analyses = self._load_wyckoff_analyses(ticker, opp_id, journal)
 
-        post_mortem = self._llm_post_mortem(ticker, decisions, assessments, position, exit_reason)
+        post_mortem = self._llm_post_mortem(ticker, decisions, assessments, position, exit_reason, wyckoff_analyses)
 
         pm_id = f"pm-{uuid4().hex[:8]}"
         pm_record = {
@@ -113,8 +122,10 @@ class PostMortemWorker(BaseWorker):
         })
 
         # Feed learning loop
-        self._feed_learning_loop(ticker, opp_id, decisions, assessments, post_mortem, exit_reason)
+        self._feed_learning_loop(ticker, opp_id, decisions, assessments, post_mortem, exit_reason, wyckoff_analyses)
         loop_result = self.improvement_loop.run()
+
+        wyckoff_accuracy = post_mortem.get("wyckoff_accuracy", "no_evaluada")
 
         return {
             "ticker": ticker,
@@ -124,6 +135,8 @@ class PostMortemWorker(BaseWorker):
             "pm_id": pm_id,
             "exit_reason": exit_reason,
             "lessons": post_mortem.get("lessons_learned", []),
+            "wyckoff_accuracy": wyckoff_accuracy,
+            "wyckoff_lessons": post_mortem.get("wyckoff_lessons", []),
             "learning_loop": {
                 "weights_adjusted": loop_result.weights_adjusted,
                 "patterns_identified": loop_result.patterns_identified,
@@ -131,12 +144,14 @@ class PostMortemWorker(BaseWorker):
                 "hit_rates_updated": loop_result.hit_rates_updated,
                 "top_patterns": loop_result.top_patterns,
                 "underperformers": loop_result.underperformers,
+                "wyckoff_alerts": loop_result.wyckoff_alerts,
             },
         }
 
     def _feed_learning_loop(self, ticker: str, opp_id: str,
                             decisions: list[dict], assessments: list[dict],
-                            post_mortem: dict, exit_reason: str):
+                            post_mortem: dict, exit_reason: str,
+                            wyckoff_analyses: list[dict] | None = None):
         """Extract structured feedback from post-mortem and feed into learning loop."""
         thesis_correct = post_mortem.get("thesis_was_correct", False)
         outcome = "success" if thesis_correct else "failure"
@@ -150,7 +165,7 @@ class PostMortemWorker(BaseWorker):
                 prediction_id=f"{opp_id}-{engine}",
                 predicted_direction="up" if score >= 50 else "down",
                 actual_direction="up" if thesis_correct else "down",
-                predicted_price=0,  # Would come from DDD target
+                predicted_price=0,
                 actual_price=0,
                 outcome=outcome,
                 engine=engine,
@@ -159,11 +174,33 @@ class PostMortemWorker(BaseWorker):
             )
             self.feedback.record(rec)
 
+        # Record Wyckoff feedback
+        wyckoff_correct = post_mortem.get("wyckoff_phase_was_correct", False)
+        wyckoff_outcome = "success" if wyckoff_correct else "failure"
+        wyckoff_accuracy = post_mortem.get("wyckoff_accuracy", "no_evaluada")
+
+        last_wyckoff = wyckoff_analyses[-1] if wyckoff_analyses else {}
+        wyckoff_rec = FeedbackRecord(
+            ticker=ticker,
+            prediction_id=f"{opp_id}-wyckoff",
+            predicted_direction=last_wyckoff.get("phase", "unknown"),
+            actual_direction="up" if thesis_correct else "down",
+            predicted_price=last_wyckoff.get("price_target", 0) or 0,
+            actual_price=0,
+            outcome=wyckoff_outcome,
+            engine="wyckoff",
+            analyst="post_mortem",
+            notes=f"accuracy={wyckoff_accuracy}, phase={last_wyckoff.get('phase', '?')}",
+        )
+        self.feedback.record(wyckoff_rec)
+
         # Record pattern observation
         features = {
             "exit_reason": exit_reason,
             "conviction_at_entry": decisions[0].get("conviction_score", 50) if decisions else 50,
             "sector": assessments[0].get("sector", "unknown") if assessments else "unknown",
+            "wyckoff_phase": last_wyckoff.get("phase", "unknown") if wyckoff_analyses else "none",
+            "wyckoff_score": last_wyckoff.get("score", 0) if wyckoff_analyses else 0,
         }
         self.patterns.observe(ticker, features, outcome)
 
@@ -175,6 +212,12 @@ class PostMortemWorker(BaseWorker):
                 self.hitrates.record_hit(key)
             else:
                 self.hitrates.record_miss(key)
+
+        key = "engine:wyckoff"
+        if wyckoff_correct:
+            self.hitrates.record_hit(key)
+        else:
+            self.hitrates.record_miss(key)
 
     def _load_decisions(self, ticker: str, opp_id: str, journal: JournalRepository) -> list[dict[str, Any]]:
         dec_path = journal.opportunity_path(ticker, opp_id) / "decisions"
@@ -202,9 +245,23 @@ class PostMortemWorker(BaseWorker):
                     assessments.append(data)
         return assessments
 
+    def _load_wyckoff_analyses(self, ticker: str, opp_id: str, journal: JournalRepository) -> list[dict[str, Any]]:
+        w_path = journal.opportunity_path(ticker, opp_id) / "wyckoff"
+        if not w_path.exists():
+            return []
+        import yaml
+        analyses = []
+        for f in sorted(w_path.glob("*.yml")):
+            with open(f, encoding="utf-8") as fh:
+                data = yaml.safe_load(fh)
+                if data:
+                    analyses.append(data)
+        return analyses
+
     def _llm_post_mortem(self, ticker: str, decisions: list[dict],
                           assessments: list[dict], position: dict | None,
-                          exit_reason: str) -> dict[str, Any]:
+                          exit_reason: str,
+                          wyckoff_analyses: list[dict] | None = None) -> dict[str, Any]:
         prompt = (
             f"Genera un Post-Mortem de inversión para {ticker}.\n\n"
             f"Razón de salida: {exit_reason}\n\n"
@@ -223,20 +280,51 @@ class PostMortemWorker(BaseWorker):
                 f"peso {position.get('weight_pct',0)}%\n"
             )
 
+        if wyckoff_analyses:
+            last_w = wyckoff_analyses[-1]
+            eventos = []
+            llm_resp = last_w.get("llm_response") or {}
+            for e in (llm_resp.get("eventos_wyckoff_detectados") or []):
+                if isinstance(e, dict):
+                    eventos.append(f"{e.get('evento','?')}({e.get('confianza','?')})")
+            pruebas = llm_resp.get("pruebas_compra") or {}
+            pasan = pruebas.get("pruebas_pasan", "?")
+            total_p = pruebas.get("total_pruebas", "?")
+            prompt += (
+                f"\nAnalisis Wyckoff al momento de entrada:\n"
+                f"- Fase: {last_w.get('phase', '?')}\n"
+                f"- Score: {last_w.get('score', '?')}/100\n"
+                f"- Confianza: {last_w.get('confidence', '?')}\n"
+                f"- Eventos detectados: {', '.join(eventos) if eventos else 'ninguno'}\n"
+                f"- Pruebas de compra: {pasan}/{total_p}\n"
+                f"- Punto de entrada: {last_w.get('entry_point', '?')}\n"
+                f"- Stop loss sugerido: {last_w.get('stop_loss', '?')}\n"
+                f"- Precio objetivo: {last_w.get('price_target', '?')}\n"
+                f"\nPreguntas para evaluar el analisis Wyckoff:\n"
+                f"1. La fase detectada fue correcta dado el movimiento real del precio?\n"
+                f"2. Los eventos Wyckoff (PS, SC, Spring, LPS, SOS, etc.) fueron validos?\n"
+                f"3. El punto de entrada recomendado ({last_w.get('entry_point', '?')}) habria funcionado?\n"
+                f"4. Las pruebas de compra que pasaron realmente predijeron el resultado?\n"
+                f"5. El stop loss sugerido habria sido respetado o se habria saltado?\n"
+            )
+
         prompt += (
             "\nResponde en JSON:\n"
             '{{"exit_analysis": "...", "thesis_was_correct": true|false, '
             '"what_went_wrong": ["..."], "what_went_right": ["..."], '
             '"lessons_learned": ["..."], '
             '"methodological_errors": ["..."], "biases_detected": ["..."], '
-            '"would_invest_again": true|false}}'
+            '"would_invest_again": true|false, '
+            '"wyckoff_accuracy": "correcta|parcial|incorrecta|no_aplica", '
+            '"wyckoff_phase_was_correct": true|false, '
+            '"wyckoff_lessons": ["..."]}}'
         )
 
         return self.llm.generate_structured(
             prompt=prompt,
             system_prompt=(
                 "Eres un analista de learning & improvement para una Family Office. "
-                "Sé brutalmente honesto en la autopsia de la inversión. "
+                "Se brutalmente honesto en la autopsia de la inversion. "
                 "El objetivo es aprender, no justificar."
             ),
             temperature=0.3,

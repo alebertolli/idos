@@ -230,19 +230,20 @@ class WyckoffAnalyzer:
         return None
 
     def _get_prompt_version(self) -> str:
-        import os
         prompts_path = None
-        if self.prompt_registry and hasattr(self.prompt_registry, "config"):
-            cfg = self.prompt_registry.config
-            if isinstance(cfg, dict):
-                prompts_path = cfg.get("path")
+        if self.prompt_registry and hasattr(self.prompt_registry, "_prompts_dir"):
+            pd = self.prompt_registry._prompts_dir
+            prompts_path = str(pd) if pd else None
         if not prompts_path:
             return "v1"
-        wyckoff_dir = os.path.join(prompts_path, "portfolio", "wyckoff")
-        current_link = os.path.join(wyckoff_dir, "current")
-        if os.path.islink(current_link):
-            target = os.readlink(current_link)
-            return os.path.basename(target).replace(".yml", "")
+        import os
+        current_file = os.path.join(prompts_path, "portfolio", "wyckoff", ".current")
+        if os.path.isfile(current_file):
+            try:
+                with open(current_file, encoding="utf-8") as f:
+                    return f.read().strip() or "v1"
+            except Exception:
+                pass
         return "v1"
 
     def _compute_indicators(

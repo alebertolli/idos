@@ -3,6 +3,10 @@ from datetime import datetime
 from typing import Any
 from idos.timezone import AR_TZ
 
+WYCOFF_ACCURACY_THRESHOLD = 60.0
+WYCOFF_MIN_SAMPLES = 3
+
+
 @dataclass
 class LoopResult:
     weights_adjusted: int = 0
@@ -11,11 +15,13 @@ class LoopResult:
     hit_rates_updated: int = 0
     top_patterns: list[str] = field(default_factory=list)
     underperformers: list[str] = field(default_factory=list)
+    wyckoff_alerts: list[str] = field(default_factory=list)
     completed_at: str = ""
 
     def __post_init__(self):
         if not self.completed_at:
             self.completed_at = datetime.now(AR_TZ).isoformat()
+
 
 class ContinuousImprovementLoop:
     def __init__(self, feedback_collector, weight_adjuster,
@@ -54,5 +60,16 @@ class ContinuousImprovementLoop:
 
         under = self.patterns.get_underperforming(max_success_rate=40)
         result.underperformers = [p.pattern_id for p in under]
+
+        wyckoff_key = "engine:wyckoff"
+        wyckoff_stats = self.hitrates.stats(wyckoff_key)
+        if wyckoff_stats.total >= WYCOFF_MIN_SAMPLES:
+            rate = wyckoff_stats.hit_rate_pct
+            if rate < WYCOFF_ACCURACY_THRESHOLD:
+                result.wyckoff_alerts.append(
+                    f"Wyckoff accuracy {rate}% ({wyckoff_stats.hits}/{wyckoff_stats.total}) "
+                    f"por debajo del umbral {WYCOFF_ACCURACY_THRESHOLD}%. "
+                    f"Revisar prompt y eventos detectados."
+                )
 
         return result
