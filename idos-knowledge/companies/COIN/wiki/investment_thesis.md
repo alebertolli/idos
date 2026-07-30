@@ -1,1 +1,1 @@
-Coinbase Global, Inc. es una empresa establecida en el sector de servicios financieros con un modelo de negocio sólido y un crecimiento constante. La empresa podría enfrentar desafíos en su modelo de negocio si la demanda de criptomonedas disminuye, pero el mercado podría estar subestimando los riesgos asociados con la regulación de las criptomonedas y la competencia en el mercado.
+To be formulated

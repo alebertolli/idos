@@ -1,8 +1,8 @@
 {
   "processed": [
     {
-      "ticker": "AEM",
-      "opp_id": "OPP-20260725-007",
+      "ticker": "COIN",
+      "opp_id": "OPP-20260730-001",
       "status": "ddd_failed",
       "score": 50,
       "classification": null,
@@ -12,19 +12,19 @@
   ],
   "assessments": [
     {
-      "ticker": "AEM",
-      "opp_id": "OPP-20260725-007",
+      "ticker": "COIN",
+      "opp_id": "OPP-20260730-001",
       "status": "completed",
-      "conviction_score": 72,
+      "conviction_score": 62,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260730114245",
+      "decision_id": "DEC-20260730114249",
       "assessments": {
-        "BusinessAssessmentEngine": 68,
-        "ValuationAssessmentEngine": 80,
-        "RecoveryAssessmentEngine": 54,
-        "RiskAssessmentEngine": 80,
+        "BusinessAssessmentEngine": 50,
+        "ValuationAssessmentEngine": 70,
+        "RecoveryAssessmentEngine": 50,
+        "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
@@ -38,14 +38,15 @@
       ],
       "rules_failed": [
         "RULE-001",
+        "RULE-005",
         "RULE-008"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 68/100",
-        "RULE-002": "Price target margin: 45.0%",
-        "RULE-003": "Rerating: 54/100",
-        "RULE-004": "Risk: 80/100",
-        "RULE-005": "Conviction: 72/100",
+        "RULE-001": "Business quality: 50/100",
+        "RULE-002": "Price target margin: 34.3%",
+        "RULE-003": "Rerating: 50/100",
+        "RULE-004": "Risk: 70/100",
+        "RULE-005": "Conviction: 62/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
         "RULE-008": "B/R inf:1 \u2705 (upside 17.3% / downside 0.0%)",

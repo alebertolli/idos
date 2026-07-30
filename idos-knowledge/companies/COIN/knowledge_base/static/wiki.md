@@ -40,20 +40,20 @@ To be evaluated
 - **Revenue Growth**: 6.28
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.59
-- **PER**: 55.91
-- **EV/EBITDA**: 42.63
+- **PER**: 55.95
+- **EV/EBITDA**: 43.77
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Coinbase Global, Inc. es una empresa establecida en el sector de servicios financieros con un modelo de negocio sólido y un crecimiento constante. La empresa podría enfrentar desafíos en su modelo de negocio si la demanda de criptomonedas disminuye, pero el mercado podría estar subestimando los riesgos asociados con la regulación de las criptomonedas y la competencia en el mercado.
+To be formulated
 
 ---
 
