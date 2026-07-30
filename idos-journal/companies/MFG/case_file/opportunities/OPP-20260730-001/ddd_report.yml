@@ -1,134 +1,123 @@
 calidad_evidencia:
   hechos_verificados:
-  - Mizuho reportó ingresos TTM de $27,670M con un crecimiento del 29.8%.
-  - El margen operativo reportado asciende al 35.6%.
-  - Sede central en Tokio, Japón, fundada históricamente en 1873.
-  - El Banco de Japón finalizó la política de tipos negativos en 2024 iniciando un
-    ciclo de subidas.
+  - Ingresos TTM de $27,670M con crecimiento interanual del +29.8%.
+  - Margen operativo TTM del 35.6% y ROIC del 11.4%.
+  - Fundada en 1873 con sede en Chiyoda, Japón, actuando como uno de los tres megabancos
+    japoneses.
   inferencias_llm:
-  - El ROIC del 11.4% refleja métricas consolidadas del negocio operativo bajo entorno
-    de subida de tipos.
-  - La cifra de D/E de 0.0x en el resumen del perfil refleja la estructura específica
-    de presentación de datos bancarios (donde la deuda se trata como pasivos de intermediación).
-  - El alineamiento de la directiva con los mandatos de la TSE acelerará las recompras
-    de acciones en el horizonte de 12-24 meses.
+  - El apalancamiento operativo sobre la base de depósitos generará una expansión
+    del ROE hacia niveles no vistos en dos décadas conforme el BoJ suba tipos.
+  - El riesgo de fallos en sistemas informáticos ha disminuido sustancialmente tras
+    las auditorías y reformas impuestas por la FSA.
   preguntas_abiertas:
-  - ¿Cuál es el volumen exacto de pérdidas no realizadas en la cartera de bonos extranjeros
-    debido al entorno prolongado de tipos altos en EE.UU.?
-  - ¿Qué ritmo específico de desinversión de participaciones cruzadas ejecutará la
-    gerencia en el presente año fiscal?
-  - ¿Cómo evolucionará el coste del riesgo (cost of risk) en la cartera crediticia
-    corporativa ante un eventual debilitamiento del ciclo global?
+  - ¿Cuál es el ritmo exacto y objetivo de tasa terminal contemplado por el equipo
+    directivo de Mizuho para sus modelos de sensibilidad del NIM?
+  - ¿Qué nivel de exposición tiene la cartera crediticia en USD/EUR ante refinanciaciones
+    inmobiliarias corporativas en EE.UU. y Europa?
 clasificacion_oportunidad:
   categoria: ciclica
-  categorias_descartadas: Descartado 'Deep Value' porque, aunque cotiza a múltiplos
-    moderados sobre valor contable, su apreciación responde más a un cambio estructural
-    del ciclo monetario que a activos puramente liquidados o infravalorados estáticamente.
-    Descartado 'Compounder' ya que la rentabilidad histórica sobre el capital ha estado
-    limitada por las tasas negativas en Japón y la rigidez de costes regulatorios/tecnológicos.
-  justificacion: Mizuho Financial Group es un megabanco sistémico japonés cuyo rendimiento
-    operativo y rentabilidad están intrínsecamente ligados a los ciclos macroeconómicos,
-    las políticas de tipos de interés del Banco de Japón (BoJ) y el ciclo de crédito
-    global. Tras más de una década de tipos de interés negativos y compresión de márgenes,
-    se encuentra en un punto de inflexión cíclico positivo debido a la normalización
-    monetaria en Japón.
+  categorias_descartadas: 'Value Trap: Descartada porque el cambio estructural en
+    la política monetaria del BoJ y las reformas de gobernanza de la Bolsa de Tokio
+    (TSE) están desbloqueando valor real. Compounder: Descartada debido a su sensibilidad
+    a los ciclos crediticios y a sus problemas operativos históricos (fallos de sistemas
+    TI) que impiden considerarla un negocio de crecimiento compuesto predecible y
+    constante.'
+  justificacion: Mizuho Financial Group es un megabanco japonés cuyo desempeño financiero
+    y rentabilidad sobre el capital están profundamente ligados a los ciclos macroeconómicos,
+    la política monetaria del Banco de Japón (BoJ) y el ciclo de tipos de interés.
+    Tras décadas de tipos negativos que comprimieron los márgenes netos de interés
+    (NIM), la compañía se encuentra en el inicio de un ciclo alcista de margen financiero.
 dominio_business_quality:
-  analisis: Mizuho posee un foso competitivo (Moat) moderado sostenido por su estatus
-    de megabanco sistémico (G-SIB) en Japón, sólidas relaciones bancarias corporativas
-    históricas y altas barreras de entrada en servicios financieros institucionales
-    y de custodia. Sin embargo, su negocio de banca minorista doméstica enfrenta desafíos
-    de eficiencia estructural y la competencia de neobancos en Japón. Su presencia
-    diversificada en EE.UU. y Asia añade resiliencia a la franquicia.
+  analisis: Mizuho forma parte del oligopolio bancario japonés (junto con MUFG y SMFG),
+    lo que le otorga una posición defensiva sólida, relaciones corporativas históricas
+    con el tejido empresarial japonés (Keiretsu) y acceso a una base masiva de depósitos
+    de bajo coste. Sin embargo, su foso competitivo es ligeramente inferior al de
+    sus pares debido a fragilidades operativas históricas en sus plataformas tecnológicas.
   rating: buena
 dominio_catalizadores:
-- descripcion: Subidas adicionales de tipos de interés oficiales por parte del Banco
-    de Japón.
-  horizonte: corto
+- descripcion: Normalización continuada de tipos de interés por parte del Banco de
+    Japón.
+  horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 75
-- descripcion: Anuncios de recompras masivas de acciones propias respaldadas por la
-    venta de participaciones cruzadas.
+  probabilidad_pct: 80
+- descripcion: Incremento del programa de recompra de acciones y cancelación de capital
+    accionario impulsado por la Bolsa de Tokio.
   horizonte: corto
   impacto: medio
   nivel_confianza: alto
   probabilidad_pct: 85
-- descripcion: Alcanzar los objetivos de ROE por encima del 9-10% acelerando la revisión
-    al alza del múltiplo P/BV.
+- descripcion: Captura de sinergias e incremento de ingresos por asesoría de fusiones
+    y adquisiciones mediante la integración de Greenhill.
   horizonte: medio
-  impacto: alto
+  impacto: medio
   nivel_confianza: medio
   probabilidad_pct: 65
 dominio_esg_supply_chain:
-  analisis: Mizuho enfrenta escrutinio en ESG debido a su histórica exposición de
-    financiación a proyectos energéticos basados en combustibles fósiles en Asia,
-    aunque ha endurecido sus políticas de descarbonización. En cuanto a cadena de
-    suministro y operativa, el riesgo principal reside en la resiliencia de su infraestructura
-    tecnológica (historias pasadas de interrupciones del sistema informático central),
-    aunque las inversiones recientes han mitigado significativamente este riesgo.
+  analisis: Sujeto a escrutinio creciente en ESG por la financiación histórica a proyectos
+    de carbón y combustibles fósiles en Asia. En gobernanza corporativa, Mizuho está
+    corrigiendo carencias pasadas e implementando estructuras de supervisión de riesgos
+    más estrictas tras las sanciones del regulador japonés (FSA) por fallos informáticos
+    previos.
   rating: medio_riesgo
 dominio_financial_health:
-  analisis: Como institución bancaria internacional, su balance debe analizarse bajo
-    métricas de solvencia regulatoria. Presenta ratios de capital Common Equity Tier
-    1 (CET1) plenamente alineados con los estándares de Basilea III y holgados sobre
-    los requerimientos regulatorios. Su base de depósitos domésticos es extremadamente
-    estable y de bajo coste, proporcionando un perfil de liquidez excepcionalmente
-    robusto.
+  analisis: La posición financiera es robusta con una ratio CET1 adecuada bajo los
+    estándares de Basilea III. El apalancamiento operativo es alto pero típico de
+    instituciones financieras sistémicas. La estructura de fondos está dominada por
+    depósitos corporativos y minoristas estables, lo que proporciona máxima liquidez
+    ante volatilidad de mercado.
   rating: fuerte
 dominio_growth:
-  analisis: 'El crecimiento de ingresos (+29.8% TTM en USD favorecido por dinamismo
-    operativo y volatilidad de divisa) está impulsado por: 1) La repreciación de préstamos
-    corporativos en yenes tras los giros de política del BoJ, 2) El crecimiento de
-    operaciones de mercados globales y banca de inversión en las Américas, y 3) La
-    expansión de la gestión de activos y soluciones de tesorería corporativa internacional.'
+  analisis: El crecimiento futuro no dependerá del aumento del volumen de créditos
+    sino de la expansión de margen neto de interés (NIM) en Japón, el crecimiento
+    de ingresos por comisiones en gestión de activos y la expansión internacional
+    de banca corporativa e inversión.
   rating: moderado
 dominio_management:
-  analisis: El equipo directivo liderado recientemente por un nuevo CEO presenta una
-    propiedad interna (insider ownership) virtualmente nula, algo común en la banca
-    corporativa tradicional japonesa. Si bien históricamente la asignación de capital
-    estuvo penalizada por la retención de participaciones cruzadas ineficientes y
-    fallos en sistemas informáticos pasados, la nueva gestión ha mostrado mayor disciplina,
-    mejorando el ROE objetivo y alineándose con las directivas de la Bolsa de Tokio
-    para la creación de valor.
+  analisis: El equipo directivo actual cuenta con poca antigüedad en el cargo (CEO
+    con 0 años en la posición según métricas recientes) y una alineación accionarial
+    directa modesta (0.0% insider ownership). La asignación de capital está mejorando
+    drásticamente debido a la presión regulatoria en Japón, dirigiendo capital hacia
+    recompras de acciones y adquisiciones selectivas de bancas de inversión globales.
   rating: regular
 dominio_riesgos:
 - impacto: alto
   probabilidad: media
-  riesgo: Giro acomodaticio o pausa prolongada del Banco de Japón ante debilidad económica
-    global, ralentizando el ensanchamiento del NIM.
+  riesgo: Giro acomodaticio inesperado del BoJ por recesión severa en Japón que paralice
+    la subida de tipos de interés.
 - impacto: medio
   probabilidad: media
-  riesgo: Deterioro de la calidad crediticia en la cartera de préstamos corporativos
-    internacionales (especialmente inmobiliario comercial en EE.UU.).
+  riesgo: Aumento del deterioro crediticio en la cartera de préstamos corporativos
+    internacionales ante tipos de interés elevados globales.
 - impacto: alto
   probabilidad: baja
-  riesgo: Riesgo operativo y cibernético en las plataformas de procesamiento de pagos
-    y liquidación interbancaria.
+  riesgo: Resurgimiento de fallos críticos en la infraestructura de tecnología de
+    la información que genere sanciones regulatorias y pérdida de clientes.
 error_mercado:
   catalizador_cambio:
-    descripcion: Aceleración en las subidas de tipos por parte del BoJ junto con la
-      reasignación masiva de capital proveniente de la venta de participaciones cruzadas
-      hacia buybacks y dividendo.
+    descripcion: Aceleración en las subidas de tipos de interés oficiales por parte
+      del Banco de Japón hacia el 0.50%-1.00% y consecución de un ROE sostenible superior
+      al 9-10% apoyado en recompras masivas de acciones.
     horizonte: medio
     impacto: alto
-    probabilidad_pct: 80
+    probabilidad_pct: 75
   conclusion_error_valoracion: SI
-  consenso_actual: El mercado descuenta un crecimiento moderado del margen neto de
-    interés (NIM) derivado de subidas graduales y limitadas del tipo de interés por
-    parte del Banco de Japón, asumiendo que el exceso de liquidez doméstica y el estancamiento
-    del crédito maduro en Japón limitarán la expansión del ROE estructural más allá
-    de un dígito bajo.
-  hipotesis_contraria: El mercado subestima el apalancamiento operativo no lineal
-    de la cartera de depósitos de Mizuho ante la salida definitiva de la política
-    de tipos negativos (NIRP), así como el impacto acelerador de la reforma de gobernanza
-    corporativa impulsada por la Bolsa de Tokio (TSE) que fuerza el desmantelamiento
-    de participaciones cruzadas (cross-shareholdings) y la aceleración de recompras
-    de acciones y dividendos.
-  razonamiento: Existe un desajuste entre la percepción del mercado sobre Mizuho como
-    un banco estancado sin crecimiento y la realidad de una inflexión estructural
-    en el margen de interés doméstico combinada con un aumento agresivo en la eficiencia
-    del capital y el retorno al accionista.
-generated_at: '2026-07-30T02:12:22.050725-03:00'
+  consenso_actual: El mercado descuenta que Mizuho es un banco tradicional de bajo
+    crecimiento con eficiencias operativas inferiores a sus competidores directos
+    (MUFG y SMFG), asumiendo un impacto moderado de las subidas de tipos del BoJ y
+    asignándole un múltiplo de valoración históricamente deprimido (P/B por debajo
+    de la media global).
+  hipotesis_contraria: El mercado subestima el apalancamiento operativo del enorme
+    volumen de depósitos en yenes de Mizuho ante pequeños incrementos de los tipos
+    de interés. Cada subida de tipos de interés por parte del BoJ pasa casi directamente
+    al margen neto de interés sin aumentar sustancialmente el coste de los depósitos
+    retail. Además, el mercado no refleja completamente el impacto de las reformas
+    de capital exigidas por la TSE (reagrupación de activos no estratégicos y recompra
+    de acciones).
+  razonamiento: Existe una asimetría positiva clara entre la valoración actual que
+    exige el mercado y el beneficio no lineal que obtendrá la cuenta de resultados
+    de Mizuho conforme se normalice la curva de rendimientos en Japón.
+generated_at: '2026-07-30T07:19:56.564739-03:00'
 opinion_valoracion: infravalorado
 opp_id: OPP-20260730-001
 prompt_inputs:
@@ -159,23 +148,18 @@ prompt_inputs:
   sector: Financial Services
   ticker: MFG
 resumen_ejecutivo: Mizuho Financial Group (MFG) representa una oportunidad de inversión
-  cíclica y de valor sustancial respaldada por la normalización de la política monetaria
-  japonesa tras décadas de deflación y tipos de interés cero/negativos. Con unos ingresos
-  TTM de $27.67B (+29.8% YoY) y un margen operativo del 35.6%, el grupo está aprovechando
-  tanto la expansión del margen neto de intermediación como la diversificación de
-  ingresos por comisiones internacionales y bancas de inversión. Aunque los retornos
-  históricos (ROIC del 11.4% aproximado a nivel consolidado de negocio financiero)
-  estaban atados al entorno de tipos, las reformas gubernamentales de eficiencia de
-  capital actúan como un potente viento de cola para cerrar el descuento sobre el
-  valor contable tangible.
+  cíclica/value impulsada por un cambio de régimen macroeconómico estructural en Japón.
+  Con unos ingresos TTM de $27.67B (+29.8% YoY) y un margen operativo del 35.6%, MFG
+  ofrece exposición directa a la expansión de márgenes por la salida de la política
+  de tipos de interés negativos del BoJ, complementada por adquisiciones estratégicas
+  en banca de inversión (e.g. Greenhill) para diversificar sus ingresos por comisiones.
 score_general: 74
-tesis_inversion: La tesis de inversión en Mizuho Financial Group se basa en un cambio
-  de paradigma de la macroeconomía japonesa. Tras décadas de deflación y NIRP, la
-  normalización de tipos por parte del BoJ genera una expansión directa y de alto
-  margen en el negocio de intermediación financiera. Al mismo tiempo, la presión de
-  los reguladores japoneses y de la TSE está transformando la gobernanza del banco,
-  impulsando la desinversión de activos improductivos para retornar capital a los
-  accionistas. Mizuho cotiza con un descuento atractivo respecto a sus pares globales
-  a pesar de mostrar un impulso de beneficios sólido (+29.8% ingresos TTM).
+tesis_inversion: Mizuho Financial Group ofrece una atractiva relación riesgo/beneficio
+  para una Family Office que busque exposición a la revitalización financiera de Japón.
+  El valor cotiza con un descuento injustificado teniendo en cuenta la sensibilidad
+  positiva de sus depósitos a la subida de tipos de interés, el viento de cola en
+  gobernanza corporativa que acelera la retribución al accionista y el fuerte repunte
+  del beneficio operativo (+29.8% en ingresos TTM). Los riesgos clave están acotados
+  por la naturaleza sistémica y oligopólica de la entidad.
 ticker: MFG
 version: '3.0'
