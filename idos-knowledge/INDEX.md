@@ -34,6 +34,7 @@ Total: 48 companies tracked
 - 📄 [[DECK|Deckers Outdoor Corporation]]
 - 📄 [[LVS|Las Vegas Sands Corp.]]
 - 📄 [[PDD|PDD Holdings Inc.]]
+- 📄 [[RACE|Ferrari N.V.]]
 - 📄 [[TCOM|Trip.com Group Limited]]
 
 ## Financial Services

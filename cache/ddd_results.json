@@ -1,54 +1,53 @@
 {
   "processed": [
     {
-      "ticker": "NMR",
+      "ticker": "RACE",
       "opp_id": "OPP-20260730-001",
-      "status": "ddd_failed",
-      "score": 50,
-      "classification": null,
+      "status": "completed",
+      "score": 88,
+      "classification": "compounder",
       "force": true,
       "event_type": "quarterly-results"
     }
   ],
   "assessments": [
     {
-      "ticker": "NMR",
+      "ticker": "RACE",
       "opp_id": "OPP-20260730-001",
       "status": "completed",
-      "conviction_score": 56,
+      "conviction_score": 65,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260730010457",
+      "decision_id": "DEC-20260730010509",
       "assessments": {
-        "BusinessAssessmentEngine": 48,
-        "ValuationAssessmentEngine": 45,
-        "RecoveryAssessmentEngine": 49,
-        "RiskAssessmentEngine": 80,
+        "BusinessAssessmentEngine": 68,
+        "ValuationAssessmentEngine": 55,
+        "RecoveryAssessmentEngine": 59,
+        "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
+        "RULE-003",
         "RULE-004",
+        "RULE-005",
         "RULE-006",
         "RULE-007",
         "RULE-009"
       ],
       "rules_failed": [
         "RULE-001",
-        "RULE-002",
-        "RULE-003",
-        "RULE-005",
-        "RULE-008"
+        "RULE-002"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 48/100",
-        "RULE-002": "Price target margin: 5.5%",
-        "RULE-003": "Rerating: 49/100",
-        "RULE-004": "Risk: 80/100",
-        "RULE-005": "Conviction: 56/100",
+        "RULE-001": "Business quality: 68/100",
+        "RULE-002": "Price target margin: 16.0%",
+        "RULE-003": "Rerating: 59/100",
+        "RULE-004": "Risk: 70/100",
+        "RULE-005": "Conviction: 65/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
-        "RULE-008": "No hay datos de DDD para calcular asimetria",
+        "RULE-008": "B/R inf:1 \u2705 (upside 36.6% / downside 0.0%)",
         "RULE-009": "Posiciones activas: 0/10 max (competencia por capital)"
       },
       "data_quality": "good"
