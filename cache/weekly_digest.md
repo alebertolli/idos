@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-30 14:43 AR_
+_Generado: 2026-07-30 14:44 AR_
 
 ## Resumen
 
@@ -12,19 +12,16 @@ _Generado: 2026-07-30 14:43 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ⚠️ **GRMN** (OPP-20260730-001): score=50, class=None
+- ✅ **KGC** (OPP-20260725-004): score=85, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **GRMN**
-  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/GRMN/case_file/opportunities/OPP-20260730-001)
-  - Conviction: 63/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 45 | Recovery: 52 | Risk: 80 | Portfolio: 90
+- ⚠️ **KGC**
+  - Opp: [OPP-20260725-004](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/KGC/case_file/opportunities/OPP-20260725-004)
+  - Conviction: 73/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 80 | Recovery: 60 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 68/100
-    - 🚫 RULE-002: Price target margin: -9.9%
-    - 🚫 RULE-005: Conviction: 63/100
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 
