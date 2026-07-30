@@ -1,12 +1,12 @@
 ## 1. Visión General de la Compañía
 
-**Ferrari N.V.** ([[RACE]]) es un fabricante italiano de automóviles deportivos de lujo de altísimo rendimiento con sede en Maranello, Italia. Fundada en 1947 por Enzo Ferrari, la compañía opera fundamentalmente como una **casa de super-lujo** desvinculada del ciclo automotriz tradicional, compitiendo en el vértice de la pirámide de bienes de consumo exclusivo junto a firmas como [[RMS]] (Hermès) y marcas del grupo [[MC]] (LVMH).
+**Ferrari N.V.** ([[RACE]]) es un fabricante italiano de automóviles deportivos de lujo de altísimo rendimiento con sede en Maranello, Italia. Fundada en 1947 por Enzo Ferrari, la compañía opera como una **casa de ultra-lujo** desvinculada del ciclo automotriz tradicional, posicionada en el vértice de la pirámide de bienes de consumo exclusivo junto a firmas como [[RMS]] (Hermès) y marcas del grupo [[MC]] (LVMH).
 
-La empresa gestiona estratégicamente un modelo de **escasez artificial controlada** ("vender siempre un vehículo menos de lo que demanda el mercado"), lo que le otorga una deseabilidad única y un poder de fijación de precios superior. Sus operaciones abarcan el diseño, ingeniería, fabricación y comercialización de vehículos deportivos de serie, ediciones limitadas, autos de pista y modelos "One-off", así como la concesión de licencias de marca, servicios financieros y la gestión de su icónica escudería de Fórmula 1.
+La empresa gestiona un modelo de **escasez artificial controlada** ("vender siempre un vehículo menos de lo que demanda el mercado"), lo que le otorga una deseabilidad única y un poder de fijación de precios inigualable. Sus operaciones abarcan el diseño, ingeniería, fabricación y comercialización de vehículos deportivos de serie, ediciones limitadas (*Icona*), superdeportivos, autos de pista y modelos "One-off", así como la concesión de licencias de marca, servicios financieros y la gestión de su escudería de Fórmula 1.
 
 *   **Ticker / Cotización**: [[RACE]] (NYSE / Borsa Italiana)
 *   **Sede Central**: Maranello, Emilia-Romaña, Italia
-*   **Accionista de Referencia**: [[EXOR]] N.V. (holding de la familia Agnelli)
+*   **Accionista de Control**: [[EXOR]] N.V. (holding de la familia Agnelli)
 *   **Clasificación de Inversión**: *Compounder* de alta calidad
 
 ---
@@ -15,80 +15,71 @@ La empresa gestiona estratégicamente un modelo de **escasez artificial controla
 
 ### Drivers de Ingresos y Cadena de Valor
 Ferrari genera sus ingresos a través de cinco líneas principales:
-1.  **Vehículos de Serie y Pista**: Modelos V8 y V12 (híbridos y de combustión) como pilar de volumen básico.
-2.  **Ediciones Especiales e Icona**: Series ultralimitadas (ej. Purosangue, Monza SP1/SP2, sucesor de LaFerrari) con márgenes brutos superiores al 60%.
-3.  **Personalización (*Tailor Made* y Atelier)**: Programa opcional que permite a los compradores personalizar cada detalle del vehículo, incrementando sustancialmente el precio medio de venta (ASP) y ampliando el margen operativo.
+1.  **Vehículos de Serie y Pista**: Modelos V8 y V12 (de combustión interna e híbridos) como pilar de volumen básico.
+2.  **Ediciones Especiales e Icona**: Series ultralimitadas (ej. Monza SP1/SP2, Daytona SP3, Purosangue) con márgenes brutos superiores al 60%.
+3.  **Personalización (*Tailor-Made* y Atelier)**: Programa opcional que permite a los compradores personalizar cada detalle del vehículo, incrementando sustancialmente el precio medio de venta (ASP) y el margen operativo.
 4.  **Motores y Repuestos**: Suministro de componentes de rendimiento e ingeniería.
-5.  **Patrocinios, Licencias y Estilo de Vida**: Explotación de la marca en productos de lujo, parques temáticos y patrocinio deportivo en la Fórmula 1.
+5.  **Patrocinios, Licencias y Estilo de Vida**: Explotación comercial de la marca en bienes de lujo, productos de estilo de vida y patrocinio deportivo en Fórmula 1.
 
-La cadena de valor está altamente integrada verticalmente en sus instalaciones de Maranello, controlando desde la fundición de componentes hasta el ensamblaje artesanal final.
+La cadena de valor está integrada verticalmente en Maranello, desde la fundición y desarrollo de motores hasta el ensamblaje artesanal final.
 
 ### Análisis de Foso Competitivo (Moat)
-El foso competitivo de Ferrari es de grado **Amplio (*Wide Moat*)** y se sustenta en dos pilares intangibles e inimitables:
-*   **Valor de Marca y Herencia Histórica**: Más de 75 años de tradición en la alta competición (Fórmula 1) otorgan una identidad emocional y cultural que ningún competidor tecnológico o automotriz tradicional puede replicar a corto o medio plazo.
-*   **Poder de Fijación de Precios e Inelasticidad de la Demanda**: La demanda supera de forma estructural a la oferta. La visibilidad de la cartera de pedidos (*backlog*) supera los 24 meses (cubriendo la producción hasta 2026), lo que desvincula las ventas de las fluctuaciones del ciclo económico global.
+El foso competitivo de Ferrari es de grado **Amplio (*Wide Moat*)**, sustentado en activos intangibles e inimitables:
+*   **Valor de Marca y Herencia Histórica**: Más de 75 años de liderazgo en automovilismo de alta competición (Fórmula 1) otorgan un valor de estatus y legitimidad que ningún competidor reciente puede replicar.
+*   **Poder de Fijación de Precios e Inelasticidad de la Demanda**: La demanda supera de forma estructural a la oferta. La visibilidad de la cartera de pedidos (*backlog*) supera los 24 meses (cubriendo la producción hasta 2026), aislando el negocio de las fluctuaciones macroeconómicas.
 
 ### Dinámica Competitiva
-Ferrari no compite directamente con fabricantes del volumen premium como [[MBG]] (Mercedes-Benz) o [[BMW]], sino en el segmento de hiper-lujo y superdeportivos frente a marcas como Aston Martin, Lamborghini (grupo Volkswagen) y McLaren. Frente a estos, Ferrari ostenta la mayor rentabilidad operativa y el mayor poder de personalización por unidad comercializada.
+Ferrari no compite en el mercado automotriz masivo ni premium con firmas como [[MBG]] (Mercedes-Benz) o [[BMW]], sino en el segmento de hiper-lujo frente a marcas como Aston Martin, Lamborghini (Grupo Volkswagen) y McLaren. Frente a ellas, Ferrari ostenta la mayor rentabilidad operativa y el mayor poder de personalización por unidad producida.
 
 ---
 
 ## 3. Perfil Financiero
 
-Ferrari presenta métricas financieras excepcionales que reflejan su posicionamiento de monopolio dentro del segmento de hiper-lujo, destacando un retorno sobre el capital invertido (ROIC) que supera el 30%.
+Ferrari presenta métricas financieras excepcionales que reflejan su posición de monopolio en el segmento de hiper-lujo, destacando un retorno sobre el capital invertido (ROIC) superior al 30%.
 
-### Métricas Clave y Múltiplos de Valoración
+### Métricas Clave
 
-| Métrica Financiera / Múltiplo | Valor | Clasificación / Observación |
+| Métrica Financiera / Múltiplo | Valor TTM / Actual | Observación / Análisis |
 | :--- | :--- | :--- |
-| **ROIC** | 30.89% | Excepcional (Generación de valor muy superior al WACC) |
-| **Margen Operativo (EBIT)** | 29.28% | Niveles de casas de ultra-lujo (ej. [[RMS]]) |
-| **Crecimiento de Ingresos** | 6.73% - 9.0% | Orgánico, impulsado por precio/mix y personalización |
-| **P/E (PER)** | 39.43x - 45.0x | Prima histórica reflejando alta calidad y previsibilidad |
-| **EV / EBITDA** | 23.25x | Elevado, acorde a la naturaleza de activo *compounder* |
-| **FCF Yield** | ~2.10% | Compresión por reinversión en plataforma EV (*e-building*) |
-| **Deuda / Patrimonio Neto (D/E)** | 0.72x | Balance conservador y sólido |
+| **Ingresos (Revenue)** | $8.31 B | Crecimiento del +6.73% YoY impulsado por mix/precio |
+| **Margen Operativo (EBIT)** | 29.28% | Niveles comparables con casas de ultra-lujo como [[RMS]] |
+| **ROIC** | 30.89% | Excepcional generación de retorno sobre capital invertido |
+| **Deuda / Patrimonio Neto (D/E)** | 0.70x - 0.72x | Estructura de capital sólida y conservadora |
+| **Conversión FCF** | 0.50 | Impactada por inversión intensiva en la plataforma EV (*e-building*) |
+| **FCF Yield** | ~2.10% | Comprensión temporal por ciclo de reinversión |
+| **P/E (PER)** | 40.39x - 45.0x | Múltiplo de casa de lujo pura |
+| **EV / EBITDA** | 23.58x - 25.0x | Múltiplo elevado reflejando estatus de *Compounder* |
 
 ### Dinámica de Capital de Trabajo
-El modelo de negocio se beneficia de un flujo de caja operativo sumamente eficiente. Los clientes realizan importantes depósitos y anticipos en efectivo al momento de realizar el pedido con años de antelación, lo que financia el ciclo de producción y otorga una visibilidad de caja única en la industria.
+Los clientes realizan importantes depósitos y anticipos en efectivo al momento de realizar el pedido con años de antelación. Esto otorga una visibilidad de caja excepcional y financia el ciclo de producción antes de la entrega final.
 
 ---
 
 ## 4. Management y Gobierno Corporativo
 
 ### Liderazgo Ejecutivo
-*   **CEO**: Benedetto Vigna (nombrado en septiembre de 2021). Procedente de la industria de semiconductores (ex-STMicroelectronics), su perfil técnico fue seleccionado específicamente para liderar la transición tecnológica de la compañía hacia el vehículo eléctrico y la integración de software de alto rendimiento sin comprometer la dinámica de conducción.
+*   **CEO**: Benedetto Vigna (desde septiembre de 2021). Procedente de la industria de semiconductores (ex-STMicroelectronics), su perfil tecnológico fue seleccionado para liderar la electrificación y la integración de software de alto rendimiento sin comprometer la herencia mecánica.
 
 ### Gobierno Corporativo y Alineamiento
-*   **Accionista de Control**: El holding [[EXOR]] N.V. (vehículo de inversión de la familia Agnelli) ostenta la participación de control mediante la estructura de derechos de voto reforzados. Esto aísla a la dirección de presiones cortoplacistas de Wall Street y garantiza un enfoque estratégico en la preservación de la exclusividad a largo plazo.
-*   **Asignación de Capital**: Priorización estricta de la I+D interna (construcción del *e-building* en Maranello para motores eléctricos y baterías), seguida de un dividendo creciente (payout ~35%) y programa constante de recompra oportunista de acciones.
+*   **Accionista de Control**: [[EXOR]] N.V. (holding de la familia Agnelli) ostenta el control mediante un sistema de derechos de voto reforzados. Esta estructura aísla a la directiva de presiones cortoplacistas del mercado y garantiza el enfoque en la preservación del aura de exclusividad a largo plazo.
+*   **Asignación de Capital**: Prioridad en I+D interna (desarrollo del *e-building* en Maranello para baterías y propulsores eléctricos), dividendos crecientes (~35% de *payout*) y recompra oportunista de acciones.
 
 ---
 
 ## 5. Tesis de Inversión
 
 ### Caso Alcista (Compounder Tesis)
-Ferrari representa la combinación óptima de un negocio de lujo de máxima categoría enmascarado bajo una estructura automotriz. 
+Ferrari representa una franquicia de ultra-lujo global bajo la forma jurídica de una empresa automotriz. Su capacidad para fijar precios e incrementar el volumen de personalización desvincula sus flujos de caja del ciclo económico tradicional.
 
-> *"Su modelo de negocio desvinculado del ciclo automotriz tradicional y sus márgenes de monopolio garantizan retornos sobre el capital superiores al 30%."*
+> *"La combinación de un backlog de producción superior a dos años, poder de precio inelástico en la base UHNWI y márgenes EBIT cercanos al 30% confirman su estatus de Compounder quintageneracional."*
 
-**Hechos Verificados que Respaldan la Tesis:**
-1.  **Visibilidad Absoluta de Ventas**: La cartera de pedidos actual cubre la producción hasta 2026, garantizando flujos de caja predecibles independientemente del entorno macroeconómico.
-2.  **Expansión de Márgenes por Personalización**: La adopción de los programas *Tailor Made* y el peso de las ediciones *Icona* permiten continuar elevando el margen EBIT hacia el objetivo del 30-32%.
-3.  **Inmunidad Ciclica Relativa**: El perfil demográfico del cliente (UHNWIs) muestra baja sensibilidad a tipos de interés e inflación.
-
----
-
-## 6. Riesgos y Contra-Tesis
-
-### Hipótesis Contraria / Caso Bajista
-El consenso del mercado asume una transición impecable hacia el vehículo eléctrico de batería (BEV). Sin embargo, existe el riesgo estructural de que la electrificación diluya el aura emocional y acústica asociada a los tradicionales motores V8 y V12 de combustión.
-
-```
-Transición a BEV -> Pérdida de identidad acústica/mec
+#### Hechos Verificados
+1. **Rendimiento Financiero Consistente**: Ingresos TTM de $8.31B (+6.73%), Margen Operativo de 29.28% y ROIC de 30.89%.
+2. **Protección de Balance**: Relación Deuda/Capital contenida en 0.7x.
+3. **
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[LVS|Las Vegas Sands Corp.]], [[PDD|PDD Holdings Inc.]], [[TCOM|Trip.com Group Limited]]
+- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[AMZN|Amazon.com, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[LVS|Las Vegas Sands Corp.]], [[PDD|PDD Holdings Inc.]], [[TCOM|Trip.com Group Limited]]

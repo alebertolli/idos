@@ -12,18 +12,17 @@ _Generado: 2026-07-30 07:22 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **MFG** (OPP-20260730-001): score=74, class=ciclica
+- ✅ **RACE** (OPP-20260730-001): score=88, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **MFG**
-  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MFG/case_file/opportunities/OPP-20260730-001)
-  - Conviction: 63/100 | Rec: BLOCKED
-  - Scores: Business: 66 | Valuation: 45 | Recovery: 60 | Risk: 70 | Portfolio: 90
+- ⚠️ **RACE**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/RACE/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 57 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 66/100
-    - 🚫 RULE-002: Price target margin: 6.8%
-    - 🚫 RULE-005: Conviction: 63/100
+    - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-002: Price target margin: 16.2%
 
 ---
 
