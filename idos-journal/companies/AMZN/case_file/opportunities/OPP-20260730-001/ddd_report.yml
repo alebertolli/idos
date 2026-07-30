@@ -1,15 +1,110 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-30T11:37:05.411997-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - Ventas consolidadas creciendo a ritmos superiores al 10% interanual
+  - AWS representa más del 60% del beneficio operativo consolidado históricamente
+  - Margen operativo recuperado por encima del 10% tras la regionalización logística
+    y contención de costes
+  inferencias_llm:
+  - El capex actual en IA generará retornos ajustados por riesgo elevados similares
+    al ciclo inicial de migración a la nube de AWS
+  - La penetración publicitaria dentro de Prime Video y la red de comercio continuará
+    expandiendo el margen bruto consolidado
+  preguntas_abiertas:
+  - ¿Cuál es el retorno marginal exacto (ROIC) proyectado para los compromisos de
+    capex en centros de datos e infraestructura de IA de los próximos 3 años?
+  - ¿Hasta qué punto las posibles resoluciones de la FTC podrían limitar el acoplamiento
+    entre la plataforma e-commerce y los servicios de logística Prime?
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: Compounder castigado (descartado porque la cotización ha
+    recuperado fuerza y no cotiza con un descuento por pánico/distensión operativa);
+    Hype (descartado porque posee generación real de caja y dominancia operativa probada).
+  justificacion: Amazon es un compounder dominante global con potentes efectos de
+    red, escala e infraestructura inexpugnable (AWS, Prime, red logística de última
+    milla y publicidad). Cotiza a valoraciones razonables considerando la aceleración
+    del margen operativo derivada del cambio de mix hacia publicidad y servicios AWS
+    de mayor margen.
+dominio_business_quality:
+  analisis: 'Amazon posee múltiples moats superpuestos: economías de escala en e-commerce
+    y logística, costes de cambio (switching costs) y efectos de red en AWS, y cautiverio
+    de clientes a través del ecosistema Amazon Prime. La división de publicidad añade
+    una capa de alta rentabilidad sobre la infraestructura existente.'
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Expansión del margen operativo consolidad por encima de consensos históricos
+    debido al crecimiento relativo de Publicidad y AWS
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 80
+- descripcion: Monetización masiva y adopción empresarial de soluciones de IA en AWS
+    (Bedrock, Trainium)
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 70
+dominio_esg_supply_chain:
+  analisis: Riesgos laborales en centros de cumplimiento (sindicalización, rotación
+    de personal), investigación antimonopolio y escrutinio regulatorio por posición
+    dominante en el marketplace en EE. UU. y Europa. Dependencia de cadenas de suministro
+    globales para productos de terceros y componentes de hardware.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Balance robusto con apalancamiento moderado (D/E ~0.5x). Aunque el FCF
+    reportado fluctúa marcadamente debido al ciclo de capex intensivo en servidores
+    de IA e infraestructura de datos, el flujo de caja operativo de fondo es extraordinariamente
+    sólido.
+  rating: fuerte
+dominio_growth:
+  analisis: 'Impulsado por tres factores clave: 1) Aceleración de AWS impulsada por
+    la migración a la nube y cargas de trabajo de IA; 2) Crecimiento de ingresos por
+    servicios publicitarios a tasas superiores al 20%; 3) Expansión del margen del
+    e-commerce internacional a medida que maduran sus mercados.'
+  rating: fuerte
+dominio_management:
+  analisis: Andy Jassy ha demostrado una ejecución disciplinada desde su nombramiento
+    como CEO, priorizando el margen operativo, cerrando iniciativas no rentables (cost-cutting)
+    y rediseñando la logística a un modelo regionalizado. Asignación de capital enfocada
+    en consolidar la posición de AWS en IA.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgo Antitrust y regulatorio (FTC y Unión Europea persiguiendo prácticas
+    anticompetitivas o forzando escisiones)
+- impacto: medio
+  probabilidad: media
+  riesgo: Compresión de retornos del capital por sobreinversión masiva en capex de
+    infraestructura de IA sin demanda correspondiente a corto plazo
+- impacto: medio
+  probabilidad: alta
+  riesgo: Intensificación de la competencia en Cloud/IA por parte de Microsoft Azure
+    y Google Cloud
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aceleración de márgenes operativos consolidados hacia el 13-15% impulsados
+      por publicidad y monetización de chips de IA propios (Trainium/Inferentia) en
+      AWS.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 75
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado descuenta un crecimiento de ingresos del 10-12% compuesto,
+    con AWS creciendo a ritmos de mid-teens y una expansión gradual pero moderada
+    del margen operativo. La valoración actual asume un capex elevado sostenido por
+    infraestructura de IA que comprime temporalmente los retornos sobre el capital
+    invertido.
+  hipotesis_contraria: El mercado subestima la magnitud del apalancamiento operativo
+    en el segmento de publicidad (alto margen >50%) y la aceleración del margen en
+    la red logística norteamericana tras la regionalización. Además, el mercado trata
+    el capex en IA como una carga destructora de valor en lugar de una reinversión
+    con alto retorno futuro en AWS.
+  razonamiento: Existe una ligera desalineación entre el análisis del mercado (centrado
+    en el capex masivo de corto plazo) y la capacidad estructural de Amazon para convertir
+    dicho capex en monopolio de infraestructura en la era de la IA generativa y monetización
+    publicitaria.
+generated_at: '2026-07-30T13:07:04.360370-03:00'
+opinion_valoracion: justo
 opp_id: OPP-20260730-001
 prompt_inputs:
   business_model: 'Amazon.com, Inc. engages in the retail sale of consumer products,
@@ -42,8 +137,17 @@ prompt_inputs:
   roic: 13.49
   sector: Consumer Cyclical
   ticker: AMZN
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: 'Amazon representa un negocio de calidad excepcional con tres motores
+  complementarios: E-commerce (volumen/escala), AWS (efecto escala cloud e IA) y Publicidad
+  (alto margen). Tras la reestructuración de costes post-pandemia y la regionalización
+  de su red logística, la rentabilidad operativa ha mejorado drásticamente. A pesar
+  de los elevados requerimientos de capex para IA, la empresa mantiene una fortaleza
+  de balance sobresaliente y capacidad de generación de caja a largo plazo.'
+score_general: 88
+tesis_inversion: Amazon es un activo de altísima calidad ('core holding' para Family
+  Offices) que cotiza a un precio justo por sus flujos proyectados. La tesis se apoya
+  en la expansión estructural de márgenes impulsada por la mezcla de ventas hacia
+  publicidad y AWS, compensando con creces la madurez relativa del comercio electrónico
+  minorista.
 ticker: AMZN
 version: '3.0'

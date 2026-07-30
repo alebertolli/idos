@@ -12,17 +12,17 @@ _Generado: 2026-07-30 13:12 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ⚠️ **KGC** (OPP-20260725-004): score=50, class=None
+- ✅ **AMZN** (OPP-20260730-001): score=88, class=quality_at_fair_price
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **KGC**
-  - Opp: [OPP-20260725-004](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/KGC/case_file/opportunities/OPP-20260725-004)
-  - Conviction: 72/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 80 | Recovery: 54 | Risk: 80 | Portfolio: 90
+- ⚠️ **AMZN**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AMZN/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Scores: Business: 54 | Valuation: 60 | Recovery: 56 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 68/100
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+    - 🚫 RULE-001: Business quality: 54/100
+    - 🚫 RULE-005: Conviction: 62/100
 
 ---
 
