@@ -15,44 +15,105 @@ from idos.timezone import AR_TZ
 
 
 def _format_wyckoff_md(ticker: str, signal: Any) -> str:
+    def _val(d: dict | None, *keys: str) -> str:
+        for k in keys:
+            if d and k in d and d[k] is not None and d[k] != "" and d[k] != 0:
+                return str(d[k])
+        return "N/A"
+
+    def _float_val(d: dict | None, *keys: str) -> str:
+        for k in keys:
+            if d and k in d and d[k] is not None and d[k] != 0 and d[k] != "":
+                try:
+                    return f"{float(d[k]):.2f}"
+                except (ValueError, TypeError):
+                    return str(d[k])
+        return "N/A"
+
+    raw = signal.wyckoff_raw
+    ind = signal.wyckoff_indicators
+
+    current_price = _float_val(ind, "current_price")
+    ma_50d = _float_val(ind, "ma_50d")
+    ma_200d = _float_val(ind, "ma_200d")
+    pct_ma50 = _val(ind, "pct_from_ma50")
+    pct_ma200 = _val(ind, "pct_from_ma200")
+    high_52w = _float_val(ind, "high_52w")
+    low_52w = _float_val(ind, "low_52w")
+    pct_52w_high = _val(ind, "pct_from_52w_high")
+    pct_52w_low = _val(ind, "pct_from_52w_low")
+    trend = _val(ind, "recent_trend")
+    spread_desc = _val(ind, "bar_spread_description")
+    vol_desc = _val(ind, "volume_description")
+    support = _val(ind, "support_levels")
+    resistance = _val(ind, "resistance_levels")
+    algo_phase = _val(ind, "algorithmic_phase")
+
     eventos = []
-    if signal.wyckoff_raw:
-        for e in (signal.wyckoff_raw.get("eventos_wyckoff_detectados") or []):
+    if raw:
+        for e in (raw.get("eventos_wyckoff_detectados") or []):
             if isinstance(e, dict):
                 eventos.append(f"| {e.get('evento', '?')} | {e.get('descripcion', '')} | {e.get('confianza', '')} |")
 
     pruebas = []
-    if signal.wyckoff_raw:
-        pc = signal.wyckoff_raw.get("pruebas_compra") or {}
+    pasan = "?"
+    total = "?"
+    if raw:
+        pc = raw.get("pruebas_compra") or {}
+        pasan = str(pc.get("pruebas_pasan", "?"))
+        total = str(pc.get("total_pruebas", "?"))
         for i in range(1, 10):
             key = f"prueba_{i}_"
             val = next((v for k, v in pc.items() if k.startswith(key)), "N/A")
             emoji = "✅" if val == "Pasa" else "❌" if val == "NoPasa" else "⬜"
             pruebas.append(f"- {emoji} Prueba {i}: {val}")
 
-    pasan = "?"
-    total = "?"
-    if signal.wyckoff_raw:
-        pc = signal.wyckoff_raw.get("pruebas_compra") or {}
-        pasan = pc.get("pruebas_pasan", "?")
-        total = pc.get("total_pruebas", "?")
+    stop_loss = _float_val(raw, "stop_loss_sugerido", "precio") if raw else "N/A"
+    price_target = "N/A"
+    if raw:
+        pt = raw.get("precio_objetivo_wyckoff") or {}
+        price_target = _float_val(pt, "estimado")
 
-    stop_loss = f"${signal.wyckoff_st_loss:.2f}" if signal.wyckoff_stop_loss else "N/A"
-    price_target = f"${signal.wyckoff_price_target:.2f}" if signal.wyckoff_price_target else "N/A"
+    entry_point = signal.wyckoff_entry_point or "N/A"
+    confidence = signal.wyckoff_confidence or _val(raw, "confianza") or "N/A"
+    senal_llm = _val(raw, "senal_entrada") if raw else "N/A"
 
-    return (
+    md = (
         f"# Analisis Wyckoff - {ticker} - {datetime.now(AR_TZ).strftime('%Y-%m-%d')}\n\n"
         f"## Fase detectada: {signal.wyckoff_phase.title()}\n"
-        f"## Score: {signal.wyckoff_score}/100 (confianza: {signal.wyckoff_confidence})\n"
-        f"## Senal: {'COMPRAR' if signal.all_conditions_met else 'MANTENER'}\n\n"
-        f"### Eventos Wyckoff Detectados\n"
-        f"| Evento | Descripcion | Confianza |\n"
-        f"|--------|-------------|-----------|\n"
-        + ("".join(eventos) if eventos else "| - | Ninguno | - |\n") + "\n"
-        f"### Pruebas de Compra\n"
-        + "\n".join(pruebas) + "\n\n"
-        f"**Pasan:** {pasan}/{total}\n\n"
-        f"### Punto de Entrada: {signal.wyckoff_entry_point or 'N/A'}\n"
+        f"## Score: {signal.wyckoff_score}/100\n"
+        f"## Confianza: {confidence}\n"
+        f"## Senal LLM: {senal_llm}\n\n"
+    )
+
+    md += "### Indicadores Tecnicos\n"
+    md += f"| Indicador | Valor |\n|-----------|-------|\n"
+    md += f"| Precio Actual | ${current_price} |\n"
+    md += f"| MA 50d | ${ma_50d} ({pct_ma50}%) |\n"
+    md += f"| MA 200d | ${ma_200d} ({pct_ma200}%) |\n"
+    md += f"| Max 52 sem | ${high_52w} ({pct_52w_high}%) |\n"
+    md += f"| Min 52 sem | ${low_52w} ({pct_52w_low}%) |\n"
+    md += f"| Tendencia reciente | {trend} |\n"
+    md += f"| Spread de barras | {spread_desc} |\n"
+    md += f"| Volumen | {vol_desc} |\n"
+    md += f"| Soportes | {support} |\n"
+    md += f"| Resistencias | {resistance} |\n"
+    md += f"| Fase algoritmica | {algo_phase} |\n\n"
+
+    if eventos:
+        md += "### Eventos Wyckoff Detectados\n"
+        md += "| Evento | Descripcion | Confianza |\n|--------|-------------|-----------|\n"
+        md += "".join(eventos) + "\n"
+
+    if pruebas:
+        md += "### Pruebas de Compra\n"
+        md += "\n".join(pruebas) + "\n\n"
+        md += f"**Pasan:** {pasan}/{total}\n\n"
+    else:
+        md += "### Pruebas de Compra\nNo disponible (analisis algoritmico)\n\n"
+
+    md += (
+        f"### Punto de Entrada: {entry_point}\n"
         f"### Precio Objetivo Wyckoff: {price_target}\n"
         f"### Stop Loss Sugerido: {stop_loss}\n"
         f"### Peso Ajustado: {signal.adjusted_weight:.1f}%\n"
@@ -60,6 +121,7 @@ def _format_wyckoff_md(ticker: str, signal: Any) -> str:
         f"### Target (Tesis): ${signal.target_price:.2f}\n"
         f"### Margen de Seguridad: {signal.margin_of_safety_pct:.1f}%\n"
     )
+    return md
 
 
 class EntryMonitorWorker(BaseWorker):
@@ -254,6 +316,7 @@ class EntryMonitorWorker(BaseWorker):
             "price_target": signal.wyckoff_price_target,
             "adjusted_weight": signal.adjusted_weight,
             "llm_response": signal.wyckoff_raw,
+            "indicators": signal.wyckoff_indicators,
             "triggered_entry": signal.all_conditions_met,
         }
         with open(journal_file, "w", encoding="utf-8") as f:

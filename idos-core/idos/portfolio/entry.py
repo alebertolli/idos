@@ -29,6 +29,7 @@ class EntrySignal:
     wyckoff_phase: str = ""
     reason: str = ""
     wyckoff_raw: dict | None = None
+    wyckoff_indicators: dict | None = None
     wyckoff_score: int = 0
     wyckoff_confidence: str = ""
     wyckoff_entry_point: str = ""
@@ -94,6 +95,7 @@ class EntryEngine:
             wyckoff_phase=result.phase.value,
             reason="Entry conditions met" if all_ok else f"Blocked: price_ok={price_in_zone}, wyckoff={wyckoff_confirmed}(score={result.score}), thesis={thesis_active}, pf={pf_ok}{', LLM score bypassed' if not has_llm else ''}",
             wyckoff_raw=result.raw_llm_response,
+            wyckoff_indicators=result.indicators if result.indicators else None,
             wyckoff_score=result.score,
             wyckoff_confidence=result.confidence_label,
             wyckoff_entry_point=result.entry_point,
