@@ -40,21 +40,20 @@ To be evaluated
 - **Revenue Growth**: 21.45
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.43
-- **PER**: 22.07
-- **EV/EBITDA**: 13.76
+- **PER**: 20.07
+- **EV/EBITDA**: 12.64
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Meta Platforms cotiza a una valoración atractiva cuando se ajusta por su tasa de crecimiento y rentabilidad sobre capital (ROIC 25.4%). El mercado está descontando el Capex de IA como un gasto a fondo perdido, ignorando que fortalece directamente el foso de la plataforma publicitaria core. Se recomienda acumular posición en este Compounder de alta calidad, aprovechando la volatilidad causada por los anuncios de gasto en infraestructura.
+To be formulated
 
 ---
 

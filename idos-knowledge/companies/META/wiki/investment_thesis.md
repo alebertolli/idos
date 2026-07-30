@@ -1,1 +1,1 @@
-Meta Platforms cotiza a una valoración atractiva cuando se ajusta por su tasa de crecimiento y rentabilidad sobre capital (ROIC 25.4%). El mercado está descontando el Capex de IA como un gasto a fondo perdido, ignorando que fortalece directamente el foso de la plataforma publicitaria core. Se recomienda acumular posición en este Compounder de alta calidad, aprovechando la volatilidad causada por los anuncios de gasto en infraestructura.
+To be formulated
