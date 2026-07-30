@@ -12,16 +12,16 @@ _Generado: 2026-07-30 01:06 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **KGC** (OPP-20260725-004): score=68, class=ciclica
+- ✅ **MA** (OPP-20260730-001): score=88, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **KGC**
-  - Opp: [OPP-20260725-004](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/KGC/case_file/opportunities/OPP-20260725-004)
-  - Conviction: 73/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 80 | Recovery: 60 | Risk: 80 | Portfolio: 90
+- ⚠️ **MA**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MA/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 55 | Recovery: 61 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-002: Price target margin: 14.3%
 
 ---
 

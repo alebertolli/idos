@@ -1,0 +1,175 @@
+calidad_evidencia:
+  hechos_verificados:
+  - Ingresos TTM de $33,940M con crecimiento interanual del +12.5%
+  - Margen operativo del 59.5% y ROIC reportado del 95.2%
+  - Modelo duopólico global junto con Visa en procesamiento de tarjetas de crédito/débito
+  inferencias_llm:
+  - El impacto de las redes públicas locales (Pix/UPI) se mitiga en parte por la incapacidad
+    de estas redes para replicar la ciberseguridad y los servicios transfronterizos
+    globales de Mastercard
+  - La tenencia del CEO Michael Miebach es de aproximadamente 3-4 años (asumió en
+    enero de 2021), corrigiendo el dato de '0 años' provisto en el prompt
+  preguntas_abiertas:
+  - ¿Cuál es el FCF ajustado exacto en el periodo TTM más reciente dada la inconsistencia
+    en el dataset proporcionado?
+  - ¿Cuál será el texto final y el grado de apoyo bipartidista de la Credit Card Competition
+    Act en el Congreso de EE.UU.?
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: Se descartó 'compounder_castigado' porque la cotización
+    no sufre un descuento severo ni padece problemas operativos temporales. Se descartó
+    'quality_at_fair_price' como opción secundaria ya que, aunque la valoración es
+    exigente, su trayectoria histórica la define fundamentalmente como un compounder
+    de largo plazo. Se descartaron 'turnaround', 'deep_value' y 'value_trap' por la
+    ausencia total de deterioro estructural o quiebra operativa.
+  justificacion: Mastercard es un negocio de calidad excepcional con ventajas competitivas
+    casi inexpugnables (red duopólica con Visa), márgenes operativos del 59.5%, ROIC
+    superior al 90% y capacidad demostrada para hacer crecer sus ingresos a doble
+    dígito (+12.5% TTM) de forma consistente durante décadas a través de ciclos económicos.
+dominio_business_quality:
+  analisis: 'Mastercard posee un moat basado en efectos de red de dos lados (tarjetahabientes
+    y comercios) e intensos costes de cambio para instituciones financieras emisoras.
+    Operar un peaje sobre el comercio global le otorga un apalancamiento operativo
+    masivo: procesar transacciones adicionales no requiere capex significativo, lo
+    que se traduce en un margen operativo del 59.5% y ROIC excepcional del 95.2%.'
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Mayor monetización y penetración de soluciones de ciberseguridad y
+    prevención de fraude (Value-Added Services)
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 80
+- descripcion: Resolución favorable o dilución legislativa del Credit Card Competition
+    Act en EE.UU.
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 60
+- descripcion: Expansión continuada de pagos B2B mediante Mastercard Move capturando
+    cuota del sistema SWIFT tradicional
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 70
+dominio_esg_supply_chain:
+  analisis: El riesgo de cadena de suministro es insignificante dado que se trata
+    de una red basada en software y tecnología. En materia ESG, el foco crítico es
+    la gobernanza y la responsabilidad social/regulatoria en relación a las tarifas
+    de intercambio (interchange fees) y la protección de datos/privacidad de los consumidores.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: Con ingresos de $33.94B (+12.5% TTM), el balance de Mastercard es sumamente
+    sólido. El modelo requiere escaso capital de trabajo y capex reducido, generando
+    flujos de caja libre masivos y recurrentes. La deuda corporativa está estructurada
+    a plazos largos con costes de interés bajos y coberturas cómodas.
+  rating: fuerte
+dominio_growth:
+  analisis: 'Los motores de crecimiento incluyen: 1) Conversión continua de efectivo
+    a digital en mercados emergentes. 2) Crecimiento a doble dígito en Servicios de
+    Valor Añadido (ciberseguridad, fraud analytics, fidelización). 3) Mastercard Move
+    para pagos transfronterizos y B2B/P2P. Visibilidad de ingresos muy alta por naturaleza
+    recurrente.'
+  rating: fuerte
+dominio_management:
+  analisis: El CEO Michael Miebach (en el cargo desde 2021) ha guiado con éxito la
+    expansión hacia pagos cross-border y servicios de valor añadido (seguridad, datos,
+    IA). La estrategia de asignación de capital es altamente disciplinada, priorizando
+    la recompra sistemática de acciones y el incremento continuo del dividendo.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Presión regulatoria sobre tarifas de intercambio y competencia forzada (ej.
+    Credit Card Competition Act en EE.UU.)
+- impacto: medio
+  probabilidad: media
+  riesgo: Desintermediación por sistemas de pago instantáneo estatales o locales (Pix
+    en Brasil, UPI en India, FedNow)
+- impacto: medio
+  probabilidad: baja
+  riesgo: Desaceleración severa en el consumo global y viajes internacionales (impacto
+    en volumen transfronterizo de alto margen)
+error_mercado:
+  catalizador_cambio:
+    descripcion: Resolución o estancamiento de iniciativas legislativas restrictivas
+      de comisiones (CCCA en EE.UU.) junto con una aceleración en la adopción de servicios
+      de valor añadido (VAS) superando el 35% del revenue total.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 65
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El mercado descuenta que Mastercard mantendrá su crecimiento del
+    11-13% en ingresos apoyado en la transición secular hacia pagos digitales, el
+    crecimiento de servicios de valor añadido (VAS) y la resiliencia del consumo global.
+    La valoración refleja múltiplos PER de ~28-32x, asumiendo la perpetuidad de su
+    fosa competitiva sin interrupciones regulatorias disruptivas.
+  hipotesis_contraria: El mercado podría estar subestimando el impacto a largo plazo
+    de las redes de pago públicas/locales (Pix en Brasil, UPI en India, FedNow en
+    EE.UU.) y la presión regulatoria (Credit Card Competition Act en EE.UU.). No obstante,
+    también subestima la capacidad de Mastercard para monetizar servicios de ciberseguridad,
+    prevención de fraude y flujos B2B (Mastercard Move), lo que preserva su rendimiento
+    por transacción.
+  razonamiento: No existe una gran desconexión o error manifiesto de mercado; la acción
+    cotiza a una valoración que refleja fielmente la altísima calidad del activo.
+    Cualquier desajuste es marginal y depende de la ponderación que el mercado otorgue
+    a los riesgos regulatorios frente a la expansión de márgenes por servicios de
+    valor añadido.
+generated_at: '2026-07-30T01:02:48.162134-03:00'
+opinion_valoracion: justo
+opp_id: OPP-20260730-001
+prompt_inputs:
+  business_model: Mastercard Incorporated, a technology company, provides transaction
+    processing and other payment-related products and services in the United States
+    and internationally. The company offers products and services for account holders,
+    merchants, financial institutions, digital partners, businesses, governments,
+    and other organizations, such as programs that enable issuers to provide consumers
+    with credits to defer payments; payment products and solutions that allow its
+    customers to access funds in deposit and other accounts; prepaid programs services;
+    consumer bill payment services; and commercial credit, debit, and prepaid payment
+    products and solutions. It also provides solutions that enable businesses or governments
+    to make payments to businesses, including Virtual Card Number, which is generated
+    dynamically from an existing account and leverages the credit limit of the funding
+    account; and a platform to optimize supplier payment enablement campaigns for
+    financial institutions. In addition, the company offers Mastercard Move, which
+    partners with digital messaging and payment platforms to enable consumers to send
+    money directly within applications to other consumers; and partners with central
+    banks, fintechs, and financial institutions, as well as enables various cross-border
+    payment flows. Further, it provides security solutions; marketing, personalization,
+    and issuer and merchant loyalty services; business and operational intelligence,
+    advanced analytics and AI, consulting and agentic solutions, and payments and
+    portfolio optimization; digital and authentication; processing and gateway solutions;
+    and other solutions. The company offers payment solutions and services under the
+    MasterCard, Maestro, and Cirrus names. Mastercard Incorporated was founded in
+    1966 and is headquartered in Purchase, New York.
+  ceo_tenure: 0
+  debt_to_equity: 0.0282
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: MA
+  operating_margin: 59.55
+  pe_ratio: 31.92
+  products: ''
+  revenue: 33939999999.999996
+  revenue_growth: 12.51
+  roic: 95.21
+  sector: Financial Services
+  ticker: MA
+resumen_ejecutivo: Mastercard (MA) representa uno de los modelos de negocio más defensivos,
+  escalables y rentables del mundo financiero. Operando como un peaje global en el
+  consumo en efectivo a digital, la compañía se beneficia de potentes efectos de red
+  globales, márgenes operativos del 59.5% y un ROIC del 95.2%. Aunque los riesgos
+  regulatorios y las redes de pago instantáneo locales representan vientos en contra
+  a vigilar, la diversificación hacia servicios de ciberseguridad, analítica y pagos
+  B2B consolida su tesis de inversión como un Compounder de primer nivel para carteras
+  de Family Office a largo plazo.
+score_general: 88
+tesis_inversion: Mastercard es una posición de mantener/acumular estructuralmente
+  para una Family Office. Ofrece una combinación rara de apalancamiento operativo,
+  protección contra la inflación (al cobrar un % sobre el volumen transaccionado)
+  y opcionalidad en servicios de seguridad digital. Aunque la valoración cotiza en
+  rangos históricos normales y no hay un 'error de mercado' evidente, su capacidad
+  de compounding al 12-15% anual en EPS justifica su inclusión en cartera con compras
+  periódicas o en momentos de volatilidad regulatoria.
+ticker: MA
+version: '3.0'
