@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-30 02:18 AR_
+_Generado: 2026-07-30 02:19 AR_
 
 ## Resumen
 
@@ -12,18 +12,16 @@ _Generado: 2026-07-30 02:18 AR_
 
 ### Errores
 
-- ✅ **LYG** (OPP-20260725-040): score=68, class=quality_at_fair_price
+- ✅ **FSLR** (OPP-20260725-006): score=85, class=compounder_castigado
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **LYG**
-  - Opp: [OPP-20260725-040](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/LYG/case_file/opportunities/OPP-20260725-040)
-  - Conviction: 59/100 | Rec: BLOCKED
-  - Scores: Business: 58 | Valuation: 45 | Recovery: 54 | Risk: 70 | Portfolio: 90
+- ⚠️ **FSLR**
+  - Opp: [OPP-20260725-006](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/FSLR/case_file/opportunities/OPP-20260725-006)
+  - Conviction: 72/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 75 | Recovery: 58 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 58/100
-    - 🚫 RULE-002: Price target margin: 5.3%
-    - 🚫 RULE-005: Conviction: 59/100
+    - 🚫 RULE-001: Business quality: 68/100
 
 ---
 
