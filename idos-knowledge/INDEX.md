@@ -41,6 +41,7 @@ Total: 48 companies tracked
 ## Financial Services
 - 📄 [[BCS|Barclays PLC]]
 - 📄 [[C|Citigroup Inc.]]
+- 📄 [[COIN|Coinbase Global, Inc.]]
 - ⏳ [[HDB|HDFC Bank Limited]]
 - 📄 [[ING|ING Groep N.V.]]
 - 📄 [[ITUB|Itaú Unibanco Holding S.A.]]
