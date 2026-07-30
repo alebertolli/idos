@@ -1,4 +1,4 @@
-name: Daily Data Refresh
+﻿name: Daily Data Refresh
 
 on:
   schedule:
@@ -212,9 +212,10 @@ jobs:
                   'intrinsic_value': intrinsic,
                   'base_path': str(bp),
               })
-              print(f'[PAPER] {ticker}: {pr.get(\"status\")} - {pr.get(\"reason\", \"\")}')
-              if pr.get('status') == 'executed':
-                  print(f'[PAPER] {ticker}: {pr.get(\"quantity\")} shares @ \${pr.get(\"price\",0):.2f} = \${pr.get(\"value\",0):.2f} SL=\${pr.get(\"stop_loss\",0):.2f}')
+              r2 = pr.output if hasattr(pr, 'output') else pr
+              print(f'[PAPER] {ticker}: {r2.get(\"status\")} - {r2.get(\"reason\", \"\")}')
+              if r2.get('status') == 'executed':
+                  print(f'[PAPER] {ticker}: {r2.get(\"quantity\")} shares @ \${r2.get(\"price\",0):.2f} = \${r2.get(\"value\",0):.2f} SL=\${r2.get(\"stop_loss\",0):.2f}')
           "
       - name: Risk Monitor - Daily stop-loss check
         run: |
@@ -266,8 +267,9 @@ jobs:
                       if ph:
                           prices[ticker] = ph[0]['close']
           if prices:
-              pr = pw.execute({'action': 'check_stops', 'current_prices': prices, 'base_path': str(bp)})
-              exits = pr.get('exits', [])
+              pr2 = pw.execute({'action': 'check_stops', 'current_prices': prices, 'base_path': str(bp)})
+              r2 = pr2.output if hasattr(pr2, 'output') else pr2
+              exits = r2.get('exits', [])
               for ex in exits:
                   print(f'[PAPER] STOP LOSS: {ex.get(\"ticker\")} P&L={ex.get(\"pnl_pct\",0):+.2f}%')
               if not exits:
@@ -300,7 +302,8 @@ jobs:
           from datetime import datetime
           now = datetime.now(AR_TZ)
           pr = pw.execute({'action': 'report', 'report_date': now.isoformat(), 'base_path': str(bp)})
-          print(f'[REPORT] Status: {pr.get(\"status\")}, Path: {pr.get(\"report_path\", \"\")}')
+          r = pr.output if hasattr(pr, 'output') else pr
+          print(f'[REPORT] Status: {r.get("status")}, Path: {r.get("report_path", "")}')
           "
       - name: Post-Mortem - Check exited opportunities
         run: |

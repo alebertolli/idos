@@ -398,7 +398,8 @@ jobs:
           from datetime import datetime
           now = datetime.now(AR_TZ)
           pr = pw.execute({'action': 'report', 'report_date': now.isoformat(), 'base_path': str(bp)})
-          print(f'[REPORT] Status: {pr.get(\"status\")}, Path: {pr.get(\"report_path\", \"\")}')
+          r = pr.output if hasattr(pr, 'output') else pr
+          print(f'[REPORT] Status: {r.get("status")}, Path: {r.get("report_path", "")}')
           "
       - name: Commit results
         run: |
