@@ -46,14 +46,14 @@ To be evaluated
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-La empresa es una buena oportunidad de inversión debido a su posición competitiva en el sector y su capacidad para generar cash flow consistente.
+To be formulated
 
 ---
 
