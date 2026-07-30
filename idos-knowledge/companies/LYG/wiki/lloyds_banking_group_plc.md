@@ -1,5 +1,3 @@
-## Lloyds Banking Group plc
-
 ### 1. Visión General de la Compañía  
 Lloyds Banking Group plc (LBG) es un banco británico que opera a través de sus filiales en los segmentos de **Retail**, **Commercial Banking** y **Insurance, Pensions and Investments**. La compañía ofrece una amplia gama de productos financieros, incluyendo cuentas corrientes, ahorros, hipotecas, tarjetas de crédito, préstamos sin garantía, financiamiento de vehículos, leasing, servicios de banca comercial, seguros, pensiones e inversiones. Su modelo de negocio se basa en ingresos por intereses, comisiones y servicios de seguros, con una fuerte presencia de marca y una red de sucursales y canales digitales en el Reino Unido.  
 - **Fundación**: 1695 (con sede en Londres, Reino Unido).  
@@ -8,7 +6,6 @@ Lloyds Banking Group plc (LBG) es un banco británico que opera a través de sus
 
 > Fuente: Wiki existente y AOIF Paso 1.
 
----
 
 ### 2. Modelo de Negocio y Posición Competitiva  
 | Driver | Descripción |
@@ -21,7 +18,6 @@ Lloyds Banking Group plc (LBG) es un banco británico que opera a través de sus
 
 > Fuente: AOIF Pasos 1‑3; DDD “clasificación_oportunidad”.
 
----
 
 ### 3. Perfil Financiero  
 | Métrica | 2023 (USD m) | 2022 (USD m) | Tendencia |
@@ -40,7 +36,6 @@ Lloyds Banking Group plc (LBG) es un banco británico que opera a través de sus
 
 > Fuente: AOIF Paso 2; DDD “calidad_evidencia”.
 
----
 
 ### 4. Management y Gobierno Corporativo  
 - **Calidad del liderazgo**: Calificado como “regular” por la ausencia de propiedad significativa de insiders (0 %) y falta de historial claro de asignación de capital.  
@@ -49,7 +44,6 @@ Lloyds Banking Group plc (LBG) es un banco británico que opera a través de sus
 
 > Fuente: DDD “dominio_management”.
 
----
 
 ### 5. Tesis de Inversión  
 **Caso alcista**:  
@@ -62,7 +56,6 @@ Lloyds Banking Group plc (LBG) es un banco británico que opera a través de sus
 
 > Fuente: DDD “opinion_valoracion”, “tesis_inversion”; AOIF Paso 6‑7.
 
----
 
 ### 6. Riesgos y Contra‑Tesis  
 | Riesgo | Probabilidad | Impacto | Trigger de falsación |
@@ -74,7 +67,6 @@ Lloyds Banking Group plc (LBG) es un banco británico que opera a través de sus
 
 > Fuente: DDD “dominio_riesgos”; AOIF Paso 5.
 
----
 
 ### 7. Catalizadores y Timeline  
 | Evento | Fecha esperada | Impacto | Nivel de confianza |
@@ -86,7 +78,6 @@ Lloyds Banking Group plc (LBG) es un banco británico que opera a través de sus
 
 > Fuente: DDD “dominio_catalizadores”; AOIF Paso 7.
 
----
 
 ### 8. Marco de Valoración  
 - **Modelo**: Descuento de flujos de caja (DCF) con un WACC de 6 % y un crecimiento terminal del 2 %.  
@@ -101,7 +92,6 @@ Lloyds Banking Group plc (LBG) es un banco británico que opera a través de sus
 
 > Fuente: AOIF Paso 6; DDD “error_mercado”.
 
----
 
 ### 9. Preguntas Abiertas y Agenda de Investigación  
 1. **Efecto de los tipos de interés**: ¿Cómo evolucionará el NIM bajo diferentes escenarios de tasas?  
@@ -111,12 +101,3 @@ Lloyds Banking Group plc (LBG) es un banco británico que opera a través de sus
 5. **Calidad de la cartera**: ¿Cuál es la evolución de la morosidad en la cartera hipotecaria y de crédito corporativo?  
 
 > Fuente: DDD “calidad_evidencia” (preguntas abiertas).
-
----
-
----
-
-## Related Companies
-
-- **Same Sector**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[HDB|HDFC Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
-- **Same Industry**: [[HDB|HDFC Bank Limited]], [[ITUB|Itaú Unibanco Holding S.A.]], [[USB|U.S. Bancorp]]

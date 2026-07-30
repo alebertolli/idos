@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-30 01:06 AR_
+_Generado: 2026-07-30 01:08 AR_
 
 ## Resumen
 
@@ -12,18 +12,18 @@ _Generado: 2026-07-30 01:06 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **ING** (OPP-20260725-030): score=85, class=compounder
+- ✅ **LYG** (OPP-20260725-040): score=73, class=compounder_castigado
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **ING**
-  - Opp: [OPP-20260725-030](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ING/case_file/opportunities/OPP-20260725-030)
-  - Conviction: 64/100 | Rec: BLOCKED
-  - Scores: Business: 63 | Valuation: 55 | Recovery: 58 | Risk: 70 | Portfolio: 90
+- ⚠️ **LYG**
+  - Opp: [OPP-20260725-040](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/LYG/case_file/opportunities/OPP-20260725-040)
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 45 | Recovery: 55 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 63/100
-    - 🚫 RULE-005: Conviction: 64/100
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-002: Price target margin: 5.3%
+    - 🚫 RULE-005: Conviction: 59/100
 
 ---
 

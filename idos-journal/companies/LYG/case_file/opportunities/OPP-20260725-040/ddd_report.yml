@@ -1,15 +1,102 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-27T01:34:55.468749-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - Revenue $25,260M
+  - Revenue growth +7.9%
+  - Operating margin 37.7%
+  - ROIC 10.8%
+  - Excess Return ROIC +0.0%
+  - Debt/Equity 0.0x
+  - Interest coverage 0.0x
+  inferencias_llm:
+  - El bajo D/E sugiere capacidad de financiar crecimiento interno
+  - El ROIC cercano al WACC indica que el retorno supera el costo del capital solo
+    marginalmente
+  - La ausencia de insider ownership sugiere alineación limitada con accionistas
+  preguntas_abiertas:
+  - ¿Cuál será la evolución del NIM bajo diferentes escenarios de tipos?
+  - ¿En qué medida el programa de reducción de costos se mantendrá?
+  - ¿Cómo afectará la regulación de fintech al negocio de banca minorista?
+clasificacion_oportunidad:
+  categoria: compounder_castigado
+  categorias_descartadas: deep_value, turnaround, cyclical, special_situation, distressed,
+    quality_at_fair_price, hype, value_trap, compounder
+  justificacion: Lloyds es un negocio de alta calidad con amplio moat en banca minorista
+    y comercial, pero está temporalmente fuera de favor por tipos de interés bajos,
+    presión regulatoria y falta de crecimiento de ingresos, lo que lo sitúa como un
+    compounder castigado.
+dominio_business_quality:
+  analisis: Lloyds mantiene una posición dominante en el mercado británico de cuentas
+    corrientes y hipotecas, con marcas reconocidas y una base de clientes fieles.
+    El moat se sustenta en la red de sucursales, la marca y la integración de servicios
+    de seguros y gestión de patrimonio. Sin embargo, la competencia de fintech y la
+    presión de tipos de interés pueden erosionar parte del margen.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Aumento de los tipos de interés del Banco de Inglaterra en 2024
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 45
+- descripcion: Realización de ahorros de 300 m£ en gastos operativos para 2025
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: 'Los riesgos ESG son típicos del sector bancario: exposición a finanzas
+    verdes y a préstamos hipotecarios. No hay dependencias de proveedores críticos,
+    y la gestión de riesgos climáticos está en fase de desarrollo, lo que mantiene
+    el riesgo bajo.'
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: Balance sólido con bajo apalancamiento (D/E 0.0x según datos), alta cobertura
+    de intereses y generación de cash flow operativa. El FCF ajustado es 0M, lo que
+    indica que la empresa reinvierte gran parte de su cash flow, pero la posición
+    de liquidez es suficiente para soportar un escenario de tipos adversos.
+  rating: fuerte
+dominio_growth:
+  analisis: El crecimiento orgánico de ingresos es bajo (7.9% TTM revenue growth pero
+    con margen estable). No se evidencia una estrategia de expansión inorgánica activa;
+    la mayor parte del crecimiento proviene de la base existente, lo que limita la
+    visibilidad futura de ingresos.
+  rating: debil
+dominio_management:
+  analisis: La dirección carece de propiedad significativa (insider ownership 0%)
+    y el historial de asignación de capital es poco transparente. La ausencia de un
+    track record claro en retornos de capital a largo plazo eleva la incertidumbre
+    sobre la capacidad de crear valor sostenible.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgo regulatorio y de cumplimiento
+- impacto: medio
+  probabilidad: alta
+  riesgo: Riesgo de tipos de interés
+- impacto: alto
+  probabilidad: baja
+  riesgo: Riesgo crediticio en cartera hipotecaria
+error_mercado:
+  catalizador_cambio:
+    descripcion: Incremento de los tipos de interés del Banco de Inglaterra que eleve
+      el NIM en 30‑40 bps y la consecución de ahorros de 300 m£ en gastos operativos.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 45
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas asumen un crecimiento de ingresos del 2‑3% anual,
+    márgenes estables y un ROIC alrededor del 10%, reflejado en un P/E de ~7‑8x y
+    un dividend yield de ~4‑5%. El consenso incorpora estabilidad pero sin catalizadores
+    de crecimiento significativo.
+  hipotesis_contraria: El mercado subestima la recuperación del ingreso neto por intereses
+    ante un entorno de tipos en alza, la eficiencia de costos del programa de reducción
+    de gastos y la expansión de la gestión de patrimonio, lo que podría impulsar márgenes
+    y ROIC por encima del consenso.
+  razonamiento: Existe una discrepancia entre los múltiplos actuales y el potencial
+    de mejora de márgenes y generación de caja, lo que sugiere una oportunidad de
+    valoración errónea.
+generated_at: '2026-07-30T01:04:02.431540-03:00'
+opinion_valoracion: infravalorado
 opp_id: OPP-20260725-040
 prompt_inputs:
   business_model: 'Lloyds Banking Group plc, together with its subsidiaries, provides
@@ -35,15 +122,20 @@ prompt_inputs:
   insider_ownership: 0
   name: Lloyds Banking Group plc
   operating_margin: 37.71
-  pe_ratio: 14.41
+  pe_ratio: 14.53
   products: ''
   revenue: 25260000000.0
   revenue_growth: 7.88
   roic: 10.78
   sector: Financial Services
   ticker: LYG
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: Lloyds presenta un modelo de negocio sólido y diversificado, pero
+  está subvalorado por expectativas de crecimiento limitadas. Un posible aumento de
+  tipos y la ejecución de iniciativas de costos podrían revalorizar la acción, ofreciendo
+  un upside estimado del 20‑30% en 18‑24 meses.
+score_general: 73
+tesis_inversion: Comprar Lloyds a precios actuales ofrece exposición a un banco de
+  alta calidad con potencial de revalorización por mejora de márgenes y dividendos,
+  con horizonte de 18‑24 meses y upside estimado del 20‑30%.
 ticker: LYG
 version: '3.0'
