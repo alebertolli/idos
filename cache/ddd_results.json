@@ -1,62 +1,14 @@
 {
-  "processed": [
+  "processed": [],
+  "assessments": [],
+  "errors": [
     {
-      "ticker": "AMZN",
-      "opp_id": "OPP-20260730-001",
-      "status": "completed",
-      "score": 85,
-      "classification": "compounder",
-      "force": true,
-      "event_type": "quarterly-results"
+      "ticker": "KGC",
+      "error": "object of type 'NoneType' has no len()"
     }
   ],
-  "assessments": [
-    {
-      "ticker": "AMZN",
-      "opp_id": "OPP-20260730-001",
-      "status": "completed",
-      "conviction_score": 62,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": "HOLD",
-      "decision_id": "DEC-20260730011017",
-      "assessments": {
-        "BusinessAssessmentEngine": 54,
-        "ValuationAssessmentEngine": 60,
-        "RecoveryAssessmentEngine": 54,
-        "RiskAssessmentEngine": 70,
-        "PortfolioAssessmentEngine": 90
-      },
-      "rules_passed": [
-        "RULE-002",
-        "RULE-003",
-        "RULE-004",
-        "RULE-005",
-        "RULE-006",
-        "RULE-007",
-        "RULE-009"
-      ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-005"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 54/100",
-        "RULE-002": "Price target margin: 38.1%",
-        "RULE-003": "Rerating: 54/100",
-        "RULE-004": "Risk: 70/100",
-        "RULE-005": "Conviction: 62/100",
-        "RULE-006": "Position weight: 3.0%",
-        "RULE-007": "Sector exposure: 3.0%",
-        "RULE-008": "B/R inf:1 \u2705 (upside 53.6% / downside 0.0%)",
-        "RULE-009": "Posiciones activas: 0/10 max (competencia por capital)"
-      },
-      "data_quality": "good"
-    }
-  ],
-  "errors": [],
   "total": 1,
-  "done": 1,
+  "done": 0,
   "event_type": "quarterly-results",
   "force": true
 }
