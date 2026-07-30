@@ -21,7 +21,8 @@ _Generado: 2026-07-30 13:12 AR_
   - Conviction: 72/100 | Rec: BLOCKED
   - Scores: Business: 68 | Valuation: 80 | Recovery: 54 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-001: Business quality: 50/100
+    - 🚫 RULE-005: Conviction: 62/100
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
