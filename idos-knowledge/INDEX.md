@@ -64,6 +64,7 @@ Total: 48 companies tracked
 - 📄 [[ASML|ASML Holding N.V.]]
 - 📄 [[CLS|Celestica Inc.]]
 - 📄 [[FSLR|First Solar, Inc.]]
+- 📄 [[GRMN|Garmin Ltd.]]
 - 📄 [[MSFT|Microsoft Corporation]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 - 📄 [[PLTR|Palantir Technologies Inc.]]
