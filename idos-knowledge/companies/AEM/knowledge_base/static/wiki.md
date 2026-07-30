@@ -40,20 +40,20 @@ To be evaluated
 - **Revenue Growth**: 6.58
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.01
-- **PER**: 12.66
+- **PER**: 12.67
 - **EV/EBITDA**: 6.94
 
 ---
 
 ## Catalysts
-
-To be identified
+- **Catalyst** (Impact: medium, Timeline: medium)
+- **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-To be formulated
+La empresa es una buena oportunidad de inversión a largo plazo con un potencial de crecimiento moderado y una valoración justa.
 
 ---
 
