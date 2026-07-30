@@ -1,72 +1,15 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene un historial de crecimiento sostenido
-  - La empresa tiene un margen operativo del 59.5%
-  - La empresa tiene un ROIC del 95.2%
-  inferencias_llm:
-  - La empresa tiene una posición competitiva sólida
-  - La empresa tiene un moat duradero
-  preguntas_abiertas:
-  - ¿Qué impacto tendrá un cambio en la política regulatoria en la empresa?
-  - ¿Qué riesgos competitivos enfrenta la empresa?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: turnaround, deep_value, ciclica, special_situation, distressed,
-    hype, value_trap
-  justificacion: La empresa tiene un historial de crecimiento sostenido, un margen
-    operativo del 59.5% y un ROIC del 95.2%, lo que sugiere una excelente calidad
-    de negocio. Además, la empresa tiene una presencia global y ofrece una amplia
-    gama de productos y servicios.
-dominio_business_quality:
-  analisis: La empresa tiene una posición competitiva sólida, un moat duradero y un
-    modelo de negocio resiliente.
-  rating: excepcional
-dominio_catalizadores:
-- descripcion: un cambio en la política regulatoria que afecte positivamente a la
-    empresa
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: alto
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: La empresa tiene un riesgo ESG bajo y una cadena de suministro diversificada.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene un balance sólido, una generación de caja alta y un perfil
-    de deuda bajo.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa tiene un crecimiento orgánico sólido y una visibilidad de revenue
-    alta.
-  rating: fuerte
-dominio_management:
-  analisis: La empresa tiene un equipo de gestión experimentado y con un buen track
-    record de asignación de capital.
-  rating: excepcional
-dominio_riesgos:
-- impacto: medio
-  probabilidad: media
-  riesgo: riesgo regulatorio
-- impacto: bajo
-  probabilidad: baja
-  riesgo: riesgo competitivo
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un cambio en la política regulatoria que afecte negativamente a la
-      empresa o un aumento en la competencia en el mercado.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 20
-  conclusion_error_valoracion: INCIERTO
-  consenso_actual: El precio de la empresa está descontando un crecimiento a largo
-    plazo y una excelente calidad de negocio, reflejado en los múltiplos actuales.
-  hipotesis_contraria: El mercado podría estar subestimando la capacidad de la empresa
-    para mantener su posición competitiva y su capacidad para innovar y adaptarse
-    a los cambios en el mercado.
-  razonamiento: No hay suficiente información para determinar con certeza si el mercado
-    está cometiendo un error de valoración.
-generated_at: '2026-07-30T13:07:32.304102-03:00'
-opinion_valoracion: infravalorado
+calidad_evidencia: {}
+clasificacion_oportunidad: {}
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-07-30T14:41:23.524522-03:00'
+opinion_valoracion: ''
 opp_id: OPP-20260730-001
 prompt_inputs:
   business_model: Mastercard Incorporated, a technology company, provides transaction
@@ -93,24 +36,20 @@ prompt_inputs:
     MasterCard, Maestro, and Cirrus names. Mastercard Incorporated was founded in
     1966 and is headquartered in Purchase, New York.
   ceo_tenure: 0
-  debt_to_equity: 0.0282
+  debt_to_equity: 0.044000000000000004
   fcf_adjusted: 0
   insider_ownership: 0
   name: MA
-  operating_margin: 59.55
+  operating_margin: 59.3
   pe_ratio: 32.59
   products: ''
-  revenue: 33939999999.999996
+  revenue: 35080000000.0
   revenue_growth: 12.51
-  roic: 95.21
+  roic: 92.88
   sector: Financial Services
   ticker: MA
-resumen_ejecutivo: La empresa Mastercard Incorporated es una excelente oportunidad
-  de inversión debido a su historial de crecimiento sostenido, su posición competitiva
-  y su capacidad para innovar y adaptarse a los cambios en el mercado.
-score_general: 85
-tesis_inversion: La empresa Mastercard Incorporated es una excelente oportunidad de
-  inversión debido a su historial de crecimiento sostenido, su posición competitiva
-  y su capacidad para innovar y adaptarse a los cambios en el mercado.
+resumen_ejecutivo: ''
+score_general: 50
+tesis_inversion: ''
 ticker: MA
 version: '3.0'
