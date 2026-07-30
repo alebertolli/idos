@@ -1,0 +1,74 @@
+{
+  "fase_wyckoff": "distribucion",
+  "eventos_wyckoff_detectados": [
+    {
+      "evento": "PS",
+      "descripcion": "Volumen alto, spread amplio, primer signo de compra",
+      "confianza": "alta"
+    },
+    {
+      "evento": "SC",
+      "descripcion": "Volumen extremo, spread muy amplio, liquidación final",
+      "confianza": "alta"
+    },
+    {
+      "evento": "AR",
+      "descripcion": "Reacción alcista tras SC con volumen decreciente",
+      "confianza": "media"
+    },
+    {
+      "evento": "ST",
+      "descripcion": "Nuevo test del soporte con menor volumen que SC",
+      "confianza": "baja"
+    },
+    {
+      "evento": "Spring",
+      "descripcion": "Penetración temporal del soporte con volumen bajo, recuperación rápida",
+      "confianza": "baja"
+    },
+    {
+      "evento": "LPS",
+      "descripcion": "Retroceso a soporte con volumen agotado tras SOS",
+      "confianza": "baja"
+    },
+    {
+      "evento": "SOS",
+      "descripcion": "Ruptura de resistencia con volumen creciente",
+      "confianza": "alta"
+    },
+    {
+      "evento": "Ninguno",
+      "descripcion": "",
+      "confianza": "baja"
+    }
+  ],
+  "pruebas_compra": {
+    "prueba_1_objetivo_caida": "Pasa",
+    "prueba_2_actividad_alcista": "NoPasa",
+    "prueba_3_parada_critica": "Pasa",
+    "prueba_4_fortaleza_relativa": "N/A",
+    "prueba_5_linea_suministro": "Pasa",
+    "prueba_6_soportes_crecientes": "Pasa",
+    "prueba_7_maximos_crecientes": "Pasa",
+    "prueba_8_base_construida": "Pasa",
+    "prueba_9_relacion_3_1": "NoPasa",
+    "pruebas_pasan": 6,
+    "total_pruebas": 9
+  },
+  "punto_entrada": "spring_3",
+  "precio_objetivo_wyckoff": {
+    "estimado": 45.67,
+    "metodo": "conteo_pnf",
+    "razonamiento": "Se estima un conteo P&F aproximado para el objetivo de precio"
+  },
+  "stop_loss_sugerido": {
+    "precio": 28.48,
+    "distancia_pct": -15.0,
+    "fundamento": "Se sugiere un Stop Loss en el soporte clave identificado"
+  },
+  "senal_entrada": "MANTENER",
+  "justificacion": "Se recomienda mantener la posición actual debido a la falta de señales claras de entrada",
+  "confianza": "media",
+  "datos_suficientes": false,
+  "limitaciones": "Falta de datos suficientes para determinar la fase Wyckoff y la señal de entrada"
+}

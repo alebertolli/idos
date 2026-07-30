@@ -1,0 +1,39 @@
+{
+  "fase_wyckoff": "markup",
+  "eventos_wyckoff_detectados": [
+    {
+      "evento": "Ninguno",
+      "descripcion": "El precio cotiza en un retroceso dentro de la fase macro de Markup. No hay una estructura lateral de trading range (TR) definida con eventos claros de acumulación o reacumulación como Spring o LPS en la zona de $1657.",
+      "confianza": "media"
+    }
+  ],
+  "pruebas_compra": {
+    "prueba_1_objetivo_caida": "NoPasa",
+    "prueba_2_actividad_alcista": "NoPasa",
+    "prueba_3_parada_critica": "NoPasa",
+    "prueba_4_fortaleza_relativa": "N/A",
+    "prueba_5_linea_suministro": "NoPasa",
+    "prueba_6_soportes_crecientes": "Pasa",
+    "prueba_7_maximos_crecientes": "Pasa",
+    "prueba_8_base_construida": "NoPasa",
+    "prueba_9_relacion_3_1": "NoPasa",
+    "pruebas_pasan": 2,
+    "total_pruebas": 9
+  },
+  "punto_entrada": "ninguno",
+  "precio_objetivo_wyckoff": {
+    "estimado": 1986.85,
+    "metodo": "no_determinable",
+    "razonamiento": "No hay un Rango de Trading lateral bien definido que permita un conteo P&F confiable. La resistencia histórica en $1986.85 representa el objetivo previo más relevante."
+  },
+  "stop_loss_sugerido": {
+    "precio": 1384.58,
+    "distancia_pct": -16.5,
+    "fundamento": "Debajo de la Media Móvil de 200 días ($1384.58), nivel que valida la tendencia estructural alcista."
+  },
+  "senal_entrada": "NEUTRAL",
+  "justificacion": "Aunque la tendencia macro es alcista (Markup), el precio sufre una aceleración bajista del -6% en los últimos 5 días, cotizando 5.1% por debajo de su MA50 y con volumen relativo de 1.2x. Al no cumplir 7 de las 9 pruebas de compra Wyckoff y carecer de una señal de entrada clara (Spring/LPS/JAC), el principio de prudencia dicta mantenerse NEUTRAL para evitar operar con duda.",
+  "confianza": "alta",
+  "datos_suficientes": true,
+  "limitaciones": "Se requiere histórico de volumen por barra y gráfico Punto y Figura para el cálculo exacto del potencial de la Causa/Efecto."
+}

@@ -1,0 +1,39 @@
+{
+  "fase_wyckoff": "acumulacion",
+  "eventos_wyckoff_detectados": [
+    {
+      "evento": "PS",
+      "descripcion": "Volumen alto, spread amplio, primer signo de compra",
+      "confianza": "alta"
+    }
+  ],
+  "pruebas_compra": {
+    "prueba_1_objetivo_caida": "Pasa",
+    "prueba_2_actividad_alcista": "NoPasa",
+    "prueba_3_parada_critica": "Pasa",
+    "prueba_4_fortaleza_relativa": "N/A",
+    "prueba_5_linea_suministro": "NoPasa",
+    "prueba_6_soportes_crecientes": "Pasa",
+    "prueba_7_maximos_crecientes": "NoPasa",
+    "prueba_8_base_construida": "Pasa",
+    "prueba_9_relacion_3_1": "NoPasa",
+    "pruebas_pasan": 4,
+    "total_pruebas": 9
+  },
+  "punto_entrada": "spring_3",
+  "precio_objetivo_wyckoff": {
+    "estimado": 45.67,
+    "metodo": "conteo_pnf",
+    "razonamiento": "Se estima un conteo P&F aproximado para el objetivo de precio"
+  },
+  "stop_loss_sugerido": {
+    "precio": 34.5,
+    "distancia_pct": -7.1,
+    "fundamento": "Se sugiere un Stop Loss a 7.1% por debajo del precio actual"
+  },
+  "senal_entrada": "COMPRAR",
+  "justificacion": "Se detecta un Preliminary Support (PS) con alta confianza y se cumplen 4 de las 9 pruebas de compra",
+  "confianza": "alta",
+  "datos_suficientes": true,
+  "limitaciones": ""
+}

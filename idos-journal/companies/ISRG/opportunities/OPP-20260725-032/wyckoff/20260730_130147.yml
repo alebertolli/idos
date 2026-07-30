@@ -1,0 +1,75 @@
+adjusted_weight: 3.24
+analyzed_at: '2026-07-30T13:01:47.448559-03:00'
+confidence: alta
+entry_point: ninguno
+indicators:
+  algorithmic_phase: markdown
+  bar_spread_description: 'spreads recientes ampliándose (promedio diario: 3.4%, histórico:
+    2.0%)'
+  current_price: 350.63
+  high_52w: 592.85
+  low_52w: 332.02
+  ma_200d: 482.28
+  ma_50d: 401.11
+  pct_from_52w_high: -40.9
+  pct_from_52w_low: 5.6
+  pct_from_ma200: -27.3
+  pct_from_ma50: -12.6
+  recent_trend: tendencia de 60d bajista fuerte (-22%). últimos 5d estables (+4%)
+  resistance_levels: 'resistencias identificadas: $592.85, $592.27, $586.24, $585.08,
+    $579.83 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $332.02, $337.50, $340.69, $345.42, $350.06
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente superior al histórico (1.3x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: baja
+    descripcion: Posible inicio de Clímax de Venta (Selling Climax) en zona de mínimos
+      de 52 semanas ($332.02) con incremento de volumen (1.3x) y aumento de spreads
+      (3.4%), sin confirmación aún de parada efectiva.
+    evento: SC
+  fase_wyckoff: markdown
+  justificacion: El activo se encuentra inmerso en una marcada fase de Markdown (-22%
+    en 60 días, -40.9% desde máximos) bajo el dominio claro de la Oferta (spreads
+    crecientes de 3.4% con volumen 1.3x superior al promedio). No existe una estructura
+    de acumulación ni Rango de Trading previo que justifique la construcción de causa.
+    No se cumple ninguna de las 9 Pruebas de Compra Wyckoff. Siguiendo el mandato
+    de prudencia institucional de la Family Office, la mejor decisión ante la falta
+    de estructura es mantenerse NEUTRAL.
+  limitaciones: Ausencia de gráfico de Punto y Figura para conteo horizontal de causa
+    y falta de un índice de referencia para evaluar fortaleza relativa.
+  precio_objetivo_wyckoff:
+    estimado: 0
+    metodo: no_determinable
+    razonamiento: No es posible establecer un objetivo de precio mediante Wyckoff
+      ya que el mercado está en Markdown activo y no se ha construido un Rango de
+      Trading (TR) que genere una Causa (conteo P&F).
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: NoPasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 0
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: 6.25
+    fundamento: Por debajo del mínimo crítico de 52 semanas ($332.02) como nivel de
+      invalidez de cualquier intento primario de parada.
+    precio: 328.7
+opp_id: OPP-20260725-032
+phase: markdown
+price_target: null
+score: 18
+stop_loss: 328.7
+ticker: ISRG
+triggered_entry: false
