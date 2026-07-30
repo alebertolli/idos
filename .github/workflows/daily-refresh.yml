@@ -191,52 +191,33 @@ jobs:
           Path('cache/wyckoff_errors.json').write_text(json.dumps({'errors': llm_errors}), encoding='utf-8')
           Path('cache/entry_signals.json').write_text(json.dumps({'signals': entry_signals}), encoding='utf-8')
           "
-      - name: 📋 Report Wyckoff LLM errors
+      - name: "Report Wyckoff LLM errors"
         if: always()
         run: |
-          if [ ! -f cache/wyckoff_errors.json ]; then
-            echo "No Wyckoff error file found"
-            exit 0
-          fi
-          ERRORS=$(python -c "
-import json, sys
-data = json.load(open('cache/wyckoff_errors.json'))
-errs = data.get('errors', [])
-if not errs:
-    print('NO_ERRORS')
-    sys.exit(0)
-print('HAS_ERRORS')
-for e in errs:
-    print(f'{e[\"ticker\"]}: {e.get(\"error\", \"?\")}')
-")
-          if [ "$ERRORS" = "NO_ERRORS" ]; then
-            echo "No Wyckoff LLM errors to report"
-            exit 0
-          fi
-          echo "Wyckoff LLM errors detected:"
-          echo "$ERRORS"
-          TICKERS=$(python -c "
-import json
-data = json.load(open('cache/wyckoff_errors.json'))
-errs = data.get('errors', [])
-print(' '.join([e['ticker'] for e in errs]))
-")
-          BODY="## Wyckoff LLM Errors\n\nThe following tickers had LLM failures and fell back to algorithmic analysis:\n\n| Ticker | Error |\n|--------|-------|\n"
-          BODY="$BODY$(python -c "
-import json
-data = json.load(open('cache/wyckoff_errors.json'))
-errs = data.get('errors', [])
-rows = ''
-for e in errs:
-    err_escaped = e.get('error', '?')
-    rows += f'| {e[\"ticker\"]} | {err_escaped} |\n'
-print(rows)
-")"
-          BODY="$BODY\n**Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\n\n**Action:** Check the LLM provider configuration and fix."
-          gh issue create \
-            --title "[wyckoff] LLM errors in daily-refresh run #${{ github.run_id }}" \
-            --label "auto-fix-proposed" \
-            --body "$BODY"
+          python -c "import json,sys; d=json.load(open('cache/wyckoff_errors.json')); sys.exit(0 if d.get('errors') else 0)" 2>/dev/null || exit 0
+          COUNT=$(python -c "import json; print(len(json.load(open('cache/wyckoff_errors.json')).get('errors',[])))")
+          [ "$COUNT" = "0" ] && echo "No Wyckoff LLM errors to report" && exit 0
+          echo "[WYCKOFF] $COUNT LLM error(s) detected:"
+          python -c "
+          import json
+          d = json.load(open('cache/wyckoff_errors.json'))
+          for e in d.get('errors', []):
+              print(f'  {e[\"ticker\"]}: {e.get(\"error\", \"?\")}')
+          "
+          TITLE="[wyckoff] LLM errors in daily-refresh run #${{ github.run_id }}"
+          python -c "
+          import json, os
+          d = json.load(open('cache/wyckoff_errors.json'))
+          errs = d.get('errors', [])
+          lines = ['## Wyckoff LLM Errors', '', 'The following tickers had LLM failures:', '', '| Ticker | Error |', '|--------|-------|']
+          for e in errs:
+              lines.append(f'| {e[\"ticker\"]} | {e.get(\"error\", \"?\")} |')
+          lines.append('')
+          lines.append('**Run:** ' + os.environ.get('GITHUB_SERVER_URL','') + '/' + os.environ.get('GITHUB_REPOSITORY','') + '/actions/runs/' + os.environ.get('GITHUB_RUN_ID',''))
+          lines.append('')
+          lines.append('**Action:** Check LLM provider configuration and fix.')
+          print(chr(10).join(lines))
+          " | gh issue create --title "$TITLE" --label "auto-fix-proposed" --body-file -
       - name: Paper Trader - Execute Entry
         run: |
           python -c "
