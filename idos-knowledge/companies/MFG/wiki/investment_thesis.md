@@ -1,1 +1,1 @@
-Mizuho Financial Group, Inc. ofrece una oportunidad de inversión atractiva para aquellos que buscan una exposición estable y diversificada al mercado financiero, con potencial para crecimiento a largo plazo.
+La empresa es una buena opción para inversores a largo plazo que buscan una empresa establecida con un modelo de negocio diversificado y una presencia global.
