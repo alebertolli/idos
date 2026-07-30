@@ -12,16 +12,19 @@ _Generado: 2026-07-30 11:33 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **AEM** (OPP-20260725-007): score=85, class=ciclica
+- ⚠️ **RACE** (OPP-20260730-001): score=50, class=None
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **AEM**
-  - Opp: [OPP-20260725-007](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AEM/case_file/opportunities/OPP-20260725-007)
-  - Conviction: 73/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 80 | Recovery: 60 | Risk: 80 | Portfolio: 90
+- ⚠️ **RACE**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/RACE/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 64/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 52 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-002: Price target margin: 12.8%
+    - 🚫 RULE-005: Conviction: 64/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 
