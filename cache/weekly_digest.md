@@ -12,17 +12,17 @@ _Generado: 2026-07-30 02:15 AR_
 
 ### Errores
 
-- ✅ **RBLX** (OPP-20260730-001): score=40, class=hype
+- ✅ **COIN** (OPP-20260730-001): score=85, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **RBLX**
-  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/RBLX/case_file/opportunities/OPP-20260730-001)
-  - Conviction: 59/100 | Rec: BLOCKED
-  - Scores: Business: 40 | Valuation: 70 | Recovery: 52 | Risk: 70 | Portfolio: 90
+- ⚠️ **COIN**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/COIN/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Scores: Business: 50 | Valuation: 70 | Recovery: 52 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 40/100
-    - 🚫 RULE-005: Conviction: 59/100
+    - 🚫 RULE-001: Business quality: 50/100
+    - 🚫 RULE-005: Conviction: 62/100
 
 ---
 
