@@ -12,18 +12,16 @@ _Generado: 2026-07-30 01:08 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **LYG** (OPP-20260725-040): score=73, class=compounder_castigado
+- ✅ **AEM** (OPP-20260725-007): score=78, class=quality_at_fair_price
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **LYG**
-  - Opp: [OPP-20260725-040](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/LYG/case_file/opportunities/OPP-20260725-040)
-  - Conviction: 59/100 | Rec: BLOCKED
-  - Scores: Business: 58 | Valuation: 45 | Recovery: 55 | Risk: 70 | Portfolio: 90
+- ⚠️ **AEM**
+  - Opp: [OPP-20260725-007](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AEM/case_file/opportunities/OPP-20260725-007)
+  - Conviction: 74/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 80 | Recovery: 62 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 58/100
-    - 🚫 RULE-002: Price target margin: 5.3%
-    - 🚫 RULE-005: Conviction: 59/100
+    - 🚫 RULE-001: Business quality: 68/100
 
 ---
 
