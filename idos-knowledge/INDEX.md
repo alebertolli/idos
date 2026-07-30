@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 48 companies tracked
+Total: 47 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
