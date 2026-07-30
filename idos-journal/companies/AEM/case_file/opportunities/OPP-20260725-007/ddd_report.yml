@@ -1,121 +1,122 @@
 calidad_evidencia:
   hechos_verificados:
-  - 'Revenue TTM $13,540,000,000 (source: company financial statements)'
-  - 'Operating margin 60.2% (source: company filings)'
-  - 'ROIC 23.6% (source: company reports)'
-  - 'Debt/Equity 0.0x (source: balance sheet)'
-  - 'Mines located in Canada, Australia, Finland, Mexico (source: corporate website)'
-  - 'FCF adjusted $0 million (source: cash flow statement)'
-  - 'CEO tenure 0 years (source: corporate leadership page)'
+  - Operaciones centradas en Canadá, Australia, Finlandia y México.
+  - Crecimiento del revenue TTM de +6.6%.
+  - Margen operativo TTM de 60.2%.
+  - Estructura de balance con apalancamiento mínimo o nulo (D/E 0.0x).
   inferencias_llm:
-  - High operating margin indicates strong cost competitiveness and efficient extraction
-    processes.
-  - Zero debt suggests low financial risk and high flexibility, but also limited capacity
-    to leverage for growth.
-  - ROIC exceeding typical cost of capital implies value creation, yet excess return
-    is zero, indicating valuation may be fair.
-  - Lack of insider ownership may reduce alignment with shareholders.
-  - Diversified geographic presence mitigates country‑specific regulatory risk but
-    increases operational complexity.
+  - La concentración geográfica en Canadá y Australia continuará otorgándole una prima
+    de valoración sobre competidores expuestos a jurisdicciones emergentes.
+  - La integración de los activos adquiridos a Kirkland Lake y Yamana mantendrá los
+    costes por debajo del promedio de la industria.
   preguntas_abiertas:
-  - What is the exact WACC used to calculate the excess return ROIC - WACC of +0.0%?
-  - Details on the composition of FCF adjusted and the level of capex required to
-    sustain production.
-  - What are the consensus forecasts for gold prices over the next 24 months and how
-    sensitive is the company’s earnings to those changes?
-  - How will upcoming ESG regulations in Canada, Australia and Mexico affect operating
-    costs and permitting timelines?
-  - What is the pipeline of potential acquisitions or joint ventures that could drive
-    inorganic growth?
+  - ¿Cuál es el desglose exacto del AISC proyectado para los próximos 3 años por mina?
+  - ¿Qué porcentaje exacto de la flota minera se está electrificando para reducir
+    la dependencia del diésel en las minas del norte de Canadá?
+  - ¿Cómo afectarán las posibles revisiones de incentivos fiscales mineros en Canadá
+    a los proyectos de expansión futuros?
 clasificacion_oportunidad:
-  categoria: quality_at_fair_price
-  categorias_descartadas: compounder, compounder_castigado, turnaround, deep_value,
-    ciclica, distressed, hype, value_trap, special_situation
-  justificacion: AEM muestra una calidad operativa excepcional con márgenes elevados,
-    bajo endeudamiento y generación de cash flow robusta, pero su valoración actual
-    parece justa, sin un margen de seguridad evidente; por ello se clasifica como
-    un negocio de calidad a precio razonable.
+  categoria: ciclica
+  categorias_descartadas: Se descartó 'compounder' porque carece de poder de fijación
+    de precios independiente del ciclo del oro. Se descartó 'deep_value' porque cotiza
+    con una prima de calidad frente a sus competidores directos (como Barrick o Newmont)
+    debido a sus activos en jurisdicciones de bajo riesgo político (Canadá, Australia,
+    Finlandia).
+  justificacion: Agnico Eagle Mines (AEM) es una minera de oro de primer nivel cuyas
+    ventas, márgenes y generación de caja están fundamentalmente ligados a las fluctuaciones
+    del precio del oro y metales secundarios (plata, cobre, zinc). A pesar de poseer
+    activos de altísima calidad en jurisdicciones seguras, su naturaleza intrínseca
+    sigue siendo la de un productor de commodities expuesto al ciclo económico y monetario
+    global.
 dominio_business_quality:
-  analisis: La compañía posee una posición competitiva sólida en Canadá, Australia,
-    Finlandia y México, con reservas de alto nivel y costos operativos bajos que sustentan
-    márgenes operativos del 60% y un ROIC de 23.6%, indicando una moat durable pese
-    a la exposición cíclica al precio del oro.
-  rating: excepcional
+  analisis: AEM posee una ventaja competitiva duradera (moat) basada en activos de
+    bajo coste y larga vida útil ubicados en jurisdicciones de nivel 1. Posee minas
+    de escala mundial como Detour Lake, Canadian Malartic y Meadowbank. Su ventaja
+    no proviene del poder de fijación de precios (es tomadora de precios), sino de
+    su estructura de costes y su perfil de riesgo geopolítico mínimo frente a sus
+    pares.
+  rating: buena
 dominio_catalizadores:
-- descripcion: Repunte sostenido del precio del oro por encima de 2.000 USD/onza
+- descripcion: Superación de las guías de producción anuales con reducción de AISC
+    por economías de escala tras la integración completa de activos en Canadá.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 65
+- descripcion: Aumento del programa de recompra de acciones y dividendos crecientes
+    impulsados por flujos de caja operativos excedentes.
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 30
-- descripcion: Finalización y puesta en marcha de la expansión de la mina Detour Lake
-    (Canadá)
-  horizonte: corto
-  impacto: medio
-  nivel_confianza: medio
-  probabilidad_pct: 20
-- descripcion: Acquisición estratégica de un activo de alta calidad en Australia
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: bajo
-  probabilidad_pct: 15
+  probabilidad_pct: 75
 dominio_esg_supply_chain:
-  analisis: Exposición a regulaciones ambientales y sociales en sus operaciones, así
-    como a la concentración de proveedores de equipos y energía, representa riesgos
-    moderados que la empresa está gestionando pero que pueden impactar costos y permisos.
+  analisis: Bajo riesgo de expropiación o cambios drásticos de régimen fiscal al operar
+    principalmente en Canadá y Australia. Sin embargo, enfrenta riesgos ambientales
+    inherentes a la minería (gestión de relaves, consumo energético y emisiones de
+    carbono en climas árticos) y dependencia de la cadena de suministro de maquinaria
+    pesada y reactivos mineros.
   rating: medio_riesgo
 dominio_financial_health:
-  analisis: Balance sólido con cero deuda, alta cobertura de intereses (aunque sin
-    deuda) y generación de cash flow operativa importante; sin embargo, el FCF ajustado
-    nulo sugiere que los capex están consumiendo la mayoría del cash flow, lo que
-    requiere vigilancia.
+  analisis: El balance es excepcionalmente sólido con un nivel de endeudamiento nulo
+    o marginal (D/E 0.0x en datos TTM), proporcionando una flexibilidad financiera
+    total para financiar proyectos de desarrollo orgánico (capex de desarrollo) y
+    capex de mantenimiento sin poner en riesgo la solvencia durante las fases bajistas
+    del ciclo de commodities.
   rating: fuerte
 dominio_growth:
-  analisis: El crecimiento de ingresos del 6.6% refleja principalmente la apreciación
-    del oro; la visibilidad de futuros ingresos depende de la ejecución de proyectos
-    de expansión y de posibles adquisiciones, con un horizonte temporal medio.
+  analisis: El crecimiento orgánico proviene de la transición subterránea de Canadian
+    Malartic (proyecto Odyssey), la optimización de Detour Lake y el desarrollo de
+    descubrimientos de exploración. El crecimiento del top-line (+6.6% TTM) refleja
+    una tasa sostenible dentro de la minería senior, priorizando la rentabilidad por
+    acción sobre el volumen de producción puro.
   rating: moderado
 dominio_management:
-  analisis: La ausencia de ownership de insiders y la reciente nombramiento del CEO
-    generan incertidumbre sobre la alineación de intereses y el historial de asignación
-    de capital, aunque la experiencia de la compañía en la industria es extensa.
-  rating: regular
+  analisis: A pesar del cambio reciente en la dirección general (CEO con 0 años en
+    el cargo actual), el equipo directivo y la junta mantienen una cultura corporativa
+    históricamente disciplinada en la asignación de capital. AEM ha evitado adquisiciones
+    destructoras de valor en geografías de alto riesgo, enfocado en consolidar distritos
+    mineros clave en Canadá.
+  rating: bueno
 dominio_riesgos:
 - impacto: alto
-  probabilidad: alta
-  riesgo: Volatilidad del precio del oro
+  probabilidad: media
+  riesgo: Caída drástica en el precio spot del oro impulsada por tipos de interés
+    reales elevados.
 - impacto: medio
-  probabilidad: media
-  riesgo: Riesgos regulatorios y de permisos en operaciones internacionales
-- impacto: alto
-  probabilidad: media
-  riesgo: Exposición a ESG y cumplimiento ambiental
-- impacto: bajo
-  probabilidad: media
-  riesgo: Fluctuaciones cambiarias (CAD, AUD, EUR)
+  probabilidad: alta
+  riesgo: Inflación de costes operativos (AISC) en combustible, reactivos y mano de
+    obra cualificada en Canadá/Australia.
 - impacto: medio
   probabilidad: baja
-  riesgo: Costos de capital y requerimientos de financiamiento para proyectos de expansión
+  riesgo: Retrasos técnicos o sobrecostes en el desarrollo del proyecto subterráneo
+    Odyssey.
 error_mercado:
   catalizador_cambio:
-    descripcion: Un fuerte repunte del precio del oro por encima de 2.000 USD/onza,
-      impulsado por tensiones geopolíticas o inflación persistente.
+    descripcion: Publicación de flujos de caja libres récord e incrementos sostenidos
+      en dividendos/recompras respaldados por la optimización de producción en Detour
+      Lake y Odyssey (Canadian Malartic).
     horizonte: medio
     impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: 'NO'
-  consenso_actual: Los analistas valoran AEM como un productor de oro de alta calidad
-    con márgenes operativos superiores al 60% y bajo riesgo de solvencia, reflejando
-    un precio justo que incorpora la expectativa de continuidad de los altos precios
-    del oro y de una generación de caja estable.
-  hipotesis_contraria: El mercado podría estar sobrevalorando la capacidad de la compañía
-    para mantener sus márgenes ante la volatilidad del precio del oro, subestimando
-    riesgos regulatorios, de ESG y la dependencia de la apreciación del oro como activo
-    refugio.
-  razonamiento: Los fundamentos financieros son sólidos y la valoración parece reflejar
-    adecuadamente la calidad y los riesgos, por lo que no se evidencia un error de
-    valoración significativo que permita una oportunidad de compra clara.
-generated_at: '2026-07-30T01:06:04.814172-03:00'
-opinion_valoracion: justo
+    probabilidad_pct: 70
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado descuenta un escenario prudente donde los costes operativos
+    All-In Sustaining Costs (AISC) seguirán presionados por la inflación de insumos
+    (energía, mano de obra, reactivos), limitando la expansión de márgenes a pesar
+    de los elevados precios del oro. Asimismo, el consenso asume que los precios del
+    oro retrocederán a niveles de ciclo medio a largo plazo.
+  hipotesis_contraria: El mercado subestima el poder del portafolio consolidado de
+    AEM tras la integración de Kirkland Lake y los activos de Yamana (Canadian Malartic).
+    AEM cuenta con la menor exposición a riesgo geopolítico del sector, lo que justifica
+    un múltiplo de valoración permanentemente superior. Adicionalmente, si el precio
+    del oro se mantiene elevado por compras de bancos centrales y desurbanización
+    monetaria, AEM generará un flujo de caja libre masivo sin las distracciones de
+    riesgo país que afectan a otros competidores.
+  razonamiento: Existe una desconexión entre la prima de valoración que el mercado
+    concede a AEM y el potencial real de expansión de márgenes si el precio del oro
+    se sostiene por encima del coste marginal global de producción, combinado con
+    su perfil de riesgo jurisdiccional imbatible.
+generated_at: '2026-07-30T02:12:15.376984-03:00'
+opinion_valoracion: infravalorado
 opp_id: OPP-20260725-007
 prompt_inputs:
   business_model: Agnico Eagle Mines Limited, a gold mining company, engages in the
@@ -130,21 +131,26 @@ prompt_inputs:
   insider_ownership: 0
   name: Agnico Eagle Mines Limited
   operating_margin: 60.23
-  pe_ratio: 13.75
+  pe_ratio: 13.6
   products: ''
   revenue: 13540000000.0
   revenue_growth: 6.58
   roic: 23.65
   sector: Basic Materials
   ticker: AEM
-resumen_ejecutivo: AEM muestra una calidad operativa excepcional con márgenes elevados,
-  bajo endeudamiento y generación de cash flow robusta, pero su valoración actual
-  parece justa, sin un margen de seguridad evidente; el principal riesgo es la exposición
-  al ciclo del oro y a factores ESG, mientras que un repunte del precio del oro podría
-  mejorar la rentabilidad.
-score_general: 78
-tesis_inversion: Posición larga con horizonte 12-24 meses, beneficiándose de un posible
-  repunte del precio del oro y de la ejecución de proyectos de expansión, con riesgo
-  controlado de exposición a la volatilidad del oro.
+resumen_ejecutivo: Agnico Eagle Mines Limited es una de las empresas mineras de oro
+  mejor gestionadas a nivel global. Destaca por operar casi exclusivamente en jurisdicciones
+  de bajo riesgo político (Canadá, Australia, Finlandia) y por mantener un perfil
+  de costes de primer cuartil. Aunque sus métricas TTM muestran márgenes operativos
+  excepcionales (~60%) y nula deuda neta según los datos provistos, la tesis depende
+  de la sostenibilidad de los precios de los metales preciosos y la ejecución de proyectos
+  de expansión subterránea.
+score_general: 84
+tesis_inversion: Agnico Eagle representa la mejor alternativa corregida por riesgo
+  para obtener exposición al mercado del oro. Su combinación de activos de clase mundial,
+  concentración en jurisdicciones seguras (Canadá, Australia, Finlandia), balance
+  impecable y márgenes operativos superiores al 60% la posicionan para generar retornos
+  sobresalientes si el ciclo alcista del oro se consolida, ofreciendo al mismo tiempo
+  una protección a la baja muy superior a la de sus competidores directos.
 ticker: AEM
 version: '3.0'
