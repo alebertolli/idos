@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 47 companies tracked
+Total: 48 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -29,6 +29,7 @@ Total: 47 companies tracked
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
+- 📄 [[AMZN|Amazon.com, Inc.]]
 - 📄 [[ANF|Abercrombie & Fitch Co.]]
 - 📄 [[BKNG|Booking Holdings Inc.]]
 - 📄 [[CCL|Carnival Corporation Ltd.]]

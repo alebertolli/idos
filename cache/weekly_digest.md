@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-30 01:08 AR_
+_Generado: 2026-07-30 01:10 AR_
 
 ## Resumen
 
@@ -12,16 +12,17 @@ _Generado: 2026-07-30 01:08 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **AEM** (OPP-20260725-007): score=78, class=quality_at_fair_price
+- ✅ **AMZN** (OPP-20260730-001): score=85, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **AEM**
-  - Opp: [OPP-20260725-007](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AEM/case_file/opportunities/OPP-20260725-007)
-  - Conviction: 74/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 80 | Recovery: 62 | Risk: 80 | Portfolio: 90
+- ⚠️ **AMZN**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AMZN/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Scores: Business: 54 | Valuation: 60 | Recovery: 54 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-001: Business quality: 54/100
+    - 🚫 RULE-005: Conviction: 62/100
 
 ---
 
