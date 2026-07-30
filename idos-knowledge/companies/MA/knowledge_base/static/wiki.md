@@ -46,15 +46,14 @@ To be evaluated
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Mastercard representa una inversión core dentro de una cartera de Family Office centrada en la preservación y crecimiento de capital a largo plazo. Su modelo de negocio ligero en activos, apalancamiento operativo del 60%, ROIC estelar y capacidad de fijación de precios actúan como un escudo resistente a la inflación. Aunque la valoración cotiza en rangos exigentes y existen vientos regulatorios en contra, la calidad del activo y la expansión hacia servicios de valor añadido justifican una posición ponderada de alta convicción con un horizonte temporal de >5 años.
+To be formulated
 
 ---
 
