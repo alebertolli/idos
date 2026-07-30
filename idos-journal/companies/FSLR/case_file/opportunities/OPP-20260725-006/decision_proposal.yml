@@ -9,8 +9,8 @@ assessments:
       type: POSITIVE
     - detail: 'Excellent margins: 31.76%'
       type: POSITIVE
-    generated_at: '2026-07-30T02:19:53.644298-03:00'
-    id: BusinessAssessmentEngine-20260730021953
+    generated_at: '2026-07-30T07:22:57.558871-03:00'
+    id: BusinessAssessmentEngine-20260730072257
     recommendation: NEUTRAL
     risks: []
     score: 68
@@ -28,8 +28,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-07-30T02:19:53.644379-03:00'
-    id: PortfolioAssessmentEngine-20260730021953
+    generated_at: '2026-07-30T07:22:57.558954-03:00'
+    id: PortfolioAssessmentEngine-20260730072257
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -54,8 +54,8 @@ assessments:
       score: 50
       type: DIMENSION
     - dimension: catalysts
-      level: MEDIUM
-      score: 55
+      level: LOW
+      score: 30
       type: DIMENSION
     - dimension: technical_confirmation
       level: MEDIUM
@@ -65,11 +65,11 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-07-30T02:19:53.644357-03:00'
-    id: RecoveryAssessmentEngine-20260730021953
+    generated_at: '2026-07-30T07:22:57.558931-03:00'
+    id: RecoveryAssessmentEngine-20260730072257
     recommendation: MODERATE
     risks: []
-    score: 58
+    score: 54
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -80,8 +80,8 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-07-30T02:19:53.644367-03:00'
-    id: RiskAssessmentEngine-20260730021953
+    generated_at: '2026-07-30T07:22:57.558942-03:00'
+    id: RiskAssessmentEngine-20260730072257
     recommendation: LOW_RISK
     risks: []
     score: 80
@@ -97,20 +97,21 @@ assessments:
       type: POSITIVE
     - detail: 'FCF Yield: 7.8%'
       type: POSITIVE
-    generated_at: '2026-07-30T02:19:53.644321-03:00'
-    id: ValuationAssessmentEngine-20260730021953
+    generated_at: '2026-07-30T07:22:57.558893-03:00'
+    id: ValuationAssessmentEngine-20260730072257
     recommendation: ATTRACTIVE
     risks: []
     score: 75
     status: COMPLETED
     version: '1.1'
-conviction_score: 72
-created_at: '2026-07-30T02:19:53.644470-03:00'
+conviction_score: 71
+created_at: '2026-07-30T07:22:57.559051-03:00'
 opportunity_id: OPP-20260725-006
-reasoning: 'Rules blocked: RULE-001'
+reasoning: 'Rules blocked: RULE-001, RULE-008'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
+- RULE-008
 rules_passed:
 - RULE-002
 - RULE-003
@@ -118,6 +119,5 @@ rules_passed:
 - RULE-005
 - RULE-006
 - RULE-007
-- RULE-008
 - RULE-009
 type: opportunity:transitioned
