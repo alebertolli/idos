@@ -1,79 +1,15 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene una larga historia de crecimiento y estabilidad
-  - Su modelo de negocio es diversificado y tiene una presencia global
-  - No tiene deuda y tiene un alto nivel de generación de caja
-  inferencias_llm:
-  - La empresa puede estar subestimando los riesgos de la competencia en el mercado
-    de servicios financieros
-  - La empresa puede estar subestimando la posible caída de la demanda en el futuro
-  preguntas_abiertas:
-  - ¿Qué impacto tendrá un cambio en la política monetaria de Japón en la demanda
-    de servicios financieros?
-  - ¿Qué riesgos ESG adicionales puede tener la empresa?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: deep_value, turnaround, ciclica, special_situation, distressed,
-    quality_at_fair_price, hype, value_trap
-  justificacion: Mizuho Financial Group, Inc. es una empresa de servicios financieros
-    establecida en 1873 con una larga historia de crecimiento y estabilidad. Su modelo
-    de negocio es diversificado y tiene una presencia global. Aunque el crecimiento
-    de la renta ha sido alto en el último trimestre, el margen operativo y el ROIC
-    son sólidos. La empresa no tiene deuda y tiene un alto nivel de generación de
-    caja.
-dominio_business_quality:
-  analisis: La empresa tiene una posición competitiva sólida en el mercado de servicios
-    financieros y un modelo de negocio diversificado. Su presencia global y su larga
-    historia de crecimiento y estabilidad la convierten en una empresa de alta calidad.
-  rating: excepcional
-dominio_catalizadores:
-- descripcion: Un cambio en la política monetaria de Japón que afecte la demanda de
-    servicios financieros
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: medio
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: La empresa no tiene riesgos ESG significativos y su cadena de suministro
-    es sólida.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene un balance sólido, un margen operativo alto y un ROIC
-    sólido. No tiene deuda y tiene un alto nivel de generación de caja.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa ha experimentado un crecimiento de la renta alto en el último
-    trimestre, impulsado por su modelo de negocio diversificado y su presencia global.
-  rating: fuerte
-dominio_management:
-  analisis: La empresa no tiene un CEO con experiencia, pero su estructura de propiedad
-    es sólida y su track record de asignación de capital es bueno.
-  rating: excepcional
-dominio_riesgos:
-- impacto: alto
-  probabilidad: media
-  riesgo: Competencia en el mercado de servicios financieros
-- impacto: medio
-  probabilidad: baja
-  riesgo: Caída de la demanda en el futuro
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un cambio en la política monetaria de Japón que afecte la demanda
-      de servicios financieros.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: INCIERTO
-  consenso_actual: El precio de la empresa está impulsado por el crecimiento de la
-    renta y la estabilidad financiera. Los analistas están descontando un crecimiento
-    sostenido en el futuro.
-  hipotesis_contraria: El mercado puede estar subestimando los riesgos de la empresa,
-    como la competencia en el mercado de servicios financieros y la posible caída
-    de la demanda en el futuro.
-  razonamiento: No hay suficiente información para determinar si el mercado está cometiendo
-    un error de valoración.
-generated_at: '2026-07-30T11:36:37.537570-03:00'
-opinion_valoracion: justo
+calidad_evidencia: {}
+clasificacion_oportunidad: {}
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-07-30T13:07:34.499905-03:00'
+opinion_valoracion: ''
 opp_id: OPP-20260730-001
 prompt_inputs:
   business_model: Mizuho Financial Group, Inc., together with its subsidiaries, engages
@@ -102,14 +38,8 @@ prompt_inputs:
   roic: 11.44
   sector: Financial Services
   ticker: MFG
-resumen_ejecutivo: Mizuho Financial Group, Inc. es una empresa de servicios financieros
-  establecida con una larga historia de crecimiento y estabilidad. Su modelo de negocio
-  es diversificado y tiene una presencia global. Aunque el crecimiento de la renta
-  ha sido alto en el último trimestre, el margen operativo y el ROIC son sólidos.
-  La empresa no tiene deuda y tiene un alto nivel de generación de caja.
-score_general: 85
-tesis_inversion: La empresa es una buena opción para inversores a largo plazo que
-  buscan una empresa establecida con un modelo de negocio diversificado y una presencia
-  global.
+resumen_ejecutivo: ''
+score_general: 50
+tesis_inversion: ''
 ticker: MFG
 version: '3.0'

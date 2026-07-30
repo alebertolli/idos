@@ -1,7 +1,7 @@
 {
   "processed": [
     {
-      "ticker": "NMR",
+      "ticker": "MFG",
       "opp_id": "OPP-20260730-001",
       "status": "ddd_failed",
       "score": 50,
@@ -12,22 +12,23 @@
   ],
   "assessments": [
     {
-      "ticker": "NMR",
+      "ticker": "MFG",
       "opp_id": "OPP-20260730-001",
       "status": "completed",
-      "conviction_score": 56,
+      "conviction_score": 61,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260730131026",
+      "decision_id": "DEC-20260730131033",
       "assessments": {
-        "BusinessAssessmentEngine": 48,
+        "BusinessAssessmentEngine": 66,
         "ValuationAssessmentEngine": 45,
-        "RecoveryAssessmentEngine": 49,
-        "RiskAssessmentEngine": 80,
+        "RecoveryAssessmentEngine": 52,
+        "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
+        "RULE-003",
         "RULE-004",
         "RULE-006",
         "RULE-007",
@@ -36,16 +37,15 @@
       "rules_failed": [
         "RULE-001",
         "RULE-002",
-        "RULE-003",
         "RULE-005",
         "RULE-008"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 48/100",
-        "RULE-002": "Price target margin: 7.1%",
-        "RULE-003": "Rerating: 49/100",
-        "RULE-004": "Risk: 80/100",
-        "RULE-005": "Conviction: 56/100",
+        "RULE-001": "Business quality: 66/100",
+        "RULE-002": "Price target margin: 2.1%",
+        "RULE-003": "Rerating: 52/100",
+        "RULE-004": "Risk: 70/100",
+        "RULE-005": "Conviction: 61/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
         "RULE-008": "No hay datos de DDD para calcular asimetria",
