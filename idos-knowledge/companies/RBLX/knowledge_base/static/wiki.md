@@ -46,14 +46,13 @@ To be evaluated
 ---
 
 ## Catalysts
-
-To be identified
+- **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-To be formulated
+La compañía tiene un potencial de crecimiento a largo plazo, pero con resultados financieros débiles.
 
 ---
 
