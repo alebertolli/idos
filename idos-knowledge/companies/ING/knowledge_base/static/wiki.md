@@ -1,7 +1,5 @@
 # ING Groep N.V.
-
 ## 1. Visión General de la Compañía
-
 ING Groep N.V. es una empresa de servicios financieros multinacional con sede en Ámsterdam, Países Bajos. Fundada en 1762, es uno de los grupos bancarios más grandes de Europa, con una presencia significativa en los Países Bajos, Bélgica, Alemania y el resto de Europa, así como operaciones internacionales. La compañía cotiza en Euronext Amsterdam y forma parte del índice AEX.
 
 ING opera a través de cinco segmentos principales: **Retail Netherlands**, **Retail Belgium**, **Retail Germany**, **Retail Other** y **Wholesale Banking**. La empresa ofrece una amplia gama de productos y servicios financieros que incluyen cuentas corrientes y de ahorro, depósitos a plazo, préstamos para empresas y consumidores, hipotecas residenciales, soluciones de capital de trabajo, servicios de gestión de efectivo, pagos, banca corporativa y de inversión, así como servicios de banca digital y seguros.
@@ -12,10 +10,7 @@ ING opera a través de cinco segmentos principales: **Retail Netherlands**, **Re
 **Fundación:** 1762
 **Compañías relacionadas del sector:** [[HSBC]], [[BNP Paribas]], [[Santander]], [[BBVA]], [[JPMorgan]], [[Deutsche Bank]]
 
----
-
 ## 2. Modelo de Negocio y Posición Competitiva
-
 ### Drivers de Revenue
 ING genera ingresos principalmente a través de:
 - **Margen neto de interés (NIM):** Diferencia entre los ingresos por intereses y los gastos por intereses sobre depósitos y préstamos.
@@ -33,10 +28,7 @@ ING posee un **foso económico amplio** basado en:
 ### Dinámica Competitiva
 ING compite con bancos tradicionales europeos como [[HSBC]], [[BNP Paribas]], [[Santander]] y [[BBVA]], así como con neobancos y fintechs. Su ventaja competitiva radica en la combinación de escala, eficiencia operativa y una base de clientes retail establecida.
 
----
-
 ## 3. Perfil Financiero
-
 ### Métricas Clave
 
 | Métrica | Valor | Fuente |
@@ -46,8 +38,8 @@ ING compite con bancos tradicionales europeos como [[HSBC]], [[BNP Paribas]], [[
 | Crecimiento de Ingresos (TTM) | 6.35% | AOIF |
 | Conversión de FCF | 0.80 | AOIF |
 | PER (P/E Ratio) | 9.7 | AOIF |
-| EV/EBITDA | N/A | AOIF |
-| FCF Yield | N/A | AOIF |
+| EV/EBITDA | 0 | AOIF |
+| FCF Yield | 0 | AOIF |
 | Deuda/Equity | 0.0x | DDD / AOIF |
 | Calidad de Tendencia | Mejorando | AOIF |
 
@@ -59,10 +51,7 @@ ING presenta una estructura de capital conservadora con un ratio Deuda/Equity de
 - El ROIC del 16.57% supera ampliamente el costo de capital estimado, generando valor económico significativo.
 - El crecimiento de ingresos del 6.35% en TTM sugiere un crecimiento orgánico moderado pero sostenido.
 
----
-
 ## 4. Management y Gobierno Corporativo
-
 ### Calidad del Liderazgo
 El equipo de gestión de ING Groep N.V. ha demostrado una ejecución eficiente a lo largo de su historia centenaria. La empresa ha mantenido consistentemente métricas de rentabilidad superiores al promedio del sector bancario europeo, lo que sugiere una gestión de alta calidad.
 
@@ -75,10 +64,7 @@ El alineamiento de los insiders se clasifica como **fuerte**, lo que sugiere que
 ### Composición del Board
 La composición del board refleja un enfoque en la gobernanza corporativa responsable, con diversidad de experiencia en servicios financieros, gestión de riesgos y estrategia empresarial.
 
----
-
 ## 5. Tesis de Inversión
-
 ### Caso Alcista
 ING Groep N.V. representa una oportunidad de inversión atractiva como **compounder** de calidad excepcional. La empresa combina:
 
@@ -96,10 +82,7 @@ ING Groep N.V. representa una oportunidad de inversión atractiva como **compoun
 **Recomendación:** Comprar
 **Rango de convicción:** 10.5 - 12.0
 
----
-
 ## 6. Riesgos y Contra-Tesis
-
 ### Caso Bajista
 Los principales riesgos que podrían invalidar la tesis alcista incluyen:
 
@@ -117,10 +100,7 @@ Los principales riesgos que podrían invalidar la tesis alcista incluyen:
 
 **Compañías con riesgos similares:** [[Deutsche Bank]], [[HSBC]], [[Santander]]
 
----
-
 ## 7. Catalizadores y Timeline
-
 | Catalizador | Probabilidad | Impacto | Horizonte | Confianza |
 |-------------|-------------|---------|-----------|-----------|
 | Cambio en la política monetaria de la ECB (subida de tipos) | 30% | Alto | Medio | Alto |
@@ -144,10 +124,7 @@ Una mejora en las condiciones macroeconómicas europeas, incluyendo crecimiento 
 - **Horizonte:** Medio plazo (12-24 meses)
 - **Nivel de confianza:** Medio
 
----
-
 ## 8. Marco de Valoración
-
 ### Metodología
 Se utiliza un enfoque de **flujo de caja descontado (DCF)** combinado con análisis de múltiplos comparables. Dada la naturaleza del negocio bancario, se complementa con análisis de P/B (Price-to-Book) y P/E (Price-to-Earnings).
 
@@ -176,13 +153,17 @@ Se utiliza un enfoque de **flujo de caja descontado (DCF)** combinado con análi
 - Una caída del 20% en el crecimiento de ingresos podría reducir el precio objetivo en ~10-15%
 - El margen de seguridad se clasifica como **adecuado** dado el PER de 9.7 y el valor intrínseco estimado de 12.5
 
----
-
-## 9.
+## 9. Preguntas Abiertas y Agenda de Investigación
+- ¿Cuál es el impacto potencial de la competencia en el sector financiero en el crecimiento de ING?
+- ¿Cómo afectarán los cambios regulatorios a la estrategia de ING?
+- ¿Cuál es el potencial de crecimiento a largo plazo de la empresa en nuevos mercados?
+- ¿Cómo podría la empresa mejorar su posición competitiva en la banca digital?
+- ¿Cuáles son los riesgos y oportunidades asociados con la expansión en nuevos mercados?
+- ¿Cómo podría la empresa abordar los desafíos de la competencia digital y mantener su cuota de mercado?
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[HDB|HDFC Bank Limited]]
-- **Same Industry**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]]
+- **Same Sector**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[HDB|HDFC Bank Limited]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
+- **Same Industry**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[SAN|Banco Santander, S.A.]], [[WFC|Wells Fargo & Company]]

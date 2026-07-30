@@ -12,16 +12,18 @@ _Generado: 2026-07-30 01:06 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **FSLR** (OPP-20260725-006): score=85, class=compounder
+- ✅ **ING** (OPP-20260725-030): score=85, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **FSLR**
-  - Opp: [OPP-20260725-006](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/FSLR/case_file/opportunities/OPP-20260725-006)
-  - Conviction: 72/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 75 | Recovery: 58 | Risk: 80 | Portfolio: 90
+- ⚠️ **ING**
+  - Opp: [OPP-20260725-030](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ING/case_file/opportunities/OPP-20260725-030)
+  - Conviction: 64/100 | Rec: BLOCKED
+  - Scores: Business: 63 | Valuation: 55 | Recovery: 58 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-001: Business quality: 63/100
+    - 🚫 RULE-005: Conviction: 64/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 
