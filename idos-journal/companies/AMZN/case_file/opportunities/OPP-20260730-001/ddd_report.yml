@@ -1,80 +1,99 @@
 calidad_evidencia:
   hechos_verificados:
-  - Revenue TTM $742B, ROIC 13.5%, D/E 0.5x
-  - AWS representa ~60% del EBITDA
+  - Revenue TTM de $742.7B
+  - Crecimiento de revenue del 14.1%
+  - Presencia en AWS, Retail y Publicidad
+  - D/E de 0.5x
   inferencias_llm:
-  - Resiliencia del retail en crisis, potencial de AWS en IA no cuantificado
+  - La transición de CapEx de IA a retornos de AWS es el motor de valor futuro
+  - El segmento de publicidad es el verdadero motor de expansión de márgenes
+  - La competencia de plataformas chinas es un riesgo de margen, no de volumen
   preguntas_abiertas:
-  - Impacto a largo plazo del nuevo CEO
-  - Regulación en EE.UU. y Europa
+  - ¿Cuál será el impacto real de la regulación antitrust en la estructura del marketplace?
+  - ¿Qué porcentaje del CapEx de IA se convertirá en FCF incremental en los próximos
+    24 meses?
+  - ¿Cómo afectará la saturación de la nube a la tasa de crecimiento de AWS?
 clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: Cíclica (AWS reduce ciclicidad), Deep Value (no está infravalorado),
-    Value Trap (no hay destrucción estructural)
-  justificacion: Amazon tiene un moat sólido (AWS, red de logística, escala global),
-    crecimiento consistente (14.1% de revenue TTM), ROIC alto (13.5%) y diversificación
-    en múltiples segmentos. El nuevo CEO es un riesgo, pero no afecta la clasificación
-    como compounder de largo plazo.
+  categoria: quality_at_fair_price
+  categorias_descartadas: Compounder castigado (no hay un problema estructural temporal),
+    Hype (ya es una máquina de generar beneficios masivos), Deep Value (sus múltiplos
+    no son bajos en términos de activos).
+  justificacion: Amazon es un compounder de clase mundial con un moat masivo en e-commerce
+    (efecto red) y computación en la nube (AWS). Aunque su valoración no es de 'Deep
+    Value', su capacidad para reinvertir flujos de caja masivos en nuevos motores
+    de crecimiento (Publicidad, AWS AI) la sitúa en una categoría de calidad a precio
+    razonable, donde el mercado paga por la visibilidad de crecimiento futuro más
+    que por múltiplos de beneficios actuales.
 dominio_business_quality:
-  analisis: 'Moat impenetrable (AWS, red de logística, red de vendedores), modelo
-    escalable y diversificado. Resiliencia en crisis (ej: pandemia).'
+  analisis: 'Moat de doble vía: Efecto de red en el marketplace (más vendedores atraen
+    más clientes) y altos costos de cambio en AWS. La integración vertical de logística
+    y servicios de nube crea una barrera de entrada casi imbatible.'
   rating: excepcional
 dominio_catalizadores:
-- descripcion: Crecimiento sostenido en AWS (especialmente en IA y nube híbrida)
+- descripcion: Dominio de la capa de infraestructura de IA en AWS
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 40
-- descripcion: Expansión en retail internacional (Europa, Asia)
-  horizonte: largo
-  impacto: medio
-  nivel_confianza: medio
-  probabilidad_pct: 25
+  probabilidad_pct: 70
+- descripcion: Expansión de márgenes en el segmento de Publicidad
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 80
 dominio_esg_supply_chain:
-  analisis: Riesgos en cadena de suministro (concentración en proveedores), pero Amazon
-    lidera en sostenibilidad (logística eficiente, energía renovable).
+  analisis: Riesgos reputacionales en condiciones laborales y huella de carbono de
+    los centros de datos. Dependencia de una cadena de suministro global compleja
+    sujeta a tensiones geopolíticas.
   rating: medio_riesgo
 dominio_financial_health:
-  analisis: Bajo apalancamiento (D/E 0.5x), flujo de caja ajustado positivo (aunque
-    reportado 0M, probablemente ajustado por políticas contables), cobertura de intereses
-    alta.
+  analisis: Aunque el ROIC es moderado comparado con software puro, la generación
+    de flujo de caja operativo es masiva. El ratio D/E de 0.5x es conservador para
+    su escala. El principal reto es la gestión del intensivo CapEx.
   rating: fuerte
 dominio_growth:
-  analisis: 'Impulsores: expansión en retail internacional, AWS en IA y servicios,
-    diversificación en dispositivos y contenido.'
+  analisis: 'Crecimiento diversificado: AWS (IA), Publicidad (márgenes altos) y expansión
+    de la logística de última milla. El crecimiento del 14.1% en revenue es sólido
+    para su tamaño.'
   rating: fuerte
 dominio_management:
-  analisis: Nuevo CEO (0 años) es un riesgo, pero el equipo histórico tiene track
-    record sólido. Asignación de capital eficiente en AWS y retail.
-  rating: bueno
+  analisis: Aunque el CEO es nuevo (Andy Jassy, tras Bezos), su trayectoria en AWS
+    demuestra una capacidad probada para escalar modelos de negocio complejos y reinvertir
+    capital de forma disciplinada.
+  rating: excepcional
 dominio_riesgos:
 - impacto: alto
-  probabilidad: media
-  riesgo: Regulación antitrust
-- impacto: medio
   probabilidad: alta
-  riesgo: Competencia en retail y nube
+  riesgo: Regulación Antitrust (EE.UU. y EU)
+- impacto: medio
+  probabilidad: media
+  riesgo: Competencia de bajo costo (Temu/Shein)
 - impacto: alto
   probabilidad: baja
-  riesgo: Dependencia de AWS
+  riesgo: Obsolescencia tecnológica en IA
 error_mercado:
   catalizador_cambio:
-    descripcion: Informe de crecimiento sostenido en AWS (especialmente en IA) o expansión
-      significativa en retail internacional.
+    descripcion: Aceleración de márgenes operativos mediante la integración de IA
+      en la logística y expansión de la cuota de mercado de AWS en servicios de IA
+      generativa.
     horizonte: medio
     impacto: alto
-    probabilidad_pct: 35
+    probabilidad_pct: 65
   conclusion_error_valoracion: SI
-  consenso_actual: El mercado descuenta riesgos de saturación en retail, dependencia
-    de AWS y posibles regulaciones. Múltiplos altos reflejan expectativas de crecimiento
-    sostenido en AWS y retail.
-  hipotesis_contraria: El mercado ignora la resiliencia del retail (e-commerce dominante)
-    y el potencial de AWS en IA y nube híbrida. También subestima la capacidad de
-    Amazon para innovar en servicios.
-  razonamiento: La combinación de moat, crecimiento y ROIC supera los múltiplos actuales,
-    especialmente si AWS mantiene su liderazgo en nube y servicios.
-generated_at: '2026-07-30T01:05:28.944571-03:00'
-opinion_valoracion: infravalorado
+  consenso_actual: El mercado descuenta un crecimiento moderado en el retail debido
+    a la presión de márgenes por logística y una competencia creciente de plataformas
+    como Temu/Shein. Se asume que AWS alcanzará un techo de saturación pronto y que
+    la inversión masiva en IA generativa será un gasto sin retorno claro inmediato.
+  hipotesis_contraria: El mercado subestima la capacidad de Amazon para monetizar
+    la IA a través de AWS y su segmento de publicidad (que tiene márgenes superiores
+    al retail). El mercado ignora que la infraestructura de AWS se está convirtiendo
+    en el 'istema operativo' de la economía digital, creando una barrera de salida
+    casi insuperable.
+  razonamiento: Existe un error de valoración en la percepción de la rentabilidad
+    futura. El mercado se enfoca en el gasto de capital (CapEx) para IA como una carga,
+    mientras que el pensamiento de segundo nivel sugiere que este CapEx es la construcción
+    de un nuevo moat defensivo que capturará la renta de la próxima era tecnológica.
+generated_at: '2026-07-30T02:14:47.017741-03:00'
+opinion_valoracion: justo
 opp_id: OPP-20260730-001
 prompt_inputs:
   business_model: 'Amazon.com, Inc. engages in the retail sale of consumer products,
@@ -100,18 +119,21 @@ prompt_inputs:
   insider_ownership: 0
   name: Amazon.com, Inc.
   operating_margin: 11.5
-  pe_ratio: 27.67
+  pe_ratio: 27.11
   products: ''
   revenue: 742780000000.0
   revenue_growth: 14.12
   roic: 13.49
   sector: Consumer Cyclical
   ticker: AMZN
-resumen_ejecutivo: 'Amazon es un compounder con moat sólido (AWS, escala) y crecimiento
-  consistente. El mercado subestima su resiliencia en retail y potencial de AWS en
-  IA. Catalizador clave: crecimiento sostenido en AWS.'
-score_general: 85
-tesis_inversion: Inversión a largo plazo en un compounder con moat impenetrable y
-  crecimiento sostenido, especialmente en AWS.
+resumen_ejecutivo: 'Amazon es una empresa de infraestructura digital dual: es el almacén
+  del mundo (Retail) y el cerebro del mundo (AWS/Publicidad). Su transición de un
+  modelo de crecimiento a uno de generación de flujo de caja libre (FCF) masivo es
+  el catalizador clave para la expansión de múltiplos.'
+score_general: 88
+tesis_inversion: Inversión en Amazon es una apuesta por la infraestructura de la economía
+  digital. El riesgo de regulación es real pero el moat operativo y la capacidad de
+  monetización de la IA en AWS compensan el riesgo, ofreciendo un perfil de riesgo-retorno
+  asimétrico positivo a largo plazo.
 ticker: AMZN
 version: '3.0'
