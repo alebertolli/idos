@@ -37,7 +37,7 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 28.31
 - **Operating Margin**: 46.78
-- **Revenue Growth**: 17.42
+- **Revenue Growth**: 18.15
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.13
 - **PER**: 21.76
@@ -53,7 +53,7 @@ To be evaluated
 
 ## Investment Thesis
 
-Microsoft es un activo estratégico esencial en cualquier cartera de largo plazo de una Family Office. Aunque la cotización refleja múltiplos exigentes, la combinación de moat infranqueable, crecimiento de doble dígito, opcionalidad masiva en IA y un balance ultraseguro garantizan una rentabilidad ajustada por riesgo altamente atractiva.
+Microsoft es un activo de calidad institucional de tenencia obligatoria a largo plazo para un Family Office. Su combinación de defensividad operativa (software empresarial crítico) y crecimiento opcional masivo (liderazgo en IA y Nube) justifica valoraciones de calidad. Cualquier corrección del mercado motivada por preocupaciones de corto plazo sobre el CapEx de IA representa una oportunidad estratégica de acumulación.
 
 ---
 

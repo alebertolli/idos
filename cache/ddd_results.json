@@ -1,11 +1,11 @@
 {
   "processed": [
     {
-      "ticker": "LYG",
-      "opp_id": "OPP-20260725-040",
-      "status": "ddd_failed",
-      "score": 50,
-      "classification": null,
+      "ticker": "MSFT",
+      "opp_id": "OPP-20260725-018",
+      "status": "completed",
+      "score": 93,
+      "classification": "compounder",
       "force": true,
       "event_type": "quarterly-results"
     }
@@ -15,22 +15,23 @@
       "ticker": "LYG",
       "opp_id": "OPP-20260725-040",
       "status": "completed",
-      "conviction_score": 55,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
+      "conviction_score": 71,
+      "recommendation": "APPROVE",
+      "board_approved": true,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260730113254",
+      "decision_id": "DEC-20260730113259",
       "assessments": {
-        "BusinessAssessmentEngine": 58,
-        "ValuationAssessmentEngine": 35,
-        "RecoveryAssessmentEngine": 49,
-        "RiskAssessmentEngine": 70,
+        "BusinessAssessmentEngine": 72,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 62,
+        "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
         "RULE-004",
         "RULE-006",
         "RULE-007",
+        "RULE-008",
         "RULE-009"
       ],
       "rules_failed": [
@@ -41,14 +42,14 @@
         "RULE-008"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 58/100",
-        "RULE-002": "Price target margin: -0.2%",
-        "RULE-003": "Rerating: 49/100",
-        "RULE-004": "Risk: 70/100",
-        "RULE-005": "Conviction: 55/100",
+        "RULE-001": "Business quality: 72/100",
+        "RULE-002": "Price target margin: 23.3%",
+        "RULE-003": "Rerating: 62/100",
+        "RULE-004": "Risk: 80/100",
+        "RULE-005": "Conviction: 71/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
-        "RULE-008": "No hay datos de DDD para calcular asimetria",
+        "RULE-008": "B/R inf:1 \u2705 (upside 61.8% / downside 0.0%)",
         "RULE-009": "Posiciones activas: 0/10 max (competencia por capital)"
       },
       "data_quality": "good"
