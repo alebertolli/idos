@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-30 11:42 AR_
+_Generado: 2026-07-30 11:43 AR_
 
 ## Resumen
 
@@ -21,8 +21,10 @@ _Generado: 2026-07-30 11:42 AR_
   - Conviction: 62/100 | Rec: BLOCKED
   - Scores: Business: 50 | Valuation: 70 | Recovery: 50 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 50/100
-    - 🚫 RULE-005: Conviction: 62/100
+    - 🚫 RULE-001: Business quality: 48/100
+    - 🚫 RULE-002: Price target margin: 8.2%
+    - 🚫 RULE-003: Rerating: 49/100
+    - 🚫 RULE-005: Conviction: 56/100
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
