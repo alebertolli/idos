@@ -123,8 +123,12 @@ jobs:
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
           bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
           buylist_path = bp / 'idos-journal' / 'portfolio' / 'buylist.yml'
+          llm_errors = []
+          entry_signals = []
           if not buylist_path.exists():
               print('[ENTRY] No Buy List found')
+              Path('cache/wyckoff_errors.json').write_text(json.dumps({'errors': []}), encoding='utf-8')
+              Path('cache/entry_signals.json').write_text(json.dumps({'signals': []}), encoding='utf-8')
               exit(0)
           import yaml
           data = yaml.safe_load(buylist_path.read_text(encoding='utf-8')) or {}
@@ -148,8 +152,26 @@ jobs:
                   print(f'[ENTRY] {ticker}: ERROR - {result.error}')
                   continue
               r = result.output if hasattr(result, 'output') else result
+              llm_err = r.get('wyckoff_llm_error', '')
+              if llm_err:
+                  llm_errors.append({'ticker': ticker, 'error': llm_err})
+                  print(f'[WYCKOFF] {ticker}: LLM error (fallback algoritmico usado): {llm_err}')
               if r.get('entry_executed'):
-                  print(f'[ENTRY] {ticker}: CONDICIONES CUMPLIDAS - Ejecutando entrada!')
+                  print(f'[ENTRY] {ticker}: CONDICIONES CUMPLIDAS')
+                  entry_signals.append({
+                      'ticker': r.get('ticker'),
+                      'opp_id': r.get('opp_id'),
+                      'current_price': r.get('current_price'),
+                      'target_price': r.get('target_price'),
+                      'margin_of_safety_pct': r.get('margin_of_safety_pct'),
+                      'wyckoff_phase': r.get('wyckoff_phase'),
+                      'wyckoff_score': r.get('wyckoff_score'),
+                      'wyckoff_confidence': r.get('wyckoff_confidence'),
+                      'wyckoff_stop_loss': r.get('wyckoff_stop_loss'),
+                      'wyckoff_price_target': r.get('wyckoff_price_target'),
+                      'adjusted_weight': r.get('adjusted_weight'),
+                      'reason': r.get('reason'),
+                  })
               elif r.get('status') == 'skipped':
                   print(f'[ENTRY] {ticker}: SKIP - {r.get(\"reason\", \"sin razón\")}')
               else:
@@ -165,58 +187,210 @@ jobs:
                   print(f'  price_zone={pz} margin={ms}% target={tp}')
                   print(f'  wyckoff={wc} phase={wp}')
                   print(f'  thesis={ta} portfolio_fit={pf}')
+          Path('cache').mkdir(parents=True, exist_ok=True)
+          Path('cache/wyckoff_errors.json').write_text(json.dumps({'errors': llm_errors}), encoding='utf-8')
+          Path('cache/entry_signals.json').write_text(json.dumps({'signals': entry_signals}), encoding='utf-8')
           "
+      - name: 📋 Report Wyckoff LLM errors
+        if: always()
+        run: |
+          if [ ! -f cache/wyckoff_errors.json ]; then
+            echo "No Wyckoff error file found"
+            exit 0
+          fi
+          ERRORS=$(python -c "
+import json, sys
+data = json.load(open('cache/wyckoff_errors.json'))
+errs = data.get('errors', [])
+if not errs:
+    print('NO_ERRORS')
+    sys.exit(0)
+print('HAS_ERRORS')
+for e in errs:
+    print(f'{e[\"ticker\"]}: {e.get(\"error\", \"?\")}')
+")
+          if [ "$ERRORS" = "NO_ERRORS" ]; then
+            echo "No Wyckoff LLM errors to report"
+            exit 0
+          fi
+          echo "Wyckoff LLM errors detected:"
+          echo "$ERRORS"
+          TICKERS=$(python -c "
+import json
+data = json.load(open('cache/wyckoff_errors.json'))
+errs = data.get('errors', [])
+print(' '.join([e['ticker'] for e in errs]))
+")
+          BODY="## Wyckoff LLM Errors\n\nThe following tickers had LLM failures and fell back to algorithmic analysis:\n\n| Ticker | Error |\n|--------|-------|\n"
+          BODY="$BODY$(python -c "
+import json
+data = json.load(open('cache/wyckoff_errors.json'))
+errs = data.get('errors', [])
+rows = ''
+for e in errs:
+    err_escaped = e.get('error', '?')
+    rows += f'| {e[\"ticker\"]} | {err_escaped} |\n'
+print(rows)
+")"
+          BODY="$BODY\n**Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\n\n**Action:** Check the LLM provider configuration and fix."
+          gh issue create \
+            --title "[wyckoff] LLM errors in daily-refresh run #${{ github.run_id }}" \
+            --label "auto-fix-proposed" \
+            --body "$BODY"
       - name: Paper Trader - Execute Entry
         run: |
           python -c "
           import sys, os, json
           from pathlib import Path
+          from datetime import datetime
           sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
           bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
-          import yaml
-          buylist_path = bp / 'idos-journal' / 'portfolio' / 'buylist.yml'
-          if not buylist_path.exists():
+
+          signals_file = bp / 'cache' / 'entry_signals.json'
+          if not signals_file.exists():
+              print('[PAPER] No entry signals found')
               exit(0)
-          data = yaml.safe_load(buylist_path.read_text(encoding='utf-8')) or {}
-          entries = [e for e in data.get('entries', []) if e.get('monitoring', True)]
-          for e in entries:
-              ticker = e['ticker']
-              opp_id = e.get('opp_id', '')
-              if not opp_id:
-                  continue
-              from idos.workers.portfolio.entry_monitor_worker import EntryMonitorWorker
-              from idos.workers.base import WorkerStatus
-              from idos.ai.service import LLMService
-              _mp = Path('idos-config/models.yml')
-              _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
-              w = EntryMonitorWorker({'llm_service': _llm_svc, 'prompts_path': 'idos-config/prompts'})
-              result = w.execute({'ticker': ticker, 'opp_id': opp_id, 'base_path': str(bp)})
-              r = result.output if hasattr(result, 'output') else result
-              if not r.get('entry_executed') or r.get('status') == 'skipped':
-                  continue
-              from idos.workers.portfolio.paper_trader_worker import PaperTraderWorker
-              from idos.data.journal import JournalRepository
-              journal = JournalRepository(bp / 'idos-journal')
+          data = json.loads(signals_file.read_text(encoding='utf-8'))
+          signals = data.get('signals', [])
+          if not signals:
+              print('[PAPER] No entry signals to execute')
+              exit(0)
+
+          from idos.workers.portfolio.paper_trader_worker import PaperTraderWorker
+          from idos.data.sqlite import SQLiteStore
+          from idos.data.journal import JournalRepository
+          from idos.config import load_config
+          from idos.timezone import AR_TZ
+
+          journal = JournalRepository(bp / 'idos-journal')
+          db = SQLiteStore(bp / 'idos.db')
+          cfg = load_config(bp / 'idos-config' / 'portfolio.yml') or {}
+          pw = PaperTraderWorker(cfg)
+
+          for s in signals:
+              ticker = s['ticker']
+              opp_id = s['opp_id']
+              print(f'[PAPER] {ticker}: intentando comprar...')
+
               opp_yaml = journal.load_opportunity(ticker, opp_id)
-              intrinsic = opp_yaml.get('intrinsic_value', 0) if opp_yaml else 0
-              conviction = opp_yaml.get('conviction', {}).get('overall', 50) if opp_yaml else 50
-              from idos.config import load_config
-              cfg = load_config(bp / 'idos-config' / 'portfolio.yml') or {}
-              pw = PaperTraderWorker(cfg)
+              if not opp_yaml:
+                  print(f'[PAPER] {ticker}: sin oportunidad en journal, skip')
+                  continue
+              intrinsic = opp_yaml.get('intrinsic_value', 0)
+              conviction = opp_yaml.get('conviction', {}).get('overall', 50)
+
               pr = pw.execute({
                   'action': 'buy',
                   'ticker': ticker,
                   'opp_id': opp_id,
-                  'price': r.get('current_price', 0),
+                  'price': s.get('current_price', 0),
                   'conviction': conviction,
                   'intrinsic_value': intrinsic,
                   'base_path': str(bp),
               })
-              r2 = pr.output if hasattr(pr, 'output') else pr
-              print(f'[PAPER] {ticker}: {r2.get(\"status\")} - {r2.get(\"reason\", \"\")}')
-              if r2.get('status') == 'executed':
-                  print(f'[PAPER] {ticker}: {r2.get(\"quantity\")} shares @ \${r2.get(\"price\",0):.2f} = \${r2.get(\"value\",0):.2f} SL=\${r2.get(\"stop_loss\",0):.2f}')
+              r = pr.output if hasattr(pr, 'output') else pr
+              print(f'[PAPER] {ticker}: {r.get(\"status\")} - {r.get(\"reason\", \"\")}')
+
+              if r.get('status') == 'executed':
+                  quantity = r.get('quantity', 0)
+                  price = r.get('price', 0)
+                  value = r.get('value', 0)
+                  stop_loss = r.get('stop_loss', 0)
+                  print(f'[PAPER] {ticker}: {quantity} shares @ \${price:.2f} = \${value:.2f} SL=\${stop_loss:.2f}')
+
+                  opp = db.get_opportunity(opp_id)
+                  if opp:
+                      opp['status'] = 'ACCUMULATING'
+                      opp['updated_at'] = datetime.now(AR_TZ).isoformat()
+                      db.save_opportunity(opp)
+                      db.record_transition(opp_id, 'ENTRY_PENDING', 'ACCUMULATING',
+                                           cause='entry_executed', worker='paper_trader_worker')
+
+                  # Record entry decision
+                  decision = {
+                      'id': f'dec-{opp_id.lower()}',
+                      'type': 'BUY',
+                      'ticker': ticker,
+                      'opp_id': opp_id,
+                      'status': 'EXECUTED',
+                      'price': price,
+                      'target_price': s.get('target_price'),
+                      'margin_of_safety_pct': s.get('margin_of_safety_pct'),
+                      'wyckoff_phase': s.get('wyckoff_phase'),
+                      'wyckoff_score': s.get('wyckoff_score'),
+                      'wyckoff_confidence': s.get('wyckoff_confidence'),
+                      'wyckoff_stop_loss': s.get('wyckoff_stop_loss'),
+                      'wyckoff_price_target': s.get('wyckoff_price_target'),
+                      'adjusted_weight': s.get('adjusted_weight'),
+                      'rationale': s.get('reason', ''),
+                      'generated_at': datetime.now(AR_TZ).isoformat(),
+                  }
+                  journal.save_decision(ticker, opp_id, decision)
+                  db.log_event('entry:executed', {
+                      'opp_id': opp_id, 'ticker': ticker,
+                      'price': price, 'target': s.get('target_price'),
+                      'wyckoff': s.get('wyckoff_phase'),
+                      'wyckoff_score': s.get('wyckoff_score'),
+                      'stop_loss': stop_loss,
+                  })
+
+                  # Send Telegram notification
+                  sl_str = f'\${stop_loss:.2f}' if stop_loss else 'N/A'
+                  message = (
+                      f'**{ticker} - Compra Ejecutada**\n\n'
+                      f'- Cantidad: `{quantity}`\n'
+                      f'- Precio: `\${price:.2f}`\n'
+                      f'- Valor: `\${value:.2f}`\n'
+                      f'- Stop Loss: `{sl_str}`\n'
+                      f'- Target: `\${s.get(\"target_price\", 0):.2f}`\n'
+                      f'- Margen: `{s.get(\"margin_of_safety_pct\", 0):.1f}%`\n'
+                      f'- Wyckoff: `{s.get(\"wyckoff_phase\")}` (score: `{s.get(\"wyckoff_score\")}`)\n'
+                      f'- Confianza: `{s.get(\"wyckoff_confidence\")}`\n'
+                      f'- Peso: `{s.get(\"adjusted_weight\", 0):.1f}%`\n'
+                      f'- Razón: `{s.get(\"reason\", \"\")}`'
+                  )
+                  print(message)
+                  try:
+                      from idos.workers.notifications.telegram import TelegramNotifier
+                      tg = TelegramNotifier()
+                      tg_result = tg.execute({'message': message[:4000]})
+                      if tg_result.output.get('status') == 'skipped':
+                          print(f'[PAPER NOTIFY] Telegram: {tg_result.output.get(\"reason\", \"sin configurar\")}')
+                  except Exception as e:
+                      print(f'[PAPER NOTIFY] Telegram error: {e}')
+
+                  # Send Email notification
+                  try:
+                      from idos.workers.notifications.email_notifier import EmailNotifier
+                      smtp_host = os.environ.get('IDOS_SMTP_HOST', '')
+                      if smtp_host:
+                          email_body = (
+                              f'IDOS - Compra Ejecutada\n\n'
+                              f'Ticker: {ticker}\n'
+                              f'Cantidad: {quantity}\n'
+                              f'Precio: \${price:.2f}\n'
+                              f'Valor: \${value:.2f}\n'
+                              f'Stop Loss: {sl_str}\n'
+                              f'Target: \${s.get(\"target_price\", 0):.2f}\n'
+                              f'Margen: {s.get(\"margin_of_safety_pct\", 0):.1f}%\n'
+                              f'Wyckoff: {s.get(\"wyckoff_phase\")} (score: {s.get(\"wyckoff_score\")})\n'
+                              f'Confianza: {s.get(\"wyckoff_confidence\")}\n'
+                              f'Peso Ajustado: {s.get(\"adjusted_weight\", 0):.1f}%\n'
+                              f'Razon: {s.get(\"reason\", \"\")}\n\n'
+                              f'Run: {os.environ.get(\"GITHUB_SERVER_URL\", \"\")}/{os.environ.get(\"GITHUB_REPOSITORY\", \"\")}/actions/runs/{os.environ.get(\"GITHUB_RUN_ID\", \"\")}'
+                          )
+                          en = EmailNotifier()
+                          en.execute({'subject': f'IDOS - Compra Ejecutada {ticker}', 'body': email_body})
+                          print('[PAPER NOTIFY] Email sent')
+                      else:
+                          print('[PAPER NOTIFY] Email: SMTP no configurado')
+                  except Exception as e:
+                      print(f'[PAPER NOTIFY] Email error: {e}')
+              elif r.get('status') == 'skipped':
+                  print(f'[PAPER] {ticker}: {r.get(\"reason\", \"ya en cartera\")} — no se transiciona, se reintenta mañana')
+              else:
+                  print(f'[PAPER] {ticker}: error en compra — no se transiciona, se reintenta mañana')
           "
       - name: Risk Monitor - Daily stop-loss check
         run: |

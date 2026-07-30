@@ -406,13 +406,17 @@ jobs:
         run: |
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add -A
+          git add cache/ddd_results.json cache/weekly_digest.md 2>/dev/null || true
+          git add idos-journal/ 2>/dev/null || true
+          git add idos-knowledge/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "chore: ddd research $(date +%Y-%m-%d)"
-            git pull --rebase --autostash -X theirs
-            git push
+            # Fetch + rebase works in detached HEAD (no tracking branch needed)
+            git fetch origin main
+            git rebase origin/main 2>&1 || echo "[WARN] rebase failed, attempting push anyway"
+            git push origin HEAD:main 2>&1 || echo "[WARN] push failed"
           fi
 
       - name: 🐛 Report failure

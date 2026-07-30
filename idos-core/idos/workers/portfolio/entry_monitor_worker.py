@@ -200,14 +200,7 @@ class EntryMonitorWorker(BaseWorker):
         wyckoff_paths = self._persist_wyckoff_analysis(ticker, opp_id, signal, bp)
 
         if signal.all_conditions_met:
-            new_status = OpportunityStatus.ACCUMULATING
-            opp["status"] = new_status.value
-            opp["updated_at"] = datetime.now(AR_TZ).isoformat()
-            sqlite.save_opportunity(opp)
-            sqlite.record_transition(opp_id, "ENTRY_PENDING", "ACCUMULATING",
-                                     cause="entry_conditions_met", worker="entry_monitor_worker")
-
-            self._record_entry_decision(ticker, opp_id, signal, journal, sqlite)
+            print(f"[ENTRY] {ticker}: CONDICIONES CUMPLIDAS - pasando senal al Paper Trader")
 
         return {
             "ticker": ticker,
@@ -228,6 +221,7 @@ class EntryMonitorWorker(BaseWorker):
             "wyckoff_stop_loss": signal.wyckoff_stop_loss,
             "wyckoff_price_target": signal.wyckoff_price_target,
             "adjusted_weight": signal.adjusted_weight,
+            "wyckoff_llm_error": signal.llm_error,
             "wyckoff_journal_path": str(wyckoff_paths.get("journal", "")),
             "wyckoff_knowledge_path": str(wyckoff_paths.get("knowledge_md", "")),
             "reason": signal.reason,

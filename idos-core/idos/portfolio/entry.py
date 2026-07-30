@@ -36,6 +36,7 @@ class EntrySignal:
     wyckoff_stop_loss: float | None = None
     wyckoff_price_target: float | None = None
     adjusted_weight: float = 0.0
+    llm_error: str = ""
 
 
 class EntryEngine:
@@ -102,4 +103,5 @@ class EntryEngine:
             wyckoff_stop_loss=result.wyckoff_stop_loss,
             wyckoff_price_target=result.wyckoff_price_target,
             adjusted_weight=adjusted_weight,
+            llm_error=result.llm_error,
         )

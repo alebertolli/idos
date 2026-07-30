@@ -28,6 +28,7 @@ class WyckoffResult:
     wyckoff_stop_loss: float | None = None
     wyckoff_price_target: float | None = None
     entry_point_price: float | None = None
+    llm_error: str = ""
 
 
 class WyckoffAnalyzer:
@@ -53,6 +54,7 @@ class WyckoffAnalyzer:
         llm_stop_loss: float | None = None
         llm_price_target: float | None = None
         llm_entry_price: float | None = None
+        llm_error = ""
 
         if self._can_use_llm():
             try:
@@ -64,8 +66,10 @@ class WyckoffAnalyzer:
                     llm_stop_loss = self._parse_stop_loss(raw_llm)
                     llm_price_target = self._parse_price_target(raw_llm)
                     llm_entry_price = self._parse_entry_point_price(raw_llm)
-            except Exception:
-                pass
+            except Exception as e:
+                err_str = str(e)
+                print(f"[WYCKOFF] LLM error (fallback algoritmico): {err_str}")
+                llm_error = err_str
 
         final_phase = llm_phase if llm_phase != WyckoffPhase.UNKNOWN else algorithmic_phase
 
@@ -87,6 +91,7 @@ class WyckoffAnalyzer:
             wyckoff_stop_loss=llm_stop_loss,
             wyckoff_price_target=llm_price_target,
             entry_point_price=llm_entry_price,
+            llm_error=llm_error,
         )
 
     def is_entry_confirmed(self, phase: WyckoffPhase) -> bool:
@@ -160,6 +165,9 @@ class WyckoffAnalyzer:
         )
 
         if isinstance(result, dict):
+            if "error" in result:
+                err_msg = result.get("error", "LLM error desconocido")
+                raise RuntimeError(f"LLM error: {err_msg}")
             return result
         if hasattr(result, "model_dump"):
             return result.model_dump()
