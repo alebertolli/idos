@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 48 companies tracked
+Total: 55 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -47,7 +47,9 @@ Total: 48 companies tracked
 - 📄 [[ING|ING Groep N.V.]]
 - 📄 [[ITUB|Itaú Unibanco Holding S.A.]]
 - 📄 [[LYG|Lloyds Banking Group plc]]
+- 📄 [[MA|MA]]
 - 📄 [[MFG|Mizuho Financial Group, Inc.]]
+- 📄 [[NMR|Nomura Holdings, Inc.]]
 - ⏳ [[SAN|Banco Santander, S.A.]]
 - 📄 [[SPGI|S&P Global Inc.]]
 - 📄 [[USB|U.S. Bancorp]]

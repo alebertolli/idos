@@ -28,7 +28,7 @@ Mastercard opera como una red de pagos que conecta bancos emisores, comercios y 
 Mastercard posee un **moat excepcional** basado en:
 
 - **Efectos de red de dos lados**: Más usuarios y comercios atraen a más participantes
-- **Duopolio global con Visa**: Posición dominante en procesamiento de tarjetas
+- **Duopolio global con [[V|Visa]]**: Posición dominante en procesamiento de tarjetas
 - **Costos de cambio elevados**: Altos requerimientos tecnológicos y de integración
 - **Propiedad intelectual**: Tecnología de procesamiento y seguridad patentada
 
@@ -193,7 +193,9 @@ La valoración actual refleja una percepción razonable del riesgo regulatorio. 
 
 ---
 
+---
+
 ## Related Companies
 
-- **Same Sector**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[HDB|HDFC Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
+- **Same Sector**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[HDB|HDFC Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MFG|Mizuho Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
 - **Same Industry**: [[V|Visa Inc.]]
