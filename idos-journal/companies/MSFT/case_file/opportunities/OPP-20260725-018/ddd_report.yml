@@ -1,121 +1,15 @@
-calidad_evidencia:
-  hechos_verificados:
-  - Ingresos TTM de $331,840M con crecimiento del +18.1%
-  - Margen Operativo de 46.8% y ROIC de 28.3%
-  - Ratio Deuda/Capitalización de 0.1x
-  inferencias_llm:
-  - El perfil muestra CEO antigüedad 0 e insider ownership 0.0% debido a omisión de
-    datos en el feed primario; se infiere el liderazgo de Satya Nadella basado en
-    datos corporativos vigentes.
-  - El CapEx de IA generará eficiencias de escala y retornos compuestos una vez alcanzada
-    la fase de madurez operativa.
-  preguntas_abiertas:
-  - ¿Cuál es el margen EBITDA exacto individual de Copilot dentro del segmento Productivity
-    & Business Processes?
-  - ¿Cómo evolucionarán las clausulas de gobernanza y reparto de beneficios con OpenAI
-    a largo plazo?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: Quality at Fair Price (descartada porque MSFT no solo cotiza
-    a un precio justo, sino que posee ventajas competitivas de red y escala que generan
-    un interés compuesto superior al promedio del mercado a largo plazo); Hype (descartada
-    porque su valoración está respaldada por $331.8B de ingresos y $150B+ de EBITDA
-    ajustado real, no por meras promesas de IA).
-  justificacion: Microsoft es la definición quintaesencial de un 'Compounder' global.
-    Mantiene una posición dominante en software empresarial (M365, Windows, Dynamics),
-    una plataforma de nube de hiperescalado (Azure) con un sólido crecimiento continuo
-    (+18.1% de crecimiento de ingresos TTM), márgenes operativos excepcionales de
-    ~46.8% y un ROIC cercano al 28.3%. Su capacidad para reinvestir capital a tasas
-    elevadas de retorno la convierte en un motor duradero de creación de valor.
-dominio_business_quality:
-  analisis: Posición competitiva dominante respaldada por altos costos de cambio (Enterprise
-    Switching Costs) y efectos de red en Microsoft 365, LinkedIn y GitHub. Su modelo
-    SaaS/Suscripción genera visibilidad recurrente superior al 80%. La integración
-    vertical desde el sistema operativo hasta la infraestructura de nube (Azure) y
-    la capa de aplicaciones de IA genera un 'Moat' casi infranqueable.
-  rating: excepcional
-dominio_catalizadores:
-- descripcion: Reporte de aceleración en la tasa de crecimiento de Azure por encima
-    del 33% impulsado por servicios de GenAI.
-  horizonte: corto
-  impacto: alto
-  nivel_confianza: alto
-  probabilidad_pct: 80
-- descripcion: Demostración de expansión de márgenes brutos en la división de Nube
-    Inteligente a medida que maduran los chips propios (Maia/Cobalt).
-  horizonte: medio
-  impacto: medio
-  nivel_confianza: medio
-  probabilidad_pct: 65
-dominio_esg_supply_chain:
-  analisis: Riesgo operativamente controlado. La principal vulnerabilidad en la cadena
-    de suministro radica en la alta dependencia de TSMC y Nvidia para el hardware
-    de GPU de IA, mitigated por desarrollos propios de chips (Maia/Cobalt). En ESG,
-    destaca por metas agresivas de huella de carbono negativa para 2030, aunque enfrenta
-    escrutinio regulatorio continuo en competencia e integración de productos.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: Balance de fortaleza soberana (AAA o equivalente implícito). Apalancamiento
-    sumamente bajo (D/E 0.1x). Aunque los datos del perfil del prompt reportan FCF
-    ajustado y cobertura de interés en 0 debido a convenciones contables/de provisión
-    de datos, la caja operativa subyacente supera los $110B anuales, permitiendo financiar
-    el CapEx de IA con generación interna sin comprometer la solvencia.
-  rating: fuerte
-dominio_growth:
-  analisis: 'Impulsado por tres motores orgánicos principales: 1) Migración continua
-    de cargas de trabajo heredadas a Azure, 2) Monetización incremental por usuario
-    a través de add-ons de IA/Copilot y módulos de Ciberseguridad/E5, 3) Expansión
-    de plataformas sectoriales (Salud/Nuance, automatización con Power Platform y
-    Gaming).'
-  rating: fuerte
-dominio_management:
-  analisis: A pesar de que el perfil del prompt muestra 0 años para el CEO (dato faltante
-    en la ficha básica), Satya Nadella (CEO desde 2014) posee un track record histórico
-    brillante en asignación de capital, pivotando la empresa hacia la nube (Azure)
-    y liderando estratégicamente la carrera de IA mediante la alianza pionera con
-    OpenAI y la adquisición estratégica de Nuance, GitHub y Activision Blizzard.
-  rating: excepcional
-dominio_riesgos:
-- impacto: medio
-  probabilidad: media
-  riesgo: Riesgo de ejecución y monetización del CapEx masivo en infraestructura de
-    IA si la adopción empresarial se desacelera.
-- impacto: medio
-  probabilidad: alta
-  riesgo: Presión regulatoria y antimonopolio (FTC, UE) sobre la alianza exclusiva
-    con OpenAI y prácticas de venta empaquetada (bundling) de Teams/Security.
-- impacto: medio
-  probabilidad: media
-  riesgo: Cuellos de botella en el suministro de energía limpia y centros de datos
-    para abastecer la demanda de cómputo de IA.
-error_mercado:
-  catalizador_cambio:
-    descripcion: Aceleración de los ingresos por consumo de IA en Azure superando
-      las expectativas del mercado junto con la expansión de margen EBITDA a medida
-      que la capacidad de data centers entra en fase de utilización óptima.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 80
-  conclusion_error_valoracion: SI
-  consenso_actual: El consenso asume que el masivo incremento de gasto de capital
-    (CapEx) dedicado a infraestructura de IA (chips Nvidia, centros de datos) diluirá
-    temporalmente la generación de FCF y contraerá retornos si la monetización de
-    Copilot y servicios de IA en Azure se retrasa. Asimismo, el mercado asume un riesgo
-    significativo en la concentración de su alianza estratégica con OpenAI y presiones
-    regulatorias antimonopolio.
-  hipotesis_contraria: El mercado subestima la intensidad del 'lock-in' empresarial
-    y el poder de fijación de precios de Microsoft. La infraestructura de IA de Microsoft
-    no es un gasto especulativo, sino una conversión directa de demanda diferida corporativa;
-    Copilot no requiere una adopción masiva inmediata para ser rentable debido al
-    empaquetamiento comercial (upselling) dentro de E3/E5. El ciclo de inversión actual
-    creará barreras de entrada aún más insuperables para competidores sin escala de
-    balance.
-  razonamiento: Existe una desconexión temporal entre la percepción del mercado sobre
-    la sobreinversión en IA (CapEx) y el retorno a largo plazo sobre el capital invertido.
-    El mercado trata la inversión en IA como un costo corriente en lugar de una acumulación
-    de activos con foso defensivo duradero.
-generated_at: '2026-07-30T11:29:15.095968-03:00'
-opinion_valoracion: justo
+calidad_evidencia: {}
+clasificacion_oportunidad: {}
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-07-30T11:37:12.310557-03:00'
+opinion_valoracion: ''
 opp_id: OPP-20260725-018
 prompt_inputs:
   business_model: Microsoft Corporation develops and supports software, services,
@@ -149,25 +43,15 @@ prompt_inputs:
   insider_ownership: 0
   name: Microsoft Corporation
   operating_margin: 46.78
-  pe_ratio: 21.76
+  pe_ratio: 24.97
   products: ''
   revenue: 331840000000.0
   revenue_growth: 18.15
   roic: 28.31
   sector: Technology
   ticker: MSFT
-resumen_ejecutivo: Microsoft representa un activo defensivo y de crecimiento único
-  en el mercado global. Con ingresos TTM de $331.8B (+18.1% YoY) y un margen operativo
-  del 46.8%, la compañía demuestra una potencia operativa sin igual. Aunque el esfuerzo
-  inversor en infraestructura de IA ejerce presión de corto plazo en los flujos de
-  caja libres reportados, la expansión del ecosistema B2B, la migración masiva a Azure
-  y el monopolio de productividad garantizan retornos sobre el capital invertido (ROIC
-  >28%) sostenibles.
-score_general: 93
-tesis_inversion: Microsoft es un activo de calidad institucional de tenencia obligatoria
-  a largo plazo para un Family Office. Su combinación de defensividad operativa (software
-  empresarial crítico) y crecimiento opcional masivo (liderazgo en IA y Nube) justifica
-  valoraciones de calidad. Cualquier corrección del mercado motivada por preocupaciones
-  de corto plazo sobre el CapEx de IA representa una oportunidad estratégica de acumulación.
+resumen_ejecutivo: ''
+score_general: 50
+tesis_inversion: ''
 ticker: MSFT
 version: '3.0'

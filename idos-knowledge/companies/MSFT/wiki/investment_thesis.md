@@ -1,1 +1,1 @@
-Microsoft es un activo de calidad institucional de tenencia obligatoria a largo plazo para un Family Office. Su combinación de defensividad operativa (software empresarial crítico) y crecimiento opcional masivo (liderazgo en IA y Nube) justifica valoraciones de calidad. Cualquier corrección del mercado motivada por preocupaciones de corto plazo sobre el CapEx de IA representa una oportunidad estratégica de acumulación.
+To be formulated

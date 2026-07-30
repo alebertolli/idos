@@ -40,20 +40,20 @@ To be evaluated
 - **Revenue Growth**: 18.15
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.13
-- **PER**: 21.76
-- **EV/EBITDA**: 14.87
+- **PER**: 24.97
+- **EV/EBITDA**: 14.86
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Microsoft es un activo de calidad institucional de tenencia obligatoria a largo plazo para un Family Office. Su combinación de defensividad operativa (software empresarial crítico) y crecimiento opcional masivo (liderazgo en IA y Nube) justifica valoraciones de calidad. Cualquier corrección del mercado motivada por preocupaciones de corto plazo sobre el CapEx de IA representa una oportunidad estratégica de acumulación.
+To be formulated
 
 ---
 
