@@ -46,7 +46,7 @@ Total: 48 companies tracked
 - 📄 [[ING|ING Groep N.V.]]
 - 📄 [[ITUB|Itaú Unibanco Holding S.A.]]
 - 📄 [[LYG|Lloyds Banking Group plc]]
-- 📄 [[MA|MA]]
+- 📄 [[MFG|Mizuho Financial Group, Inc.]]
 - ⏳ [[SAN|Banco Santander, S.A.]]
 - 📄 [[SPGI|S&P Global Inc.]]
 - 📄 [[USB|U.S. Bancorp]]

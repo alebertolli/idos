@@ -1,34 +1,33 @@
 {
   "processed": [
     {
-      "ticker": "MA",
+      "ticker": "MFG",
       "opp_id": "OPP-20260730-001",
       "status": "completed",
-      "score": 88,
-      "classification": "compounder",
+      "score": 78,
+      "classification": "ciclica",
       "force": true,
       "event_type": "quarterly-results"
     }
   ],
   "assessments": [
     {
-      "ticker": "MA",
+      "ticker": "MFG",
       "opp_id": "OPP-20260730-001",
       "status": "completed",
-      "conviction_score": 73,
+      "conviction_score": 62,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260730010613",
+      "decision_id": "DEC-20260730010624",
       "assessments": {
-        "BusinessAssessmentEngine": 72,
-        "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 61,
+        "BusinessAssessmentEngine": 66,
+        "ValuationAssessmentEngine": 45,
+        "RecoveryAssessmentEngine": 58,
         "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
-        "RULE-002",
         "RULE-003",
         "RULE-004",
         "RULE-005",
@@ -37,17 +36,19 @@
         "RULE-009"
       ],
       "rules_failed": [
-        "RULE-001"
+        "RULE-001",
+        "RULE-002",
+        "RULE-005"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 72/100",
-        "RULE-002": "Price target margin: 14.3%",
-        "RULE-003": "Rerating: 61/100",
+        "RULE-001": "Business quality: 66/100",
+        "RULE-002": "Price target margin: 6.8%",
+        "RULE-003": "Rerating: 58/100",
         "RULE-004": "Risk: 70/100",
-        "RULE-005": "Conviction: 67/100",
+        "RULE-005": "Conviction: 62/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
-        "RULE-008": "B/R inf:1 \u2705 (upside 18.9% / downside 0.0%)",
+        "RULE-008": "B/R inf:1 \u2705 (upside 15.1% / downside 0.0%)",
         "RULE-009": "Posiciones activas: 0/10 max (competencia por capital)"
       },
       "data_quality": "good"
