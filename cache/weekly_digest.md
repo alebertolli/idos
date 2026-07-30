@@ -12,17 +12,17 @@ _Generado: 2026-07-30 11:34 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **COIN** (OPP-20260730-001): score=70, class=compounder
+- ⚠️ **KGC** (OPP-20260725-004): score=50, class=None
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **COIN**
-  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/COIN/case_file/opportunities/OPP-20260730-001)
-  - Conviction: 63/100 | Rec: BLOCKED
-  - Scores: Business: 50 | Valuation: 70 | Recovery: 56 | Risk: 70 | Portfolio: 90
+- ⚠️ **KGC**
+  - Opp: [OPP-20260725-004](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/KGC/case_file/opportunities/OPP-20260725-004)
+  - Conviction: 72/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 80 | Recovery: 54 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 50/100
-    - 🚫 RULE-005: Conviction: 63/100
+    - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 
