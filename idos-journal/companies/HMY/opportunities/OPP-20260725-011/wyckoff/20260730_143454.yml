@@ -1,0 +1,73 @@
+adjusted_weight: 1.11
+analyzed_at: '2026-07-30T14:34:54.404231-03:00'
+confidence: baja
+entry_point: ninguno
+indicators:
+  algorithmic_phase: unknown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.3%)'
+  current_price: 15.91
+  high_52w: 25.55
+  low_52w: 12.37
+  ma_200d: 17.79
+  ma_50d: 16.0
+  pct_from_52w_high: -37.7
+  pct_from_52w_low: 28.6
+  pct_from_ma200: -10.5
+  pct_from_ma50: -0.5
+  recent_trend: tendencia de 60d lateral (+2%). últimos 5d estables (+0%)
+  resistance_levels: 'resistencias identificadas: $25.55, $24.04, $23.70, $23.13,
+    $23.01 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $12.37, $13.03, $13.07, $13.21, $13.22
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (0.8x el promedio)
+llm_response:
+  confianza: baja
+  datos_suficientes: false
+  eventos_wyckoff_detectados:
+  - confianza: baja
+    descripcion: Posible Selling Climax marcado en el mínimo de 52 semanas ($12.37).
+    evento: SC
+  - confianza: media
+    descripcion: Reacción alcista posterior al mínimo llevando el precio hacia la
+      zona de $16.00 (+28.6% desde mínimos).
+    evento: AR
+  fase_wyckoff: acumulacion
+  justificacion: El precio cotiza en medio del rango lateral ($15.91) pegado a la
+    MA50 ($16.00) y por debajo de la MA200 (-10.5%). El volumen relativo es bajo (0.8x)
+    sin presencia clara de volumen de absorción ni eventos confirmados de Spring o
+    SOS. Siguiendo el principio de prudencia Wyckoff, la falta de confirmación exige
+    mantener una postura neutral.
+  limitaciones: Falta detalle volumen barra a barra en el mínimo histórico ($12.37)
+    para validar SC/ST, así como gráfico P&F para conteo exacto de causa y datos del
+    índice de referencia para evaluar fortaleza relativa.
+  precio_objetivo_wyckoff:
+    estimado: 23.0
+    metodo: causa_efecto
+    razonamiento: Teórico extremo superior del rango de trading ($23.00 - $25.55)
+      en caso de completarse una acumulación previa al markup.
+  pruebas_compra:
+    prueba_1_objetivo_caida: Pasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: NoPasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: Pasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 2
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: -23.94
+    fundamento: Por debajo del soporte crítico del mínimo de 52 semanas ($12.37).
+    precio: 12.1
+opp_id: OPP-20260725-011
+phase: accumulation
+price_target: 23.0
+score: 41
+stop_loss: 12.1
+ticker: HMY
+triggered_entry: false

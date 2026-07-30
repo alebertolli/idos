@@ -1,39 +1,39 @@
 {
-  "fase_wyckoff": "acumulacion",
+  "fase_wyckoff": "desconocida",
   "eventos_wyckoff_detectados": [
     {
-      "evento": "PS",
-      "descripcion": "Volumen alto, spread amplio, primer signo de compra",
-      "confianza": "alta"
+      "evento": "Ninguno",
+      "descripcion": "No se observan eventos Wyckoff claros (Spring, SOS, LPS o JAC) en la estructura lateral reciente de 60 días. El precio se consolida en medio del rango amplio de 52 semanas sin volumen significativo.",
+      "confianza": "baja"
     }
   ],
   "pruebas_compra": {
-    "prueba_1_objetivo_caida": "Pasa",
+    "prueba_1_objetivo_caida": "N/A",
     "prueba_2_actividad_alcista": "NoPasa",
-    "prueba_3_parada_critica": "Pasa",
+    "prueba_3_parada_critica": "N/A",
     "prueba_4_fortaleza_relativa": "N/A",
     "prueba_5_linea_suministro": "NoPasa",
-    "prueba_6_soportes_crecientes": "Pasa",
+    "prueba_6_soportes_crecientes": "NoPasa",
     "prueba_7_maximos_crecientes": "NoPasa",
-    "prueba_8_base_construida": "Pasa",
+    "prueba_8_base_construida": "NoPasa",
     "prueba_9_relacion_3_1": "NoPasa",
-    "pruebas_pasan": 4,
+    "pruebas_pasan": 0,
     "total_pruebas": 9
   },
-  "punto_entrada": "spring_3",
+  "punto_entrada": "ninguno",
   "precio_objetivo_wyckoff": {
-    "estimado": 45.67,
-    "metodo": "conteo_pnf",
-    "razonamiento": "Se estima un conteo P&F aproximado para el objetivo de precio"
+    "estimado": null,
+    "metodo": "no_determinable",
+    "razonamiento": "Ausencia de un conteo de Punto y Figura (P&F) y de una estructura de causa bien delimitada que permita proyectar un objetivo vertical confiable."
   },
   "stop_loss_sugerido": {
-    "precio": 34.5,
-    "distancia_pct": -7.1,
-    "fundamento": "Se sugiere un Stop Loss a 7.1% por debajo del precio actual"
+    "precio": null,
+    "distancia_pct": null,
+    "fundamento": "No aplica al no existir una señal de entrada ni un nivel técnico claro de invalidez bajo el método Wyckoff."
   },
-  "senal_entrada": "COMPRAR",
-  "justificacion": "Se detecta un Preliminary Support (PS) con alta confianza y se cumplen 4 de las 9 pruebas de compra",
+  "senal_entrada": "NEUTRAL",
+  "justificacion": "Aplicando las 3 Leyes de Wyckoff con rigor institucional: 1) Oferta/Demanda: El volumen decreciente (0.7x) y spreads estrechos (1.5%) indican falta de interés por parte del dinero profesional. 2) Causa/Efecto: El rango de 60 días (-3%) no muestra una absorción clara ni la acumulación de causa suficiente en la zona media del rango $20-$52. 3) Esfuerzo/Resultado: No hay anomalías de volumen que señalen intervención del Smart Money. El precio cotiza por debajo de las medias de 50d (-3.4%) y 200d (-9.0%), situándose a mitad de camino entre soportes ($20.63) y resistencias ($52.32). Ante la falta de un evento accionable (Spring o LPS) y no superar las pruebas de compra, la postura prudente de Family Office es mantenerse NEUTRAL.",
   "confianza": "alta",
-  "datos_suficientes": true,
-  "limitaciones": ""
+  "datos_suficientes": false,
+  "limitaciones": "Se carece de gráfico de Punto y Figura para conteo de causa-efecto, serie temporal detallada de volumen barra a barra para evaluar la Ley de Esfuerzo vs Resultado en giros clave, y un índice de referencia para medir fortaleza relativa."
 }
