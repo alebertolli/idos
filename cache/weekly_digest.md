@@ -12,14 +12,18 @@ _Generado: 2026-07-30 02:16 AR_
 
 ### Errores
 
-- ✅ **META** (OPP-20260725-015): score=82, class=compounder_castigado
+- ✅ **MFG** (OPP-20260730-001): score=74, class=ciclica
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ✅ **META**
-  - Opp: [OPP-20260725-015](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/META/case_file/opportunities/OPP-20260725-015)
-  - Conviction: 72/100 | Rec: APPROVE | Dec: HOLD
-  - Scores: Business: 76 | Valuation: 70 | Recovery: 62 | Risk: 70 | Portfolio: 90
+- ⚠️ **MFG**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MFG/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 66 | Valuation: 45 | Recovery: 62 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 66/100
+    - 🚫 RULE-002: Price target margin: 6.8%
+    - 🚫 RULE-005: Conviction: 63/100
 
 ---
 
