@@ -1,33 +1,34 @@
 {
   "processed": [
     {
-      "ticker": "AEM",
-      "opp_id": "OPP-20260725-007",
-      "status": "completed",
-      "score": 85,
-      "classification": "compounder",
+      "ticker": "MSFT",
+      "opp_id": "OPP-20260725-018",
+      "status": "ddd_failed",
+      "score": 50,
+      "classification": null,
       "force": true,
       "event_type": "quarterly-results"
     }
   ],
   "assessments": [
     {
-      "ticker": "AEM",
-      "opp_id": "OPP-20260725-007",
+      "ticker": "MSFT",
+      "opp_id": "OPP-20260725-018",
       "status": "completed",
-      "conviction_score": 73,
+      "conviction_score": 70,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260730144511",
+      "decision_id": "DEC-20260730144512",
       "assessments": {
-        "BusinessAssessmentEngine": 68,
-        "ValuationAssessmentEngine": 80,
-        "RecoveryAssessmentEngine": 60,
+        "BusinessAssessmentEngine": 72,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 56,
         "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
+        "RULE-001",
         "RULE-002",
         "RULE-003",
         "RULE-004",
@@ -37,14 +38,14 @@
         "RULE-009"
       ],
       "rules_failed": [
-        "RULE-001"
+        "RULE-008"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 68/100",
-        "RULE-002": "Price target margin: 45.3%",
-        "RULE-003": "Rerating: 60/100",
+        "RULE-001": "Business quality: 72/100",
+        "RULE-002": "Price target margin: 21.8%",
+        "RULE-003": "Rerating: 56/100",
         "RULE-004": "Risk: 80/100",
-        "RULE-005": "Conviction: 73/100",
+        "RULE-005": "Conviction: 70/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
         "RULE-008": "B/R inf:1 \u2705 (upside 101.7% / downside 0.0%)",
