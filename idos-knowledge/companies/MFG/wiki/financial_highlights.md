@@ -3,5 +3,5 @@
 - **Revenue Growth**: 29.79
 - **FCF Yield**: 0
 - **Debt/Equity**: 0
-- **PER**: 15.34
+- **PER**: 14.78
 - **EV/EBITDA**: 0

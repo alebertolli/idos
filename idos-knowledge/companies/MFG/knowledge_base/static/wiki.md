@@ -40,21 +40,19 @@ To be evaluated
 - **Revenue Growth**: 29.79
 - **FCF Yield**: 0
 - **Debt/Equity**: 0
-- **PER**: 15.34
+- **PER**: 14.78
 - **EV/EBITDA**: 0
 
 ---
 
 ## Catalysts
 - **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-Mizuho Financial Group ofrece una atractiva relación riesgo/beneficio para una Family Office que busque exposición a la revitalización financiera de Japón. El valor cotiza con un descuento injustificado teniendo en cuenta la sensibilidad positiva de sus depósitos a la subida de tipos de interés, el viento de cola en gobernanza corporativa que acelera la retribución al accionista y el fuerte repunte del beneficio operativo (+29.8% en ingresos TTM). Los riesgos clave están acotados por la naturaleza sistémica y oligopólica de la entidad.
+Mizuho Financial Group, Inc. ofrece una oportunidad de inversión atractiva para aquellos que buscan una exposición estable y diversificada al mercado financiero, con potencial para crecimiento a largo plazo.
 
 ---
 
