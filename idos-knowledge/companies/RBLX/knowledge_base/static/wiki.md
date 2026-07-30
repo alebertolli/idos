@@ -46,14 +46,14 @@ To be evaluated
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-La compañía tiene un potencial de crecimiento sostenido, pero enfrenta desafíos financieros y operativos. Es importante analizar cuidadosamente los riesgos y oportunidades antes de tomar una decisión de inversión.
+To be formulated
 
 ---
 
