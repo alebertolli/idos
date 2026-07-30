@@ -415,119 +415,46 @@ jobs:
             git push
           fi
 
-      - name: Send notifications
-        if: success()
+      - name: 🐛 Report failure
+        if: failure()
         run: |
           python -c "
           import os, json
-          digest = open('cache/weekly_digest.md', encoding='utf-8').read()
-          results = json.loads(open('cache/ddd_results.json', encoding='utf-8').read())
-          
-          processed = results.get('processed', [])
-          assessments = results.get('assessments', [])
-          errors = results.get('errors', [])
-          total = results.get('total', 0)
-          approved = sum(1 for a in assessments if isinstance(a, dict) and a.get('board_approved'))
-          event_type = results.get('event_type', 'monthly')
-          force = results.get('force', False)
+          from pathlib import Path
 
-          if event_type == 'quarterly-results':
-              trigger_label = 'Quarterly Results'
-          elif event_type == 'manual':
-              ticker_label = os.environ.get('TICKER', '')
-              trigger_label = f'Manual' + (f' ({ticker_label})' if ticker_label else '')
-          else:
-              trigger_label = 'Monthly'
+          # Report as GitHub Issue
+          import subprocess, sys
+          subprocess.run([sys.executable, '-m', 'idos.workers.automation.gha_error_reporter'], check=False)
 
-          # Build Telegram message (short version)
-          lines = []
-          lines.append('*IDOS DDD Pipeline*')
-          lines.append(f'Trigger: {trigger_label}')
-          lines.append('')
-          if total == 0:
-              lines.append('No se encontraron oportunidades DISCOVERED para procesar')
-          else:
-              lines.append(f'📊 {total} oportunidades evaluadas')
-              lines.append(f'✅ {len(processed)} research completados')
-              lines.append(f'🔖 {approved} approved por el board')
-              lines.append(f'🔴 {len(errors)} errores')
-          lines.append('')
-          if assessments and isinstance(assessments, list):
-              lines.append('*Resultados:*')
-              for a in assessments:
-                  if not isinstance(a, dict):
-                      continue
-                  ticker = a.get('ticker', '?')
-                  conv = a.get('conviction_score', '?')
-                  rec = a.get('recommendation', '?')
-                  dec = a.get('decision_type', '?') if a.get('board_approved') else '-'
-                  lines.append(f'- {ticker}: conv={conv}/100, rec={rec}, dec={dec}')
-                  failed = a.get('rules_failed', [])
-                  details = a.get('rules_details', {})
-                  if failed:
-                      for rid in failed:
-                          d = details.get(rid, '')
-                          lines.append(f'  -> {rid}: {d}')
-              lines.append('')
-          lines.append('[Ver detalle completo en repositorio](https://github.com/alebertolli/idos/tree/main/idos-journal/companies)')
-          telegram_msg = '\n'.join(lines)
-
-          # Send Telegram
-          token = os.environ.get('IDOS_TELEGRAM_BOT_TOKEN', '')
-          chat = os.environ.get('IDOS_TELEGRAM_CHAT_ID', '')
-          if token and chat:
-              from idos.workers.notifications.telegram import TelegramNotifier
-              t = TelegramNotifier({'bot_token': token, 'chat_id': chat})
-              t.execute({'message': telegram_msg[:4000], 'parse_mode': 'Markdown'})
-              print('[NOTIFY] Telegram sent')
-          else:
-              print('[NOTIFY] Telegram not configured')
-
-          # Send Email
+          # Send email on failure
           smtp_host = os.environ.get('IDOS_SMTP_HOST', '')
           if smtp_host:
               try:
-                  from idos.workers.notifications.email_notifier import EmailNotifier
-                  body_lines = []
-                  body_lines.append('IDOS DDD Pipeline Report')
-                  body_lines.append('')
-                  body_lines.append(f'Total opps: {total}')
-                  body_lines.append(f'Research: {len(processed)}')
-                  body_lines.append(f'Assessments: {len(assessments)}')
-                  body_lines.append(f'Approved: {approved}')
-                  body_lines.append(f'Errors: {len(errors)}')
-                  body_lines.append('')
-                  body_lines.append('Resultados:')
-                  for a in (assessments if isinstance(assessments, list) else []):
-                      if not isinstance(a, dict):
-                          continue
-                      t = a.get('ticker', '?')
-                      cv = a.get('conviction_score', '?')
-                      rc = a.get('recommendation', '?')
-                      ba = 'OK' if a.get('board_approved', False) else 'PENDING'
-                      body_lines.append(f'- {t}: conv={cv}/100 | rec={rc} | board={ba}')
-                      failed = a.get('rules_failed', [])
-                      details = a.get('rules_details', {})
-                      if failed:
-                          for rid in failed:
-                              d = details.get(rid, '')
-                              body_lines.append(f'    {rid}: {d}')
-                      body_lines.append('')
-                  body_lines.append('Ver detalle completo:')
-                  body_lines.append('https://github.com/alebertolli/idos/tree/main/idos-journal/companies')
-                  email_body = chr(10).join(body_lines)
-                  e = EmailNotifier()
-                  e.execute({'subject': 'IDOS DDD Pipeline Report', 'body': email_body})
-                  print('[NOTIFY] Email sent')
-              except Exception as email_err:
-                  print(f'[NOTIFY] Email error: {email_err}')
-          else:
-              print('[NOTIFY] Email not configured')
-          "
+                  results_path = Path('cache/ddd_results.json')
+                  errors = []
+                  if results_path.exists():
+                      results = json.loads(results_path.read_text(encoding='utf-8'))
+                      errors = results.get('errors', [])
 
-      - name: 🐛 Report failure as GitHub Issue
-        if: failure()
-        run: python -m idos.workers.automation.gha_error_reporter
+                  from idos.workers.notifications.email_notifier import EmailNotifier
+                  body = []
+                  body.append('IDOS DDD Pipeline - ERROR')
+                  body.append('')
+                  body.append(f'Pipeline: {os.environ.get(\"GITHUB_WORKFLOW\", \"\")}')
+                  body.append(f'Run: {os.environ.get(\"GITHUB_SERVER_URL\", \"\")}/{os.environ.get(\"GITHUB_REPOSITORY\", \"\")}/actions/runs/{os.environ.get(\"GITHUB_RUN_ID\", \"\")}')
+                  if errors:
+                      body.append('')
+                      body.append('Errores detectados:')
+                      for e in errors:
+                          body.append(f'  - {e}')
+                  body.append('')
+                  body.append('Revise los logs en GitHub Actions para mas detalles.')
+                  e = EmailNotifier()
+                  e.execute({'subject': 'IDOS DDD Pipeline - Fallo detectado', 'body': chr(10).join(body)})
+                  print('[NOTIFY] Failure email sent')
+              except Exception as email_err:
+                  print(f'[NOTIFY] Failure email error: {email_err}')
+          "
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
