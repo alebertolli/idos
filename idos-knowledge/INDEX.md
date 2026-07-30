@@ -25,6 +25,7 @@ Total: 48 companies tracked
 - 📄 [[GOOGL|Alphabet Inc.]]
 - 📄 [[META|Meta Platforms, Inc.]]
 - 📄 [[NFLX|Netflix, Inc.]]
+- 📄 [[RBLX|Roblox Corporation]]
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]

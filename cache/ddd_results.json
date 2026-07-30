@@ -1,33 +1,34 @@
 {
   "processed": [
     {
-      "ticker": "RACE",
+      "ticker": "RBLX",
       "opp_id": "OPP-20260730-001",
       "status": "completed",
-      "score": 88,
-      "classification": "compounder",
+      "score": 52,
+      "classification": "hype",
       "force": true,
       "event_type": "quarterly-results"
     }
   ],
   "assessments": [
     {
-      "ticker": "RACE",
+      "ticker": "RBLX",
       "opp_id": "OPP-20260730-001",
       "status": "completed",
-      "conviction_score": 65,
+      "conviction_score": 60,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260730010509",
+      "decision_id": "DEC-20260730010518",
       "assessments": {
-        "BusinessAssessmentEngine": 68,
-        "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 59,
+        "BusinessAssessmentEngine": 40,
+        "ValuationAssessmentEngine": 70,
+        "RecoveryAssessmentEngine": 54,
         "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
+        "RULE-002",
         "RULE-003",
         "RULE-004",
         "RULE-005",
@@ -37,17 +38,17 @@
       ],
       "rules_failed": [
         "RULE-001",
-        "RULE-002"
+        "RULE-005"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 68/100",
-        "RULE-002": "Price target margin: 16.0%",
-        "RULE-003": "Rerating: 59/100",
+        "RULE-001": "Business quality: 40/100",
+        "RULE-002": "Price target margin: 31.9%",
+        "RULE-003": "Rerating: 54/100",
         "RULE-004": "Risk: 70/100",
-        "RULE-005": "Conviction: 65/100",
+        "RULE-005": "Conviction: 60/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
-        "RULE-008": "B/R inf:1 \u2705 (upside 36.6% / downside 0.0%)",
+        "RULE-008": "B/R inf:1 \u2705 (upside 109.5% / downside 0.0%)",
         "RULE-009": "Posiciones activas: 0/10 max (competencia por capital)"
       },
       "data_quality": "good"
