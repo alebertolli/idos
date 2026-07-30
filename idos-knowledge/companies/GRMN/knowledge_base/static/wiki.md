@@ -46,14 +46,14 @@ To be evaluated
 ---
 
 ## Catalysts
-
-To be identified
+- **Catalyst** (Impact: medium, Timeline: medium)
+- **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-To be formulated
+Garmin Ltd. es un compounder con un historial de crecimiento estable y una posición competitiva sólida en el mercado de productos GPS y navegación. El mercado puede estar subestimando su capacidad para innovar y expandirse a nuevos mercados, lo que podría llevar a un error de valoración aprovechable.
 
 ---
 

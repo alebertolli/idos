@@ -12,17 +12,19 @@ _Generado: 2026-07-30 11:32 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ⚠️ **MA** (OPP-20260730-001): score=50, class=None
+- ✅ **GRMN** (OPP-20260730-001): score=80, class=compounder
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **MA**
-  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MA/case_file/opportunities/OPP-20260730-001)
-  - Conviction: 65/100 | Rec: BLOCKED
-  - Scores: Business: 72 | Valuation: 55 | Recovery: 53 | Risk: 70 | Portfolio: 90
+- ⚠️ **GRMN**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/GRMN/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 64/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 45 | Recovery: 58 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-002: Price target margin: 13.0%
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+    - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-002: Price target margin: -8.9%
+    - 🚫 RULE-005: Conviction: 64/100
+    - 🚫 RULE-008: B/R 1.9:1 ❌ (upside 7.3% / downside 3.8%)
 
 ---
 
