@@ -142,7 +142,7 @@ jobs:
               from pathlib import Path
               _mp = Path('idos-config/models.yml')
               _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
-              w = EntryMonitorWorker({'llm_service': _llm_svc})
+              w = EntryMonitorWorker({'llm_service': _llm_svc, 'prompts_path': 'idos-config/prompts'})
               result = w.execute({'ticker': ticker, 'opp_id': opp_id, 'base_path': str(bp)})
               if result.status == WorkerStatus.FAILED and result.error:
                   print(f'[ENTRY] {ticker}: ERROR - {result.error}')
@@ -190,7 +190,7 @@ jobs:
               from idos.ai.service import LLMService
               _mp = Path('idos-config/models.yml')
               _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
-              w = EntryMonitorWorker({'llm_service': _llm_svc})
+              w = EntryMonitorWorker({'llm_service': _llm_svc, 'prompts_path': 'idos-config/prompts'})
               result = w.execute({'ticker': ticker, 'opp_id': opp_id, 'base_path': str(bp)})
               r = result.output if hasattr(result, 'output') else result
               if not r.get('entry_executed') or r.get('status') == 'skipped':
