@@ -1,62 +1,59 @@
-```markdown
-# Garmin Ltd. (GRMN)
+## Business Model
 
-## 1. Visión General de la Compañía
-Garmin Ltd. es una empresa líder en el diseño, desarrollo, fabricación y distribución de productos y servicios habilitados para GPS y navegación en todo el mundo. Fundada en 1989 y con sede en Schaffhausen, Suiza, opera en sectores como **aviación**, **consumo**, **marina** y **automotriz**. Su cartera incluye relojes inteligentes, dispositivos de aviación, sistemas de navegación marítima y soluciones de software como Garmin Connect. La empresa destaca por su enfoque en innovación tecnológica y calidad, con una presencia global en más de 50 países. [[wikilinks]] a competidores como [[ADBE]], [[ASML]], y [[NVDA]] reflejan su relevancia en industrias tecnológicas y de navegación.
+Garmin Ltd. designs, develops, manufactures, markets, and distributes a diverse range of GPS-enabled products and navigation, communications, sensor-based, and information products and services worldwide. It offers running; cycling products; smartwatch devices; scales and monitors; and sports timing and performance analysis; Garmin Connect and Garmin Connect Mobile, which are web and mobile platforms where users can track and analyze their fitness, activities and workouts, and wellness data; and Connect IQ, which enables third parties to create applications that run on Garmin devices. It also provides adventure watches; outdoor handhelds and satellite communicators; golf devices; consumer automotive; dog devices; InReach and Gramin response; and dive devices. In addition, it designs, manufactures, and markets various aircraft avionics solutions, including integrated flight decks, electronic flight displays and instrumentation, navigation and communication products, automatic flight control systems and safety-enhancing technologies, audio control systems, engine indication systems, traffic awareness and avoidance solutions, ADS-B and transponders, weather information and avoidance solutions, datalink and connectivity solutions, and portable GPS navigators and wearables, as well as service products to the aviation market. Further, it offers chartplotters and multi-function displays, cartography, fishfinders, sonar, autopilot systems, radars, compliant instrument displays and sensors, VHF communication radios, handhelds and wearable devices, sailing, audio, digital switching, trolling motors, and lighting; and domain controllers and infotainment units, as well as software, map database, camera, wearable, and automotive solutions. The company sells its products through independent retailers, dealers, distributors, installation and repair shops, OEM, and online webshop. Garmin Ltd. was founded in 1989 and is based in Schaffhausen, Switzerland.
 
-## 2. Modelo de Negocio y Posición Competitiva
-Garmin genera ingresos a través de la venta de dispositivos GPS, sistemas de aviación, wearables y servicios de suscripción. Su **moat** se basa en:  
-- **Tecnología patentada**: Sistemas de navegación aeronáutica y wearables con integración de datos en tiempo real.  
-- **Reconocimiento de marca**: Líder en dispositivos para aviación y fitness.  
-- **Ecosistema de software**: Plataformas como Garmin Connect y Connect IQ que aumentan el valor del cliente.  
-La industria de navegación y aviación es **creciente y competitiva**, con crecimiento impulsado por la demanda de soluciones autónomas y seguridad en vuelos. [[wikilinks]] a [[FSLR]] y [[TSM]] destacan su posición en sectores tecnológicos.
+---
 
-## 3. Perfil Financiero
-| **Métrica**         | **Valor** | **Tendencia**       |
-|---------------------|-----------|---------------------|
-| ROIC                | 26.21%    | Mejorando           |
-| Margen Operativo    | 27.61%    | Estable             |
-| Crecimiento de Ingresos | 9.86% anual | Consistente     |
-| FCF Yield           | 0%        | Alta conversión     |
-| Deuda/Equity        | 0.02      | Baja                |
-| PER                 | 27.06     | Premium             |
-| EV/EBITDA           | 19.69x    | Sector competitivo  |
+## Products & Services
 
-La estructura de capital es sólida, con **deuda nula** y alta generación de flujo de caja libre (FCF). Su ROIC supera el costo del capital, lo que respalda su capacidad para reinvertir en innovación. [[wikilinks]] a [[MELI]] y [[ASML]] muestran comparaciones en empresas con modelos de negocio similares.
+- To be identified
 
-## 4. Management y Gobierno Corporativo
-El equipo directivo de Garmin tiene un historial de **toma de decisiones estratégicas**, incluyendo expansiones en aviación y wearables. La **calidad del liderazgo** es "excepcional", con un board diversificado y alineación de incentivos entre ejecutivos y accionistas. La **propiedad de insiders** es fuerte, lo que reduce riesgos de agencia. La cultura de innovación y retención de talento son pilares clave. [[wikilinks]] a [[UBER]] y [[SHOP]] destacan la importancia de la gestión en sectores competitivos.
+---
 
-## 5. Tesis de Inversión
-Garmin es un **compounder** con crecimiento estable y una moat amplia. Su ROIC del 26.21% y márgenes operativos del 27.61% proporcionan un margen de seguridad financiero. Aunque su PER de 27.06 refleja expectativas altas, su capacidad para dominar nichos como la **aviación y navegación autónoma** (con un catalizador de impacto "alto" y probabilidad del 30%) justifica su valoración. La tesis se alinea con inversiones de largo plazo, similar a [[ASML]] en semiconductores.
+## Competitive Moat
 
-## 6. Riesgos y Contra-Tesis
-**Riesgos clave**:  
-- **Competencia intensa** en GPS y wearables (probabilidad alta, impacto alto).  
-- **Cambios regulatorios** en aviación (probabilidad baja, impacto medio).  
-El caso bajista (probabilidad del 20%) asume una pérdida de participación de mercado por innovaciones de competidores como [[NVDA]] o [[PLTR]]. Sin embargo, la diversificación de Garmin en múltiples segmentos mitiga estos riesgos.
+To be analyzed
 
-## 7. Catalizadores y Timeline
-- **Catalizador principal**: Aumento en la demanda de aviónica y navegación autónoma (impacto alto, horizonte medio).  
-- **Timeline**: Se espera un crecimiento acelerado en los próximos 3-5 años, dependiendo de la adopción de tecnologías autónomas. [[wikilinks]] a [[FSLR]] y [[TSM]] destacan tendencias similares en sectores tecnológicos.
+---
 
-## 8. Marco de Valoración
-La valoración se basa en:  
-- **Múltiplos sectoriales**: PER de 27.06 vs. sector tecnológico (ej: [[ADBE]] con PER de 35).  
-- **Análisis de flujo de caja**: Valor intrínseco estimado en $120 (caso base) con margen de seguridad del 15%.  
-- **Sensibilidad**: Un aumento del 10% en el crecimiento de ingresos podría elevar el objetivo a $150 (caso alcista).  
+## Competition
 
-## 9. Preguntas Abiertas y Agenda de Investigación
-- ¿Cuál es el potencial de crecimiento de Garmin en el mercado de **navegación autónoma**?  
-- ¿Cómo afectarán los cambios en la regulación de la **aviación** a sus ingresos?  
-- ¿Existen oportunidades de expansión en mercados emergentes (ej: [[CLS]] en energía renovable)?  
-- ¿Cómo se compara su **calidad ESG** con competidores como [[UBER]]?  
-```
+- To be identified
 
-**Notas adicionales**:  
-- Las métricas financieras se alinean con datos de informes recientes (ej: ROIC del 24.73% en el análisis AOIF).  
-- Los riesgos y catalizadores están interconectados con sectores como [[NVDA]] (IA) y [[FSLR]] (energía limpia).  
-- La estructura de deuda cero y el ROIC elevado posicionan a Garmin como una inversión defensiva con potencial de crecimiento.
+---
+
+## Management
+
+To be evaluated
+
+---
+
+## Risk Factors
+
+
+
+---
+
+## Financial Highlights
+- **ROIC**: 26.21
+- **Operating Margin**: 27.61
+- **Revenue Growth**: 9.86
+- **FCF Yield**: 0
+- **Debt/Equity**: 0.03
+- **PER**: 30.43
+- **EV/EBITDA**: 22.81
+
+---
+
+## Catalysts
+
+To be identified
+
+---
+
+## Investment Thesis
+
+To be formulated
 
 ---
 

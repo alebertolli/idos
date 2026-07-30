@@ -1,1 +1,1 @@
-Garmin representa una oportunidad sólida para un Family Office que busque preservación de capital con crecimiento compuesto. Su balance con deuda cero, ROIC del 24.7% y márgenes operativos superiores al 26% proporcionan un margen de seguridad financiero único. Aunque la valoración cotiza en múltiplos exigentes reflejando su calidad, la capacidad de la empresa para dominar nichos de alta barrera la convierte en una posición central atractiva para mantener a largo plazo o acumular en correcciones del mercado.
+To be formulated
