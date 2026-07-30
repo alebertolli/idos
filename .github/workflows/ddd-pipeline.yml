@@ -42,6 +42,7 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
+      actions: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
