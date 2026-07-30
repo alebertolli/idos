@@ -91,14 +91,23 @@ class OpportunityStateMachine(StateMachine):
                 ("assessments_complete", True, "No todas las evaluaciones completadas (business, technical, valuation)"),
             ]),
         )
-        self.register_guard(
-            OpportunityStatus.ENTRY_PENDING, OpportunityStatus.ACCUMULATING,
-            lambda ctx: _combined_guard(ctx, [
-                ("thesis_active", True, "Tesis no está activa"),
+        def _entry_guard(ctx: dict) -> tuple[bool, str]:
+            base_passed, base_msg = _combined_guard(ctx, [
+                ("thesis_active", True, "Tesis no esta activa"),
                 ("price_in_zone", True, "Precio fuera de zona de margen de seguridad"),
                 ("wyckoff_confirmed", True, "Estructura Wyckoff no confirmada"),
-                ("is_averaging_down", False, "Principio 3 violado: No promediar a la baja sin reevaluación"),
-            ]),
+                ("is_averaging_down", False, "Principio 3 violado: No promediar a la baja sin reevaluacion"),
+            ])
+            if not base_passed:
+                return base_passed, base_msg
+            score = ctx.get("wyckoff_score", 100)
+            if score < 65:
+                return False, f"Score Wyckoff {score} < 65"
+            return True, "All guards passed"
+
+        self.register_guard(
+            OpportunityStatus.ENTRY_PENDING, OpportunityStatus.ACCUMULATING,
+            _entry_guard,
         )
         self.register_guard(
             OpportunityStatus.EXITED, OpportunityStatus.POST_MORTEM,

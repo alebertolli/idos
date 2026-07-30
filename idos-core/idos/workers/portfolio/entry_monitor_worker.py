@@ -1,4 +1,5 @@
 from datetime import datetime
+from pathlib import Path
 from typing import Any
 
 from idos.ai.llm import LLMClient
@@ -11,6 +12,55 @@ from idos.portfolio.wyckoff import WyckoffAnalyzer
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
 from idos.timezone import AR_TZ
+
+
+def _format_wyckoff_md(ticker: str, signal: Any) -> str:
+    eventos = []
+    if signal.wyckoff_raw:
+        for e in (signal.wyckoff_raw.get("eventos_wyckoff_detectados") or []):
+            if isinstance(e, dict):
+                eventos.append(f"| {e.get('evento', '?')} | {e.get('descripcion', '')} | {e.get('confianza', '')} |")
+
+    pruebas = []
+    if signal.wyckoff_raw:
+        pc = signal.wyckoff_raw.get("pruebas_compra") or {}
+        for i in range(1, 10):
+            key = f"prueba_{i}_"
+            val = next((v for k, v in pc.items() if k.startswith(key)), "N/A")
+            emoji = "✅" if val == "Pasa" else "❌" if val == "NoPasa" else "⬜"
+            pruebas.append(f"- {emoji} Prueba {i}: {val}")
+
+    pasan = "?"
+    total = "?"
+    if signal.wyckoff_raw:
+        pc = signal.wyckoff_raw.get("pruebas_compra") or {}
+        pasan = pc.get("pruebas_pasan", "?")
+        total = pc.get("total_pruebas", "?")
+
+    stop_loss = f"${signal.wyckoff_st_loss:.2f}" if signal.wyckoff_stop_loss else "N/A"
+    price_target = f"${signal.wyckoff_price_target:.2f}" if signal.wyckoff_price_target else "N/A"
+
+    return (
+        f"# Analisis Wyckoff - {ticker} - {datetime.now(AR_TZ).strftime('%Y-%m-%d')}\n\n"
+        f"## Fase detectada: {signal.wyckoff_phase.title()}\n"
+        f"## Score: {signal.wyckoff_score}/100 (confianza: {signal.wyckoff_confidence})\n"
+        f"## Senal: {'COMPRAR' if signal.all_conditions_met else 'MANTENER'}\n\n"
+        f"### Eventos Wyckoff Detectados\n"
+        f"| Evento | Descripcion | Confianza |\n"
+        f"|--------|-------------|-----------|\n"
+        + ("".join(eventos) if eventos else "| - | Ninguno | - |\n") + "\n"
+        f"### Pruebas de Compra\n"
+        + "\n".join(pruebas) + "\n\n"
+        f"**Pasan:** {pasan}/{total}\n\n"
+        f"### Punto de Entrada: {signal.wyckoff_entry_point or 'N/A'}\n"
+        f"### Precio Objetivo Wyckoff: {price_target}\n"
+        f"### Stop Loss Sugerido: {stop_loss}\n"
+        f"### Peso Ajustado: {signal.adjusted_weight:.1f}%\n"
+        f"### Precio Actual: ${signal.current_price:.2f}\n"
+        f"### Target (Tesis): ${signal.target_price:.2f}\n"
+        f"### Margen de Seguridad: {signal.margin_of_safety_pct:.1f}%\n"
+    )
+
 
 class EntryMonitorWorker(BaseWorker):
     """Monitors APPROVED/ENTRY_PENDING opportunities for entry conditions.
@@ -52,7 +102,6 @@ class EntryMonitorWorker(BaseWorker):
             msg = "Both ticker and opp_id are required"
             raise ValueError(msg)
 
-        from pathlib import Path
         bp = Path(base_path) if base_path else Path.cwd()
         sqlite = SQLiteStore(bp / "idos.db")
         journal = JournalRepository(bp / "idos-journal")
@@ -86,6 +135,8 @@ class EntryMonitorWorker(BaseWorker):
         entry_context = self._build_entry_context(ticker, opp, sqlite, journal)
         signal = self.entry_engine.evaluate(ticker, entry_context)
 
+        wyckoff_paths = self._persist_wyckoff_analysis(ticker, opp_id, signal, bp)
+
         if signal.all_conditions_met:
             new_status = OpportunityStatus.ACCUMULATING
             opp["status"] = new_status.value
@@ -109,6 +160,14 @@ class EntryMonitorWorker(BaseWorker):
             "target_price": signal.target_price,
             "margin_of_safety_pct": signal.margin_of_safety_pct,
             "wyckoff_phase": signal.wyckoff_phase,
+            "wyckoff_score": signal.wyckoff_score,
+            "wyckoff_confidence": signal.wyckoff_confidence,
+            "wyckoff_entry_point": signal.wyckoff_entry_point,
+            "wyckoff_stop_loss": signal.wyckoff_stop_loss,
+            "wyckoff_price_target": signal.wyckoff_price_target,
+            "adjusted_weight": signal.adjusted_weight,
+            "wyckoff_journal_path": str(wyckoff_paths.get("journal", "")),
+            "wyckoff_knowledge_path": str(wyckoff_paths.get("knowledge_md", "")),
             "reason": signal.reason,
             "entry_executed": signal.all_conditions_met,
         }
@@ -169,6 +228,58 @@ class EntryMonitorWorker(BaseWorker):
             "proposed_weight": conviction.get("overall", 50) / 100 * 3 if conviction.get("overall") else 1.5,
         }
 
+    def _persist_wyckoff_analysis(
+        self, ticker: str, opp_id: str, signal: Any, base_path: Path
+    ) -> dict[str, str]:
+        import json
+        import yaml
+        paths: dict[str, str] = {}
+        now = datetime.now(AR_TZ)
+        ts = now.strftime("%Y%m%d_%H%M%S")
+        date_str = now.strftime("%Y-%m-%d")
+
+        journal_wyckoff_dir = base_path / "idos-journal" / "companies" / ticker / "opportunities" / opp_id / "wyckoff"
+        journal_wyckoff_dir.mkdir(parents=True, exist_ok=True)
+        journal_file = journal_wyckoff_dir / f"{ts}.yml"
+
+        wyckoff_data = {
+            "analyzed_at": now.isoformat(),
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "phase": signal.wyckoff_phase,
+            "score": signal.wyckoff_score,
+            "confidence": signal.wyckoff_confidence,
+            "entry_point": signal.wyckoff_entry_point,
+            "stop_loss": signal.wyckoff_stop_loss,
+            "price_target": signal.wyckoff_price_target,
+            "adjusted_weight": signal.adjusted_weight,
+            "llm_response": signal.wyckoff_raw,
+            "triggered_entry": signal.all_conditions_met,
+        }
+        with open(journal_file, "w", encoding="utf-8") as f:
+            yaml.dump(wyckoff_data, f, default_flow_style=False, allow_unicode=True)
+        paths["journal"] = str(journal_file)
+        print(f"[ENTRY] {ticker}: Wyckoff analysis saved to {journal_file}")
+
+        knowledge_dir = base_path / "idos-knowledge" / "companies" / ticker / "wyckoff"
+        try:
+            knowledge_dir.mkdir(parents=True, exist_ok=True)
+            md_content = _format_wyckoff_md(ticker, signal)
+            md_file = knowledge_dir / f"{date_str}.md"
+            md_file.write_text(md_content, encoding="utf-8")
+            paths["knowledge_md"] = str(md_file)
+
+            if signal.wyckoff_raw:
+                raw_file = knowledge_dir / f"{date_str}.raw.json"
+                raw_file.write_text(json.dumps(signal.wyckoff_raw, indent=2, ensure_ascii=False), encoding="utf-8")
+                paths["knowledge_raw"] = str(raw_file)
+
+            print(f"[ENTRY] {ticker}: Wyckoff wiki saved to {knowledge_dir}")
+        except Exception as e:
+            print(f"[ENTRY] {ticker}: Error saving Wyckoff to knowledge: {e}")
+
+        return paths
+
     def _record_entry_decision(self, ticker: str, opp_id: str, signal: Any,
                                 journal: JournalRepository, sqlite: SQLiteStore):
         from uuid import uuid4
@@ -183,6 +294,12 @@ class EntryMonitorWorker(BaseWorker):
             "target_price": signal.target_price,
             "margin_of_safety_pct": signal.margin_of_safety_pct,
             "wyckoff_phase": signal.wyckoff_phase,
+            "wyckoff_score": signal.wyckoff_score,
+            "wyckoff_confidence": signal.wyckoff_confidence,
+            "wyckoff_entry_point": signal.wyckoff_entry_point,
+            "wyckoff_stop_loss": signal.wyckoff_stop_loss,
+            "wyckoff_price_target": signal.wyckoff_price_target,
+            "adjusted_weight": signal.adjusted_weight,
             "rationale": signal.reason,
             "generated_at": datetime.now(AR_TZ).isoformat(),
         }
@@ -192,17 +309,23 @@ class EntryMonitorWorker(BaseWorker):
             "price": signal.current_price,
             "target": signal.target_price,
             "wyckoff": signal.wyckoff_phase,
+            "wyckoff_score": signal.wyckoff_score,
         })
 
         self._notify_entry(ticker, signal)
 
     def _notify_entry(self, ticker: str, signal: Any):
+        sl = f"${signal.wyckoff_stop_loss:.2f}" if signal.wyckoff_stop_loss else "N/A"
         message = (
             f"**{ticker} - Senal de Entrada Ejecutada**\n\n"
             f"- Precio: `${signal.current_price:.2f}`\n"
             f"- Target: `${signal.target_price:.2f}`\n"
             f"- Margen: `{signal.margin_of_safety_pct:.1f}%`\n"
-            f"- Wyckoff: `{signal.wyckoff_phase}`\n"
+            f"- Wyckoff: `{signal.wyckoff_phase}` (score: `{signal.wyckoff_score}`)\n"
+            f"- Confianza: `{signal.wyckoff_confidence}`\n"
+            f"- Pto. Entrada: `{signal.wyckoff_entry_point}`\n"
+            f"- Stop Loss: `{sl}`\n"
+            f"- Peso Ajustado: `{signal.adjusted_weight:.1f}%`\n"
             f"- Decision: `BUY / {signal.reason}`"
         )
         print(message)

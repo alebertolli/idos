@@ -1,5 +1,5 @@
 from idos.portfolio.entry import EntryEngine, EntrySignal
-from idos.portfolio.wyckoff import WyckoffAnalyzer, WyckoffPhase
+from idos.portfolio.wyckoff import WyckoffAnalyzer, WyckoffPhase, WyckoffResult
 from idos.portfolio.exit import ExitEngine, ExitSignal, ExitReason
 from idos.portfolio.sizing import PositionSizer
 from idos.portfolio.rebalance import PortfolioRebalancer
@@ -11,7 +11,7 @@ from idos.portfolio.cash import CashManager
 
 __all__ = [
     "EntryEngine", "EntrySignal",
-    "WyckoffAnalyzer", "WyckoffPhase",
+    "WyckoffAnalyzer", "WyckoffPhase", "WyckoffResult",
     "ExitEngine", "ExitSignal", "ExitReason",
     "PositionSizer", "PortfolioRebalancer",
     "CapitalCompetitionEngine", "RiskEngine",

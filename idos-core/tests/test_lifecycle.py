@@ -128,9 +128,13 @@ class TestFullLifecycle:
         emw = EntryMonitorWorker({"provider": "test", "prompts_path": base_path})
         emw.entry_engine.min_margin_of_safety = 20.0
 
-        from idos.portfolio.wyckoff import WyckoffPhase
+        from idos.portfolio.wyckoff import WyckoffPhase, WyckoffResult
         with patch.object(emw.entry_engine.wyckoff, "analyze",
-                          return_value=WyckoffPhase.ACCUMULATION):
+                          return_value=WyckoffResult(
+                              phase=WyckoffPhase.ACCUMULATION,
+                              score=85,
+                              confidence_label="alta",
+                          )):
             emw_result = emw.execute({
                 "ticker": ticker,
                 "opp_id": opp_id,

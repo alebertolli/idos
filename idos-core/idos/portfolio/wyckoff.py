@@ -1,3 +1,4 @@
+from dataclasses import dataclass, field
 from enum import StrEnum
 from statistics import mean
 from typing import Any, Optional
@@ -15,6 +16,20 @@ class WyckoffPhase(StrEnum):
     UNKNOWN = "unknown"
 
 
+@dataclass
+class WyckoffResult:
+    phase: WyckoffPhase = WyckoffPhase.UNKNOWN
+    raw_llm_response: dict | None = None
+    indicators: dict[str, Any] = field(default_factory=dict)
+    score: int = 0
+    prompt_version: str = "v1"
+    entry_point: str = ""
+    confidence_label: str = ""
+    wyckoff_stop_loss: float | None = None
+    wyckoff_price_target: float | None = None
+    entry_point_price: float | None = None
+
+
 class WyckoffAnalyzer:
     def __init__(
         self,
@@ -24,30 +39,107 @@ class WyckoffAnalyzer:
         self.llm_client = llm_client
         self.prompt_registry = prompt_registry
 
-    def analyze(self, price_data: list[dict[str, Any]]) -> WyckoffPhase:
+    def analyze(self, price_data: list[dict[str, Any]]) -> WyckoffResult:
         if not price_data or len(price_data) < 20:
-            return WyckoffPhase.UNKNOWN
+            return WyckoffResult(phase=WyckoffPhase.UNKNOWN)
 
         algorithmic_phase = self._analyze_algorithmic(price_data)
+        indicators = self._compute_indicators(price_data, algorithmic_phase)
+
+        raw_llm: dict | None = None
+        llm_phase = WyckoffPhase.UNKNOWN
+        llm_entry_point = ""
+        llm_confidence = ""
+        llm_stop_loss: float | None = None
+        llm_price_target: float | None = None
+        llm_entry_price: float | None = None
 
         if self._can_use_llm():
             try:
-                llm_phase = self._analyze_llm(price_data, algorithmic_phase)
-                if llm_phase != WyckoffPhase.UNKNOWN:
-                    return llm_phase
+                raw_llm = self._analyze_llm_raw(price_data, algorithmic_phase)
+                if raw_llm:
+                    llm_phase = self._parse_phase(raw_llm)
+                    llm_entry_point = self._parse_entry_point(raw_llm)
+                    llm_confidence = self._parse_confidence(raw_llm)
+                    llm_stop_loss = self._parse_stop_loss(raw_llm)
+                    llm_price_target = self._parse_price_target(raw_llm)
+                    llm_entry_price = self._parse_entry_point_price(raw_llm)
             except Exception:
                 pass
 
-        return algorithmic_phase
+        final_phase = llm_phase if llm_phase != WyckoffPhase.UNKNOWN else algorithmic_phase
+
+        score = self._compute_wyckoff_score(
+            phase=final_phase,
+            raw_llm=raw_llm,
+            confidence_label=llm_confidence,
+            entry_point=llm_entry_point,
+        )
+
+        return WyckoffResult(
+            phase=final_phase,
+            raw_llm_response=raw_llm,
+            indicators=indicators,
+            score=score,
+            prompt_version=self._get_prompt_version(),
+            entry_point=llm_entry_point,
+            confidence_label=llm_confidence,
+            wyckoff_stop_loss=llm_stop_loss,
+            wyckoff_price_target=llm_price_target,
+            entry_point_price=llm_entry_price,
+        )
+
+    def is_entry_confirmed(self, phase: WyckoffPhase) -> bool:
+        return phase in (WyckoffPhase.ACCUMULATION, WyckoffPhase.ABSORPTION)
+
+    def _compute_wyckoff_score(
+        self,
+        phase: WyckoffPhase,
+        raw_llm: dict | None,
+        confidence_label: str,
+        entry_point: str,
+    ) -> int:
+        total = 0
+
+        phase_scores = {
+            WyckoffPhase.ACCUMULATION: 30,
+            WyckoffPhase.ABSORPTION: 20,
+            WyckoffPhase.MARKUP: 0,
+            WyckoffPhase.MARKDOWN: 0,
+            WyckoffPhase.DISTRIBUTION: 0,
+            WyckoffPhase.UNKNOWN: 0,
+        }
+        total += phase_scores.get(phase, 0)
+
+        if raw_llm:
+            pruebas = (raw_llm.get("pruebas_compra") or {})
+            pasan = pruebas.get("pruebas_pasan", 0)
+            total_pruebas = pruebas.get("total_pruebas", 9)
+            if total_pruebas > 0:
+                total += int((pasan / total_pruebas) * 25)
+
+        confidence_scores = {"alta": 15, "media": 8, "baja": 0}
+        total += confidence_scores.get(confidence_label, 0)
+
+        entry_scores = {"lps": 15, "spring_3": 15, "jac": 10, "test_spring_2": 8, "ninguno": 0, "no_aplica": 0}
+        total += entry_scores.get(entry_point, 0)
+
+        if raw_llm:
+            eventos = raw_llm.get("eventos_wyckoff_detectados", [])
+            eventos_relevantes = {"PS", "SC", "Spring", "AR", "ST", "SOS", "LPS", "LPSY", "BC"}
+            count = sum(1 for e in eventos if isinstance(e, dict) and e.get("evento") in eventos_relevantes)
+            total += min(count * 3, 15)
+
+        return min(total, 100)
 
     def _can_use_llm(self) -> bool:
         return self.llm_client is not None and self.prompt_registry is not None
 
-    def _analyze_llm(
+    def _analyze_llm_raw(
         self,
         price_data: list[dict[str, Any]],
         algorithmic_phase: WyckoffPhase,
-    ) -> WyckoffPhase:
+    ) -> dict[str, Any] | None:
         indicators = self._compute_indicators(price_data, algorithmic_phase)
 
         prompt_text = self.prompt_registry.get(
@@ -59,7 +151,7 @@ class WyckoffAnalyzer:
             "wyckoff", category="portfolio"
         )
         if not prompt_text or not system_prompt:
-            return WyckoffPhase.UNKNOWN
+            return None
 
         result = self.llm_client.generate_structured(
             prompt=prompt_text,
@@ -67,10 +159,91 @@ class WyckoffAnalyzer:
             temperature=0.1,
         )
 
-        return self._parse_phase(result)
+        if isinstance(result, dict):
+            return result
+        if hasattr(result, "model_dump"):
+            return result.model_dump()
+        if hasattr(result, "__dict__"):
+            return result.__dict__
+        return None
 
-    def is_entry_confirmed(self, phase: WyckoffPhase) -> bool:
-        return phase in (WyckoffPhase.ACCUMULATION, WyckoffPhase.ABSORPTION)
+    def _parse_phase(self, llm_result: Any) -> WyckoffPhase:
+        phase_map: dict[str, WyckoffPhase] = {
+            "acumulacion": WyckoffPhase.ACCUMULATION,
+            "markup": WyckoffPhase.MARKUP,
+            "distribucion": WyckoffPhase.DISTRIBUTION,
+            "markdown": WyckoffPhase.MARKDOWN,
+            "absorcion": WyckoffPhase.ABSORPTION,
+            "desconocida": WyckoffPhase.UNKNOWN,
+        }
+
+        raw = ""
+        if isinstance(llm_result, dict):
+            raw = (llm_result.get("fase_wyckoff") or "").lower().strip()
+        elif hasattr(llm_result, "fase_wyckoff"):
+            raw = (getattr(llm_result, "fase_wyckoff") or "").lower().strip()
+
+        for key, phase in phase_map.items():
+            if key in raw:
+                return phase
+        return WyckoffPhase.UNKNOWN
+
+    def _parse_entry_point(self, llm_result: dict | Any) -> str:
+        if isinstance(llm_result, dict):
+            return (llm_result.get("punto_entrada") or "ninguno").lower().strip()
+        if hasattr(llm_result, "punto_entrada"):
+            return (getattr(llm_result, "punto_entrada") or "ninguno").lower().strip()
+        return "ninguno"
+
+    def _parse_confidence(self, llm_result: dict | Any) -> str:
+        if isinstance(llm_result, dict):
+            return (llm_result.get("confianza") or "").lower().strip()
+        if hasattr(llm_result, "confianza"):
+            return (getattr(llm_result, "confianza") or "").lower().strip()
+        return ""
+
+    def _parse_stop_loss(self, llm_result: dict | Any) -> float | None:
+        sl = None
+        if isinstance(llm_result, dict):
+            sl_data = llm_result.get("stop_loss_sugerido") or {}
+            sl = sl_data.get("precio") if isinstance(sl_data, dict) else None
+        elif hasattr(llm_result, "stop_loss_sugerido"):
+            sl_data = getattr(llm_result, "stop_loss_sugerido") or {}
+            sl = sl_data.get("precio") if isinstance(sl_data, dict) else None
+        return float(sl) if sl else None
+
+    def _parse_price_target(self, llm_result: dict | Any) -> float | None:
+        pt = None
+        if isinstance(llm_result, dict):
+            pt_data = llm_result.get("precio_objetivo_wyckoff") or {}
+            pt = pt_data.get("estimado") if isinstance(pt_data, dict) else None
+        elif hasattr(llm_result, "precio_objetivo_wyckoff"):
+            pt_data = getattr(llm_result, "precio_objetivo_wyckoff") or {}
+            pt = pt_data.get("estimado") if isinstance(pt_data, dict) else None
+        return float(pt) if pt else None
+
+    def _parse_entry_point_price(self, llm_result: dict | Any) -> float | None:
+        if isinstance(llm_result, dict):
+            punto = llm_result.get("punto_entrada", "")
+            if punto and punto not in ("ninguno", "no_aplica"):
+                return llm_result.get("precio_entrada")
+        return None
+
+    def _get_prompt_version(self) -> str:
+        import os
+        prompts_path = None
+        if self.prompt_registry and hasattr(self.prompt_registry, "config"):
+            cfg = self.prompt_registry.config
+            if isinstance(cfg, dict):
+                prompts_path = cfg.get("path")
+        if not prompts_path:
+            return "v1"
+        wyckoff_dir = os.path.join(prompts_path, "portfolio", "wyckoff")
+        current_link = os.path.join(wyckoff_dir, "current")
+        if os.path.islink(current_link):
+            target = os.readlink(current_link)
+            return os.path.basename(target).replace(".yml", "")
+        return "v1"
 
     def _compute_indicators(
         self,
@@ -202,30 +375,6 @@ class WyckoffAnalyzer:
         highs = sorted(prices, reverse=True)[:5]
         levels = [f"${lvl:.2f}" for lvl in highs]
         return f"resistencias identificadas: {', '.join(levels)} (basado en máximos históricos)"
-
-    def _parse_phase(self, llm_result: Any) -> WyckoffPhase:
-        phase_map: dict[str, WyckoffPhase] = {
-            "acumulacion": WyckoffPhase.ACCUMULATION,
-            "markup": WyckoffPhase.MARKUP,
-            "distribucion": WyckoffPhase.DISTRIBUTION,
-            "markdown": WyckoffPhase.MARKDOWN,
-            "absorcion": WyckoffPhase.ABSORPTION,
-            "desconocida": WyckoffPhase.UNKNOWN,
-        }
-
-        if isinstance(llm_result, dict):
-            raw = (llm_result.get("fase_wyckoff") or "").lower().strip()
-            for key, phase in phase_map.items():
-                if key in raw:
-                    return phase
-
-        if hasattr(llm_result, "fase_wyckoff"):
-            raw = (getattr(llm_result, "fase_wyckoff") or "").lower().strip()
-            for key, phase in phase_map.items():
-                if key in raw:
-                    return phase
-
-        return WyckoffPhase.UNKNOWN
 
     def _analyze_algorithmic(self, price_data: list[dict[str, Any]]) -> WyckoffPhase:
         closes = [p.get("close", 0) for p in price_data]

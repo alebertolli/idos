@@ -28,14 +28,25 @@ class TestEntryMonitorWorker:
         })
         worker.entry_engine.min_margin_of_safety = 20.0
 
+        from idos.portfolio.wyckoff import WyckoffPhase, WyckoffResult
         wyckoff_mock = MagicMock()
         wyckoff_mock.is_entry_confirmed.return_value = True
-        from idos.portfolio.wyckoff import WyckoffPhase
+        wyckoff_mock.analyze.return_value = WyckoffResult(
+            phase=WyckoffPhase.ACCUMULATION,
+            score=85,
+            confidence_label="alta",
+            entry_point="lps",
+        )
         wyckoff_mock._analyze_algorithmic.return_value = WyckoffPhase.ACCUMULATION
         worker.entry_engine.wyckoff = wyckoff_mock
 
         with patch.object(worker.entry_engine.wyckoff, "analyze",
-                          return_value=WyckoffPhase.ACCUMULATION):
+                          return_value=WyckoffResult(
+                              phase=WyckoffPhase.ACCUMULATION,
+                              score=85,
+                              confidence_label="alta",
+                              entry_point="lps",
+                          )):
             result = worker.execute({
                 "ticker": ticker,
                 "opp_id": opp_id,
@@ -71,9 +82,13 @@ class TestEntryMonitorWorker:
         })
         worker.entry_engine.min_margin_of_safety = 30.0
 
-        from idos.portfolio.wyckoff import WyckoffPhase
+        from idos.portfolio.wyckoff import WyckoffPhase, WyckoffResult
         with patch.object(worker.entry_engine.wyckoff, "analyze",
-                          return_value=WyckoffPhase.ACCUMULATION):
+                          return_value=WyckoffResult(
+                              phase=WyckoffPhase.ACCUMULATION,
+                              score=85,
+                              confidence_label="alta",
+                          )):
             result = worker.execute({
                 "ticker": ticker,
                 "opp_id": opp_id,
@@ -132,9 +147,13 @@ class TestEntryMonitorWorker:
         })
         worker.entry_engine.min_margin_of_safety = 30.0
 
-        from idos.portfolio.wyckoff import WyckoffPhase
+        from idos.portfolio.wyckoff import WyckoffPhase, WyckoffResult
         with patch.object(worker.entry_engine.wyckoff, "analyze",
-                          return_value=WyckoffPhase.ACCUMULATION):
+                          return_value=WyckoffResult(
+                              phase=WyckoffPhase.ACCUMULATION,
+                              score=85,
+                              confidence_label="alta",
+                          )):
             result = worker.execute({
                 "ticker": ticker,
                 "opp_id": opp_id,
@@ -153,9 +172,13 @@ class TestEntryMonitorWorker:
         ticker, opp_id = seeded_opportunity_approved
         worker = EntryMonitorWorker({"provider": "test", "prompts_path": base_path})
 
-        from idos.portfolio.wyckoff import WyckoffPhase
+        from idos.portfolio.wyckoff import WyckoffPhase, WyckoffResult
         with patch.object(worker.entry_engine.wyckoff, "analyze",
-                          return_value=WyckoffPhase.ACCUMULATION):
+                          return_value=WyckoffResult(
+                              phase=WyckoffPhase.ACCUMULATION,
+                              score=85,
+                              confidence_label="alta",
+                          )):
             result = worker.execute({
                 "ticker": ticker,
                 "opp_id": opp_id,
