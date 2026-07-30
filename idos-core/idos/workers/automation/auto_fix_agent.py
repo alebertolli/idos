@@ -22,7 +22,8 @@ def _gh_headers(token: str) -> dict:
 
 
 def _get_token() -> str:
-    return os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN", "")
+    return (os.environ.get("IDOS_GITHUB_TOKEN") or os.environ.get("GITHUB_TOKEN")
+            or os.environ.get("GH_TOKEN", ""))
 
 
 def _gh_get(path: str, token: str) -> Any:

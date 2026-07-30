@@ -12,6 +12,7 @@ jobs:
       issues: write
       pull-requests: write
     env:
+      IDOS_GITHUB_TOKEN: ${{ secrets.IDOS_GITHUB_TOKEN }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
