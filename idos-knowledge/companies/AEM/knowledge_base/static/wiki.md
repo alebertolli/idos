@@ -36,12 +36,12 @@ To be evaluated
 
 ## Financial Highlights
 - **ROIC**: 23.65
-- **Operating Margin**: 60.23
+- **Operating Margin**: 59.99
 - **Revenue Growth**: 6.58
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.01
-- **PER**: 13.6
-- **EV/EBITDA**: 7.42
+- **PER**: 12.37
+- **EV/EBITDA**: 6.94
 
 ---
 
@@ -53,7 +53,7 @@ To be evaluated
 
 ## Investment Thesis
 
-Agnico Eagle Mines representa la mejor forma de obtener exposición al sector del oro con riesgo ajustado optimizado. Su ventaja radica en operar casi exclusivamente en jurisdicciones Tier-1, manteniendo un margen operativo del 60.2% y un ROIC del 23.6%. A medida que los mercados reconozcan la superioridad de su perfil de generación de caja libre y su menor prima de riesgo geopolítico frente a Newmont o Barrick, sus múltiplos deberían expandirse hacia la parte alta del rango histórico de la minería premium.
+Agnico Eagle Mines representa la mejor forma de implementar una posición estratégica en oro para una Family Office. La compañía ofrece un perfil asimétrico: protección a la baja gracias a su bajo coste de producción y seguridad jurisdiccional en Canadá/Australia, combinada con un alto apalancamiento operativo al precio del oro. Si bien las acciones mineras son intrínsecamente cíclicas, la disciplina de capital de AEM y su rentabilidad operativa (ROIC 23.6%) justifican una prima de valoración que el mercado aún no ha integrado por completo.
 
 ---
 

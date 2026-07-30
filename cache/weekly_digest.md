@@ -12,14 +12,16 @@ _Generado: 2026-07-30 11:33 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **META** (OPP-20260725-015): score=88, class=compounder
+- ✅ **AEM** (OPP-20260725-007): score=85, class=ciclica
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ✅ **META**
-  - Opp: [OPP-20260725-015](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/META/case_file/opportunities/OPP-20260725-015)
-  - Conviction: 73/100 | Rec: APPROVE | Dec: HOLD
-  - Scores: Business: 76 | Valuation: 70 | Recovery: 64 | Risk: 70 | Portfolio: 90
+- ⚠️ **AEM**
+  - Opp: [OPP-20260725-007](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AEM/case_file/opportunities/OPP-20260725-007)
+  - Conviction: 73/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 80 | Recovery: 60 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 68/100
 
 ---
 
