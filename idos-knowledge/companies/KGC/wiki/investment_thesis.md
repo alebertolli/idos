@@ -1,1 +1,1 @@
-Kinross representa una oportunidad de inversión táctica en el sector de materiales básicos. El mercado valora a KGC con un múltiplo descontado respecto a pares Tier-1 debido a riesgos jurisdiccionales pasados y escepticismo en la ejecución. La paulatina migración de la producción hacia Canadá (Great Bear), combinada con un balance extremadamente limpio (D/E 0.1x) y márgenes sólidos, debería propiciar un re-rating del múltiplo a medida que se cumplan los hitos de desarrollo.
+To be formulated

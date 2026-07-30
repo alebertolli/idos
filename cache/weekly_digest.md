@@ -12,16 +12,17 @@ _Generado: 2026-07-30 07:24 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **MA** (OPP-20260730-001): score=88, class=compounder
+- ⚠️ **KGC** (OPP-20260725-004): score=50, class=None
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **MA**
-  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MA/case_file/opportunities/OPP-20260730-001)
-  - Conviction: 67/100 | Rec: BLOCKED
-  - Scores: Business: 72 | Valuation: 55 | Recovery: 61 | Risk: 70 | Portfolio: 90
+- ⚠️ **KGC**
+  - Opp: [OPP-20260725-004](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/KGC/case_file/opportunities/OPP-20260725-004)
+  - Conviction: 72/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 80 | Recovery: 54 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-002: Price target margin: 14.3%
+    - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 

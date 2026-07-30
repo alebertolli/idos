@@ -37,23 +37,23 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 36.8
 - **Operating Margin**: 48.74
-- **Revenue Growth**: 9.82
+- **Revenue Growth**: 9.63
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.08
-- **PER**: 10.18
-- **EV/EBITDA**: 5.5
+- **PER**: 9.68
+- **EV/EBITDA**: 5.33
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Kinross representa una oportunidad de inversión táctica en el sector de materiales básicos. El mercado valora a KGC con un múltiplo descontado respecto a pares Tier-1 debido a riesgos jurisdiccionales pasados y escepticismo en la ejecución. La paulatina migración de la producción hacia Canadá (Great Bear), combinada con un balance extremadamente limpio (D/E 0.1x) y márgenes sólidos, debería propiciar un re-rating del múltiplo a medida que se cumplan los hitos de desarrollo.
+To be formulated
 
 ---
 
