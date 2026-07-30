@@ -40,20 +40,20 @@ To be evaluated
 - **Revenue Growth**: 9.86
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.03
-- **PER**: 30.43
+- **PER**: 29.76
 - **EV/EBITDA**: 22.81
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Garmin Ltd. es un compounder con un historial de crecimiento estable y una posición competitiva sólida en el mercado de productos GPS y navegación. El mercado puede estar subestimando su capacidad para innovar y expandirse a nuevos mercados, lo que podría llevar a un error de valoración aprovechable.
+To be formulated
 
 ---
 

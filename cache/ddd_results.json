@@ -1,7 +1,7 @@
 {
   "processed": [
     {
-      "ticker": "RBLX",
+      "ticker": "GRMN",
       "opp_id": "OPP-20260730-001",
       "status": "ddd_failed",
       "score": 50,
@@ -12,23 +12,23 @@
   ],
   "assessments": [
     {
-      "ticker": "RBLX",
+      "ticker": "GRMN",
       "opp_id": "OPP-20260730-001",
       "status": "completed",
-      "conviction_score": 59,
+      "conviction_score": 63,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260730131117",
+      "decision_id": "DEC-20260730131134",
       "assessments": {
-        "BusinessAssessmentEngine": 40,
-        "ValuationAssessmentEngine": 70,
-        "RecoveryAssessmentEngine": 48,
-        "RiskAssessmentEngine": 70,
+        "BusinessAssessmentEngine": 68,
+        "ValuationAssessmentEngine": 45,
+        "RecoveryAssessmentEngine": 52,
+        "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
-        "RULE-002",
+        "RULE-003",
         "RULE-004",
         "RULE-006",
         "RULE-007",
@@ -37,16 +37,16 @@
       ],
       "rules_failed": [
         "RULE-001",
-        "RULE-003",
+        "RULE-002",
         "RULE-005",
         "RULE-008"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 40/100",
-        "RULE-002": "Price target margin: 37.4%",
-        "RULE-003": "Rerating: 48/100",
-        "RULE-004": "Risk: 70/100",
-        "RULE-005": "Conviction: 59/100",
+        "RULE-001": "Business quality: 68/100",
+        "RULE-002": "Price target margin: -10.0%",
+        "RULE-003": "Rerating: 52/100",
+        "RULE-004": "Risk: 80/100",
+        "RULE-005": "Conviction: 63/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
         "RULE-008": "No hay datos de DDD para calcular asimetria",
