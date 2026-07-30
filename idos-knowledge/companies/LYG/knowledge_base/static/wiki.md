@@ -35,24 +35,25 @@ To be evaluated
 ---
 
 ## Financial Highlights
-- **ROIC**: 10.78
-- **Operating Margin**: 37.71
+- **ROIC**: 11.34
+- **Operating Margin**: 38.06
 - **Revenue Growth**: 7.88
 - **FCF Yield**: 0
 - **Debt/Equity**: 0
-- **PER**: 14.08
+- **PER**: 13.6
 - **EV/EBITDA**: 0
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Lloyds Banking Group plc es un compounder con un historial de crecimiento estable y una posición sólida en el mercado financiero del Reino Unido. El mercado podría estar subestimando su potencial de crecimiento, especialmente en el segmento de banca digital.
+To be formulated
 
 ---
 

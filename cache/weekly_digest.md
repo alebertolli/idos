@@ -12,19 +12,20 @@ _Generado: 2026-07-30 11:32 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **GRMN** (OPP-20260730-001): score=80, class=compounder
+- ⚠️ **LYG** (OPP-20260725-040): score=50, class=None
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **GRMN**
-  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/GRMN/case_file/opportunities/OPP-20260730-001)
-  - Conviction: 64/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 45 | Recovery: 58 | Risk: 80 | Portfolio: 90
+- ⚠️ **LYG**
+  - Opp: [OPP-20260725-040](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/LYG/case_file/opportunities/OPP-20260725-040)
+  - Conviction: 55/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 35 | Recovery: 49 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 68/100
-    - 🚫 RULE-002: Price target margin: -8.9%
-    - 🚫 RULE-005: Conviction: 64/100
-    - 🚫 RULE-008: B/R 1.9:1 ❌ (upside 7.3% / downside 3.8%)
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-002: Price target margin: -0.2%
+    - 🚫 RULE-003: Rerating: 49/100
+    - 🚫 RULE-005: Conviction: 55/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 
