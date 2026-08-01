@@ -1,15 +1,72 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-30T14:41:29.083486-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - Lloyds Banking Group plc es una empresa financiera que opera en el Reino Unido
+  inferencias_llm:
+  - La empresa está expuesta al ciclo económico
+  preguntas_abiertas:
+  - ¿Cuál es el perfil de deuda de la empresa?
+  - ¿Cuál es el track record del CEO?
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: Compounder, Compounder castigado, Turnaround, Deep Value,
+    Special Situation, Distressed, Quality at Fair Price, Hype, Value Trap
+  justificacion: Lloyds Banking Group plc opera en el sector financiero, que está
+    intrínsecamente ligado al ciclo económico. La empresa ofrece una variedad de productos
+    y servicios financieros, lo que la hace vulnerable a los cambios en la economía.
+dominio_business_quality:
+  analisis: Lloyds Banking Group plc tiene una posición competitiva en el mercado
+    financiero del Reino Unido, con una variedad de productos y servicios. Sin embargo,
+    la empresa está expuesta al ciclo económico y su negocio puede ser afectado por
+    cambios en la economía.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Un aumento en la tasa de crecimiento del PIB del Reino Unido
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: Lloyds Banking Group plc tiene un riesgo medio en términos de ESG, ya
+    que la empresa está expuesta a riesgos regulatorios y de reputación en el sector
+    financiero.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Lloyds Banking Group plc tiene un balance financiero adecuado, con un
+    margen operativo del 38,1% y un ROIC del 11,3%. Sin embargo, la empresa tiene
+    un perfil de deuda desconocido y su generación de caja es incierta.
+  rating: adecuada
+dominio_growth:
+  analisis: Lloyds Banking Group plc tiene un crecimiento de ingresos del 7,9% en
+    el último año, lo que es moderado. La empresa puede beneficiarse de un crecimiento
+    más rápido en la economía del Reino Unido.
+  rating: moderado
+dominio_management:
+  analisis: El CEO de Lloyds Banking Group plc tiene poca antigüedad en el cargo y
+    no hay información disponible sobre su track record. La empresa no tiene una política
+    de asignación de capital clara.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: ciclo económico
+- impacto: medio
+  probabilidad: media
+  riesgo: regulatorio
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un aumento en la tasa de crecimiento del PIB del Reino Unido
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El mercado parece descontar un escenario de crecimiento lento y
+    estabilidad en la economía del Reino Unido.
+  hipotesis_contraria: La economía del Reino Unido podría experimentar un crecimiento
+    más rápido de lo esperado, lo que beneficiaría a Lloyds Banking Group plc.
+  razonamiento: No hay suficiente evidencia para determinar si el mercado está cometiendo
+    un error de valoración.
+generated_at: '2026-08-01T00:04:40.330320-03:00'
+opinion_valoracion: justo
 opp_id: OPP-20260725-040
 prompt_inputs:
   business_model: 'Lloyds Banking Group plc, together with its subsidiaries, provides
@@ -35,15 +92,21 @@ prompt_inputs:
   insider_ownership: 0
   name: Lloyds Banking Group plc
   operating_margin: 38.06
-  pe_ratio: 57.87
+  pe_ratio: 58.06
   products: ''
   revenue: 26130000000.0
   revenue_growth: 7.88
   roic: 11.34
   sector: Financial Services
   ticker: LYG
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: Lloyds Banking Group plc es una empresa financiera que opera en
+  el Reino Unido, con una variedad de productos y servicios financieros. La empresa
+  está expuesta al ciclo económico y su valoración puede ser afectada por cambios
+  en la economía.
+score_general: 60
+tesis_inversion: Lloyds Banking Group plc es una empresa financiera que opera en el
+  Reino Unido, con una variedad de productos y servicios financieros. La empresa está
+  expuesta al ciclo económico y su valoración puede ser afectada por cambios en la
+  economía.
 ticker: LYG
 version: '3.0'

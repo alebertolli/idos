@@ -1,15 +1,80 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-30T13:08:07.418422-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - Meta tiene una posición competitiva fuerte en el mercado de las redes sociales
+    y la realidad virtual
+  - Meta tiene una salud financiera fuerte
+  inferencias_llm:
+  - El mercado puede estar subestimando la capacidad de Meta para innovar y adaptarse
+    a los cambios del mercado
+  preguntas_abiertas:
+  - ¿Cómo afectará la regulación gubernamental a Meta en el futuro?
+  - ¿Cómo competirá Meta con otras plataformas de redes sociales en el futuro?
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: Compounder castigado, Turnaround, Deep Value, Cíclica, Special
+    Situation, Distressed, Quality at Fair Price, Hype, Value Trap
+  justificacion: Meta Platforms, Inc. tiene un negocio excelente con una posición
+    competitiva fuerte en el mercado de las redes sociales y la realidad virtual.
+    Su modelo de negocio es resiliente y tiene un moat duradero gracias a su gran
+    base de usuarios y su capacidad para innovar y adaptarse a los cambios del mercado.
+dominio_business_quality:
+  analisis: Meta tiene una posición competitiva fuerte en el mercado de las redes
+    sociales y la realidad virtual, con una gran base de usuarios y una capacidad
+    para innovar y adaptarse a los cambios del mercado.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Lanzamiento de nuevos productos y servicios innovadores
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 80
+- descripcion: Aumento en la adopción de la realidad virtual
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 70
+dominio_esg_supply_chain:
+  analisis: Meta tiene un riesgo medio en términos de ESG y cadena de suministro,
+    debido a la complejidad de su negocio y la dependencia de terceros proveedores.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Meta tiene una salud financiera fuerte, con un margen operativo del 38,1%
+    y un ROIC del 25,4%.
+  rating: fuerte
+dominio_growth:
+  analisis: Meta tiene un crecimiento fuerte, con un crecimiento del 21,4% en los
+    ingresos en el último año.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo de gestión de Meta tiene una trayectoria de éxito en la innovación
+    y la expansión de la empresa.
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Regulación gubernamental
+- impacto: medio
+  probabilidad: media
+  riesgo: Competencia de otras plataformas de redes sociales
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un aumento en la adopción de la realidad virtual y el lanzamiento
+      de nuevos productos y servicios innovadores
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 70
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado está descontando un crecimiento lento y una disminución
+    en la participación de mercado de Meta debido a la competencia de otras plataformas
+    de redes sociales y la regulación gubernamental.
+  hipotesis_contraria: La hipótesis contraria es que Meta puede seguir innovando y
+    expandiendo su oferta de productos y servicios, lo que le permitiría mantener
+    su posición competitiva y seguir creciendo.
+  razonamiento: El mercado puede estar subestimando la capacidad de Meta para innovar
+    y adaptarse a los cambios del mercado, lo que podría llevar a una revalorización
+    de la empresa.
+generated_at: '2026-08-01T00:05:49.251796-03:00'
+opinion_valoracion: infravalorado
 opp_id: OPP-20260725-015
 prompt_inputs:
   business_model: Meta Platforms, Inc. engages in the development of products that
@@ -43,15 +108,21 @@ prompt_inputs:
   insider_ownership: 0
   name: Meta Platforms, Inc.
   operating_margin: 38.08
-  pe_ratio: 20.0
+  pe_ratio: 20.11
   products: ''
   revenue: 228250000000.0
   revenue_growth: 21.45
   roic: 25.4
   sector: Communication Services
   ticker: META
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: Meta Platforms, Inc. es un compounder con un negocio excelente
+  y una posición competitiva fuerte en el mercado de las redes sociales y la realidad
+  virtual. El mercado puede estar subestimando su capacidad para innovar y adaptarse
+  a los cambios del mercado.
+score_general: 85
+tesis_inversion: Meta Platforms, Inc. es un compounder con un negocio excelente y
+  una posición competitiva fuerte en el mercado de las redes sociales y la realidad
+  virtual. El mercado puede estar subestimando su capacidad para innovar y adaptarse
+  a los cambios del mercado.
 ticker: META
 version: '3.0'

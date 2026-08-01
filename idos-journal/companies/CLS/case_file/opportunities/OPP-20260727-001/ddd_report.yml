@@ -1,15 +1,131 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-27T12:39:38.888601-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - Ingresos TTM de $15.59B con crecimiento del +40.1%.
+  - Margen operativo del 8.9% y ROIC TTM del 42.3%.
+  - Nivel de endeudamiento Deuda/Equity en 0.4x.
+  - Existencia del acuerdo de colaboración estratégica con AMD para el desarrollo
+    de la plataforma AI Helios.
+  - Estructura del negocio dividida en ATS (Advanced Technology Solutions) y CCS (Connectivity
+    and Cloud Solutions).
+  inferencias_llm:
+  - El FCF de 0M reportado se debe principalmente al incremento intensivo en inventarios
+    y capital de trabajo para respaldar el volumen de crecimiento del 40%.
+  - La retención de clientes en HPS es significativamente mayor que en el negocio
+    clásico de EMS debido al trabajo de ingeniería conjunto.
+  preguntas_abiertas:
+  - ¿Cuál es el porcentaje exacto de ingresos proveniente de los 3 principales clientes
+    (nivel de concentración)?
+  - ¿Cómo evolucionará la alineación de incentivos del equipo directivo mediante remuneración
+    en acciones a medio plazo?
+  - ¿Cuál es el perfil exacto de conversión de FCF esperado para el próximo ejercicio
+    fiscal una vez estabilizado el capital de trabajo?
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: Deep Value (descartado porque el negocio no está estancado
+    ni cotiza con descuento por activos en problemas), Cíclica (descartado como categoría
+    principal porque aunque el sector tecnológico/semiconductores tiene ciclos, la
+    ganancia de cuota estructural en infraestructura de IA le otorga secularidad),
+    Hype (descartado porque genera ingresos reales de $15.59B con rentabilidad operativa
+    del 8.9% e ingente retorno sobre capital), Turnaround (descartado porque la transformación
+    ya está avanzada y no hay un declive operativo activo).
+  justificacion: Celestica ha pivotado exitosamente desde un modelo tradicional de
+    servicios de fabricación electrónica (EMS) de bajo margen hacia un modelo de diseño
+    y fabricación de soluciones de hardware (HPS/ODM) de mayor valor añadido para
+    hyperscalers e infraestructura de Inteligencia Artificial (ej. switches 800G,
+    colaboración Helios con AMD). Presenta un ROIC excepcional (42.3%), un crecimiento
+    interanual del 40.1% y una expansión sostenida de márgenes operativos (8.9%),
+    cotizando a múltiplos razonables considerando su perfil de crecimiento.
+dominio_business_quality:
+  analisis: El posicionamiento de Celestica ha mejorado sustancialmente. La división
+    CCS se beneficia del súper-ciclo de inversión en IA y conectividad de red de alta
+    velocidad (800G). Aunque el foso competitivo (moat) no es absoluto debido a la
+    presencia de competidores globales como Foxconn, Jabil o Flextronics, la complejidad
+    técnica de la integración de servidores y racks con enfriamiento líquido e interconexiones
+    de alta densidad crea altos costes de cambio y relaciones estrechas de co-desarrollo
+    con hyperscalers y diseñadores de semiconductores como AMD.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Presentación de resultados trimestrales que demuestren expansión de
+    márgenes en la división CCS y crecimiento continuo del FCF a medida que el capital
+    de trabajo se normaliza.
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 80
+- descripcion: Ramp-up comercial y entregas masivas del sistema rack AI Helios en
+    colaboración con AMD.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 70
+dominio_esg_supply_chain:
+  analisis: El principal riesgo de la cadena de suministro es la dependencia crítica
+    de proveedores de semiconductores de vanguardia y la alta concentración geográfica
+    de plantas en Asia y Norteamérica. Asimismo, existe concentración de clientes
+    en un puñado de grandes proveedores cloud (hyperscalers), lo cual genera volatilidad
+    en caso de cancelación de proyectos.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: El balance es saludable con un apalancamiento conservador (Deuda/Equity
+    de 0.4x). La compañía muestra un rendimiento extraordinario sobre el capital invertido
+    (ROIC TTM del 42.3%). Aunque el FCF ajustado reportado en el resumen TTM refleja
+    consumo/neutralidad de caja debido a las intensas necesidades de capital de trabajo
+    por el rápido crecimiento comercial (+40.1%), la solvencia estructural es sólida
+    y los costes de financiación están bien gestionados.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento orgánico excepcional sostenido por la demanda ininterrumpida
+    de los hyperscalers de soluciones para IA. El desarrollo conjuntamente con AMD
+    del sistema de rack AI Helios posiciona a la empresa en el centro de la innovación
+    de centros de datos. La transición de switches de 400G a 800G y 1.6T proporciona
+    visibilidad de ingresos para los próximos 12-24 meses.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo gestor ha ejecutado una reestructuración estratégica notable
+    hacia negocios de mayor margen. Sin embargo, desde la perspectiva de Family Office,
+    la baja propiedad accionarial de los ejecutivos (Insider Ownership reportada cercana
+    a 0.0%) y el escaso periodo de permanencia del CEO actual en los datos TTM requieren
+    un seguimiento estrecho para garantizar una alineación adecuada con los accionistas
+    a largo plazo.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Concentración de clientes en hyperscalers y posible desaceleración del CapEx
+    en infraestructura de IA
+- impacto: medio
+  probabilidad: media
+  riesgo: Interrupciones en la cadena de suministro de semiconductores de tecnología
+    avanzada
+- impacto: medio
+  probabilidad: baja
+  riesgo: Compresión de márgenes por presión competitiva de otros EMS/ODM gigantes
+    (Foxconn, Jabil, Sanmina)
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aceleración de entregas de plataformas de IA de nueva generación
+      (como Helios con AMD) y despliegue masivo de switches 800G/1.6T para centros
+      de datos, confirmando guiados al alza y expansión continua de márgenes operativos.
+    horizonte: corto
+    impacto: alto
+    probabilidad_pct: 75
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado sigue etiquetando parcialmente a Celestica como un fabricante
+    EMS tradicional dependiente de márgenes estrechos y con alto riesgo de ciclicidad
+    en el CapEx de los hyperscalers. Descuenta que el crecimiento del 40.1% es un
+    pico cíclico insostenible y teme la concentración de clientes en gigantes tecnológicos.
+  hipotesis_contraria: El mercado subestima el cambio estructural de la compañía hacia
+    el segmento Hardware Platform Solutions (HPS). Celestica ya no es solo un ensamblador
+    por encargo, sino un socio de diseño e ingeniería crítica de bastidores/racks
+    de IA de alta densidad e switches ópticos de alta velocidad. Esto genera mayor
+    retención de clientes, mayor poder de fijación de precios y barreras de entrada
+    técnicas significativamente más elevadas de lo que sugiere la etiqueta EMS.
+  razonamiento: Existe una desconexión entre la percepción histórica de Celestica
+    como ensamblador de bajo margen y su realidad actual como facilitador clave de
+    infraestructura de IA de alto retorno de capital (ROIC 42.3%) con productos propietarios
+    y co-diseñados.
+generated_at: '2026-07-31T23:52:11.107266-03:00'
+opinion_valoracion: infravalorado
 opp_id: OPP-20260727-001
 prompt_inputs:
   business_model: Celestica Inc., together with its subsidiaries, provides supply
@@ -32,20 +148,31 @@ prompt_inputs:
     Inc. for the development of Helios, a rack-scale AI platform. The company was
     incorporated in 1994 and is headquartered in Toronto, Canada.
   ceo_tenure: 0
-  debt_to_equity: 0.45
+  debt_to_equity: 0.4
   fcf_adjusted: 0
   insider_ownership: 0
   name: Celestica Inc.
-  operating_margin: 8.72
-  pe_ratio: 35.72
+  operating_margin: 8.88
+  pe_ratio: 36.46
   products: ''
-  revenue: 13790000000.0
+  revenue: 15590000000.0
   revenue_growth: 40.11
-  roic: 39.37
+  roic: 42.26
   sector: Technology
   ticker: CLS
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: Celestica Inc. (CLS) representa una oportunidad de inversión en
+  infraestructura crítica para centros de datos de IA y conectividad masiva. La compañía
+  ha completado con éxito una metamorfosis estratégica aumentando el peso del segmento
+  Connectivity & Cloud Solutions (CCS), particularmente a través de soluciones de
+  plataforma propia (HPS). La combinación de un ROIC del 42.3%, un crecimiento de
+  ingresos del 40.1% y un balance controlado (D/E 0.4x) la posiciona de forma ventajosa
+  para capturar el gasto de inversión en IA a valoraciones aún moderadas.
+score_general: 82
+tesis_inversion: Celestica representa un vehículo eficiente y desatendido para participar
+  en el crecimiento estructural de la infraestructura de IA sin pagar los múltiplos
+  exorbitantes de las grandes empresas de semiconductores. Su capacidad para migrar
+  de fabricación genérica a soluciones de plataforma complejas (HPS) sostiene un ROIC
+  del 42.3% y un ritmo de crecimiento superior al 40%. La valoración no refleja plenamente
+  su conversión hacia una empresa de tecnología de mayor margen y mayor diferenciación.
 ticker: CLS
 version: '3.0'

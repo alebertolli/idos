@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 55 companies tracked
+Total: 57 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -40,17 +40,18 @@ Total: 55 companies tracked
 - 📄 [[TCOM|Trip.com Group Limited]]
 
 ## Financial Services
+- 📄 [[AXP|American Express Company]]
 - 📄 [[BCS|Barclays PLC]]
 - 📄 [[C|Citigroup Inc.]]
 - 📄 [[COIN|Coinbase Global, Inc.]]
-- ⏳ [[HDB|HDFC Bank Limited]]
+- 📄 [[HDB|HDFC Bank Limited]]
 - 📄 [[ING|ING Groep N.V.]]
 - 📄 [[ITUB|Itaú Unibanco Holding S.A.]]
 - 📄 [[LYG|Lloyds Banking Group plc]]
 - 📄 [[MA|MA]]
 - 📄 [[MFG|Mizuho Financial Group, Inc.]]
 - 📄 [[NMR|Nomura Holdings, Inc.]]
-- ⏳ [[SAN|Banco Santander, S.A.]]
+- 📄 [[SAN|Banco Santander, S.A.]]
 - 📄 [[SPGI|S&P Global Inc.]]
 - 📄 [[USB|U.S. Bancorp]]
 - 📄 [[V|Visa Inc.]]
@@ -69,11 +70,12 @@ Total: 55 companies tracked
 - 📄 [[CLS|Celestica Inc.]]
 - 📄 [[FSLR|First Solar, Inc.]]
 - 📄 [[GRMN|Garmin Ltd.]]
+- 📄 [[LRCX|Lam Research Corporation]]
 - 📄 [[MSFT|Microsoft Corporation]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 - 📄 [[PLTR|Palantir Technologies Inc.]]
 - 📄 [[SAP|SAP SE]]
-- ⏳ [[SHOP|Shopify Inc.]]
+- 📄 [[SHOP|Shopify Inc.]]
 - 📄 [[TSM|Taiwan Semiconductor Manufacturing Company Limited]]
 - 📄 [[UBER|Uber Technologies, Inc.]]
 

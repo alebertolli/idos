@@ -1,15 +1,77 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-30T14:41:38.644007-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - Microsoft es una empresa líder en el sector de la tecnología
+  - La empresa tiene un sólido balance y una fuerte generación de caja
+  inferencias_llm:
+  - El mercado podría estar subestimando el potencial de crecimiento de Microsoft
+  - La empresa tiene un historial de innovación y adaptación a los cambios en el mercado
+  preguntas_abiertas:
+  - ¿Cuál es el potencial de crecimiento de Microsoft en el mercado de la nube y la
+    inteligencia artificial?
+  - ¿Cómo afectarán los cambios en la regulación a la empresa?
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: Compounder castigado, Turnaround, Deep Value, Cíclica, Special
+    Situation, Distressed, Quality at Fair Price, Hype y Value Trap, debido a que
+    Microsoft no presenta características de declive operativo, infravaloración, ni
+    especulación excesiva.
+  justificacion: Microsoft Corporation es una empresa líder en el sector de la tecnología,
+    con un modelo de negocio diversificado y una sólida posición competitiva. Su capacidad
+    para innovar y adaptarse a los cambios en el mercado, junto con su fuerte generación
+    de caja y su sólido balance, la convierten en un compounder de larga data.
+dominio_business_quality:
+  analisis: Microsoft tiene una posición competitiva sólida en el mercado de la tecnología,
+    con una cartera diversificada de productos y servicios y una capacidad para innovar
+    y adaptarse a los cambios en el mercado.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Aumento en la adopción de soluciones de nube y inteligencia artificial
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: Microsoft tiene un historial de responsabilidad social y ambiental, y
+    su cadena de suministro es diversificada y bien gestionada.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: Microsoft tiene un sólido balance y una fuerte generación de caja, lo
+    que le permite invertir en su negocio y retornar valor a los accionistas.
+  rating: fuerte
+dominio_growth:
+  analisis: Microsoft tiene un potencial de crecimiento significativo en el mercado
+    de la nube y la inteligencia artificial, lo que podría impulsar el crecimiento
+    de la empresa en el futuro.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo de gestión de Microsoft tiene un historial de éxito en la ejecución
+    de la estrategia de la empresa y en la creación de valor para los accionistas.
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Competencia en el mercado de la nube
+- impacto: medio
+  probabilidad: baja
+  riesgo: Cambios en la regulación
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un aumento significativo en la adopción de soluciones de nube y inteligencia
+      artificial por parte de las empresas, lo que podría impulsar el crecimiento
+      de Microsoft por encima de las expectativas.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado desconta un crecimiento estable y una sólida posición
+    competitiva de Microsoft, con un enfoque en la nube y la inteligencia artificial.
+  hipotesis_contraria: El consenso podría estar subestimando el potencial de crecimiento
+    de Microsoft en el mercado de la nube y la inteligencia artificial, así como su
+    capacidad para innovar y expandirse en nuevos mercados.
+  razonamiento: El mercado podría estar subestimando el potencial de crecimiento de
+    Microsoft, lo que podría generar una oportunidad de inversión atractiva.
+generated_at: '2026-08-01T00:06:57.217480-03:00'
+opinion_valoracion: infravalorado
 opp_id: OPP-20260725-018
 prompt_inputs:
   business_model: Microsoft Corporation develops and supports software, services,
@@ -43,15 +105,19 @@ prompt_inputs:
   insider_ownership: 0
   name: Microsoft Corporation
   operating_margin: 46.78
-  pe_ratio: 25.04
+  pe_ratio: 25.41
   products: ''
   revenue: 331840000000.0
   revenue_growth: 18.15
   roic: 28.31
   sector: Technology
   ticker: MSFT
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: Microsoft Corporation es un compounder de larga data con una sólida
+  posición competitiva y un potencial de crecimiento significativo en el mercado de
+  la nube y la inteligencia artificial.
+score_general: 85
+tesis_inversion: Microsoft Corporation es un compounder de larga data con un potencial
+  de crecimiento significativo en el mercado de la nube y la inteligencia artificial,
+  lo que la convierte en una oportunidad de inversión atractiva.
 ticker: MSFT
 version: '3.0'

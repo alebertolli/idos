@@ -1,15 +1,104 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-27T02:24:46.045327-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - Revenue TTM de $139.57B
+  - Margen operativo del 56.1%
+  - ROIC del 54.6%
+  - D/E de 0.1x
+  - Sede en Hsinchu, Taiwán
+  inferencias_llm:
+  - La valoración actual ya descuenta un riesgo geopolítico significativo
+  - La interdependencia económica actúa como un desincentivo para un conflicto bélico
+  - El crecimiento de la IA es el principal motor de demanda de largo plazo
+  preguntas_abiertas:
+  - ¿Cuál es la probabilidad real de un bloqueo naval o conflicto en Taiwán en los
+    próximos 5 años?
+  - ¿Qué tan rápido pueden Intel y Samsung cerrar la brecha en la tecnología de litografía
+    EUV?
+  - ¿Cómo afectará la guerra de subsidios (CHIPS Act) a la rentabilidad de TSMC en
+    sus plantas fuera de Taiwán?
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: Compounder (se descartó porque el precio no está 'castigado'
+    actualmente, sino que refleja el riesgo geopolítico), Cíclica (aunque tiene componentes
+    cíclicos, su posición de mercado la eleva a compounder de largo plazo), Hype (tiene
+    fundamentales sólidos y cash flow real, no es especulación).
+  justificacion: TSMC es un 'onopolio de facto' en la fabricación de semiconductores
+    de vanguardia (3nm, 2nm). Presenta márgenes operativos excepcionales (56.1%) y
+    un ROIC masivo (54.6%), lo que indica una ventaja competitiva estructural. La
+    valoración actual no refleja un descuento profundo (Deep Value), sino un precio
+    razonable para un negocio de altísima calidad, ajustado por el riesgo geopolítico.
+dominio_business_quality:
+  analisis: Posición de liderazgo absoluto en nodos de <5nm. El modelo de 'Pure Play
+    Foundry' evita la competencia directa con sus clientes (Apple, Nvidia), creando
+    una simbiosis estratégica única. El moat es tecnológico y de escala (barreras
+    de entrada de decenas de miles de millones de USD).
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Liderazgo en nodos de 2nm
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 85
+- descripcion: Expansión de márgenes por demanda de IA
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 70
+dominio_esg_supply_chain:
+  analisis: El riesgo principal no es ESG tradicional, sino la concentración geográfica
+    extrema en Taiwán. La dependencia de la estabilidad política de la región es el
+    punto de falla único de la cadena de suministro global.
+  rating: alto_riesgo
+dominio_financial_health:
+  analisis: Balance extremadamente sólido con un D/E de 0.1x. La generación de flujo
+    de caja es masiva, permitiendo un crecimiento intensivo en capital (CAPEX) sin
+    comprometer la solvencia. El ROIC del 54.6% es de clase mundial.
+  rating: fuerte
+dominio_growth:
+  analisis: Impulso masivo derivado de la demanda de centros de datos para IA y la
+    transición hacia dispositivos inteligentes. La visibilidad de ingresos es alta
+    debido a los contratos de suministro a largo plazo con los principales diseñadores
+    de chips.
+  rating: fuerte
+dominio_management:
+  analisis: Historial probado de ejecución tecnológica. La asignación de capital es
+    disciplinada, enfocada en mantener la vanguardia de la litografía (EUV) y la expansión
+    de capacidad global (Arizona, Japón, Alemania).
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: baja
+  riesgo: Conflicto bélico en el Estrecho de Taiwán
+- impacto: medio
+  probabilidad: media
+  riesgo: Obsolescencia tecnológica por competidores (Intel/Samsung)
+- impacto: medio
+  probabilidad: alta
+  riesgo: Ciclicidad de la demanda de semiconductores
+error_mercado:
+  catalizador_cambio:
+    descripcion: Normalización de las tensiones geopolíticas o éxito masivo en la
+      adopción de la arquitectura de chips para IA que eleve los márgenes más allá
+      de lo esperado.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 40
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El mercado está descontando un 'riesgo de cola' (tail risk) geopolítico
+    extremo relacionado con la soberanía de Taiwán y la posible escalada de tensiones
+    con China. Se asume que cualquier conflicto en el Estrecho de Taiwán destruiría
+    el valor de la empresa y la cadena de suministro global.
+  hipotesis_contraria: El mercado está exagerando la probabilidad de un conflicto
+    militar inmediato y subestimando la interdependencia económica global (el 'eguro
+    de vida' que el mundo tiene con TSMC). Además, el mercado podría estar subestimando
+    la capacidad de TSMC para mantener su liderazgo tecnológico frente a la inversión
+    masiva de Intel y Samsung.
+  razonamiento: No hay un error de valoración claro en términos de fundamentales operativos,
+    ya que el precio actual ya integra una prima de riesgo geopolítico significativa.
+    Para que sea una oportunidad de inversión clara, el riesgo geopolítico debe estabilizarse
+    o el crecimiento de la IA debe superar las expectativas de CAPEX.
+generated_at: '2026-08-01T00:25:34.724318-03:00'
+opinion_valoracion: justo
 opp_id: OPP-20260725-016
 prompt_inputs:
   business_model: Taiwan Semiconductor Manufacturing Company Limited, together with
@@ -31,15 +120,24 @@ prompt_inputs:
   insider_ownership: 0
   name: Taiwan Semiconductor Manufacturing Company Limited
   operating_margin: 56.12
-  pe_ratio: 27.04
+  pe_ratio: 25.28
   products: ''
   revenue: 139570000000.0
-  revenue_growth: 32.4
+  revenue_growth: 33.27
   roic: 54.61
   sector: Technology
   ticker: TSM
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: 'TSMC es el pilar fundamental de la era de la Inteligencia Artificial.
+  Su ventaja tecnológica y escala crean un moat casi impenetrable. Sin embargo, la
+  inversión es una apuesta dual: la excelencia operativa de la empresa frente al riesgo
+  sistémico de su ubicación geográfica. El análisis muestra un negocio con salud financiera
+  impecable y crecimiento robusto, pero con una valoración que ya reconoce gran parte
+  del riesgo geopolítico.'
+score_general: 88
+tesis_inversion: Invertir en TSMC es comprar la infraestructura esencial de la economía
+  digital moderna. La tesis se basa en su dominio tecnológico y su capacidad para
+  capturar el crecimiento de la IA. El riesgo principal es geopolítico y no operativo;
+  si el riesgo de conflicto se mantiene constante, la acción funcionará como un proxy
+  del crecimiento tecnológico global.
 ticker: TSM
 version: '3.0'

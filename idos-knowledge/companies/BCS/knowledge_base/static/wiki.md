@@ -35,12 +35,12 @@ To be evaluated
 ---
 
 ## Financial Highlights
-- **ROIC**: 9.55
-- **Operating Margin**: 36.44
-- **Revenue Growth**: 5.4
+- **ROIC**: 10.09
+- **Operating Margin**: 37.55
+- **Revenue Growth**: 5.64
 - **FCF Yield**: 0
 - **Debt/Equity**: 0
-- **PER**: 11.47
+- **PER**: 9.72
 - **EV/EBITDA**: 0
 
 ---
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[C|Citigroup Inc.]], [[HDB|HDFC Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[WFC|Wells Fargo & Company]]
+- **Same Sector**: [[AXP|American Express Company]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[HDB|HDFC Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
 - **Same Industry**: [[C|Citigroup Inc.]], [[ING|ING Groep N.V.]], [[SAN|Banco Santander, S.A.]], [[WFC|Wells Fargo & Company]]

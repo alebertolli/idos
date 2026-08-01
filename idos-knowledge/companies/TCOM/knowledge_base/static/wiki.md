@@ -40,8 +40,8 @@ To be evaluated
 - **Revenue Growth**: 10.19
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.19
-- **PER**: 6.62
-- **EV/EBITDA**: 8.5
+- **PER**: 6.98
+- **EV/EBITDA**: 9.17
 
 ---
 
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[LVS|Las Vegas Sands Corp.]], [[PDD|PDD Holdings Inc.]]
+- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[AMZN|Amazon.com, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[LVS|Las Vegas Sands Corp.]], [[PDD|PDD Holdings Inc.]], [[RACE|Ferrari N.V.]]
 - **Same Industry**: [[ABNB|Airbnb, Inc.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]]

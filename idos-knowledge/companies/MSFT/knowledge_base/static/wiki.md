@@ -40,24 +40,23 @@ To be evaluated
 - **Revenue Growth**: 18.15
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.13
-- **PER**: 25.04
-- **EV/EBITDA**: 16.96
+- **PER**: 25.41
+- **EV/EBITDA**: 17.37
 
 ---
 
 ## Catalysts
-
-To be identified
+- **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-To be formulated
+Microsoft Corporation es un compounder de larga data con un potencial de crecimiento significativo en el mercado de la nube y la inteligencia artificial, lo que la convierte en una oportunidad de inversión atractiva.
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ADBE|Adobe Inc.]], [[ASML|ASML Holding N.V.]], [[CLS|Celestica Inc.]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[NVDA|NVIDIA Corporation]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]]
+- **Same Sector**: [[ADBE|Adobe Inc.]], [[ASML|ASML Holding N.V.]], [[CLS|Celestica Inc.]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[LRCX|Lam Research Corporation]], [[NVDA|NVIDIA Corporation]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]]
 - **Same Industry**: [[PLTR|Palantir Technologies Inc.]]

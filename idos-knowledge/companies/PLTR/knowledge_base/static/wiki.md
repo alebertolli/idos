@@ -40,8 +40,8 @@ To be evaluated
 - **Revenue Growth**: 53.01
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.02
-- **PER**: 138.18
-- **EV/EBITDA**: 142.13
+- **PER**: 138.27
+- **EV/EBITDA**: 142.23
 
 ---
 
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[ADBE|Adobe Inc.]], [[ASML|ASML Holding N.V.]], [[FSLR|First Solar, Inc.]], [[MSFT|Microsoft Corporation]], [[NVDA|NVIDIA Corporation]]
+- **Same Sector**: [[ADBE|Adobe Inc.]], [[ASML|ASML Holding N.V.]], [[CLS|Celestica Inc.]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[LRCX|Lam Research Corporation]], [[MSFT|Microsoft Corporation]], [[NVDA|NVIDIA Corporation]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]]
 - **Same Industry**: [[MSFT|Microsoft Corporation]]

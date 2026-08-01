@@ -40,7 +40,7 @@ To be evaluated
 - **Revenue Growth**: 6.28
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.59
-- **PER**: 56.41
+- **PER**: 57.09
 - **EV/EBITDA**: 43.77
 
 ---
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[HDB|HDFC Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
+- **Same Sector**: [[AXP|American Express Company]], [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[HDB|HDFC Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
 - **Same Industry**: [[SPGI|S&P Global Inc.]]

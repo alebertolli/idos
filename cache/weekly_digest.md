@@ -1,21 +1,84 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-07-30 14:46 AR_
+_Generado: 2026-08-01 00:39 AR_
 
 ## Resumen
 
-- 🟢 **Oportunidades procesadas:** 1
-- ✅ **Assessment completados:** 1
-- 🔖 **Approved:** 0
-- 🔴 **Errores:** 0
-- 📊 **Total encontradas:** 1
+- 🟢 **Oportunidades procesadas:** 25
+- ✅ **Assessment completados:** 25
+- 🔖 **Approved:** 4
+- 🔴 **Errores:** 2
+- 📊 **Total encontradas:** 27
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
+- ⚠️ **AXP** (OPP-20260731-001): score=50, class=None
+- ✅ **BA** (OPP-20260728-001): score=58, class=turnaround
+- ⚠️ **BCS** (OPP-20260725-033): score=50, class=None
+- ✅ **C** (OPP-20260725-037): score=72, class=turnaround
+- ✅ **CLS** (OPP-20260727-001): score=82, class=quality_at_fair_price
 - ⚠️ **COIN** (OPP-20260730-001): score=50, class=None
+- ✅ **GOOGL** (OPP-20260725-025): score=80, class=compounder
+- ✅ **GRMN** (OPP-20260730-001): score=80, class=compounder
+- ⚠️ **HDB** (OPP-20260725-039): score=50, class=None
+- ✅ **ING** (OPP-20260725-030): score=80, class=compounder
+- ✅ **LRCX** (OPP-20260731-002): score=80, class=compounder
+- ✅ **LYG** (OPP-20260725-040): score=60, class=ciclica
+- ⚠️ **MA** (OPP-20260730-001): score=0, class=
+- ✅ **META** (OPP-20260725-015): score=85, class=compounder
+- ⚠️ **MFG** (OPP-20260730-001): score=0, class=
+- ✅ **MSFT** (OPP-20260725-018): score=85, class=compounder
+- ⚠️ **NMR** (OPP-20260730-001): score=0, class=
+- ✅ **PDD** (OPP-20260725-003): score=80, class=compounder
+- ⚠️ **PLTR** (OPP-20260725-041): score=50, class=None
+- ⚠️ **RACE** (OPP-20260730-001): score=0, class=
+- ⚠️ **SAN** (OPP-20260725-034): score=50, class=None
+- ✅ **SHOP** (OPP-20260725-036): score=78, class=quality_at_fair_price
+- ⚠️ **TCOM** (OPP-20260725-008): score=50, class=None
+- ✅ **TSM** (OPP-20260725-016): score=88, class=quality_at_fair_price
+- ✅ **WFC** (OPP-20260725-038): score=68, class=compounder_castigado
 
 ### STEP 3-7 - Assessment Pipeline
 
+- ⚠️ **AXP**
+  - Opp: [OPP-20260731-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AXP/case_file/opportunities/OPP-20260731-001)
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 65 | Recovery: 51 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-002: Price target margin: 11.4%
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **BA**
+  - Opp: [OPP-20260728-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/BA/case_file/opportunities/OPP-20260728-001)
+  - Conviction: 56/100 | Rec: BLOCKED
+  - Scores: Business: 36 | Valuation: 55 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 36/100
+    - 🚫 RULE-005: Conviction: 56/100
+- ⚠️ **BCS**
+  - Opp: [OPP-20260725-033](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/BCS/case_file/opportunities/OPP-20260725-033)
+  - Conviction: 58/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 45 | Recovery: 49 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-002: Price target margin: 9.4%
+    - 🚫 RULE-003: Rerating: 49/100
+    - 🚫 RULE-005: Conviction: 58/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **C**
+  - Opp: [OPP-20260725-037](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/C/case_file/opportunities/OPP-20260725-037)
+  - Conviction: 60/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 45 | Recovery: 58 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-002: Price target margin: 17.1%
+    - 🚫 RULE-005: Conviction: 60/100
+- ⚠️ **CLS**
+  - Opp: [OPP-20260727-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/CLS/case_file/opportunities/OPP-20260727-001)
+  - Conviction: 70/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 70 | Recovery: 62 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 68/100
 - ⚠️ **COIN**
   - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/COIN/case_file/opportunities/OPP-20260730-001)
   - Conviction: 62/100 | Rec: BLOCKED
@@ -24,6 +87,141 @@ _Generado: 2026-07-30 14:46 AR_
     - 🚫 RULE-001: Business quality: 50/100
     - 🚫 RULE-005: Conviction: 62/100
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **GOOGL**
+  - Opp: [OPP-20260725-025](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/GOOGL/case_file/opportunities/OPP-20260725-025)
+  - Conviction: 70/100 | Rec: BLOCKED
+  - Scores: Business: 76 | Valuation: 55 | Recovery: 62 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-002: Price target margin: 19.9%
+- ⚠️ **GRMN**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/GRMN/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 45 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-002: Price target margin: -4.8%
+    - 🚫 RULE-005: Conviction: 63/100
+- ⚠️ **HDB**
+  - Opp: [OPP-20260725-039](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/HDB/case_file/opportunities/OPP-20260725-039)
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 60 | Recovery: 50 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-005: Conviction: 62/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **ING**
+  - Opp: [OPP-20260725-030](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/ING/case_file/opportunities/OPP-20260725-030)
+  - Conviction: 60/100 | Rec: BLOCKED
+  - Scores: Business: 63 | Valuation: 45 | Recovery: 54 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 63/100
+    - 🚫 RULE-002: Price target margin: -3.1%
+    - 🚫 RULE-005: Conviction: 60/100
+- ⚠️ **LRCX**
+  - Opp: [OPP-20260731-002](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/LRCX/case_file/opportunities/OPP-20260731-002)
+  - Conviction: 69/100 | Rec: PENDING_REVIEW
+  - Scores: Business: 72 | Valuation: 65 | Recovery: 58 | Risk: 70 | Portfolio: 90
+- ⚠️ **LYG**
+  - Opp: [OPP-20260725-040](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/LYG/case_file/opportunities/OPP-20260725-040)
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 45 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-002: Price target margin: 0.2%
+    - 🚫 RULE-005: Conviction: 59/100
+- ⚠️ **MA**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MA/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 55 | Recovery: 53 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-002: Price target margin: 13.1%
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ✅ **META**
+  - Opp: [OPP-20260725-015](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/META/case_file/opportunities/OPP-20260725-015)
+  - Conviction: 72/100 | Rec: APPROVE | Dec: HOLD
+  - Scores: Business: 76 | Valuation: 70 | Recovery: 62 | Risk: 70 | Portfolio: 90
+- ⚠️ **MFG**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MFG/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 61/100 | Rec: BLOCKED
+  - Scores: Business: 66 | Valuation: 45 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 66/100
+    - 🚫 RULE-002: Price target margin: 0.4%
+    - 🚫 RULE-005: Conviction: 61/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ✅ **MSFT**
+  - Opp: [OPP-20260725-018](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/MSFT/case_file/opportunities/OPP-20260725-018)
+  - Conviction: 70/100 | Rec: APPROVE | Dec: HOLD
+  - Scores: Business: 72 | Valuation: 65 | Recovery: 58 | Risk: 80 | Portfolio: 90
+- ⚠️ **NMR**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/NMR/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 56/100 | Rec: BLOCKED
+  - Scores: Business: 48 | Valuation: 45 | Recovery: 49 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 48/100
+    - 🚫 RULE-002: Price target margin: 6.5%
+    - 🚫 RULE-003: Rerating: 49/100
+    - 🚫 RULE-005: Conviction: 56/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **PDD**
+  - Opp: [OPP-20260725-003](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/PDD/case_file/opportunities/OPP-20260725-003)
+  - Conviction: 71/100 | Rec: BLOCKED
+  - Scores: Business: 63 | Valuation: 80 | Recovery: 56 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 63/100
+- ⚠️ **PLTR**
+  - Opp: [OPP-20260725-041](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/PLTR/case_file/opportunities/OPP-20260725-041)
+  - Conviction: 72/100 | Rec: BLOCKED
+  - Scores: Business: 76 | Valuation: 70 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **RACE**
+  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/RACE/case_file/opportunities/OPP-20260730-001)
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 52 | Risk: 60 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 68/100
+    - 🚫 RULE-002: Price target margin: 14.6%
+    - 🚫 RULE-005: Conviction: 63/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **SAN**
+  - Opp: [OPP-20260725-034](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/SAN/case_file/opportunities/OPP-20260725-034)
+  - Conviction: 55/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 35 | Recovery: 49 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-002: Price target margin: -3.8%
+    - 🚫 RULE-003: Rerating: 49/100
+    - 🚫 RULE-005: Conviction: 55/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ✅ **SHOP**
+  - Opp: [OPP-20260725-036](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/SHOP/case_file/opportunities/OPP-20260725-036)
+  - Conviction: 72/100 | Rec: APPROVE | Dec: HOLD
+  - Scores: Business: 72 | Valuation: 65 | Recovery: 66 | Risk: 80 | Portfolio: 90
+- ⚠️ **TCOM**
+  - Opp: [OPP-20260725-008](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/TCOM/case_file/opportunities/OPP-20260725-008)
+  - Conviction: 68/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 75 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ✅ **TSM**
+  - Opp: [OPP-20260725-016](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/TSM/case_file/opportunities/OPP-20260725-016)
+  - Conviction: 74/100 | Rec: APPROVE | Dec: HOLD
+  - Scores: Business: 76 | Valuation: 70 | Recovery: 62 | Risk: 80 | Portfolio: 90
+- ⚠️ **WFC**
+  - Opp: [OPP-20260725-038](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/WFC/case_file/opportunities/OPP-20260725-038)
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 55 | Recovery: 61 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 58/100
+    - 🚫 RULE-002: Price target margin: 15.7%
+    - 🚫 RULE-005: Conviction: 63/100
+
+### Errores
+
+- ❌ **USB**: object of type 'NoneType' has no len()
+- ❌ **VRTX**: object of type 'NoneType' has no len()
 
 ---
 

@@ -1,15 +1,146 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-28T07:31:05.037844-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - Revenue TTM en $94,000M con crecimiento del 11.2%.
+  - Márgenes operativos negativos (-5.4%) y ROIC negativo (-12.7%).
+  - Nombramiento de Kelly Ortberg como nuevo CEO en agosto de 2024.
+  - Estructura duopólica global en aviación comercial de gran escala.
+  inferencias_llm:
+  - La ampliación de capital de late-2024 elimina el riesgo de quiebra inminente pero
+    diluye al accionista actual a corto plazo.
+  - La reintegración de Spirit AeroSystems reducirá gradualmente los defectos de fuselaje
+    en un horizonte de 18-24 meses.
+  - El valor intrínseco en un escenario de normalización de FCF ($6B-$8B/año hacia
+    2027) respalda una apreciación del título >50% respecto a los niveles de estres.
+  preguntas_abiertas:
+  - ¿Cuál será el ritmo exacto de aprobación regulatoria por parte de la FAA para
+    el incremento de tasas de producción del 737 MAX?
+  - ¿Podrá la división de Defensa (BDS) detener la sangría de pérdidas en contratos
+    a precio fijo antes de finales de 2025?
+  - ¿Qué grado de tracción laboral y estabilidad sindical se mantendrá tras los acuerdos
+    de resolución de huelga?
+clasificacion_oportunidad:
+  categoria: turnaround
+  categorias_descartadas: Descartada 'Compounder castigado' porque el deterioro no
+    es meramente temporal o de ciclo, sino una avería operativa e institucional profunda
+    con quema masiva de caja y destrucción de balance. Descartada 'Distressed' porque
+    el acceso al mercado de capitales (demostrado en la ampliación de capital de $21B+
+    en finales de 2024) y el estatus de 'demasiado grande para caer' por seguridad
+    nacional de EE. UU. reducen drásticamente la probabilidad de bancarrota inminente.
+    Descartada 'Value Trap' porque la demanda estructural de aviación comercial es
+    insaciable y el duopolio impide la entrada de competidores a escala a corto/medio
+    plazo.
+  justificacion: The Boeing Company se encuentra en medio de una profunda crisis operativa,
+    de control de calidad y de balance, desencadenada por los problemas del 737 MAX,
+    el incidente del conector de puerta de Alaska Airlines, la huelga del sindicato
+    IAM y pérdidas continuadas en contratos de defensa a precio fijo. Sin embargo,
+    mantiene una posición duopólica global indivisible junto a Airbus con un backlog
+    superior a 500,000 millones de dólares y el nombramiento de un nuevo CEO operacional
+    (Kelly Ortberg) para ejecutar una reestructuración cultural y productiva.
+dominio_business_quality:
+  analisis: Boeing ostenta un Moat amplio basado en barreras de entrada gigantescas
+    (requisitos de capital, certificaciones regulatorias FAA/EASA, escala industrial
+    y curva de aprendizaje de décadas). Comparte un duopolio global con Airbus en
+    aviación comercial. La división Global Services (BGS) provee ingresos recurrentes
+    con altos márgenes. No obstante, la calidad del negocio se ha visto erosionada
+    por fallos graves de control de calidad, pérdida de confianza regulatoria y contratos
+    de defensa de precio fijo que absorben capital.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Reintegración exitosa de Spirit AeroSystems y estabilización de la
+    tasa de producción del 737 MAX a >38/mes.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 65
+- descripcion: Certificación FAA del 737 MAX 10 y reinicio del calendario de entregas
+    del 777X para 2026.
+  horizonte: largo
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 55
+- descripcion: Retorno del FCF consolidado a terreno positivo superando los $5,000M
+    anuales y posterior desapalancamiento financiero.
+  horizonte: largo
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 60
+dominio_esg_supply_chain:
+  analisis: Riesgos ESG críticos vinculados a la gobernanza corporativa, seguridad
+    de los productos y relaciones laborales. En la cadena de suministro, la dependencia
+    de proveedores clave como Spirit AeroSystems (en proceso de re-adquisición), la
+    escasez de componentes críticos (motores CFM/GE, fuselajes) y cuellos de botella
+    en la entrega de titanio/materiales avanzados imponen cuellos de botella directos
+    sobre la rampa de producción.
+  rating: alto_riesgo
+dominio_financial_health:
+  analisis: El balance está fuertemente estresado. La deuda bruta roza los $57,000M-$58,000M
+    producto de años de cash burn negativo (FCF ajustado en 0M a negativo en períodos
+    recientes) y la acumulación de inventario no entregado. La cobertura de intereses
+    (Interest Coverage) es de 0.0x debido al margen operativo negativo. Aunque la
+    reciente emisión de capital de ~$21B mitiga el riesgo inminente de degradación
+    a crédito basura y vencimientos de deuda a corto plazo, la posición de solvencia
+    requiere años de retención de flujo de caja para desapalancarse.
+  rating: debil
+dominio_growth:
+  analisis: 'Los impulsores de crecimiento a medio y largo plazo son sólidos, sustentados
+    por megatendencias seculares: crecimiento del tráfico aéreo mundial (4-5% anual),
+    necesidad de flotas más eficientes en consumo de combustible y un acumulado de
+    pedidos (backlog) de más de 5,400 aviones comerciales (equivalente a más de medio
+    billón de dólares). La visibilidad del revenue es extraordinariamente alta, sujeta
+    únicamente a la capacidad física de fabricación e integración de la cadena de
+    suministro.'
+  rating: fuerte
+dominio_management:
+  analisis: 'El nombramiento del CEO Kelly Ortberg en agosto de 2024 marca un cambio
+    decisivo de paradigma: un ingeniero con reputación probada en la industria aeroespacial
+    (ex-Rockwell Collins) reemplazando la línea de ejecutivos enfocados en métricas
+    financieras que deterioraron la calidad. El alineamiento histórico ha sido deficiente
+    (0.0% insider ownership significativo en manos ejecutivas anteriores), pero la
+    nueva hoja de ruta prioriza la seguridad operativa, resolución de conflictos laborales
+    y simplificación de la estructura corporativa.'
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Incapacidad de resolver los problemas de control de calidad, resultando
+    en nuevas directivas de aeronavegabilidad o paralizaciones de la FAA.
+- impacto: alto
+  probabilidad: media
+  riesgo: Degradación del perfil crediticio a Grado Especulativo (Junk rating) si
+    la quema de caja persiste hasta 2025.
+- impacto: medio
+  probabilidad: alta
+  riesgo: Demoras adicionales significativas en la certificación y primera entrega
+    del programa 777X y 737 MAX 7/10.
+- impacto: medio
+  probabilidad: alta
+  riesgo: Continuidad de pérdidas y ejecuciones defectuosas en los programas de precio
+    fijo del segmento Defense, Space & Security (BDS).
+error_mercado:
+  catalizador_cambio:
+    descripcion: Estabilización de la tasa de producción del 737 MAX en 38 unidades/mes
+      con aprobación de la FAA y retorno a FCF positivo sostenido de $3B-$5B anuales.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 65
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado descuenta un periodo prolongado de quema de caja, dilución
+    accionarial masiva, rebajas de calificación crediticia a grado especulativo (junk),
+    cuellos de botella severos en la cadena de suministro y una incapacidad estructural
+    para estabilizar la tasa de producción del 737 MAX por encima de 38 aviones/mes
+    y certificación demorada del 777X.
+  hipotesis_contraria: El mercado extrapola de manera desproporcionada los errores
+    de ejecución pasados sin valorar adecuadamente el poder de fijación de precios
+    inaudito derivada de un backlog de 5-7 años de producción comercial, la recapitalización
+    del balance que aleja el riesgo de insolvencia, y la llegada de un liderazgo enfocado
+    estrictamente en la excelencia de ingeniería en lugar del financiamiento del valor
+    del accionista.
+  razonamiento: Existe una desconexión entre la valoración actual presionada por catalizadores
+    negativos de corto plazo y el valor intrínseco de un activo estratégico duopólico
+    irreducible. La demanda secular de tráfico aéreo y la renovación de flotas garantizan
+    la monetización del backlog si se estabiliza la manufactura.
+generated_at: '2026-07-31T23:44:56.822701-03:00'
+opinion_valoracion: infravalorado
 opp_id: OPP-20260728-001
 prompt_inputs:
   business_model: 'The Boeing Company, together with its subsidiaries, designs, develops,
@@ -31,20 +162,34 @@ prompt_inputs:
     and digital services to commercial and defense customers. The Boeing Company was
     incorporated in 1916 and is based in Arlington, Virginia.'
   ceo_tenure: 0
-  debt_to_equity: 0.08289999999999999
+  debt_to_equity: 0.0791
   fcf_adjusted: 0
   insider_ownership: 0
   name: The Boeing Company
-  operating_margin: -5.77
-  pe_ratio: 83.94
+  operating_margin: -5.42
+  pe_ratio: 79.81
   products: ''
-  revenue: 92180000000.0
-  revenue_growth: 11.18
-  roic: -13.57
+  revenue: 94000000000.0
+  revenue_growth: 11.21
+  roic: -12.7
   sector: Industrials
   ticker: BA
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: Boeing representa una oportunidad clásica de Turnaround de gran
+  envergadura. Aunque el balance está significativamente apalancado y los márgenes
+  operativos son negativos (-5.4% TTM) producto de ineficiencias de producción y sobrecostos
+  en contratos de defensa, la barrera de entrada al negocio comercial de aviones de
+  pasillo único y ancho es impenetrable. La inyección de capital reciente alivia las
+  presiones de liquidez inmediatas, permitiendo a la gerencia centrarse en resolver
+  la cultura de calidad y la tasa de entregas. La tesis de inversión depende de la
+  ejecución operativa y la normalización del FCF hacia 2026-2027.
+score_general: 58
+tesis_inversion: Boeing representa una oportunidad asimétrica de Turnaround para inversores
+  con un horizonte temporal de 3 a 5 años. El mercado cotiza la empresa basándose
+  en su atribulado estado operativo presente y no en su capacidad de generación de
+  caja normalizada. En una industria duopólica donde Airbus está vendida al máximo
+  de su capacidad hasta finales de la década, las aerolíneas no pueden abandonar a
+  Boeing. Con la recapitalización del balance completada y un CEO con sesgo operativo
+  al mando, la convergencia hacia márgenes normalizados y la conversión del backlog
+  en flujo de caja libre ofrecerá un re-rating significativo de los múltiplos de valoración.
 ticker: BA
 version: '3.0'
