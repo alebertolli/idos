@@ -1,15 +1,123 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-08-01T00:21:23.074953-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - Ingresos TTM de $9.39B USD con crecimiento del 10.2%
+  - Margen operativo del 24.9%
+  - Ratio Deuda/Patrimonio de 0.2x
+  - 'Propiedad de marcas clave: Ctrip, Qunar, Trip.com, Skyscanner, Travelfusion'
+  inferencias_llm:
+  - El segmento saliente (outbound) de China continuará teniendo mejor rendimiento
+    que el consumo general chino debido al perfil demográfico de mayor riqueza de
+    sus usuarios.
+  - Las métricas de FCF 0M e Interest Coverage 0.0x presentadas en el resumen se deben
+    a vacíos en la captura de datos TTM del proveedor y no a insolvencia real.
+  preguntas_abiertas:
+  - ¿Cuál es el valor exacto del Free Cash Flow Ajustado y la caja neta auditada al
+    cierre del último trimestre?
+  - ¿Qué porcentaje exacto del EBITDA proviene actualmente del negocio internacional
+    fuera de China continental?
+  - ¿Cuál es la participación de mercado actualizada en el segmento de reservas hoteleras
+    de gama alta en China frente a competidores locales?
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: Se descartó 'ciclica' porque, aunque el sector viajes es
+    discrecional, TCOM posee fosos competitivos estructurales que le permiten mantener
+    altos márgenes operativos y rentabilidad operativa a lo largo del ciclo. Se descartó
+    'deep_value' porque el valor no cotiza por debajo de activos líquidos ni en severa
+    angustia, y se descartó 'compounder' puro debido a la exposición al riesgo país/regulatorio
+    chino que exige cautela en la valoración.
+  justificacion: Trip.com Group (TCOM) posee una posición cuasi-monopolística y red
+    efectista sólida en el sector de agencias de viajes online (OTA) en China a través
+    de Ctrip y Qunar, complementada con activos internacionales valiosos como Skyscanner
+    y Trip.com. Genera un margen operativo del 24.9% y muestra un crecimiento de ingresos
+    resiliente (+10.2%), cotizando a múltiplos razonables debido al descuento macroeconómico
+    y geopolítico sobre activos chinos.
+dominio_business_quality:
+  analisis: TCOM opera un modelo de plataforma con un poderoso efecto de red en China.
+    A través de Ctrip, Qunar, Skyscanner y Trip.com, controla el tráfico de viajes
+    de negocios y turismo de alto poder adquisitivo. Su foso competitivo (Moat) se
+    basa en altos costes de cambio para hoteles y aerolíneas dueños de inventario
+    (que necesitan el volumen de TCOM) y liquidez de oferta. Sus márgenes operativos
+    del 24.9% reflejan este poder de mercado, aunque enfrenta competencia en el segmento
+    doméstico de bajo precio por parte de Meituan.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Recuperación completa de capacidad de vuelos internacionales y flexibilización
+    de visados salientes en China
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 75
+- descripcion: Mayor rentabilidad y contribución de EBIT por parte de la marca internacional
+    Trip.com y Skyscanner
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 65
+- descripcion: Implementación de programas sostenidos de recompras de acciones / dividendos
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 60
+dominio_esg_supply_chain:
+  analisis: Riesgos regulatorios del gobierno chino sobre empresas tecnológicas y
+    recopilación de datos de consumidores. Riesgo de concentración de inventario aéreo
+    y hotelero, así como posibles restricciones geopolíticas en visados internacionales
+    que afecten al flujo turístico.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: El balance presenta un endeudamiento conservador con una ratio Deuda/Patrimonio
+    de 0.2x. Aunque los datos TTM del perfil muestran métricas atípicas en FCF e Interest
+    Coverage que requieren verificación detallada en el informe 20-F, la posición
+    neta de caja histórica de la empresa y la baja palanca financiera le confieren
+    resiliencia ante shocks macroeconómicos.
+  rating: fuerte
+dominio_growth:
+  analisis: 'Los impulsores de crecimiento orgánico incluyen: 1) Normalización y crecimiento
+    continuo del viaje emisor chino de alto valor; 2) Crecimiento de Trip.com en Asia-Pacífico
+    y Europa; 3) Expansión de Trip.Biz en gestión de viajes corporativos. El crecimiento
+    reciente de ingresos del 10.2% TTM refleja una trayectoria sólida hacia la madurez
+    rentable.'
+  rating: fuerte
+dominio_management:
+  analisis: Aunque la ficha indica 0 años de antigüedad del CEO debido a inconsistencias
+    del feed de datos, la gestión ejecutiva ha estado liderada por Jane Sun (CEO desde
+    2016) y James Liang (Cofundador y Presidente), quienes han demostrado una excelente
+    ejecución operativa, disciplina en M&A estratégico (adquisición de Skyscanner
+    y Travelfusion) y navegación durante la crisis del COVID-19.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Deterioro macroeconómico prolongado y deflación en el consumo en China
+- impacto: alto
+  probabilidad: baja
+  riesgo: Presión regulatoria o riesgos de deslistado (ADR / delisting risks en EE.UU.)
+- impacto: medio
+  probabilidad: alta
+  riesgo: Competencia agresiva en tarifas domésticas por parte de Meituan y Douyin
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aceleración y recuperación completa de la capacidad de vuelos internacionales
+      salientes de China junto con la expansión de márgenes en la plataforma global
+      Trip.com.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 70
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado aplica un 'descuento China' sustancial sobre TCOM, asumiendo
+    que el consumo discrecional en China permanecerá deprimido de forma prolongada,
+    que la competencia local de actores como Meituan y Douyin erosionará los márgenes,
+    y que los riesgos geopolíticos/ADR limitan el crecimiento del múltiplo de valoración.
+  hipotesis_contraria: El mercado subestima la inelasticidad y resiliencia del turismo
+    emisor (outbound travel) de la clase media-alta china, segmento de alto margen
+    donde TCOM mantiene un dominio casi total. Además, el mercado no está poniendo
+    en valor la aceleración de su plataforma internacional (Trip.com app y Skyscanner)
+    como vector de diversificación fuera de China continental.
+  razonamiento: El precio actual exagera la debilidad macroeconómica de China e ignora
+    la apalancamiento operativo del negocio de viajes emisores de alto margen, creando
+    una asimetría favorable para inversores de largo plazo.
+generated_at: '2026-08-02T00:02:10.742321-03:00'
+opinion_valoracion: infravalorado
 opp_id: OPP-20260725-008
 prompt_inputs:
   business_model: Trip.com Group Limited, through its subsidiaries, operates as a
@@ -48,8 +156,19 @@ prompt_inputs:
   roic: 10.87
   sector: Consumer Cyclical
   ticker: TCOM
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: Trip.com Group Limited es el líder indiscutible en la industria
+  de agencias de viajes en línea (OTA) en China y un actor relevante globalmente.
+  Con un margen operativo del 24.9% y una estructura financiera sólida (D/E de 0.2x),
+  TCOM combina una fuerte generación de caja, efectos de red de dos lados (usuarios/proveedores)
+  y la recuperación post-pandémica del viaje emisor internacional. A pesar del entorno
+  macroeconómico retador en China, el poder de fijación de precios en el segmento
+  premium y el crecimiento internacional ofrecen un margen de seguridad atractivo.
+score_general: 78
+tesis_inversion: TCOM ofrece una oportunidad atractiva de inversión en una empresa
+  dominante con márgenes operativos del 24.9% y balance sólido (D/E 0.2x). El mercado
+  cotiza la acción con un descuento excesivo debido a temores macroeconómicos sobre
+  China. La tesis se fundamenta en el poder de fijación de precios en turismo saliente
+  de alto margen, el apalancamiento operativo de la plataforma y la expansión internacional
+  de Trip.com.
 ticker: TCOM
 version: '3.0'
