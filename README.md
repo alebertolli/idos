@@ -36,7 +36,7 @@ idos-config/
   rules/entry_rules.yml       ← reglas de entrada (asimetría 3:1, etc.)
   prompts/scout/              ← 5 prompts de screening
   prompts/research/           ← 4 prompts de investigación
-  prompts/portfolio/          ← 1 prompt de Wyckoff (entry)
+  prompts/portfolio/          ← prompts de portfolio (post-mortem, etc.)
 idos-knowledge/
   companies/{TICKER}/
     company.yml
@@ -106,6 +106,7 @@ Edita `idos-config/universe/watchlist.md`.
 | yahoo_finance | 2 (fallback) | 1h | Precios históricos OHLCV + ratios |
 | finviz.com | 3 | 12h | Screening visual complementario |
 | SEC EDGAR | 4 | 24h | Filings oficiales (10-K/10-Q) |
+| yfinance (SPY) | benchmark | 24h | Fuerza relativa del Entry Engine (SPY 1y) |
 
 Validación cruzada automática cuando hay múltiples fuentes disponibles.
 
@@ -179,7 +180,7 @@ idos opp-transition OPP-001 ACCUMULATING  # Avance manual
 ### 3.3 Entry y Monitoreo
 
 ```bash
-idos entry-evaluate MELI          # Evalúa precio + Wyckoff → ENTRY_PENDING/ACCUMULATING
+idos entry-evaluate MELI          # Evalúa precio + indicador técnico → ENTRY_PENDING/ACCUMULATING
 idos watchlist                    # Muestra watchlist activa
 idos position-list                # Lista posiciones abiertas
 idos position-exit MELI --reason thesis_broken  # Cierra posición + post-mortem automático
@@ -287,7 +288,7 @@ DISCOVERED ──► UNDER_DEEP_DD ──► APPROVED
                                       │
                                 ENTRY_PENDING
                                       │
-                          [EntryMonitorWorker + Wyckoff]
+                          [EntryMonitorWorker + Indicador técnico]
                                       │
                                 ACCUMULATING ──► FULL_POSITION
                                       │
@@ -324,13 +325,14 @@ Workers del DDD Pipeline (GitHub Actions):
 | STEP 4 | **ConvictionCalculator** | Weighted avg de scores (weights en `scoring.yml`) |
 | STEP 5 | **RulesEngine** | 8 entry rules (RULE-001 a RULE-008) |
 | STEP 6 | **DecisionBoard** | Submit proposal + auto-review → BoardResolution |
-| STEP 7 | **EntryEngine** | Wyckoff + price zone + portfolio fit (si APPROVED) |
+| STEP 7 | **EntryEngine** | Indicador compuesto + price zone + portfolio fit (si APPROVED) |
 
 Workers auxiliares:
 
 | Worker | Función | Frecuencia |
 |--------|---------|------------|
 | **DataRefreshWorker** | Obtiene datos financieros de múltiples fuentes | Diario (pre-market) |
+| **BuyListRefreshWorker** | Actualiza `target_price` y `buy_zone_top` de la Buy List desde la valoración | Diario |
 | **StockAnalysisWorker** | Scraper de stockanalysis.com | Bajo demanda |
 | **YahooFinanceWorker** | Precios históricos OHLCV y métricas vía yfinance | Bajo demanda |
 | **FinvizWorker** | Snapshot complementario de finviz | Bajo demanda |
@@ -365,18 +367,26 @@ Workers auxiliares:
 
 ### 5.3 Portfolio (Entry)
 
-| Prompt | Propósito |
-|--------|-----------|
-| `portfolio/wyckoff.yml` (v1.0) | **Análisis Wyckoff** vía LLM: 3 leyes, 9 pruebas de compra, eventos (PS/SC/AR/ST/Spring/LPS/SOS), punto de entrada (JAC/Spring), precio objetivo P&F, stop loss |
+El filtro de entrada es **100% algorítmico** (0 LLM). No usa prompts: el `EntryEngine` computa un indicador compuesto de oferta/demanda sobre datos OHLCV.
 
-### 5.4 Wyckoff LLM Integration
+### 5.4 Indicador Compuesto de Entrada
 
-El Entry Engine utiliza análisis Wyckoff dual:
+El Entry Engine utiliza un indicador compuesto determinista y reproducible:
 
-- **Modo LLM** (recomendado): Usa el prompt `portfolio/wyckoff.yml` con los datos OHLCV de Yahoo Finance para identificar eventos Wyckoff reales, evaluar las 9 pruebas de compra, estimar precio objetivo vía conteo P&F, y sugerir stop loss.
-- **Modo Algorítmico** (fallback): Análisis por tercios de precio/volumen cuando no hay LLM configurado.
+| Componente | Peso |
+|-----------|------|
+| Estructura (fin de mínimos, ruptura de base, MA50/200) | 40% |
+| Oferta/Demanda (volumen, climax, sequía de volumen) | 30% |
+| Fuerza Relativa vs SPY (Weinstein) | 20% |
+| Volatilidad (contracción de rango) | 10% |
 
-Auto-detección: si hay LLM configurado, lo usa; si no, cae al algoritmo.
+Clasificación (bandas configurables en `idos-config/portfolio.yml`):
+- 🟢 **Demanda dominante** (score ≥ 65) → entrada habilitada
+- 🟡 **Absorción** (45–64) → entrada habilitada
+- 🟠 **Oferta dominante** (25–44) → entrada bloqueada
+- 🔴 **Distribución** (< 25) → entrada bloqueada
+
+Los umbrales se calibran vía post-mortem: el Learning Domain propone ajustes (subir/bajar) que requieren revisión humana.
 
 ---
 
@@ -517,7 +527,7 @@ watchlist.md (10,000 tickers)
          ▼
 ┌──────────────────────────────────────────┐
 │ STEP 7: EntryEvaluation                  │
-│ Wyckoff analysis + price zone            │
+│ Indicador compuesto + price zone          │
 │ Portfolio fit check                       │
 │ → EntrySignal(all_conditions_met)        │
 └──────────────────────────────────────────┘
@@ -539,7 +549,7 @@ Por cada oportunidad procesada se generan 3 archivos YAML en
 |---------|-----------|
 | `decision_proposal.yml` | Assessments scores, conviction, recommendation, rules results |
 | `board_resolution.yml` | Approved (bool), decision_type, decision_id, justification |
-| `entry_evaluation.yml` | Solo si APPROVED: Wyckoff phase, margin of safety, price zone |
+| `entry_evaluation.yml` | Solo si APPROVED: fase técnica (indicador compuesto), margin of safety, price zone |
 
 ### Fuentes de Datos
 
@@ -553,9 +563,9 @@ SEC EDGAR ────────┘    │
                        │
           ┌────────────┼────────────────┐
           ▼            ▼                ▼
-   ScoutEngine   EntryEngine       RiskEngine
-   (screening)   (Wyckoff +        (alertas)
-                  price zone)
+    ScoutEngine   EntryEngine       RiskEngine
+    (screening)   (indicador +      (alertas)
+                   price zone)
           │            │
           ▼            │
    UniversePipeline    │
@@ -662,7 +672,7 @@ idos opp-approve MELI                     # Decision Board (evalúa reglas)
 idos opp-reject MELI --reason "falta_moat"  # Rechazar → Watchlist
 
 # Entry
-idos entry-evaluate MELI                  # Precio + Wyckoff → señal de entrada
+idos entry-evaluate MELI                  # Precio + indicador técnico → señal de entrada
 idos position-exit MELI --reason thesis_broken  # Cerrar + post-mortem
 idos position-exit MELI --reason valuation_target  # Salida por valoración
 idos position-exit MELI --reason stop_loss  # Stop loss alcanzado
@@ -695,7 +705,7 @@ idos opp-show TICKER
 ### 10.1 Error: "No data from any source"
 
 **Causa**: Las fuentes externas no respondieron o el ticker es inválido.
-**Solución**: Verifica que el ticker exista en stockanalysis.com.
+**Solución**: Verifica que el ticker exista en stockanalysis.com. Los errores de datos se registran en `cache/data_errors.json` y se reportan en un issue consolidado diario (`⚠️ IDOS: errores de datos`).
 
 ### 10.2 Error: "No LLM API key configured"
 
@@ -745,6 +755,6 @@ idos screener-run AAPL              # Evaluar ticker contra screeners
 ---
 
 *IDOS v0.2.0 — Family Office Investment Decision Operating System*
-*360+ tests · 28 comandos CLI · Ciclo de vida completo · Dual-mode Wyckoff*
+*360+ tests · 28 comandos CLI · Ciclo de vida completo · Entry 100% algorítmico*
 
 <!-- Test auto-commit skill -->

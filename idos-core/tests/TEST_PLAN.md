@@ -33,7 +33,7 @@ tareas automatizadas (scheduled) e intervenciones manuales (CLI).
 | Worker | Tests | Archivo | Estado |
 |--------|-------|---------|--------|
 | ScoutEngine | 3 | `test_discovery/test_scout.py` | ✅ |
-| WyckoffAnalyzer | 5 | `test_portfolio/test_wyckoff.py` | ✅ |
+| SupplyDemandIndicator (compuesto) | 5+ | `test_portfolio/test_wyckoff.py` | ✅ |
 | EntryEngine | 3 | `test_portfolio/test_entry.py` | ✅ |
 | ExitEngine | 6 | `test_portfolio/test_exit.py` | ✅ |
 | RiskEngine | 7 | `test_portfolio/test_risk.py` | ✅ |
@@ -96,7 +96,7 @@ tareas automatizadas (scheduled) e intervenciones manuales (CLI).
 
 | Test | Descripción | Verifica |
 |------|-------------|----------|
-| `test_entry_monitor_accumulates` | Precio en zona + Wyckoff OK → ACCUMULATING | Estado transiciona, entry_executed = true |
+| `test_entry_monitor_accumulates` | Precio en zona + indicador técnico OK → ACCUMULATING | Estado transiciona, entry_executed = true |
 | `test_entry_monitor_blocks` | Precio fuera de zona → no acumula | Estado sigue ENTRY_PENDING |
 | `test_entry_monitor_price_zone` | Evalúa margen de seguridad correctamente | margin_of_safety_pct calculado |
 | `test_entry_monitor_approves_to_pending` | APPROVED → ENTRY_PENDING automático | Transición registrada |
@@ -146,7 +146,7 @@ TEST_OPP_ID = "OPP-2026-TEST-001"
 Cada worker recibe un `LLMClient` mockeado que devuelve JSON predecible.
 Definido en `conftest.py` como fixture `mock_llm_client`.
 
-### 4.3 Precios Simulados para Wyckoff
+### 4.3 Precios Simulados para el Indicador Compuesto
 
 ```python
 MOCK_PRICE_DATA = [
@@ -170,7 +170,7 @@ pytest -v
 
 ```bash
 pytest -v tests/test_workers/          # Workers (nuevos + existentes)
-pytest -v tests/test_portfolio/        # Portfolio (entry, exit, wyckoff)
+pytest -v tests/test_portfolio/        # Portfolio (entry, exit, indicador)
 pytest -v tests/test_discovery/        # Scout
 pytest -v tests/test_research/         # DDD, AOIF, Hypothesis
 pytest -v tests/test_lifecycle.py      # E2E lifecycle
