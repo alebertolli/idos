@@ -1,0 +1,73 @@
+adjusted_weight: 2.22
+analyzed_at: '2026-08-03T08:24:46.984135-03:00'
+confidence: media
+entry_point: ninguno
+indicators:
+  algorithmic_phase: markup
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.1%)'
+  current_price: 200.75
+  high_52w: 235.47
+  low_52w: 164.98
+  ma_200d: 192.93
+  ma_50d: 206.12
+  pct_from_52w_high: -14.7
+  pct_from_52w_low: 21.7
+  pct_from_ma200: 4.1
+  pct_from_ma50: -2.6
+  recent_trend: tendencia de 60d lateral (-3%). últimos 5d estables (+2%)
+  resistance_levels: 'resistencias identificadas: $235.47, $225.57, $225.06, $224.10,
+    $223.21 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $164.98, $166.80, $167.32, $168.09, $170.07
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (0.9x el promedio)
+llm_response:
+  confianza: media
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: baja
+    descripcion: El precio cotiza en un rango lateral de 60 días sin eventos climáticos
+      claros (SC, BC) ni de ruptura/confirmación (SOS, Spring) identificables con
+      el volumen actual.
+    evento: Ninguno
+  fase_wyckoff: markup
+  justificacion: El activo se encuentra en una consolidación lateral de 60 días (-3%)
+    cotizando por debajo de la MA50. El volumen relativo (0.9x) y la amplitud de spreads
+    son promedio, sin mostrar absorción clara por parte de la demanda ni oferta dominante.
+    Al no haber confirmación de eventos Wyckoff (como un Spring o SOS con volumen
+    expansivo) y no superarse la mayoría de las 9 pruebas de compra, la prudencia
+    dicta mantenerse al margen en posición NEUTRAL.
+  limitaciones: Ausencia de gráficos Punto y Figura para un conteo exacto de Causa
+    y Efecto, y falta de datos detallados sobre la estructura de volumen barra a barra
+    en los límites del rango.
+  precio_objetivo_wyckoff:
+    estimado: 235.47
+    metodo: causa_efecto
+    razonamiento: Objetivo técnico basado en el retesteo del máximo de 52 semanas
+      si se reanuda la fase de Markup.
+  pruebas_compra:
+    prueba_1_objetivo_caida: N/A
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: N/A
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: Pasa
+    prueba_6_soportes_crecientes: NoPasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: Pasa
+    prueba_9_relacion_3_1: Pasa
+    pruebas_pasan: 3
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: 4.86
+    fundamento: Ubicado justo por debajo de la media móvil de 200 días ($192.93) para
+      proteger contra un cambio de tendencia principal.
+    precio: 191.0
+opp_id: OPP-20260725-044
+phase: markup
+price_target: 235.47
+score: 16
+stop_loss: 191.0
+ticker: NVDA
+triggered_entry: false

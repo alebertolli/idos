@@ -1,0 +1,73 @@
+adjusted_weight: 3.24
+analyzed_at: '2026-08-03T08:25:08.944909-03:00'
+confidence: alta
+entry_point: ninguno
+indicators:
+  algorithmic_phase: unknown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.1%)'
+  current_price: 556.71
+  high_52w: 787.42
+  low_52w: 525.23
+  ma_200d: 633.58
+  ma_50d: 601.99
+  pct_from_52w_high: -29.3
+  pct_from_52w_low: 6.0
+  pct_from_ma200: -12.1
+  pct_from_ma50: -7.5
+  recent_trend: tendencia de 60d bajista moderada (-9%). aceleración bajista en últimos
+    5d (-6%)
+  resistance_levels: 'resistencias identificadas: $787.42, $782.66, $779.57, $777.70,
+    $777.53 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $525.23, $535.88, $539.03, $542.87, $547.03
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (1.1x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: alta
+    descripcion: El activo muestra una tendencia bajista activa (-9% en 60d y -6%
+      en 5d) sin evidencia clara de volumen climático de parada (SC) o estructura
+      lateral de acumulación.
+    evento: Ninguno
+  fase_wyckoff: markdown
+  justificacion: El activo se encuentra en fase de Markdown (tendencia bajista activa
+    acelerada en los últimos 5 días) por debajo de sus medias móviles de 50 y 200
+    días. No se identifican señales de parada crítica (PS/SC) ni una base de acumulación
+    establecida. Siguiendo la máxima de Wyckoff de actuar únicamente ante una causa
+    clara y confirmación de la oferta absorbida, la postura debe ser estrictamente
+    neutral.
+  limitaciones: Se carece de datos de volumen intradía/tick y de la relación de fortaleza
+    relativa frente a un índice de referencia (S&P 500).
+  precio_objetivo_wyckoff:
+    estimado: 0
+    metodo: no_determinable
+    razonamiento: No existe un Rango de Trading (TR) de acumulación ni una causa construida
+      que permita realizar un conteo de Punto y Figura (P&F) o proyección Wyckoff.
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: NoPasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 0
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: 0.0
+    fundamento: No aplica al no haber un setup de compra válido según los principios
+      Wyckoff.
+    precio: 0
+opp_id: OPP-20260725-015
+phase: markdown
+price_target: null
+score: 15
+stop_loss: null
+ticker: META
+triggered_entry: false

@@ -1,0 +1,49 @@
+{
+  "fase_wyckoff": "acumulacion",
+  "eventos_wyckoff_detectados": [
+    {
+      "evento": "SC",
+      "descripcion": "Posible Clímax de Venta (Selling Climax) alcanzado en el mínimo de 52 semanas ($95.40), iniciando la recuperación posterior.",
+      "confianza": "media"
+    },
+    {
+      "evento": "AR",
+      "descripcion": "Rally Automático que llevó el precio desde $95.40 hasta niveles cercanos a $127 (+22.8% desde mínimos).",
+      "confianza": "media"
+    },
+    {
+      "evento": "ST",
+      "descripcion": "Retroceso reciente del -8% en 5 días que podría estar testeando la fortaleza de la demanda dentro del Rango de Trading.",
+      "confianza": "baja"
+    }
+  ],
+  "pruebas_compra": {
+    "prueba_1_objetivo_caida": "Pasa",
+    "prueba_2_actividad_alcista": "NoPasa",
+    "prueba_3_parada_critica": "Pasa",
+    "prueba_4_fortaleza_relativa": "N/A",
+    "prueba_5_linea_suministro": "NoPasa",
+    "prueba_6_soportes_crecientes": "Pasa",
+    "prueba_7_maximos_crecientes": "NoPasa",
+    "prueba_8_base_construida": "NoPasa",
+    "prueba_9_relacion_3_1": "NoPasa",
+    "pruebas_pasan": 3,
+    "total_pruebas": 9
+  },
+  "punto_entrada": "ninguno",
+  "precio_objetivo_wyckoff": {
+    "estimado": 0,
+    "metodo": "no_determinable",
+    "razonamiento": "No se puede establecer un objetivo por conteo P&F preciso debido a la falta de un rango de trading consolidado con suficiente causa acumulada."
+  },
+  "stop_loss_sugerido": {
+    "precio": 94.5,
+    "distancia_pct": 19.3,
+    "fundamento": "Nivel ubicado justo por debajo del soporte estructural y mínimo de 52 semanas ($95.40)."
+  },
+  "senal_entrada": "NEUTRAL",
+  "justificacion": "Aplicando el principio de prudencia del Método Wyckoff, la estructura actual presenta dudas significativas. La reciente aceleración bajista (-8% en 5 días) muestra reaparición de oferta en el corto plazo. El activo cotiza un 12.0% por debajo de la MM200 y solo cumple 3 de las 9 pruebas de compra. No existe confirmación de un Spring o LPS con volumen agotado. Es preferible esperar a que la causa (rango lateral) se desarrolle completamente antes de arriesgar capital.",
+  "confianza": "alta",
+  "datos_suficientes": true,
+  "limitaciones": "Falta de gráfico de Punto y Figura para el cálculo formal del objetivo de precio y falta de índice comparativo para la prueba de fortaleza relativa."
+}

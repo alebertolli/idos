@@ -1,0 +1,75 @@
+adjusted_weight: 3.24
+analyzed_at: '2026-08-03T08:24:22.091219-03:00'
+confidence: alta
+entry_point: ninguno
+indicators:
+  algorithmic_phase: markdown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.0%)'
+  current_price: 353.33
+  high_52w: 592.85
+  low_52w: 332.02
+  ma_200d: 481.88
+  ma_50d: 399.39
+  pct_from_52w_high: -40.4
+  pct_from_52w_low: 6.4
+  pct_from_ma200: -26.7
+  pct_from_ma50: -11.5
+  recent_trend: tendencia de 60d bajista fuerte (-22%). últimos 5d estables (-1%)
+  resistance_levels: 'resistencias identificadas: $592.85, $592.27, $586.24, $585.08,
+    $579.83 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $332.02, $337.50, $340.69, $345.42, $350.06
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente superior al histórico (1.3x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: baja
+    descripcion: Posible Soporte Preliminar (PS) o intento de parada cerca del mínimo
+      de 52 semanas ($332.02) ante un volumen alto (1.3x) y estabilización temporal
+      en los últimos 5 días (-1%).
+    evento: PS
+  fase_wyckoff: markdown
+  justificacion: El activo permanece formalmente en tendencia bajista (fase de Markdown),
+    situándose a -11.5% de la MA50 y -26.7% de la MA200, tras un retroceso del -22%
+    en 60 días. Aunque el volumen reciente superior al promedio (1.3x) combinado con
+    la desaceleración del precio (-1% en 5d) sugiere los primeros indicios de absorción
+    de oferta (posible PS/SC), aún no existe un Rango de Trading (TR) desarrollado
+    ni se cumple ninguna de las 9 Pruebas de Compra Wyckoff. Siguiendo el principio
+    de prudencia para Family Office, se mantiene postura NEUTRAL a la espera de la
+    formación de una causa clara.
+  limitaciones: Se carece de datos del índice de referencia para evaluar la fortaleza
+    relativa (Prueba 4) y de datos históricos de Punto y Figura para el cálculo exacto
+    del objetivo de precio por causa/efecto.
+  precio_objetivo_wyckoff:
+    estimado: 0
+    metodo: no_determinable
+    razonamiento: No se ha construido un Rango de Trading lateral suficiente (Causa)
+      que permita realizar una proyección o conteo P&F hacia el alza.
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: NoPasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 0
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: 7.0
+    fundamento: Ubicado aproximadamente 1% por debajo del mínimo de 52 semanas ($332.02)
+      como nivel técnico clave de invalidez.
+    precio: 328.7
+opp_id: OPP-20260725-032
+phase: markdown
+price_target: null
+score: 18
+stop_loss: 328.7
+ticker: ISRG
+triggered_entry: false
