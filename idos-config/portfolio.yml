@@ -3,3 +3,16 @@ max_position_pct: 3.0
 margin_of_safety: 30
 stop_loss_asymmetry_divisor: 3
 fee_pct: 0.1
+indicator:
+  weights:
+    structure: 0.40
+    supply_demand: 0.30
+    relative_strength: 0.20
+    volatility: 0.10
+  bands:
+    demand: 65
+    absorption: 45
+    supply: 25
+entry:
+  min_score: 45
+  benchmark: SPY

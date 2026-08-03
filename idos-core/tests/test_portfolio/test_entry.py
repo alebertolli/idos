@@ -4,8 +4,8 @@ from idos.portfolio.entry import EntryEngine, EntrySignal
 
 class TestEntryEngine:
     def test_entry_basic_accept(self):
-        prices = [{"close": 100 - i * 4, "volume": 5000} for i in range(20)]
-        prices += [{"close": 20 + (i % 5) * 0.3, "volume": 600} for i in range(30)]
+        prices = [{"close": 20 + i * 1.5, "volume": 3000} for i in range(20)]
+        prices += [{"close": 50 + i * 3, "volume": 5000} for i in range(30)]
         engine = EntryEngine(min_margin_of_safety=20)
         signal = engine.evaluate("AAPL", {
             "price_data": prices,
@@ -17,6 +17,7 @@ class TestEntryEngine:
         })
         assert signal.ticker == "AAPL"
         assert signal.price_in_zone is True
+        assert signal.wyckoff_confirmed is True
         assert signal.all_conditions_met is True
 
     def test_entry_blocked_by_price(self):

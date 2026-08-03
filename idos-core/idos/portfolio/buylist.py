@@ -14,6 +14,8 @@ class BuyListEntry:
     catalysts: list[str] = field(default_factory=list)
     kb_last_update: str = ""
     added_at: str = ""
+    opp_id: str = ""
+    monitoring: bool = True
 
     def __post_init__(self):
         if not self.added_at:

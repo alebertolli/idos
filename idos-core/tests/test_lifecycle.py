@@ -142,6 +142,26 @@ class TestFullLifecycle:
             })
         assert emw_result.status == "success"
         assert emw_result.output["entry_executed"] is True
+        # La transicion a ACCUMULATING la ejecuta el PaperTraderWorker (post-entry).
+        opp = sqlite.get_opportunity(opp_id)
+        assert opp["status"] == "ENTRY_PENDING"
+        transition = state_machine.transition(
+            OpportunityStatus(opp["status"]), OpportunityStatus.ACCUMULATING,
+            cause="entry_executed", worker="paper_trader_worker",
+            context={
+                "thesis_active": True,
+                "price_in_zone": True,
+                "wyckoff_confirmed": True,
+                "is_averaging_down": False,
+                "wyckoff_score": emw_result.output["wyckoff_score"],
+            },
+        )
+        opp["status"] = "ACCUMULATING"
+        opp["updated_at"] = "2026-01-01T00:00:01"
+        sqlite.save_opportunity(opp)
+        sqlite.record_transition(opp_id, transition.from_status.value,
+                                 transition.to_status.value,
+                                 cause=transition.cause, worker=transition.worker)
         assert sqlite.get_opportunity(opp_id)["status"] == "ACCUMULATING"
 
         # ── Step 5: ACCUMULATING → FULL_POSITION ──

@@ -2,13 +2,12 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from idos.ai.llm import LLMClient
-from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.models.enums import OpportunityStatus
 from idos.portfolio.entry import EntryEngine
 from idos.portfolio.wyckoff import WyckoffAnalyzer
+from idos.resilience.error_manager import ErrorManager, CATEGORY_DATOS, SEVERITY_HIGH
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
 from idos.timezone import AR_TZ
@@ -134,27 +133,26 @@ class EntryMonitorWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        cfg = self.config or {}
-        llm_client = cfg.get("llm_service")
-        prompt_registry = None
-        if not llm_client and cfg.get("provider"):
-            llm_client = LLMClient(
-                provider=cfg.get("provider", ""),
-                api_key=cfg.get("api_key", ""),
-                model=cfg.get("model", ""),
-                fallback_model=cfg.get("fallback_model", ""),
-                fallback_providers=cfg.get("fallback_providers", []),
-            )
-        if self.config.get("prompts_path"):
-            prompt_registry = PromptRegistry(self.config["prompts_path"])
-
-        wyckoff = WyckoffAnalyzer(llm_client=llm_client, prompt_registry=prompt_registry)
+        ind_cfg, entry_cfg = self._load_indicator_config()
+        wyckoff = WyckoffAnalyzer(
+            weights=ind_cfg.get("weights"),
+            bands=ind_cfg.get("bands"),
+        )
         self.entry_engine = EntryEngine(
             wyckoff_analyzer=wyckoff,
-            llm_client=llm_client,
-            prompt_registry=prompt_registry,
+            min_wyckoff_score=entry_cfg.get("min_score", 45),
         )
         self.state_machine = OpportunityStateMachine()
+        self.error_manager = ErrorManager()
+
+    @staticmethod
+    def _load_indicator_config() -> tuple[dict[str, Any], dict[str, Any]]:
+        """Read indicator weights/bands and entry.min_score from idos-config/portfolio.yml."""
+        from idos.config import load_config
+        base = Path.cwd() / "idos-config" / "portfolio.yml"
+        cfg = load_config(base) or {}
+        ind = cfg.get("indicator", {}) or {}
+        return ind, (cfg.get("entry", {}) or {})
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         ticker = context.get("ticker", "").upper().strip()
@@ -194,7 +192,7 @@ class EntryMonitorWorker(BaseWorker):
             sqlite.record_transition(opp_id, current_status.value, "ENTRY_PENDING",
                                      cause="entry_monitor_activated", worker="entry_monitor_worker")
 
-        entry_context = self._build_entry_context(ticker, opp, sqlite, journal)
+        entry_context = self._build_entry_context(ticker, opp, sqlite, journal, bp)
         signal = self.entry_engine.evaluate(ticker, entry_context)
 
         wyckoff_paths = self._persist_wyckoff_analysis(ticker, opp_id, signal, bp)
@@ -222,6 +220,7 @@ class EntryMonitorWorker(BaseWorker):
             "wyckoff_price_target": signal.wyckoff_price_target,
             "adjusted_weight": signal.adjusted_weight,
             "wyckoff_llm_error": signal.llm_error,
+            "target_missing": signal.target_missing,
             "wyckoff_journal_path": str(wyckoff_paths.get("journal", "")),
             "wyckoff_knowledge_path": str(wyckoff_paths.get("knowledge_md", "")),
             "reason": signal.reason,
@@ -229,9 +228,11 @@ class EntryMonitorWorker(BaseWorker):
         }
 
     def _build_entry_context(self, ticker: str, opp: dict[str, Any],
-                              sqlite: SQLiteStore, journal: JournalRepository) -> dict[str, Any]:
+                              sqlite: SQLiteStore, journal: JournalRepository,
+                              bp: Path | None = None) -> dict[str, Any]:
         import json
         from pathlib import Path
+        base = bp if bp is not None else Path.cwd()
 
         price_data: list[dict[str, Any]] = []
 
@@ -244,7 +245,7 @@ class EntryMonitorWorker(BaseWorker):
             print(f"[ENTRY] {ticker}: {len(price_data)} registros desde price_history")
 
         if not price_data:
-            cache_path = Path("cache") / f"{ticker}.json"
+            cache_path = base / "cache" / f"{ticker}.json"
             if cache_path.exists():
                 try:
                     raw = json.loads(cache_path.read_text(encoding="utf-8"))
@@ -273,16 +274,58 @@ class EntryMonitorWorker(BaseWorker):
 
         if not price_data:
             print(f"[ENTRY] {ticker}: sin datos de precio disponibles (ni SQLite ni cache)")
+            self.error_manager.report(
+                category=CATEGORY_DATOS, severity=SEVERITY_HIGH, ticker=ticker,
+                message="sin datos de precio para evaluar entrada",
+                detail=f"opp={opp.get('id', '?')}",
+            )
 
         conviction = opp.get("conviction", {})
+        target_price = 0.0
+        buy_zone_top = 0.0
+        bl_path = base / "idos-journal" / "portfolio" / "buylist.yml"
+        if bl_path.exists():
+            import yaml
+            try:
+                bl = yaml.safe_load(bl_path.read_text(encoding="utf-8")) or {}
+                for e in bl.get("entries", []):
+                    if e.get("ticker", "").upper() == ticker:
+                        target_price = float(e.get("target_price", 0) or 0)
+                        buy_zone_top = float(e.get("buy_zone_top", 0) or 0)
+                        break
+            except Exception:
+                pass
+
+        if target_price <= 0 or buy_zone_top <= 0:
+            self.error_manager.report(
+                category=CATEGORY_DATOS, severity=SEVERITY_HIGH, ticker=ticker,
+                message="target_price o buy_zone_top ausente en Buy List",
+                detail=f"opp={opp.get('id', '?')}; target_price={target_price}; buy_zone_top={buy_zone_top}. Sin target el sistema nunca compra.",
+            )
+
+        benchmark_data = self._load_benchmark_data(sqlite)
+
         return {
             "price_data": price_data,
+            "benchmark_data": benchmark_data,
             "intrinsic_value": opp.get("intrinsic_value") or conviction.get("intrinsic_value", 0),
             "current_price": opp.get("current_price") or conviction.get("current_price", 0),
+            "target_price": target_price,
+            "buy_zone_top": buy_zone_top,
             "thesis_active": True,
             "portfolio": {"total_weight": 0},
             "proposed_weight": conviction.get("overall", 50) / 100 * 3 if conviction.get("overall") else 1.5,
         }
+
+    def _load_benchmark_data(self, sqlite: SQLiteStore) -> list[dict[str, Any]]:
+        """Load SPY benchmark price history for relative strength (Weinstein)."""
+        rows = sqlite.get_price_history("SPY", limit=365)
+        if rows:
+            return [
+                {"close": r["close"], "volume": r.get("volume", 0)}
+                for r in rows if r.get("close")
+            ]
+        return []
 
     def _persist_wyckoff_analysis(
         self, ticker: str, opp_id: str, signal: Any, base_path: Path

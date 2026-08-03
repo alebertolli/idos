@@ -1,4 +1,5 @@
 from datetime import datetime
+from pathlib import Path
 from typing import Any
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
@@ -26,6 +27,7 @@ class BuyListRefreshWorker(BaseWorker):
         bp = Path(base_path) if base_path else Path.cwd()
         sqlite = SQLiteStore(bp / "idos.db")
         journal = JournalRepository(bp / "idos-journal")
+        self._load_existing_buylist(bp)
 
         portfolio_engine = PortfolioEngine(journal)
         positions = portfolio_engine.get_positions()
@@ -62,15 +64,16 @@ class BuyListRefreshWorker(BaseWorker):
                 existing.kb_last_update = datetime.now(AR_TZ).isoformat()
                 updated += 1
             else:
-                self.buylist.add(type("Entry", (), {
-                    "ticker": ticker,
-                    "target_price": intrinsic,
-                    "buy_zone_top": buy_zone_top,
-                    "max_position_pct": max_pos,
-                    "conviction_score": conviction.get("overall", 0),
-                    "horizon": opp.get("horizon", "12-36 months"),
-                    "catalysts": opp.get("catalysts", []),
-                })())
+                from idos.portfolio.buylist import BuyListEntry
+                self.buylist.add(BuyListEntry(
+                    ticker=ticker,
+                    target_price=intrinsic,
+                    buy_zone_top=buy_zone_top,
+                    max_position_pct=max_pos,
+                    conviction_score=conviction.get("overall", 0),
+                    horizon=opp.get("horizon", "12-36 months"),
+                    catalysts=opp.get("catalysts", []),
+                ))
                 added += 1
 
         all_tickers = {o["ticker"] for o in opportunities if o["status"] in ("APPROVED", "ENTRY_PENDING")}
@@ -79,17 +82,7 @@ class BuyListRefreshWorker(BaseWorker):
                 self.buylist.remove(entry.ticker)
                 removed += 1
 
-        journal.save_watchlist([{
-            "ticker": e.ticker,
-            "target_price": e.target_price,
-            "buy_zone_top": e.buy_zone_top,
-            "max_position_pct": e.max_position_pct,
-            "conviction_score": e.conviction_score,
-            "horizon": e.horizon,
-            "catalysts": e.catalysts,
-            "kb_last_update": e.kb_last_update,
-            "added_at": e.added_at,
-        } for e in self.buylist.all()])
+        self._save_buylist(bp)
 
         sqlite.log_event("buy_list:refreshed", {
             "updated": updated,
@@ -105,3 +98,71 @@ class BuyListRefreshWorker(BaseWorker):
             "removed": removed,
             "total_entries": self.buylist.count(),
         }
+
+    def _load_existing_buylist(self, bp: Path):
+        """Load existing buylist.yml entries into the in-memory manager so
+        updates preserve opp_id and monitoring flags."""
+        import yaml
+        from idos.portfolio.buylist import BuyListEntry
+        buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
+        if not buylist_path.exists():
+            return
+        try:
+            data = yaml.safe_load(buylist_path.read_text(encoding="utf-8")) or {}
+        except Exception:
+            return
+        for e in data.get("entries", []):
+            ticker = e.get("ticker", "").upper()
+            if not ticker:
+                continue
+            existing = self.buylist.get(ticker)
+            if existing:
+                existing.opp_id = e.get("opp_id", "")
+                existing.monitoring = e.get("monitoring", True)
+                continue
+            self.buylist.add(BuyListEntry(
+                ticker=ticker,
+                target_price=float(e.get("target_price", 0) or 0),
+                buy_zone_top=float(e.get("buy_zone_top", 0) or 0),
+                max_position_pct=float(e.get("max_position_pct", 3.0) or 3.0),
+                conviction_score=int(e.get("conviction_score", 0) or 0),
+                horizon=e.get("horizon", "12-36 months"),
+                catalysts=e.get("catalysts", []),
+                kb_last_update=e.get("kb_last_update", ""),
+                added_at=e.get("added_at", ""),
+                opp_id=e.get("opp_id", ""),
+                monitoring=e.get("monitoring", True),
+            ))
+
+    def _save_buylist(self, bp: Path):
+        """Persist Buy List in buylist.yml preserving opp_id and monitoring flags."""
+        import yaml
+        buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
+        existing = {}
+        if buylist_path.exists():
+            existing = yaml.safe_load(buylist_path.read_text(encoding="utf-8")) or {}
+        old_entries = {e.get("ticker", "").upper(): e for e in existing.get("entries", [])}
+
+        entries = []
+        for e in self.buylist.all():
+            ticker = e.ticker.upper()
+            prev = old_entries.get(ticker, {})
+            entries.append({
+                "ticker": ticker,
+                "opp_id": getattr(e, "opp_id", "") or prev.get("opp_id", ""),
+                "target_price": round(e.target_price, 2),
+                "buy_zone_top": round(e.buy_zone_top, 2),
+                "max_position_pct": round(e.max_position_pct, 2),
+                "conviction_score": e.conviction_score,
+                "horizon": e.horizon,
+                "catalysts": e.catalysts,
+                "kb_last_update": e.kb_last_update,
+                "added_at": e.added_at,
+                "monitoring": prev.get("monitoring", getattr(e, "monitoring", True)),
+            })
+        buylist_path.parent.mkdir(parents=True, exist_ok=True)
+        buylist_path.write_text(
+            yaml.dump({"entries": entries}, default_flow_style=False, allow_unicode=True),
+            encoding="utf-8",
+        )
+        print(f"[BUYLIST] Saved {len(entries)} entries to {buylist_path}")

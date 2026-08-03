@@ -4,6 +4,8 @@ from typing import Any, Optional
 
 from idos.data.sqlite import SQLiteStore
 from idos.data.knowledge import KnowledgeRepository
+from idos.resilience.error_manager import ErrorManager, CATEGORY_DATOS, SEVERITY_LOW, SEVERITY_MEDIUM
+from idos.resilience.retry import RetryMechanism, RetryPolicy
 from idos.workers.base import BaseWorker
 from idos.workers.data.stockanalysis import StockAnalysisWorker
 from idos.workers.data.yahoo import YahooFinanceWorker
@@ -20,6 +22,8 @@ class DataRefreshWorker(BaseWorker):
         self.cache = DataCache()
         self.validator = DataValidator()
         self.db = SQLiteStore(Path.cwd() / "idos.db")
+        self.error_manager = ErrorManager()
+        self.retry = RetryMechanism(RetryPolicy(max_retries=3, base_delay=1.0, max_delay=8.0))
         self.universe_path = config.get("universe_path", "")
         self.sources = {
             "stockanalysis": StockAnalysisWorker(config),
@@ -47,8 +51,20 @@ class DataRefreshWorker(BaseWorker):
             try:
                 source_data = {}
                 print(f"[REFRESH] {ticker}: fetching stockanalysis...", end=" ")
-                sa_data = self.sources["stockanalysis"].execute({"ticker": ticker})
-                if sa_data.status == "success":
+                try:
+                    sa_data = self.retry.execute(
+                        self.sources["stockanalysis"].execute, {"ticker": ticker}
+                    )
+                except Exception as e:
+                    sa_data = None
+                    print(f"fail ({e})")
+                    self.error_manager.report(
+                        category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
+                        message=f"stockanalysis.com fallo: {e}",
+                    )
+                    errors.append(f"{ticker}: stockanalysis fail ({e})")
+
+                if sa_data and getattr(sa_data, "status", "") == "success":
                     source_data["stockanalysis.com"] = sa_data.output
                     self.cache.set(
                         f"raw:stockanalysis:{ticker}",
@@ -58,12 +74,21 @@ class DataRefreshWorker(BaseWorker):
                     )
                     print("ok")
                 else:
-                    print(f"fail ({sa_data.error})")
-
-                if "stockanalysis.com" not in source_data:
                     print(f"[REFRESH] {ticker}: fetching yfinance...", end=" ")
-                    yf_data = self.sources["yfinance"].execute({"ticker": ticker})
-                    if yf_data.status == "success":
+                    try:
+                        yf_data = self.retry.execute(
+                            self.sources["yfinance"].execute, {"ticker": ticker}
+                        )
+                    except Exception as e:
+                        yf_data = None
+                        print(f"fail ({e})")
+                        self.error_manager.report(
+                            category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
+                            message=f"yfinance fallo: {e}",
+                        )
+                        errors.append(f"{ticker}: yfinance fail ({e})")
+
+                    if yf_data and getattr(yf_data, "status", "") == "success":
                         source_data["yfinance"] = yf_data.output
                         self.cache.set(
                             f"raw:yfinance:{ticker}",
@@ -73,9 +98,21 @@ class DataRefreshWorker(BaseWorker):
                         )
                         print("ok")
                     else:
-                        print(f"fail ({yf_data.error})")
+                        yf_msg = (getattr(yf_data, "error", None) or "sin datos") if yf_data else "sin respuesta"
+                        print(f"fail ({yf_msg})")
+                        self.error_manager.report(
+                            category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
+                            message=f"yfinance sin datos: {yf_msg}",
+                        )
+                        errors.append(f"{ticker}: yfinance no data ({yf_msg})")
 
                 if len(source_data) > 0:
+                    if "stockanalysis.com" not in source_data and "yfinance" in source_data:
+                        self.error_manager.report(
+                            category=CATEGORY_DATOS, severity=SEVERITY_LOW, ticker=ticker,
+                            message="degradacion de fuente: fallback a yfinance",
+                            detail="SDD-16 Capa 6: la degradacion siempre debe registrarse",
+                        )
                     validated = self.validator.cross_validate(source_data)
                     merged = validated.get("merged_data", validated)
                     try:
@@ -85,8 +122,11 @@ class DataRefreshWorker(BaseWorker):
                         et = yfinfo.get("earningsTimestamp")
                         if et:
                             merged["next_earnings_date"] = et
-                    except Exception:
-                        pass
+                    except Exception as e:
+                        self.error_manager.report(
+                            category=CATEGORY_DATOS, severity=SEVERITY_LOW, ticker=ticker,
+                            message=f"yfinance info fallo: {e}",
+                        )
 
                     try:
                         hist = yf.Ticker(ticker).history(period="1y")
@@ -111,8 +151,16 @@ class DataRefreshWorker(BaseWorker):
                             if new_rows:
                                 db.save_price_history(ticker, new_rows)
                                 print(f"[REFRESH] {ticker}: {len(new_rows)} nuevos registros en price_history desde yfinance directo")
-                    except Exception:
-                        pass
+                        else:
+                            self.error_manager.report(
+                                category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
+                                message="sin price_history desde yfinance directo (1y vacio)",
+                            )
+                    except Exception as e:
+                        self.error_manager.report(
+                            category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
+                            message=f"yfinance history fallo: {e}",
+                        )
                     results[ticker] = validated
                     self.cache.set(
                         f"merged:{ticker}",
@@ -149,8 +197,17 @@ class DataRefreshWorker(BaseWorker):
                     else:
                         print(f"[REFRESH] {ticker}: sin price_history de yfinance")
                 else:
-                    errors.append(f"{ticker}: no data from any source")
+                    msg = "no data from any source"
+                    self.error_manager.report(
+                        category=CATEGORY_DATOS, severity=SEVERITY_HIGH, ticker=ticker,
+                        message=msg,
+                    )
+                    errors.append(f"{ticker}: {msg}")
             except Exception as e:
+                self.error_manager.report(
+                    category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
+                    message=f"error de refresco: {e}",
+                )
                 errors.append(f"{ticker}: {str(e)}")
 
         return {
@@ -160,8 +217,7 @@ class DataRefreshWorker(BaseWorker):
             "data": results,
         }
 
-    @staticmethod
-    def _save_company_info(ticker: str):
+    def _save_company_info(self, ticker: str):
         try:
             from pathlib import Path
             import yaml
@@ -192,8 +248,11 @@ class DataRefreshWorker(BaseWorker):
             existing.setdefault("business_model", (info.get("longBusinessSummary") or "")[:500])
             company_file.write_text(yaml.dump(existing, default_flow_style=False, allow_unicode=True), encoding="utf-8")
             print(f"[INFO] {ticker}: company info saved to knowledge repo")
-        except Exception:
-            pass
+        except Exception as e:
+            self.error_manager.report(
+                category=CATEGORY_DATOS, severity=SEVERITY_LOW, ticker=ticker,
+                message=f"company info guardado fallo: {e}",
+            )
 
     def _load_tickers_from_universe(self) -> list[str]:
         if not self.universe_path:

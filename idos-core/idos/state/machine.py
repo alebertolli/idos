@@ -95,14 +95,15 @@ class OpportunityStateMachine(StateMachine):
             base_passed, base_msg = _combined_guard(ctx, [
                 ("thesis_active", True, "Tesis no esta activa"),
                 ("price_in_zone", True, "Precio fuera de zona de margen de seguridad"),
-                ("wyckoff_confirmed", True, "Estructura Wyckoff no confirmada"),
+                ("wyckoff_confirmed", True, "Estructura tecnica no confirmada"),
                 ("is_averaging_down", False, "Principio 3 violado: No promediar a la baja sin reevaluacion"),
             ])
             if not base_passed:
                 return base_passed, base_msg
             score = ctx.get("wyckoff_score", 100)
-            if score < 65:
-                return False, f"Score Wyckoff {score} < 65"
+            min_score = int(ctx.get("min_wyckoff_score", 45))
+            if score < min_score:
+                return False, f"Score tecnicidad {score} < {min_score}"
             return True, "All guards passed"
 
         self.register_guard(

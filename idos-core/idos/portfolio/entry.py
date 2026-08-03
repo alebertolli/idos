@@ -1,8 +1,6 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Optional
-from idos.ai.llm import LLMClient
-from idos.ai.prompts import PromptRegistry
 from idos.portfolio.wyckoff import WyckoffAnalyzer, WyckoffPhase, WyckoffResult
 from idos.timezone import AR_TZ
 
@@ -12,7 +10,7 @@ WYCOFF_CONFIDENCE_MULTIPLIER: dict[str, float] = {
     "baja": 0.5,
 }
 
-WYCOFF_SCORE_THRESHOLD: int = 65
+WYCOFF_SCORE_THRESHOLD: int = 45
 
 
 @dataclass
@@ -37,22 +35,15 @@ class EntrySignal:
     wyckoff_price_target: float | None = None
     adjusted_weight: float = 0.0
     llm_error: str = ""
+    target_missing: bool = False
 
 
 class EntryEngine:
     def __init__(self,
                  wyckoff_analyzer: WyckoffAnalyzer | None = None,
                  min_margin_of_safety: float = 30.0,
-                 min_wyckoff_score: int = WYCOFF_SCORE_THRESHOLD,
-                 llm_client: Optional[LLMClient] = None,
-                 prompt_registry: Optional[PromptRegistry] = None):
-        if wyckoff_analyzer:
-            self.wyckoff = wyckoff_analyzer
-        else:
-            self.wyckoff = WyckoffAnalyzer(
-                llm_client=llm_client,
-                prompt_registry=prompt_registry,
-            )
+                 min_wyckoff_score: int = WYCOFF_SCORE_THRESHOLD):
+        self.wyckoff = wyckoff_analyzer or WyckoffAnalyzer()
         self.min_margin_of_safety = min_margin_of_safety
         self.min_wyckoff_score = min_wyckoff_score
 
@@ -62,14 +53,22 @@ class EntryEngine:
         current_price = context.get("current_price", 0)
         thesis_active = context.get("thesis_active", True)
         portfolio = context.get("portfolio", {})
+        benchmark_data = context.get("benchmark_data")
+        target_price = context.get("target_price") or intrinsic
+        buy_zone_top = context.get("buy_zone_top", 0)
+
+        target_missing = not target_price or target_price <= 0
 
         margin = ((intrinsic - current_price) / current_price * 100) if current_price and intrinsic else 0
-        price_in_zone = margin >= self.min_margin_of_safety
 
-        result: WyckoffResult = self.wyckoff.analyze(price_data)
+        if buy_zone_top and buy_zone_top > 0 and current_price:
+            price_in_zone = current_price <= buy_zone_top
+        else:
+            price_in_zone = margin >= self.min_margin_of_safety
+
+        result: WyckoffResult = self.wyckoff.analyze(price_data, benchmark_data=benchmark_data)
         wyckoff_ok = self.wyckoff.is_entry_confirmed(result.phase)
-        has_llm = result.raw_llm_response is not None and result.confidence_label != ""
-        wyckoff_score_ok = result.score >= self.min_wyckoff_score if has_llm else True
+        wyckoff_score_ok = result.score >= self.min_wyckoff_score
         wyckoff_confirmed = wyckoff_ok and wyckoff_score_ok
 
         proposed_weight = context.get("proposed_weight", 3.0)
@@ -81,7 +80,7 @@ class EntryEngine:
         if total_weight + adjusted_weight > 20:
             pf_ok = False
 
-        all_ok = all([price_in_zone, wyckoff_confirmed, thesis_active, pf_ok])
+        all_ok = all([price_in_zone, wyckoff_confirmed, thesis_active, pf_ok, not target_missing])
 
         return EntrySignal(
             ticker=ticker.upper(),
@@ -91,10 +90,12 @@ class EntryEngine:
             portfolio_fit=pf_ok,
             all_conditions_met=all_ok,
             current_price=current_price,
-            target_price=intrinsic,
+            target_price=float(target_price or 0),
             margin_of_safety_pct=round(margin, 1),
             wyckoff_phase=result.phase.value,
-            reason="Entry conditions met" if all_ok else f"Blocked: price_ok={price_in_zone}, wyckoff={wyckoff_confirmed}(score={result.score}), thesis={thesis_active}, pf={pf_ok}{', LLM score bypassed' if not has_llm else ''}",
+            reason="Entry conditions met" if all_ok else
+                f"Blocked: price_ok={price_in_zone}, wyckoff={wyckoff_confirmed}(score={result.score}), "
+                f"thesis={thesis_active}, pf={pf_ok}, target_missing={target_missing}",
             wyckoff_raw=result.raw_llm_response,
             wyckoff_indicators=result.indicators if result.indicators else None,
             wyckoff_score=result.score,
@@ -104,4 +105,5 @@ class EntryEngine:
             wyckoff_price_target=result.wyckoff_price_target,
             adjusted_weight=adjusted_weight,
             llm_error=result.llm_error,
+            target_missing=target_missing,
         )

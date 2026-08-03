@@ -114,6 +114,54 @@ jobs:
               print('[EARNINGS] No tickers to trigger today')
           "
 
+      - name: Ensure benchmark data (SPY)
+        run: |
+          python -c "
+          import sys, os
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.data.sqlite import SQLiteStore
+          db = SQLiteStore(Path('idos.db'))
+          import yfinance as yf
+          try:
+              hist = yf.Ticker('SPY').history(period='1y')
+              if hist.empty:
+                  print('[BENCHMARK] SPY history vacio')
+                  raise SystemExit(0)
+              prices = hist['Close'].tolist()
+              volumes = hist['Volume'].tolist()
+              dates = [str(d.date()) for d in hist.index]
+              last_date = db.get_last_price_date('SPY')
+              new_rows = []
+              for i in range(len(prices)):
+                  d = dates[i]
+                  if last_date and d <= last_date:
+                      continue
+                  new_rows.append({'date': d, 'close': prices[i], 'volume': volumes[i] if i < len(volumes) else 0})
+              if new_rows:
+                  db.save_price_history('SPY', new_rows)
+                  print(f'[BENCHMARK] SPY: {len(new_rows)} nuevos registros')
+              else:
+                  print('[BENCHMARK] SPY ya actualizado')
+          except Exception as e:
+              print(f'[BENCHMARK] SPY error: {e}')
+              from idos.resilience.error_manager import ErrorManager, CATEGORY_DATOS, SEVERITY_HIGH
+              ErrorManager().report(category=CATEGORY_DATOS, severity=SEVERITY_HIGH, ticker='SPY', message=f'benchmark fetch fallo: {e}')
+          "
+      - name: Refresh Buy List
+        run: |
+          python -c "
+          import sys, os
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.workers.portfolio.buy_list_refresh_worker import BuyListRefreshWorker
+          w = BuyListRefreshWorker()
+          result = w.execute({'base_path': os.environ.get('GITHUB_WORKSPACE', '.')})
+          r = result.output if hasattr(result, 'output') else result
+          print(f'[BUYLIST] {r.get(\"status\")}: updated={r.get(\"updated\")} added={r.get(\"added\")} removed={r.get(\"removed\")} total={r.get(\"total_entries\")}')
+          "
       - name: Entry Monitor - Check Buy List
         run: |
           python -c "
@@ -123,11 +171,9 @@ jobs:
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
           bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
           buylist_path = bp / 'idos-journal' / 'portfolio' / 'buylist.yml'
-          llm_errors = []
           entry_signals = []
           if not buylist_path.exists():
               print('[ENTRY] No Buy List found')
-              Path('cache/wyckoff_errors.json').write_text(json.dumps({'errors': []}), encoding='utf-8')
               Path('cache/entry_signals.json').write_text(json.dumps({'signals': []}), encoding='utf-8')
               exit(0)
           import yaml
@@ -142,20 +188,12 @@ jobs:
                   continue
               from idos.workers.portfolio.entry_monitor_worker import EntryMonitorWorker
               from idos.workers.base import WorkerStatus
-              from idos.ai.service import LLMService
-              from pathlib import Path
-              _mp = Path('idos-config/models.yml')
-              _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
-              w = EntryMonitorWorker({'llm_service': _llm_svc, 'prompts_path': 'idos-config/prompts'})
+              w = EntryMonitorWorker()
               result = w.execute({'ticker': ticker, 'opp_id': opp_id, 'base_path': str(bp)})
               if result.status == WorkerStatus.FAILED and result.error:
                   print(f'[ENTRY] {ticker}: ERROR - {result.error}')
                   continue
               r = result.output if hasattr(result, 'output') else result
-              llm_err = r.get('wyckoff_llm_error', '')
-              if llm_err:
-                  llm_errors.append({'ticker': ticker, 'error': llm_err})
-                  print(f'[WYCKOFF] {ticker}: LLM error (fallback algoritmico usado): {llm_err}')
               if r.get('entry_executed'):
                   print(f'[ENTRY] {ticker}: CONDICIONES CUMPLIDAS')
                   entry_signals.append({
@@ -188,36 +226,12 @@ jobs:
                   print(f'  wyckoff={wc} phase={wp}')
                   print(f'  thesis={ta} portfolio_fit={pf}')
           Path('cache').mkdir(parents=True, exist_ok=True)
-          Path('cache/wyckoff_errors.json').write_text(json.dumps({'errors': llm_errors}), encoding='utf-8')
           Path('cache/entry_signals.json').write_text(json.dumps({'signals': entry_signals}), encoding='utf-8')
           "
-      - name: "Report Wyckoff LLM errors"
+      - name: "Report Data Errors"
         if: always()
         run: |
-          python -c "import json,sys; d=json.load(open('cache/wyckoff_errors.json')); sys.exit(0 if d.get('errors') else 0)" 2>/dev/null || exit 0
-          COUNT=$(python -c "import json; print(len(json.load(open('cache/wyckoff_errors.json')).get('errors',[])))")
-          [ "$COUNT" = "0" ] && echo "No Wyckoff LLM errors to report" && exit 0
-          echo "[WYCKOFF] $COUNT LLM error(s) detected:"
-          python -c "
-          import json
-          d = json.load(open('cache/wyckoff_errors.json'))
-          for e in d.get('errors', []):
-              print(f'  {e[\"ticker\"]}: {e.get(\"error\", \"?\")}')
-          "
-          TITLE="[wyckoff] LLM errors in daily-refresh run #${{ github.run_id }}"
-          python -c "
-          import json, os
-          d = json.load(open('cache/wyckoff_errors.json'))
-          errs = d.get('errors', [])
-          lines = ['## Wyckoff LLM Errors', '', 'The following tickers had LLM failures:', '', '| Ticker | Error |', '|--------|-------|']
-          for e in errs:
-              lines.append(f'| {e[\"ticker\"]} | {e.get(\"error\", \"?\")} |')
-          lines.append('')
-          lines.append('**Run:** ' + os.environ.get('GITHUB_SERVER_URL','') + '/' + os.environ.get('GITHUB_REPOSITORY','') + '/actions/runs/' + os.environ.get('GITHUB_RUN_ID',''))
-          lines.append('')
-          lines.append('**Action:** Check LLM provider configuration and fix.')
-          print(chr(10).join(lines))
-          " | gh issue create --title "$TITLE" --label "auto-fix-proposed" --body-file -
+          python -m idos.workers.automation.data_error_reporter
       - name: Paper Trader - Execute Entry
         run: |
           python -c "

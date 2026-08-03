@@ -59,8 +59,9 @@ class TestEntryMonitorWorker:
         assert output["wyckoff_confirmed"] is True
         assert output["price_in_zone"] is True
 
+        # La transicion a ACCUMULATING la ejecuta el PaperTraderWorker (post-entry).
         opp_after = tmp_sqlite.get_opportunity(opp_id)
-        assert opp_after["status"] == OpportunityStatus.ACCUMULATING.value
+        assert opp_after["status"] == OpportunityStatus.ENTRY_PENDING.value
 
     def test_blocks_when_price_out_of_zone(
         self,

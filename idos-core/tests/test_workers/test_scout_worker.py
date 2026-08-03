@@ -30,13 +30,13 @@ def test_scout_worker_loads_tickers():
 
 
 def test_scout_worker_no_file():
-    w = ScoutWorker({"universe_path": "/nonexistent/path.md"})
+    w = ScoutWorker({"universe_path": "/nonexistent/path.md", "operable_path": "/nonexistent/operable.yml"})
     tickers = w._load_tickers()
     assert tickers == []
 
 
 def test_scout_worker_no_universe_path():
-    w = ScoutWorker()
+    w = ScoutWorker({"operable_path": "/nonexistent/operable.yml"})
     tickers = w._load_tickers()
     assert tickers == []
 
