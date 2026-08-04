@@ -268,6 +268,24 @@ jobs:
           print(f'\n[STEP 3-7] Done: {len(assessments)} assessed, {len(errors)} total errors')
           "
 
+      - name: STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.ai.service import LLMService
+          _mp = Path('idos-config/models.yml')
+          _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
+          from idos.workers.ai.monthly_reassessment_worker import MonthlyReassessmentWorker
+          w = MonthlyReassessmentWorker({'llm_service': _llm_svc, 'prompts_path': 'idos-config/prompts'})
+          result = w.execute({'base_path': str(bp)})
+          r = result.output if hasattr(result, 'output') else result
+          print(f'[MONTHLY] active={r.get(\"total_active\")} thesis_reassessed={r.get(\"thesis_reassessed\")} changed={r.get(\"thesis_changed\")} conviction={r.get(\"conviction_recalibrated\")} proposals={len(r.get(\"proposals\", []))} exits={len(r.get(\"exits_triggered\", []))}')
+          "
+
       - name: Generate Combined Digest
         run: |
           python -c "
@@ -406,7 +424,7 @@ jobs:
         run: |
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add cache/ddd_results.json cache/weekly_digest.md 2>/dev/null || true
+          git add cache/ddd_results.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
           git add idos-journal/ 2>/dev/null || true
           git add idos-knowledge/ 2>/dev/null || true
           if git diff --cached --quiet; then
