@@ -1,15 +1,71 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-07-30T14:41:23.524522-03:00'
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - La empresa tiene un historial de crecimiento sostenido
+  - La empresa tiene un margen operativo del 59.9%
+  - La empresa tiene un ROIC del 93.8%
+  inferencias_llm:
+  - El mercado podría estar subestimando el riesgo de cambios en la regulación o la
+    competencia en el sector de servicios financieros
+  preguntas_abiertas:
+  - ¿Qué impacto tendría un cambio en la regulación en la empresa?
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: deep_value, hype, value_trap
+  justificacion: La empresa tiene un historial de crecimiento sostenido, un margen
+    operativo del 59.9% y un ROIC del 93.8%, lo que sugiere una excelente calidad
+    de negocio.
+dominio_business_quality:
+  analisis: La empresa tiene una posición competitiva sólida, un moat duradero y un
+    modelo de negocio resiliente.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Un cambio en la regulación que afecte positivamente a la empresa
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: La empresa tiene un buen registro en materia de ESG y una cadena de suministro
+    diversificada.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: La empresa tiene un balance sólido, una generación de caja sólida y un
+    perfil de deuda bajo.
+  rating: fuerte
+dominio_growth:
+  analisis: La empresa tiene un crecimiento orgánico sólido y visibilidad de revenue
+    a largo plazo.
+  rating: fuerte
+dominio_management:
+  analisis: La empresa tiene un equipo de gestión experimentado y con un buen track
+    record de asignación de capital.
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: riesgo de cambios en la regulación
+- impacto: medio
+  probabilidad: baja
+  riesgo: riesgo de competencia en el sector de servicios financieros
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un cambio en la regulación que afecte negativamente a la empresa
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 20
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El precio actual refleja un crecimiento sostenido y una excelente
+    calidad de negocio, pero no hay un descuento significativo en la valoración.
+  hipotesis_contraria: El mercado podría estar subestimando el riesgo de cambios en
+    la regulación o la competencia en el sector de servicios financieros.
+  razonamiento: No hay suficiente evidencia para concluir que el mercado esté cometiendo
+    un error de valoración aprovechable.
+generated_at: '2026-08-04T13:49:15.910928-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: justo
 opp_id: OPP-20260730-001
 prompt_inputs:
   business_model: Mastercard Incorporated, a technology company, provides transaction
@@ -40,16 +96,29 @@ prompt_inputs:
   fcf_adjusted: 0
   insider_ownership: 0
   name: MA
-  operating_margin: 59.3
-  pe_ratio: 32.59
+  operating_margin: 59.88
+  pe_ratio: 31.4
   products: ''
   revenue: 35080000000.0
-  revenue_growth: 12.51
-  roic: 92.88
+  revenue_growth: 12.72
+  roic: 93.78
   sector: Financial Services
   ticker: MA
-resumen_ejecutivo: ''
-score_general: 50
-tesis_inversion: ''
+resumen_ejecutivo: La empresa Mastercard Incorporated es una excelente oportunidad
+  de inversión con un historial de crecimiento sostenido y una excelente calidad de
+  negocio.
+score_general: 90
+target_consensus:
+  calculado_at: '2026-08-04T13:48:47.132009-03:00'
+  fuentes:
+    stockanalysis: 660.34
+    yfinance: 660.3421
+  mediana: 660.34
+  n_fuentes: 2
+  promedio: 660.34
+  target_high: 735.0
+  target_low: 550.0
+tesis_inversion: La empresa Mastercard Incorporated es una excelente oportunidad de
+  inversión a largo plazo.
 ticker: MA
 version: '3.0'
