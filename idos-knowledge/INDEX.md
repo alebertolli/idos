@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 59 companies tracked
+Total: 60 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -68,6 +68,7 @@ Total: 59 companies tracked
 
 ## Technology
 - 📄 [[ADBE|Adobe Inc.]]
+- 📄 [[AMD|AMD]]
 - 📄 [[ASML|ASML Holding N.V.]]
 - 📄 [[CLS|Celestica Inc.]]
 - 📄 [[FSLR|First Solar, Inc.]]
