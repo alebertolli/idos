@@ -68,6 +68,8 @@ class ResearchWorker(BaseWorker):
         if not company.get("sector"):
             company = self._enrich_company_info(ticker, company, knowledge)
 
+        consensus = self._fetch_target_consensus(ticker, bp)
+
         ddd_result = self._run_prompt("ddd", ticker, {
             "ticker": ticker,
             "name": company.get("name", ticker),
@@ -122,6 +124,7 @@ class ResearchWorker(BaseWorker):
             "opinion_valoracion": ddd_result.get("opinion_valoracion", ""),
             "resumen_ejecutivo": ddd_result.get("resumen_ejecutivo", ""),
             "calidad_evidencia": ddd_result.get("calidad_evidencia", {}),
+            "target_consensus": consensus,
             "prompt_inputs": {
                 "ticker": ticker,
                 "name": company.get("name", ticker),
@@ -249,6 +252,30 @@ class ResearchWorker(BaseWorker):
             "hypotheses_count": len(hypotheses),
             "assessment_id": assessment_id,
             "ddd_empty": ddd_empty,
+            "target_consensus": consensus,
+        }
+
+    def _fetch_target_consensus(self, ticker: str, bp: Any) -> dict[str, Any] | None:
+        try:
+            from idos.valuation.target_consensus import fetch_target_consensus
+            result = fetch_target_consensus(ticker, base_path=bp)
+        except Exception as e:
+            print(f"[WARN] {ticker}: no se pudo calcular target consensus: {e}")
+            return None
+        if result is None:
+            print(f"[WARN] {ticker}: sin target consensus (ninguna fuente disponible)")
+            return None
+        print(f"[DDD] {ticker}: target consensus = ${result.promedio:.2f} "
+              f"(median ${result.mediana:.2f}) de {result.n_fuentes} fuentes: "
+              f"{', '.join(f'{k}=${v:.2f}' for k, v in result.fuentes.items())}")
+        return {
+            "promedio": result.promedio,
+            "mediana": result.mediana,
+            "fuentes": result.fuentes,
+            "n_fuentes": result.n_fuentes,
+            "calculado_at": result.calculado_at,
+            "target_low": result.target_low,
+            "target_high": result.target_high,
         }
 
     def _build_knowledge_base(

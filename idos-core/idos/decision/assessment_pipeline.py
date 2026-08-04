@@ -23,7 +23,7 @@ from datetime import datetime
 
 def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, Any],
                      opp_id: str, bp: Path, knowledge: KnowledgeRepository):
-    target_price = context.get("knowledge_base", {}).get("dynamic", {}).get("metrics", {}).get("target_price", 0)
+    target_price = context.get("intrinsic_value", 0) or 0
     margin = context.get("margin_of_safety", 30.0)
     buy_zone_top = target_price * (1 - margin / 100) if target_price else 0
     entry = BuyListEntry(
@@ -176,6 +176,7 @@ def build_context(
     catalysts = []
     risk_events = []
     raw_catalysts = []
+    report = {}
     if ddd_report_path.exists():
         try:
             report = yaml.safe_load(ddd_report_path.read_text(encoding="utf-8"))
@@ -204,6 +205,9 @@ def build_context(
         except Exception:
             pass
 
+    target_consensus = report.get("target_consensus") or {}
+    consensus_target = target_consensus.get("promedio", 0) or 0
+
     asymmetry = _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
 
     return {
@@ -216,7 +220,8 @@ def build_context(
         "risk_events": risk_events,
         "asymmetry": asymmetry,
         "current_price": current_price,
-        "intrinsic_value": target_mean,
+        "intrinsic_value": consensus_target or target_mean,
+        "target_consensus": target_consensus,
         "proposed_weight": 3.0,
         "themes": [],
         "opportunity_id": opp_id,

@@ -16,3 +16,7 @@ indicator:
 entry:
   min_score: 45
   benchmark: SPY
+valuation:
+  sources: [yfinance, finviz, stockanalysis]
+  min_sources: 1
+  ttl_seconds: 43200

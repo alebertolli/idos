@@ -13,6 +13,7 @@ USER_AGENTS = [
 ]
 
 BASE_URL = "https://stockanalysis.com/stocks/{ticker}/statistics/"
+FORECAST_URL = "https://stockanalysis.com/stocks/{ticker}/forecast/"
 
 
 class StockAnalysisWorker(BaseWorker):
@@ -60,6 +61,76 @@ class StockAnalysisWorker(BaseWorker):
                     label = cells[0].get_text(strip=True)
                     value = cells[1].get_text(strip=True)
                     self._set_metric(data, label, value)
+        return data
+
+    def fetch_forecast(self, ticker: str) -> dict[str, Any]:
+        """Fetch analyst price targets (USD) from the stockanalysis.com forecast page.
+
+        Returns keys: price_target_avg, price_target_low, price_target_median,
+        price_target_high. Empty dict on failure to parse.
+        """
+        url = FORECAST_URL.format(ticker=ticker.lower())
+        headers = {
+            "User-Agent": USER_AGENTS[0],
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.5",
+        }
+        resp = requests.get(url, headers=headers, timeout=self.timeout)
+        resp.raise_for_status()
+        time.sleep(self.delay)
+        soup = BeautifulSoup(resp.text, "lxml")
+        data = self._parse_forecast(soup)
+        data["ticker"] = ticker.upper()
+        data["source"] = "stockanalysis.com"
+        data["url"] = url
+        return data
+
+    @staticmethod
+    def _parse_forecast_value(value: str) -> Optional[float]:
+        m = re.search(r"\$([\d,]+\.?\d*)", value or "")
+        if not m:
+            return None
+        try:
+            return float(m.group(1).replace(",", ""))
+        except ValueError:
+            return None
+
+    def _parse_forecast(self, soup: BeautifulSoup) -> dict[str, Any]:
+        data: dict[str, Any] = {}
+        headers: list[str] = []
+        for table in soup.find_all("table"):
+            headers = [th.get_text(strip=True) for th in table.find_all("th")]
+            if any("target" in h.lower() for h in headers) and any("average" in h.lower() for h in headers):
+                for row in table.find_all("tr"):
+                    cells = row.find_all("td")
+                    texts = [c.get_text(strip=True) for c in cells]
+                    if not texts:
+                        continue
+                    if "price" not in texts[0].lower():
+                        continue
+                    for col, header in enumerate(headers):
+                        if col == 0 or col >= len(texts):
+                            continue
+                        num = self._parse_forecast_value(texts[col])
+                        if num is None:
+                            continue
+                        hlow = header.lower()
+                        if "low" in hlow:
+                            data["price_target_low"] = num
+                        elif "median" in hlow:
+                            data["price_target_median"] = num
+                        elif "high" in hlow:
+                            data["price_target_high"] = num
+                        elif "average" in hlow or "target" in hlow:
+                            data["price_target_avg"] = num
+                break
+
+        if "price_target_avg" not in data:
+            text = soup.get_text(" ", strip=True)
+            m = re.search(r"average price target of \$([\d,]+\.?\d*)", text, re.IGNORECASE)
+            if m:
+                data["price_target_avg"] = float(m.group(1).replace(",", ""))
+
         return data
 
     _LABEL_MAP: dict[str, str] = {

@@ -280,6 +280,8 @@ class EntryMonitorWorker(BaseWorker):
                 detail=f"opp={opp.get('id', '?')}",
             )
 
+        last_close = price_data[-1]["close"] if price_data else 0
+
         conviction = opp.get("conviction", {})
         target_price = 0.0
         buy_zone_top = 0.0
@@ -309,7 +311,7 @@ class EntryMonitorWorker(BaseWorker):
             "price_data": price_data,
             "benchmark_data": benchmark_data,
             "intrinsic_value": opp.get("intrinsic_value") or conviction.get("intrinsic_value", 0),
-            "current_price": opp.get("current_price") or conviction.get("current_price", 0),
+            "current_price": last_close or opp.get("current_price") or conviction.get("current_price", 0),
             "target_price": target_price,
             "buy_zone_top": buy_zone_top,
             "thesis_active": True,
