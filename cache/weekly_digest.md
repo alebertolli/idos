@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-08-04 14:03 AR_
+_Generado: 2026-08-04 16:35 AR_
 
 ## Resumen
 
@@ -22,7 +22,7 @@ _Generado: 2026-08-04 14:03 AR_
   - Scores: Business: 58 | Valuation: 55 | Recovery: 53 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 58/100
-    - 🚫 RULE-002: Price target margin: 10.5%
+    - 🚫 RULE-002: Price target margin: 9.8%
     - 🚫 RULE-005: Conviction: 63/100
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
