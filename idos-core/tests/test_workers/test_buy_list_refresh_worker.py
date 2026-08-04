@@ -82,3 +82,62 @@ class TestBuyListRefreshWorker:
         assert entries["AAPL"]["opp_id"] == "OPP-BL-0"
         assert entries["AAPL"]["monitoring"] is True
         assert entries["MSFT"]["monitoring"] is True
+
+    def test_preserves_buylist_when_no_approved_opportunities(self, tmp_path: Path):
+        bp = tmp_path
+        journal = JournalRepository(bp / "idos-journal")
+        db = None
+        buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
+        buylist_path.parent.mkdir(parents=True, exist_ok=True)
+        buylist_path.write_text(yaml.dump({
+            "entries": [{
+                "ticker": "AAPL",
+                "opp_id": "OPP-BL-0",
+                "target_price": 220.0,
+                "buy_zone_top": 154.0,
+                "max_position_pct": 3.0,
+                "conviction_score": 80,
+                "horizon": "12-36 months",
+                "catalysts": [],
+                "kb_last_update": "",
+                "added_at": "",
+                "monitoring": True,
+            }]
+        }), encoding="utf-8")
+
+        w = BuyListRefreshWorker()
+        result = w.execute({"base_path": str(bp)})
+        r = result.output
+        assert r["status"] == "completed"
+        assert r["removed"] == 0
+        assert r["fail_safe"] is True
+
+        data = yaml.safe_load(buylist_path.read_text(encoding="utf-8"))
+        entries = {e["ticker"]: e for e in data["entries"]}
+        assert "AAPL" in entries, "buylist should be preserved when no approved opportunities"
+
+    def test_skips_approved_without_intrinsic(self, buylist_env, tmp_path: Path):
+        db, journal, bp = buylist_env
+        opp_id = "OPP-BL-NOINTR"
+        journal.save_opportunity("NVDA", {
+            "id": opp_id,
+            "ticker": "NVDA",
+            "status": OpportunityStatus.APPROVED.value,
+            "conviction": {"overall": 60},
+            "created_at": "2026-01-01T00:00:00",
+            "updated_at": "2026-01-01T00:00:00",
+        })
+
+        w = BuyListRefreshWorker()
+        result = w.execute({"base_path": str(bp)})
+        r = result.output
+        assert r["status"] == "completed"
+        assert r["added"] == 2  # AAPL y MSFT (NVDA sin intrinsic se salta)
+        assert r["updated"] == 0
+        assert r["removed"] == 0
+
+        buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
+        data = yaml.safe_load(buylist_path.read_text(encoding="utf-8"))
+        tickers = {e["ticker"] for e in data["entries"]}
+        assert "AAPL" in tickers and "MSFT" in tickers
+        assert "NVDA" not in tickers

@@ -33,9 +33,20 @@ class BuyListRefreshWorker(BaseWorker):
         positions = portfolio_engine.get_positions()
         total_weight = sum(p.get("weight_pct", 0) for p in positions)
 
-        opportunities = sqlite.list_opportunities()
+        opportunities = journal.list_all_opportunities()
         approved = [o for o in opportunities if o["status"] == OpportunityStatus.APPROVED.value]
         entry_pending = [o for o in opportunities if o["status"] == OpportunityStatus.ENTRY_PENDING.value]
+
+        if not approved and not entry_pending:
+            print("[BUYLIST] No approved/entry-pending opportunities in journal; preserving existing buylist")
+            return {
+                "status": "completed",
+                "updated": 0,
+                "added": 0,
+                "removed": 0,
+                "total_entries": self.buylist.count(),
+                "fail_safe": True,
+            }
 
         updated = 0
         added = 0
