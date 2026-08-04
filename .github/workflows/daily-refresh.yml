@@ -100,10 +100,10 @@ jobs:
               if triggered_at:
                   print(f'[EARNINGS] {ticker}: already triggered on {triggered_at}')
                   continue
-              if earnings_date != target_date:
-                  print(f'[EARNINGS] {ticker}: earnings on {earnings_date_str}, not target {target_date}')
+              if earnings_date > target_date:
+                  print(f'[EARNINGS] {ticker}: earnings on {earnings_date_str}, not yet 2d post')
                   continue
-              print(f'[EARNINGS] {ticker}: ready to trigger (earnings_date={earnings_date_str}, 2d post-earnings)')
+              print(f'[EARNINGS] {ticker}: ready to trigger (earnings_date={earnings_date_str}, 2d+ post-earnings)')
               info['triggered_at'] = today.isoformat()
               triggered.append(ticker)
 
