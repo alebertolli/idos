@@ -124,6 +124,7 @@ class ResearchWorker(BaseWorker):
             "opinion_valoracion": ddd_result.get("opinion_valoracion", ""),
             "resumen_ejecutivo": ddd_result.get("resumen_ejecutivo", ""),
             "calidad_evidencia": ddd_result.get("calidad_evidencia", {}),
+            "integridad_tesis": ddd_result.get("integridad_tesis", {}),
             "target_consensus": consensus,
             "prompt_inputs": {
                 "ticker": ticker,
@@ -206,6 +207,11 @@ class ResearchWorker(BaseWorker):
         journal.save_case_file(ticker, case_file)
 
         opp["updated_at"] = datetime.now(AR_TZ).isoformat()
+        integridad = ddd_result.get("integridad_tesis", {}) or {}
+        if "thesis_active" in integridad and integridad["thesis_active"] is not None:
+            opp["thesis_active"] = bool(integridad["thesis_active"])
+            if not opp["thesis_active"]:
+                opp["thesis_invalidated_reason"] = integridad.get("reason", "Tesis invalidada en DDD")
         sqlite.save_opportunity(opp)
 
         if not force_reprocess:

@@ -298,14 +298,12 @@ class PostMortemWorker(BaseWorker):
                 f"- Eventos detectados: {', '.join(eventos) if eventos else 'ninguno'}\n"
                 f"- Pruebas de compra: {pasan}/{total_p}\n"
                 f"- Punto de entrada: {last_w.get('entry_point', '?')}\n"
-                f"- Stop loss sugerido: {last_w.get('stop_loss', '?')}\n"
                 f"- Precio objetivo: {last_w.get('price_target', '?')}\n"
                 f"\nPreguntas para evaluar el analisis Wyckoff:\n"
                 f"1. La fase detectada fue correcta dado el movimiento real del precio?\n"
                 f"2. Los eventos Wyckoff (PS, SC, Spring, LPS, SOS, etc.) fueron validos?\n"
                 f"3. El punto de entrada recomendado ({last_w.get('entry_point', '?')}) habria funcionado?\n"
                 f"4. Las pruebas de compra que pasaron realmente predijeron el resultado?\n"
-                f"5. El stop loss sugerido habria sido respetado o se habria saltado?\n"
             )
 
         prompt += (

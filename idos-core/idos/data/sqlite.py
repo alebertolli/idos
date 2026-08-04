@@ -45,6 +45,9 @@ class SQLiteStore:
                 conviction_json TEXT DEFAULT '{}',
                 current_price REAL DEFAULT 0,
                 intrinsic_value REAL DEFAULT 0,
+                thesis_active INTEGER DEFAULT 1,
+                thesis_invalidated_reason TEXT DEFAULT '',
+                exit_reason TEXT DEFAULT '',
                 created_at TEXT NOT NULL,
                 updated_at TEXT NOT NULL
             );
@@ -140,17 +143,32 @@ class SQLiteStore:
             c.execute("ALTER TABLE opportunities ADD COLUMN intrinsic_value REAL DEFAULT 0")
         except Exception:
             pass
+        try:
+            c.execute("ALTER TABLE opportunities ADD COLUMN thesis_active INTEGER DEFAULT 1")
+        except Exception:
+            pass
+        try:
+            c.execute("ALTER TABLE opportunities ADD COLUMN thesis_invalidated_reason TEXT DEFAULT ''")
+        except Exception:
+            pass
+        try:
+            c.execute("ALTER TABLE opportunities ADD COLUMN exit_reason TEXT DEFAULT ''")
+        except Exception:
+            pass
 
     def save_opportunity(self, opp: dict[str, Any]):
         with self._write_transaction() as c:
             c.execute("""
-                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, thesis_active, thesis_invalidated_reason, exit_reason, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 opp["id"], opp["ticker"], opp["status"],
                 json.dumps(opp.get("conviction", {})),
                 opp.get("current_price") or opp.get("conviction", {}).get("current_price", 0),
                 opp.get("intrinsic_value") or opp.get("conviction", {}).get("intrinsic_value", 0),
+                1 if opp.get("thesis_active", True) else 0,
+                opp.get("thesis_invalidated_reason", ""),
+                opp.get("exit_reason", ""),
                 opp.get("created_at", datetime.now(AR_TZ).isoformat()),
                 opp.get("updated_at", datetime.now(AR_TZ).isoformat()),
             ))
@@ -162,6 +180,7 @@ class SQLiteStore:
             return None
         result = dict(row)
         result["conviction"] = json.loads(result.pop("conviction_json", "{}"))
+        result["thesis_active"] = bool(result.get("thesis_active", 1))
         return result
 
     def list_opportunities(self, status: str | None = None) -> list[dict[str, Any]]:
@@ -174,6 +193,7 @@ class SQLiteStore:
         for row in rows.fetchall():
             r = dict(row)
             r["conviction"] = json.loads(r.pop("conviction_json", "{}"))
+            r["thesis_active"] = bool(r.get("thesis_active", 1))
             results.append(r)
         return results
 

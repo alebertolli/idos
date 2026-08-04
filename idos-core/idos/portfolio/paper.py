@@ -73,23 +73,32 @@ class PaperTrader:
             "position_pct": position_pct,
         }
 
-    def sell(self, ticker: str, price: float, reason: str) -> dict[str, Any]:
+    def sell(self, ticker: str, price: float, reason: str, exit_pct: float = 1.0) -> dict[str, Any]:
         pos = self._load_position(ticker)
         if not pos:
             return {"status": "skipped", "reason": f"No position for {ticker}"}
 
-        qty = pos["quantity"]
-        value = round(qty * price, 2)
+        exit_pct = max(0.0, min(float(exit_pct), 1.0))
+        if exit_pct <= 0:
+            return {"status": "skipped", "reason": "exit_pct must be > 0"}
+
+        total_qty = pos["quantity"]
+        sell_qty = int(round(total_qty * exit_pct))
+        if sell_qty <= 0:
+            return {"status": "skipped", "reason": f"exit_pct {exit_pct:.2f} too small for {total_qty} shares"}
+
+        value = round(sell_qty * price, 2)
         fee = round(value * (self.fee_pct / 100), 2)
-        cost_basis = pos["total_invested"]
-        pnl = round(value - cost_basis - fee, 2)
-        pnl_pct = round((pnl / cost_basis) * 100, 2) if cost_basis else 0
+        cost_basis_total = pos["total_invested"]
+        cost_basis_sold = round(cost_basis_total * (sell_qty / total_qty), 2)
+        pnl = round(value - cost_basis_sold - fee, 2)
+        pnl_pct = round((pnl / cost_basis_sold) * 100, 2) if cost_basis_sold else 0
 
         trade = Trade(
             ticker=ticker.upper(),
             type="SELL",
             price=price,
-            quantity=qty,
+            quantity=sell_qty,
             value=value,
             fee=fee,
             reason=reason,
@@ -97,33 +106,34 @@ class PaperTrader:
             pnl=pnl,
         )
         self.ledger.record(trade)
-        self._remove_position(ticker)
 
-        print(f"[PAPER] SELL {ticker}: {qty} shares @ ${price:.2f} = ${value:.2f} (P&L=${pnl:.2f}/{pnl_pct:+.2f}%)")
+        closed = sell_qty >= total_qty
+        if closed:
+            self._remove_position(ticker)
+            remaining_qty = 0
+        else:
+            remaining_qty = total_qty - sell_qty
+            pos["quantity"] = remaining_qty
+            pos["total_invested"] = round(cost_basis_total * (remaining_qty / total_qty), 2)
+            pos["current_value"] = round(pos["quantity"] * price, 2)
+            pos["updated_at"] = datetime.now(AR_TZ).isoformat()
+            self._write_position(pos)
+
+        print(f"[PAPER] SELL {ticker}: {sell_qty} shares @ ${price:.2f} = ${value:.2f} (P&L=${pnl:.2f}/{pnl_pct:+.2f}%, exit_pct={exit_pct*100:.0f}%)")
         return {
             "status": "executed",
             "ticker": ticker,
             "type": "SELL",
             "price": price,
-            "quantity": qty,
+            "quantity": sell_qty,
             "value": value,
             "fee": fee,
             "pnl": pnl,
             "pnl_pct": pnl_pct,
+            "exit_pct": exit_pct,
+            "closed": closed,
+            "remaining_quantity": remaining_qty,
         }
-
-    def check_stops(self, current_prices: dict[str, float]) -> list[dict[str, Any]]:
-        exits = []
-        for pos in self.current_positions():
-            ticker = pos["ticker"]
-            price = current_prices.get(ticker)
-            if not price:
-                continue
-            stop = pos.get("stop_loss", 0)
-            if stop > 0 and price <= stop:
-                result = self.sell(ticker, price, "stop_loss")
-                exits.append(result)
-        return exits
 
     def current_positions(self) -> list[dict[str, Any]]:
         positions = []
@@ -155,6 +165,10 @@ class PaperTrader:
             "entry_date": datetime.now(AR_TZ).isoformat(),
             "conviction_at_entry": conviction,
         }
+        self._write_position(pos)
+
+    def _write_position(self, pos: dict[str, Any]):
+        path = self._position_path(pos["ticker"])
         path.write_text(
             yaml.dump(pos, default_flow_style=False, allow_unicode=True),
             encoding="utf-8",

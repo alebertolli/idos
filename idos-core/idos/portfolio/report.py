@@ -75,14 +75,13 @@ def generate_monthly_report(ledger: TradeLedger, paper_trader, bankroll: float, 
     lines.append("## Posiciones Activas")
     lines.append("")
     if positions:
-        lines.append("| Ticker | Entry | Actual | P&L | P&L% | Weight | Stop Loss | Target | Días |")
-        lines.append("|--------|-------|--------|-----|------|--------|-----------|--------|------|")
+        lines.append("| Ticker | Entry | Actual | P&L | P&L% | Weight | Target | Días |")
+        lines.append("|--------|-------|--------|-----|------|--------|--------|------|")
         for pos in positions:
             ticker = pos["ticker"]
             ep = pos.get("entry_price", 0)
             qty = pos.get("quantity", 0)
             invested = pos.get("total_invested", 0)
-            sl = pos.get("stop_loss", 0)
             target = pos.get("target_price", 0)
             entry_date = pos.get("entry_date", "")
             cv = pos.get("current_value", invested)
@@ -90,7 +89,7 @@ def generate_monthly_report(ledger: TradeLedger, paper_trader, bankroll: float, 
             pnl_pct = round((pnl / invested) * 100, 2) if invested else 0
             weight = round(invested / bankroll * 100, 1) if bankroll else 0
             days = (datetime.now(AR_TZ) - datetime.fromisoformat(entry_date)).days if entry_date else 0
-            lines.append(f"| {ticker} | ${ep:.2f} | ${cv:.2f} | ${pnl:+,.2f} | {pnl_pct:+.2f}% | {weight}% | ${sl:.2f} | ${target:.2f} | {days} |")
+            lines.append(f"| {ticker} | ${ep:.2f} | ${cv:.2f} | ${pnl:+,.2f} | {pnl_pct:+.2f}% | {weight}% | ${target:.2f} | {days} |")
     else:
         lines.append("_Sin posiciones activas._")
 

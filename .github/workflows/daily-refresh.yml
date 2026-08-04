@@ -235,7 +235,7 @@ jobs:
       - name: Paper Trader - Execute Entry
         run: |
           python -m idos.workers.portfolio.execute_entry_signals
-      - name: Risk Monitor - Daily stop-loss check
+      - name: Risk Monitor - Daily risk assessment
         run: |
           python -c "
           import sys, os, json
@@ -254,7 +254,7 @@ jobs:
           else:
               print(f'[RISK] {r.get(\"positions_checked\", 0)} posiciones revisadas, sin alertas')
           "
-      - name: Paper Trader - Execute Exits
+      - name: Exit Decision Engine
         run: |
           python -c "
           import sys, os, json
@@ -262,39 +262,23 @@ jobs:
           sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
           os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
           bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
-          from idos.data.journal import JournalRepository
-          from idos.config import load_config
-          journal = JournalRepository(bp / 'idos-journal')
-          cfg = load_config(bp / 'idos-config' / 'portfolio.yml') or {}
-          from idos.workers.portfolio.paper_trader_worker import PaperTraderWorker
-          pw = PaperTraderWorker(cfg)
-          pos_dir = journal.base / 'paper' / 'positions'
-          if not pos_dir.exists():
-              print('[PAPER] No paper positions to check')
-              exit(0)
-          prices = {}
-          for pf in pos_dir.iterdir():
-              if pf.suffix == '.yml':
-                  import yaml
-                  p = yaml.safe_load(pf.read_text(encoding='utf-8')) or {}
-                  ticker = p.get('ticker', '')
-                  if ticker:
-                      from idos.data.sqlite import SQLiteStore
-                      db = SQLiteStore(bp / 'idos.db')
-                      ph = db.get_price_history(ticker, limit=1)
-                      if ph:
-                          prices[ticker] = ph[0]['close']
-          if prices:
-              pr2 = pw.execute({'action': 'check_stops', 'current_prices': prices, 'base_path': str(bp)})
-              r2 = pr2.output if hasattr(pr2, 'output') else pr2
-              exits = r2.get('exits', [])
-              for ex in exits:
-                  print(f'[PAPER] STOP LOSS: {ex.get(\"ticker\")} P&L={ex.get(\"pnl_pct\",0):+.2f}%')
-              if not exits:
-                  print('[PAPER] No stop losses triggered')
-          else:
-              print('[PAPER] No prices available for stop check')
-          "
+          from idos.ai.service import LLMService
+          _mp = Path('idos-config/models.yml')
+          _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
+          from idos.workers.portfolio.exit_monitor_worker import ExitMonitorWorker
+          w = ExitMonitorWorker({'llm_service': _llm_svc, 'prompts_path': 'idos-config/prompts'})
+          result = w.execute({'base_path': str(bp)})
+          r = result.output if hasattr(result, 'output') else result
+          print(f'[EXIT] positions_checked={r.get(\"positions_checked\", 0)} exits={r.get(\"exits_executed\", 0)} proposals={r.get(\"proposals_generated\", 0)}')
+          for ex in r.get('exits', []):
+              print(f'  [EXIT] {ex.get(\"ticker\")}: {ex.get(\"reason\")} pct={ex.get(\"exit_pct\", 0)*100:.0f}% -> {ex.get(\"new_status\", \"\")}')
+          for pr in r.get('proposals', []):
+              print(f'  [PROP] {pr.get(\"ticker\")}: sustitución propuesta (no liquidada)')
+          " |& tee /tmp/exit_monitor.log
+          if ! grep -q 'positions_checked' /tmp/exit_monitor.log; then
+            echo "::error::Exit Monitor failed to produce results"
+            exit 1
+          fi
       - name: Monthly Portfolio Report
         run: |
           python -c "

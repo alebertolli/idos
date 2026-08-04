@@ -67,7 +67,6 @@ def _format_wyckoff_md(ticker: str, signal: Any) -> str:
             emoji = "✅" if val == "Pasa" else "❌" if val == "NoPasa" else "⬜"
             pruebas.append(f"- {emoji} Prueba {i}: {val}")
 
-    stop_loss = _float_val(raw, "stop_loss_sugerido", "precio") if raw else "N/A"
     price_target = "N/A"
     if raw:
         pt = raw.get("precio_objetivo_wyckoff") or {}
@@ -114,7 +113,6 @@ def _format_wyckoff_md(ticker: str, signal: Any) -> str:
     md += (
         f"### Punto de Entrada: {entry_point}\n"
         f"### Precio Objetivo Wyckoff: {price_target}\n"
-        f"### Stop Loss Sugerido: {stop_loss}\n"
         f"### Peso Ajustado: {signal.adjusted_weight:.1f}%\n"
         f"### Precio Actual: ${signal.current_price:.2f}\n"
         f"### Target (Tesis): ${signal.target_price:.2f}\n"
@@ -216,7 +214,6 @@ class EntryMonitorWorker(BaseWorker):
             "wyckoff_score": signal.wyckoff_score,
             "wyckoff_confidence": signal.wyckoff_confidence,
             "wyckoff_entry_point": signal.wyckoff_entry_point,
-            "wyckoff_stop_loss": signal.wyckoff_stop_loss,
             "wyckoff_price_target": signal.wyckoff_price_target,
             "adjusted_weight": signal.adjusted_weight,
             "wyckoff_llm_error": signal.llm_error,
@@ -351,7 +348,6 @@ class EntryMonitorWorker(BaseWorker):
             "score": signal.wyckoff_score,
             "confidence": signal.wyckoff_confidence,
             "entry_point": signal.wyckoff_entry_point,
-            "stop_loss": signal.wyckoff_stop_loss,
             "price_target": signal.wyckoff_price_target,
             "adjusted_weight": signal.adjusted_weight,
             "llm_response": signal.wyckoff_raw,
@@ -399,7 +395,6 @@ class EntryMonitorWorker(BaseWorker):
             "wyckoff_score": signal.wyckoff_score,
             "wyckoff_confidence": signal.wyckoff_confidence,
             "wyckoff_entry_point": signal.wyckoff_entry_point,
-            "wyckoff_stop_loss": signal.wyckoff_stop_loss,
             "wyckoff_price_target": signal.wyckoff_price_target,
             "adjusted_weight": signal.adjusted_weight,
             "rationale": signal.reason,
@@ -417,7 +412,6 @@ class EntryMonitorWorker(BaseWorker):
         self._notify_entry(ticker, signal)
 
     def _notify_entry(self, ticker: str, signal: Any):
-        sl = f"${signal.wyckoff_stop_loss:.2f}" if signal.wyckoff_stop_loss else "N/A"
         message = (
             f"**{ticker} - Senal de Entrada Ejecutada**\n\n"
             f"- Precio: `${signal.current_price:.2f}`\n"
@@ -426,7 +420,6 @@ class EntryMonitorWorker(BaseWorker):
             f"- Wyckoff: `{signal.wyckoff_phase}` (score: `{signal.wyckoff_score}`)\n"
             f"- Confianza: `{signal.wyckoff_confidence}`\n"
             f"- Pto. Entrada: `{signal.wyckoff_entry_point}`\n"
-            f"- Stop Loss: `{sl}`\n"
             f"- Peso Ajustado: `{signal.adjusted_weight:.1f}%`\n"
             f"- Decision: `BUY / {signal.reason}`"
         )
@@ -440,3 +433,10 @@ class EntryMonitorWorker(BaseWorker):
                 print(f"[ENTRY NOTIFY] {result.output.get('hint', 'configura IDOS_TELEGRAM_BOT_TOKEN y IDOS_TELEGRAM_CHAT_ID')}")
         except Exception as e:
             print(f"[ENTRY NOTIFY] Telegram error: {e}")
+
+        try:
+            from idos.workers.notifications.email_notifier import EmailNotifier
+            en = EmailNotifier()
+            en.execute({"subject": f"IDOS - Entrada Ejecutada {ticker}", "body": message})
+        except Exception as e:
+            print(f"[ENTRY NOTIFY] Email error: {e}")

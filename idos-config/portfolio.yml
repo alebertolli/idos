@@ -20,3 +20,11 @@ valuation:
   sources: [yfinance, finviz, stockanalysis]
   min_sources: 1
   ttl_seconds: 43200
+exit:
+  enabled: true
+  valuation_overvaluation_pct: 25
+  exit_pct_on_valuation: 50
+  exit_pct_on_drawdown: 50
+  replacement_conviction_multiple: 1.3
+  min_asymmetry_ratio: 3
+  notify: true

@@ -47,17 +47,11 @@ class PaperTraderWorker(BaseWorker):
             ticker = context.get("ticker", "")
             price = context.get("price", 0)
             reason = context.get("reason", "manual")
+            exit_pct = context.get("exit_pct", 1.0)
             if not ticker or not price:
                 return {"status": "error", "reason": "ticker and price required"}
-            result = trader.sell(ticker, price, reason)
+            result = trader.sell(ticker, price, reason, exit_pct=exit_pct)
             return result
-
-        if action == "check_stops":
-            prices = context.get("current_prices", {})
-            if not prices:
-                return {"status": "skipped", "reason": "no prices provided"}
-            exits = trader.check_stops(prices)
-            return {"status": "completed", "exits": exits, "exits_count": len(exits)}
 
         if action == "report":
             report_date = context.get("report_date", datetime.now(AR_TZ).isoformat())

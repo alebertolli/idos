@@ -89,10 +89,10 @@ class RebalanceWorker(BaseWorker):
         }
 
 class RiskMonitorWorker(BaseWorker):
-    """Daily risk monitoring: drawdown, volatility, D/E, concentration, stop loss.
+    """Daily risk monitoring: drawdown, volatility, D/E, concentration.
 
     Triggers: daily schedule.
-    Actions: logs alerts, proposes exits via event bus.
+    Actions: logs alerts which can trigger thesis reassessment (Risk Exit).
     """
     name = "risk_monitor_worker"
 
@@ -119,7 +119,6 @@ class RiskMonitorWorker(BaseWorker):
             weight = pos.get("weight_pct", 0.0)
             entry = pos.get("avg_entry_price", 0.0)
             current = pos.get("current_price", entry)
-            stop_loss = pos.get("stop_loss", 0.0)
 
             if not ticker:
                 continue
@@ -135,16 +134,6 @@ class RiskMonitorWorker(BaseWorker):
                         "threshold": self.max_drawdown_pct,
                         "message": f"Drawdown {drawdown:.1f}% exceeds {self.max_drawdown_pct}%",
                     })
-
-            if stop_loss > 0 and current > 0 and current <= stop_loss:
-                alerts.append({
-                    "ticker": ticker,
-                    "type": "STOP_LOSS",
-                    "severity": "CRITICAL",
-                    "value": current,
-                    "threshold": stop_loss,
-                    "message": f"Stop loss {stop_loss} triggered at {current}",
-                })
 
             if weight > self.max_concentration_pct:
                 alerts.append({

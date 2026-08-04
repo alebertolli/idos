@@ -490,9 +490,8 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
     valid_reasons = {
         "thesis_broken": "Tesis invalidada",
         "valuation_target": "Valoración objetivo alcanzada",
-        "stop_loss": "Stop loss activado",
         "portfolio_rebalance": "Reemplazo por mejor oportunidad",
-        "risk_trigger": "Riesgo permanente detectado",
+        "risk_trigger": "Tesis cambiada tras re-assessment de riesgo",
         "manual": "Decisión manual del inversor",
     }
     if reason not in valid_reasons:
@@ -501,6 +500,7 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
 
     old_status = opp["status"]
     opp["status"] = "EXITED"
+    opp["exit_reason"] = reason
     opp["updated_at"] = datetime.now(AR_TZ).isoformat()
     sqlite.save_opportunity(opp)
     sqlite.record_transition(opp_id, old_status, "EXITED", cause=reason, worker="cli")
@@ -535,6 +535,45 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
     console.print(f"[green]Post-mortem completed. Archived: {pm_output.get('archived')}[/green]")
     for lesson in pm_output.get("lessons", []):
         console.print(f"  • {lesson}")
+
+@app.command()
+def thesis_invalidate(ticker: str, opp_id: str = "",
+                      reason: str = "falsacion manual de la tesis"):
+    """Marca la tesis de una posición como invalidada (Thesis Exit).
+
+    El ExitMonitorWorker vende el 100% de la posición en el siguiente run diario.
+    """
+    ctx = _get_context()
+    sqlite, _, journal = _get_stores(ctx)
+
+    if not opp_id:
+        opps = sqlite.list_opportunities()
+        matching = [o for o in opps if o.get("ticker", "") == ticker.upper()
+                    and o.get("status") in ("MONITORING", "FULL_POSITION", "ACCUMULATING", "REDUCING")]
+        if not matching:
+            console.print(f"[red]No active positions found for {ticker.upper()}[/red]")
+            return
+        opp_id = matching[0]["id"]
+
+    opp = sqlite.get_opportunity(opp_id)
+    if not opp:
+        console.print(f"[red]Opportunity {opp_id} not found[/red]")
+        return
+
+    opp["thesis_active"] = False
+    opp["thesis_invalidated_reason"] = reason
+    opp["updated_at"] = datetime.now(AR_TZ).isoformat()
+    sqlite.save_opportunity(opp)
+    yaml_opp = journal.load_opportunity(ticker.upper(), opp_id)
+    if yaml_opp:
+        yaml_opp["thesis_active"] = False
+        yaml_opp["thesis_invalidated_reason"] = reason
+        yaml_opp["updated_at"] = opp["updated_at"]
+        journal.save_opportunity(ticker.upper(), yaml_opp)
+    journal.log_event("thesis:invalidated", {
+        "opp_id": opp_id, "ticker": ticker.upper(), "reason": reason,
+    }, source="cli")
+    console.print(f"[red]Tesis invalidada para {ticker} ({opp_id}). El motor de salida liquidara la posicion.[/red]")
 
 @app.command()
 def opp_show(ticker: str, opp_id: str = ""):

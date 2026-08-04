@@ -109,6 +109,11 @@ user_prompt: >
     "dominio_catalizadores": [{{"descripcion": "...", "probabilidad_pct": N, "impacto": "alto|medio|bajo", "horizonte": "corto|medio|largo", "nivel_confianza": "alto|medio|bajo"}}],
     "opinion_valoracion": "infravalorado|justo|sobrevalorado",
     "tesis_inversion": "...",
+    "integridad_tesis": {{
+      "thesis_active": true|false,
+      "flags": ["moat_gone", "management_destroys_capital", "structural_growth_ended", "fraud", "insolvency_risk", "extreme_regulatory_risk", "position_inoperable", "delisting_risk", "severe_market_issues"],
+      "reason": "Si thesis_active es false, explica cual de las 9 categorias se vulnero y la evidencia"
+    }},
     "calidad_evidencia": {{"hechos_verificados": [...], "inferencias_llm": [...], "preguntas_abiertas": [...]}},
     "score_general": 0-100
   }}

@@ -16,13 +16,12 @@ from idos.timezone import AR_TZ
 from idos.workers.portfolio.paper_trader_worker import PaperTraderWorker
 
 
-def _build_telegram_message(ticker, quantity, price, value, sl_str, s):
+def _build_telegram_message(ticker, quantity, price, value, s):
     return (
         f"**{ticker} - Compra Ejecutada**\n\n"
         f"- Cantidad: `{quantity}`\n"
         f"- Precio: `${price:.2f}`\n"
         f"- Valor: `${value:.2f}`\n"
-        f"- Stop Loss: `{sl_str}`\n"
         f"- Target: `${s.get('target_price', 0):.2f}`\n"
         f"- Margen: `{s.get('margin_of_safety_pct', 0):.1f}%`\n"
         f"- Wyckoff: `{s.get('wyckoff_phase')}` (score: `{s.get('wyckoff_score')}`)\n"
@@ -32,10 +31,10 @@ def _build_telegram_message(ticker, quantity, price, value, sl_str, s):
     )
 
 
-def _notify_telegram(ticker, quantity, price, value, sl_str, s):
+def _notify_telegram(ticker, quantity, price, value, s):
     try:
         from idos.workers.notifications.telegram import TelegramNotifier
-        message = _build_telegram_message(ticker, quantity, price, value, sl_str, s)
+        message = _build_telegram_message(ticker, quantity, price, value, s)
         tg = TelegramNotifier()
         tg_result = tg.execute({"message": message[:4000]})
         if tg_result.output.get("status") == "skipped":
@@ -44,7 +43,7 @@ def _notify_telegram(ticker, quantity, price, value, sl_str, s):
         print(f"[PAPER NOTIFY] Telegram error: {e}")
 
 
-def _notify_email(ticker, quantity, price, value, sl_str, s):
+def _notify_email(ticker, quantity, price, value, s):
     try:
         from idos.workers.notifications.email_notifier import EmailNotifier
         smtp_host = os.environ.get("IDOS_SMTP_HOST", "")
@@ -62,7 +61,6 @@ def _notify_email(ticker, quantity, price, value, sl_str, s):
             f"Cantidad: {quantity}\n"
             f"Precio: ${price:.2f}\n"
             f"Valor: ${value:.2f}\n"
-            f"Stop Loss: {sl_str}\n"
             f"Target: ${s.get('target_price', 0):.2f}\n"
             f"Margen: {s.get('margin_of_safety_pct', 0):.1f}%\n"
             f"Wyckoff: {s.get('wyckoff_phase')} (score: {s.get('wyckoff_score')})\n"
@@ -127,9 +125,7 @@ def main():
             quantity = r.get("quantity", 0)
             price = r.get("price", 0)
             value = r.get("value", 0)
-            stop_loss = r.get("stop_loss", 0)
-            sl_str = f"${stop_loss:.2f}" if stop_loss else "N/A"
-            print(f"[PAPER] {ticker}: {quantity} shares @ ${price:.2f} = ${value:.2f} SL={sl_str}")
+            print(f"[PAPER] {ticker}: {quantity} shares @ ${price:.2f} = ${value:.2f}")
 
             opp = db.get_opportunity(opp_id)
             if opp:
@@ -151,7 +147,6 @@ def main():
                 "wyckoff_phase": s.get("wyckoff_phase"),
                 "wyckoff_score": s.get("wyckoff_score"),
                 "wyckoff_confidence": s.get("wyckoff_confidence"),
-                "wyckoff_stop_loss": s.get("wyckoff_stop_loss"),
                 "wyckoff_price_target": s.get("wyckoff_price_target"),
                 "adjusted_weight": s.get("adjusted_weight"),
                 "rationale": s.get("reason", ""),
@@ -163,12 +158,11 @@ def main():
                 "price": price, "target": s.get("target_price"),
                 "wyckoff": s.get("wyckoff_phase"),
                 "wyckoff_score": s.get("wyckoff_score"),
-                "stop_loss": stop_loss,
             })
 
-            print(_build_telegram_message(ticker, quantity, price, value, sl_str, s))
-            _notify_telegram(ticker, quantity, price, value, sl_str, s)
-            _notify_email(ticker, quantity, price, value, sl_str, s)
+            print(_build_telegram_message(ticker, quantity, price, value, s))
+            _notify_telegram(ticker, quantity, price, value, s)
+            _notify_email(ticker, quantity, price, value, s)
         elif r.get("status") == "skipped":
             print(f'[PAPER] {ticker}: {r.get("reason", "ya en cartera")} — no se transiciona, se reintenta mañana')
         else:

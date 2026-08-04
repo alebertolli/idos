@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime
 from enum import StrEnum
 from typing import Any
@@ -9,7 +9,6 @@ class ExitReason(StrEnum):
     VALUATION_EXCESSIVE = "VALUATION_EXCESSIVE"
     PORTFOLIO_REPLACEMENT = "PORTFOLIO_REPLACEMENT"
     RISK_CONTROL = "RISK_CONTROL"
-    TRAILING_STOP = "TRAILING_STOP"
 
 @dataclass
 class ExitSignal:
@@ -27,19 +26,25 @@ class ExitSignal:
         if not self.generated_at:
             self.generated_at = datetime.now(AR_TZ).isoformat()
 
-@dataclass
-class TrailingStop:
-    ticker: str
-    trail_pct: float = 15.0
-    peak_price: float = 0.0
-    current_price: float = 0.0
-    active: bool = False
 
 class ExitEngine:
-    def __init__(self, min_conviction_for_hold: int = 40, max_pe_for_hold: float = 35):
-        self.min_conviction = min_conviction_for_hold
-        self.max_pe = max_pe_for_hold
-        self._trailing_stops: dict[str, TrailingStop] = {}
+    """Exit Decision Engine.
+
+    Spec v2:
+    - Total liquidation (100%) ONLY by Thesis Exit, Risk Exit (thesis changed
+      after reassessment) or explicit Capital Allocation Engine decision.
+    - Valuation Exit is always partial (never 100%).
+    - Technical signals (stop loss / trailing stop) NEVER liquidate a position;
+      they are not used for exits.
+    """
+
+    def __init__(self, config: dict[str, Any] | None = None, **kwargs):
+        cfg = dict(config or {})
+        cfg.update(kwargs)
+        self.min_conviction = float(cfg.get("min_conviction_for_hold", 40))
+        self.max_pe = float(cfg.get("max_pe_for_hold", 35))
+        self.valuation_overvaluation_pct = float(cfg.get("valuation_overvaluation_pct", 25))
+        self.exit_pct_on_valuation = float(cfg.get("exit_pct_on_valuation", 50))
 
     def evaluate_thesis_exit(self, ticker: str, thesis_active: bool,
                               falsification_triggered: bool = False) -> ExitSignal | None:
@@ -52,15 +57,47 @@ class ExitEngine:
             )
         return None
 
-    def evaluate_valuation_exit(self, ticker: str, current_pe: float,
-                                 intrinsic_pe: float = 20) -> ExitSignal | None:
-        if current_pe > self.max_pe and current_pe > intrinsic_pe * 1.5:
-            exit_pct = min(100, (current_pe / self.max_pe - 1) * 50)
+    def evaluate_risk_exit(self, ticker: str, thesis_intact: bool = True,
+                           details: str = "") -> ExitSignal | None:
+        """Risk Exit: si la tesis cambió tras el re-assessment, vender todo."""
+        if not thesis_intact:
+            return ExitSignal(
+                ticker=ticker, should_exit=True,
+                reason=ExitReason.RISK_CONTROL,
+                details=details or "Tesis cambiada tras re-assessment por triggers de riesgo",
+                urgency="high", exit_pct=100.0,
+            )
+        return None
+
+    def evaluate_valuation_margin_exit(self, ticker: str, current_price: float,
+                                        intrinsic_value: float) -> ExitSignal | None:
+        """Valuation Exit cuantitativo: overvaluation = price / intrinsic - 1.
+
+        Venta SIEMPRE parcial (exit_pct_on_valuation), nunca 100%.
+        """
+        if intrinsic_value <= 0 or current_price <= 0:
+            return None
+        overvaluation = (current_price / intrinsic_value - 1) * 100
+        if overvaluation >= self.valuation_overvaluation_pct:
+            exit_pct = min(self.exit_pct_on_valuation, 50.0)
             return ExitSignal(
                 ticker=ticker, should_exit=True,
                 reason=ExitReason.VALUATION_EXCESSIVE,
-                details=f"PER {current_pe:.1f}x exceeds max {self.max_pe}x and intrinsic {intrinsic_pe:.1f}x",
-                urgency="medium", exit_pct=round(exit_pct, 1),
+                details=f"Overvaluation {overvaluation:.1f}% >= {self.valuation_overvaluation_pct:.0f}% (price {current_price:.2f} vs intrinsic {intrinsic_value:.2f})",
+                urgency="medium", exit_pct=exit_pct,
+            )
+        return None
+
+    def evaluate_valuation_exit(self, ticker: str, current_pe: float,
+                                 intrinsic_pe: float = 20) -> ExitSignal | None:
+        """Valuation Exit por PER (compatibilidad). Venta SIEMPRE parcial."""
+        if current_pe > self.max_pe and current_pe > intrinsic_pe * 1.5:
+            exit_pct = min(self.exit_pct_on_valuation, 50.0)
+            return ExitSignal(
+                ticker=ticker, should_exit=True,
+                reason=ExitReason.VALUATION_EXCESSIVE,
+                details=f"PER {current_pe:.1f}x exceeds max {self.max_pe:.0f}x and intrinsic {intrinsic_pe:.1f}x",
+                urgency="medium", exit_pct=exit_pct,
             )
         return None
 
@@ -76,47 +113,3 @@ class ExitEngine:
                 conviction_after=replacement_score,
             )
         return None
-
-    def evaluate_risk_exit(self, ticker: str, current_drawdown: float,
-                            stop_loss: float = 20.0, max_drawdown: float = 15.0) -> ExitSignal | None:
-        if current_drawdown > max_drawdown or current_drawdown > stop_loss:
-            urgency = "high" if current_drawdown > stop_loss else "medium"
-            return ExitSignal(
-                ticker=ticker, should_exit=True,
-                reason=ExitReason.RISK_CONTROL,
-                details=f"Drawdown {current_drawdown:.1f}% exceeds limit {max_drawdown:.0f}%",
-                urgency=urgency, exit_pct=100.0 if current_drawdown > stop_loss else 50.0,
-            )
-        return None
-
-    def set_trailing_stop(self, ticker: str, entry_price: float, trail_pct: float = 15.0):
-        self._trailing_stops[ticker.upper()] = TrailingStop(
-            ticker=ticker.upper(), trail_pct=trail_pct,
-            peak_price=entry_price, current_price=entry_price, active=True,
-        )
-
-    def evaluate_trailing_stop(self, ticker: str, current_price: float) -> ExitSignal | None:
-        ts = self._trailing_stops.get(ticker.upper())
-        if not ts or not ts.active:
-            return None
-
-        if current_price > ts.peak_price:
-            ts.peak_price = current_price
-        ts.current_price = current_price
-
-        drawdown_from_peak = (ts.peak_price - current_price) / ts.peak_price * 100
-        if drawdown_from_peak >= ts.trail_pct:
-            ts.active = False
-            return ExitSignal(
-                ticker=ticker, should_exit=True,
-                reason=ExitReason.TRAILING_STOP,
-                details=f"Trailing stop triggered: {drawdown_from_peak:.1f}% from peak {ts.peak_price:.2f}",
-                urgency="high", exit_pct=100.0,
-            )
-        return None
-
-    def remove_trailing_stop(self, ticker: str):
-        self._trailing_stops.pop(ticker.upper(), None)
-
-    def get_trailing_stops(self) -> list[TrailingStop]:
-        return [ts for ts in self._trailing_stops.values() if ts.active]
