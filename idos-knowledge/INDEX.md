@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 57 companies tracked
+Total: 58 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -45,6 +45,7 @@ Total: 57 companies tracked
 - 📄 [[C|Citigroup Inc.]]
 - 📄 [[COIN|Coinbase Global, Inc.]]
 - 📄 [[HDB|HDFC Bank Limited]]
+- 📄 [[HSBC|HSBC Holdings plc]]
 - 📄 [[ING|ING Groep N.V.]]
 - 📄 [[ITUB|Itaú Unibanco Holding S.A.]]
 - 📄 [[LYG|Lloyds Banking Group plc]]
