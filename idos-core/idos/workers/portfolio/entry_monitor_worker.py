@@ -195,7 +195,7 @@ class EntryMonitorWorker(BaseWorker):
         entry_context = self._build_entry_context(ticker, opp, sqlite, journal, bp)
         signal = self.entry_engine.evaluate(ticker, entry_context)
 
-        wyckoff_paths = self._persist_wyckoff_analysis(ticker, opp_id, signal, bp)
+        wyckoff_paths = self._persist_wyckoff_analysis(ticker, opp_id, signal, bp, journal)
 
         if signal.all_conditions_met:
             print(f"[ENTRY] {ticker}: CONDICIONES CUMPLIDAS - pasando senal al Paper Trader")
@@ -328,7 +328,7 @@ class EntryMonitorWorker(BaseWorker):
         return []
 
     def _persist_wyckoff_analysis(
-        self, ticker: str, opp_id: str, signal: Any, base_path: Path
+        self, ticker: str, opp_id: str, signal: Any, base_path: Path, journal: JournalRepository
     ) -> dict[str, str]:
         import json
         import yaml
@@ -337,7 +337,7 @@ class EntryMonitorWorker(BaseWorker):
         ts = now.strftime("%Y%m%d_%H%M%S")
         date_str = now.strftime("%Y-%m-%d")
 
-        journal_wyckoff_dir = base_path / "idos-journal" / "companies" / ticker / "opportunities" / opp_id / "wyckoff"
+        journal_wyckoff_dir = journal.opportunity_path(ticker, opp_id) / "wyckoff"
         journal_wyckoff_dir.mkdir(parents=True, exist_ok=True)
         journal_file = journal_wyckoff_dir / f"{ts}.yml"
 
