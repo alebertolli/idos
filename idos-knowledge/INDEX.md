@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 58 companies tracked
+Total: 59 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -59,6 +59,7 @@ Total: 58 companies tracked
 - 📄 [[WFC|Wells Fargo & Company]]
 
 ## Healthcare
+- 📄 [[AMGN|Amgen Inc.]]
 - 📄 [[ISRG|Intuitive Surgical, Inc.]]
 - 📄 [[VRTX|Vertex Pharmaceuticals Incorporated]]
 
