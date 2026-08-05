@@ -1,7 +1,7 @@
 {
   "processed": [
     {
-      "ticker": "AMD",
+      "ticker": "HSBC",
       "opp_id": "OPP-20260804-001",
       "status": "ddd_failed",
       "score": 50,
@@ -12,23 +12,22 @@
   ],
   "assessments": [
     {
-      "ticker": "AMD",
+      "ticker": "HSBC",
       "opp_id": "OPP-20260804-001",
       "status": "completed",
-      "conviction_score": 63,
+      "conviction_score": 60,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260804163544",
+      "decision_id": "DEC-20260805073658",
       "assessments": {
         "BusinessAssessmentEngine": 58,
         "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 53,
-        "RiskAssessmentEngine": 80,
+        "RecoveryAssessmentEngine": 49,
+        "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
       "rules_passed": [
-        "RULE-003",
         "RULE-004",
         "RULE-006",
         "RULE-007",
@@ -37,15 +36,16 @@
       "rules_failed": [
         "RULE-001",
         "RULE-002",
+        "RULE-003",
         "RULE-005",
         "RULE-008"
       ],
       "rules_details": {
         "RULE-001": "Business quality: 58/100",
-        "RULE-002": "Price target margin: 9.8%",
-        "RULE-003": "Rerating: 53/100",
-        "RULE-004": "Risk: 80/100",
-        "RULE-005": "Conviction: 63/100",
+        "RULE-002": "Price target margin: 0.0%",
+        "RULE-003": "Rerating: 49/100",
+        "RULE-004": "Risk: 70/100",
+        "RULE-005": "Conviction: 60/100",
         "RULE-006": "Position weight: 3.0%",
         "RULE-007": "Sector exposure: 3.0%",
         "RULE-008": "No hay datos de DDD para calcular asimetria",
