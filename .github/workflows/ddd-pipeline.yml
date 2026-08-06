@@ -429,12 +429,28 @@ jobs:
           git add idos-knowledge/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
-          else
-            git commit -m "chore: ddd research $(date +%Y-%m-%d)"
-            # Fetch + rebase works in detached HEAD (no tracking branch needed)
-            git fetch origin main
-            git rebase origin/main 2>&1 || echo "[WARN] rebase failed, attempting push anyway"
-            git push origin HEAD:main 2>&1 || echo "[WARN] push failed"
+            exit 0
+          fi
+          git commit -m "chore: ddd research $(date +%Y-%m-%d)"
+
+          # WORKSPACE de trabajo en detached HEAD (no hay tracking branch necesaria).
+          # IMPORTANTE: NO enmascarar errores con '|| echo ...' aqui. Cualquier fallo de
+          # rebase/push debe dejar el paso en FAILURE para que el job "Report failure"
+          # (Issue de GitHub + email) notifique al usuario en vez de tragarse el error.
+          git fetch origin main
+
+          # Si el rebase conflicta es porque hubo otro push concurrente a origin/main.
+          # Abortamos limpiamente (deja el repo consistente) y fallamos NOTIFICANDO.
+          if ! git rebase origin/main; then
+            echo "[ERROR] El rebase conflicto con origin/main. Abortando para dejar el repo consistente."
+            git rebase --abort
+            echo "[ERROR] La investigacion no se pudo pushear (conflicto con origin/main). Fallo a proposito para notificar."
+            exit 1
+          fi
+
+          if ! git push origin HEAD:main; then
+            echo "[ERROR] El push a origin/main fallo. La investigacion no fue subida."
+            exit 1
           fi
 
       - name: 🐛 Report failure
