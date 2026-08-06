@@ -10,6 +10,15 @@ system_prompt: >
 user_prompt: >
   Realiza Deep Due Diligence sobre {ticker} ({name}):
 
+  Conocimiento Previo (wiki de análisis anteriores — contexto de SOLO LECTURA,
+  NO lo regeneres ni contradigas sin evidencia nueva; úsalo para validar y
+  mantener coherencia con la tesis, el moat y el modelo de negocio ya conocidos):
+  {existing_wiki}
+
+  Catalizadores de análisis anteriores (histórico de OPP previo — los comparás
+  contra los nuevos y evalúas su evolución/cumplimiento; formato JSON):
+  {prior_catalysts}
+
   Perfil de la Compañía:
   - Sector: {sector}
   - Modelo de Negocio: {business_model}
@@ -73,7 +82,10 @@ user_prompt: >
   5. ESG & Supply Chain - riesgos ESG, concentración de proveedores, dependencias
   6. Risk Assessment - categoriza por probabilidad e impacto, identifica riesgo permanente
   7. Catalysts & Valuation - eventos que pueden liberar valor, cada catalizador con
-     probabilidad estimada, impacto esperado, horizonte y nivel de confianza
+     probabilidad estimada, impacto esperado, horizonte y nivel de confianza.
+     Si recibiste catalizadores previos ({prior_catalysts}), compáralos con los
+     actuales: retén su probabilidad_anterior, marca el cambio y clasifica su estado
+     (cumplido|vigente|desestimado|nuevo) en "comparativa_catalizadores".
 
   Calidad de Evidencia:
   - verified_facts: hechos confirmados por fuentes múltiples
@@ -115,6 +127,7 @@ user_prompt: >
       "reason": "Si thesis_active es false, explica cual de las 9 categorias se vulnero y la evidencia"
     }},
     "calidad_evidencia": {{"hechos_verificados": [...], "inferencias_llm": [...], "preguntas_abiertas": [...]}},
+    "comparativa_catalizadores": [{{"descripcion": "...", "probabilidad_anterior": N, "probabilidad_actual": N, "estado": "cumplido|vigente|desestimado|nuevo", "delta_pct": N, "nota_comparacion": "..."}}],
     "score_general": 0-100
   }}
 

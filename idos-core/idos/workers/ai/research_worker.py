@@ -70,9 +70,14 @@ class ResearchWorker(BaseWorker):
 
         consensus = self._fetch_target_consensus(ticker, bp)
 
+        previous_wiki = knowledge.get_wiki_text(ticker)
+        prior_catalysts = self._load_prior_catalysts(ticker, journal)
+
         ddd_result = self._run_prompt("ddd", ticker, {
             "ticker": ticker,
             "name": company.get("name", ticker),
+            "existing_wiki": previous_wiki,
+            "prior_catalysts": prior_catalysts,
             "sector": company.get("sector", ""),
             "business_model": company.get("business_model", ""),
             "products": company.get("products", ""),
@@ -126,6 +131,8 @@ class ResearchWorker(BaseWorker):
             "calidad_evidencia": ddd_result.get("calidad_evidencia", {}),
             "integridad_tesis": ddd_result.get("integridad_tesis", {}),
             "target_consensus": consensus,
+            "catalizadores_previos": prior_catalysts,
+            "comparativa_catalizadores": ddd_result.get("comparativa_catalizadores", []),
             "prompt_inputs": {
                 "ticker": ticker,
                 "name": company.get("name", ticker),
@@ -260,6 +267,45 @@ class ResearchWorker(BaseWorker):
             "ddd_empty": ddd_empty,
             "target_consensus": consensus,
         }
+
+    @staticmethod
+    def _load_prior_catalysts(ticker: str, journal: Any) -> list[dict]:
+        """Recolecta los catalizadores de ddd_report previos del ticker (histórico OPP)."""
+        import yaml as yaml_lib
+        ticker = ticker.upper()
+        opp_dir = journal.case_file_path(ticker) / "opportunities"
+        prior: list[dict] = []
+        if not opp_dir.exists():
+            return prior
+        for opp in sorted(opp_dir.iterdir()):
+            if not opp.is_dir():
+                continue
+            ddd_file = opp / "ddd_report.yml"
+            if not ddd_file.exists():
+                continue
+            try:
+                with open(ddd_file, "r", encoding="utf-8") as f:
+                    report = yaml_lib.safe_load(f)
+            except Exception:
+                continue
+            if not report:
+                continue
+            generated_at = report.get("generated_at", "")
+            catalysts = report.get("dominio_catalizadores", []) or []
+            for cat in catalysts:
+                if not isinstance(cat, dict):
+                    continue
+                item = {
+                    "opp_id": opp.name,
+                    "generated_at": generated_at,
+                    "descripcion": cat.get("descripcion", ""),
+                    "probabilidad_anterior": cat.get("probabilidad_pct"),
+                    "impacto": cat.get("impacto", ""),
+                    "horizonte": cat.get("horizonte", ""),
+                    "nivel_confianza": cat.get("nivel_confianza", ""),
+                }
+                prior.append(item)
+        return prior
 
     def _fetch_target_consensus(self, ticker: str, bp: Any) -> dict[str, Any] | None:
         try:
