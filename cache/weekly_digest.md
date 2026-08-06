@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-08-05 13:33 AR_
+_Generado: 2026-08-06 07:41 AR_
 
 ## Resumen
 
@@ -12,18 +12,16 @@ _Generado: 2026-08-05 13:33 AR_
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ⚠️ **RACE** (OPP-20260730-001): score=50, class=None
+- ⚠️ **AMD** (OPP-20260804-001): score=50, class=None
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **RACE**
-  - Opp: [OPP-20260730-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/RACE/case_file/opportunities/OPP-20260730-001)
-  - Conviction: 64/100 | Rec: BLOCKED
-  - Scores: Business: 68 | Valuation: 55 | Recovery: 52 | Risk: 70 | Portfolio: 90
+- ⚠️ **AMD**
+  - Opp: [OPP-20260804-001](https://github.com/alebertolli/idos/tree/main/idos-journal/companies/AMD/case_file/opportunities/OPP-20260804-001)
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 58 | Valuation: 65 | Recovery: 53 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 68/100
-    - 🚫 RULE-002: Price target margin: 11.4%
-    - 🚫 RULE-005: Conviction: 64/100
+    - 🚫 RULE-001: Business quality: 58/100
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
