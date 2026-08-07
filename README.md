@@ -273,39 +273,40 @@ El sistema cubre los 14 estados del **Investment Lifecycle Framework** (SDD-7)
 con workers automatizados para cada transición:
 
 ```
-DISCOVERED ──► UNDER_DEEP_DD ──► APPROVED
-    │               │                 │
-    │     [ResearchWorker]      [AssessmentPipeline]
-    │               │           (Steps 3-7: 5 Engines
-    │               │            + Conviction + Rules
-    │               │            + Board + Entry)
-    │               │                 │
-    │               └── PENDING ──────┘ (si BLOCKED,
-    │                    REVIEW         vuelve a
-    │                    (manual)       DISCOVERED)
+DISCOVERED ─────────────► UNDER_DEEP_DD ──► APPROVED
+    │  (nace toda            │     │             │
+    │   oportunidad)         │     │             │
+    │ (sin SCREENED)   [ResearchWorker]     [AssessmentPipeline]
+    │                        │  (Steps 3-7: 5 Engines
+    │                        │   + Conviction + Rules
+    │                        │   + Board + Entry)
+    │                 ┌──────┴────────┐
+    │                 ▼               ▼
+    │            APPROVED        WATCHLIST
+    │                 │           (destino de
+    │                 ▼           no-aprobación)
+    │           ENTRY_PENDING
+    │                 │
+    │                 ▼          [EntryMonitorWorker → señal
+    │            ACCUMULATING    + PaperTrader ejecuta
+    │                 │          + execute_entry_signals]
+    │                 ▼
+    │              EXITED
+    │                 │
+    │                 ▼          [PostMortemWorker]
+    │            POST_MORTEM
+    │                 │
+    │                 ▼
+    │            ARCHIVED
     │
-    └──── ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘ (si rechazado)
-                                      │
-                                ENTRY_PENDING
-                                      │
-                          [EntryMonitorWorker + Indicador técnico]
-                                      │
-                                ACCUMULATING ──► FULL_POSITION
-                                      │
-                                  MONITORING
-                                  ▲    │    ▲
-                                  │    ▼    │
-                                  │ REDUCING│
-                                  │    │    │
-                                  └────▼────┘
-                                     EXITED
-                                       │
-                             [PostMortemWorker]
-                                       │
-                                  POST_MORTEM
-                                       │
-                                   ARCHIVED
+    └───── WATCHLIST (no-promocional): rechazo/baja
+                  → puede volver a UNDER_DEEP_DD
 ```
+
+> Nota de fidelidad: `SCREENED`, `UNDER_RESEARCH`, `FULL_POSITION`, `MONITORING` y
+> `REDUCING` están definidos en la state machine pero **no son escritos por ningún worker
+> de producción** (solo vía `opp-transition` manual). `WATCHLIST` es destino de
+> no-aprobación, no etapa de promoción. Ver SDD-7 §7.
 
 ### Workers del Ciclo de Vida
 
@@ -750,11 +751,65 @@ idos operable-import ./lista.csv      # Importación masiva
 idos operable-stats                   # Estadísticas
 idos screener-list                  # Screeners disponibles
 idos screener-run AAPL              # Evaluar ticker contra screeners
+idos site-build                     # Generar UI estática en ./site
 ```
 
 ---
 
+## 12. Interfaz Web (estática, sin servidor)
+
+El sistema incluye una **UI estática** publicable en **GitHub Pages** (gratis) que
+permite revisar el estado del portfolio, las oportunidades, la Buy List, la wiki y
+el aprendizaje, desde la perspectiva de un gestor.
+
+### 12.1 Vista previa
+
+```
+idos site-build                 # genera ./site (index.html + data.json + wiki/*.html)
+# Abre ./site/index.html en tu navegador
+```
+
+### 12.2 Vistas incluidas
+
+| Vista | Qué muestra |
+|-------|-------------|
+| **Dashboard** | Acciones sugeridas (BUY/EXIT/LEARNING), funnel de oportunidades por estado, alertas (research stale, cerca de stop, convicción DETERIORATING) |
+| **Oportunidades** | Activas (WATCHLIST / UNDER_DEEP_DD / APPROVED) con scores de los 5 engines, upside %, última investigación; toggle para **cerradas** (EXITED/POST_MORTEM/ARCHIVED) |
+| **Buy List** | Último precio, zona de compra (`buy_zone_top`), target, margen, última fecha de KB, estado Wyckoff y fecha, catalizadores |
+| **Portfolio** | Activos, peso %, entry, último precio, P/L por activo y total, stop loss (distancia), target, concentración por sector |
+| **Watchlist** | Candidatos del Discovery Domain (Scout), con score y razón |
+| **Wiki** | Índice de 60+ compañías → página por ticker con ficha y markdown renderizado |
+| **Learning** | Post-mortems de oportunidades cerradas (lecciones, sesgos, `would_invest_again`, precisión Wyckoff) |
+
+Al hacer clic en cualquier ticker se abre la **Case View** integrada: decisión,
+scores, tesis/riesgos del DDD, última investigación (con badge de staleness),
+Wyckoff y post-mortem si existe.
+
+### 12.3 Datos y frescura
+
+El sitio se alimenta de los YAML del journal, del conocimiento y de la cache diaria
+de precios (`idos.db#price_history`, último cierre disponible). Los campos P/L y
+precios del portfolio quedan marcados como `—` si aún no hay precios cacheados.
+
+El umbral de “research stale” por defecto es **30 días**, configurable en
+`idos-config/ui.yml`:
+
+```yaml
+stale_days: 30
+```
+
+### 12.4 Publicación automática
+
+El workflow **`gh-pages.yml`** regenera y publica el sitio en Pages automáticamente
+tras: el *Daily Data Refresh*, los pipelines (DDD / Universe / Rebalance / Digest),
+o cualquier push a `idos-journal/**` / `idos-knowledge/**` / `idos-config/ui.yml`.
+
+> Para publicar en tu repo: Settings → Pages → Source `GitHub Actions`.
+> La URL será `https://<tu-usuario>.github.io/<repo>/`.
+
+---
+
 *IDOS v0.2.0 — Family Office Investment Decision Operating System*
-*360+ tests · 28 comandos CLI · Ciclo de vida completo · Entry 100% algorítmico*
+*360+ tests · 28 comandos CLI · Ciclo de vida completo · Entry 100% algorítmico · UI estática*
 
 <!-- Test auto-commit skill -->

@@ -1156,3 +1156,16 @@ def auto_fix_apply(issue_number: int = typer.Argument(..., help="Issue number"))
         console.print(f"[green]PR created: {r['pr_url']}[/green]")
     else:
         console.print(f"[red]Apply failed: {r}[/red]")
+
+
+@app.command()
+def site_build(
+    output: str = typer.Option("site", help="Directorio de salida de la UI estática"),
+    stale_days: int = typer.Option(30, help="Días sin investigación para marcar stale"),
+):
+    """Genera la UI estática (HTML+JSON) publicable en GitHub Pages."""
+    from idos.site.builder import write_site
+    ctx = _get_context()
+    with console.status("[bold green]Generando sitio estático..."):
+        out = write_site(ctx.journal_path.parent, Path(output), stale_days=stale_days)
+    console.print(f"[green]Sitio generado en {out}[/green]")
