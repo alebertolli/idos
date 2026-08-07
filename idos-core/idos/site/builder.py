@@ -855,11 +855,11 @@ function renderOpp(){
       <td>${dt(o.last_research)} ${staleBadge(o)}</td></tr>`;
   });
   html += '</tbody></table>';
+  setView('opp', html);
   document.getElementById('opp-search').oninput = e=>{
     const q=e.target.value.toLowerCase();
     document.querySelectorAll('#opp tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'');
   };
-  setView('opp', html);
 }
 
 // ---------- Buy List ----------
@@ -928,8 +928,8 @@ function renderWiki(){
   html += `<table><thead><tr><th>Ticker</th><th>Nombre</th><th>Sector</th><th>Wiki</th></tr></thead><tbody>`;
   rows.forEach(r=>html+=`<tr><td><b>${esc(r.ticker)}</b></td><td>${esc(r.name)}</td><td>${esc(r.sector)}</td><td><a href="wiki/${esc(r.ticker)}.html">abrir</a></td></tr>`);
   html += '</tbody></table>';
-  document.getElementById('wiki-search').oninput = e=>{ document.querySelectorAll('#wiki tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(e.target.value.toLowerCase())?'':'') ; };
   setView('wiki', html);
+  document.getElementById('wiki-search').oninput = e=>{ document.querySelectorAll('#wiki tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(e.target.value.toLowerCase())?'':'') ; };
 }
 
 // ---------- Learning ----------
