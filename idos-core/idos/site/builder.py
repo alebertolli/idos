@@ -790,7 +790,7 @@ function wyPhase(p){ if(!p) return '—'; return `<span style="color:${colors[p]
 
 function renderShell(){
   document.getElementById('tabs').innerHTML = [
-    ['dashboard','Dashboard'],['screening','Discovery'],['opp','Oportunidades'],['buylist','Buy List'],['portfolio','Portfolio'],
+    ['dashboard','Dashboard'],['screening','Discovery'],['opp','Research'],['buylist','Buy List'],['portfolio','Portfolio'],
     ['wiki','Wiki'],['learning','Learning']
   ].map(([id,l])=>`<button class="tab" data-view="${id}">${l}</button>`).join('');
   document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderView(b.dataset.view); });
@@ -835,21 +835,17 @@ function renderDashboard(){
   setView('dashboard', html);
 }
 
-// ---------- Opportunities ----------
+// ---------- Research ----------
 function renderOpp(){
-  const opts = DATA.opportunities;
-  const active = opts.filter(o=>!['EXITED','POST_MORTEM','ARCHIVED'].includes(o.status));
-  const closed = opts.filter(o=>['EXITED','POST_MORTEM','ARCHIVED'].includes(o.status));
-  let html = '<div class="toolbar">';
-  html += `<select id="opp-filter-status"><option value="">Estado: todos</option>`+
-    [...new Set(active.map(o=>o.status))].sort().map(s=>`<option value="${s}">${s}</option>`).join('')+
-    `</select>`;
-  html += `<input id="opp-search" placeholder="Buscar ticker...">`;
-  html += `<button class="tab" onclick="renderOppHist()">Ver cerradas (${closed.length})</button></div>`;
-  html += `<table><thead><tr><th>Ticker</th><th>Estado</th><th>Conv.</th><th>Business</th><th>Valuation</th><th>Risk</th><th>Recovery</th><th>Portfolio</th><th>Precio</th><th>Intrínseco</th><th>Upside</th><th>Última inv.</th></tr></thead><tbody>`;
-  active.forEach(o=>{
+  const rows = DATA.opportunities.filter(o=>o.status==='UNDER_DEEP_DD');
+  let html = `<h2>Research (${rows.length})</h2>`;
+  html += `<p class="muted">Oportunidades en <b>Research / UNDER_DEEP_DD</b>: cases que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, Wyckoff y assessments). Hacé clic en un ticker para ver el detalle completo del activo.</p>`;
+  html += `<p class="muted">Estados siguientes (automatizados): el worker de Decision Board evalúa el caso y lo pasa a <b>APPROVED</b> (aprobado para entrada) o a <b>WATCHLIST</b> (rechazado) según las reglas de entrada.</p>`;
+  html += `<input id="opp-search" placeholder="Buscar ticker..." style="margin:8px 0">`;
+  html += `<table><thead><tr><th>Ticker</th><th>Conv.</th><th>Business</th><th>Valuation</th><th>Risk</th><th>Recovery</th><th>Portfolio</th><th>Precio</th><th>Intrínseco</th><th>Upside</th><th>Última inv.</th></tr></thead><tbody>`;
+  rows.forEach(o=>{
     html += `<tr style="cursor:pointer" onclick="showCase('${o.opp_id}')">
-      <td><b>${esc(o.ticker)}</b></td><td>${badge(o.status)}</td>
+      <td><b>${esc(o.ticker)}</b></td>
       <td>${o.conviction_overall??'—'}</td>
       <td>${o.scores?.BusinessAssessmentEngine??'—'}</td><td>${o.scores?.ValuationAssessmentEngine??'—'}</td>
       <td>${o.scores?.RiskAssessmentEngine??'—'}</td><td>${o.scores?.RecoveryAssessmentEngine??'—'}</td>
@@ -859,9 +855,10 @@ function renderOpp(){
       <td>${dt(o.last_research)} ${staleBadge(o)}</td></tr>`;
   });
   html += '</tbody></table>';
-  document.getElementById('opp-filter-status').onchange = e=>applyOppFilter(e.target.value);
-  document.getElementById('opp-search').oninput = e=>applyOppFilter(document.getElementById('opp-filter-status').value, e.target.value);
-  window.__oppHist = false;
+  document.getElementById('opp-search').oninput = e=>{
+    const q=e.target.value.toLowerCase();
+    document.querySelectorAll('#opp tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'');
+  };
   setView('opp', html);
 }
 function applyOppFilter(st, q=''){ document.querySelectorAll('#opp tbody tr').forEach(tr=>{ const okSt = !st || tr.innerHTML.includes(`st-${st}`); const okQ = !q || tr.textContent.toLowerCase().includes(q.toLowerCase()); tr.style.display = (okSt&&okQ)?'':'none'; }); }
