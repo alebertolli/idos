@@ -839,8 +839,8 @@ function renderDashboard(){
 function renderOpp(){
   const rows = DATA.opportunities.filter(o=>o.status==='UNDER_DEEP_DD');
   let html = `<h2>Research (${rows.length})</h2>`;
-  html += `<p class="muted">Oportunidades en <b>Research / UNDER_DEEP_DD</b>: cases que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, Wyckoff y assessments). Hacé clic en un ticker para ver el detalle completo del activo.</p>`;
-  html += `<p class="muted">Estados siguientes (automatizados): el worker de Decision Board evalúa el caso y lo pasa a <b>APPROVED</b> (aprobado para entrada) o a <b>WATCHLIST</b> (rechazado) según las reglas de entrada.</p>`;
+  html += `<p class="muted">Oportunidades en <b>Research / UNDER_DEEP_DD</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo.</p>`;
+  html += `<p class="muted">Estados siguientes (automatizados): el worker de Decision Board evalúa el caso y lo pasa a <b>APPROVED</b> (aprobado para entrada) o a <b>WATCHLIST</b> (rechazado) según las reglas de entrada. La transición es automática; no hay umbral numérico fijo.</p>`;
   html += `<input id="opp-search" placeholder="Buscar ticker..." style="margin:8px 0">`;
   html += `<table><thead><tr><th>Ticker</th><th>Conv.</th><th>Business</th><th>Valuation</th><th>Risk</th><th>Recovery</th><th>Portfolio</th><th>Precio</th><th>Intrínseco</th><th>Upside</th><th>Última inv.</th></tr></thead><tbody>`;
   rows.forEach(o=>{
@@ -855,11 +855,11 @@ function renderOpp(){
       <td>${dt(o.last_research)} ${staleBadge(o)}</td></tr>`;
   });
   html += '</tbody></table>';
-  setView('opp', html);
   document.getElementById('opp-search').oninput = e=>{
     const q=e.target.value.toLowerCase();
-    document.querySelectorAll('#opp tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'');
+    document.querySelectorAll('#opp tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'none');
   };
+  setView('opp', html);
 }
 
 // ---------- Buy List ----------
