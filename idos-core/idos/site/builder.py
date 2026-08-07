@@ -759,7 +759,8 @@ let DATA = null;
 const colors = {accumulation:'#16a34a',absorption:'#ca8a04',markdown:'#ea580c',distribution:'#dc2626'};
 
 async function boot(){
-  const r = await fetch('data.json');
+  const v = document.getElementById('gen-at') ? document.getElementById('gen-at').dataset.v : '';
+  const r = await fetch('data.json?v='+v);
   DATA = await r.json();
   renderShell();
   renderAll();
@@ -1005,7 +1006,7 @@ INDEX_TPL = """<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IDOS — Investment Decision Operating System</title>
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=GENV">
 </head>
 <body>
 <div class="wrap">
@@ -1013,9 +1014,9 @@ INDEX_TPL = """<!DOCTYPE html>
 <div class="tabs" id="tabs"></div>
 <div id="view"></div>
 <hr style="border-color:var(--border);margin:24px 0 12px">
-<p class="muted">Generado <span id="gen-at"></span> · <a href="wiki/index.html">Wiki</a> · <a href="learning.html">Learning</a></p>
+<p class="muted">Generado <span id="gen-at" data-v="GENV"></span> · <a href="wiki/index.html">Wiki</a> · <a href="learning.html">Learning</a></p>
 </div>
-<script src="assets/app.js"></script>
+<script src="assets/app.js?v=GENV"></script>
 </body>
 </html>
 """
@@ -1041,9 +1042,11 @@ def write_site(base_path: Path, out_dir: Path | None = None, stale_days: int = D
         json.dumps(_to_jsonable(data), ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    index_html = INDEX_TPL.replace(
-        '<span id="gen-at"></span>',
-        f'<span id="gen-at">{data.generated_at[:16]}</span>',
+    genv = data.generated_at[:16].replace(" ", "_")
+    index_html = (
+        INDEX_TPL.replace("GENV", genv)
+        .replace('<span id="gen-at" data-v="' + genv + '"></span>',
+                 f'<span id="gen-at" data-v="{genv}">{data.generated_at[:16]}</span>')
     )
     (out / "index.html").write_text(index_html, encoding="utf-8")
 
