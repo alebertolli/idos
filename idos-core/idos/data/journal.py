@@ -76,6 +76,65 @@ class JournalRepository:
                     pass
         return results
 
+    def hypothesis_path(self, ticker: str, opp_id: str) -> Path:
+        return self.opportunity_path(ticker, opp_id) / "hypotheses.yml"
+
+    def save_hypothesis(self, ticker: str, opp_id: str, hypothesis: dict[str, Any]):
+        path = self.hypothesis_path(ticker, opp_id)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        existing = []
+        if path.exists():
+            try:
+                existing = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("hypotheses", []) or []
+            except Exception:
+                existing = []
+        existing = [h for h in existing if h.get("id") != hypothesis.get("id")]
+        existing.append(hypothesis)
+        with open(path, "w", encoding="utf-8") as f:
+            yaml.dump({"hypotheses": existing}, f, default_flow_style=False, allow_unicode=True)
+
+    def load_hypotheses(self, ticker: str, opp_id: str) -> list[dict[str, Any]]:
+        path = self.hypothesis_path(ticker, opp_id)
+        if not path.exists():
+            return []
+        try:
+            data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+            return data.get("hypotheses", []) or []
+        except Exception:
+            return []
+
+    def list_all_hypotheses(self, status: str | None = None,
+                            opp_id: str | None = None) -> list[dict[str, Any]]:
+        results = []
+        companies_dir = self.base / "companies"
+        if not companies_dir.exists():
+            return results
+        for d in sorted(companies_dir.iterdir()):
+            if not d.is_dir():
+                continue
+            ticker = d.name
+            opp_dir = d / "case_file" / "opportunities"
+            if not opp_dir.exists():
+                continue
+            for opp in sorted(opp_dir.iterdir()):
+                if not opp.is_dir():
+                    continue
+                if opp_id and opp.name != opp_id:
+                    continue
+                hyp_file = opp / "hypotheses.yml"
+                if not hyp_file.exists():
+                    continue
+                try:
+                    data = yaml.safe_load(hyp_file.read_text(encoding="utf-8")) or {}
+                    for h in data.get("hypotheses", []) or []:
+                        h["ticker"] = ticker
+                        h["opportunity_id"] = opp.name
+                        if status is None or h.get("status") == status:
+                            results.append(h)
+                except Exception:
+                    pass
+        return results
+
     def save_decision(self, ticker: str, opp_id: str, decision: dict[str, Any]):
         path = self.opportunity_path(ticker, opp_id) / "decisions"
         path.mkdir(parents=True, exist_ok=True)

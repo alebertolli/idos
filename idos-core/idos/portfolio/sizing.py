@@ -1,4 +1,7 @@
 from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+from idos.config import Settings, load_settings
 
 
 @dataclass
@@ -15,9 +18,27 @@ class PositionSizer:
         SizingTranche(3, 1.0, "Catalyst confirmation or technical support"),
     ]
 
-    def __init__(self, max_position_pct: float = 3.0, min_asymmetry: float = 3.0):
+    def __init__(self, max_position_pct: float = 3.0, min_asymmetry: float = 3.0,
+                 settings: Settings | None = None, config_dir: str | Path | None = None):
+        if settings is None and config_dir is not None:
+            settings = load_settings(config_dir)
+        if settings is not None:
+            sizing = settings.sizing or {}
+            max_position_pct = float(sizing.get("max_position_pct", max_position_pct))
+            min_asymmetry = float(sizing.get("min_asymmetry", min_asymmetry))
+            tranches = sizing.get("tranches")
+            if tranches:
+                self.TRANCHE_CONFIG = [self._tranche(t) for t in tranches]
         self.max_position = max_position_pct
         self.min_asymmetry = min_asymmetry
+
+    @staticmethod
+    def _tranche(data: dict[str, Any]) -> SizingTranche:
+        return SizingTranche(
+            number=int(data.get("number", 0)),
+            pct_of_portfolio=float(data.get("pct_of_portfolio", 0)),
+            condition=str(data.get("condition", "")),
+        )
 
     def kelly_size(self, tsp: float, payoff_ratio: float, bankroll: float) -> float:
         if tsp <= 0 or payoff_ratio <= 0:

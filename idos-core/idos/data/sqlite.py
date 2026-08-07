@@ -119,6 +119,26 @@ class SQLiteStore:
                 UNIQUE(ticker, date)
             );
 
+            CREATE TABLE IF NOT EXISTS hypotheses (
+                id TEXT PRIMARY KEY,
+                opportunity_id TEXT NOT NULL,
+                ticker TEXT NOT NULL,
+                statement TEXT DEFAULT '',
+                status TEXT NOT NULL DEFAULT 'DRAFT',
+                priority TEXT DEFAULT 'important',
+                version INTEGER DEFAULT 1,
+                probability REAL DEFAULT 0.5,
+                confidence REAL DEFAULT 0.0,
+                parent_id TEXT DEFAULT '',
+                hypotheses_json TEXT DEFAULT '{}',
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL
+            );
+
+            CREATE INDEX IF NOT EXISTS idx_hyp_status ON hypotheses(status, updated_at DESC);
+            CREATE INDEX IF NOT EXISTS idx_hyp_opp ON hypotheses(opportunity_id);
+            CREATE INDEX IF NOT EXISTS idx_hyp_ticker ON hypotheses(ticker);
+
             CREATE INDEX IF NOT EXISTS idx_price_history_ticker ON price_history(ticker, date DESC);
             CREATE INDEX IF NOT EXISTS idx_opp_status ON opportunities(status, updated_at DESC);
             CREATE INDEX IF NOT EXISTS idx_opp_ticker ON opportunities(ticker);
@@ -277,6 +297,59 @@ class SQLiteStore:
             ORDER BY date DESC LIMIT 1
         """, (ticker.upper(),)).fetchone()
         return row["date"] if row else None
+
+    def save_hypothesis(self, hyp: dict[str, Any]):
+        hyp_json = dict(hyp)
+        hyp_json.pop("status", None)
+        with self._write_transaction() as c:
+            c.execute("""
+                INSERT INTO hypotheses (id, opportunity_id, ticker, statement, status, priority,
+                    version, probability, confidence, parent_id, hypotheses_json, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                hyp["id"], hyp["opportunity_id"], hyp["ticker"], hyp.get("statement", ""),
+                hyp.get("status", "DRAFT"), hyp.get("priority", "important"),
+                hyp.get("version", 1), hyp.get("probability", 0.5), hyp.get("confidence", 0.0),
+                hyp.get("parent_id", ""), json.dumps(hyp_json, default=str),
+                hyp.get("created_at", datetime.now(AR_TZ).isoformat()),
+                hyp.get("updated_at", datetime.now(AR_TZ).isoformat()),
+            ))
+
+    def get_hypothesis(self, hyp_id: str) -> dict[str, Any] | None:
+        c = self.conn
+        row = c.execute("SELECT * FROM hypotheses WHERE id = ?", (hyp_id,)).fetchone()
+        if row is None:
+            return None
+        result = dict(row)
+        stored = json.loads(result.pop("hypotheses_json", "{}"))
+        if isinstance(stored, dict):
+            result = {**stored, **result}
+        return result
+
+    def list_hypotheses(self, opp_id: str | None = None,
+                        status: str | None = None) -> list[dict[str, Any]]:
+        c = self.conn
+        where = []
+        params = []
+        if opp_id:
+            where.append("opportunity_id = ?")
+            params.append(opp_id)
+        if status:
+            where.append("status = ?")
+            params.append(status)
+        sql = "SELECT * FROM hypotheses"
+        if where:
+            sql += " WHERE " + " AND ".join(where)
+        sql += " ORDER BY updated_at DESC"
+        rows = c.execute(sql, params)
+        results = []
+        for row in rows.fetchall():
+            r = dict(row)
+            stored = json.loads(r.pop("hypotheses_json", "{}"))
+            if isinstance(stored, dict):
+                r = {**stored, **r}
+            results.append(r)
+        return results
 
     def close(self):
         if self._conn:

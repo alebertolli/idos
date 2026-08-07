@@ -1,0 +1,59 @@
+# ==============================================================================
+# Hypothesis Management Framework - Configuration central (HMF)
+# ------------------------------------------------------------------------------
+# Toda regla de negocio y límite vive aquí (o en portfolio.yml/risk.yml/scoring.yml).
+# El código NO debe contener números hardcodeados: lee siempre de Settings.
+# ==============================================================================
+
+rules:
+  # --- Autorización (Assessment -> Conviction, fase de entrada) ---
+  RULE-001:            # Business quality mínima
+    min_score: 70
+  RULE-002:            # Margen de precio objetivo vs precio actual
+    min_price_margin_pct: 20
+  RULE-003:            # Probabilidad de rerating mínima
+    min_score: 50
+  RULE-004:            # Score de riesgo mínimo permitido
+    min_score: 50
+  RULE-005:            # Conviction general mínima para entrada
+    min_score: 65
+  RULE-008:            # Asimetría mínima (benefit/risk)
+    min_ratio: 3.0
+
+  # --- Ejecución / PORTFOLIO (validado en ENTRY_PENDING y sizing) ---
+  RULE-006:            # Peso máximo por posición
+    max_position_pct: 3.0
+  RULE-007:            # Exposición máxima por sector
+    max_sector_exposure_pct: 25.0
+  RULE-009:            # Competencia por capital - máx posiciones activas
+    max_positions: 10
+
+conviction:
+  engine_weights:
+    BusinessAssessmentEngine: 0.30
+    ValuationAssessmentEngine: 0.25
+    RecoveryAssessmentEngine: 0.20
+    RiskAssessmentEngine: 0.15
+    PortfolioAssessmentEngine: 0.10
+  approval_threshold: 70
+  block_threshold: 50          # >= 50 PENDING_REVIEW; < 50 REJECT
+  high_confidence_count: 3
+  track_event_diff: 5
+
+sizing:
+  max_position_pct: 3.0
+  min_asymmetry: 3.0
+  tranches:
+    - number: 1
+      pct_of_portfolio: 1.0
+      condition: "Initial entry"
+    - number: 2
+      pct_of_portfolio: 1.0
+      condition: "First quarterly results align with thesis"
+    - number: 3
+      pct_of_portfolio: 1.0
+      condition: "Catalyst confirmation or technical support"
+
+proposal:
+  default_weight_pct: 3.0
+  horizon: "12-36 months"

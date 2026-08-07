@@ -29,6 +29,18 @@ class HypothesisStatus(StrEnum):
     CLOSED = "CLOSED"
 
 
+class HypothesisPriority(StrEnum):
+    CRITICAL = "critical"
+    IMPORTANT = "important"
+    INFORMATIONAL = "informational"
+
+
+class EvidenceCategory(StrEnum):
+    FACT = "FACT"
+    INFERENCE = "INFERENCE"
+    HYPOTHESIS = "HYPOTHESIS"
+
+
 class AssessmentStatus(StrEnum):
     PENDING = "PENDING"
     IN_PROGRESS = "IN_PROGRESS"

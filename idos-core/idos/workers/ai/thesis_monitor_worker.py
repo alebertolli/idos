@@ -69,6 +69,9 @@ class ThesisMonitorWorker(BaseWorker):
         opp["updated_at"] = datetime.now(AR_TZ).isoformat()
         sqlite.save_opportunity(opp)
 
+        cascade = self._sync_hypotheses_on_invalidation(ticker, opp_id, thesis_active,
+                                                        result, sqlite, journal, opp)
+
         yaml_opp = journal.load_opportunity(ticker, opp_id)
         if yaml_opp:
             yaml_opp["thesis_active"] = thesis_active
@@ -85,6 +88,7 @@ class ThesisMonitorWorker(BaseWorker):
             "risk_level": result.get("risk_level", ""),
             "confidence": result.get("confidence", 0),
             "trigger": trigger_source,
+            "cascade": cascade.get("cascade", "none"),
         }
         journal.log_event("thesis:reassessed", event_data, source="thesis_monitor_worker")
         sqlite.log_event("thesis:reassessed", event_data, source="thesis_monitor_worker")
@@ -100,9 +104,52 @@ class ThesisMonitorWorker(BaseWorker):
             "flags": result.get("flags", []),
             "reason": result.get("reason", ""),
             "risk_level": result.get("risk_level", ""),
+            print(f"[THESIS] {ticker}: thesis_active={thesis_active} trigger={trigger_source} "
+              f"flags={result.get('flags', [])} reason={result.get('reason', '')[:120]}")
+
+        return {
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "status": "completed",
+            "thesis_active": thesis_active,
+            "flags": result.get("flags", []),
+            "reason": result.get("reason", ""),
+            "risk_level": result.get("risk_level", ""),
             "confidence": result.get("confidence", 0),
             "recommendation": result.get("recommendation", ""),
+            "cascade": cascade.get("cascade", "none"),
         }
+
+    def _sync_hypotheses_on_invalidation(self, ticker: str, opp_id: str, thesis_active: bool,
+                                        result: dict[str, Any], sqlite: Any,
+                                        journal: Any, opp: dict[str, Any]) -> dict[str, Any]:
+        """Al invalidarse la tesis, marca hipótesis principales como INVALIDATED
+        y aplica la cascade (solo principal → EXITED). CLOSED no cierra oportunidad."""
+        if thesis_active:
+            return {"cascade": "none"}
+        from idos.research.lifecycle import apply_hypothesis_cascade
+        hypotheses = journal.load_hypotheses(ticker, opp_id)
+        if not hypotheses:
+            return {"cascade": "none"}
+        cascade = {"cascade": "none"}
+        for h in hypotheses:
+            is_principal = bool(h.get("parent_id") == "" and h.get("status") == "ACTIVE")
+            if h.get("status") in ("ACTIVE", "STRENGTHENING", "WEAKENING", "AT_RISK"):
+                h["status"] = "INVALIDATED"
+                h["updated_at"] = datetime.now(AR_TZ).isoformat()
+                h.setdefault("falsification", [])
+                h["falsification"].append({
+                    "condition": result.get("reason", "Tesis invalidada en re-assessment"),
+                    "triggered": True,
+                    "triggered_at": datetime.now(AR_TZ).isoformat(),
+                })
+                journal.save_hypothesis(ticker, opp_id, h)
+                result_cascade = apply_hypothesis_cascade(
+                    journal, sqlite, ticker, opp_id, h, is_principal=is_principal,
+                )
+                if is_principal and result_cascade.get("cascade") == "exited":
+                    cascade = result_cascade
+        return cascade
 
     def evaluate(self, ticker: str, opp_id: str, sqlite: SQLiteStore,
                  journal: JournalRepository, base_path: Path,

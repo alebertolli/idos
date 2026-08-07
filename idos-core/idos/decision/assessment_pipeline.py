@@ -18,6 +18,7 @@ from idos.rules.engine import RulesEngine, RuleResult
 from idos.models.knowledge import Rule
 from idos.models.enums import OpportunityStatus
 from idos.portfolio.buylist import BuyListManager, BuyListEntry
+from idos.config import load_settings
 from idos.timezone import AR_TZ
 from datetime import datetime
 
@@ -436,29 +437,41 @@ def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, ta
 
 def _eval_business(ctx):
     s = ctx.get("assessments", {}).get("BusinessAssessmentEngine", 0)
-    return RuleResult("RULE-001", s >= 70, f"Business quality: {s}/100")
+    t = ctx.get("_settings")
+    limit = t.rule_min_score("RULE-001", 70) if t else 70
+    return RuleResult("RULE-001", s >= limit, f"Business quality: {s}/{limit}")
 
 def _eval_valuation(ctx):
     pm = ctx.get("price_margin", 0)
-    return RuleResult("RULE-002", pm > 20, f"Price target margin: {pm:.1f}%")
+    t = ctx.get("_settings")
+    limit = t.rule_price_margin("RULE-002", 20) if t else 20
+    return RuleResult("RULE-002", pm > limit, f"Price target margin: {pm:.1f}% (min {limit})")
 
 def _eval_recovery(ctx):
     s = ctx.get("assessments", {}).get("RecoveryAssessmentEngine", 0)
-    return RuleResult("RULE-003", s >= 50, f"Rerating: {s}/100")
+    t = ctx.get("_settings")
+    limit = t.rule_min_score("RULE-003", 50) if t else 50
+    return RuleResult("RULE-003", s >= limit, f"Rerating: {s}/{limit}")
 
 def _eval_risk(ctx):
     s = ctx.get("assessments", {}).get("RiskAssessmentEngine", 0)
-    return RuleResult("RULE-004", s >= 50, f"Risk: {s}/100")
+    t = ctx.get("_settings")
+    limit = t.rule_min_score("RULE-004", 50) if t else 50
+    return RuleResult("RULE-004", s >= limit, f"Risk: {s}/{limit}")
 
 def _eval_conviction(ctx):
     c = ctx.get("conviction", {}).get("overall", 0)
-    return RuleResult("RULE-005", c >= 65, f"Conviction: {c}/100")
+    t = ctx.get("_settings")
+    limit = t.rule_min_score("RULE-005", 65) if t else 65
+    return RuleResult("RULE-005", c >= limit, f"Conviction: {c}/{limit}")
 
 def _eval_position_weight(ctx):
     port = ctx.get("portfolio", {})
     cur = port.get("position_weight", 0)
-    new_ctx = ctx.get("proposed_weight", 3.0)
-    return RuleResult("RULE-006", cur + new_ctx <= 3.0, f"Position weight: {cur + new_ctx:.1f}%")
+    t = ctx.get("_settings")
+    new_ctx = ctx.get("proposed_weight", t.default_weight_pct if t else 3.0)
+    limit = t.max_position_pct if t else 3.0
+    return RuleResult("RULE-006", cur + new_ctx <= limit, f"Position weight: {cur + new_ctx:.1f}% (max {limit})")
 
 def _eval_sector_exposure(ctx):
     port = ctx.get("portfolio", {})
@@ -466,8 +479,10 @@ def _eval_sector_exposure(ctx):
     company = ctx.get("company", {})
     sec = company.get("sector", "Unknown")
     cur = sec_exp.get(sec, 0)
-    new_ctx = ctx.get("proposed_weight", 3.0)
-    return RuleResult("RULE-007", cur + new_ctx <= 25.0, f"Sector exposure: {cur + new_ctx:.1f}%")
+    t = ctx.get("_settings")
+    new_ctx = ctx.get("proposed_weight", t.default_weight_pct if t else 3.0)
+    limit = t.max_sector_exposure_pct if t else 25.0
+    return RuleResult("RULE-007", cur + new_ctx <= limit, f"Sector exposure: {cur + new_ctx:.1f}% (max {limit})")
 
 def _eval_asymmetry(ctx):
     asym = ctx.get("asymmetry")
@@ -476,7 +491,9 @@ def _eval_asymmetry(ctx):
     br = asym.get("benefit_risk_ratio", 0)
     upside = asym.get("upside_esperado_pct", 0)
     downside = asym.get("downside_esperado_pct", 0)
-    passes = br >= 3.0
+    t = ctx.get("_settings")
+    limit = t.rule_min_ratio("RULE-008", 3.0) if t else 3.0
+    passes = br >= limit
     if passes:
         detail = f"B/R {br:.1f}:1 ✅ (upside {upside:.1f}% / downside {abs(downside):.1f}%)"
     else:
@@ -486,7 +503,9 @@ def _eval_asymmetry(ctx):
 def _eval_competition(ctx):
     port = ctx.get("portfolio", {})
     num_pos = port.get("num_positions", 0)
-    return RuleResult("RULE-009", num_pos < 10, f"Posiciones activas: {num_pos}/10 max (competencia por capital)")
+    t = ctx.get("_settings")
+    limit = t.max_positions if t else 10
+    return RuleResult("RULE-009", num_pos < limit, f"Posiciones activas: {num_pos}/{limit} max (competencia por capital)")
 
 ASSESSMENT_RULES = [
     (Rule(id="RULE-001", description="Minimum business quality score for entry", priority=100, condition="score >= 70", action="PASS"), _eval_business),
@@ -509,6 +528,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     sqlite = SQLiteStore(bp / "idos.db")
     knowledge = KnowledgeRepository(bp / "idos-knowledge")
     journal = JournalRepository(bp / "idos-journal")
+    settings = load_settings(bp / "idos-config")
 
     rules_engine = RulesEngine()
     _register_assessment_rules(rules_engine)
@@ -519,9 +539,11 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     orchestrator.register_engine(RecoveryAssessmentEngine())
     orchestrator.register_engine(RiskAssessmentEngine())
     orchestrator.register_engine(PortfolioAssessmentEngine())
-    orchestrator.conviction_calc = ConvictionCalculator()
+    orchestrator.conviction_calc = ConvictionCalculator(settings=settings)
 
     context = build_context(opp_id, ticker, bp, sqlite, knowledge, journal)
+    context["_settings"] = settings
+    context["proposed_weight"] = settings.default_weight_pct
 
     proposal = orchestrator.run_pipeline("opportunity:transitioned", context)
     if proposal is None:

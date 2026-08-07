@@ -8,7 +8,8 @@ from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.knowledge import KnowledgeRepository
 from idos.data.sqlite import SQLiteStore
-from idos.models.enums import OpportunityStatus
+from idos.models.enums import OpportunityStatus, HypothesisStatus, HypothesisPriority
+from idos.models.knowledge import Hypothesis, Prediction, FalsificationCondition
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
 from idos.timezone import AR_TZ
@@ -201,6 +202,8 @@ class ResearchWorker(BaseWorker):
         journal.save_assessment(ticker, opp_id, assessment)
 
         hypotheses = hypothesis_result.get("hipotesis", [])
+        self._persist_hypotheses(ticker, opp_id, thesis, hypotheses, journal, sqlite)
+
         case_file = journal.load_case_file(ticker) or {
             "ticker": ticker,
             "company_name": company.get("name", ticker),
@@ -306,6 +309,63 @@ class ResearchWorker(BaseWorker):
                 }
                 prior.append(item)
         return prior
+
+    def _persist_hypotheses(self, ticker: str, opp_id: str, thesis: str,
+                            raw: list[Any], journal: Any, sqlite: Any):
+        from datetime import datetime
+        now = datetime.now(AR_TZ).isoformat()
+        for idx, item in enumerate(raw):
+            if isinstance(item, str):
+                hyp_data: Any = {"statement": item}
+            elif isinstance(item, dict):
+                hyp_data = item.get("hipotesis", item)
+                if isinstance(hyp_data, str):
+                    hyp_data = {"statement": hyp_data}
+            else:
+                continue
+            statement = hyp_data.get("hipotesis") or hyp_data.get("statement") or ""
+            if not statement:
+                statement = hyp_data.get("statement_provisional", "")
+            hyp_id = hyp_data.get("id") or f"HYP-{opp_id}-{idx+1}"
+            predictions = []
+            for p in (hyp_data.get("predicciones") or []):
+                if isinstance(p, dict):
+                    predictions.append(Prediction(
+                        metric=p.get("metrica") or p.get("metric", ""),
+                        expected_value=p.get("valor_esperado", p.get("expected_value", 0)) or 0,
+                        unit=p.get("unidad", p.get("unit", "")),
+                        deadline=p.get("plazo") or p.get("deadline", ""),
+                    ))
+            falsification = []
+            for f in (hyp_data.get("condiciones_falsacion") or hyp_data.get("falsification") or []):
+                if isinstance(f, dict):
+                    falsification.append(FalsificationCondition(
+                        condition=f.get("condicion") or f.get("condition", ""),
+                        metric=f.get("metrica") or f.get("metric", ""),
+                        threshold=f.get("umbral", f.get("threshold", 0)) or 0,
+                    ))
+            priority_raw = hyp_data.get("prioridad", "important")
+            hypothesis = Hypothesis(
+                id=hyp_id,
+                opportunity_id=opp_id,
+                ticker=ticker.upper(),
+                statement=statement,
+                status=HypothesisStatus.ACTIVE,
+                priority=HypothesisPriority(priority_raw)
+                if priority_raw in ("critical", "important", "informational")
+                else HypothesisPriority.IMPORTANT,
+                probability=float(hyp_data["probabilidad"]) if isinstance(hyp_data.get("probabilidad"), (int, float)) else 0.5,
+                confidence=float(hyp_data["confianza"]) if isinstance(hyp_data.get("confianza"), (int, float)) else 0.0,
+                parent_id=hyp_data.get("parent_id", ""),
+                predictions=predictions,
+                falsification=falsification,
+                falsification_conditions=[f.condition for f in falsification],
+            )
+            journal.save_hypothesis(ticker.upper(), opp_id, hypothesis.to_dict())
+            sqlite.save_hypothesis(hypothesis.to_dict())
+            print(f"[HYP] {ticker} ({opp_id}): persistida hipótesis '{statement[:60]}' id={hypothesis.id}")
+        if raw:
+            print(f"[HYP] {ticker} ({opp_id}): {len(raw)} hipótesis persistidas en hypotheses.yml + SQLite")
 
     def _fetch_target_consensus(self, ticker: str, bp: Any) -> dict[str, Any] | None:
         try:
