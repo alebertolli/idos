@@ -5,3 +5,5 @@
 - `git` está en `C:\Program Files\Git\bin\git.exe` (no en PATH).
 - Usar siempre `& "C:\Program Files\Git\bin\git.exe"` para comandos git.
 - Flujo: `git add -A` → `git commit -m "..."` → `git pull --rebase --autostash` → `git push`.
+
+- Verificar cada cambio si existe documentación de SDD o en README y ajustar si es necesario
