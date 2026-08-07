@@ -221,6 +221,15 @@ class SiteBuilder:
         self.db_path = base_path / "idos.db"
         self.stale_days = stale_days
         self.prices: dict[str, dict[str, Any]] = self._load_prices()
+        self.disc_min_score = self._load_disc_min_score()
+
+    def _load_disc_min_score(self) -> int:
+        cfg = _load_yaml(self.config / "scoring.yml")
+        if isinstance(cfg, dict):
+            v = cfg.get("scoring", {}).get("min_opportunity_score")
+            if isinstance(v, int):
+                return v
+        return 70
 
     # -- prices from daily cache (SQLite) --
     def _load_prices(self) -> dict[str, dict[str, Any]]:
@@ -918,11 +927,7 @@ function renderPortfolio(){
 function renderScreening(){
   const rows = DATA.watchlist;
   let html = `<h2>Discovery (${rows.length})</h2>`;
-  html += `<p class="muted">Candidatos del Discovery Domain (Scout). Estas oportunidades provienen del screening sistemático y están en <b>Discovery</b> — el primer estado del funnel del proceso de inversión.</p>`;
-  html += `<p class="muted">Condiciones actuales en este estado:</p>
-<ul class="muted"><li>Score de screening por encima del umbral configurado del motor de descubrimiento.</li><li>Validación de tradeabilidad: liquidez mínima y precio alcanzable verificados por el Discovery Owner.</li><li>Caso aceptado explícitamente en Discovery; no ha sido promovido a Research aún.</li></ul>`;
-  html += `<p class="muted">Condiciones para pasar al siguiente estado (<b>Research / UNDER_DEEP_DD</b>):</p>
-<ul class="muted"><li>El Discovery Owner aprueba el caso y ejecuta el kick-off de due diligence.</li><li>Los checks de entrada (liquidez, precio, tradeability) siguen vigentes.</li><li>Una vez aprobado, el worker de Research lo promueve a UNDER_DEEP_DD y desaparece de Discovery.</li></ul>`;
+  html += `<p class="muted">Candidatos del Discovery Domain (Scout), primer estado del funnel. La promoción es automática por el pipeline mensual: si el score de screening es <b>≥ ${DISC_MIN_SCORE}</b> (umbral <code>scoring.min_opportunity_score</code>), el caso pasa solo a <b>Research / UNDER_DEEP_DD</b>, sin aprobación manual.</p>`;
   html += `<table><thead><tr><th>Ticker</th><th>Score</th><th>Razón</th><th>Agregado</th></tr></thead><tbody>`;
   rows.forEach(r=>html+=`<tr><td><b>${esc(r.ticker)}</b></td><td>${r.score??'—'}</td><td>${esc(r.reason)}</td><td>${dt(r.added_at)}</td></tr>`);
   html += '</tbody></table>';
@@ -1041,7 +1046,9 @@ def write_site(base_path: Path, out_dir: Path | None = None, stale_days: int = D
     (out / "learning").mkdir(parents=True, exist_ok=True)
 
     (out / "assets" / "style.css").write_text(STYLE_CSS, encoding="utf-8")
-    (out / "assets" / "app.js").write_text(APP_JS, encoding="utf-8")
+    (out / "assets" / "app.js").write_text(
+        f"const DISC_MIN_SCORE = {builder.disc_min_score};\n" + APP_JS, encoding="utf-8"
+    )
     (out / "data.json").write_text(
         json.dumps(_to_jsonable(data), ensure_ascii=False, indent=2), encoding="utf-8"
     )
