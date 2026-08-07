@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 60 companies tracked
+Total: 61 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -65,6 +65,9 @@ Total: 60 companies tracked
 
 ## Industrials
 - 📄 [[BA|The Boeing Company]]
+
+## Real Estate
+- 📄 [[O|O]]
 
 ## Technology
 - 📄 [[ADBE|Adobe Inc.]]
