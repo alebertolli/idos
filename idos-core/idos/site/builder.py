@@ -788,6 +788,18 @@ function renderShell(){
 
 function renderAll(){ renderView('dashboard'); }
 
+function renderView(id){
+  id = id || 'dashboard';
+  if(id==='dashboard') return renderDashboard();
+  if(id==='opp') return renderOpp();
+  if(id==='buylist') return renderBuylist();
+  if(id==='portfolio') return renderPortfolio();
+  if(id==='screening') return renderScreening();
+  if(id==='wiki') return renderWiki();
+  if(id==='learning') return renderLearning();
+  renderDashboard();
+}
+
 // ---------- Dashboard ----------
 function renderDashboard(){
   const d = DATA.dashboard;
