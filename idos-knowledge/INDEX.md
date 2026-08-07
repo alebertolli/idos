@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 61 companies tracked
+Total: 62 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -84,6 +84,7 @@ Total: 61 companies tracked
 - 📄 [[SHOP|Shopify Inc.]]
 - 📄 [[TSM|Taiwan Semiconductor Manufacturing Company Limited]]
 - 📄 [[UBER|Uber Technologies, Inc.]]
+- 📄 [[XYZ|Block, Inc.]]
 
 ## Utilities
 - 📄 [[SBS|Companhia de Saneamento Básico do Estado de São Paulo - SABESP]]
