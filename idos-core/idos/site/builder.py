@@ -781,8 +781,8 @@ function wyPhase(p){ if(!p) return '—'; return `<span style="color:${colors[p]
 
 function renderShell(){
   document.getElementById('tabs').innerHTML = [
-    ['dashboard','Dashboard'],['opp','Oportunidades'],['buylist','Buy List'],['portfolio','Portfolio'],
-    ['screening','Watchlist'],['wiki','Wiki'],['learning','Learning']
+    ['dashboard','Dashboard'],['screening','Discovery'],['opp','Oportunidades'],['buylist','Buy List'],['portfolio','Portfolio'],
+    ['wiki','Wiki'],['learning','Learning']
   ].map(([id,l])=>`<button class="tab" data-view="${id}">${l}</button>`).join('');
   document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderView(b.dataset.view); });
 }
@@ -917,8 +917,12 @@ function renderPortfolio(){
 // ---------- Screening Watchlist ----------
 function renderScreening(){
   const rows = DATA.watchlist;
-  let html = `<h2>Watchlist de screening (${rows.length})</h2>`;
-  html += `<p class="muted">Candidatos del Discovery Domain (Scout). Distinto de las oportunidades activas.</p>`;
+  let html = `<h2>Discovery (${rows.length})</h2>`;
+  html += `<p class="muted">Candidatos del Discovery Domain (Scout). Estas oportunidades provienen del screening sistemático y están en <b>Discovery</b> — el primer estado del funnel del proceso de inversión.</p>`;
+  html += `<p class="muted">Condiciones actuales en este estado:</p>
+<ul class="muted"><li>Score de screening por encima del umbral configurado del motor de descubrimiento.</li><li>Validación de tradeabilidad: liquidez mínima y precio alcanzable verificados por el Discovery Owner.</li><li>Caso aceptado explícitamente en Discovery; no ha sido promovido a Research aún.</li></ul>`;
+  html += `<p class="muted">Condiciones para pasar al siguiente estado (<b>Research / UNDER_DEEP_DD</b>):</p>
+<ul class="muted"><li>El Discovery Owner aprueba el caso y ejecuta el kick-off de due diligence.</li><li>Los checks de entrada (liquidez, precio, tradeability) siguen vigentes.</li><li>Una vez aprobado, el worker de Research lo promueve a UNDER_DEEP_DD y desaparece de Discovery.</li></ul>`;
   html += `<table><thead><tr><th>Ticker</th><th>Score</th><th>Razón</th><th>Agregado</th></tr></thead><tbody>`;
   rows.forEach(r=>html+=`<tr><td><b>${esc(r.ticker)}</b></td><td>${r.score??'—'}</td><td>${esc(r.reason)}</td><td>${dt(r.added_at)}</td></tr>`);
   html += '</tbody></table>';
