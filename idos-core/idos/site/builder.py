@@ -5,7 +5,7 @@ Output: `site/index.html`, `site/data.json`, `site/wiki/*.html`,
 `site/assets/app.js`, `site/assets/style.css`.
 
 The site is a single-page app with tabs:
-  Dashboard · Oportunidades · Buy List · Portfolio · Watchlist (screening) · Wiki · Learning
+  Dashboard · Discovery · Research · Buy List · Portfolio · Wiki · Learning
 
 No server required: publish `site/` to GitHub Pages.
 """
@@ -859,17 +859,6 @@ function renderOpp(){
     const q=e.target.value.toLowerCase();
     document.querySelectorAll('#opp tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'');
   };
-  setView('opp', html);
-}
-function applyOppFilter(st, q=''){ document.querySelectorAll('#opp tbody tr').forEach(tr=>{ const okSt = !st || tr.innerHTML.includes(`st-${st}`); const okQ = !q || tr.textContent.toLowerCase().includes(q.toLowerCase()); tr.style.display = (okSt&&okQ)?'':'none'; }); }
-function renderOppHist(){
-  const closed = DATA.opportunities.filter(o=>['EXITED','POST_MORTEM','ARCHIVED'].includes(o.status));
-  let html = `<button class="tab" onclick="renderOpp()">← Volver a activas</button>`;
-  html += `<h2>Oportunidades cerradas (${closed.length})</h2>`;
-  if(!closed.length) html += `<div class="card"><p class="muted">Aún no hay oportunidades cerradas. Cuando un caso pase a EXITED/POST_MORTEM/ARCHIVED aparecerá aquí.</p></div>`;
-  html += `<table><thead><tr><th>Ticker</th><th>Estado</th><th>Exit</th><th>Convicción</th><th>Última inv.</th><th>Post-mortem</th></tr></thead><tbody>`;
-  closed.forEach(o=>html+=`<tr style="cursor:pointer" onclick="showCase('${o.opp_id}')"><td><b>${esc(o.ticker)}</b></td><td>${badge(o.status)}</td><td>${esc(o.decision?.decision_type||'—')}</td><td>${o.conviction_overall??'—'}</td><td>${dt(o.last_research)}</td><td>${o.has_post_mortem?'<span class="badge" style="background:#102a1d;color:#4ade80">sí</span>':'no'}</td></tr>`);
-  html += '</tbody></table>';
   setView('opp', html);
 }
 
