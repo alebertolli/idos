@@ -1,132 +1,42 @@
-calidad_evidencia:
-  hechos_verificados:
-  - Ingresos TTM de $12.65B con crecimiento interanual del 11.7%.
-  - Margen operativo TTM del 20.5% y ROIC del 15.9%.
-  - Ratio Deuda/Patrimonio controlado de 0.3x.
-  inferencias_llm:
-  - Brian Chesky sigue al mando de la compañía como cofundador y CEO con un liderazgo
-    centrado en producto, a pesar de que la tabla de datos inicial indicara 0 años
-    por limitación de datos.
-  - La expansión a servicios patrocinados (take-rate expansion) proporciona un catalizador
-    de margen con un esfuerzo de capex marginal nulo.
-  - La diversificación geográfica mitiga de forma efectiva los vientos en contra regulatorios
-    en ciudades individuales específicas.
-  preguntas_abiertas:
-  - ¿Cuál será el impacto neto consolidado de las restricciones de alquiler de corta
-    estancia vigentes en la Unión Europea durante los próximos 24 meses?
-  - ¿A qué ritmo se recuperará la cuota de mercado y penetración del segmento 'Experiencias'
-    tras su rediseño estratégico?
-clasificacion_oportunidad:
-  categoria: quality_at_fair_price
-  categorias_descartadas: 'Descartadas: ''Compounder castigado'' (no sufre una penalización
-    drástica en precio por colapso temporal de fundamentales), ''Hype'' (ya genera
-    beneficios reales sostenidos y alto flujo de caja, lejos de ser especulativa)
-    y ''Cíclica'' (aunque depende del consumo discrecional, su modelo de plataforma
-    y ganancias de cuota estructural la distancian de una cíclica pura).'
-  justificacion: Airbnb es un negocio de calidad excepcional respaldado por efectos
-    de red bilaterales, una marca que se ha convertido en verbo global y un modelo
-    de activo ultra-ligero con elevada generación orgánica de caja. Aunque el crecimiento
-    se ha moderado tras la normalización post-pandemia (+11.7% TTM), la compañía mantiene
-    márgenes operativos sólidos del 20.5% y un ROIC cercano al 16%. La valoración
-    actual refleja adecuadamente sus perspectivas inmediatas sin otorgar plena prima
-    de monopolio, ofreciendo una oportunidad de inversión en una franquicia superior
-    a un precio razonable.
-dominio_business_quality:
-  analisis: Airbnb goza de uno de los moats basados en efectos de red de dos lados
-    más potentes de la economía digital. La oferta exclusiva de anfitriones atrae
-    a millones de huéspedes orgánicamente (más del 90% del tráfico es directo o no
-    pagado), lo que a su vez atrae a más anfitriones. La marca es sinónimo de la categoría.
-    Al no poseer bienes inmuebles, el modelo es altamente escalable y resistente a
-    variaciones en costes de capital inmobiliario.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Aumento del take-rate mediante el despliegue de monetización de herramientas
     de marketing para anfitriones (sponsored listings).
+  generated_at: '2026-07-27T00:36:24.994363-03:00'
   horizonte: corto
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 75
+  opp_id: OPP-20260725-031
+  probabilidad_anterior: 75
 - descripcion: Aceleración de cuota de mercado en regiones emergentes de Asia-Pacífico
     y Latinoamérica mediante adaptaciones locales de pago y marketing.
+  generated_at: '2026-07-27T00:36:24.994363-03:00'
   horizonte: medio
   impacto: medio
   nivel_confianza: medio
-  probabilidad_pct: 65
+  opp_id: OPP-20260725-031
+  probabilidad_anterior: 65
 - descripcion: Ejecución continua de programas masivos de recompra de acciones reduciendo
     el recuento de acciones diluidas.
+  generated_at: '2026-07-27T00:36:24.994363-03:00'
   horizonte: corto
   impacto: medio
   nivel_confianza: alto
-  probabilidad_pct: 90
-dominio_esg_supply_chain:
-  analisis: 'El riesgo ESG principal radica en la vertiente Social y de Gobernanza
-    Regulatoria (''S'' y ''G''): tensiones en ciudades turísticas masificadas sobre
-    el acceso a la vivienda asequible, que generan presiones legislativas (bans o
-    límites de días). No hay riesgos significativos de cadena de suministro física
-    al ser un negocio 100% digital respaldado por infraestructura en la nube.'
-  rating: medio_riesgo
-dominio_financial_health:
-  analisis: El balance presenta una estructura altamente solvente con una razón Deuda/Patrimonio
-    de solo 0.3x. La dinamica de capital de trabajo es muy favorable, ya que la plataforma
-    cobra las reservas por adelantado generando un flotante operativo significativo
-    antes de liquidar a los anfitriones. Mantiene altos niveles de liquidez en caja
-    e inversiones a corto plazo que cubren holgadamente sus vencimientos de deuda.
-  rating: fuerte
-dominio_growth:
-  analisis: 'Los vectores de crecimiento incluyen: 1) Expansión internacional en mercados
-    sub-penetrado como Japón, Corea del Sur, Brasil y Alemania; 2) Estancias de larga
-    duración (más de 28 días) impulsadas por la flexibilidad laboral remota/híbrida;
-    3) Opcionalidad de monetización a través de servicios para anfitriones, anuncios
-    patrocinados y reanzamiento de ''Experiencias''.'
-  rating: fuerte
-dominio_management:
-  analisis: Liderada por su cofundador Brian Chesky, la directiva ha demostrado una
-    agilidad ejecutiva sobresaliente, reestructurando radicalmente la base de costes
-    durante la crisis de 2020 para convertir a ABNB en una máquina hiper-rentable.
-    La alineación con los accionistas a largo plazo es total debido a la sustancial
-    participación patrimonial de los fundadores y su enfoque en el diseño de producto
-    y la asignación disciplinada de capital mediante recompras de acciones.
-  rating: excepcional
-dominio_riesgos:
-- impacto: medio
-  probabilidad: alta
-  riesgo: Riesgo regulatorio y prohibiciones municipales (ej. leyes de alquiler a
-    corto plazo restrictivas en grandes metrópolis).
-- impacto: medio
-  probabilidad: media
-  riesgo: Desaceleración macroeconómica global que reduzca el gasto discrecional en
-    viajes y turismo.
-- impacto: bajo
-  probabilidad: media
-  riesgo: Competencia creciente de OTA tradicionales (Booking Holdings, VRBO/Expedia)
-    invirtiendo agresivamente en oferta alternativa.
-error_mercado:
-  catalizador_cambio:
-    descripcion: Lanzamiento y escalado exitoso de nuevas líneas de ingresos de alto
-      margen (anuncios patrocinados de anfitriones y marketplace de co-anfitriones)
-      sumado al crecimiento sostenido de estancias de larga duración.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 70
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado asume que Airbnb ha entrado en una fase de madurez con
-    crecimiento de ingresos estabilizado en el rango del 10-12%, presionado por crecientes
-    regulaciones municipales (restricciones de alquiler de corta estancia en ciudades
-    clave como Nueva York o normativas europeas) y saturación de la oferta de anfitriones
-    en mercados maduros.
-  hipotesis_contraria: El mercado subestima el poder de monetización adicional del
-    ecosistema de Airbnb y la rigidez de la demanda. La compañía está pasando de ser
-    un mero intermediario de alojamiento a una plataforma de servicios de estilo de
-    vida y estancias prolongadas (>28 días). La introducción de anuncios patrocinados
-    (sponsored listings), tarifas por servicios auxiliares para anfitriones y la expansión
-    en Asia-Pacífico y Latinoamérica permiten una reasceleración del valor bruto de
-    reservas (GBV) y una expansión de márgenes sin requerir mayor capex.
-  razonamiento: Existe un desajuste entre la visión a corto plazo del mercado —enfocada
-    en la regulación urbana local y la normalización del turismo— y la capacidad a
-    largo plazo de Airbnb para expandir su 'take-rate' mediante opcionalidad de nuevos
-    productos en una plataforma con costos marginales prácticamente nulos.
-generated_at: '2026-07-27T00:36:24.994363-03:00'
-opinion_valoracion: infravalorado
+  opp_id: OPP-20260725-031
+  probabilidad_anterior: 90
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-08-07T23:34:46.147546-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-031
 prompt_inputs:
   business_model: Airbnb, Inc., together with its subsidiaries, operates a platform
@@ -136,33 +46,30 @@ prompt_inputs:
     & Breakfast, Inc. and changed its name to Airbnb, Inc. in November 2010. Airbnb,
     Inc. was founded in 2007 and is headquartered in San Francisco, California.
   ceo_tenure: 0
-  debt_to_equity: 0.33
+  debt_to_equity: 0.32
   fcf_adjusted: 0
   insider_ownership: 0
   name: Airbnb, Inc.
-  operating_margin: 20.49
-  pe_ratio: 34.59
+  operating_margin: 20.81
+  pe_ratio: 34.35
   products: ''
-  revenue: 12650000000.0
-  revenue_growth: 11.71
-  roic: 15.89
+  revenue: 13160000000.0
+  revenue_growth: 11.7
+  roic: 16.83
   sector: Consumer Cyclical
   ticker: ABNB
-resumen_ejecutivo: Airbnb (ABNB) representa una franquicia dominante en el sector
-  global de alojamiento y experiencias. Con un modelo marketplace de activos ligeros,
-  genera $12.65B en ingresos TTM (+11.7% interanual) y un margen operativo del 20.5%.
-  Mantiene un balance muy sólido con bajo endeudamiento (D/E 0.3x) y una posición
-  dominante en la mente del consumidor global. A pesar del escrutinio regulatorio
-  continuo, la escala de la plataforma y sus efectos de red le otorgan un moat competitivo
-  duradero. Se recomienda una asignación estratégica dentro de la categoría Quality
-  at Fair Price.
-score_general: 84
-tesis_inversion: Airbnb posee una ventaja competitiva estructuralmente duradera gracias
-  a su red bilateral y fuerza de marca global. La valoración actual cotiza a múltiplos
-  razonables considerando su perfil de alto retorno sobre capital (ROIC ~16%), margen
-  operativo (>20%) y generación neta de flujo de caja libre. A medida que el mercado
-  compruebe que la regulación urbana no detiene el crecimiento global y que las nuevas
-  vías de monetización incrementan el valor por reserva, el título experimentará una
-  revalorización por expansión de múltiplos y crecimiento de beneficios.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-08-07T23:34:15.021916-03:00'
+  fuentes:
+    stockanalysis: 170.37
+    yfinance: 160.74615
+  mediana: 165.56
+  n_fuentes: 2
+  promedio: 165.56
+  target_high: 200.0
+  target_low: 115.0
+tesis_inversion: ''
 ticker: ABNB
 version: '3.0'
