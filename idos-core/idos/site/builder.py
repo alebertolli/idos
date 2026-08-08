@@ -355,6 +355,7 @@ class SiteBuilder:
         # Real scores live in decision_proposal; opportunity.yml often has zeros.
         final_scores = {k: (v if v else scores.get(k)) for k, v in scores_conv.items()}
         final_scores.update({k: v for k, v in scores.items() if k not in final_scores})
+        final_scores = {k: v for k, v in final_scores.items() if v is not None and v != 0}
 
         current_price = opp.get("current_price")
         intrinsic = opp.get("intrinsic_value")
