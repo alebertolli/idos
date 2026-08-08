@@ -1,0 +1,1 @@
+Inversión en una plataforma de salud digital que está transformando el acceso a tratamientos crónicos mediante un modelo de suscripción escalable, aprovechando la desregulación de la experiencia del paciente.

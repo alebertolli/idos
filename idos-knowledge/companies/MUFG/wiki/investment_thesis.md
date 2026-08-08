@@ -1,0 +1,1 @@
+MUFG es un compounder castigado con un modelo de negocio sólido y un moat duradero, pero el mercado subestima su capacidad de generación de valor a largo plazo. La recuperación del sector financiero global y la eficiencia operativa podrían revertir la valoración actual.

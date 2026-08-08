@@ -37,11 +37,11 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 31.5
 - **Operating Margin**: 29.4
-- **Revenue Growth**: 7.14
+- **Revenue Growth**: 7.17
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.86
-- **PER**: 41.29
-- **EV/EBITDA**: 24.12
+- **PER**: 42.21
+- **EV/EBITDA**: 24.66
 
 ---
 
@@ -59,4 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[AMZN|Amazon.com, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[LVS|Las Vegas Sands Corp.]], [[PDD|PDD Holdings Inc.]], [[TCOM|Trip.com Group Limited]]
+- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[AMZN|Amazon.com, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[LVS|Las Vegas Sands Corp.]], [[MELI|MercadoLibre, Inc.]], [[NIO|NIO]], [[PDD|PDD Holdings Inc.]], [[TCOM|Trip.com Group Limited]]
+- **Same Industry**: [[NIO|NIO]]

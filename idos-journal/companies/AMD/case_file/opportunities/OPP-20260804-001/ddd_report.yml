@@ -1,16 +1,87 @@
-calidad_evidencia: {}
-clasificacion_oportunidad: {}
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-08-06T07:39:49.834034-03:00'
-integridad_tesis: {}
-opinion_valoracion: ''
+calidad_evidencia:
+  hechos_verificados:
+  - AMD tiene un historial de crecimiento de ingresos sólido
+  - La empresa tiene una cartera diversificada de productos
+  inferencias_llm:
+  - El equipo de gestión de AMD es capaz
+  - La competencia en el mercado de semiconductores podría aumentar
+  preguntas_abiertas:
+  - ¿Cómo afectará la competencia aumentada a la participación de mercado de AMD?
+  - ¿Cuál será el impacto de la disminución en la demanda de productos de alta tecnología
+    en el negocio de AMD?
+catalizadores_previos: []
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: Compounder castigado, Turnaround, Deep Value, Cíclica, Special
+    Situation, Distressed, Quality at Fair Price, Hype, Value Trap
+  justificacion: AMD ha demostrado un historial de crecimiento sólido y una posición
+    competitiva en el mercado de semiconductores, con una cartera diversificada de
+    productos y una presencia significativa en segmentos como el centro de datos,
+    el gaming y los productos integrados.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: AMD tiene una cartera diversificada de productos y una presencia significativa
+    en segmentos clave, lo que le permite mantener una posición competitiva en el
+    mercado.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Lanzamiento de nuevos productos
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 80
+- descripcion: Expansión en nuevos mercados
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 60
+dominio_esg_supply_chain:
+  analisis: AMD tiene un historial de cumplimiento de normas ESG y una cadena de suministro
+    diversificada, lo que reduce el riesgo de interrupciones en la cadena de suministro.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: AMD tiene un historial de crecimiento de ingresos sólido y una generación
+    de caja significativa, lo que le permite invertir en su negocio y pagar dividendos
+    a sus accionistas.
+  rating: fuerte
+dominio_growth:
+  analisis: AMD tiene un historial de crecimiento de ingresos sólido y una cartera
+    diversificada de productos, lo que le permite mantener un ritmo de crecimiento
+    significativo en el futuro.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo de gestión de AMD ha demostrado ser capaz de ejecutar su estrategia
+    y tomar decisiones informadas para impulsar el crecimiento del negocio.
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Competencia aumentada
+- impacto: alto
+  probabilidad: baja
+  riesgo: Disminución en la demanda de productos de alta tecnología
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un aumento significativo en la competencia o una disminución en la
+      demanda de productos de alta tecnología
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 20
+  conclusion_error_valoracion: 'NO'
+  consenso_actual: El mercado espera que AMD continúe creciendo a un ritmo acelerado,
+    impulsado por la demanda de productos de alta tecnología y la expansión en nuevos
+    mercados.
+  hipotesis_contraria: La competencia en el mercado de semiconductores podría aumentar,
+    lo que podría afectar la participación de mercado y los márgenes de AMD.
+  razonamiento: El mercado parece tener una visión realista del potencial de crecimiento
+    de AMD, y no hay indicios claros de un error de valoración significativo.
+generated_at: '2026-08-07T21:18:10.864899-03:00'
+integridad_tesis:
+  flags: []
+  reason: No hay indicios de que la tesis de inversión se haya visto afectada por
+    factores negativos.
+  thesis_active: true
+opinion_valoracion: justo
 opp_id: OPP-20260804-001
 prompt_inputs:
   business_model: 'Advanced Micro Devices, Inc. operates as a semiconductor company
@@ -43,26 +114,31 @@ prompt_inputs:
   fcf_adjusted: 0
   insider_ownership: 0
   name: AMD
-  operating_margin: 11.78
-  pe_ratio: 172.93
+  operating_margin: 15.82
+  pe_ratio: 124.88
   products: ''
-  revenue: 37450000000.0
-  revenue_growth: 46.88
-  roic: 7.83
+  revenue: 41310000000.0
+  revenue_growth: 50.84
+  roic: 9.77
   sector: Technology
   ticker: AMD
-resumen_ejecutivo: ''
-score_general: 50
+resumen_ejecutivo: AMD es un compounder con un historial de crecimiento sólido y una
+  posición competitiva en el mercado de semiconductores. Aunque hay riesgos potenciales,
+  el consenso del mercado parece ser razonable.
+score_general: 80
 target_consensus:
-  calculado_at: '2026-08-06T07:39:18.281635-03:00'
+  calculado_at: '2026-08-07T21:18:04.893274-03:00'
   fuentes:
-    stockanalysis: 606.42
-    yfinance: 579.1064
-  mediana: 592.76
+    stockanalysis: 608.23
+    yfinance: 608.2261
+  mediana: 608.23
   n_fuentes: 2
-  promedio: 592.76
+  promedio: 608.23
   target_high: 1250.0
   target_low: 365.0
-tesis_inversion: ''
+tesis_inversion: AMD es un compounder con un historial de crecimiento sólido y una
+  posición competitiva en el mercado de semiconductores. La empresa tiene un equipo
+  de gestión capaz y una cartera diversificada de productos, lo que le permite mantener
+  un ritmo de crecimiento significativo en el futuro.
 ticker: AMD
 version: '3.0'

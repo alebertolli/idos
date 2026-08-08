@@ -37,10 +37,10 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 1.02
 - **Operating Margin**: 25.58
-- **Revenue Growth**: 3.94
+- **Revenue Growth**: 3.01
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.0946
-- **PER**: 10.57
+- **PER**: 11.62
 - **EV/EBITDA**: 0
 
 ---
@@ -59,4 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[HDB|HDFC Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
+- **Same Sector**: [[AXP|American Express Company]], [[BCS|Barclays PLC]], [[BMNR|Bitmine Immersion Technologies, Inc.]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[GS|GS]], [[HDB|HDFC Bank Limited]], [[HOOD|Robinhood Markets, Inc.]], [[HSBC|HSBC Holdings plc]], [[HUT|Hut 8 Corp.]], [[IBN|IBN]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPM]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
+- **Same Industry**: [[BMNR|Bitmine Immersion Technologies, Inc.]], [[GS|GS]], [[HOOD|Robinhood Markets, Inc.]], [[HUT|Hut 8 Corp.]]
