@@ -374,22 +374,83 @@ class SiteBuilder:
         if last_research_dt:
             stale_days = max(0, (datetime.now(AR_TZ).replace(tzinfo=None) - last_research_dt.replace(tzinfo=None)).days)
 
-        # ddd report summary
+        # ddd report summary (full thesis for the board)
         ddd_summary = {
             "categoria": None,
+            "clasificacion": {},
             "ratings": {},
             "riesgos": [],
+            "resumen_ejecutivo": None,
+            "tesis_inversion": None,
+            "opinion_valoracion": None,
+            "score_general": None,
+            "error_mercado": {},
+            "dominios": [],
+            "catalizadores": [],
+            "evidencia": {},
         }
         if ddd:
             cls = ddd.get("clasificacion_oportunidad") or {}
             ddd_summary["categoria"] = cls.get("categoria")
+            cls_desc = cls.get("categorias_descartadas") or []
+            if isinstance(cls_desc, str):
+                cls_desc = [x.strip() for x in cls_desc.split(",") if x.strip()]
+            ddd_summary["clasificacion"] = {
+                "categoria": cls.get("categoria"),
+                "categorias_descartadas": cls_desc,
+                "justificacion": cls.get("justificacion"),
+            }
             for dom, val in ddd.items():
                 if isinstance(val, dict) and "rating" in val and dom.startswith("dominio_"):
                     ddd_summary["ratings"][dom.replace("dominio_", "")] = val["rating"]
+            ddd_summary["dominios"] = [
+                {
+                    "dominio": dom.replace("dominio_", ""),
+                    "rating": val.get("rating"),
+                    "analisis": val.get("analisis"),
+                }
+                for dom, val in ddd.items()
+                if isinstance(val, dict) and "rating" in val and dom.startswith("dominio_") and dom != "dominio_riesgos"
+            ]
             ddd_summary["riesgos"] = [
                 {"riesgo": r.get("riesgo"), "probabilidad": r.get("probabilidad"), "impacto": r.get("impacto")}
                 for r in (ddd.get("dominio_riesgos") or []) if isinstance(r, dict)
             ]
+            ddd_summary["resumen_ejecutivo"] = ddd.get("resumen_ejecutivo")
+            ddd_summary["tesis_inversion"] = ddd.get("tesis_inversion")
+            ddd_summary["opinion_valoracion"] = ddd.get("opinion_valoracion")
+            ddd_summary["score_general"] = ddd.get("score_general")
+            err = ddd.get("error_mercado") or {}
+            if isinstance(err, dict):
+                cc = err.get("catalizador_cambio") or {}
+                ddd_summary["error_mercado"] = {
+                    "conclusion_error_valoracion": err.get("conclusion_error_valoracion"),
+                    "hipotesis_contraria": err.get("hipotesis_contraria"),
+                    "consenso_actual": err.get("consenso_actual"),
+                    "razonamiento": err.get("razonamiento"),
+                    "catalizador_cambio": {
+                        "descripcion": cc.get("descripcion"),
+                        "horizonte": cc.get("horizonte"),
+                        "impacto": cc.get("impacto"),
+                        "probabilidad_pct": cc.get("probabilidad_pct"),
+                    } if cc else {},
+                }
+            ddd_summary["catalizadores"] = [
+                {
+                    "descripcion": c.get("descripcion"),
+                    "horizonte": c.get("horizonte"),
+                    "impacto": c.get("impacto"),
+                    "probabilidad_pct": c.get("probabilidad_pct"),
+                }
+                for c in (ddd.get("dominio_catalizadores") or []) if isinstance(c, dict)
+            ]
+            ev = ddd.get("calidad_evidencia") or {}
+            if isinstance(ev, dict):
+                ddd_summary["evidencia"] = {
+                    "hechos_verificados": ev.get("hechos_verificados") or [],
+                    "inferencias_llm": ev.get("inferencias_llm") or [],
+                    "preguntas_abiertas": ev.get("preguntas_abiertas") or [],
+                }
 
         return {
             "opp_id": opp.get("id") or opp_dir.name,
@@ -1172,6 +1233,8 @@ function renderLearning(){
 function findOpp(oppId){ return DATA.opportunities.find(o=>o.opp_id===oppId) || {opp_id:oppId,ticker:'?',status:'?',scores:{}}; }
 function showCase(oppId){
   const o = findOpp(oppId);
+  const by = DATA.buylist.find(b=>b.ticker===o.ticker);
+  const d = o.ddd||{};
   let html = `<button class="tab" onclick="renderAll()">← Volver</button>`;
   html += `<h1>${esc(o.ticker)} <span class="tick">${esc(o.opp_id)}</span> ${badge(o.status)}</h1>`;
   html += `<div class="grid">`;
@@ -1180,21 +1243,81 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">Última investigación</div><div style="font-size:16px">${dt(o.last_research)}</div>${staleBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">Decisión</div><div style="font-size:18px">${esc(o.decision?.decision_type||'—')}</div><div class="muted">${esc(o.decision?.author||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
   html += '</div>';
-  html += `<h2>Assessment scores</h2><table><thead><tr><th>Engine</th><th>Score</th><th>Findings</th></tr></thead><tbody>`;
-  Object.entries(o.scores||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td class="score">${v??'—'}</td><td>${(o.findings?.[k]||[]).map(esc).join(' · ')||'—'}</td></tr>`);
-  html += '</tbody></table>';
+
+  // Tesis e informe
+  const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;
+  html += `<h2>Tesis de inversión</h2>`;
+  if(d.resumen_ejecutivo) html += `<div class="card"><div class="muted">Resumen ejecutivo</div><p>${esc(d.resumen_ejecutivo)}</p></div>`;
+  if(d.tesis_inversion) html += `<div class="card"><div class="muted">Tesis</div><p>${esc(d.tesis_inversion)}</p></div>`;
+  if(d.clasificacion){
+    const cl = d.clasificacion||{};
+    html += `<p><b>Categoría:</b> ${esc(cl.categoria||d.categoria)}${(cl.categorias_descartadas||[]).length?' <span class="muted">· descartadas: '+cl.categorias_descartadas.map(esc).join(', ')+'</span>':''}</p>`;
+    if(cl.justificacion) html += `<p class="muted">${esc(cl.justificacion)}</p>`;
+  }
+  if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>Score DDD:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
+  if(d.catalizadores?.length){
+    html += `<h3>Catalizadores</h3><table><thead><tr><th>Catalizador</th><th>Horizonte</th><th>Impacto</th><th>Prob.</th></tr></thead><tbody>`;
+    d.catalizadores.forEach(c=>html+=`<tr><td>${esc(c.descripcion)}</td><td>${esc(c.horizonte)}</td><td>${esc(c.impacto)}</td><td>${c.probabilidad_pct!=null?pct(c.probabilidad_pct):'—'}</td></tr>`);
+    html += '</tbody></table>';
+  }
+
+  // Error de mercado
+  const em = d.error_mercado||{};
+  if(em.hipotesis_contraria || em.consenso_actual || em.razonamiento){
+    html += `<h2>Error de mercado</h2>`;
+    if(em.conclusion_error_valoracion) html += `<p><b>Conclusión:</b> <span class="${esc(em.conclusion_error_valoracion)?'':'neg'}">${esc(em.conclusion_error_valoracion)}</span></p>`;
+    if(em.consenso_actual) html += `<div class="card"><div class="muted">Consenso del mercado</div><p>${esc(em.consenso_actual)}</p></div>`;
+    if(em.hipotesis_contraria) html += `<div class="card"><div class="muted">Hipótesis contraria</div><p>${esc(em.hipotesis_contraria)}</p></div>`;
+    if(em.razonamiento) html += `<div class="card"><div class="muted">Razonamiento</div><p>${esc(em.razonamiento)}</p></div>`;
+    if(em.catalizador_cambio?.descripcion) html += `<p><b>Catalizador de cambio:</b> ${esc(em.catalizador_cambio.descripcion)} <span class="muted">(${esc(em.catalizador_cambio.horizonte||'')} · impacto ${esc(em.catalizador_cambio.impacto||'')}${em.catalizador_cambio.probabilidad_pct!=null?' · '+pct(em.catalizador_cambio.probabilidad_pct):''})</span></p>`;
+  }
+
+  // Dominios
+  const doms = d.dominios?.length ? d.dominios : Object.entries(d.ratings||{}).map(([k,v])=>({dominio:k,rating:v}));
+  if(doms.length){
+    html += `<h2>Dominios (DDD)</h2><table><thead><tr><th>Dominio</th><th>Rating</th><th>Análisis</th></tr></thead><tbody>`;
+    doms.forEach(x=>html+=`<tr><td>${esc(x.dominio)}</td><td class="score">${esc(x.rating)}</td><td>${esc(x.analisis||'—')}</td></tr>`);
+    html += '</tbody></table>';
+  }
+
+  // Acción requerida (si está en Buy List o Research)
+  const actRow = by || {
+    ticker: o.ticker,
+    current_price: o.current_price,
+    target_price: o.wyckoff?.price_target ?? null,
+    buy_zone_top: null,
+    wyckoff: o.wyckoff || null,
+  };
+  const actionFails = buylistEntryFails(actRow);
+  const actionResolved = actionFails.length===0;
+  html += `<h2>Indicador de acción</h2>`;
+  html += (actionResolved
+    ? `<div class="card" style="border-color:#1c4731"><b class="pos">Listo para entrada</b> — no hay condiciones fallidas frente a los umbrales de ENTRY.</div>`
+    : `<div class="card" style="border-color:#3a2a10"><b class="neg">No listo para entrada</b> — condiciones fallidas:</div><ul>${actionFails.map(f=>`<li class="neg">${f}</li>`).join('')}</ul>`);
+  html += detailsEntryThresholds();
+
+  // Riesgos + evidencia
+  if(d.riesgos?.length){ html += `<h2>Riesgos (DDD)</h2><ul>`; d.riesgos.forEach(r=>html+=`<li>${esc(r.riesgo)} <span class="muted">(${esc(r.probabilidad)} · ${esc(r.impacto)})</span></li>`); html += '</ul>'; }
+  if(d.evidencia?.hechos_verificados?.length){ html += `<h3>Hechos verificados</h3><ul>`; d.evidencia.hechos_verificados.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
+  if(d.evidencia?.inferencias_llm?.length){ html += `<h3>Inferencias LLM</h3><ul>`; d.evidencia.inferencias_llm.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
+  if(d.evidencia?.preguntas_abiertas?.length){ html += `<h3>Preguntas abiertas</h3><ul>`; d.evidencia.preguntas_abiertas.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
+
+  // Decisión del board + scores
+  html += `<h2>Decisión del board</h2>`;
   if(o.decision?.justification) html += `<p class="muted">Justificación: ${esc(o.decision.justification)}</p>`;
   if((o.proposal?.rules_passed||[]).length) html += `<p>Reglas superadas: ${o.proposal.rules_passed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
   if((o.proposal?.rules_failed||[]).length) html += `<p class="neg">Reglas falladas: ${o.proposal.rules_failed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
-  if(o.ddd?.categoria) html += `<p>Categoría DDD: <span class="pill">${esc(o.ddd.categoria)}</span></p>`;
-  if(Object.keys(o.ddd?.ratings||{}).length) html += `<p>Ratings: ${Object.entries(o.ddd.ratings).map(([k,v])=>`<span class="pill">${esc(k)}: ${esc(v)}</span>`).join('')}</p>`;
-  if(o.ddd?.riesgos?.length){ html += `<h2>Riesgos (DDD)</h2><ul>`; o.ddd.riesgos.forEach(r=>html+=`<li>${esc(r.riesgo)} <span class="muted">(${esc(r.probabilidad)} · ${esc(r.impacto)})</span></li>`); html += '</ul>'; }
+  html += `<table><thead><tr><th>Engine</th><th>Score</th><th>Findings</th></tr></thead><tbody>`;
+  Object.entries(o.scores||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td class="score">${v??'—'}</td><td>${(o.findings?.[k]||[]).map(esc).join(' · ')||'—'}</td></tr>`);
+  html += '</tbody></table>';
+
+  // Wyckoff
   if(o.wyckoff){
     html += `<h2>Wyckoff (último análisis)</h2><table><thead><tr><th>Fase</th><th>Score</th><th>Confianza</th><th>Precio</th><th>Entry point</th><th>Target</th><th>Triggered</th></tr></thead><tbody>`;
     html += `<tr><td>${wyPhase(o.wyckoff.phase)}</td><td>${esc(o.wyckoff.score)}</td><td>${esc(o.wyckoff.confidence)}</td><td>${money(o.wyckoff.current_price)}</td><td>${esc(o.wyckoff.entry_point)}</td><td>${money(o.wyckoff.price_target)}</td><td>${o.wyckoff.triggered_entry?'<span class="pos">sí</span>':'no'}</td></tr></tbody></table>`;
     html += `<p class="muted">Analizado: ${dt(o.wyckoff.analyzed_at)}</p>`;
   }
-  html += `<p><a href="wiki/${esc(o.ticker)}.html">Abrir wiki de ${esc(o.ticker)}</a></p>`;
+  html += `<p><a href="wiki/${esc(o.ticker)}.html">Abrir wiki completa de ${esc(o.ticker)}</a></p>`;
   setView('case', html);
 }
 function showOppFromBuylist(oppId, ticker){ if(oppId){ showCase(oppId); } else { showCase(ticker); } }
