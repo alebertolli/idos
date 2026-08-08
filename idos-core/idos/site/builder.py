@@ -895,19 +895,19 @@ function renderDashboard(){
 
 // ---------- Research ----------
 function renderOpp(){
-  const rows = DATA.opportunities.filter(o=>o.status==='UNDER_DEEP_DD');
+  const rows = DATA.opportunities.filter(o=>o.status==='UNDER_DEEP_DD')
+    .sort((a,b)=>(b.conviction_overall??-1)-(a.conviction_overall??-1));
   let html = `<h2>Research (${rows.length})</h2>`;
-  html += `<p class="muted">Oportunidades en <b>Research / UNDER_DEEP_DD</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo.</p>`;
+  html += `<p class="muted">Oportunidades en <b>Research / UNDER_DEEP_DD</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Ordenadas por convicción, de mayor a menor.</p>`;
   html += `<p class="muted">Estados siguientes (automatizados): el worker de Decision Board evalúa el caso y lo pasa a <b>APPROVED</b> (aprobado para entrada) o a <b>WATCHLIST</b> (rechazado) según las reglas de entrada. La transición es automática; no hay umbral numérico fijo.</p>`;
   html += `<input id="opp-search" placeholder="Buscar ticker..." style="margin:8px 0">`;
-  html += `<table><thead><tr><th>Ticker</th><th>Conv.</th><th>Business</th><th>Valuation</th><th>Risk</th><th>Recovery</th><th>Portfolio</th><th>Precio</th><th>Intrínseco</th><th>Upside</th><th>Última inv.</th></tr></thead><tbody>`;
+  html += `<table><thead><tr><th>Ticker</th><th>Conv.</th><th>Business</th><th>Valuation</th><th>Risk</th><th>Recovery</th><th>Precio</th><th>Intrínseco</th><th>Upside</th><th>Última inv.</th></tr></thead><tbody>`;
   rows.forEach(o=>{
     html += `<tr style="cursor:pointer" onclick="showCase('${o.opp_id}')">
       <td><b>${esc(o.ticker)}</b></td>
       <td>${o.conviction_overall??'—'}</td>
       <td>${o.scores?.BusinessAssessmentEngine??'—'}</td><td>${o.scores?.ValuationAssessmentEngine??'—'}</td>
       <td>${o.scores?.RiskAssessmentEngine??'—'}</td><td>${o.scores?.RecoveryAssessmentEngine??'—'}</td>
-      <td>${o.scores?.PortfolioAssessmentEngine??'—'}</td>
       <td>${money(o.current_price)}</td><td>${money(o.intrinsic_value)}</td>
       <td class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</td>
       <td>${dt(o.last_research)} ${staleBadge(o)}</td></tr>`;
