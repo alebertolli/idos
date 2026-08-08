@@ -747,7 +747,7 @@ class SiteBuilder:
 
     # -- dashboard --
     def _build_dashboard(self, opps: list[dict], positions: list[dict],
-                         buylist: list[dict], learning: list[dict]) -> dict:
+                         buylist: list[dict], watchlist: list[dict], learning: list[dict]) -> dict:
         funnel: dict[str, int] = {}
         for o in opps:
             funnel[o["status"]] = funnel.get(o["status"], 0) + 1
@@ -773,8 +773,10 @@ class SiteBuilder:
                 "statuses": sorted(statuses),
             })
 
-        # Show the actual tally each tab displays: buy list entries and open positions
+        # Each card shows what its tab displays: watchlist, buy list, open positions, post-mortems
         for s in sections:
+            if s["key"] == "discovery":
+                s["count"] = len(watchlist)
             if s["key"] == "buylist":
                 s["count"] = len(buylist)
             if s["key"] == "portfolio":
@@ -796,7 +798,6 @@ class SiteBuilder:
                 alerts.append({"severity": "warn", "ticker": o["ticker"],
                                "message": "Convicción deteriorándose"})
         return {
-            "funnel": funnel,
             "sections": sections,
             "alerts": alerts,
             "stats": {
@@ -824,7 +825,7 @@ class SiteBuilder:
         wiki = self._load_wiki_index()
         learning = self._load_learning()
         portfolio = self._compute_portfolio(positions)
-        dashboard = self._build_dashboard(opps, positions, buylist, learning)
+        dashboard = self._build_dashboard(opps, positions, buylist, watchlist, learning)
 
         return SiteData(
             generated_at=datetime.now(AR_TZ).isoformat(),
@@ -993,13 +994,9 @@ function renderDashboard(){
     html += `<div class="card" style="cursor:pointer" onclick="goTab('${s.tab}')" title="Ver ${esc(s.label)}">
       <div class="muted">${esc(s.label)}</div>
       <div style="font-size:26px;font-weight:700">${s.count}</div>
-      <div style="font-size:11px" class="muted">(${s.statuses.map(badge).join(' ')})</div>
     </div>`;
   });
   html += '</div>';
-  html += '<h2>Funnel de oportunidades</h2><table><thead><tr><th>Estado</th><th>Cantidad</th></tr></thead><tbody>';
-  Object.entries(d.funnel).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>html+=`<tr><td>${badge(k)}</td><td>${v}</td></tr>`);
-  html += '</tbody></table>';
   html += '<h2>Alertas</h2>';
   if(!d.alerts.length) html += '<p class="muted">Sin alertas.</p>';
   d.alerts.forEach(a=>html+=`<div class="alert ${a.severity==='high'?'high':''}"><b>${esc(a.ticker)}</b> — ${esc(a.message)}</div>`);
