@@ -855,11 +855,11 @@ function renderOpp(){
       <td>${dt(o.last_research)} ${staleBadge(o)}</td></tr>`;
   });
   html += '</tbody></table>';
+  setView('opp', html);
   document.getElementById('opp-search').oninput = e=>{
     const q=e.target.value.toLowerCase();
     document.querySelectorAll('#opp tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'none');
   };
-  setView('opp', html);
 }
 
 // ---------- Buy List ----------
