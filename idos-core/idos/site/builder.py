@@ -978,6 +978,26 @@ function detailsEntryThresholds(){
   h += '</tbody></table></details>';
   return h;
 }
+function buylistEntryFails(r){
+  const c = ENTRY_CFG||{};
+  const fails = [];
+  if(!r.current_price || r.current_price<=0){
+    fails.push('Precio sin datos');
+  } else if(r.buy_zone_top && r.buy_zone_top>0){
+    if(r.current_price > r.buy_zone_top) fails.push('Precio fuera de zona de compra');
+  } else if(r.target_price && r.target_price>0){
+    const margin = (r.target_price-r.current_price)/r.current_price*100;
+    if(margin < (c.margin_of_safety_pct??30)) fails.push(`Margen de seguridad &lt; ${c.margin_of_safety_pct??30}%`);
+  }
+  if(!r.target_price || r.target_price<=0) fails.push('Target sin definir');
+  const wy = r.wyckoff;
+  const phases = (c.entry_phases||['ACCUMULATION','ABSORPTION']).map(p=>String(p).toUpperCase());
+  const score = wy?.['score'] ?? null;
+  const phase = wy?.['phase'] ? String(wy.phase).toUpperCase() : null;
+  if(!phase || !phases.includes(phase)) fails.push(`Fase ${wyPhase(wy?.phase)} no es entrada`);
+  if(score!==null && score < (c.min_wyckoff_score??45)) fails.push(`Score Wyckoff ${score} &lt; ${c.min_wyckoff_score??45}`);
+  return fails;
+}
 function rulesBadge(failed){
   if(!failed||!failed.length) return '<span class="pos">OK</span>';
   const map = {};
@@ -1019,15 +1039,17 @@ function renderBuylist(){
   html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada (siguiente paso: <b>ENTRY_PENDING</b>). Ordenadas por score Wyckoff descendente.</p>`;
   html += detailsEntryThresholds();
   if(!rows.length) html += `<div class="card"><p class="muted">La Buy List está vacía.</p></div>`;
-  html += `<table><thead><tr><th>Ticker</th><th>Industria</th><th>Conv.</th><th>Último precio</th><th>Zona compra (top)</th><th>Target</th><th>Margen a target</th><th>Wyckoff</th><th>Últ. análisis</th></tr></thead><tbody>`;
+  html += `<table><thead><tr><th>Ticker</th><th>Industria</th><th>Conv.</th><th>Último precio</th><th>Zona compra (top)</th><th>Target</th><th>Margen a target</th><th>Wyckoff</th><th>Cond. fallida</th><th>Últ. análisis</th></tr></thead><tbody>`;
   rows.forEach(r=>{
     const margin = (r.current_price&&r.target_price&&r.target_price>0)? (r.target_price-r.current_price)/r.current_price*100 : null;
     const wy = r.wyckoff;
+    const fails = buylistEntryFails(r);
     html += `<tr style="cursor:pointer" onclick="showOppFromBuylist('${r.opp_id||''}','${r.ticker}')">
       <td><b>${esc(r.ticker)}</b></td><td class="muted">${esc(r.industry||'—')}</td><td>${r.conviction_score??'—'}</td>
       <td>${money(r.current_price)}</td><td>${money(r.buy_zone_top)}</td><td>${money(r.target_price)}</td>
       <td class="${margin>=0?'pos':'neg'}">${pct(margin,true)}</td>
-      <td>${wyPhase(wy?.phase)} ${wy?.score??''}</td><td>${dt(wy?.analyzed_at)}</td></tr>`;
+      <td>${wyPhase(wy?.phase)} ${wy?.score??''}</td><td>${fails.length?fails.map(f=>`<span class="badge" style="background:#2a1516;color:#f87171">${f}</span>`).join(' '):'<span class="pos">Listo</span>'}</td>
+      <td>${dt(wy?.analyzed_at)}</td></tr>`;
   });
   html += '</tbody></table>';
   setView('buylist', html);
