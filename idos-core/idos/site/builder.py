@@ -5,7 +5,7 @@ Output: `site/index.html`, `site/data.json`, `site/wiki/*.html`,
 `site/assets/app.js`, `site/assets/style.css`.
 
 The site is a single-page app with tabs:
-  Dashboard · Discovery · Research · Buy List · Portfolio · Wiki · Learning
+  Dashboard · Discovery · Research · Buy List · Portfolio · Learning
 
 No server required: publish `site/` to GitHub Pages.
 """
@@ -224,6 +224,7 @@ class SiteBuilder:
         self.prices: dict[str, dict[str, Any]] = self._load_prices()
         self.disc_min_score = self._load_disc_min_score()
         self.entry_rules = self._load_entry_rules()
+        self.entry_cfg = self._load_entry_cfg()
 
     def _load_disc_min_score(self) -> int:
         cfg = _load_yaml(self.config / "scoring.yml")
@@ -249,6 +250,28 @@ class SiteBuilder:
                         "active": r.get("active", True),
                     })
         return rules
+
+    def _load_entry_cfg(self) -> dict[str, Any]:
+        """Entry-engine thresholds from idos-config/portfolio.yml (EntryEngine + Wyckoff)."""
+        cfg = _load_yaml(self.config / "portfolio.yml")
+        ind = (cfg.get("indicator") or {}) if isinstance(cfg, dict) else {}
+        weights = (ind.get("weights") or {}) if isinstance(ind, dict) else {}
+        bands = (ind.get("bands") or {}) if isinstance(ind, dict) else {}
+        entry = (cfg.get("entry") or {}) if isinstance(cfg, dict) else {}
+        return {
+            "margin_of_safety_pct": (cfg.get("margin_of_safety") or 30) if isinstance(cfg, dict) else 30,
+            "max_position_pct": (cfg.get("max_position_pct") or 3.0) if isinstance(cfg, dict) else 3.0,
+            "max_total_weight_pct": 20.0,
+            "min_wyckoff_score": (entry.get("min_score") or 45) if isinstance(entry, dict) else 45,
+            "demand_band": (bands.get("demand") or 65) if isinstance(bands, dict) else 65,
+            "absorption_band": (bands.get("absorption") or 45) if isinstance(bands, dict) else 45,
+            "supply_band": (bands.get("supply") or 25) if isinstance(bands, dict) else 25,
+            "weight_structure": (weights.get("structure") or 0.40) if isinstance(weights, dict) else 0.40,
+            "weight_supply_demand": (weights.get("supply_demand") or 0.30) if isinstance(weights, dict) else 0.30,
+            "weight_relative_strength": (weights.get("relative_strength") or 0.20) if isinstance(weights, dict) else 0.20,
+            "weight_volatility": (weights.get("volatility") or 0.10) if isinstance(weights, dict) else 0.10,
+            "entry_phases": ["ACCUMULATION", "ABSORPTION"],
+        }
 
     # -- prices from daily cache (SQLite) --
     def _load_prices(self) -> dict[str, dict[str, Any]]:
@@ -889,7 +912,7 @@ function wyPhase(p){ if(!p) return '—'; return `<span style="color:${colors[p]
 function renderShell(){
   document.getElementById('tabs').innerHTML = [
     ['dashboard','Dashboard'],['screening','Discovery'],['opp','Research'],['buylist','Buy List'],['portfolio','Portfolio'],
-    ['wiki','Wiki'],['learning','Learning']
+    ['learning','Learning']
   ].map(([id,l])=>`<button class="tab" data-view="${id}">${l}</button>`).join('');
   document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderView(b.dataset.view); });
 }
@@ -903,7 +926,6 @@ function renderView(id){
   if(id==='buylist') return renderBuylist();
   if(id==='portfolio') return renderPortfolio();
   if(id==='screening') return renderScreening();
-  if(id==='wiki') return renderWiki();
   if(id==='learning') return renderLearning();
   renderDashboard();
 }
@@ -939,6 +961,20 @@ function detailsEntryRules(){
   (ENTRY_RULES||[]).slice().sort((a,b)=>(b.priority||0)-(a.priority||0)).forEach(r=>{
     h += `<tr><td>${esc(r.id)}</td><td><code>${esc(r.condition)}</code></td><td>${r.priority??'—'}</td></tr>`;
   });
+  h += '</tbody></table></details>';
+  return h;
+}
+function detailsEntryThresholds(){
+  const c = ENTRY_CFG||{};
+  const rows = [
+    ['Precio en zona', `Precio &le; Zona de compra (top). Si no hay zona, margen de seguridad &ge; ${c.margin_of_safety_pct??30}%.`, 'EntryEngine'],
+    ['Wyckoff confirmado', `Fase en ${(c.entry_phases||['ACCUMULATION','ABSORPTION']).join(' / ')} y score compuesto &ge; ${c.min_wyckoff_score??45}.`, 'EntryEngine'],
+    ['Tesis activa', `Thesis monitor sin invalidación (thesis_active = true).`, 'EntryEngine'],
+    ['Fit de portfolio', `Peso total + nuevo &le; ${fmt(c.max_total_weight_pct,0)}% del bankroll.`, 'EntryEngine'],
+    ['Target definido', `target_price > 0 en Buy List.`, 'EntryEngine'],
+  ];
+  let h = '<details class="details" style="margin:10px 0"><summary>Umbrales para pasar a ENTRY (Entry Engine y Wyckoff)</summary><table><thead><tr><th>Condición</th><th>Umbral</th><th>Fuente</th></tr></thead><tbody>';
+  rows.forEach(([k,v,f])=>{ h += `<tr><td><b>${k}</b></td><td><code>${v}</code></td><td class="muted">${f}</td></tr>`; });
   h += '</tbody></table></details>';
   return h;
 }
@@ -981,6 +1017,7 @@ function renderBuylist(){
   const rows = DATA.buylist.slice().sort((a,b)=>((b.wyckoff?.score)??-1)-((a.wyckoff?.score)??-1));
   let html = `<h2>Buy List (${rows.length})</h2>`;
   html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada (siguiente paso: <b>ENTRY_PENDING</b>). Ordenadas por score Wyckoff descendente.</p>`;
+  html += detailsEntryThresholds();
   if(!rows.length) html += `<div class="card"><p class="muted">La Buy List está vacía.</p></div>`;
   html += `<table><thead><tr><th>Ticker</th><th>Industria</th><th>Conv.</th><th>Último precio</th><th>Zona compra (top)</th><th>Target</th><th>Margen a target</th><th>Wyckoff</th><th>Últ. análisis</th></tr></thead><tbody>`;
   rows.forEach(r=>{
@@ -1038,17 +1075,6 @@ function mcolHeaders(){ return `<th>Size</th><th>Liquidez</th><th>Momentum</th><
 function mcolCells(met){ const k=['size_score','liquidity_score','momentum_score','value_score','quality_score']; return k.map(m=>{ const v=met?met[m]:null; return `<td class="${v>=70?'pos':''}">${v??'—'}</td>`; }).join(''); }
 
 // ---------- Wiki ----------
-function renderWiki(){
-  const rows = DATA.wiki;
-  let html = `<h2>Wiki (${rows.length} compañías)</h2>`;
-  html += `<input id="wiki-search" placeholder="Buscar ticker / nombre..." style="margin:8px 0">`;
-  html += `<table><thead><tr><th>Ticker</th><th>Nombre</th><th>Sector</th><th>Wiki</th></tr></thead><tbody>`;
-  rows.forEach(r=>html+=`<tr><td><b>${esc(r.ticker)}</b></td><td>${esc(r.name)}</td><td>${esc(r.sector)}</td><td><a href="wiki/${esc(r.ticker)}.html">abrir</a></td></tr>`);
-  html += '</tbody></table>';
-  setView('wiki', html);
-  document.getElementById('wiki-search').oninput = e=>{ document.querySelectorAll('#wiki tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(e.target.value.toLowerCase())?'':'') ; };
-}
-
 // ---------- Learning ----------
 function renderLearning(){
   const rows = DATA.learning;
@@ -1126,7 +1152,7 @@ INDEX_TPL = """<!DOCTYPE html>
 <div class="tabs" id="tabs"></div>
 <div id="view"></div>
 <hr style="border-color:var(--border);margin:24px 0 12px">
-<p class="muted">Generado <span id="gen-at" data-v="GENV"></span> · <a href="wiki/index.html">Wiki</a> · <a href="learning.html">Learning</a></p>
+<p class="muted">Generado <span id="gen-at" data-v="GENV"></span> · <a href="learning.html">Learning</a></p>
 </div>
 <script src="assets/app.js?v=GENV"></script>
 </body>
@@ -1152,6 +1178,7 @@ def write_site(base_path: Path, out_dir: Path | None = None, stale_days: int = D
     (out / "assets" / "app.js").write_text(
         f"const DISC_MIN_SCORE = {builder.disc_min_score};\n"
         f"const ENTRY_RULES = {json.dumps(builder.entry_rules, ensure_ascii=False)};\n"
+        f"const ENTRY_CFG = {json.dumps(builder.entry_cfg, ensure_ascii=False)};\n"
         + APP_JS, encoding="utf-8"
     )
     (out / "data.json").write_text(
