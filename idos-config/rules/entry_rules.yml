@@ -2,22 +2,25 @@ rules:
   - id: RULE-001
     description: "Minimum business quality score for entry"
     priority: 100
-    condition: "assessments.business.score >= 70"
+    condition: "assessments.business_quality >= 70"
     action: "PASS"
+    stage: authorization
     active: true
 
   - id: RULE-002
-    description: "Minimum valuation score for entry"
+    description: "Price target margin > 20% vs current price"
     priority: 90
-    condition: "assessments.valuation.score >= 60"
+    condition: "price_margin > 20"
     action: "PASS"
+    stage: execution
     active: true
 
   - id: RULE-003
     description: "Minimum rerating probability score"
     priority: 80
-    condition: "assessments.rerating.score >= 60"
+    condition: "assessments.rerating.score >= 50"
     action: "PASS"
+    stage: authorization
     active: true
 
   - id: RULE-004
@@ -25,6 +28,7 @@ rules:
     priority: 100
     condition: "assessments.risk.score >= 50"
     action: "PASS"
+    stage: authorization
     active: true
 
   - id: RULE-005
@@ -32,6 +36,7 @@ rules:
     priority: 95
     condition: "conviction.overall >= 65"
     action: "PASS"
+    stage: authorization
     active: true
 
   - id: RULE-006
@@ -39,6 +44,7 @@ rules:
     priority: 100
     condition: "portfolio.position_weight + new_position_weight <= 3.0"
     action: "BLOCK"
+    stage: execution
     active: true
 
   - id: RULE-007
@@ -46,6 +52,7 @@ rules:
     priority: 90
     condition: "portfolio.sector_exposure + new_sector_exposure <= 25.0"
     action: "BLOCK"
+    stage: execution
     active: true
 
   - id: RULE-008
@@ -53,4 +60,13 @@ rules:
     priority: 100
     condition: "opportunity.asymmetry_ratio >= 3.0"
     action: "PASS"
+    stage: authorization
+    active: true
+
+  - id: RULE-009
+    description: "Capital competition - max active positions"
+    priority: 80
+    condition: "portfolio.num_positions < 10"
+    action: "BLOCK"
+    stage: execution
     active: true

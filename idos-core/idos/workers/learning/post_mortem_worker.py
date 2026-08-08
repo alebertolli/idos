@@ -81,9 +81,10 @@ class PostMortemWorker(BaseWorker):
         decisions = self._load_decisions(ticker, opp_id, journal)
         assessments = self._load_assessments(ticker, opp_id, journal)
         position = journal.load_position(ticker)
+        hypotheses = journal.load_hypotheses(ticker, opp_id)
         wyckoff_analyses = self._load_wyckoff_analyses(ticker, opp_id, journal)
 
-        post_mortem = self._llm_post_mortem(ticker, decisions, assessments, position, exit_reason, wyckoff_analyses)
+        post_mortem = self._llm_post_mortem(ticker, decisions, assessments, position, exit_reason, wyckoff_analyses, hypotheses)
 
         pm_id = f"pm-{uuid4().hex[:8]}"
         pm_record = {
@@ -127,6 +128,8 @@ class PostMortemWorker(BaseWorker):
 
         wyckoff_accuracy = post_mortem.get("wyckoff_accuracy", "no_evaluada")
 
+        hypothesis_stats = self._hypothesis_stats(hypotheses)
+
         return {
             "ticker": ticker,
             "opp_id": opp_id,
@@ -137,6 +140,7 @@ class PostMortemWorker(BaseWorker):
             "lessons": post_mortem.get("lessons_learned", []),
             "wyckoff_accuracy": wyckoff_accuracy,
             "wyckoff_lessons": post_mortem.get("wyckoff_lessons", []),
+            "hypotheses": hypothesis_stats,
             "learning_loop": {
                 "weights_adjusted": loop_result.weights_adjusted,
                 "patterns_identified": loop_result.patterns_identified,
@@ -147,6 +151,26 @@ class PostMortemWorker(BaseWorker):
                 "wyckoff_alerts": loop_result.wyckoff_alerts,
             },
         }
+
+    def _hypothesis_stats(self, hypotheses: list[dict]) -> dict[str, Any]:
+        if not hypotheses:
+            return {"count": 0, "predictions_evaluated": 0, "predictions_met": 0}
+        evaluated = 0
+        met = 0
+        for h in hypotheses:
+            for p in h.get("predictions", []):
+                if p.get("met") is not None:
+                    evaluated += 1
+                    if p.get("met"):
+                        met += 1
+        stats = {
+            "count": len(hypotheses),
+            "predictions_evaluated": evaluated,
+            "predictions_met": met,
+        }
+        if evaluated:
+            stats["predictions_met_pct"] = round(met / evaluated * 100, 1)
+        return stats
 
     def _feed_learning_loop(self, ticker: str, opp_id: str,
                             decisions: list[dict], assessments: list[dict],
@@ -261,7 +285,8 @@ class PostMortemWorker(BaseWorker):
     def _llm_post_mortem(self, ticker: str, decisions: list[dict],
                           assessments: list[dict], position: dict | None,
                           exit_reason: str,
-                          wyckoff_analyses: list[dict] | None = None) -> dict[str, Any]:
+                          wyckoff_analyses: list[dict] | None = None,
+                          hypotheses: list[dict] | None = None) -> dict[str, Any]:
         prompt = (
             f"Genera un Post-Mortem de inversión para {ticker}.\n\n"
             f"Razón de salida: {exit_reason}\n\n"
@@ -279,6 +304,23 @@ class PostMortemWorker(BaseWorker):
                 f"\nPosición: entrada a ${position.get('avg_entry_price',0)}, "
                 f"peso {position.get('weight_pct',0)}%\n"
             )
+
+        if hypotheses:
+            prompt += "\nHipótesis de inversión (árbol HMF):\n"
+            for h in hypotheses:
+                status = h.get("status", "?")
+                statement = h.get("statement", "")
+                prompt += f"- [{status}] {statement[:160]}\n"
+                for fc in h.get("falsification", []):
+                    if fc.get("triggered"):
+                        prompt += f"  - FALSACIÓN disparada: {fc.get('condition', '')[:120]}\n"
+                for p in h.get("predictions", []):
+                    met = p.get("met")
+                    if met is not None:
+                        prompt += (f"  - Predicción {p.get('metric','?')}: "
+                                   f"{'CUMPLIDA' if met else 'FALLIDA'} "
+                                   f"(esperado {p.get('expected', p.get('expected_value',''))}, "
+                                   f"real {p.get('actual', p.get('actual_value',''))})\n")
 
         if wyckoff_analyses:
             last_w = wyckoff_analyses[-1]
@@ -315,7 +357,11 @@ class PostMortemWorker(BaseWorker):
             '"would_invest_again": true|false, '
             '"wyckoff_accuracy": "correcta|parcial|incorrecta|no_aplica", '
             '"wyckoff_phase_was_correct": true|false, '
-            '"wyckoff_lessons": ["..."]}}'
+            '"wyckoff_lessons": ["..."], '
+            '"hypothesis_evaluation": {"confirmation_bias": "...", '
+            '"predictions_analyzed": true, '
+            '"was_falsification_applied": true|false, '
+            '"hypothesis_lessons": ["..."]}}}'
         )
 
         return self.llm.generate_structured(

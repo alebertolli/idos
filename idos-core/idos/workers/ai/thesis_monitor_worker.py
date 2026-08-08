@@ -104,17 +104,6 @@ class ThesisMonitorWorker(BaseWorker):
             "flags": result.get("flags", []),
             "reason": result.get("reason", ""),
             "risk_level": result.get("risk_level", ""),
-            print(f"[THESIS] {ticker}: thesis_active={thesis_active} trigger={trigger_source} "
-              f"flags={result.get('flags', [])} reason={result.get('reason', '')[:120]}")
-
-        return {
-            "ticker": ticker,
-            "opp_id": opp_id,
-            "status": "completed",
-            "thesis_active": thesis_active,
-            "flags": result.get("flags", []),
-            "reason": result.get("reason", ""),
-            "risk_level": result.get("risk_level", ""),
             "confidence": result.get("confidence", 0),
             "recommendation": result.get("recommendation", ""),
             "cascade": cascade.get("cascade", "none"),
@@ -132,6 +121,7 @@ class ThesisMonitorWorker(BaseWorker):
         if not hypotheses:
             return {"cascade": "none"}
         cascade = {"cascade": "none"}
+        invalidated = []
         for h in hypotheses:
             is_principal = bool(h.get("parent_id") == "" and h.get("status") == "ACTIVE")
             if h.get("status") in ("ACTIVE", "STRENGTHENING", "WEAKENING", "AT_RISK"):
@@ -144,12 +134,30 @@ class ThesisMonitorWorker(BaseWorker):
                     "triggered_at": datetime.now(AR_TZ).isoformat(),
                 })
                 journal.save_hypothesis(ticker, opp_id, h)
+                invalidated.append(h)
                 result_cascade = apply_hypothesis_cascade(
                     journal, sqlite, ticker, opp_id, h, is_principal=is_principal,
                 )
                 if is_principal and result_cascade.get("cascade") == "exited":
                     cascade = result_cascade
+        if invalidated:
+            self._notify_hypothesis_invalidated(ticker, opp_id, invalidated, cascade)
         return cascade
+
+    def _notify_hypothesis_invalidated(self, ticker: str, opp_id: str,
+                                       invalidated: list[dict[str, Any]],
+                                       cascade: dict[str, Any]):
+        try:
+            from idos.workers.notifications.telegram import TelegramNotifier
+            lines = [f"🚨 *Hipótesis INVALIDADA* — {ticker} ({opp_id})"]
+            for h in invalidated[:5]:
+                lines.append(f"- {h.get('statement', '')[:120]}")
+            if cascade.get("cascade") == "exited":
+                lines.append(f"\nCascade: oportunidad → EXITED (salida total).")
+            tg = TelegramNotifier()
+            tg.execute({"message": "\n".join(lines)[:4000]})
+        except Exception as e:
+            print(f"[HYP NOTIFY] Telegram error: {e}")
 
     def evaluate(self, ticker: str, opp_id: str, sqlite: SQLiteStore,
                  journal: JournalRepository, base_path: Path,

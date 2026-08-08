@@ -33,6 +33,7 @@ idos-config/
   screeners/                  ← 5 screeners programaticos (value, growth, etc.)
   finviz_screener.yml         ← config de filtros Finviz
   data_sources.yml            ← fuentes de datos financieros
+  hmf.yml                     ← config central de límites (hipótesis, riesgo, sizing)
   rules/entry_rules.yml       ← reglas de entrada (asimetría 3:1, etc.)
   prompts/scout/              ← 5 prompts de screening
   prompts/research/           ← 4 prompts de investigación

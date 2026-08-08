@@ -7,25 +7,36 @@
 
 rules:
   # --- Autorización (Assessment -> Conviction, fase de entrada) ---
+  # stage: authorization = evalúa el Decision Board para aprobar la entrada.
+  # stage: execution = valida el Execution/ENTRY_PENDING (portfolio, no bloquea la aprobación).
   RULE-001:            # Business quality mínima
+    stage: authorization
     min_score: 70
   RULE-002:            # Margen de precio objetivo vs precio actual
+    stage: execution
     min_price_margin_pct: 20
   RULE-003:            # Probabilidad de rerating mínima
+    stage: authorization
     min_score: 50
   RULE-004:            # Score de riesgo mínimo permitido
+    stage: authorization
     min_score: 50
   RULE-005:            # Conviction general mínima para entrada
+    stage: authorization
     min_score: 65
   RULE-008:            # Asimetría mínima (benefit/risk)
+    stage: authorization
     min_ratio: 3.0
 
   # --- Ejecución / PORTFOLIO (validado en ENTRY_PENDING y sizing) ---
   RULE-006:            # Peso máximo por posición
+    stage: execution
     max_position_pct: 3.0
   RULE-007:            # Exposición máxima por sector
+    stage: execution
     max_sector_exposure_pct: 25.0
   RULE-009:            # Competencia por capital - máx posiciones activas
+    stage: execution
     max_positions: 10
 
 conviction:

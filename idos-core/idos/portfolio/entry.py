@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from datetime import datetime
+from pathlib import Path
 from typing import Any, Optional
+from idos.config import Settings, load_settings
 from idos.portfolio.wyckoff import WyckoffAnalyzer, WyckoffPhase, WyckoffResult
 from idos.timezone import AR_TZ
 
@@ -42,10 +44,21 @@ class EntryEngine:
     def __init__(self,
                  wyckoff_analyzer: WyckoffAnalyzer | None = None,
                  min_margin_of_safety: float = 30.0,
-                 min_wyckoff_score: int = WYCOFF_SCORE_THRESHOLD):
+                 min_wyckoff_score: int = WYCOFF_SCORE_THRESHOLD,
+                 settings: Settings | None = None,
+                 config_dir: str | Path | None = None):
+        if settings is None and config_dir is not None:
+            settings = load_settings(config_dir)
+        self.settings = settings
         self.wyckoff = wyckoff_analyzer or WyckoffAnalyzer()
         self.min_margin_of_safety = min_margin_of_safety
         self.min_wyckoff_score = min_wyckoff_score
+
+    @property
+    def max_total_weight_pct(self) -> float:
+        if self.settings is not None:
+            return float(self.settings.portfolio.get("max_total_weight_pct", 20.0))
+        return 20.0
 
     def evaluate(self, ticker: str, context: dict[str, Any]) -> EntrySignal:
         price_data = context.get("price_data", [])
@@ -77,7 +90,7 @@ class EntryEngine:
 
         pf_ok = True
         total_weight = portfolio.get("total_weight", 0)
-        if total_weight + adjusted_weight > 20:
+        if total_weight + adjusted_weight > self.max_total_weight_pct:
             pf_ok = False
 
         all_ok = all([price_in_zone, wyckoff_confirmed, thesis_active, pf_ok, not target_missing])

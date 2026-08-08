@@ -114,6 +114,21 @@ class DecisionOrchestrator:
         return True
 
     def _run_assessments(self, context: dict[str, Any]) -> dict[str, AssessmentResult]:
+        # Permite al Decision Board reutilizar assessments ya calculadas en el
+        # journal en lugar de reevaluar los engines (evita duplicación y
+        # dependencia de datos financieros en vivo).
+        precomputed = context.get("precomputed_assessments")
+        if precomputed is not None:
+            results = {}
+            for engine, score in precomputed.items():
+                results[engine] = AssessmentResult(
+                    engine=engine,
+                    version="precomputed",
+                    score=int(score),
+                    confidence="HIGH" if score >= 75 else "MEDIUM" if score >= 50 else "LOW",
+                )
+            return results
+
         results = {}
         for name, engine in self._engines.items():
             try:
@@ -134,8 +149,16 @@ class DecisionOrchestrator:
                         conviction: Any) -> tuple[list[str], list[str], dict[str, str]]:
         if not self.rules_engine:
             return [], [], {}
-        ctx = {**context, "assessments": {k: v.score for k, v in assessments.items()},
-               "conviction": {"overall": conviction.overall}}
+        # Mapear scores de engines a los nombres de dominio que esperan los
+        # evaluadores de reglas (business_quality, valuation, rerating, risk).
+        domain = {
+            "business_quality": self._score_for(assessments, "BusinessAssessmentEngine"),
+            "valuation": self._score_for(assessments, "ValuationAssessmentEngine"),
+            "rerating": self._score_for(assessments, "RecoveryAssessmentEngine"),
+            "risk": self._score_for(assessments, "RiskAssessmentEngine"),
+            "portfolio": self._score_for(assessments, "PortfolioAssessmentEngine"),
+        }
+        ctx = {**context, "assessments": domain, "conviction": {"overall": conviction.overall}}
         passed, failed, details = [], [], {}
         for result in self.rules_engine.evaluate_all(ctx):
             if result.passed:
@@ -144,3 +167,8 @@ class DecisionOrchestrator:
                 failed.append(result.rule_id)
             details[result.rule_id] = result.details
         return passed, failed, details
+
+    @staticmethod
+    def _score_for(assessments: dict[str, AssessmentResult], name: str) -> int:
+        r = assessments.get(name)
+        return r.score if r is not None else 0

@@ -6,6 +6,7 @@ from idos.ai.llm import LLMClient
 from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
+from idos.decision.orchestrator import DecisionOrchestrator
 from idos.models.enums import OpportunityStatus
 from idos.models.knowledge import Rule
 from idos.rules.engine import RulesEngine
@@ -65,44 +66,55 @@ class DecisionBoardWorker(BaseWorker):
         assessment_scores = {a.get("engine", "unknown"): a.get("score", 0) for a in assessments}
         conviction = opp.get("conviction", {})
 
-        context_for_rules = {
-            "assessments": {
-                "business_quality": conviction.get("business", assessment_scores.get("ResearchWorker", 70)),
-                "valuation": assessment_scores.get("ValuationEngine", 70),
-                "rerating": assessment_scores.get("ReratingEngine", 70),
-                "risk": assessment_scores.get("RiskEngine", 70),
-            },
-            "conviction": {"overall": conviction.get("overall", 70)},
-            "portfolio": {"position_weight": 0, "sector_exposure": 0},
-            "opportunity": {"asymmetry_ratio": 3.0},
-        }
+        # Reutiliza el pipeline único Assessment -> Conviction -> Rule -> Proposal
+        # (DecisionOrchestrator) con las assessments ya persistidas en el journal.
+        # Solo las reglas de AUTORIZACIÓN (stage=authorization) bloquean la
+        # aprobación; las de EJECUCIÓN se validan en ENTRY_PENDING/sizing.
+        auth_rules = [r for r in rules
+                      if r.get("active", True) and r.get("stage", "authorization") == "authorization"]
 
-        # Build RulesEngine from YAML config, using registered evaluators
-        local_engine = RulesEngine()
-        for r in rules:
-            if not r.get("active", True):
-                continue
+        auth_engine = RulesEngine()
+        for r in auth_rules:
             rule_id = r["id"]
             fn = self.rules_engine._rule_fns.get(rule_id)
             if fn:
-                local_engine.register_rule(
+                auth_engine.register_rule(
                     Rule(id=rule_id, description=r.get("description", ""),
                          priority=r.get("priority", 50), condition=r.get("condition", ""),
                          action=r.get("action", "PASS")),
                     fn,
                 )
 
-        rule_results = []
-        for rule in local_engine._rules:
-            result = local_engine.evaluate(rule.id, context_for_rules)
-            rule_results.append(result)
+        # Mapear scores persistidos a los nombres de engines del orchestrator.
+        precomputed = {
+            "BusinessAssessmentEngine": conviction.get("business", assessment_scores.get("ResearchWorker", 70)),
+            "ValuationAssessmentEngine": assessment_scores.get("ValuationEngine", 70),
+            "RecoveryAssessmentEngine": assessment_scores.get("ReratingEngine", 70),
+            "RiskAssessmentEngine": assessment_scores.get("RiskEngine", 70),
+            "PortfolioAssessmentEngine": assessment_scores.get("PortfolioEngine", 70),
+        }
 
-        rules_passed = [r.rule_id for r in rule_results if r.passed]
-        rules_failed = [r.rule_id for r in rule_results if not r.passed]
-        all_rules_pass = len(rules_failed) == 0
+        orchestrator = DecisionOrchestrator(rules_engine=auth_engine)
+
+        proposal = orchestrator.run_pipeline("opportunity:transitioned", {
+            "opportunity_id": opp_id,
+            "ticker": ticker,
+            "precomputed_assessments": precomputed,
+            "force_relevance": True,
+            "portfolio": {
+                "position_weight": 0,
+                "sector_exposure": {},
+                "num_positions": 0,
+            },
+            "opportunity": {"asymmetry_ratio": 3.0},
+        })
+
+        all_rules_pass = proposal is not None and not proposal.rules_failed
+        rules_passed = proposal.rules_passed if proposal else []
+        rules_failed = proposal.rules_failed if proposal else []
 
         # LLM evaluation for explicability (secondary)
-        llm_eval = self._llm_evaluate(ticker, assessments, rules)
+        llm_eval = self._llm_evaluate(ticker, assessments, auth_rules)
         recommendation = llm_eval.get("recommendation", "APPROVE" if all_rules_pass else "REJECT")
         rationale = llm_eval.get("rationale", "")
 
@@ -150,7 +162,7 @@ class DecisionBoardWorker(BaseWorker):
             "deterministic_failed": rules_failed,
             "recommendation": recommendation,
             "decision_id": decision_id,
-            "rules_evaluated": len(rule_results),
+            "rules_evaluated": len(auth_rules),
         }
 
     def _load_assessments(self, ticker: str, opp_id: str, journal: JournalRepository) -> list[dict[str, Any]]:

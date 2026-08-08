@@ -61,6 +61,7 @@ _DEFAULT_SIZING = {
 _DEFAULT_PORTFOLIO = {
     "bankroll": 100000,
     "max_position_pct": 3.0,
+    "max_total_weight_pct": 20.0,
     "margin_of_safety": 30.0,
     "fee_pct": 0.1,
     "min_entry_score": 45,
