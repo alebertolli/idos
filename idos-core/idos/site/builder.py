@@ -358,6 +358,11 @@ class SiteBuilder:
 
         current_price = opp.get("current_price")
         intrinsic = opp.get("intrinsic_value")
+        mkt = self._market_price(ticker)
+        market_price = mkt["price"]
+        price_date = mkt["date"]
+        if market_price:
+            current_price = market_price
         upside = None
         if current_price and intrinsic and current_price > 0:
             upside = round((intrinsic - current_price) / current_price * 100, 1)
@@ -398,6 +403,7 @@ class SiteBuilder:
             "current_price": current_price,
             "intrinsic_value": intrinsic,
             "upside_pct": upside,
+            "price_date": price_date,
             "created_at": opp.get("created_at"),
             "updated_at": opp.get("updated_at"),
             "last_research": last_research,
@@ -596,10 +602,17 @@ class SiteBuilder:
             if not isinstance(data, dict):
                 continue
             ticker = data.get("ticker") or f.stem
-            price = self.price_for(ticker)
             entry = data.get("entry_price") or 0
             qty = data.get("quantity") or 0
-            cp = price["price"]
+            mkt = self._market_price(ticker)
+            price = self.price_for(ticker)
+            cp = mkt["price"] or price["price"]
+            price_date = mkt["date"] or price["date"]
+            current_value = None
+            if cp and qty:
+                current_value = round(cp * qty, 2)
+            else:
+                current_value = data.get("current_value")
             pl_pct = pl_usd = None
             if cp and entry and entry > 0:
                 pl_pct = round((cp - entry) / entry * 100, 2)
@@ -613,9 +626,9 @@ class SiteBuilder:
                 "entry_price": entry,
                 "entry_date": data.get("entry_date"),
                 "total_invested": data.get("total_invested"),
-                "current_value": data.get("current_value"),
+                "current_value": current_value,
                 "current_price": cp,
-                "price_date": price["date"],
+                "price_date": price_date,
                 "stop_loss": stop,
                 "target_price": target,
                 "conviction_at_entry": data.get("conviction_at_entry"),
