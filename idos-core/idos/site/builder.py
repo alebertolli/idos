@@ -210,6 +210,7 @@ class SiteData:
     learning: list[dict] = field(default_factory=list)
     dashboard: dict = field(default_factory=dict)
     companies: dict = field(default_factory=dict)
+    entry_rules: list[dict] = field(default_factory=list)
 
 
 class SiteBuilder:
@@ -222,6 +223,7 @@ class SiteBuilder:
         self.stale_days = stale_days
         self.prices: dict[str, dict[str, Any]] = self._load_prices()
         self.disc_min_score = self._load_disc_min_score()
+        self.entry_rules = self._load_entry_rules()
 
     def _load_disc_min_score(self) -> int:
         cfg = _load_yaml(self.config / "scoring.yml")
@@ -230,6 +232,23 @@ class SiteBuilder:
             if isinstance(v, int):
                 return v
         return 70
+
+    def _load_entry_rules(self) -> list[dict]:
+        """Authorization entry rules that gate UNDER_DEEP_DD -> APPROVED."""
+        cfg = _load_yaml(self.config / "rules" / "entry_rules.yml")
+        rules = []
+        if isinstance(cfg, dict):
+            for r in cfg.get("rules") or []:
+                if isinstance(r, dict) and r.get("stage") in ("authorization", None):
+                    rules.append({
+                        "id": r.get("id"),
+                        "description": r.get("description"),
+                        "condition": r.get("condition"),
+                        "priority": r.get("priority"),
+                        "action": r.get("action"),
+                        "active": r.get("active", True),
+                    })
+        return rules
 
     # -- prices from daily cache (SQLite) --
     def _load_prices(self) -> dict[str, dict[str, Any]]:
@@ -729,6 +748,7 @@ class SiteBuilder:
             learning=learning,
             dashboard=dashboard,
             companies=self.companies,
+            entry_rules=self.entry_rules,
         )
 
 
@@ -924,8 +944,14 @@ function renderOpp(){
 function renderBuylist(){
   const rows = DATA.buylist;
   let html = `<h2>Buy List (${rows.length})</h2>`;
+  html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada, con zona de compra, target y peso máximo definidos por el placeholder. El siguiente paso automático es <b>ENTRY_PENDING</b>: el entry monitor valida condiciones técnicas (wyckoff) y de precio dentro de zona antes de acumular.</p>`;
+  html += `<h3>Umbrales de aprobación (Decision Board, reglas de autorización)</h3><table><thead><tr><th>Regla</th><th>Condición</th><th>Prioridad</th></tr></thead><tbody>`;
+  (ENTRY_RULES||[]).slice().sort((a,b)=>(b.priority||0)-(a.priority||0)).forEach(r=>{
+    html += `<tr><td>${esc(r.id)}</td><td><code>${esc(r.condition)}</code></td><td>${r.priority??'—'}</td></tr>`;
+  });
+  html += '</tbody></table>';
   if(!rows.length) html += `<div class="card"><p class="muted">La Buy List está vacía.</p></div>`;
-  html += `<table><thead><tr><th>Ticker</th><th>Conv.</th><th>Último precio</th><th>Zona compra (top)</th><th>Target</th><th>Margen a target</th><th>Max peso</th><th>Wyckoff</th><th>Últ. análisis</th><th>Últ. KB</th><th>Catalizadores</th></tr></thead><tbody>`;
+  html += `<table><thead><tr><th>Ticker</th><th>Conv.</th><th>Último precio</th><th>Zona compra (top)</th><th>Target</th><th>Margen a target</th><th>Max peso</th><th>Horizonte</th><th>Wyckoff</th><th>Últ. análisis</th><th>Agregado</th><th>Últ. KB</th><th>Catalizadores</th></tr></thead><tbody>`;
   rows.forEach(r=>{
     const margin = (r.current_price&&r.target_price&&r.target_price>0)? (r.target_price-r.current_price)/r.current_price*100 : null;
     const wy = r.wyckoff;
@@ -933,7 +959,8 @@ function renderBuylist(){
       <td><b>${esc(r.ticker)}</b></td><td>${r.conviction_score??'—'}</td>
       <td>${money(r.current_price)}</td><td>${money(r.buy_zone_top)}</td><td>${money(r.target_price)}</td>
       <td class="${margin>=0?'pos':'neg'}">${pct(margin,true)}</td><td>${r.max_position_pct?r.max_position_pct+'%':'—'}</td>
-      <td>${wyPhase(wy?.phase)} ${wy?.score??''}</td><td>${dt(wy?.analyzed_at)}</td><td>${dt(r.kb_last_update)}</td>
+      <td class="muted">${esc(r.horizon||'—')}</td>
+      <td>${wyPhase(wy?.phase)} ${wy?.score??''}</td><td>${dt(wy?.analyzed_at)}</td><td>${dt(r.added_at)}</td><td>${dt(r.kb_last_update)}</td>
       <td>${(r.catalysts||[]).slice(0,2).map(c=>esc(c.description||'').slice(0,40)).join(' · ')||'—'}</td></tr>`;
   });
   html += '</tbody></table>';
@@ -1094,7 +1121,9 @@ def write_site(base_path: Path, out_dir: Path | None = None, stale_days: int = D
 
     (out / "assets" / "style.css").write_text(STYLE_CSS, encoding="utf-8")
     (out / "assets" / "app.js").write_text(
-        f"const DISC_MIN_SCORE = {builder.disc_min_score};\n" + APP_JS, encoding="utf-8"
+        f"const DISC_MIN_SCORE = {builder.disc_min_score};\n"
+        f"const ENTRY_RULES = {json.dumps(builder.entry_rules, ensure_ascii=False)};\n"
+        + APP_JS, encoding="utf-8"
     )
     (out / "data.json").write_text(
         json.dumps(_to_jsonable(data), ensure_ascii=False, indent=2), encoding="utf-8"
