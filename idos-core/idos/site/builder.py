@@ -752,6 +752,36 @@ class SiteBuilder:
         for o in opps:
             funnel[o["status"]] = funnel.get(o["status"], 0) + 1
 
+        group_defs = [
+            ("discovery", "Discovery", "screening",
+             {"DISCOVERED", "WATCHLIST", "SCREENED"}),
+            ("research", "Research", "opp",
+             {"UNDER_RESEARCH", "UNDER_DEEP_DD"}),
+            ("buylist", "Buy List", "buylist",
+             {"APPROVED", "ENTRY_PENDING"}),
+            ("portfolio", "Portfolio", "portfolio",
+             {"ACCUMULATING", "FULL_POSITION", "MONITORING", "REDUCING"}),
+            ("closed", "Cerradas", "learning",
+             STATUS_CLOSED),
+        ]
+        sections = []
+        for key, label, tab, statuses in group_defs:
+            count = sum(v for k, v in funnel.items() if k in statuses)
+            sections.append({
+                "key": key, "label": label, "tab": tab,
+                "count": count,
+                "statuses": sorted(statuses),
+            })
+
+        # Show the actual tally each tab displays: buy list entries and open positions
+        for s in sections:
+            if s["key"] == "buylist":
+                s["count"] = len(buylist)
+            if s["key"] == "portfolio":
+                s["count"] = len(positions)
+            if s["key"] == "closed":
+                s["count"] = len(learning)
+
         stale = [o for o in opps if o.get("is_stale")]
         alerts = [
             {"severity": "warn", "ticker": o["ticker"], "message": f"Research stale ({o.get('stale_days')}d sin actualizar)"}
@@ -765,34 +795,10 @@ class SiteBuilder:
             if o.get("trend") == "DETERIORATING":
                 alerts.append({"severity": "warn", "ticker": o["ticker"],
                                "message": "Convicción deteriorándose"})
-        # suggested actions
-        actions = []
-        for o in opps:
-            if o["status"] == "APPROVED":
-                wy = o.get("wyckoff") or {}
-                in_zone = bool(o.get("current_price") and o.get("intrinsic_value")
-                               and o["current_price"] <= o["intrinsic_value"])
-                actions.append({
-                    "action": "BUY", "ticker": o["ticker"], "opp_id": o["opp_id"],
-                    "conviction": o.get("conviction_overall"),
-                    "detail": "Approved + en/por debajo de valor intrínseco" if in_zone else "Approved (valoración a vigilar)",
-                    "wyckoff_phase": wy.get("phase"), "wyckoff_score": wy.get("score"),
-                    "triggered_entry": wy.get("triggered_entry", False),
-                })
-        for p in positions:
-            if p.get("dist_to_stop_pct") is not None and p["dist_to_stop_pct"] <= 5:
-                actions.append({"action": "EXIT_WATCH", "ticker": p["ticker"],
-                                "detail": f"Próximo a stop ({p['dist_to_stop_pct']:.1f}%)"})
-        for l in learning:
-            analysis = l.get("analysis") or {}
-            if not analysis.get("would_invest_again", True):
-                actions.append({"action": "LEARNING", "ticker": l["ticker"],
-                                "detail": "Post-mortem: no re-invertir"})
-
         return {
             "funnel": funnel,
+            "sections": sections,
             "alerts": alerts,
-            "actions": actions,
             "stats": {
                 "active": len([o for o in opps if o["status"] in STATUS_ACTIVE]),
                 "closed": len([o for o in opps if o["status"] in STATUS_CLOSED]),
@@ -972,25 +978,28 @@ function renderView(id){
   renderDashboard();
 }
 
+function goTab(id){
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  const b = [...document.querySelectorAll('.tab')].find(x=>x.dataset.view===id);
+  if(b) b.classList.add('active');
+  renderView(id);
+}
+
 // ---------- Dashboard ----------
 function renderDashboard(){
   const d = DATA.dashboard;
   let html = '<div class="grid">';
-  const cards = [['Activas', d.stats.active],['Cerradas', d.stats.closed],['Posiciones', d.stats.positions],['Buy List', d.stats.buylist],['Post-mortems', d.stats.learning]];
-  cards.forEach(([k,v])=>html+=`<div class="card"><div class="muted">${k}</div><div style="font-size:26px;font-weight:700">${v}</div></div>`);
+  (d.sections||[]).forEach(s=>{
+    html += `<div class="card" style="cursor:pointer" onclick="goTab('${s.tab}')" title="Ver ${esc(s.label)}">
+      <div class="muted">${esc(s.label)}</div>
+      <div style="font-size:26px;font-weight:700">${s.count}</div>
+      <div style="font-size:11px" class="muted">(${s.statuses.map(badge).join(' ')})</div>
+    </div>`;
+  });
   html += '</div>';
   html += '<h2>Funnel de oportunidades</h2><table><thead><tr><th>Estado</th><th>Cantidad</th></tr></thead><tbody>';
   Object.entries(d.funnel).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>html+=`<tr><td>${badge(k)}</td><td>${v}</td></tr>`);
   html += '</tbody></table>';
-  html += '<h2>Acciones sugeridas</h2>';
-  if(!d.actions.length) html += '<p class="muted">Sin acciones pendientes.</p>';
-  d.actions.forEach(a=>{
-    const c = a.action==='BUY'?'pos':a.action==='LEARNING'?'':'neg';
-    html += `<div class="alert ${a.action==='EXIT_WATCH'?'high':''}"><b class="${c}">${esc(a.action)}</b> <b>${esc(a.ticker)}</b> — ${esc(a.detail)}`+
-      (a.wyckoff_phase?` <span class="muted">· wyckoff ${wyPhase(a.wyckoff_phase)} (${esc(a.wyckoff_score)})</span>`:'')+
-      (a.triggered_entry?` <span class="badge" style="background:#102a1d;color:#4ade80">condiciones de entrada cumplidas</span>`:'')+
-      `</div>`;
-  });
   html += '<h2>Alertas</h2>';
   if(!d.alerts.length) html += '<p class="muted">Sin alertas.</p>';
   d.alerts.forEach(a=>html+=`<div class="alert ${a.severity==='high'?'high':''}"><b>${esc(a.ticker)}</b> — ${esc(a.message)}</div>`);
