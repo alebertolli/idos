@@ -403,11 +403,18 @@ class SiteBuilder:
                 continue
             price = self.price_for(e.get("ticker", ""))
             wyckoff = self._load_wyckoff_latest(e.get("ticker", ""), e.get("opp_id", ""))
+            opp = self._find_opp(e.get("ticker", ""), e.get("opp_id", ""))
+            intrinsic = e.get("target_price") or (opp or {}).get("intrinsic_value") or 0
+            current = price["price"] or (opp or {}).get("current_price")
+            buy_zone = e.get("buy_zone_top")
+            if not buy_zone and intrinsic:
+                buy_zone = round(intrinsic * 0.7070, 2)
+            target = e.get("target_price") or intrinsic
             out.append({
                 "ticker": e.get("ticker"),
                 "conviction_score": e.get("conviction_score"),
-                "target_price": e.get("target_price"),
-                "buy_zone_top": e.get("buy_zone_top"),
+                "target_price": target or None,
+                "buy_zone_top": buy_zone or None,
                 "max_position_pct": e.get("max_position_pct"),
                 "horizon": e.get("horizon"),
                 "monitoring": e.get("monitoring", True),
@@ -415,11 +422,24 @@ class SiteBuilder:
                 "added_at": e.get("added_at"),
                 "kb_last_update": e.get("kb_last_update"),
                 "catalysts": e.get("catalysts") or [],
-                "current_price": price["price"],
+                "current_price": current,
                 "price_date": price["date"],
+                "industry": (self.companies.get((e.get("ticker") or "").upper()) or {}).get("industry"),
                 "wyckoff": wyckoff,
             })
         return out
+
+    def _find_opp(self, ticker: str, opp_id: str = "") -> dict | None:
+        if opp_id:
+            d = self.journal / "companies" / ticker / "case_file" / "opportunities" / opp_id
+            o = self._load_opportunity(ticker, d)
+            if o:
+                return o
+        seq = self._load_opportunities()
+        for o in seq:
+            if (o.get("ticker") or "").upper() == (ticker or "").upper():
+                return o
+        return None
 
     def _load_watchlist(self) -> list[dict]:
         data = _load_yaml(self.journal / "portfolio" / "watchlist.yml")
@@ -942,26 +962,24 @@ function renderOpp(){
 
 // ---------- Buy List ----------
 function renderBuylist(){
-  const rows = DATA.buylist;
+  const rows = DATA.buylist.slice().sort((a,b)=>((b.wyckoff?.score)??-1)-((a.wyckoff?.score)??-1));
   let html = `<h2>Buy List (${rows.length})</h2>`;
-  html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada, con zona de compra, target y peso máximo definidos por el placeholder. El siguiente paso automático es <b>ENTRY_PENDING</b>: el entry monitor valida condiciones técnicas (wyckoff) y de precio dentro de zona antes de acumular.</p>`;
-  html += `<h3>Umbrales de aprobación (Decision Board, reglas de autorización)</h3><table><thead><tr><th>Regla</th><th>Condición</th><th>Prioridad</th></tr></thead><tbody>`;
+  html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada (siguiente paso: <b>ENTRY_PENDING</b>). Ordenadas por score Wyckoff descendente.</p>`;
+  html += `<details class="details"><summary>Umbrales de aprobación (Decision Board)</summary><table><thead><tr><th>Regla</th><th>Condición</th><th>Prioridad</th></tr></thead><tbody>`;
   (ENTRY_RULES||[]).slice().sort((a,b)=>(b.priority||0)-(a.priority||0)).forEach(r=>{
     html += `<tr><td>${esc(r.id)}</td><td><code>${esc(r.condition)}</code></td><td>${r.priority??'—'}</td></tr>`;
   });
-  html += '</tbody></table>';
+  html += '</tbody></table></details>';
   if(!rows.length) html += `<div class="card"><p class="muted">La Buy List está vacía.</p></div>`;
-  html += `<table><thead><tr><th>Ticker</th><th>Conv.</th><th>Último precio</th><th>Zona compra (top)</th><th>Target</th><th>Margen a target</th><th>Max peso</th><th>Horizonte</th><th>Wyckoff</th><th>Últ. análisis</th><th>Agregado</th><th>Últ. KB</th><th>Catalizadores</th></tr></thead><tbody>`;
+  html += `<table><thead><tr><th>Ticker</th><th>Industria</th><th>Conv.</th><th>Último precio</th><th>Zona compra (top)</th><th>Target</th><th>Margen a target</th><th>Wyckoff</th><th>Últ. análisis</th></tr></thead><tbody>`;
   rows.forEach(r=>{
     const margin = (r.current_price&&r.target_price&&r.target_price>0)? (r.target_price-r.current_price)/r.current_price*100 : null;
     const wy = r.wyckoff;
     html += `<tr style="cursor:pointer" onclick="showOppFromBuylist('${r.opp_id||''}','${r.ticker}')">
-      <td><b>${esc(r.ticker)}</b></td><td>${r.conviction_score??'—'}</td>
+      <td><b>${esc(r.ticker)}</b></td><td class="muted">${esc(r.industry||'—')}</td><td>${r.conviction_score??'—'}</td>
       <td>${money(r.current_price)}</td><td>${money(r.buy_zone_top)}</td><td>${money(r.target_price)}</td>
-      <td class="${margin>=0?'pos':'neg'}">${pct(margin,true)}</td><td>${r.max_position_pct?r.max_position_pct+'%':'—'}</td>
-      <td class="muted">${esc(r.horizon||'—')}</td>
-      <td>${wyPhase(wy?.phase)} ${wy?.score??''}</td><td>${dt(wy?.analyzed_at)}</td><td>${dt(r.added_at)}</td><td>${dt(r.kb_last_update)}</td>
-      <td>${(r.catalysts||[]).slice(0,2).map(c=>esc(c.description||'').slice(0,40)).join(' · ')||'—'}</td></tr>`;
+      <td class="${margin>=0?'pos':'neg'}">${pct(margin,true)}</td>
+      <td>${wyPhase(wy?.phase)} ${wy?.score??''}</td><td>${dt(wy?.analyzed_at)}</td></tr>`;
   });
   html += '</tbody></table>';
   setView('buylist', html);
