@@ -220,6 +220,7 @@ class SiteBuilder:
         self.knowledge = base_path / "idos-knowledge"
         self.config = base_path / "idos-config"
         self.db_path = base_path / "idos.db"
+        self.cache = base_path / "cache"
         self.stale_days = stale_days
         self.prices: dict[str, dict[str, Any]] = self._load_prices()
         self.disc_min_score = self._load_disc_min_score()
@@ -300,6 +301,32 @@ class SiteBuilder:
         if not p:
             return {"price": None, "date": None}
         return {"price": p["price"], "date": p["date"]}
+
+    def _market_price(self, ticker: str) -> dict[str, Any]:
+        """Latest market close from cache/{TICKER}.json — same source as the entry engine."""
+        import json as _json
+        p = self.cache / f"{ticker}.json"
+        if not p.exists():
+            return {"price": None, "date": None}
+        try:
+            raw = _json.loads(p.read_text(encoding="utf-8"))
+            prices, volumes, dates = [], [], []
+            if isinstance(raw, dict):
+                if raw.get("price_history"):
+                    prices, volumes, dates = raw["price_history"], raw.get("volume_history", []), raw.get("price_history_dates", [])
+                elif "yfinance" in raw:
+                    prices = raw["yfinance"].get("price_history", [])
+                    volumes = raw["yfinance"].get("volume_history", [])
+                    dates = raw["yfinance"].get("price_history_dates", [])
+                elif raw.get("merged_data"):
+                    prices = raw["merged_data"].get("price_history", [])
+                    volumes = raw["merged_data"].get("volume_history", [])
+                    dates = raw["merged_data"].get("price_history_dates", [])
+            if prices and prices[-1]:
+                return {"price": round(float(prices[-1]), 2), "date": dates[-1] if dates else None}
+        except Exception:
+            pass
+        return {"price": None, "date": None}
 
     # -- opportunities --
     def _load_opportunity(self, ticker: str, opp_dir: Path) -> dict | None:
@@ -425,10 +452,12 @@ class SiteBuilder:
             if not isinstance(e, dict):
                 continue
             price = self.price_for(e.get("ticker", ""))
+            mkt = self._market_price(e.get("ticker", ""))
             wyckoff = self._load_wyckoff_latest(e.get("ticker", ""), e.get("opp_id", ""))
             opp = self._find_opp(e.get("ticker", ""), e.get("opp_id", ""))
             intrinsic = e.get("target_price") or (opp or {}).get("intrinsic_value") or 0
-            current = price["price"] or (opp or {}).get("current_price")
+            current = mkt["price"] or price["price"] or (opp or {}).get("current_price")
+            price_date = mkt["date"] or price["date"]
             buy_zone = e.get("buy_zone_top")
             if not buy_zone and intrinsic:
                 buy_zone = round(intrinsic * 0.7070, 2)
@@ -446,7 +475,7 @@ class SiteBuilder:
                 "kb_last_update": e.get("kb_last_update"),
                 "catalysts": e.get("catalysts") or [],
                 "current_price": current,
-                "price_date": price["date"],
+                "price_date": price_date,
                 "industry": (self.companies.get((e.get("ticker") or "").upper()) or {}).get("industry"),
                 "wyckoff": wyckoff,
             })
@@ -984,7 +1013,7 @@ function buylistEntryFails(r){
   if(!r.current_price || r.current_price<=0){
     fails.push('Precio sin datos');
   } else if(r.buy_zone_top && r.buy_zone_top>0){
-    if(r.current_price > r.buy_zone_top) fails.push('Precio fuera de zona de compra');
+    if(r.current_price > r.buy_zone_top) fails.push(`Precio fuera de zona (${fmt((r.current_price/r.buy_zone_top-1)*100,0)}% arriba)`);
   } else if(r.target_price && r.target_price>0){
     const margin = (r.target_price-r.current_price)/r.current_price*100;
     if(margin < (c.margin_of_safety_pct??30)) fails.push(`Margen de seguridad &lt; ${c.margin_of_safety_pct??30}%`);
