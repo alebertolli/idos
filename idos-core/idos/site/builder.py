@@ -407,7 +407,65 @@ class SiteBuilder:
         if not isinstance(data, dict):
             return []
         entries = data.get("entries") or []
-        return [e for e in entries if isinstance(e, dict)]
+        out = []
+        for e in entries:
+            if not isinstance(e, dict):
+                continue
+            e = dict(e)
+            e["metrics"] = self._scout_metrics(e.get("ticker", ""))
+            out.append(e)
+        return out
+
+    # -- scout metric breakdown (recompute from cache, mirrors ScoutEngine) --
+    def _scout_num(self, v: Any, default: float = 0.0) -> float:
+        if isinstance(v, (int, float)):
+            return float(v)
+        if isinstance(v, str):
+            try:
+                return float(v.replace(",", "").replace("$", "").replace("%", ""))
+            except (ValueError, TypeError):
+                pass
+        return default
+
+    def _scout_metrics(self, ticker: str) -> dict[str, Any]:
+        cache_file = self.base / "cache" / f"{ticker}.json"
+        raw: dict[str, Any] = {}
+        if cache_file.exists():
+            try:
+                raw = json.loads(cache_file.read_text(encoding="utf-8"))
+            except Exception:
+                raw = {}
+        if not raw:
+            return {"size_score": None, "liquidity_score": None,
+                    "momentum_score": None, "value_score": None, "quality_score": None}
+
+        metrics = {
+            "market_cap": self._scout_num(raw.get("market_cap")),
+            "avg_volume": self._scout_num(raw.get("volume_avg")) or self._scout_num(raw.get("avg_volume")),
+            "pe_ratio": self._scout_num(raw.get("pe_ratio_ttm")) or self._scout_num(raw.get("pe_ratio")),
+            "ev_ebitda": self._scout_num(raw.get("ev_ebitda")),
+            "roic": self._scout_num(raw.get("roic_pct")),
+            "operating_margin": self._scout_num(raw.get("operating_margin_pct")),
+            "debt_to_equity": self._scout_num(raw.get("debt_equity_ratio")),
+            "revenue_growth": self._scout_num(raw.get("revenue_growth_pct")),
+        }
+
+        # momentum from price history (approx 3m / 12m trading days)
+        ph = raw.get("price_history") if isinstance(raw.get("price_history"), list) else []
+        if len(ph) >= 2 and ph[-1]:
+            n = len(ph)
+            # last close vs ~64 trading days ago (3m) and n ago relative (12m)
+            base3 = ph[n-64] if n >= 64 else ph[0]
+            base12 = ph[0]
+            chg3 = (ph[-1] - base3) / base3 * 100 if base3 else 0.0
+            chg12 = (ph[-1] - base12) / base12 * 100 if base12 else 0.0
+            metrics["price_change_3m"] = chg3
+            metrics["price_change_12m"] = chg12
+
+        # reuse the exact ScoutEngine scorer
+        from idos.discovery.scout import ScoutEngine
+        res = ScoutEngine(min_score=0).scan(ticker=ticker, data={"metrics": metrics})
+        return res.details
 
     def _load_wyckoff_latest(self, ticker: str, opp_id: str) -> dict | None:
         w_dir = self.journal / "companies" / ticker / "case_file" / "opportunities" / opp_id / "wyckoff"
@@ -910,15 +968,18 @@ function renderPortfolio(){
 }
 
 // ---------- Screening Watchlist ----------
+// ---------- Discovery ----------
 function renderScreening(){
   const rows = DATA.watchlist;
   let html = `<h2>Discovery (${rows.length})</h2>`;
-  html += `<p class="muted">Candidatos del Discovery Domain (Scout), primer estado del funnel. La promoción es automática por el pipeline mensual: si el score de screening es <b>≥ ${DISC_MIN_SCORE}</b> (umbral <code>scoring.min_opportunity_score</code>), el caso pasa solo a <b>Research / UNDER_DEEP_DD</b>, sin aprobación manual.</p>`;
-  html += `<table><thead><tr><th>Ticker</th><th>Score</th><th>Razón</th><th>Agregado</th></tr></thead><tbody>`;
-  rows.forEach(r=>html+=`<tr><td><b>${esc(r.ticker)}</b></td><td>${r.score??'—'}</td><td>${esc(r.reason)}</td><td>${dt(r.added_at)}</td></tr>`);
+  html += `<p class="muted">Candidatos del Discovery Domain (Scout), primer estado del funnel. La promoción es automática por el pipeline mensual: si el score de screening es <b>≥ ${DISC_MIN_SCORE}</b> (umbral <code>scoring.min_opportunity_score</code>), el caso pasa solo a <b>Research / UNDER_DEEP_DD</b>, sin aprobación manual. El score global es el promedio de las 5 métricas del Scout.</p>`;
+  html += `<table><thead><tr><th>Ticker</th><th>Score</th>${mcolHeaders()}<th>Agregado</th></tr></thead><tbody>`;
+  rows.forEach(r=>html+=`<tr><td><b>${esc(r.ticker)}</b></td><td><b class="${r.score>=70?'pos':''}">${r.score??'—'}</b></td>${mcolCells(r.metrics)}<td>${dt(r.added_at)}</td></tr>`);
   html += '</tbody></table>';
   setView('screening', html);
 }
+function mcolHeaders(){ return `<th>Size</th><th>Liquidez</th><th>Momentum</th><th>Valor</th><th>Calidad</th>`; }
+function mcolCells(met){ const k=['size_score','liquidity_score','momentum_score','value_score','quality_score']; return k.map(m=>{ const v=met?met[m]:null; return `<td class="${v>=70?'pos':''}">${v??'—'}</td>`; }).join(''); }
 
 // ---------- Wiki ----------
 function renderWiki(){
