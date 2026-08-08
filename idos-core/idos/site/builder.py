@@ -934,14 +934,29 @@ function renderDashboard(){
 }
 
 // ---------- Research ----------
+function detailsEntryRules(){
+  let h = '<details class="details" style="margin:10px 0"><summary>Umbrales de aprobación (Decision Board)</summary><table><thead><tr><th>Regla</th><th>Condición</th><th>Prioridad</th></tr></thead><tbody>';
+  (ENTRY_RULES||[]).slice().sort((a,b)=>(b.priority||0)-(a.priority||0)).forEach(r=>{
+    h += `<tr><td>${esc(r.id)}</td><td><code>${esc(r.condition)}</code></td><td>${r.priority??'—'}</td></tr>`;
+  });
+  h += '</tbody></table></details>';
+  return h;
+}
+function rulesBadge(failed){
+  if(!failed||!failed.length) return '<span class="pos">OK</span>';
+  const map = {};
+  (ENTRY_RULES||[]).forEach(r=>{ if(r.description) map[r.id]=r.description.split(' for ')[0].replace(/[.:;-]+$/,''); });
+  return failed.map(id=>`<span class="badge" title="${esc(map[id]||id)}" style="background:#2a1516;color:#f87171">${esc(id)}</span>`).join(' ');
+}
 function renderOpp(){
   const rows = DATA.opportunities.filter(o=>o.status==='UNDER_DEEP_DD')
     .sort((a,b)=>(b.conviction_overall??-1)-(a.conviction_overall??-1));
   let html = `<h2>Research (${rows.length})</h2>`;
   html += `<p class="muted">Oportunidades en <b>Research / UNDER_DEEP_DD</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Ordenadas por convicción, de mayor a menor.</p>`;
   html += `<p class="muted">Estados siguientes (automatizados): el worker de Decision Board evalúa el caso y lo pasa a <b>APPROVED</b> (aprobado para entrada) o a <b>WATCHLIST</b> (rechazado) según las reglas de entrada. La transición es automática; no hay umbral numérico fijo.</p>`;
+  html += detailsEntryRules();
   html += `<input id="opp-search" placeholder="Buscar ticker..." style="margin:8px 0">`;
-  html += `<table><thead><tr><th>Ticker</th><th>Conv.</th><th>Business</th><th>Valuation</th><th>Risk</th><th>Recovery</th><th>Precio</th><th>Intrínseco</th><th>Upside</th><th>Última inv.</th></tr></thead><tbody>`;
+  html += `<table><thead><tr><th>Ticker</th><th>Conv.</th><th>Business</th><th>Valuation</th><th>Risk</th><th>Recovery</th><th>Precio</th><th>Intrínseco</th><th>Upside</th><th>Rules failed</th><th>Última inv.</th></tr></thead><tbody>`;
   rows.forEach(o=>{
     html += `<tr style="cursor:pointer" onclick="showCase('${o.opp_id}')">
       <td><b>${esc(o.ticker)}</b></td>
@@ -950,6 +965,7 @@ function renderOpp(){
       <td>${o.scores?.RiskAssessmentEngine??'—'}</td><td>${o.scores?.RecoveryAssessmentEngine??'—'}</td>
       <td>${money(o.current_price)}</td><td>${money(o.intrinsic_value)}</td>
       <td class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</td>
+      <td>${rulesBadge(o.proposal?.rules_failed)}</td>
       <td>${dt(o.last_research)} ${staleBadge(o)}</td></tr>`;
   });
   html += '</tbody></table>';
@@ -965,11 +981,6 @@ function renderBuylist(){
   const rows = DATA.buylist.slice().sort((a,b)=>((b.wyckoff?.score)??-1)-((a.wyckoff?.score)??-1));
   let html = `<h2>Buy List (${rows.length})</h2>`;
   html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada (siguiente paso: <b>ENTRY_PENDING</b>). Ordenadas por score Wyckoff descendente.</p>`;
-  html += `<details class="details"><summary>Umbrales de aprobación (Decision Board)</summary><table><thead><tr><th>Regla</th><th>Condición</th><th>Prioridad</th></tr></thead><tbody>`;
-  (ENTRY_RULES||[]).slice().sort((a,b)=>(b.priority||0)-(a.priority||0)).forEach(r=>{
-    html += `<tr><td>${esc(r.id)}</td><td><code>${esc(r.condition)}</code></td><td>${r.priority??'—'}</td></tr>`;
-  });
-  html += '</tbody></table></details>';
   if(!rows.length) html += `<div class="card"><p class="muted">La Buy List está vacía.</p></div>`;
   html += `<table><thead><tr><th>Ticker</th><th>Industria</th><th>Conv.</th><th>Último precio</th><th>Zona compra (top)</th><th>Target</th><th>Margen a target</th><th>Wyckoff</th><th>Últ. análisis</th></tr></thead><tbody>`;
   rows.forEach(r=>{
