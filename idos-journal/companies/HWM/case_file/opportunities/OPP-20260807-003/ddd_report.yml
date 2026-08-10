@@ -1,18 +1,76 @@
-calidad_evidencia: {}
+calidad_evidencia:
+  hechos_verificados:
+  - historial de crecimiento estable
+  - posición competitiva en el mercado
+  inferencias_llm:
+  - potencial de crecimiento fuerte
+  - buena salud financiera
+  preguntas_abiertas:
+  - antigüedad del CEO
+  - propiedad de los insiders
 catalizadores_previos: []
-clasificacion_oportunidad: {}
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: Compounder castigado, Turnaround, Deep Value, Cíclica, Special
+    Situation, Distressed, Quality at Fair Price, Hype, Value Trap
+  justificacion: Howmet Aerospace Inc. tiene un historial de crecimiento estable y
+    una posición competitiva en el mercado de soluciones avanzadas para la industria
+    aeroespacial y de transporte. Su modelo de negocio diversificado y su presencia
+    geográfica amplia la hacen atractiva.
 comparativa_catalizadores: []
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-08-07T21:59:34.011448-03:00'
-integridad_tesis: {}
-opinion_valoracion: ''
+dominio_business_quality:
+  analisis: La empresa tiene un modelo de negocio diversificado y una presencia geográfica
+    amplia, lo que la hace atractiva. Su posición competitiva en el mercado y su historial
+    de crecimiento estable también son puntos fuertes.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Un aumento significativo en la demanda de aviones comerciales y militares
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: La empresa no parece tener riesgos significativos en términos de ESG y
+    cadena de suministro.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: La empresa tiene un margen operativo del 27,3% y un ROIC del 23,0%, lo
+    que sugiere una buena salud financiera.
+  rating: fuerte
+dominio_growth:
+  analisis: La empresa tiene un historial de crecimiento estable y una posición competitiva
+    en el mercado, lo que sugiere un potencial de crecimiento fuerte.
+  rating: fuerte
+dominio_management:
+  analisis: La empresa tiene un equipo de gestión experimentado, pero la falta de
+    información sobre la antigüedad del CEO y la propiedad de los insiders es un punto
+    débil.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: cambio en la demanda de aviones comerciales y militares
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un aumento significativo en la demanda de aviones comerciales y militares
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado parece descontar un crecimiento moderado y una valoración
+    razonable para la empresa.
+  hipotesis_contraria: La empresa podría experimentar un crecimiento más rápido de
+    lo esperado debido a la demanda creciente de soluciones avanzadas para la industria
+    aeroespacial y de transporte.
+  razonamiento: La empresa tiene un historial de crecimiento estable y una posición
+    competitiva en el mercado, lo que sugiere que el consenso actual podría estar
+    subestimando su potencial de crecimiento.
+generated_at: '2026-08-10T06:20:17.811414-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-003
 prompt_inputs:
   business_model: 'Howmet Aerospace Inc. provides advanced engineered solutions for
@@ -33,30 +91,33 @@ prompt_inputs:
     Arconic Inc. Howmet Aerospace Inc. was founded in 1888 and is based in Pittsburgh,
     Pennsylvania.'
   ceo_tenure: 0
-  debt_to_equity: 0.79
+  debt_to_equity: 0.81
   fcf_adjusted: 0
   insider_ownership: 0
   name: Howmet Aerospace Inc.
-  operating_margin: 27.09
-  pe_ratio: 62.44
+  operating_margin: 27.32
+  pe_ratio: 60.79
   products: ''
   revenue: 9120000000.0
   revenue_growth: 14.18
-  roic: 23.01
+  roic: 22.99
   sector: Industrials
   ticker: HWM
-resumen_ejecutivo: ''
-score_general: 50
+resumen_ejecutivo: Howmet Aerospace Inc. es una empresa con un historial de crecimiento
+  estable y una posición competitiva en el mercado de soluciones avanzadas para la
+  industria aeroespacial y de transporte.
+score_general: 80
 target_consensus:
-  calculado_at: '2026-08-07T21:59:14.676968-03:00'
+  calculado_at: '2026-08-10T06:20:06.922261-03:00'
   fuentes:
-    stockanalysis: 325.93
-    yfinance: 320.328
-  mediana: 323.13
+    stockanalysis: 332.43
+    yfinance: 328.928
+  mediana: 330.68
   n_fuentes: 2
-  promedio: 323.13
+  promedio: 330.68
   target_high: 375.0
   target_low: 256.56
-tesis_inversion: ''
+tesis_inversion: La empresa tiene un historial de crecimiento estable y una posición
+  competitiva en el mercado, lo que sugiere un potencial de crecimiento fuerte.
 ticker: HWM
 version: '3.0'

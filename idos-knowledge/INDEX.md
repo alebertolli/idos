@@ -92,7 +92,7 @@ Total: 99 companies tracked
 - 📄 [[ASR|ASR]]
 - 📄 [[BA|The Boeing Company]]
 - 📄 [[CAAP|Corporación América Airports S.A.]]
-- ⏳ [[HWM|Howmet Aerospace Inc.]]
+- 📄 [[HWM|Howmet Aerospace Inc.]]
 - 📄 [[PAC|Grupo Aeroportuario del Pacífico, S.A.B. de C.V.]]
 - 📄 [[RKLB|Rocket Lab Corporation]]
 
