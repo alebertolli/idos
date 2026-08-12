@@ -26,7 +26,7 @@ def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, 
                      opp_id: str, bp: Path, knowledge: KnowledgeRepository):
     target_price = context.get("intrinsic_value", 0) or 0
     margin = context.get("margin_of_safety", 30.0)
-    buy_zone_top = target_price * (1 - margin / 100) if target_price else 0
+    buy_zone_top = target_price / (1 + margin / 100) if target_price else 0
     entry = BuyListEntry(
         ticker=ticker,
         target_price=target_price,
@@ -523,6 +523,38 @@ def _register_assessment_rules(engine: RulesEngine):
     for rule, fn in ASSESSMENT_RULES:
         engine.register_rule(rule, fn)
 
+
+AUTHORIZATION_RULE_IDS = {"RULE-001", "RULE-003", "RULE-004", "RULE-005", "RULE-008"}
+
+
+def _authorization_rule_ids(base_path: str | Path) -> set[str]:
+    """Ids de reglas ACTIVAS de stage=authorization desde entry_rules.yml.
+
+    Las reglas de ejecución (RULE-002, RULE-006, RULE-007, RULE-009) se validan
+    en ENTRY_PENDING/sizing, NO bloquean la autorización (UNDER_DEEP_DD → APPROVED).
+    """
+    rules_path = Path(base_path) / "idos-config" / "rules" / "entry_rules.yml"
+    if not rules_path.exists():
+        return set(AUTHORIZATION_RULE_IDS)
+    try:
+        data = yaml.safe_load(rules_path.read_text(encoding="utf-8"))
+    except Exception:
+        return set(AUTHORIZATION_RULE_IDS)
+    ids = {
+        r.get("id") for r in (data or {}).get("rules", [])
+        if r.get("active", True) and r.get("stage", "authorization") == "authorization"
+    }
+    return ids or set(AUTHORIZATION_RULE_IDS)
+
+
+def _register_authorization_rules(engine: RulesEngine, base_path: str | Path) -> None:
+    """Registra solo reglas de AUTORIZACIÓN. Las de ejecución se aplican luego en el sizing."""
+    rule_by_id = {rule.id: (rule, fn) for rule, fn in ASSESSMENT_RULES}
+    for rid in sorted(_authorization_rule_ids(base_path)):
+        entry = rule_by_id.get(rid)
+        if entry:
+            engine.register_rule(entry[0], entry[1])
+
 def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_reprocess: bool = False) -> dict[str, Any]:
     bp = Path(base_path)
     sqlite = SQLiteStore(bp / "idos.db")
@@ -531,7 +563,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     settings = load_settings(bp / "idos-config")
 
     rules_engine = RulesEngine()
-    _register_assessment_rules(rules_engine)
+    _register_authorization_rules(rules_engine, bp)
 
     orchestrator = DecisionOrchestrator(rules_engine=rules_engine)
     orchestrator.register_engine(BusinessAssessmentEngine())
