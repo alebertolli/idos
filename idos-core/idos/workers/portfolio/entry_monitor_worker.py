@@ -131,26 +131,46 @@ class EntryMonitorWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        ind_cfg, entry_cfg = self._load_indicator_config()
+        cfg_dir = self._resolve_config_dir(config)
+        ind_cfg, entry_cfg, settings = self._load_indicator_config(cfg_dir)
+        mos = float(
+            entry_cfg.get("margin_of_safety")
+            or (settings.portfolio.get("margin_of_safety") if settings else None)
+            or 30.0
+        )
         wyckoff = WyckoffAnalyzer(
             weights=ind_cfg.get("weights"),
             bands=ind_cfg.get("bands"),
         )
         self.entry_engine = EntryEngine(
             wyckoff_analyzer=wyckoff,
-            min_wyckoff_score=entry_cfg.get("min_score", 45),
+            min_margin_of_safety=mos,
+            min_wyckoff_score=int(entry_cfg.get("min_score", 45)),
+            settings=settings,
+            config_dir=cfg_dir if settings is not None else None,
         )
         self.state_machine = OpportunityStateMachine()
         self.error_manager = ErrorManager()
 
     @staticmethod
-    def _load_indicator_config() -> tuple[dict[str, Any], dict[str, Any]]:
-        """Read indicator weights/bands and entry.min_score from idos-config/portfolio.yml."""
-        from idos.config import load_config
-        base = Path.cwd() / "idos-config" / "portfolio.yml"
-        cfg = load_config(base) or {}
-        ind = cfg.get("indicator", {}) or {}
-        return ind, (cfg.get("entry", {}) or {})
+    def _resolve_config_dir(config: dict[str, Any] | None) -> Path | None:
+        """Devuelve el dir de idos-config si existe portfolio.yml (fuente de Settings)."""
+        cfg_dir = (config or {}).get("config_dir")
+        if cfg_dir:
+            p = Path(cfg_dir)
+            if (p / "portfolio.yml").exists():
+                return p
+        p = Path.cwd() / "idos-config"
+        return p if (p / "portfolio.yml").exists() else None
+
+    @staticmethod
+    def _load_indicator_config(config_dir: Path | None) -> tuple[dict[str, Any], dict[str, Any], Any]:
+        """Lee indicator weights/bands y entry (min_score, margin_of_safety) desde Settings."""
+        from idos.config import load_settings
+        settings = load_settings(config_dir) if config_dir else None
+        ind = (settings.portfolio.get("indicator", {}) or {}) if settings else {}
+        entry_cfg = (settings.portfolio.get("entry", {}) or {}) if settings else {}
+        return ind, entry_cfg, settings
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         ticker = context.get("ticker", "").upper().strip()
@@ -163,6 +183,17 @@ class EntryMonitorWorker(BaseWorker):
         bp = Path(base_path) if base_path else Path.cwd()
         sqlite = SQLiteStore(bp / "idos.db")
         journal = JournalRepository(bp / "idos-journal")
+
+        cfg_dir = self._resolve_config_dir({"config_dir": str(bp / "idos-config")})
+        if cfg_dir is not None:
+            _, entry_cfg, settings = self._load_indicator_config(cfg_dir)
+            self.entry_engine.min_margin_of_safety = float(
+                entry_cfg.get("margin_of_safety")
+                or settings.portfolio.get("margin_of_safety")
+                or 30.0
+            )
+            self.entry_engine.min_wyckoff_score = int(entry_cfg.get("min_score", 45))
+            self.entry_engine.settings = settings
 
         opp = sqlite.get_opportunity(opp_id)
         if not opp:

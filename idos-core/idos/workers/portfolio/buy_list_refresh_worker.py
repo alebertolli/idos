@@ -52,6 +52,8 @@ class BuyListRefreshWorker(BaseWorker):
         added = 0
         removed = 0
 
+        margin_of_safety = self._load_margin_of_safety(bp)
+
         for opp in approved + entry_pending:
             ticker = opp["ticker"]
             opp_id = opp["id"]
@@ -62,8 +64,9 @@ class BuyListRefreshWorker(BaseWorker):
             if not intrinsic or not current_price:
                 continue
 
-            margin_pct = ((intrinsic - current_price) / current_price) * 100
-            buy_zone_top = intrinsic * 0.7
+            # Zona de compra con MoS configurable: precio <= intrinsic/(1+MoS/100)
+            # (coherente con el fallback MoS del EntryEngine y la UI).
+            buy_zone_top = intrinsic / (1 + margin_of_safety / 100)
             max_pos = min(3.0, conviction.get("overall", 50) / 100 * 5)
 
             existing = self.buylist.get(ticker)
@@ -109,6 +112,14 @@ class BuyListRefreshWorker(BaseWorker):
             "removed": removed,
             "total_entries": self.buylist.count(),
         }
+
+    def _load_margin_of_safety(self, bp: Path) -> float:
+        """Umbral MoS desde Settings (idos-config/portfolio.yml margin_of_safety)."""
+        from idos.config import load_settings
+        if (bp / "idos-config" / "portfolio.yml").exists():
+            settings = load_settings(bp / "idos-config")
+            return float(settings.portfolio.get("margin_of_safety", 30.0))
+        return 30.0
 
     def _load_existing_buylist(self, bp: Path):
         """Load existing buylist.yml entries into the in-memory manager so

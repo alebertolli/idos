@@ -72,12 +72,18 @@ class EntryEngine:
 
         target_missing = not target_price or target_price <= 0
 
-        margin = ((intrinsic - current_price) / current_price * 100) if current_price and intrinsic else 0
+        # Zona unificada: si existe buy_zone_top se exige precio<=zona; si no,
+        # fallback MoS contra el target (target_price de Buy List o intrinsic),
+        # calculado de la misma forma que la UI (site/builder).
+        margin_base = target_price or intrinsic
+        margin = ((margin_base - current_price) / current_price * 100) if current_price and margin_base else 0
 
-        if buy_zone_top and buy_zone_top > 0 and current_price:
+        if current_price and buy_zone_top and buy_zone_top > 0:
             price_in_zone = current_price <= buy_zone_top
-        else:
+        elif current_price and margin_base and not target_missing:
             price_in_zone = margin >= self.min_margin_of_safety
+        else:
+            price_in_zone = False
 
         result: WyckoffResult = self.wyckoff.analyze(price_data, benchmark_data=benchmark_data)
         wyckoff_ok = self.wyckoff.is_entry_confirmed(result.phase)

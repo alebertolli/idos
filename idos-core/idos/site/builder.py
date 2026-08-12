@@ -527,8 +527,6 @@ class SiteBuilder:
             current = mkt["price"] or price["price"] or (opp or {}).get("current_price")
             price_date = mkt["date"] or price["date"]
             buy_zone = e.get("buy_zone_top")
-            if not buy_zone and intrinsic:
-                buy_zone = round(intrinsic * 0.7070, 2)
             target = e.get("target_price") or intrinsic
             out.append({
                 "ticker": e.get("ticker"),
