@@ -651,6 +651,18 @@ class SiteBuilder:
                 o["wyckoff"] = self._load_wyckoff_latest(o["ticker"], o["opp_id"])
         return opps
 
+    def _latest_wyckoff_for_ticker(self, ticker: str) -> dict | None:
+        opps_dir = self.journal / "companies" / ticker / "case_file" / "opportunities"
+        if not opps_dir.exists():
+            return None
+        for d in sorted(opps_dir.iterdir(), reverse=True):
+            if not d.is_dir():
+                continue
+            opp_id = d.name
+            if (d / "wyckoff").exists():
+                return self._load_wyckoff_latest(ticker, opp_id)
+        return None
+
     # -- positions / portfolio / ledger --
     def _load_positions(self) -> list[dict]:
         pos_dir = self.journal / "paper" / "positions"
@@ -679,6 +691,12 @@ class SiteBuilder:
                 pl_usd = round((cp - entry) * qty, 2)
             stop = data.get("stop_loss")
             target = data.get("target_price")
+            comp = self.companies.get(ticker) or {}
+            wyk = None
+            if data.get("opp_id"):
+                wyk = self._load_wyckoff_latest(ticker, data["opp_id"])
+            if wyk is None:
+                wyk = self._latest_wyckoff_for_ticker(ticker)
             out.append({
                 "ticker": ticker,
                 "opp_id": data.get("opp_id"),
@@ -696,6 +714,9 @@ class SiteBuilder:
                 "pl_usd": pl_usd,
                 "dist_to_stop_pct": round((cp - stop) / stop * 100, 1) if (cp and stop) else None,
                 "dist_to_target_pct": round((target - cp) / cp * 100, 1) if (cp and target) else None,
+                "sector": comp.get("sector") or "Otros",
+                "industry": comp.get("industry"),
+                "wyckoff": wyk,
             })
         return out
 
@@ -714,14 +735,27 @@ class SiteBuilder:
         pl_total = total_value - total_invested
         sector_map: dict[str, float] = {}
         for p in positions:
-            comp = self.companies.get(p["ticker"]) or {}
-            sector = comp.get("sector") or "Otros"
+            sector = p.get("sector") or "Otros"
             sector_map[sector] = sector_map.get(sector, 0) + (p.get("current_value") or 0)
         sector_top = None
         if sector_map:
             sector_top = max(sector_map.items(), key=lambda x: x[1])
             sector_top = {"sector": sector_top[0], "value": round(sector_top[1], 2),
                           "pct": round(sector_top[1] / total_value * 100, 1) if total_value else None}
+        # Riesgo de correlación (proxy): exposición agrupada + concentração idiosincrática (HHI)
+        weights = [((p.get("current_value") or 0) / total_value) for p in positions if total_value]
+        hhi = round(sum(w * w for w in weights) * 10000, 1) if weights else 0  # 0-10000
+        max_sector_pct = sector_top.get("pct") if sector_top else 0
+        corr_risk = {
+            "strategy": "sector_concentration",
+            "score": round(max_sector_pct, 1) if max_sector_pct else 0,  # % exposición al mayor grupo correlacionado
+            "top_sector": sector_top.get("sector") if sector_top else None,
+            "top_sector_pct": max_sector_pct,
+            "hhi": hhi,
+            "interpretation": ("alto: exposición concentrada en un grupo de activos correlacionados (sector)"
+                               if max_sector_pct >= 40 else
+                               ("moderado" if max_sector_pct >= 20 else "bajo: diversificación entre sectores")),
+        }
         return {
             "total_value": round(total_value, 2),
             "total_invested": round(total_invested, 2),
@@ -729,7 +763,8 @@ class SiteBuilder:
             "total_pl_pct": round(pl_total / total_invested * 100, 2) if total_invested else None,
             "positions_count": len(positions),
             "sector_top": sector_top,
-            "sectors": sector_map,
+            "sectors": {k: round(v, 2) for k, v in sector_map.items()},
+            "corr_risk": corr_risk,
         }
 
     # -- wiki --
@@ -1165,28 +1200,34 @@ function renderBuylist(){
 
 // ---------- Portfolio ----------
 function renderPortfolio(){
-  const pf = DATA.portfolio;
-  let html = '<div class="grid">';
-  html += `<div class="card"><div class="muted">Valor total</div><div style="font-size:24px;font-weight:700">${money(pf.total_value)}</div></div>`;
-  html += `<div class="card"><div class="muted">P/L portfolio</div><div style="font-size:24px;font-weight:700" class="${pf.total_pl_usd>=0?'pos':'neg'}">${money(pf.total_pl_usd)} (${pct(pf.total_pl_pct,true)})</div></div>`;
-  html += `<div class="card"><div class="muted">Posiciones</div><div style="font-size:24px;font-weight:700">${pf.positions_count}</div></div>`;
-  html += `<div class="card"><div class="muted">Sector top</div><div style="font-size:18px;font-weight:700">${esc(pf.sector_top?.sector||'—')} ${pf.sector_top?('('+fmt(pf.sector_top.pct,1)+'%)'):''}</div></div>`;
-  html += '</div>';
-  html += `<h2>Activos</h2><table><thead><tr><th>Ticker</th><th>Peso</th><th>Cant</th><th>Entry</th><th>Último</th><th>P/L %</th><th>P/L $</th><th>Stop (dist)</th><th>Target</th></tr></thead><tbody>`;
-  const total = pf.total_value||0;
-  DATA.positions.forEach(p=>{
-    const weight = total? (p.current_value||0)/total*100 : null;
-    html += `<tr style="cursor:pointer" onclick="showCaseFromPos('${p.opp_id||''}','${p.ticker}')">
-      <td><b>${esc(p.ticker)}</b></td><td>${weight!==null?fmt(weight,1)+'%':'—'}</td>
-      <td>${p.quantity??'—'}</td><td>${money(p.entry_price)}</td><td>${money(p.current_price)}</td>
-      <td class="${p.pl_pct>=0?'pos':'neg'}">${pct(p.pl_pct,true)}</td><td class="${p.pl_usd>=0?'pos':'neg'}">${money(p.pl_usd)}</td>
-      <td>${money(p.stop_loss)} ${p.dist_to_stop_pct!==null?`(${fmt(p.dist_to_stop_pct,1)}%)`:''}</td>
-      <td>${money(p.target_price)} ${p.dist_to_target_pct!==null?`(${fmt(p.dist_to_target_pct,1)}%)`:''}</td></tr>`;
-  });
-  html += '</tbody></table>';
-  html += '<h2>Sectores</h2><table><thead><tr><th>Sector</th><th>Valor</th></tr></thead><tbody>';
-  Object.entries(pf.sectors||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td>${money(v)}</td></tr>`);
-  html += '</tbody></table>';
+const pf = DATA.portfolio;
+   let html = '<div class="grid">';
+   html += `<div class="card"><div class="muted">Valor total</div><div style="font-size:24px;font-weight:700">${money(pf.total_value)}</div></div>`;
+   html += `<div class="card"><div class="muted">P/L portfolio</div><div style="font-size:24px;font-weight:700" class="${pf.total_pl_usd>=0?'pos':'neg'}">${money(pf.total_pl_usd)} (${pct(pf.total_pl_pct,true)})</div></div>`;
+   html += `<div class="card"><div class="muted">Posiciones</div><div style="font-size:24px;font-weight:700">${pf.positions_count}</div></div>`;
+   const cr = pf.corr_risk||{};
+   html += `<div class="card"><div class="muted">Riesgo de correlación (proxy)</div><div style="font-size:18px;font-weight:700">${cr.score!=null?fmt(cr.score,1)+'':''}% ${cr.top_sector?('<span class="muted">('+esc(cr.top_sector)+')</span>'):''}</div><div class="muted">${esc(cr.interpretation||'')}</div></div>`;
+   html += '</div>';
+   html += `<h2>Activos</h2><table><thead><tr><th>Ticker</th><th>Industria</th><th>Peso</th><th>Monto</th><th>Último</th><th>Upside</th><th>Wyckoff</th><th>Target</th><th>Dist a target</th></tr></thead><tbody>`;
+   const total = pf.total_value||0;
+   const rows = (DATA.positions||[]).slice().sort((a,b)=>(a.industry||'').localeCompare(b.industry||''));
+   rows.forEach(p=>{
+     const weight = total? (p.current_value||0)/total*100 : null;
+     const wy = p.wyckoff;
+     html += `<tr style="cursor:pointer" onclick="showCaseFromPos('${p.opp_id||''}','${p.ticker}')">
+       <td><b>${esc(p.ticker)}</b></td><td class="muted">${esc(p.industry||p.sector||'—')}</td>
+       <td>${weight!==null?fmt(weight,1)+'%':'—'}</td><td>${money(p.current_value)}</td><td>${money(p.current_price)}</td>
+       <td class="${p.pl_pct>=0?'pos':'neg'}">${pct(p.pl_pct,true)}</td>
+       <td>${wyPhase(wy?.phase)} ${esc(wy?.score??'—')}</td>
+       <td>${money(p.target_price|| (wy?.price_target||null))}</td>
+       <td>${p.dist_to_target_pct!==null?`<span class="${p.dist_to_target_pct>=0?'pos':'neg'}">${pct(p.dist_to_target_pct,true)}</span>`:(wy?.price_target?`<span class="pos">${pct((wy.price_target-p.current_price)/p.current_price*100,true)}</span>`:'—')}</td></tr>`;
+   });
+   html += '</tbody></table>';
+   html += '<details class="details" style="margin:10px 0"><summary>Sectores</summary><table><thead><tr><th>Sector</th><th>Valor</th><th>%</th></tr></thead><tbody>';
+   const sectorsArr = Object.entries(pf.sectors||{}).map(([k,v])=>[k,v]);
+   sectorsArr.sort((a,b)=>b[1]-a[1]);
+    sectorsArr.forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td>${money(v)}</td><td>${total?fmt(v/total*100,1)+'':''}%</td></tr>`);
+   html += '</tbody></table></details>';
   setView('portfolio', html);
 }
 

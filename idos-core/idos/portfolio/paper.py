@@ -58,6 +58,8 @@ class PaperTrader:
         )
         self.ledger.record(trade)
         self._save_position(ticker, opp_id, price, qty, value, stop_loss, intrinsic_value, conviction)
+        self._capture_entry_snapshot(ticker, opp_id, price, qty, value, stop_loss,
+                                     intrinsic_value, conviction)
 
         position_pct = round(value / self.bankroll * 100, 2)
         print(f"[PAPER] BUY {ticker}: {qty} shares @ ${price:.2f} = ${value:.2f} ({position_pct}% of portfolio, SL=${stop_loss:.2f})")
@@ -166,6 +168,28 @@ class PaperTrader:
             "conviction_at_entry": conviction,
         }
         self._write_position(pos)
+
+    def _capture_entry_snapshot(self, ticker: str, opp_id: str, price: float, qty: int,
+                                value: float, stop_loss: float, target: float,
+                                conviction: int):
+        """Fija el snapshot analitico del momento exacto de la entrada."""
+        try:
+            from idos.portfolio.entry_snapshot import build_entry_snapshot, save_entry_snapshot
+            snapshot = build_entry_snapshot(self.journal, ticker, opp_id, {
+                "entry_price": price,
+                "quantity": qty,
+                "total_invested": value,
+                "stop_loss": stop_loss,
+                "target_price": target,
+                "intrinsic_value": target,
+                "conviction": conviction,
+                "current_price": price,
+                "entry_date": datetime.now(AR_TZ).isoformat(),
+            })
+            save_entry_snapshot(self.journal, ticker, opp_id, snapshot)
+            print(f"[PAPER] entry snapshot for {ticker} saved")
+        except Exception as e:
+            print(f"[PAPER] error capturando entry snapshot {ticker}: {e}")
 
     def _write_position(self, pos: dict[str, Any]):
         path = self._position_path(pos["ticker"])

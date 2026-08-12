@@ -1,0 +1,267 @@
+assessments:
+- confidence: MEDIUM
+  engine: BusinessAssessmentEngine
+  findings:
+  - detail: 'Exceptional ROIC: 29.58%'
+    type: POSITIVE
+  - detail: 'Excellent margins: 49.66%'
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:39.465517-03:00'
+  recommendation: FAVORABLE
+  risks: []
+  score: 72
+- confidence: HIGH
+  engine: PortfolioAssessmentEngine
+  findings:
+  - detail: Portfolio has capacity for new position
+    type: POSITIVE
+  - detail: Sector Basic Materials within diversification limits
+    type: POSITIVE
+  - detail: Only 0 positions, adding increases diversification
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:39.465582-03:00'
+  recommendation: EXCELLENT_FIT
+  risks: []
+  score: 90
+- confidence: MEDIUM
+  engine: RecoveryAssessmentEngine
+  findings:
+  - dimension: business_momentum
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  - dimension: valuation_gap
+    level: HIGH
+    score: 70
+    type: DIMENSION
+  - dimension: market_expectations
+    level: MEDIUM
+    score: 50
+    type: DIMENSION
+  - dimension: catalysts
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  - dimension: technical_confirmation
+    level: MEDIUM
+    score: 50
+    type: DIMENSION
+  - dimension: risk_compression
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  generated_at: '2026-07-27T02:36:39.465564-03:00'
+  recommendation: MODERATE
+  risks: []
+  score: 60
+- confidence: MEDIUM
+  engine: RiskAssessmentEngine
+  findings: []
+  generated_at: '2026-07-27T02:36:39.465572-03:00'
+  recommendation: LOW_RISK
+  risks: []
+  score: 70
+- confidence: HIGH
+  engine: ValuationAssessmentEngine
+  findings:
+  - detail: 'Price target upside: 52.4%'
+    type: POSITIVE
+  - detail: 'FCF Yield: 10.6%'
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:39.465536-03:00'
+  recommendation: ATTRACTIVE
+  risks: []
+  score: 80
+- confidence: HIGH
+  engine: ResearchWorker
+  findings:
+  - 'Classification: compounder'
+  - 'Market error: SI'
+  - 'Thesis: La empresa es una buena oportunidad de inversión a corto plazo debido
+    a su capacidad para mantener su posición competitiva y aprovechar las oportunidades
+    de crecimiento en nuevos mercados.'
+  generated_at: '2026-07-27T01:00:42.302988-03:00'
+  recommendation: REVIEW
+  risks:
+  - impacto: medio
+    probabilidad: media
+    riesgo: riesgo de mercado
+  - impacto: bajo
+    probabilidad: baja
+    riesgo: riesgo operativo
+  score: 85
+catalysts: &id001
+- descripcion: aumento significativo en la producción de oro
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 70
+- descripcion: implementación de medidas de eficiencia para reducir costos
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 60
+dominios:
+  dominio_business_quality:
+    analisis: La empresa tiene una posición competitiva sólida en el sector y una
+      presencia geográfica diversificada. Su modelo de negocio es estable y tiene
+      un historial de crecimiento.
+    rating: excepcional
+  dominio_catalizadores: *id001
+  dominio_esg_supply_chain:
+    analisis: La empresa tiene un bajo riesgo de ESG y una cadena de suministro diversificada.
+    rating: bajo_riesgo
+  dominio_financial_health:
+    analisis: La empresa tiene un balance sólido y una generación de caja estable.
+      Su perfil de deuda es bajo y su capacidad para generar caja es alta.
+    rating: fuerte
+  dominio_growth:
+    analisis: La empresa tiene un crecimiento moderado en la producción de oro y una
+      oportunidad de crecimiento en nuevos mercados.
+    rating: moderado
+  dominio_management:
+    analisis: La empresa no tiene un CEO con experiencia significativa, pero su equipo
+      de gestión tiene un buen track record de asignación de capital.
+    rating: bueno
+  dominio_riesgos: &id002
+  - impacto: medio
+    probabilidad: media
+    riesgo: riesgo de mercado
+  - impacto: bajo
+    probabilidad: baja
+    riesgo: riesgo operativo
+entry:
+  conviction_at_entry: 73
+  current_price: 32.7
+  entry_date: '2026-07-30T14:37:33.862543-03:00'
+  entry_price: 32.7
+  intrinsic_value: 49.84375
+  margin_of_safety_pct: null
+  quantity: 91
+  stop_loss: 26.99
+  target_price: 49.84375
+fundamentals:
+  business_model: Gold Fields Limited operates as a gold producer with reserves and
+    resources in South Africa, Ghana, Australia, Peru, Canada, and Chile. It also
+    explores for gold, copper and silver deposits. Gold Fields Limited was founded
+    in 1887 and is based in Sandton, South Africa.
+  ceo_tenure: 0
+  debt_to_equity: 0.37
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: Gold Fields Limited
+  operating_margin: 49.66
+  pe_ratio: 8.2
+  products: ''
+  revenue: 8750000000.0
+  revenue_growth: 12.92
+  roic: 29.58
+  sector: Basic Materials
+  ticker: GFI
+opp_id: OPP-20260725-002
+recommendation: APPROVE
+risks: *id002
+rules_failed: []
+rules_passed:
+- RULE-001
+- RULE-003
+- RULE-004
+- RULE-005
+- RULE-008
+snapshot_at: '2026-08-12T01:33:08.181564-03:00'
+technical:
+  analyzed_at: '2026-07-30T14:37:33.801781-03:00'
+  indicators:
+    algorithmic_phase: unknown
+    bar_spread_description: 'spreads estables (promedio diario reciente: 2.1%)'
+    current_price: 33.17
+    high_52w: 59.77
+    low_52w: 23.67
+    ma_200d: 42.73
+    ma_50d: 35.47
+    pct_from_52w_high: -44.5
+    pct_from_52w_low: 40.1
+    pct_from_ma200: -22.4
+    pct_from_ma50: -6.5
+    recent_trend: tendencia de 60d bajista fuerte (-21%). últimos 5d estables (+1%)
+    resistance_levels: 'resistencias identificadas: $59.77, $57.17, $56.95, $56.86,
+      $56.53 (basado en máximos históricos)'
+    support_levels: 'soportes identificados: $23.67, $23.77, $24.87, $27.50, $28.48
+      (basado en mínimos históricos)'
+    ticker: ''
+    volume_description: volumen reciente en línea con histórico (1.0x el promedio)
+  llm_response:
+    confianza: alta
+    datos_suficientes: true
+    eventos_wyckoff_detectados:
+    - confianza: alta
+      descripcion: Volumen alto, spread amplio, primer signo de compra
+      evento: PS
+    fase_wyckoff: acumulacion
+    justificacion: Se detectó un Preliminary Support (PS) con volumen alto y spread
+      amplio, lo que sugiere un primer signo de compra
+    limitaciones: No se tienen datos suficientes para evaluar la prueba 4 de fortaleza
+      relativa
+    precio_objetivo_wyckoff:
+      estimado: 45.67
+      metodo: conteo_pnf
+      razonamiento: Se estima un conteo P&F aproximado para el objetivo de precio
+    pruebas_compra:
+      prueba_1_objetivo_caida: Pasa
+      prueba_2_actividad_alcista: NoPasa
+      prueba_3_parada_critica: Pasa
+      prueba_4_fortaleza_relativa: N/A
+      prueba_5_linea_suministro: NoPasa
+      prueba_6_soportes_crecientes: Pasa
+      prueba_7_maximos_crecientes: NoPasa
+      prueba_8_base_construida: Pasa
+      prueba_9_relacion_3_1: NoPasa
+      pruebas_pasan: 4
+      total_pruebas: 9
+    punto_entrada: spring_3
+    senal_entrada: COMPRAR
+    stop_loss_sugerido:
+      distancia_pct: -10.9
+      fundamento: Se sugiere un Stop Loss a 10.9% por debajo del precio actual
+      precio: 29.67
+  triggered_entry: true
+  wyckoff_confidence: alta
+  wyckoff_entry_point: spring_3
+  wyckoff_phase: accumulation
+  wyckoff_price_target: 45.67
+  wyckoff_score: 74
+thesis:
+  catalizador_cambio: &id003
+    descripcion: Un aumento significativo en la producción de oro y la implementación
+      de medidas de eficiencia para reducir costos.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 60
+  clasificacion_oportunidad:
+    categoria: compounder
+    categorias_descartadas: deep_value, hype, value_trap
+    justificacion: Gold Fields Limited es una empresa de larga data con un historial
+      de crecimiento y estabilidad en el sector de los metales básicos. Su modelo
+      de negocio es sólido y tiene una presencia geográfica diversificada.
+  error_mercado:
+    catalizador_cambio: *id003
+    conclusion_error_valoracion: SI
+    consenso_actual: El precio de la acción refleja un crecimiento moderado y una
+      valoración justa, según el consenso de los analistas.
+    hipotesis_contraria: El mercado podría estar subestimando la capacidad de Gold
+      Fields Limited para mantener su posición competitiva en el sector y aprovechar
+      las oportunidades de crecimiento en nuevos mercados.
+    razonamiento: El mercado podría estar subestimando la capacidad de Gold Fields
+      Limited para mantener su posición competitiva y aprovechar las oportunidades
+      de crecimiento en nuevos mercados.
+  opinion_valoracion: infravalorado
+  resumen_ejecutivo: Gold Fields Limited es una empresa de larga data con un historial
+    de crecimiento y estabilidad en el sector de los metales básicos. Su modelo de
+    negocio es sólido y tiene una presencia geográfica diversificada. El mercado podría
+    estar subestimando la capacidad de la empresa para mantener su posición competitiva
+    y aprovechar las oportunidades de crecimiento en nuevos mercados.
+  score_general: 85
+  tesis_inversion: La empresa es una buena oportunidad de inversión a corto plazo
+    debido a su capacidad para mantener su posición competitiva y aprovechar las oportunidades
+    de crecimiento en nuevos mercados.
+ticker: GFI

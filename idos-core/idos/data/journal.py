@@ -135,6 +135,14 @@ class JournalRepository:
                     pass
         return results
 
+    def save_entry_snapshot(self, ticker: str, opp_id: str, snapshot: dict[str, Any]):
+        from idos.portfolio.entry_snapshot import save_entry_snapshot as _save
+        _save(self, ticker, opp_id, snapshot)
+
+    def load_entry_snapshot(self, ticker: str, opp_id: str) -> dict[str, Any] | None:
+        from idos.portfolio.entry_snapshot import load_entry_snapshot as _load
+        return _load(self, ticker, opp_id)
+
     def save_decision(self, ticker: str, opp_id: str, decision: dict[str, Any]):
         path = self.opportunity_path(ticker, opp_id) / "decisions"
         path.mkdir(parents=True, exist_ok=True)

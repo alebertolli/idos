@@ -83,8 +83,11 @@ class PostMortemWorker(BaseWorker):
         position = journal.load_position(ticker)
         hypotheses = journal.load_hypotheses(ticker, opp_id)
         wyckoff_analyses = self._load_wyckoff_analyses(ticker, opp_id, journal)
+        entry_snapshot = journal.load_entry_snapshot(ticker, opp_id)
 
-        post_mortem = self._llm_post_mortem(ticker, decisions, assessments, position, exit_reason, wyckoff_analyses, hypotheses)
+        post_mortem = self._llm_post_mortem(ticker, decisions, assessments, position,
+                                            exit_reason, wyckoff_analyses, hypotheses,
+                                            entry_snapshot)
 
         pm_id = f"pm-{uuid4().hex[:8]}"
         pm_record = {
@@ -282,16 +285,53 @@ class PostMortemWorker(BaseWorker):
                     analyses.append(data)
         return analyses
 
-    def _llm_post_mortem(self, ticker: str, decisions: list[dict],
+def _llm_post_mortem(self, ticker: str, decisions: list[dict],
                           assessments: list[dict], position: dict | None,
                           exit_reason: str,
                           wyckoff_analyses: list[dict] | None = None,
-                          hypotheses: list[dict] | None = None) -> dict[str, Any]:
+                          hypotheses: list[dict] | None = None,
+                          entry_snapshot: dict | None = None) -> dict[str, Any]:
         prompt = (
-            f"Genera un Post-Mortem de inversión para {ticker}.\n\n"
-            f"Razón de salida: {exit_reason}\n\n"
-            f"Decisiones registradas:\n"
+            f"Genera un Post-Mortem de inversion para {ticker}.\n\n"
+            f"Razon de salida: {exit_reason}\n\n"
         )
+
+        # Snapshot del momento de entrada: tesis, fundamentales, catalizadores,
+        # riesgos y dominios tal como estaban al momento de la compra.
+        if entry_snapshot:
+            thesis = entry_snapshot.get("thesis") or {}
+            entry = entry_snapshot.get("entry") or {}
+            prompt += "=== TESIS AL MOMENTO DE ENTRADA (snapshot) ===\n"
+            prompt += f"- Tesis: {thesis.get('tesis_inversion') or 'N/D'}\n"
+            prompt += f"- Resumen: {thesis.get('resumen_ejecutivo') or 'N/D'}\n"
+            prompt += f"- Opinion de valoracion: {thesis.get('opinion_valoracion') or 'N/D'}\n"
+            prompt += f"- Score DDD: {thesis.get('score_general') or 'N/D'}\n"
+            prompt += (
+                f"- Entrada: precio ${entry.get('entry_price') or '?'}, "
+                f"fecha {entry.get('entry_date') or '?'}, "
+                f"stop ${entry.get('stop_loss') or '?'}, "
+                f"target ${entry.get('target_price') or '?'}\n"
+            )
+            catalysts = entry_snapshot.get("catalysts") or []
+            if catalysts:
+                prompt += "\nCatalizadores al momento de entrada:\n"
+                for c in catalysts:
+                    prompt += (f"- {c.get('descripcion', '?')} "
+                               f"(impacto {c.get('impacto', '?')}, "
+                               f"probabilidad {c.get('probabilidad_pct', '?')}%)\n")
+            risks = entry_snapshot.get("risks") or []
+            if risks:
+                prompt += "\nRiesgos al momento de entrada:\n"
+                for r in risks:
+                    prompt += f"- {r.get('riesgo', '?')} ({r.get('probabilidad', '?')}/{r.get('impacto', '?')})\n"
+            dominios = entry_snapshot.get("dominios") or {}
+            if dominios:
+                prompt += "\nDominios evaluados (rating):\n"
+                for k, v in dominios.items():
+                    rating = v.get("rating", "?") if isinstance(v, dict) else v
+                    prompt += f"- {k}: {rating}\n"
+
+        prompt += "\nDecisiones registradas:\n"
         for d in decisions:
             prompt += f"- {d.get('type','?')}: {d.get('rationale','')[:200]}\n"
 
@@ -322,10 +362,14 @@ class PostMortemWorker(BaseWorker):
                                    f"(esperado {p.get('expected', p.get('expected_value',''))}, "
                                    f"real {p.get('actual', p.get('actual_value',''))})\n")
 
-        if wyckoff_analyses:
-            last_w = wyckoff_analyses[-1]
+        # Wyckoff del momento de entrada (snapshot) o ultimo analisis como fallback.
+        entry_wyckoff = (entry_snapshot or {}).get("technical") or {}
+        if entry_wyckoff:
+            last_w = entry_wyckoff
             eventos = []
             llm_resp = last_w.get("llm_response") or {}
+            if not isinstance(llm_resp, dict):
+                llm_resp = {}
             for e in (llm_resp.get("eventos_wyckoff_detectados") or []):
                 if isinstance(e, dict):
                     eventos.append(f"{e.get('evento','?')}({e.get('confianza','?')})")
@@ -333,7 +377,35 @@ class PostMortemWorker(BaseWorker):
             pasan = pruebas.get("pruebas_pasan", "?")
             total_p = pruebas.get("total_pruebas", "?")
             prompt += (
-                f"\nAnalisis Wyckoff al momento de entrada:\n"
+                f"\nAnalisis Wyckoff al momento de entrada (snapshot):\n"
+                f"- Fase: {last_w.get('wyckoff_phase') or last_w.get('phase', '?')}\n"
+                f"- Score: {last_w.get('wyckoff_score') or last_w.get('score', '?')}/100\n"
+                f"- Confianza: {last_w.get('wyckoff_confidence') or last_w.get('confidence', '?')}\n"
+                f"- Eventos detectados: {', '.join(eventos) if eventos else 'ninguno'}\n"
+                f"- Pruebas de compra: {pasan}/{total_p}\n"
+                f"- Punto de entrada: {last_w.get('wyckoff_entry_point') or last_w.get('entry_point', '?')}\n"
+                f"- Precio objetivo: {last_w.get('wyckoff_price_target') or last_w.get('price_target', '?')}\n"
+                f"\nPreguntas para evaluar el analisis Wyckoff:\n"
+                f"1. La fase detectada fue correcta dado el movimiento real del precio?\n"
+                f"2. Los eventos Wyckoff (PS, SC, Spring, LPS, SOS, etc.) fueron validos?\n"
+                f"3. El punto de entrada recomendado ({last_w.get('wyckoff_entry_point') or last_w.get('entry_point', '?')}) habria funcionado?\n"
+                f"4. Las pruebas de compra que pasaron realmente predijeron el resultado?\n"
+                f"5. Compara contra el analisis del cierre: el activo evoluciono como esperaba el analisis de entrada?\n"
+            )
+        elif wyckoff_analyses:
+            last_w = wyckoff_analyses[-1]
+            eventos = []
+            llm_resp = last_w.get("llm_response") or {}
+            if not isinstance(llm_resp, dict):
+                llm_resp = {}
+            for e in (llm_resp.get("eventos_wyckoff_detectados") or []):
+                if isinstance(e, dict):
+                    eventos.append(f"{e.get('evento','?')}({e.get('confianza','?')})")
+            pruebas = llm_resp.get("pruebas_compra") or {}
+            pasan = pruebas.get("pruebas_pasan", "?")
+            total_p = pruebas.get("total_pruebas", "?")
+            prompt += (
+                f"\nAnalisis Wyckoff (ultimo disponible):\n"
                 f"- Fase: {last_w.get('phase', '?')}\n"
                 f"- Score: {last_w.get('score', '?')}/100\n"
                 f"- Confianza: {last_w.get('confidence', '?')}\n"
@@ -341,11 +413,6 @@ class PostMortemWorker(BaseWorker):
                 f"- Pruebas de compra: {pasan}/{total_p}\n"
                 f"- Punto de entrada: {last_w.get('entry_point', '?')}\n"
                 f"- Precio objetivo: {last_w.get('price_target', '?')}\n"
-                f"\nPreguntas para evaluar el analisis Wyckoff:\n"
-                f"1. La fase detectada fue correcta dado el movimiento real del precio?\n"
-                f"2. Los eventos Wyckoff (PS, SC, Spring, LPS, SOS, etc.) fueron validos?\n"
-                f"3. El punto de entrada recomendado ({last_w.get('entry_point', '?')}) habria funcionado?\n"
-                f"4. Las pruebas de compra que pasaron realmente predijeron el resultado?\n"
             )
 
         prompt += (

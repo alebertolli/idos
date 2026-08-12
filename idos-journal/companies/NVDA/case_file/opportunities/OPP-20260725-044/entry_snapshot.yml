@@ -1,0 +1,260 @@
+assessments:
+- confidence: HIGH
+  engine: BusinessAssessmentEngine
+  findings:
+  - detail: 'Exceptional ROIC: 104.67%'
+    type: POSITIVE
+  - detail: 'High revenue growth: 47.15%'
+    type: POSITIVE
+  - detail: 'Excellent margins: 64.02%'
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:42.788926-03:00'
+  recommendation: FAVORABLE
+  risks: []
+  score: 76
+- confidence: HIGH
+  engine: PortfolioAssessmentEngine
+  findings:
+  - detail: Portfolio has capacity for new position
+    type: POSITIVE
+  - detail: Sector Technology within diversification limits
+    type: POSITIVE
+  - detail: Only 0 positions, adding increases diversification
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:42.788988-03:00'
+  recommendation: EXCELLENT_FIT
+  risks: []
+  score: 90
+- confidence: MEDIUM
+  engine: RecoveryAssessmentEngine
+  findings:
+  - dimension: business_momentum
+    level: HIGH
+    score: 70
+    type: DIMENSION
+  - dimension: valuation_gap
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  - dimension: market_expectations
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  - dimension: catalysts
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  - dimension: technical_confirmation
+    level: MEDIUM
+    score: 50
+    type: DIMENSION
+  - dimension: risk_compression
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  generated_at: '2026-07-27T02:36:42.788969-03:00'
+  recommendation: MODERATE
+  risks: []
+  score: 62
+- confidence: HIGH
+  engine: RiskAssessmentEngine
+  findings:
+  - detail: Low leverage
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:42.788978-03:00'
+  recommendation: LOW_RISK
+  risks: []
+  score: 80
+- confidence: MEDIUM
+  engine: ValuationAssessmentEngine
+  findings:
+  - detail: 'Price target upside: 46.4%'
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:42.788943-03:00'
+  recommendation: ATTRACTIVE
+  risks: []
+  score: 70
+- confidence: HIGH
+  engine: ResearchWorker
+  findings:
+  - 'Classification: compounder'
+  - 'Market error: SI'
+  - 'Thesis: NVIDIA Corporation es una inversión atractiva debido a su posición dominante
+    en el mercado de la tecnología de la información, su historial de crecimiento
+    sostenido y su capacidad para innovar y expan'
+  generated_at: '2026-07-27T01:57:05.560403-03:00'
+  recommendation: REVIEW
+  risks:
+  - impacto: alto
+    probabilidad: alta
+    riesgo: Dependencia de la tecnología de la información
+  - impacto: medio
+    probabilidad: media
+    riesgo: Competencia en el mercado
+  score: 85
+catalysts: &id001
+- descripcion: Un cambio en la política de China hacia la tecnología de la información
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 30
+- descripcion: Un avance significativo en la tecnología de la información que afecte
+    la posición de NVIDIA Corporation en el mercado
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 20
+dominios:
+  dominio_business_quality:
+    analisis: NVIDIA Corporation tiene una posición dominante en el mercado de la
+      tecnología de la información y un historial de crecimiento sostenido. Su capacidad
+      para innovar y expandirse a nuevos mercados es alta.
+    rating: excepcional
+  dominio_catalizadores: *id001
+  dominio_esg_supply_chain:
+    analisis: NVIDIA Corporation tiene un enfoque sólido en la sostenibilidad y la
+      responsabilidad social. Su cadena de suministro es diversificada y no hay riesgos
+      significativos de interrupción.
+    rating: bajo_riesgo
+  dominio_financial_health:
+    analisis: NVIDIA Corporation tiene un balance sólido, una generación de caja alta
+      y un perfil de deuda bajo. Su capacidad para generar caja y pagar sus deudas
+      es alta.
+    rating: fuerte
+  dominio_growth:
+    analisis: NVIDIA Corporation tiene un historial de crecimiento sostenido y una
+      posición dominante en el mercado de la tecnología de la información. Su capacidad
+      para innovar y expandirse a nuevos mercados es alta.
+    rating: fuerte
+  dominio_management:
+    analisis: El equipo de dirección de NVIDIA Corporation tiene una experiencia y
+      habilidad demostradas en la gestión de la empresa. Su capacidad para tomar decisiones
+      informadas y estratégicas es alta.
+    rating: excepcional
+  dominio_riesgos: &id002
+  - impacto: alto
+    probabilidad: alta
+    riesgo: Dependencia de la tecnología de la información
+  - impacto: medio
+    probabilidad: media
+    riesgo: Competencia en el mercado
+entry:
+  conviction_at_entry: 74
+  current_price: 211.94000244140625
+  entry_date: '2026-08-05T07:34:11.984271-03:00'
+  entry_price: 211.94000244140625
+  intrinsic_value: 302.82758
+  margin_of_safety_pct: null
+  quantity: 14
+  stop_loss: 181.64
+  target_price: 302.82758
+fundamentals:
+  business_model: NVIDIA Corporation operates as a data center scale AI infrastructure
+    company in the United States, Taiwan, China, Hong Kong, Europe, and internationally.
+    It operates through Compute & Networking, and Graphics segments. The Compute &
+    Networking segment provides data center accelerated computing and networking platforms
+    and artificial intelligence solutions and software, and automotive platforms and
+    autonomous and electric vehicle solutions, including software. The Graphics segment
+    offers GeForce GPUs for gaming and PCs; Quadro/NVIDIA RTX GPUs for enterprise
+    workstation graphics. The company's products are used in gaming, professional
+    visualization, data center, and automotive markets. It sells its products to original
+    equipment manufacturers, original device manufacturers, system integrators and
+    distributors, independent software vendors, cloud service providers, add-in board
+    manufacturers, distributors, automotive manufacturers and tier-1 automotive suppliers,
+    and other ecosystem participants. NVIDIA Corporation was incorporated in 1993
+    and is headquartered in Santa Clara, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.07
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: NVIDIA Corporation
+  operating_margin: 64.02
+  pe_ratio: 31.68
+  products: ''
+  revenue: 253490000000.0
+  revenue_growth: 47.15
+  roic: 104.67
+  sector: Technology
+  ticker: NVDA
+opp_id: OPP-20260725-044
+recommendation: APPROVE
+risks: *id002
+rules_failed: []
+rules_passed:
+- RULE-001
+- RULE-003
+- RULE-004
+- RULE-005
+- RULE-008
+snapshot_at: '2026-08-12T01:33:10.853425-03:00'
+technical:
+  analyzed_at: '2026-08-05T07:34:10.624960-03:00'
+  indicators:
+    algorithmic_phase: absorption
+    bar_spread_description: 'spreads estables (promedio diario reciente: 2.5%)'
+    component_scores:
+      relative_strength: 68.1
+      structure: 40.0
+      supply_demand: 36.9
+      volatility: 50.0
+    composite_score: 46
+    current_price: 211.94
+    high_52w: 235.47
+    low_52w: 164.98
+    ma_200d: 193.22
+    ma_50d: 205.65
+    pct_from_52w_high: -10.0
+    pct_from_52w_low: 28.5
+    pct_from_ma200: 9.7
+    pct_from_ma50: 3.1
+    recent_trend: tendencia de 60d lateral (-1%). aceleración alcista en últimos 5d
+      (+12%)
+    resistance_levels: 'resistencias identificadas: $235.47, $225.57, $225.06, $224.10,
+      $223.21 (basado en máximos históricos)'
+    support_levels: 'soportes identificados: $164.98, $166.80, $167.32, $168.09, $170.07
+      (basado en mínimos históricos)'
+    ticker: ''
+    volume_description: volumen reciente en línea con histórico (0.9x el promedio)
+  llm_response: {}
+  triggered_entry: true
+  wyckoff_confidence: media
+  wyckoff_entry_point: ''
+  wyckoff_phase: absorption
+  wyckoff_price_target: null
+  wyckoff_score: 46
+thesis:
+  catalizador_cambio: &id003
+    descripcion: Un cambio en la política de China hacia la tecnología de la información
+      o un avance significativo en la tecnología de la información que afecte la posición
+      de NVIDIA Corporation en el mercado.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  clasificacion_oportunidad:
+    categoria: compounder
+    categorias_descartadas: deep_value, hype, value_trap
+    justificacion: NVIDIA Corporation tiene un historial de crecimiento sostenido
+      y una posición dominante en el mercado de la tecnología de la información, lo
+      que sugiere que es un compounder de larga data.
+  error_mercado:
+    catalizador_cambio: *id003
+    conclusion_error_valoracion: SI
+    consenso_actual: Los analistas creen que NVIDIA Corporation es una empresa de
+      crecimiento rápido con una valoración justa, reflejada en su múltiplo de P/E
+      de 40.
+    hipotesis_contraria: El mercado podría estar subestimando la capacidad de NVIDIA
+      Corporation para mantener su posición dominante en el mercado de la tecnología
+      de la información y su capacidad para innovar y expandirse a nuevos mercados.
+    razonamiento: El mercado podría estar subestimando la capacidad de NVIDIA Corporation
+      para mantener su posición dominante en el mercado de la tecnología de la información
+      y su capacidad para innovar y expandirse a nuevos mercados.
+  opinion_valoracion: infravalorado
+  resumen_ejecutivo: NVIDIA Corporation es una empresa de tecnología de la información
+    con una posición dominante en el mercado y un historial de crecimiento sostenido.
+    El mercado podría estar subestimando su capacidad para mantener su posición dominante
+    y innovar en nuevos mercados.
+  score_general: 85
+  tesis_inversion: NVIDIA Corporation es una inversión atractiva debido a su posición
+    dominante en el mercado de la tecnología de la información, su historial de crecimiento
+    sostenido y su capacidad para innovar y expandirse a nuevos mercados.
+ticker: NVDA

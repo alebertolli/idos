@@ -4,6 +4,7 @@ from unittest.mock import MagicMock
 import pytest
 
 from idos.models.enums import OpportunityStatus
+from idos.portfolio.entry_snapshot import save_entry_snapshot
 from idos.workers.learning.post_mortem_worker import PostMortemWorker
 
 
@@ -75,8 +76,66 @@ class TestPostMortemWorker:
         yml_files = list(pm_dir.glob("*.yml"))
         assert len(yml_files) >= 1
 
-    def test_post_mortem_skips_wrong_state(
+    def test_post_mortem_injects_entry_snapshot(
         self,
+        seeded_opportunity_exited: tuple[str, str],
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_journal,
+    ):
+        ticker, opp_id = seeded_opportunity_exited
+
+        snapshot = {
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "entry": {
+                "entry_price": 95.0,
+                "entry_date": "2026-01-02T10:30:00-03:00",
+                "stop_loss": 80.0,
+                "target_price": 130.0,
+            },
+            "thesis": {
+                "tesis_inversion": "THESIS-DE-ENTRADA-UNICA",
+                "opinion_valoracion": "infravalorado",
+                "score_general": 82,
+            },
+            "catalysts": [{"descripcion": "Catalizador de prueba", "impacto": "alto"}],
+            "risks": [{"riesgo": "Riesgo de prueba"}],
+            "dominios": {"dominio_business_quality": {"rating": "excepcional"}},
+            "technical": {
+                "wyckoff_phase": "accumulation",
+                "wyckoff_score": 74,
+                "wyckoff_confidence": "alta",
+                "wyckoff_entry_point": "lps",
+                "wyckoff_price_target": 120.0,
+                "llm_response": {"pruebas_compra": {"pruebas_pasan": 8, "total_pruebas": 9}},
+            },
+        }
+        save_entry_snapshot(tmp_journal, ticker, opp_id, snapshot)
+
+        worker = PostMortemWorker({"provider": "test"})
+        worker.llm = mock_llm_client
+
+        result = worker.execute({
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "exit_reason": "thesis_broken",
+            "base_path": base_path,
+        })
+
+        assert result.status == "success"
+        assert result.output["status"] == "completed"
+
+        prompt = mock_llm_client.generate_structured.call_args.kwargs["prompt"]
+        assert "THESIS-DE-ENTRADA-UNICA" in prompt
+        assert "TESIS AL MOMENTO DE ENTRADA (snapshot)" in prompt
+        assert "Catalizador de prueba" in prompt
+        assert "Riesgo de prueba" in prompt
+        assert "accumulation" in prompt
+        assert "74" in prompt
+        assert "8/9" in prompt
+
+    def test_post_mortem_skips_wrong_state(        self,
         tmp_sqlite,
         mock_llm_client: MagicMock,
         base_path: str,
