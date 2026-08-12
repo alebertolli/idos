@@ -775,7 +775,7 @@ idos site-build                 # genera ./site (index.html + data.json + wiki/*
 
 | Vista | Qué muestra |
 |-------|-------------|
-| **Dashboard** | Acciones sugeridas (BUY/EXIT/LEARNING), funnel de oportunidades por estado, alertas (research stale, cerca de stop, convicción DETERIORATING) |
+| **Dashboard** | Acciones sugeridas (BUY/EXIT/LEARNING), funnel de oportunidades por estado, alertas (research stale, cerca de stop, convicción DETERIORATING, precio sobre valor intrínseco) |
 | **Oportunidades** | Activas (WATCHLIST / UNDER_DEEP_DD / APPROVED) con scores de los 5 engines, upside %, última investigación; toggle para **cerradas** (EXITED/POST_MORTEM/ARCHIVED) |
 | **Buy List** | Último precio, zona de compra (`buy_zone_top`), target, margen, última fecha de KB, estado Wyckoff y fecha, catalizadores |
 | **Portfolio** | Activos, peso %, entry, último precio, P/L por activo y total, stop loss (distancia), target, concentración por sector |

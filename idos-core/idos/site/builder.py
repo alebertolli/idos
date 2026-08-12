@@ -888,6 +888,17 @@ class SiteBuilder:
             if p.get("dist_to_stop_pct") is not None and p["dist_to_stop_pct"] <= 5:
                 alerts.append({"severity": "high", "ticker": p["ticker"],
                                "message": f"Precio a {abs(p['dist_to_stop_pct']):.1f}% del stop loss"})
+        intrinsic_by_opp = {o["opp_id"]: o.get("intrinsic_value")
+                            for o in opps if o.get("intrinsic_value")}
+        intrinsic_by_ticker = {o["ticker"]: v for o in opps
+                               for v in [o.get("intrinsic_value")] if v}
+        for p in positions:
+            intrinsic = (intrinsic_by_opp.get(p.get("opp_id"))
+                         or intrinsic_by_ticker.get(p.get("ticker")))
+            if intrinsic and p.get("current_price") and p["current_price"] > intrinsic:
+                over = (p["current_price"] - intrinsic) / intrinsic * 100
+                alerts.append({"severity": "warn", "ticker": p["ticker"],
+                               "message": f"Precio {over:.1f}% sobre el valor intrínseco ({intrinsic:.2f})"})
         for o in opps:
             if o.get("trend") == "DETERIORATING":
                 alerts.append({"severity": "warn", "ticker": o["ticker"],
