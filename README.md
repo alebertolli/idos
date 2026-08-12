@@ -51,6 +51,7 @@ idos-journal/
       assessments/
       decisions/
       post_mortem/
+      entry_snapshot.yml     ← snapshot del momento de entrada (tesis, assessments, técnicos, catalizadores, riesgos)
   portfolio/
     positions/
     watchlist.yml
@@ -780,7 +781,7 @@ idos site-build                 # genera ./site (index.html + data.json + wiki/*
 | **Portfolio** | Activos, peso %, entry, último precio, P/L por activo y total, stop loss (distancia), target, concentración por sector |
 | **Watchlist** | Candidatos del Discovery Domain (Scout), con score y razón |
 | **Wiki** | Índice de 60+ compañías → página por ticker con ficha y markdown renderizado |
-| **Learning** | Post-mortems de oportunidades cerradas (lecciones, sesgos, `would_invest_again`, precisión Wyckoff) |
+| **Learning** | Post-mortems de oportunidades cerradas (lecciones, sesgos, `would_invest_again`, precisión Wyckoff). El post-mortem evalúa la tesis y el análisis del **momento de entrada** desde el snapshot (`entry_snapshot.yml`), no los datos del cierre |
 
 Al hacer clic en cualquier ticker se abre la **Case View** integrada: decisión,
 scores, tesis/riesgos del DDD, última investigación (con badge de staleness),

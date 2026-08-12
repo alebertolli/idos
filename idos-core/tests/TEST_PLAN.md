@@ -59,7 +59,7 @@ tareas automatizadas (scheduled) e intervenciones manuales (CLI).
 | ResearchWorker | 5 | `test_workers/test_research_worker.py` | 🔴 |
 | DecisionBoardWorker | 4 | `test_workers/test_decision_board_worker.py` | 🔴 |
 | EntryMonitorWorker | 5 | `test_workers/test_entry_monitor_worker.py` | 🔴 |
-| PostMortemWorker | 4 | `test_workers/test_post_mortem_worker.py` | 🔴 |
+| PostMortemWorker | 5 | `test_workers/test_post_mortem_worker.py` | 🔴 |
 
 ### 2.3 Nuevos Tests Transversales
 
@@ -109,7 +109,15 @@ tareas automatizadas (scheduled) e intervenciones manuales (CLI).
 | `test_post_mortem_generates` | Worker genera post-mortem con mock LLM | pm_id devuelto, status = "completed" |
 | `test_post_mortem_archives` | Oportunidad termina en ARCHIVED | Estado final ARCHIVED |
 | `test_post_mortem_persists` | Post-mortem guardado en directorio | Archivo YAML existe en post_mortem/ |
+| `test_post_mortem_injects_entry_snapshot` | El prompt incluye thesis/catalizadores/riesgos y wyckoff del snapshot de entrada | "TESIS AL MOMENTO DE ENTRADA" + fase score en prompt |
 | `test_post_mortem_skips_wrong_state` | Worker ignora si no está EXITED | status = "skipped" |
+
+### 3.4b EntrySnapshot (`test_portfolio/test_entry_snapshot.py`)
+
+| Test | Descripción | Verifica |
+|------|-------------|----------|
+| `test_captures_all_domains` | Snapshot congela thesis, assessments, wyckoff de entrada, catalizadores, riesgos, dominios y fundamentales | Campos presentes con valores del momento de entrada |
+| `test_save_load_roundtrip` | Snapshot se persiste y recarga desde `entry_snapshot.yml` | Round-trip idéntico |
 
 ### 3.5 E2E Lifecycle (`test_lifecycle.py`)
 

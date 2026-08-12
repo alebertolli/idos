@@ -48,7 +48,7 @@ class TestBuyListRefreshWorker:
         entries = {e["ticker"]: e for e in data["entries"]}
         assert "AAPL" in entries and "MSFT" in entries
         assert entries["AAPL"]["target_price"] == pytest.approx(220.0)
-        assert entries["AAPL"]["buy_zone_top"] == pytest.approx(154.0)  # 220 * 0.7
+        assert entries["AAPL"]["buy_zone_top"] == pytest.approx(169.23)  # 220 / (1 + 30/100)
 
     def test_preserves_opp_id_and_monitoring(self, buylist_env, tmp_path: Path):
         db, journal, bp = buylist_env

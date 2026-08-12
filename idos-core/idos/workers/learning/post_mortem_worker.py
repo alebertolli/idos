@@ -285,12 +285,12 @@ class PostMortemWorker(BaseWorker):
                     analyses.append(data)
         return analyses
 
-def _llm_post_mortem(self, ticker: str, decisions: list[dict],
-                          assessments: list[dict], position: dict | None,
-                          exit_reason: str,
-                          wyckoff_analyses: list[dict] | None = None,
-                          hypotheses: list[dict] | None = None,
-                          entry_snapshot: dict | None = None) -> dict[str, Any]:
+    def _llm_post_mortem(self, ticker: str, decisions: list[dict],
+                         assessments: list[dict], position: dict | None,
+                         exit_reason: str,
+                         wyckoff_analyses: list[dict] | None = None,
+                         hypotheses: list[dict] | None = None,
+                         entry_snapshot: dict | None = None) -> dict[str, Any]:
         prompt = (
             f"Genera un Post-Mortem de inversion para {ticker}.\n\n"
             f"Razon de salida: {exit_reason}\n\n"
