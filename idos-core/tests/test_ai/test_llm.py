@@ -26,6 +26,50 @@ def test_generate_structured_parse_json():
     assert result["error"] != ""
 
 
+def test_generate_falls_back_on_empty_content(monkeypatch):
+    from idos.ai.llm import LLMClient as LC, LLMResponse
+
+    client = LC.__new__(LC)
+    client.provider = "openai"
+    client.api_key = "k"
+    client.model = "m1"
+    client.fallback_model = ""
+    client.fallback_providers = [{"provider": "openai", "model": "m2", "api_key": "k"}]
+    client.timeout = 5
+
+    def fake_call(prompt, system_prompt, temperature, max_tokens, api_key, model):
+        if model == "m1":
+            return LLMResponse(content=None, success=True, model="m1")
+        return LLMResponse(content="real response", success=True, model="m2")
+
+    monkeypatch.setattr(client, "_call_openai", fake_call)
+
+    resp = client.generate("hi")
+    assert resp.success
+    assert resp.content == "real response"
+
+
+def test_generate_fails_when_all_providers_empty(monkeypatch):
+    from idos.ai.llm import LLMClient as LC, LLMResponse
+
+    client = LC.__new__(LC)
+    client.provider = "openai"
+    client.api_key = "k"
+    client.model = "m1"
+    client.fallback_model = ""
+    client.fallback_providers = []
+    client.timeout = 5
+
+    def fake_call(prompt, system_prompt, temperature, max_tokens, api_key, model):
+        return LLMResponse(content=None, success=True, model="m1")
+
+    monkeypatch.setattr(client, "_call_openai", fake_call)
+
+    resp = client.generate("hi")
+    assert not resp.success
+    assert resp.content == ""
+
+
 def test_generate_structured_parse_embedded_json():
     from idos.ai.llm import LLMClient as LC
 

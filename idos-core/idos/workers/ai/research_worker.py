@@ -326,7 +326,11 @@ class ResearchWorker(BaseWorker):
             statement = hyp_data.get("hipotesis") or hyp_data.get("statement") or ""
             if not statement:
                 statement = hyp_data.get("statement_provisional", "")
-            hyp_id = hyp_data.get("id") or f"HYP-{opp_id}-{idx+1}"
+            raw_id = hyp_data.get("id")
+            base_id = raw_id or f"HYP-{idx+1}"
+            hyp_id = f"{base_id}-{opp_id}"
+            parent_raw = hyp_data.get("parent_id", "")
+            parent_id = f"{parent_raw}-{opp_id}" if parent_raw else ""
             predictions = []
             for p in (hyp_data.get("predicciones") or []):
                 if isinstance(p, dict):
@@ -356,7 +360,7 @@ class ResearchWorker(BaseWorker):
                 else HypothesisPriority.IMPORTANT,
                 probability=float(hyp_data["probabilidad"]) if isinstance(hyp_data.get("probabilidad"), (int, float)) else 0.5,
                 confidence=float(hyp_data["confianza"]) if isinstance(hyp_data.get("confianza"), (int, float)) else 0.0,
-                parent_id=hyp_data.get("parent_id", ""),
+                parent_id=parent_id,
                 predictions=predictions,
                 falsification=falsification,
                 falsification_conditions=[f.condition for f in falsification],
@@ -471,7 +475,7 @@ class ResearchWorker(BaseWorker):
                 temperature=0.1,
                 max_tokens=4096,
             )
-            if llm_resp.success and len(getattr(llm_resp, "content", "")) > 100:
+            if llm_resp.success and len(llm_resp.content or "") > 100:
                 wiki_md = llm_resp.content
 
         knowledge.save_wiki(ticker, wiki_md)

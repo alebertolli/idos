@@ -146,6 +146,7 @@ class Hypothesis(BaseModel):
             "version": self.version,
             "probability": self.probability,
             "confidence": self.confidence,
+            "parent_id": self.parent_id,
             "falsification_conditions": self.falsification_conditions,
             "predictions": [{"metric": p.metric, "expected": p.expected_value,
                              "unit": p.unit, "deadline": p.deadline,

@@ -207,3 +207,36 @@ class TestResearchWorker:
 
         with pytest.raises(ValueError, match="Both ticker and opp_id"):
             worker.run({"ticker": "", "opp_id": "", "base_path": base_path})
+
+    def test_persist_hypotheses_ids_unicos_entre_opps(self, tmp_sqlite, tmp_journal):
+        worker = ResearchWorker({"provider": "test"})
+        worker._persist_hypotheses(
+            "AAA", "OPP-AAA-1", "tesis",
+            [{"id": "H1", "enunciado": "h1"},
+             {"id": "H2", "enunciado": "h2", "parent_id": "H1"}],
+            tmp_journal, tmp_sqlite,
+        )
+        worker._persist_hypotheses(
+            "BBB", "OPP-BBB-1", "tesis",
+            [{"id": "H1", "enunciado": "h1"}],
+            tmp_journal, tmp_sqlite,
+        )
+
+        rows = list(tmp_sqlite.conn.execute(
+            "SELECT id, parent_id FROM hypotheses ORDER BY opportunity_id"))
+        assert len(rows) == 3
+        ids = [dict(r)["id"] for r in rows]
+        assert len(ids) == len(set(ids)), "los IDs colisionan entre oportunidades"
+        parents = {dict(r)["id"]: dict(r)["parent_id"] for r in rows}
+        assert parents["H1-OPP-AAA-1"] == ""
+        assert parents["H2-OPP-AAA-1"] == "H1-OPP-AAA-1"
+        assert parents["H1-OPP-BBB-1"] == ""
+
+    def test_persist_hypotheses_reproceso_no_duplica(self, tmp_sqlite, tmp_journal):
+        worker = ResearchWorker({"provider": "test"})
+        raw = [{"id": "H1", "enunciado": "h1"}]
+        worker._persist_hypotheses("AAA", "OPP-AAA-1", "tesis", raw, tmp_journal, tmp_sqlite)
+        worker._persist_hypotheses("AAA", "OPP-AAA-1", "tesis", raw, tmp_journal, tmp_sqlite)
+
+        rows = list(tmp_sqlite.conn.execute("SELECT id FROM hypotheses"))
+        assert len(rows) == 1

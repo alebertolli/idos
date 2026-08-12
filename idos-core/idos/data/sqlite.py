@@ -303,7 +303,7 @@ class SQLiteStore:
         hyp_json.pop("status", None)
         with self._write_transaction() as c:
             c.execute("""
-                INSERT INTO hypotheses (id, opportunity_id, ticker, statement, status, priority,
+                INSERT OR REPLACE INTO hypotheses (id, opportunity_id, ticker, statement, status, priority,
                     version, probability, confidence, parent_id, hypotheses_json, created_at, updated_at)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (

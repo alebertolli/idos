@@ -108,10 +108,16 @@ class LLMClient:
                 print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {e}")
                 if not first_error: first_error = str(e)
                 continue
-            if resp.success:
+            if resp.success and resp.content:
                 print(f"[LLM] RESPONSE ({resp.latency_ms}ms, {resp.tokens_in}→{resp.tokens_out} tok): {_trunc(resp.content, 500)}")
+                print(f"{'='*60}\n")
+                return resp
+            msg = resp.error or "respuesta vacía del proveedor"
+            if not first_error:
+                first_error = msg
+            print(f"[LLM] {lbl}: respuesta sin contenido util ({msg}), intentando siguiente fallback")
             print(f"{'='*60}\n")
-            return resp
+            continue
         print(f"{'='*60}\n")
         return LLMResponse(content="", success=False, error=first_error,
                            latency_ms=int((time.time() - start) * 1000))
