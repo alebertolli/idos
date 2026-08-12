@@ -322,8 +322,15 @@ class SiteBuilder:
                     prices = raw["merged_data"].get("price_history", [])
                     volumes = raw["merged_data"].get("volume_history", [])
                     dates = raw["merged_data"].get("price_history_dates", [])
-            if prices and prices[-1]:
-                return {"price": round(float(prices[-1]), 2), "date": dates[-1] if dates else None}
+            if prices and prices[-1] is not None:
+                try:
+                    v = float(prices[-1])
+                except (TypeError, ValueError):
+                    v = None
+                if v is not None and (v != v or v in (float("inf"), float("-inf"))):
+                    return {"price": None, "date": None}
+                if v is not None:
+                    return {"price": round(v, 2), "date": dates[-1] if dates else None}
         except Exception:
             pass
         return {"price": None, "date": None}
@@ -1426,7 +1433,7 @@ def write_site(base_path: Path, out_dir: Path | None = None, stale_days: int = D
         + APP_JS, encoding="utf-8"
     )
     (out / "data.json").write_text(
-        json.dumps(_to_jsonable(data), ensure_ascii=False, indent=2), encoding="utf-8"
+        json.dumps(_to_jsonable(data), ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8"
     )
 
     genv = data.generated_at[:16].replace(" ", "_")
@@ -1460,7 +1467,6 @@ def write_site(base_path: Path, out_dir: Path | None = None, stale_days: int = D
 
     (out / "learning.html").write_text(render_learning_page(), encoding="utf-8")
 
-    # copy index.html to root of out (already done) — also write a .nojekyll
     (out / ".nojekyll").write_text("", encoding="utf-8")
 
     return out
@@ -1470,7 +1476,21 @@ def _to_jsonable(data: SiteData) -> dict:
     d = data.__dict__
     for k in ("companies",):
         d[k] = {tk: c for tk, c in data.companies.items()}
-    return d
+    return _sanitize_json(d)
+
+
+def _sanitize_json(obj):
+    """Recursively drop NaN/Infinity (invalid JSON) so the UI never fails to parse."""
+    import math
+    if isinstance(obj, dict):
+        return {k: _sanitize_json(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_sanitize_json(v) for v in obj]
+    if isinstance(obj, float):
+        if math.isnan(obj) or math.isinf(obj):
+            return None
+        return obj
+    return obj
 
 
 def main() -> int:
