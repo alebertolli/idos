@@ -437,6 +437,14 @@ jobs:
           # IMPORTANTE: NO enmascarar errores con '|| echo ...' aqui. Cualquier fallo de
           # rebase/push debe dejar el paso en FAILURE para que el job "Report failure"
           # (Issue de GitHub + email) notifique al usuario en vez de tragarse el error.
+
+          # Descarta los cache/<ticker>.json generados durante la corrida (datos regenerables).
+          # Si un commit concurrente los trackea en origin/main, el checkout del rebase
+          # colisionaria con estos archivos untracked y abortaria todo el pipeline
+          # (ver error recurrente "untracked working tree files would be overwritten: cache/YPF.json").
+          git checkout -- cache/ 2>/dev/null || true
+          git clean -f cache/ 2>/dev/null || true
+
           git fetch origin main
 
           # Si el rebase conflicta es porque hubo otro push concurrente a origin/main.
