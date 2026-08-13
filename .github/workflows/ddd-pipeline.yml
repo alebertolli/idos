@@ -449,6 +449,11 @@ jobs:
              exit 1
           fi
 
+          if ! git push origin HEAD:main; then
+            echo "[ERROR] El push a origin/main fallo. La investigacion no fue subida."
+            exit 1
+          fi
+
       - name: 🐛 Report failure
         if: failure()
         run: |
