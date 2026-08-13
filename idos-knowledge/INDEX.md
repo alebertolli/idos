@@ -38,7 +38,7 @@ Total: 99 companies tracked
 - 📄 [[CCL|Carnival Corporation Ltd.]]
 - 📄 [[DECK|Deckers Outdoor Corporation]]
 - 📄 [[LVS|Las Vegas Sands Corp.]]
-- ⏳ [[MELI|MercadoLibre, Inc.]]
+- 📄 [[MELI|MercadoLibre, Inc.]]
 - 📄 [[NIO|NIO]]
 - 📄 [[PDD|PDD Holdings Inc.]]
 - 📄 [[RACE|Ferrari N.V.]]

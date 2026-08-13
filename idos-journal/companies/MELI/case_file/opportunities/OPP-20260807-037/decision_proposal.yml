@@ -1,0 +1,117 @@
+assessments:
+  BusinessAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: BusinessAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: 'High revenue growth: 31.02%'
+      type: POSITIVE
+    generated_at: '2026-08-13T01:02:02.982613-03:00'
+    id: BusinessAssessmentEngine-20260813010202
+    recommendation: NEUTRAL
+    risks: []
+    score: 58
+    status: COMPLETED
+    version: '1.0'
+  PortfolioAssessmentEngine:
+    confidence: HIGH
+    dependencies: []
+    engine: PortfolioAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: Portfolio has capacity for new position
+      type: POSITIVE
+    - detail: Sector Consumer Cyclical within diversification limits
+      type: POSITIVE
+    - detail: Only 0 positions, adding increases diversification
+      type: POSITIVE
+    generated_at: '2026-08-13T01:02:02.982696-03:00'
+    id: PortfolioAssessmentEngine-20260813010202
+    recommendation: EXCELLENT_FIT
+    risks: []
+    score: 90
+    status: COMPLETED
+    version: '1.0'
+  RecoveryAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RecoveryAssessmentEngine
+    evidence_ids: []
+    findings:
+    - dimension: business_momentum
+      level: MEDIUM
+      score: 60
+      type: DIMENSION
+    - dimension: valuation_gap
+      level: HIGH
+      score: 70
+      type: DIMENSION
+    - dimension: market_expectations
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: catalysts
+      level: MEDIUM
+      score: 60
+      type: DIMENSION
+    - dimension: technical_confirmation
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: risk_compression
+      level: MEDIUM
+      score: 60
+      type: DIMENSION
+    generated_at: '2026-08-13T01:02:02.982674-03:00'
+    id: RecoveryAssessmentEngine-20260813010202
+    recommendation: MODERATE
+    risks: []
+    score: 60
+    status: COMPLETED
+    version: '1.0'
+  RiskAssessmentEngine:
+    confidence: HIGH
+    dependencies: []
+    engine: RiskAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: Low leverage
+      type: POSITIVE
+    generated_at: '2026-08-13T01:02:02.982684-03:00'
+    id: RiskAssessmentEngine-20260813010202
+    recommendation: LOW_RISK
+    risks: []
+    score: 80
+    status: COMPLETED
+    version: '1.0'
+  ValuationAssessmentEngine:
+    confidence: HIGH
+    dependencies: []
+    engine: ValuationAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: 'Price target upside: 23.2%'
+      type: POSITIVE
+    - detail: 'FCF Yield: 12.6%'
+      type: POSITIVE
+    generated_at: '2026-08-13T01:02:02.982637-03:00'
+    id: ValuationAssessmentEngine-20260813010202
+    recommendation: ATTRACTIVE
+    risks: []
+    score: 75
+    status: COMPLETED
+    version: '1.1'
+conviction_score: 69
+created_at: '2026-08-13T01:02:02.982792-03:00'
+opportunity_id: OPP-20260807-037
+reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004'
+recommendation: BLOCKED
+rules_failed:
+- RULE-001
+- RULE-003
+- RULE-004
+rules_passed:
+- RULE-005
+- RULE-008
+type: opportunity:transitioned

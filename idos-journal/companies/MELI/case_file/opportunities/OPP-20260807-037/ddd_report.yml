@@ -1,44 +1,63 @@
 calidad_evidencia:
   hechos_verificados:
-  - 'Revenue TTM: $35,180,000,000M'
-  - 'Crecimiento Revenue: +30.0%'
-  - 'Margen Operativo: 8.3%'
-  - 'ROIC: 14.2%'
-  - 'D/E: 0.0x'
+  - La empresa tiene un historial de crecimiento sólido
+  - La plataforma de pagos Mercado Pago ha demostrado un crecimiento significativo
   inferencias_llm:
-  - El moat se basa en redes de efectos de red y switching costs
-  - La valoración actual refleja expectativas optimistas del mercado
-  - La exposición a mercados emergentes introduce riesgos macroeconómicos
+  - La empresa puede superar las expectativas del mercado gracias a su capacidad para
+    innovar y expandirse en nuevos mercados y servicios
   preguntas_abiertas:
-  - ¿Cuál es el FCF ajustado real?
-  - ¿Cuál es el historial de asignación de capital del management?
-  - ¿Cuál es la exposición específica a riesgos regulatorios en fintech?
-catalizadores_previos: []
+  - ¿Cuál será el impacto de la competencia en el mercado de comercio electrónico
+    en la empresa?
+  - ¿Cómo afectará la regulación en algunos mercados a la empresa?
+catalizadores_previos:
+- descripcion: Expansión de Mercado Pago a nuevos servicios financieros
+  generated_at: '2026-08-07T22:17:32.133611-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  opp_id: OPP-20260807-037
+  probabilidad_anterior: 70
+- descripcion: Crecimiento en ventas de Mercado Ads
+  generated_at: '2026-08-07T22:17:32.133611-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  opp_id: OPP-20260807-037
+  probabilidad_anterior: 60
+- descripcion: Desaceleración económica en Brasil o México
+  generated_at: '2026-08-07T22:17:32.133611-03:00'
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20260807-037
+  probabilidad_anterior: 35
 clasificacion_oportunidad:
   categoria: compounder
-  categorias_descartadas: 'Quality at Fair Price: Aunque es un excelente negocio,
-    la valoración actual refleja un múltiplo elevado que podría no ser ''justo''.
-    Compounder castigado: No hay evidencia de que el mercado lo haya castigado significativamente.
-    Turnaround: El negocio no muestra signos de declive operativo. Deep Value: No
-    aplica dado su alto crecimiento y retorno. Cíclica: Aunque expuesto a ciclos económicos,
-    su modelo está menos vinculado al ciclo que otros sectores. Special Situation:
-    No hay eventos corporativos relevantes. Distressed: No hay riesgos de insolvencia.
-    Hype: Genera earnings y flujo de caja positivos. Value Trap: No destruye valor;
-    genera exceso de retorno sobre capital.'
-  justificacion: 'MercadoLibre muestra características de un compounder de alta calidad:
-    crecimiento de ingresos del 30%, margen operativo del 8.3%, ROIC del 14.2% y un
-    modelo de negocio con fuertes redes de efectos de red y switching costs. Su posición
-    dominante en e-commerce y fintech en mercados emergentes clave (Brasil, México,
-    Argentina) respalda un moat sólido. Aunque la valoración podría considerarse alta,
-    el negocio genera crecimiento sostenible y retorno sobre capital positivo.'
-comparativa_catalizadores: []
+  categorias_descartadas: Compounder castigado, Turnaround, Deep Value, Cíclica, Special
+    Situation, Distressed, Quality at Fair Price, Hype, Value Trap
+  justificacion: La empresa tiene un historial de crecimiento sólido, un modelo de
+    negocio escalable y una posición competitiva en el mercado de comercio electrónico
+    en América Latina. Además, su plataforma de pagos Mercado Pago ha demostrado un
+    crecimiento significativo y tiene un gran potencial de expansión.
+comparativa_catalizadores:
+- delta_pct: 0
+  descripcion: Expansión de Mercado Pago a nuevos servicios financieros
+  estado: vigente
+  nota_comparacion: La probabilidad de expansión de Mercado Pago a nuevos servicios
+    financieros sigue siendo alta
+  probabilidad_actual: 70
+  probabilidad_anterior: 70
+- delta_pct: 0
+  descripcion: Crecimiento en ventas de Mercado Ads
+  estado: vigente
+  nota_comparacion: La probabilidad de crecimiento en ventas de Mercado Ads sigue
+    siendo media
+  probabilidad_actual: 60
+  probabilidad_anterior: 60
 dominio_business_quality:
-  analisis: MercadoLibre posee un moat basado en redes de efectos de red, switching
-    costs y una posición dominante en e-commerce y fintech en mercados emergentes
-    clave. Su plataforma Marketplace genera fuertes conexiones entre compradores y
-    vendedores, mientras que Mercado Pago crea un ecosistema financiero integrado.
-    La resiliencia del modelo se debe a la alta participación de mercado y la dificultad
-    de replicar su infraestructura logística y tecnológica.
+  analisis: La empresa tiene un historial de crecimiento sólido, una posición competitiva
+    en el mercado y una capacidad para innovar y expandirse en nuevos servicios y
+    mercados.
   rating: excepcional
 dominio_catalizadores:
 - descripcion: Expansión de Mercado Pago a nuevos servicios financieros
@@ -51,84 +70,51 @@ dominio_catalizadores:
   impacto: medio
   nivel_confianza: alto
   probabilidad_pct: 60
-- descripcion: Desaceleración económica en Brasil o México
-  horizonte: corto
-  impacto: alto
-  nivel_confianza: medio
-  probabilidad_pct: 35
 dominio_esg_supply_chain:
-  analisis: MercadoLibre enfrenta riesgos ESG relacionados con la privacidad de datos
-    y la regulación financiera en mercados emergentes. La cadena de suministro está
-    altamente descentralizada, dependiendo de múltiples vendedores y logísticos, lo
-    que introduce riesgos operacionales. Sin embargo, no hay evidencia de riesgos
-    graves en sostenibilidad o prácticas laborales. La exposición a mercados con regulaciones
-    variables aumenta el riesgo.
-  rating: medio_riesgo
+  analisis: La empresa tiene un enfoque sólido en la responsabilidad social y ambiental,
+    y su cadena de suministro es diversificada y estable.
+  rating: bajo_riesgo
 dominio_financial_health:
-  analisis: El balance muestra una estructura de capital saludable con bajo apalancamiento
-    (D/E 0.0x). La generación de flujo de caja es positiva, aunque los datos específicos
-    de FCF ajustado no están disponibles. La cobertura de intereses es N/A, lo que
-    sugiere baja exposición a deuda. La fortaleza financiera permite inversiones en
-    crecimiento y expansión sin comprometer la estabilidad.
+  analisis: La empresa tiene una salud financiera sólida, con un crecimiento de ingresos
+    del 31% en el último año y un margen operativo del 8,3%.
   rating: fuerte
 dominio_growth:
-  analisis: El crecimiento de ingresos del 30% es impresionante, impulsado por la
-    expansión en e-commerce y fintech. La visibilidad de revenue es alta debido a
-    la base de usuarios creciente y la monetización de Mercado Pago. Los impulsores
-    orgánicos incluyen la adopción de servicios financieros digitales y la expansión
-    logística. No hay evidencia clara de crecimiento inorgánico significativo.
+  analisis: La empresa tiene un gran potencial de crecimiento en el mercado de comercio
+    electrónico en América Latina y en la expansión de su plataforma de pagos Mercado
+    Pago.
   rating: fuerte
 dominio_management:
-  analisis: El CEO tiene 0 años de antigüedad, lo que podría indicar un cambio reciente
-    o falta de estabilidad. La propiedad insider es del 0.0%, lo que sugiere baja
-    alineación con accionistas. Sin embargo, el historial de asignación de capital
-    no está disponible, por lo que no se puede evaluar su track record. La gestión
-    parece enfocada en crecimiento y expansión, pero carece de transparencia en algunos
-    aspectos.
-  rating: bueno
+  analisis: El equipo de gestión de la empresa tiene un historial de éxito en la expansión
+    de la plataforma y la innovación en nuevos servicios.
+  rating: excepcional
 dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: Riesgo macroeconómico en LATAM (inflación, devaluación)
-- impacto: alto
-  probabilidad: media
-  riesgo: Riesgo regulatorio en fintech
 - impacto: medio
   probabilidad: media
-  riesgo: Competencia creciente en fintech
+  riesgo: Competencia en el mercado de comercio electrónico
+- impacto: bajo
+  probabilidad: baja
+  riesgo: Regulación en algunos mercados
 error_mercado:
   catalizador_cambio:
-    descripcion: Una desaceleración macroeconómica en Brasil o México que reduzca
-      el crecimiento de transacciones en la plataforma, o un anuncio regulatorio que
-      limite las operaciones de Mercado Pago.
-    horizonte: corto
+    descripcion: Expansión exitosa de Mercado Pago a nuevos servicios financieros
+    horizonte: medio
     impacto: alto
-    probabilidad_pct: 35
-  conclusion_error_valoracion: INCIERTO
-  consenso_actual: El mercado valora a MercadoLibre como un growth stock con alta
-    valoración, enfocándose en su crecimiento de ingresos y expansión en fintech.
-    Los analistas destacan su liderazgo en e-commerce en LATAM y el potencial de Mercado
-    Pago, pero podrían estar sobrevalorando el crecimiento futuro y subestimando los
-    riesgos macroeconómicos y regulatorios en la región.
-  hipotesis_contraria: El mercado podría estar sobreestimando la sostenibilidad del
-    crecimiento en mercados con altas tasas de inflación y volatilidad cambiaria.
-    Además, podría ignorar el riesgo de competencia creciente en fintech (como Nubank
-    o PayPal) y la presión regulatoria sobre servicios financieros digitales. También
-    podría subestimar el impacto de una desaceleración económica en el gasto de consumo
-    en sus mercados clave.
-  razonamiento: Aunque hay riesgos macro y regulatorios, el negocio genera ROIC positivo
-    y crecimiento sostenible. La valoración refleja expectativas optimistas, pero
-    no hay evidencia clara de sobrevaloración extrema. El error de mercado parece
-    moderado, no suficiente para clasificarlo como infravalorado o sobrevalorado con
-    certeza.
-generated_at: '2026-08-07T22:17:32.133611-03:00'
+    probabilidad_pct: 70
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado espera que la empresa continúe creciendo a un ritmo
+    sólido, pero hay preocupaciones sobre la competencia y la regulación en algunos
+    de los mercados en los que opera.
+  hipotesis_contraria: La empresa puede superar las expectativas del mercado gracias
+    a su capacidad para innovar y expandirse en nuevos mercados y servicios, lo que
+    podría llevar a un aumento en su valoración.
+  razonamiento: La empresa tiene un historial de innovación y expansión exitosa, lo
+    que sugiere que puede superar las expectativas del mercado y aumentar su valoración.
+generated_at: '2026-08-13T01:01:22.835752-03:00'
 integridad_tesis:
   flags: []
-  reason: No se han identificado violaciones a la tesis de inversión. El negocio genera
-    valor, tiene un moat sólido y perspectivas de crecimiento. Los riesgos son manejables
-    y no afectan la viabilidad del negocio a largo plazo.
+  reason: ''
   thesis_active: true
-opinion_valoracion: justo
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-037
 prompt_inputs:
   business_model: MercadoLibre, Inc. operates online commerce platforms in Brazil,
@@ -145,38 +131,35 @@ prompt_inputs:
     their products and services on the platform. MercadoLibre, Inc. was incorporated
     in 1999 and is headquartered in Montevideo, Uruguay.
   ceo_tenure: 0
-  debt_to_equity: 0.0168
+  debt_to_equity: 0.0169
   fcf_adjusted: 0
   insider_ownership: 0
   name: MercadoLibre, Inc.
   operating_margin: 8.26
-  pe_ratio: 49.8
+  pe_ratio: 52.79
   products: ''
   revenue: 35180000000.0
-  revenue_growth: 30.03
+  revenue_growth: 31.02
   roic: 14.2
   sector: Consumer Cyclical
   ticker: MELI
-resumen_ejecutivo: MercadoLibre es un compounder de alta calidad con un moat sólido
-  en e-commerce y fintech en LATAM. Muestra crecimiento de ingresos del 30%, ROIC
-  del 14.2% y margen operativo del 8.3%. A pesar de riesgos macro y regulatorios,
-  su modelo de negocio genera valor sostenible. La valoración es alta, pero justificada
-  por su posición dominante y perspectivas de crecimiento.
-score_general: 78
+resumen_ejecutivo: MercadoLibre es una empresa de comercio electrónico líder en América
+  Latina con un modelo de negocio escalable y una posición competitiva. La expansión
+  de su plataforma de pagos Mercado Pago y la innovación en nuevos servicios financieros
+  pueden llevar a un aumento en su valoración.
+score_general: 85
 target_consensus:
-  calculado_at: '2026-08-07T22:16:23.697700-03:00'
+  calculado_at: '2026-08-13T01:01:17.175582-03:00'
   fuentes:
-    stockanalysis: 2229.0
-    yfinance: 2229.4583
-  mediana: 2229.23
+    stockanalysis: 2250.0
+    yfinance: 2252.375
+  mediana: 2251.19
   n_fuentes: 2
-  promedio: 2229.23
+  promedio: 2251.19
   target_high: 2800.0
   target_low: 1750.0
-tesis_inversion: MercadoLibre es un compounder de alta calidad con un moat sólido
-  en e-commerce y fintech en LATAM. A pesar de riesgos macro y regulatorios, su crecimiento
-  sostenible y retorno sobre capital positivo justifican su valoración. La exposición
-  a mercados emergentes con alta volatilidad requiere monitoreo constante, pero el
-  potencial de crecimiento en fintech y publicidad es significativo.
+tesis_inversion: La empresa tiene un gran potencial de crecimiento y una posición
+  competitiva en el mercado de comercio electrónico en América Latina, lo que la hace
+  atractiva para la inversión.
 ticker: MELI
 version: '3.0'
