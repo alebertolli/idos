@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any
 from pathlib import Path
+import re
 import yaml
 from idos.timezone import AR_TZ
 
@@ -75,16 +76,30 @@ class AtomicWiki:
         self._wiki_dir = self.base_path / "companies"
         self._sections: dict[str, dict[str, WikiSection]] = {}
 
+    @staticmethod
+    def _sanitize_section_name(name: str) -> str:
+        """Convierte un nombre de sección en un nombre de archivo seguro cross-platform.
+
+        Los headings generados por el LLM pueden contener caracteres ilegales en nombre
+        de archivo (`:`, `'`, `<`, `>`, `"`, `|`, `?`, `*`, barras, espacios a los lados),
+        lo que rompe el checkout en Windows (ver error: 'here's_a_thinking_process:.md').
+        """
+        safe = re.sub(r'[<>:"/\\|?*\x00-\x1f]', "_", name.strip())
+        while safe.startswith("."):
+            safe = safe[1:]
+        safe = re.sub(r"\s+", "_", safe)
+        return safe or "section"
+
     def _company_dir(self, ticker: str) -> Path:
         p = self._wiki_dir / ticker.upper() / "wiki"
         p.mkdir(parents=True, exist_ok=True)
         return p
 
     def _section_path(self, ticker: str, section: str) -> Path:
-        return self._company_dir(ticker) / f"{section}.md"
+        return self._company_dir(ticker) / f"{self._sanitize_section_name(section)}.md"
 
     def _meta_path(self, ticker: str, section: str) -> Path:
-        return self._company_dir(ticker) / f"{section}.meta.yml"
+        return self._company_dir(ticker) / f"{self._sanitize_section_name(section)}.meta.yml"
 
     def get_section(self, ticker: str, section: str) -> WikiSection | None:
         key = f"{ticker}.{section}"
@@ -206,6 +221,7 @@ class AtomicWiki:
             mapped = self.SECTION_HEADER_ALIASES.get(name, name)
             if mapped is None:
                 continue
+            mapped = self._sanitize_section_name(mapped)
             if name and body:
                 section = WikiSection(name=mapped, content=body, metadata=WikiMetadata.fresh())
                 self.set_section(ticker, section)
