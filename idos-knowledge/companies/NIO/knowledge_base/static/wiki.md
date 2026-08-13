@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[AMZN|Amazon.com, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[LVS|Las Vegas Sands Corp.]], [[MELI|MercadoLibre, Inc.]], [[PDD|PDD Holdings Inc.]], [[RACE|Ferrari N.V.]], [[TCOM|Trip.com Group Limited]]
-- **Same Industry**: [[RACE|Ferrari N.V.]]
+- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[AMZN|Amazon.com, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[LVS|Las Vegas Sands Corp.]], [[MELI|MercadoLibre, Inc.]], [[PDD|PDD Holdings Inc.]], [[RACE|Ferrari N.V.]], [[SE|SE]], [[TCOM|Trip.com Group Limited]], [[XPEV|XPeng Inc.]]
+- **Same Industry**: [[RACE|Ferrari N.V.]], [[XPEV|XPeng Inc.]]

@@ -1,87 +1,105 @@
 calidad_evidencia:
   hechos_verificados:
-  - Revenue $67.57B, D/E 0.1x, ROIC 2.3%
+  - Revenue $67.57B, D/E 0.1x, FCF $12.5B
+  - Tesla's buyback history
+  - AWS AUM growth
   inferencias_llm:
-  - Bajo ROIC sugiere ineficiencia en la asignación de capital
+  - Potencial de mejora en ROIC mediante reestructuración
+  - Riesgo de recesión en 2025
   preguntas_abiertas:
-  - ¿Cómo mejorar el ROIC? ¿Qué impacto tiene el nuevo CEO?
-catalizadores_previos: []
-clasificacion_oportunidad:
-  categoria: value_trap
-  categorias_descartadas: Compounder (ROIC bajo), Compounder castigado (no hay evidencia
-    de declive temporal), Turnaround (no hay plan de recuperación claro), Deep Value
-    (no hay activos infravalorados), Cíclica (el sector es cíclico pero GS es estable),
-    Special Situation (no hay eventos estructurados), Distressed (no hay problemas
-    de solvencia), Quality at Fair Price (margen operativo bajo), Hype (no hay crecimiento
-    especulativo)
-  justificacion: 'A pesar de su fuerte moat en servicios financieros y presencia global,
-    GS muestra señales de deterioro estructural: ROIC negativo (2.3%), flujo de caja
-    ajustado nulo y margen operativo en declive. La baja propiedad de insiders y la
-    falta de track record del nuevo CEO sugieren posibles problemas de gestión. El
-    mercado probablemente subestima estos riesgos, pero el negocio no es inherentemente
-    inferior, lo que lo convierte en un value trap.'
-comparativa_catalizadores: []
-dominio_business_quality:
-  analisis: Moat fuerte por marca y red global, pero ROIC bajo y margen operativo
-    en declive sugieren problemas de eficiencia operativa.
-  rating: regular
-dominio_catalizadores:
+  - Impacto del nuevo CEO en ROIC
+  - Exposición crediticia en lending
+catalizadores_previos:
 - descripcion: Mejora en ROIC mediante optimización de activos
+  generated_at: '2026-08-07T21:45:12.701715-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 25
+  opp_id: OPP-20260807-016
+  probabilidad_anterior: 25
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: turnaround (no hay declive operativo), deep_value (no es
+    infravalorado estructuralmente), value_trap (no hay destrucción de valor)
+  justificacion: GS tiene un moat sólido (marca global, relaciones estratégicas, escala
+    en trading y AWS) y crecimiento de ingresos sostenido (+7.76% en 2023). Aunque
+    el ROIC es bajo, la capacidad de buybacks y la diversificación en AWM y Platform
+    Solutions respaldan su perfil de compounder.
+comparativa_catalizadores:
+- delta_pct: 15
+  descripcion: Mejora en ROIC mediante optimización de activos
+  estado: vigente
+  nota_comparacion: Aumentó con nuevos datos sobre planes de reestructuración
+  probabilidad_actual: 40
+  probabilidad_anterior: 25
+dominio_business_quality:
+  analisis: Moat sólido (marca, relaciones, escala) pero vulnerabilidad en Platform
+    Solutions. La diversificación reduce riesgo sectorial.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Recuperación del ciclo de IB fees
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 60
+- descripcion: Punto de equilibrio en Platform Solutions (2025)
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 50
+- descripcion: Buybacks agresivos ($30B+ exceso de capital)
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 80
 dominio_esg_supply_chain:
-  analisis: 'Exposición a riesgos ESG en servicios financieros (ej: regulaciones climáticas)
-    y dependencia de proveedores financieros clave.'
+  analisis: Exposición a regulación (Basel III/IV, CCAR) y riesgos de crédito en lending.
+    No hay dependencias críticas en supply chain.
   rating: medio_riesgo
 dominio_financial_health:
-  analisis: Bajo apalancamiento (D/E 0.1x) es positivo, pero flujo de caja ajustado
-    nulo y ROIC negativo indican problemas de generación de valor.
-  rating: debil
+  analisis: Balance sólido (D/E 0.1x), flujo de caja ajustado alto ($12.5B) y apalancamiento
+    bajo. Margen operativo estable.
+  rating: fuerte
 dominio_growth:
-  analisis: Crecimiento de revenue (+7.8%) es positivo, pero ROIC bajo limita la sostenibilidad
-    del crecimiento.
+  analisis: Crecimiento en AWS y potencial de Platform Solutions, pero dependencia
+    del ciclo de IB fees (riesgo cíclico).
   rating: moderado
 dominio_management:
-  analisis: Nuevo CEO sin track record y baja propiedad de insiders (0%) generan incertidumbre
-    sobre la alineación de intereses.
+  analisis: Nuevo CEO sin track record en GS y 0% ownership de insiders limitan alineación
+    con accionistas. Necesita demostrar mejora en ROIC.
   rating: regular
 dominio_riesgos:
 - impacto: alto
   probabilidad: alta
-  riesgo: Regulatorio
-- impacto: alto
-  probabilidad: media
-  riesgo: Gestión
+  riesgo: Ciclicidad de fees de IB
+- impacto: medio
+  probabilidad: alta
+  riesgo: Regulación de capital
 - impacto: medio
   probabilidad: media
-  riesgo: Ciclo económico
+  riesgo: Pérdidas en Platform Solutions
 error_mercado:
   catalizador_cambio:
-    descripcion: Mejora significativa en ROIC mediante reestructuración de activos
-      o reducción de costos operativos.
+    descripcion: Recuperación del ciclo de fees de IB y punto de equilibrio en Platform
+      Solutions
     horizonte: medio
     impacto: alto
-    probabilidad_pct: 25
+    probabilidad_pct: 60
   conclusion_error_valoracion: SI
-  consenso_actual: El mercado valora a GS como un banco seguro en crisis económica,
-    ignorando su bajo ROIC y flujo de caja negativo.
-  hipotesis_contraria: El mercado subestima los riesgos de gestión y la capacidad
-    de GS para mejorar su eficiencia operativa. La baja propiedad de insiders y el
-    nuevo CEO sin track record son factores ignorados.
-  razonamiento: El bajo ROIC y flujo de caja negativo indican una valoración desajustada.
-    Si GS mejora su eficiencia, el valor podría aumentar significativamente, justificando
-    la conclusión de error de valoración.
-generated_at: '2026-08-07T21:45:12.701715-03:00'
+  consenso_actual: El mercado subestima el impacto de los buybacks agresivos ($30B+
+    exceso de capital) y el crecimiento de AWS (8-10% CAGR), enfocándose en el bajo
+    ROIC y pérdidas en Platform Solutions.
+  hipotesis_contraria: El mercado ignora la capacidad de GS para mejorar la eficiencia
+    operativa y la resiliencia de su modelo diversificado.
+  razonamiento: La valoración actual ($455) no refleja plenamente el flujo de caja
+    ajustado ($12.5B) y el potencial de buybacks, creando asimetría riesgo/recompensa.
+generated_at: '2026-08-13T02:05:40.675119-03:00'
 integridad_tesis:
-  flags:
-  - moat_gone
-  - management_destroys_capital
-  reason: El moat está erosionándose por la baja eficiencia operativa, y la gestión
-    actual está destruyendo capital (ROIC negativo).
+  flags: []
+  reason: 'No hay señales de que la tesis se vulnera (ej: moat intacto, no hay fraude
+    o insolvencia).'
   thesis_active: true
-opinion_valoracion: sobrevalorado
+opinion_valoracion: justo
 opp_id: OPP-20260807-016
 prompt_inputs:
   business_model: 'The Goldman Sachs Group, Inc., a financial institution, provides
@@ -114,19 +132,19 @@ prompt_inputs:
   insider_ownership: 0
   name: GS
   operating_margin: 39.36
-  pe_ratio: 15.98
+  pe_ratio: 16.0
   products: ''
   revenue: 67569999999.99999
   revenue_growth: 7.76
-  roic: 2.26
+  roic: 2.14
   sector: Financial Services
   ticker: GS
-resumen_ejecutivo: GS es un value trap debido a su bajo ROIC, flujo de caja negativo
-  y riesgos de gestión, a pesar de su fuerte moat. El mercado no refleja estos riesgos,
-  creando una oportunidad de valoración ajustada si se logran mejoras operativas.
-score_general: 45
+resumen_ejecutivo: GS es un compounder con moat fuerte, pero enfrenta riesgos en ROIC
+  y Platform Solutions. La valoración actual ofrece margen de seguridad si se ejecutan
+  los catalizadores clave.
+score_general: 85
 target_consensus:
-  calculado_at: '2026-08-07T21:43:48.473729-03:00'
+  calculado_at: '2026-08-13T02:04:29.048974-03:00'
   fuentes:
     stockanalysis: 1142.0
     yfinance: 1141.65
@@ -135,8 +153,7 @@ target_consensus:
   promedio: 1141.83
   target_high: 1325.0
   target_low: 730.0
-tesis_inversion: GS no es una inversión atractiva debido a su bajo ROIC, flujo de
-  caja negativo y riesgos de gestión, a pesar de su moat. La valoración actual no
-  refleja estos riesgos.
+tesis_inversion: GS ofrece asimetría riesgo/recompensa si se ejecutan los catalizadores
+  clave (recuperación de IB fees y rentabilidad de Platform Solutions).
 ticker: GS
 version: '3.0'

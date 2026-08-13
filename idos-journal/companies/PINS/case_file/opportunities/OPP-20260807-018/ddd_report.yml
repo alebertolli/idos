@@ -1,18 +1,112 @@
-calidad_evidencia: {}
+calidad_evidencia:
+  hechos_verificados:
+  - La empresa tiene un modelo de negocio sólido y un moat duradero.
+  - La empresa ha demostrado una capacidad para generar crecimiento sostenido y mantener
+    su rentabilidad operativa alta.
+  - La empresa tiene una rentabilidad operativa alta y una generación de caja sólida.
+  inferencias_llm:
+  - El mercado podría estar subestimando la capacidad de la empresa para mantener
+    su posición competitiva y podría estar exagerando la competencia de otras plataformas
+    de redes sociales.
+  - La empresa tiene una capacidad para generar crecimiento sostenido y mantener su
+    rentabilidad operativa alta.
+  preguntas_abiertas:
+  - ¿Qué impacto tendrá la competencia de otras plataformas de redes sociales en la
+    empresa?
+  - ¿Qué cambios en la estrategia de marketing podrían permitir a la empresa mantener
+    su crecimiento y rentabilidad?
 catalizadores_previos: []
-clasificacion_oportunidad: {}
-comparativa_catalizadores: []
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-08-07T22:44:14.199525-03:00'
-integridad_tesis: {}
-opinion_valoracion: ''
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: deep_value, hype, value_trap
+  justificacion: Pinterest, Inc. tiene un modelo de negocio sólido, un moat duradero
+    y una posición competitiva en el mercado de la búsqueda visual y descubrimiento.
+    El negocio ha demostrado una capacidad para generar crecimiento sostenido y ha
+    mantenido una rentabilidad operativa alta.
+comparativa_catalizadores:
+- delta_pct: 100
+  descripcion: Un cambio en la estrategia de marketing que permita a la empresa mantener
+    su crecimiento y rentabilidad.
+  estado: vigente
+  nota_comparacion: La probabilidad de este catalizador ha aumentado debido a la capacidad
+    de la empresa para mantener su posición competitiva en el mercado.
+  probabilidad_actual: 40
+  probabilidad_anterior: 20
+- delta_pct: 200
+  descripcion: Una mejora en la eficiencia operativa que permita a la empresa mantener
+    su crecimiento y rentabilidad.
+  estado: vigente
+  nota_comparacion: La probabilidad de este catalizador ha aumentado debido a la capacidad
+    de la empresa para mantener su rentabilidad operativa alta.
+  probabilidad_actual: 30
+  probabilidad_anterior: 10
+dominio_business_quality:
+  analisis: La empresa tiene un modelo de negocio sólido y un moat duradero en el
+    mercado de la búsqueda visual y descubrimiento. La posición competitiva de la
+    empresa es alta y la capacidad para generar crecimiento sostenido es buena.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Un cambio en la estrategia de marketing que permita a la empresa mantener
+    su crecimiento y rentabilidad.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 40
+- descripcion: Una mejora en la eficiencia operativa que permita a la empresa mantener
+    su crecimiento y rentabilidad.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: La empresa tiene un buen registro en materia de ESG y su cadena de suministro
+    es sólida. Los riesgos ESG son bajos y la empresa tiene una capacidad para mitigarlos.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: La empresa tiene una rentabilidad operativa alta y una generación de caja
+    sólida. El perfil de deuda es bajo y la empresa tiene una capacidad para generar
+    caja libre.
+  rating: fuerte
+dominio_growth:
+  analisis: La empresa tiene una capacidad para generar crecimiento sostenido y una
+    visibilidad de revenue alta. Los impulsores orgánicos e inorgánicos son sólidos
+    y la empresa tiene una capacidad para mantener su posición competitiva en el mercado.
+  rating: fuerte
+dominio_management:
+  analisis: La empresa tiene un equipo de gestión experimentado y con un buen track
+    record. La asignación de capital es sólida y la alineación de intereses entre
+    la gestión y los accionistas es alta.
+  rating: excepcional
+dominio_riesgos:
+- impacto: medio
+  probabilidad: media
+  riesgo: Competencia de otras plataformas de redes sociales
+- impacto: bajo
+  probabilidad: baja
+  riesgo: Cambios en la estrategia de marketing
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un cambio en la estrategia de marketing o una mejora en la eficiencia
+      operativa que permita a la empresa mantener su crecimiento y rentabilidad.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas están descontando un crecimiento de la empresa en
+    el rango de 10-15% anual, con un múltiplo de EV/EBITDA de 50.9 y un precio al
+    cierre de $178.51.
+  hipotesis_contraria: El mercado podría estar subestimando la capacidad de la empresa
+    para mantener su posición competitiva en el mercado de la búsqueda visual y descubrimiento,
+    y podría estar exagerando la competencia de otras plataformas de redes sociales.
+  razonamiento: El mercado podría estar subestimando la capacidad de la empresa para
+    mantener su posición competitiva y podría estar exagerando la competencia de otras
+    plataformas de redes sociales.
+generated_at: '2026-08-13T03:12:38.936964-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-018
 prompt_inputs:
   business_model: Pinterest, Inc. operates as a visual search and discovery platform
@@ -30,25 +124,32 @@ prompt_inputs:
   insider_ownership: 0
   name: Pinterest, Inc.
   operating_margin: 6.27
-  pe_ratio: 178.51
+  pe_ratio: 181.72
   products: ''
   revenue: 4560000000.0
-  revenue_growth: 13.13
+  revenue_growth: 13.59
   roic: 8.44
   sector: Communication Services
   ticker: PINS
-resumen_ejecutivo: ''
-score_general: 50
+resumen_ejecutivo: Pinterest, Inc. es una empresa de búsqueda visual y descubrimiento
+  con un modelo de negocio sólido y un moat duradero. El negocio ha demostrado una
+  capacidad para generar crecimiento sostenido y ha mantenido una rentabilidad operativa
+  alta. El mercado podría estar subestimando la capacidad de la empresa para mantener
+  su posición competitiva y podría estar exagerando la competencia de otras plataformas
+  de redes sociales.
+score_general: 85
 target_consensus:
-  calculado_at: '2026-08-07T22:43:42.725362-03:00'
+  calculado_at: '2026-08-13T03:12:03.836130-03:00'
   fuentes:
-    stockanalysis: 28.96
-    yfinance: 28.95556
-  mediana: 28.96
+    stockanalysis: 28.97
+    yfinance: 28.96556
+  mediana: 28.97
   n_fuentes: 2
-  promedio: 28.96
-  target_high: 42.0
+  promedio: 28.97
+  target_high: 42.36
   target_low: 22.0
-tesis_inversion: ''
+tesis_inversion: Pinterest, Inc. es una empresa con un modelo de negocio sólido y
+  un moat duradero, que tiene una capacidad para generar crecimiento sostenido y mantener
+  su rentabilidad operativa alta.
 ticker: PINS
 version: '3.0'

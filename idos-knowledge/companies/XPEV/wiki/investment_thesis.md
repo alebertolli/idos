@@ -1,1 +1,1 @@
-XPeng Inc. es una empresa de automoción eléctrica con un modelo de negocio sólido y un crecimiento constante en la producción y las ventas. La empresa tiene un potencial de crecimiento a largo plazo y un precio de mercado que refleja su crecimiento actual.
+To be formulated

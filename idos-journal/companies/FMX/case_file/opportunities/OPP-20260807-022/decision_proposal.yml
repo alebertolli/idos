@@ -1,0 +1,111 @@
+assessments:
+  BusinessAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: BusinessAssessmentEngine
+    evidence_ids: []
+    findings: []
+    generated_at: '2026-08-13T03:33:37.307382-03:00'
+    id: BusinessAssessmentEngine-20260813033337
+    recommendation: NEUTRAL
+    risks: []
+    score: 50
+    status: COMPLETED
+    version: '1.0'
+  PortfolioAssessmentEngine:
+    confidence: HIGH
+    dependencies: []
+    engine: PortfolioAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: Portfolio has capacity for new position
+      type: POSITIVE
+    - detail: Sector Consumer Defensive within diversification limits
+      type: POSITIVE
+    - detail: Only 0 positions, adding increases diversification
+      type: POSITIVE
+    generated_at: '2026-08-13T03:33:37.307444-03:00'
+    id: PortfolioAssessmentEngine-20260813033337
+    recommendation: EXCELLENT_FIT
+    risks: []
+    score: 90
+    status: COMPLETED
+    version: '1.0'
+  RecoveryAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RecoveryAssessmentEngine
+    evidence_ids: []
+    findings:
+    - dimension: business_momentum
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: valuation_gap
+      level: HIGH
+      score: 70
+      type: DIMENSION
+    - dimension: market_expectations
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: catalysts
+      level: MEDIUM
+      score: 65
+      type: DIMENSION
+    - dimension: technical_confirmation
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: risk_compression
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    generated_at: '2026-08-13T03:33:37.307426-03:00'
+    id: RecoveryAssessmentEngine-20260813033337
+    recommendation: MODERATE
+    risks: []
+    score: 57
+    status: COMPLETED
+    version: '1.0'
+  RiskAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RiskAssessmentEngine
+    evidence_ids: []
+    findings: []
+    generated_at: '2026-08-13T03:33:37.307434-03:00'
+    id: RiskAssessmentEngine-20260813033337
+    recommendation: LOW_RISK
+    risks: []
+    score: 70
+    status: COMPLETED
+    version: '1.0'
+  ValuationAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: ValuationAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: 'FCF Yield: 10.5%'
+      type: POSITIVE
+    generated_at: '2026-08-13T03:33:37.307400-03:00'
+    id: ValuationAssessmentEngine-20260813033337
+    recommendation: FAIR
+    risks: []
+    score: 65
+    status: COMPLETED
+    version: '1.1'
+conviction_score: 62
+created_at: '2026-08-13T03:33:37.307507-03:00'
+opportunity_id: OPP-20260807-022
+reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004, RULE-005'
+recommendation: BLOCKED
+rules_failed:
+- RULE-001
+- RULE-003
+- RULE-004
+- RULE-005
+rules_passed:
+- RULE-008
+type: opportunity:transitioned

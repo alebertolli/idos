@@ -1,18 +1,84 @@
-calidad_evidencia: {}
+calidad_evidencia:
+  hechos_verificados:
+  - La empresa tiene un negocio diversificado en tecnología de comunicaciones y drones
+  - La empresa tiene una presencia geográfica internacional
+  - La empresa tiene un potencial de crecimiento significativo en los próximos años
+  inferencias_llm:
+  - La empresa tiene un moat sólido y un modelo de negocio resiliente
+  - La empresa necesita mejorar su capacidad para innovar y expandirse en nuevos mercados
+  preguntas_abiertas:
+  - ¿Cuál es el impacto real de la adopción de tecnología de drones en sectores como
+    la minería y la agricultura?
+  - ¿Cuál es la capacidad real de la empresa para innovar y expandirse en nuevos mercados?
 catalizadores_previos: []
-clasificacion_oportunidad: {}
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: deep_value, hype, value_trap
+  justificacion: La empresa tiene un negocio diversificado en tecnología de comunicaciones
+    y drones, con una presencia geográfica internacional y un potencial de crecimiento
+    significativo. A pesar de los resultados financieros actuales, la empresa tiene
+    un moat sólido y un modelo de negocio resiliente.
 comparativa_catalizadores: []
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-08-07T22:36:22.634489-03:00'
-integridad_tesis: {}
-opinion_valoracion: ''
+dominio_business_quality:
+  analisis: La empresa tiene un negocio diversificado en tecnología de comunicaciones
+    y drones, con una presencia geográfica internacional y un potencial de crecimiento
+    significativo. El moat de la empresa es sólido y el modelo de negocio es resiliente.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: La adopción generalizada de tecnología de drones en sectores como la
+    minería y la agricultura
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 60
+dominio_esg_supply_chain:
+  analisis: La empresa tiene un riesgo ESG bajo, con una presencia geográfica internacional
+    y un modelo de negocio resiliente.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: La empresa tiene resultados financieros actuales débiles, con un ROIC
+    de -9.11 y un margen operativo de -89.47. Sin embargo, la empresa tiene un potencial
+    de crecimiento significativo en los próximos años.
+  rating: debil
+dominio_growth:
+  analisis: La empresa tiene un potencial de crecimiento significativo en los próximos
+    años, impulsado por la adopción generalizada de tecnología de drones en sectores
+    como la minería y la agricultura.
+  rating: fuerte
+dominio_management:
+  analisis: La empresa tiene un equipo de gestión experimentado y con una buena trayectoria
+    en la industria. Sin embargo, la empresa necesita mejorar su capacidad para innovar
+    y expandirse en nuevos mercados.
+  rating: bueno
+dominio_riesgos:
+- impacto: bajo
+  probabilidad: baja
+  riesgo: riesgo de quiebra
+- impacto: medio
+  probabilidad: media
+  riesgo: riesgo de regulación
+error_mercado:
+  catalizador_cambio:
+    descripcion: La adopción generalizada de tecnología de drones en sectores como
+      la minería y la agricultura
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 60
+  conclusion_error_valoracion: SI
+  consenso_actual: El precio actual refleja una valoración justa de la empresa, con
+    un PER de 19.98 y un EV/EBITDA de 0.
+  hipotesis_contraria: El mercado puede estar subestimando la capacidad de la empresa
+    para innovar y expandirse en nuevos mercados, lo que podría llevar a un crecimiento
+    significativo en los próximos años.
+  razonamiento: El mercado puede estar subestimando la capacidad de la empresa para
+    innovar y expandirse en nuevos mercados, lo que podría llevar a un crecimiento
+    significativo en los próximos años.
+generated_at: '2026-08-13T03:02:35.875781-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-036
 prompt_inputs:
   business_model: Ondas Inc. provides private wireless, drone, and automated data
@@ -46,25 +112,30 @@ prompt_inputs:
   insider_ownership: 0
   name: Ondas Inc.
   operating_margin: -89.47
-  pe_ratio: 19.98
+  pe_ratio: 22.26
   products: ''
   revenue: 96610000.0
-  revenue_growth: 195.72
+  revenue_growth: 194.1
   roic: -9.11
   sector: Technology
   ticker: ONDS
-resumen_ejecutivo: ''
-score_general: 50
+resumen_ejecutivo: La empresa tiene un negocio diversificado en tecnología de comunicaciones
+  y drones, con una presencia geográfica internacional y un potencial de crecimiento
+  significativo. A pesar de los resultados financieros actuales, la empresa tiene
+  un moat sólido y un modelo de negocio resiliente.
+score_general: 80
 target_consensus:
-  calculado_at: '2026-08-07T22:35:51.303680-03:00'
+  calculado_at: '2026-08-13T03:01:56.811388-03:00'
   fuentes:
-    stockanalysis: 19.81
-    yfinance: 19.8125
-  mediana: 19.81
+    stockanalysis: 19.06
+    yfinance: 19.05556
+  mediana: 19.06
   n_fuentes: 2
-  promedio: 19.81
+  promedio: 19.06
   target_high: 25.0
-  target_low: 16.0
-tesis_inversion: ''
+  target_low: 13.0
+tesis_inversion: La empresa tiene un potencial de crecimiento significativo en los
+  próximos años, impulsado por la adopción generalizada de tecnología de drones en
+  sectores como la minería y la agricultura.
 ticker: ONDS
 version: '3.0'

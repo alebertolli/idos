@@ -1,18 +1,89 @@
-calidad_evidencia: {}
+calidad_evidencia:
+  hechos_verificados:
+  - Roku, Inc. ha demostrado una consistencia en su crecimiento y generación de valor
+    a lo largo de los años.
+  - La empresa tiene un modelo de negocio sólido y un moat claro en la industria de
+    la transmisión de televisión en streaming.
+  inferencias_llm:
+  - El mercado podría estar subestimando el potencial de crecimiento de Roku, lo que
+    podría llevar a un ajuste en la valoración de la empresa.
+  preguntas_abiertas:
+  - ¿Qué impacto tendrá la competencia en la industria de la transmisión de televisión
+    en streaming en la empresa?
 catalizadores_previos: []
-clasificacion_oportunidad: {}
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: deep_value, hype, value_trap
+  justificacion: Roku, Inc. ha demostrado una consistencia en su crecimiento y generación
+    de valor a lo largo de los años, con un ROIC del 35.05% y un margen operativo
+    del 5.31%. Su modelo de negocio es sólido y tiene un moat claro en la industria
+    de la transmisión de televisión en streaming.
 comparativa_catalizadores: []
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-08-07T22:51:00.493081-03:00'
-integridad_tesis: {}
-opinion_valoracion: ''
+dominio_business_quality:
+  analisis: Roku, Inc. tiene un modelo de negocio sólido y un moat claro en la industria
+    de la transmisión de televisión en streaming. La empresa ha demostrado una consistencia
+    en su crecimiento y generación de valor a lo largo de los años.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Aumento significativo en la participación de mercado de Roku en la
+    industria de la transmisión de televisión en streaming
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 40
+- descripcion: Cambios en la estrategia de la empresa que permitan una mayor eficiencia
+    en sus operaciones
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 20
+dominio_esg_supply_chain:
+  analisis: Roku, Inc. tiene un riesgo ESG bajo y una cadena de suministro diversificada.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: Roku, Inc. tiene un balance sólido y una generación de caja consistente.
+    La empresa tiene un perfil de deuda bajo y una cobertura de intereses alta.
+  rating: fuerte
+dominio_growth:
+  analisis: Roku, Inc. tiene un potencial de crecimiento significativo en la industria
+    de la transmisión de televisión en streaming, especialmente si la empresa logra
+    consolidar su posición en el mercado y aumentar su participación en la industria.
+  rating: fuerte
+dominio_management:
+  analisis: La dirección de Roku, Inc. ha demostrado una habilidad para asignar capital
+    y tomar decisiones estratégicas que han permitido a la empresa crecer y generar
+    valor a lo largo de los años.
+  rating: excepcional
+dominio_riesgos:
+- impacto: medio
+  probabilidad: media
+  riesgo: riesgo de competencia
+- impacto: bajo
+  probabilidad: baja
+  riesgo: riesgo de tecnología
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un aumento significativo en la participación de mercado de Roku en
+      la industria de la transmisión de televisión en streaming, o un cambio en la
+      estrategia de la empresa que permita una mayor eficiencia en sus operaciones.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas están descontando un crecimiento moderado y una valoración
+    justa para la empresa, reflejada en su múltiplo EV/EBITDA de 58.42.
+  hipotesis_contraria: El mercado podría estar subestimando el potencial de crecimiento
+    de Roku en la industria de la transmisión de televisión en streaming, especialmente
+    si la empresa logra consolidar su posición en el mercado y aumentar su participación
+    en la industria.
+  razonamiento: El mercado podría estar subestimando el potencial de crecimiento de
+    Roku, lo que podría llevar a un ajuste en la valoración de la empresa.
+generated_at: '2026-08-13T03:18:58.600529-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-005
 prompt_inputs:
   business_model: Roku, Inc., together with its subsidiaries, operates a TV streaming
@@ -23,30 +94,34 @@ prompt_inputs:
     products and services, audio products, and related accessories. Roku, Inc. was
     incorporated in 2002 and is headquartered in San Jose, California.
   ceo_tenure: 0
-  debt_to_equity: 0.14
+  debt_to_equity: 0.17
   fcf_adjusted: 0
   insider_ownership: 0
   name: Roku, Inc.
-  operating_margin: 5.31
-  pe_ratio: 64.31
+  operating_margin: 5.78
+  pe_ratio: 64.92
   products: ''
   revenue: 5210000000.0
-  revenue_growth: 14.18
-  roic: 35.05
+  revenue_growth: 14.31
+  roic: 36.0
   sector: Communication Services
   ticker: ROKU
-resumen_ejecutivo: ''
-score_general: 50
+resumen_ejecutivo: Roku, Inc. es una empresa de transmisión de televisión en streaming
+  con un modelo de negocio sólido y un moat claro en la industria. La empresa ha demostrado
+  una consistencia en su crecimiento y generación de valor a lo largo de los años,
+  y el mercado podría estar subestimando su potencial de crecimiento.
+score_general: 85
 target_consensus:
-  calculado_at: '2026-08-07T22:50:29.026612-03:00'
+  calculado_at: '2026-08-13T03:18:28.115555-03:00'
   fuentes:
-    stockanalysis: 161.31
-    yfinance: 158.40619
-  mediana: 159.86
+    stockanalysis: 162.55
+    yfinance: 162.55421
+  mediana: 162.55
   n_fuentes: 2
-  promedio: 159.86
+  promedio: 162.55
   target_high: 205.0
-  target_low: 144.0
-tesis_inversion: ''
+  target_low: 150.0
+tesis_inversion: Roku, Inc. es una inversión atractiva debido a su modelo de negocio
+  sólido, su moat claro en la industria y su potencial de crecimiento significativo.
 ticker: ROKU
 version: '3.0'

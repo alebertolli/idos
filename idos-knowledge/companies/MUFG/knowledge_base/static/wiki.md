@@ -37,28 +37,27 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 9.46
 - **Operating Margin**: 47.71
-- **Revenue Growth**: 36.71
+- **Revenue Growth**: 36.6
 - **FCF Yield**: 0
 - **Debt/Equity**: 0
-- **PER**: 20.89
+- **PER**: 20.28
 - **EV/EBITDA**: 0
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-MUFG es un compounder castigado con un modelo de negocio sólido y un moat duradero, pero el mercado subestima su capacidad de generación de valor a largo plazo. La recuperación del sector financiero global y la eficiencia operativa podrían revertir la valoración actual.
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AXP|American Express Company]], [[BCS|Barclays PLC]], [[BMNR|Bitmine Immersion Technologies, Inc.]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[GS|GS]], [[HDB|HDFC Bank Limited]], [[HOOD|Robinhood Markets, Inc.]], [[HSBC|HSBC Holdings plc]], [[HUT|Hut 8 Corp.]], [[IBN|IBN]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPM]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
+- **Same Sector**: [[AXP|American Express Company]], [[BCS|Barclays PLC]], [[BMNR|Bitmine Immersion Technologies, Inc.]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[GS|GS]], [[HDB|HDFC Bank Limited]], [[HOOD|Robinhood Markets, Inc.]], [[HSBC|HSBC Holdings plc]], [[HUT|Hut 8 Corp.]], [[IBN|IBN]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPM]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[RIOT|Riot Platforms, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
 - **Same Industry**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[ING|ING Groep N.V.]], [[JPM|JPM]], [[SAN|Banco Santander, S.A.]], [[WFC|Wells Fargo & Company]]

@@ -1,6 +1,7 @@
-## 1. Visión General de la Compañía  
+# Goldman Sachs Group, Inc. (GS)
 
-**Goldman Sachs Group, Inc.** (ticker: **GS**) es una firma de servicios financieros global fundada en 1869 y con sede en Nueva York, EE. UU. [[GS]] Opera en más de 60 países a través de tres segmentos principales:  
+## 1. Visión General de la Compañía  
+Goldman Sachs Group, Inc. (ticker: **GS**) es una firma de servicios financieros global fundada en 1869 y con sede en Nueva York, EE. UU. [[GS]] Opera en más de 60 países a través de tres segmentos principales:  
 
 * **Global Banking & Markets (GBM)** – banca de inversión, underwriting, trading, financing y ejecución de instrumentos financieros.  
 * **Asset & Wealth Management (AWM)** – gestión de activos, wealth advisory, private banking y productos de inversión alternativa.  
@@ -46,7 +47,7 @@ Las barreras de entrada incluyen: regulación (Basel III/IV, requisitos de cap
 | **PER** | **15.98** | Valoración moderada respecto a peers |
 | **EV/EBITDA** | **2.03** | Valoración en línea con el sector |
 | **FCF Yield** | **12.5 %** | Flujo de caja libre generado ≈ $12.5 B vs. Net Income $8.5 B (147 % de conversión) |
-| **Tangible Book Value (TBV) growth** | **≈8 % CAGR (5 a)** | Crecimiento sostenido del capital contable |
+| **Tangible Book Value (TBV) growth** | **≈8 % CAGR (5 a)** | Crecimiento sostenible del capital contable |
 | **Capital return** | **Buybacks 5‑7 % anual** | Uso de exceso de capital para recompra de acciones |
 
 **Interpretación**  
@@ -103,7 +104,7 @@ Las barreras de entrada incluyen: regulación (Basel III/IV, requisitos de cap
 
 ---
 
-## 6. Riesgos y Contra‑Tesis  
+## 6. Riesgos y Contra-Tesis  
 
 | Riesgo | Probabilidad | Impacto | Descripción |
 |--------|--------------|---------|-------------|
@@ -147,34 +148,11 @@ Las barreras de entrada incluyen: regulación (Basel III/IV, requisitos de cap
 | Escenario | Supuestos clave | Precio objetivo | Probabilidad |
 |-----------|------------------|-----------------|--------------|
 | **Base** | Recuperación IB 2025‑26, AWS CAGR 8‑10 %, Platform breakeven 2025, ROIC 14‑15 % | **$500** | 60 % |
-| **Alcista** | Superciclo M&A, IPO boom, trading volatility alta, AWS net inflows acelerados, ROE >16 % | **$580** | 20 % |
-| **Bajista** | Recesión 2025, IB fees -30 %, pérdidas Platform >$2 B, regulación restrictiva, ROE <10 % | **$380** | 20 % |
-
-**Valor intrínseco estimado**: **$480‑$520** por acción, frente al precio actual de **≈$455**, lo que sugiere un **margen de seguridad** adecuado.  
-
----
-
-## 9. Preguntas Abiertas y Agenda de Investigación  
-
-1. **Impacto del nuevo CEO**: ¿Qué cambios estratégicos y operativos implementará y cuál será su efecto en el ROIC y la eficiencia de costos?  
-2. **Mejora del ROIC**: ¿Qué iniciativas concretas (desinversión de activos, optimización de la estructura de costos, re‑ubicaciones de negocio) pueden elevar el ROIC de 2.26 % a niveles sostenibles (>10 %)?  
-3. **Turnaround de Platform Solutions**: ¿Cuál es el plan detallado para lograr la rentabilidad en 2025 y qué riesgos específicos (pérdida de clientes, regulación de tarjetas, competencia fintech) deben superarse?  
-4. **Evolución del capital regulatorio**: ¿Cómo afectarán los cambios finales de Basel III/IV y los requisitos de CCAR a la capacidad de generación de cash y a los buybacks?  
-5. **Calidad crediticia del libro de lending**: ¿Qué porcentaje de la cartera de lending está expuesto a sectores vulnerables en un escenario de recesión profunda?  
-
-**Agenda de investigación recomendada**:  
-* Análisis profundo de los planes estratégicos del nuevo CEO y su alineación con la creación de valor.  
-* Modelado financiero detallado de la reestructuración de activos y reducción de costos para estimar el potencial de mejora del ROIC.  
-* Evaluación de la exposición crediticia en el segmento de lending y simulación de escenarios macroeconómicos adversos.  
-* Seguimiento de los indicadores de AWS (net inflows, fee margin) y de Platform Solutions (pérdidas acumuladas, progreso hacia el punto de equilibrio).  
-
----  
-
-*Esta entrada wiki se basa en la información provista por los documentos de investigación (DDD, AOIF) y en datos públicos disponibles hasta la fecha de corte (2024). Los wikilinks a otras compañías reflejan relaciones de competencia y sector relevantes.*
+| **Alcista** | Superciclo
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AXP|American Express Company]], [[BCS|Barclays PLC]], [[BMNR|Bitmine Immersion Technologies, Inc.]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[HDB|HDFC Bank Limited]], [[HSBC|HSBC Holdings plc]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
-- **Same Industry**: [[BMNR|Bitmine Immersion Technologies, Inc.]], [[NMR|Nomura Holdings, Inc.]]
+- **Same Sector**: [[AXP|American Express Company]], [[BCS|Barclays PLC]], [[BMNR|Bitmine Immersion Technologies, Inc.]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[HDB|HDFC Bank Limited]], [[HOOD|Robinhood Markets, Inc.]], [[HSBC|HSBC Holdings plc]], [[HUT|Hut 8 Corp.]], [[IBN|IBN]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPM]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[RIOT|Riot Platforms, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
+- **Same Industry**: [[BMNR|Bitmine Immersion Technologies, Inc.]], [[HOOD|Robinhood Markets, Inc.]], [[HUT|Hut 8 Corp.]], [[NMR|Nomura Holdings, Inc.]], [[RIOT|Riot Platforms, Inc.]]

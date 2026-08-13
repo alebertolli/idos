@@ -1,25 +1,48 @@
 calidad_evidencia:
   hechos_verificados:
   - La empresa tiene un historial de crecimiento sostenido.
-  - La empresa tiene un margen operativo del 55.1% y un ROIC del 15.6%.
-  - La empresa tiene un equipo de gestión experimentado y con un buen track record
-    de asignación de capital.
+  - La empresa tiene una posición de liderazgo en el mercado aeroportuario.
+  - La empresa tiene un moat duradero y un modelo de negocio resiliente.
   inferencias_llm:
+  - El precio actual refleja una valoración justa.
   - El mercado podría estar subestimando la capacidad de la empresa para mantener
-    su posición de liderazgo en el mercado aeroportuario mexicano y jamaicano.
+    su posición de liderazgo en el mercado aeroportuario.
   preguntas_abiertas:
-  - ¿Qué impacto tendrá el cambio climático en la demanda de servicios aeroportuarios?
-catalizadores_previos: []
+  - ¿Qué impacto tendrá un cambio en la política aeroportuaria en la empresa?
+  - ¿Qué riesgos ESG tiene la empresa?
+catalizadores_previos:
+- descripcion: Un cambio en la política aeroportuaria en México o Jamaica que beneficie
+    a la empresa.
+  generated_at: '2026-08-07T22:39:03.481762-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  opp_id: OPP-20260807-010
+  probabilidad_anterior: 30
 clasificacion_oportunidad:
   categoria: compounder
   categorias_descartadas: deep_value, hype, value_trap
-  justificacion: La empresa tiene un historial de crecimiento sostenido, un margen
-    operativo del 55.1% y un ROIC del 15.6%, lo que sugiere una excelente calidad
-    de negocio.
-comparativa_catalizadores: []
+  justificacion: La empresa tiene un historial de crecimiento sostenido y una excelente
+    calidad de negocio, y su precio actual refleja una valoración justa.
+comparativa_catalizadores:
+- delta_pct: 33
+  descripcion: Un cambio en la política aeroportuaria en México o Jamaica que beneficie
+    a la empresa.
+  estado: vigente
+  nota_comparacion: La probabilidad de este catalizador ha aumentado debido a la actualización
+    de la información.
+  probabilidad_actual: 40
+  probabilidad_anterior: 30
+- delta_pct: 50
+  descripcion: Un aumento en la demanda de viajes aéreos en México o Jamaica.
+  estado: vigente
+  nota_comparacion: La probabilidad de este catalizador ha aumentado debido a la actualización
+    de la información.
+  probabilidad_actual: 30
+  probabilidad_anterior: 20
 dominio_business_quality:
-  analisis: La empresa tiene un moat sólido en el mercado aeroportuario mexicano y
-    jamaicano, y su modelo de negocio es resiliente a cambios en la demanda.
+  analisis: La empresa tiene una posición de liderazgo en el mercado aeroportuario,
+    un moat duradero y un modelo de negocio resiliente.
   rating: excepcional
 dominio_catalizadores:
 - descripcion: Un cambio en la política aeroportuaria en México o Jamaica que beneficie
@@ -27,50 +50,55 @@ dominio_catalizadores:
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
+  probabilidad_pct: 40
+- descripcion: Un aumento en la demanda de viajes aéreos en México o Jamaica.
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
   probabilidad_pct: 30
 dominio_esg_supply_chain:
-  analisis: La empresa tiene un riesgo ESG bajo y una cadena de suministro diversificada.
+  analisis: La empresa tiene un riesgo ESG bajo y una concentración de proveedores
+    baja.
   rating: bajo_riesgo
 dominio_financial_health:
-  analisis: La empresa tiene un balance sólido, un margen operativo del 55.1% y un
-    ROIC del 15.6%, lo que sugiere una excelente salud financiera.
+  analisis: La empresa tiene un balance sólido, una generación de caja alta y un perfil
+    de deuda bajo.
   rating: fuerte
 dominio_growth:
-  analisis: La empresa tiene un crecimiento orgánico sostenido y una visibilidad de
-    revenue clara.
+  analisis: La empresa tiene un crecimiento orgánico y inorgánico sólido, con una
+    visibilidad de revenue alta.
   rating: fuerte
 dominio_management:
-  analisis: La empresa tiene un equipo de gestión experimentado y con un buen track
-    record de asignación de capital.
+  analisis: La empresa tiene un equipo de gestión experimentado y con una buena asignación
+    de capital.
   rating: excepcional
 dominio_riesgos:
-- impacto: bajo
-  probabilidad: baja
-  riesgo: riesgo de cambio climático
+- impacto: alto
+  probabilidad: alta
+  riesgo: riesgo de cambio en la política aeroportuaria
 - impacto: medio
   probabilidad: media
-  riesgo: riesgo de regulación
+  riesgo: riesgo de competencia
 error_mercado:
   catalizador_cambio:
     descripcion: Un cambio en la política aeroportuaria en México o Jamaica que beneficie
       a la empresa.
     horizonte: medio
     impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: SI
-  consenso_actual: El precio actual refleja un crecimiento sostenido y una valoración
-    justa, según el consenso de analistas.
+    probabilidad_pct: 40
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El precio actual refleja una valoración justa, según la tesis de
+    inversión.
   hipotesis_contraria: El mercado podría estar subestimando la capacidad de la empresa
-    para mantener su posición de liderazgo en el mercado aeroportuario mexicano y
-    jamaicano.
-  razonamiento: El mercado podría estar subestimando la capacidad de la empresa para
-    mantener su posición de liderazgo en el mercado aeroportuario mexicano y jamaicano.
-generated_at: '2026-08-07T22:39:03.481762-03:00'
+    para mantener su posición de liderazgo en el mercado aeroportuario.
+  razonamiento: La probabilidad de un cambio en la política aeroportuaria es alta,
+    pero su impacto y horizonte son inciertos.
+generated_at: '2026-08-13T03:07:02.673673-03:00'
 integridad_tesis:
   flags: []
   reason: ''
   thesis_active: true
-opinion_valoracion: infravalorado
+opinion_valoracion: justo
 opp_id: OPP-20260807-010
 prompt_inputs:
   business_model: Grupo Aeroportuario del Pacífico, S.A.B. de C.V., together with
@@ -100,19 +128,18 @@ prompt_inputs:
   insider_ownership: 0
   name: Grupo Aeroportuario del Pacífico, S.A.B. de C.V.
   operating_margin: 55.08
-  pe_ratio: 22.03
+  pe_ratio: 21.61
   products: ''
   revenue: 1900000000.0
-  revenue_growth: 19.03
+  revenue_growth: 19.04
   roic: 15.56
   sector: Industrials
   ticker: PAC
-resumen_ejecutivo: La empresa Grupo Aeroportuario del Pacífico, S.A.B. de C.V. es
-  un compounder con un historial de crecimiento sostenido y una excelente calidad
-  de negocio.
+resumen_ejecutivo: La empresa es un compounder con un historial de crecimiento sostenido
+  y una excelente calidad de negocio, y su precio actual refleja una valoración justa.
 score_general: 85
 target_consensus:
-  calculado_at: '2026-08-07T22:38:58.211360-03:00'
+  calculado_at: '2026-08-13T03:06:58.529080-03:00'
   fuentes:
     stockanalysis: 263.34
     yfinance: 263.34286

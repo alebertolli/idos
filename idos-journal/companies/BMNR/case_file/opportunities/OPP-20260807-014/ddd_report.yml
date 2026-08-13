@@ -1,79 +1,81 @@
 calidad_evidencia:
   hechos_verificados:
-  - La empresa tiene un crecimiento del 316.9% en ingresos
-  - La empresa tiene un margen operativo del -481.9%
+  - La empresa tiene un margen operativo negativo
+  - La tendencia financiera es deteriorante
+  - La empresa no tiene un moat claro
   inferencias_llm:
-  - La valoración de la empresa es especulativa
-  - La empresa puede no ser capaz de mantener su crecimiento
+  - El mercado puede estar sobrevalorando la empresa debido a la especulación y la
+    histeria en torno a la industria de blockchain.
   preguntas_abiertas:
   - ¿Cuál es el plan de la empresa para mejorar su situación financiera?
-  - ¿Cuál es el impacto potencial de los cambios regulatorios en la industria de blockchain?
-catalizadores_previos: []
+catalizadores_previos:
+- descripcion: Un cambio en la regulación de la industria de blockchain
+  generated_at: '2026-08-07T21:23:45.740977-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20260807-014
+  probabilidad_anterior: 20
 clasificacion_oportunidad:
-  categoria: hype
-  categorias_descartadas: Compounder, Compounder castigado, Turnaround, Deep Value,
-    Cíclica, Special Situation, Distressed, Quality at Fair Price, Value Trap
-  justificacion: La empresa tiene un crecimiento del 316.9% en ingresos, pero un margen
-    operativo del -481.9% y un ROIC del -2.9%, lo que sugiere que el crecimiento no
-    se traduce en beneficios. La valoración especulativa y el alto crecimiento sin
-    earnings son características de una oportunidad de hype.
+  categoria: value_trap
+  categorias_descartadas: compounder, compounder_castigado, turnaround, deep_value,
+    ciclica, special_situation, distressed, quality_at_fair_price, hype
+  justificacion: La empresa tiene un modelo de negocio débil, un margen operativo
+    negativo y un ROIC bajo. Además, la tendencia financiera es deteriorante y la
+    empresa no tiene un moat claro.
 comparativa_catalizadores: []
 dominio_business_quality:
-  analisis: La empresa no tiene un moat claro y su modelo de negocio es vulnerable
-    a cambios en la industria de blockchain.
+  analisis: La empresa tiene un modelo de negocio débil y un margen operativo negativo.
+    La posición competitiva es débil debido a la intensa competencia en el mercado
+    de tecnología blockchain.
   rating: debil
 dominio_catalizadores:
 - descripcion: Un cambio en la regulación de la industria de blockchain
   horizonte: medio
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 20
+  probabilidad_pct: 30
 dominio_esg_supply_chain:
-  analisis: La empresa opera en una industria con un alto riesgo regulatorio y puede
-    estar expuesta a riesgos de suministro.
-  rating: medio_riesgo
+  analisis: La empresa no tiene riesgos significativos en términos de ESG y su cadena
+    de suministro es relativamente estable.
+  rating: bajo_riesgo
 dominio_financial_health:
-  analisis: La empresa tiene un margen operativo negativo y un ROIC bajo, lo que sugiere
-    que su situación financiera es precaria.
+  analisis: La empresa tiene un margen operativo negativo y un ROIC bajo. La tendencia
+    financiera es deteriorante y la empresa no tiene un moat claro.
   rating: debil
 dominio_growth:
-  analisis: La empresa tiene un crecimiento alto, pero es importante evaluar si este
-    crecimiento es sostenible a largo plazo.
-  rating: fuerte
+  analisis: La empresa no tiene un crecimiento sostenible y su modelo de negocio es
+    vulnerable a cambios en la industria de blockchain.
+  rating: debil
 dominio_management:
-  analisis: La empresa no tiene un equipo de gestión experimentado y su track record
-    es limitado.
+  analisis: La calidad del liderazgo de la empresa es débil, con un equipo de gestión
+    no experimentado y un track record limitado.
   rating: debil
 dominio_riesgos:
 - impacto: alto
   probabilidad: alta
-  riesgo: Riesgo regulatorio
+  riesgo: riesgo regulatorio
 - impacto: medio
   probabilidad: media
-  riesgo: Riesgo de suministro
+  riesgo: riesgo de competencia
 error_mercado:
   catalizador_cambio:
-    descripcion: Un cambio en la regulación de la industria de blockchain que afecte
-      negativamente a la empresa
+    descripcion: Un cambio en la regulación de la industria de blockchain
     horizonte: medio
     impacto: alto
-    probabilidad_pct: 20
-  conclusion_error_valoracion: 'NO'
-  consenso_actual: El mercado cree que la empresa puede mantener su crecimiento y
-    convertirse en una empresa líder en la industria de blockchain.
-  hipotesis_contraria: La empresa puede no ser capaz de mantener su crecimiento y
-    su modelo de negocio puede no ser sostenible a largo plazo.
-  razonamiento: La valoración de la empresa es especulativa y no se basa en fundamentos
-    sólidos. El mercado puede estar sobrevalorando la empresa debido a la histeria
-    y la especulación en torno a la industria de blockchain.
-generated_at: '2026-08-07T21:23:45.740977-03:00'
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: El precio de la empresa se basa en la especulación y la histeria
+    en torno a la industria de blockchain.
+  hipotesis_contraria: El mercado puede estar subestimando los riesgos regulatorios
+    y de competencia que enfrenta la empresa.
+  razonamiento: El mercado puede estar sobrevalorando la empresa debido a la especulación
+    y la histeria en torno a la industria de blockchain.
+generated_at: '2026-08-13T01:46:29.247338-03:00'
 integridad_tesis:
-  flags:
-  - moat_gone
-  - management_destroys_capital
-  reason: La empresa no tiene un moat claro y su equipo de gestión no tiene un track
-    record sólido.
-  thesis_active: false
+  flags: []
+  reason: ''
+  thesis_active: true
 opinion_valoracion: sobrevalorado
 opp_id: OPP-20260807-014
 prompt_inputs:
@@ -101,12 +103,13 @@ prompt_inputs:
   roic: -2.91
   sector: Financial Services
   ticker: BMNR
-resumen_ejecutivo: La empresa tiene un crecimiento alto, pero su modelo de negocio
-  y su situación financiera son precarias. La valoración es especulativa y no se basa
-  en fundamentos sólidos.
+resumen_ejecutivo: La empresa tiene un modelo de negocio débil y un margen operativo
+  negativo. La tendencia financiera es deteriorante y la empresa no tiene un moat
+  claro. El mercado puede estar sobrevalorando la empresa debido a la especulación
+  y la histeria en torno a la industria de blockchain.
 score_general: 20
 target_consensus:
-  calculado_at: '2026-08-07T21:23:40.880253-03:00'
+  calculado_at: '2026-08-13T01:46:25.427806-03:00'
   fuentes:
     stockanalysis: 31.87
     yfinance: 31.86667

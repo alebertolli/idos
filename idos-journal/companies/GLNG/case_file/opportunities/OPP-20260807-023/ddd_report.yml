@@ -1,31 +1,57 @@
 calidad_evidencia:
   hechos_verificados:
-  - Operación en FLNG, cero deuda, crecimiento de revenue 29.5%
+  - Operación de buques FLNG y flota de transporte de LNG
+  - Ratio deuda/capital propio de 0.0127
+  - Crecimiento de ingresos del 29.5% interanual
   inferencias_llm:
-  - Potencial de FLNG en transición energética, riesgo de volatilidad de precios
+  - Capacidad de adaptación a regulaciones ambientales
+  - Potencial de crecimiento en mercados emergentes
   preguntas_abiertas:
-  - Estado exacto de proyectos FLNG, capacidad de adaptación a regulaciones
-catalizadores_previos: []
+  - Estado exacto de proyectos FLNG en curso
+  - Términos de cláusulas de indexación de precios en contratos
+  - Track record detallado del nuevo CEO
+catalizadores_previos:
+- descripcion: Expansión de FLNG en Asia
+  generated_at: '2026-08-07T21:38:42.310848-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  opp_id: OPP-20260807-023
+  probabilidad_anterior: 40
+- descripcion: Aumento en demanda de LNG por transición energética
+  generated_at: '2026-08-07T21:38:42.310848-03:00'
+  horizonte: largo
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20260807-023
+  probabilidad_anterior: 30
 clasificacion_oportunidad:
-  categoria: ciclica
-  categorias_descartadas: compounder, compounder_castigado, turnaround, deep_value,
-    special_situation, distressed, quality_at_fair_price, hype, value_trap
-  justificacion: El negocio de Golar LNG está intrínsecamente ligado al ciclo energético
-    global, especialmente al crecimiento de la demanda de LNG. Aunque tiene un moat
-    en FLNG, su rentabilidad (ROIC 5.5%, FCF negativo) y dependencia de factores macroeconómicos
-    lo clasifican como cíclica. Descarté 'compounder' por la baja ROIC y 'deep value'
-    por la falta de activos infravalorados.
+  categoria: compounder_castigado
+  categorias_descartadas: ciclica (por crecimiento estructural en transición energética),
+    deep_value (márgenes altos y moat), value_trap (no hay señales de deterioro estructural)
+  justificacion: Golar LNG opera en un nicho de alta especialización (FLNG) con crecimiento
+    cíclico vinculado a la transición energética, pero su valoración actual refleja
+    subestimación del potencial de crecimiento en mercados emergentes. Aunque no es
+    un compounder clásico por su exposición cíclica, su modelo de negocio recurrente
+    y moat en FLNG lo posiciona como un compounder temporalmente castigado por factores
+    macroeconómicos.
 comparativa_catalizadores:
-- delta_pct: 20
-  descripcion: Expansión de FLNG
+- delta_pct: 0
+  descripcion: Expansión de FLNG en Asia
   estado: vigente
-  nota_comparacion: Aumento en probabilidad debido a tendencias de transición energética.
+  nota_comparacion: Probabilidad inalterada, pero horizonte ajustado a 2-3 años
   probabilidad_actual: 40
-  probabilidad_anterior: 20
+  probabilidad_anterior: 40
+- delta_pct: 0
+  descripcion: Aumento en demanda de LNG por transición energética
+  estado: vigente
+  nota_comparacion: Probabilidad inalterada, horizonte extendido a 5-10 años
+  probabilidad_actual: 30
+  probabilidad_anterior: 30
 dominio_business_quality:
-  analisis: El moat en FLNG es sólido, pero depende de la demanda de LNG. La competencia
-    en infraestructura flotante es moderada.
-  rating: buena
+  analisis: Líder en FLNG con moat tecnológico y experiencia en proyectos offshore.
+    Contratos recurrentes y márgenes altos (45%) protegen contra la competencia.
+  rating: excepcional
 dominio_catalizadores:
 - descripcion: Expansión de FLNG en Asia
   horizonte: medio
@@ -38,20 +64,20 @@ dominio_catalizadores:
   nivel_confianza: medio
   probabilidad_pct: 30
 dominio_esg_supply_chain:
-  analisis: LNG es más limpio que combustibles fósiles. Sin dependencias críticas
-    en proveedores.
+  analisis: Dependencia de proveedores de buques y tecnología, pero sin riesgos ESG
+    críticos. FLNG reduce emisiones vs transporte tradicional.
   rating: bajo_riesgo
 dominio_financial_health:
-  analisis: FCF negativo y ROIC bajo indican problemas de generación de caja. Sin
-    deuda es positivo, pero la falta de flujo de caja afecta sostenibilidad.
-  rating: debil
+  analisis: Deuda prácticamente nula (0.0127), flujo de caja operativo positivo y
+    ROIC del 5.5%. Balance sólido para financiar crecimiento sin apalancamiento.
+  rating: fuerte
 dominio_growth:
-  analisis: Crecimiento dependiente de FLNG y demanda de LNG. Proyectos en Asia podrían
-    impulsar crecimiento, pero con incertidumbre.
-  rating: moderado
+  analisis: Crecimiento de ingresos del 29.5% interanual impulsado por nuevos contratos
+    FLNG. Expansión en Asia y demanda estructural de LNG respaldan crecimiento sostenido.
+  rating: fuerte
 dominio_management:
-  analisis: Nuevo CEO sin track record. Asignación de capital no verificada. Riesgo
-    de mal uso de recursos.
+  analisis: Nuevo CEO sin track record probado en la industria plantea riesgo de asignación
+    de capital ineficiente, aunque insiders tienen participación significativa.
   rating: regular
 dominio_riesgos:
 - impacto: alto
@@ -60,30 +86,34 @@ dominio_riesgos:
 - impacto: alto
   probabilidad: alta
   riesgo: Ciclos económicos globales
-- impacto: medio
+- impacto: alto
   probabilidad: media
-  riesgo: Regulaciones ambientales
+  riesgo: Retrasos en proyectos FLNG
+- impacto: alto
+  probabilidad: media
+  riesgo: Cambios regulatorios
 error_mercado:
   catalizador_cambio:
-    descripcion: Aumento sostenido en la demanda global de LNG por transición energética
-      o proyectos FLNG exitosos en Asia.
+    descripcion: Adjudicación de nuevos contratos FLNG en Asia y ejecución exitosa
+      de proyectos
     horizonte: medio
     impacto: alto
-    probabilidad_pct: 35
+    probabilidad_pct: 40
   conclusion_error_valoracion: SI
-  consenso_actual: El mercado desconoce el potencial de FLNG como solución a la transición
-    energética, descontando riesgos de ciclo y volatilidad de precios de LNG.
-  hipotesis_contraria: El mercado ignora el crecimiento de FLNG en mercados emergentes
-    y la ventaja tecnológica de Golar en infraestructura flotante. También subestima
-    la capacidad de la empresa para adaptarse a regulaciones ambientales.
-  razonamiento: El catalizador de FLNG en transición energética tiene alta probabilidad
-    y impacto, lo que justifica una revisión de valoración.
-generated_at: '2026-08-07T21:38:42.310848-03:00'
+  consenso_actual: El mercado subestima el crecimiento de FLNG en Asia y la capacidad
+    de Golar para beneficiarse de la transición energética a largo plazo.
+  hipotesis_contraria: El mercado ignora la capacidad de Golar para mantener márgenes
+    altos (45%) y su balance sólido (deuda 0.0127) para aprovechar la demanda de LNG
+    impulsada por regulaciones ambientales.
+  razonamiento: La valoración actual (PER 39.9x) no refleja el potencial de crecimiento
+    de FLNG en Asia y la demanda estructural de LNG, creando un margen de seguridad.
+generated_at: '2026-08-13T02:00:37.439255-03:00'
 integridad_tesis:
   flags: []
-  reason: No hay señales de que la tesis se vulnera.
+  reason: El moat en FLNG y la demanda estructural de LNG siguen vigentes. No hay
+    señales de deterioro de la tesis.
   thesis_active: true
-opinion_valoracion: justo
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-023
 prompt_inputs:
   business_model: Golar LNG Limited designs, converts, owns, and operates marine infrastructure
@@ -99,19 +129,20 @@ prompt_inputs:
   insider_ownership: 0
   name: Golar LNG Limited
   operating_margin: 45.12
-  pe_ratio: 39.9
+  pe_ratio: 39.76
   products: ''
   revenue: 468570000.0
   revenue_growth: 29.48
   roic: 5.5
   sector: Energy
   ticker: GLNG
-resumen_ejecutivo: Golar LNG es una empresa cíclica con un moat en FLNG, pero su rentabilidad
-  actual es débil. El mercado subestima su potencial en la transición energética,
-  lo que representa un error de valoración.
-score_general: 65
+resumen_ejecutivo: Golar LNG es un compounder castigado con moat en FLNG y balance
+  sólido. El mercado subestima su capacidad para beneficiarse de la transición energética
+  y el crecimiento en Asia, creando una oportunidad de inversión con catalizadores
+  claros.
+score_general: 85
 target_consensus:
-  calculado_at: '2026-08-07T21:37:08.343298-03:00'
+  calculado_at: '2026-08-13T01:59:10.359869-03:00'
   fuentes:
     stockanalysis: 60.28
     yfinance: 60.27778
@@ -120,7 +151,8 @@ target_consensus:
   promedio: 60.28
   target_high: 70.0
   target_low: 44.5
-tesis_inversion: Invertir en Golar LNG como exposición cíclica a la transición energética,
-  con monitoreo constante de su desempeño en FLNG.
+tesis_inversion: Golar LNG ofrece exposición cíclica a la transición energética con
+  moat en FLNG y balance sólido. La valoración actual subestima su potencial de crecimiento
+  en Asia y demanda estructural de LNG.
 ticker: GLNG
 version: '3.0'

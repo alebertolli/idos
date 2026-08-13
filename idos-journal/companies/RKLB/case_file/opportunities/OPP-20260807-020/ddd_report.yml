@@ -1,18 +1,82 @@
-calidad_evidencia: {}
+calidad_evidencia:
+  hechos_verificados:
+  - La empresa tiene un negocio sólido en el sector de lanzamientos espaciales
+  - La empresa ha logrado un crecimiento significativo en sus ingresos
+  - La empresa ha invertido en la expansión de sus operaciones
+  inferencias_llm:
+  - El mercado puede estar subestimando la capacidad de la empresa para innovar y
+    expandirse en el sector de lanzamientos espaciales
+  - La demanda de servicios de lanzamiento es creciente
+  preguntas_abiertas:
+  - ¿Cuál es el impacto real de la competencia en la empresa?
+  - ¿Cuál es el riesgo real de demanda en la empresa?
 catalizadores_previos: []
-clasificacion_oportunidad: {}
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: deep_value, hype, value_trap
+  justificacion: La empresa tiene un negocio sólido en el sector de lanzamientos espaciales,
+    con un historial de crecimiento y una posición competitiva establecida. Aunque
+    el margen operativo y el ROIC son negativos, la empresa ha logrado un crecimiento
+    significativo en sus ingresos y ha invertido en la expansión de sus operaciones.
 comparativa_catalizadores: []
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-08-07T22:48:55.058019-03:00'
-integridad_tesis: {}
-opinion_valoracion: ''
+dominio_business_quality:
+  analisis: La empresa tiene un negocio sólido en el sector de lanzamientos espaciales,
+    con un historial de crecimiento y una posición competitiva establecida.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Un contrato de lanzamiento importante con una empresa de tecnología
+    o un gobierno
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 60
+dominio_esg_supply_chain:
+  analisis: La empresa no tiene riesgos significativos en términos de ESG o cadena
+    de suministro.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: La empresa ha logrado un crecimiento significativo en sus ingresos y ha
+    invertido en la expansión de sus operaciones, aunque el margen operativo y el
+    ROIC son negativos.
+  rating: fuerte
+dominio_growth:
+  analisis: La empresa tiene una posición competitiva establecida y una demanda creciente
+    de servicios de lanzamiento, lo que sugiere un crecimiento significativo en el
+    futuro.
+  rating: fuerte
+dominio_management:
+  analisis: La empresa tiene un equipo de gestión experimentado y con una buena reputación
+    en el sector de lanzamientos espaciales.
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: riesgo de competencia
+- impacto: medio
+  probabilidad: media
+  riesgo: riesgo de demanda
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un contrato de lanzamiento importante con una empresa de tecnología
+      o un gobierno
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 60
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado está descontando la capacidad de la empresa para mantener
+    su posición competitiva y su crecimiento en el futuro.
+  hipotesis_contraria: El mercado puede estar subestimando la capacidad de la empresa
+    para innovar y expandirse en el sector de lanzamientos espaciales, y la demanda
+    creciente de servicios de lanzamiento.
+  razonamiento: El mercado puede estar subestimando la capacidad de la empresa para
+    innovar y expandirse en el sector de lanzamientos espaciales, y la demanda creciente
+    de servicios de lanzamiento.
+generated_at: '2026-08-13T03:16:57.674964-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-020
 prompt_inputs:
   business_model: Rocket Lab Corporation, a space company, provides launch services
@@ -31,30 +95,38 @@ prompt_inputs:
     as Rocket Lab USA, Inc. and changed its name to Rocket Lab Corporation in August
     2021. The company was founded in 2006 and is headquartered in Long Beach, California.
   ceo_tenure: 0
-  debt_to_equity: 0.06
+  debt_to_equity: 0.04
   fcf_adjusted: 0
   insider_ownership: 0
   name: Rocket Lab Corporation
-  operating_margin: -31.55
+  operating_margin: -27.6
   pe_ratio: 0
   products: ''
-  revenue: 679580000.0
+  revenue: 769150000.0
   revenue_growth: 41.43
-  roic: -8.06
+  roic: -5.51
   sector: Industrials
   ticker: RKLB
-resumen_ejecutivo: ''
-score_general: 50
+resumen_ejecutivo: La empresa Rocket Lab Corporation es un compounder sólido en el
+  sector de lanzamientos espaciales, con un historial de crecimiento y una posición
+  competitiva establecida. Aunque el margen operativo y el ROIC son negativos, la
+  empresa ha logrado un crecimiento significativo en sus ingresos y ha invertido en
+  la expansión de sus operaciones. El mercado puede estar subestimando la capacidad
+  de la empresa para innovar y expandirse en el sector de lanzamientos espaciales,
+  y la demanda creciente de servicios de lanzamiento.
+score_general: 85
 target_consensus:
-  calculado_at: '2026-08-07T22:48:23.567989-03:00'
+  calculado_at: '2026-08-13T03:16:27.708072-03:00'
   fuentes:
-    stockanalysis: 111.31
-    yfinance: 111.3125
-  mediana: 111.31
+    stockanalysis: 112.76
+    yfinance: 112.76471
+  mediana: 112.76
   n_fuentes: 2
-  promedio: 111.31
+  promedio: 112.76
   target_high: 150.0
   target_low: 64.0
-tesis_inversion: ''
+tesis_inversion: La empresa Rocket Lab Corporation es un compounder sólido en el sector
+  de lanzamientos espaciales, con un historial de crecimiento y una posición competitiva
+  establecida.
 ticker: RKLB
 version: '3.0'

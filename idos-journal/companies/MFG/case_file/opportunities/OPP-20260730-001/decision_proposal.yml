@@ -9,8 +9,8 @@ assessments:
       type: POSITIVE
     - detail: 'Excellent margins: 38.24%'
       type: POSITIVE
-    generated_at: '2026-08-04T13:54:09.376157-03:00'
-    id: BusinessAssessmentEngine-20260804135409
+    generated_at: '2026-08-13T03:33:39.310892-03:00'
+    id: BusinessAssessmentEngine-20260813033339
     recommendation: NEUTRAL
     risks: []
     score: 66
@@ -28,8 +28,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-08-04T13:54:09.376225-03:00'
-    id: PortfolioAssessmentEngine-20260804135409
+    generated_at: '2026-08-13T03:33:39.310956-03:00'
+    id: PortfolioAssessmentEngine-20260813033339
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -65,8 +65,8 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-08-04T13:54:09.376203-03:00'
-    id: RecoveryAssessmentEngine-20260804135409
+    generated_at: '2026-08-13T03:33:39.310936-03:00'
+    id: RecoveryAssessmentEngine-20260813033339
     recommendation: MODERATE
     risks: []
     score: 52
@@ -80,8 +80,8 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-08-04T13:54:09.376214-03:00'
-    id: RiskAssessmentEngine-20260804135409
+    generated_at: '2026-08-13T03:33:39.310946-03:00'
+    id: RiskAssessmentEngine-20260813033339
     recommendation: LOW_RISK
     risks:
     - detail: 'Current ratio below 1: 0.0x'
@@ -95,25 +95,27 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-08-04T13:54:09.376174-03:00'
-    id: ValuationAssessmentEngine-20260804135409
-    recommendation: FAIR
+    generated_at: '2026-08-13T03:33:39.310909-03:00'
+    id: ValuationAssessmentEngine-20260813033339
+    recommendation: EXPENSIVE
     risks:
+    - detail: 'Price target below current: -3.1%'
+      type: VALUATION
     - detail: Negative free cash flow yield
       type: FCF
-    score: 45
+    score: 35
     status: COMPLETED
     version: '1.1'
-conviction_score: 61
-created_at: '2026-08-04T13:54:09.376291-03:00'
+conviction_score: 58
+created_at: '2026-08-13T03:33:39.311016-03:00'
 opportunity_id: OPP-20260730-001
-reasoning: 'Rules blocked: RULE-001, RULE-005, RULE-008'
+reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004, RULE-005, RULE-008'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
-- RULE-005
-- RULE-008
-rules_passed:
 - RULE-003
 - RULE-004
+- RULE-005
+- RULE-008
+rules_passed: []
 type: opportunity:transitioned

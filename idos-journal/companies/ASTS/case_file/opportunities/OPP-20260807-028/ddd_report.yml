@@ -1,86 +1,114 @@
 calidad_evidencia:
   hechos_verificados:
-  - La empresa AST SpaceMobile, Inc. presenta un crecimiento del 194.4% en sus ingresos
+  - La empresa tiene un crecimiento explosivo en sus ingresos
+  - La empresa tiene un margen operativo negativo y un ROIC bajo
+  - La empresa enfrenta riesgos significativos debido a la competencia creciente
   inferencias_llm:
-  - La empresa tiene un modelo de negocio innovador
-  - La competencia en la industria satelital es alta
+  - La valoración de la empresa es altamente especulativa
+  - La empresa puede verse afectada por la entrada de nuevos competidores en el mercado
   preguntas_abiertas:
-  - ¿Es sostenible el crecimiento de la empresa a largo plazo?
-  - ¿Cómo afectará la competencia en la industria satelital a la empresa?
-catalizadores_previos: []
+  - ¿Cuál es el potencial de crecimiento de la empresa en el mercado de la conectividad
+    satelital?
+  - ¿Cómo afectará la competencia en el sector a la posición competitiva de la empresa?
+catalizadores_previos:
+- descripcion: Un cambio en la regulación gubernamental
+  generated_at: '2026-08-07T21:20:46.663873-03:00'
+  horizonte: largo
+  impacto: alto
+  nivel_confianza: bajo
+  opp_id: OPP-20260807-028
+  probabilidad_anterior: 20
+- descripcion: Una entrada de nuevos competidores en el mercado satelital
+  generated_at: '2026-08-07T21:20:46.663873-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20260807-028
+  probabilidad_anterior: 30
 clasificacion_oportunidad:
   categoria: hype
-  categorias_descartadas: Compounder, Compounder castigado, Turnaround, Deep Value,
-    Cíclica, Special Situation, Distressed, Quality at Fair Price, Value Trap
-  justificacion: La empresa AST SpaceMobile, Inc. presenta un crecimiento del 194.4%
-    en sus ingresos, pero con un margen operativo negativo del -440.5% y un ROIC del
-    -6.8%. Esto sugiere que la empresa está invirtiendo mucho en su crecimiento, pero
-    no está generando suficientes ganancias. La valoración especulativa y el alto
-    crecimiento sin earnings son características típicas de una oportunidad de tipo
-    'hype'.
-comparativa_catalizadores: []
+  categorias_descartadas: compounder, compounder_castigado, turnaround, deep_value,
+    ciclica, special_situation, distressed, quality_at_fair_price
+  justificacion: La empresa tiene un crecimiento explosivo en sus ingresos, pero un
+    margen operativo negativo y un ROIC bajo. La valoración es altamente especulativa
+    y puede verse afectada por la competencia en el sector.
+comparativa_catalizadores:
+- delta_pct: 33
+  descripcion: La entrada de nuevos competidores en el mercado satelital
+  estado: cumplido
+  nota_comparacion: La probabilidad ha aumentado debido a la creciente competencia
+    en el sector
+  probabilidad_actual: 40
+  probabilidad_anterior: 30
+- delta_pct: 0
+  descripcion: Un cambio en la regulación gubernamental
+  estado: vigente
+  nota_comparacion: La probabilidad sigue siendo la misma debido a la falta de cambios
+    en la regulación gubernamental
+  probabilidad_actual: 20
+  probabilidad_anterior: 20
 dominio_business_quality:
-  analisis: La empresa tiene un modelo de negocio innovador, pero la competencia en
-    la industria satelital es alta y el margen operativo es negativo.
+  analisis: La empresa tiene una posición competitiva en el mercado, pero enfrenta
+    riesgos significativos debido a la competencia creciente.
   rating: regular
 dominio_catalizadores:
+- descripcion: La entrada de nuevos competidores en el mercado satelital
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 40
 - descripcion: Un cambio en la regulación gubernamental
   horizonte: largo
   impacto: alto
   nivel_confianza: bajo
   probabilidad_pct: 20
-- descripcion: Una entrada de nuevos competidores en el mercado satelital
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: medio
-  probabilidad_pct: 30
 dominio_esg_supply_chain:
-  analisis: La empresa depende de la tecnología satelital, lo que puede ser vulnerable
-    a cambios en la regulación gubernamental y a la competencia en la industria.
-  rating: medio_riesgo
+  analisis: La empresa no tiene riesgos significativos en términos de ESG y su cadena
+    de suministro es relativamente estable.
+  rating: bajo_riesgo
 dominio_financial_health:
-  analisis: La empresa tiene un margen operativo negativo y un ROIC bajo, lo que sugiere
-    que no está generando suficientes ganancias para mantener su crecimiento.
+  analisis: La empresa tiene un margen operativo negativo y un ROIC bajo, lo que puede
+    afectar su capacidad para generar ganancias y mantener su crecimiento.
   rating: debil
 dominio_growth:
-  analisis: La empresa presenta un crecimiento explosivo, pero es importante evaluar
-    si este crecimiento es sostenible a largo plazo.
+  analisis: La empresa tiene un crecimiento explosivo en sus ingresos, pero es importante
+    considerar la sostenibilidad a largo plazo de este crecimiento.
   rating: fuerte
 dominio_management:
-  analisis: No hay suficiente información sobre el equipo de gestión de la empresa
-    para evaluar su calidad.
+  analisis: La calidad del liderazgo y la gestión de la empresa es regular, pero no
+    hay suficiente información sobre la composición del board y la estructura de incentivos
+    de la empresa.
   rating: regular
 dominio_riesgos:
 - impacto: alto
   probabilidad: alta
-  riesgo: Competencia en la industria satelital
+  riesgo: Competencia en el sector
 - impacto: alto
   probabilidad: media
-  riesgo: Cambios en la regulación gubernamental
+  riesgo: Valoración especulativa
+- impacto: alto
+  probabilidad: alta
+  riesgo: Margen operativo negativo
 error_mercado:
   catalizador_cambio:
-    descripcion: Un cambio en la regulación gubernamental o una entrada de nuevos
-      competidores en el mercado satelital
+    descripcion: La entrada de nuevos competidores en el mercado satelital
     horizonte: medio
     impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: INCIERTO
-  consenso_actual: El mercado está descontando un crecimiento explosivo y una posible
-    revolución en la industria de la conectividad satelital.
-  hipotesis_contraria: La hipótesis contraria es que el crecimiento de la empresa
-    no se mantendrá y que la competencia en la industria satelital aumentará, lo que
-    podría llevar a una disminución en la participación de mercado y en los ingresos
+    probabilidad_pct: 40
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas están descontando un crecimiento continuo y una posición
+    competitiva sólida en el mercado de la conectividad satelital.
+  hipotesis_contraria: La competencia en el sector es creciente y la empresa enfrenta
+    riesgos significativos en este sentido. La valoración es altamente especulativa
+    y puede verse afectada por la entrada de nuevos competidores en el mercado.
+  razonamiento: La hipótesis contraria es plausible y podría afectar la valoración
     de la empresa.
-  razonamiento: No hay suficiente evidencia para determinar si el mercado está cometiendo
-    un error de valoración. La empresa tiene un crecimiento explosivo, pero también
-    tiene un margen operativo negativo y un ROIC bajo.
-generated_at: '2026-08-07T21:20:46.663873-03:00'
+generated_at: '2026-08-13T01:40:11.175781-03:00'
 integridad_tesis:
   flags: []
-  reason: No hay suficiente evidencia para determinar si la tesis de inversión es
-    válida.
+  reason: ''
   thesis_active: true
-opinion_valoracion: sobrevalorado
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-028
 prompt_inputs:
   business_model: AST SpaceMobile, Inc., together with its subsidiaries, designs and
@@ -91,36 +119,34 @@ prompt_inputs:
     out of terrestrial cellular coverage. The company was founded in 2017 and is headquartered
     in Midland, Texas.
   ceo_tenure: 0
-  debt_to_equity: 0.011200000000000002
+  debt_to_equity: 0.0125
   fcf_adjusted: 0
   insider_ownership: 0
   name: AST SpaceMobile, Inc.
-  operating_margin: -440.53
+  operating_margin: -410.26
   pe_ratio: 0
   products: ''
-  revenue: 84940000.0
+  revenue: 115300000.0
   revenue_growth: 194.39
-  roic: -6.78
+  roic: -8.38
   sector: Technology
   ticker: ASTS
-resumen_ejecutivo: La empresa AST SpaceMobile, Inc. es una empresa de tecnología que
-  se enfoca en la conectividad satelital. Presenta un crecimiento explosivo, pero
-  también tiene un margen operativo negativo y un ROIC bajo.
+resumen_ejecutivo: La oportunidad de inversión en AST SpaceMobile, Inc. es alta, pero
+  con un alto nivel de riesgo debido a la competencia en el sector y la valoración
+  especulativa.
 score_general: 60
 target_consensus:
-  calculado_at: '2026-08-07T21:20:40.855377-03:00'
+  calculado_at: '2026-08-13T01:40:06.906727-03:00'
   fuentes:
-    stockanalysis: 80.48
-    yfinance: 80.48182
-  mediana: 80.48
+    stockanalysis: 78.48
+    yfinance: 79.66364
+  mediana: 79.07
   n_fuentes: 2
-  promedio: 80.48
+  promedio: 79.07
   target_high: 108.0
   target_low: 42.5
-tesis_inversion: La empresa AST SpaceMobile, Inc. es una empresa de tecnología que
-  se enfoca en la conectividad satelital. Presenta un crecimiento explosivo, pero
-  también tiene un margen operativo negativo y un ROIC bajo. La valoración especulativa
-  y el alto crecimiento sin earnings son características típicas de una oportunidad
-  de tipo 'hype'.
+tesis_inversion: La oportunidad de inversión en AST SpaceMobile, Inc. es alta, pero
+  con un alto nivel de riesgo debido a la competencia en el sector y la valoración
+  especulativa.
 ticker: ASTS
 version: '3.0'

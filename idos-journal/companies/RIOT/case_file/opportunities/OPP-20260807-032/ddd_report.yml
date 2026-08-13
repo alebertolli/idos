@@ -1,18 +1,88 @@
-calidad_evidencia: {}
+calidad_evidencia:
+  hechos_verificados:
+  - La empresa tiene un ROIC de -21.15 y un margen operativo de -106.13.
+  - La empresa tiene un crecimiento de la renta de 13.51.
+  inferencias_llm:
+  - El mercado está subestimando los riesgos de la empresa.
+  - La empresa tiene un riesgo medio de ESG debido a su impacto en el medio ambiente
+    y la sociedad.
+  preguntas_abiertas:
+  - ¿Es sostenible el crecimiento de la renta de la empresa?
+  - ¿Qué impacto tendrá un cambio en la política regulatoria de la minería de Bitcoin
+    en la empresa?
 catalizadores_previos: []
-clasificacion_oportunidad: {}
+clasificacion_oportunidad:
+  categoria: deep_value
+  categorias_descartadas: compounder, compounder_castigado, turnaround, quality_at_fair_price,
+    hype, value_trap
+  justificacion: La empresa tiene un ROIC de -21.15 y un margen operativo de -106.13,
+    lo que sugiere que el negocio no está generando valor para los accionistas. Además,
+    la empresa tiene un crecimiento de la renta de 13.51, pero no está claro si este
+    crecimiento es sostenible.
 comparativa_catalizadores: []
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-08-07T22:47:47.422390-03:00'
-integridad_tesis: {}
-opinion_valoracion: ''
+dominio_business_quality:
+  analisis: La empresa tiene un negocio de minería de Bitcoin con un margen operativo
+    negativo y un ROIC de -21.15, lo que sugiere que el negocio no está generando
+    valor para los accionistas.
+  rating: debil
+dominio_catalizadores:
+- descripcion: Un cambio en la política regulatoria de la minería de Bitcoin en los
+    Estados Unidos podría afectar negativamente la empresa.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: La empresa tiene un riesgo medio de ESG debido a su impacto en el medio
+    ambiente y la sociedad. Además, la empresa tiene un riesgo medio en su cadena
+    de suministro debido a su dependencia de proveedores clave.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La empresa tiene un margen operativo de -106.13 y un ROIC de -21.15, lo
+    que sugiere que la empresa no está generando valor para los accionistas. Además,
+    la empresa tiene un crecimiento de la renta de 13.51, pero no está claro si este
+    crecimiento es sostenible.
+  rating: debil
+dominio_growth:
+  analisis: La empresa tiene un crecimiento de la renta de 13.51, pero no está claro
+    si este crecimiento es sostenible. Además, la empresa tiene un margen operativo
+    negativo y un ROIC de -21.15, lo que sugiere que el negocio no está generando
+    valor para los accionistas.
+  rating: debil
+dominio_management:
+  analisis: La empresa no tiene un historial de asignación de capital claro, lo que
+    sugiere que la gestión de la empresa no está tomando decisiones informadas sobre
+    la asignación de recursos.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: riesgo regulatorio
+- impacto: medio
+  probabilidad: media
+  riesgo: riesgo de liquidez
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un cambio en la política regulatoria de la minería de Bitcoin en
+      los Estados Unidos podría afectar negativamente la empresa.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: El consenso actual es que la empresa es una oportunidad de inversión
+    atractiva debido a su crecimiento de la renta y su posición en el mercado de la
+    minería de Bitcoin.
+  hipotesis_contraria: La hipótesis contraria es que el mercado está subestimando
+    los riesgos de la empresa, como su alta deuda y su margen operativo negativo.
+  razonamiento: El mercado está subestimando los riesgos de la empresa y no está tomando
+    en cuenta la posibilidad de un cambio en la política regulatoria de la minería
+    de Bitcoin.
+generated_at: '2026-08-13T03:14:43.949808-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-032
 prompt_inputs:
   business_model: Riot Platforms, Inc., together with its subsidiaries, operates as
@@ -25,30 +95,34 @@ prompt_inputs:
     as well as data center, power generation, utility, water, industrial, and alternative
     energy markets. The company was founded in 2000 and is based in Castle Rock, Colorado.
   ceo_tenure: 0
-  debt_to_equity: 0.37
+  debt_to_equity: 0.4
   fcf_adjusted: 0
   insider_ownership: 0
   name: Riot Platforms, Inc.
-  operating_margin: -106.13
+  operating_margin: -189.79
   pe_ratio: 0
   products: ''
-  revenue: 653270000.0
-  revenue_growth: 13.51
-  roic: -21.15
+  revenue: 674510000.0
+  revenue_growth: 14.91
+  roic: -45.19
   sector: Financial Services
   ticker: RIOT
-resumen_ejecutivo: ''
-score_general: 50
+resumen_ejecutivo: La empresa tiene un negocio de minería de Bitcoin con un margen
+  operativo negativo y un ROIC de -21.15. El mercado está subestimando los riesgos
+  de la empresa y no está tomando en cuenta la posibilidad de un cambio en la política
+  regulatoria de la minería de Bitcoin.
+score_general: 40
 target_consensus:
-  calculado_at: '2026-08-07T22:46:50.887584-03:00'
+  calculado_at: '2026-08-13T03:14:39.889300-03:00'
   fuentes:
-    stockanalysis: 29.66
-    yfinance: 29.66476
-  mediana: 29.66
+    stockanalysis: 31.97
+    yfinance: 30.87905
+  mediana: 31.42
   n_fuentes: 2
-  promedio: 29.66
+  promedio: 31.42
   target_high: 45.0
   target_low: 20.0
-tesis_inversion: ''
+tesis_inversion: La empresa es una oportunidad de inversión atractiva debido a su
+  crecimiento de la renta y su posición en el mercado de la minería de Bitcoin.
 ticker: RIOT
 version: '3.0'

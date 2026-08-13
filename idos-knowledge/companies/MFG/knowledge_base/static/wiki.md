@@ -35,12 +35,12 @@ To be evaluated
 ---
 
 ## Financial Highlights
-- **ROIC**: 11.44
-- **Operating Margin**: 35.61
-- **Revenue Growth**: 29.79
+- **ROIC**: 12.49
+- **Operating Margin**: 38.24
+- **Revenue Growth**: 32.38
 - **FCF Yield**: 0
 - **Debt/Equity**: 0
-- **PER**: 14.78
+- **PER**: 15.27
 - **EV/EBITDA**: 0
 
 ---
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[HDB|HDFC Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
-- **Same Industry**: [[HDB|HDFC Bank Limited]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[USB|U.S. Bancorp]]
+- **Same Sector**: [[AXP|American Express Company]], [[BCS|Barclays PLC]], [[BMNR|Bitmine Immersion Technologies, Inc.]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[GS|GS]], [[HDB|HDFC Bank Limited]], [[HOOD|Robinhood Markets, Inc.]], [[HSBC|HSBC Holdings plc]], [[HUT|Hut 8 Corp.]], [[IBN|IBN]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPM]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[RIOT|Riot Platforms, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
+- **Same Industry**: [[HDB|HDFC Bank Limited]], [[IBN|IBN]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[USB|U.S. Bancorp]]

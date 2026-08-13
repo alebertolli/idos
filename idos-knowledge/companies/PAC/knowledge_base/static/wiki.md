@@ -37,15 +37,16 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 15.56
 - **Operating Margin**: 55.08
-- **Revenue Growth**: 19.03
+- **Revenue Growth**: 19.04
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.0118
-- **PER**: 22.03
-- **EV/EBITDA**: 6.45
+- **PER**: 21.61
+- **EV/EBITDA**: 6.28
 
 ---
 
 ## Catalysts
+- **Catalyst** (Impact: medium, Timeline: medium)
 - **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
@@ -58,5 +59,5 @@ La empresa es un compounder con un historial de crecimiento sostenido y una exce
 
 ## Related Companies
 
-- **Same Sector**: [[ASR|ASR]], [[BA|The Boeing Company]], [[CAAP|Corporación América Airports S.A.]], [[HWM|Howmet Aerospace Inc.]]
+- **Same Sector**: [[ASR|ASR]], [[BA|The Boeing Company]], [[CAAP|Corporación América Airports S.A.]], [[HWM|Howmet Aerospace Inc.]], [[RKLB|Rocket Lab Corporation]]
 - **Same Industry**: [[ASR|ASR]], [[CAAP|Corporación América Airports S.A.]]

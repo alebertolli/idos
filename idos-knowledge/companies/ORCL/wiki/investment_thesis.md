@@ -1,1 +1,1 @@
-La empresa tiene un alto potencial de crecimiento y una valoración subestimada.
+La empresa tiene un alto potencial de crecimiento y una valoración subestimada, con un ROIC del 11.48% y un margen operativo del 33.23%. La adopción generalizada de la tecnología de la nube y la expansión de la presencia de la empresa en el mercado de la nube son catalizadores clave para el crecimiento futuro.

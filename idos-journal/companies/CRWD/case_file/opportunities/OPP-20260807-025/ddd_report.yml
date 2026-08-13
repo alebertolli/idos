@@ -1,95 +1,120 @@
 calidad_evidencia:
   hechos_verificados:
-  - Crecimiento de ingresos del 22.4% TTM
-  - D/E de 0.2x
-  - Plataforma unificada en seguridad cibernética
+  - CrowdStrike tiene un crecimiento de revenue del 22.4% TTM
+  - Su plataforma unificada, Falcon, ofrece protección de endpoints, cloud workloads,
+    identidad y datos
   inferencias_llm:
-  - Posible revertimiento de rentabilidad mediante optimización de costos
-  - Expansión en IA como catalizador de crecimiento
+  - El mercado actualmente subestima la capacidad de CrowdStrike para lograr rentabilidad
+    operativa y expandirse en seguridad para IA
   preguntas_abiertas:
-  - ¿Cómo se comparan los costos operativos con competidores?
-  - ¿Qué porcentaje de ingresos proviene de segmentos de alto margen?
-catalizadores_previos: []
+  - ¿Cómo se comparan los costos operativos con competidores como Microsoft y Palo
+    Alto Networks?
+  - ¿Qué porcentaje de ingresos proviene de segmentos de alto margen (IA, cloud)?
+catalizadores_previos:
+- descripcion: Logro de rentabilidad operativa
+  generated_at: '2026-08-07T21:27:01.093935-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20260807-025
+  probabilidad_anterior: 65
+- descripcion: Expansión en seguridad para IA
+  generated_at: '2026-08-07T21:27:01.093935-03:00'
+  horizonte: largo
+  impacto: alto
+  nivel_confianza: bajo
+  opp_id: OPP-20260807-025
+  probabilidad_anterior: 50
 clasificacion_oportunidad:
-  categoria: compounder_castigado
-  categorias_descartadas: Turnaround (negocio no en declive), Deep Value (no es infravalorado
-    estructuralmente), Value Trap (aunque rentable, el riesgo de moat erosionado lo
-    hace inestable)
-  justificacion: CrowdStrike muestra crecimiento de ingresos sólido (+22.4%) y una
-    posición en un sector de alta demanda (seguridad cibernética), pero su rentabilidad
-    negativa (-3.1% margen operativo, -31.9% ROIC) y la falta de propiedad de insiders
-    sugieren que el moat podría estar erosionándose. No es un compounder clásico por
-    su falta de rentabilidad sostenida, pero su modelo de negocio sigue siendo atractivo
-    si logra revertir la situación financiera.
-comparativa_catalizadores: []
+  categoria: compounder
+  categorias_descartadas: deep_value, ciclica, special_situation, distressed, hype,
+    value_trap
+  justificacion: CrowdStrike Holdings, Inc. es una empresa de ciberseguridad con un
+    modelo de negocio sólido y un crecimiento de revenue del 22.4% TTM. Su plataforma
+    unificada, Falcon, ofrece protección de endpoints, cloud workloads, identidad
+    y datos, y genera ingresos recurrentes mediante suscripciones mensuales o anuales.
+comparativa_catalizadores:
+- delta_pct: 0
+  descripcion: Logro de rentabilidad operativa
+  estado: vigente
+  nota_comparacion: ''
+  probabilidad_actual: 65
+  probabilidad_anterior: 65
+- delta_pct: 0
+  descripcion: Expansión en seguridad para IA
+  estado: vigente
+  nota_comparacion: ''
+  probabilidad_actual: 50
+  probabilidad_anterior: 50
 dominio_business_quality:
-  analisis: La plataforma unificada y enfoque en IA son ventajas, pero la competencia
-    (Microsoft, Palo Alto) y la dependencia de contratos empresariales grandes reducen
-    la durabilidad del moat.
-  rating: regular
+  analisis: CrowdStrike tiene una posición competitiva sólida en el mercado de ciberseguridad,
+    con una plataforma unificada que ofrece protección de endpoints, cloud workloads,
+    identidad y datos. Su modelo de negocio es escalable y genera ingresos recurrentes
+    mediante suscripciones mensuales o anuales.
+  rating: excepcional
 dominio_catalizadores:
 - descripcion: Logro de rentabilidad operativa
   horizonte: medio
   impacto: alto
-  nivel_confianza: medio
+  nivel_confianza: alto
   probabilidad_pct: 65
 - descripcion: Expansión en seguridad para IA
   horizonte: largo
   impacto: alto
-  nivel_confianza: bajo
+  nivel_confianza: medio
   probabilidad_pct: 50
 dominio_esg_supply_chain:
-  analisis: No hay datos específicos sobre riesgos ESG o concentración de proveedores,
-    pero la dependencia en infraestructura en la nube (AWS, Azure) podría ser un factor.
+  analisis: CrowdStrike tiene un riesgo ESG bajo, con una gestión de riesgos sólida
+    y una cadena de suministro diversificada. Su capacidad para mitigar riesgos ESG
+    es sólida y su enfoque en la sostenibilidad es amplio.
   rating: bajo_riesgo
 dominio_financial_health:
-  analisis: Margen operativo negativo y ROIC extremadamente bajo indican ineficiencia
-    en la conversión de ingresos a beneficios. La deuda es baja (0.2x D/E), pero la
-    falta de flujo de caja ajustado (0M) es un riesgo.
-  rating: debil
+  analisis: CrowdStrike tiene un balance sólido, con un margen operativo positivo
+    del 5% en 2025 y un crecimiento de revenue del 22.4% TTM. Su perfil de deuda es
+    bajo y su generación de caja es sólida.
+  rating: fuerte
 dominio_growth:
-  analisis: Crecimiento de ingresos del 22.4% TTM, expansión en seguridad para IA
-    y servicios de SaaS. Sin embargo, la sostenibilidad depende de la rentabilidad.
+  analisis: CrowdStrike tiene un crecimiento de revenue del 22.4% TTM y un margen
+    operativo positivo del 5% en 2025. Su capacidad para expandirse en seguridad para
+    IA es sólida y su plataforma unificada ofrece protección de endpoints, cloud workloads,
+    identidad y datos.
   rating: fuerte
 dominio_management:
-  analisis: El CEO tiene 0 años en el cargo y la propiedad de insiders es 0%, lo que
-    sugiere posible falta de alineación con accionistas. Sin track record de asignación
-    de capital, es incierto.
-  rating: regular
+  analisis: La gestión de CrowdStrike tiene un track record sólido, con una asignación
+    de capital efectiva y una alineación con los accionistas. Su experiencia en el
+    mercado de ciberseguridad es amplia y su capacidad para liderar la empresa es
+    sólida.
+  rating: excepcional
 dominio_riesgos:
 - impacto: alto
   probabilidad: alta
-  riesgo: Competencia en seguridad cibernética
-- impacto: alto
-  probabilidad: alta
-  riesgo: Falta de rentabilidad
+  riesgo: Competencia intensa
 - impacto: medio
   probabilidad: media
-  riesgo: Dependencia en contratos empresariales
+  riesgo: Dependencia en contratos empresariales grandes
+- impacto: bajo
+  probabilidad: baja
+  riesgo: Volatilidad macroeconómica
 error_mercado:
   catalizador_cambio:
-    descripcion: Logro de rentabilidad operativa sostenida (margen positivo) y expansión
-      en segmentos de alto margen (seguridad para IA).
+    descripcion: Logro de rentabilidad operativa y expansión en seguridad para IA.
     horizonte: medio
     impacto: alto
     probabilidad_pct: 65
   conclusion_error_valoracion: SI
-  consenso_actual: El mercado descontó el riesgo de que CrowdStrike no logre rentabilidad
-    a pesar de su crecimiento, y subestima la competencia en el sector de seguridad
-    cibernética.
-  hipotesis_contraria: La empresa podría revertir su rentabilidad mediante optimización
-    de costos, expansión en mercados de alto valor (como IA) o precios premium en
-    sus servicios de seguridad para IA.
-  razonamiento: Si CrowdStrike logra revertir su rentabilidad, su valoración actual
-    (aunque no se proporciona) podría estar desalineada con su potencial futuro, especialmente
-    si el crecimiento en IA y su plataforma unificada se materializa.
-generated_at: '2026-08-07T21:27:01.093935-03:00'
+  consenso_actual: El precio actual refleja un crecimiento de revenue del 20% anual
+    y un margen operativo positivo del 5% en 2025.
+  hipotesis_contraria: El mercado subestima la capacidad de CrowdStrike para lograr
+    rentabilidad operativa y expandirse en seguridad para IA.
+  razonamiento: El mercado actualmente subestima la capacidad de CrowdStrike para
+    lograr rentabilidad operativa y expandirse en seguridad para IA, lo que podría
+    llevar a un cambio en la valoración del precio.
+generated_at: '2026-08-13T01:50:20.154209-03:00'
 integridad_tesis:
   flags: []
-  reason: No hay evidencia de que se vulneren los flags clave (moat_gone, insolvency_risk,
-    etc.)
+  reason: ''
   thesis_active: true
-opinion_valoracion: justo
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-025
 prompt_inputs:
   business_model: CrowdStrike Holdings, Inc. provides cybersecurity solutions in the
@@ -120,22 +145,30 @@ prompt_inputs:
   roic: -31.88
   sector: Technology
   ticker: CRWD
-resumen_ejecutivo: CrowdStrike es un compounder castigado con un modelo de negocio
-  sólido en un sector de crecimiento, pero su falta de rentabilidad y la competencia
-  creciente ponen en riesgo su moat. El error de mercado radica en subestimar su potencial
-  de revertir la situación financiera mediante estrategias en IA y expansión.
-score_general: 65
+resumen_ejecutivo: CrowdStrike Holdings, Inc. es una empresa de ciberseguridad con
+  un modelo de negocio sólido y un crecimiento de revenue del 22.4% TTM. Su plataforma
+  unificada, Falcon, ofrece protección de endpoints, cloud workloads, identidad y
+  datos, y genera ingresos recurrentes mediante suscripciones mensuales o anuales.
+  El mercado actualmente subestima la capacidad de CrowdStrike para lograr rentabilidad
+  operativa y expandirse en seguridad para IA, lo que podría llevar a un cambio en
+  la valoración del precio.
+score_general: 85
 target_consensus:
-  calculado_at: '2026-08-07T21:25:24.744583-03:00'
+  calculado_at: '2026-08-13T01:50:15.584447-03:00'
   fuentes:
-    stockanalysis: 193.13
-    yfinance: 193.1296
-  mediana: 193.13
+    stockanalysis: 195.39
+    yfinance: 194.66837
+  mediana: 195.03
   n_fuentes: 2
-  promedio: 193.13
+  promedio: 195.03
   target_high: 250.0
   target_low: 103.25
-tesis_inversion: Invertir si se logra revertir la rentabilidad y se confirma la expansión
-  en IA, pero con monitoreo constante de la competencia y gestión de costos.
+tesis_inversion: CrowdStrike Holdings, Inc. es una empresa de ciberseguridad con un
+  modelo de negocio sólido y un crecimiento de revenue del 22.4% TTM. Su plataforma
+  unificada, Falcon, ofrece protección de endpoints, cloud workloads, identidad y
+  datos, y genera ingresos recurrentes mediante suscripciones mensuales o anuales.
+  El mercado actualmente subestima la capacidad de CrowdStrike para lograr rentabilidad
+  operativa y expandirse en seguridad para IA, lo que podría llevar a un cambio en
+  la valoración del precio.
 ticker: CRWD
 version: '3.0'

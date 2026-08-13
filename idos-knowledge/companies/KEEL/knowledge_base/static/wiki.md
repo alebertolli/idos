@@ -35,9 +35,9 @@ To be evaluated
 ---
 
 ## Financial Highlights
-- **ROIC**: -20.1
-- **Operating Margin**: -60.86
-- **Revenue Growth**: 10.93
+- **ROIC**: -34.9
+- **Operating Margin**: -121.1
+- **Revenue Growth**: 30.29
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.0141
 - **PER**: 0
@@ -59,4 +59,4 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[ADBE|Adobe Inc.]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CLS|Celestica Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[LRCX|Lam Research Corporation]], [[MSFT|Microsoft Corporation]], [[NVDA|NVIDIA Corporation]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]], [[XYZ|Block, Inc.]]
+- **Same Sector**: [[ADBE|Adobe Inc.]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CLS|Celestica Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[LRCX|Lam Research Corporation]], [[MRVL|Marvell Technology, Inc.]], [[MSFT|Microsoft Corporation]], [[NOW|ServiceNow, Inc.]], [[NVDA|NVIDIA Corporation]], [[ONDS|Ondas Inc.]], [[ORCL|Oracle Corporation]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[TEAM|Atlassian Corporation]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]], [[XYZ|Block, Inc.]]

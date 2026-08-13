@@ -1,102 +1,39 @@
-calidad_evidencia:
-  hechos_verificados:
-  - 'Revenue TTM: $44,670M'
-  - 'Margen operativo: 47.7%'
-  - 'D/E: 0.0x'
-  - Presencia geográfica en 7 segmentos
-  inferencias_llm:
-  - Resiliencia del moat en mercados emergentes
-  - Capacidad de digitalización para mejorar eficiencia
-  preguntas_abiertas:
-  - Perfil de deuda detallado
-  - Track record de gestión de capital
-  - Estrategia de crecimiento en mercados emergentes
-catalizadores_previos: []
-clasificacion_oportunidad:
-  categoria: compounder_castigado
-  categorias_descartadas: compounder, quality_at_fair_price, distressed
-  justificacion: MUFG es un compounder de larga data con un modelo de negocio sólido
-    en servicios financieros, pero actualmente enfrenta una valoración desmejorada
-    debido a factores macroeconómicos y competitivos. No hay evidencia de deterioro
-    estructural del moat, pero el mercado subestima su capacidad de generación de
-    flujo de caja y rentabilidad a largo plazo.
-comparativa_catalizadores: []
-dominio_business_quality:
-  analisis: MUFG tiene un moat duradero basado en su diversificación geográfica, presencia
-    en mercados clave y servicios financieros integrados. Su modelo de negocio es
-    resiliente ante ciclos económicos y su digitalización mejora la eficiencia operativa.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Recuperación del sector financiero global
+  generated_at: '2026-08-07T22:27:26.013010-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 65
+  opp_id: OPP-20260807-004
+  probabilidad_anterior: 65
 - descripcion: Mejora en la eficiencia operativa
+  generated_at: '2026-08-07T22:27:26.013010-03:00'
   horizonte: corto
   impacto: medio
   nivel_confianza: medio
-  probabilidad_pct: 50
+  opp_id: OPP-20260807-004
+  probabilidad_anterior: 50
 - descripcion: Expansión en mercados emergentes
+  generated_at: '2026-08-07T22:27:26.013010-03:00'
   horizonte: largo
   impacto: bajo
   nivel_confianza: bajo
-  probabilidad_pct: 40
-dominio_esg_supply_chain:
-  analisis: MUFG tiene políticas ESG sólidas y diversificación de proveedores, pero
-    su exposición a sectores como energía renovable y tecnología requiere monitoreo
-    constante.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: El balance de MUFG es sólido con bajo apalancamiento (D/E 0.0x) y generación
-    de flujo de caja ajustado de $0M. Su cobertura de intereses es estable, aunque
-    la falta de datos específicos sobre deuda requiere verificación.
-  rating: fuerte
-dominio_growth:
-  analisis: El crecimiento orgánico es limitado, pero la expansión en mercados emergentes
-    y la digitalización ofrecen oportunidades. La visibilidad de ingresos es moderada,
-    con dependencia de la recuperación económica global.
-  rating: moderado
-dominio_management:
-  analisis: La gestión actual carece de experiencia (antigüedad CEO 0 años) y no hay
-    evidencia de un track record sólido en asignación de capital. Sin embargo, la
-    estructura corporativa y la diversificación de segmentos mitigan riesgos de gestión.
-  rating: regular
-dominio_riesgos:
-- impacto: alto
-  probabilidad: media
-  riesgo: Recesión económica global
-- impacto: medio
-  probabilidad: media
-  riesgo: Regulación financiera estricta
-- impacto: bajo
-  probabilidad: baja
-  riesgo: Dependencia de mercados clave
-error_mercado:
-  catalizador_cambio:
-    descripcion: Recuperación sostenida en el sector financiero global y mejora en
-      la rentabilidad de los segmentos de banca corporativa y gestión de activos.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 65
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado descontaba una recesión prolongada en Japón y una debilidad
-    en el sector financiero, con expectativas de márgenes operativos en declive y
-    crecimiento de ingresos limitado.
-  hipotesis_contraria: El mercado ignora la resiliencia del modelo de negocio de MUFG
-    en mercados emergentes, su diversificación geográfica y su capacidad para mantener
-    márgenes altos mediante eficiencia operativa y digitalización.
-  razonamiento: La valoración actual no refleja la capacidad de MUFG para generar
-    flujos de caja estables y su moat duradero, especialmente en mercados con baja
-    competencia y alta demanda de servicios financieros.
-generated_at: '2026-08-07T22:27:26.013010-03:00'
-integridad_tesis:
-  flags: []
-  reason: La tesis se mantiene basada en el moat duradero, la resiliencia del modelo
-    de negocio y la capacidad de generación de flujo de caja, sin evidencia de deterioro
-    estructural.
-  thesis_active: true
-opinion_valoracion: infravalorado
+  opp_id: OPP-20260807-004
+  probabilidad_anterior: 40
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-08-13T02:55:25.329730-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260807-004
 prompt_inputs:
   business_model: 'Mitsubishi UFJ Financial Group, Inc., together with its subsidiaries,
@@ -124,20 +61,17 @@ prompt_inputs:
   insider_ownership: 0
   name: Mitsubishi UFJ Financial Group, Inc.
   operating_margin: 47.71
-  pe_ratio: 20.89
+  pe_ratio: 20.28
   products: ''
   revenue: 44670000000.0
-  revenue_growth: 36.71
+  revenue_growth: 36.6
   roic: 9.46
   sector: Financial Services
   ticker: MUFG
-resumen_ejecutivo: MUFG es un compounder castigado con un modelo de negocio sólido,
-  pero el mercado subestima su capacidad de generación de valor a largo plazo. La
-  recuperación del sector financiero global y la eficiencia operativa podrían revertir
-  la valoración actual.
-score_general: 85
+resumen_ejecutivo: ''
+score_general: 50
 target_consensus:
-  calculado_at: '2026-08-07T22:26:37.884935-03:00'
+  calculado_at: '2026-08-13T02:54:54.584224-03:00'
   fuentes:
     stockanalysis: 21.59
     yfinance: 21.58761
@@ -146,9 +80,6 @@ target_consensus:
   promedio: 21.59
   target_high: 25.18
   target_low: 18.0
-tesis_inversion: MUFG es un compounder castigado con un modelo de negocio sólido y
-  un moat duradero, pero el mercado subestima su capacidad de generación de valor
-  a largo plazo. La recuperación del sector financiero global y la eficiencia operativa
-  podrían revertir la valoración actual.
+tesis_inversion: ''
 ticker: MUFG
 version: '3.0'

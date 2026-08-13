@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 99 companies tracked
+Total: 100 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -63,7 +63,7 @@ Total: 99 companies tracked
 - 📄 [[HDB|HDFC Bank Limited]]
 - 📄 [[HOOD|Robinhood Markets, Inc.]]
 - 📄 [[HSBC|HSBC Holdings plc]]
-- ⏳ [[HUT|Hut 8 Corp.]]
+- 📄 [[HUT|Hut 8 Corp.]]
 - 📄 [[IBN|IBN]]
 - 📄 [[ING|ING Groep N.V.]]
 - 📄 [[ITUB|Itaú Unibanco Holding S.A.]]
@@ -117,6 +117,7 @@ Total: 99 companies tracked
 - 📄 [[NVDA|NVIDIA Corporation]]
 - 📄 [[ONDS|Ondas Inc.]]
 - 📄 [[ORCL|Oracle Corporation]]
+- 📄 [[PANW|Palo Alto Networks, Inc.]]
 - 📄 [[PATH|UiPath, Inc.]]
 - 📄 [[PLTR|Palantir Technologies Inc.]]
 - 📄 [[SAP|SAP SE]]

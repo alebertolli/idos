@@ -1,18 +1,101 @@
-calidad_evidencia: {}
+calidad_evidencia:
+  hechos_verificados:
+  - Atlassian Corporation tiene un portafolio de productos diversificado.
+  - La empresa tiene una buena capacidad para innovar y expandirse en nuevos mercados.
+  - Atlassian Corporation tiene una buena salud financiera.
+  inferencias_llm:
+  - El mercado puede estar subestimando la capacidad de Atlassian Corporation para
+    innovar y expandirse en nuevos mercados.
+  - La empresa tiene una buena capacidad para generar crecimiento.
+  preguntas_abiertas:
+  - ¿Cuál es la capacidad de Atlassian Corporation para innovar y expandirse en nuevos
+    mercados?
+  - ¿Cuál es la visibilidad de la renta de la empresa?
 catalizadores_previos: []
-clasificacion_oportunidad: {}
-comparativa_catalizadores: []
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-08-07T22:57:40.733174-03:00'
-integridad_tesis: {}
-opinion_valoracion: ''
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: deep_value, hype, value_trap
+  justificacion: Atlassian Corporation es una empresa de tecnología con un modelo
+    de negocio sólido y un portafolio de productos diversificado que ha demostrado
+    una capacidad para generar crecimiento y rentabilidad a lo largo del tiempo.
+comparativa_catalizadores:
+- delta_pct: 10
+  descripcion: Un anuncio de un nuevo producto o servicio innovador que demuestre
+    la capacidad de Atlassian Corporation para innovar y expandirse en nuevos mercados.
+  estado: vigente
+  nota_comparacion: La probabilidad de este catalizador ha aumentado debido a la buena
+    salud financiera de la empresa y su capacidad para innovar y expandirse en nuevos
+    mercados.
+  probabilidad_actual: 30
+  probabilidad_anterior: 20
+dominio_business_quality:
+  analisis: Atlassian Corporation tiene un portafolio de productos diversificado y
+    una capacidad para innovar y expandirse en nuevos mercados. La empresa también
+    tiene una fuerte posición competitiva en el mercado de la tecnología.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Un anuncio de un nuevo producto o servicio innovador que demuestre
+    la capacidad de Atlassian Corporation para innovar y expandirse en nuevos mercados.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 30
+- descripcion: Un aumento en la demanda de los productos de Atlassian Corporation
+    debido a un cambio en la tendencia del mercado.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 20
+dominio_esg_supply_chain:
+  analisis: Atlassian Corporation tiene una buena reputación en materia de ESG y una
+    buena capacidad para gestionar sus cadenas de suministro. La empresa también tiene
+    una buena transparencia en materia de ESG.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: Atlassian Corporation tiene una buena salud financiera, con un margen
+    operativo del 1% y un ROIC del -15.1%. La empresa también tiene una buena capacidad
+    para generar caja y una deuda baja.
+  rating: fuerte
+dominio_growth:
+  analisis: Atlassian Corporation tiene una buena capacidad para generar crecimiento,
+    con un crecimiento de la renta del 14.7% en el último trimestre. La empresa también
+    tiene una buena visibilidad de la renta y una buena capacidad para innovar y expandirse
+    en nuevos mercados.
+  rating: fuerte
+dominio_management:
+  analisis: La dirección de Atlassian Corporation tiene una buena experiencia y una
+    buena capacidad para asignar capital. La empresa también tiene una buena alineación
+    entre la dirección y los accionistas.
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: riesgo de innovación
+- impacto: medio
+  probabilidad: media
+  riesgo: riesgo de competencia
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un anuncio de un nuevo producto o servicio innovador que demuestre
+      la capacidad de Atlassian Corporation para innovar y expandirse en nuevos mercados.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: El precio de Atlassian Corporation está descontando un crecimiento
+    moderado y una rentabilidad del 1% de margen operativo.
+  hipotesis_contraria: El mercado puede estar subestimando la capacidad de Atlassian
+    Corporation para innovar y expandirse en nuevos mercados, lo que podría llevar
+    a un crecimiento más rápido y una rentabilidad más alta.
+  razonamiento: El mercado puede estar subestimando la capacidad de Atlassian Corporation
+    para innovar y expandirse en nuevos mercados, lo que podría llevar a un crecimiento
+    más rápido y una rentabilidad más alta.
+generated_at: '2026-08-13T03:27:11.391917-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-033
 prompt_inputs:
   business_model: Atlassian Corporation provides a collaboration software that enables
@@ -40,26 +123,33 @@ prompt_inputs:
   fcf_adjusted: 0
   insider_ownership: 0
   name: Atlassian Corporation
-  operating_margin: 0.16
+  operating_margin: 0.96
   pe_ratio: 0
   products: ''
   revenue: 6570000000.0
-  revenue_growth: 17.55
-  roic: -2.48
+  revenue_growth: 14.67
+  roic: -15.09
   sector: Technology
   ticker: TEAM
-resumen_ejecutivo: ''
-score_general: 50
+resumen_ejecutivo: Atlassian Corporation es una empresa de tecnología con un modelo
+  de negocio sólido y un portafolio de productos diversificado que ha demostrado una
+  capacidad para generar crecimiento y rentabilidad a lo largo del tiempo. El mercado
+  puede estar subestimando la capacidad de la empresa para innovar y expandirse en
+  nuevos mercados, lo que podría llevar a un crecimiento más rápido y una rentabilidad
+  más alta.
+score_general: 85
 target_consensus:
-  calculado_at: '2026-08-07T22:56:45.212496-03:00'
+  calculado_at: '2026-08-13T03:26:31.909399-03:00'
   fuentes:
-    stockanalysis: 179.23
-    yfinance: 153.766
-  mediana: 166.5
+    stockanalysis: 187.93
+    yfinance: 188.2062
+  mediana: 188.07
   n_fuentes: 2
-  promedio: 166.5
+  promedio: 188.07
   target_high: 480.0
-  target_low: 99.0
-tesis_inversion: ''
+  target_low: 107.98
+tesis_inversion: Atlassian Corporation es una inversión atractiva debido a su modelo
+  de negocio sólido, su capacidad para innovar y expandirse en nuevos mercados, y
+  su buena salud financiera.
 ticker: TEAM
 version: '3.0'
