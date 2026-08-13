@@ -1071,6 +1071,57 @@ function staleBadge(o){
 }
 function wyPhase(p){ if(!p) return '—'; return `<span style="color:${colors[p]||'var(--muted)'}">${esc(p)}</span>`; }
 
+// ---------- Sortable tables ----------
+const TABLES = {};
+function sortCol(view,key){
+  const t = TABLES[view]; if(!t) return;
+  if(t.sort.key===key) t.sort.dir = t.sort.dir==='asc'?'desc':'asc';
+  else { t.sort.key=key; t.sort.dir='desc'; }
+  const el = document.getElementById('tbl-'+view);
+  if(!el) return;
+  const th = el.querySelector('thead'); if(th) th.innerHTML = sortHeadRows(view);
+  const tb = el.querySelector('tbody'); if(tb) tb.innerHTML = sortTbody(view);
+}
+function sortHeadRows(view){
+  const t = TABLES[view]; if(!t) return '<tr></tr>';
+  return '<tr>'+t.cols.map(c=>{
+    const active = t.sort.key===c.key;
+    const arrow = active ? (t.sort.dir==='asc'?' &#9650;':' &#9660;') : '';
+    return `<th style="cursor:pointer;user-select:none;white-space:nowrap" onclick="sortCol('${view}','${c.key}')" title="Ordenar por ${esc(c.label)}">${esc(c.label)}${arrow}</th>`;
+  }).join('')+'</tr>';
+}
+function sortValue(col,r){
+  const v = col.value ? col.value(r) : r[col.key];
+  return (v===null||v===undefined) ? null : v;
+}
+function sortTbody(view){
+  const t = TABLES[view]; if(!t) return '';
+  const q = (t.q||'').toLowerCase();
+  let rows = (t.rows||[]).slice();
+  if(q) rows = rows.filter(r => (t.searchText? t.searchText(r) : String(r.ticker||'')).toLowerCase().includes(q));
+  const col = t.cols.find(c=>c.key===t.sort.key) || t.cols[0];
+  const dir = t.sort.dir==='asc'?1:-1;
+  rows.sort((a,b)=>{
+    let va = sortValue(col,a), vb = sortValue(col,b);
+    const na = (va===null||va===undefined), nb = (vb===null||vb===undefined);
+    if(na&&nb) return 0;
+    if(na) return 1;
+    if(nb) return -1;
+    if(typeof va==='string') va = va.toLowerCase();
+    if(typeof vb==='string') vb = vb.toLowerCase();
+    if(va===vb) return 0;
+    const c = va<vb?-1:1;
+    return dir===1? c : -c;
+  });
+  return rows.map(r=>{
+    const rowAttr = t.tr ? t.tr(r) : '';
+    return `<tr${rowAttr}>${t.cols.map(x=>x.cell(r)).join('')}</tr>`;
+  }).join('');
+}
+function tableInput(view, id, ph){
+  return `<input id="${id}" placeholder="${ph}" oninput="TABLES['${view}'].q=this.value;const tb=document.querySelector('#tbl-${view} tbody');if(tb)tb.innerHTML=sortTbody('${view}')" style="margin:8px 0">`;
+}
+
 function renderShell(){
   document.getElementById('tabs').innerHTML = [
     ['dashboard','Dashboard'],['screening','Discovery'],['opp','Research'],['buylist','Buy List'],['portfolio','Portfolio'],
@@ -1166,86 +1217,111 @@ function rulesBadge(failed){
   return failed.map(id=>`<span class="badge" title="${esc(map[id]||id)}" style="background:#2a1516;color:#f87171">${esc(id)}</span>`).join(' ');
 }
 function renderOpp(){
-  const rows = DATA.opportunities.filter(o=>o.status==='UNDER_DEEP_DD')
-    .sort((a,b)=>(b.conviction_overall??-1)-(a.conviction_overall??-1));
+  const rows = DATA.opportunities.filter(o=>o.status==='UNDER_DEEP_DD');
+  TABLES['opp'] = {
+    rows,
+    cols: [
+      {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
+      {key:'conviction', label:'Conv.', value:r=>r.conviction_overall??null, cell:r=>`<td>${r.conviction_overall??'—'}</td>`},
+      {key:'business', label:'Business', value:r=>r.scores?.BusinessAssessmentEngine??null, cell:r=>`<td>${r.scores?.BusinessAssessmentEngine??'—'}</td>`},
+      {key:'valuation', label:'Valuation', value:r=>r.scores?.ValuationAssessmentEngine??null, cell:r=>`<td>${r.scores?.ValuationAssessmentEngine??'—'}</td>`},
+      {key:'risk', label:'Risk', value:r=>r.scores?.RiskAssessmentEngine??null, cell:r=>`<td>${r.scores?.RiskAssessmentEngine??'—'}</td>`},
+      {key:'recovery', label:'Recovery', value:r=>r.scores?.RecoveryAssessmentEngine??null, cell:r=>`<td>${r.scores?.RecoveryAssessmentEngine??'—'}</td>`},
+      {key:'price', label:'Precio', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}</td>`},
+      {key:'intrinsic', label:'Intrínseco', value:r=>r.intrinsic_value??null, cell:r=>`<td>${money(r.intrinsic_value)}</td>`},
+      {key:'upside', label:'Upside', value:r=>r.upside_pct??null, cell:r=>`<td class="${r.upside_pct>=0?'pos':'neg'}">${pct(r.upside_pct,true)}</td>`},
+      {key:'rules', label:'Rules failed', value:r=>(r.proposal?.rules_failed||[]).length, cell:r=>`<td>${rulesBadge(r.proposal?.rules_failed)}</td>`},
+      {key:'last', label:'Última inv.', value:r=>r.last_research||'', cell:r=>`<td>${dt(r.last_research)} ${staleBadge(r)}</td>`},
+    ],
+    tr: r=>` style="cursor:pointer" onclick="showCase('${r.opp_id}')"`,
+    searchText: r=>`${r.ticker} ${r.opp_id} ${r.industry||''}`,
+    sort: {key:'conviction', dir:'desc'},
+    q:'',
+  };
   let html = `<h2>Research (${rows.length})</h2>`;
-  html += `<p class="muted">Oportunidades en <b>Research / UNDER_DEEP_DD</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Ordenadas por convicción, de mayor a menor.</p>`;
+  html += `<p class="muted">Oportunidades en <b>Research / UNDER_DEEP_DD</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Clic en una columna para ordenar.</p>`;
   html += `<p class="muted">Estados siguientes (automatizados): el worker de Decision Board evalúa el caso y lo pasa a <b>APPROVED</b> (aprobado para entrada) o a <b>WATCHLIST</b> (rechazado) según las reglas de entrada. La transición es automática; no hay umbral numérico fijo.</p>`;
   html += detailsEntryRules();
-  html += `<input id="opp-search" placeholder="Buscar ticker..." style="margin:8px 0">`;
-  html += `<table><thead><tr><th>Ticker</th><th>Conv.</th><th>Business</th><th>Valuation</th><th>Risk</th><th>Recovery</th><th>Precio</th><th>Intrínseco</th><th>Upside</th><th>Rules failed</th><th>Última inv.</th></tr></thead><tbody>`;
-  rows.forEach(o=>{
-    html += `<tr style="cursor:pointer" onclick="showCase('${o.opp_id}')">
-      <td><b>${esc(o.ticker)}</b></td>
-      <td>${o.conviction_overall??'—'}</td>
-      <td>${o.scores?.BusinessAssessmentEngine??'—'}</td><td>${o.scores?.ValuationAssessmentEngine??'—'}</td>
-      <td>${o.scores?.RiskAssessmentEngine??'—'}</td><td>${o.scores?.RecoveryAssessmentEngine??'—'}</td>
-      <td>${money(o.current_price)}</td><td>${money(o.intrinsic_value)}</td>
-      <td class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</td>
-      <td>${rulesBadge(o.proposal?.rules_failed)}</td>
-      <td>${dt(o.last_research)} ${staleBadge(o)}</td></tr>`;
-  });
-  html += '</tbody></table>';
+  html += tableInput('opp','opp-search','Buscar ticker...');
+  html += `<table id="tbl-opp"><thead>${sortHeadRows('opp')}</thead><tbody>${sortTbody('opp')}</tbody></table>`;
   setView('opp', html);
-  document.getElementById('opp-search').oninput = e=>{
-    const q=e.target.value.toLowerCase();
-    document.querySelectorAll('#opp tbody tr').forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(q)?'':'none');
-  };
 }
 
 // ---------- Buy List ----------
 function renderBuylist(){
-  const rows = DATA.buylist.slice().sort((a,b)=>((b.wyckoff?.score)??-1)-((a.wyckoff?.score)??-1));
+  const rows = DATA.buylist.slice();
+  const margin = r => (r.current_price&&r.target_price&&r.target_price>0)? (r.target_price-r.current_price)/r.current_price*100 : null;
+  TABLES['buylist'] = {
+    rows,
+    cols: [
+      {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
+      {key:'industry', label:'Industria', value:r=>r.industry||'', cell:r=>`<td class="muted">${esc(r.industry||'—')}</td>`},
+      {key:'conviction', label:'Conv.', value:r=>r.conviction_score??null, cell:r=>`<td>${r.conviction_score??'—'}</td>`},
+      {key:'price', label:'Último precio', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}</td>`},
+      {key:'zone', label:'Zona compra (top)', value:r=>r.buy_zone_top??null, cell:r=>`<td>${money(r.buy_zone_top)}</td>`},
+      {key:'target', label:'Target', value:r=>r.target_price??null, cell:r=>`<td>${money(r.target_price)}</td>`},
+      {key:'margin', label:'Margen a target', value:r=>margin(r), cell:r=>{const m=margin(r); return `<td class="${m>=0?'pos':'neg'}">${pct(m,true)}</td>`;}},
+      {key:'wy', label:'Wyckoff', value:r=>r.wyckoff?.score??null, cell:r=>{const wy=r.wyckoff; return `<td>${wyPhase(wy?.phase)} ${wy?.score??''}</td>`;}},
+      {key:'fails', label:'Cond. fallida', value:r=>buylistEntryFails(r).length, cell:r=>{const f=buylistEntryFails(r); return `<td>${f.length?f.map(x=>`<span class="badge" style="background:#2a1516;color:#f87171">${x}</span>`).join(' '):'<span class="pos">Listo</span>'}</td>`;}},
+      {key:'analyzed', label:'Últ. análisis', value:r=>r.wyckoff?.analyzed_at||'', cell:r=>`<td>${dt(r.wyckoff?.analyzed_at)}</td>`},
+    ],
+    tr: r=>` style="cursor:pointer" onclick="showOppFromBuylist('${r.opp_id||''}','${r.ticker}')"`,
+    searchText: r=>`${r.ticker} ${r.industry||''}`,
+    sort: {key:'wy', dir:'desc'},
+    q:'',
+  };
   let html = `<h2>Buy List (${rows.length})</h2>`;
-  html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada (siguiente paso: <b>ENTRY_PENDING</b>). Ordenadas por score Wyckoff descendente.</p>`;
+  html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada (siguiente paso: <b>ENTRY_PENDING</b>). Clic en una columna para ordenar.</p>`;
   html += detailsEntryThresholds();
   if(!rows.length) html += `<div class="card"><p class="muted">La Buy List está vacía.</p></div>`;
-  html += `<table><thead><tr><th>Ticker</th><th>Industria</th><th>Conv.</th><th>Último precio</th><th>Zona compra (top)</th><th>Target</th><th>Margen a target</th><th>Wyckoff</th><th>Cond. fallida</th><th>Últ. análisis</th></tr></thead><tbody>`;
-  rows.forEach(r=>{
-    const margin = (r.current_price&&r.target_price&&r.target_price>0)? (r.target_price-r.current_price)/r.current_price*100 : null;
-    const wy = r.wyckoff;
-    const fails = buylistEntryFails(r);
-    html += `<tr style="cursor:pointer" onclick="showOppFromBuylist('${r.opp_id||''}','${r.ticker}')">
-      <td><b>${esc(r.ticker)}</b></td><td class="muted">${esc(r.industry||'—')}</td><td>${r.conviction_score??'—'}</td>
-      <td>${money(r.current_price)}</td><td>${money(r.buy_zone_top)}</td><td>${money(r.target_price)}</td>
-      <td class="${margin>=0?'pos':'neg'}">${pct(margin,true)}</td>
-      <td>${wyPhase(wy?.phase)} ${wy?.score??''}</td><td>${fails.length?fails.map(f=>`<span class="badge" style="background:#2a1516;color:#f87171">${f}</span>`).join(' '):'<span class="pos">Listo</span>'}</td>
-      <td>${dt(wy?.analyzed_at)}</td></tr>`;
-  });
-  html += '</tbody></table>';
+  html += tableInput('buylist','bl-search','Buscar ticker...');
+  html += `<table id="tbl-buylist"><thead>${sortHeadRows('buylist')}</thead><tbody>${sortTbody('buylist')}</tbody></table>`;
   setView('buylist', html);
 }
 
 // ---------- Portfolio ----------
 function renderPortfolio(){
-const pf = DATA.portfolio;
-   let html = '<div class="grid">';
-   html += `<div class="card"><div class="muted">Valor total</div><div style="font-size:24px;font-weight:700">${money(pf.total_value)}</div></div>`;
-   html += `<div class="card"><div class="muted">P/L portfolio</div><div style="font-size:24px;font-weight:700" class="${pf.total_pl_usd>=0?'pos':'neg'}">${money(pf.total_pl_usd)} (${pct(pf.total_pl_pct,true)})</div></div>`;
-   html += `<div class="card"><div class="muted">Posiciones</div><div style="font-size:24px;font-weight:700">${pf.positions_count}</div></div>`;
-   const cr = pf.corr_risk||{};
-   html += `<div class="card"><div class="muted">Riesgo de correlación (proxy)</div><div style="font-size:18px;font-weight:700">${cr.score!=null?fmt(cr.score,1)+'':''}% ${cr.top_sector?('<span class="muted">('+esc(cr.top_sector)+')</span>'):''}</div><div class="muted">${esc(cr.interpretation||'')}</div></div>`;
-   html += '</div>';
-   html += `<h2>Activos</h2><table><thead><tr><th>Ticker</th><th>Industria</th><th>Peso</th><th>Monto</th><th>Último</th><th>Upside</th><th>Wyckoff</th><th>Target</th><th>Dist a target</th></tr></thead><tbody>`;
-   const total = pf.total_value||0;
-   const rows = (DATA.positions||[]).slice().sort((a,b)=>(a.industry||'').localeCompare(b.industry||''));
-   rows.forEach(p=>{
-     const weight = total? (p.current_value||0)/total*100 : null;
-     const wy = p.wyckoff;
-     html += `<tr style="cursor:pointer" onclick="showCaseFromPos('${p.opp_id||''}','${p.ticker}')">
-       <td><b>${esc(p.ticker)}</b></td><td class="muted">${esc(p.industry||p.sector||'—')}</td>
-       <td>${weight!==null?fmt(weight,1)+'%':'—'}</td><td>${money(p.current_value)}</td><td>${money(p.current_price)}</td>
-       <td class="${p.pl_pct>=0?'pos':'neg'}">${pct(p.pl_pct,true)}</td>
-       <td>${wyPhase(wy?.phase)} ${esc(wy?.score??'—')}</td>
-       <td>${money(p.target_price|| (wy?.price_target||null))}</td>
-       <td>${p.dist_to_target_pct!==null?`<span class="${p.dist_to_target_pct>=0?'pos':'neg'}">${pct(p.dist_to_target_pct,true)}</span>`:(wy?.price_target?`<span class="pos">${pct((wy.price_target-p.current_price)/p.current_price*100,true)}</span>`:'—')}</td></tr>`;
-   });
-   html += '</tbody></table>';
-   html += '<details class="details" style="margin:10px 0"><summary>Sectores</summary><table><thead><tr><th>Sector</th><th>Valor</th><th>%</th></tr></thead><tbody>';
-   const sectorsArr = Object.entries(pf.sectors||{}).map(([k,v])=>[k,v]);
-   sectorsArr.sort((a,b)=>b[1]-a[1]);
-    sectorsArr.forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td>${money(v)}</td><td>${total?fmt(v/total*100,1)+'':''}%</td></tr>`);
-   html += '</tbody></table></details>';
+  const pf = DATA.portfolio;
+  const total = pf.total_value||0;
+  const distPct = p => {
+    if(p.dist_to_target_pct!==null) return p.dist_to_target_pct;
+    if(p.wyckoff?.price_target && p.current_price) return (p.wyckoff.price_target-p.current_price)/p.current_price*100;
+    return null;
+  };
+  const rows = DATA.positions||[];
+  TABLES['portfolio'] = {
+    rows,
+    cols: [
+      {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
+      {key:'industry', label:'Industria', value:r=>r.industry||r.sector||'', cell:r=>`<td class="muted">${esc(r.industry||r.sector||'—')}</td>`},
+      {key:'weight', label:'Peso', value:r=>total?(r.current_value||0)/total*100:null, cell:r=>{const w=total?(r.current_value||0)/total*100:null; return `<td>${w!==null?fmt(w,1)+'%':'—'}</td>`;}},
+      {key:'value', label:'Monto', value:r=>r.current_value??null, cell:r=>`<td>${money(r.current_value)}</td>`},
+      {key:'price', label:'Último', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}</td>`},
+      {key:'pl', label:'Upside', value:r=>r.pl_pct??null, cell:r=>`<td class="${r.pl_pct>=0?'pos':'neg'}">${pct(r.pl_pct,true)}</td>`},
+      {key:'wy', label:'Wyckoff', value:r=>r.wyckoff?.score??null, cell:r=>{const wy=r.wyckoff; return `<td>${wyPhase(wy?.phase)} ${esc(wy?.score??'—')}</td>`;}},
+      {key:'target', label:'Target', value:r=>r.target_price||(r.wyckoff?.price_target||null), cell:r=>`<td>${money(r.target_price||(r.wyckoff?.price_target||null))}</td>`},
+      {key:'dist', label:'Dist a target', value:r=>distPct(r), cell:r=>{const dp=distPct(r); return `<td>${dp!==null?`<span class="${dp>=0?'pos':'neg'}">${pct(dp,true)}</span>`:'—'}</td>`;}},
+    ],
+    tr: r=>` style="cursor:pointer" onclick="showCaseFromPos('${r.opp_id||''}','${r.ticker}')"`,
+    searchText: r=>`${r.ticker} ${r.industry||''}`,
+    sort: {key:'weight', dir:'desc'},
+    q:'',
+  };
+  let html = '<div class="grid">';
+  html += `<div class="card"><div class="muted">Valor total</div><div style="font-size:24px;font-weight:700">${money(pf.total_value)}</div></div>`;
+  html += `<div class="card"><div class="muted">P/L portfolio</div><div style="font-size:24px;font-weight:700" class="${pf.total_pl_usd>=0?'pos':'neg'}">${money(pf.total_pl_usd)} (${pct(pf.total_pl_pct,true)})</div></div>`;
+  html += `<div class="card"><div class="muted">Posiciones</div><div style="font-size:24px;font-weight:700">${pf.positions_count}</div></div>`;
+  const cr = pf.corr_risk||{};
+  html += `<div class="card"><div class="muted">Riesgo de correlación (proxy)</div><div style="font-size:18px;font-weight:700">${cr.score!=null?fmt(cr.score,1)+'':''}% ${cr.top_sector?('<span class="muted">('+esc(cr.top_sector)+')</span>'):''}</div><div class="muted">${esc(cr.interpretation||'')}</div></div>`;
+  html += '</div>';
+  html += `<h2>Activos</h2>`;
+  html += tableInput('portfolio','pf-search','Buscar ticker...');
+  html += `<table id="tbl-portfolio"><thead>${sortHeadRows('portfolio')}</thead><tbody>${sortTbody('portfolio')}</tbody></table>`;
+  html += '<details class="details" style="margin:10px 0"><summary>Sectores</summary><table><thead><tr><th>Sector</th><th>Valor</th><th>%</th></tr></thead><tbody>';
+  const sectorsArr = Object.entries(pf.sectors||{}).map(([k,v])=>[k,v]);
+  sectorsArr.sort((a,b)=>b[1]-a[1]);
+  sectorsArr.forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td>${money(v)}</td><td>${total?fmt(v/total*100,1)+'':''}%</td></tr>`);
+  html += '</tbody></table></details>';
   setView('portfolio', html);
 }
 
@@ -1253,15 +1329,27 @@ const pf = DATA.portfolio;
 // ---------- Discovery ----------
 function renderScreening(){
   const rows = DATA.watchlist;
+  const mkeys = ['size_score','liquidity_score','momentum_score','value_score','quality_score'];
+  const mlabels = ['Size','Liquidez','Momentum','Valor','Calidad'];
+  TABLES['screening'] = {
+    rows,
+    cols: [
+      {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
+      {key:'score', label:'Score', value:r=>r.score??null, cell:r=>`<td><b class="${r.score>=70?'pos':''}">${r.score??'—'}</b></td>`},
+      ...mkeys.map((k,i)=>({key:k, label:mlabels[i], value:r=>r.metrics?r.metrics[k]:null, cell:r=>{const v=r.metrics?r.metrics[k]:null; return `<td class="${v>=70?'pos':''}">${v??'—'}</td>`;}})),
+      {key:'added', label:'Agregado', value:r=>r.added_at||'', cell:r=>`<td>${dt(r.added_at)}</td>`},
+    ],
+    tr: r=>` style="cursor:pointer" onclick="showCaseFromOpp('${r.opp_id||''}','${r.ticker}')"`,
+    searchText: r=>`${r.ticker} ${r.opp_id||''}`,
+    sort: {key:'score', dir:'desc'},
+    q:'',
+  };
   let html = `<h2>Discovery (${rows.length})</h2>`;
-  html += `<p class="muted">Candidatos del Discovery Domain (Scout), primer estado del funnel. La promoción es automática por el pipeline mensual: si el score de screening es <b>≥ ${DISC_MIN_SCORE}</b> (umbral <code>scoring.min_opportunity_score</code>), el caso pasa solo a <b>Research / UNDER_DEEP_DD</b>, sin aprobación manual. El score global es el promedio de las 5 métricas del Scout.</p>`;
-  html += `<table><thead><tr><th>Ticker</th><th>Score</th>${mcolHeaders()}<th>Agregado</th></tr></thead><tbody>`;
-  rows.forEach(r=>html+=`<tr><td><b>${esc(r.ticker)}</b></td><td><b class="${r.score>=70?'pos':''}">${r.score??'—'}</b></td>${mcolCells(r.metrics)}<td>${dt(r.added_at)}</td></tr>`);
-  html += '</tbody></table>';
+  html += `<p class="muted">Candidatos del Discovery Domain (Scout), primer estado del funnel. La promoción es automática por el pipeline mensual: si el score de screening es <b>≥ ${DISC_MIN_SCORE}</b> (umbral <code>scoring.min_opportunity_score</code>), el caso pasa solo a <b>Research / UNDER_DEEP_DD</b>, sin aprobación manual. El score global es el promedio de las 5 métricas del Scout. Clic en una columna para ordenar.</p>`;
+  html += tableInput('screening','screen-search','Buscar ticker...');
+  html += `<table id="tbl-screening"><thead>${sortHeadRows('screening')}</thead><tbody>${sortTbody('screening')}</tbody></table>`;
   setView('screening', html);
 }
-function mcolHeaders(){ return `<th>Size</th><th>Liquidez</th><th>Momentum</th><th>Valor</th><th>Calidad</th>`; }
-function mcolCells(met){ const k=['size_score','liquidity_score','momentum_score','value_score','quality_score']; return k.map(m=>{ const v=met?met[m]:null; return `<td class="${v>=70?'pos':''}">${v??'—'}</td>`; }).join(''); }
 
 // ---------- Wiki ----------
 // ---------- Learning ----------
@@ -1380,6 +1468,11 @@ function showCase(oppId){
 }
 function showOppFromBuylist(oppId, ticker){ if(oppId){ showCase(oppId); } else { showCase(ticker); } }
 function showCaseFromPos(oppId, ticker){ if(oppId){ showCase(oppId); } else { showCase(ticker); } }
+function showCaseFromOpp(oppId, ticker){
+  if(oppId && DATA.opportunities.some(o=>o.opp_id===oppId)){ showCase(oppId); return; }
+  const byTicker = DATA.opportunities.filter(o=>o.ticker===ticker);
+  if(byTicker.length) showCase(byTicker[0].opp_id); else showCase(ticker);
+}
 
 function setView(id, html){ document.getElementById('view').innerHTML = `<div id="${id}">${html}</div>`; }
 
