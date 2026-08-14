@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 100 companies tracked
+Total: 101 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -107,6 +107,7 @@ Total: 100 companies tracked
 - 📄 [[AVGO|Broadcom Inc.]]
 - 📄 [[CLS|Celestica Inc.]]
 - 📄 [[CRWD|CrowdStrike Holdings, Inc.]]
+- 📄 [[CSCO|Cisco Systems, Inc.]]
 - 📄 [[FSLR|First Solar, Inc.]]
 - 📄 [[GRMN|Garmin Ltd.]]
 - 📄 [[KEEL|Keel Infrastructure Corp.]]
