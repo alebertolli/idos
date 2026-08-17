@@ -36,24 +36,24 @@ To be evaluated
 
 ## Financial Highlights
 - **ROIC**: 5.5
-- **Operating Margin**: 45.12
+- **Operating Margin**: 52.2
 - **Revenue Growth**: 29.48
 - **FCF Yield**: 0
-- **Debt/Equity**: 0.0127
-- **PER**: 39.76
-- **EV/EBITDA**: 26.24
+- **Debt/Equity**: 0.012199999999999999
+- **PER**: 31.94
+- **EV/EBITDA**: 26.92
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Golar LNG ofrece exposición cíclica a la transición energética con moat en FLNG y balance sólido. La valoración actual subestima su potencial de crecimiento en Asia y demanda estructural de LNG.
+To be formulated
 
 ---
 
