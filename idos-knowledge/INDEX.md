@@ -7,11 +7,12 @@ aliases:
 
 # IDOS Company Index
 
-Total: 101 companies tracked
+Total: 102 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
 - 📄 [[B|B]]
+- 📄 [[BHP|BHP Group Limited]]
 - 📄 [[CDE|Coeur Mining, Inc.]]
 - 📄 [[GFI|Gold Fields Limited]]
 - 📄 [[HL|Hecla Mining Company]]
