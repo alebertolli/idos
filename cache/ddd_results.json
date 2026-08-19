@@ -1,45 +1,46 @@
 {
   "processed": [
     {
-      "ticker": "BHP",
-      "opp_id": "OPP-20260813-016",
+      "ticker": "NFLX",
+      "opp_id": "OPP-20260725-043",
       "status": "ddd_failed",
       "score": 50,
       "classification": null,
       "force": true,
-      "event_type": "quarterly-results"
+      "event_type": "manual"
     }
   ],
   "assessments": [
     {
-      "ticker": "BHP",
-      "opp_id": "OPP-20260813-016",
+      "ticker": "NFLX",
+      "opp_id": "OPP-20260725-043",
       "status": "completed",
-      "conviction_score": 64,
+      "conviction_score": 65,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260819131340",
+      "decision_id": "DEC-20260819151515",
       "assessments": {
-        "BusinessAssessmentEngine": 68,
+        "BusinessAssessmentEngine": 72,
         "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 52,
+        "RecoveryAssessmentEngine": 50,
         "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
-      "rules_passed": [],
+      "rules_passed": [
+        "RULE-005"
+      ],
       "rules_failed": [
         "RULE-001",
         "RULE-003",
         "RULE-004",
-        "RULE-005",
         "RULE-008"
       ],
       "rules_details": {
         "RULE-001": "Business quality: 0/70",
         "RULE-003": "Rerating: 0/50",
         "RULE-004": "Risk: 0/50",
-        "RULE-005": "Conviction: 64/65",
+        "RULE-005": "Conviction: 65/65",
         "RULE-008": "No hay datos de DDD para calcular asimetria"
       },
       "data_quality": "good"
@@ -48,6 +49,6 @@
   "errors": [],
   "total": 1,
   "done": 1,
-  "event_type": "quarterly-results",
+  "event_type": "manual",
   "force": true
 }
