@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 102 companies tracked
+Total: 103 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -23,6 +23,7 @@ Total: 102 companies tracked
 - 📄 [[SCCO|Southern Copper Corporation]]
 
 ## Communication Services
+- 📄 [[BIDU|Baidu, Inc.]]
 - 📄 [[GOOGL|Alphabet Inc.]]
 - 📄 [[META|Meta Platforms, Inc.]]
 - 📄 [[NFLX|Netflix, Inc.]]
