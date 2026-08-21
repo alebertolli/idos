@@ -1,8 +1,8 @@
 {
   "processed": [
     {
-      "ticker": "BIDU",
-      "opp_id": "OPP-20260813-135",
+      "ticker": "ADI",
+      "opp_id": "OPP-20260813-086",
       "status": "ddd_failed",
       "score": 50,
       "classification": null,
@@ -12,34 +12,35 @@
   ],
   "assessments": [
     {
-      "ticker": "BIDU",
-      "opp_id": "OPP-20260813-135",
+      "ticker": "ADI",
+      "opp_id": "OPP-20260813-086",
       "status": "completed",
-      "conviction_score": 56,
+      "conviction_score": 66,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260820054551",
+      "decision_id": "DEC-20260821054854",
       "assessments": {
-        "BusinessAssessmentEngine": 40,
-        "ValuationAssessmentEngine": 60,
-        "RecoveryAssessmentEngine": 49,
-        "RiskAssessmentEngine": 70,
+        "BusinessAssessmentEngine": 62,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 53,
+        "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 90
       },
-      "rules_passed": [],
+      "rules_passed": [
+        "RULE-005"
+      ],
       "rules_failed": [
         "RULE-001",
         "RULE-003",
         "RULE-004",
-        "RULE-005",
         "RULE-008"
       ],
       "rules_details": {
         "RULE-001": "Business quality: 0/70",
         "RULE-003": "Rerating: 0/50",
         "RULE-004": "Risk: 0/50",
-        "RULE-005": "Conviction: 56/65",
+        "RULE-005": "Conviction: 66/65",
         "RULE-008": "No hay datos de DDD para calcular asimetria"
       },
       "data_quality": "good"
