@@ -144,8 +144,16 @@ class UniversePipeline(BaseWorker):
         if not metrics.finviz_tickers:
             return
         print(f"\n[PIPELINE] STEP 5: Scout ({len(metrics.finviz_tickers)} tickers)")
+        import yaml
+        scoring_path = Path(self.config_path) / "scoring.yml"
+        scout_min_score = 60
+        if scoring_path.exists():
+            scoring_data = yaml.safe_load(scoring_path.read_text(encoding="utf-8"))
+            scout_min_score = scoring_data.get("scoring", {}).get("min_opportunity_score", 60)
+        print(f"[PIPELINE] Scout min_score: {scout_min_score}")
+
         scout_config = {
-            "min_score": self.config.get("min_scout_score", 50),
+            "min_score": scout_min_score,
             "max_watchlist": self.config.get("max_watchlist", 300),
             "screeners_dir": str(Path(self.config_path) / "screeners"),
             "operable_path": str(Path(self.config_path) / "universe/operable.yml"),
@@ -190,10 +198,10 @@ class UniversePipeline(BaseWorker):
 
         import yaml
         scoring_path = Path(self.config_path) / "scoring.yml"
-        min_score = 70
+        min_score = 60
         if scoring_path.exists():
             scoring_data = yaml.safe_load(scoring_path.read_text(encoding="utf-8"))
-            min_score = scoring_data.get("scoring", {}).get("min_opportunity_score", 70)
+            min_score = scoring_data.get("scoring", {}).get("min_opportunity_score", 60)
         print(f"[PIPELINE] Min opportunity score: {min_score}")
 
         eligible = [e for e in metrics.new_watchlist if e.get("score", 0) >= min_score]
