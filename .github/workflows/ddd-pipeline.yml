@@ -68,18 +68,8 @@ jobs:
           echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE event=$EVENT_TYPE"
 
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
-        run: python scripts/ddd_research.py
 
-if not opportunities:
-                              if force and tickers:
-                                  for t in tickers:
-                                      print(f'[DDD] Force mode for {t} but no opportunity found, creating one on the fly')
-                              else:
-                              print('[DDD] No DISCOVERED opportunities to process')
-                              Path('cache/ddd_results.json').write_text(json.dumps({'processed': [], 'assessments': [], 'errors': [], 'status': 'none', 'event_type': event_type, 'force': force}), encoding='utf-8')
-                              exit(0)
-            
-                      labels = 'FORCE' if force else 'DISCOVERED'
+        run: python scripts/ddd_research.py
                       print(f'[DDD] Found {len(opportunities)} {labels} opportunities')
             
                       from idos.workers.ai.research_worker import ResearchWorker
