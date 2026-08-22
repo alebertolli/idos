@@ -83,6 +83,7 @@ jobs:
           if force and not ticker_filter:
               print('[DDD] Force mode requires a ticker, falling back to DISCOVERED only')
               force = False
+          tickers = [t.strip().upper() for t in ticker_filter.split(',') if t.strip()] if ticker_filter else []
 
           opportunities = []
           companies_dir = journal / 'companies'
@@ -91,7 +92,7 @@ jobs:
                   if not d.is_dir():
                       continue
                   ticker = d.name
-                  if ticker_filter and ticker.upper() != ticker_filter.upper():
+                  if tickers and ticker.upper() not in tickers:
                       continue
                   opp_dir = d / 'case_file' / 'opportunities'
                   if not opp_dir.exists():
@@ -116,34 +117,35 @@ jobs:
                           print(f'[DDD] Error reading {yf}: {e}')
 
           if not opportunities:
-              if force and ticker_filter:
-                  print(f'[DDD] Force mode for {ticker_filter} but no opportunity found, creating one on the fly')
-                  from idos.data.sqlite import SQLiteStore
-                  from idos.data.journal import JournalRepository
-                  from datetime import datetime
-                  from idos.timezone import AR_TZ
-                  existing_opps = SQLiteStore('idos.db').list_opportunities()
-                  seq = len(existing_opps) + 1
-                  new_opp_id = f'OPP-{datetime.now(AR_TZ).strftime(\"%Y%m%d\")}-{seq:03d}'
-                  now = datetime.now(AR_TZ).isoformat()
-                  new_opp = {
-                      'id': new_opp_id,
-                      'ticker': ticker_filter.upper(),
-                      'status': 'DISCOVERED',
-                      'conviction': {'overall': 0},
-                      'created_at': now,
-                      'updated_at': now,
-                  }
-                  jr = JournalRepository(journal)
-                  jr.save_opportunity(ticker_filter.upper(), new_opp)
-                  SQLiteStore('idos.db').save_opportunity(new_opp)
-                  opportunities.append({
-                      'opp_id': new_opp_id,
-                      'ticker': ticker_filter.upper(),
-                      'score': 0,
-                      'current_status': 'DISCOVERED',
-                  })
-                  print(f'[DDD] Created new opportunity {new_opp_id} for {ticker_filter.upper()}')
+if force and tickers:
+                  for t in tickers:
+                      print(f'[DDD] Force mode for {t} but no opportunity found, creating one on the fly')
+                      from idos.data.sqlite import SQLiteStore
+                      from idos.data.journal import JournalRepository
+                      from datetime import datetime
+                      from idos.timezone import AR_TZ
+                      existing_opps = SQLiteStore('idos.db').list_opportunities()
+                      seq = len(existing_opps) + 1
+                      new_opp_id = f'OPP-{datetime.now(AR_TZ).strftime("%Y%m%d")}-{seq:03d}'
+                      now = datetime.now(AR_TZ).isoformat()
+                      new_opp = {
+                          'id': new_opp_id,
+                          'ticker': t,
+                          'status': 'DISCOVERED',
+                          'conviction': {'overall': 0},
+                          'created_at': now,
+                          'updated_at': now,
+                      }
+                      jr = JournalRepository(journal)
+                      jr.save_opportunity(t, new_opp)
+                      SQLiteStore('idos.db').save_opportunity(new_opp)
+                      opportunities.append({
+                          'opp_id': new_opp_id,
+                          'ticker': t,
+                          'score': 0,
+                          'current_status': 'DISCOVERED',
+                      })
+                      print(f'[DDD] Created new opportunity {new_opp_id} for {t}')
               else:
                   print('[DDD] No DISCOVERED opportunities to process')
                   Path('cache/ddd_results.json').write_text(json.dumps({'processed': [], 'assessments': [], 'errors': [], 'status': 'none', 'event_type': event_type, 'force': force}), encoding='utf-8')
