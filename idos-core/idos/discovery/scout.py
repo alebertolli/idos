@@ -19,7 +19,7 @@ class ScoutResult:
             self.scanned_at = datetime.now(AR_TZ).isoformat()
 
 class ScoutEngine:
-    def __init__(self, min_score: int = 50):
+    def __init__(self, min_score: int = 70):
         self.min_score = min_score
 
     def scan(self, ticker: str, data: dict[str, Any]) -> ScoutResult:
@@ -30,7 +30,7 @@ class ScoutEngine:
         cap = metrics.get("market_cap", 0)
         dolvol = metrics.get("avg_dollar_volume", 0)
         min_cap = metrics.get("min_market_cap", 2e9)
-        min_dolvol = metrics.get("min_dollar_volume", 500e3)
+        min_dolvol = metrics.get("min_dollar_volume", 100e3)
         is_investable = cap >= min_cap and dolvol >= min_dolvol
         details["investability"] = 100 if is_investable else 0
 
@@ -79,7 +79,7 @@ class ScoutEngine:
     def _score_market_cap(self, cap: float) -> tuple[int, bool]:
         """Returns (score, is_investable). Investability = min market cap + min dollar volume."""
         min_cap = 2e9  # $2B minimum
-        min_dolvol = 500e3  # $500K minimum average dollar volume
+        min_dolvol = 100e3  # $100K minimum average dollar volume
         is_investable = cap >= min_cap
         score = 90 if cap >= 10e9 else (70 if cap >= 2e9 else (50 if cap >= 300e6 else 20))
         return score, is_investable
