@@ -636,7 +636,29 @@ class SiteBuilder:
             m_score = 50 + (operating_margin / 10.0) * 20
             details['margin_score'] = max(0, min(100, int(round(m_score))))
         else:
-            details['margin_score'] = None
+            details['margin_score'] = 50  # neutral default
+        # Ensure transition_score and quality_score have default values
+        if 'transition' not in details or details['transition'] is None:
+            # Use operating_margin as proxy: higher margin → better transition trend
+            if operating_margin is not None:
+                t_score = 50 + (operating_margin / 15.0) * 30
+                details['transition_score'] = max(0, min(100, int(round(t_score))))
+            else:
+                details['transition_score'] = 50  # neutral default
+        else:
+            # Convert detail key to UI key
+            details['transition_score'] = details.pop('transition')
+        if 'quality' not in details or details['quality'] is None:
+            # Use roic as proxy: roic > 25 → good quality, roic < 5 → poor quality
+            roic = metrics.get('roic')
+            if roic is not None:
+                q_score = 50 + (roic / 20.0) * 30
+                details['quality_score'] = max(0, min(100, int(round(q_score))))
+            else:
+                details['quality_score'] = 50  # neutral default
+        else:
+            # Convert detail key to UI key
+            details['quality_score'] = details.pop('quality')
         return details
 
     def _load_wyckoff_latest(self, ticker: str, opp_id: str) -> dict | None:
