@@ -600,8 +600,7 @@ class SiteBuilder:
             except Exception:
                 raw = {}
         if not raw:
-            return {"size_score": None, "liquidity_score": None,
-                    "momentum_score": None, "value_score": None, "quality_score": None}
+            return {"transition_score": None, "quality_score": None, "margin_score": None}
 
         metrics = {
             "market_cap": self._scout_num(raw.get("market_cap")),
@@ -629,7 +628,16 @@ class SiteBuilder:
         # reuse the exact ScoutEngine scorer
         from idos.discovery.scout import ScoutEngine
         res = ScoutEngine(min_score=0).scan(ticker=ticker, data={"metrics": metrics})
-        return res.details
+        details = dict(res.details)
+        # Add margin score from operating_margin (if available)
+        operating_margin = metrics.get('operating_margin')
+        if operating_margin is not None:
+            # Normalize: score = 50 + (operating_margin / 10) * 20, capped at 0-100
+            m_score = 50 + (operating_margin / 10.0) * 20
+            details['margin_score'] = max(0, min(100, int(round(m_score))))
+        else:
+            details['margin_score'] = None
+        return details
 
     def _load_wyckoff_latest(self, ticker: str, opp_id: str) -> dict | None:
         w_dir = self.journal / "companies" / ticker / "case_file" / "opportunities" / opp_id / "wyckoff"
@@ -1329,8 +1337,8 @@ function renderPortfolio(){
 // ---------- Discovery ----------
 function renderScreening(){
   const rows = DATA.watchlist;
-  const mkeys = ['size_score','liquidity_score','momentum_score','value_score','quality_score'];
-  const mlabels = ['Size','Liquidez','Momentum','Valor','Calidad'];
+  const mkeys = ['transition_score','quality_score','margin_score'];
+  const mlabels = ['Transition','Quality','Margin'];
   TABLES['screening'] = {
     rows,
     cols: [
