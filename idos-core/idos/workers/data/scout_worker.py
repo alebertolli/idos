@@ -188,13 +188,13 @@ class ScoutWorker(BaseWorker):
 
         metrics = {
             "market_cap": _num(financial_data.get("market_cap")),
-            "avg_volume": _num(financial_data.get("volume_avg")) or _num(financial_data.get("avg_volume")),
+            "avg_dollar_volume": _num(financial_data.get("avg_dollar_volume")) or _num(financial_data.get("volume_avg")) or _num(financial_data.get("avg_volume")),
             "pe_ratio": _num(financial_data.get("pe_ratio_ttm")) or _num(financial_data.get("pe_ratio")),
             "ev_ebitda": _num(financial_data.get("ev_ebitda")),
             "roic": _num(financial_data.get("roic_pct")),
-            "operating_margin": _num(financial_data.get("operating_margin_pct")),
-            "debt_to_equity": _num(financial_data.get("debt_equity_ratio")),
-            "revenue_growth": _num(financial_data.get("revenue_growth_pct")),
+            "relative_strength_3m": _num(financial_data.get("relative_strength_3m")),
+            "relative_strength_12m": _num(financial_data.get("relative_strength_12m")),
+            "price_volume_trend": _num(financial_data.get("price_volume_trend")),
         }
         data = {"metrics": metrics}
         return self.scout_engine.scan(ticker=ticker, data=data)
