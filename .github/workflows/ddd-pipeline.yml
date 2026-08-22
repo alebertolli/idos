@@ -128,7 +128,7 @@ if not opportunities:
                       seq = len(existing_opps) + 1
                       new_opp_id = f'OPP-{datetime.now(AR_TZ).strftime("%Y%m%d")}-{seq:03d}'
                       now = datetime.now(AR_TZ).isoformat()
-                      new_opp_text = json.dumps({'id': new_opp_id, 'ticker': t, 'status': 'DISCOVERED', 'conviction': str({'overall': 0}), 'created_at': now, 'updated_at': now})
+                      new_opp_text = json.dumps({'id': new_opp_id, 'ticker': t, 'status': 'DISCOVERED', 'conviction': {'overall': 0}, 'created_at': now, 'updated_at': now})
                       jr = JournalRepository(journal)
                       jr.save_opportunity(t, new_opp_text)
                       SQLiteStore('idos.db').save_opportunity(new_opp_text)
