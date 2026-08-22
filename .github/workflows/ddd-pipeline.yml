@@ -68,78 +68,13 @@ jobs:
           echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE event=$EVENT_TYPE"
 
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
-        run: |
-          python -c "
-          import sys, os, yaml, json
-          from pathlib import Path
-          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+        run: python scripts/ddd_research.py
 
-          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
-          journal = Path('idos-journal')
-          ticker_filter = os.environ.get('TICKER', '')
-          force = os.environ.get('FORCE', 'false').lower() == 'true'
-          event_type = os.environ.get('EVENT_TYPE', 'monthly')
-
-          if force and not ticker_filter:
-              print('[DDD] Force mode requires a ticker, falling back to DISCOVERED only')
-              force = False
-          tickers = [t.strip().upper() for t in ticker_filter.split(',') if t.strip()] if ticker_filter else []
-
-          opportunities = []
-          companies_dir = journal / 'companies'
-          if companies_dir.exists():
-              for d in sorted(companies_dir.iterdir()):
-                  if not d.is_dir():
-                      continue
-                  ticker = d.name
-                  if tickers and ticker.upper() not in tickers:
-                      continue
-                  opp_dir = d / 'case_file' / 'opportunities'
-                  if not opp_dir.exists():
-                      continue
-                  for opp in sorted(opp_dir.iterdir()):
-                      if not opp.is_dir():
-                          continue
-                      yf = opp / 'opportunity.yml'
-                      if not yf.exists():
-                          continue
-                      try:
-                          data = yaml.safe_load(yf.read_text(encoding='utf-8'))
-                          if data:
-                              if force or data.get('status') in ('DISCOVERED', 'WATCHLIST'):
-                                  opportunities.append({
-                                      'opp_id': data['id'],
-                                      'ticker': data['ticker'].upper(),
-                                      'score': data.get('conviction', {}).get('overall', 0),
-                                      'current_status': data.get('status', 'UNKNOWN'),
-                                  })
-                      except Exception as e:
-                          print(f'[DDD] Error reading {yf}: {e}')
-
-              if not opportunities:
-                          if force and tickers:
-                              for t in tickers:
-                                  print(f'[DDD] Force mode for {t} but no opportunity found, creating one on the fly')
-                                  from idos.data.sqlite import SQLiteStore
-                                  from idos.data.journal import JournalRepository
-                                  from datetime import datetime
-                                  from idos.timezone import AR_TZ
-                                  existing_opps = SQLiteStore('idos.db').list_opportunities()
-                                  seq = len(existing_opps) + 1
-                                  new_opp_id = f'OPP-{datetime.now(AR_TZ).strftime("%Y%m%d")}-{seq:03d}'
-                                  now = datetime.now(AR_TZ).isoformat()
-                                  new_opp_text = json.dumps({'id': new_opp_id, 'ticker': t, 'status': 'DISCOVERED', 'conviction': {'overall': 0}, 'created_at': now, 'updated_at': now})
-                                  jr = JournalRepository(journal)
-                                  jr.save_opportunity(t, new_opp_text)
-                                  SQLiteStore('idos.db').save_opportunity(new_opp_text)
-                                  opportunities.append({
-                                      'opp_id': new_opp_id,
-                                      'ticker': t,
-                                      'score': 0,
-                                      'current_status': 'DISCOVERED',
-                                  })
-                                  print(f'[DDD] Created new opportunity {new_opp_id} for {t}')
-                          else:
+if not opportunities:
+                              if force and tickers:
+                                  for t in tickers:
+                                      print(f'[DDD] Force mode for {t} but no opportunity found, creating one on the fly')
+                              else:
                               print('[DDD] No DISCOVERED opportunities to process')
                               Path('cache/ddd_results.json').write_text(json.dumps({'processed': [], 'assessments': [], 'errors': [], 'status': 'none', 'event_type': event_type, 'force': force}), encoding='utf-8')
                               exit(0)
