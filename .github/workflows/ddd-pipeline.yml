@@ -68,74 +68,74 @@ jobs:
           echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE event=$EVENT_TYPE"
 
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
-
-        run: python scripts/ddd_research.py
-                      print(f'[DDD] Found {len(opportunities)} {labels} opportunities')
-            
-                      from idos.workers.ai.research_worker import ResearchWorker
-                      from idos.data.sqlite import SQLiteStore
-                      from idos.models.enums import OpportunityStatus
-            
-                      processed = []
-                      errors = []
-            
-                      for opp in opportunities:
-                          ticker = opp['ticker']
-                          opp_id = opp['opp_id']
-                          cur_status = opp['current_status']
-                          print(f'\n[STEP 2] {\"FORCE\" if force else \"NORMAL\"} {ticker} ({opp_id}) status={cur_status}...')
-            
-                          try:
-                              db = SQLiteStore('idos.db')
-                              existing = db.get_opportunity(opp_id)
-                              if not existing:
-                                  db.save_opportunity({
-                                      'id': opp_id,
-                                      'ticker': ticker,
-                                      'status': OpportunityStatus.DISCOVERED,
-                                      'conviction': {'overall': opp['score']},
-                                  })
-            
-                              from idos.ai.service import LLMService
-                              _mp = Path('idos-config/models.yml')
-                              _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
-                              worker = ResearchWorker({
-                                  'llm_service': _llm_svc,
-                                  'prompts_path': 'idos-config/prompts',
-                              })
-                              ctx = {
-                                  'ticker': ticker,
-                                  'opp_id': opp_id,
-                                  'base_path': os.environ.get('GITHUB_WORKSPACE', '.'),
-                              }
-                              if force:
-                                  ctx['force_reprocess'] = True
-                                  ctx['event_type'] = event_type
-                              r = worker.execute(ctx)
-                              if r.status == 'success':
-                                  output = r.output
-                                  status = output.get('status', 'completed')
-                                  print(f'[STEP 2] {ticker}: {status}')
-                                  processed.append({
-                                      'ticker': ticker, 'opp_id': opp_id,
-                                      'status': status, 'score': output.get('score', 0),
-                                      'classification': output.get('classification', ''),
-                                      'force': force,
-                                      'event_type': event_type,
-                                  })
-                              else:
-                                  print(f'[STEP 2] {ticker}: FAILED - {r.error}')
-                                  errors.append({'ticker': ticker, 'error': r.error})
-            
-                          except Exception as e:
-                              print(f'[STEP 2] {ticker}: ERROR - {e}')
-                              errors.append({'ticker': ticker, 'error': str(e)})
-            
-                      results = {'processed': processed, 'assessments': [], 'errors': errors, 'total': len(opportunities), 'done': len(processed), 'event_type': event_type, 'force': force}
-                      Path('cache').mkdir(parents=True, exist_ok=True)
-                      Path('cache/ddd_results.json').write_text(json.dumps(results, indent=2), encoding='utf-8')
-                      print(f'\n[STEP 2] Done: {len(processed)} processed, {len(errors)} errors')
-                      "
+        run: |
+              python scripts/ddd_research.py
+              print(f'[DDD] Found {len(opportunities)} {labels} opportunities')
+    
+              from idos.workers.ai.research_worker import ResearchWorker
+              from idos.data.sqlite import SQLiteStore
+              from idos.models.enums import OpportunityStatus
+    
+              processed = []
+              errors = []
+    
+              for opp in opportunities:
+                  ticker = opp['ticker']
+                  opp_id = opp['opp_id']
+                  cur_status = opp['current_status']
+                  print(f'\n[STEP 2] {\"FORCE\" if force else \"NORMAL\"} {ticker} ({opp_id}) status={cur_status}...')
+    
+                  try:
+                      db = SQLiteStore('idos.db')
+                      existing = db.get_opportunity(opp_id)
+                      if not existing:
+                          db.save_opportunity({
+                              'id': opp_id,
+                              'ticker': ticker,
+                              'status': OpportunityStatus.DISCOVERED,
+                              'conviction': {'overall': opp['score']},
+                          })
+    
+                      from idos.ai.service import LLMService
+                      _mp = Path('idos-config/models.yml')
+                      _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
+                      worker = ResearchWorker({
+                          'llm_service': _llm_svc,
+                          'prompts_path': 'idos-config/prompts',
+                      })
+                      ctx = {
+                          'ticker': ticker,
+                          'opp_id': opp_id,
+                          'base_path': os.environ.get('GITHUB_WORKSPACE', '.'),
+                      }
+                      if force:
+                          ctx['force_reprocess'] = True
+                          ctx['event_type'] = event_type
+                      r = worker.execute(ctx)
+                      if r.status == 'success':
+                          output = r.output
+                          status = output.get('status', 'completed')
+                          print(f'[STEP 2] {ticker}: {status}')
+                          processed.append({
+                              'ticker': ticker, 'opp_id': opp_id,
+                              'status': status, 'score': output.get('score', 0),
+                              'classification': output.get('classification', ''),
+                              'force': force,
+                              'event_type': event_type,
+                          })
+                      else:
+                          print(f'[STEP 2] {ticker}: FAILED - {r.error}')
+                          errors.append({'ticker': ticker, 'error': r.error})
+    
+                  except Exception as e:
+                      print(f'[STEP 2] {ticker}: ERROR - {e}')
+                      errors.append({'ticker': ticker, 'error': str(e)})
+    
+              results = {'processed': processed, 'assessments': [], 'errors': errors, 'total': len(opportunities), 'done': len(processed), 'event_type': event_type, 'force': force}
+              Path('cache').mkdir(parents=True, exist_ok=True)
+              Path('cache/ddd_results.json').write_text(json.dumps(results, indent=2), encoding='utf-8')
+              print(f'\n[STEP 2] Done: {len(processed)} processed, {len(errors)} errors')
+              "
 
       - name: STEP 3-7 - Assessment Engines + Conviction + Rules + Board + Entry
         run: |
