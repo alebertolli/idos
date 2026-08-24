@@ -2,6 +2,7 @@
 """DDD Research Worker - Creates opportunities on the fly for DDD pipeline."""
 
 import json
+import os
 import sys
 from datetime import datetime
 from pathlib import Path
