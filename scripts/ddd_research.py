@@ -53,12 +53,12 @@ def main():
                                 'current_status': data.get('status', 'UNKNOWN'),
                             })
                 except Exception as e:
-                    print(f'[DDD] Error reading {yf}: {e}')
+                    print('[DDD] Error reading {}: {}'.format(yf, e))
 
     if not opportunities:
         if force and tickers:
             for t in tickers:
-                print(f'[DDD] Force mode for {t} but no opportunity found, creating one on the fly')
+                print('[DDD] Force mode for {} but no opportunity found, creating one on the fly'.format(t))
                 from idos.data.sqlite import SQLiteStore
                 from idos.data.journal import JournalRepository
                 from datetime import datetime
@@ -66,7 +66,7 @@ def main():
 
                 existing_opps = SQLiteStore('idos.db').list_opportunities()
                 seq = len(existing_opps) + 1
-                new_opp_id = f'OPP-{datetime.now(AR_TZ).strftime("%Y%m%d")}-{seq:03d}'
+                new_opp_id = 'OPP-{}-{:03d}'.format(datetime.now(AR_TZ).strftime("%Y%m%d"), seq)
                 now = datetime.now(AR_TZ).isoformat()
                 new_opp_text = json.dumps({
                     'id': new_opp_id,
@@ -85,7 +85,7 @@ def main():
                     'score': 0,
                     'current_status': 'DISCOVERED',
                 })
-                print(f'[DDD] Created new opportunity {new_opp_id} for {t}')
+                print('[DDD] Created new opportunity {} for {}'.format(new_opp_id, t))
         else:
             print('[DDD] No DISCOVERED opportunities to process')
             Path('cache/ddd_results.json').write_text(json.dumps({
@@ -95,7 +95,7 @@ def main():
             sys.exit(0)
 
     labels = 'FORCE' if force else 'DISCOVERED'
-    print(f'[DDD] Found {len(opportunities)} {labels} opportunities')
+    print('[DDD] Found {} {}'.format(len(opportunities), labels))
 
     from idos.workers.ai.research_worker import ResearchWorker
     from idos.data.sqlite import SQLiteStore
@@ -108,20 +108,20 @@ def main():
         ticker = opp['ticker']
         opp_id = opp['opp_id']
         cur_status = opp['current_status']
-        print(f'\n[STEP 2] {"FORCE" if force else "NORMAL"} {ticker} ({opp_id}) status={cur_status}...')
+        print('\n[STEP 2] {} {} {} status={}...'.format("FORCE" if force else "NORMAL", ticker, opp_id, cur_status))
 
         try:
             db = SQLiteStore('idos.db')
             # ... rest of processing
             # This is where the research worker would process each opportunity
-            print(f'[STEP 2] Processing {ticker}...')
+            print('[STEP 2] Processing {}...'.format(ticker))
 
         except Exception as e:
-            print(f'[DDD] Error processing {ticker}: {e}')
+            print('[DDD] Error processing {}: {}'.format(ticker, e))
             errors.append(ticker)
 
     # Summary
-    print(f'\n[STEP 2] Processed {len(processed)} opportunities, errors in {len(errors)}')
+    print('\n[STEP 2] Processed {} opportunities, errors in {}'.format(len(processed), len(errors)))
 
 
 if __name__ == '__main__':
