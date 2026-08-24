@@ -59,7 +59,7 @@ def main():
             ticker = p.get('ticker', '?')
             opp_id = p.get('opp_id', '?')
             lines.append('- {} **{}** ({}): score={}, class={}'.format(
-                status, ticker, opp_id, p.get('score', '?'), p.get('classification', '?'))))
+                status, ticker, opp_id, p.get('score', '?'), p.get('classification', '?')))
         lines.append('')
 
     if assessments and isinstance(assessments, list):
@@ -109,7 +109,8 @@ def main():
 
     digest = '\n'.join(lines)
     Path('cache').mkdir(parents=True, exist_ok=True)
-    open(digest_file, 'w', encoding='utf-8').write(digest, encoding='utf-8')
+    with open(digest_file, 'w', encoding='utf-8') as f:
+        f.write(digest)
 
     print('[DIGEST] Generated: {} lines'.format(len(lines)))
 
