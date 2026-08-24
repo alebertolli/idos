@@ -5,10 +5,10 @@ assessments:
     engine: BusinessAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Strong ROIC: 19.29%'
+    - detail: 'Strong ROIC: 19.18%'
       type: POSITIVE
-    generated_at: '2026-07-27T02:36:45.234658-03:00'
-    id: BusinessAssessmentEngine-20260727023645
+    generated_at: '2026-08-24T00:47:45.063920-03:00'
+    id: BusinessAssessmentEngine-20260824004745
     recommendation: NEUTRAL
     risks: []
     score: 59
@@ -26,8 +26,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-07-27T02:36:45.234724-03:00'
-    id: PortfolioAssessmentEngine-20260727023645
+    generated_at: '2026-08-24T00:47:45.064005-03:00'
+    id: PortfolioAssessmentEngine-20260824004745
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -49,7 +49,7 @@ assessments:
       type: DIMENSION
     - dimension: market_expectations
       level: MEDIUM
-      score: 60
+      score: 50
       type: DIMENSION
     - dimension: catalysts
       level: MEDIUM
@@ -61,13 +61,13 @@ assessments:
       type: DIMENSION
     - dimension: risk_compression
       level: MEDIUM
-      score: 60
+      score: 50
       type: DIMENSION
-    generated_at: '2026-07-27T02:36:45.234705-03:00'
-    id: RecoveryAssessmentEngine-20260727023645
+    generated_at: '2026-08-24T00:47:45.063982-03:00'
+    id: RecoveryAssessmentEngine-20260824004745
     recommendation: MODERATE
     risks: []
-    score: 61
+    score: 58
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -76,11 +76,13 @@ assessments:
     engine: RiskAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-07-27T02:36:45.234715-03:00'
-    id: RiskAssessmentEngine-20260727023645
-    recommendation: LOW_RISK
-    risks: []
-    score: 70
+    generated_at: '2026-08-24T00:47:45.063993-03:00'
+    id: RiskAssessmentEngine-20260824004745
+    recommendation: MODERATE_RISK
+    risks:
+    - detail: 'Current ratio below 1: 0.8x'
+      type: LIQUIDITY
+    score: 60
     status: COMPLETED
     version: '1.0'
   ValuationAssessmentEngine:
@@ -89,27 +91,27 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Price target upside: 57.9%'
+    - detail: 'Price target upside: 29.2%'
       type: POSITIVE
-    - detail: 'FCF Yield: 7.3%'
+    - detail: 'FCF Yield: 6.3%'
       type: POSITIVE
-    generated_at: '2026-07-27T02:36:45.234679-03:00'
-    id: ValuationAssessmentEngine-20260727023645
+    generated_at: '2026-08-24T00:47:45.063944-03:00'
+    id: ValuationAssessmentEngine-20260824004745
     recommendation: ATTRACTIVE
     risks: []
-    score: 80
+    score: 75
     status: COMPLETED
     version: '1.1'
-conviction_score: 69
-created_at: '2026-07-27T02:36:45.234793-03:00'
+conviction_score: 66
+created_at: '2026-08-24T00:47:45.064104-03:00'
 opportunity_id: OPP-20260725-024
-reasoning: 'Rules blocked: RULE-001'
+reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
-rules_passed:
 - RULE-003
 - RULE-004
+rules_passed:
 - RULE-005
 - RULE-008
 type: opportunity:transitioned
