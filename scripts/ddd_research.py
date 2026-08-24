@@ -121,7 +121,23 @@ def main():
             errors.append(ticker)
 
     # Summary
-    print('\n[STEP 2] Processed {} opportunities, errors in {}'.format(len(processed), len(errors)))
+    # Write results file
+    results = {
+        'processed': [
+            {'opp_id': opp['opp_id'], 'ticker': opp['ticker'], 'score': opp.get('score', 0), 'current_status': opp.get('current_status', 'UNKNOWN')}
+            for opp in opportunities
+        ],
+        'assessments': [],
+        'errors': errors,
+        'status': 'none',
+        'event_type': event_type,
+        'force': force
+    }
+    Path('cache').mkdir(parents=True, exist_ok=True)
+    with open('cache/ddd_results.json', 'w', encoding='utf-8') as f:
+        f.write(json.dumps(results, indent=2))
+
+    print('\n[STEP 2] Processed {} opportunities, errors in {}'.format(len(results['processed']), len(errors)))
 
 
 if __name__ == '__main__':

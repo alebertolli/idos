@@ -42,7 +42,8 @@ def main():
         # Write empty results
         results['assessments'] = []
         Path('cache').mkdir(parents=True, exist_ok=True)
-        open(results_file, 'w', encoding='utf-8').write(json.dumps(results, indent=2), encoding='utf-8')
+        with open(results_file, 'w', encoding='utf-8') as f:
+            f.write(json.dumps(results, indent=2))
         sys.exit(0)
 
     # Import assessment pipeline
@@ -104,7 +105,8 @@ def main():
 
     # Save results
     Path('cache').mkdir(parents=True, exist_ok=True)
-    open(results_file, 'w', encoding='utf-8').write(json.dumps(results, indent=2), encoding='utf-8')
+    with open(results_file, 'w', encoding='utf-8') as f:
+        f.write(json.dumps(results, indent=2))
 
     print('\n[ASSESSMENT] Done: {} assessed, {} errors'.format(
         len(assessments), len(errors_list)))
