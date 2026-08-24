@@ -67,10 +67,8 @@ jobs:
           fi
           echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE event=$EVENT_TYPE"
 
-      - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
-        run: |
-              python scripts/ddd_research.py
-              print(f'[DDD] Found {len(opportunities)} {labels} opportunities')
+- name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
+        run: python scripts/ddd_research.py
     
               from idos.workers.ai.research_worker import ResearchWorker
               from idos.data.sqlite import SQLiteStore
