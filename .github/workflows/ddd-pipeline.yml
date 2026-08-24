@@ -70,22 +70,11 @@ jobs:
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
         run: python scripts/ddd_research.py
 
-      - name: STEP 3-7 - Assessment Engines + Conviction + Rules + Board + Entry
-        run: python scripts/ddd_assessment.py
-
-      - name: STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)
-        run: python scripts/ddd_monthly.py
-
-      - name: Generate Combined Digest
-        run: python scripts/ddd_digest.py
-
       - name: Commit results
         run: |
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add cache/ddd_results.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
-          git add idos-journal/ 2>/dev/null || true
-          git add idos-knowledge/ 2>/dev/null || true
+          git add cache/ddd_results.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
@@ -108,4 +97,3 @@ jobs:
           name: ddd-results-${{ github.run_id }}
           path: |
             cache/ddd_results.json
-            cache/weekly_digest.md
