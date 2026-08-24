@@ -72,26 +72,29 @@ def main():
     }
 
     Path('cache').mkdir(parents=True, exist_ok=True)
-    open(results_file, 'w', encoding='utf-8').write(json.dumps(monthly_data, indent=2), encoding='utf-8')
+    with open(results_file, 'w', encoding='utf-8') as f:
+        f.write(json.dumps(monthly_data, indent=2))
 
     print('[MONTHLY] Results saved to cache/monthly_reassessment.json')
 
-    # Generate weekly digest if end of month
-    from datetime import date
-    import calendar
-    today = date.today()
-    last_day = calendar.monthrange(today.year, today.month)[1]
-    days_left = last_day - today.day
+# Generate weekly digest if end of month
+from datetime import date
+import calendar
+today = date.today()
+last_day = calendar.monthrange(today.year, today.month)[1]
+days_left = last_day - today.day
 
-    if days_left <= 2:
-        print('[MONTHLY] Fin de mes detectado - generando digest semanal')
-        # Generate digest
-        from idos.decision.assessment_pipeline import build_digest
-        try:
-            build_digest(workspace)
-            print('[MONTHLY] Weekly digest generated')
-        except Exception as e:
-            print('[MONTHLY] Digest generation error: {}'.format(e))
+if days_left <= 2:
+    print('[MONTHLY] Fin de mes detectado - generando digest semanal')
+    # Generate digest
+    from idos.decision.assessment_pipeline import build_digest
+    try:
+        # Read total and errors from ddd results
+        ddd_data = json.loads(open('cache/ddd_results.json', encoding='utf-8').read()) if Path('cache/ddd_results.json').exists() else {'total': 0, 'errors': []}
+        build_digest(workspace, ddd_data.get('total', 0), ddd_data.get('errors', []))
+        print('[MONTHLY] Weekly digest generated')
+    except Exception as e:
+        print('[MONTHLY] Digest generation error: {}'.format(e))
     else:
         print('[MONTHLY] No es fin de mes ({}/{}), saliendo'.format(today.day, last_day))
 
