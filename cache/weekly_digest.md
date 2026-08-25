@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-08-24 05:46 AR _
+_Generado: 2026-08-25 05:40 AR _
 
 ## Resumen
 
@@ -67,9 +67,9 @@ _Generado: 2026-08-24 05:46 AR _
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 - ⚠️ **NTES**
   - Opp: [OPP-20260813-027]
-  - Conviction: 71/100 | Rec: BLOCKED
+  - Conviction: 72/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 68 | Valuation: 75 | Recovery: 55 | Risk: 80 | Portfolio: 90
+  - Scores: Business: 68 | Valuation: 80 | Recovery: 55 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
