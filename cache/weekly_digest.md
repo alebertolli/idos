@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-08-25 05:40 AR _
+_Generado: 2026-08-26 05:41 AR _
 
 ## Resumen
 
@@ -16,7 +16,7 @@ _Generado: 2026-08-25 05:40 AR _
 - ⚠️ **AEG** (OPP-20260813-082): score=52, class=?
 - ⚠️ **BABA** (OPP-20260813-096): score=56, class=?
 - ⚠️ **DE** (OPP-20260813-132): score=60, class=?
-- ⚠️ **NTES** (OPP-20260813-027): score=71, class=?
+- ⚠️ **NTES** (OPP-20260813-027): score=72, class=?
 - ⚠️ **ROST** (OPP-20260813-108): score=61, class=?
 
 ### STEP 3-7 - Assessment Pipeline
@@ -67,9 +67,9 @@ _Generado: 2026-08-25 05:40 AR _
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 - ⚠️ **NTES**
   - Opp: [OPP-20260813-027]
-  - Conviction: 72/100 | Rec: BLOCKED
+  - Conviction: 71/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 68 | Valuation: 80 | Recovery: 55 | Risk: 80 | Portfolio: 90
+  - Scores: Business: 68 | Valuation: 75 | Recovery: 55 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
