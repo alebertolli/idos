@@ -1,188 +1,105 @@
 {
   "processed": [
     {
-      "opp_id": "OPP-20260813-166",
-      "ticker": "AAP",
-      "score": 57,
+      "opp_id": "OPP-20260725-002",
+      "ticker": "GFI",
+      "score": 73,
+      "current_status": "APPROVED"
+    },
+    {
+      "opp_id": "OPP-20260813-168",
+      "ticker": "JOYY",
+      "score": 55,
       "current_status": "WATCHLIST"
     },
     {
-      "opp_id": "OPP-20260813-082",
-      "ticker": "AEG",
-      "score": 52,
-      "current_status": "WATCHLIST"
-    },
-    {
-      "opp_id": "OPP-20260813-096",
-      "ticker": "BABA",
-      "score": 56,
-      "current_status": "WATCHLIST"
-    },
-    {
-      "opp_id": "OPP-20260813-132",
-      "ticker": "DE",
-      "score": 60,
-      "current_status": "WATCHLIST"
-    },
-    {
-      "opp_id": "OPP-20260813-027",
-      "ticker": "NTES",
-      "score": 72,
-      "current_status": "WATCHLIST"
-    },
-    {
-      "opp_id": "OPP-20260813-108",
-      "ticker": "ROST",
-      "score": 61,
+      "opp_id": "OPP-20260813-028",
+      "ticker": "ZM",
+      "score": 67,
       "current_status": "WATCHLIST"
     }
   ],
   "assessments": [
     {
-      "ticker": "AAP",
-      "opp_id": "OPP-20260813-166",
-      "status": "completed",
-      "conviction_score": 57,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": "HOLD",
-      "decision_id": "DEC-20260826054109",
-      "assessments": {
-        "BusinessAssessmentEngine": 42,
-        "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 47,
-        "RiskAssessmentEngine": 80,
-        "PortfolioAssessmentEngine": 90
-      },
-      "rules_passed": [],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-003",
-        "RULE-004",
-        "RULE-005",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 0/70",
-        "RULE-003": "Rerating: 0/50",
-        "RULE-004": "Risk: 0/50",
-        "RULE-005": "Conviction: 57/65",
-        "RULE-008": "No hay datos de DDD para calcular asimetria"
-      },
-      "data_quality": "good"
-    },
-    {
-      "ticker": "AEG",
-      "opp_id": "OPP-20260813-082",
-      "status": "completed",
-      "conviction_score": 52,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": "HOLD",
-      "decision_id": "DEC-20260826054109",
-      "assessments": {
-        "BusinessAssessmentEngine": 32,
-        "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 45,
-        "RiskAssessmentEngine": 70,
-        "PortfolioAssessmentEngine": 90
-      },
-      "rules_passed": [],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-003",
-        "RULE-004",
-        "RULE-005",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 0/70",
-        "RULE-003": "Rerating: 0/50",
-        "RULE-004": "Risk: 0/50",
-        "RULE-005": "Conviction: 52/65",
-        "RULE-008": "No hay datos de DDD para calcular asimetria"
-      },
-      "data_quality": "good"
-    },
-    {
-      "ticker": "BABA",
-      "opp_id": "OPP-20260813-096",
-      "status": "completed",
-      "conviction_score": 56,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": "HOLD",
-      "decision_id": "DEC-20260826054109",
-      "assessments": {
-        "BusinessAssessmentEngine": 36,
-        "ValuationAssessmentEngine": 60,
-        "RecoveryAssessmentEngine": 47,
-        "RiskAssessmentEngine": 80,
-        "PortfolioAssessmentEngine": 90
-      },
-      "rules_passed": [],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-003",
-        "RULE-004",
-        "RULE-005",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 0/70",
-        "RULE-003": "Rerating: 0/50",
-        "RULE-004": "Risk: 0/50",
-        "RULE-005": "Conviction: 56/65",
-        "RULE-008": "No hay datos de DDD para calcular asimetria"
-      },
-      "data_quality": "good"
-    },
-    {
-      "ticker": "DE",
-      "opp_id": "OPP-20260813-132",
-      "status": "completed",
-      "conviction_score": 60,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": "HOLD",
-      "decision_id": "DEC-20260826054109",
-      "assessments": {
-        "BusinessAssessmentEngine": 50,
-        "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 49,
-        "RiskAssessmentEngine": 80,
-        "PortfolioAssessmentEngine": 90
-      },
-      "rules_passed": [],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-003",
-        "RULE-004",
-        "RULE-005",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 0/70",
-        "RULE-003": "Rerating: 0/50",
-        "RULE-004": "Risk: 0/50",
-        "RULE-005": "Conviction: 60/65",
-        "RULE-008": "No hay datos de DDD para calcular asimetria"
-      },
-      "data_quality": "good"
-    },
-    {
-      "ticker": "NTES",
-      "opp_id": "OPP-20260813-027",
+      "ticker": "GFI",
+      "opp_id": "OPP-20260725-002",
       "status": "completed",
       "conviction_score": 71,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20260826054110",
+      "decision_id": "DEC-20260827155106",
       "assessments": {
-        "BusinessAssessmentEngine": 68,
-        "ValuationAssessmentEngine": 75,
-        "RecoveryAssessmentEngine": 55,
+        "BusinessAssessmentEngine": 72,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 60,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 90
+      },
+      "rules_passed": [
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-003",
+        "RULE-004"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 0/70",
+        "RULE-003": "Rerating: 0/50",
+        "RULE-004": "Risk: 0/50",
+        "RULE-005": "Conviction: 71/65",
+        "RULE-008": "B/R inf:1 \u2705 (upside 10.7% / downside 0.0%)"
+      },
+      "data_quality": "good"
+    },
+    {
+      "ticker": "JOYY",
+      "opp_id": "OPP-20260813-168",
+      "status": "completed",
+      "conviction_score": 55,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": "HOLD",
+      "decision_id": "DEC-20260827155106",
+      "assessments": {
+        "BusinessAssessmentEngine": 36,
+        "ValuationAssessmentEngine": 55,
+        "RecoveryAssessmentEngine": 47,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 90
+      },
+      "rules_passed": [],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-003",
+        "RULE-004",
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 0/70",
+        "RULE-003": "Rerating: 0/50",
+        "RULE-004": "Risk: 0/50",
+        "RULE-005": "Conviction: 55/65",
+        "RULE-008": "No hay datos de DDD para calcular asimetria"
+      },
+      "data_quality": "good"
+    },
+    {
+      "ticker": "ZM",
+      "opp_id": "OPP-20260813-028",
+      "status": "completed",
+      "conviction_score": 67,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": "HOLD",
+      "decision_id": "DEC-20260827155106",
+      "assessments": {
+        "BusinessAssessmentEngine": 64,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 54,
         "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 90
       },
@@ -199,40 +116,7 @@
         "RULE-001": "Business quality: 0/70",
         "RULE-003": "Rerating: 0/50",
         "RULE-004": "Risk: 0/50",
-        "RULE-005": "Conviction: 71/65",
-        "RULE-008": "No hay datos de DDD para calcular asimetria"
-      },
-      "data_quality": "good"
-    },
-    {
-      "ticker": "ROST",
-      "opp_id": "OPP-20260813-108",
-      "status": "completed",
-      "conviction_score": 61,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": "HOLD",
-      "decision_id": "DEC-20260826054110",
-      "assessments": {
-        "BusinessAssessmentEngine": 60,
-        "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 50,
-        "RiskAssessmentEngine": 70,
-        "PortfolioAssessmentEngine": 90
-      },
-      "rules_passed": [],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-003",
-        "RULE-004",
-        "RULE-005",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 0/70",
-        "RULE-003": "Rerating: 0/50",
-        "RULE-004": "Risk: 0/50",
-        "RULE-005": "Conviction: 61/65",
+        "RULE-005": "Conviction: 67/65",
         "RULE-008": "No hay datos de DDD para calcular asimetria"
       },
       "data_quality": "good"
