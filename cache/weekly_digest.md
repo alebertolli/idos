@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-08-27 15:51 AR _
+_Generado: 2026-08-28 16:54 AR _
 
 ## Resumen
 
@@ -12,41 +12,44 @@ _Generado: 2026-08-27 15:51 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ⚠️ **GFI** (OPP-20260725-002): score=73, class=?
-- ⚠️ **JOYY** (OPP-20260813-168): score=55, class=?
-- ⚠️ **ZM** (OPP-20260813-028): score=67, class=?
+- ⚠️ **CRM** (OPP-20260813-068): score=63, class=?
+- ⚠️ **HPQ** (OPP-20260813-010): score=62, class=?
+- ⚠️ **URBN** (OPP-20260813-076): score=58, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **GFI**
-  - Opp: [OPP-20260725-002]
-  - Conviction: 71/100 | Rec: BLOCKED
+- ⚠️ **CRM**
+  - Opp: [OPP-20260813-068]
+  - Conviction: 61/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 72 | Valuation: 65 | Recovery: 60 | Risk: 80 | Portfolio: 90
+  - Scores: Business: 58 | Valuation: 55 | Recovery: 51 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
-- ⚠️ **JOYY**
-  - Opp: [OPP-20260813-168]
-  - Conviction: 55/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 36 | Valuation: 55 | Recovery: 47 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 55/65
+    - 🚫 RULE-005: Conviction: 61/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **ZM**
-  - Opp: [OPP-20260813-028]
-  - Conviction: 67/100 | Rec: BLOCKED
+- ⚠️ **HPQ**
+  - Opp: [OPP-20260813-010]
+  - Conviction: 62/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 64 | Valuation: 65 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Scores: Business: 60 | Valuation: 55 | Recovery: 54 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 62/65
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **URBN**
+  - Opp: [OPP-20260813-076]
+  - Conviction: 58/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 50 | Valuation: 55 | Recovery: 50 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 58/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
