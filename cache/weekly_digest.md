@@ -1,233 +1,43 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-08-31 11:16 AR _
+_Generado: 2026-08-31 12:52 AR _
 
 ## Resumen
 
-- 🟢 **Oportunidades procesadas:** 0
-- ✅ **Assessment completados:** 0
+- 🟢 **Oportunidades procesadas:** 2
+- ✅ **Assessment completados:** 2
 - 🔖 **Approved:** 0
-- 🔴 **Errores:** 216
+- 🔴 **Errores:** 0
 - 📊 **Total encontradas:** 0
 
-### Errores
+### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ❌ **AAL**: Opportunity OPP-20260813-163 not found
-- ❌ **AAP**: Opportunity OPP-20260813-166 not found
-- ❌ **AAPL**: Opportunity OPP-20260813-073 not found
-- ❌ **ABBV**: Opportunity OPP-20260813-046 not found
-- ❌ **ABEV**: Opportunity OPP-20260813-002 not found
-- ❌ **ABT**: Opportunity OPP-20260813-120 not found
-- ❌ **ACN**: Opportunity OPP-20260813-001 not found
-- ❌ **ADBE**: Opportunity OPP-20260725-012 not found
-- ❌ **ADI**: Opportunity OPP-20260813-086 not found
-- ❌ **ADP**: Opportunity OPP-20260813-039 not found
-- ❌ **AEG**: Opportunity OPP-20260813-082 not found
-- ❌ **AEM**: Opportunity OPP-20260725-007 not found
-- ❌ **AIG**: Opportunity OPP-20260813-006 not found
-- ❌ **AMAT**: Opportunity OPP-20260813-061 not found
-- ❌ **AMX**: Opportunity OPP-20260813-014 not found
-- ❌ **AMZN**: Opportunity OPP-20260730-001 not found
-- ❌ **ANF**: Opportunity OPP-20260725-019 not found
-- ❌ **ASTS**: Opportunity OPP-20260807-028 not found
-- ❌ **AVY**: Opportunity OPP-20260813-101 not found
-- ❌ **AZN**: Opportunity OPP-20260813-048 not found
-- ❌ **BA**: Opportunity OPP-20260728-001 not found
-- ❌ **BABA**: Opportunity OPP-20260813-096 not found
-- ❌ **BB**: Opportunity OPP-20260813-140 not found
-- ❌ **BBAR**: Opportunity OPP-20260813-165 not found
-- ❌ **BBD**: Opportunity OPP-20260813-071 not found
-- ❌ **BCS**: Opportunity OPP-20260725-033 not found
-- ❌ **BHP**: Opportunity OPP-20260813-016 not found
-- ❌ **BIDU**: Opportunity OPP-20260813-135 not found
-- ❌ **BIIB**: Opportunity OPP-20260813-075 not found
-- ❌ **BKNG**: Opportunity OPP-20260725-021 not found
-- ❌ **BKR**: Opportunity OPP-20260813-066 not found
-- ❌ **BMA**: Opportunity OPP-20260813-164 not found
-- ❌ **BMNR**: Opportunity OPP-20260807-014 not found
-- ❌ **BMY**: Opportunity OPP-20260813-032 not found
-- ❌ **BP**: Opportunity OPP-20260813-056 not found
-- ❌ **BSBR**: Opportunity OPP-20260813-058 not found
-- ❌ **BX**: Opportunity OPP-20260813-049 not found
-- ❌ **CAH**: Opportunity OPP-20260813-079 not found
-- ❌ **CAR**: Opportunity OPP-20260813-143 not found
-- ❌ **CAT**: Opportunity OPP-20260813-087 not found
-- ❌ **CCL**: Opportunity OPP-20260725-023 not found
-- ❌ **CDE**: Opportunity OPP-20260725-017 not found
-- ❌ **CL**: Opportunity OPP-20260813-112 not found
-- ❌ **COP**: Opportunity OPP-20260813-031 not found
-- ❌ **COST**: Opportunity OPP-20260813-104 not found
-- ❌ **CRM**: Opportunity OPP-20260813-068 not found
-- ❌ **CRWD**: Opportunity OPP-20260807-025 not found
-- ❌ **CVS**: Opportunity OPP-20260813-123 not found
-- ❌ **CVX**: Opportunity OPP-20260813-060 not found
-- ❌ **CX**: Opportunity OPP-20260813-122 not found
-- ❌ **DAL**: Opportunity OPP-20260813-044 not found
-- ❌ **DD**: Opportunity OPP-20260813-133 not found
-- ❌ **DE**: Opportunity OPP-20260813-132 not found
-- ❌ **DECK**: Opportunity OPP-20260725-009 not found
-- ❌ **DEO**: Opportunity OPP-20260813-078 not found
-- ❌ **DHR**: Opportunity OPP-20260813-111 not found
-- ❌ **DOCU**: Opportunity OPP-20260813-038 not found
-- ❌ **DOW**: Opportunity OPP-20260813-154 not found
-- ❌ **E**: Opportunity OPP-20260813-131 not found
-- ❌ **EBAY**: Opportunity OPP-20260813-050 not found
-- ❌ **ECL**: Opportunity OPP-20260813-103 not found
-- ❌ **EFX**: Opportunity OPP-20260813-102 not found
-- ❌ **EQNR**: Opportunity OPP-20260813-004 not found
-- ❌ **ERIC**: Opportunity OPP-20260813-008 not found
-- ❌ **ETSY**: Opportunity OPP-20260813-110 not found
-- ❌ **F**: Opportunity OPP-20260813-162 not found
-- ❌ **FCX**: Opportunity OPP-20260813-065 not found
-- ❌ **FDX**: Opportunity OPP-20260813-106 not found
-- ❌ **FISV**: Opportunity OPP-20260813-023 not found
-- ❌ **FSLR**: Opportunity OPP-20260725-006 not found
-- ❌ **GE**: Opportunity OPP-20260813-080 not found
-- ❌ **GGB**: Opportunity OPP-20260813-095 not found
-- ❌ **GILD**: Opportunity OPP-20260813-090 not found
-- ❌ **GLNG**: Opportunity OPP-20260807-023 not found
-- ❌ **GLW**: Opportunity OPP-20260813-124 not found
-- ❌ **GM**: Opportunity OPP-20260813-139 not found
-- ❌ **GS**: Opportunity OPP-20260807-016 not found
-- ❌ **GSK**: Opportunity OPP-20260813-047 not found
-- ❌ **HAL**: Opportunity OPP-20260813-064 not found
-- ❌ **HD**: Opportunity OPP-20260813-088 not found
-- ❌ **HIMS**: Opportunity OPP-20260807-038 not found
-- ❌ **HL**: Opportunity OPP-20260725-026 not found
-- ❌ **HMC**: Opportunity OPP-20260813-149 not found
-- ❌ **HOG**: Opportunity OPP-20260813-107 not found
-- ❌ **HON**: Opportunity OPP-20260813-018 not found
-- ❌ **HPQ**: Opportunity OPP-20260813-010 not found
-- ❌ **HSBC**: Opportunity OPP-20260804-001 not found
-- ❌ **HSY**: Opportunity OPP-20260813-036 not found
-- ❌ **HUT**: Opportunity OPP-20260807-031 not found
-- ❌ **IBM**: Opportunity OPP-20260813-091 not found
-- ❌ **IFF**: Opportunity OPP-20260813-134 not found
-- ❌ **INFY**: Opportunity OPP-20260813-069 not found
-- ❌ **INTC**: Opportunity OPP-20260813-128 not found
-- ❌ **IP**: Opportunity OPP-20260813-151 not found
-- ❌ **JCI**: Opportunity OPP-20260813-136 not found
-- ❌ **JD**: Opportunity OPP-20260813-142 not found
-- ❌ **JNJ**: Opportunity OPP-20260813-051 not found
-- ❌ **JOYY**: Opportunity OPP-20260813-168 not found
-- ❌ **KB**: Opportunity OPP-20260813-130 not found
-- ❌ **KEEL**: Opportunity OPP-20260807-034 not found
-- ❌ **KEP**: Opportunity OPP-20260813-015 not found
-- ❌ **KMB**: Opportunity OPP-20260813-040 not found
-- ❌ **KO**: Opportunity OPP-20260813-067 not found
-- ❌ **LLY**: Opportunity OPP-20260807-006 not found
-- ❌ **LMT**: Opportunity OPP-20260813-077 not found
-- ❌ **LVS**: Opportunity OPP-20260725-022 not found
-- ❌ **LYG**: Opportunity OPP-20260725-040 not found
-- ❌ **MCD**: Opportunity OPP-20260813-030 not found
-- ❌ **MDLZ**: Opportunity OPP-20260813-121 not found
-- ❌ **MDT**: Opportunity OPP-20260813-092 not found
-- ❌ **MFG**: Opportunity OPP-20260730-001 not found
-- ❌ **MMM**: Opportunity OPP-20260813-084 not found
-- ❌ **MO**: Opportunity OPP-20260813-009 not found
-- ❌ **MOS**: Opportunity OPP-20260813-160 not found
-- ❌ **MP**: Opportunity OPP-20260813-153 not found
-- ❌ **MRK**: Opportunity OPP-20260813-125 not found
-- ❌ **MRNA**: Opportunity OPP-20260813-119 not found
-- ❌ **MSI**: Opportunity OPP-20260813-146 not found
-- ❌ **MSTR**: Opportunity OPP-20260813-141 not found
-- ❌ **MU**: Opportunity OPP-20260813-026 not found
-- ❌ **MUFG**: Opportunity OPP-20260807-004 not found
-- ❌ **NBIS**: Opportunity OPP-20260813-159 not found
-- ❌ **NEE**: Opportunity OPP-20260813-093 not found
-- ❌ **NEM**: Opportunity OPP-20260725-010 not found
-- ❌ **NFLX**: Opportunity OPP-20260725-043 not found
-- ❌ **NG**: Opportunity OPP-20260813-152 not found
-- ❌ **NGG**: Opportunity OPP-20260813-145 not found
-- ❌ **NIO**: Opportunity OPP-20260807-029 not found
-- ❌ **NKE**: Opportunity OPP-20260813-072 not found
-- ❌ **NMR**: Opportunity OPP-20260730-001 not found
-- ❌ **NOW**: Opportunity OPP-20260807-021 not found
-- ❌ **NTES**: Opportunity OPP-20260813-027 not found
-- ❌ **NUE**: Opportunity OPP-20260813-074 not found
-- ❌ **NVS**: Opportunity OPP-20260813-041 not found
-- ❌ **NXE**: Opportunity OPP-20260813-150 not found
-- ❌ **O**: Opportunity OPP-20260807-001 not found
-- ❌ **OKLO**: Opportunity OPP-20260813-155 not found
-- ❌ **ONDS**: Opportunity OPP-20260807-036 not found
-- ❌ **ORLY**: Opportunity OPP-20260813-045 not found
-- ❌ **OXY**: Opportunity OPP-20260813-062 not found
-- ❌ **PAAS**: Opportunity OPP-20260725-001 not found
-- ❌ **PAGS**: Opportunity OPP-20260813-022 not found
-- ❌ **PAM**: Opportunity OPP-20260813-129 not found
-- ❌ **PANW**: Opportunity OPP-20260807-024 not found
-- ❌ **PATH**: Opportunity OPP-20260807-035 not found
-- ❌ **PBI**: Opportunity OPP-20260813-013 not found
-- ❌ **PBR**: Opportunity OPP-20260813-011 not found
-- ❌ **PCAR**: Opportunity OPP-20260813-109 not found
-- ❌ **PEP**: Opportunity OPP-20260813-053 not found
-- ❌ **PFE**: Opportunity OPP-20260813-127 not found
-- ❌ **PG**: Opportunity OPP-20260813-059 not found
-- ❌ **PHG**: Opportunity OPP-20260813-034 not found
-- ❌ **PM**: Opportunity OPP-20260813-029 not found
-- ❌ **PSO**: Opportunity OPP-20260813-147 not found
-- ❌ **PSX**: Opportunity OPP-20260813-042 not found
-- ❌ **PYPL**: Opportunity OPP-20260813-007 not found
-- ❌ **QCOM**: Opportunity OPP-20260813-063 not found
-- ❌ **RACE**: Opportunity OPP-20260730-001 not found
-- ❌ **RBLX**: Opportunity OPP-20260730-001 not found
-- ❌ **RGTI**: Opportunity OPP-20260813-157 not found
-- ❌ **RIO**: Opportunity OPP-20260813-005 not found
-- ❌ **RIOT**: Opportunity OPP-20260807-032 not found
-- ❌ **RKLB**: Opportunity OPP-20260807-020 not found
-- ❌ **ROST**: Opportunity OPP-20260813-108 not found
-- ❌ **RTX**: Opportunity OPP-20260813-138 not found
-- ❌ **SAN**: Opportunity OPP-20260725-034 not found
-- ❌ **SAP**: Opportunity OPP-20260725-013 not found
-- ❌ **SBS**: Opportunity OPP-20260725-014 not found
-- ❌ **SBUX**: Opportunity OPP-20260813-116 not found
-- ❌ **SCCO**: Opportunity OPP-20260725-027 not found
-- ❌ **SCHW**: Opportunity OPP-20260813-054 not found
-- ❌ **SHEL**: Opportunity OPP-20260813-021 not found
-- ❌ **SLB**: Opportunity OPP-20260813-094 not found
-- ❌ **SNA**: Opportunity OPP-20260813-099 not found
-- ❌ **SNAP**: Opportunity OPP-20260813-161 not found
-- ❌ **SNOW**: Opportunity OPP-20260807-026 not found
-- ❌ **SONY**: Opportunity OPP-20260813-020 not found
-- ❌ **SPGI**: Opportunity OPP-20260725-029 not found
-- ❌ **STLA**: Opportunity OPP-20260813-156 not found
-- ❌ **STNE**: Opportunity OPP-20260813-052 not found
-- ❌ **SUZ**: Opportunity OPP-20260813-055 not found
-- ❌ **SWKS**: Opportunity OPP-20260813-117 not found
-- ❌ **SYY**: Opportunity OPP-20260813-113 not found
-- ❌ **T**: Opportunity OPP-20260813-025 not found
-- ❌ **TEAM**: Opportunity OPP-20260807-033 not found
-- ❌ **TGT**: Opportunity OPP-20260813-118 not found
-- ❌ **TIMB**: Opportunity OPP-20260813-033 not found
-- ❌ **TJX**: Opportunity OPP-20260813-089 not found
-- ❌ **TM**: Opportunity OPP-20260813-144 not found
-- ❌ **TMO**: Opportunity OPP-20260813-105 not found
-- ❌ **TMUS**: Opportunity OPP-20260813-043 not found
-- ❌ **TS**: Opportunity OPP-20260813-003 not found
-- ❌ **TSLA**: Opportunity OPP-20260813-126 not found
-- ❌ **TTE**: Opportunity OPP-20260813-012 not found
-- ❌ **TWLO**: Opportunity OPP-20260813-137 not found
-- ❌ **TX**: Opportunity OPP-20260813-100 not found
-- ❌ **TXN**: Opportunity OPP-20260813-057 not found
-- ❌ **UAL**: Opportunity OPP-20260813-081 not found
-- ❌ **UGP**: Opportunity OPP-20260813-083 not found
-- ❌ **UL**: Opportunity OPP-20260813-017 not found
-- ❌ **UNP**: Opportunity OPP-20260813-037 not found
-- ❌ **UPST**: Opportunity OPP-20260813-167 not found
-- ❌ **URBN**: Opportunity OPP-20260813-076 not found
-- ❌ **VALE**: Opportunity OPP-20260813-070 not found
-- ❌ **VIV**: Opportunity OPP-20260813-019 not found
-- ❌ **VOD**: Opportunity OPP-20260813-115 not found
-- ❌ **VRSN**: Opportunity OPP-20260813-148 not found
-- ❌ **VST**: Opportunity OPP-20260813-085 not found
-- ❌ **VZ**: Opportunity OPP-20260813-024 not found
-- ❌ **WMT**: Opportunity OPP-20260813-158 not found
-- ❌ **XOM**: Opportunity OPP-20260813-097 not found
-- ❌ **XP**: Opportunity OPP-20260813-114 not found
-- ❌ **XPEV**: Opportunity OPP-20260807-027 not found
-- ❌ **XYZ**: Opportunity OPP-20260807-001 not found
-- ❌ **YPF**: Opportunity OPP-20260813-035 not found
-- ❌ **ZM**: Opportunity OPP-20260813-028 not found
+- ✅ **BBAR** (OPP-20260813-165): score=50, class=?
+- ✅ **HMY** (OPP-20260725-011): score=50, class=?
+
+### STEP 3-7 - Assessment Pipeline
+
+- ⚠️ **BBAR**
+  - Opp: [OPP-20260813-165]
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 58 | Valuation: 60 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 62/65
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **HMY**
+  - Opp: [OPP-20260725-011]
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 65 | Recovery: 54 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 

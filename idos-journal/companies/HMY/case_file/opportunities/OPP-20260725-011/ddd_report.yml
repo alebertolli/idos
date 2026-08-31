@@ -1,81 +1,32 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene una larga historia de crecimiento
-  - La empresa tiene una posición competitiva sólida en el sector de la minería de
-    oro
-  - La empresa tiene una buena salud financiera
-  inferencias_llm:
-  - La creencia de que la minería de oro es un sector en declive es una hipótesis
-    que puede ser desafiada por la realidad
-  - La empresa tiene una posición competitiva sólida y una buena salud financiera,
-    lo que sugiere que es un negocio de alta calidad
-  preguntas_abiertas:
-  - ¿Qué impacto tendrá la creciente demanda de oro en la empresa?
-  - ¿Cómo afectará la mejora en la eficiencia operativa de la empresa a su precio?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: turnaround, deep_value, ciclica, special_situation, distressed,
-    hype, value_trap
-  justificacion: La empresa tiene una larga historia de crecimiento y ha mantenido
-    una posición competitiva en el sector de la minería de oro. El crecimiento de
-    la renta y el margen operativo sugieren una buena salud financiera.
-dominio_business_quality:
-  analisis: La empresa tiene una posición competitiva sólida y una buena salud financiera,
-    lo que sugiere que es un negocio de alta calidad.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: un aumento en la demanda de oro
+  generated_at: '2026-07-27T01:11:12.409914-03:00'
   horizonte: corto
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 70
+  opp_id: OPP-20260725-011
+  probabilidad_anterior: 70
 - descripcion: una mejora en la eficiencia operativa de la empresa
+  generated_at: '2026-07-27T01:11:12.409914-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 60
-dominio_esg_supply_chain:
-  analisis: La empresa no tiene riesgos significativos en términos de ESG y su cadena
-    de suministro es estable.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene una buena salud financiera, con un crecimiento de la
-    renta y un margen operativo sólidos.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa tiene un crecimiento de la renta sólido y una buena salud financiera,
-    lo que sugiere que el crecimiento futuro es probable.
-  rating: fuerte
-dominio_management:
-  analisis: La falta de experiencia del CEO y la baja participación de los accionistas
-    en la empresa sugieren que la gestión no es de alta calidad.
-  rating: bueno
-dominio_riesgos:
-- impacto: medio
-  probabilidad: media
-  riesgo: riesgo operativo
-- impacto: bajo
-  probabilidad: baja
-  riesgo: riesgo financiero
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un aumento en la demanda de oro o una mejora en la eficiencia operativa
-      de la empresa
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 60
-  conclusion_error_valoracion: SI
-  consenso_actual: El precio de la empresa está influenciado por la creencia de que
-    la minería de oro es un sector en declive y que la empresa no puede mantener su
-    posición competitiva.
-  hipotesis_contraria: La empresa tiene una posición competitiva sólida y una buena
-    salud financiera, lo que sugiere que el precio actual es un error de valoración.
-  razonamiento: La creencia de que la minería de oro es un sector en declive es una
-    hipótesis que puede ser desafiada por la realidad. La empresa tiene una posición
-    competitiva sólida y una buena salud financiera, lo que sugiere que el precio
-    actual es un error de valoración.
-generated_at: '2026-07-27T01:11:12.409914-03:00'
-opinion_valoracion: infravalorado
+  opp_id: OPP-20260725-011
+  probabilidad_anterior: 60
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-08-31T12:51:51.645666-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-011
 prompt_inputs:
   business_model: Harmony Gold Mining Company Limited engages in the exploration,
@@ -89,26 +40,30 @@ prompt_inputs:
     Gold Mining Company Limited was incorporated in 1950 and is based in Randfontein,
     South Africa.
   ceo_tenure: 0
-  debt_to_equity: 0.25
+  debt_to_equity: 0.13
   fcf_adjusted: 0
   insider_ownership: 0
   name: Harmony Gold Mining Company Limited
-  operating_margin: 31.31
-  pe_ratio: 10.15
+  operating_margin: 40.99
+  pe_ratio: 7.24
   products: ''
-  revenue: 4900000000.0
-  revenue_growth: 19.35
-  roic: 28.72
+  revenue: 6050000000.0
+  revenue_growth: 0
+  roic: 40.62
   sector: Basic Materials
   ticker: HMY
-resumen_ejecutivo: La empresa Harmony Gold Mining Company Limited es un compounder
-  con una larga historia de crecimiento y una posición competitiva sólida en el sector
-  de la minería de oro. El precio actual es un error de valoración debido a la creencia
-  de que la minería de oro es un sector en declive.
-score_general: 85
-tesis_inversion: La empresa Harmony Gold Mining Company Limited es un compounder con
-  una larga historia de crecimiento y una posición competitiva sólida en el sector
-  de la minería de oro. El precio actual es un error de valoración debido a la creencia
-  de que la minería de oro es un sector en declive.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-08-31T12:51:51.635506-03:00'
+  fuentes:
+    stockanalysis: 20.73
+    yfinance: 20.72537
+  mediana: 20.73
+  n_fuentes: 2
+  promedio: 20.73
+  target_high: 23.5
+  target_low: 16.68
+tesis_inversion: ''
 ticker: HMY
 version: '3.0'

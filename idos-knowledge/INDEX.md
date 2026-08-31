@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 104 companies tracked
+Total: 105 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -57,6 +57,7 @@ Total: 104 companies tracked
 
 ## Financial Services
 - 📄 [[AXP|American Express Company]]
+- 📄 [[BBAR|Banco BBVA Argentina S.A.]]
 - 📄 [[BCS|Barclays PLC]]
 - 📄 [[BMNR|Bitmine Immersion Technologies, Inc.]]
 - 📄 [[C|Citigroup Inc.]]
