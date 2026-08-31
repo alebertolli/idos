@@ -357,6 +357,9 @@ class UniversePipeline(BaseWorker):
         downgraded = 0
         upgraded = 0
         unchanged = 0
+        skipped_no_data = 0
+
+        scout_by_ticker = {e.get("ticker", "").upper(): e for e in metrics.new_watchlist}
 
         for d in sorted(companies_dir.iterdir()):
             if not d.is_dir():
@@ -366,11 +369,8 @@ class UniversePipeline(BaseWorker):
             if not opp_dir.exists():
                 continue
 
-            scout_result = None
-            for ticker_entry in metrics.new_watchlist:
-                if ticker_entry.get("ticker", "").upper() == ticker:
-                    scout_result = ticker_entry
-                    break
+            scout_result = scout_by_ticker.get(ticker)
+            ticker_in_universe = scout_result is not None
 
             for opp in sorted(opp_dir.iterdir()):
                 if not opp.is_dir():
@@ -383,7 +383,13 @@ class UniversePipeline(BaseWorker):
                     if not data:
                         continue
                     current_status = data.get("status", "")
-                    score = scout_result.get("score", 0) if scout_result else 0
+
+                    if not ticker_in_universe:
+                        if current_status in ("SCREENED", "UNDER_RESEARCH", "WATCHLIST"):
+                            skipped_no_data += 1
+                        continue
+
+                    score = scout_result.get("score", 0)
                     opp_id = data.get("id", opp.name)
 
                     if current_status == "WATCHLIST":
@@ -415,7 +421,7 @@ class UniversePipeline(BaseWorker):
 
         metrics.downgraded_to_watchlist = downgraded
         metrics.upgraded_to_screened = upgraded
-        print(f"[PIPELINE] Monthly Evaluation: {upgraded} upgraded to SCREENED, {downgraded} downgraded to WATCHLIST, {unchanged} unchanged")
+        print(f"[PIPELINE] Monthly Evaluation: {upgraded} upgraded to SCREENED, {downgraded} downgraded to WATCHLIST, {unchanged} unchanged, {skipped_no_data} skipped (not in universe)")
 
     def _load_screener_config(self) -> dict:
         import yaml
