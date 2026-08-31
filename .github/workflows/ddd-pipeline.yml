@@ -71,6 +71,9 @@ jobs:
           fi
           echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE event=$EVENT_TYPE"
 
+      - name: Preview candidates
+        run: python scripts/ddd_research.py --preview
+
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
         run: python scripts/ddd_research.py
 
@@ -87,7 +90,7 @@ jobs:
         run: |
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add cache/ddd_results.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
+          git add cache/ddd_results.json cache/ddd_preview.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
           git add idos-journal/ 2>/dev/null || true
           git add idos-knowledge/ 2>/dev/null || true
           if git diff --cached --quiet; then
@@ -112,4 +115,5 @@ jobs:
           name: ddd-results-${{ github.run_id }}
           path: |
             cache/ddd_results.json
+            cache/ddd_preview.json
             cache/weekly_digest.md

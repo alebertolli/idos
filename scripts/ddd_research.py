@@ -10,6 +10,8 @@ Selection rules:
     - UNDER_RESEARCH: re-research (no status change)
     - All others: skip
   Tickers in BUY_LIST or PORTFOLIO: skip in both modes.
+
+Run with --preview to list candidates without processing.
 """
 
 import json
@@ -96,6 +98,103 @@ def _needs_research(opp: dict, force: bool) -> tuple[bool, bool, str]:
         return False, False, f"UNDER_RESEARCH fresh ({days_str} <= {STALE_DAYS}d)"
 
     return False, False, f"status {status} not processable in NORMAL mode"
+
+
+def preview():
+    """Lista las oportunidades candidatas sin procesarlas. Para el workflow de GitHub Actions."""
+    from idos.data.journal import JournalRepository
+    from idos.data.sqlite import SQLiteStore
+    from pathlib import Path
+
+    SKIP_TICKERS = set()
+    bl = Path("idos-journal/portfolio/buylist.yml")
+    if bl.exists():
+        try:
+            d = yaml.safe_load(bl.read_text(encoding="utf-8")) or {}
+            for e in d.get("entries", []):
+                if e.get("ticker"):
+                    SKIP_TICKERS.add(e["ticker"].upper())
+        except Exception:
+            pass
+    pos_dir = Path("idos-journal/paper/positions")
+    if pos_dir.exists():
+        for f in pos_dir.glob("*.yml"):
+            try:
+                d = yaml.safe_load(f.read_text(encoding="utf-8"))
+                if isinstance(d, dict) and d.get("ticker"):
+                    SKIP_TICKERS.add(d["ticker"].upper())
+            except Exception:
+                pass
+
+    now = datetime.now(timezone.utc)
+    companies_dir = Path("idos-journal/companies")
+    screened = []
+    stale = []
+    fresh = []
+    force_list = []
+    excluded = []
+
+    for d in sorted(companies_dir.iterdir()):
+        if not d.is_dir():
+            continue
+        ticker = d.name.upper()
+        if ticker in SKIP_TICKERS:
+            excluded.append(ticker)
+            continue
+        opp_dir = d / "case_file" / "opportunities"
+        if not opp_dir.exists():
+            continue
+        for opp in sorted(opp_dir.iterdir()):
+            if not opp.is_dir():
+                continue
+            yf = opp / "opportunity.yml"
+            if not yf.exists():
+                continue
+            try:
+                data = yaml.safe_load(yf.read_text(encoding="utf-8"))
+                if not data:
+                    continue
+                status = data.get("status", "")
+                score = (data.get("conviction") or {}).get("overall", 0)
+
+                if status == "SCREENED":
+                    screened.append((ticker, data["id"], score))
+                elif status == "UNDER_RESEARCH":
+                    stale_flag, days = _is_stale(data)
+                    if stale_flag:
+                        stale.append((ticker, data["id"], score, days))
+                    else:
+                        fresh.append((ticker, data["id"], score, days))
+                elif status == "WATCHLIST":
+                    excluded.append(ticker)
+            except Exception:
+                pass
+
+    print(f"[PREVIEW] SCREENED (will process normally): {len(screened)}")
+    for t, oid, sc in screened[:5]:
+        print(f"  - {t} {oid} score={sc}")
+    if screened[5:]:
+        print(f"  ... and {len(screened)-5} more")
+
+    print(f"[PREVIEW] UNDER_RESEARCH stale>30d (will force re-research): {len(stale)}")
+    for t, oid, sc, days in stale[:5]:
+        print(f"  - {t} {oid} score={sc} ({days}d)")
+    if stale[5:]:
+        print(f"  ... and {len(stale)-5} more")
+
+    print(f"[PREVIEW] UNDER_RESEARCH fresh<=30d (will skip): {len(fresh)}")
+    for t, oid, sc, days in fresh[:5]:
+        print(f"  - {t} {oid} score={sc} ({days}d)")
+
+    print(f"[PREVIEW] Excluded (BUY_LIST/PORTFOLIO/WATCHLIST): {len(excluded)}")
+
+    Path("cache").mkdir(parents=True, exist_ok=True)
+    Path("cache/ddd_preview.json").write_text(json.dumps({
+        "screened": [{"ticker": t, "opp_id": oid, "score": sc} for t, oid, sc in screened],
+        "stale": [{"ticker": t, "opp_id": oid, "score": sc, "days": days} for t, oid, sc, days in stale],
+        "fresh": [{"ticker": t, "opp_id": oid, "score": sc, "days": days} for t, oid, sc, days in fresh],
+        "excluded_count": len(excluded),
+    }, indent=2), encoding="utf-8")
 
 
 def main():
@@ -237,4 +336,7 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    if '--preview' in sys.argv:
+        preview()
+    else:
+        main()
