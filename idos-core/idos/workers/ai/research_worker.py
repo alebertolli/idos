@@ -24,14 +24,15 @@ class ResearchWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        self.llm = config.get("llm_service") or LLMClient(
-            provider=config.get("provider", ""),
-            api_key=config.get("api_key", ""),
-            model=config.get("model", ""),
-            fallback_model=config.get("fallback_model", ""),
-            fallback_providers=config.get("fallback_providers", []),
+        cfg = config or {}
+        self.llm = cfg.get("llm_service") or LLMClient(
+            provider=cfg.get("provider", ""),
+            api_key=cfg.get("api_key", ""),
+            model=cfg.get("model", ""),
+            fallback_model=cfg.get("fallback_model", ""),
+            fallback_providers=cfg.get("fallback_providers", []),
         )
-        prompts_path = config.get("prompts_path", "")
+        prompts_path = cfg.get("prompts_path", "")
         self.registry = PromptRegistry(prompts_path) if prompts_path else PromptRegistry()
         self.state_machine = OpportunityStateMachine()
 
