@@ -7,8 +7,8 @@ assessments:
     findings:
     - detail: 'Exceptional ROIC: 22.27%'
       type: POSITIVE
-    generated_at: '2026-08-24T01:36:11.223504-03:00'
-    id: BusinessAssessmentEngine-20260824013611
+    generated_at: '2026-08-30T22:52:05.028248-03:00'
+    id: BusinessAssessmentEngine-20260830225205
     recommendation: NEUTRAL
     risks: []
     score: 64
@@ -26,8 +26,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-08-24T01:36:11.223578-03:00'
-    id: PortfolioAssessmentEngine-20260824013611
+    generated_at: '2026-08-30T22:52:05.028318-03:00'
+    id: PortfolioAssessmentEngine-20260830225205
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -63,8 +63,8 @@ assessments:
       level: MEDIUM
       score: 50
       type: DIMENSION
-    generated_at: '2026-08-24T01:36:11.223556-03:00'
-    id: RecoveryAssessmentEngine-20260824013611
+    generated_at: '2026-08-30T22:52:05.028299-03:00'
+    id: RecoveryAssessmentEngine-20260830225205
     recommendation: MODERATE
     risks: []
     score: 52
@@ -76,8 +76,8 @@ assessments:
     engine: RiskAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-08-24T01:36:11.223567-03:00'
-    id: RiskAssessmentEngine-20260824013611
+    generated_at: '2026-08-30T22:52:05.028307-03:00'
+    id: RiskAssessmentEngine-20260830225205
     recommendation: LOW_RISK
     risks: []
     score: 70
@@ -91,25 +91,23 @@ assessments:
     findings:
     - detail: 'FCF Yield: 12.5%'
       type: POSITIVE
-    generated_at: '2026-08-24T01:36:11.223525-03:00'
-    id: ValuationAssessmentEngine-20260824013611
+    generated_at: '2026-08-30T22:52:05.028270-03:00'
+    id: ValuationAssessmentEngine-20260830225205
     recommendation: FAIR
-    risks:
-    - detail: 'Price target below current: -2.9%'
-      type: VALUATION
-    score: 55
+    risks: []
+    score: 65
     status: COMPLETED
     version: '1.1'
-conviction_score: 63
-created_at: '2026-08-24T01:36:11.223647-03:00'
+conviction_score: 65
+created_at: '2026-08-30T22:52:05.028385-03:00'
 opportunity_id: OPP-20260813-007
-reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004, RULE-005, RULE-008'
+reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004, RULE-008'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
 - RULE-003
 - RULE-004
-- RULE-005
 - RULE-008
-rules_passed: []
+rules_passed:
+- RULE-005
 type: opportunity:transitioned
