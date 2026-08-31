@@ -211,6 +211,7 @@ class SiteData:
     dashboard: dict = field(default_factory=dict)
     companies: dict = field(default_factory=dict)
     entry_rules: list[dict] = field(default_factory=list)
+    universe_stats: dict = field(default_factory=dict)
 
 
 class SiteBuilder:
@@ -295,6 +296,33 @@ class SiteBuilder:
             if t not in prices:
                 prices[t] = {"date": r["date"], "price": r["close"]}
         return prices
+
+    def _load_universe_stats(self) -> dict:
+        results_path = self.base / "cache" / "pipeline_results.json"
+        if results_path.exists():
+            try:
+                data = yaml.safe_load(results_path.read_text(encoding="utf-8"))
+                output = data.get("output", {})
+                return {
+                    "finviz_count": output.get("finviz_count", 0),
+                    "operable_count": output.get("operable_count", 0),
+                    "pre_score_count": output.get("pre_score_count", 0),
+                    "scout_passed": output.get("scout_passed", 0),
+                    "scout_rejected": output.get("scout_rejected", 0),
+                    "opportunities_created": output.get("opportunities_created", 0),
+                    "pipeline_date": output.get("finished_at"),
+                }
+            except Exception:
+                pass
+        return {
+            "finviz_count": 0,
+            "operable_count": 0,
+            "pre_score_count": 0,
+            "scout_passed": 0,
+            "scout_rejected": 0,
+            "opportunities_created": 0,
+            "pipeline_date": None,
+        }
 
     def price_for(self, ticker: str) -> dict[str, Any]:
         p = self.prices.get(ticker.upper())
@@ -879,7 +907,8 @@ class SiteBuilder:
 
     # -- dashboard --
     def _build_dashboard(self, opps: list[dict], positions: list[dict],
-                         buylist: list[dict], watchlist: list[dict], learning: list[dict]) -> dict:
+                         buylist: list[dict], watchlist: list[dict], learning: list[dict],
+                         universe_stats: dict = None) -> dict:
         funnel: dict[str, int] = {}
         for o in opps:
             funnel[o["status"]] = funnel.get(o["status"], 0) + 1
@@ -899,16 +928,17 @@ class SiteBuilder:
         sections = []
         for key, label, tab, statuses in group_defs:
             count = sum(v for k, v in funnel.items() if k in statuses)
+            if key == "discovery":
+                count = universe_stats.get("operable_count", 0) if universe_stats else 0
+            if key == "research":
+                count = len(watchlist) if universe_stats else count
             sections.append({
                 "key": key, "label": label, "tab": tab,
                 "count": count,
                 "statuses": sorted(statuses),
             })
 
-        # Each card shows what its tab displays: watchlist, buy list, open positions, post-mortems
         for s in sections:
-            if s["key"] == "discovery":
-                s["count"] = len(watchlist)
             if s["key"] == "buylist":
                 s["count"] = len(buylist)
             if s["key"] == "portfolio":
@@ -950,6 +980,7 @@ class SiteBuilder:
                 "buylist": len(buylist),
                 "learning": len(learning),
             },
+            "universe_stats": universe_stats if universe_stats else {},
         }
 
     # -- main build --
@@ -968,7 +999,8 @@ class SiteBuilder:
         wiki = self._load_wiki_index()
         learning = self._load_learning()
         portfolio = self._compute_portfolio(positions)
-        dashboard = self._build_dashboard(opps, positions, buylist, watchlist, learning)
+        universe_stats = self._load_universe_stats()
+        dashboard = self._build_dashboard(opps, positions, buylist, watchlist, learning, universe_stats)
 
         return SiteData(
             generated_at=datetime.now(AR_TZ).isoformat(),
@@ -984,6 +1016,7 @@ class SiteBuilder:
             dashboard=dashboard,
             companies=self.companies,
             entry_rules=self.entry_rules,
+            universe_stats=universe_stats,
         )
 
 
