@@ -610,7 +610,7 @@ class SiteBuilder:
             out.append(e)
         return out
 
-    def _load_discovery_pool(self) -> list[dict]:
+    def _load_discovery_pool(self, universe_stats: dict = None) -> list[dict]:
         """Returns all 267 operable tickers from latest pipeline run, with their Scout scores.
 
         Reads the list of tickers from `finviz_tickers` if the pipeline results include
@@ -619,8 +619,6 @@ class SiteBuilder:
         with their scores and metrics.
         """
         from idos.discovery.operability import OperabilityFilter
-        from idos.discovery.scout import ScoutEngine
-        from idos.workers.data.cache import DataCache
         import json as _json
 
         tickers: list[str] = []
@@ -645,47 +643,52 @@ class SiteBuilder:
         operable_path = self.config / "universe" / "operable.yml"
         op_filter = OperabilityFilter(str(operable_path)) if operable_path.exists() else None
 
-        cache = DataCache()
-        scout = ScoutEngine(min_score=0)
         out: list[dict] = []
         for ticker in tickers:
             if op_filter is not None and not op_filter.is_operable(ticker):
                 continue
-            entry = cache.get(f"merged:{ticker}") or {}
-            merged = entry.get("merged_data", entry)
-            score = self._scout_score_for(merged)
+            cache_file = self.base / "cache" / f"{ticker}.json"
+            if not cache_file.exists():
+                continue
+            try:
+                raw = _json.loads(cache_file.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            metrics = {
+                "market_cap": self._scout_num(raw.get("market_cap")),
+                "avg_volume": self._scout_num(raw.get("volume_avg")) or self._scout_num(raw.get("avg_volume")),
+                "pe_ratio": self._scout_num(raw.get("pe_ratio_ttm")) or self._scout_num(raw.get("pe_ratio")),
+                "ev_ebitda": self._scout_num(raw.get("ev_ebitda")),
+                "roic": self._scout_num(raw.get("roic_pct")),
+                "operating_margin": self._scout_num(raw.get("operating_margin_pct")),
+                "debt_to_equity": self._scout_num(raw.get("debt_equity_ratio")),
+                "revenue_growth": self._scout_num(raw.get("revenue_growth_pct")),
+            }
+            score = self._scout_score_for(metrics)
+            om = metrics["operating_margin"]
+            roic = metrics["roic"]
             out.append({
                 "ticker": ticker,
                 "score": score,
-                "metrics": self._scout_metrics_from(merged, score),
+                "added_at": None,
+                "metrics": {
+                    "transition_score": max(0, min(100, int(round(50 + (om / 15.0) * 30)))) if om else 50,
+                    "quality_score": max(0, min(100, int(round(50 + (roic / 20.0) * 30)))) if roic else 50,
+                    "margin_score": max(0, min(100, int(round(50 + (om / 10.0) * 20)))) if om else 50,
+                },
             })
         out.sort(key=lambda e: e.get("score") or 0, reverse=True)
+        if universe_stats and universe_stats.get("operable_count"):
+            target = int(universe_stats["operable_count"])
+            if len(out) > target:
+                out = out[:target]
         return out
 
-    def _scout_score_for(self, merged: dict) -> int:
-        """Compute a simple global Scout score for a ticker given its merged cache data."""
+    def _scout_score_for(self, metrics: dict) -> int:
+        """Compute a simple global Scout score for a ticker given its metric dict."""
         from idos.discovery.scout import ScoutEngine
-        metrics = {
-            "market_cap": self._scout_num(merged.get("market_cap")),
-            "avg_volume": self._scout_num(merged.get("volume_avg")) or self._scout_num(merged.get("avg_volume")),
-            "pe_ratio": self._scout_num(merged.get("pe_ratio_ttm")) or self._scout_num(merged.get("pe_ratio")),
-            "ev_ebitda": self._scout_num(merged.get("ev_ebitda")),
-            "roic": self._scout_num(merged.get("roic_pct")),
-            "operating_margin": self._scout_num(merged.get("operating_margin_pct")),
-            "debt_to_equity": self._scout_num(merged.get("debt_equity_ratio")),
-            "revenue_growth": self._scout_num(merged.get("revenue_growth_pct")),
-        }
         res = ScoutEngine(min_score=0).scan(ticker="", data={"metrics": metrics})
         return int(res.score or 0)
-
-    def _scout_metrics_from(self, merged: dict, score: int) -> dict[str, Any]:
-        om = self._scout_num(merged.get("operating_margin_pct"))
-        roic = self._scout_num(merged.get("roic_pct"))
-        return {
-            "transition_score": max(0, min(100, int(round(50 + (om / 15.0) * 30)))),
-            "quality_score": max(0, min(100, int(round(50 + (roic / 20.0) * 30)))),
-            "margin_score": max(0, min(100, int(round(50 + (om / 10.0) * 20)))),
-        }
 
     # -- scout metric breakdown (recompute from cache, mirrors ScoutEngine) --
     def _scout_num(self, v: Any, default: float = 0.0) -> float:
@@ -987,7 +990,8 @@ class SiteBuilder:
     # -- dashboard --
     def _build_dashboard(self, opps: list[dict], positions: list[dict],
                          buylist: list[dict], watchlist: list[dict], learning: list[dict],
-                         universe_stats: dict = None) -> dict:
+                         universe_stats: dict = None,
+                         discovery_pool: list[dict] = None) -> dict:
         funnel: dict[str, int] = {}
         for o in opps:
             funnel[o["status"]] = funnel.get(o["status"], 0) + 1
@@ -1008,7 +1012,7 @@ class SiteBuilder:
         for key, label, tab, statuses in group_defs:
             count = sum(v for k, v in funnel.items() if k in statuses)
             if key == "discovery":
-                count = universe_stats.get("operable_count", 0) if universe_stats else 0
+                count = len(discovery_pool) if discovery_pool else (universe_stats.get("operable_count", 0) if universe_stats else 0)
             if key == "research":
                 count = len(watchlist) if universe_stats else count
             sections.append({
@@ -1079,8 +1083,8 @@ class SiteBuilder:
         learning = self._load_learning()
         portfolio = self._compute_portfolio(positions)
         universe_stats = self._load_universe_stats()
-        discovery_pool = self._load_discovery_pool()
-        dashboard = self._build_dashboard(opps, positions, buylist, watchlist, learning, universe_stats)
+        discovery_pool = self._load_discovery_pool(universe_stats)
+        dashboard = self._build_dashboard(opps, positions, buylist, watchlist, learning, universe_stats, discovery_pool)
 
         return SiteData(
             generated_at=datetime.now(AR_TZ).isoformat(),
@@ -1361,7 +1365,29 @@ function rulesBadge(failed){
   return failed.map(id=>`<span class="badge" title="${esc(map[id]||id)}" style="background:#2a1516;color:#f87171">${esc(id)}</span>`).join(' ');
 }
 function renderOpp(){
-  const rows = DATA.opportunities.filter(o=>o.status==='UNDER_RESEARCH' || o.status==='UNDER_DEEP_DD');
+  const opps = DATA.opportunities.filter(o=>o.status==='UNDER_RESEARCH' || o.status==='UNDER_DEEP_DD');
+  const wlSet = new Set(opps.map(o=>o.ticker));
+  const pendingFromWatchlist = (DATA.watchlist||[]).filter(w=>!wlSet.has(w.ticker))
+    .map(w=>({
+      opp_id: 'PENDING',
+      ticker: w.ticker,
+      status: 'WATCHLIST_PENDING',
+      conviction_overall: w.score,
+      scores: {},
+      current_price: null,
+      intrinsic_value: null,
+      upside_pct: null,
+      last_research: w.added_at || null,
+      is_stale: false,
+      stale_days: null,
+      decision: {},
+      proposal: { recommendation: 'PENDING', rules_passed: [], rules_failed: [] },
+      ddd: { categoria: null, ratings: {}, dominios: [], catalizadores: [], riesgos: [],
+             resumen_ejecutivo: null, tesis_inversion: null, score_general: null, evidencia: {} },
+      has_wyckoff: false,
+      has_post_mortem: false,
+    }));
+  const rows = [...opps, ...pendingFromWatchlist];
   TABLES['opp'] = {
     rows,
     cols: [
