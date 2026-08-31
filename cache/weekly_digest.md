@@ -1,11 +1,11 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-08-31 02:12 AR _
+_Generado: 2026-08-31 10:29 AR _
 
 ## Resumen
 
-- 🟢 **Oportunidades procesadas:** 177
-- ✅ **Assessment completados:** 176
+- 🟢 **Oportunidades procesadas:** 217
+- ✅ **Assessment completados:** 212
 - 🔖 **Approved:** 0
 - 🔴 **Errores:** 0
 - 📊 **Total encontradas:** 0
@@ -19,23 +19,32 @@ _Generado: 2026-08-31 02:12 AR _
 - ⚠️ **ABEV** (OPP-20260813-002): score=68, class=?
 - ⚠️ **ABT** (OPP-20260813-120): score=59, class=?
 - ⚠️ **ACN** (OPP-20260813-001): score=65, class=?
+- ⚠️ **ADBE** (OPP-20260725-012): score=67, class=?
 - ⚠️ **ADI** (OPP-20260813-086): score=68, class=?
 - ⚠️ **ADP** (OPP-20260813-039): score=61, class=?
 - ⚠️ **AEG** (OPP-20260813-082): score=52, class=?
+- ⚠️ **AEM** (OPP-20260725-007): score=73, class=?
 - ⚠️ **AIG** (OPP-20260813-006): score=62, class=?
 - ⚠️ **AMAT** (OPP-20260813-061): score=72, class=?
 - ⚠️ **AMX** (OPP-20260813-014): score=65, class=?
+- ⚠️ **AMZN** (OPP-20260730-001): score=62, class=?
+- ⚠️ **ANF** (OPP-20260725-019): score=66, class=?
+- ⚠️ **ASTS** (OPP-20260807-028): score=55, class=?
 - ⚠️ **AVY** (OPP-20260813-101): score=65, class=?
 - ⚠️ **AZN** (OPP-20260813-048): score=63, class=?
+- ⚠️ **BA** (OPP-20260728-001): score=56, class=?
 - ⚠️ **BABA** (OPP-20260813-096): score=56, class=?
 - ⚠️ **BB** (OPP-20260813-140): score=61, class=?
 - ⚠️ **BBAR** (OPP-20260813-165): score=62, class=?
 - ⚠️ **BBD** (OPP-20260813-071): score=62, class=?
+- ⚠️ **BCS** (OPP-20260725-033): score=59, class=?
 - ⚠️ **BHP** (OPP-20260813-016): score=61, class=?
 - ⚠️ **BIDU** (OPP-20260813-135): score=56, class=?
 - ⚠️ **BIIB** (OPP-20260813-075): score=63, class=?
+- ⚠️ **BKNG** (OPP-20260725-021): score=71, class=?
 - ⚠️ **BKR** (OPP-20260813-066): score=63, class=?
 - ⚠️ **BMA** (OPP-20260813-164): score=66, class=?
+- ⚠️ **BMNR** (OPP-20260807-014): score=58, class=?
 - ⚠️ **BMY** (OPP-20260813-032): score=66, class=?
 - ⚠️ **BP** (OPP-20260813-056): score=61, class=?
 - ⚠️ **BSBR** (OPP-20260813-058): score=66, class=?
@@ -43,16 +52,20 @@ _Generado: 2026-08-31 02:12 AR _
 - ⚠️ **CAH** (OPP-20260813-079): score=70, class=?
 - ⚠️ **CAR** (OPP-20260813-143): score=53, class=?
 - ⚠️ **CAT** (OPP-20260813-087): score=67, class=?
+- ⚠️ **CCL** (OPP-20260725-023): score=66, class=?
+- ⚠️ **CDE** (OPP-20260725-017): score=72, class=?
 - ⚠️ **CL** (OPP-20260813-112): score=67, class=?
 - ⚠️ **COP** (OPP-20260813-031): score=62, class=?
 - ⚠️ **COST** (OPP-20260813-104): score=60, class=?
 - ⚠️ **CRM** (OPP-20260813-068): score=63, class=?
+- ⚠️ **CRWD** (OPP-20260807-025): score=55, class=?
 - ⚠️ **CVS** (OPP-20260813-123): score=71, class=?
 - ⚠️ **CVX** (OPP-20260813-060): score=62, class=?
 - ⚠️ **CX** (OPP-20260813-122): score=63, class=?
 - ⚠️ **DAL** (OPP-20260813-044): score=63, class=?
 - ⚠️ **DD** (OPP-20260813-133): score=59, class=?
 - ⚠️ **DE** (OPP-20260813-132): score=60, class=?
+- ⚠️ **DECK** (OPP-20260725-009): score=68, class=?
 - ⚠️ **DEO** (OPP-20260813-078): score=65, class=?
 - ⚠️ **DHR** (OPP-20260813-111): score=59, class=?
 - ⚠️ **DOCU** (OPP-20260813-038): score=62, class=?
@@ -68,19 +81,24 @@ _Generado: 2026-08-31 02:12 AR _
 - ⚠️ **FCX** (OPP-20260813-065): score=59, class=?
 - ⚠️ **FDX** (OPP-20260813-106): score=62, class=?
 - ⚠️ **FISV** (OPP-20260813-023): score=64, class=?
+- ⚠️ **FSLR** (OPP-20260725-006): score=71, class=?
 - ⚠️ **GE** (OPP-20260813-080): score=63, class=?
 - ⚠️ **GGB** (OPP-20260813-095): score=65, class=?
 - ⚠️ **GILD** (OPP-20260813-090): score=68, class=?
 - ⚠️ **GLNG** (OPP-20260807-023): score=65, class=?
 - ⚠️ **GLW** (OPP-20260813-124): score=64, class=?
 - ⚠️ **GM** (OPP-20260813-139): score=71, class=?
+- ⚠️ **GS** (OPP-20260807-016): score=58, class=?
 - ⚠️ **GSK** (OPP-20260813-047): score=67, class=?
 - ⚠️ **HAL** (OPP-20260813-064): score=61, class=?
 - ⚠️ **HD** (OPP-20260813-088): score=63, class=?
+- ⚠️ **HIMS** (OPP-20260807-038): score=55, class=?
+- ⚠️ **HL** (OPP-20260725-026): score=70, class=?
 - ⚠️ **HMC** (OPP-20260813-149): score=59, class=?
 - ⚠️ **HOG** (OPP-20260813-107): score=50, class=?
 - ⚠️ **HON** (OPP-20260813-018): score=66, class=?
 - ⚠️ **HPQ** (OPP-20260813-010): score=62, class=?
+- ⚠️ **HSBC** (OPP-20260804-001): score=59, class=?
 - ⚠️ **HSY** (OPP-20260813-036): score=66, class=?
 - ⚠️ **HUT** (OPP-20260807-031): score=58, class=?
 - ⚠️ **IBM** (OPP-20260813-091): score=62, class=?
@@ -99,6 +117,8 @@ _Generado: 2026-08-31 02:12 AR _
 - ⚠️ **KO** (OPP-20260813-067): score=66, class=?
 - ⚠️ **LLY** (OPP-20260807-006): score=68, class=?
 - ⚠️ **LMT** (OPP-20260813-077): score=66, class=?
+- ⚠️ **LVS** (OPP-20260725-022): score=65, class=?
+- ⚠️ **LYG** (OPP-20260725-040): score=59, class=?
 - ⚠️ **MCD** (OPP-20260813-030): score=64, class=?
 - ⚠️ **MDLZ** (OPP-20260813-121): score=56, class=?
 - ⚠️ **MDT** (OPP-20260813-092): score=59, class=?
@@ -115,20 +135,28 @@ _Generado: 2026-08-31 02:12 AR _
 - ⚠️ **MUFG** (OPP-20260807-004): score=58, class=?
 - ⚠️ **NBIS** (OPP-20260813-159): score=56, class=?
 - ⚠️ **NEE** (OPP-20260813-093): score=59, class=?
+- ⚠️ **NEM** (OPP-20260725-010): score=73, class=?
 - ⚠️ **NFLX** (OPP-20260725-043): score=65, class=?
 - ⚠️ **NG** (OPP-20260813-152): score=53, class=?
 - ⚠️ **NGG** (OPP-20260813-145): score=55, class=?
 - ⚠️ **NIO** (OPP-20260807-029): score=58, class=?
 - ⚠️ **NKE** (OPP-20260813-072): score=62, class=?
+- ⚠️ **NMR** (OPP-20260730-001): score=58, class=?
+- ⚠️ **NOW** (OPP-20260807-021): score=59, class=?
 - ⚠️ **NTES** (OPP-20260813-027): score=72, class=?
 - ⚠️ **NUE** (OPP-20260813-074): score=58, class=?
 - ⚠️ **NVS** (OPP-20260813-041): score=65, class=?
 - ⚠️ **NXE** (OPP-20260813-150): score=53, class=?
+- ⚠️ **O** (OPP-20260807-001): score=58, class=?
 - ⚠️ **OKLO** (OPP-20260813-155): score=55, class=?
+- ⚠️ **ONDS** (OPP-20260807-036): score=59, class=?
 - ⚠️ **ORLY** (OPP-20260813-045): score=65, class=?
 - ⚠️ **OXY** (OPP-20260813-062): score=63, class=?
+- ⚠️ **PAAS** (OPP-20260725-001): score=74, class=?
 - ⚠️ **PAGS** (OPP-20260813-022): score=72, class=?
 - ⚠️ **PAM** (OPP-20260813-129): score=59, class=?
+- ⚠️ **PANW** (OPP-20260807-024): score=55, class=?
+- ⚠️ **PATH** (OPP-20260807-035): score=55, class=?
 - ⚠️ **PBI** (OPP-20260813-013): score=66, class=?
 - ⚠️ **PBR** (OPP-20260813-011): score=64, class=?
 - ⚠️ **PCAR** (OPP-20260813-109): score=58, class=?
@@ -142,23 +170,33 @@ _Generado: 2026-08-31 02:12 AR _
 - ⚠️ **PYPL** (OPP-20260813-007): score=65, class=?
 - ⚠️ **QCOM** (OPP-20260813-063): score=65, class=?
 - ⚠️ **RACE** (OPP-20260730-001): score=64, class=?
+- ⚠️ **RBLX** (OPP-20260730-001): score=59, class=?
 - ⚠️ **RGTI** (OPP-20260813-157): score=58, class=?
 - ⚠️ **RIO** (OPP-20260813-005): score=60, class=?
+- ⚠️ **RIOT** (OPP-20260807-032): score=56, class=?
+- ⚠️ **RKLB** (OPP-20260807-020): score=58, class=?
 - ⚠️ **ROST** (OPP-20260813-108): score=61, class=?
 - ⚠️ **RTX** (OPP-20260813-138): score=58, class=?
+- ⚠️ **SAN** (OPP-20260725-034): score=57, class=?
+- ⚠️ **SAP** (OPP-20260725-013): score=72, class=?
+- ⚠️ **SBS** (OPP-20260725-014): score=63, class=?
 - ⚠️ **SBUX** (OPP-20260813-116): score=58, class=?
+- ⚠️ **SCCO** (OPP-20260725-027): score=63, class=?
 - ⚠️ **SCHW** (OPP-20260813-054): score=65, class=?
 - ⚠️ **SHEL** (OPP-20260813-021): score=61, class=?
 - ⚠️ **SLB** (OPP-20260813-094): score=61, class=?
 - ⚠️ **SNA** (OPP-20260813-099): score=67, class=?
 - ⚠️ **SNAP** (OPP-20260813-161): score=61, class=?
+- ⚠️ **SNOW** (OPP-20260807-026): score=54, class=?
 - ⚠️ **SONY** (OPP-20260813-020): score=67, class=?
+- ⚠️ **SPGI** (OPP-20260725-029): score=60, class=?
 - ⚠️ **STLA** (OPP-20260813-156): score=52, class=?
 - ⚠️ **STNE** (OPP-20260813-052): score=72, class=?
 - ⚠️ **SUZ** (OPP-20260813-055): score=64, class=?
 - ⚠️ **SWKS** (OPP-20260813-117): score=60, class=?
 - ⚠️ **SYY** (OPP-20260813-113): score=58, class=?
 - ⚠️ **T** (OPP-20260813-025): score=62, class=?
+- ⚠️ **TEAM** (OPP-20260807-033): score=57, class=?
 - ⚠️ **TGT** (OPP-20260813-118): score=58, class=?
 - ⚠️ **TIMB** (OPP-20260813-033): score=67, class=?
 - ⚠️ **TJX** (OPP-20260813-089): score=66, class=?
@@ -174,6 +212,7 @@ _Generado: 2026-08-31 02:12 AR _
 - ⚠️ **UAL** (OPP-20260813-081): score=65, class=?
 - ⚠️ **UGP** (OPP-20260813-083): score=60, class=?
 - ⚠️ **UL** (OPP-20260813-017): score=64, class=?
+- ⚠️ **UNH** (OPP-20260807-017): score=57, class=?
 - ⚠️ **UNP** (OPP-20260813-037): score=63, class=?
 - ⚠️ **UPST** (OPP-20260813-167): score=61, class=?
 - ⚠️ **URBN** (OPP-20260813-076): score=58, class=?
@@ -187,6 +226,7 @@ _Generado: 2026-08-31 02:12 AR _
 - ⚠️ **XOM** (OPP-20260813-097): score=60, class=?
 - ⚠️ **XP** (OPP-20260813-114): score=66, class=?
 - ⚠️ **XPEV** (OPP-20260807-027): score=61, class=?
+- ⚠️ **XYZ** (OPP-20260807-001): score=59, class=?
 - ⚠️ **YPF** (OPP-20260813-035): score=59, class=?
 - ⚠️ **ZM** (OPP-20260813-028): score=70, class=?
 
@@ -265,6 +305,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **ADBE**
+  - Opp: [OPP-20260725-012]
+  - Conviction: 64/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 60 | Risk: 60 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 64/65
 - ⚠️ **ADI**
   - Opp: [OPP-20260813-086]
   - Conviction: 68/100 | Rec: BLOCKED
@@ -297,6 +347,15 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 52/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **AEM**
+  - Opp: [OPP-20260725-007]
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 58 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
 - ⚠️ **AIG**
   - Opp: [OPP-20260813-006]
   - Conviction: 62/100 | Rec: BLOCKED
@@ -328,6 +387,35 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **AMZN**
+  - Opp: [OPP-20260730-001]
+  - Conviction: 61/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 54 | Valuation: 55 | Recovery: 59 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 61/65
+- ⚠️ **ANF**
+  - Opp: [OPP-20260725-019]
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 60 | Valuation: 65 | Recovery: 58 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+- ⚠️ **ASTS**
+  - Opp: [OPP-20260807-028]
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 40 | Valuation: 60 | Recovery: 55 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 59/65
 - ⚠️ **AVY**
   - Opp: [OPP-20260813-101]
   - Conviction: 65/100 | Rec: BLOCKED
@@ -349,6 +437,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 63/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **BA**
+  - Opp: [OPP-20260728-001]
+  - Conviction: 58/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 36 | Valuation: 60 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 58/65
 - ⚠️ **BABA**
   - Opp: [OPP-20260813-096]
   - Conviction: 56/100 | Rec: BLOCKED
@@ -393,6 +491,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 62/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **BCS**
+  - Opp: [OPP-20260725-033]
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 58 | Valuation: 45 | Recovery: 55 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 59/65
 - ⚠️ **BHP**
   - Opp: [OPP-20260813-016]
   - Conviction: 61/100 | Rec: BLOCKED
@@ -426,6 +534,15 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 63/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **BKNG**
+  - Opp: [OPP-20260725-021]
+  - Conviction: 69/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 65 | Recovery: 56 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
 - ⚠️ **BKR**
   - Opp: [OPP-20260813-066]
   - Conviction: 63/100 | Rec: BLOCKED
@@ -447,6 +564,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **BMNR**
+  - Opp: [OPP-20260807-014]
+  - Conviction: 58/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 40 | Valuation: 60 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 58/65
 - ⚠️ **BMY**
   - Opp: [OPP-20260813-032]
   - Conviction: 66/100 | Rec: BLOCKED
@@ -520,6 +647,24 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **CCL**
+  - Opp: [OPP-20260725-023]
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 54 | Valuation: 80 | Recovery: 54 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+- ⚠️ **CDE**
+  - Opp: [OPP-20260725-017]
+  - Conviction: 68/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 66 | Valuation: 65 | Recovery: 56 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
 - ⚠️ **CL**
   - Opp: [OPP-20260813-112]
   - Conviction: 67/100 | Rec: BLOCKED
@@ -563,6 +708,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 63/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **CRWD**
+  - Opp: [OPP-20260807-025]
+  - Conviction: 58/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 40 | Valuation: 55 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 58/65
 - ⚠️ **CVS**
   - Opp: [OPP-20260813-123]
   - Conviction: 71/100 | Rec: BLOCKED
@@ -628,6 +783,15 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 60/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **DECK**
+  - Opp: [OPP-20260725-009]
+  - Conviction: 72/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 64 | Valuation: 80 | Recovery: 58 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
 - ⚠️ **DEO**
   - Opp: [OPP-20260813-078]
   - Conviction: 65/100 | Rec: BLOCKED
@@ -788,6 +952,15 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 64/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **FSLR**
+  - Opp: [OPP-20260725-006]
+  - Conviction: 73/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 80 | Recovery: 58 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
 - ⚠️ **GE**
   - Opp: [OPP-20260813-080]
   - Conviction: 63/100 | Rec: BLOCKED
@@ -850,6 +1023,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **GS**
+  - Opp: [OPP-20260807-016]
+  - Conviction: 58/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 48 | Valuation: 45 | Recovery: 57 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 58/65
 - ⚠️ **GSK**
   - Opp: [OPP-20260813-047]
   - Conviction: 67/100 | Rec: BLOCKED
@@ -882,6 +1065,25 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 63/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **HIMS**
+  - Opp: [OPP-20260807-038]
+  - Conviction: 56/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 40 | Valuation: 55 | Recovery: 55 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 56/65
+- ⚠️ **HL**
+  - Opp: [OPP-20260725-026]
+  - Conviction: 67/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 58 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
 - ⚠️ **HMC**
   - Opp: [OPP-20260813-149]
   - Conviction: 59/100 | Rec: BLOCKED
@@ -925,6 +1127,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 62/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **HSBC**
+  - Opp: [OPP-20260804-001]
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 58 | Valuation: 45 | Recovery: 55 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 59/65
 - ⚠️ **HSY**
   - Opp: [OPP-20260813-036]
   - Conviction: 66/100 | Rec: BLOCKED
@@ -1116,6 +1328,25 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **LVS**
+  - Opp: [OPP-20260725-022]
+  - Conviction: 71/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 59 | Valuation: 80 | Recovery: 60 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+- ⚠️ **LYG**
+  - Opp: [OPP-20260725-040]
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 58 | Valuation: 45 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 59/65
 - ⚠️ **MCD**
   - Opp: [OPP-20260813-030]
   - Conviction: 64/100 | Rec: BLOCKED
@@ -1148,17 +1379,6 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 59/65
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **MFG**
-  - Opp: [OPP-20260730-001]
-  - Conviction: 57/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 62 | Valuation: 35 | Recovery: 49 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 57/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 - ⚠️ **MMM**
   - Opp: [OPP-20260813-084]
@@ -1289,6 +1509,15 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 59/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **NEM**
+  - Opp: [OPP-20260725-010]
+  - Conviction: 69/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 65 | Recovery: 56 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
 - ⚠️ **NFLX**
   - Opp: [OPP-20260725-043]
   - Conviction: 65/100 | Rec: BLOCKED
@@ -1343,6 +1572,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 62/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **NOW**
+  - Opp: [OPP-20260807-021]
+  - Conviction: 56/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 54 | Valuation: 45 | Recovery: 55 | Risk: 60 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 56/65
 - ⚠️ **NTES**
   - Opp: [OPP-20260813-027]
   - Conviction: 72/100 | Rec: BLOCKED
@@ -1385,6 +1624,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 53/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **O**
+  - Opp: [OPP-20260807-001]
+  - Conviction: 55/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 48 | Valuation: 45 | Recovery: 50 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 55/65
 - ⚠️ **OKLO**
   - Opp: [OPP-20260813-155]
   - Conviction: 55/100 | Rec: BLOCKED
@@ -1396,6 +1645,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 55/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **ONDS**
+  - Opp: [OPP-20260807-036]
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 40 | Valuation: 60 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 59/65
 - ⚠️ **ORLY**
   - Opp: [OPP-20260813-045]
   - Conviction: 65/100 | Rec: BLOCKED
@@ -1417,6 +1676,15 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 63/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **PAAS**
+  - Opp: [OPP-20260725-001]
+  - Conviction: 73/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 67 | Valuation: 75 | Recovery: 66 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
 - ⚠️ **PAGS**
   - Opp: [OPP-20260813-022]
   - Conviction: 72/100 | Rec: BLOCKED
@@ -1438,6 +1706,27 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 59/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **PANW**
+  - Opp: [OPP-20260807-024]
+  - Conviction: 55/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 44 | Valuation: 45 | Recovery: 54 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 55/65
+- ⚠️ **PATH**
+  - Opp: [OPP-20260807-035]
+  - Conviction: 55/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 40 | Valuation: 45 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 55/65
+    - 🚫 RULE-008: B/R 0.0:1 ❌ (upside 0.0% / downside 6.3%)
 - ⚠️ **PBI**
   - Opp: [OPP-20260813-013]
   - Conviction: 66/100 | Rec: BLOCKED
@@ -1589,6 +1878,26 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 60/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **RIOT**
+  - Opp: [OPP-20260807-032]
+  - Conviction: 57/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 40 | Valuation: 60 | Recovery: 54 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 57/65
+- ⚠️ **RKLB**
+  - Opp: [OPP-20260807-020]
+  - Conviction: 58/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 40 | Valuation: 60 | Recovery: 51 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 58/65
 - ⚠️ **ROST**
   - Opp: [OPP-20260813-108]
   - Conviction: 61/100 | Rec: BLOCKED
@@ -1611,6 +1920,35 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 58/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **SAN**
+  - Opp: [OPP-20260725-034]
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 58 | Valuation: 45 | Recovery: 56 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 59/65
+- ⚠️ **SAP**
+  - Opp: [OPP-20260725-013]
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 67 | Valuation: 55 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+- ⚠️ **SBS**
+  - Opp: [OPP-20260725-014]
+  - Conviction: 64/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 58 | Valuation: 60 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 64/65
 - ⚠️ **SBUX**
   - Opp: [OPP-20260813-116]
   - Conviction: 58/100 | Rec: BLOCKED
@@ -1622,6 +1960,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 58/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **SCCO**
+  - Opp: [OPP-20260725-027]
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 45 | Recovery: 60 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 63/65
 - ⚠️ **SCHW**
   - Opp: [OPP-20260813-054]
   - Conviction: 65/100 | Rec: BLOCKED
@@ -1675,6 +2023,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 61/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **SNOW**
+  - Opp: [OPP-20260807-026]
+  - Conviction: 57/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 40 | Valuation: 55 | Recovery: 51 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 57/65
 - ⚠️ **SONY**
   - Opp: [OPP-20260813-020]
   - Conviction: 67/100 | Rec: BLOCKED
@@ -1685,6 +2043,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **SPGI**
+  - Opp: [OPP-20260725-029]
+  - Conviction: 60/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 58 | Valuation: 55 | Recovery: 56 | Risk: 60 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 60/65
 - ⚠️ **STLA**
   - Opp: [OPP-20260813-156]
   - Conviction: 52/100 | Rec: BLOCKED
@@ -1750,6 +2118,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 62/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **TEAM**
+  - Opp: [OPP-20260807-033]
+  - Conviction: 52/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 36 | Valuation: 45 | Recovery: 54 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 52/65
 - ⚠️ **TGT**
   - Opp: [OPP-20260813-118]
   - Conviction: 58/100 | Rec: BLOCKED
@@ -1907,6 +2285,16 @@ _Generado: 2026-08-31 02:12 AR _
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-005: Conviction: 64/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **UNH**
+  - Opp: [OPP-20260807-017]
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 50 | Valuation: 75 | Recovery: 53 | Risk: 60 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 62/65
 - ⚠️ **UNP**
   - Opp: [OPP-20260813-037]
   - Conviction: 63/100 | Rec: BLOCKED

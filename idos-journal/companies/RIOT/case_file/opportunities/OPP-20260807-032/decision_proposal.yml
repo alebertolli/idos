@@ -4,16 +4,18 @@ assessments:
     dependencies: []
     engine: BusinessAssessmentEngine
     evidence_ids: []
-    findings: []
-    generated_at: '2026-08-13T03:33:41.961800-03:00'
-    id: BusinessAssessmentEngine-20260813033341
-    recommendation: UNFAVORABLE
+    findings:
+    - detail: 'High revenue growth: 25.5%'
+      type: POSITIVE
+    generated_at: '2026-08-31T10:29:45.413850-03:00'
+    id: BusinessAssessmentEngine-20260831102945
+    recommendation: NEUTRAL
     risks:
     - detail: 'Low ROIC: -45.19%'
       type: CAPITAL_ALLOCATION
     - detail: 'Thin operating margin: -189.79%'
       type: MARGIN
-    score: 36
+    score: 40
     status: COMPLETED
     version: '1.0'
   PortfolioAssessmentEngine:
@@ -28,8 +30,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-08-13T03:33:41.961860-03:00'
-    id: PortfolioAssessmentEngine-20260813033341
+    generated_at: '2026-08-31T10:29:45.413913-03:00'
+    id: PortfolioAssessmentEngine-20260831102945
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -42,8 +44,8 @@ assessments:
     evidence_ids: []
     findings:
     - dimension: business_momentum
-      level: LOW
-      score: 35
+      level: MEDIUM
+      score: 45
       type: DIMENSION
     - dimension: valuation_gap
       level: MEDIUM
@@ -65,11 +67,11 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-08-13T03:33:41.961843-03:00'
-    id: RecoveryAssessmentEngine-20260813033341
+    generated_at: '2026-08-31T10:29:45.413895-03:00'
+    id: RecoveryAssessmentEngine-20260831102945
     recommendation: MODERATE
     risks: []
-    score: 51
+    score: 54
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -78,8 +80,8 @@ assessments:
     engine: RiskAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-08-13T03:33:41.961851-03:00'
-    id: RiskAssessmentEngine-20260813033341
+    generated_at: '2026-08-31T10:29:45.413904-03:00'
+    id: RiskAssessmentEngine-20260831102945
     recommendation: LOW_RISK
     risks: []
     score: 70
@@ -91,10 +93,10 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Price target upside: 52.0%'
+    - detail: 'Price target upside: 70.6%'
       type: POSITIVE
-    generated_at: '2026-08-13T03:33:41.961817-03:00'
-    id: ValuationAssessmentEngine-20260813033341
+    generated_at: '2026-08-31T10:29:45.413868-03:00'
+    id: ValuationAssessmentEngine-20260831102945
     recommendation: FAIR
     risks:
     - detail: Negative free cash flow yield
@@ -102,8 +104,8 @@ assessments:
     score: 60
     status: COMPLETED
     version: '1.1'
-conviction_score: 56
-created_at: '2026-08-13T03:33:41.961923-03:00'
+conviction_score: 57
+created_at: '2026-08-31T10:29:45.413977-03:00'
 opportunity_id: OPP-20260807-032
 reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004, RULE-005'
 recommendation: BLOCKED

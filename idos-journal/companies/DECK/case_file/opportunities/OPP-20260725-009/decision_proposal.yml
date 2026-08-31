@@ -7,8 +7,8 @@ assessments:
     findings:
     - detail: 'Exceptional ROIC: 90.59%'
       type: POSITIVE
-    generated_at: '2026-07-27T02:36:39.022463-03:00'
-    id: BusinessAssessmentEngine-20260727023639
+    generated_at: '2026-08-31T10:29:21.230616-03:00'
+    id: BusinessAssessmentEngine-20260831102921
     recommendation: NEUTRAL
     risks: []
     score: 64
@@ -26,8 +26,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-07-27T02:36:39.022528-03:00'
-    id: PortfolioAssessmentEngine-20260727023639
+    generated_at: '2026-08-31T10:29:21.230681-03:00'
+    id: PortfolioAssessmentEngine-20260831102921
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -44,8 +44,8 @@ assessments:
       score: 60
       type: DIMENSION
     - dimension: valuation_gap
-      level: MEDIUM
-      score: 60
+      level: HIGH
+      score: 70
       type: DIMENSION
     - dimension: market_expectations
       level: MEDIUM
@@ -63,11 +63,11 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-07-27T02:36:39.022507-03:00'
-    id: RecoveryAssessmentEngine-20260727023639
+    generated_at: '2026-08-31T10:29:21.230662-03:00'
+    id: RecoveryAssessmentEngine-20260831102921
     recommendation: MODERATE
     risks: []
-    score: 56
+    score: 58
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -78,38 +78,40 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-07-27T02:36:39.022517-03:00'
-    id: RiskAssessmentEngine-20260727023639
+    generated_at: '2026-08-31T10:29:21.230672-03:00'
+    id: RiskAssessmentEngine-20260831102921
     recommendation: LOW_RISK
     risks: []
     score: 80
     status: COMPLETED
     version: '1.0'
   ValuationAssessmentEngine:
-    confidence: MEDIUM
+    confidence: HIGH
     dependencies: []
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Price target upside: 27.9%'
+    - detail: 'Price target upside: 39.9%'
       type: POSITIVE
-    generated_at: '2026-07-27T02:36:39.022481-03:00'
-    id: ValuationAssessmentEngine-20260727023639
-    recommendation: FAIR
+    - detail: 'FCF Yield: 9.4%'
+      type: POSITIVE
+    generated_at: '2026-08-31T10:29:21.230635-03:00'
+    id: ValuationAssessmentEngine-20260831102921
+    recommendation: ATTRACTIVE
     risks: []
-    score: 65
+    score: 80
     status: COMPLETED
     version: '1.1'
-conviction_score: 68
-created_at: '2026-07-27T02:36:39.022595-03:00'
+conviction_score: 72
+created_at: '2026-08-31T10:29:21.230745-03:00'
 opportunity_id: OPP-20260725-009
-reasoning: 'Rules blocked: RULE-001'
+reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
-rules_passed:
 - RULE-003
 - RULE-004
+rules_passed:
 - RULE-005
 - RULE-008
 type: opportunity:transitioned

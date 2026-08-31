@@ -5,12 +5,12 @@ assessments:
     engine: BusinessAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'High revenue growth: 39.42%'
+    - detail: 'High revenue growth: 34.89%'
       type: POSITIVE
-    - detail: 'Excellent margins: 40.44%'
+    - detail: 'Excellent margins: 35.19%'
       type: POSITIVE
-    generated_at: '2026-07-27T02:36:38.799877-03:00'
-    id: BusinessAssessmentEngine-20260727023638
+    generated_at: '2026-08-31T10:29:18.525678-03:00'
+    id: BusinessAssessmentEngine-20260831102918
     recommendation: NEUTRAL
     risks: []
     score: 66
@@ -28,8 +28,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-07-27T02:36:38.799942-03:00'
-    id: PortfolioAssessmentEngine-20260727023638
+    generated_at: '2026-08-31T10:29:18.525745-03:00'
+    id: PortfolioAssessmentEngine-20260831102918
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -65,8 +65,8 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-07-27T02:36:38.799923-03:00'
-    id: RecoveryAssessmentEngine-20260727023638
+    generated_at: '2026-08-31T10:29:18.525725-03:00'
+    id: RecoveryAssessmentEngine-20260831102918
     recommendation: MODERATE
     risks: []
     score: 56
@@ -80,40 +80,38 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-07-27T02:36:38.799933-03:00'
-    id: RiskAssessmentEngine-20260727023638
+    generated_at: '2026-08-31T10:29:18.525735-03:00'
+    id: RiskAssessmentEngine-20260831102918
     recommendation: LOW_RISK
     risks: []
     score: 80
     status: COMPLETED
     version: '1.0'
   ValuationAssessmentEngine:
-    confidence: HIGH
+    confidence: MEDIUM
     dependencies: []
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Price target upside: 64.2%'
+    - detail: 'FCF Yield: 5.4%'
       type: POSITIVE
-    - detail: 'FCF Yield: 5.8%'
-      type: POSITIVE
-    generated_at: '2026-07-27T02:36:38.799896-03:00'
-    id: ValuationAssessmentEngine-20260727023638
-    recommendation: ATTRACTIVE
+    generated_at: '2026-08-31T10:29:18.525698-03:00'
+    id: ValuationAssessmentEngine-20260831102918
+    recommendation: FAIR
     risks: []
-    score: 80
+    score: 65
     status: COMPLETED
     version: '1.1'
-conviction_score: 72
-created_at: '2026-07-27T02:36:38.800011-03:00'
+conviction_score: 68
+created_at: '2026-08-31T10:29:18.525812-03:00'
 opportunity_id: OPP-20260725-017
-reasoning: 'Rules blocked: RULE-001'
+reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
-rules_passed:
 - RULE-003
 - RULE-004
+rules_passed:
 - RULE-005
 - RULE-008
 type: opportunity:transitioned
