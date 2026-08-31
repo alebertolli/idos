@@ -212,6 +212,7 @@ class SiteData:
     companies: dict = field(default_factory=dict)
     entry_rules: list[dict] = field(default_factory=list)
     universe_stats: dict = field(default_factory=dict)
+    discovery_pool: list[dict] = field(default_factory=list)
 
 
 class SiteBuilder:
@@ -609,6 +610,83 @@ class SiteBuilder:
             out.append(e)
         return out
 
+    def _load_discovery_pool(self) -> list[dict]:
+        """Returns all 267 operable tickers from latest pipeline run, with their Scout scores.
+
+        Reads the list of tickers from `finviz_tickers` if the pipeline results include
+        them, else falls back to walking the cache directory. Each entry is enriched with
+        the same Scout breakdown shown in the watchlist table so the UI can show all 267
+        with their scores and metrics.
+        """
+        from idos.discovery.operability import OperabilityFilter
+        from idos.discovery.scout import ScoutEngine
+        from idos.workers.data.cache import DataCache
+        import json as _json
+
+        tickers: list[str] = []
+        results_path = self.base / "cache" / "pipeline_results.json"
+        if results_path.exists():
+            try:
+                data = _json.loads(results_path.read_text(encoding="utf-8"))
+                finviz = data.get("output", {}).get("finviz_tickers") or []
+                tickers = list(finviz)
+            except Exception:
+                tickers = []
+        if not tickers:
+            for p in sorted(self.cache.glob("*.json")):
+                t = p.stem
+                if t in ("pipeline_results", "rebalance_result", "wyckoff_errors",
+                         "data_errors", "weekly_digest", "last_refresh",
+                         "ddd_results", "earnings_trigger", "entry_signals",
+                         "exit_signals", "monthly_reassessment"):
+                    continue
+                tickers.append(t)
+
+        operable_path = self.config / "universe" / "operable.yml"
+        op_filter = OperabilityFilter(str(operable_path)) if operable_path.exists() else None
+
+        cache = DataCache()
+        scout = ScoutEngine(min_score=0)
+        out: list[dict] = []
+        for ticker in tickers:
+            if op_filter is not None and not op_filter.is_operable(ticker):
+                continue
+            entry = cache.get(f"merged:{ticker}") or {}
+            merged = entry.get("merged_data", entry)
+            score = self._scout_score_for(merged)
+            out.append({
+                "ticker": ticker,
+                "score": score,
+                "metrics": self._scout_metrics_from(merged, score),
+            })
+        out.sort(key=lambda e: e.get("score") or 0, reverse=True)
+        return out
+
+    def _scout_score_for(self, merged: dict) -> int:
+        """Compute a simple global Scout score for a ticker given its merged cache data."""
+        from idos.discovery.scout import ScoutEngine
+        metrics = {
+            "market_cap": self._scout_num(merged.get("market_cap")),
+            "avg_volume": self._scout_num(merged.get("volume_avg")) or self._scout_num(merged.get("avg_volume")),
+            "pe_ratio": self._scout_num(merged.get("pe_ratio_ttm")) or self._scout_num(merged.get("pe_ratio")),
+            "ev_ebitda": self._scout_num(merged.get("ev_ebitda")),
+            "roic": self._scout_num(merged.get("roic_pct")),
+            "operating_margin": self._scout_num(merged.get("operating_margin_pct")),
+            "debt_to_equity": self._scout_num(merged.get("debt_equity_ratio")),
+            "revenue_growth": self._scout_num(merged.get("revenue_growth_pct")),
+        }
+        res = ScoutEngine(min_score=0).scan(ticker="", data={"metrics": metrics})
+        return int(res.score or 0)
+
+    def _scout_metrics_from(self, merged: dict, score: int) -> dict[str, Any]:
+        om = self._scout_num(merged.get("operating_margin_pct"))
+        roic = self._scout_num(merged.get("roic_pct"))
+        return {
+            "transition_score": max(0, min(100, int(round(50 + (om / 15.0) * 30)))),
+            "quality_score": max(0, min(100, int(round(50 + (roic / 20.0) * 30)))),
+            "margin_score": max(0, min(100, int(round(50 + (om / 10.0) * 20)))),
+        }
+
     # -- scout metric breakdown (recompute from cache, mirrors ScoutEngine) --
     def _scout_num(self, v: Any, default: float = 0.0) -> float:
         if isinstance(v, (int, float)):
@@ -1001,6 +1079,7 @@ class SiteBuilder:
         learning = self._load_learning()
         portfolio = self._compute_portfolio(positions)
         universe_stats = self._load_universe_stats()
+        discovery_pool = self._load_discovery_pool()
         dashboard = self._build_dashboard(opps, positions, buylist, watchlist, learning, universe_stats)
 
         return SiteData(
@@ -1018,6 +1097,7 @@ class SiteBuilder:
             companies=self.companies,
             entry_rules=self.entry_rules,
             universe_stats=universe_stats,
+            discovery_pool=discovery_pool,
         )
 
 
@@ -1281,7 +1361,7 @@ function rulesBadge(failed){
   return failed.map(id=>`<span class="badge" title="${esc(map[id]||id)}" style="background:#2a1516;color:#f87171">${esc(id)}</span>`).join(' ');
 }
 function renderOpp(){
-  const rows = DATA.opportunities.filter(o=>o.status==='UNDER_DEEP_DD');
+  const rows = DATA.opportunities.filter(o=>o.status==='UNDER_RESEARCH' || o.status==='UNDER_DEEP_DD');
   TABLES['opp'] = {
     rows,
     cols: [
@@ -1303,7 +1383,7 @@ function renderOpp(){
     q:'',
   };
   let html = `<h2>Research (${rows.length})</h2>`;
-  html += `<p class="muted">Oportunidades en <b>Research / UNDER_DEEP_DD</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Clic en una columna para ordenar.</p>`;
+  html += `<p class="muted">Oportunidades en <b>Research / UNDER_RESEARCH</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Clic en una columna para ordenar.</p>`;
   html += `<p class="muted">Estados siguientes (automatizados): el worker de Decision Board evalúa el caso y lo pasa a <b>APPROVED</b> (aprobado para entrada) o a <b>WATCHLIST</b> (rechazado) según las reglas de entrada. La transición es automática; no hay umbral numérico fijo.</p>`;
   html += detailsEntryRules();
   html += tableInput('opp','opp-search','Buscar ticker...');
@@ -1389,10 +1469,9 @@ function renderPortfolio(){
   setView('portfolio', html);
 }
 
-// ---------- Screening Watchlist ----------
 // ---------- Discovery ----------
 function renderScreening(){
-  const rows = DATA.watchlist;
+  const rows = (DATA.discovery_pool && DATA.discovery_pool.length) ? DATA.discovery_pool : DATA.watchlist;
   const mkeys = ['transition_score','quality_score','margin_score'];
   const mlabels = ['Transition','Quality','Margin'];
   TABLES['screening'] = {
@@ -1408,8 +1487,10 @@ function renderScreening(){
     sort: {key:'score', dir:'desc'},
     q:'',
   };
-  let html = `<h2>Discovery (${rows.length})</h2>`;
-  html += `<p class="muted">Candidatos del Discovery Domain (Scout), primer estado del funnel. La promoción es automática por el pipeline mensual: si el score de screening es <b>≥ ${DISC_MIN_SCORE}</b> (umbral <code>scoring.min_opportunity_score</code>), el caso pasa solo a <b>Research / UNDER_DEEP_DD</b>, sin aprobación manual. El score global es el promedio de las 5 métricas del Scout. Clic en una columna para ordenar.</p>`;
+  const total = rows.length;
+  const poolLabel = (DATA.discovery_pool && DATA.discovery_pool.length) ? 'Candidatos operables (267 del último pipeline)' : 'Watchlist';
+  let html = `<h2>Discovery (${total})</h2>`;
+  html += `<p class="muted"><b>${poolLabel}.</b> Candidatos del Discovery Domain (Scout), primer estado del funnel. La promoción es automática por el pipeline mensual: si el score de screening es <b>≥ ${DISC_MIN_SCORE}</b> (umbral <code>scoring.min_opportunity_score</code>), el caso pasa solo a <b>Research / UNDER_RESEARCH</b>, sin aprobación manual. El score global es el promedio de las 5 métricas del Scout. Clic en una columna para ordenar.</p>`;
   html += tableInput('screening','screen-search','Buscar ticker...');
   html += `<table id="tbl-screening"><thead>${sortHeadRows('screening')}</thead><tbody>${sortTbody('screening')}</tbody></table>`;
   setView('screening', html);
