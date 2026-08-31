@@ -1,89 +1,32 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene un modelo de negocio sólido y una presencia geográfica diversificada.
-  - La empresa ha demostrado una capacidad para generar cash flow y mantener una posición
-    financiera saludable.
-  - La empresa tiene un equipo de gestión experimentado y con una buena trayectoria.
-  inferencias_llm:
-  - El mercado podría estar subestimando la capacidad de la empresa para generar cash
-    flow y mantener su posición financiera saludable.
-  - La empresa tiene una presencia geográfica diversificada y una capacidad para adaptarse
-    a los cambios en el mercado.
-  preguntas_abiertas:
-  - ¿Cuál es el impacto de los cambios en la demanda de oro en la empresa?
-  - ¿Cuál es el impacto de los cambios en la producción de la empresa en la empresa?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: deep_value, ciclica, special_situation, distressed, hype,
-    value_trap
-  justificacion: Agnico Eagle Mines Limited es una empresa de minería de oro con una
-    larga historia de crecimiento y estabilidad financiera. Su modelo de negocio es
-    sólido y tiene una presencia geográfica diversificada. La empresa ha demostrado
-    una capacidad para generar cash flow y mantener una posición financiera saludable.
-dominio_business_quality:
-  analisis: La empresa tiene un modelo de negocio sólido y una presencia geográfica
-    diversificada. La empresa ha demostrado una capacidad para generar cash flow y
-    mantener una posición financiera saludable.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: un aumento en la demanda de oro
+  generated_at: '2026-07-30T14:42:11.277863-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 40
+  opp_id: OPP-20260725-007
+  probabilidad_anterior: 40
 - descripcion: una mejora en la producción de la empresa
+  generated_at: '2026-07-30T14:42:11.277863-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: La empresa tiene una presencia geográfica diversificada y una capacidad
-    para adaptarse a los cambios en el mercado. La empresa también tiene una buena
-    reputación en términos de ESG.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene una posición financiera saludable con un margen operativo
-    del 60% y un ROIC del 23.8%. La empresa también tiene una capacidad para generar
-    cash flow y mantener una posición financiera saludable.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa tiene una capacidad para generar crecimiento a largo plazo
-    con una rentabilidad moderada. La empresa también tiene una presencia geográfica
-    diversificada y una capacidad para adaptarse a los cambios en el mercado.
-  rating: fuerte
-dominio_management:
-  analisis: La empresa tiene un equipo de gestión experimentado y con una buena trayectoria.
-    La empresa ha demostrado una capacidad para tomar decisiones informadas y mantener
-    una posición financiera saludable.
-  rating: excepcional
-dominio_riesgos:
-- impacto: medio
-  probabilidad: media
-  riesgo: riesgo de mercado
-- impacto: bajo
-  probabilidad: baja
-  riesgo: riesgo operativo
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un aumento en la demanda de oro o una mejora en la producción de
-      la empresa
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: SI
-  consenso_actual: Los analistas creen que la empresa tiene un crecimiento moderado
-    y una valoración justa. El precio actual refleja un escenario de crecimiento a
-    largo plazo con una rentabilidad moderada.
-  hipotesis_contraria: El mercado podría estar subestimando la capacidad de la empresa
-    para generar cash flow y mantener su posición financiera saludable. Además, la
-    empresa tiene una presencia geográfica diversificada y una capacidad para adaptarse
-    a los cambios en el mercado.
-  razonamiento: El mercado podría estar subestimando la capacidad de la empresa para
-    generar cash flow y mantener su posición financiera saludable. Además, la empresa
-    tiene una presencia geográfica diversificada y una capacidad para adaptarse a
-    los cambios en el mercado.
-generated_at: '2026-07-30T14:42:11.277863-03:00'
-opinion_valoracion: infravalorado
+  opp_id: OPP-20260725-007
+  probabilidad_anterior: 30
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-08-31T18:22:51.151076-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-007
 prompt_inputs:
   business_model: Agnico Eagle Mines Limited, a gold mining company, engages in the
@@ -98,20 +41,25 @@ prompt_inputs:
   insider_ownership: 0
   name: Agnico Eagle Mines Limited
   operating_margin: 59.99
-  pe_ratio: 12.67
+  pe_ratio: 17.37
   products: ''
   revenue: 14530000000.0
-  revenue_growth: 6.58
-  roic: 23.84
+  revenue_growth: 6.65
+  roic: 23.85
   sector: Basic Materials
   ticker: AEM
-resumen_ejecutivo: Agnico Eagle Mines Limited es una empresa de minería de oro con
-  una larga historia de crecimiento y estabilidad financiera. La empresa tiene un
-  modelo de negocio sólido y una presencia geográfica diversificada. El mercado podría
-  estar subestimando la capacidad de la empresa para generar cash flow y mantener
-  su posición financiera saludable.
-score_general: 85
-tesis_inversion: La empresa es una buena oportunidad de inversión a largo plazo con
-  un potencial de crecimiento moderado y una valoración justa.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-08-31T18:22:51.140431-03:00'
+  fuentes:
+    stockanalysis: 214.98
+    yfinance: 214.97571
+  mediana: 214.98
+  n_fuentes: 2
+  promedio: 214.98
+  target_high: 300.0
+  target_low: 87.0
+tesis_inversion: ''
 ticker: AEM
 version: '3.0'

@@ -1,77 +1,25 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene un margen operativo del 40.4% y un ROIC del 12.6%
-  inferencias_llm:
-  - La demanda de oro y plata podría aumentar debido a la incertidumbre económica
-    y política global
-  preguntas_abiertas:
-  - ¿Cómo afectará la volatilidad del mercado de metales preciosos a la rentabilidad
-    de la empresa?
-  - ¿Qué medidas tomará la empresa para abordar los riesgos ambientales y sociales
-    asociados con la minería?
-clasificacion_oportunidad:
-  categoria: Deep Value
-  categorias_descartadas: Compounder, Compounder castigado, Turnaround, Cíclica, Special
-    Situation, Distressed, Quality at Fair Price, Hype, Value Trap
-  justificacion: La empresa presenta un margen operativo del 40.4% y un ROIC del 12.6%,
-    lo que sugiere una buena salud financiera. Sin embargo, el precio de la acción
-    puede estar infravalorado debido a la volatilidad del mercado de metales preciosos
-    y la falta de crecimiento en el sector. La deuda es baja con un D/E de 0.1x, lo
-    que reduce el riesgo de insolvencia.
-dominio_business_quality:
-  analisis: La empresa tiene una posición competitiva en el mercado de metales preciosos,
-    con una cartera diversificada de activos y una buena reputación en la industria.
-  rating: buena
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Aumento significativo en la demanda de oro y plata
+  generated_at: '2026-07-27T00:55:59.874175-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: La empresa enfrenta riesgos ambientales y sociales asociados con la minería,
-    pero tiene un buen historial de cumplimiento de regulaciones y una política de
-    responsabilidad social.
-  rating: medio_riesgo
-dominio_financial_health:
-  analisis: La empresa presenta un margen operativo alto, una generación de caja sólida
-    y una deuda baja, lo que reduce el riesgo de insolvencia.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa enfrenta desafíos para crecer en un mercado de metales preciosos
-    volátil y con poca visibilidad de crecimiento.
-  rating: debil
-dominio_management:
-  analisis: La empresa tiene un equipo de gestión experimentado, pero la falta de
-    crecimiento en el sector y la volatilidad del mercado de metales preciosos pueden
-    afectar la toma de decisiones.
-  rating: regular
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: Volatilidad del mercado de metales preciosos
-- impacto: medio
-  probabilidad: media
-  riesgo: Riesgos ambientales y sociales
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un aumento significativo en la demanda de oro y plata debido a la
-      incertidumbre económica y política global
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado parece descontar un escenario de bajo crecimiento y
-    precios bajos de los metales preciosos, lo que podría afectar la rentabilidad
-    de la empresa.
-  hipotesis_contraria: La demanda de oro y plata podría aumentar debido a la incertidumbre
-    económica y política global, lo que podría impulsar los precios de los metales
-    y beneficiar a la empresa.
-  razonamiento: La empresa presenta fundamentos sólidos, pero el mercado parece descontar
-    un escenario pesimista. Un cambio en la percepción del mercado podría llevar a
-    una revaluación de la acción.
-generated_at: '2026-07-27T00:55:59.874175-03:00'
-opinion_valoracion: infravalorado
+  opp_id: OPP-20260725-017
+  probabilidad_anterior: 30
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-08-31T18:25:37.763114-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-017
 prompt_inputs:
   business_model: Coeur Mining, Inc. operates as a gold and silver producer in the
@@ -87,20 +35,26 @@ prompt_inputs:
   fcf_adjusted: 0
   insider_ownership: 0
   name: Coeur Mining, Inc.
-  operating_margin: 40.44
-  pe_ratio: 12.51
+  operating_margin: 35.19
+  pe_ratio: 18.83
   products: ''
-  revenue: 2570000000.0
-  revenue_growth: 39.42
-  roic: 12.58
+  revenue: 3170000000.0
+  revenue_growth: 34.89
+  roic: 8.76
   sector: Basic Materials
   ticker: CDE
-resumen_ejecutivo: Coeur Mining, Inc. es una empresa minera de oro y plata con una
-  buena salud financiera y un margen operativo alto. El precio de la acción puede
-  estar infravalorado debido a la volatilidad del mercado de metales preciosos.
-score_general: 60
-tesis_inversion: La empresa presenta fundamentos sólidos y un precio de acción infravalorado,
-  lo que la hace atractiva para inversores que buscan oportunidades de valor en el
-  sector de metales preciosos.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-08-31T18:25:37.756521-03:00'
+  fuentes:
+    stockanalysis: 23.32
+    yfinance: 23.31818
+  mediana: 23.32
+  n_fuentes: 2
+  promedio: 23.32
+  target_high: 35.0
+  target_low: 18.0
+tesis_inversion: ''
 ticker: CDE
 version: '3.0'

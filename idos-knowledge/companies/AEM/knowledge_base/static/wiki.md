@@ -35,29 +35,29 @@ To be evaluated
 ---
 
 ## Financial Highlights
-- **ROIC**: 23.84
+- **ROIC**: 23.85
 - **Operating Margin**: 59.99
-- **Revenue Growth**: 6.58
+- **Revenue Growth**: 6.65
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.01
-- **PER**: 12.67
-- **EV/EBITDA**: 6.94
+- **PER**: 17.37
+- **EV/EBITDA**: 9.98
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-La empresa es una buena oportunidad de inversión a largo plazo con un potencial de crecimiento moderado y una valoración justa.
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[B|B]], [[CDE|Coeur Mining, Inc.]], [[GFI|Gold Fields Limited]], [[HL|Hecla Mining Company]], [[HMY|Harmony Gold Mining Company Limited]], [[KGC|Kinross Gold Corporation]], [[NEM|Newmont Corporation]], [[PAAS|Pan American Silver Corp.]], [[SCCO|Southern Copper Corporation]]
+- **Same Sector**: [[B|B]], [[BHP|BHP Group Limited]], [[CDE|Coeur Mining, Inc.]], [[GFI|Gold Fields Limited]], [[HL|Hecla Mining Company]], [[HMY|Harmony Gold Mining Company Limited]], [[KGC|Kinross Gold Corporation]], [[NEM|Newmont Corporation]], [[PAAS|Pan American Silver Corp.]], [[SCCO|Southern Copper Corporation]]
 - **Same Industry**: [[B|B]], [[CDE|Coeur Mining, Inc.]], [[GFI|Gold Fields Limited]], [[HMY|Harmony Gold Mining Company Limited]], [[KGC|Kinross Gold Corporation]], [[NEM|Newmont Corporation]], [[PAAS|Pan American Silver Corp.]]

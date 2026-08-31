@@ -1,1 +1,1 @@
-Amazon es un activo de altísima calidad ('core holding' para Family Offices) que cotiza a un precio justo por sus flujos proyectados. La tesis se apoya en la expansión estructural de márgenes impulsada por la mezcla de ventas hacia publicidad y AWS, compensando con creces la madurez relativa del comercio electrónico minorista.
+To be formulated

@@ -35,27 +35,28 @@ To be evaluated
 ---
 
 ## Financial Highlights
-- **ROIC**: 21.69
-- **Operating Margin**: 31.76
-- **Revenue Growth**: 7.77
+- **ROIC**: 20.58
+- **Operating Margin**: 33.65
+- **Revenue Growth**: 7.74
 - **FCF Yield**: 0
-- **Debt/Equity**: 0.06
+- **Debt/Equity**: 0.02
 - **PER**: 13.21
-- **EV/EBITDA**: 8.88
+- **EV/EBITDA**: 9.01
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-La compañía tiene un potencial de crecimiento significativo y una valoración justa.
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ADBE|Adobe Inc.]], [[ASML|ASML Holding N.V.]], [[CLS|Celestica Inc.]], [[GRMN|Garmin Ltd.]], [[MSFT|Microsoft Corporation]], [[NVDA|NVIDIA Corporation]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]]
+- **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]], [[ADI|ADI]], [[ADP|Automatic Data Processing, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CLS|Celestica Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign, Inc.]], [[ERIC|Telefonaktiebolaget LM Ericsson (publ)]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]], [[INFY|Infosys Limited]], [[KEEL|Keel Infrastructure Corp.]], [[LRCX|Lam Research Corporation]], [[MRVL|Marvell Technology, Inc.]], [[MSFT|Microsoft Corporation]], [[MU|Micron Technology, Inc.]], [[NOW|ServiceNow, Inc.]], [[NVDA|NVIDIA Corporation]], [[ONDS|Ondas Inc.]], [[ORCL|Oracle Corporation]], [[PAGS|PagSeguro Digital Ltd.]], [[PANW|Palo Alto Networks, Inc.]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[STNE|StoneCo Ltd.]], [[TEAM|Atlassian Corporation]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]], [[XYZ|Block, Inc.]], [[ZM|Zoom Communications, Inc.]]

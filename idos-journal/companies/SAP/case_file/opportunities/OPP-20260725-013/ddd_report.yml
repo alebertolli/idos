@@ -1,79 +1,26 @@
-calidad_evidencia:
-  hechos_verificados:
-  - SAP SE es una empresa de tecnología con un modelo de negocio establecido y una
-    larga historia de crecimiento sostenido.
-  - Su presencia en el mercado es amplia y su moat es fuerte debido a su posición
-    dominante en la industria de las soluciones de negocio.
-  inferencias_llm:
-  - El mercado podría estar subestimando el potencial de crecimiento de SAP SE en
-    la industria de la inteligencia artificial y la automatización.
-  - SAP SE tiene un potencial de crecimiento significativo en la industria de la inteligencia
-    artificial y la automatización.
-  preguntas_abiertas:
-  - ¿Cuál es el impacto real del mercado en la valoración de SAP SE?
-  - ¿Cuál es el potencial de crecimiento real de SAP SE en la industria de la inteligencia
-    artificial y la automatización?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: deep_value, hype, value_trap
-  justificacion: SAP SE es una empresa de tecnología con un modelo de negocio establecido
-    y una larga historia de crecimiento sostenido. Su presencia en el mercado es amplia
-    y su moat es fuerte debido a su posición dominante en la industria de las soluciones
-    de negocio.
-dominio_business_quality:
-  analisis: SAP SE tiene una posición dominante en la industria de las soluciones
-    de negocio y una larga historia de crecimiento sostenido. Su modelo de negocio
-    es estable y su presencia en el mercado es amplia.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: un anuncio de un nuevo producto o servicio que aproveche la tecnología
     de inteligencia artificial y automatización
+  generated_at: '2026-07-27T02:08:55.994547-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: SAP SE tiene un enfoque sólido en la sostenibilidad y la responsabilidad
-    social. Su cadena de suministro es diversificada y no hay riesgos significativos
-    identificados.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: SAP SE tiene un balance sólido y una generación de caja estable. Su perfil
-    de deuda es bajo y su margen operativo es alto.
-  rating: fuerte
-dominio_growth:
-  analisis: SAP SE tiene un potencial de crecimiento significativo en la industria
-    de la inteligencia artificial y la automatización. Su presencia en el mercado
-    es amplia y su moat es fuerte.
-  rating: fuerte
-dominio_management:
-  analisis: El equipo de dirección de SAP SE tiene una larga experiencia en la industria
-    y ha demostrado una capacidad para tomar decisiones estratégicas efectivas.
-  rating: excepcional
-dominio_riesgos:
-- impacto: medio
-  probabilidad: media
-  riesgo: riesgo de competencia
-- impacto: bajo
-  probabilidad: baja
-  riesgo: riesgo de tecnología
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un anuncio de un nuevo producto o servicio que aproveche la tecnología
-      de inteligencia artificial y automatización.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: SI
-  consenso_actual: El precio de SAP SE está descontando su crecimiento a largo plazo
-    y su posición dominante en la industria.
-  hipotesis_contraria: El mercado podría estar subestimando el potencial de crecimiento
-    de SAP SE en la industria de la inteligencia artificial y la automatización.
-  razonamiento: El mercado podría estar subestimando el potencial de crecimiento de
-    SAP SE en la industria de la inteligencia artificial y la automatización, lo que
-    podría llevar a un aumento en el precio de la acción.
-generated_at: '2026-07-27T02:08:55.994547-03:00'
-opinion_valoracion: infravalorado
+  opp_id: OPP-20260725-013
+  probabilidad_anterior: 30
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-08-31T18:29:31.726417-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-013
 prompt_inputs:
   business_model: SAP SE, together with its subsidiaries, provides enterprise application
@@ -106,22 +53,25 @@ prompt_inputs:
   insider_ownership: 0
   name: SAP SE
   operating_margin: 28.78
-  pe_ratio: 20.69
+  pe_ratio: 28.46
   products: ''
   revenue: 43630000000.0
-  revenue_growth: 11.09
+  revenue_growth: 11.04
   roic: 18.2
   sector: Technology
   ticker: SAP
-resumen_ejecutivo: SAP SE es una empresa de tecnología con un modelo de negocio establecido
-  y una larga historia de crecimiento sostenido. Su presencia en el mercado es amplia
-  y su moat es fuerte debido a su posición dominante en la industria de las soluciones
-  de negocio. El mercado podría estar subestimando el potencial de crecimiento de
-  SAP SE en la industria de la inteligencia artificial y la automatización, lo que
-  podría llevar a un aumento en el precio de la acción.
-score_general: 85
-tesis_inversion: SAP SE es una inversión atractiva debido a su posición dominante
-  en la industria, su potencial de crecimiento significativo y su enfoque sólido en
-  la sostenibilidad y la responsabilidad social.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-08-31T18:29:31.718563-03:00'
+  fuentes:
+    stockanalysis: 245.33
+    yfinance: 247.25
+  mediana: 246.29
+  n_fuentes: 2
+  promedio: 246.29
+  target_high: 319.0
+  target_low: 177.0
+tesis_inversion: ''
 ticker: SAP
 version: '3.0'

@@ -1,88 +1,32 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene un margen operativo del 22.7% y un ROIC del 90.6%
-  inferencias_llm:
-  - La empresa tiene un potencial de crecimiento significativo debido a su capacidad
-    para innovar y expandirse en nuevos mercados
-  preguntas_abiertas:
-  - ¿Cuál es el impacto potencial de la competencia en el mercado de calzado y ropa
-    para actividades al aire libre en la empresa?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: Compounder castigado, Turnaround, Deep Value, Cíclica, Special
-    Situation, Distressed, Quality at Fair Price, Hype y Value Trap, debido a que
-    la empresa no presenta signos de declive operativo, no está infravalorada, no
-    tiene un plan de recuperación y no presenta un alto riesgo de quiebra.
-  justificacion: La empresa Deckers Outdoor Corporation tiene un historial de crecimiento
-    estable y una posición competitiva sólida en el mercado de calzado y ropa para
-    actividades al aire libre. Su margen operativo del 22.7% y un ROIC del 90.6% indican
-    una gestión eficiente y una capacidad para generar valor para los accionistas.
-dominio_business_quality:
-  analisis: La empresa tiene una posición competitiva sólida en el mercado de calzado
-    y ropa para actividades al aire libre, con marcas reconocidas como UGG y HOKA.
-    La empresa también tiene una capacidad para innovar y expandirse en nuevos mercados.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Un aumento en la participación de mercado de la marca HOKA
+  generated_at: '2026-07-27T00:57:07.053485-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 30
+  opp_id: OPP-20260725-009
+  probabilidad_anterior: 30
 - descripcion: Un anuncio de expansión en nuevos mercados
+  generated_at: '2026-07-27T00:57:07.053485-03:00'
   horizonte: largo
   impacto: medio
   nivel_confianza: medio
-  probabilidad_pct: 20
-dominio_esg_supply_chain:
-  analisis: La empresa tiene un enfoque sólido en la responsabilidad social y ambiental,
-    y ha implementado iniciativas para reducir su impacto ambiental y mejorar las
-    condiciones laborales en su cadena de suministro.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene un margen operativo del 22.7% y un ROIC del 90.6%, lo
-    que indica una gestión eficiente y una capacidad para generar valor para los accionistas.
-    La empresa también tiene una deuda baja, con un ratio de deuda a patrimonio de
-    0.2x.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa tiene un potencial de crecimiento significativo, debido a su
-    capacidad para innovar y expandirse en nuevos mercados. La marca HOKA tiene un
-    potencial de crecimiento importante, y la empresa está explorando oportunidades
-    de expansión en nuevos mercados.
-  rating: fuerte
-dominio_management:
-  analisis: La empresa tiene un equipo de gestión experimentado y con un historial
-    de éxito en la industria. El CEO tiene una visión clara para el futuro de la empresa
-    y ha demostrado una capacidad para tomar decisiones estratégicas efectivas.
-  rating: excepcional
-dominio_riesgos:
-- impacto: medio
-  probabilidad: media
-  riesgo: cambio en las tendencias de moda
-- impacto: alto
-  probabilidad: alta
-  riesgo: competencia en el mercado de calzado y ropa para actividades al aire libre
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un aumento en la participación de mercado de la marca HOKA o un anuncio
-      de expansión en nuevos mercados
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado parece descontar un crecimiento estable y una posición
-    competitiva sólida de la empresa, pero podría estar subestimando el potencial
-    de crecimiento de la marca HOKA y el impacto de la expansión de la empresa en
-    nuevos mercados.
-  hipotesis_contraria: La hipótesis contraria es que el mercado está subestimando
-    el potencial de crecimiento de la empresa debido a su capacidad para innovar y
-    expandirse en nuevos mercados, lo que podría llevar a un aumento en la valoración
-    de la empresa.
-  razonamiento: La empresa tiene un historial de crecimiento estable y una posición
-    competitiva sólida, pero el mercado podría estar subestimando su potencial de
-    crecimiento.
-generated_at: '2026-07-27T00:57:07.053485-03:00'
-opinion_valoracion: infravalorado
+  opp_id: OPP-20260725-009
+  probabilidad_anterior: 20
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-08-31T18:26:11.097469-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-009
 prompt_inputs:
   business_model: Deckers Outdoor Corporation, together with its subsidiaries, designs,
@@ -103,22 +47,25 @@ prompt_inputs:
   insider_ownership: 0
   name: Deckers Outdoor Corporation
   operating_margin: 22.67
-  pe_ratio: 13.54
+  pe_ratio: 12.35
   products: ''
   revenue: 5530000000.0
-  revenue_growth: 7.53
+  revenue_growth: 7.35
   roic: 90.59
   sector: Consumer Cyclical
   ticker: DECK
-resumen_ejecutivo: Deckers Outdoor Corporation es una empresa de calzado y ropa para
-  actividades al aire libre con un historial de crecimiento estable y una posición
-  competitiva sólida. La empresa tiene un margen operativo del 22.7% y un ROIC del
-  90.6%, lo que indica una gestión eficiente y una capacidad para generar valor para
-  los accionistas.
-score_general: 80
-tesis_inversion: La empresa tiene un historial de crecimiento estable y una posición
-  competitiva sólida, y el mercado podría estar subestimando su potencial de crecimiento.
-  La marca HOKA tiene un potencial de crecimiento importante, y la empresa está explorando
-  oportunidades de expansión en nuevos mercados.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-08-31T18:26:11.089848-03:00'
+  fuentes:
+    stockanalysis: 122.81
+    yfinance: 122.80952
+  mediana: 122.81
+  n_fuentes: 2
+  promedio: 122.81
+  target_high: 184.0
+  target_low: 85.0
+tesis_inversion: ''
 ticker: DECK
 version: '3.0'

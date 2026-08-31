@@ -1,78 +1,26 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene un historial de crecimiento estable
-  - La empresa tiene una posición competitiva sólida en el mercado de reservas de
-    viajes en línea
-  inferencias_llm:
-  - La empresa podría beneficiarse de una mayor adopción de tecnologías de reservas
-    de viajes en línea en mercados emergentes
-  preguntas_abiertas:
-  - ¿Cuál es el impacto potencial de la competencia en el mercado de reservas de viajes
-    en línea?
-  - ¿Cuál es el potencial de crecimiento de los servicios de reservas de restaurantes
-    en nuevos mercados?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: Compounder castigado, Turnaround, Deep Value, Cíclica, Special
-    Situation, Distressed, Quality at Fair Price, Hype, Value Trap
-  justificacion: La empresa tiene un historial de crecimiento estable y una posición
-    competitiva sólida en el mercado de reservas de viajes en línea. Su modelo de
-    negocio diversificado y su presencia geográfica amplia la hacen resiliente a los
-    cambios en el mercado.
-dominio_business_quality:
-  analisis: La empresa tiene una posición competitiva sólida en el mercado de reservas
-    de viajes en línea, con una presencia geográfica amplia y un modelo de negocio
-    diversificado.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Expansión exitosa de los servicios de reservas de restaurantes en nuevos
     mercados
+  generated_at: '2026-07-27T00:51:37.616137-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: La empresa no tiene un impacto significativo en el medio ambiente y no
-    hay información disponible sobre los riesgos de la cadena de suministro.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene un historial de crecimiento estable y una generación
-    de caja sólida, con un margen operativo del 35,3% y un ROIC del 75,0%.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa tiene un historial de crecimiento estable, pero el crecimiento
-    del mercado de reservas de viajes en línea puede ser limitado en el futuro.
-  rating: moderado
-dominio_management:
-  analisis: La empresa tiene un equipo de gestión experimentado, pero no hay información
-    disponible sobre la antigüedad del CEO y la propiedad de los accionistas.
-  rating: bueno
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: Competencia
-- impacto: medio
-  probabilidad: media
-  riesgo: Cambios en el comportamiento de los consumidores
-error_mercado:
-  catalizador_cambio:
-    descripcion: Una expansión exitosa de los servicios de reservas de restaurantes
-      en nuevos mercados
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: INCIERTO
-  consenso_actual: El mercado espera que la empresa continúe creciendo a un ritmo
-    estable, pero no hay un consenso claro sobre el impacto potencial de la competencia
-    y los cambios en el comportamiento de los consumidores.
-  hipotesis_contraria: La empresa podría beneficiarse de una mayor adopción de tecnologías
-    de reservas de viajes en línea en mercados emergentes y de una expansión exitosa
-    de sus servicios de reservas de restaurantes.
-  razonamiento: No hay un error de valoración claro, pero la empresa podría beneficiarse
-    de una mayor adopción de tecnologías de reservas de viajes en línea y de una expansión
-    exitosa de sus servicios de reservas de restaurantes.
-generated_at: '2026-07-27T00:51:37.616137-03:00'
-opinion_valoracion: justo
+  opp_id: OPP-20260725-021
+  probabilidad_anterior: 30
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-08-31T18:24:31.130933-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-021
 prompt_inputs:
   business_model: Booking Holdings Inc., together with its subsidiaries, provides
@@ -97,22 +45,26 @@ prompt_inputs:
   fcf_adjusted: 0
   insider_ownership: 0
   name: Booking Holdings Inc.
-  operating_margin: 35.32
-  pe_ratio: 23.3
+  operating_margin: 34.85
+  pe_ratio: 22.73
   products: ''
-  revenue: 27690000000.0
-  revenue_growth: 8.85
-  roic: 75.02
+  revenue: 28240000000.0
+  revenue_growth: 8.76
+  roic: 92.45
   sector: Consumer Cyclical
   ticker: BKNG
-resumen_ejecutivo: La empresa es un compounder estable con una posición competitiva
-  sólida en el mercado de reservas de viajes en línea. Sin embargo, no hay un consenso
-  claro sobre el impacto potencial de la competencia y los cambios en el comportamiento
-  de los consumidores.
-score_general: 80
-tesis_inversion: La empresa es un compounder estable con una posición competitiva
-  sólida en el mercado de reservas de viajes en línea. La expansión exitosa de los
-  servicios de reservas de restaurantes en nuevos mercados podría ser un catalizador
-  para el crecimiento.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-08-31T18:24:31.122940-03:00'
+  fuentes:
+    stockanalysis: 237.81
+    yfinance: 238.5
+  mediana: 238.16
+  n_fuentes: 2
+  promedio: 238.16
+  target_high: 301.0
+  target_low: 188.0
+tesis_inversion: ''
 ticker: BKNG
 version: '3.0'

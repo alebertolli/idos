@@ -1,75 +1,26 @@
-calidad_evidencia:
-  hechos_verificados:
-  - SABESP es una empresa de saneamiento básico con una larga historia
-  - Su modelo de negocio es estable y su moat es fuerte debido a la regulación y la
-    necesidad de servicios de saneamiento básico
-  - El mercado puede estar subestimando la capacidad de SABESP para adaptarse a los
-    cambios en el mercado y mantener su posición dominante
-  inferencias_llm:
-  - SABESP tiene una posición dominante en el mercado de saneamiento básico de São
-    Paulo, Brasil
-  - Su capacidad para adaptarse a los cambios en el mercado es limitada
-  preguntas_abiertas:
-  - ¿Cuál es la capacidad de SABESP para adaptarse a los cambios en el mercado y mantener
-    su posición dominante?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: deep_value, hype, value_trap
-  justificacion: SABESP es una empresa de saneamiento básico con una larga historia
-    y una posición dominante en el mercado de São Paulo, Brasil. Su modelo de negocio
-    es estable y su moat es fuerte debido a la regulación y la necesidad de servicios
-    de saneamiento básico.
-dominio_business_quality:
-  analisis: SABESP tiene una posición dominante en el mercado de saneamiento básico
-    de São Paulo, Brasil, y su modelo de negocio es estable. Su moat es fuerte debido
-    a la regulación y la necesidad de servicios de saneamiento básico.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Aumento en la demanda de servicios de saneamiento básico debido a la
     creciente población de São Paulo
+  generated_at: '2026-07-27T02:11:20.193839-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 60
-dominio_esg_supply_chain:
-  analisis: SABESP tiene un bajo riesgo de ESG debido a su modelo de negocio estable
-    y su capacidad para mitigar los riesgos ambientales y sociales.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: SABESP tiene un balance sólido y una generación de caja estable. Su perfil
-    de deuda es bajo y su margen operativo es alto.
-  rating: fuerte
-dominio_growth:
-  analisis: SABESP tiene un crecimiento moderado en la demanda de servicios de saneamiento
-    básico, pero su capacidad para adaptarse a los cambios en el mercado es limitada.
-  rating: moderado
-dominio_management:
-  analisis: La experiencia del CEO es limitada, pero la empresa tiene un equipo de
-    gestión experimentado y una buena alineación con los accionistas.
-  rating: bueno
-dominio_riesgos:
-- impacto: medio
-  probabilidad: media
-  riesgo: Competencia en el mercado de saneamiento básico
-- impacto: bajo
-  probabilidad: baja
-  riesgo: Cambios en la regulación
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un aumento en la demanda de servicios de saneamiento básico debido
-      a la creciente población de São Paulo
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 60
-  conclusion_error_valoracion: SI
-  consenso_actual: El precio de SABESP está descontando la disminución del crecimiento
-    de la empresa y la competencia en el mercado de saneamiento básico.
-  hipotesis_contraria: El mercado puede estar subestimando la capacidad de SABESP
-    para adaptarse a los cambios en el mercado y mantener su posición dominante.
-  razonamiento: El mercado puede estar subestimando la capacidad de SABESP para adaptarse
-    a los cambios en el mercado y mantener su posición dominante.
-generated_at: '2026-07-27T02:11:20.193839-03:00'
-opinion_valoracion: justo
+  opp_id: OPP-20260725-014
+  probabilidad_anterior: 60
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-08-31T18:30:05.121971-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-014
 prompt_inputs:
   business_model: Companhia de Saneamento Básico do Estado de São Paulo - SABESP provides
@@ -78,26 +29,30 @@ prompt_inputs:
     Saneamento Básico do Estado de São Paulo - SABESP was founded in 1954 and is headquartered
     in São Paulo, Brazil.
   ceo_tenure: 0
-  debt_to_equity: 0.0118
+  debt_to_equity: 0.011399999999999999
   fcf_adjusted: 0
   insider_ownership: 0
   name: Companhia de Saneamento Básico do Estado de São Paulo - SABESP
-  operating_margin: 33.14
-  pe_ratio: 11.74
+  operating_margin: 31.68
+  pe_ratio: 10.4
   products: ''
-  revenue: 7600000000.0
-  revenue_growth: -4.62
-  roic: 10.16
+  revenue: 7890000000.0
+  revenue_growth: -2.15
+  roic: 9.6
   sector: Utilities
   ticker: SBS
-resumen_ejecutivo: SABESP es una empresa de saneamiento básico con una larga historia
-  y una posición dominante en el mercado de São Paulo, Brasil. Su modelo de negocio
-  es estable y su moat es fuerte debido a la regulación y la necesidad de servicios
-  de saneamiento básico. El mercado puede estar subestimando la capacidad de SABESP
-  para adaptarse a los cambios en el mercado y mantener su posición dominante.
-score_general: 80
-tesis_inversion: SABESP es una inversión atractiva debido a su posición dominante
-  en el mercado de saneamiento básico, su modelo de negocio estable y su capacidad
-  para adaptarse a los cambios en el mercado.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-08-31T18:30:05.115078-03:00'
+  fuentes:
+    stockanalysis: 6.76
+    yfinance: 6.756
+  mediana: 6.76
+  n_fuentes: 2
+  promedio: 6.76
+  target_high: 7.6
+  target_low: 6.28
+tesis_inversion: ''
 ticker: SBS
 version: '3.0'

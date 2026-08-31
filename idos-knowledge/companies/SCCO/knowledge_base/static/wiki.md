@@ -35,29 +35,28 @@ To be evaluated
 ---
 
 ## Financial Highlights
-- **ROIC**: 41.32
+- **ROIC**: 41.17
 - **Operating Margin**: 56.9
-- **Revenue Growth**: 6.93
+- **Revenue Growth**: 6.77
 - **FCF Yield**: 0
-- **Debt/Equity**: 0.67
-- **PER**: 26.53
-- **EV/EBITDA**: 15.27
+- **Debt/Equity**: 0.68
+- **PER**: 31.57
+- **EV/EBITDA**: 17.82
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Southern Copper ofrece una plataforma de alto rendimiento con un moat sólido y rentabilidad superior a la media del sector; los inversores deberían mantener exposición mientras monitorizan la evolución del precio del cobre y la ejecución de proyectos de crecimiento.
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AEM|Agnico Eagle Mines Limited]], [[B|B]], [[CDE|Coeur Mining, Inc.]], [[GFI|Gold Fields Limited]], [[HL|Hecla Mining Company]], [[HMY|Harmony Gold Mining Company Limited]], [[KGC|Kinross Gold Corporation]], [[NEM|Newmont Corporation]], [[PAAS|Pan American Silver Corp.]]
+- **Same Sector**: [[AEM|Agnico Eagle Mines Limited]], [[B|B]], [[BHP|BHP Group Limited]], [[CDE|Coeur Mining, Inc.]], [[GFI|Gold Fields Limited]], [[HL|Hecla Mining Company]], [[HMY|Harmony Gold Mining Company Limited]], [[KGC|Kinross Gold Corporation]], [[NEM|Newmont Corporation]], [[PAAS|Pan American Silver Corp.]]

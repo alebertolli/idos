@@ -35,29 +35,29 @@ To be evaluated
 ---
 
 ## Financial Highlights
-- **ROIC**: 13.49
-- **Operating Margin**: 11.5
-- **Revenue Growth**: 14.12
+- **ROIC**: 11.94
+- **Operating Margin**: 12.08
+- **Revenue Growth**: 15.11
 - **FCF Yield**: 0
-- **Debt/Equity**: 0.53
-- **PER**: 27.11
-- **EV/EBITDA**: 16.91
+- **Debt/Equity**: 0.46
+- **PER**: 20.8
+- **EV/EBITDA**: 17.28
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Amazon es un activo de altísima calidad ('core holding' para Family Offices) que cotiza a un precio justo por sus flujos proyectados. La tesis se apoya en la expansión estructural de márgenes impulsada por la mezcla de ventas hacia publicidad y AWS, compensando con creces la madurez relativa del comercio electrónico minorista.
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[LVS|Las Vegas Sands Corp.]], [[PDD|PDD Holdings Inc.]], [[RACE|Ferrari N.V.]], [[TCOM|Trip.com Group Limited]]
-- **Same Industry**: [[PDD|PDD Holdings Inc.]]
+- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[ETSY|Etsy, Inc.]], [[LVS|Las Vegas Sands Corp.]], [[MELI|MercadoLibre, Inc.]], [[NIO|NIO]], [[ORLY|O'Reilly Automotive, Inc.]], [[PDD|PDD Holdings Inc.]], [[RACE|Ferrari N.V.]], [[ROST|Ross Stores, Inc.]], [[SE|SE]], [[TCOM|Trip.com Group Limited]], [[TJX|The TJX Companies, Inc.]], [[XPEV|XPeng Inc.]]
+- **Same Industry**: [[ETSY|Etsy, Inc.]], [[MELI|MercadoLibre, Inc.]], [[PDD|PDD Holdings Inc.]], [[SE|SE]]

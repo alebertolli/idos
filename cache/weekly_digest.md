@@ -1,60 +1,82 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-08-31 16:40 AR _
+_Generado: 2026-08-31 18:31 AR _
 
 ## Resumen
 
-- 🟢 **Oportunidades procesadas:** 28
-- ✅ **Assessment completados:** 28
+- 🟢 **Oportunidades procesadas:** 17
+- ✅ **Assessment completados:** 17
 - 🔖 **Approved:** 0
 - 🔴 **Errores:** 0
 - 📊 **Total encontradas:** 0
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **AAPL** (OPP-20260813-073): score=50, class=?
-- ✅ **ABEV** (OPP-20260813-002): score=50, class=?
-- ✅ **ACN** (OPP-20260813-001): score=50, class=?
-- ✅ **ADP** (OPP-20260813-039): score=50, class=?
-- ✅ **AMAT** (OPP-20260813-061): score=50, class=?
-- ✅ **CL** (OPP-20260813-112): score=50, class=?
-- ✅ **COST** (OPP-20260813-104): score=50, class=?
-- ✅ **DOCU** (OPP-20260813-038): score=50, class=?
-- ✅ **ERIC** (OPP-20260813-008): score=50, class=?
-- ✅ **ETSY** (OPP-20260813-110): score=50, class=?
-- ✅ **GE** (OPP-20260813-080): score=50, class=?
-- ✅ **HPQ** (OPP-20260813-010): score=50, class=?
-- ✅ **INFY** (OPP-20260813-069): score=50, class=?
-- ✅ **LLY** (OPP-20260807-006): score=50, class=?
-- ✅ **MMM** (OPP-20260813-084): score=50, class=?
-- ✅ **MO** (OPP-20260813-009): score=50, class=?
-- ✅ **MU** (OPP-20260813-026): score=50, class=?
-- ✅ **NFLX** (OPP-20260725-043): score=50, class=?
-- ✅ **NTES** (OPP-20260813-027): score=50, class=?
-- ✅ **ORLY** (OPP-20260813-045): score=50, class=?
-- ✅ **PAGS** (OPP-20260813-022): score=50, class=?
-- ✅ **PBI** (OPP-20260813-013): score=50, class=?
-- ✅ **PM** (OPP-20260813-029): score=50, class=?
-- ✅ **RACE** (OPP-20260730-001): score=50, class=?
-- ✅ **ROST** (OPP-20260813-108): score=50, class=?
-- ✅ **STNE** (OPP-20260813-052): score=50, class=?
-- ✅ **TJX** (OPP-20260813-089): score=50, class=?
-- ✅ **ZM** (OPP-20260813-028): score=50, class=?
+- ✅ **ADBE** (OPP-20260725-012): score=50, class=?
+- ✅ **AEM** (OPP-20260725-007): score=50, class=?
+- ✅ **AMZN** (OPP-20260730-001): score=50, class=?
+- ✅ **ANF** (OPP-20260725-019): score=50, class=?
+- ✅ **BKNG** (OPP-20260725-021): score=50, class=?
+- ✅ **CCL** (OPP-20260725-023): score=50, class=?
+- ✅ **CDE** (OPP-20260725-017): score=50, class=?
+- ✅ **DECK** (OPP-20260725-009): score=50, class=?
+- ✅ **FSLR** (OPP-20260725-006): score=50, class=?
+- ✅ **HL** (OPP-20260725-026): score=50, class=?
+- ✅ **LVS** (OPP-20260725-022): score=50, class=?
+- ✅ **NEM** (OPP-20260725-010): score=50, class=?
+- ✅ **PAAS** (OPP-20260725-001): score=50, class=?
+- ✅ **SAP** (OPP-20260725-013): score=50, class=?
+- ✅ **SBS** (OPP-20260725-014): score=50, class=?
+- ✅ **SCCO** (OPP-20260725-027): score=50, class=?
+- ✅ **SPGI** (OPP-20260725-029): score=50, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **AAPL**
-  - Opp: [OPP-20260813-073]
-  - Conviction: 65/100 | Rec: BLOCKED
+- ⚠️ **ADBE**
+  - Opp: [OPP-20260725-012]
+  - Conviction: 63/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 72 | Valuation: 55 | Recovery: 50 | Risk: 70 | Portfolio: 90
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 52 | Risk: 60 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 63/65
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **AEM**
+  - Opp: [OPP-20260725-007]
+  - Conviction: 66/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 52 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **ABEV**
-  - Opp: [OPP-20260813-002]
+- ⚠️ **AMZN**
+  - Opp: [OPP-20260730-001]
+  - Conviction: 60/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 54 | Valuation: 55 | Recovery: 53 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 60/65
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **ANF**
+  - Opp: [OPP-20260725-019]
+  - Conviction: 64/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 60 | Valuation: 65 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 64/65
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **BKNG**
+  - Opp: [OPP-20260725-021]
   - Conviction: 68/100 | Rec: BLOCKED
   - Dec: HOLD
   - Scores: Business: 68 | Valuation: 65 | Recovery: 54 | Risk: 80 | Portfolio: 90
@@ -63,174 +85,38 @@ _Generado: 2026-08-31 16:40 AR _
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **ACN**
-  - Opp: [OPP-20260813-001]
-  - Conviction: 65/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 64 | Valuation: 55 | Recovery: 54 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **ADP**
-  - Opp: [OPP-20260813-039]
-  - Conviction: 64/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 68 | Valuation: 55 | Recovery: 50 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 64/65
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **AMAT**
-  - Opp: [OPP-20260813-061]
-  - Conviction: 72/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 76 | Valuation: 70 | Recovery: 56 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **CL**
-  - Opp: [OPP-20260813-112]
-  - Conviction: 67/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 64 | Valuation: 65 | Recovery: 54 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **COST**
-  - Opp: [OPP-20260813-104]
-  - Conviction: 60/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 52 | Valuation: 55 | Recovery: 48 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 60/65
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **DOCU**
-  - Opp: [OPP-20260813-038]
-  - Conviction: 62/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 60 | Valuation: 55 | Recovery: 54 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 62/65
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **ERIC**
-  - Opp: [OPP-20260813-008]
-  - Conviction: 62/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 60 | Valuation: 55 | Recovery: 54 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 62/65
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **ETSY**
-  - Opp: [OPP-20260813-110]
+- ⚠️ **CCL**
+  - Opp: [OPP-20260725-023]
   - Conviction: 66/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 60 | Valuation: 65 | Recovery: 55 | Risk: 80 | Portfolio: 90
+  - Scores: Business: 54 | Valuation: 80 | Recovery: 51 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **GE**
-  - Opp: [OPP-20260813-080]
-  - Conviction: 66/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 64 | Valuation: 65 | Recovery: 53 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **HPQ**
-  - Opp: [OPP-20260813-010]
-  - Conviction: 62/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 60 | Valuation: 55 | Recovery: 54 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 62/65
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **INFY**
-  - Opp: [OPP-20260813-069]
-  - Conviction: 65/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 64 | Valuation: 55 | Recovery: 54 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **LLY**
-  - Opp: [OPP-20260807-006]
+- ⚠️ **CDE**
+  - Opp: [OPP-20260725-017]
   - Conviction: 68/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 76 | Valuation: 55 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Scores: Business: 66 | Valuation: 65 | Recovery: 54 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **MMM**
-  - Opp: [OPP-20260813-084]
-  - Conviction: 64/100 | Rec: BLOCKED
+- ⚠️ **DECK**
+  - Opp: [OPP-20260725-009]
+  - Conviction: 71/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 64 | Valuation: 55 | Recovery: 52 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 64/65
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **MO**
-  - Opp: [OPP-20260813-009]
-  - Conviction: 67/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 68 | Valuation: 65 | Recovery: 54 | Risk: 70 | Portfolio: 90
+  - Scores: Business: 64 | Valuation: 80 | Recovery: 54 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **MU**
-  - Opp: [OPP-20260813-026]
-  - Conviction: 72/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 76 | Valuation: 70 | Recovery: 56 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **NFLX**
-  - Opp: [OPP-20260725-043]
-  - Conviction: 65/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 72 | Valuation: 55 | Recovery: 50 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **NTES**
-  - Opp: [OPP-20260813-027]
+- ⚠️ **FSLR**
+  - Opp: [OPP-20260725-006]
   - Conviction: 72/100 | Rec: BLOCKED
   - Dec: HOLD
   - Scores: Business: 68 | Valuation: 80 | Recovery: 55 | Risk: 80 | Portfolio: 90
@@ -239,98 +125,88 @@ _Generado: 2026-08-31 16:40 AR _
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **ORLY**
-  - Opp: [OPP-20260813-045]
-  - Conviction: 65/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 64 | Valuation: 65 | Recovery: 52 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **PAGS**
-  - Opp: [OPP-20260813-022]
-  - Conviction: 71/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 68 | Valuation: 75 | Recovery: 54 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **PBI**
-  - Opp: [OPP-20260813-013]
+- ⚠️ **HL**
+  - Opp: [OPP-20260725-026]
   - Conviction: 66/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 64 | Valuation: 65 | Recovery: 54 | Risk: 70 | Portfolio: 90
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 52 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **PM**
-  - Opp: [OPP-20260813-029]
-  - Conviction: 64/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 68 | Valuation: 55 | Recovery: 52 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 64/65
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **RACE**
-  - Opp: [OPP-20260730-001]
-  - Conviction: 64/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 68 | Valuation: 55 | Recovery: 52 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 64/65
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **ROST**
-  - Opp: [OPP-20260813-108]
-  - Conviction: 61/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 60 | Valuation: 55 | Recovery: 50 | Risk: 70 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 61/65
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **STNE**
-  - Opp: [OPP-20260813-052]
-  - Conviction: 72/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 68 | Valuation: 80 | Recovery: 54 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **TJX**
-  - Opp: [OPP-20260813-089]
-  - Conviction: 66/100 | Rec: BLOCKED
-  - Dec: HOLD
-  - Scores: Business: 60 | Valuation: 65 | Recovery: 52 | Risk: 80 | Portfolio: 90
-  - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 0/70
-    - 🚫 RULE-003: Rerating: 0/50
-    - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
-- ⚠️ **ZM**
-  - Opp: [OPP-20260813-028]
+- ⚠️ **LVS**
+  - Opp: [OPP-20260725-022]
   - Conviction: 70/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 64 | Valuation: 75 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Scores: Business: 59 | Valuation: 80 | Recovery: 54 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **NEM**
+  - Opp: [OPP-20260725-010]
+  - Conviction: 68/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 65 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **PAAS**
+  - Opp: [OPP-20260725-001]
+  - Conviction: 71/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 67 | Valuation: 75 | Recovery: 54 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **SAP**
+  - Opp: [OPP-20260725-013]
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 67 | Valuation: 55 | Recovery: 52 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **SBS**
+  - Opp: [OPP-20260725-014]
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 58 | Valuation: 60 | Recovery: 50 | Risk: 80 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 63/65
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **SCCO**
+  - Opp: [OPP-20260725-027]
+  - Conviction: 62/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 45 | Recovery: 52 | Risk: 70 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 62/65
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
+- ⚠️ **SPGI**
+  - Opp: [OPP-20260725-029]
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 58 | Valuation: 55 | Recovery: 50 | Risk: 60 | Portfolio: 90
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 0/70
+    - 🚫 RULE-003: Rerating: 0/50
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 59/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
