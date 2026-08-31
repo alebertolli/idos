@@ -54,6 +54,12 @@ class ResearchWorker(BaseWorker):
 
         opp = sqlite.get_opportunity(opp_id)
         if not opp:
+            yaml_opp = journal.load_opportunity(ticker, opp_id)
+            if yaml_opp:
+                sqlite.save_opportunity(yaml_opp)
+                opp = sqlite.get_opportunity(opp_id)
+                print(f"[RESEARCH] {ticker}: restored from journal YAML -> SQLite")
+        if not opp:
             msg = f"Opportunity {opp_id} not found"
             raise ValueError(msg)
 
