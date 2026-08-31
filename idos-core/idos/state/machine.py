@@ -45,10 +45,10 @@ def _combined_guard(ctx: dict, checks: list) -> tuple[bool, str]:
 
 class OpportunityStateMachine(StateMachine):
     _transitions: dict[OpportunityStatus, list[OpportunityStatus]] = {
-        OpportunityStatus.DISCOVERED: [OpportunityStatus.SCREENED],
-        OpportunityStatus.SCREENED: [OpportunityStatus.WATCHLIST, OpportunityStatus.ARCHIVED],
-        OpportunityStatus.WATCHLIST: [OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.ARCHIVED],
-        OpportunityStatus.UNDER_RESEARCH: [OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.WATCHLIST],
+        OpportunityStatus.DISCOVERED: [],
+        OpportunityStatus.SCREENED: [OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.WATCHLIST],
+        OpportunityStatus.WATCHLIST: [OpportunityStatus.SCREENED, OpportunityStatus.ARCHIVED],
+        OpportunityStatus.UNDER_RESEARCH: [OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.WATCHLIST, OpportunityStatus.APPROVED],
         OpportunityStatus.UNDER_DEEP_DD: [OpportunityStatus.APPROVED, OpportunityStatus.WATCHLIST],
         OpportunityStatus.APPROVED: [OpportunityStatus.ENTRY_PENDING, OpportunityStatus.WATCHLIST],
         OpportunityStatus.ENTRY_PENDING: [OpportunityStatus.ACCUMULATING, OpportunityStatus.WATCHLIST],
@@ -67,22 +67,6 @@ class OpportunityStateMachine(StateMachine):
         self._register_default_guards()
 
     def _register_default_guards(self):
-        self.register_guard(
-            OpportunityStatus.DISCOVERED, OpportunityStatus.SCREENED,
-            lambda ctx: (bool(ctx.get("metrics")), "No basic metrics available"),
-        )
-        self.register_guard(
-            OpportunityStatus.SCREENED, OpportunityStatus.WATCHLIST,
-            lambda ctx: (ctx.get("screen_score", 0) >= 30, f"Screen score {ctx.get('screen_score', 0)} < 30"),
-        )
-        self.register_guard(
-            OpportunityStatus.WATCHLIST, OpportunityStatus.UNDER_RESEARCH,
-            lambda ctx: (ctx.get("conviction", 0) >= 20, f"Conviction {ctx.get('conviction', 0)} < 20"),
-        )
-        self.register_guard(
-            OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.UNDER_DEEP_DD,
-            lambda ctx: (ctx.get("conviction", 0) >= 40, f"Conviction {ctx.get('conviction', 0)} < 40"),
-        )
         self.register_guard(
             OpportunityStatus.UNDER_DEEP_DD, OpportunityStatus.APPROVED,
             lambda ctx: _combined_guard(ctx, [

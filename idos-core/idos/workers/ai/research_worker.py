@@ -17,8 +17,10 @@ from idos.timezone import AR_TZ
 class ResearchWorker(BaseWorker):
     """Orchestrates the full research pipeline: DDD -> AOIF -> Hypothesis.
 
-    Triggers: manual (CLI) or automatic when an opportunity is promoted from WATCHLIST.
-    Transitions: WATCHLIST -> UNDER_RESEARCH (or DISCOVERED -> UNDER_RESEARCH on first research).
+    Triggers: manual (CLI), monthly DDD pipeline (SCREENED), or 30-day re-research (UNDER_RESEARCH with force=true).
+    Transitions:
+      - SCREENED -> UNDER_RESEARCH (first research)
+      - UNDER_RESEARCH -> UNDER_RESEARCH (re-research with force=true)
     """
     name = "research_worker"
 

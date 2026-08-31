@@ -284,19 +284,19 @@ def event_log(limit: int = 20, ticker: str = ""):
 @app.command()
 def opp_research(ticker: str, opp_id: str = "", force: bool = False):
     """Ejecuta DDD + AOIF + Hypothesis sobre una oportunidad.
-    Por defecto busca WATCHLIST → UNDER_DEEP_DD. Con --force reprocesa cualquier estado sin cambiar status."""
+    Por defecto busca SCREENED → UNDER_RESEARCH. Con --force re-investiga UNDER_RESEARCH sin cambiar status."""
     ctx = _get_context()
     sqlite, _, journal = _get_stores(ctx)
 
     if not opp_id:
-        filter_status = None if force else "WATCHLIST"
+        filter_status = None if force else "SCREENED"
         opps = sqlite.list_opportunities(filter_status)
         matching = [o for o in opps if o.get("ticker", "") == ticker.upper()]
         if not matching:
             opps = journal.list_all_opportunities(filter_status)
             matching = [o for o in opps if o.get("ticker", "") == ticker.upper()]
         if not matching:
-            label = "WATCHLIST" if not force else "any"
+            label = "SCREENED" if not force else "any"
             console.print(f"[red]No {label} opportunities found for {ticker.upper()}[/red]")
             return
         opp_id = matching[0]["id"]
@@ -349,18 +349,18 @@ def opp_research(ticker: str, opp_id: str = "", force: bool = False):
 
 @app.command()
 def opp_approve(ticker: str, opp_id: str = ""):
-    """Evalúa DDD vs reglas de entrada (UNDER_DEEP_DD → APPROVED o WATCHLIST)."""
+    """Evalúa DDD vs reglas de entrada (UNDER_RESEARCH → APPROVED o WATCHLIST)."""
     ctx = _get_context()
     sqlite, _, journal = _get_stores(ctx)
 
     if not opp_id:
-        opps = sqlite.list_opportunities("UNDER_DEEP_DD")
+        opps = sqlite.list_opportunities("UNDER_RESEARCH")
         matching = [o for o in opps if o.get("ticker", "") == ticker.upper()]
         if not matching:
-            opps = journal.list_all_opportunities("UNDER_DEEP_DD")
+            opps = journal.list_all_opportunities("UNDER_RESEARCH")
             matching = [o for o in opps if o.get("ticker", "") == ticker.upper()]
         if not matching:
-            console.print(f"[red]No UNDER_DEEP_DD opportunities found for {ticker.upper()}[/red]")
+            console.print(f"[red]No UNDER_RESEARCH opportunities found for {ticker.upper()}[/red]")
             return
         opp_id = matching[0]["id"]
 
@@ -390,10 +390,10 @@ def opp_reject(ticker: str, opp_id: str = "", reason: str = "insufficient_eviden
 
     if not opp_id:
         opps = sqlite.list_opportunities()
-        matching = [o for o in opps if o.get("ticker", "") == ticker.upper() and o.get("status") in ("UNDER_DEEP_DD",)]
+        matching = [o for o in opps if o.get("ticker", "") == ticker.upper() and o.get("status") in ("UNDER_RESEARCH",)]
         if not matching:
             opps = journal.list_all_opportunities()
-            matching = [o for o in opps if o.get("ticker", "") == ticker.upper() and o.get("status") in ("UNDER_DEEP_DD",)]
+            matching = [o for o in opps if o.get("ticker", "") == ticker.upper() and o.get("status") in ("UNDER_RESEARCH",)]
         if not matching:
             console.print(f"[red]No research-stage opportunities found for {ticker.upper()}[/red]")
             return

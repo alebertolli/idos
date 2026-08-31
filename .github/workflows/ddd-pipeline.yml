@@ -19,7 +19,8 @@ on:
   repository_dispatch:
     types: [quarterly-results]
   schedule:
-    - cron: "0 0 2 * *"  # 2do día de cada mes (post universo)
+    - cron: "0 0 2 * *"  # 2do día de cada mes (NORMAL: procesa SCREENED)
+    - cron: "0 6 */30 * *"  # Cada 30 días a las 6am (FORCE: re-research UNDER_RESEARCH)
 
 env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -61,6 +62,9 @@ jobs:
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "FORCE=${{ github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
             echo "EVENT_TYPE=manual" >> $GITHUB_ENV
+          elif [ "${{ github.event.schedule }}" = "0 6 */30 * *" ]; then
+            echo "FORCE=true" >> $GITHUB_ENV
+            echo "EVENT_TYPE=re-research-30d" >> $GITHUB_ENV
           else
             echo "FORCE=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=monthly" >> $GITHUB_ENV

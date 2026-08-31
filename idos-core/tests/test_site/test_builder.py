@@ -86,15 +86,26 @@ def test_discovery_shows_operable_count_from_universe_stats():
     assert discovery["count"] == 267
 
 
-def test_research_shows_watchlist_count_from_universe_stats():
+def test_research_shows_under_research_count_from_opps():
     universe_stats = {
         "operable_count": 267,
         "scout_passed": 57,
     }
-    watchlist = [{"ticker": f"T{i}"} for i in range(57)]
-    sections = _sections([], watchlist, universe_stats)
+    opps = [{"ticker": f"T{i}", "status": "UNDER_RESEARCH"} for i in range(57)]
+    sections = _sections(opps, [], universe_stats)
     research = next(s for s in sections if s["key"] == "research")
     assert research["count"] == 57
+
+
+def test_research_does_not_count_watchlist():
+    universe_stats = {
+        "operable_count": 267,
+        "scout_passed": 57,
+    }
+    opps = [{"ticker": f"T{i}", "status": "WATCHLIST"} for i in range(57)]
+    sections = _sections(opps, [], universe_stats)
+    research = next(s for s in sections if s["key"] == "research")
+    assert research["count"] == 0
 
 
 def test_discovery_falls_back_to_zero_without_universe_stats():

@@ -1,42 +1,25 @@
 #!/usr/bin/env python3
 """DDD Research Worker — decides which opportunities need (re)research.
 
-Selection rules (NORMAL mode):
-  - DISCOVERED or WATCHLIST: process (new entry to Research)
-  - UNDER_RESEARCH: process only if:
-      * no last_research_at  (no thesis ever generated), OR
-      * last_research_at > STALE_DAYS ago  (thesis stale, needs refresh)
-  - Other statuses (APPROVED, ENTRY_PENDING, ACCUMULATING, etc.): skip.
-  - Tickers in BUY_LIST or PORTFOLIO: skip (already past Research).
-FORCE mode: process any status (skip transitions, no status change).
+Selection rules:
+  NORMAL mode (monthly cron):
+    - SCREENED: process -> UNDER_RESEARCH
+    - All others: skip
+  FORCE mode (30-day re-research, manual, earnings):
+    - UNDER_RESEARCH: re-research (no status change)
+    - All others: skip
+  Tickers in BUY_LIST or PORTFOLIO: skip in both modes.
 """
 
 import json
 import os
 import sys
 import yaml
-from datetime import datetime, timezone
 from pathlib import Path
-
-from idos.data.sqlite import SQLiteStore
-from idos.data.journal import JournalRepository
-from idos.timezone import AR_TZ
 
 
 STALE_DAYS = 30
-THRESHOLD = 60
 SKIP_TICKERS = set()  # populated from buylist + positions below
-
-
-def _parse_dt(s):
-    if not s:
-        return None
-    try:
-        if isinstance(s, datetime):
-            return s
-        return datetime.fromisoformat(str(s).replace("Z", "+00:00"))
-    except Exception:
-        return None
 
 
 def _load_skip_tickers():
@@ -62,25 +45,23 @@ def _load_skip_tickers():
     return skip
 
 
-def _needs_research(opp: dict, now: datetime) -> tuple[bool, str]:
+def _needs_research(opp: dict, force: bool) -> tuple[bool, str]:
     """Return (should_process, reason)."""
     status = opp.get("status", "")
-    score = (opp.get("conviction") or {}).get("overall", 0)
     ticker = opp.get("ticker", "").upper()
-    last_at = _parse_dt(opp.get("last_research_at") or opp.get("updated_at"))
-    days = (now - last_at.replace(tzinfo=None)).days if last_at else None
+    score = (opp.get("conviction") or {}).get("overall", 0)
 
-    if status in ("DISCOVERED", "WATCHLIST"):
-        return True, f"new entry: {status} (score={score})"
-    if status == "UNDER_RESEARCH":
-        if ticker in SKIP_TICKERS:
-            return False, f"in BUY_LIST/PORTFOLIO"
-        if days is None:
-            return True, "UNDER_RESEARCH sin last_research_at"
-        if days > STALE_DAYS:
-            return True, f"UNDER_RESEARCH stale ({days}d > {STALE_DAYS}d)"
-        return False, f"UNDER_RESEARCH fresh ({days}d <= {STALE_DAYS}d) — skip DDD"
-    return False, f"status {status} not processable"
+    if ticker in SKIP_TICKERS:
+        return False, "in BUY_LIST/PORTFOLIO"
+
+    if force:
+        if status == "UNDER_RESEARCH":
+            return True, f"FORCE re-research UNDER_RESEARCH (score={score})"
+        return False, f"FORCE: status {status} not re-researchable"
+
+    if status == "SCREENED":
+        return True, f"new entry: SCREENED (score={score})"
+    return False, f"status {status} not processable in NORMAL mode"
 
 
 def main():
@@ -94,9 +75,8 @@ def main():
     global SKIP_TICKERS
     SKIP_TICKERS = _load_skip_tickers()
 
-    now = datetime.now(AR_TZ).replace(tzinfo=None)
     opportunities = []
-    skipped_stale_skip = []
+    skipped_list = []
     companies_dir = journal / 'companies'
 
     if companies_dir.exists():
@@ -105,6 +85,8 @@ def main():
                 continue
             ticker = d.name.upper()
             if tickers and ticker not in tickers:
+                continue
+            if ticker in SKIP_TICKERS:
                 continue
             opp_dir = d / 'case_file' / 'opportunities'
             if not opp_dir.exists():
@@ -119,40 +101,34 @@ def main():
                     data = yaml.safe_load(yf.read_text(encoding='utf-8'))
                     if not data:
                         continue
-                    if force:
-                        opportunities.append({
-                            'opp_id': data['id'],
-                            'ticker': ticker,
-                            'score': data.get('conviction', {}).get('overall', 0),
-                            'current_status': data.get('status', 'UNKNOWN'),
-                            'reason': 'FORCE mode',
-                        })
-                        continue
-                    should, reason = _needs_research(data, now)
+                    status = data.get('status', '')
+                    score = data.get('conviction', {}).get('overall', 0)
+
+                    should, reason = _needs_research(data, force)
                     if should:
                         opportunities.append({
                             'opp_id': data['id'],
                             'ticker': ticker,
-                            'score': data.get('conviction', {}).get('overall', 0),
-                            'current_status': data.get('status', 'UNKNOWN'),
+                            'score': score,
+                            'current_status': status,
                             'reason': reason,
                         })
                     else:
-                        skipped_stale_skip.append({
+                        skipped_list.append({
                             'opp_id': data['id'],
                             'ticker': ticker,
-                            'status': data.get('status'),
+                            'status': status,
                             'reason': reason,
                         })
                 except Exception as e:
                     print('[DDD] Error reading {}: {}'.format(yf, e))
 
     if not opportunities and not force:
-        print('[DDD] No opportunities to process (all fresh or excluded)')
+        print('[DDD] No opportunities to process (no SCREENED found)')
         Path('cache/ddd_results.json').write_text(json.dumps({
-            'processed': [], 'assessments': [], 'errors': [],
+            'processed': [], 'errors': [],
             'status': 'none', 'event_type': event_type, 'force': force,
-            'skipped': skipped_stale_skip,
+            'skipped': skipped_list,
         }, indent=2), encoding='utf-8')
         sys.exit(0)
 
@@ -160,9 +136,10 @@ def main():
     for o in opportunities:
         print('  - {} {} ({}) reason={}'.format(
             o['ticker'], o['opp_id'], o['current_status'], o.get('reason', '')))
-    print('[DDD] Skipped (stale-skip or excluded): {}'.format(len(skipped_stale_skip)))
-    for s in skipped_stale_skip[:10]:
-        print('  skip: {} {} ({}) — {}'.format(s['ticker'], s['opp_id'], s['status'], s['reason']))
+    if skipped_list:
+        print('[DDD] Skipped: {}'.format(len(skipped_list)))
+        for s in skipped_list[:5]:
+            print('  skip: {} {} ({}) — {}'.format(s['ticker'], s['opp_id'], s['status'], s['reason']))
 
     # Execute ResearchWorker for each selected opportunity
     from idos.workers.ai.research_worker import ResearchWorker
@@ -207,7 +184,7 @@ def main():
 
     results = {
         'processed': rw_results,
-        'skipped': skipped_stale_skip,
+        'skipped': skipped_list,
         'assessments': [],
         'errors': rw_errors,
         'status': 'research_completed',

@@ -32,6 +32,9 @@ class PipelineMetrics:
     opportunities_eligible: int = 0
     opportunities_existing: int = 0
 
+    downgraded_to_watchlist: int = 0
+    upgraded_to_screened: int = 0
+
     errors: list[dict] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
@@ -53,6 +56,8 @@ class PipelineMetrics:
             "opportunities_eligible": self.opportunities_eligible,
             "opportunities_existing": self.opportunities_existing,
             "opportunities_created": self.opportunities_created,
+            "downgraded_to_watchlist": self.downgraded_to_watchlist,
+            "upgraded_to_screened": self.upgraded_to_screened,
             "errors": self.errors,
         }
 

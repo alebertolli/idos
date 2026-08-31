@@ -38,6 +38,7 @@ class UniversePipeline(BaseWorker):
             self._run_fetch(metrics)
             self._run_scout(metrics)
             self._run_opportunity_creation(metrics)
+            self._run_monthly_evaluation(metrics)
         except Exception as e:
             metrics.errors.append({"step": "pipeline", "error": str(e)})
 
@@ -250,7 +251,7 @@ class UniversePipeline(BaseWorker):
             opp = Opportunity(
                 id=opp_id,
                 ticker=ticker,
-                status=OpportunityStatus.DISCOVERED,
+                status=OpportunityStatus.SCREENED,
                 conviction=Conviction(overall=entry.get("score", 0)),
             )
             opp_data = opp.model_dump(mode="json")
@@ -334,6 +335,87 @@ class UniversePipeline(BaseWorker):
             notifier.execute({"message": report, "parse_mode": "Markdown"})
         except Exception as e:
             print(f"[PIPELINE] Notification failed: {e}")
+
+    def _run_monthly_evaluation(self, metrics: PipelineMetrics):
+        """Evalúa oportunidades existentes: score < threshold → WATCHLIST, score >= threshold en WATCHLIST → SCREENED."""
+        from idos.models.enums import OpportunityStatus
+        from idos.data.journal import JournalRepository
+
+        print("\n[PIPELINE] STEP 7: Monthly Evaluation")
+        journal = JournalRepository(Path(self.journal_path)) if self.journal_path else None
+        companies_dir = Path(self.journal_path or "idos-journal") / "companies"
+        if not companies_dir.exists():
+            return
+
+        import yaml
+        scoring_path = Path(self.config_path) / "scoring.yml"
+        min_score = 60
+        if scoring_path.exists():
+            scoring_data = yaml.safe_load(scoring_path.read_text(encoding="utf-8"))
+            min_score = scoring_data.get("scoring", {}).get("min_opportunity_score", 60)
+
+        downgraded = 0
+        upgraded = 0
+        unchanged = 0
+
+        for d in sorted(companies_dir.iterdir()):
+            if not d.is_dir():
+                continue
+            ticker = d.name.upper()
+            opp_dir = d / "case_file" / "opportunities"
+            if not opp_dir.exists():
+                continue
+
+            scout_result = None
+            for ticker_entry in metrics.new_watchlist:
+                if ticker_entry.get("ticker", "").upper() == ticker:
+                    scout_result = ticker_entry
+                    break
+
+            for opp in sorted(opp_dir.iterdir()):
+                if not opp.is_dir():
+                    continue
+                yf = opp / "opportunity.yml"
+                if not yf.exists():
+                    continue
+                try:
+                    data = yaml.safe_load(yf.read_text(encoding="utf-8"))
+                    if not data:
+                        continue
+                    current_status = data.get("status", "")
+                    score = scout_result.get("score", 0) if scout_result else 0
+                    opp_id = data.get("id", opp.name)
+
+                    if current_status == "WATCHLIST":
+                        if score >= min_score:
+                            data["status"] = "SCREENED"
+                            data["updated_at"] = datetime.now(AR_TZ).strftime("%Y-%m-%dT%H:%M:%S")
+                            yf.write_text(yaml.dump(data, default_flow_style=False, allow_unicode=True), encoding="utf-8")
+                            if journal:
+                                journal.save_opportunity(ticker, data)
+                            upgraded += 1
+                            print(f"  {ticker}: WATCHLIST -> SCREENED (score={score})")
+                        else:
+                            unchanged += 1
+                    elif current_status in ("SCREENED", "UNDER_RESEARCH"):
+                        if score < min_score:
+                            data["status"] = "WATCHLIST"
+                            data["updated_at"] = datetime.now(AR_TZ).strftime("%Y-%m-%dT%H:%M:%S")
+                            yf.write_text(yaml.dump(data, default_flow_style=False, allow_unicode=True), encoding="utf-8")
+                            if journal:
+                                journal.save_opportunity(ticker, data)
+                            downgraded += 1
+                            print(f"  {ticker}: {current_status} -> WATCHLIST (score={score} < {min_score})")
+                        else:
+                            unchanged += 1
+                    else:
+                        unchanged += 1
+                except Exception as e:
+                    metrics.errors.append({"step": "monthly_evaluation", "ticker": ticker, "error": str(e)})
+
+        metrics.downgraded_to_watchlist = downgraded
+        metrics.upgraded_to_screened = upgraded
+        print(f"[PIPELINE] Monthly Evaluation: {upgraded} upgraded to SCREENED, {downgraded} downgraded to WATCHLIST, {unchanged} unchanged")
 
     def _load_screener_config(self) -> dict:
         import yaml

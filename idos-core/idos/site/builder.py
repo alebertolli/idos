@@ -1006,7 +1006,7 @@ class SiteBuilder:
             ("discovery", "Discovery", "screening",
              {"DISCOVERED", "WATCHLIST", "SCREENED"}),
             ("research", "Research", "opp",
-             {"UNDER_RESEARCH", "UNDER_DEEP_DD"}),
+             {"UNDER_RESEARCH"}),
             ("buylist", "Buy List", "buylist",
              {"APPROVED", "ENTRY_PENDING"}),
             ("portfolio", "Portfolio", "portfolio",
@@ -1020,7 +1020,7 @@ class SiteBuilder:
             if key == "discovery":
                 count = len(discovery_pool) if discovery_pool else (universe_stats.get("operable_count", 0) if universe_stats else 0)
             if key == "research":
-                count = sum(1 for o in opps if o.get("status") in ("UNDER_RESEARCH", "UNDER_DEEP_DD"))
+                count = sum(1 for o in opps if o.get("status") == "UNDER_RESEARCH")
             sections.append({
                 "key": key, "label": label, "tab": tab,
                 "count": count,

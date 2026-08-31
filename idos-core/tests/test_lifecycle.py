@@ -1,8 +1,11 @@
 """End-to-end test of the full investment lifecycle.
 
-Simulates the complete pipeline from DISCOVERED to ARCHIVED,
+Simulates the complete pipeline from SCREENED to ARCHIVED,
 validating every state transition and worker execution.
 Uses tmp_path for isolation and mock LLM clients to avoid network calls.
+
+Lifecycle: SCREENED → UNDER_RESEARCH → APPROVED → ENTRY_PENDING
+→ ACCUMULATING → FULL_POSITION → MONITORING → EXITED → POST_MORTEM → ARCHIVED.
 """
 from pathlib import Path
 from unittest.mock import MagicMock, patch
@@ -12,7 +15,6 @@ import pytest
 from idos.data.journal import JournalRepository
 from idos.data.knowledge import KnowledgeRepository
 from idos.data.sqlite import SQLiteStore
-from idos.discovery.scout import ScoutEngine
 from idos.models.enums import OpportunityStatus
 from idos.portfolio.exit import ExitEngine
 from idos.state.machine import OpportunityStateMachine
@@ -25,9 +27,8 @@ pytestmark = pytest.mark.e2e
 
 
 class TestFullLifecycle:
-    """Complete lifecycle: DISCOVERED → SCREENED → WATCHLIST → UNDER_DEEP_DD
-    → APPROVED → ENTRY_PENDING → ACCUMULATING → FULL_POSITION → MONITORING
-    → EXITED → POST_MORTEM → ARCHIVED."""
+    """Complete lifecycle: SCREENED → UNDER_RESEARCH → APPROVED → ENTRY_PENDING
+    → ACCUMULATING → FULL_POSITION → MONITORING → EXITED → POST_MORTEM → ARCHIVED."""
 
     def test_full_lifecycle(self, tmp_path: Path, mock_llm_client: MagicMock, base_path: str):
         ticker = "LIFECYCLE"
@@ -38,7 +39,6 @@ class TestFullLifecycle:
         knowledge = KnowledgeRepository(tmp_path / "idos-knowledge")
         journal = JournalRepository(tmp_path / "idos-journal")
 
-        # ── Step 0: Create company + opportunity ──
         company_path = knowledge.company_path(ticker)
         company_path.mkdir(parents=True, exist_ok=True)
         (company_path / "company.yml").write_text(
@@ -49,48 +49,15 @@ class TestFullLifecycle:
         opp = {
             "id": opp_id,
             "ticker": ticker,
-            "status": OpportunityStatus.DISCOVERED.value,
+            "status": OpportunityStatus.SCREENED.value,
             "conviction": {"overall": 70, "intrinsic_value": 130, "current_price": 95},
             "created_at": "2026-01-01T00:00:00",
             "updated_at": "2026-01-01T00:00:00",
         }
         sqlite.save_opportunity(opp)
         journal.save_opportunity(ticker, opp)
-        assert sqlite.get_opportunity(opp_id)["status"] == "DISCOVERED"
+        assert sqlite.get_opportunity(opp_id)["status"] == "SCREENED"
 
-        # ── Step 1: DISCOVERED → SCREENED → WATCHLIST (Scout) ──
-        scout = ScoutEngine(min_score=30)
-        scout_result = scout.scan(ticker, data={"metrics": {
-            "market_cap": 10_000_000_000,
-            "avg_volume": 5_000_000,
-            "pe_ratio": 15,
-            "ev_ebitda": 10,
-            "roic": 22,
-            "operating_margin": 25,
-            "debt_to_equity": 0.3,
-            "revenue_growth": 12,
-        }})
-
-        assert scout_result.passed, f"Scout should pass: {scout_result.reason}"
-
-        contexts = {"SCREENED": {"metrics": {"market_cap": 10_000_000_000, "avg_volume": 5_000_000, "pe_ratio": 15, "ev_ebitda": 10, "roic": 22, "operating_margin": 25, "debt_to_equity": 0.3, "revenue_growth": 12}},
-                     "WATCHLIST": {"screen_score": scout_result.score}}
-        for status in ["SCREENED", "WATCHLIST"]:
-            transition = state_machine.transition(
-                OpportunityStatus(opp["status"]), OpportunityStatus(status),
-                cause="scout_passed", worker="scout",
-                context=contexts[status],
-            )
-            opp["status"] = status
-            opp["updated_at"] = "2026-01-01T00:00:01"
-            sqlite.save_opportunity(opp)
-            sqlite.record_transition(opp_id, transition.from_status.value,
-                                     transition.to_status.value,
-                                     cause=transition.cause, worker=transition.worker)
-
-        assert sqlite.get_opportunity(opp_id)["status"] == "WATCHLIST"
-
-        # ── Step 2: WATCHLIST → UNDER_DEEP_DD (ResearchWorker) ──
         rw = ResearchWorker({"provider": "test"})
         rw.llm = mock_llm_client
         rw.registry = MagicMock()
@@ -109,9 +76,8 @@ class TestFullLifecycle:
         })
         assert rw_result.status == "success"
         assert rw_result.output["status"] == "completed"
-        assert sqlite.get_opportunity(opp_id)["status"] == "UNDER_DEEP_DD"
+        assert sqlite.get_opportunity(opp_id)["status"] == "UNDER_RESEARCH"
 
-        # ── Step 3: UNDER_DEEP_DD → APPROVED (DecisionBoardWorker) ──
         dbw = DecisionBoardWorker({"provider": "test"})
         dbw.llm = mock_llm_client
 
@@ -124,7 +90,6 @@ class TestFullLifecycle:
         assert dbw_result.output["decision"] == "APPROVED"
         assert sqlite.get_opportunity(opp_id)["status"] == "APPROVED"
 
-        # ── Step 4: APPROVED → ENTRY_PENDING → ACCUMULATING (EntryMonitorWorker) ──
         emw = EntryMonitorWorker({"provider": "test", "prompts_path": base_path})
         emw.entry_engine.min_margin_of_safety = 20.0
 
@@ -142,7 +107,6 @@ class TestFullLifecycle:
             })
         assert emw_result.status == "success"
         assert emw_result.output["entry_executed"] is True
-        # La transicion a ACCUMULATING la ejecuta el PaperTraderWorker (post-entry).
         opp = sqlite.get_opportunity(opp_id)
         assert opp["status"] == "ENTRY_PENDING"
         transition = state_machine.transition(
@@ -164,7 +128,6 @@ class TestFullLifecycle:
                                  cause=transition.cause, worker=transition.worker)
         assert sqlite.get_opportunity(opp_id)["status"] == "ACCUMULATING"
 
-        # ── Step 5: ACCUMULATING → FULL_POSITION ──
         opp = sqlite.get_opportunity(opp_id)
         for status in ["FULL_POSITION"]:
             transition = state_machine.transition(
@@ -180,7 +143,6 @@ class TestFullLifecycle:
 
         assert sqlite.get_opportunity(opp_id)["status"] == "FULL_POSITION"
 
-        # ── Step 6: FULL_POSITION → MONITORING ──
         transition = state_machine.transition(
             OpportunityStatus(opp["status"]), OpportunityStatus.MONITORING,
             cause="position_established", worker="system",
@@ -194,7 +156,6 @@ class TestFullLifecycle:
 
         assert sqlite.get_opportunity(opp_id)["status"] == "MONITORING"
 
-        # ── Step 7: MONITORING → EXITED (via ExitEngine) ──
         exit_engine = ExitEngine()
         exit_signal = exit_engine.evaluate_thesis_exit(ticker, thesis_active=False)
         assert exit_signal is not None
@@ -213,7 +174,6 @@ class TestFullLifecycle:
 
         assert sqlite.get_opportunity(opp_id)["status"] == "EXITED"
 
-        # ── Step 8: EXITED → POST_MORTEM → ARCHIVED (PostMortemWorker) ──
         pos = {"ticker": ticker, "status": "ACTIVE", "avg_entry_price": 95.0,
                "weight_pct": 2.5, "shares": 100}
         journal.save_position(ticker, pos)
@@ -240,12 +200,10 @@ class TestFullLifecycle:
         assert pmw_result.output["status"] == "completed"
         assert pmw_result.output["archived"] is True
 
-        # ── Final check: ARCHIVED ──
         final_opp = sqlite.get_opportunity(opp_id)
         assert final_opp["status"] == OpportunityStatus.ARCHIVED.value, \
             f"Expected ARCHIVED, got {final_opp['status']}"
 
-        # ── Verify all transitions recorded ──
         rows = list(sqlite.conn.execute(
             "SELECT from_status, to_status FROM state_transitions "
             "WHERE opportunity_id = ? ORDER BY id",
@@ -253,10 +211,8 @@ class TestFullLifecycle:
         ))
         recorded = [(r["from_status"], r["to_status"]) for r in rows]
         expected_sequence = [
-            ("DISCOVERED", "SCREENED"),
-            ("SCREENED", "WATCHLIST"),
-            ("WATCHLIST", "UNDER_DEEP_DD"),
-            ("UNDER_DEEP_DD", "APPROVED"),
+            ("SCREENED", "UNDER_RESEARCH"),
+            ("UNDER_RESEARCH", "APPROVED"),
             ("APPROVED", "ENTRY_PENDING"),
             ("ENTRY_PENDING", "ACCUMULATING"),
             ("ACCUMULATING", "FULL_POSITION"),
@@ -281,7 +237,7 @@ class TestFullLifecycle:
         opp = {
             "id": opp_id,
             "ticker": ticker,
-            "status": OpportunityStatus.UNDER_DEEP_DD.value,
+            "status": OpportunityStatus.UNDER_RESEARCH.value,
             "conviction": {"overall": 45},
             "created_at": "2026-01-01T00:00:00",
             "updated_at": "2026-01-01T00:00:00",
@@ -310,3 +266,31 @@ class TestFullLifecycle:
         assert result.status == "success"
         assert result.output["decision"] == "WATCHLIST"
         assert sqlite.get_opportunity(opp_id)["status"] == "WATCHLIST"
+
+
+class TestStateMachineNewModel:
+    """Tests for the new SCREENED/WATCHLIST/UNDER_RESEARCH state model."""
+
+    def test_screened_can_go_to_under_research(self):
+        sm = OpportunityStateMachine()
+        assert sm.can_transition(OpportunityStatus.SCREENED, OpportunityStatus.UNDER_RESEARCH)
+
+    def test_screened_can_go_to_watchlist(self):
+        sm = OpportunityStateMachine()
+        assert sm.can_transition(OpportunityStatus.SCREENED, OpportunityStatus.WATCHLIST)
+
+    def test_watchlist_can_recover_to_screened(self):
+        sm = OpportunityStateMachine()
+        assert sm.can_transition(OpportunityStatus.WATCHLIST, OpportunityStatus.SCREENED)
+
+    def test_watchlist_cannot_go_to_under_research(self):
+        sm = OpportunityStateMachine()
+        assert not sm.can_transition(OpportunityStatus.WATCHLIST, OpportunityStatus.UNDER_RESEARCH)
+
+    def test_under_research_can_be_re_researched(self):
+        sm = OpportunityStateMachine()
+        assert sm.can_transition(OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.UNDER_RESEARCH)
+
+    def test_discovered_has_no_automatic_transitions(self):
+        sm = OpportunityStateMachine()
+        assert sm.get_next_states(OpportunityStatus.DISCOVERED) == []
