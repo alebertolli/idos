@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-08-31 01:44 AR _
+_Generado: 2026-08-31 02:12 AR _
 
 ## Resumen
 
@@ -69,7 +69,7 @@ _Generado: 2026-08-31 01:44 AR _
 - ⚠️ **FDX** (OPP-20260813-106): score=62, class=?
 - ⚠️ **FISV** (OPP-20260813-023): score=64, class=?
 - ⚠️ **GE** (OPP-20260813-080): score=63, class=?
-- ⚠️ **GGB** (OPP-20260813-095): score=62, class=?
+- ⚠️ **GGB** (OPP-20260813-095): score=65, class=?
 - ⚠️ **GILD** (OPP-20260813-090): score=68, class=?
 - ⚠️ **GLNG** (OPP-20260807-023): score=65, class=?
 - ⚠️ **GLW** (OPP-20260813-124): score=64, class=?
