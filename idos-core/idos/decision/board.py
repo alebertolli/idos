@@ -23,8 +23,9 @@ class BoardResolution:
             self.resolved_at = datetime.now(AR_TZ).isoformat()
 
 class DecisionBoard:
-    def __init__(self, journal_repo: JournalRepository | None = None):
+    def __init__(self, journal_repo: JournalRepository | None = None, ticker: str = ""):
         self.journal = journal_repo
+        self.ticker = ticker
         self._pending_proposals: list[DecisionProposal] = []
 
     @property
@@ -58,9 +59,9 @@ class DecisionBoard:
             author="board",
         )
 
-        if self.journal:
+        if self.journal and self.ticker:
             self.journal.save_decision(
-                proposal.opportunity_id.split("-")[0] if "-" in proposal.opportunity_id else "",
+                self.ticker,
                 proposal.opportunity_id,
                 decision.model_dump(),
             )

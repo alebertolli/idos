@@ -581,7 +581,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     if proposal is None:
         return {"ticker": ticker, "opp_id": opp_id, "status": "skipped", "reason": "Pipeline returned None"}
 
-    board = DecisionBoard(journal_repo=journal)
+    board = DecisionBoard(journal_repo=journal, ticker=ticker)
     board.submit(proposal)
     resolution = board.review()
 
