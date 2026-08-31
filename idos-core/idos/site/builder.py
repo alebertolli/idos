@@ -405,8 +405,14 @@ class SiteBuilder:
         if current_price and intrinsic and current_price > 0:
             upside = round((intrinsic - current_price) / current_price * 100, 1)
 
-        # last research date: prefer decision_proposal.generated_at
-        last_research = dp.get("generated_at") or opp.get("updated_at") or opp.get("created_at")
+        # last research date: prefer last_research_at (set by ResearchWorker),
+        # then decision_proposal.generated_at, then updated_at
+        last_research = (
+            opp.get("last_research_at")
+            or dp.get("generated_at")
+            or opp.get("updated_at")
+            or opp.get("created_at")
+        )
         last_research_dt = _parse_dt(last_research)
         stale_days = None
         if last_research_dt:
