@@ -40,8 +40,8 @@ To be evaluated
 - **Revenue Growth**: 11.6
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.55
-- **PER**: 23.38
-- **EV/EBITDA**: 21.49
+- **PER**: 25.75
+- **EV/EBITDA**: 23.57
 
 ---
 
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[GOOGL|Alphabet Inc.]], [[META|Meta Platforms, Inc.]], [[PINS|Pinterest, Inc.]], [[RBLX|Roblox Corporation]], [[ROKU|Roku, Inc.]], [[SPOT|Spotify Technology S.A.]]
+- **Same Sector**: [[BIDU|Baidu, Inc.]], [[GOOGL|Alphabet Inc.]], [[META|Meta Platforms, Inc.]], [[PINS|Pinterest, Inc.]], [[RBLX|Roblox Corporation]], [[ROKU|Roku, Inc.]], [[SPOT|Spotify Technology S.A.]]
 - **Same Industry**: [[ROKU|Roku, Inc.]]
