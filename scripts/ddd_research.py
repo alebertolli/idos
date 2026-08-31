@@ -4,6 +4,7 @@
 Selection rules:
   NORMAL mode (monthly cron):
     - SCREENED: process -> UNDER_RESEARCH
+    - UNDER_RESEARCH with stale > 30d: process with force_reprocess=True
     - All others: skip
   FORCE mode (30-day re-research, manual, earnings):
     - UNDER_RESEARCH: re-research (no status change)
@@ -15,11 +16,23 @@ import json
 import os
 import sys
 import yaml
+from datetime import datetime, timezone
 from pathlib import Path
 
 
 STALE_DAYS = 30
-SKIP_TICKERS = set()  # populated from buylist + positions below
+SKIP_TICKERS = set()
+
+
+def _parse_dt(s):
+    if not s:
+        return None
+    try:
+        if isinstance(s, datetime):
+            return s
+        return datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+    except Exception:
+        return None
 
 
 def _load_skip_tickers():
@@ -45,23 +58,44 @@ def _load_skip_tickers():
     return skip
 
 
-def _needs_research(opp: dict, force: bool) -> tuple[bool, str]:
-    """Return (should_process, reason)."""
+def _is_stale(opp: dict) -> tuple[bool, int | None]:
+    """Return (is_stale, days_since_last_research)."""
+    last_at = _parse_dt(opp.get("last_research_at") or opp.get("updated_at"))
+    if not last_at:
+        return True, None
+    now = datetime.now(timezone.utc)
+    if last_at.tzinfo is None:
+        last_at = last_at.replace(tzinfo=timezone.utc)
+    days = (now - last_at).days
+    return days > STALE_DAYS, days
+
+
+def _needs_research(opp: dict, force: bool) -> tuple[bool, bool, str]:
+    """Return (should_process, force_reprocess, reason)."""
     status = opp.get("status", "")
     ticker = opp.get("ticker", "").upper()
     score = (opp.get("conviction") or {}).get("overall", 0)
 
     if ticker in SKIP_TICKERS:
-        return False, "in BUY_LIST/PORTFOLIO"
+        return False, False, "in BUY_LIST/PORTFOLIO"
 
     if force:
         if status == "UNDER_RESEARCH":
-            return True, f"FORCE re-research UNDER_RESEARCH (score={score})"
-        return False, f"FORCE: status {status} not re-researchable"
+            return True, True, f"FORCE re-research UNDER_RESEARCH (score={score})"
+        return False, False, f"FORCE: status {status} not re-researchable"
 
     if status == "SCREENED":
-        return True, f"new entry: SCREENED (score={score})"
-    return False, f"status {status} not processable in NORMAL mode"
+        return True, False, f"new entry: SCREENED (score={score})"
+
+    if status == "UNDER_RESEARCH":
+        stale, days = _is_stale(opp)
+        if stale:
+            reason = f"stale UNDER_RESEARCH ({days}d > {STALE_DAYS}d)" if days is not None else f"stale UNDER_RESEARCH (no last_research_at)"
+            return True, True, reason
+        days_str = f"{days}d" if days is not None else "no last_research_at"
+        return False, False, f"UNDER_RESEARCH fresh ({days_str} <= {STALE_DAYS}d)"
+
+    return False, False, f"status {status} not processable in NORMAL mode"
 
 
 def main():
@@ -104,7 +138,7 @@ def main():
                     status = data.get('status', '')
                     score = data.get('conviction', {}).get('overall', 0)
 
-                    should, reason = _needs_research(data, force)
+                    should, opp_force, reason = _needs_research(data, force)
                     if should:
                         opportunities.append({
                             'opp_id': data['id'],
@@ -112,6 +146,7 @@ def main():
                             'score': score,
                             'current_status': status,
                             'reason': reason,
+                            'force_reprocess': opp_force,
                         })
                     else:
                         skipped_list.append({
@@ -156,13 +191,14 @@ def main():
     for opp in opportunities:
         ticker = opp['ticker']
         opp_id = opp['opp_id']
-        print('\n[STEP 2] ResearchWorker -> {} {} ...'.format(ticker, opp_id))
+        opp_force = opp.get('force_reprocess', False)
+        print('\n[STEP 2] ResearchWorker -> {} {} (force={}) ...'.format(ticker, opp_id, opp_force))
         try:
             ctx = {
                 'ticker': ticker,
                 'opp_id': opp_id,
                 'base_path': str(base_path),
-                'force_reprocess': force,
+                'force_reprocess': opp_force,
                 'event_type': event_type,
             }
             r = rw.run(ctx)
