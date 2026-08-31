@@ -164,18 +164,53 @@ def main():
     for s in skipped_stale_skip[:10]:
         print('  skip: {} {} ({}) — {}'.format(s['ticker'], s['opp_id'], s['status'], s['reason']))
 
-    # Persist selection (the actual research execution lives in ResearchWorker)
+    # Execute ResearchWorker for each selected opportunity
+    from idos.workers.ai.research_worker import ResearchWorker
+    from idos.data.sqlite import SQLiteStore
+    from idos.data.journal import JournalRepository
+
+    base_path = Path('idos-journal').parent
+    sqlite = SQLiteStore(base_path / 'idos.db')
+    journal = JournalRepository(base_path / 'idos-journal')
+
+    rw = ResearchWorker()
+    rw_results = []
+    rw_errors = []
+    for opp in opportunities:
+        ticker = opp['ticker']
+        opp_id = opp['opp_id']
+        print('\n[STEP 2] ResearchWorker -> {} {} ...'.format(ticker, opp_id))
+        try:
+            ctx = {
+                'ticker': ticker,
+                'opp_id': opp_id,
+                'base_path': str(base_path),
+                'force_reprocess': force,
+                'event_type': event_type,
+            }
+            r = rw.run(ctx)
+            status = r.get('status', 'unknown')
+            print('  -> status={} score={}'.format(
+                status, r.get('conviction_score', r.get('score', '?'))))
+            rw_results.append({
+                'opp_id': opp_id, 'ticker': ticker, 'status': status,
+                'score': r.get('conviction_score', r.get('score')),
+                'reason': opp.get('reason', ''),
+            })
+            if status == 'skipped':
+                rw_errors.append({'ticker': ticker, 'opp_id': opp_id, 'reason': r.get('reason', 'skipped')})
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            print('  -> ERROR: {}'.format(e))
+            rw_errors.append({'ticker': ticker, 'opp_id': opp_id, 'error': str(e)})
+
     results = {
-        'processed': [
-            {'opp_id': o['opp_id'], 'ticker': o['ticker'],
-             'score': o.get('score', 0), 'current_status': o.get('current_status', 'UNKNOWN'),
-             'reason': o.get('reason', '')}
-            for o in opportunities
-        ],
+        'processed': rw_results,
         'skipped': skipped_stale_skip,
         'assessments': [],
-        'errors': [],
-        'status': 'selected',
+        'errors': rw_errors,
+        'status': 'research_completed',
         'event_type': event_type,
         'force': force,
         'stale_days_threshold': STALE_DAYS,
@@ -184,8 +219,8 @@ def main():
     Path('cache/ddd_results.json').write_text(
         json.dumps(results, indent=2), encoding='utf-8'
     )
-    print('\n[DDD] Selected {} opportunities for research, skipped {}'.format(
-        len(results['processed']), len(skipped_stale_skip)))
+    print('\n[DDD] Research completed for {}, errors in {}'.format(
+        len(rw_results), len(rw_errors)))
 
 
 if __name__ == '__main__':
