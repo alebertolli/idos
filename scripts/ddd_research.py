@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
-"""DDD Research Worker - Creates opportunities on the fly for DDD pipeline."""
+"""DDD Research Worker — decides which opportunities need (re)research.
+
+Selection rules (NORMAL mode):
+  - DISCOVERED or WATCHLIST: process (new entry to Research)
+  - UNDER_RESEARCH: process only if:
+      * no last_research_at  (no thesis ever generated), OR
+      * last_research_at > STALE_DAYS ago  (thesis stale, needs refresh)
+  - Other statuses (APPROVED, ENTRY_PENDING, ACCUMULATING, etc.): skip.
+  - Tickers in BUY_LIST or PORTFOLIO: skip (already past Research).
+FORCE mode: process any status (skip transitions, no status change).
+"""
 
 import json
 import os
 import sys
 import yaml
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from idos.data.sqlite import SQLiteStore
@@ -13,8 +23,67 @@ from idos.data.journal import JournalRepository
 from idos.timezone import AR_TZ
 
 
+STALE_DAYS = 30
+THRESHOLD = 60
+SKIP_TICKERS = set()  # populated from buylist + positions below
+
+
+def _parse_dt(s):
+    if not s:
+        return None
+    try:
+        if isinstance(s, datetime):
+            return s
+        return datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+
+def _load_skip_tickers():
+    skip = set()
+    bl = Path("idos-journal/portfolio/buylist.yml")
+    if bl.exists():
+        try:
+            d = yaml.safe_load(bl.read_text(encoding="utf-8")) or {}
+            for e in d.get("entries", []):
+                if e.get("ticker"):
+                    skip.add(e["ticker"].upper())
+        except Exception:
+            pass
+    pos_dir = Path("idos-journal/paper/positions")
+    if pos_dir.exists():
+        for f in pos_dir.glob("*.yml"):
+            try:
+                d = yaml.safe_load(f.read_text(encoding="utf-8"))
+                if isinstance(d, dict) and d.get("ticker"):
+                    skip.add(d["ticker"].upper())
+            except Exception:
+                pass
+    return skip
+
+
+def _needs_research(opp: dict, now: datetime) -> tuple[bool, str]:
+    """Return (should_process, reason)."""
+    status = opp.get("status", "")
+    score = (opp.get("conviction") or {}).get("overall", 0)
+    ticker = opp.get("ticker", "").upper()
+    last_at = _parse_dt(opp.get("last_research_at") or opp.get("updated_at"))
+    days = (now - last_at.replace(tzinfo=None)).days if last_at else None
+
+    if status in ("DISCOVERED", "WATCHLIST"):
+        return True, f"new entry: {status} (score={score})"
+    if status == "UNDER_RESEARCH":
+        if ticker in SKIP_TICKERS:
+            return False, f"in BUY_LIST/PORTFOLIO"
+        if days is None:
+            return True, "UNDER_RESEARCH sin last_research_at"
+        if days > STALE_DAYS:
+            return True, f"UNDER_RESEARCH stale ({days}d > {STALE_DAYS}d)"
+        return False, f"UNDER_RESEARCH fresh ({days}d <= {STALE_DAYS}d) — skip DDD"
+    return False, f"status {status} not processable"
+
+
 def main():
-    # Configuration from environment (set by workflow)
     force = os.environ.get('FORCE', 'false').lower() == 'true'
     tickers_env = os.environ.get('TICKER', '')
     tickers = [t.strip().upper() for t in tickers_env.split(',') if t.strip()] if tickers_env else []
@@ -22,16 +91,20 @@ def main():
 
     journal = Path('idos-journal')
     os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+    global SKIP_TICKERS
+    SKIP_TICKERS = _load_skip_tickers()
 
+    now = datetime.now(AR_TZ).replace(tzinfo=None)
     opportunities = []
+    skipped_stale_skip = []
     companies_dir = journal / 'companies'
 
     if companies_dir.exists():
         for d in sorted(companies_dir.iterdir()):
             if not d.is_dir():
                 continue
-            ticker = d.name
-            if tickers and ticker.upper() not in tickers:
+            ticker = d.name.upper()
+            if tickers and ticker not in tickers:
                 continue
             opp_dir = d / 'case_file' / 'opportunities'
             if not opp_dir.exists():
@@ -44,100 +117,75 @@ def main():
                     continue
                 try:
                     data = yaml.safe_load(yf.read_text(encoding='utf-8'))
-                    if data:
-                        if force or data.get('status') in ('DISCOVERED', 'WATCHLIST'):
-                            opportunities.append({
-                                'opp_id': data['id'],
-                                'ticker': data['ticker'].upper(),
-                                'score': data.get('conviction', {}).get('overall', 0),
-                                'current_status': data.get('status', 'UNKNOWN'),
-                            })
+                    if not data:
+                        continue
+                    if force:
+                        opportunities.append({
+                            'opp_id': data['id'],
+                            'ticker': ticker,
+                            'score': data.get('conviction', {}).get('overall', 0),
+                            'current_status': data.get('status', 'UNKNOWN'),
+                            'reason': 'FORCE mode',
+                        })
+                        continue
+                    should, reason = _needs_research(data, now)
+                    if should:
+                        opportunities.append({
+                            'opp_id': data['id'],
+                            'ticker': ticker,
+                            'score': data.get('conviction', {}).get('overall', 0),
+                            'current_status': data.get('status', 'UNKNOWN'),
+                            'reason': reason,
+                        })
+                    else:
+                        skipped_stale_skip.append({
+                            'opp_id': data['id'],
+                            'ticker': ticker,
+                            'status': data.get('status'),
+                            'reason': reason,
+                        })
                 except Exception as e:
                     print('[DDD] Error reading {}: {}'.format(yf, e))
 
-    if not opportunities:
-        if force and tickers:
-            for t in tickers:
-                print('[DDD] Force mode for {} but no opportunity found, creating one on the fly'.format(t))
-                from idos.data.sqlite import SQLiteStore
-                from idos.data.journal import JournalRepository
-                from datetime import datetime
-                from idos.timezone import AR_TZ
+    if not opportunities and not force:
+        print('[DDD] No opportunities to process (all fresh or excluded)')
+        Path('cache/ddd_results.json').write_text(json.dumps({
+            'processed': [], 'assessments': [], 'errors': [],
+            'status': 'none', 'event_type': event_type, 'force': force,
+            'skipped': skipped_stale_skip,
+        }, indent=2), encoding='utf-8')
+        sys.exit(0)
 
-                existing_opps = SQLiteStore('idos.db').list_opportunities()
-                seq = len(existing_opps) + 1
-                new_opp_id = 'OPP-{}-{:03d}'.format(datetime.now(AR_TZ).strftime("%Y%m%d"), seq)
-                now = datetime.now(AR_TZ).isoformat()
-                new_opp_text = json.dumps({
-                    'id': new_opp_id,
-                    'ticker': t,
-                    'status': 'DISCOVERED',
-                    'conviction': {'overall': 0},
-                    'created_at': now,
-                    'updated_at': now,
-                })
-                jr = JournalRepository(journal)
-                jr.save_opportunity(t, new_opp_text)
-                SQLiteStore('idos.db').save_opportunity(new_opp_text)
-                opportunities.append({
-                    'opp_id': new_opp_id,
-                    'ticker': t,
-                    'score': 0,
-                    'current_status': 'DISCOVERED',
-                })
-                print('[DDD] Created new opportunity {} for {}'.format(new_opp_id, t))
-        else:
-            print('[DDD] No DISCOVERED opportunities to process')
-            Path('cache/ddd_results.json').write_text(json.dumps({
-                'processed': [], 'assessments': [], 'errors': [],
-                'status': 'none', 'event_type': event_type, 'force': force
-            }), encoding='utf-8')
-            sys.exit(0)
+    print('[DDD] To process: {}'.format(len(opportunities)))
+    for o in opportunities:
+        print('  - {} {} ({}) reason={}'.format(
+            o['ticker'], o['opp_id'], o['current_status'], o.get('reason', '')))
+    print('[DDD] Skipped (stale-skip or excluded): {}'.format(len(skipped_stale_skip)))
+    for s in skipped_stale_skip[:10]:
+        print('  skip: {} {} ({}) — {}'.format(s['ticker'], s['opp_id'], s['status'], s['reason']))
 
-    labels = 'FORCE' if force else 'DISCOVERED'
-    print('[DDD] Found {} {}'.format(len(opportunities), labels))
-
-    from idos.workers.ai.research_worker import ResearchWorker
-    from idos.data.sqlite import SQLiteStore
-    from idos.models.enums import OpportunityStatus
-
-    processed = []
-    errors = []
-
-    for opp in opportunities:
-        ticker = opp['ticker']
-        opp_id = opp['opp_id']
-        cur_status = opp['current_status']
-        print('\n[STEP 2] {} {} {} status={}...'.format("FORCE" if force else "NORMAL", ticker, opp_id, cur_status))
-
-        try:
-            db = SQLiteStore('idos.db')
-            # ... rest of processing
-            # This is where the research worker would process each opportunity
-            print('[STEP 2] Processing {}...'.format(ticker))
-
-        except Exception as e:
-            print('[DDD] Error processing {}: {}'.format(ticker, e))
-            errors.append(ticker)
-
-    # Summary
-    # Write results file
+    # Persist selection (the actual research execution lives in ResearchWorker)
     results = {
         'processed': [
-            {'opp_id': opp['opp_id'], 'ticker': opp['ticker'], 'score': opp.get('score', 0), 'current_status': opp.get('current_status', 'UNKNOWN')}
-            for opp in opportunities
+            {'opp_id': o['opp_id'], 'ticker': o['ticker'],
+             'score': o.get('score', 0), 'current_status': o.get('current_status', 'UNKNOWN'),
+             'reason': o.get('reason', '')}
+            for o in opportunities
         ],
+        'skipped': skipped_stale_skip,
         'assessments': [],
-        'errors': errors,
-        'status': 'none',
+        'errors': [],
+        'status': 'selected',
         'event_type': event_type,
-        'force': force
+        'force': force,
+        'stale_days_threshold': STALE_DAYS,
     }
     Path('cache').mkdir(parents=True, exist_ok=True)
-    with open('cache/ddd_results.json', 'w', encoding='utf-8') as f:
-        f.write(json.dumps(results, indent=2))
-
-    print('\n[STEP 2] Processed {} opportunities, errors in {}'.format(len(results['processed']), len(errors)))
+    Path('cache/ddd_results.json').write_text(
+        json.dumps(results, indent=2), encoding='utf-8'
+    )
+    print('\n[DDD] Selected {} opportunities for research, skipped {}'.format(
+        len(results['processed']), len(skipped_stale_skip)))
 
 
 if __name__ == '__main__':

@@ -18,7 +18,7 @@ class ResearchWorker(BaseWorker):
     """Orchestrates the full research pipeline: DDD -> AOIF -> Hypothesis.
 
     Triggers: manual (CLI) or automatic when an opportunity is promoted from WATCHLIST.
-    Transitions: WATCHLIST -> UNDER_DEEP_DD
+    Transitions: WATCHLIST -> UNDER_RESEARCH (or DISCOVERED -> UNDER_RESEARCH on first research).
     """
     name = "research_worker"
 
@@ -58,9 +58,9 @@ class ResearchWorker(BaseWorker):
 
         current_status = OpportunityStatus(opp["status"])
         if not force_reprocess:
-            if not self.state_machine.can_transition(current_status, OpportunityStatus.UNDER_DEEP_DD):
+            if not self.state_machine.can_transition(current_status, OpportunityStatus.UNDER_RESEARCH):
                 return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
-                        "reason": f"Cannot transition from {current_status} to UNDER_DEEP_DD"}
+                        "reason": f"Cannot transition from {current_status} to UNDER_RESEARCH"}
         else:
             print(f"[FORCE] Reprocessing {ticker} ({opp_id}) from {current_status}, event={event_type}")
 
@@ -235,9 +235,10 @@ class ResearchWorker(BaseWorker):
                 sqlite.log_event("research:failed", event_data)
                 journal.log_event("research:failed", event_data, source="research_worker")
             else:
-                opp["status"] = OpportunityStatus.UNDER_DEEP_DD.value
+                opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
+                opp["last_research_at"] = datetime.now(AR_TZ).isoformat()
                 sqlite.save_opportunity(opp)
-                sqlite.record_transition(opp_id, current_status.value, "UNDER_DEEP_DD",
+                sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
                                          cause="research_completed", worker="research_worker")
                 event_data = {
                     "opp_id": opp_id, "ticker": ticker,

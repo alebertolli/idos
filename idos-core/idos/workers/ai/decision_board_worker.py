@@ -18,8 +18,8 @@ from idos.timezone import AR_TZ
 class DecisionBoardWorker(BaseWorker):
     """Evaluates DDD output against entry rules and proposes approval/rejection.
 
-    Triggers: after ResearchWorker completes (UNDER_DEEP_DD).
-    Transitions: UNDER_DEEP_DD -> APPROVED or WATCHLIST.
+    Triggers: after ResearchWorker completes (UNDER_RESEARCH).
+    Transitions: UNDER_RESEARCH -> APPROVED or WATCHLIST.
     """
     name = "decision_board_worker"
 

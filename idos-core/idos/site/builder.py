@@ -1014,7 +1014,7 @@ class SiteBuilder:
             if key == "discovery":
                 count = len(discovery_pool) if discovery_pool else (universe_stats.get("operable_count", 0) if universe_stats else 0)
             if key == "research":
-                count = len(watchlist) if universe_stats else count
+                count = sum(1 for o in opps if o.get("status") in ("UNDER_RESEARCH", "UNDER_DEEP_DD"))
             sections.append({
                 "key": key, "label": label, "tab": tab,
                 "count": count,
@@ -1365,29 +1365,7 @@ function rulesBadge(failed){
   return failed.map(id=>`<span class="badge" title="${esc(map[id]||id)}" style="background:#2a1516;color:#f87171">${esc(id)}</span>`).join(' ');
 }
 function renderOpp(){
-  const opps = DATA.opportunities.filter(o=>o.status==='UNDER_RESEARCH' || o.status==='UNDER_DEEP_DD');
-  const wlSet = new Set(opps.map(o=>o.ticker));
-  const pendingFromWatchlist = (DATA.watchlist||[]).filter(w=>!wlSet.has(w.ticker))
-    .map(w=>({
-      opp_id: 'PENDING',
-      ticker: w.ticker,
-      status: 'WATCHLIST_PENDING',
-      conviction_overall: w.score,
-      scores: {},
-      current_price: null,
-      intrinsic_value: null,
-      upside_pct: null,
-      last_research: w.added_at || null,
-      is_stale: false,
-      stale_days: null,
-      decision: {},
-      proposal: { recommendation: 'PENDING', rules_passed: [], rules_failed: [] },
-      ddd: { categoria: null, ratings: {}, dominios: [], catalizadores: [], riesgos: [],
-             resumen_ejecutivo: null, tesis_inversion: null, score_general: null, evidencia: {} },
-      has_wyckoff: false,
-      has_post_mortem: false,
-    }));
-  const rows = [...opps, ...pendingFromWatchlist];
+  const rows = DATA.opportunities.filter(o=>o.status==='UNDER_RESEARCH');
   TABLES['opp'] = {
     rows,
     cols: [
