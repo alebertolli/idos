@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-08-30 22:52 AR _
+_Generado: 2026-08-31 01:44 AR _
 
 ## Resumen
 
@@ -20,15 +20,15 @@ _Generado: 2026-08-30 22:52 AR _
 - ⚠️ **ABT** (OPP-20260813-120): score=59, class=?
 - ⚠️ **ACN** (OPP-20260813-001): score=65, class=?
 - ⚠️ **ADI** (OPP-20260813-086): score=68, class=?
-- ⚠️ **ADP** (OPP-20260813-039): score=64, class=?
+- ⚠️ **ADP** (OPP-20260813-039): score=61, class=?
 - ⚠️ **AEG** (OPP-20260813-082): score=52, class=?
 - ⚠️ **AIG** (OPP-20260813-006): score=62, class=?
 - ⚠️ **AMAT** (OPP-20260813-061): score=72, class=?
 - ⚠️ **AMX** (OPP-20260813-014): score=65, class=?
 - ⚠️ **AVY** (OPP-20260813-101): score=65, class=?
-- ⚠️ **AZN** (OPP-20260813-048): score=62, class=?
+- ⚠️ **AZN** (OPP-20260813-048): score=63, class=?
 - ⚠️ **BABA** (OPP-20260813-096): score=56, class=?
-- ⚠️ **BB** (OPP-20260813-140): score=63, class=?
+- ⚠️ **BB** (OPP-20260813-140): score=61, class=?
 - ⚠️ **BBAR** (OPP-20260813-165): score=62, class=?
 - ⚠️ **BBD** (OPP-20260813-071): score=62, class=?
 - ⚠️ **BHP** (OPP-20260813-016): score=61, class=?
@@ -39,25 +39,25 @@ _Generado: 2026-08-30 22:52 AR _
 - ⚠️ **BMY** (OPP-20260813-032): score=66, class=?
 - ⚠️ **BP** (OPP-20260813-056): score=61, class=?
 - ⚠️ **BSBR** (OPP-20260813-058): score=66, class=?
-- ⚠️ **BX** (OPP-20260813-049): score=59, class=?
+- ⚠️ **BX** (OPP-20260813-049): score=62, class=?
 - ⚠️ **CAH** (OPP-20260813-079): score=70, class=?
 - ⚠️ **CAR** (OPP-20260813-143): score=53, class=?
-- ⚠️ **CAT** (OPP-20260813-087): score=64, class=?
+- ⚠️ **CAT** (OPP-20260813-087): score=67, class=?
 - ⚠️ **CL** (OPP-20260813-112): score=67, class=?
 - ⚠️ **COP** (OPP-20260813-031): score=62, class=?
 - ⚠️ **COST** (OPP-20260813-104): score=60, class=?
-- ⚠️ **CRM** (OPP-20260813-068): score=61, class=?
+- ⚠️ **CRM** (OPP-20260813-068): score=63, class=?
 - ⚠️ **CVS** (OPP-20260813-123): score=71, class=?
 - ⚠️ **CVX** (OPP-20260813-060): score=62, class=?
 - ⚠️ **CX** (OPP-20260813-122): score=63, class=?
-- ⚠️ **DAL** (OPP-20260813-044): score=62, class=?
+- ⚠️ **DAL** (OPP-20260813-044): score=63, class=?
 - ⚠️ **DD** (OPP-20260813-133): score=59, class=?
 - ⚠️ **DE** (OPP-20260813-132): score=60, class=?
 - ⚠️ **DEO** (OPP-20260813-078): score=65, class=?
 - ⚠️ **DHR** (OPP-20260813-111): score=59, class=?
 - ⚠️ **DOCU** (OPP-20260813-038): score=62, class=?
 - ⚠️ **DOW** (OPP-20260813-154): score=71, class=?
-- ⚠️ **E** (OPP-20260813-131): score=58, class=?
+- ⚠️ **E** (OPP-20260813-131): score=61, class=?
 - ⚠️ **EBAY** (OPP-20260813-050): score=67, class=?
 - ⚠️ **ECL** (OPP-20260813-103): score=61, class=?
 - ⚠️ **EFX** (OPP-20260813-102): score=59, class=?
@@ -69,15 +69,15 @@ _Generado: 2026-08-30 22:52 AR _
 - ⚠️ **FDX** (OPP-20260813-106): score=62, class=?
 - ⚠️ **FISV** (OPP-20260813-023): score=64, class=?
 - ⚠️ **GE** (OPP-20260813-080): score=63, class=?
-- ⚠️ **GGB** (OPP-20260813-095): score=65, class=?
+- ⚠️ **GGB** (OPP-20260813-095): score=62, class=?
 - ⚠️ **GILD** (OPP-20260813-090): score=68, class=?
-- ⚠️ **GLNG** (OPP-20260807-023): score=63, class=?
+- ⚠️ **GLNG** (OPP-20260807-023): score=65, class=?
 - ⚠️ **GLW** (OPP-20260813-124): score=64, class=?
 - ⚠️ **GM** (OPP-20260813-139): score=71, class=?
 - ⚠️ **GSK** (OPP-20260813-047): score=67, class=?
-- ⚠️ **HAL** (OPP-20260813-064): score=63, class=?
+- ⚠️ **HAL** (OPP-20260813-064): score=61, class=?
 - ⚠️ **HD** (OPP-20260813-088): score=63, class=?
-- ⚠️ **HMC** (OPP-20260813-149): score=57, class=?
+- ⚠️ **HMC** (OPP-20260813-149): score=59, class=?
 - ⚠️ **HOG** (OPP-20260813-107): score=50, class=?
 - ⚠️ **HON** (OPP-20260813-018): score=66, class=?
 - ⚠️ **HPQ** (OPP-20260813-010): score=62, class=?
@@ -87,14 +87,14 @@ _Generado: 2026-08-30 22:52 AR _
 - ⚠️ **IFF** (OPP-20260813-134): score=55, class=?
 - ⚠️ **INFY** (OPP-20260813-069): score=65, class=?
 - ⚠️ **INTC** (OPP-20260813-128): score=59, class=?
-- ⚠️ **IP** (OPP-20260813-151): score=52, class=?
+- ⚠️ **IP** (OPP-20260813-151): score=54, class=?
 - ⚠️ **JCI** (OPP-20260813-136): score=58, class=?
 - ⚠️ **JD** (OPP-20260813-142): score=73, class=?
 - ⚠️ **JNJ** (OPP-20260813-051): score=62, class=?
 - ⚠️ **JOYY** (OPP-20260813-168): score=55, class=?
 - ⚠️ **KB** (OPP-20260813-130): score=62, class=?
 - ⚠️ **KEEL** (OPP-20260807-034): score=58, class=?
-- ⚠️ **KEP** (OPP-20260813-015): score=65, class=?
+- ⚠️ **KEP** (OPP-20260813-015): score=63, class=?
 - ⚠️ **KMB** (OPP-20260813-040): score=66, class=?
 - ⚠️ **KO** (OPP-20260813-067): score=66, class=?
 - ⚠️ **LLY** (OPP-20260807-006): score=68, class=?
@@ -102,27 +102,27 @@ _Generado: 2026-08-30 22:52 AR _
 - ⚠️ **MCD** (OPP-20260813-030): score=64, class=?
 - ⚠️ **MDLZ** (OPP-20260813-121): score=56, class=?
 - ⚠️ **MDT** (OPP-20260813-092): score=59, class=?
-- ⚠️ **MFG** (OPP-20260730-001): score=59, class=?
+- ⚠️ **MFG** (OPP-20260730-001): score=57, class=?
 - ⚠️ **MMM** (OPP-20260813-084): score=64, class=?
 - ⚠️ **MO** (OPP-20260813-009): score=67, class=?
 - ⚠️ **MOS** (OPP-20260813-160): score=64, class=?
-- ⚠️ **MP** (OPP-20260813-153): score=55, class=?
-- ⚠️ **MRK** (OPP-20260813-125): score=59, class=?
+- ⚠️ **MP** (OPP-20260813-153): score=57, class=?
+- ⚠️ **MRK** (OPP-20260813-125): score=62, class=?
 - ⚠️ **MRNA** (OPP-20260813-119): score=50, class=?
 - ⚠️ **MSI** (OPP-20260813-146): score=66, class=?
 - ⚠️ **MSTR** (OPP-20260813-141): score=55, class=?
 - ⚠️ **MU** (OPP-20260813-026): score=72, class=?
 - ⚠️ **MUFG** (OPP-20260807-004): score=58, class=?
-- ⚠️ **NBIS** (OPP-20260813-159): score=55, class=?
-- ⚠️ **NEE** (OPP-20260813-093): score=56, class=?
+- ⚠️ **NBIS** (OPP-20260813-159): score=56, class=?
+- ⚠️ **NEE** (OPP-20260813-093): score=59, class=?
 - ⚠️ **NFLX** (OPP-20260725-043): score=65, class=?
 - ⚠️ **NG** (OPP-20260813-152): score=53, class=?
 - ⚠️ **NGG** (OPP-20260813-145): score=55, class=?
 - ⚠️ **NIO** (OPP-20260807-029): score=58, class=?
 - ⚠️ **NKE** (OPP-20260813-072): score=62, class=?
-- ⚠️ **NTES** (OPP-20260813-027): score=71, class=?
+- ⚠️ **NTES** (OPP-20260813-027): score=72, class=?
 - ⚠️ **NUE** (OPP-20260813-074): score=58, class=?
-- ⚠️ **NVS** (OPP-20260813-041): score=63, class=?
+- ⚠️ **NVS** (OPP-20260813-041): score=65, class=?
 - ⚠️ **NXE** (OPP-20260813-150): score=53, class=?
 - ⚠️ **OKLO** (OPP-20260813-155): score=55, class=?
 - ⚠️ **ORLY** (OPP-20260813-045): score=65, class=?
@@ -135,15 +135,15 @@ _Generado: 2026-08-30 22:52 AR _
 - ⚠️ **PEP** (OPP-20260813-053): score=61, class=?
 - ⚠️ **PFE** (OPP-20260813-127): score=63, class=?
 - ⚠️ **PG** (OPP-20260813-059): score=61, class=?
-- ⚠️ **PHG** (OPP-20260813-034): score=61, class=?
+- ⚠️ **PHG** (OPP-20260813-034): score=63, class=?
 - ⚠️ **PM** (OPP-20260813-029): score=64, class=?
 - ⚠️ **PSO** (OPP-20260813-147): score=58, class=?
 - ⚠️ **PSX** (OPP-20260813-042): score=58, class=?
-- ⚠️ **PYPL** (OPP-20260813-007): score=63, class=?
-- ⚠️ **QCOM** (OPP-20260813-063): score=68, class=?
+- ⚠️ **PYPL** (OPP-20260813-007): score=65, class=?
+- ⚠️ **QCOM** (OPP-20260813-063): score=65, class=?
 - ⚠️ **RACE** (OPP-20260730-001): score=64, class=?
 - ⚠️ **RGTI** (OPP-20260813-157): score=58, class=?
-- ⚠️ **RIO** (OPP-20260813-005): score=58, class=?
+- ⚠️ **RIO** (OPP-20260813-005): score=60, class=?
 - ⚠️ **ROST** (OPP-20260813-108): score=61, class=?
 - ⚠️ **RTX** (OPP-20260813-138): score=58, class=?
 - ⚠️ **SBUX** (OPP-20260813-116): score=58, class=?
@@ -165,14 +165,14 @@ _Generado: 2026-08-30 22:52 AR _
 - ⚠️ **TM** (OPP-20260813-144): score=66, class=?
 - ⚠️ **TMO** (OPP-20260813-105): score=59, class=?
 - ⚠️ **TMUS** (OPP-20260813-043): score=66, class=?
-- ⚠️ **TS** (OPP-20260813-003): score=66, class=?
+- ⚠️ **TS** (OPP-20260813-003): score=64, class=?
 - ⚠️ **TSLA** (OPP-20260813-126): score=71, class=?
 - ⚠️ **TTE** (OPP-20260813-012): score=61, class=?
 - ⚠️ **TWLO** (OPP-20260813-137): score=58, class=?
 - ⚠️ **TX** (OPP-20260813-100): score=66, class=?
 - ⚠️ **TXN** (OPP-20260813-057): score=68, class=?
 - ⚠️ **UAL** (OPP-20260813-081): score=65, class=?
-- ⚠️ **UGP** (OPP-20260813-083): score=57, class=?
+- ⚠️ **UGP** (OPP-20260813-083): score=60, class=?
 - ⚠️ **UL** (OPP-20260813-017): score=64, class=?
 - ⚠️ **UNP** (OPP-20260813-037): score=63, class=?
 - ⚠️ **UPST** (OPP-20260813-167): score=61, class=?
@@ -185,10 +185,10 @@ _Generado: 2026-08-30 22:52 AR _
 - ⚠️ **VZ** (OPP-20260813-024): score=62, class=?
 - ⚠️ **WMT** (OPP-20260813-158): score=56, class=?
 - ⚠️ **XOM** (OPP-20260813-097): score=60, class=?
-- ⚠️ **XP** (OPP-20260813-114): score=67, class=?
+- ⚠️ **XP** (OPP-20260813-114): score=66, class=?
 - ⚠️ **XPEV** (OPP-20260807-027): score=61, class=?
 - ⚠️ **YPF** (OPP-20260813-035): score=59, class=?
-- ⚠️ **ZM** (OPP-20260813-028): score=67, class=?
+- ⚠️ **ZM** (OPP-20260813-028): score=70, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
@@ -801,14 +801,13 @@ _Generado: 2026-08-30 22:52 AR _
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 - ⚠️ **GGB**
   - Opp: [OPP-20260813-095]
-  - Conviction: 62/100 | Rec: BLOCKED
+  - Conviction: 65/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 50 | Valuation: 65 | Recovery: 51 | Risk: 80 | Portfolio: 90
+  - Scores: Business: 50 | Valuation: 75 | Recovery: 51 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 0/70
     - 🚫 RULE-003: Rerating: 0/50
     - 🚫 RULE-004: Risk: 0/50
-    - 🚫 RULE-005: Conviction: 62/65
     - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 - ⚠️ **GILD**
   - Opp: [OPP-20260813-090]
