@@ -301,7 +301,8 @@ class SiteBuilder:
         results_path = self.base / "cache" / "pipeline_results.json"
         if results_path.exists():
             try:
-                data = yaml.safe_load(results_path.read_text(encoding="utf-8"))
+                import json as _json
+                data = _json.loads(results_path.read_text(encoding="utf-8"))
                 output = data.get("output", {})
                 return {
                     "finviz_count": output.get("finviz_count", 0),
