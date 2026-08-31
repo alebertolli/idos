@@ -258,6 +258,12 @@ class ResearchWorker(BaseWorker):
                 sqlite.log_event("research:completed", event_data)
                 journal.log_event("research:completed", event_data, source="research_worker")
         else:
+            if not ddd_failed:
+                opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
+                opp["last_research_at"] = datetime.now(AR_TZ).isoformat()
+                sqlite.save_opportunity(opp)
+                sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
+                                         cause="research_completed", worker="research_worker")
             event_data = {
                 "opp_id": opp_id, "ticker": ticker,
                 "score": score, "hypotheses": len(hypotheses),

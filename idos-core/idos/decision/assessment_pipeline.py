@@ -436,7 +436,7 @@ def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, ta
 
 
 def _eval_business(ctx):
-    s = ctx.get("assessments", {}).get("BusinessAssessmentEngine", 0)
+    s = ctx.get("assessments", {}).get("business_quality", 0)
     t = ctx.get("_settings")
     limit = t.rule_min_score("RULE-001", 70) if t else 70
     return RuleResult("RULE-001", s >= limit, f"Business quality: {s}/{limit}")
@@ -448,13 +448,13 @@ def _eval_valuation(ctx):
     return RuleResult("RULE-002", pm > limit, f"Price target margin: {pm:.1f}% (min {limit})")
 
 def _eval_recovery(ctx):
-    s = ctx.get("assessments", {}).get("RecoveryAssessmentEngine", 0)
+    s = ctx.get("assessments", {}).get("rerating", 0)
     t = ctx.get("_settings")
     limit = t.rule_min_score("RULE-003", 50) if t else 50
     return RuleResult("RULE-003", s >= limit, f"Rerating: {s}/{limit}")
 
 def _eval_risk(ctx):
-    s = ctx.get("assessments", {}).get("RiskAssessmentEngine", 0)
+    s = ctx.get("assessments", {}).get("risk", 0)
     t = ctx.get("_settings")
     limit = t.rule_min_score("RULE-004", 50) if t else 50
     return RuleResult("RULE-004", s >= limit, f"Risk: {s}/{limit}")
