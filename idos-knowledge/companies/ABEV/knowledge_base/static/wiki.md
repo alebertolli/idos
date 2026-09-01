@@ -40,8 +40,8 @@ To be evaluated
 - **Revenue Growth**: 4.42
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.03
-- **PER**: 14.37
-- **EV/EBITDA**: 8.17
+- **PER**: 14.3
+- **EV/EBITDA**: 8.12
 
 ---
 
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]]
+- **Same Sector**: [[CL|Colgate-Palmolive Company]], [[COST|Costco Wholesale Corporation]], [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]], [[MO|Altria Group, Inc.]], [[PM|Philip Morris International Inc.]]
 - **Same Industry**: [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]]

@@ -40,8 +40,8 @@ To be evaluated
 - **Revenue Growth**: 9.88
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.0113
-- **PER**: 40.38
-- **EV/EBITDA**: 31.3
+- **PER**: 39.57
+- **EV/EBITDA**: 31.23
 
 ---
 
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[ASR|ASR]], [[BA|The Boeing Company]], [[CAAP|Corporación América Airports S.A.]], [[HWM|Howmet Aerospace Inc.]], [[PAC|Grupo Aeroportuario del Pacífico, S.A.B. de C.V.]], [[RKLB|Rocket Lab Corporation]]
+- **Same Sector**: [[ASR|ASR]], [[BA|The Boeing Company]], [[CAAP|Corporación América Airports S.A.]], [[HWM|Howmet Aerospace Inc.]], [[MMM|3M Company]], [[PAC|Grupo Aeroportuario del Pacífico, S.A.B. de C.V.]], [[PBI|Pitney Bowes Inc.]], [[RKLB|Rocket Lab Corporation]]
 - **Same Industry**: [[BA|The Boeing Company]], [[HWM|Howmet Aerospace Inc.]], [[RKLB|Rocket Lab Corporation]]

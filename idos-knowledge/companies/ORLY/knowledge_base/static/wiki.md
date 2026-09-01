@@ -40,8 +40,8 @@ To be evaluated
 - **Revenue Growth**: 6.65
 - **FCF Yield**: 0
 - **Debt/Equity**: 0
-- **PER**: 28.09
-- **EV/EBITDA**: 19.39
+- **PER**: 28.18
+- **EV/EBITDA**: 19.45
 
 ---
 
@@ -59,4 +59,4 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[AMZN|Amazon.com, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[ETSY|Etsy, Inc.]], [[LVS|Las Vegas Sands Corp.]], [[MELI|MercadoLibre, Inc.]], [[NIO|NIO]], [[PDD|PDD Holdings Inc.]], [[RACE|Ferrari N.V.]], [[SE|SE]], [[TCOM|Trip.com Group Limited]], [[XPEV|XPeng Inc.]]
+- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[AMZN|Amazon.com, Inc.]], [[ANF|Abercrombie & Fitch Co.]], [[BKNG|Booking Holdings Inc.]], [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]], [[ETSY|Etsy, Inc.]], [[LVS|Las Vegas Sands Corp.]], [[MELI|MercadoLibre, Inc.]], [[NIO|NIO]], [[PDD|PDD Holdings Inc.]], [[RACE|Ferrari N.V.]], [[ROST|Ross Stores, Inc.]], [[SE|SE]], [[TCOM|Trip.com Group Limited]], [[TJX|The TJX Companies, Inc.]], [[XPEV|XPeng Inc.]]

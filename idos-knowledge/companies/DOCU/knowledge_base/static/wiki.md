@@ -37,11 +37,11 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 23.23
 - **Operating Margin**: 10.64
-- **Revenue Growth**: 7.53
+- **Revenue Growth**: 7.63
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.1
 - **PER**: 41.56
-- **EV/EBITDA**: 30.31
+- **EV/EBITDA**: 31.03
 
 ---
 
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]], [[ADI|ADI]], [[ADP|Automatic Data Processing, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CLS|Celestica Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[KEEL|Keel Infrastructure Corp.]], [[LRCX|Lam Research Corporation]], [[MRVL|Marvell Technology, Inc.]], [[MSFT|Microsoft Corporation]], [[NOW|ServiceNow, Inc.]], [[NVDA|NVIDIA Corporation]], [[ONDS|Ondas Inc.]], [[ORCL|Oracle Corporation]], [[PANW|Palo Alto Networks, Inc.]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[TEAM|Atlassian Corporation]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]], [[XYZ|Block, Inc.]]
-- **Same Industry**: [[ADBE|Adobe Inc.]], [[ADP|Automatic Data Processing, Inc.]], [[NOW|ServiceNow, Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[TEAM|Atlassian Corporation]], [[UBER|Uber Technologies, Inc.]]
+- **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]], [[ADI|ADI]], [[ADP|Automatic Data Processing, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CLS|Celestica Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[ERIC|Telefonaktiebolaget LM Ericsson (publ)]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]], [[INFY|Infosys Limited]], [[KEEL|Keel Infrastructure Corp.]], [[LRCX|Lam Research Corporation]], [[MRVL|Marvell Technology, Inc.]], [[MSFT|Microsoft Corporation]], [[MU|Micron Technology, Inc.]], [[NOW|ServiceNow, Inc.]], [[NVDA|NVIDIA Corporation]], [[ONDS|Ondas Inc.]], [[ORCL|Oracle Corporation]], [[PAGS|PagSeguro Digital Ltd.]], [[PANW|Palo Alto Networks, Inc.]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[STNE|StoneCo Ltd.]], [[TEAM|Atlassian Corporation]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]], [[XYZ|Block, Inc.]], [[ZM|Zoom Communications, Inc.]]
+- **Same Industry**: [[ADBE|Adobe Inc.]], [[ADP|Automatic Data Processing, Inc.]], [[NOW|ServiceNow, Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[TEAM|Atlassian Corporation]], [[UBER|Uber Technologies, Inc.]], [[ZM|Zoom Communications, Inc.]]

@@ -40,8 +40,8 @@ To be evaluated
 - **Revenue Growth**: 1.31
 - **FCF Yield**: 0
 - **Debt/Equity**: 0
-- **PER**: 14.46
-- **EV/EBITDA**: 8.68
+- **PER**: 14.43
+- **EV/EBITDA**: 8.66
 
 ---
 
@@ -59,4 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[ABEV|Ambev S.A.]], [[CL|Colgate-Palmolive Company]], [[COST|Costco Wholesale Corporation]], [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]]
+- **Same Sector**: [[ABEV|Ambev S.A.]], [[CL|Colgate-Palmolive Company]], [[COST|Costco Wholesale Corporation]], [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]], [[PM|Philip Morris International Inc.]]
+- **Same Industry**: [[PM|Philip Morris International Inc.]]

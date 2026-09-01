@@ -40,8 +40,8 @@ To be evaluated
 - **Revenue Growth**: 3.9
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.1388
-- **PER**: 35.81
-- **EV/EBITDA**: 15.73
+- **PER**: 35.44
+- **EV/EBITDA**: 15.65
 
 ---
 
@@ -59,4 +59,4 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[ABEV|Ambev S.A.]], [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]]
+- **Same Sector**: [[ABEV|Ambev S.A.]], [[COST|Costco Wholesale Corporation]], [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]], [[MO|Altria Group, Inc.]], [[PM|Philip Morris International Inc.]]

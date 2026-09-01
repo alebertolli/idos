@@ -7,8 +7,8 @@ assessments:
     findings:
     - detail: 'Exceptional ROIC: 36.58%'
       type: POSITIVE
-    generated_at: '2026-08-31T16:40:11.982479-03:00'
-    id: BusinessAssessmentEngine-20260831164011
+    generated_at: '2026-09-01T01:04:53.032339-03:00'
+    id: BusinessAssessmentEngine-20260901010453
     recommendation: NEUTRAL
     risks: []
     score: 64
@@ -26,8 +26,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-08-31T16:40:11.982544-03:00'
-    id: PortfolioAssessmentEngine-20260831164011
+    generated_at: '2026-09-01T01:04:53.032406-03:00'
+    id: PortfolioAssessmentEngine-20260901010453
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -63,8 +63,8 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-08-31T16:40:11.982524-03:00'
-    id: RecoveryAssessmentEngine-20260831164011
+    generated_at: '2026-09-01T01:04:53.032385-03:00'
+    id: RecoveryAssessmentEngine-20260901010453
     recommendation: MODERATE
     risks: []
     score: 52
@@ -78,8 +78,8 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-08-31T16:40:11.982534-03:00'
-    id: RiskAssessmentEngine-20260831164011
+    generated_at: '2026-09-01T01:04:53.032394-03:00'
+    id: RiskAssessmentEngine-20260901010453
     recommendation: LOW_RISK
     risks: []
     score: 80
@@ -91,23 +91,24 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-08-31T16:40:11.982496-03:00'
-    id: ValuationAssessmentEngine-20260831164011
+    generated_at: '2026-09-01T01:04:53.032356-03:00'
+    id: ValuationAssessmentEngine-20260901010453
     recommendation: FAIR
     risks: []
     score: 55
     status: COMPLETED
     version: '1.1'
 conviction_score: 64
-created_at: '2026-08-31T16:40:11.982608-03:00'
+created_at: '2026-09-01T01:04:53.032477-03:00'
+generated_at: '2026-09-01T01:04:53.033657-03:00'
 opportunity_id: OPP-20260813-084
-reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004, RULE-005, RULE-008'
+reasoning: 'Rules blocked: RULE-001, RULE-005, RULE-008'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
-- RULE-003
-- RULE-004
 - RULE-005
 - RULE-008
-rules_passed: []
+rules_passed:
+- RULE-003
+- RULE-004
 type: opportunity:transitioned
