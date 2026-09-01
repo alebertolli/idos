@@ -677,7 +677,7 @@ class SiteBuilder:
             added_at = None
             try:
                 ts = cache_file.stat().st_mtime
-                added_at = _dt.fromtimestamp(ts).isoformat(timespec="seconds")
+                added_at = _dt.fromtimestamp(ts, AR_TZ).isoformat(timespec="seconds")
             except Exception:
                 pass
             out.append({
