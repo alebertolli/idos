@@ -7,10 +7,10 @@ assessments:
     findings:
     - detail: 'Strong ROIC: 17.12%'
       type: POSITIVE
-    - detail: 'Excellent margins: 51.97%'
+    - detail: 'Excellent margins: 52.39%'
       type: POSITIVE
-    generated_at: '2026-08-01T00:39:12.088252-03:00'
-    id: BusinessAssessmentEngine-20260801003912
+    generated_at: '2026-08-31T23:43:38.173686-03:00'
+    id: BusinessAssessmentEngine-20260831234338
     recommendation: NEUTRAL
     risks: []
     score: 63
@@ -28,8 +28,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-08-01T00:39:12.088307-03:00'
-    id: PortfolioAssessmentEngine-20260801003912
+    generated_at: '2026-08-31T23:43:38.173790-03:00'
+    id: PortfolioAssessmentEngine-20260831234338
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -65,8 +65,8 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-08-01T00:39:12.088289-03:00'
-    id: RecoveryAssessmentEngine-20260801003912
+    generated_at: '2026-08-31T23:43:38.173754-03:00'
+    id: RecoveryAssessmentEngine-20260831234338
     recommendation: MODERATE
     risks: []
     score: 54
@@ -80,8 +80,8 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-08-01T00:39:12.088298-03:00'
-    id: RiskAssessmentEngine-20260801003912
+    generated_at: '2026-08-31T23:43:38.173772-03:00'
+    id: RiskAssessmentEngine-20260831234338
     recommendation: LOW_RISK
     risks:
     - detail: 'Current ratio below 1: 0.0x'
@@ -95,17 +95,20 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-08-01T00:39:12.088266-03:00'
-    id: ValuationAssessmentEngine-20260801003912
-    recommendation: FAIR
+    generated_at: '2026-08-31T23:43:38.173713-03:00'
+    id: ValuationAssessmentEngine-20260831234338
+    recommendation: EXPENSIVE
     risks:
-    - detail: 'Price target below current: -3.1%'
+    - detail: 'Price target below current: -4.2%'
       type: VALUATION
-    score: 45
+    - detail: Negative free cash flow yield
+      type: FCF
+    score: 35
     status: COMPLETED
     version: '1.1'
-conviction_score: 60
-created_at: '2026-08-01T00:39:12.088357-03:00'
+conviction_score: 58
+created_at: '2026-08-31T23:43:38.173883-03:00'
+generated_at: '2026-08-31T23:43:38.179581-03:00'
 opportunity_id: OPP-20260725-030
 reasoning: 'Rules blocked: RULE-001, RULE-005'
 recommendation: BLOCKED

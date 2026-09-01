@@ -5,8 +5,8 @@ assessments:
     engine: BusinessAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-08-13T03:33:41.535858-03:00'
-    id: BusinessAssessmentEngine-20260813033341
+    generated_at: '2026-08-31T23:43:47.752056-03:00'
+    id: BusinessAssessmentEngine-20260831234347
     recommendation: NEUTRAL
     risks: []
     score: 54
@@ -24,8 +24,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-08-13T03:33:41.535922-03:00'
-    id: PortfolioAssessmentEngine-20260813033341
+    generated_at: '2026-08-31T23:43:47.752121-03:00'
+    id: PortfolioAssessmentEngine-20260831234347
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -61,8 +61,8 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-08-13T03:33:41.535904-03:00'
-    id: RecoveryAssessmentEngine-20260813033341
+    generated_at: '2026-08-31T23:43:47.752102-03:00'
+    id: RecoveryAssessmentEngine-20260831234347
     recommendation: MODERATE
     risks: []
     score: 58
@@ -74,8 +74,8 @@ assessments:
     engine: RiskAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-08-13T03:33:41.535911-03:00'
-    id: RiskAssessmentEngine-20260813033341
+    generated_at: '2026-08-31T23:43:47.752111-03:00'
+    id: RiskAssessmentEngine-20260831234347
     recommendation: LOW_RISK
     risks: []
     score: 70
@@ -87,27 +87,28 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Price target upside: 26.5%'
+    - detail: 'Price target upside: 33.5%'
       type: POSITIVE
-    - detail: 'FCF Yield: 9.5%'
+    - detail: 'FCF Yield: 9.7%'
       type: POSITIVE
-    generated_at: '2026-08-13T03:33:41.535877-03:00'
-    id: ValuationAssessmentEngine-20260813033341
+    generated_at: '2026-08-31T23:43:47.752076-03:00'
+    id: ValuationAssessmentEngine-20260831234347
     recommendation: ATTRACTIVE
     risks: []
-    score: 75
+    score: 80
     status: COMPLETED
     version: '1.1'
-conviction_score: 66
-created_at: '2026-08-13T03:33:41.535984-03:00'
+conviction_score: 67
+created_at: '2026-08-31T23:43:47.752185-03:00'
+generated_at: '2026-08-31T23:43:47.755210-03:00'
 opportunity_id: OPP-20260807-018
-reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004'
+reasoning: 'Rules blocked: RULE-001'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
+rules_passed:
 - RULE-003
 - RULE-004
-rules_passed:
 - RULE-005
 - RULE-008
 type: opportunity:transitioned
