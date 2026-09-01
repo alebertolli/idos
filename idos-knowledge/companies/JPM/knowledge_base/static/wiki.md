@@ -1,94 +1,63 @@
-```markdown
-# JPMorgan Chase & Co.
+## Business Model
 
-## 1. Visión General de la Compañía
-JPMorgan Chase & Co. es un banco y holding financiero con sede en Nueva York, operando en tres segmentos: Consumer & Community Banking, Commercial & Investment Bank, y Asset & Wealth Management. Su presencia global abarca Estados Unidos, Europa, Asia, América Latina y África. El modelo de negocio diversificado incluye servicios bancarios, banca de inversión, gestión de activos y tecnología financiera. [[wikilinks]] a competidores como [[WFC]], [[GS]], y [[HSBC]].
+JPMorgan Chase & Co. operates as a bank and financial holding company in the United States, rest of North America, Europe, the Middle East, Africa, the Asia Pacific, Latin America, and the Caribbean. It operates in three segments: Consumer & Community Banking, Commercial & Investment Bank, and Asset & Wealth Management. The company offers deposit, investment and lending products, and cash management; mortgage origination and servicing activities; residential mortgages and home equity loans; and credit cards, payment solutions, travel services, merchant offers, lifestyle benefits, auto loans, and leases to consumers and small businesses through bank branches, ATMs, and digital and telephone banking. It also provides investment banking, market-making, financing, custody, and securities products and services; corporate strategy and structure advisory, equity and debt market capital-raising, and loan origination and syndication services; cash and derivative instruments, risk management solutions, prime brokerage, clearing, and research; and fund services, liquidity and trading services, and data solutions products for large corporations, financial institutions, merchants, start-ups, small and midsized companies, local governments, municipalities, nonprofits, and commercial real estate clients. In addition, the company offers multi-asset investment management solutions in equities, fixed income, alternatives, and money market funds to institutional clients and retail investors; retirement products and services, estate planning, lending, deposits, and investment management products to high-net-worth clients; and financial transaction processing. JPMorgan Chase & Co. was founded in 1799 and is headquartered in New York, New York.
 
-## 2. Modelo de Negocio y Posición Competitiva
-**Drivers de Revenue**:  
-- Servicios bancarios (depósitos, préstamos, tarjetas).  
-- Banca de inversión (mercados, financiamiento, custody).  
-- Gestión de activos (fondos, inversiones).  
-- Servicios de pago y fintech.  
+---
 
-**Moat**:  
-- **Ventaja de escala**: Líder en banca de inversión y gestión de activos.  
-- **Diversificación**: Reducción de riesgos sectoriales.  
-- **Reputación global**: Confianza de clientes institucionales y corporativos.  
+## Products & Services
 
-**Dinámica Competitiva**:  
-- Alta competencia en banca digital (ej: [[COIN]], [[HUT]]).  
-- Regulaciones estrictas y demanda por alternativas financieras.  
+- To be identified
 
-## 3. Perfil Financiero
-| Métrica               | Valor       | Fuente           |
-|-----------------------|-------------|------------------|
-| ROIC                  | 17.8%       | SEC filings      |
-| Margen Operativo      | 45.04%      | Informes anuales |
-| Crecimiento de Ingresos | 6.49%      | Informes anuales |
-| FCF Yield             | 6.2%        | Análisis AOIF    |
-| D/E                   | 0.0x        | Balance         |
-| PER                   | 15.29       | Mercado          |
-| EV/EBITDA             | 0           | Análisis AOIF    |
+---
 
-## 4. Management y Gobierno Corporativo
-**Liderazgo**:  
-- CEO: Jamie Dimon (experiencia en crisis financieras).  
-- **Asignación de capital**: Eficiente, con reinversión en digitalización y gestión de activos.  
-- **Insider Ownership**: Alineación con accionistas (ej: 12% de acciones en manos de directivos).  
+## Competitive Moat
 
-**Gobierno Corporativo**:  
-- Board con experiencia en regulación y riesgos sistémicos.  
-- **Calidad**: Excepcional (rating de [[S&P]]).  
+To be analyzed
 
-## 5. Tesis de Inversión
-**Caso Alcista**:  
-- **Expansión en fintech**: Inversión en tecnología para servicios de pago y banca digital.  
-- **Gestión de activos**: Crecimiento en fondos y retiros (6.5% anual).  
-- **Resiliencia macro**: Diversificación reduce impacto de recesiones.  
+---
 
-**Evidencia**:  
-- ROIC del 17.8% y margen operativo del 45% (fuente: informes anuales).  
-- Liderazgo en banca de inversión (ej: [[GS]] y [[WFC]] enfrentan competencia similar).  
+## Competition
 
-## 6. Riesgos y Contra-Tesis
-**Riesgos Clave**:  
-1. **Regulación**: Cambios en políticas (probabilidad: alta, impacto: alto).  
-2. **Ciberseguridad**: Brechas de datos (probabilidad: media, impacto: medio).  
-3. **Recesión**: Afecta préstamos y inversiones (probabilidad: media, impacto: alto).  
+- To be identified
 
-**Contra-Tesis**:  
-- La innovación digital y la escala mitigan riesgos regulatorios.  
-- La moat basada en reputación y tecnología es difícil de replicar.  
+---
 
-## 7. Catalizadores y Timeline
-| Catalizador                          | Probabilidad | Impacto | Horizonte | Nivel de Confianza |
-|--------------------------------------|--------------|---------|-----------|--------------------|
-| Aprobación de regulaciones favorables | 65%         | Alto    | Medio     | Medio              |
-| Expansión en fintech y gestión de activos | 70%      | Alto    | Largo     | Alto               |
+## Management
 
-**Timeline**:  
-- **Medio plazo (2-3 años)**: Aprobación de regulaciones.  
-- **Largo plazo (5+ años)**: Dominio en fintech y gestión de activos.  
+To be evaluated
 
-## 8. Marco de Valoración
-**Metodología**:  
-- **DCF**: Valor intrínseco estimado en $185 (FCF yield del 6.2%).  
-- **Comparativa**: PER 15.29 vs. sector (ej: [[AXP]] PER 18.5, [[HSBC]] PER 12.3).  
+---
 
-**Análisis de Sensibilidad**:  
-- **Caso Alcista**: $200 (expansión en fintech).  
-- **Caso Bajista**: $140 (recesión global).  
+## Risk Factors
 
-## 9. Preguntas Abiertas y Agenda de Investigación
-- ¿Cómo afectará la regulación futura a los márgenes operativos?  
-- ¿Qué nivel de inversión se requiere para mantener el liderazgo en fintech?  
-- ¿Cómo impactará la competencia en banca digital (ej: [[COIN]], [[HUT]]) en la cuota de mercado?  
-```
+
+
+---
+
+## Financial Highlights
+- **ROIC**: 17.79
+- **Operating Margin**: 45.04
+- **Revenue Growth**: 6.49
+- **FCF Yield**: 0
+- **Debt/Equity**: 0
+- **PER**: 15.09
+- **EV/EBITDA**: 0
+
+---
+
+## Catalysts
+
+To be identified
+
+---
+
+## Investment Thesis
+
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AXP|American Express Company]], [[BCS|Barclays PLC]], [[BMNR|Bitmine Immersion Technologies, Inc.]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[GS|GS]], [[HDB|HDFC Bank Limited]], [[HOOD|Robinhood Markets, Inc.]], [[HSBC|HSBC Holdings plc]], [[HUT|Hut 8 Corp.]], [[IBN|IBN]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[RIOT|Riot Platforms, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
+- **Same Sector**: [[AXP|American Express Company]], [[BBAR|Banco BBVA Argentina S.A.]], [[BCS|Barclays PLC]], [[BMNR|Bitmine Immersion Technologies, Inc.]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[GS|GS]], [[HDB|HDFC Bank Limited]], [[HOOD|Robinhood Markets, Inc.]], [[HSBC|HSBC Holdings plc]], [[HUT|Hut 8 Corp.]], [[IBN|IBN]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[RIOT|Riot Platforms, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[USB|U.S. Bancorp]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
 - **Same Industry**: [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[HSBC|HSBC Holdings plc]], [[ING|ING Groep N.V.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[SAN|Banco Santander, S.A.]], [[WFC|Wells Fargo & Company]]

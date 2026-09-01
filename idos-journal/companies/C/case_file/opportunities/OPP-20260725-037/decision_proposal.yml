@@ -7,8 +7,8 @@ assessments:
     findings:
     - detail: 'Excellent margins: 31.1%'
       type: POSITIVE
-    generated_at: '2026-08-31T23:53:15.199047-03:00'
-    id: BusinessAssessmentEngine-20260831235315
+    generated_at: '2026-09-01T08:13:28.416239-03:00'
+    id: BusinessAssessmentEngine-20260901081328
     recommendation: NEUTRAL
     risks: []
     score: 58
@@ -26,8 +26,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-08-31T23:53:15.199199-03:00'
-    id: PortfolioAssessmentEngine-20260831235315
+    generated_at: '2026-09-01T08:13:28.416306-03:00'
+    id: PortfolioAssessmentEngine-20260901081328
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -52,8 +52,8 @@ assessments:
       score: 50
       type: DIMENSION
     - dimension: catalysts
-      level: HIGH
-      score: 75
+      level: LOW
+      score: 30
       type: DIMENSION
     - dimension: technical_confirmation
       level: MEDIUM
@@ -63,11 +63,11 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-08-31T23:53:15.199133-03:00'
-    id: RecoveryAssessmentEngine-20260831235315
+    generated_at: '2026-09-01T08:13:28.416283-03:00'
+    id: RecoveryAssessmentEngine-20260901081328
     recommendation: MODERATE
     risks: []
-    score: 58
+    score: 49
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -78,8 +78,8 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-08-31T23:53:15.199169-03:00'
-    id: RiskAssessmentEngine-20260831235315
+    generated_at: '2026-09-01T08:13:28.416296-03:00'
+    id: RiskAssessmentEngine-20260901081328
     recommendation: LOW_RISK
     risks:
     - detail: 'Current ratio below 1: 0.0x'
@@ -93,8 +93,8 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-08-31T23:53:15.199081-03:00'
-    id: ValuationAssessmentEngine-20260831235315
+    generated_at: '2026-09-01T08:13:28.416254-03:00'
+    id: ValuationAssessmentEngine-20260901081328
     recommendation: FAIR
     risks:
     - detail: Negative free cash flow yield
@@ -102,17 +102,17 @@ assessments:
     score: 45
     status: COMPLETED
     version: '1.1'
-conviction_score: 60
-created_at: '2026-08-31T23:53:15.199337-03:00'
-generated_at: '2026-08-31T23:53:15.206665-03:00'
+conviction_score: 58
+created_at: '2026-09-01T08:13:28.416365-03:00'
+generated_at: '2026-09-01T08:13:28.417502-03:00'
 opportunity_id: OPP-20260725-037
-reasoning: 'Rules blocked: RULE-001, RULE-005'
+reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-005, RULE-008'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
-- RULE-005
-rules_passed:
 - RULE-003
-- RULE-004
+- RULE-005
 - RULE-008
+rules_passed:
+- RULE-004
 type: opportunity:transitioned

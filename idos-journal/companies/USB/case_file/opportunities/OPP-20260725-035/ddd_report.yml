@@ -1,74 +1,26 @@
-calidad_evidencia:
-  hechos_verificados:
-  - U.S. Bancorp tiene un historial de crecimiento estable
-  - La empresa tiene un modelo de negocio diversificado
-  inferencias_llm:
-  - El mercado podría estar descontando un crecimiento estable para U.S. Bancorp
-  - La empresa podría experimentar un crecimiento más rápido de lo esperado
-  preguntas_abiertas:
-  - ¿Cómo afectará la política monetaria a U.S. Bancorp en el futuro?
-  - ¿Cómo puede la empresa expandirse en nuevos mercados de manera efectiva?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: Compounder castigado, Turnaround, Deep Value, Cíclica, Special
-    Situation, Distressed, Quality at Fair Price, Hype, Value Trap
-  justificacion: U.S. Bancorp tiene un historial de crecimiento estable y una posición
-    competitiva sólida en el mercado financiero. Su modelo de negocio diversificado
-    y su capacidad para generar ingresos a través de various canales la hacen atractiva.
-dominio_business_quality:
-  analisis: U.S. Bancorp tiene un modelo de negocio diversificado y una capacidad
-    para generar ingresos a través de various canales, lo que la hace resiliente a
-    cambios en el entorno económico.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Un cambio en la política monetaria que beneficie a las instituciones
     financieras
+  generated_at: '2026-08-02T00:03:56.657578-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: U.S. Bancorp tiene un historial de cumplir con las regulaciones y de gestionar
-    sus riesgos de manera efectiva.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: U.S. Bancorp tiene un balance sólido y una generación de caja estable,
-    lo que le permite invertir en su negocio y pagar dividendos a sus accionistas.
-  rating: fuerte
-dominio_growth:
-  analisis: U.S. Bancorp tiene un historial de crecimiento estable y una capacidad
-    para innovar y expandirse en nuevos mercados.
-  rating: fuerte
-dominio_management:
-  analisis: El equipo de gestión de U.S. Bancorp tiene un historial de tomar decisiones
-    acertadas y de asignar capital de manera efectiva.
-  rating: excepcional
-dominio_riesgos:
-- impacto: alto
-  probabilidad: media
-  riesgo: cambios en la política monetaria
-- impacto: medio
-  probabilidad: baja
-  riesgo: cambios en la regulación financiera
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un cambio en la política monetaria o una reforma regulatoria que
-      beneficie a las instituciones financieras
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: INCIERTO
-  consenso_actual: El mercado parece descontar un crecimiento estable y una rentabilidad
-    adecuada para U.S. Bancorp, pero podría estar subestimando su capacidad para adaptarse
-    a cambios en el entorno regulatorio y económico.
-  hipotesis_contraria: La hipótesis contraria sería que U.S. Bancorp podría experimentar
-    un crecimiento más rápido de lo esperado debido a su capacidad para innovar y
-    expandirse en nuevos mercados.
-  razonamiento: Aunque U.S. Bancorp tiene un historial sólido, el mercado podría estar
-    descontando un crecimiento estable, pero no necesariamente un error de valoración
-    aprovechable.
-generated_at: '2026-08-02T00:03:56.657578-03:00'
-opinion_valoracion: justo
+  opp_id: OPP-20260725-035
+  probabilidad_anterior: 30
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-09-01T08:11:13.122319-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-035
 prompt_inputs:
   business_model: U.S. Bancorp, a financial services holding company, provides various
@@ -97,21 +49,25 @@ prompt_inputs:
   insider_ownership: 0
   name: U.S. Bancorp
   operating_margin: 39.09
-  pe_ratio: 12.54
+  pe_ratio: 12.38
   products: ''
   revenue: 27320000000.0
-  revenue_growth: 6.75
+  revenue_growth: 6.83
   roic: 12.62
   sector: Financial Services
   ticker: USB
-resumen_ejecutivo: U.S. Bancorp es un compounder con un historial de crecimiento estable
-  y una posición competitiva sólida en el mercado financiero. Sin embargo, el mercado
-  podría estar descontando un crecimiento estable, pero no necesariamente un error
-  de valoración aprovechable.
-score_general: 80
-tesis_inversion: U.S. Bancorp es un compounder con un historial de crecimiento estable
-  y una posición competitiva sólida en el mercado financiero. Aunque el mercado podría
-  estar descontando un crecimiento estable, la capacidad de la empresa para innovar
-  y expandirse en nuevos mercados la hace atractiva para los inversores a largo plazo.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-09-01T08:11:13.107832-03:00'
+  fuentes:
+    stockanalysis: 70.32
+    yfinance: 70.31818
+  mediana: 70.32
+  n_fuentes: 2
+  promedio: 70.32
+  target_high: 77.0
+  target_low: 65.0
+tesis_inversion: ''
 ticker: USB
 version: '3.0'

@@ -1,182 +1,39 @@
-calidad_evidencia:
-  hechos_verificados:
-  - 'Ingresos TTM: $8,720M con crecimiento YoY del 42.1%'
-  - 'Margen operativo: 16.41%'
-  - 'ROIC: 6.87% vs WACC estimado 10%'
-  - 'FCF ajustado: $0M'
-  - 'D/E: 0.29x'
-  - 'PER: 72.73x'
-  - CEO sin experiencia previa en el cargo
-  - 'Ownership insider: 0.0%'
-  inferencias_llm:
-  - Valoración sobrevalorada basada en PER elevado vs valor intrínseco estimado
-  - Riesgo de ciclicidad del sector tecnológico
-  - Exposición a China y riesgos geopolíticos
-  - Débil capacidad de generación de FCF
-  preguntas_abiertas:
-  - ¿Cuál es el flujo de caja libre verdadero y cómo se está reinvirtiendo?
-  - ¿Qué plan tiene la dirección para elevar ROIC > WACC?
-  - ¿Qué porcentaje de revenue depende de China y proveedores asiáticos?
-  - ¿Cómo se compara el moat de Marvell con Broadcom y NVIDIA?
+calidad_evidencia: {}
 catalizadores_previos:
-- descripcion: Aumento del ROIC por encima del WACC
-  generated_at: '2026-08-07T22:23:10.740730-03:00'
-  horizonte: largo
-  impacto: alto
-  nivel_confianza: bajo
-  opp_id: OPP-20260807-012
-  probabilidad_anterior: 20
-- descripcion: Reducción del crecimiento de ingresos en el próximo año
-  generated_at: '2026-08-07T22:23:10.740730-03:00'
-  horizonte: corto
-  impacto: alto
-  nivel_confianza: medio
-  opp_id: OPP-20260807-012
-  probabilidad_anterior: 35
-- descripcion: Adquisición de una empresa clave en el sector
-  generated_at: '2026-08-07T22:23:10.740730-03:00'
-  horizonte: medio
-  impacto: medio
-  nivel_confianza: bajo
-  opp_id: OPP-20260807-012
-  probabilidad_anterior: 15
-clasificacion_oportunidad:
-  categoria: compounder_castigado
-  categorias_descartadas: Deep Value (PER elevado y crecimiento significativo), Value
-    Trap (estructura de negocio sólida con crecimiento real), Hype (genera ganancias
-    y tiene clientes consolidados), Turnaround (no muestra deterioro operativo grave),
-    Cíclica (más dependiente de tendencias tecnológicas que ciclos económicos)
-  justificacion: Marvell muestra características de un compounder con crecimiento
-    estructural en data centers, IA y 5G, pero actualmente enfrenta presión por bajo
-    ROIC (6.87% vs WACC 10%), ausencia de generación de FCF y alta valoración (PER
-    72.7x). Estos factores lo sitúan en una posición temporalmente desfavorecida,
-    pero con potencial para recuperación si logra mejorar rentabilidad y generar flujo
-    de caja.
-comparativa_catalizadores:
-- delta_pct: 0
-  descripcion: Aumento del ROIC > WACC
-  estado: vigente
-  nota_comparacion: Sin cambios significativos en la trayectoria de ROIC
-  probabilidad_actual: 20
-  probabilidad_anterior: 20
-- delta_pct: 0
-  descripcion: Reducción del crecimiento de ingresos en próximos 12 meses
-  estado: vigente
-  nota_comparacion: Manteniendo probabilidad base de riesgo cíclico
-  probabilidad_actual: 35
-  probabilidad_anterior: 35
-- delta_pct: 0
-  descripcion: Adquisión estratégica en el sector
-  estado: vigente
-  nota_comparacion: Sin anuncios de adquisiciones relevantes recientes
-  probabilidad_actual: 15
-  probabilidad_anterior: 15
-dominio_business_quality:
-  analisis: Marvell opera en un mercado estructuralmente favorable con crecimiento
-    impulsado por data centers, IA y 5G. Su portafolio diversificado de soluciones
-    de conectividad (Ethernet, fotónica, Fibre Channel) le brinda visibilidad en múltiples
-    segmentos. Sin embargo, su moat tecnológico es más débil que competidores integrados
-    como Broadcom, dependiendo de partners externos (TSMC) y enfrentando presión de
-    diseño. La empresa mantiene relaciones con clientes clave pero carece de barreras
-    de entrada altas que protejan precios a largo plazo.
-  rating: buena
-dominio_catalizadores:
 - descripcion: Aumento del ROIC > WACC
+  generated_at: '2026-08-13T02:52:13.587516-03:00'
   horizonte: largo
   impacto: alto
   nivel_confianza: bajo
-  probabilidad_pct: 20
+  opp_id: OPP-20260807-012
+  probabilidad_anterior: 20
 - descripcion: Reducción del crecimiento de ingresos en próximos 12 meses
+  generated_at: '2026-08-13T02:52:13.587516-03:00'
   horizonte: corto
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 35
+  opp_id: OPP-20260807-012
+  probabilidad_anterior: 35
 - descripcion: Adquisición estratégica en el sector
+  generated_at: '2026-08-13T02:52:13.587516-03:00'
   horizonte: medio
   impacto: medio
   nivel_confianza: bajo
-  probabilidad_pct: 15
-dominio_esg_supply_chain:
-  analisis: Marvell depende de TSMC y otros proveedores asiáticos para fabricación,
-    exponiéndola a riesgos geopolíticos (EE.UU.-China) y restricciones regulatorias.
-    La falta de transparencia sobre la diversificación de proveedores y la exposición
-    a China (potencial 30-40% de revenue) aumenta el riesgo de interrupciones. La
-    empresa no revela detalles sobre políticas ESG específicas, lo que limita la evaluación
-    de sostenibilidad operativa.
-  rating: alto_riesgo
-dominio_financial_health:
-  analisis: El balance es sólido con D/E de 0.29x y bajo apalancamiento. Sin embargo,
-    la ausencia de generación de FCF ($0M) es preocupante, indicando que la empresa
-    reinvierte capital sin generar excedente. El margen operativo del 16.41% es atractivo,
-    pero vulnerable a ciclos del sector. La alta valoración (PER 72.7x) no está respaldada
-    por flujos de caja, lo que sugiere una exposición a riesgos de liquidez en escenarios
-    adversos.
-  rating: adecuada
-dominio_growth:
-  analisis: El crecimiento de ingresos del 42.1% refleja la captura de la demanda
-    estructural en data centers, IA y 5G. La empresa está posicionada para beneficiarse
-    de tendencias como compute densification y redes de alta velocidad. Sin embargo,
-    la sostenibilidad del crecimiento es cuestionable dada la competencia intensa
-    y la dependencia de diseños de clientes clave. La visibilidad de revenue es moderada,
-    con riesgo de concentración en un número reducido de grandes compradores.
-  rating: fuerte
-dominio_management:
-  analisis: El CEO recién nombrado carece de experiencia demostrada en creación de
-    valor o asignación eficiente de capital. La ausencia de ownership insider (0.0%)
-    reduce la alineación con accionistas. El historial del management no respalda
-    la capacidad de elevar ROIC por encima del WACC o generar FCF sostenible. Estos
-    factores incrementan el riesgo de decisiones estratégicas que erosionen márgenes
-    y rentabilidad.
-  rating: debil
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: Ciclicidad del sector tecnológico
-- impacto: alto
-  probabilidad: media
-  riesgo: Falta de experiencia del CEO
-- impacto: medio
-  probabilidad: media
-  riesgo: Dependencia de clientes clave
-- impacto: alto
-  probabilidad: alta
-  riesgo: Riesgo regulatorio y geopolítico (EE.UU.-China)
-- impacto: medio
-  probabilidad: alta
-  riesgo: Falta de generación de FCF
-error_mercado:
-  catalizador_cambio:
-    descripcion: Desaceleración del crecimiento de ingresos en próximos 12 meses o
-      deterioro del margen operativo por debajo del 12%
-    horizonte: corto
-    impacto: alto
-    probabilidad_pct: 35
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado valora a MRVL basándose en su crecimiento de ingresos
-    del 42.1% y potencial en soluciones de conectividad para IA, asumiendo que la
-    empresa mantendrá su posición tecnológica y ganará diseños clave. La alta valoración
-    refleja expectativas de crecimiento sostenido y expansión de margen.
-  hipotesis_contraria: 'El mercado ignora la fragilidad del modelo actual: ROIC por
-    debajo del costo de capital, falta de generación de FCF, dependencia de fabricación
-    externa (TSMC) y liderazgo tecnológico vulnerable a competidores como Broadcom
-    y NVIDIA. La sobrevaloración podría indicar exceso de optimismo sobre la sostenibilidad
-    del crecimiento.'
-  razonamiento: La valoración actual (PER 72.7x) supera ampliamente los múltiplos
-    históricos y el valor intrínseco estimado (~$55). El mercado parece estar descuentando
-    un escenario optimista que no se alinea con los indicadores financieros actuales
-    (ROIC bajo, sin FCF). La brecha entre valor de mercado y valor intrínseco sugiere
-    un error de valoración aprovechable.
-generated_at: '2026-08-13T02:52:13.587516-03:00'
-integridad_tesis:
-  flags:
-  - moat_debil
-  - management_no_alineado
-  - fcf_negativo
-  reason: La tesis se mantiene activa, pero con advertencias sobre moat tecnológico
-    limitado, falta de alineación del management y generación de caja negativa. Estos
-    factores no invalidan la posición, pero requieren monitoreo estricto.
-  thesis_active: true
-opinion_valoracion: sobrevalorado
+  opp_id: OPP-20260807-012
+  probabilidad_anterior: 15
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-09-01T07:57:45.784004-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260807-012
 prompt_inputs:
   business_model: Marvell Technology, Inc., together with its subsidiaries, provides
@@ -208,37 +65,25 @@ prompt_inputs:
   insider_ownership: 0
   name: Marvell Technology, Inc.
   operating_margin: 16.41
-  pe_ratio: 73.34
+  pe_ratio: 81.88
   products: ''
   revenue: 8720000000.0
-  revenue_growth: 42.09
+  revenue_growth: 42.19
   roic: 6.87
   sector: Technology
   ticker: MRVL
-resumen_ejecutivo: 'Marvell Technology representa un compounder técnicamente sólido
-  con crecimiento estructural en data centers e IA, pero enfrenta desafíos críticos:
-  ROIC insuficiente (6.87% vs WACC 10%), falta de generación de FCF y alta valoración
-  (PER 72.7x). La empresa posee un moat moderado en soluciones de conectividad, pero
-  su dependencia de fabricación externa y competencia intensa con Broadcom y NVIDIA
-  limitan su capacidad de generar retornos excesivos. La sobrevaloración actual sugiere
-  un error de mercado que podría corregirse si el crecimiento se desacelera o la rentabilidad
-  no mejora. Recomendación: Pasar o considerar posición corta hasta que se demuestre
-  una mejora en ROIC y generación de caja.'
-score_general: 45
+resumen_ejecutivo: ''
+score_general: 50
 target_consensus:
-  calculado_at: '2026-08-13T02:51:23.004579-03:00'
+  calculado_at: '2026-09-01T07:57:45.766477-03:00'
   fuentes:
-    stockanalysis: 256.91
-    yfinance: 256.9142
-  mediana: 256.91
+    stockanalysis: 284.8
+    yfinance: 278.8919
+  mediana: 281.85
   n_fuentes: 2
-  promedio: 256.91
+  promedio: 281.85
   target_high: 400.0
-  target_low: 126.0
-tesis_inversion: La sobrevaloración actual (PER 72.7x vs valor intrínseco ~$55) sugiere
-  que el mercado está exagerando la sostenibilidad del crecimiento y ignorando la
-  fragilidad financiera (ROIC bajo, sin FCF). La recomendación es pasar o considerar
-  posición corta hasta que se demuestre una mejora en rentabilidad y generación de
-  caja.
+  target_low: 143.0
+tesis_inversion: ''
 ticker: MRVL
 version: '3.0'

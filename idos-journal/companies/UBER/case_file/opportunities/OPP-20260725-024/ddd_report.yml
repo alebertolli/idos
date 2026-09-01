@@ -1,83 +1,32 @@
-calidad_evidencia:
-  hechos_verificados:
-  - Uber tiene un negocio establecido y una presencia global en el sector de tecnología
-  - El margen operativo de Uber es del 11,7% y el ROIC es del 19,3%
-  - La empresa no ha demostrado una asignación de capital efectiva
-  inferencias_llm:
-  - El mercado podría estar subestimando la competencia en el sector de tecnología
-    y la capacidad de Uber para mantener su posición dominante
-  - Un cambio en la política regulatoria en el sector de tecnología o un aumento en
-    la competencia de empresas como Lyft o Didi Chuxing puede afectar la valoración
-    de Uber
-  preguntas_abiertas:
-  - ¿Cuál es la capacidad de Uber para mantener su posición dominante en el sector
-    de tecnología?
-  - ¿Cuál es el impacto de la competencia en la valoración de Uber?
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: turnaround, deep_value, ciclica, special_situation, distressed,
-    quality_at_fair_price, hype, value_trap
-  justificacion: Uber tiene un negocio establecido y una presencia global en el sector
-    de tecnología, con un crecimiento de la renta del 13,4% en el último trimestre.
-    Aunque el margen operativo es del 11,7% y el ROIC es del 19,3%, la empresa no
-    ha demostrado una asignación de capital efectiva y el interés cubierto es de 0,0x.
-dominio_business_quality:
-  analisis: Uber tiene una posición competitiva en el sector de tecnología, pero su
-    moat no es tan fuerte como el de otras empresas. Su modelo de negocio es resiliente,
-    pero puede ser afectado por cambios en la política regulatoria.
-  rating: buena
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Un cambio en la política regulatoria en el sector de tecnología
+  generated_at: '2026-07-27T02:26:15.431466-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 40
+  opp_id: OPP-20260725-024
+  probabilidad_anterior: 40
 - descripcion: Un aumento en la competencia de empresas como Lyft o Didi Chuxing
+  generated_at: '2026-07-27T02:26:15.431466-03:00'
   horizonte: corto
   impacto: medio
   nivel_confianza: medio
-  probabilidad_pct: 20
-dominio_esg_supply_chain:
-  analisis: Uber tiene un riesgo moderado en términos de ESG y su cadena de suministro,
-    pero puede ser afectado por cambios en la política regulatoria y la competencia.
-  rating: medio_riesgo
-dominio_financial_health:
-  analisis: Uber tiene un balance sólido, pero su generación de caja es moderada y
-    su perfil de deuda es alto. Su interés cubierto es de 0,0x, lo que indica que
-    la empresa no tiene suficiente liquidez para cubrir sus intereses.
-  rating: adecuada
-dominio_growth:
-  analisis: Uber tiene un crecimiento de la renta del 13,4% en el último trimestre,
-    pero su crecimiento a largo plazo puede ser afectado por la competencia y la política
-    regulatoria.
-  rating: moderado
-dominio_management:
-  analisis: Uber no ha demostrado una asignación de capital efectiva, lo que puede
-    afectar su capacidad para generar crecimiento y valor a largo plazo.
-  rating: regular
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: Competencia en el sector de tecnología
-- impacto: medio
-  probabilidad: media
-  riesgo: Cambios en la política regulatoria
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un cambio en la política regulatoria en el sector de tecnología o
-      un aumento en la competencia de empresas como Lyft o Didi Chuxing.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: INCIERTO
-  consenso_actual: El precio de Uber está descontando un crecimiento sostenido y una
-    asignación de capital efectiva, con un múltiplo de EV/EBITDA de 20,3.
-  hipotesis_contraria: El mercado podría estar subestimando la competencia en el sector
-    de tecnología y la capacidad de Uber para mantener su posición dominante.
-  razonamiento: No hay suficiente evidencia para concluir que el mercado esté equivocado
-    o que exista un error de valoración aprovechable.
-generated_at: '2026-07-27T02:26:15.431466-03:00'
-opinion_valoracion: justo
+  opp_id: OPP-20260725-024
+  probabilidad_anterior: 20
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-09-01T08:10:05.787989-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-024
 prompt_inputs:
   business_model: 'Uber Technologies, Inc. develops and operates proprietary technology
@@ -101,24 +50,30 @@ prompt_inputs:
     its name to Uber Technologies, Inc. in February 2011. Uber Technologies, Inc.
     was founded in 2009 and is headquartered in San Francisco, California.'
   ceo_tenure: 0
-  debt_to_equity: 0.48
+  debt_to_equity: 0.52
   fcf_adjusted: 0
   insider_ownership: 0
   name: Uber Technologies, Inc.
-  operating_margin: 11.66
-  pe_ratio: 16.3
+  operating_margin: 12.13
+  pe_ratio: 17.19
   products: ''
-  revenue: 53690000000.0
-  revenue_growth: 13.43
-  roic: 19.29
+  revenue: 55230000000.0
+  revenue_growth: 13.56
+  roic: 19.18
   sector: Technology
   ticker: UBER
-resumen_ejecutivo: Uber es una empresa de tecnología con un negocio establecido y
-  una presencia global, pero con un margen operativo y un ROIC moderados y una asignación
-  de capital inefectiva.
-score_general: 60
-tesis_inversion: Uber es una empresa de tecnología con un negocio establecido y una
-  presencia global, pero con un margen operativo y un ROIC moderados y una asignación
-  de capital inefectiva.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-09-01T08:10:05.772457-03:00'
+  fuentes:
+    stockanalysis: 101.78
+    yfinance: 101.84913
+  mediana: 101.81
+  n_fuentes: 2
+  promedio: 101.81
+  target_high: 150.0
+  target_low: 70.0
+tesis_inversion: ''
 ticker: UBER
 version: '3.0'

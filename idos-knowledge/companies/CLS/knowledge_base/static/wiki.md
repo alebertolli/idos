@@ -1,73 +1,62 @@
-## 1. Visión General de la Compañía
+## Business Model
 
-**Celestica Inc.** (NYSE: CLS, TSX: CLS) es un proveedor global de soluciones de cadena de suministro, diseño e ingeniería avanzada de hardware fundada en 1994 y con sede en Toronto, Canadá. Históricamente centrada en Servicios de Fabricación Electrónica (EMS) tradicionales, la empresa ha pivotado estratégicamente hacia un modelo de Fabricación de Diseños Conjuntos (JDM) y Soluciones de Plataformas de Hardware (HPS) de mayor valor añadido.
-
-La compañía opera globalmente con presencia en Asia, Norteamérica y Europa, y articula su negocio en dos segmentos operativos principales:
-
-*   **Connectivity & Cloud Solutions (CCS):** Representa el principal motor de crecimiento e innovación. Ofrece infraestructura para centros de datos, servidores orientados a Inteligencia Artificial (IA), soluciones de almacenamiento e interconexión de red de alta velocidad (switches ópticos de 400G, 800G y 1.6T). Atiende principalmente a proveedores de servicios en la nube (*hyperscalers*).
-*   **Advanced Technology Solutions (ATS):** Atiende a mercados finales diversos y defensivos, incluyendo aeroespacial y defensa, industrial, equipos de capital y tecnología de la salud (*HealthTech*).
+Celestica Inc., together with its subsidiaries, provides supply chain solutions in Asia, North America, and internationally. It operates through two segments, Advanced Technology Solutions, and Connectivity and Cloud Solutions. The company offers a range of product manufacturing and related supply chain services, including design and development, new product introduction, engineering services, component sourcing, electronics manufacturing and assembly, testing, mechanical assembly, systems integration, precision machining, logistics, asset management, product licensing, and after-market repair and return services. It also provides hardware platform solutions, which includes development of infrastructure platforms, and hardware and software design solutions and services, including open-source software that can be used as-is or customized for specific applications; and management of program, including design and supply chain, manufacturing, and after-market support, including IT asset disposition and asset management services. The company offers its products and services to original equipment manufacturers, and cloud-based and other service providers, including hyperscalers, and other companies in aerospace and defense, industrial, HealthTech, capital equipment, communications, and enterprise markets. The company has a strategic collaboration with Advanced Micro Devices, Inc. for the development of Helios, a rack-scale AI platform. The company was incorporated in 1994 and is headquartered in Toronto, Canada.
 
 ---
 
-## 2. Modelo de Negocio y Posición Competitiva
+## Products & Services
 
-### Drivers de Ingresos
-El crecimiento de Celestica está impulsado principalmente por el superciclo de inversión en infraestructura de Inteligencia Artificial y la necesidad de mayor ancho de banda en los centros de datos. Los principales determinantes de ingresos son:
-1. La adopción masiva de arquitecturas de red de alta velocidad (transición a switches 800G y 1.6T).
-2. El despliegue de soluciones de integración a nivel de rack de alta densidad con refrigeración líquida.
-3. El aumento del contenido propio en ingeniería y co-diseño dentro de la división CCS/HPS.
-
-### Análisis de Moat (Ventaja Competitiva)
-Celestica posee una ventaja competitiva **estrecha (*Narrow Moat*)**, basada fundamentalmente en:
-
-*   **Costes de cambio (*Switching Costs*) y Co-Ingeniería:** A través del modelo JDM (Joint Development Manufacturing), la compañía diseña hardware crítico directamente junto a hyperscalers y diseñadores de chips como [[AMD]] (ejemplo: la plataforma de rack de IA *Helios*). La integración técnica profunda y el código abierto personalizado incrementan la fricción y el coste que supondría para el cliente cambiar de proveedor durante el ciclo de vida del producto.
-*   **Know-How Técnico:** La complejidad asociada a la disipación térmica y la densidad de componentes en racks de IA genera barreras de entrada técnicas que superan el ensamblaje electrónico convencional.
-
-### Dinámica Competitiva
-Celestica compite en el ecosistema global de soluciones de fabricación de hardware e infraestructura con gigantes tradicionales como Foxconn, Jabil, Flextronics y Sanmina. Mientras que los competidores masivos mantienen escalas superiores en EMS tradicional, Celestica ha ganado cuota en nichos de alto rendimiento e infraestructura en la nube, alejándose del ensamblaje de bajo margen que caracteriza a los productos de consumo masivo. La empresa se sitúa estratégicamente entre la fabricación por contrato y las firmas de semiconductores/diseño como [[NVDA]] o [[AMD]].
+- To be identified
 
 ---
 
-## 3. Perfil Financiero
+## Competitive Moat
 
-El perfil financiero de Celestica refleja una expansión sostenida de márgenes y un retorno sobre el capital invertido (ROIC) significativamente superior a la media histórica del sector de fabricación electrónica.
-
-### Métricas Clave
-
-| Métrica | Valor Confirmado (TTM) | Estado / Tendencia |
-| :--- | :--- | :--- |
-| **Ingresos** | $15.59B | Crecimiento interanual del +40.1% |
-| **Margen Operativo** | 8.7% - 8.9% | Expansión sostenida por mix favorable (HPS) |
-| **ROIC** | 39.4% - 42.3% | Excepcional apalancamiento operativo |
-| **Deuda / Equity** | 0.40x - 0.45x | Conservador, balance desapalancado |
-| **PER (TTM)** | 35.7x - 36.5x | Múltiplo en expansión por sesgo hacia la IA |
-| **EV / EBITDA** | 24.4x - 25.8x | Refleja altas expectativas de crecimiento |
-| **FCF Yield** | ~0.0% | Restringido temporalmente por capital de trabajo |
-
-### Estructura de Capital y Flujo de Caja
-El balance es sólido, con un apalancamiento neto bajo (Deuda/Equity de 0.4x). No obstante, el Flujo de Caja Libre (FCF) reportado se sitúa en niveles cercanos a cero o neutrales. Esta dinamica está ligada al incremento intensivo en inventarios y necesidades de capital de trabajo (*working capital*) requeridas para financiar el crecimiento del +40.1% en ventas.
+To be analyzed
 
 ---
 
-## 4. Management y Gobierno Corporativo
+## Competition
 
-*   **Calidad del Liderazgo:** La dirección operativa ha ejecutado de forma eficaz la reestructuración del modelo de negocio, redirigiendo el capital desde operaciones tradicionales de bajo margen hacia plataformas de infraestructura HPS de mayor rentabilidad.
-*   **Asignación de Capital:** La asignación de capital ha demostrado generación de valor, priorizando el crecimiento orgánico en proyectos de alto ROIC y la colaboración estratégica en diseños propietarios.
-*   **Alineamiento e Insider Ownership:** **Punto de atención.** La propiedad accionarial directa por parte de los ejecutivos e insiders es muy reducida (reportada cercana al 0.0%). Este factor requiere un seguimiento continuado de la estructura de incentivos y remuneración a largo plazo para asegurar un estricto alineamiento con los accionistas minoritarios.
+- To be identified
 
 ---
 
-## 5. Tesis de Inversión
+## Management
 
-La oportunidad de inversión en Celestica se clasifica bajo el perfil de **Calidad a Precio Razonable (*Quality at a Fair Price*)**.
+To be evaluated
 
-### Principales Argumentos de Apoyo
+---
 
-1.  **Error de Percepción del Mercado (*Re-rating* Pendiente):** Parte del mercado mantiene una visión retrospectiva de Celestica como un fabricante de bajo margen (EMS tradicional), descontando que el crecimiento del 40% es únicamente un pico cíclico. La realidad operativa muestra una conversión estructural hacia un proveedor de ingeniería (HPS/JDM), con retención de clientes elevada e ingresos de mayor margen.
-2.  **Posicionamiento Estructural en Infraestructura
+## Risk Factors
+
+
+
+---
+
+## Financial Highlights
+- **ROIC**: 42.26
+- **Operating Margin**: 8.88
+- **Revenue Growth**: 56.35
+- **FCF Yield**: 0
+- **Debt/Equity**: 0.4
+- **PER**: 31.11
+- **EV/EBITDA**: 22.38
+
+---
+
+## Catalysts
+
+To be identified
+
+---
+
+## Investment Thesis
+
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ADBE|Adobe Inc.]], [[ASML|ASML Holding N.V.]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[MSFT|Microsoft Corporation]], [[NVDA|NVIDIA Corporation]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]]
+- **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]], [[ADI|ADI]], [[ADP|Automatic Data Processing, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign, Inc.]], [[ERIC|Telefonaktiebolaget LM Ericsson (publ)]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]], [[INFY|Infosys Limited]], [[KEEL|Keel Infrastructure Corp.]], [[LRCX|Lam Research Corporation]], [[MRVL|Marvell Technology, Inc.]], [[MSFT|Microsoft Corporation]], [[MU|Micron Technology, Inc.]], [[NOW|ServiceNow, Inc.]], [[NVDA|NVIDIA Corporation]], [[ONDS|Ondas Inc.]], [[ORCL|Oracle Corporation]], [[PAGS|PagSeguro Digital Ltd.]], [[PANW|Palo Alto Networks, Inc.]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[STNE|StoneCo Ltd.]], [[TEAM|Atlassian Corporation]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]], [[XYZ|Block, Inc.]], [[ZM|Zoom Communications, Inc.]]

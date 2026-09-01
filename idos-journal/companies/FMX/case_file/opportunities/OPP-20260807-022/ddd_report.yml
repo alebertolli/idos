@@ -1,109 +1,39 @@
-calidad_evidencia:
-  hechos_verificados:
-  - 'ROIC del 13.4% y margen operativo del 9.5% (fuente: TTM)'
-  - Presencia en 12 países con franquicia Coca-Cola
-  - Deuda/equity del 0.8x y cobertura de intereses alta
-  inferencias_llm:
-  - Modelo de negocio diversificado reduce riesgo sectorial
-  - Expansión en retail y servicios ofrece crecimiento futuro
-  preguntas_abiertas:
-  - ¿Cómo afectará la inflación en América Latina a sus márgenes?
-  - ¿Qué impacto tendrán las regulaciones europeas en su expansión?
-catalizadores_previos: []
-clasificacion_oportunidad:
-  categoria: compounder_castigado
-  categorias_descartadas: deep_value, value_trap
-  justificacion: FMX es un compounder de larga data con un modelo de negocio sólido
-    basado en su franquicia con Coca-Cola y su diversificación en múltiples segmentos.
-    Sin embargo, su valoración actual (PER 21.08, EV/EBITDA 16.85) parece descontar
-    temporalmente su calidad, posiblemente debido a factores macro o sectoriales.
-    Descartamos 'deep_value' por su sólido moat y 'value_trap' por su rentabilidad
-    consistente.
-comparativa_catalizadores:
-- delta_pct: 25
-  descripcion: Cierre de operaciones en Venezuela
-  estado: vigente
-  nota_comparacion: Aumento de probabilidad debido a crisis económicas en Venezuela
-  probabilidad_actual: 65
-  probabilidad_anterior: 40
-- delta_pct: 20
-  descripcion: Expansión de OXXO
-  estado: vigente
-  nota_comparacion: Mayor visibilidad en estrategias de crecimiento
-  probabilidad_actual: 50
-  probabilidad_anterior: 30
-dominio_business_quality:
-  analisis: Moat duradero por franquicia exclusiva con Coca-Cola, diversificación
-    en múltiples segmentos (retail, fuel, salud) y presencia en 12 países. Resiliencia
-    ante recesiones económicas.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Cierre de operaciones en Venezuela
+  generated_at: '2026-08-13T01:55:06.011464-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 65
+  opp_id: OPP-20260807-022
+  probabilidad_anterior: 65
 - descripcion: Expansión de OXXO en América Latina
+  generated_at: '2026-08-13T01:55:06.011464-03:00'
   horizonte: largo
   impacto: medio
   nivel_confianza: medio
-  probabilidad_pct: 50
+  opp_id: OPP-20260807-022
+  probabilidad_anterior: 50
 - descripcion: Aumento de precios en Coca-Cola
+  generated_at: '2026-08-13T01:55:06.011464-03:00'
   horizonte: corto
   impacto: bajo
   nivel_confianza: bajo
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: Dependencia de Coca-Cola (riesgo moderado) y operaciones en Venezuela
-    (riesgo geopolítico). Cadena de suministro diversificada en logística y retail.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: ROIC del 13.4% supera al WACC, margen operativo del 9.5% y deuda/equity
-    del 0.8x. Generación de caja libre ajustada de $0M (posible subreporte) y cobertura
-    de intereses alta.
-  rating: fuerte
-dominio_growth:
-  analisis: Crecimiento orgánico del 7.2% en ingresos, pero dependencia de Coca-Cola.
-    Expansión en retail (OXXO) y servicios (Bara, Spin) ofrece potencial, pero requiere
-    inversión.
-  rating: moderado
-dominio_management:
-  analisis: Equipo con experiencia en expansión internacional, pero falta transparencia
-    en asignación de capital. Insider ownership del 0% y track record mixto en inversiones
-    estratégicas.
-  rating: regular
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: Exposición a Venezuela
-- impacto: bajo
-  probabilidad: media
-  riesgo: Regulaciones en Europa
-- impacto: bajo
-  probabilidad: media
-  riesgo: Competencia en retail
-error_mercado:
-  catalizador_cambio:
-    descripcion: Cierre de operaciones en Venezuela y reasignación de recursos a mercados
-      más rentables
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 65
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado subestima el crecimiento sostenible de FMX en América
-    Latina y su expansión en Europa, enfocándose en su exposición a Venezuela y Brasil.
-  hipotesis_contraria: El mercado ignora la resiliencia de su modelo de franquicia,
-    la diversificación geográfica y la expansión en retail (OXXO, Bara) y servicios
-    (Spin, Fuel).
-  razonamiento: La valoración actual no refleja el potencial de crecimiento en mercados
-    estables y la reducción de riesgos en Venezuela, lo que podría impulsar un revalorización.
-generated_at: '2026-08-13T01:55:06.011464-03:00'
-integridad_tesis:
-  flags: []
-  reason: El moat sigue intacto, la gestión es competente y los riesgos están bajo
-    control. No hay señales de deterioro estructural.
-  thesis_active: true
-opinion_valoracion: infravalorado
+  opp_id: OPP-20260807-022
+  probabilidad_anterior: 30
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-09-01T07:49:21.933924-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260807-022
 prompt_inputs:
   business_model: "Fomento Económico Mexicano, S.A.B. de C.V., through its subsidiaries,\
@@ -131,29 +61,25 @@ prompt_inputs:
   insider_ownership: 0
   name: Fomento Económico Mexicano, S.A.B. de C.V.
   operating_margin: 9.52
-  pe_ratio: 20.65
+  pe_ratio: 20.87
   products: ''
   revenue: 49950000000.0
-  revenue_growth: 7.25
+  revenue_growth: 7.3
   roic: 13.43
   sector: Consumer Defensive
   ticker: FMX
-resumen_ejecutivo: FMX es un compounder castigado con un moat sólido, diversificación
-  geográfica y múltiples segmentos de negocio. Su valoración actual subestima su capacidad
-  de crecimiento sostenible y la mitigación de riesgos en mercados clave.
-score_general: 85
+resumen_ejecutivo: ''
+score_general: 50
 target_consensus:
-  calculado_at: '2026-08-13T01:53:50.847384-03:00'
+  calculado_at: '2026-09-01T07:49:21.916571-03:00'
   fuentes:
-    stockanalysis: 133.21
-    yfinance: 133.93973
-  mediana: 133.57
+    stockanalysis: 134.14
+    yfinance: 134.14285
+  mediana: 134.14
   n_fuentes: 2
-  promedio: 133.57
+  promedio: 134.14
   target_high: 150.0
   target_low: 111.0
-tesis_inversion: FMX es un compounder castigado con un moat sólido y crecimiento sostenible
-  en mercados emergentes. Su valoración actual no refleja su capacidad de generar
-  valor a largo plazo.
+tesis_inversion: ''
 ticker: FMX
 version: '3.0'

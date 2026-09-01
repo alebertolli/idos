@@ -37,27 +37,27 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 11.48
 - **Operating Margin**: 33.23
-- **Revenue Growth**: 39.28
+- **Revenue Growth**: 39.29
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.038900000000000004
-- **PER**: 24.95
-- **EV/EBITDA**: 18.55
+- **PER**: 25.12
+- **EV/EBITDA**: 18.28
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-La empresa tiene un alto potencial de crecimiento y una valoración subestimada, con un ROIC del 11.48% y un margen operativo del 33.23%. La adopción generalizada de la tecnología de la nube y la expansión de la presencia de la empresa en el mercado de la nube son catalizadores clave para el crecimiento futuro.
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ADBE|Adobe Inc.]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CLS|Celestica Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[KEEL|Keel Infrastructure Corp.]], [[LRCX|Lam Research Corporation]], [[MRVL|Marvell Technology, Inc.]], [[MSFT|Microsoft Corporation]], [[NOW|ServiceNow, Inc.]], [[NVDA|NVIDIA Corporation]], [[ONDS|Ondas Inc.]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[TEAM|Atlassian Corporation]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]], [[XYZ|Block, Inc.]]
-- **Same Industry**: [[CRWD|CrowdStrike Holdings, Inc.]], [[MSFT|Microsoft Corporation]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[XYZ|Block, Inc.]]
+- **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]], [[ADI|ADI]], [[ADP|Automatic Data Processing, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CLS|Celestica Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign, Inc.]], [[ERIC|Telefonaktiebolaget LM Ericsson (publ)]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]], [[INFY|Infosys Limited]], [[KEEL|Keel Infrastructure Corp.]], [[LRCX|Lam Research Corporation]], [[MRVL|Marvell Technology, Inc.]], [[MSFT|Microsoft Corporation]], [[MU|Micron Technology, Inc.]], [[NOW|ServiceNow, Inc.]], [[NVDA|NVIDIA Corporation]], [[ONDS|Ondas Inc.]], [[PAGS|PagSeguro Digital Ltd.]], [[PANW|Palo Alto Networks, Inc.]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[STNE|StoneCo Ltd.]], [[TEAM|Atlassian Corporation]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]], [[XYZ|Block, Inc.]], [[ZM|Zoom Communications, Inc.]]
+- **Same Industry**: [[CRWD|CrowdStrike Holdings, Inc.]], [[MSFT|Microsoft Corporation]], [[PAGS|PagSeguro Digital Ltd.]], [[PANW|Palo Alto Networks, Inc.]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[STNE|StoneCo Ltd.]], [[XYZ|Block, Inc.]]

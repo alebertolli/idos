@@ -1,113 +1,32 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene un moat amplio debido a la naturaleza de sus concesiones.
-  - La empresa tiene un perfil financiero sólido.
-  - La calidad del liderazgo de la empresa es buena.
-  inferencias_llm:
-  - La empresa tiene una capacidad para innovar y adaptarse a los cambios en la regulación.
-  - La empresa tiene una posición competitiva fuerte en el mercado de concesiones
-    aeroportuarias.
-  preguntas_abiertas:
-  - ¿Cuál es el impacto potencial de los cambios en la regulación aeroportuaria en
-    la empresa?
+calidad_evidencia: {}
 catalizadores_previos:
 - descripcion: Anuncio de una nueva concesión aeroportuaria en un mercado emergente
-  generated_at: '2026-08-07T21:24:43.181067-03:00'
+  generated_at: '2026-08-13T01:48:20.969149-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
   opp_id: OPP-20260807-015
-  probabilidad_anterior: 30
+  probabilidad_anterior: 50
 - descripcion: Implementación de tecnologías innovadoras en las operaciones aeroportuarias
-  generated_at: '2026-08-07T21:24:43.181067-03:00'
+  generated_at: '2026-08-13T01:48:20.969149-03:00'
   horizonte: corto
   impacto: medio
   nivel_confianza: medio
   opp_id: OPP-20260807-015
   probabilidad_anterior: 40
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: deep_value, ciclica, special_situation, distressed, quality_at_fair_price,
-    hype, value_trap
-  justificacion: La empresa tiene un moat amplio debido a la naturaleza de sus concesiones,
-    lo que le permite mantener una tasa de crecimiento estable. Además, tiene un perfil
-    financiero sólido y un sistema de gobierno corporativo efectivo.
-comparativa_catalizadores:
-- delta_pct: 20
-  descripcion: Anuncio de una nueva concesión aeroportuaria en un mercado emergente
-  estado: cumplido
-  nota_comparacion: La probabilidad ha aumentado debido a la importancia de la concesión
-    en el mercado emergente.
-  probabilidad_actual: 50
-  probabilidad_anterior: 30
-- delta_pct: 0
-  descripcion: Implementación de tecnologías innovadoras en las operaciones aeroportuarias
-  estado: vigente
-  nota_comparacion: La probabilidad sigue siendo la misma debido a la importancia
-    de la tecnología en las operaciones aeroportuarias.
-  probabilidad_actual: 40
-  probabilidad_anterior: 40
-dominio_business_quality:
-  analisis: La empresa tiene una posición competitiva fuerte en el mercado de concesiones
-    aeroportuarias y una capacidad para innovar y adaptarse a los cambios en la regulación.
-  rating: excepcional
-dominio_catalizadores:
-- descripcion: Anuncio de una nueva concesión aeroportuaria en un mercado emergente
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: alto
-  probabilidad_pct: 50
-- descripcion: Implementación de tecnologías innovadoras en las operaciones aeroportuarias
-  horizonte: corto
-  impacto: medio
-  nivel_confianza: medio
-  probabilidad_pct: 40
-dominio_esg_supply_chain:
-  analisis: La empresa no tiene riesgos significativos en términos de ESG y su cadena
-    de suministro es estable.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene un perfil financiero sólido, con un ROIC alto y un margen
-    operativo estable.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa tiene una capacidad para innovar y adaptarse a los cambios
-    en la regulación, lo que podría permitirle mantener su posición competitiva y
-    mantener una tasa de crecimiento estable.
-  rating: fuerte
-dominio_management:
-  analisis: La calidad del liderazgo de la empresa es buena, con un equipo de gestión
-    experimentado y con un historial de éxito en la implementación de estrategias
-    de crecimiento.
-  rating: excepcional
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: riesgo regulatorio
-- impacto: medio
-  probabilidad: media
-  riesgo: riesgo de mercado
-error_mercado:
-  catalizador_cambio:
-    descripcion: Anuncio de una nueva concesión aeroportuaria en un mercado emergente
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 50
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado está descontando la capacidad de la empresa para mantener
-    su tasa de crecimiento estable debido a la competencia y los cambios en la regulación.
-  hipotesis_contraria: El mercado ignora la capacidad de la empresa para innovar y
-    adaptarse a los cambios en la regulación, lo que podría permitirle mantener su
-    posición competitiva.
-  razonamiento: El mercado está subestimando la capacidad de la empresa para innovar
-    y adaptarse a los cambios en la regulación, lo que podría permitirle mantener
-    su posición competitiva.
-generated_at: '2026-08-13T01:48:20.969149-03:00'
-integridad_tesis:
-  flags: []
-  reason: ''
-  thesis_active: true
-opinion_valoracion: infravalorado
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-09-01T07:43:45.353488-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260807-015
 prompt_inputs:
   business_model: Corporación América Airports S.A., through its subsidiaries, acquires,
@@ -118,33 +37,30 @@ prompt_inputs:
     Corporación América Airports S.A. operates as a subsidiary of A.C.I. Airports
     S.à r.l.
   ceo_tenure: 0
-  debt_to_equity: 0.58
+  debt_to_equity: 0.56
   fcf_adjusted: 0
   insider_ownership: 0
   name: Corporación América Airports S.A.
-  operating_margin: 25.5
-  pe_ratio: 14.18
+  operating_margin: 24.24
+  pe_ratio: 13.36
   products: ''
-  revenue: 2049999999.9999998
+  revenue: 2120000000.0
   revenue_growth: 5.07
-  roic: 18.93
+  roic: 18.2
   sector: Industrials
   ticker: CAAP
-resumen_ejecutivo: La empresa tiene un moat amplio debido a la naturaleza de sus concesiones,
-  lo que le permite mantener una tasa de crecimiento estable. Además, tiene un perfil
-  financiero sólido y un sistema de gobierno corporativo efectivo.
-score_general: 85
+resumen_ejecutivo: ''
+score_general: 50
 target_consensus:
-  calculado_at: '2026-08-13T01:48:16.939873-03:00'
+  calculado_at: '2026-09-01T07:43:45.341203-03:00'
   fuentes:
-    stockanalysis: 32.43
-    yfinance: 32.42857
-  mediana: 32.43
+    stockanalysis: 32.27
+    yfinance: 32.27143
+  mediana: 32.27
   n_fuentes: 2
-  promedio: 32.43
+  promedio: 32.27
   target_high: 36.0
-  target_low: 27.5
-tesis_inversion: La empresa tiene un moat amplio debido a la naturaleza de sus concesiones,
-  lo que le permite mantener una tasa de crecimiento estable.
+  target_low: 27.4
+tesis_inversion: ''
 ticker: CAAP
 version: '3.0'

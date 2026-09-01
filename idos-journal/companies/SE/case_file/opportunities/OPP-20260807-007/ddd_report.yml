@@ -1,78 +1,26 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene una larga historia de crecimiento
-  - La empresa ha demostrado una capacidad para innovar y adaptarse a los cambios
-    en el mercado
-  inferencias_llm:
-  - La empresa tiene una posición competitiva establecida en varios mercados
-  - La empresa tiene un equipo de gestión experimentado y con una buena trayectoria
-    de asignación de capital
-  preguntas_abiertas:
-  - ¿Qué impacto tendrá un cambio en la política regulatoria en el sector de la tecnología
-    en Asia en la valoración de la empresa?
-catalizadores_previos: []
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: deep_value, hype, value_trap
-  justificacion: La empresa tiene una larga historia de crecimiento y ha demostrado
-    una capacidad para innovar y adaptarse a los cambios en el mercado. Su modelo
-    de negocio es diversificado y tiene una presencia significativa en varios mercados.
-comparativa_catalizadores: []
-dominio_business_quality:
-  analisis: La empresa tiene una posición competitiva establecida en varios mercados
-    y ha demostrado una capacidad para innovar y adaptarse a los cambios en el mercado.
-  rating: excepcional
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Un cambio en la política regulatoria en el sector de la tecnología
     en Asia
+  generated_at: '2026-08-13T03:20:56.992284-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: La empresa tiene un enfoque sólido en la sostenibilidad y la cadena de
-    suministro.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene un balance sólido y ha demostrado una capacidad para
-    generar caja y pagar sus deudas.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa tiene un crecimiento a largo plazo establecido y ha demostrado
-    una capacidad para innovar y adaptarse a los cambios en el mercado.
-  rating: fuerte
-dominio_management:
-  analisis: La empresa tiene un equipo de gestión experimentado y con una buena trayectoria
-    de asignación de capital.
-  rating: excepcional
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: riesgo regulatorio
-- impacto: medio
-  probabilidad: media
-  riesgo: riesgo de competencia
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un cambio en la política regulatoria en el sector de la tecnología
-      en Asia podría afectar la valoración de la empresa.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 30
-  conclusion_error_valoracion: INCIERTO
-  consenso_actual: Los analistas creen que la empresa tiene un crecimiento a largo
-    plazo establecido y una valoración razonable.
-  hipotesis_contraria: El mercado podría estar subestimando la capacidad de la empresa
-    para innovar y adaptarse a los cambios en el mercado, y también podría estar sobrevalorando
-    la competencia en el sector.
-  razonamiento: La valoración de la empresa es compleja y depende de varios factores,
-    por lo que es difícil determinar si hay un error de valoración aprovechable.
-generated_at: '2026-08-13T03:20:56.992284-03:00'
-integridad_tesis:
-  flags: []
-  reason: ''
-  thesis_active: true
-opinion_valoracion: justo
+  opp_id: OPP-20260807-007
+  probabilidad_anterior: 30
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-09-01T08:07:17.849710-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260807-007
 prompt_inputs:
   business_model: Sea Limited, through its subsidiaries, operates as a technology
@@ -104,22 +52,18 @@ prompt_inputs:
   roic: 0
   sector: Consumer Cyclical
   ticker: SE
-resumen_ejecutivo: La empresa es un compounder con una larga historia de crecimiento
-  y una capacidad para innovar y adaptarse a los cambios en el mercado. Sin embargo,
-  la valoración de la empresa es compleja y depende de varios factores, por lo que
-  es difícil determinar si hay un error de valoración aprovechable.
-score_general: 80
+resumen_ejecutivo: ''
+score_general: 50
 target_consensus:
-  calculado_at: '2026-08-13T03:20:22.984101-03:00'
+  calculado_at: '2026-09-01T08:07:17.834616-03:00'
   fuentes:
-    stockanalysis: 153.25
-    yfinance: 141.9707
-  mediana: 147.61
+    stockanalysis: 155.29
+    yfinance: 155.28857
+  mediana: 155.29
   n_fuentes: 2
-  promedio: 147.61
+  promedio: 155.29
   target_high: 195.0
-  target_low: 100.0
-tesis_inversion: La empresa es un compounder con una larga historia de crecimiento
-  y una capacidad para innovar y adaptarse a los cambios en el mercado.
+  target_low: 101.0
+tesis_inversion: ''
 ticker: SE
 version: '3.0'

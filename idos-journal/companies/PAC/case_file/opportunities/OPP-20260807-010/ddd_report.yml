@@ -1,104 +1,33 @@
-calidad_evidencia:
-  hechos_verificados:
-  - La empresa tiene un historial de crecimiento sostenido.
-  - La empresa tiene una posición de liderazgo en el mercado aeroportuario.
-  - La empresa tiene un moat duradero y un modelo de negocio resiliente.
-  inferencias_llm:
-  - El precio actual refleja una valoración justa.
-  - El mercado podría estar subestimando la capacidad de la empresa para mantener
-    su posición de liderazgo en el mercado aeroportuario.
-  preguntas_abiertas:
-  - ¿Qué impacto tendrá un cambio en la política aeroportuaria en la empresa?
-  - ¿Qué riesgos ESG tiene la empresa?
+calidad_evidencia: {}
 catalizadores_previos:
 - descripcion: Un cambio en la política aeroportuaria en México o Jamaica que beneficie
     a la empresa.
-  generated_at: '2026-08-07T22:39:03.481762-03:00'
+  generated_at: '2026-08-13T03:07:02.673673-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
   opp_id: OPP-20260807-010
-  probabilidad_anterior: 30
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: deep_value, hype, value_trap
-  justificacion: La empresa tiene un historial de crecimiento sostenido y una excelente
-    calidad de negocio, y su precio actual refleja una valoración justa.
-comparativa_catalizadores:
-- delta_pct: 33
-  descripcion: Un cambio en la política aeroportuaria en México o Jamaica que beneficie
-    a la empresa.
-  estado: vigente
-  nota_comparacion: La probabilidad de este catalizador ha aumentado debido a la actualización
-    de la información.
-  probabilidad_actual: 40
-  probabilidad_anterior: 30
-- delta_pct: 50
-  descripcion: Un aumento en la demanda de viajes aéreos en México o Jamaica.
-  estado: vigente
-  nota_comparacion: La probabilidad de este catalizador ha aumentado debido a la actualización
-    de la información.
-  probabilidad_actual: 30
-  probabilidad_anterior: 20
-dominio_business_quality:
-  analisis: La empresa tiene una posición de liderazgo en el mercado aeroportuario,
-    un moat duradero y un modelo de negocio resiliente.
-  rating: excepcional
-dominio_catalizadores:
-- descripcion: Un cambio en la política aeroportuaria en México o Jamaica que beneficie
-    a la empresa.
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: alto
-  probabilidad_pct: 40
+  probabilidad_anterior: 40
 - descripcion: Un aumento en la demanda de viajes aéreos en México o Jamaica.
+  generated_at: '2026-08-13T03:07:02.673673-03:00'
   horizonte: corto
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 30
-dominio_esg_supply_chain:
-  analisis: La empresa tiene un riesgo ESG bajo y una concentración de proveedores
-    baja.
-  rating: bajo_riesgo
-dominio_financial_health:
-  analisis: La empresa tiene un balance sólido, una generación de caja alta y un perfil
-    de deuda bajo.
-  rating: fuerte
-dominio_growth:
-  analisis: La empresa tiene un crecimiento orgánico y inorgánico sólido, con una
-    visibilidad de revenue alta.
-  rating: fuerte
-dominio_management:
-  analisis: La empresa tiene un equipo de gestión experimentado y con una buena asignación
-    de capital.
-  rating: excepcional
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: riesgo de cambio en la política aeroportuaria
-- impacto: medio
-  probabilidad: media
-  riesgo: riesgo de competencia
-error_mercado:
-  catalizador_cambio:
-    descripcion: Un cambio en la política aeroportuaria en México o Jamaica que beneficie
-      a la empresa.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 40
-  conclusion_error_valoracion: INCIERTO
-  consenso_actual: El precio actual refleja una valoración justa, según la tesis de
-    inversión.
-  hipotesis_contraria: El mercado podría estar subestimando la capacidad de la empresa
-    para mantener su posición de liderazgo en el mercado aeroportuario.
-  razonamiento: La probabilidad de un cambio en la política aeroportuaria es alta,
-    pero su impacto y horizonte son inciertos.
-generated_at: '2026-08-13T03:07:02.673673-03:00'
-integridad_tesis:
-  flags: []
-  reason: ''
-  thesis_active: true
-opinion_valoracion: justo
+  opp_id: OPP-20260807-010
+  probabilidad_anterior: 30
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-09-01T08:01:41.915944-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260807-010
 prompt_inputs:
   business_model: Grupo Aeroportuario del Pacífico, S.A.B. de C.V., together with
@@ -128,27 +57,25 @@ prompt_inputs:
   insider_ownership: 0
   name: Grupo Aeroportuario del Pacífico, S.A.B. de C.V.
   operating_margin: 55.08
-  pe_ratio: 21.61
+  pe_ratio: 21.54
   products: ''
   revenue: 1900000000.0
-  revenue_growth: 19.04
+  revenue_growth: 19.19
   roic: 15.56
   sector: Industrials
   ticker: PAC
-resumen_ejecutivo: La empresa es un compounder con un historial de crecimiento sostenido
-  y una excelente calidad de negocio, y su precio actual refleja una valoración justa.
-score_general: 85
+resumen_ejecutivo: ''
+score_general: 50
 target_consensus:
-  calculado_at: '2026-08-13T03:06:58.529080-03:00'
+  calculado_at: '2026-09-01T08:01:41.898892-03:00'
   fuentes:
-    stockanalysis: 263.34
-    yfinance: 263.34286
-  mediana: 263.34
+    stockanalysis: 256.2
+    yfinance: 256.2
+  mediana: 256.2
   n_fuentes: 2
-  promedio: 263.34
-  target_high: 285.0
+  promedio: 256.2
+  target_high: 277.0
   target_low: 225.0
-tesis_inversion: La empresa es un compounder con un historial de crecimiento sostenido
-  y una excelente calidad de negocio, y su precio actual refleja una valoración justa.
+tesis_inversion: ''
 ticker: PAC
 version: '3.0'

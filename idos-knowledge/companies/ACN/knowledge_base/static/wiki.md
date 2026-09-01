@@ -40,7 +40,7 @@ To be evaluated
 - **Revenue Growth**: 4.96
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.25
-- **PER**: 15.16
+- **PER**: 15.18
 - **EV/EBITDA**: 8.83
 
 ---
@@ -59,5 +59,5 @@ To be formulated
 
 ## Related Companies
 
-- **Same Sector**: [[AAPL|Apple Inc.]], [[ADBE|Adobe Inc.]], [[ADI|ADI]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CLS|Celestica Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[KEEL|Keel Infrastructure Corp.]], [[LRCX|Lam Research Corporation]], [[MRVL|Marvell Technology, Inc.]], [[MSFT|Microsoft Corporation]], [[NOW|ServiceNow, Inc.]], [[NVDA|NVIDIA Corporation]], [[ONDS|Ondas Inc.]], [[ORCL|Oracle Corporation]], [[PANW|Palo Alto Networks, Inc.]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[TEAM|Atlassian Corporation]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]], [[XYZ|Block, Inc.]]
-- **Same Industry**: [[KEEL|Keel Infrastructure Corp.]]
+- **Same Sector**: [[AAPL|Apple Inc.]], [[ADBE|Adobe Inc.]], [[ADI|ADI]], [[ADP|Automatic Data Processing, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CLS|Celestica Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign, Inc.]], [[ERIC|Telefonaktiebolaget LM Ericsson (publ)]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]], [[INFY|Infosys Limited]], [[KEEL|Keel Infrastructure Corp.]], [[LRCX|Lam Research Corporation]], [[MRVL|Marvell Technology, Inc.]], [[MSFT|Microsoft Corporation]], [[MU|Micron Technology, Inc.]], [[NOW|ServiceNow, Inc.]], [[NVDA|NVIDIA Corporation]], [[ONDS|Ondas Inc.]], [[ORCL|Oracle Corporation]], [[PAGS|PagSeguro Digital Ltd.]], [[PANW|Palo Alto Networks, Inc.]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[STNE|StoneCo Ltd.]], [[TEAM|Atlassian Corporation]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[UBER|Uber Technologies, Inc.]], [[XYZ|Block, Inc.]], [[ZM|Zoom Communications, Inc.]]
+- **Same Industry**: [[INFY|Infosys Limited]], [[KEEL|Keel Infrastructure Corp.]]

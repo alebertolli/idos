@@ -1,41 +1,63 @@
-## 1. Visión General de la Compañía
-U.S. Bancorp es una empresa de servicios financieros que ofrece una amplia gama de productos y servicios a individuos, empresas, instituciones y otros bancos en Estados Unidos. La compañía opera a través de varios segmentos, incluyendo Wealth, Corporate, Commercial and Institutional Banking; Consumer and Business Banking; Payment Services; y Treasury and Corporate Support. U.S. Bancorp es un competidor directo de otras instituciones financieras como [[AXP]], [[C]], [[COIN]], [[HDB]], [[ING]], [[ITUB]], [[LYG]], [[MA]], [[MFG]], [[NMR]], [[SAN]], [[SPGI]], [[V]] y [[WFC]].
+## Business Model
 
-## 2. Modelo de Negocio y Posición Competitiva
-El modelo de negocio de U.S. Bancorp se basa en la oferta de servicios financieros personalizados y la gestión eficiente de los activos de sus clientes. La compañía tiene una posición competitiva sólida en el mercado financiero estadounidense gracias a su amplia red de sucursales y su oferta de servicios financieros diversificados. El moat de la compañía se basa en su capacidad para innovar y expandirse en nuevos mercados, así como en su enfoque en la calidad del servicio y la satisfacción del cliente.
+U.S. Bancorp, a financial services holding company, provides various financial services to individuals, businesses, institutional organizations, governmental entities, and other financial institutions in the United States. The company operates through Wealth, Corporate, Commercial and Institutional Banking; Consumer and Business Banking; Payment Services; and Treasury and Corporate Support segments. It offers depository services, including checking accounts, savings accounts, and time certificate contracts; and lending services, such as traditional credit products and credit card services, lease financing and import/export trade, agricultural finance, asset-backed lending, and other products. The company also provides cash management, capital markets, and trust and investment management services; and ancillary services comprising capital markets, treasury management, and receivable lock-box collection services to corporate and governmental entity customers. In addition, it offers asset management and fiduciary services for individuals, estates, foundations, business corporations, and charitable organizations; and investment and insurance products to its customers principally within its domestic markets, as well as fund administration services to mutual and other funds. Further, the company provides corporate and purchasing card, and corporate trust services; and credit card services, merchant and ATM processing, mortgage banking, insurance, brokerage and leasing services. U.S. Bancorp was founded in 1863 and is headquartered in Minneapolis, Minnesota.
 
-## 3. Perfil Financiero
-| Métrica | Valor |
-| --- | --- |
-| ROIC | 12.62 |
-| Margen Operativo | 39.09 |
-| Crecimiento de Ingresos | 6.75 |
-| FCF Yield | 4.5 |
-| PER | 12.54 |
-| EV/EBITDA | 10.2 |
-La estructura de capital de U.S. Bancorp es sólida, con un balance que refleja una gestión prudente del riesgo y una generación de caja estable.
+---
 
-## 4. Management y Gobierno Corporativo
-El equipo de gestión de U.S. Bancorp tiene un historial de tomar decisiones acertadas y de asignar capital de manera efectiva. La calidad del liderazgo es excepcional, con un enfoque en la innovación y la calidad del servicio. La composición del board es diversa y experimentada, con un fuerte alineamiento de intereses con los accionistas.
+## Products & Services
 
-## 5. Tesis de Inversión
-La tesis de inversión para U.S. Bancorp se basa en su capacidad para innovar y expandirse en nuevos mercados, así como en su enfoque en la calidad del servicio y la satisfacción del cliente. La compañía tiene un historial de crecimiento estable y una posición competitiva sólida en el mercado financiero estadounidense. Con una valoración razonable y un potencial de crecimiento a largo plazo, U.S. Bancorp es una opción atractiva para los inversores.
+- To be identified
 
-## 6. Riesgos y Contra-Tesis
-Los riesgos clave para U.S. Bancorp incluyen cambios en la regulación financiera, competencia en el mercado financiero y riesgos crediticios. La contra-tesis se basa en la posibilidad de que la compañía no pueda adaptarse a los cambios en el entorno regulatorio y económico, lo que podría afectar su crecimiento y rentabilidad.
+---
 
-## 7. Catalizadores y Timeline
-Los catalizadores clave para U.S. Bancorp incluyen cambios en la política monetaria, reformas regulatorias y expansión en nuevos mercados. La compañía tiene un horizonte de crecimiento a largo plazo, con un enfoque en la innovación y la calidad del servicio.
+## Competitive Moat
 
-## 8. Marco de Valoración
-El marco de valoración para U.S. Bancorp se basa en un análisis de descuento de flujo de caja, con un enfoque en la generación de caja y la rentabilidad a largo plazo. La valoración de la compañía es razonable, con un PER de 12.54 y un EV/EBITDA de 10.2.
+To be analyzed
 
-## 9. Preguntas Abiertas y Agenda de Investigación
-Las preguntas abiertas para U.S. Bancorp incluyen cómo afectará la política monetaria a la compañía en el futuro, cómo puede la empresa expandirse en nuevos mercados de manera efectiva y cómo puede la compañía mantener su posición competitiva en un entorno de creciente competencia. La agenda de investigación se centra en analizar la estrategia de la compañía, su posición competitiva y su potencial de crecimiento a largo plazo.
+---
+
+## Competition
+
+- To be identified
+
+---
+
+## Management
+
+To be evaluated
+
+---
+
+## Risk Factors
+
+
+
+---
+
+## Financial Highlights
+- **ROIC**: 12.62
+- **Operating Margin**: 39.09
+- **Revenue Growth**: 6.83
+- **FCF Yield**: 0
+- **Debt/Equity**: 0
+- **PER**: 12.38
+- **EV/EBITDA**: 0
+
+---
+
+## Catalysts
+
+To be identified
+
+---
+
+## Investment Thesis
+
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[AXP|American Express Company]], [[BCS|Barclays PLC]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[HDB|HDFC Bank Limited]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
-- **Same Industry**: [[HDB|HDFC Bank Limited]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MFG|Mizuho Financial Group, Inc.]]
+- **Same Sector**: [[AXP|American Express Company]], [[BBAR|Banco BBVA Argentina S.A.]], [[BCS|Barclays PLC]], [[BMNR|Bitmine Immersion Technologies, Inc.]], [[C|Citigroup Inc.]], [[COIN|Coinbase Global, Inc.]], [[GS|GS]], [[HDB|HDFC Bank Limited]], [[HOOD|Robinhood Markets, Inc.]], [[HSBC|HSBC Holdings plc]], [[HUT|Hut 8 Corp.]], [[IBN|IBN]], [[ING|ING Groep N.V.]], [[ITUB|Itaú Unibanco Holding S.A.]], [[JPM|JPM]], [[LYG|Lloyds Banking Group plc]], [[MA|MA]], [[MFG|Mizuho Financial Group, Inc.]], [[MUFG|Mitsubishi UFJ Financial Group, Inc.]], [[NMR|Nomura Holdings, Inc.]], [[RIOT|Riot Platforms, Inc.]], [[SAN|Banco Santander, S.A.]], [[SPGI|S&P Global Inc.]], [[V|Visa Inc.]], [[WFC|Wells Fargo & Company]]
+- **Same Industry**: [[BBAR|Banco BBVA Argentina S.A.]], [[HDB|HDFC Bank Limited]], [[IBN|IBN]], [[ITUB|Itaú Unibanco Holding S.A.]], [[LYG|Lloyds Banking Group plc]], [[MFG|Mizuho Financial Group, Inc.]]

@@ -35,29 +35,29 @@ To be evaluated
 ---
 
 ## Financial Highlights
-- **ROIC**: 19.29
-- **Operating Margin**: 11.66
-- **Revenue Growth**: 13.43
+- **ROIC**: 19.18
+- **Operating Margin**: 12.13
+- **Revenue Growth**: 13.56
 - **FCF Yield**: 0
-- **Debt/Equity**: 0.48
-- **PER**: 16.3
-- **EV/EBITDA**: 19.47
+- **Debt/Equity**: 0.52
+- **PER**: 17.19
+- **EV/EBITDA**: 22.17
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Uber es una empresa de tecnología con un negocio establecido y una presencia global, pero con un margen operativo y un ROIC moderados y una asignación de capital inefectiva.
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[ADBE|Adobe Inc.]], [[ASML|ASML Holding N.V.]], [[FSLR|First Solar, Inc.]], [[MSFT|Microsoft Corporation]], [[NVDA|NVIDIA Corporation]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]]
-- **Same Industry**: [[ADBE|Adobe Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]]
+- **Same Sector**: [[AAPL|Apple Inc.]], [[ACN|Accenture plc]], [[ADBE|Adobe Inc.]], [[ADI|ADI]], [[ADP|Automatic Data Processing, Inc.]], [[AMAT|Applied Materials, Inc.]], [[AMD|AMD]], [[ASML|ASML Holding N.V.]], [[ASTS|AST SpaceMobile, Inc.]], [[AVGO|Broadcom Inc.]], [[CLS|Celestica Inc.]], [[CRWD|CrowdStrike Holdings, Inc.]], [[CSCO|Cisco Systems, Inc.]], [[DOCU|DocuSign, Inc.]], [[ERIC|Telefonaktiebolaget LM Ericsson (publ)]], [[FSLR|First Solar, Inc.]], [[GRMN|Garmin Ltd.]], [[HPQ|HP Inc.]], [[INFY|Infosys Limited]], [[KEEL|Keel Infrastructure Corp.]], [[LRCX|Lam Research Corporation]], [[MRVL|Marvell Technology, Inc.]], [[MSFT|Microsoft Corporation]], [[MU|Micron Technology, Inc.]], [[NOW|ServiceNow, Inc.]], [[NVDA|NVIDIA Corporation]], [[ONDS|Ondas Inc.]], [[ORCL|Oracle Corporation]], [[PAGS|PagSeguro Digital Ltd.]], [[PANW|Palo Alto Networks, Inc.]], [[PATH|UiPath, Inc.]], [[PLTR|Palantir Technologies Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[STNE|StoneCo Ltd.]], [[TEAM|Atlassian Corporation]], [[TSM|Taiwan Semiconductor Manufacturing Company Limited]], [[XYZ|Block, Inc.]], [[ZM|Zoom Communications, Inc.]]
+- **Same Industry**: [[ADBE|Adobe Inc.]], [[ADP|Automatic Data Processing, Inc.]], [[DOCU|DocuSign, Inc.]], [[NOW|ServiceNow, Inc.]], [[SAP|SAP SE]], [[SHOP|Shopify Inc.]], [[SNOW|Snowflake Inc.]], [[TEAM|Atlassian Corporation]], [[ZM|Zoom Communications, Inc.]]

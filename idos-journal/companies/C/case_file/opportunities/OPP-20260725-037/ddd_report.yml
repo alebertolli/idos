@@ -1,138 +1,42 @@
-calidad_evidencia:
-  hechos_verificados:
-  - Jane Fraser asumió como CEO en 2021 e inició la salida de 14 mercados minoristas
-    internacionales.
-  - Citigroup cotiza históricamente con un descuento sustancial frente a su Valor
-    Contable Tangible (TBV).
-  - Existen Consent Orders activas por parte de la Reserva Federal y la OCC referentes
-    a gestión de riesgos y controles internos de datos.
-  - El segmento Services (Treasury and Trade Solutions) es un líder global en servicios
-    de liquidación y tesorería corporativa.
-  inferencias_llm:
-  - La simplificación de la estructura corporativa reducirá los costes fijos lo suficiente
-    como para permitir al banco alcanzar un RoTCE del 11-12% en el horizonte 2026.
-  - Las recompras masivas de acciones por debajo de TBV serán el principal motor de
-    crecimiento del beneficio por acción (EPS) en los próximos 24-36 meses.
-  preguntas_abiertas:
-  - ¿Cuál es el calendario exacto y la valoración final realizable para la salida
-    a bolsa/separación de Banamex?
-  - ¿Cuánto capital adicional requerirán las inversiones en infraestructura de TI
-    y datos para satisfacer completamente los requerimientos regulatorios de la Fed
-    y OCC?
-clasificacion_oportunidad:
-  categoria: turnaround
-  categorias_descartadas: Deep Value (aunque cotiza con un descuento sustancial respecto
-    al valor contable tangible, atribuir el descuento solo a valoración ignora el
-    catalizador operativo de transformación en marcha); Value Trap (descartado porque
-    la directiva está tomando acciones agresivas de desinversión y reducción de costes
-    en lugar de mantener el statu quo); Compounder (carece del historial sostenido
-    de creación de valor y ROIC/RoTCE elevado que caracteriza a JPMorgan o Bank of
-    America).
-  justificacion: Citigroup se encuentra inmerso en un proceso profundo de reestructuración
-    estratégica liderado por su CEO Jane Fraser. El plan incluye la simplificación
-    de su estructura organizativa, la salida/venta de 14 bancas minoristas internacionales
-    (como Banamex) y la remediación de las órdenes de consentimiento regulatorias
-    (Consent Orders de la Fed/OCC). El objetivo central es transformar un conglomerado
-    ineficiente en una institución enfocada en negocios de alto retorno (Services/TTS
-    y Wealth) para elevar el RoTCE hacia el 11-12%.
-dominio_business_quality:
-  analisis: Citigroup posee una red transaccional global única presente en más de
-    90 países, indispensable para corporaciones multinacionales (división Services/TTS).
-    Este segmento constituye un verdadero foso competitivo (Moat) por altos costes
-    de cambio y efectos de red. Sin embargo, la calidad del negocio consolidado históricamente
-    se ha visto diluida por franquicias minoristas internacionales de bajo margen
-    e ineficiencias operativas estructurales que actualmente se están eliminando.
-  rating: buena
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Avances tangibles en el cierre de Consent Orders y validación de sistemas
     de control interno por parte de reguladores estadounidenses.
+  generated_at: '2026-07-31T23:49:37.778710-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 65
+  opp_id: OPP-20260725-037
+  probabilidad_anterior: 65
 - descripcion: Ejecución de la OPI de Banamex y distribución/repatriación del capital
     liberado hacia recompra de acciones a descuento de TBV.
+  generated_at: '2026-07-31T23:49:37.778710-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 75
+  opp_id: OPP-20260725-037
+  probabilidad_anterior: 75
 - descripcion: Demostración sostenida de reducción de gastos operativos (efficiency
     ratio bajando al rango del 60%) en los reportes trimestrales.
+  generated_at: '2026-07-31T23:49:37.778710-03:00'
   horizonte: corto
   impacto: medio
   nivel_confianza: alto
-  probabilidad_pct: 80
-dominio_esg_supply_chain:
-  analisis: El principal riesgo de gobernanza (G) proviene del historial de deficiencias
-    en controles internos de datos y gestión de riesgos que resultaron en las Consent
-    Orders de la Fed y la OCC. En el ámbito social y ambiental (E&S), Citigroup enfrenta
-    escrutinio habitual por exposición a financiación de energía tradicional, aunque
-    mantiene compromisos firmes de transición climática.
-  rating: medio_riesgo
-dominio_financial_health:
-  analisis: La posición de balance es sólida, manteniendo un ratio de capital CET1
-    por encima de los requerimientos regulatorios mínimos de la Reserva Federal (superando
-    holgadamente el 13%). La liquidez y la estructura de depósitos de clientes corporativos
-    e institucionales aportan estabilidad. Aunque los costes de reestructuración pesan
-    temporalmente sobre las ganancias, la generación interna de capital se mantiene
-    sana.
-  rating: fuerte
-dominio_growth:
-  analisis: El crecimiento de ingresos no provendrá de una expansión masiva de activos,
-    sino de la venta cruzada en banca de inversión y tesorería corporativa global,
-    así como de la captura de volumen de banca privada en Wealth. La estrategia prioriza
-    la rentabilidad y la eficiencia sobre el crecimiento del volumen de activos.
-  rating: moderado
-dominio_management:
-  analisis: 'La CEO Jane Fraser ha tomado decisiones difíciles que administraciones
-    anteriores evitaron, incluyendo la eliminación del modelo matricial complejo y
-    el despido de capas directivas redundantes. El enfoque en asignación de capital
-    es riguroso: desinvertir en retail internacional no rentable y reasignar recursos
-    a Services y Wealth. La alineación incentiva la mejora de la eficiencia operativa
-    y la superación de las Consent Orders regulatorias.'
-  rating: bueno
-dominio_riesgos:
-- impacto: alto
-  probabilidad: media
-  riesgo: Fallo o demora prolongada en la remediación de las Consent Orders regulatorias,
-    resultando en sanciones adicionales o restricciones de crecimiento por parte de
-    la Fed/OCC.
-- impacto: medio
-  probabilidad: media
-  riesgo: Deterioro macroeconómico severo o recesión en EE.UU. que incremente las
-    provisiones por pérdidas crediticias en la cartera de tarjetas de crédito (USPB).
-- impacto: medio
-  probabilidad: media
-  riesgo: Dificultades o retrasos en el proceso de OPI/venta de Banamex en México,
-    extendiendo los costes de separación.
-error_mercado:
-  catalizador_cambio:
-    descripcion: Resolución exitosa o avances significativos en las Consent Orders
-      regulatorias junto con la separación/OPI de Banamex y el cumplimiento de la
-      meta de RoTCE del 11-12%.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 70
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado descuenta que Citigroup continuará siendo un laggard
-    estructural dentro de los G-SIBs estadounidenses, lastrado por problemas históricos
-    de control interno, multas regulatorias, ejecución lenta en la desinversión de
-    Banamex y costes de transformación elevados. El precio actual refleja un RoTCE
-    permanentemente por debajo de su coste de capital y una incapacidad de cerrar
-    la brecha de valoración frente a sus pares.
-  hipotesis_contraria: El mercado subestima el impacto acumulativo de la simplificación
-    organizativa y la salida de bancas minoristas de menor retorno. La división de
-    Services (Treasury and Trade Solutions) posee un foso competitivo (Moat) crítico
-    en banca transaccional global que genera retornos de doble dígito alto y flujos
-    recurrentes. A medida que disminuyan los costes de reestructuración y se resuelvan
-    las deficiencias regulatorias, recomprar acciones masivamente por debajo del Valor
-    Contable Tangible (TBV) generará una revalorización acelerada por acción.
-  razonamiento: Existe un descalce claro entre la percepción del mercado sobre una
-    burocracia ineficiente e inmodificable y la realidad de una reestructuración operativa
-    drástica en curso, donde los activos clave de flujo de caja (Services) cotizan
-    implícitamente a múltiplos desproporcionadamente bajos dentro de la entidad consolidada.
-generated_at: '2026-07-31T23:49:37.778710-03:00'
-opinion_valoracion: infravalorado
+  opp_id: OPP-20260725-037
+  probabilidad_anterior: 80
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-09-01T07:43:11.918523-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260725-037
 prompt_inputs:
   business_model: 'Citigroup Inc., a diversified financial service holding company,
@@ -172,22 +76,18 @@ prompt_inputs:
   roic: 0
   sector: Financial Services
   ticker: C
-resumen_ejecutivo: Citigroup representa una oportunidad clásica de Turnaround de gran
-  capitalización. A pesar de años de rendimiento inferior y fricciones regulatorias,
-  el banco posee franquicias globales dominantes insustituibles, especialmente en
-  Treasury and Trade Solutions (TTS) e Investment Banking internacional. Bajo la dirección
-  de Jane Fraser, la compañía está eliminando capas gerenciales, desinvirtiendo activos
-  no estratégicos y recomprando acciones con un descuento atractivo sobre el valor
-  contable tangible. Con un balance bien capitalizado (CET1 adecuado) y un plan claro
-  de reducción de costes, el perfil riesgo/beneficio es altamente favorable para un
-  inversor a medio/largo plazo.
-score_general: 72
-tesis_inversion: La tesis de inversión en Citigroup se basa en la convergencia de
-  valoración desde un descuento histórico sobre el Valor Contable Tangible (P/TBV)
-  hacia la paridad a medida que avanza el plan de simplificación. La división Services
-  (TTS) proporciona una base de ingresos de alta calidad insustituible. La combinación
-  de recompras de acciones por debajo del TBV, la reducción de costes fijos estructurales
-  y el desprendimiento de activos de bajo retorno crea un margen de seguridad amplio
-  con un catalizador claro de revalorización por encima del coste de capital.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-09-01T07:43:11.899221-03:00'
+  fuentes:
+    stockanalysis: 154.5
+    yfinance: 154.5
+  mediana: 154.5
+  n_fuentes: 2
+  promedio: 154.5
+  target_high: 176.0
+  target_low: 129.0
+tesis_inversion: ''
 ticker: C
 version: '3.0'

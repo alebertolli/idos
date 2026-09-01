@@ -1,117 +1,34 @@
-calidad_evidencia:
-  hechos_verificados:
-  - Ingresos TTM de $6.29B con crecimiento interanual del +6.3%
-  - Margen operativo del 12.4% y ratio Deuda/Capital de 0.6x
-  - Posición de custodia dominante en los ETFs spot de BTC y ETH en EE.UU.
-  inferencias_llm:
-  - La directiva real está liderada por el cofundador Brian Armstrong (quien posee
-    sustancial poder de voto a través de acciones Clase B), corrigiendo el dato de
-    '0 años de antigüedad' del perfil proporcionado.
-  - La red Base L2 tiene el potencial de convertirse en una fuente principal de comisiones
-    transaccionales de bajo margen y alto volumen.
-  preguntas_abiertas:
-  - ¿Cuál será el impacto neto en el margen bruto si las comisiones de retail sufren
-    una compresión repentina del 30%?
-  - ¿Cómo evolucionará el acuerdo de reparto de ingresos por reservas de USDC con
-    Circle ante posibles recortes de tipos de interés por parte de la Fed?
-clasificacion_oportunidad:
-  categoria: ciclica
-  categorias_descartadas: 'Compounder: Descartada porque la predictibilidad de sus
-    flujos de caja es muy baja debido a la extrema volatilidad del ciclo cripto. Hype:
-    Descartada porque Coinbase ya no es solo una narrativa especulativa; cuenta con
-    escala masiva, rentabilidad operativa (márgenes del 12.4%), balance sólido y una
-    posición dominante en la infraestructura institucional de custodia en EE.UU.'
-  justificacion: Coinbase es un negocio intrínsecamente cíclico vinculado a la volatilidad,
-    precios y volúmenes del mercado de criptoactivos. Aunque está diversificando hacia
-    ingresos recurrentes (suscripciones, custodia de ETFs, intereses de USDC y la
-    red Base L2), sus márgenes e ingresos de alta rentabilidad siguen dependiendo
-    en gran medida del ciclo especulativo minorista.
-dominio_business_quality:
-  analisis: El moat de Coinbase se basa en la reputación de marca en EE.UU., el estricto
-    cumplimiento normativo (cumplimiento SEC/FINRA), los efectos de red en liquidez
-    institucional y la custodia segura de activos. La principal debilidad es el riesgo
-    continuo de compresión de comisiones en el segmento minorista a medida que aumenta
-    la competencia, aunque compensado por su expansión hacia servicios de infraestructura
-    (Base, Staking, Custodia).
-  rating: buena
-dominio_catalizadores:
+calidad_evidencia: {}
+catalizadores_previos:
 - descripcion: Resolución favorable de litigios regulatorios clave con la SEC o promulgación
     de legislación federal clara en EE.UU.
+  generated_at: '2026-08-01T23:53:10.282655-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 65
+  opp_id: OPP-20260730-001
+  probabilidad_anterior: 65
 - descripcion: Aumento sostenido de los ingresos de suscripciones y servicios superando
     el 50% del total de ingresos.
+  generated_at: '2026-08-01T23:53:10.282655-03:00'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
-  probabilidad_pct: 75
-dominio_esg_supply_chain:
-  analisis: Riesgos centrados en la gobernanza y regulación (litigios regulatorios
-    de la SEC, cumplimiento de antilavado de dinero AML/KYC) y el consumo energético
-    asociado a ciertas redes de criptoactivos (aunque la transición de Ethereum a
-    Proof-of-Stake mitigó gran parte del impacto ambiental).
-  rating: medio_riesgo
-dominio_financial_health:
-  analisis: La posición financiera se ha fortalecido significativamente. La ratio
-    Deuda/Patrimonio de 0.6x refleja un apalancamiento conservador. Coinbase mantiene
-    un colchón de caja sustancial en su balance. Sin embargo, el FCF ajustado TTM
-    plano (0M según datos del perfil) exige vigilar la conversión de caja en fases
-    de menor volatilidad transaccional.
-  rating: fuerte
-dominio_growth:
-  analisis: 'Los impulsores de crecimiento abarcan: 1) Adopción institucional masiva
-    vía ETFs; 2) Monetización de transacciones on-chain en Base L2; 3) Ingresos por
-    suscripciones y servicios (intereses de USDC, custodia, Coinbase One); 4) Expansión
-    internacional en jurisdicciones con marcos claros (MiCA en Europa).'
-  rating: fuerte
-dominio_management:
-  analisis: Liderada por su cofundador Brian Armstrong (a diferencia del dato nulo
-    en el resumen proporcionado), la directiva ha demostrado una excelente disciplina
-    en la asignación de capital durante 2022-2024 al recortar gastos operativos rígidos,
-    enfocar los recursos en Base/USDC y evitar adquisiciones ruinosas. Mantiene una
-    visión estratégica alineada con los inversores de largo plazo.
-  rating: bueno
-dominio_riesgos:
-- impacto: alto
-  probabilidad: media
-  riesgo: Riesgo regulatorio adverso en EE.UU. (clasificación de activos como securities
-    no registrados por parte de la SEC).
-- impacto: medio
-  probabilidad: alta
-  riesgo: Compresión agresiva de comisiones de trading minorista por competencia de
-    brokers tradicionales (Zero-Fee).
-- impacto: alto
-  probabilidad: media
-  riesgo: Vulnerabilidad a inviernos cripto prolongados que reduzcan la volatilidad
-    y los volúmenes de negociación.
-error_mercado:
-  catalizador_cambio:
-    descripcion: Aprobación de marcos regulatorios claros para cripto/stablecoins
-      en EE.UU. (ej. Ley FIT21) y escalamiento masivo de la monetización de la red
-      Base L2.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 70
-  conclusion_error_valoracion: SI
-  consenso_actual: El consenso trata a Coinbase como un simple exchange minorista
-    vulnerable a la compresión estructural de comisiones (fee compression) y a la
-    volatilidad de volúmenes transaccionales, descontando un crecimiento plano o compresión
-    de márgenes ante la maduración del sector.
-  hipotesis_contraria: El mercado subestima la rápida transformación de Coinbase de
-    un exchange transaccional a la superestructura/middleware del ecosistema financiero
-    on-chain. La monetización de la red Base (L2), la posición dominante como custodio
-    de prácticamente todos los ETFs spot de BTC y ETH en EE.UU., y la participación
-    en los ingresos por reservas de USDC (junto a Circle) generan flujos no transaccionales
-    de alta visibilidad que reducen significativamente la dependencia de las comisiones
-    minoristas.
-  razonamiento: Existe un desajuste entre la valoración del mercado (fijada en múltiplos
-    de exchange tradicional de alto riesgo) y el valor real de Coinbase como guardián
-    regulado e infraestructura crítica del sistema financiero digital, con un apalancamiento
-    operativo masivo cuando el ciclo se recupera.
-generated_at: '2026-08-01T23:53:10.282655-03:00'
-opinion_valoracion: infravalorado
+  opp_id: OPP-20260730-001
+  probabilidad_anterior: 75
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-09-01T07:45:26.197601-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260730-001
 prompt_inputs:
   business_model: Coinbase Global, Inc. operates platform for crypto assets in the
@@ -121,32 +38,30 @@ prompt_inputs:
     access to build onchain for developers. The company was founded in 2012 and is
     based in New York, New York.
   ceo_tenure: 0
-  debt_to_equity: 0.59
+  debt_to_equity: 0.51
   fcf_adjusted: 0
   insider_ownership: 0
   name: Coinbase Global, Inc.
-  operating_margin: 12.4
-  pe_ratio: 57.09
+  operating_margin: 7.38
+  pe_ratio: 0
   products: ''
-  revenue: 6290000000.0
-  revenue_growth: 6.28
-  roic: 5.8
+  revenue: 6040000000.0
+  revenue_growth: 3.64
+  roic: 4.06
   sector: Financial Services
   ticker: COIN
-resumen_ejecutivo: Coinbase Global, Inc. representa un activo de infraestructura estratégica
-  dentro del sector financiero digital. Aunque sus métricas TTM reflejan un entorno
-  de transición tras el invierno cripto ($6.29B en ingresos, +6.3% de crecimiento
-  y 12.4% de margen operativo), la compañía ha optimizado su estructura de costes,
-  alcanzado un balance saneado con D/E de 0.6x y consolidado un moat basado en cumplimiento
-  regulatorio y custodia institucional. Para una Family Office, representa una opción
-  de alto apalancamiento al crecimiento de la economía on-chain con un riesgo a la
-  baja mejor gestionado que en ciclos anteriores.
-score_general: 68
-tesis_inversion: Coinbase es la puerta de entrada institucional y la capa de infraestructura
-  obligada para la adopción de criptoactivos en el mundo desarrollado. Con un balance
-  desapalancado, disciplina operativa demostrada tras el ajuste de 2022-2023 y la
-  diversificación hacia ingresos recurrentes (Base, USDC, Custodia de ETFs), la compañía
-  ofrece una asimetría muy favorable para una Family Office que busque exposición
-  estructural a activos digitales limitando el riesgo de insolvencia.
+resumen_ejecutivo: ''
+score_general: 50
+target_consensus:
+  calculado_at: '2026-09-01T07:45:26.180688-03:00'
+  fuentes:
+    stockanalysis: 196.55
+    yfinance: 197.58862
+  mediana: 197.07
+  n_fuentes: 2
+  promedio: 197.07
+  target_high: 330.0
+  target_low: 95.0
+tesis_inversion: ''
 ticker: COIN
 version: '3.0'

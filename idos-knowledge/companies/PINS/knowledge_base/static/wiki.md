@@ -40,24 +40,24 @@ To be evaluated
 - **Revenue Growth**: 13.59
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.41
-- **PER**: 181.72
-- **EV/EBITDA**: 51.82
+- **PER**: 179.04
+- **EV/EBITDA**: 41.61
 
 ---
 
 ## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+
+To be identified
 
 ---
 
 ## Investment Thesis
 
-Pinterest, Inc. es una empresa con un modelo de negocio sólido y un moat duradero, que tiene una capacidad para generar crecimiento sostenido y mantener su rentabilidad operativa alta.
+To be formulated
 
 ---
 
 ## Related Companies
 
-- **Same Sector**: [[GOOGL|Alphabet Inc.]], [[META|Meta Platforms, Inc.]], [[NFLX|Netflix, Inc.]], [[RBLX|Roblox Corporation]], [[ROKU|Roku, Inc.]], [[SPOT|Spotify Technology S.A.]]
-- **Same Industry**: [[GOOGL|Alphabet Inc.]], [[META|Meta Platforms, Inc.]], [[SPOT|Spotify Technology S.A.]]
+- **Same Sector**: [[BIDU|Baidu, Inc.]], [[GOOGL|Alphabet Inc.]], [[META|Meta Platforms, Inc.]], [[NFLX|Netflix, Inc.]], [[NTES|NetEase, Inc.]], [[RBLX|Roblox Corporation]], [[ROKU|Roku, Inc.]], [[SPOT|Spotify Technology S.A.]]
+- **Same Industry**: [[BIDU|Baidu, Inc.]], [[GOOGL|Alphabet Inc.]], [[META|Meta Platforms, Inc.]], [[SPOT|Spotify Technology S.A.]]
