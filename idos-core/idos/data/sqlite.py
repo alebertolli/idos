@@ -48,6 +48,8 @@ class SQLiteStore:
                 thesis_active INTEGER DEFAULT 1,
                 thesis_invalidated_reason TEXT DEFAULT '',
                 exit_reason TEXT DEFAULT '',
+                last_research_at TEXT DEFAULT '',
+                last_thesis_assessment_at TEXT DEFAULT '',
                 created_at TEXT NOT NULL,
                 updated_at TEXT NOT NULL
             );
@@ -109,8 +111,7 @@ class SQLiteStore:
             CREATE TABLE IF NOT EXISTS price_history (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 ticker TEXT NOT NULL,
-                date TEXT NOT NULL,
-                open REAL DEFAULT 0,
+                date TEXT NOT NULL,                open REAL DEFAULT 0,
                 high REAL DEFAULT 0,
                 low REAL DEFAULT 0,
                 close REAL DEFAULT 0,
@@ -175,12 +176,20 @@ class SQLiteStore:
             c.execute("ALTER TABLE opportunities ADD COLUMN exit_reason TEXT DEFAULT ''")
         except Exception:
             pass
+        try:
+            c.execute("ALTER TABLE opportunities ADD COLUMN last_research_at TEXT DEFAULT ''")
+        except Exception:
+            pass
+        try:
+            c.execute("ALTER TABLE opportunities ADD COLUMN last_thesis_assessment_at TEXT DEFAULT ''")
+        except Exception:
+            pass
 
     def save_opportunity(self, opp: dict[str, Any]):
         with self._write_transaction() as c:
             c.execute("""
-                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, thesis_active, thesis_invalidated_reason, exit_reason, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, thesis_active, thesis_invalidated_reason, exit_reason, last_research_at, last_thesis_assessment_at, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 opp["id"], opp["ticker"], opp["status"],
                 json.dumps(opp.get("conviction", {})),
@@ -189,6 +198,8 @@ class SQLiteStore:
                 1 if opp.get("thesis_active", True) else 0,
                 opp.get("thesis_invalidated_reason", ""),
                 opp.get("exit_reason", ""),
+                opp.get("last_research_at", ""),
+                opp.get("last_thesis_assessment_at", ""),
                 opp.get("created_at", datetime.now(AR_TZ).isoformat()),
                 opp.get("updated_at", datetime.now(AR_TZ).isoformat()),
             ))

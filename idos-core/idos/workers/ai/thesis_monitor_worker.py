@@ -63,10 +63,12 @@ class ThesisMonitorWorker(BaseWorker):
                     "reason": "LLM sin respuesta estructurada"}
 
         thesis_active = bool(result.get("thesis_active", True))
+        now_iso = datetime.now(AR_TZ).isoformat()
         opp["thesis_active"] = thesis_active
         if not thesis_active:
             opp["thesis_invalidated_reason"] = result.get("reason", "Tesis invalidada tras re-assessment")
-        opp["updated_at"] = datetime.now(AR_TZ).isoformat()
+        opp["updated_at"] = now_iso
+        opp["last_thesis_assessment_at"] = now_iso
         sqlite.save_opportunity(opp)
 
         cascade = self._sync_hypotheses_on_invalidation(ticker, opp_id, thesis_active,
@@ -77,7 +79,8 @@ class ThesisMonitorWorker(BaseWorker):
             yaml_opp["thesis_active"] = thesis_active
             if not thesis_active:
                 yaml_opp["thesis_invalidated_reason"] = result.get("reason", "")
-            yaml_opp["updated_at"] = opp["updated_at"]
+            yaml_opp["updated_at"] = now_iso
+            yaml_opp["last_thesis_assessment_at"] = now_iso
             journal.save_opportunity(ticker, yaml_opp)
 
         event_data = {

@@ -414,9 +414,23 @@ class SiteBuilder:
             or opp.get("created_at")
         )
         last_research_dt = _parse_dt(last_research)
+        current_status = opp.get("status", "")
         stale_days = None
-        if last_research_dt:
-            stale_days = max(0, (datetime.now(AR_TZ).replace(tzinfo=None) - last_research_dt.replace(tzinfo=None)).days)
+        is_stale = False
+        if last_research_dt and current_status in {"UNDER_RESEARCH", "SCREENED"}:
+            days = max(0, (datetime.now(AR_TZ).replace(tzinfo=None) - last_research_dt.replace(tzinfo=None)).days)
+            stale_days = days
+            is_stale = days > self.stale_days
+
+        thesis_not_assessed_days = None
+        is_thesis_stale = False
+        if current_status in {"ACCUMULATING", "FULL_POSITION", "MONITORING", "REDUCING"}:
+            lta = opp.get("last_thesis_assessment_at") or opp.get("updated_at")
+            lta_dt = _parse_dt(lta)
+            if lta_dt:
+                days = max(0, (datetime.now(AR_TZ).replace(tzinfo=None) - lta_dt.replace(tzinfo=None)).days)
+                thesis_not_assessed_days = days
+                is_thesis_stale = days > self.stale_days
 
         # ddd report summary (full thesis for the board)
         ddd_summary = {
@@ -513,7 +527,9 @@ class SiteBuilder:
             "updated_at": opp.get("updated_at"),
             "last_research": last_research,
             "stale_days": stale_days,
-            "is_stale": bool(stale_days is not None and stale_days > self.stale_days),
+            "is_stale": is_stale,
+            "thesis_not_assessed_days": thesis_not_assessed_days,
+            "is_thesis_stale": is_thesis_stale,
             "decision": {
                 "approved": br.get("approved"),
                 "decision_type": br.get("decision_type"),
@@ -1043,9 +1059,13 @@ class SiteBuilder:
                 s["count"] = len(learning)
 
         stale = [o for o in opps if o.get("is_stale")]
+        thesis_stale = [o for o in opps if o.get("is_thesis_stale")]
         alerts = [
             {"severity": "warn", "ticker": o["ticker"], "message": f"Research stale ({o.get('stale_days')}d sin actualizar)"}
             for o in stale
+        ] + [
+            {"severity": "warn", "ticker": o["ticker"], "message": f"Tesis sin evaluar ({o.get('thesis_not_assessed_days')}d)"}
+            for o in thesis_stale
         ]
         for p in positions:
             if p.get("dist_to_stop_pct") is not None and p["dist_to_stop_pct"] <= 5:
@@ -1228,6 +1248,11 @@ function badge(st){ return `<span class="badge st st-${esc(st)}">${esc(st)}</spa
 function staleBadge(o){
   if(o.is_stale) return `<span class="badge" style="background:#3a1010;color:#f87171">stale ${o.stale_days}d</span>`;
   if(o.stale_days!==null&&o.stale_days!==undefined) return `<span class="badge" style="background:#1a2436;color:#93a4c8">${o.stale_days}d</span>`;
+  return '—';
+}
+function thesisBadge(o){
+  if(o.is_thesis_stale) return `<span class="badge" style="background:#3a1010;color:#f87171">tesis stale ${o.thesis_not_assessed_days}d</span>`;
+  if(o.thesis_not_assessed_days!==null&&o.thesis_not_assessed_days!==undefined) return `<span class="badge" style="background:#1a1f2e;color:#93a4c8">tesis ${o.thesis_not_assessed_days}d</span>`;
   return '—';
 }
 function wyPhase(p){ if(!p) return '—'; return `<span style="color:${colors[p]||'var(--muted)'}">${esc(p)}</span>`; }
@@ -1549,6 +1574,7 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">Convicción</div><div style="font-size:22px;font-weight:700">${o.conviction_overall??'—'}</div><div class="muted">${esc(o.confidence||'')} · ${esc(o.trend||'')}</div></div>`;
   html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
   html += `<div class="card"><div class="muted">Última investigación</div><div style="font-size:16px">${dt(o.last_research)}</div>${staleBadge(o)}</div>`;
+  html += `<div class="card"><div class="muted">Última evaluación tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.updated_at)}</div>${thesisBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">Decisión</div><div style="font-size:18px">${esc(o.decision?.decision_type||'—')}</div><div class="muted">${esc(o.decision?.author||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
   html += '</div>';
 
