@@ -626,6 +626,8 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     opp = sqlite.get_opportunity(opp_id)
     if opp:
         old = opp["status"]
+        if proposal.rules_failed and old in (OpportunityStatus.SCREENED.value, OpportunityStatus.UNDER_RESEARCH.value):
+            new_status = OpportunityStatus.UNDER_RESEARCH
         now_iso = datetime.now(AR_TZ).isoformat()
         opp["status"] = new_status.value
         opp["updated_at"] = now_iso
@@ -644,7 +646,12 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
 
     yaml_opp = journal.load_opportunity(ticker, opp_id)
     if yaml_opp:
-        yaml_opp["status"] = new_status.value
+        yaml_old_status = yaml_opp.get("status", "")
+        if proposal.rules_failed and yaml_old_status in (OpportunityStatus.SCREENED.value, OpportunityStatus.UNDER_RESEARCH.value):
+            final_yaml_status = OpportunityStatus.UNDER_RESEARCH.value
+        else:
+            final_yaml_status = new_status.value
+        yaml_opp["status"] = final_yaml_status
         now_iso = datetime.now(AR_TZ).isoformat()
         yaml_opp["updated_at"] = now_iso
         yaml_opp["last_research_at"] = now_iso

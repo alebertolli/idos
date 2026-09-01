@@ -650,6 +650,7 @@ class SiteBuilder:
         op_filter = OperabilityFilter(str(operable_path)) if operable_path.exists() else None
 
         out: list[dict] = []
+        from datetime import datetime as _dt
         for ticker in tickers:
             if op_filter is not None and not op_filter.is_operable(ticker):
                 continue
@@ -673,10 +674,16 @@ class SiteBuilder:
             score = self._scout_score_for(metrics)
             om = metrics["operating_margin"]
             roic = metrics["roic"]
+            added_at = None
+            try:
+                ts = cache_file.stat().st_mtime
+                added_at = _dt.fromtimestamp(ts).isoformat(timespec="seconds")
+            except Exception:
+                pass
             out.append({
                 "ticker": ticker,
                 "score": score,
-                "added_at": None,
+                "added_at": added_at,
                 "metrics": {
                     "transition_score": max(0, min(100, int(round(50 + (om / 15.0) * 30)))) if om else 50,
                     "quality_score": max(0, min(100, int(round(50 + (roic / 20.0) * 30)))) if roic else 50,
