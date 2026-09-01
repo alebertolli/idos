@@ -601,6 +601,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "recommendation": proposal.recommendation,
         "reasoning": proposal.reasoning,
         "created_at": proposal.created_at,
+        "generated_at": datetime.now(AR_TZ).isoformat(),
     }
     with open(opp_dir / "decision_proposal.yml", "w", encoding="utf-8") as f:
         yaml.dump(proposal_data, f, default_flow_style=False, allow_unicode=True)
@@ -625,8 +626,10 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     opp = sqlite.get_opportunity(opp_id)
     if opp:
         old = opp["status"]
+        now_iso = datetime.now(AR_TZ).isoformat()
         opp["status"] = new_status.value
-        opp["updated_at"] = datetime.now(AR_TZ).isoformat()
+        opp["updated_at"] = now_iso
+        opp["last_research_at"] = now_iso
         cp = context.get("current_price")
         iv = context.get("intrinsic_value")
         if cp:
@@ -642,7 +645,9 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     yaml_opp = journal.load_opportunity(ticker, opp_id)
     if yaml_opp:
         yaml_opp["status"] = new_status.value
-        yaml_opp["updated_at"] = datetime.now(AR_TZ).isoformat()
+        now_iso = datetime.now(AR_TZ).isoformat()
+        yaml_opp["updated_at"] = now_iso
+        yaml_opp["last_research_at"] = now_iso
         yaml_opp.setdefault("conviction", {})["overall"] = proposal.conviction_score
         cp = context.get("current_price")
         iv = context.get("intrinsic_value")
