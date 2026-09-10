@@ -1,20 +1,9 @@
 {
-  "processed": [
-    {
-      "opp_id": "OPP-20260910-MOM-EEM",
-      "ticker": "EEM",
-      "status": "completed",
-      "score": 50,
-      "reason": "new entry: SCREENED (score=0)"
-    },
-    {
-      "opp_id": "OPP-20260910-MOM-XLE",
-      "ticker": "XLE",
-      "status": "completed",
-      "score": 50,
-      "reason": "new entry: SCREENED (score=0)"
-    }
-  ],
+  "processed": [],
+  "errors": [],
+  "status": "none",
+  "event_type": "manual",
+  "force": false,
   "skipped": [
     {
       "opp_id": "OPP-20260813-163",
@@ -441,6 +430,12 @@
       "ticker": "ECL",
       "status": "WATCHLIST",
       "reason": "status WATCHLIST not processable in NORMAL mode"
+    },
+    {
+      "opp_id": "OPP-20260910-MOM-EEM",
+      "ticker": "EEM",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (0d <= 30d)"
     },
     {
       "opp_id": "OPP-20260813-102",
@@ -1475,6 +1470,12 @@
       "reason": "status WATCHLIST not processable in NORMAL mode"
     },
     {
+      "opp_id": "OPP-20260910-MOM-XLE",
+      "ticker": "XLE",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (0d <= 30d)"
+    },
+    {
       "opp_id": "OPP-20260813-097",
       "ticker": "XOM",
       "status": "WATCHLIST",
@@ -1511,80 +1512,5 @@
       "reason": "UNDER_RESEARCH fresh (8d <= 30d)"
     }
   ],
-  "assessments": [
-    {
-      "ticker": "EEM",
-      "opp_id": "OPP-20260910-MOM-EEM",
-      "status": "completed",
-      "conviction_score": 54,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": "HOLD",
-      "decision_id": "DEC-20260910031605",
-      "assessments": {
-        "BusinessAssessmentEngine": 32,
-        "ValuationAssessmentEngine": 65,
-        "RecoveryAssessmentEngine": 45,
-        "RiskAssessmentEngine": 70,
-        "PortfolioAssessmentEngine": 90
-      },
-      "rules_passed": [
-        "RULE-004"
-      ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-003",
-        "RULE-005",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 32/70",
-        "RULE-003": "Rerating: 45/50",
-        "RULE-004": "Risk: 70/50",
-        "RULE-005": "Conviction: 54/65",
-        "RULE-008": "No hay datos de DDD para calcular asimetria"
-      },
-      "data_quality": "poor"
-    },
-    {
-      "ticker": "XLE",
-      "opp_id": "OPP-20260910-MOM-XLE",
-      "status": "completed",
-      "conviction_score": 54,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": "HOLD",
-      "decision_id": "DEC-20260910031606",
-      "assessments": {
-        "BusinessAssessmentEngine": 32,
-        "ValuationAssessmentEngine": 65,
-        "RecoveryAssessmentEngine": 45,
-        "RiskAssessmentEngine": 70,
-        "PortfolioAssessmentEngine": 90
-      },
-      "rules_passed": [
-        "RULE-004"
-      ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-003",
-        "RULE-005",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 32/70",
-        "RULE-003": "Rerating: 45/50",
-        "RULE-004": "Risk: 70/50",
-        "RULE-005": "Conviction: 54/65",
-        "RULE-008": "No hay datos de DDD para calcular asimetria"
-      },
-      "data_quality": "poor"
-    }
-  ],
-  "errors": [],
-  "status": "research_completed",
-  "event_type": "monthly",
-  "force": false,
-  "stale_days_threshold": 30,
-  "total": 0
+  "assessments": []
 }
