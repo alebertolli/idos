@@ -1,0 +1,35 @@
+action: REVIEW_ALLOCATION
+as_of_date: '2026-09-10'
+eligible:
+- &id001
+  as_of_date: '2026-09-01'
+  momentum: 1.8145863796825275
+  ticker: XLE
+- &id002
+  as_of_date: '2026-09-01'
+  momentum: 0.9972462920161291
+  ticker: EEM
+formula: 12*P0/P1 + 4*P0/P3 + 2*P0/P6 + P0/P12 - 19
+missing_history: []
+ranking:
+- *id001
+- *id002
+- as_of_date: '2026-09-01'
+  momentum: 0.5656430413859503
+  ticker: QQQ
+- as_of_date: '2026-09-01'
+  momentum: 0.5140040715837273
+  ticker: XLF
+- as_of_date: '2026-09-01'
+  momentum: 0.4130288618962048
+  ticker: EFA
+- as_of_date: '2026-09-01'
+  momentum: 0.2402291325200352
+  ticker: GLD
+- as_of_date: '2026-09-01'
+  momentum: -0.26589264506435484
+  ticker: XLI
+selected:
+- *id001
+- *id002
+strategy_id: MOMENTUM_ETF
