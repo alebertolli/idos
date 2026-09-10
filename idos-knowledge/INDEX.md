@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 130 companies tracked
+Total: 132 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -111,6 +111,10 @@ Total: 130 companies tracked
 - 📄 [[PAC|Grupo Aeroportuario del Pacífico, S.A.B. de C.V.]]
 - 📄 [[PBI|Pitney Bowes Inc.]]
 - 📄 [[RKLB|Rocket Lab Corporation]]
+
+## Other
+- 📄 [[EEM|iShares MSCI Emerging Markets ETF]]
+- 📄 [[XLE|State Street Energy Select Sector SPDR ETF]]
 
 ## Real Estate
 - 📄 [[O|O]]
