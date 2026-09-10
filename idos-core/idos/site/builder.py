@@ -514,6 +514,15 @@ class SiteBuilder:
             "opp_id": opp.get("id") or opp_dir.name,
             "ticker": ticker,
             "status": opp.get("status", "UNKNOWN"),
+            "strategy_id": opp.get("strategy_id", "COMPOUNDER"),
+            "strategy_version": opp.get("strategy_version", "legacy-compatible"),
+            "core": opp.get("core"),
+            "sleeve": opp.get("sleeve"),
+            "thesis_type": opp.get("thesis_type"),
+            "entry_policy": opp.get("entry_policy"),
+            "research_profile": opp.get("research_profile"),
+            "origin": opp.get("origin", "legacy"),
+            "signal": opp.get("signal", {}),
             "conviction_overall": conv.get("overall"),
             "confidence": conv.get("confidence"),
             "trend": conv.get("trend"),
@@ -1310,7 +1319,7 @@ function tableInput(view, id, ph){
 
 function renderShell(){
   document.getElementById('tabs').innerHTML = [
-    ['dashboard','Dashboard'],['screening','Discovery'],['opp','Research'],['buylist','Buy List'],['portfolio','Portfolio'],
+    ['dashboard','Dashboard'],['screening','Discovery'],['opp','Research'],['strategies','Strategies'],['buylist','Buy List'],['portfolio','Portfolio'],
     ['learning','Learning']
   ].map(([id,l])=>`<button class="tab" data-view="${id}">${l}</button>`).join('');
   document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderView(b.dataset.view); });
@@ -1322,11 +1331,27 @@ function renderView(id){
   id = id || 'dashboard';
   if(id==='dashboard') return renderDashboard();
   if(id==='opp') return renderOpp();
+  if(id==='strategies') return renderStrategies();
   if(id==='buylist') return renderBuylist();
   if(id==='portfolio') return renderPortfolio();
   if(id==='screening') return renderScreening();
   if(id==='learning') return renderLearning();
   renderDashboard();
+}
+
+function renderStrategies(){
+  const rows = DATA.opportunities||[];
+  const groups = {};
+  rows.forEach(o=>{ const k=o.strategy_id||'COMPOUNDER'; groups[k]=(groups[k]||0)+1; });
+  let html = '<h2>Estrategias IDOS</h2><p class="muted">Discovery, Research y estado de cada estrategia sin alterar el lifecycle de oportunidades.</p>';
+  html += '<table><thead><tr><th>Estrategia</th><th>Oportunidades</th><th>Core</th><th>Sleeves</th></tr></thead><tbody>';
+  Object.keys(groups).sort().forEach(k=>{
+    const sample=rows.find(o=>(o.strategy_id||'COMPOUNDER')===k)||{};
+    const sleeves=[...new Set(rows.filter(o=>(o.strategy_id||'COMPOUNDER')===k).map(o=>o.sleeve).filter(Boolean))].join(', ')||'—';
+    html += `<tr><td><b>${esc(k)}</b></td><td>${groups[k]}</td><td>${esc(sample.core||'—')}</td><td>${esc(sleeves)}</td></tr>`;
+  });
+  html += '</tbody></table>';
+  setView('strategies', html);
 }
 
 function goTab(id){

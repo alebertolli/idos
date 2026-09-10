@@ -36,9 +36,9 @@ class PriceProvider:
             "prices": prices,
         }
 
-    def get_history(self, ticker: str, period: str = "1y") -> list[dict[str, Any]]:
+    def get_history(self, ticker: str, period: str = "1y", interval: str = "1d") -> list[dict[str, Any]]:
         stock = yf.Ticker(ticker)
-        history = stock.history(period=period)
+        history = stock.history(period=period, interval=interval)
         return [
             {
                 "date": date.isoformat(),

@@ -70,6 +70,7 @@ from idos.portfolio.wyckoff import WyckoffAnalyzer
 from idos.discovery.scout import ScoutEngine
 from idos.discovery.screening import FinvizScreener
 from idos.discovery.operability import OperabilityFilter
+from idos.strategy.catalog import StrategyCatalog, StrategyProfile
 
 
 def create_context(base_path: str | None = None) -> IDOSContext:
@@ -124,6 +125,7 @@ __all__ = [
     "PortfolioEngine", "EntryEngine", "ExitEngine", "RiskEngine",
     "PositionSizer", "WyckoffAnalyzer",
     "ScoutEngine", "FinvizScreener", "OperabilityFilter",
+    "StrategyCatalog", "StrategyProfile",
     "AutoFixAgent", "GHAErrorReporter", "create_issue",
     "create_context", "configure",
 ]

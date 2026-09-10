@@ -207,6 +207,9 @@ class EntryMonitorWorker(BaseWorker):
                         "reason": f"Opportunity {opp_id} not found in SQLite or journal"}
 
         current_status = OpportunityStatus(opp["status"])
+        if opp.get("entry_policy") not in (None, "", "VALUATION_ZONE"):
+            return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
+                    "reason": f"Entry policy {opp.get('entry_policy')} is handled by its strategy runner"}
         if current_status not in (OpportunityStatus.APPROVED, OpportunityStatus.ENTRY_PENDING):
             return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
                     "reason": f"Current status {current_status} not monitored for entry"}

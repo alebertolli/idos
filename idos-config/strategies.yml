@@ -1,0 +1,14 @@
+version: "1.0"
+default_strategy: COMPOUNDER
+strategies:
+  EMERGENCY_LIQ: {enabled: false, core: CORE_1_SURVIVAL_LIQUIDITY, sleeve: SURVIVAL_LIQUIDITY, thesis_type: LIQUIDITY_CREDIT, discovery_profile: emergency_liquidity, research_profile: liquidity_credit, entry_policy: LIQUIDITY_ALLOCATION}
+  OPPORTUNITY_LIQ: {enabled: false, core: CORE_1_SURVIVAL_LIQUIDITY, sleeve: OPPORTUNITY_LIQUIDITY, thesis_type: LIQUIDITY_CREDIT, discovery_profile: opportunity_liquidity, research_profile: liquidity_credit, entry_policy: LIQUIDITY_ALLOCATION}
+  MONETARY_HEDGE: {enabled: false, core: CORE_2_PRESERVATION, sleeve: MONETARY_HEDGE, thesis_type: MONETARY_HEDGE, discovery_profile: monetary_hedge, research_profile: monetary_hedge, entry_policy: HEDGE_RULE}
+  COMPOUNDER: {enabled: true, core: CORE_3_GROWTH, sleeve: HIGH_CONVICTION, thesis_type: STRATEGIC, discovery_profile: compounder, research_profile: strategic, entry_policy: VALUATION_ZONE, parameters: {min_score: 60}}
+  GROWTH: {enabled: false, core: CORE_3_GROWTH, sleeve: HIGH_CONVICTION, thesis_type: STRATEGIC, discovery_profile: growth, research_profile: strategic, entry_policy: VALUATION_ZONE}
+  MOMENTUM_ETF: {enabled: true, core: CORE_3_GROWTH, sleeve: SYSTEMATIC_RETURN, thesis_type: SYSTEMATIC, discovery_profile: momentum_monthly, research_profile: systematic, entry_policy: SIGNAL_REBALANCE, parameters: {universe: [QQQ, XLE, XLF, XLI, EFA, EEM, GLD], select_top: 2, minimum_signal: 0.6, maximum_signal: 2.7, no_signal_action: CASH_MEP, rebalance: FIRST_TRADING_DAY_OF_MONTH}}
+  GLOBAL_ETF: {enabled: false, core: CORE_3_GROWTH, sleeve: GLOBAL_BASE, thesis_type: SYSTEMATIC, discovery_profile: global_etf, research_profile: systematic, entry_policy: SIGNAL_REBALANCE}
+  TACTICAL_SWING: {enabled: false, core: CORE_4_ALPHA_ASYMMETRY, sleeve: TACTICAL, thesis_type: TACTICAL, discovery_profile: tactical_swing, research_profile: tactical, entry_policy: RULED_TACTICAL, parameters: {max_sleeve: 0.05, target_ratio: 3.0}}
+  ASYMETRIC: {enabled: false, core: CORE_4_ALPHA_ASYMMETRY, sleeve: ALPHA_ASYMMETRY, thesis_type: STRATEGIC, discovery_profile: asymmetric, research_profile: strategic, entry_policy: VALUATION_ZONE}
+  DEEP_VALUE: {enabled: false, core: CORE_4_ALPHA_ASYMMETRY, sleeve: VALUE_ASYMMETRY, thesis_type: STRATEGIC, discovery_profile: deep_value, research_profile: strategic, entry_policy: VALUATION_ZONE}
+  SPECULATIVE: {enabled: false, core: CORE_4_ALPHA_ASYMMETRY, sleeve: SPECULATIVE, thesis_type: TACTICAL, discovery_profile: speculative, research_profile: tactical, entry_policy: MANUAL_REVIEW, parameters: {max_weight: 0.01}}

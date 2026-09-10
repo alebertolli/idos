@@ -184,12 +184,26 @@ class SQLiteStore:
             c.execute("ALTER TABLE opportunities ADD COLUMN last_thesis_assessment_at TEXT DEFAULT ''")
         except Exception:
             pass
+        for column, definition in (
+            ("strategy_id", "TEXT DEFAULT 'COMPOUNDER'"),
+            ("strategy_version", "TEXT DEFAULT 'legacy-compatible'"),
+            ("core", "TEXT DEFAULT ''"),
+            ("sleeve", "TEXT DEFAULT ''"),
+            ("thesis_type", "TEXT DEFAULT ''"),
+            ("entry_policy", "TEXT DEFAULT ''"),
+            ("research_profile", "TEXT DEFAULT ''"),
+            ("origin", "TEXT DEFAULT 'automated'"),
+        ):
+            try:
+                c.execute(f"ALTER TABLE opportunities ADD COLUMN {column} {definition}")
+            except Exception:
+                pass
 
     def save_opportunity(self, opp: dict[str, Any]):
         with self._write_transaction() as c:
             c.execute("""
-                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, thesis_active, thesis_invalidated_reason, exit_reason, last_research_at, last_thesis_assessment_at, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, thesis_active, thesis_invalidated_reason, exit_reason, last_research_at, last_thesis_assessment_at, strategy_id, strategy_version, core, sleeve, thesis_type, entry_policy, research_profile, origin, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 opp["id"], opp["ticker"], opp["status"],
                 json.dumps(opp.get("conviction", {})),
@@ -200,6 +214,14 @@ class SQLiteStore:
                 opp.get("exit_reason", ""),
                 opp.get("last_research_at", ""),
                 opp.get("last_thesis_assessment_at", ""),
+                opp.get("strategy_id", "COMPOUNDER"),
+                opp.get("strategy_version", "legacy-compatible"),
+                opp.get("core", ""),
+                opp.get("sleeve", ""),
+                opp.get("thesis_type", ""),
+                opp.get("entry_policy", ""),
+                opp.get("research_profile", ""),
+                opp.get("origin", "automated"),
                 opp.get("created_at", datetime.now(AR_TZ).isoformat()),
                 opp.get("updated_at", datetime.now(AR_TZ).isoformat()),
             ))

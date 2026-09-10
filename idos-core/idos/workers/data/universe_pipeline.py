@@ -16,6 +16,7 @@ from idos.discovery.watchlist import WatchlistManager
 from idos.discovery.ranking import RankingSystem
 from idos.data.journal import JournalRepository
 from idos.timezone import AR_TZ
+from idos.strategy.catalog import StrategyCatalog
 
 class UniversePipeline(BaseWorker):
     name = "universe_pipeline"
@@ -25,6 +26,9 @@ class UniversePipeline(BaseWorker):
         super().__init__(config)
         self.journal_path = config.get("journal_path", "")
         self.config_path = config.get("config_path", "idos-config")
+        self.strategy_id = str(config.get("strategy_id", "COMPOUNDER")).upper()
+        self.strategy_catalog = StrategyCatalog(Path(self.config_path) / "strategies.yml")
+        self.strategy = self.strategy_catalog.get(self.strategy_id)
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         metrics = PipelineMetrics()
@@ -224,12 +228,10 @@ class UniversePipeline(BaseWorker):
                                 opp_file = opp / "opportunity.yml"
                                 if opp_file.exists():
                                     try:
-                                        raw = opp_file.read_text(encoding="utf-8")
-                                        if "ticker:" in raw:
-                                            for line in raw.splitlines():
-                                                if line.strip().startswith("ticker:"):
-                                                    existing.add(line.split(":", 1)[1].strip().strip("'\"").upper())
-                                                    break
+                                        raw = yaml.safe_load(opp_file.read_text(encoding="utf-8")) or {}
+                                        existing_ticker = str(raw.get("ticker", d.name)).upper()
+                                        existing_strategy = str(raw.get("strategy_id", "COMPOUNDER")).upper()
+                                        existing.add((existing_ticker, existing_strategy))
                                     except Exception:
                                         pass
 
@@ -242,7 +244,7 @@ class UniversePipeline(BaseWorker):
         seq = 1
         for entry in eligible:
             ticker = entry["ticker"].upper()
-            if ticker in existing:
+            if (ticker, self.strategy_id) in existing:
                 metrics.opportunities_existing += 1
                 continue
 
@@ -252,6 +254,14 @@ class UniversePipeline(BaseWorker):
                 id=opp_id,
                 ticker=ticker,
                 status=OpportunityStatus.SCREENED,
+                strategy_id=self.strategy.strategy_id,
+                strategy_version="1.0",
+                core=self.strategy.core,
+                sleeve=self.strategy.sleeve,
+                thesis_type=self.strategy.thesis_type,
+                entry_policy=self.strategy.entry_policy,
+                research_profile=self.strategy.research_profile,
+                origin="automated",
                 conviction=Conviction(overall=entry.get("score", 0)),
             )
             opp_data = opp.model_dump(mode="json")
@@ -260,7 +270,7 @@ class UniversePipeline(BaseWorker):
             opp_file = opp_dir / "opportunity.yml"
             with open(opp_file, "w", encoding="utf-8") as f:
                 yaml.dump(opp_data, f, default_flow_style=False, allow_unicode=True)
-            existing.add(ticker)
+            existing.add((ticker, self.strategy_id))
             created += 1
 
         metrics.opportunities_created = created

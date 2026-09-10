@@ -34,8 +34,12 @@ class BuyListRefreshWorker(BaseWorker):
         total_weight = sum(p.get("weight_pct", 0) for p in positions)
 
         opportunities = journal.list_all_opportunities()
-        approved = [o for o in opportunities if o["status"] == OpportunityStatus.APPROVED.value]
-        entry_pending = [o for o in opportunities if o["status"] == OpportunityStatus.ENTRY_PENDING.value]
+        valuation_opportunities = [
+            o for o in opportunities
+            if o.get("entry_policy") in (None, "", "VALUATION_ZONE")
+        ]
+        approved = [o for o in valuation_opportunities if o["status"] == OpportunityStatus.APPROVED.value]
+        entry_pending = [o for o in valuation_opportunities if o["status"] == OpportunityStatus.ENTRY_PENDING.value]
 
         if not approved and not entry_pending:
             print("[BUYLIST] No approved/entry-pending opportunities in journal; preserving existing buylist")
@@ -90,7 +94,7 @@ class BuyListRefreshWorker(BaseWorker):
                 ))
                 added += 1
 
-        all_tickers = {o["ticker"] for o in opportunities if o["status"] in ("APPROVED", "ENTRY_PENDING")}
+        all_tickers = {o["ticker"] for o in valuation_opportunities if o["status"] in ("APPROVED", "ENTRY_PENDING")}
         for entry in self.buylist.all():
             if entry.ticker not in all_tickers:
                 self.buylist.remove(entry.ticker)

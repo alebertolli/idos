@@ -8,8 +8,8 @@ from idos.knowledge.lifecycle import KnowledgeLifecycle, KnowledgeObject, Knowle
 from idos.knowledge.contradiction import ContradictionDetector
 from idos.timezone import AR_TZ
 
-def test_claim_create_and_store():
-    store = ClaimStore("idon-knoledge")
+def test_claim_create_and_store(tmp_path):
+    store = ClaimStore(str(tmp_path / "idon-knoledge"))
     claim = Claim(claim_id="CLAIM-001", statement="MELI dominates LatAm e-commerce",
                   confidence=0.92, category=EvidenceCategory.FACT)
     store.put(claim)
@@ -19,8 +19,8 @@ def test_claim_create_and_store():
     assert retrieved.confidence == 0.92
     assert retrieved.status == ClaimStatus.ACTIVE
 
-def test_claim_search():
-    store = ClaimStore("idon-knoledge")
+def test_claim_search(tmp_path):
+    store = ClaimStore(str(tmp_path / "idon-knoledge"))
     c1 = Claim(claim_id="C-001", statement="Revenue growing 30%+", tags=["growth"])
     c2 = Claim(claim_id="C-002", statement="High debt levels", tags=["risk"])
     store.put(c1)
@@ -29,8 +29,8 @@ def test_claim_search():
     assert len(results) == 1
     assert results[0].claim_id == "C-001"
 
-def test_claim_deprecate():
-    store = ClaimStore("idon-knoledge")
+def test_claim_deprecate(tmp_path):
+    store = ClaimStore(str(tmp_path / "idon-knoledge"))
     c = Claim(claim_id="C-DEP", statement="Old prediction")
     store.put(c)
     store.deprecate("C-DEP", "superseded by new data")

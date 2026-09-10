@@ -21,6 +21,14 @@ class Opportunity(BaseModel):
     id: str
     ticker: str
     status: OpportunityStatus = OpportunityStatus.DISCOVERED
+    strategy_id: str = "COMPOUNDER"
+    strategy_version: str = "legacy-compatible"
+    core: Optional[str] = None
+    sleeve: Optional[str] = None
+    thesis_type: Optional[str] = None
+    entry_policy: Optional[str] = None
+    research_profile: Optional[str] = None
+    origin: str = "automated"
     created_at: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
     updated_at: datetime = Field(default_factory=lambda: datetime.now(AR_TZ))
     conviction: Conviction = Field(default_factory=Conviction)

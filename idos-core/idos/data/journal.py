@@ -71,6 +71,8 @@ class JournalRepository:
                     if data:
                         if status is None or data.get("status") == status:
                             data["ticker"] = ticker
+                            data.setdefault("strategy_id", "COMPOUNDER")
+                            data.setdefault("strategy_version", "legacy-compatible")
                             results.append(data)
                 except Exception:
                     pass
