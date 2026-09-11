@@ -131,3 +131,24 @@ def test_universe_stats_included_in_dashboard_return():
 def test_universe_stats_empty_without_stats():
     result = _builder()._build_dashboard([], [], [], [], [], None)
     assert result["universe_stats"] == {}
+
+
+def test_dashboard_exposes_ide_and_portfolio_metrics():
+    opps = [{
+        "ticker": "AAA", "status": "UNDER_RESEARCH",
+        "scores": {"RiskAssessmentEngine": 70, "BusinessAssessmentEngine": 80},
+        "conviction_overall": 75,
+    }]
+    portfolio = {
+        "total_value": 1000,
+        "total_pl_pct": 12.5,
+        "positions_count": 1,
+        "corr_risk": {"score": 80, "hhi": 10000, "top_sector": "Technology"},
+    }
+    result = _builder()._build_dashboard(opps, [], [], [], [], portfolio=portfolio)
+    assert result["ide"]["engine_averages"]["RiskAssessmentEngine"] == 70
+    assert result["ide"]["conviction_average"] == 75
+    assert result["portfolio"]["corr_risk"]["score"] == 80
+
+    result = _builder()._build_dashboard(opps, [], [], [], [], portfolio=portfolio)
+    assert result["portfolio"]["total_value"] == 1000

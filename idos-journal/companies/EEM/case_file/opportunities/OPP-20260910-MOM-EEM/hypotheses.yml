@@ -1,0 +1,26 @@
+hypotheses:
+- confidence: 0.7
+  falsification:
+  - condition: La señal sale del rango operativo o cruza el umbral de salida
+    metric: momentum_signal
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La señal sale del rango operativo o cruza el umbral de salida
+  - La señal sale del rango operativo o cruza el umbral de salida
+  id: H-MOMENTUM-1-OPP-20260910-MOM-EEM
+  opportunity_id: OPP-20260910-MOM-EEM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: 1 mes
+    expected: 0.9972462920161291
+    met: null
+    metric: momentum_signal
+    unit: score
+  priority: important
+  probability: 0.5
+  statement: ''
+  status: ACTIVE
+  ticker: EEM
+  version: 1

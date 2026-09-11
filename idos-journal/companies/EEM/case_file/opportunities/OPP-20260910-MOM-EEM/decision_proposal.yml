@@ -1,120 +1,75 @@
 assessments:
   BusinessAssessmentEngine:
-    confidence: MEDIUM
+    confidence: LOW
     dependencies: []
     engine: BusinessAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-09-10T03:16:05.788351-03:00'
-    id: BusinessAssessmentEngine-20260910031605
-    recommendation: UNFAVORABLE
-    risks:
-    - detail: 'Low ROIC: 0%'
-      type: CAPITAL_ALLOCATION
-    - detail: 'Thin operating margin: 0%'
-      type: MARGIN
-    score: 32
+    generated_at: '2026-09-10T17:14:02.419319-03:00'
+    id: BusinessAssessmentEngine-20260910171402
+    recommendation: ''
+    risks: []
+    score: 37
     status: COMPLETED
-    version: '1.0'
+    version: precomputed
   PortfolioAssessmentEngine:
-    confidence: HIGH
+    confidence: LOW
     dependencies: []
     engine: PortfolioAssessmentEngine
     evidence_ids: []
-    findings:
-    - detail: Portfolio has capacity for new position
-      type: POSITIVE
-    - detail: Sector  within diversification limits
-      type: POSITIVE
-    - detail: Only 0 positions, adding increases diversification
-      type: POSITIVE
-    generated_at: '2026-09-10T03:16:05.788439-03:00'
-    id: PortfolioAssessmentEngine-20260910031605
-    recommendation: EXCELLENT_FIT
+    findings: []
+    generated_at: '2026-09-10T17:14:02.419355-03:00'
+    id: PortfolioAssessmentEngine-20260910171402
+    recommendation: ''
     risks: []
-    score: 90
+    score: 37
     status: COMPLETED
-    version: '1.0'
+    version: precomputed
   RecoveryAssessmentEngine:
-    confidence: MEDIUM
+    confidence: LOW
     dependencies: []
     engine: RecoveryAssessmentEngine
     evidence_ids: []
-    findings:
-    - dimension: business_momentum
-      level: LOW
-      score: 35
-      type: DIMENSION
-    - dimension: valuation_gap
-      level: MEDIUM
-      score: 60
-      type: DIMENSION
-    - dimension: market_expectations
-      level: MEDIUM
-      score: 50
-      type: DIMENSION
-    - dimension: catalysts
-      level: LOW
-      score: 30
-      type: DIMENSION
-    - dimension: technical_confirmation
-      level: MEDIUM
-      score: 50
-      type: DIMENSION
-    - dimension: risk_compression
-      level: MEDIUM
-      score: 60
-      type: DIMENSION
-    generated_at: '2026-09-10T03:16:05.788414-03:00'
-    id: RecoveryAssessmentEngine-20260910031605
-    recommendation: MODERATE
+    findings: []
+    generated_at: '2026-09-10T17:14:02.419345-03:00'
+    id: RecoveryAssessmentEngine-20260910171402
+    recommendation: ''
     risks: []
-    score: 45
+    score: 37
     status: COMPLETED
-    version: '1.0'
+    version: precomputed
   RiskAssessmentEngine:
-    confidence: MEDIUM
+    confidence: LOW
     dependencies: []
     engine: RiskAssessmentEngine
     evidence_ids: []
-    findings:
-    - detail: Low leverage
-      type: POSITIVE
-    generated_at: '2026-09-10T03:16:05.788428-03:00'
-    id: RiskAssessmentEngine-20260910031605
-    recommendation: LOW_RISK
-    risks:
-    - detail: 'Current ratio below 1: 0.0x'
-      type: LIQUIDITY
-    score: 70
+    findings: []
+    generated_at: '2026-09-10T17:14:02.419350-03:00'
+    id: RiskAssessmentEngine-20260910171402
+    recommendation: ''
+    risks: []
+    score: 37
     status: COMPLETED
-    version: '1.0'
+    version: precomputed
   ValuationAssessmentEngine:
-    confidence: MEDIUM
+    confidence: LOW
     dependencies: []
     engine: ValuationAssessmentEngine
     evidence_ids: []
-    findings:
-    - detail: 'Price target upside: 30.0%'
-      type: POSITIVE
-    generated_at: '2026-09-10T03:16:05.788377-03:00'
-    id: ValuationAssessmentEngine-20260910031605
-    recommendation: FAIR
+    findings: []
+    generated_at: '2026-09-10T17:14:02.419338-03:00'
+    id: ValuationAssessmentEngine-20260910171402
+    recommendation: ''
     risks: []
-    score: 65
+    score: 37
     status: COMPLETED
-    version: '1.1'
-conviction_score: 54
-created_at: '2026-09-10T03:16:05.788527-03:00'
-generated_at: '2026-09-10T03:16:05.789848-03:00'
+    version: precomputed
+conviction_score: 37
+created_at: '2026-09-10T17:14:02.419433-03:00'
+generated_at: '2026-09-10T17:14:02.424372-03:00'
 opportunity_id: OPP-20260910-MOM-EEM
-reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-005, RULE-008'
-recommendation: BLOCKED
-rules_failed:
-- RULE-001
-- RULE-003
-- RULE-005
-- RULE-008
-rules_passed:
-- RULE-004
+reasoning: 'Conviction: 37/100, 0 rules passed'
+recommendation: REJECT
+rules_failed: []
+rules_passed: []
 type: opportunity:transitioned

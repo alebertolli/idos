@@ -1029,7 +1029,9 @@ class SiteBuilder:
     def _build_dashboard(self, opps: list[dict], positions: list[dict],
                          buylist: list[dict], watchlist: list[dict], learning: list[dict],
                          universe_stats: dict = None,
-                         discovery_pool: list[dict] = None) -> dict:
+                         discovery_pool: list[dict] = None,
+                         portfolio: dict | None = None,
+                         strategy_signals: dict | None = None) -> dict:
         funnel: dict[str, int] = {}
         for o in opps:
             funnel[o["status"]] = funnel.get(o["status"], 0) + 1
@@ -1095,6 +1097,27 @@ class SiteBuilder:
             if o.get("trend") == "DETERIORATING":
                 alerts.append({"severity": "warn", "ticker": o["ticker"],
                                "message": "Convicción deteriorándose"})
+
+        score_totals: dict[str, list[float]] = {}
+        convictions: list[float] = []
+        for opportunity in opps:
+            for engine, score in (opportunity.get("scores") or {}).items():
+                if isinstance(score, (int, float)):
+                    score_totals.setdefault(engine, []).append(float(score))
+            conviction = opportunity.get("conviction_overall")
+            if isinstance(conviction, (int, float)) and conviction > 0:
+                convictions.append(float(conviction))
+        ide = {
+            "opportunities": len(opps),
+            "engine_averages": {
+                engine: round(sum(values) / len(values), 1)
+                for engine, values in sorted(score_totals.items()) if values
+            },
+            "conviction_average": round(sum(convictions) / len(convictions), 1) if convictions else None,
+            "research_stale": len(stale),
+            "strategy_signals": strategy_signals or {},
+        }
+        pf = portfolio or {}
         return {
             "sections": sections,
             "alerts": alerts,
@@ -1106,7 +1129,39 @@ class SiteBuilder:
                 "learning": len(learning),
             },
             "universe_stats": universe_stats if universe_stats else {},
+            "ide": ide,
+            "portfolio": {
+                "total_value": pf.get("total_value"),
+                "total_invested": pf.get("total_invested"),
+                "total_pl_pct": pf.get("total_pl_pct"),
+                "positions_count": pf.get("positions_count", len(positions)),
+                "corr_risk": pf.get("corr_risk") or {},
+                "sector_top": pf.get("sector_top") or {},
+            },
         }
+
+    def _load_strategy_signals(self) -> dict[str, dict]:
+        """Load the latest persisted signal report for each enabled strategy."""
+        root = self.journal / "strategies"
+        latest: dict[str, dict] = {}
+        if not root.exists():
+            return latest
+        for strategy_dir in root.iterdir():
+            if not strategy_dir.is_dir():
+                continue
+            reports = sorted(strategy_dir.glob("*.yml"))
+            if not reports:
+                continue
+            report = _load_yaml(reports[-1])
+            if isinstance(report, dict):
+                latest[strategy_dir.name] = {
+                    "as_of_date": report.get("as_of_date"),
+                    "action": report.get("action"),
+                    "selected": report.get("selected") or [],
+                    "eligible_count": len(report.get("eligible") or []),
+                    "ranking": report.get("ranking") or [],
+                }
+        return latest
 
     # -- main build --
     def build(self) -> SiteData:
@@ -1126,7 +1181,11 @@ class SiteBuilder:
         portfolio = self._compute_portfolio(positions)
         universe_stats = self._load_universe_stats()
         discovery_pool = self._load_discovery_pool(universe_stats)
-        dashboard = self._build_dashboard(opps, positions, buylist, watchlist, learning, universe_stats, discovery_pool)
+        strategy_signals = self._load_strategy_signals()
+        dashboard = self._build_dashboard(
+            opps, positions, buylist, watchlist, learning, universe_stats, discovery_pool,
+            portfolio=portfolio, strategy_signals=strategy_signals,
+        )
 
         return SiteData(
             generated_at=datetime.now(AR_TZ).isoformat(),
@@ -1364,6 +1423,9 @@ function goTab(id){
 // ---------- Dashboard ----------
 function renderDashboard(){
   const d = DATA.dashboard;
+  const ide = d.ide||{};
+  const pf = d.portfolio||{};
+  const cr = pf.corr_risk||{};
   let html = '<div class="grid">';
   (d.sections||[]).forEach(s=>{
     html += `<div class="card" style="cursor:pointer" onclick="goTab('${s.tab}')" title="Ver ${esc(s.label)}">
@@ -1372,6 +1434,28 @@ function renderDashboard(){
     </div>`;
   });
   html += '</div>';
+  html += '<h2>Métricas del IDE</h2><div class="grid">';
+  html += `<div class="card"><div class="muted">Oportunidades evaluadas</div><div style="font-size:24px;font-weight:700">${ide.opportunities??0}</div></div>`;
+  html += `<div class="card"><div class="muted">Convicción media</div><div style="font-size:24px;font-weight:700">${ide.conviction_average!=null?fmt(ide.conviction_average,1):'—'}</div></div>`;
+  html += `<div class="card"><div class="muted">Research stale</div><div style="font-size:24px;font-weight:700" class="${(ide.research_stale||0)>0?'neg':''}">${ide.research_stale??0}</div></div>`;
+  Object.entries(ide.engine_averages||{}).forEach(([engine,score])=>{
+    html += `<div class="card"><div class="muted">${esc(engine)}</div><div style="font-size:20px;font-weight:700">${fmt(score,1)}/100</div></div>`;
+  });
+  html += '</div>';
+  html += '<h2>Riesgo de cartera</h2><div class="grid">';
+  html += `<div class="card"><div class="muted">Valor de cartera</div><div style="font-size:20px;font-weight:700">${money(pf.total_value)}</div><div class="muted">P/L ${pct(pf.total_pl_pct,true)}</div></div>`;
+  html += `<div class="card"><div class="muted">Riesgo de correlación (proxy)</div><div style="font-size:20px;font-weight:700" class="${(cr.score||0)>=40?'neg':''}">${cr.score!=null?fmt(cr.score,1)+'%':'—'}</div><div class="muted">${esc(cr.top_sector||'Sin concentración sectorial')} · ${esc(cr.interpretation||'')}</div></div>`;
+  html += `<div class="card"><div class="muted">HHI de posiciones</div><div style="font-size:20px;font-weight:700">${cr.hhi!=null?fmt(cr.hhi,1):'—'}</div><div class="muted">${pf.positions_count??0} posiciones</div></div>`;
+  html += '</div>';
+  const strategies = ide.strategy_signals||{};
+  if(Object.keys(strategies).length){
+    html += '<h2>Señales sistemáticas</h2><div class="grid">';
+    Object.entries(strategies).forEach(([name,s])=>{
+      const selected=(s.selected||[]).map(x=>`${esc(x.ticker)} (${fmt(x.momentum,2)})`).join(', ')||'Sin selección';
+      html += `<div class="card"><div class="muted">${esc(name)} · ${esc(s.as_of_date||'')}</div><div style="font-weight:700">${esc(s.action||'—')}</div><div class="muted">${selected}</div><div class="muted">Elegibles: ${s.eligible_count??0}</div></div>`;
+    });
+    html += '</div>';
+  }
   html += '<h2>Alertas</h2>';
   if(!d.alerts.length) html += '<p class="muted">Sin alertas.</p>';
   d.alerts.forEach(a=>html+=`<div class="alert ${a.severity==='high'?'high':''}"><b>${esc(a.ticker)}</b> — ${esc(a.message)}</div>`);

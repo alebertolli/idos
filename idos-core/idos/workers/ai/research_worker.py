@@ -60,12 +60,25 @@ class ResearchWorker(BaseWorker):
             if yaml_opp:
                 sqlite.save_opportunity(yaml_opp)
                 opp = sqlite.get_opportunity(opp_id)
+                # Keep strategy-specific fields that older SQLite schemas did
+                # not persist (notably the raw Momentum signal).
+                if opp is not None:
+                    for key in ("signal", "strategy_id", "strategy_version", "research_profile", "entry_policy"):
+                        if key in yaml_opp:
+                            opp[key] = yaml_opp[key]
                 print(f"[RESEARCH] {ticker}: restored from journal YAML -> SQLite")
+        else:
+            yaml_opp = journal.load_opportunity(ticker, opp_id)
+            if yaml_opp:
+                for key in ("signal", "strategy_id", "strategy_version", "research_profile", "entry_policy"):
+                    if not opp.get(key) and yaml_opp.get(key):
+                        opp[key] = yaml_opp[key]
         if not opp:
             msg = f"Opportunity {opp_id} not found"
             raise ValueError(msg)
 
         current_status = OpportunityStatus(opp["status"])
+        is_systematic = str(opp.get("research_profile", "")).lower() == "systematic"
         if not force_reprocess:
             if not self.state_machine.can_transition(current_status, OpportunityStatus.UNDER_RESEARCH):
                 return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
@@ -83,7 +96,7 @@ class ResearchWorker(BaseWorker):
         previous_wiki = knowledge.get_wiki_text(ticker)
         prior_catalysts = self._load_prior_catalysts(ticker, journal)
 
-        ddd_result = self._run_prompt("ddd", ticker, {
+        ddd_inputs = {
             "ticker": ticker,
             "name": company.get("name", ticker),
             "existing_wiki": previous_wiki,
@@ -106,7 +119,15 @@ class ResearchWorker(BaseWorker):
             "insider_ownership": financial_data.get("insider_ownership", 0),
             "capital_allocation": financial_data.get("capital_allocation", "N/A"),
             "recent_events": financial_data.get("recent_events", company.get("business_model", "")[:500]),
-        })
+        }
+        # Systematic strategies have a signal thesis, not a corporate fundamental
+        # thesis. Running them through the generic DDD prompt produced the same
+        # boilerplate report for every ETF and left the lifecycle dependent on
+        # fundamental rules that do not apply to this strategy.
+        ddd_result = (
+            self._build_systematic_ddd(ticker, opp, financial_data)
+            if is_systematic else self._run_prompt("ddd", ticker, ddd_inputs)
+        )
 
         classification = ddd_result.get("clasificacion_oportunidad", {})
         market_error = ddd_result.get("error_mercado", {})
@@ -166,18 +187,37 @@ class ResearchWorker(BaseWorker):
         with open(report_path, "w", encoding="utf-8") as f:
             yaml_lib.dump(ddd_report, f, default_flow_style=False, allow_unicode=True)
 
-        time.sleep(15)
-        hypothesis_result = self._run_prompt("hypothesis", ticker, {
+        if is_systematic:
+            hypothesis_result = {
+                "hipotesis": [{
+                    "id": "H-MOMENTUM-1",
+                    "enunciado": f"La señal mensual de momentum de {ticker} se mantiene dentro del rango operativo y justifica la asignación hasta el próximo rebalanceo.",
+                    "probabilidad": 0.5,
+                    "confianza": 0.7,
+                    "predicciones": [{"metrica": "momentum_signal", "valor_esperado": opp.get("signal", {}).get("momentum", 0), "unidad": "score", "plazo": "1 mes"}],
+                    "condiciones_falsacion": [{"condicion": "La señal sale del rango operativo o cruza el umbral de salida", "metrica": "momentum_signal", "umbral": 0}],
+                }]
+            }
+        else:
+            time.sleep(15)
+            hypothesis_result = self._run_prompt("hypothesis", ticker, {
             "ticker": ticker,
             "name": company.get("name", ticker),
             "sector": company.get("sector", ""),
             "thesis_statement": thesis,
             "key_drivers": market_error.get("hipotesis_contraria", ""),
             "recent_events": financial_data.get("recent_events", ""),
-        })
+            })
 
-        time.sleep(15)
-        aoif_result = self._run_prompt("aoif", ticker, {
+        if is_systematic:
+            aoif_result = {
+                "tipo_analisis": "systematic_momentum",
+                "conclusion": "La decisión depende del ranking mensual y de la disciplina de rebalanceo; no se aplica valoración fundamental.",
+                "riesgos": ddd_result.get("dominio_riesgos", []),
+            }
+        else:
+            time.sleep(15)
+            aoif_result = self._run_prompt("aoif", ticker, {
             "ticker": ticker,
             "name": company.get("name", ticker),
             "company_data": f"Sector: {company.get('sector', '')}\nBusiness: {company.get('business_model', '')}",
@@ -187,9 +227,10 @@ class ResearchWorker(BaseWorker):
             "pe_ratio": financial_data.get("pe_ratio", 0),
             "ev_ebitda": financial_data.get("ev_ebitda", 0),
             "fcf_yield": financial_data.get("fcf_yield", 0),
-        })
+            })
 
-        self._build_knowledge_base(ticker, opp_id, company, financial_data, ddd_result, aoif_result, thesis, knowledge, ddd_empty)
+        if not is_systematic:
+            self._build_knowledge_base(ticker, opp_id, company, financial_data, ddd_result, aoif_result, thesis, knowledge, ddd_empty)
 
         assessment_id = f"ass-{uuid4().hex[:8]}"
         assessment = {
@@ -247,6 +288,7 @@ class ResearchWorker(BaseWorker):
                 opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
                 opp["last_research_at"] = datetime.now(AR_TZ).isoformat()
                 sqlite.save_opportunity(opp)
+                journal.save_opportunity(ticker, opp)
                 sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
                                          cause="research_completed", worker="research_worker")
                 event_data = {
@@ -262,6 +304,7 @@ class ResearchWorker(BaseWorker):
                 opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
                 opp["last_research_at"] = datetime.now(AR_TZ).isoformat()
                 sqlite.save_opportunity(opp)
+                journal.save_opportunity(ticker, opp)
                 sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
                                          cause="research_completed", worker="research_worker")
             event_data = {
@@ -325,6 +368,63 @@ class ResearchWorker(BaseWorker):
                 }
                 prior.append(item)
         return prior
+
+    @staticmethod
+    def _build_systematic_ddd(ticker: str, opportunity: dict[str, Any], financial: dict[str, Any]) -> dict[str, Any]:
+        """Build an auditable DDD-shaped report for a signal-driven strategy."""
+        signal = opportunity.get("signal") or {}
+        momentum = float(signal.get("momentum") or 0)
+        # The configured strategy range is 0.6..2.7. Keep the score bounded and
+        # preserve the raw signal so the decision can be reproduced later.
+        signal_score = max(0, min(100, round(momentum / 2.7 * 100))) if momentum else 0
+        volatility = financial.get("volatility_90d") or financial.get("volatility")
+        try:
+            volatility = float(volatility)
+        except (TypeError, ValueError):
+            volatility = 0
+        risk_rating = "alto_riesgo" if volatility >= 45 else "medio_riesgo" if volatility >= 25 else "bajo_riesgo"
+        thesis = f"{ticker}: exposición sistemática a momentum mensual; la señal actual es {momentum:.2f}."
+        return {
+            "clasificacion_oportunidad": {
+                "categoria": "systematic_momentum",
+                "categorias_descartadas": ["compounder", "deep_value", "growth_fundamental"],
+                "justificacion": "La oportunidad se evalúa por señal, ranking y rebalanceo mensual; no por DDD corporativo.",
+            },
+            "error_mercado": {
+                "conclusion_error_valoracion": "NO_APLICA",
+                "hipotesis_contraria": "La persistencia del momentum puede romperse antes del próximo rebalanceo.",
+                "consenso_actual": "No se utiliza consenso fundamental.",
+                "razonamiento": "La señal cuantitativa y sus límites son la evidencia primaria.",
+            },
+            "tesis_inversion": thesis,
+            "score_general": signal_score,
+            "dominio_riesgos": [{
+                "riesgo": "Reversión brusca del momentum",
+                "probabilidad": "media",
+                "impacto": "alto",
+                "descripcion": "La señal puede deteriorarse entre rebalanceos; aplicar límites de peso y salida.",
+            }],
+            "dominio_catalizadores": [{
+                "descripcion": "Persistencia del ranking relativo hasta el próximo rebalanceo",
+                "horizonte": "corto",
+                "impacto": "alto",
+                "probabilidad_pct": 50,
+            }],
+            "dominio_business_quality": {"rating": "no_aplica", "analisis": "No es un criterio de una estrategia sistemática."},
+            "dominio_financial_health": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
+            "dominio_management": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
+            "dominio_growth": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
+            "dominio_esg_supply_chain": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
+            "opinion_valoracion": "No aplica: la entrada se decide por señal y rebalanceo.",
+            "resumen_ejecutivo": f"Momentum mensual {momentum:.2f}; score normalizado {signal_score}/100; volatilidad 90d {volatility:.1f}%.",
+            "calidad_evidencia": {
+                "hechos_verificados": [f"Señal momentum mensual: {momentum:.2f}", f"Fecha de señal: {signal.get('as_of_date', 'N/A')}"],
+                "inferencias_llm": [],
+                "preguntas_abiertas": ["¿La señal persistirá hasta el próximo rebalanceo?"] ,
+            },
+            "integridad_tesis": {"thesis_active": True, "reason": "La tesis permanece activa mientras la señal esté dentro del rango operativo."},
+            "strategy_context": {"strategy_id": opportunity.get("strategy_id"), "signal": signal, "risk_rating": risk_rating},
+        }
 
     def _persist_hypotheses(self, ticker: str, opp_id: str, thesis: str,
                             raw: list[Any], journal: Any, sqlite: Any):

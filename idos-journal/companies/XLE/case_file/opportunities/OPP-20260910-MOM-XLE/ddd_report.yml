@@ -1,31 +1,72 @@
-calidad_evidencia: {}
-catalizadores_previos: []
-clasificacion_oportunidad: {}
+calidad_evidencia:
+  hechos_verificados:
+  - 'Señal momentum mensual: 1.81'
+  - 'Fecha de señal: 2026-09-01'
+  inferencias_llm: []
+  preguntas_abiertas:
+  - ¿La señal persistirá hasta el próximo rebalanceo?
+catalizadores_previos:
+- descripcion: Persistencia del ranking relativo hasta el próximo rebalanceo
+  generated_at: '2026-09-10T17:11:08.838464-03:00'
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: ''
+  opp_id: OPP-20260910-MOM-XLE
+  probabilidad_anterior: 50
+clasificacion_oportunidad:
+  categoria: systematic_momentum
+  categorias_descartadas:
+  - compounder
+  - deep_value
+  - growth_fundamental
+  justificacion: La oportunidad se evalúa por señal, ranking y rebalanceo mensual;
+    no por DDD corporativo.
 comparativa_catalizadores: []
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-09-10T03:15:34.315953-03:00'
-integridad_tesis: {}
-opinion_valoracion: ''
+dominio_business_quality:
+  analisis: No es un criterio de una estrategia sistemática.
+  rating: no_aplica
+dominio_catalizadores:
+- descripcion: Persistencia del ranking relativo hasta el próximo rebalanceo
+  horizonte: corto
+  impacto: alto
+  probabilidad_pct: 50
+dominio_esg_supply_chain:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_financial_health:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_growth:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_management:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_riesgos:
+- descripcion: La señal puede deteriorarse entre rebalanceos; aplicar límites de peso
+    y salida.
+  impacto: alto
+  probabilidad: media
+  riesgo: Reversión brusca del momentum
+error_mercado:
+  conclusion_error_valoracion: NO_APLICA
+  consenso_actual: No se utiliza consenso fundamental.
+  hipotesis_contraria: La persistencia del momentum puede romperse antes del próximo
+    rebalanceo.
+  razonamiento: La señal cuantitativa y sus límites son la evidencia primaria.
+generated_at: '2026-09-10T17:13:03.197098-03:00'
+integridad_tesis:
+  reason: La tesis permanece activa mientras la señal esté dentro del rango operativo.
+  thesis_active: true
+opinion_valoracion: 'No aplica: la entrada se decide por señal y rebalanceo.'
 opp_id: OPP-20260910-MOM-XLE
 prompt_inputs:
-  business_model: 'In seeking to track the performance of the index, the fund employs
-    a replication strategy. It generally invests substantially all, but at least 95%,
-    of its total assets in the securities comprising the index. The index includes
-    companies that have been identified as Energy companies by the GICS®, including
-    securities of companies from the following industries: oil, gas and consumable
-    fuels; and energy equipment and services. It is non-diversified.'
+  business_model: ''
   ceo_tenure: 0
   debt_to_equity: 0
   fcf_adjusted: 0
   insider_ownership: 0
-  name: State Street Energy Select Sector SPDR ETF
+  name: XLE
   operating_margin: 0
   pe_ratio: 0
   products: ''
@@ -34,9 +75,11 @@ prompt_inputs:
   roic: 0
   sector: ''
   ticker: XLE
-resumen_ejecutivo: ''
-score_general: 50
+resumen_ejecutivo: Momentum mensual 1.81; score normalizado 67/100; volatilidad 90d
+  0.0%.
+score_general: 67
 target_consensus: null
-tesis_inversion: ''
+tesis_inversion: 'XLE: exposición sistemática a momentum mensual; la señal actual
+  es 1.81.'
 ticker: XLE
 version: '3.0'

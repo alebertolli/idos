@@ -30,6 +30,17 @@ def _mock_research_registry() -> MagicMock:
 
 
 class TestResearchWorker:
+    def test_systematic_ddd_is_signal_specific(self):
+        report = ResearchWorker._build_systematic_ddd(
+            "XLE",
+            {"strategy_id": "MOMENTUM_ETF", "signal": {"momentum": 1.8, "as_of_date": "2026-09-01"}},
+            {"volatility_90d": 30},
+        )
+        assert report["clasificacion_oportunidad"]["categoria"] == "systematic_momentum"
+        assert report["score_general"] == 67
+        assert report["strategy_context"]["signal"]["momentum"] == 1.8
+        assert report["calidad_evidencia"]["inferencias_llm"] == []
+
     def test_research_completes(
         self,
         seeded_opportunity: tuple[str, str],

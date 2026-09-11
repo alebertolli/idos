@@ -50,6 +50,7 @@ class SQLiteStore:
                 exit_reason TEXT DEFAULT '',
                 last_research_at TEXT DEFAULT '',
                 last_thesis_assessment_at TEXT DEFAULT '',
+                signal_json TEXT DEFAULT '{}',
                 created_at TEXT NOT NULL,
                 updated_at TEXT NOT NULL
             );
@@ -193,6 +194,7 @@ class SQLiteStore:
             ("entry_policy", "TEXT DEFAULT ''"),
             ("research_profile", "TEXT DEFAULT ''"),
             ("origin", "TEXT DEFAULT 'automated'"),
+            ("signal_json", "TEXT DEFAULT '{}'"),
         ):
             try:
                 c.execute(f"ALTER TABLE opportunities ADD COLUMN {column} {definition}")
@@ -202,8 +204,8 @@ class SQLiteStore:
     def save_opportunity(self, opp: dict[str, Any]):
         with self._write_transaction() as c:
             c.execute("""
-                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, thesis_active, thesis_invalidated_reason, exit_reason, last_research_at, last_thesis_assessment_at, strategy_id, strategy_version, core, sleeve, thesis_type, entry_policy, research_profile, origin, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, thesis_active, thesis_invalidated_reason, exit_reason, last_research_at, last_thesis_assessment_at, strategy_id, strategy_version, core, sleeve, thesis_type, entry_policy, research_profile, origin, signal_json, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 opp["id"], opp["ticker"], opp["status"],
                 json.dumps(opp.get("conviction", {})),
@@ -222,6 +224,7 @@ class SQLiteStore:
                 opp.get("entry_policy", ""),
                 opp.get("research_profile", ""),
                 opp.get("origin", "automated"),
+                json.dumps(opp.get("signal", {})),
                 opp.get("created_at", datetime.now(AR_TZ).isoformat()),
                 opp.get("updated_at", datetime.now(AR_TZ).isoformat()),
             ))
@@ -233,6 +236,7 @@ class SQLiteStore:
             return None
         result = dict(row)
         result["conviction"] = json.loads(result.pop("conviction_json", "{}"))
+        result["signal"] = json.loads(result.pop("signal_json", "{}") or "{}")
         result["thesis_active"] = bool(result.get("thesis_active", 1))
         return result
 
