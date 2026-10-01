@@ -7,8 +7,8 @@ assessments:
     findings:
     - detail: 'Exceptional ROIC: 27.55%'
       type: POSITIVE
-    generated_at: '2026-09-01T08:13:30.331500-03:00'
-    id: BusinessAssessmentEngine-20260901081330
+    generated_at: '2026-10-01T09:31:36.451530-03:00'
+    id: BusinessAssessmentEngine-20261001093136
     recommendation: NEUTRAL
     risks: []
     score: 60
@@ -26,8 +26,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-09-01T08:13:30.331563-03:00'
-    id: PortfolioAssessmentEngine-20260901081330
+    generated_at: '2026-10-01T09:31:36.451592-03:00'
+    id: PortfolioAssessmentEngine-20261001093136
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -63,8 +63,8 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-09-01T08:13:30.331545-03:00'
-    id: RecoveryAssessmentEngine-20260901081330
+    generated_at: '2026-10-01T09:31:36.451575-03:00'
+    id: RecoveryAssessmentEngine-20261001093136
     recommendation: MODERATE
     risks: []
     score: 54
@@ -76,8 +76,8 @@ assessments:
     engine: RiskAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-09-01T08:13:30.331553-03:00'
-    id: RiskAssessmentEngine-20260901081330
+    generated_at: '2026-10-01T09:31:36.451583-03:00'
+    id: RiskAssessmentEngine-20261001093136
     recommendation: LOW_RISK
     risks: []
     score: 70
@@ -89,28 +89,26 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'FCF Yield: 9.8%'
+    - detail: 'FCF Yield: 10.2%'
       type: POSITIVE
-    generated_at: '2026-09-01T08:13:30.331518-03:00'
-    id: ValuationAssessmentEngine-20260901081330
+    generated_at: '2026-10-01T09:31:36.451548-03:00'
+    id: ValuationAssessmentEngine-20261001093136
     recommendation: FAIR
-    risks:
-    - detail: 'Price target below current: -4.2%'
-      type: VALUATION
-    score: 55
+    risks: []
+    score: 65
     status: COMPLETED
     version: '1.1'
-conviction_score: 62
-created_at: '2026-09-01T08:13:30.331624-03:00'
-generated_at: '2026-09-01T08:13:30.332744-03:00'
+conviction_score: 65
+created_at: '2026-10-01T09:31:36.451651-03:00'
+generated_at: '2026-10-01T09:31:36.452749-03:00'
 opportunity_id: OPP-20260813-008
-reasoning: 'Rules blocked: RULE-001, RULE-005, RULE-008'
+reasoning: 'Rules blocked: RULE-001, RULE-008'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
-- RULE-005
 - RULE-008
 rules_passed:
 - RULE-003
 - RULE-004
+- RULE-005
 type: opportunity:transitioned

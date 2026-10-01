@@ -7,8 +7,8 @@ assessments:
     findings:
     - detail: 'High revenue growth: 42.19%'
       type: POSITIVE
-    generated_at: '2026-09-01T08:13:33.768759-03:00'
-    id: BusinessAssessmentEngine-20260901081333
+    generated_at: '2026-10-01T09:31:40.211203-03:00'
+    id: BusinessAssessmentEngine-20261001093140
     recommendation: NEUTRAL
     risks: []
     score: 62
@@ -26,8 +26,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-09-01T08:13:33.768822-03:00'
-    id: PortfolioAssessmentEngine-20260901081333
+    generated_at: '2026-10-01T09:31:40.211263-03:00'
+    id: PortfolioAssessmentEngine-20261001093140
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -63,8 +63,8 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-09-01T08:13:33.768803-03:00'
-    id: RecoveryAssessmentEngine-20260901081333
+    generated_at: '2026-10-01T09:31:40.211245-03:00'
+    id: RecoveryAssessmentEngine-20261001093140
     recommendation: MODERATE
     risks: []
     score: 53
@@ -78,8 +78,8 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-09-01T08:13:33.768812-03:00'
-    id: RiskAssessmentEngine-20260901081333
+    generated_at: '2026-10-01T09:31:40.211254-03:00'
+    id: RiskAssessmentEngine-20261001093140
     recommendation: LOW_RISK
     risks: []
     score: 80
@@ -90,27 +90,25 @@ assessments:
     dependencies: []
     engine: ValuationAssessmentEngine
     evidence_ids: []
-    findings:
-    - detail: 'Price target upside: 31.8%'
-      type: POSITIVE
-    generated_at: '2026-09-01T08:13:33.768777-03:00'
-    id: ValuationAssessmentEngine-20260901081333
-    recommendation: ATTRACTIVE
+    findings: []
+    generated_at: '2026-10-01T09:31:40.211217-03:00'
+    id: ValuationAssessmentEngine-20261001093140
+    recommendation: FAIR
     risks: []
-    score: 70
+    score: 55
     status: COMPLETED
     version: '1.1'
-conviction_score: 68
-created_at: '2026-09-01T08:13:33.768881-03:00'
-generated_at: '2026-09-01T08:13:33.770007-03:00'
+conviction_score: 64
+created_at: '2026-10-01T09:31:40.211320-03:00'
+generated_at: '2026-10-01T09:31:40.212432-03:00'
 opportunity_id: OPP-20260807-012
-reasoning: 'Rules blocked: RULE-001, RULE-008'
+reasoning: 'Rules blocked: RULE-001, RULE-005, RULE-008'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
+- RULE-005
 - RULE-008
 rules_passed:
 - RULE-003
 - RULE-004
-- RULE-005
 type: opportunity:transitioned

@@ -5,8 +5,8 @@ assessments:
     engine: BusinessAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-09-01T08:13:27.750621-03:00'
-    id: BusinessAssessmentEngine-20260901081327
+    generated_at: '2026-10-01T09:31:34.009783-03:00'
+    id: BusinessAssessmentEngine-20261001093134
     recommendation: NEUTRAL
     risks: []
     score: 58
@@ -24,8 +24,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-09-01T08:13:27.750686-03:00'
-    id: PortfolioAssessmentEngine-20260901081327
+    generated_at: '2026-10-01T09:31:34.009848-03:00'
+    id: PortfolioAssessmentEngine-20261001093134
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -61,8 +61,8 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-09-01T08:13:27.750667-03:00'
-    id: RecoveryAssessmentEngine-20260901081327
+    generated_at: '2026-10-01T09:31:34.009829-03:00'
+    id: RecoveryAssessmentEngine-20261001093134
     recommendation: MODERATE
     risks: []
     score: 51
@@ -76,31 +76,33 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-09-01T08:13:27.750676-03:00'
-    id: RiskAssessmentEngine-20260901081327
+    generated_at: '2026-10-01T09:31:34.009838-03:00'
+    id: RiskAssessmentEngine-20261001093134
     recommendation: LOW_RISK
     risks: []
     score: 80
     status: COMPLETED
     version: '1.0'
   ValuationAssessmentEngine:
-    confidence: MEDIUM
+    confidence: HIGH
     dependencies: []
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
+    - detail: 'Price target upside: 24.3%'
+      type: POSITIVE
     - detail: 'FCF Yield: 6.6%'
       type: POSITIVE
-    generated_at: '2026-09-01T08:13:27.750639-03:00'
-    id: ValuationAssessmentEngine-20260901081327
-    recommendation: FAIR
+    generated_at: '2026-10-01T09:31:34.009803-03:00'
+    id: ValuationAssessmentEngine-20261001093134
+    recommendation: ATTRACTIVE
     risks: []
-    score: 65
+    score: 75
     status: COMPLETED
     version: '1.1'
-conviction_score: 65
-created_at: '2026-09-01T08:13:27.750746-03:00'
-generated_at: '2026-09-01T08:13:27.751858-03:00'
+conviction_score: 67
+created_at: '2026-10-01T09:31:34.009906-03:00'
+generated_at: '2026-10-01T09:31:34.011019-03:00'
 opportunity_id: OPP-20260731-001
 reasoning: 'Rules blocked: RULE-001, RULE-008'
 recommendation: BLOCKED

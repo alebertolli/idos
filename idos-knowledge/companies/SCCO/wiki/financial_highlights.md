@@ -1,7 +1,7 @@
 - **ROIC**: 41.17
 - **Operating Margin**: 56.9
-- **Revenue Growth**: 6.77
+- **Revenue Growth**: 6.8
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.68
-- **PER**: 31.43
-- **EV/EBITDA**: 17.93
+- **PER**: 30.48
+- **EV/EBITDA**: 17.4

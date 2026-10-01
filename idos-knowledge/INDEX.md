@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 132 companies tracked
+Total: 133 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -114,6 +114,7 @@ Total: 132 companies tracked
 
 ## Other
 - 📄 [[EEM|iShares MSCI Emerging Markets ETF]]
+- ⏳ [[QQQ|Invesco QQQ Trust]]
 - 📄 [[XLE|State Street Energy Select Sector SPDR ETF]]
 
 ## Real Estate
