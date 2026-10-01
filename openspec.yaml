@@ -1,0 +1,324 @@
+openapi: 3.0.3
+info:
+  title: IDOS Investment Decision Operating System
+  description: API specification for the IDOS Investment Decision Operating System
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+
+paths:
+  /init:
+    post:
+      description: Initialize the IDOS system
+      responses:
+        '200':
+          description: System initialized successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [INITIALIZED]
+
+  /dashboard:
+    get:
+      description: Get overall system dashboard
+      responses:
+        '200':
+          description: Dashboard data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metrics:
+                    type: object
+                    properties:
+                      total_opportunities:
+                        type: integer
+                      active_positions:
+                        type: integer
+                      approval_rate:
+                        type: number
+                        format: float
+                  last_updated:
+                    type: string
+                    format: date-time
+
+  /opportunities:
+    get:
+      description: List all opportunities
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: List of opportunities
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Opportunity'
+
+    post:
+      description: Create a new opportunity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '201':
+          description: Opportunity created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+
+  /opportunities/{id}:
+    get:
+      description: Get opportunity details
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Opportunity details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+
+    put:
+      description: Update opportunity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '200':
+          description: Opportunity updated
+
+    delete:
+      description: Delete opportunity
+      responses:
+        '204':
+          description: Opportunity deleted
+
+  /companies:
+    get:
+      description: List all companies
+      responses:
+        '200':
+          description: List of companies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Company'
+
+    post:
+      description: Add a new company
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Company'
+      responses:
+        '201':
+          description: Company added
+
+  /companies/{id}:
+    get:
+      description: Get company details
+      responses:
+        '200':
+          description: Company details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+
+    put:
+      description: Update company
+      responses:
+        '200':
+          description: Company updated
+
+  /positions:
+    get:
+      description: List all positions
+      responses:
+        '200':
+          description: List of positions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Position'
+
+    post:
+      description: Add a new position
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Position'
+      responses:
+        '201':
+          description: Position added
+
+  /entry-evaluate:
+    post:
+      description: Evaluate entry signal for a company
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ticker:
+                  type: string
+                reason:
+                  type: string
+      responses:
+        '200':
+          description: Entry evaluation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  signal:
+                    type: string
+                  conviction:
+                    type: number
+                  risk_score:
+                    type: number
+
+  /opposition:
+    get:
+      description: List all opportunities
+      responses:
+        '200':
+          description: List of opportunities
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Opportunity'
+
+components:
+  schemas:
+    Company:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        sector:
+          type: string
+        market_cap:
+          type: number
+        priority:
+          type: string
+          enum: [ALTA, MEDIA, BAJA]
+
+    Position:
+      type: object
+      properties:
+        id:
+          type: string
+        ticker:
+          type: string
+        company_id:
+          type: string
+        entry_signal:
+          type: string
+        conviction:
+          type: number
+          minimum: 0
+          maximum: 100
+        risk_score:
+          type: number
+          minimum: 0
+          maximum: 100
+        last_updated:
+          type: string
+          format: date-time
+
+    Opportunity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        ticker:
+          type: string
+        company_id:
+          type: string
+        status:
+          type: string
+          enum: [DISCOVERED, UNDER_DEEP_DD, APPROVED, WATCHLIST, ACCUMULATING, EXITED, POST_MORTEM, ARCHIVED]
+        entry_policy:
+          type: string
+          enum: [SIGNAL_REBALANCE, ENTRY_PENDING]
+        entry_signal:
+          type: string
+        conviction:
+          type: number
+          minimum: 0
+          maximum: 100
+        risk_score:
+          type: number
+          minimum: 0
+          maximum: 100
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    Opposition:
+      type: object
+      properties:
+        id:
+          type: string
+        ticker:
+          type: string
+        reason:
+          type: string
+        status:
+          type: string
+          enum: [APPROVED, WATCHLIST, REJECTED]
+        created_at:
+          type: string
+          format: date-time
