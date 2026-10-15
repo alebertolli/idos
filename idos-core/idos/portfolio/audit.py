@@ -110,7 +110,7 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
     def pct(value: Decimal) -> float:
         return round(float(value / total_value * 100), 4)
 
-    return {
+    report = {
         "as_of": as_of,
         "base_currency": base,
         "total_market_value": float(total_value),
@@ -128,4 +128,84 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
         "status": "REVIEW" if missing else "COMPLETE",
         "allocation_authorized": False,
         "methodology": "capital_exposure_v1",
+    }
+    for field in ("snapshot_id", "source_version"):
+        if field in snapshot:
+            report[field] = _required_text(snapshot, field, "snapshot")
+    if "cash" in snapshot or "obligations" in snapshot:
+        report["liquidity"] = _audit_liquidity(snapshot, rates, as_of, total_value)
+    return report
+
+
+def _audit_liquidity(snapshot: Mapping[str, Any], rates: Mapping[str, Decimal],
+                     as_of: str, invested_value: Decimal) -> dict[str, Any]:
+    """Summarize cash and pending liabilities outside investment exposure weights."""
+    cash_rows = snapshot.get("cash", [])
+    obligations = snapshot.get("obligations", [])
+    if not isinstance(cash_rows, list) or not isinstance(obligations, list):
+        raise PortfolioAuditError("snapshot.cash and snapshot.obligations must be lists")
+    cash_ids: set[str] = set()
+    obligation_ids: set[str] = set()
+    cash_total = Decimal(0)
+    liability_total = Decimal(0)
+    cash_by_currency: dict[str, Decimal] = defaultdict(Decimal)
+    due_buckets = {"overdue": Decimal(0), "within_30_days": Decimal(0),
+                   "31_to_90_days": Decimal(0), "over_90_days": Decimal(0)}
+    cutoff = date.fromisoformat(as_of)
+    for index, row in enumerate(cash_rows):
+        label = f"cash[{index}]"
+        if not isinstance(row, Mapping):
+            raise PortfolioAuditError(f"{label} must be an object")
+        identifier = _required_text(row, "cash_id", label)
+        if identifier in cash_ids:
+            raise PortfolioAuditError(f"duplicate cash_id: {identifier}")
+        cash_ids.add(identifier)
+        _required_text(row, "account_id", label)
+        currency = _required_text(row, "currency", label).upper()
+        if currency not in rates:
+            raise PortfolioAuditError(f"missing FX rate for {currency}")
+        _required_text(row, "source_ref", label)
+        amount = _decimal(row.get("balance"), f"{label}.balance") * rates[currency]
+        cash_total += amount
+        cash_by_currency[currency] += amount
+
+    for index, row in enumerate(obligations):
+        label = f"obligations[{index}]"
+        if not isinstance(row, Mapping):
+            raise PortfolioAuditError(f"{label} must be an object")
+        identifier = _required_text(row, "obligation_id", label)
+        if identifier in obligation_ids:
+            raise PortfolioAuditError(f"duplicate obligation_id: {identifier}")
+        obligation_ids.add(identifier)
+        _required_text(row, "account_id", label)
+        currency = _required_text(row, "currency", label).upper()
+        if currency not in rates:
+            raise PortfolioAuditError(f"missing FX rate for {currency}")
+        _required_text(row, "source_ref", label)
+        if _required_text(row, "status", label).upper() != "PENDING":
+            raise PortfolioAuditError(f"{label}.status must be PENDING")
+        try:
+            due_date = date.fromisoformat(_required_text(row, "due_date", label))
+        except ValueError as exc:
+            raise PortfolioAuditError(f"{label}.due_date must be YYYY-MM-DD") from exc
+        amount = _decimal(row.get("amount"), f"{label}.amount", positive=True) * rates[currency]
+        liability_total += amount
+        days = (due_date - cutoff).days
+        bucket = ("overdue" if days < 0 else "within_30_days" if days <= 30
+                  else "31_to_90_days" if days <= 90 else "over_90_days")
+        due_buckets[bucket] += amount
+
+    def money(value: Decimal) -> float:
+        return round(float(value), 8)
+
+    return {
+        "cash_total_base": money(cash_total),
+        "cash_by_currency_base": {key: money(value) for key, value in sorted(cash_by_currency.items())},
+        "pending_obligations_base": money(liability_total),
+        "obligations_due_base": {key: money(value) for key, value in due_buckets.items()},
+        "net_liquidity_base": money(cash_total - liability_total),
+        "invested_assets_base": money(invested_value),
+        "financial_assets_less_obligations_base": money(invested_value + cash_total - liability_total),
+        "allocation_authorized": False,
+        "scope": "cash_and_pending_obligations_context; excluded_from_investment_exposure_weights",
     }

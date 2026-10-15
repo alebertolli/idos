@@ -323,6 +323,15 @@ pendiente de revisión humana y contexto de cartera privada; no se genera una
 compra ni se inventan scores fundamentales. Repetir el runner mensual no
 reinicia el estado de una oportunidad ya revisada.
 
+La plantilla privada `templates/private-portfolio-template.xlsx` puede exportarse
+desde Drive como matrices JSON por pestaña y validarse con
+`python scripts/audit_portfolio.py <export-privado.json> --output <reporte-privado.json>`.
+El input usa `{ "sheets": { "Snapshot": [...], "Positions": [...], "Cash": [...],
+"Obligations": [...], "FX": [...] } }`. El auditor informa exposición de
+posiciones y un bloque de liquidez separado; todavía no conecta a Drive ni
+concilia extractos. Mantén tanto el export como el reporte fuera del repositorio
+público. Ver SDD 21 para el contrato y sus límites.
+
 > Nota de fidelidad: `FULL_POSITION`, `MONITORING` y `REDUCING` están definidos
 > en la state machine, pero requieren verificar la ruta operativa antes de
 > declarar una cartera real integrada. `WATCHLIST` es destino de
