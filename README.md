@@ -1,5 +1,10 @@
 # IDOS — Investment Decision Operating System
 
+> Estado de la cartera familiar: el dashboard de GitHub Pages muestra investigación
+> y simulación. No almacena ni publica una cartera familiar real. El contrato
+> inicial de datos y las tareas pendientes están en
+> `SDD/20.IMPLEMENTACION-IDE-v2.1-y-cartera-familiar.md`.
+
 Sistema de gestión de inversiones para Family Office. Automatiza screening, due diligence,
 due diligence, monitoreo de cartera, generación de reportes y notificaciones.
 Implementa el ciclo de vida completo de inversión: desde el descubrimiento
