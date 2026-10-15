@@ -10,6 +10,22 @@ from idos.knowledge.wiki import AtomicWiki
 from idos.research.wiki import WikiBuilder
 
 
+@pytest.fixture
+def seeded_opportunity(tmp_sqlite, tmp_journal):
+    """Research starts after Discovery qualifies an opportunity."""
+    ticker, opp_id = "TEST", "OPP-2026-TEST-001"
+    opp = {
+        "id": opp_id, "ticker": ticker,
+        "status": OpportunityStatus.SCREENED.value,
+        "conviction": {"overall": 70},
+        "created_at": "2026-01-01T00:00:00",
+        "updated_at": "2026-01-01T00:00:00",
+    }
+    tmp_sqlite.save_opportunity(opp)
+    tmp_journal.save_opportunity(ticker, opp)
+    return ticker, opp_id
+
+
 def _mock_research_registry() -> MagicMock:
     registry = MagicMock()
 
@@ -87,7 +103,7 @@ class TestResearchWorker:
 
         opp = tmp_sqlite.get_opportunity(opp_id)
         assert opp is not None
-        assert opp["status"] == OpportunityStatus.UNDER_DEEP_DD.value
+        assert opp["status"] == OpportunityStatus.UNDER_RESEARCH.value
 
     def test_research_saves_assessment(
         self,
