@@ -33,3 +33,4 @@ def test_monthly_strategy_persists_signal_in_sqlite(tmp_path: Path):
     assert rows
     opp = store.get_opportunity(rows[0][0])
     assert opp["signal"]["momentum"] is not None
+    assert opp["status"] == "ENTRY_PENDING"

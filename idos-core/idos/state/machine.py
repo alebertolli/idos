@@ -46,7 +46,7 @@ def _combined_guard(ctx: dict, checks: list) -> tuple[bool, str]:
 class OpportunityStateMachine(StateMachine):
     _transitions: dict[OpportunityStatus, list[OpportunityStatus]] = {
         OpportunityStatus.DISCOVERED: [],
-        OpportunityStatus.SCREENED: [OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.WATCHLIST],
+        OpportunityStatus.SCREENED: [OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.WATCHLIST, OpportunityStatus.ENTRY_PENDING],
         OpportunityStatus.WATCHLIST: [OpportunityStatus.SCREENED, OpportunityStatus.ARCHIVED],
         OpportunityStatus.UNDER_RESEARCH: [OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.WATCHLIST, OpportunityStatus.APPROVED],
         OpportunityStatus.UNDER_DEEP_DD: [OpportunityStatus.APPROVED, OpportunityStatus.WATCHLIST],

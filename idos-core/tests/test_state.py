@@ -33,7 +33,7 @@ def test_discovered_no_automatic_transitions():
 def test_invalid_transitions():
     sm = OpportunityStateMachine()
     assert not sm.can_transition(OpportunityStatus.SCREENED, OpportunityStatus.APPROVED)
-    assert not sm.can_transition(OpportunityStatus.SCREENED, OpportunityStatus.ENTRY_PENDING)
+    assert sm.can_transition(OpportunityStatus.SCREENED, OpportunityStatus.ENTRY_PENDING)
     assert not sm.can_transition(OpportunityStatus.WATCHLIST, OpportunityStatus.UNDER_RESEARCH)
     assert not sm.can_transition(OpportunityStatus.WATCHLIST, OpportunityStatus.APPROVED)
     assert not sm.can_transition(OpportunityStatus.UNDER_RESEARCH, OpportunityStatus.ENTRY_PENDING)
