@@ -193,7 +193,10 @@ idos opp-transition OPP-001 ACCUMULATING  # Avance manual
 idos entry-evaluate MELI          # Evalúa precio + indicador técnico → ENTRY_PENDING/ACCUMULATING
 idos watchlist                    # Muestra watchlist activa
 idos position-list                # Lista posiciones abiertas
-idos position-exit MELI --reason thesis_broken  # Cierra posición + post-mortem automático
+idos position-exit MELI --reason thesis_broken  # Cierra posición + post-mortem privado pendiente de aprobación
+idos learning-list                              # Lista informes privados y propuestas
+idos learning-show pm-1234abcd                  # Muestra lecciones de un informe
+idos learning-approve pm-1234abcd gestor        # Aprueba el informe y archiva; no cambia reglas
 idos dashboard                    # Resumen general del sistema
 idos event-log                    # Log de eventos recientes
 idos schedule-status              # Estado del scheduler

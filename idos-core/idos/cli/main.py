@@ -465,7 +465,7 @@ def entry_evaluate(ticker: str, opp_id: str = ""):
 @app.command()
 def position_exit(ticker: str, reason: str = "thesis_broken",
                   opp_id: str = ""):
-    """Cierra posición y genera post-mortem (MONITORING → EXITED → ARCHIVED)."""
+    """Cierra posición y genera post-mortem pendiente de revisión privada."""
     ctx = _get_context()
     sqlite, _, journal = _get_stores(ctx)
 
@@ -532,9 +532,56 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
         console.print(f"[red]Post-mortem generation failed: {pm_result.error}[/red]")
         return
     pm_output = pm_result.output
-    console.print(f"[green]Post-mortem completed. Archived: {pm_output.get('archived')}[/green]")
+    console.print(f"[green]Post-mortem privado {pm_output.get('pm_id')} pendiente de aprobación.[/green]")
     for lesson in pm_output.get("lessons", []):
         console.print(f"  • {lesson}")
+
+
+@app.command()
+def learning_list():
+    """Lista informes y propuestas privados pendientes de revisión."""
+    from idos.learning.review import list_reports
+
+    reports = list_reports(Path.cwd())
+    table = Table(title="Learning privado")
+    for heading in ("ID", "Estrategia", "Estado", "Propuestas"):
+        table.add_column(heading)
+    for report in reports:
+        table.add_row(
+            report.get("id", "?"),
+            report.get("strategy_id", "?"),
+            report.get("review_status", "?"),
+            str(len(report.get("recommendations", []))),
+        )
+    console.print(table)
+    if not reports:
+        console.print("No hay post-mortems privados.")
+
+
+@app.command()
+def learning_show(pm_id: str):
+    """Muestra las lecciones y propuestas de un post-mortem privado."""
+    from idos.learning.review import list_reports
+
+    report = next((r for r in list_reports(Path.cwd()) if r.get("id") == pm_id), None)
+    if report is None:
+        raise typer.BadParameter("Post-mortem privado no encontrado")
+    console.print(f"{pm_id}: {report.get('review_status')} — {report.get('strategy_id')}")
+    for item in report.get("recommendations", []):
+        console.print(f"  [{item.get('status', 'PROPOSED')}] {item.get('text', '')}")
+    console.print("Las propuestas no modifican parámetros ni generan órdenes.")
+
+
+@app.command()
+def learning_approve(pm_id: str, reviewer: str):
+    """Aprueba un informe; archiva la oportunidad, no aplica propuestas."""
+    from idos.learning.review import approve_report
+
+    try:
+        report = approve_report(Path.cwd(), pm_id, reviewer)
+    except (ValueError, FileNotFoundError) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    console.print(f"[green]{report['id']} aprobado; oportunidad archivada.[/green]")
 
 @app.command()
 def thesis_invalidate(ticker: str, opp_id: str = "",

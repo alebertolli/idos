@@ -6,11 +6,6 @@ from idos.ai.llm import LLMClient
 from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
-from idos.learning.feedback import FeedbackCollector, FeedbackRecord
-from idos.learning.hitrate import HitRateTracker
-from idos.learning.loop import ContinuousImprovementLoop
-from idos.learning.patterns import PatternLearner
-from idos.learning.weights import WeightAdjuster
 from idos.models.enums import OpportunityStatus
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
@@ -20,7 +15,7 @@ class PostMortemWorker(BaseWorker):
     """Generates post-mortem analysis after an opportunity is exited.
 
     Triggers: after EXITED status.
-    Transitions: EXITED -> POST_MORTEM -> ARCHIVED.
+    Transitions: EXITED -> POST_MORTEM. Archival requires human approval.
     """
     name = "post_mortem_worker"
 
@@ -36,23 +31,6 @@ class PostMortemWorker(BaseWorker):
         prompts_path = config.get("prompts_path", "")
         self.registry = PromptRegistry(prompts_path) if prompts_path else PromptRegistry()
         self.state_machine = OpportunityStateMachine()
-
-        # Learning loop components
-        self.feedback = FeedbackCollector()
-        self.weights = WeightAdjuster(base_weights={
-            "BusinessAssessmentEngine": 0.25,
-            "ValuationAssessmentEngine": 0.20,
-            "RecoveryAssessmentEngine": 0.15,
-            "RiskAssessmentEngine": 0.10,
-            "PortfolioAssessmentEngine": 0.10,
-            "wyckoff": 0.10,
-            "ResearchWorker": 0.10,
-        })
-        self.patterns = PatternLearner()
-        self.hitrates = HitRateTracker()
-        self.improvement_loop = ContinuousImprovementLoop(
-            self.feedback, self.weights, self.patterns, self.hitrates,
-        )
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         ticker = context.get("ticker", "").upper().strip()
@@ -94,12 +72,21 @@ class PostMortemWorker(BaseWorker):
             "id": pm_id,
             "ticker": ticker,
             "opp_id": opp_id,
+            "strategy_id": opp.get("strategy_id", "COMPOUNDER"),
+            "strategy_version": opp.get("strategy_version", "legacy-compatible"),
             "exit_reason": exit_reason,
             "analysis": post_mortem,
+            "review_status": "PENDING_REVIEW",
+            "recommendations": [
+                {"text": lesson, "status": "PROPOSED", "source_pm_id": pm_id}
+                for lesson in post_mortem.get("lessons_learned", [])
+                if isinstance(lesson, str) and lesson.strip()
+            ],
             "generated_at": datetime.now(AR_TZ).isoformat(),
         }
 
-        pm_path = journal.opportunity_path(ticker, opp_id) / "post_mortem"
+        # Post-portfolio analysis must never enter the public, tracked journal.
+        pm_path = bp / "private-data" / "learning" / "post_mortems"
         pm_path.mkdir(parents=True, exist_ok=True)
         import yaml
         with open(pm_path / f"{pm_id}.yml", "w", encoding="utf-8") as f:
@@ -111,23 +98,12 @@ class PostMortemWorker(BaseWorker):
         sqlite.record_transition(opp_id, current_status.value, "POST_MORTEM",
                                  cause="post_mortem_generated", worker="post_mortem_worker")
 
-        if self.state_machine.can_transition(OpportunityStatus.POST_MORTEM, OpportunityStatus.ARCHIVED):
-            opp["status"] = OpportunityStatus.ARCHIVED.value
-            opp["updated_at"] = datetime.now(AR_TZ).isoformat()
-            sqlite.save_opportunity(opp)
-            sqlite.record_transition(opp_id, "POST_MORTEM", "ARCHIVED",
-                                     cause="post_mortem_approved", worker="post_mortem_worker")
-
         sqlite.log_event("post_mortem:completed", {
             "opp_id": opp_id, "ticker": ticker,
             "exit_reason": exit_reason,
             "pm_id": pm_id,
-            "archived": True,
+            "archived": False,
         })
-
-        # Feed learning loop
-        self._feed_learning_loop(ticker, opp_id, decisions, assessments, post_mortem, exit_reason, wyckoff_analyses)
-        loop_result = self.improvement_loop.run()
 
         wyckoff_accuracy = post_mortem.get("wyckoff_accuracy", "no_evaluada")
 
@@ -137,22 +113,14 @@ class PostMortemWorker(BaseWorker):
             "ticker": ticker,
             "opp_id": opp_id,
             "status": "completed",
-            "archived": True,
+            "archived": False,
             "pm_id": pm_id,
             "exit_reason": exit_reason,
             "lessons": post_mortem.get("lessons_learned", []),
             "wyckoff_accuracy": wyckoff_accuracy,
             "wyckoff_lessons": post_mortem.get("wyckoff_lessons", []),
             "hypotheses": hypothesis_stats,
-            "learning_loop": {
-                "weights_adjusted": loop_result.weights_adjusted,
-                "patterns_identified": loop_result.patterns_identified,
-                "feedback_processed": loop_result.feedback_processed,
-                "hit_rates_updated": loop_result.hit_rates_updated,
-                "top_patterns": loop_result.top_patterns,
-                "underperformers": loop_result.underperformers,
-                "wyckoff_alerts": loop_result.wyckoff_alerts,
-            },
+            "learning_status": "PENDING_REVIEW",
         }
 
     def _hypothesis_stats(self, hypotheses: list[dict]) -> dict[str, Any]:
@@ -174,77 +142,6 @@ class PostMortemWorker(BaseWorker):
         if evaluated:
             stats["predictions_met_pct"] = round(met / evaluated * 100, 1)
         return stats
-
-    def _feed_learning_loop(self, ticker: str, opp_id: str,
-                            decisions: list[dict], assessments: list[dict],
-                            post_mortem: dict, exit_reason: str,
-                            wyckoff_analyses: list[dict] | None = None):
-        """Extract structured feedback from post-mortem and feed into learning loop."""
-        thesis_correct = post_mortem.get("thesis_was_correct", False)
-        outcome = "success" if thesis_correct else "failure"
-
-        # Record feedback for each engine
-        for a in assessments:
-            engine = a.get("engine", "unknown")
-            score = a.get("score", 0)
-            rec = FeedbackRecord(
-                ticker=ticker,
-                prediction_id=f"{opp_id}-{engine}",
-                predicted_direction="up" if score >= 50 else "down",
-                actual_direction="up" if thesis_correct else "down",
-                predicted_price=0,
-                actual_price=0,
-                outcome=outcome,
-                engine=engine,
-                analyst="post_mortem",
-                notes=exit_reason,
-            )
-            self.feedback.record(rec)
-
-        # Record Wyckoff feedback
-        wyckoff_correct = post_mortem.get("wyckoff_phase_was_correct", False)
-        wyckoff_outcome = "success" if wyckoff_correct else "failure"
-        wyckoff_accuracy = post_mortem.get("wyckoff_accuracy", "no_evaluada")
-
-        last_wyckoff = wyckoff_analyses[-1] if wyckoff_analyses else {}
-        wyckoff_rec = FeedbackRecord(
-            ticker=ticker,
-            prediction_id=f"{opp_id}-wyckoff",
-            predicted_direction=last_wyckoff.get("phase", "unknown"),
-            actual_direction="up" if thesis_correct else "down",
-            predicted_price=last_wyckoff.get("price_target", 0) or 0,
-            actual_price=0,
-            outcome=wyckoff_outcome,
-            engine="wyckoff",
-            analyst="post_mortem",
-            notes=f"accuracy={wyckoff_accuracy}, phase={last_wyckoff.get('phase', '?')}",
-        )
-        self.feedback.record(wyckoff_rec)
-
-        # Record pattern observation
-        features = {
-            "exit_reason": exit_reason,
-            "conviction_at_entry": decisions[0].get("conviction_score", 50) if decisions else 50,
-            "sector": assessments[0].get("sector", "unknown") if assessments else "unknown",
-            "wyckoff_phase": last_wyckoff.get("phase", "unknown") if wyckoff_analyses else "none",
-            "wyckoff_score": last_wyckoff.get("score", 0) if wyckoff_analyses else 0,
-        }
-        self.patterns.observe(ticker, features, outcome)
-
-        # Update hit rates per engine
-        for a in assessments:
-            engine = a.get("engine", "unknown")
-            key = f"engine:{engine}"
-            if thesis_correct:
-                self.hitrates.record_hit(key)
-            else:
-                self.hitrates.record_miss(key)
-
-        key = "engine:wyckoff"
-        if wyckoff_correct:
-            self.hitrates.record_hit(key)
-        else:
-            self.hitrates.record_miss(key)
 
     def _load_decisions(self, ticker: str, opp_id: str, journal: JournalRepository) -> list[dict[str, Any]]:
         dec_path = journal.opportunity_path(ticker, opp_id) / "decisions"
