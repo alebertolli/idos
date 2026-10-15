@@ -16,6 +16,9 @@ class BuyListEntry:
     added_at: str = ""
     opp_id: str = ""
     monitoring: bool = True
+    strategy_id: str = "COMPOUNDER"
+    entry_policy: str = "VALUATION_ZONE"
+    strategy_signal: dict[str, Any] = field(default_factory=dict)
 
     def __post_init__(self):
         if not self.added_at:
@@ -28,23 +31,39 @@ class BuyListManager:
         self._entries: dict[str, BuyListEntry] = {}
 
     def add(self, entry: BuyListEntry) -> bool:
-        self._entries[entry.ticker.upper()] = entry
+        self._entries[self._key(entry.ticker, entry.strategy_id)] = entry
         return True
 
+    @staticmethod
+    def _key(ticker: str, strategy_id: str = "COMPOUNDER") -> str:
+        return f"{strategy_id.upper()}::{ticker.upper()}"
+
     def remove(self, ticker: str) -> bool:
-        return self._entries.pop(ticker.upper(), None) is not None
+        if "::" in ticker:
+            return self._entries.pop(ticker.upper(), None) is not None
+        keys = [key for key, entry in self._entries.items() if entry.ticker.upper() == ticker.upper()]
+        for key in keys:
+            self._entries.pop(key, None)
+        return bool(keys)
 
     def get(self, ticker: str) -> BuyListEntry | None:
-        return self._entries.get(ticker.upper())
+        if "::" in ticker:
+            return self._entries.get(ticker.upper())
+        matches = [entry for entry in self._entries.values() if entry.ticker.upper() == ticker.upper()]
+        if len(matches) == 1:
+            return matches[0]
+        if matches:
+            return None
+        return self._entries.get(self._key(ticker))
 
     def is_in_buy_zone(self, ticker: str, current_price: float) -> bool:
-        entry = self._entries.get(ticker.upper())
+        entry = self.get(ticker)
         if not entry or entry.target_price <= 0:
             return False
         return current_price <= entry.buy_zone_top
 
     def update_targets(self, ticker: str, target: float, buy_zone_top: float):
-        entry = self._entries.get(ticker.upper())
+        entry = self.get(ticker)
         if entry:
             entry.target_price = target
             entry.buy_zone_top = buy_zone_top
@@ -52,8 +71,8 @@ class BuyListManager:
 
     def list_ready_to_buy(self, prices: dict[str, float]) -> list[BuyListEntry]:
         ready = []
-        for ticker, entry in self._entries.items():
-            price = prices.get(ticker, 0)
+        for entry in self._entries.values():
+            price = prices.get(entry.ticker.upper(), 0)
             if price > 0 and price <= entry.buy_zone_top:
                 ready.append(entry)
         return sorted(ready, key=lambda e: e.conviction_score, reverse=True)

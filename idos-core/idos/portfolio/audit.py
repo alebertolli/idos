@@ -107,10 +107,26 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
             "classifications": groups,
         })
 
+    argentina_direct = Decimal(0)
+    argentina_indirect = Decimal(0)
+    missing_indirect: list[str] = []
+    for position, raw in zip(positions, raw_positions):
+        if str(raw.get("country", "")).strip().upper() == "AR":
+            argentina_direct += position["market_value_base"]
+        else:
+            if "argentina_indirect_exposure_pct" not in raw:
+                missing_indirect.append(position["position_id"])
+            else:
+                exposure_pct = _decimal(raw["argentina_indirect_exposure_pct"],
+                                        f"positions.{position['position_id']}.argentina_indirect_exposure_pct")
+                if exposure_pct < 0 or exposure_pct > 100:
+                    raise PortfolioAuditError("argentina_indirect_exposure_pct must be between 0 and 100")
+                argentina_indirect += position["market_value_base"] * exposure_pct / Decimal(100)
+
     def pct(value: Decimal) -> float:
         return round(float(value / total_value * 100), 4)
 
-    return {
+    report = {
         "as_of": as_of,
         "base_currency": base,
         "total_market_value": float(total_value),
@@ -128,4 +144,187 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
         "status": "REVIEW" if missing else "COMPLETE",
         "allocation_authorized": False,
         "methodology": "capital_exposure_v1",
+    }
+    report["risk_audit"] = _audit_risk_scenarios(snapshot, positions, total_value)
+    argentina_total = argentina_direct + argentina_indirect
+    report["risk_audit"]["argentina_exposure"] = {
+        "direct_base": round(float(argentina_direct), 8),
+        "indirect_base": round(float(argentina_indirect), 8),
+        "total_base": round(float(argentina_total), 8),
+        "direct_pct_invested": round(float(argentina_direct / total_value * 100), 6),
+        "indirect_pct_invested": round(float(argentina_indirect / total_value * 100), 6),
+        "total_pct_invested": round(float(argentina_total / total_value * 100), 6),
+        "missing_indirect_classification_position_ids": missing_indirect,
+        "status": "REVIEW" if missing_indirect else "COMPLETE",
+        "limit_status": "UNKNOWN_POLICY_NOT_CONFIGURED",
+    }
+    report["risk_audit"]["financial_scenario_status"] = report["risk_audit"].pop("status")
+    report["risk_audit"]["status"] = "REVIEW"
+    report["risk_audit"]["completeness_gaps"] = [
+        "illiquid assets, local income, businesses and total liabilities are not present in this snapshot",
+        "family risk limits and risk budget are not configured",
+    ]
+    for field in ("snapshot_id", "source_version"):
+        if field in snapshot:
+            report[field] = _required_text(snapshot, field, "snapshot")
+    if "cash" in snapshot or "obligations" in snapshot:
+        report["liquidity"] = _audit_liquidity(snapshot, rates, as_of, total_value)
+    return report
+
+
+_ARGENTINA_SCENARIOS = {
+    "sovereign_spread_100bps": {"driver": "sovereign_spread_bps", "sensitivity": "sovereign_spread_duration_years", "shock": 100},
+    "sovereign_spread_300bps": {"driver": "sovereign_spread_bps", "sensitivity": "sovereign_spread_duration_years", "shock": 300},
+    "sovereign_spread_500bps": {"driver": "sovereign_spread_bps", "sensitivity": "sovereign_spread_duration_years", "shock": 500},
+    "fx_stress": {"driver": "fx_move_pct", "sensitivity": "fx_sensitivity_pct_per_100pct_move"},
+    "extreme_inflation": {"driver": "inflation_shock_pct", "sensitivity": "inflation_sensitivity_pct_per_100pct_shock"},
+    "ars_liquidity": {"driver": "ars_liquidity_haircut_pct", "sensitivity": "ars_liquidity_exposure_fraction"},
+    "default_restructuring": {"driver": "default_loss_pct", "sensitivity": "default_loss_exposure_fraction"},
+}
+
+
+def _audit_risk_scenarios(snapshot: Mapping[str, Any], positions: list[dict[str, Any]],
+                          total_value: Decimal) -> dict[str, Any]:
+    """Apply configured Argentina stress shocks to explicitly supplied sensitivities.
+
+    Sensitivities live on each source position under ``risk_sensitivities``;
+    scenario shocks live in ``risk_scenarios``. Missing inputs are UNKNOWN.
+    No asset-class or family-level risk is inferred from capital weights.
+    """
+    raw_scenarios = snapshot.get("risk_scenarios", {})
+    if not isinstance(raw_scenarios, Mapping):
+        raise PortfolioAuditError("snapshot.risk_scenarios must be an object")
+    scenario_sources = snapshot.get("risk_scenario_sources", {})
+    if not isinstance(scenario_sources, Mapping):
+        raise PortfolioAuditError("snapshot.risk_scenario_sources must be an object")
+    source_positions = {p["position_id"]: p for p in snapshot["positions"]}
+    results: dict[str, Any] = {}
+    unknown: list[dict[str, str]] = []
+
+    for name, definition in _ARGENTINA_SCENARIOS.items():
+        driver = definition["driver"]
+        sensitivity_key = definition["sensitivity"]
+        shock = definition.get("shock", raw_scenarios.get(name))
+        if shock is None:
+            results[name] = {"status": "UNKNOWN", "reason": f"missing shock: {name}"}
+            unknown.append({"scenario": name, "field": f"risk_scenarios.{name}"})
+            continue
+        shock_value = _decimal(shock, f"risk_scenarios.{name}")
+        if "shock" not in definition:
+            source = scenario_sources.get(name)
+            if not isinstance(source, str) or not source.strip():
+                raise PortfolioAuditError(f"risk_scenario_sources.{name} is required")
+        impact = Decimal(0)
+        missing_positions: list[str] = []
+        for position in positions:
+            source = source_positions[position["position_id"]]
+            sensitivity = source.get("risk_sensitivities", {})
+            if not isinstance(sensitivity, Mapping) or sensitivity_key not in sensitivity:
+                missing_positions.append(position["position_id"])
+                continue
+            coefficient = _decimal(sensitivity[sensitivity_key],
+                                   f"positions.{position['position_id']}.risk_sensitivities.{sensitivity_key}")
+            source_ref = source.get("risk_source_ref")
+            if not isinstance(source_ref, str) or not source_ref.strip():
+                raise PortfolioAuditError(
+                    f"positions.{position['position_id']}.risk_source_ref is required"
+                )
+            value = position["market_value_base"]
+            if driver == "sovereign_spread_bps":
+                position_impact = -value * coefficient * shock_value / Decimal(10000)
+            elif driver in ("fx_move_pct", "inflation_shock_pct"):
+                position_impact = value * coefficient * shock_value / Decimal(10000)
+            else:
+                position_impact = -value * coefficient * shock_value / Decimal(100)
+            impact += position_impact
+        if missing_positions:
+            results[name] = {"status": "UNKNOWN", "shock": float(shock_value),
+                             "missing_position_ids": missing_positions}
+            unknown.extend({"scenario": name, "position_id": pid} for pid in missing_positions)
+        else:
+            results[name] = {"status": "CALCULATED", "shock": float(shock_value),
+                             "impact_base": round(float(impact), 8),
+                             "impact_pct_invested": round(float(impact / total_value * 100), 6)}
+
+    return {
+        "status": "REVIEW" if unknown else "COMPLETE",
+        "scenarios": results,
+        "unknown_inputs": unknown,
+        "allocation_authorized": False,
+        "methodology": "configured_sensitivity_v1",
+        "scope": "financial_positions_only; excludes illiquid_assets_income_and_unrecorded_liabilities",
+    }
+
+
+def _audit_liquidity(snapshot: Mapping[str, Any], rates: Mapping[str, Decimal],
+                     as_of: str, invested_value: Decimal) -> dict[str, Any]:
+    """Summarize cash and pending liabilities outside investment exposure weights."""
+    cash_rows = snapshot.get("cash", [])
+    obligations = snapshot.get("obligations", [])
+    if not isinstance(cash_rows, list) or not isinstance(obligations, list):
+        raise PortfolioAuditError("snapshot.cash and snapshot.obligations must be lists")
+    cash_ids: set[str] = set()
+    obligation_ids: set[str] = set()
+    cash_total = Decimal(0)
+    liability_total = Decimal(0)
+    cash_by_currency: dict[str, Decimal] = defaultdict(Decimal)
+    due_buckets = {"overdue": Decimal(0), "within_30_days": Decimal(0),
+                   "31_to_90_days": Decimal(0), "over_90_days": Decimal(0)}
+    cutoff = date.fromisoformat(as_of)
+    for index, row in enumerate(cash_rows):
+        label = f"cash[{index}]"
+        if not isinstance(row, Mapping):
+            raise PortfolioAuditError(f"{label} must be an object")
+        identifier = _required_text(row, "cash_id", label)
+        if identifier in cash_ids:
+            raise PortfolioAuditError(f"duplicate cash_id: {identifier}")
+        cash_ids.add(identifier)
+        _required_text(row, "account_id", label)
+        currency = _required_text(row, "currency", label).upper()
+        if currency not in rates:
+            raise PortfolioAuditError(f"missing FX rate for {currency}")
+        _required_text(row, "source_ref", label)
+        amount = _decimal(row.get("balance"), f"{label}.balance") * rates[currency]
+        cash_total += amount
+        cash_by_currency[currency] += amount
+
+    for index, row in enumerate(obligations):
+        label = f"obligations[{index}]"
+        if not isinstance(row, Mapping):
+            raise PortfolioAuditError(f"{label} must be an object")
+        identifier = _required_text(row, "obligation_id", label)
+        if identifier in obligation_ids:
+            raise PortfolioAuditError(f"duplicate obligation_id: {identifier}")
+        obligation_ids.add(identifier)
+        _required_text(row, "account_id", label)
+        currency = _required_text(row, "currency", label).upper()
+        if currency not in rates:
+            raise PortfolioAuditError(f"missing FX rate for {currency}")
+        _required_text(row, "source_ref", label)
+        if _required_text(row, "status", label).upper() != "PENDING":
+            raise PortfolioAuditError(f"{label}.status must be PENDING")
+        try:
+            due_date = date.fromisoformat(_required_text(row, "due_date", label))
+        except ValueError as exc:
+            raise PortfolioAuditError(f"{label}.due_date must be YYYY-MM-DD") from exc
+        amount = _decimal(row.get("amount"), f"{label}.amount", positive=True) * rates[currency]
+        liability_total += amount
+        days = (due_date - cutoff).days
+        bucket = ("overdue" if days < 0 else "within_30_days" if days <= 30
+                  else "31_to_90_days" if days <= 90 else "over_90_days")
+        due_buckets[bucket] += amount
+
+    def money(value: Decimal) -> float:
+        return round(float(value), 8)
+
+    return {
+        "cash_total_base": money(cash_total),
+        "cash_by_currency_base": {key: money(value) for key, value in sorted(cash_by_currency.items())},
+        "pending_obligations_base": money(liability_total),
+        "obligations_due_base": {key: money(value) for key, value in due_buckets.items()},
+        "net_liquidity_base": money(cash_total - liability_total),
+        "invested_assets_base": money(invested_value),
+        "financial_assets_less_obligations_base": money(invested_value + cash_total - liability_total),
+        "allocation_authorized": False,
+        "scope": "cash_and_pending_obligations_context; excluded_from_investment_exposure_weights",
     }

@@ -45,6 +45,49 @@ def test_missing_classification_is_explicit_and_blocks_completion():
     assert report["exposures_pct"]["economic_cluster"]["UNKNOWN"] == 60
 
 
+def test_argentina_risk_scenarios_require_explicit_shocks_and_sensitivities():
+    data = snapshot()
+    report = audit_portfolio(data)
+    risk = report["risk_audit"]
+    assert risk["status"] == "REVIEW"
+    assert risk["scenarios"]["sovereign_spread_100bps"]["status"] == "UNKNOWN"
+
+    data["risk_scenarios"] = {
+        "fx_stress": 20,
+        "extreme_inflation": 50,
+        "ars_liquidity": 25,
+        "default_restructuring": 40,
+    }
+    data["risk_scenario_sources"] = {name: "approved-case-1" for name in data["risk_scenarios"]}
+    for position in data["positions"]:
+        position["risk_sensitivities"] = {
+            "sovereign_spread_duration_years": 2,
+            "fx_sensitivity_pct_per_100pct_move": 100,
+            "inflation_sensitivity_pct_per_100pct_shock": 50,
+            "ars_liquidity_exposure_fraction": 1,
+            "default_loss_exposure_fraction": 1,
+        }
+        position["risk_source_ref"] = "risk-report-1"
+    risk = audit_portfolio(data)["risk_audit"]
+    assert risk["status"] == "REVIEW"
+    assert risk["financial_scenario_status"] == "COMPLETE"
+    assert risk["scenarios"]["sovereign_spread_100bps"]["impact_base"] == -200
+    assert risk["scenarios"]["fx_stress"]["impact_base"] == 2000
+    assert risk["allocation_authorized"] is False
+
+
+def test_argentina_direct_and_indirect_exposure_are_reported_without_inference():
+    data = snapshot()
+    data["positions"][1]["country"] = "US"
+    data["positions"][1]["argentina_indirect_exposure_pct"] = 25
+    exposure = audit_portfolio(data)["risk_audit"]["argentina_exposure"]
+    assert exposure["direct_base"] == 6000
+    assert exposure["indirect_base"] == 1000
+    assert exposure["total_base"] == 7000
+    assert exposure["status"] == "COMPLETE"
+    assert exposure["limit_status"] == "UNKNOWN_POLICY_NOT_CONFIGURED"
+
+
 @pytest.mark.parametrize("change, message", [
     (lambda d: d["fx_to_base"].clear(), "missing FX rate"),
     (lambda d: d["positions"][1].update(position_id="bond-credit"), "duplicate position_id"),

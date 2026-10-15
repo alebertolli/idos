@@ -168,3 +168,28 @@ def test_public_build_omits_paper_positions(tmp_path: Path):
     script = (output / "assets" / "app.js").read_text(encoding="utf-8")
     assert "['portfolio','Portfolio']" not in script
     assert "Decisión pendiente de revisión humana" in script
+
+
+def test_public_buylist_keeps_strategy_identity_and_signal_without_positions(tmp_path: Path):
+    import yaml
+
+    path = tmp_path / "idos-journal" / "portfolio" / "buylist.yml"
+    path.parent.mkdir(parents=True)
+    path.write_text(yaml.safe_dump({"entries": [
+        {"ticker": "SPY", "opp_id": "OPP-C", "strategy_id": "COMPOUNDER",
+         "entry_policy": "VALUATION_ZONE", "target_price": 500},
+        {"ticker": "SPY", "opp_id": "OPP-M", "strategy_id": "MOMENTUM_ETF",
+         "entry_policy": "SIGNAL_REBALANCE", "max_position_pct": 0,
+         "strategy_signal": {"momentum": 1.2, "as_of_date": "2026-10-15"}},
+    ]}), encoding="utf-8")
+
+    site = SiteBuilder(tmp_path).build()
+
+    assert [entry["strategy_id"] for entry in site.buylist] == ["COMPOUNDER", "MOMENTUM_ETF"]
+    assert site.buylist[1]["strategy_signal"]["momentum"] == 1.2
+    assert site.positions == []
+    assert site.portfolio == {}
+    output = write_site(tmp_path, tmp_path / "site")
+    data = (output / "data.json").read_text(encoding="utf-8")
+    assert '"strategy_id": "MOMENTUM_ETF"' in data
+    assert "SIGNAL_REBALANCE" in data

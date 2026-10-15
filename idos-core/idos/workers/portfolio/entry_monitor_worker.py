@@ -207,7 +207,10 @@ class EntryMonitorWorker(BaseWorker):
                         "reason": f"Opportunity {opp_id} not found in SQLite or journal"}
 
         current_status = OpportunityStatus(opp["status"])
-        if opp.get("entry_policy") not in (None, "", "VALUATION_ZONE", "SIGNAL_REBALANCE"):
+        if opp.get("entry_policy") == "SIGNAL_REBALANCE":
+            return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
+                    "reason": "SIGNAL_REBALANCE is a strategy signal; valuation entry rules must not execute it"}
+        if opp.get("entry_policy") not in (None, "", "VALUATION_ZONE"):
             return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
                     "reason": f"Entry policy {opp.get('entry_policy')} is handled by its strategy runner"}
         if current_status not in (OpportunityStatus.APPROVED, OpportunityStatus.ENTRY_PENDING):

@@ -34,12 +34,12 @@ class BuyListRefreshWorker(BaseWorker):
         total_weight = sum(p.get("weight_pct", 0) for p in positions)
 
         opportunities = journal.list_all_opportunities()
-        valuation_opportunities = [
+        supported_opportunities = [
             o for o in opportunities
-            if o.get("entry_policy") in (None, "", "VALUATION_ZONE")
+            if o.get("entry_policy") in (None, "", "VALUATION_ZONE", "SIGNAL_REBALANCE")
         ]
-        approved = [o for o in valuation_opportunities if o["status"] == OpportunityStatus.APPROVED.value]
-        entry_pending = [o for o in valuation_opportunities if o["status"] == OpportunityStatus.ENTRY_PENDING.value]
+        approved = [o for o in supported_opportunities if o["status"] == OpportunityStatus.APPROVED.value]
+        entry_pending = [o for o in supported_opportunities if o["status"] == OpportunityStatus.ENTRY_PENDING.value]
 
         if not approved and not entry_pending:
             print("[BUYLIST] No approved/entry-pending opportunities in journal; preserving existing buylist")
@@ -57,14 +57,35 @@ class BuyListRefreshWorker(BaseWorker):
         removed = 0
 
         margin_of_safety = self._load_margin_of_safety(bp)
+        active_keys = set()
 
         for opp in approved + entry_pending:
             ticker = opp["ticker"]
             opp_id = opp["id"]
+            strategy_id = str(opp.get("strategy_id") or "COMPOUNDER").upper()
+            entry_policy = str(opp.get("entry_policy") or "VALUATION_ZONE").upper()
+            key = f"{strategy_id}::{ticker.upper()}"
+            active_keys.add(key)
             conviction = opp.get("conviction", {})
             intrinsic = conviction.get("intrinsic_value", 0) or opp.get("intrinsic_value", 0)
             current_price = conviction.get("current_price", 0) or opp.get("current_price", 0)
 
+            if entry_policy == "SIGNAL_REBALANCE":
+                existing = self.buylist.get(key)
+                if existing:
+                    existing.opp_id = opp_id
+                    existing.strategy_signal = opp.get("signal", {}) or {}
+                    existing.kb_last_update = datetime.now(AR_TZ).isoformat()
+                    updated += 1
+                else:
+                    from idos.portfolio.buylist import BuyListEntry
+                    self.buylist.add(BuyListEntry(
+                        ticker=ticker, opp_id=opp_id, strategy_id=strategy_id,
+                        entry_policy=entry_policy, strategy_signal=opp.get("signal", {}) or {},
+                        max_position_pct=0.0,
+                    ))
+                    added += 1
+                continue
             if not intrinsic or not current_price:
                 continue
 
@@ -73,7 +94,7 @@ class BuyListRefreshWorker(BaseWorker):
             buy_zone_top = intrinsic / (1 + margin_of_safety / 100)
             max_pos = min(3.0, conviction.get("overall", 50) / 100 * 5)
 
-            existing = self.buylist.get(ticker)
+            existing = self.buylist.get(key)
             if existing:
                 existing.target_price = intrinsic
                 existing.buy_zone_top = buy_zone_top
@@ -91,13 +112,15 @@ class BuyListRefreshWorker(BaseWorker):
                     conviction_score=conviction.get("overall", 0),
                     horizon=opp.get("horizon", "12-36 months"),
                     catalysts=opp.get("catalysts", []),
+                    strategy_id=strategy_id,
+                    entry_policy=entry_policy,
                 ))
                 added += 1
 
-        all_tickers = {o["ticker"] for o in valuation_opportunities if o["status"] in ("APPROVED", "ENTRY_PENDING")}
         for entry in self.buylist.all():
-            if entry.ticker not in all_tickers:
-                self.buylist.remove(entry.ticker)
+            entry_key = f"{entry.strategy_id.upper()}::{entry.ticker.upper()}"
+            if entry_key not in active_keys:
+                self.buylist.remove(entry_key)
                 removed += 1
 
         self._save_buylist(bp)
@@ -139,9 +162,10 @@ class BuyListRefreshWorker(BaseWorker):
             return
         for e in data.get("entries", []):
             ticker = e.get("ticker", "").upper()
+            strategy_id = str(e.get("strategy_id") or "COMPOUNDER").upper()
             if not ticker:
                 continue
-            existing = self.buylist.get(ticker)
+            existing = self.buylist.get(f"{strategy_id}::{ticker}")
             if existing:
                 existing.opp_id = e.get("opp_id", "")
                 existing.monitoring = e.get("monitoring", True)
@@ -158,6 +182,9 @@ class BuyListRefreshWorker(BaseWorker):
                 added_at=e.get("added_at", ""),
                 opp_id=e.get("opp_id", ""),
                 monitoring=e.get("monitoring", True),
+                strategy_id=strategy_id,
+                entry_policy=str(e.get("entry_policy") or "VALUATION_ZONE").upper(),
+                strategy_signal=e.get("strategy_signal", {}) or {},
             ))
 
     def _save_buylist(self, bp: Path):
@@ -167,12 +194,15 @@ class BuyListRefreshWorker(BaseWorker):
         existing = {}
         if buylist_path.exists():
             existing = yaml.safe_load(buylist_path.read_text(encoding="utf-8")) or {}
-        old_entries = {e.get("ticker", "").upper(): e for e in existing.get("entries", [])}
+        old_entries = {
+            f"{str(e.get('strategy_id') or 'COMPOUNDER').upper()}::{e.get('ticker', '').upper()}": e
+            for e in existing.get("entries", [])
+        }
 
         entries = []
         for e in self.buylist.all():
             ticker = e.ticker.upper()
-            prev = old_entries.get(ticker, {})
+            prev = old_entries.get(f"{e.strategy_id.upper()}::{ticker}", {})
             entries.append({
                 "ticker": ticker,
                 "opp_id": getattr(e, "opp_id", "") or prev.get("opp_id", ""),
@@ -185,6 +215,9 @@ class BuyListRefreshWorker(BaseWorker):
                 "kb_last_update": e.kb_last_update,
                 "added_at": e.added_at,
                 "monitoring": prev.get("monitoring", getattr(e, "monitoring", True)),
+                "strategy_id": e.strategy_id,
+                "entry_policy": e.entry_policy,
+                "strategy_signal": e.strategy_signal,
             })
         buylist_path.parent.mkdir(parents=True, exist_ok=True)
         buylist_path.write_text(
