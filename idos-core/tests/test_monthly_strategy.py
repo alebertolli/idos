@@ -33,4 +33,18 @@ def test_monthly_strategy_persists_signal_in_sqlite(tmp_path: Path):
     assert rows
     opp = store.get_opportunity(rows[0][0])
     assert opp["signal"]["momentum"] is not None
-    assert opp["status"] == "ENTRY_PENDING"
+    assert opp["status"] == "SCREENED"
+
+
+def test_monthly_rerun_preserves_reviewed_status(tmp_path: Path):
+    from idos.data.sqlite import SQLiteStore
+
+    worker = MonthlyStrategyWorker({"price_provider": FakePrices()})
+    worker.run({"base_path": str(tmp_path), "persist": True})
+    store = SQLiteStore(tmp_path / "idos.db")
+    opp_id = store.conn.execute("SELECT id FROM opportunities").fetchone()[0]
+    opp = store.get_opportunity(opp_id)
+    opp["status"] = "UNDER_RESEARCH"
+    store.save_opportunity(opp)
+    worker.run({"base_path": str(tmp_path), "persist": True})
+    assert store.get_opportunity(opp_id)["status"] == "UNDER_RESEARCH"

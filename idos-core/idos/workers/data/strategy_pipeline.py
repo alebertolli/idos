@@ -79,11 +79,10 @@ class MonthlyStrategyWorker(BaseWorker):
         for row in output["selected"]:
             ticker = row["ticker"]
             opp_id = f"OPP-{output['as_of_date'].replace('-', '')}-MOM-{ticker}"
+            if sqlite.get_opportunity(opp_id) or journal.load_opportunity(ticker, opp_id):
+                continue  # A repeated monthly run must not reset a reviewed decision.
             opp = {
-                # A selected systematic signal is already past discovery. It
-                # must enter the entry/IDE queue directly; fundamental DDD is
-                # not the gate for SIGNAL_REBALANCE strategies.
-                "id": opp_id, "ticker": ticker, "status": OpportunityStatus.ENTRY_PENDING.value,
+                "id": opp_id, "ticker": ticker, "status": OpportunityStatus.SCREENED.value,
                 "strategy_id": profile.strategy_id, "strategy_version": "1.0",
                 "core": profile.core, "sleeve": profile.sleeve, "thesis_type": profile.thesis_type,
                 "entry_policy": profile.entry_policy, "research_profile": profile.research_profile,

@@ -310,16 +310,16 @@ DISCOVERED ─────────────► UNDER_DEEP_DD ──► AP
                   → puede volver a UNDER_DEEP_DD
 ```
 
-La excepción es la estrategia sistemática `MOMENTUM_ETF`: un instrumento
-seleccionado por el ranking mensual se crea directamente en `ENTRY_PENDING`
-con `entry_policy: SIGNAL_REBALANCE`. No pasa por ResearchWorker, DDD
-fundamental, los cinco assessment engines ni DecisionBoard; el IDE/EntryMonitor
-evalúa la señal y el sizing. Por eso el momentum no tiene un `IDE score` de
-37/67 ni un score repetido en los cinco engines.
+La estrategia sistemática `MOMENTUM_ETF` crea oportunidades `SCREENED` a partir
+del ranking mensual. ResearchWorker registra una tesis de señal reproducible y
+Assessment valida evidencia y límites del perfil. Decision queda en `WAIT`
+pendiente de revisión humana y contexto de cartera privada; no se genera una
+compra ni se inventan scores fundamentales. Repetir el runner mensual no
+reinicia el estado de una oportunidad ya revisada.
 
-> Nota de fidelidad: `SCREENED`, `UNDER_RESEARCH`, `FULL_POSITION`, `MONITORING` y
-> `REDUCING` están definidos en la state machine pero **no son escritos por ningún worker
-> de producción** (solo vía `opp-transition` manual). `WATCHLIST` es destino de
+> Nota de fidelidad: `FULL_POSITION`, `MONITORING` y `REDUCING` están definidos
+> en la state machine, pero requieren verificar la ruta operativa antes de
+> declarar una cartera real integrada. `WATCHLIST` es destino de
 > no-aprobación, no etapa de promoción. Ver SDD-7 §7.
 
 ### Workers del Ciclo de Vida
@@ -772,9 +772,11 @@ idos site-build                     # Generar UI estática en ./site
 
 ## 12. Interfaz Web (estática, sin servidor)
 
-El sistema incluye una **UI estática** publicable en **GitHub Pages** (gratis) que
-permite revisar el estado del portfolio, las oportunidades, la Buy List, la wiki y
-el aprendizaje, desde la perspectiva de un gestor.
+El sistema incluye una **UI estática** publicable en **GitHub Pages** que
+permite revisar oportunidades, decisiones pendientes, Buy List y aprendizaje.
+La vista Portfolio existente corresponde a la simulación `paper`; la cartera
+familiar real se mantendrá en una fuente privada aún por definir. Pages no
+debe recibir posiciones, efectivo ni obligaciones reales.
 
 ### 12.1 Vista previa
 

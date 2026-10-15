@@ -19,6 +19,7 @@ from idos.models.knowledge import Rule
 from idos.models.enums import OpportunityStatus
 from idos.portfolio.buylist import BuyListManager, BuyListEntry
 from idos.config import load_settings
+from idos.strategy.catalog import StrategyCatalog
 from idos.timezone import AR_TZ
 from datetime import datetime
 
@@ -558,6 +559,50 @@ def _register_authorization_rules(engine: RulesEngine, base_path: str | Path) ->
         if entry:
             engine.register_rule(entry[0], entry[1])
 
+def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
+                       journal: JournalRepository, context: dict[str, Any]) -> dict[str, Any]:
+    """Record an evidence-based WAIT decision; never turn a signal into an order."""
+    opp = sqlite.get_opportunity(opp_id) or journal.load_opportunity(ticker, opp_id)
+    if not opp or opp.get("ticker") != ticker or opp.get("status") != OpportunityStatus.UNDER_RESEARCH.value:
+        return {"ticker": ticker, "opp_id": opp_id, "status": "blocked", "reason": "research_not_completed"}
+    strategy_id = opp.get("strategy_id", "")
+    try:
+        profile = StrategyCatalog(bp / "idos-config" / "strategies.yml").require(strategy_id)
+    except ValueError:
+        return {"ticker": ticker, "opp_id": opp_id, "status": "blocked", "reason": "unknown_strategy"}
+    if not profile.enabled or profile.research_profile != "systematic":
+        return {"ticker": ticker, "opp_id": opp_id, "status": "blocked", "reason": "strategy_not_enabled"}
+
+    case_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
+    report_path = case_dir / "ddd_report.yml"
+    report = yaml.safe_load(report_path.read_text(encoding="utf-8")) if report_path.exists() else {}
+    signal = opp.get("signal") or context.get("signal") or {}
+    value = signal.get("momentum")
+    minimum = profile.parameters.get("minimum_signal")
+    maximum = profile.parameters.get("maximum_signal")
+    checks = {
+        "research_evidence": isinstance(report, dict) and report.get("opp_id") == opp_id,
+        "signal_evidence": signal.get("ticker") == ticker and bool(signal.get("as_of_date")),
+        "signal_within_policy": isinstance(value, (int, float)) and isinstance(minimum, (int, float))
+        and isinstance(maximum, (int, float)) and minimum <= value <= maximum,
+    }
+    passed = all(checks.values())
+    proposal = {
+        "opportunity_id": opp_id, "strategy_id": strategy_id,
+        "stage": "DECISION", "decision": "WAIT", "status": "PENDING_HUMAN_REVIEW" if passed else "BLOCKED",
+        "checks": checks, "signal": signal,
+        "reason": "Risk budget and real portfolio context require private review" if passed else "Incomplete or invalid systematic evidence",
+        "generated_at": datetime.now(AR_TZ).isoformat(),
+    }
+    case_dir.mkdir(parents=True, exist_ok=True)
+    (case_dir / "decision_proposal.yml").write_text(
+        yaml.safe_dump(proposal, allow_unicode=True, sort_keys=False), encoding="utf-8"
+    )
+    return {"ticker": ticker, "opp_id": opp_id,
+            "status": "decision_pending" if passed else "blocked", "recommendation": "WAIT",
+            "checks": checks, "board_approved": False}
+
+
 def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_reprocess: bool = False) -> dict[str, Any]:
     bp = Path(base_path)
     sqlite = SQLiteStore(bp / "idos.db")
@@ -581,18 +626,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
 
     is_systematic = context.get("research_profile") == "systematic"
     if is_systematic:
-        # Momentum is a systematic entry signal, not a fundamental DDD
-        # opportunity. The strategy pipeline already places selected signals
-        # in ENTRY_PENDING; the IDE/entry worker evaluates them there.
-        # Returning here is intentional: never fabricate five IDE engine
-        # scores from the momentum value and never create a generic board
-        # proposal for an ETF signal.
-        return {
-            "ticker": ticker,
-            "opp_id": opp_id,
-            "status": "skipped",
-            "reason": "Systematic signal is routed directly to ENTRY_PENDING for IDE evaluation",
-        }
+        return _assess_systematic(opp_id, ticker, bp, sqlite, journal, context)
 
     _register_authorization_rules(rules_engine, bp)
 

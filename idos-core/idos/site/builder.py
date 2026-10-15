@@ -548,6 +548,9 @@ class SiteBuilder:
             },
             "proposal": {
                 "recommendation": dp.get("recommendation"),
+                "status": dp.get("status"),
+                "decision": dp.get("decision"),
+                "checks": dp.get("checks") or {},
                 "conviction_score": dp.get("conviction_score"),
                 "rules_passed": dp.get("rules_passed") or [],
                 "rules_failed": dp.get("rules_failed") or [],
@@ -1094,6 +1097,9 @@ class SiteBuilder:
                 alerts.append({"severity": "warn", "ticker": p["ticker"],
                                "message": f"Precio {over:.1f}% sobre el valor intrínseco ({intrinsic:.2f})"})
         for o in opps:
+            if o.get("proposal", {}).get("status") == "PENDING_HUMAN_REVIEW":
+                alerts.append({"severity": "warn", "ticker": o["ticker"],
+                               "message": "Decisión sistemática pendiente de revisión humana"})
             if o.get("trend") == "DETERIORATING":
                 alerts.append({"severity": "warn", "ticker": o["ticker"],
                                "message": "Convicción deteriorándose"})
