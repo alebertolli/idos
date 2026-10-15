@@ -10,7 +10,7 @@ def test_catalog_contains_all_initial_strategies():
     ids = {p.strategy_id for p in catalog.list()}
     assert ids == {
         "EMERGENCY_LIQ", "OPPORTUNITY_LIQ", "MONETARY_HEDGE", "COMPOUNDER", "GROWTH",
-        "MOMENTUM_ETF", "GLOBAL_ETF", "TACTICAL_SWING", "ASYMETRIC", "DEEP_VALUE", "SPECULATIVE",
+        "MOMENTUM_ETF", "GLOBAL_ETF", "TACTICAL_SWING", "ASYMETRIC", "DEEP_VALUE", "SPECULATIVE", "MULTIBAGGERS",
     }
 
 
@@ -37,6 +37,28 @@ def test_strategy_core_mapping():
     catalog = StrategyCatalog(Path(__file__).parents[1].parent / "idos-config" / "strategies.yml")
     assert catalog.require("MOMENTUM_ETF").core == "CORE_3_GROWTH"
     assert catalog.require("DEEP_VALUE").core == "CORE_4_ALPHA_ASYMMETRY"
+
+
+def test_multibaggers_policy_is_disabled_and_configured():
+    catalog = StrategyCatalog(Path(__file__).parents[1].parent / "idos-config" / "strategies.yml")
+    profile = catalog.require("MULTIBAGGERS")
+
+    assert profile.enabled is False
+    assert profile.core == "CORE_4_ALPHA_ASYMMETRY"
+    assert profile.sleeve == "ALPHA_ASYMMETRY"
+    assert profile.entry_policy == "MANUAL_REVIEW"
+    assert profile.discovery_profile == "multibaggers"
+    assert profile.research_profile == "multibaggers"
+    assert profile.parameters["discovery_threshold"] == 65
+    assert profile.parameters["position_limit_pct"] == 1.0
+    assert profile.parameters["small_caps_enabled"] is False
+    assert profile.parameters["weights"] == {
+        "economic_transition": 0.25,
+        "quality": 0.20,
+        "reinvestment": 0.20,
+        "expectation_gap": 0.20,
+        "market_confirmation": 0.15,
+    }
 
 
 def test_strategy_metadata_round_trips_through_sqlite(tmp_path: Path):
