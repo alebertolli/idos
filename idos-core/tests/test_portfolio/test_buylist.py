@@ -32,6 +32,16 @@ class TestBuyListManager:
         assert entry.target_price == 220
         assert entry.buy_zone_top == 170
 
+    def test_same_instrument_can_be_tracked_by_distinct_strategies(self, manager):
+        compounder = BuyListEntry(ticker="SPY", strategy_id="COMPOUNDER")
+        momentum = BuyListEntry(ticker="SPY", strategy_id="MOMENTUM_ETF", entry_policy="SIGNAL_REBALANCE")
+        manager.add(compounder)
+        manager.add(momentum)
+        assert manager.count() == 2
+        assert manager.get("COMPOUNDER::SPY") is compounder
+        assert manager.get("MOMENTUM_ETF::SPY") is momentum
+        assert manager.get("SPY") is None
+
     def test_list_ready_to_buy(self, manager):
         manager.add(BuyListEntry(ticker="AAPL", target_price=200, buy_zone_top=160, conviction_score=85))
         manager.add(BuyListEntry(ticker="MSFT", target_price=300, buy_zone_top=250, conviction_score=70))

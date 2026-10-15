@@ -24,6 +24,15 @@ _HEADERS = {
     "FX": ("currency", "to_base", "as_of", "source_ref"),
 }
 _SNAPSHOT_KEYS = ("snapshot_id", "as_of", "base_currency", "source_version")
+_RISK_SENSITIVITY_HEADERS = (
+    "position_id", "sovereign_spread_duration_years",
+    "fx_sensitivity_pct_per_100pct_move",
+    "inflation_sensitivity_pct_per_100pct_shock",
+    "ars_liquidity_exposure_fraction", "default_loss_exposure_fraction",
+    "argentina_indirect_exposure_pct", "source_ref",
+)
+_RISK_SCENARIO_HEADERS = ("scenario", "shock_value", "source_ref")
+_RISK_SCENARIOS = {"fx_stress", "extreme_inflation", "ars_liquidity", "default_restructuring"}
 
 
 def _cell(row: Sequence[Any], index: int) -> Any:
@@ -118,8 +127,9 @@ def snapshot_from_sheets_values(sheets: Mapping[str, Any]) -> dict[str, Any]:
         meta[key] = cells[1]
     if set(meta) != allowed_meta:
         raise PortfolioAuditError("Snapshot requires snapshot_id, as_of, base_currency and source_version")
-    if _amount(meta["source_version"], "Snapshot.source_version", positive=True) != Decimal("1.0"):
-        raise PortfolioAuditError("Snapshot.source_version must be 1.0")
+    version = _amount(meta["source_version"], "Snapshot.source_version", positive=True)
+    if version not in (Decimal("1.0"), Decimal("1.1")):
+        raise PortfolioAuditError("Snapshot.source_version must be 1.0 or 1.1")
     snapshot_id = _text(meta["snapshot_id"], "Snapshot.snapshot_id")
     as_of = _date(meta["as_of"], "Snapshot.as_of")
     base = _text(meta["base_currency"], "Snapshot.base_currency").upper()
@@ -187,9 +197,75 @@ def snapshot_from_sheets_values(sheets: Mapping[str, Any]) -> dict[str, Any]:
     missing_fx = sorted(used_currencies - set(fx))
     if missing_fx:
         raise PortfolioAuditError(f"missing FX rate for {', '.join(missing_fx)}")
-    return {
+    risk_scenarios: dict[str, str] = {}
+    risk_scenario_sources: dict[str, str] = {}
+    if version == Decimal("1.1"):
+        if not {"RiskSensitivities", "RiskScenarios"}.issubset(sheets):
+            raise PortfolioAuditError("Snapshot.source_version 1.1 requires RiskSensitivities and RiskScenarios")
+        risk_rows = _table_rows_with_headers(sheets["RiskSensitivities"], "RiskSensitivities", _RISK_SENSITIVITY_HEADERS)
+        positions_by_id = {row["position_id"]: row for row in positions}
+        seen_risk_ids: set[str] = set()
+        for index, row in enumerate(risk_rows):
+            label = f"RiskSensitivities[{index}]"
+            position_id = _text(row["position_id"], f"{label}.position_id")
+            if position_id not in positions_by_id:
+                raise PortfolioAuditError(f"{label}.position_id does not match a position")
+            if position_id in seen_risk_ids:
+                raise PortfolioAuditError(f"duplicate RiskSensitivities.position_id: {position_id}")
+            seen_risk_ids.add(position_id)
+            _text(row["source_ref"], f"{label}.source_ref")
+            sensitivities = {}
+            for key in _RISK_SENSITIVITY_HEADERS[1:6]:
+                if row[key] is not None and str(row[key]).strip():
+                    sensitivities[key] = str(_amount(row[key], f"{label}.{key}"))
+            for key in ("ars_liquidity_exposure_fraction", "default_loss_exposure_fraction"):
+                if key in sensitivities and not Decimal(0) <= Decimal(sensitivities[key]) <= Decimal(1):
+                    raise PortfolioAuditError(f"{label}.{key} must be between 0 and 1")
+            if ("sovereign_spread_duration_years" in sensitivities
+                    and Decimal(sensitivities["sovereign_spread_duration_years"]) < 0):
+                raise PortfolioAuditError(f"{label}.sovereign_spread_duration_years must be non-negative")
+            indirect_raw = row["argentina_indirect_exposure_pct"]
+            if indirect_raw is not None and str(indirect_raw).strip():
+                indirect = _amount(indirect_raw, f"{label}.argentina_indirect_exposure_pct")
+                if indirect < 0 or indirect > 100:
+                    raise PortfolioAuditError(f"{label}.argentina_indirect_exposure_pct must be between 0 and 100")
+                positions_by_id[position_id]["argentina_indirect_exposure_pct"] = str(indirect)
+            if sensitivities:
+                positions_by_id[position_id]["risk_sensitivities"] = sensitivities
+                positions_by_id[position_id]["risk_source_ref"] = str(row["source_ref"]).strip()
+
+        scenario_rows = _table_rows_with_headers(sheets["RiskScenarios"], "RiskScenarios", _RISK_SCENARIO_HEADERS)
+        seen_scenarios: set[str] = set()
+        for index, row in enumerate(scenario_rows):
+            label = f"RiskScenarios[{index}]"
+            scenario = _text(row["scenario"], f"{label}.scenario")
+            if scenario not in {"sovereign_spread_100bps", "sovereign_spread_300bps", "sovereign_spread_500bps", *_RISK_SCENARIOS}:
+                raise PortfolioAuditError(f"{label}.scenario is unsupported")
+            if scenario in seen_scenarios:
+                raise PortfolioAuditError(f"duplicate RiskScenarios.scenario: {scenario}")
+            seen_scenarios.add(scenario)
+            if row["shock_value"] is None or not str(row["shock_value"]).strip():
+                if scenario.startswith("sovereign_spread_"):
+                    raise PortfolioAuditError(f"{label}.shock_value is required for fixed sovereign scenarios")
+                continue
+            shock = _amount(row["shock_value"], f"{label}.shock_value")
+            _text(row["source_ref"], f"{label}.source_ref")
+            if scenario.startswith("sovereign_spread_"):
+                expected = {"sovereign_spread_100bps": 100, "sovereign_spread_300bps": 300, "sovereign_spread_500bps": 500}[scenario]
+                if shock != expected:
+                    raise PortfolioAuditError(f"{label}.shock_value must equal {expected} bps")
+            else:
+                risk_scenarios[scenario] = str(shock)
+                risk_scenario_sources[scenario] = str(row["source_ref"]).strip()
+        required_sovereign = {
+            "sovereign_spread_100bps", "sovereign_spread_300bps", "sovereign_spread_500bps",
+        }
+        if not required_sovereign.issubset(seen_scenarios):
+            raise PortfolioAuditError("RiskScenarios must include all fixed sovereign scenarios")
+
+    result = {
         "snapshot_id": snapshot_id,
-        "source_version": "1.0",
+        "source_version": str(version),
         "as_of": as_of,
         "base_currency": base,
         "fx_to_base": fx,
@@ -197,3 +273,26 @@ def snapshot_from_sheets_values(sheets: Mapping[str, Any]) -> dict[str, Any]:
         "cash": cash,
         "obligations": obligations,
     }
+    if risk_scenarios:
+        result["risk_scenarios"] = risk_scenarios
+        result["risk_scenario_sources"] = risk_scenario_sources
+    return result
+
+
+def _table_rows_with_headers(sheet: Any, name: str,
+                             expected: tuple[str, ...]) -> list[dict[str, Any]]:
+    if not isinstance(sheet, list) or not sheet:
+        raise PortfolioAuditError(f"sheets.{name} must contain a header row")
+    if not isinstance(sheet[0], (list, tuple)) or tuple(str(v).strip() for v in sheet[0]) != expected:
+        raise PortfolioAuditError(f"sheets.{name} headers do not match schema v1.1")
+    rows: list[dict[str, Any]] = []
+    for index, cells in enumerate(sheet[1:], start=2):
+        if not isinstance(cells, (list, tuple)):
+            raise PortfolioAuditError(f"sheets.{name} row {index} must be a row")
+        values = [_cell(cells, i) for i in range(len(expected))]
+        if all(value is None or not str(value).strip() for value in values):
+            continue
+        if len(cells) > len(expected) and any(str(v).strip() for v in cells[len(expected):]):
+            raise PortfolioAuditError(f"sheets.{name} row {index} has unexpected values")
+        rows.append(dict(zip(expected, values)))
+    return rows

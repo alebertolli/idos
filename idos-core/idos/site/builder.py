@@ -599,6 +599,9 @@ class SiteBuilder:
             target = e.get("target_price") or intrinsic
             out.append({
                 "ticker": e.get("ticker"),
+                "strategy_id": e.get("strategy_id") or "COMPOUNDER",
+                "entry_policy": e.get("entry_policy") or "VALUATION_ZONE",
+                "strategy_signal": e.get("strategy_signal") or {},
                 "conviction_score": e.get("conviction_score"),
                 "target_price": target or None,
                 "buy_zone_top": buy_zone or None,
@@ -1376,6 +1379,8 @@ function renderBuylist(){
     rows,
     cols: [
       {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
+      {key:'strategy', label:'Estrategia', value:r=>r.strategy_id||'', cell:r=>`<td>${esc(r.strategy_id||'COMPOUNDER')}</td>`},
+      {key:'policy', label:'Política', value:r=>r.entry_policy||'', cell:r=>`<td class="muted">${esc(r.entry_policy||'VALUATION_ZONE')}</td>`},
       {key:'industry', label:'Industria', value:r=>r.industry||'', cell:r=>`<td class="muted">${esc(r.industry||'—')}</td>`},
       {key:'conviction', label:'Conv.', value:r=>r.conviction_score??null, cell:r=>`<td>${r.conviction_score??'—'}</td>`},
       {key:'price', label:'Último precio', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}</td>`},
@@ -1383,17 +1388,17 @@ function renderBuylist(){
       {key:'target', label:'Target', value:r=>r.target_price??null, cell:r=>`<td>${money(r.target_price)}</td>`},
       {key:'margin', label:'Margen a target', value:r=>margin(r), cell:r=>{const m=margin(r); return `<td class="${m>=0?'pos':'neg'}">${pct(m,true)}</td>`;}},
       {key:'wy', label:'Wyckoff', value:r=>r.wyckoff?.score??null, cell:r=>{const wy=r.wyckoff; return `<td>${wyPhase(wy?.phase)} ${wy?.score??''}</td>`;}},
-      {key:'fails', label:'Cond. fallida', value:r=>buylistEntryFails(r).length, cell:r=>{const f=buylistEntryFails(r); return `<td>${f.length?f.map(x=>`<span class="badge" style="background:#2a1516;color:#f87171">${x}</span>`).join(' '):'<span class="pos">Listo</span>'}</td>`;}},
+      {key:'fails', label:'Estado', value:r=>r.entry_policy==='SIGNAL_REBALANCE'?'revisar':buylistEntryFails(r).length, cell:r=>{if(r.entry_policy==='SIGNAL_REBALANCE') return `<td><span class="badge">Señal · revisar</span></td>`; const f=buylistEntryFails(r); return `<td>${f.length?f.map(x=>`<span class="badge" style="background:#2a1516;color:#f87171">${x}</span>`).join(' '):'<span class="pos">Listo</span>'}</td>`;}},
       {key:'analyzed', label:'Últ. análisis', value:r=>r.wyckoff?.analyzed_at||'', cell:r=>`<td>${dt(r.wyckoff?.analyzed_at)}</td>`},
     ],
     tr: r=>` style="cursor:pointer" onclick="showOppFromBuylist('${r.opp_id||''}','${r.ticker}')"`,
-    searchText: r=>`${r.ticker} ${r.industry||''}`,
+    searchText: r=>`${r.ticker} ${r.strategy_id||''} ${r.entry_policy||''} ${r.industry||''}`,
     sort: {key:'wy', dir:'desc'},
     q:'',
   };
   let html = `<h2>Buy List (${rows.length})</h2>`;
   html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada (siguiente paso: <b>ENTRY_PENDING</b>). Clic en una columna para ordenar.</p>`;
-  html += detailsEntryThresholds();
+  if(rows.some(r=>r.entry_policy!=='SIGNAL_REBALANCE')) html += detailsEntryThresholds();
   if(!rows.length) html += `<div class="card"><p class="muted">La Buy List está vacía.</p></div>`;
   html += tableInput('buylist','bl-search','Buscar ticker...');
   html += `<table id="tbl-buylist"><thead>${sortHeadRows('buylist')}</thead><tbody>${sortTbody('buylist')}</tbody></table>`;

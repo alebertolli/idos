@@ -37,6 +37,8 @@ def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, 
         horizon="12-36 months",
         catalysts=context.get("catalysts", []),
         kb_last_update=proposal.created_at,
+        strategy_id=str(context.get("strategy_id") or "COMPOUNDER").upper(),
+        entry_policy=str(context.get("entry_policy") or "VALUATION_ZONE").upper(),
     )
     buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
     buylist_path.parent.mkdir(parents=True, exist_ok=True)
@@ -45,9 +47,15 @@ def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, 
     if buylist_path.exists():
         existing = yaml.safe_load(buylist_path.read_text(encoding="utf-8")) or {}
     entries = existing.get("entries", [])
-    entries = [e for e in entries if e.get("ticker") != ticker]
+    entries = [e for e in entries if not (
+        e.get("ticker", "").upper() == ticker.upper()
+        and str(e.get("strategy_id") or "COMPOUNDER").upper() == entry.strategy_id
+    )]
     entries.append({
         "ticker": ticker,
+        "strategy_id": entry.strategy_id,
+        "entry_policy": entry.entry_policy,
+        "strategy_signal": {},
         "opp_id": opp_id,
         "target_price": target_price,
         "buy_zone_top": buy_zone_top,
@@ -231,6 +239,7 @@ def build_context(
         "force_relevance": True,
         "thesis_active": thesis_active,
         "strategy_id": (opp or {}).get("strategy_id", "COMPOUNDER") if opp else "COMPOUNDER",
+        "entry_policy": (opp or {}).get("entry_policy", "VALUATION_ZONE") if opp else "VALUATION_ZONE",
         "research_profile": (opp or {}).get("research_profile", "") if opp else "",
         "signal": (opp or {}).get("signal", {}) if opp else {},
     }

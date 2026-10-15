@@ -8,6 +8,22 @@ from idos.workers.portfolio.entry_monitor_worker import EntryMonitorWorker
 
 
 class TestEntryMonitorWorker:
+    def test_signal_rebalance_never_uses_valuation_entry_engine(
+        self, seeded_opportunity_approved: tuple[str, str], base_path: str, tmp_sqlite,
+    ):
+        ticker, opp_id = seeded_opportunity_approved
+        opp = tmp_sqlite.get_opportunity(opp_id)
+        opp.update({"strategy_id": "MOMENTUM_ETF", "entry_policy": "SIGNAL_REBALANCE"})
+        tmp_sqlite.save_opportunity(opp)
+
+        result = EntryMonitorWorker({"prompts_path": base_path}).execute({
+            "ticker": ticker, "opp_id": opp_id, "base_path": base_path,
+        })
+
+        assert result.output["status"] == "skipped"
+        assert result.output["reason"].startswith("SIGNAL_REBALANCE")
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.APPROVED.value
+
     def test_accumulates_when_conditions_met(
         self,
         seeded_opportunity_approved: tuple[str, str],

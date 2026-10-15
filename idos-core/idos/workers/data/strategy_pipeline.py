@@ -34,7 +34,11 @@ class MonthlyStrategyWorker(BaseWorker):
         base = Path(context.get("base_path", "."))
         config_path = Path(self.config.get("config_path", base / "idos-config" / "strategies.yml"))
         if not config_path.exists():
-            config_path = Path("idos-config") / "strategies.yml"
+            candidates = (
+                Path.cwd() / "idos-config" / "strategies.yml",
+                Path(__file__).resolve().parents[4] / "idos-config" / "strategies.yml",
+            )
+            config_path = next((candidate for candidate in candidates if candidate.exists()), candidates[0])
         catalog = StrategyCatalog(config_path)
         profile = catalog.require(self.strategy_id)
         if not profile.enabled:

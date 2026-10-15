@@ -33,6 +33,27 @@ def buylist_env(tmp_path: Path):
 
 
 class TestBuyListRefreshWorker:
+    def test_includes_signal_rebalance_as_a_distinct_non_sized_buylist_entry(self, buylist_env):
+        db, journal, bp = buylist_env
+        opp = {
+            "id": "OPP-MOM-SPY", "ticker": "SPY", "status": OpportunityStatus.APPROVED.value,
+            "strategy_id": "MOMENTUM_ETF", "entry_policy": "SIGNAL_REBALANCE",
+            "signal": {"momentum": 1.2, "as_of_date": "2026-10-15"},
+            "conviction": {"overall": 0},
+        }
+        db.save_opportunity(opp)
+        journal.save_opportunity("SPY", db.get_opportunity("OPP-MOM-SPY"))
+
+        result = BuyListRefreshWorker().execute({"base_path": str(bp)})
+
+        assert result.status == "success"
+        saved = yaml.safe_load((bp / "idos-journal" / "portfolio" / "buylist.yml").read_text(encoding="utf-8"))
+        momentum = next(e for e in saved["entries"] if e["ticker"] == "SPY")
+        assert momentum["strategy_id"] == "MOMENTUM_ETF"
+        assert momentum["entry_policy"] == "SIGNAL_REBALANCE"
+        assert momentum["max_position_pct"] == 0
+        assert momentum["strategy_signal"]["momentum"] == 1.2
+
     def test_writes_buylist_yml(self, buylist_env, tmp_path: Path):
         db, journal, bp = buylist_env
         w = BuyListRefreshWorker()

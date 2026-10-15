@@ -326,11 +326,12 @@ reinicia el estado de una oportunidad ya revisada.
 La plantilla privada `templates/private-portfolio-template.xlsx` puede exportarse
 desde Drive como matrices JSON por pestaña y validarse con
 `python scripts/audit_portfolio.py <export-privado.json> --output <reporte-privado.json>`.
-El input usa `{ "sheets": { "Snapshot": [...], "Positions": [...], "Cash": [...],
-"Obligations": [...], "FX": [...] } }`. El auditor informa exposición de
-posiciones y un bloque de liquidez separado; todavía no conecta a Drive ni
-concilia extractos. Mantén tanto el export como el reporte fuera del repositorio
-público. Ver SDD 21 para el contrato y sus límites.
+El esquema v1.1 agrega `RiskSensitivities` y `RiskScenarios` para exponer
+sensibilidades Argentina documentadas; una entrada ausente queda `UNKNOWN`.
+El auditor informa exposición financiera directa/indirecta y liquidez por
+separado; todavía no conecta a Drive, no concilia extractos ni calcula la parte
+ilíquida del patrimonio. Mantén tanto el export como el reporte fuera del
+repositorio público. Ver SDD 21 para el contrato y sus límites.
 
 > Nota de fidelidad: `FULL_POSITION`, `MONITORING` y `REDUCING` están definidos
 > en la state machine, pero requieren verificar la ruta operativa antes de
