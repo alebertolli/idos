@@ -5,7 +5,7 @@ Output: `site/index.html`, `site/data.json`, `site/wiki/*.html`,
 `site/assets/app.js`, `site/assets/style.css`.
 
 The site is a single-page app with tabs:
-  Dashboard · Discovery · Research · Buy List · Portfolio · Learning
+  Dashboard · Discovery · Research · Decision · Buy List
 
 No server required: publish `site/` to GitHub Pages.
 """
@@ -34,10 +34,8 @@ DEFAULT_STALE_DAYS = 30
 
 STATUS_ACTIVE = {
     "DISCOVERED", "SCREENED", "WATCHLIST", "UNDER_RESEARCH", "UNDER_DEEP_DD",
-    "APPROVED", "ENTRY_PENDING", "ACCUMULATING", "FULL_POSITION", "MONITORING",
-    "REDUCING",
+    "APPROVED", "ENTRY_PENDING",
 }
-STATUS_CLOSED = {"EXITED", "POST_MORTEM", "ARCHIVED"}
 
 WYCKOFF_PHASE_COLOR = {
     "accumulation": "#16a34a",
@@ -575,7 +573,7 @@ class SiteBuilder:
             for opp_dir in sorted(opps_dir.iterdir()):
                 if opp_dir.is_dir():
                     o = self._load_opportunity(ticker_dir.name, opp_dir)
-                    if o:
+                    if o and o["status"] in STATUS_ACTIVE:
                         opps.append(o)
         opps.sort(key=lambda o: (o.get("updated_at") or ""), reverse=True)
         return opps
@@ -851,110 +849,6 @@ class SiteBuilder:
                 return self._load_wyckoff_latest(ticker, opp_id)
         return None
 
-    # -- positions / portfolio / ledger --
-    def _load_positions(self) -> list[dict]:
-        pos_dir = self.journal / "paper" / "positions"
-        if not pos_dir.exists():
-            return []
-        out = []
-        for f in sorted(pos_dir.glob("*.yml")):
-            data = _load_yaml(f)
-            if not isinstance(data, dict):
-                continue
-            ticker = data.get("ticker") or f.stem
-            entry = data.get("entry_price") or 0
-            qty = data.get("quantity") or 0
-            mkt = self._market_price(ticker)
-            price = self.price_for(ticker)
-            cp = mkt["price"] or price["price"]
-            price_date = mkt["date"] or price["date"]
-            current_value = None
-            if cp and qty:
-                current_value = round(cp * qty, 2)
-            else:
-                current_value = data.get("current_value")
-            pl_pct = pl_usd = None
-            if cp and entry and entry > 0:
-                pl_pct = round((cp - entry) / entry * 100, 2)
-                pl_usd = round((cp - entry) * qty, 2)
-            stop = data.get("stop_loss")
-            target = data.get("target_price")
-            comp = self.companies.get(ticker) or {}
-            wyk = None
-            if data.get("opp_id"):
-                wyk = self._load_wyckoff_latest(ticker, data["opp_id"])
-            if wyk is None:
-                wyk = self._latest_wyckoff_for_ticker(ticker)
-            out.append({
-                "ticker": ticker,
-                "opp_id": data.get("opp_id"),
-                "quantity": qty,
-                "entry_price": entry,
-                "entry_date": data.get("entry_date"),
-                "total_invested": data.get("total_invested"),
-                "current_value": current_value,
-                "current_price": cp,
-                "price_date": price_date,
-                "stop_loss": stop,
-                "target_price": target,
-                "conviction_at_entry": data.get("conviction_at_entry"),
-                "pl_pct": pl_pct,
-                "pl_usd": pl_usd,
-                "dist_to_stop_pct": round((cp - stop) / stop * 100, 1) if (cp and stop) else None,
-                "dist_to_target_pct": round((target - cp) / cp * 100, 1) if (cp and target) else None,
-                "sector": comp.get("sector") or "Otros",
-                "industry": comp.get("industry"),
-                "wyckoff": wyk,
-            })
-        return out
-
-    def _load_ledger(self) -> list[dict]:
-        ledger_dir = self.journal / "paper" / "ledger"
-        out = []
-        for f in sorted(ledger_dir.glob("*.yml")):
-            data = _load_yaml(f)
-            if isinstance(data, list):
-                out.extend(d for d in data if isinstance(d, dict))
-        return sorted(out, key=lambda t: t.get("date") or "", reverse=True)
-
-    def _compute_portfolio(self, positions: list[dict]) -> dict:
-        total_value = sum(p.get("current_value") or p.get("total_invested") or 0 for p in positions)
-        total_invested = sum(p.get("total_invested") or 0 for p in positions)
-        pl_total = total_value - total_invested
-        sector_map: dict[str, float] = {}
-        for p in positions:
-            sector = p.get("sector") or "Otros"
-            sector_map[sector] = sector_map.get(sector, 0) + (p.get("current_value") or 0)
-        sector_top = None
-        if sector_map:
-            sector_top = max(sector_map.items(), key=lambda x: x[1])
-            sector_top = {"sector": sector_top[0], "value": round(sector_top[1], 2),
-                          "pct": round(sector_top[1] / total_value * 100, 1) if total_value else None}
-        # Riesgo de correlación (proxy): exposición agrupada + concentração idiosincrática (HHI)
-        weights = [((p.get("current_value") or 0) / total_value) for p in positions if total_value]
-        hhi = round(sum(w * w for w in weights) * 10000, 1) if weights else 0  # 0-10000
-        max_sector_pct = sector_top.get("pct") if sector_top else 0
-        corr_risk = {
-            "strategy": "sector_concentration",
-            "score": round(max_sector_pct, 1) if max_sector_pct else 0,  # % exposición al mayor grupo correlacionado
-            "top_sector": sector_top.get("sector") if sector_top else None,
-            "top_sector_pct": max_sector_pct,
-            "hhi": hhi,
-            "interpretation": ("alto: exposición concentrada en un grupo de activos correlacionados (sector)"
-                               if max_sector_pct >= 40 else
-                               ("moderado" if max_sector_pct >= 20 else "bajo: diversificación entre sectores")),
-        }
-        return {
-            "total_value": round(total_value, 2),
-            "total_invested": round(total_invested, 2),
-            "total_pl_usd": round(pl_total, 2),
-            "total_pl_pct": round(pl_total / total_invested * 100, 2) if total_invested else None,
-            "positions_count": len(positions),
-            "sector_top": sector_top,
-            "sectors": {k: round(v, 2) for k, v in sector_map.items()},
-            "corr_risk": corr_risk,
-        }
-
     # -- wiki --
     def _load_companies(self) -> dict:
         comp_dir = self.knowledge / "companies"
@@ -991,43 +885,6 @@ class SiteBuilder:
             })
         return sorted(out, key=lambda w: w["ticker"])
 
-    # -- learning (post-mortems) --
-    def _load_learning(self) -> list[dict]:
-        companies_dir = self.journal / "companies"
-        if not companies_dir.exists():
-            return []
-        out = []
-        for ticker_dir in sorted(companies_dir.iterdir()):
-            if not ticker_dir.is_dir() or not _is_valid_ticker(ticker_dir.name):
-                continue
-            opps_dir = ticker_dir / "case_file" / "opportunities"
-            if not opps_dir.exists():
-                continue
-            for opp_dir in sorted(opps_dir.iterdir()):
-                if not opp_dir.is_dir():
-                    continue
-                pm_dir = opp_dir / "post_mortem"
-                if not pm_dir.exists():
-                    continue
-                for pm in sorted(pm_dir.glob("*.yml")):
-                    data = _load_yaml(pm)
-                    if not isinstance(data, dict):
-                        continue
-                    analysis = data.get("analysis") or {}
-                    if isinstance(analysis, str):
-                        try:
-                            analysis = json.loads(analysis)
-                        except Exception:
-                            analysis = {"exit_analysis": analysis}
-                    out.append({
-                        "ticker": ticker_dir.name,
-                        "opp_id": data.get("opp_id"),
-                        "exit_reason": data.get("exit_reason"),
-                        "generated_at": data.get("generated_at"),
-                        "analysis": analysis if isinstance(analysis, dict) else {"raw": str(analysis)},
-                    })
-        return sorted(out, key=lambda l: l.get("generated_at") or "", reverse=True)
-
     # -- dashboard --
     def _build_dashboard(self, opps: list[dict], positions: list[dict],
                          buylist: list[dict], watchlist: list[dict], learning: list[dict],
@@ -1046,10 +903,6 @@ class SiteBuilder:
              {"UNDER_RESEARCH"}),
             ("buylist", "Buy List", "buylist",
              {"APPROVED", "ENTRY_PENDING"}),
-            ("portfolio", "Portfolio", "portfolio",
-             {"ACCUMULATING", "FULL_POSITION", "MONITORING", "REDUCING"}),
-            ("closed", "Cerradas", "learning",
-             STATUS_CLOSED),
         ]
         sections = []
         for key, label, tab, statuses in group_defs:
@@ -1067,10 +920,6 @@ class SiteBuilder:
         for s in sections:
             if s["key"] == "buylist":
                 s["count"] = len(buylist)
-            if s["key"] == "portfolio":
-                s["count"] = len(positions)
-            if s["key"] == "closed":
-                s["count"] = len(learning)
 
         stale = [o for o in opps if o.get("is_stale")]
         thesis_stale = [o for o in opps if o.get("is_thesis_stale")]
@@ -1123,27 +972,15 @@ class SiteBuilder:
             "research_stale": len(stale),
             "strategy_signals": strategy_signals or {},
         }
-        pf = portfolio or {}
         return {
             "sections": sections,
             "alerts": alerts,
             "stats": {
                 "active": len([o for o in opps if o["status"] in STATUS_ACTIVE]),
-                "closed": len([o for o in opps if o["status"] in STATUS_CLOSED]),
-                "positions": len(positions),
                 "buylist": len(buylist),
-                "learning": len(learning),
             },
             "universe_stats": universe_stats if universe_stats else {},
             "ide": ide,
-            "portfolio": {
-                "total_value": pf.get("total_value"),
-                "total_invested": pf.get("total_invested"),
-                "total_pl_pct": pf.get("total_pl_pct"),
-                "positions_count": pf.get("positions_count", len(positions)),
-                "corr_risk": pf.get("corr_risk") or {},
-                "sector_top": pf.get("sector_top") or {},
-            },
         }
 
     def _load_strategy_signals(self) -> dict[str, dict]:
@@ -1180,11 +1017,13 @@ class SiteBuilder:
         opps = self._attach_wyckoff(opps)
         buylist = self._load_buylist()
         watchlist = self._load_watchlist()
-        positions = self._load_positions()
-        ledger = self._load_ledger()
+        # Public Pages publishes only the process before portfolio. These
+        # fields remain empty for the serialized SiteData compatibility shape.
+        positions: list[dict] = []
+        ledger: list[dict] = []
         wiki = self._load_wiki_index()
-        learning = self._load_learning()
-        portfolio = self._compute_portfolio(positions)
+        learning: list[dict] = []
+        portfolio: dict = {}
         universe_stats = self._load_universe_stats()
         discovery_pool = self._load_discovery_pool(universe_stats)
         strategy_signals = self._load_strategy_signals()
@@ -1246,15 +1085,6 @@ def render_wiki_page(ticker: str, comp: dict, sections: list[tuple[str, str]]) -
         body.append(f"<h2>{title}</h2>{html}")
     body.append("</div>")
     return PAGE_TPL.format(title=f"Wiki · {ticker}", body="\n".join(body))
-
-
-def render_learning_page() -> str:
-    body = ['<div class="wrap"><a class="back" href="index.html">&larr; Dashboard</a>',
-            "<h1>Learning — Post-mortems</h1>",
-            '<div id="learning-root"></div></div>',
-            '<script src="assets/app.js"></script>',
-            '<script>renderLearningPage();</script>']
-    return PAGE_TPL.format(title="Learning", body="\n".join(body))
 
 
 # ---------------------------------------------------------------------------
@@ -1384,8 +1214,7 @@ function tableInput(view, id, ph){
 
 function renderShell(){
   document.getElementById('tabs').innerHTML = [
-    ['dashboard','Dashboard'],['screening','Discovery'],['opp','Research'],['strategies','Strategies'],['buylist','Buy List'],['portfolio','Portfolio'],
-    ['learning','Learning']
+    ['dashboard','Dashboard'],['screening','Discovery'],['opp','Research'],['strategies','Strategies'],['buylist','Buy List']
   ].map(([id,l])=>`<button class="tab" data-view="${id}">${l}</button>`).join('');
   document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderView(b.dataset.view); });
 }
@@ -1398,9 +1227,7 @@ function renderView(id){
   if(id==='opp') return renderOpp();
   if(id==='strategies') return renderStrategies();
   if(id==='buylist') return renderBuylist();
-  if(id==='portfolio') return renderPortfolio();
   if(id==='screening') return renderScreening();
-  if(id==='learning') return renderLearning();
   renderDashboard();
 }
 
@@ -1430,8 +1257,6 @@ function goTab(id){
 function renderDashboard(){
   const d = DATA.dashboard;
   const ide = d.ide||{};
-  const pf = d.portfolio||{};
-  const cr = pf.corr_risk||{};
   let html = '<div class="grid">';
   (d.sections||[]).forEach(s=>{
     html += `<div class="card" style="cursor:pointer" onclick="goTab('${s.tab}')" title="Ver ${esc(s.label)}">
@@ -1447,11 +1272,6 @@ function renderDashboard(){
   Object.entries(ide.engine_averages||{}).forEach(([engine,score])=>{
     html += `<div class="card"><div class="muted">${esc(engine)}</div><div style="font-size:20px;font-weight:700">${fmt(score,1)}/100</div></div>`;
   });
-  html += '</div>';
-  html += '<h2>Riesgo de cartera</h2><div class="grid">';
-  html += `<div class="card"><div class="muted">Valor de cartera</div><div style="font-size:20px;font-weight:700">${money(pf.total_value)}</div><div class="muted">P/L ${pct(pf.total_pl_pct,true)}</div></div>`;
-  html += `<div class="card"><div class="muted">Riesgo de correlación (proxy)</div><div style="font-size:20px;font-weight:700" class="${(cr.score||0)>=40?'neg':''}">${cr.score!=null?fmt(cr.score,1)+'%':'—'}</div><div class="muted">${esc(cr.top_sector||'Sin concentración sectorial')} · ${esc(cr.interpretation||'')}</div></div>`;
-  html += `<div class="card"><div class="muted">HHI de posiciones</div><div style="font-size:20px;font-weight:700">${cr.hhi!=null?fmt(cr.hhi,1):'—'}</div><div class="muted">${pf.positions_count??0} posiciones</div></div>`;
   html += '</div>';
   const strategies = ide.strategy_signals||{};
   if(Object.keys(strategies).length){
@@ -1580,52 +1400,6 @@ function renderBuylist(){
   setView('buylist', html);
 }
 
-// ---------- Portfolio ----------
-function renderPortfolio(){
-  const pf = DATA.portfolio;
-  const total = pf.total_value||0;
-  const distPct = p => {
-    if(p.dist_to_target_pct!==null) return p.dist_to_target_pct;
-    if(p.wyckoff?.price_target && p.current_price) return (p.wyckoff.price_target-p.current_price)/p.current_price*100;
-    return null;
-  };
-  const rows = DATA.positions||[];
-  TABLES['portfolio'] = {
-    rows,
-    cols: [
-      {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
-      {key:'industry', label:'Industria', value:r=>r.industry||r.sector||'', cell:r=>`<td class="muted">${esc(r.industry||r.sector||'—')}</td>`},
-      {key:'weight', label:'Peso', value:r=>total?(r.current_value||0)/total*100:null, cell:r=>{const w=total?(r.current_value||0)/total*100:null; return `<td>${w!==null?fmt(w,1)+'%':'—'}</td>`;}},
-      {key:'value', label:'Monto', value:r=>r.current_value??null, cell:r=>`<td>${money(r.current_value)}</td>`},
-      {key:'price', label:'Último', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}</td>`},
-      {key:'pl', label:'Upside', value:r=>r.pl_pct??null, cell:r=>`<td class="${r.pl_pct>=0?'pos':'neg'}">${pct(r.pl_pct,true)}</td>`},
-      {key:'wy', label:'Wyckoff', value:r=>r.wyckoff?.score??null, cell:r=>{const wy=r.wyckoff; return `<td>${wyPhase(wy?.phase)} ${esc(wy?.score??'—')}</td>`;}},
-      {key:'target', label:'Target', value:r=>r.target_price||(r.wyckoff?.price_target||null), cell:r=>`<td>${money(r.target_price||(r.wyckoff?.price_target||null))}</td>`},
-      {key:'dist', label:'Dist a target', value:r=>distPct(r), cell:r=>{const dp=distPct(r); return `<td>${dp!==null?`<span class="${dp>=0?'pos':'neg'}">${pct(dp,true)}</span>`:'—'}</td>`;}},
-    ],
-    tr: r=>` style="cursor:pointer" onclick="showCaseFromPos('${r.opp_id||''}','${r.ticker}')"`,
-    searchText: r=>`${r.ticker} ${r.industry||''}`,
-    sort: {key:'weight', dir:'desc'},
-    q:'',
-  };
-  let html = '<div class="grid">';
-  html += `<div class="card"><div class="muted">Valor total</div><div style="font-size:24px;font-weight:700">${money(pf.total_value)}</div></div>`;
-  html += `<div class="card"><div class="muted">P/L portfolio</div><div style="font-size:24px;font-weight:700" class="${pf.total_pl_usd>=0?'pos':'neg'}">${money(pf.total_pl_usd)} (${pct(pf.total_pl_pct,true)})</div></div>`;
-  html += `<div class="card"><div class="muted">Posiciones</div><div style="font-size:24px;font-weight:700">${pf.positions_count}</div></div>`;
-  const cr = pf.corr_risk||{};
-  html += `<div class="card"><div class="muted">Riesgo de correlación (proxy)</div><div style="font-size:18px;font-weight:700">${cr.score!=null?fmt(cr.score,1)+'':''}% ${cr.top_sector?('<span class="muted">('+esc(cr.top_sector)+')</span>'):''}</div><div class="muted">${esc(cr.interpretation||'')}</div></div>`;
-  html += '</div>';
-  html += `<h2>Activos</h2>`;
-  html += tableInput('portfolio','pf-search','Buscar ticker...');
-  html += `<table id="tbl-portfolio"><thead>${sortHeadRows('portfolio')}</thead><tbody>${sortTbody('portfolio')}</tbody></table>`;
-  html += '<details class="details" style="margin:10px 0"><summary>Sectores</summary><table><thead><tr><th>Sector</th><th>Valor</th><th>%</th></tr></thead><tbody>';
-  const sectorsArr = Object.entries(pf.sectors||{}).map(([k,v])=>[k,v]);
-  sectorsArr.sort((a,b)=>b[1]-a[1]);
-  sectorsArr.forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td>${money(v)}</td><td>${total?fmt(v/total*100,1)+'':''}%</td></tr>`);
-  html += '</tbody></table></details>';
-  setView('portfolio', html);
-}
-
 // ---------- Discovery ----------
 function renderScreening(){
   const rows = (DATA.discovery_pool && DATA.discovery_pool.length) ? DATA.discovery_pool : DATA.watchlist;
@@ -1654,29 +1428,6 @@ function renderScreening(){
 }
 
 // ---------- Wiki ----------
-// ---------- Learning ----------
-function renderLearning(){
-  const rows = DATA.learning;
-  let html = `<h2>Learning — Post-mortems (${rows.length})</h2>`;
-  if(!rows.length) html += `<div class="card"><p class="muted">Aún no hay post-mortems. Cuando una oportunidad se cierre (EXITED → POST_MORTEM) aparecerá aquí el análisis, lecciones y ajustes.</p></div>`;
-  rows.forEach(l=>{
-    const a = l.analysis||{};
-    html += `<details class="details"><summary><b>${esc(l.ticker)}</b> · ${esc(l.opp_id)} · <span class="muted">${esc(l.exit_reason)}</span> · ${dt(l.generated_at)}</summary>`;
-    html += `<p><b>¿La tesis fue correcta?</b> ${a.thesis_was_correct===true?'Sí':a.thesis_was_correct===false?'No':'—'}</p>`;
-    if(a.exit_analysis) html += `<p><b>Análisis:</b> ${esc(a.exit_analysis)}</p>`;
-    if(a.lessons_learned?.length) html += `<p><b>Lecciones:</b></p><ul>${a.lessons_learned.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
-    if(a.what_went_wrong?.length) html += `<p><b>Qué salió mal:</b></p><ul>${a.what_went_wrong.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
-    if(a.what_went_right?.length) html += `<p><b>Qué salió bien:</b></p><ul>${a.what_went_right.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
-    if(a.biases_detected?.length) html += `<p><b>Sesgos:</b> ${a.biases_detected.map(esc).join(', ')}</p>`;
-    if(a.methodological_errors?.length) html += `<p><b>Errores metodológicos:</b></p><ul>${a.methodological_errors.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
-    html += `<p><b>Re-invertiría:</b> ${a.would_invest_again===true?'Sí':a.would_invest_again===false?'No':'—'}</p>`;
-    if(a.wyckoff_accuracy) html += `<p><b>Precisión Wyckoff:</b> ${esc(a.wyckoff_accuracy)}</p>`;
-    html += `<pre class="yaml">${esc(JSON.stringify(a,null,2))}</pre>`;
-    html += `</details>`;
-  });
-  setView('learning', html);
-}
-
 // ---------- Case View ----------
 function findOpp(oppId){ return DATA.opportunities.find(o=>o.opp_id===oppId) || {opp_id:oppId,ticker:'?',status:'?',scores:{}}; }
 function showCase(oppId){
@@ -1740,7 +1491,9 @@ function showCase(oppId){
   const actionFails = buylistEntryFails(actRow);
   const actionResolved = actionFails.length===0;
   html += `<h2>Indicador de acción</h2>`;
-  html += (actionResolved
+  html += (o.proposal?.status==='PENDING_HUMAN_REVIEW'
+    ? `<div class="card"><b>Decisión pendiente de revisión humana.</b> La señal no autoriza una entrada.</div>`
+    : actionResolved
     ? `<div class="card" style="border-color:#1c4731"><b class="pos">Listo para entrada</b> — no hay condiciones fallidas frente a los umbrales de ENTRY.</div>`
     : `<div class="card" style="border-color:#3a2a10"><b class="neg">No listo para entrada</b> — condiciones fallidas:</div><ul>${actionFails.map(f=>`<li class="neg">${f}</li>`).join('')}</ul>`);
   html += detailsEntryThresholds();
@@ -1779,8 +1532,6 @@ function showCaseFromOpp(oppId, ticker){
 
 function setView(id, html){ document.getElementById('view').innerHTML = `<div id="${id}">${html}</div>`; }
 
-// learning standalone page (opcional)
-function renderLearningPage(){ renderLearning(); }
 
 boot();
 """
@@ -1799,7 +1550,7 @@ INDEX_TPL = """<!DOCTYPE html>
 <div class="tabs" id="tabs"></div>
 <div id="view"></div>
 <hr style="border-color:var(--border);margin:24px 0 12px">
-<p class="muted">Generado <span id="gen-at" data-v="GENV"></span> · <a href="learning.html">Learning</a></p>
+<p class="muted">Generado <span id="gen-at" data-v="GENV"></span></p>
 </div>
 <script src="assets/app.js?v=GENV"></script>
 </body>
@@ -1819,7 +1570,7 @@ def write_site(base_path: Path, out_dir: Path | None = None, stale_days: int = D
     out = out_dir or base_path / "site"
     (out / "assets").mkdir(parents=True, exist_ok=True)
     (out / "wiki").mkdir(parents=True, exist_ok=True)
-    (out / "learning").mkdir(parents=True, exist_ok=True)
+    (out / "learning.html").unlink(missing_ok=True)
 
     (out / "assets" / "style.css").write_text(STYLE_CSS, encoding="utf-8")
     (out / "assets" / "app.js").write_text(
@@ -1861,7 +1612,6 @@ def write_site(base_path: Path, out_dir: Path | None = None, stale_days: int = D
     wiki_index_body.append("</tbody></table></div>")
     (out / "wiki" / "index.html").write_text(PAGE_TPL.format(title="Wiki", body="\n".join(wiki_index_body)), encoding="utf-8")
 
-    (out / "learning.html").write_text(render_learning_page(), encoding="utf-8")
 
     (out / ".nojekyll").write_text("", encoding="utf-8")
 

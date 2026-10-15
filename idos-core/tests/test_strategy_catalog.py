@@ -1,4 +1,5 @@
 from pathlib import Path
+import pytest
 
 from idos.strategy.catalog import StrategyCatalog
 from idos.data.sqlite import SQLiteStore
@@ -17,6 +18,19 @@ def test_legacy_default_is_compounder():
     profile = StrategyCatalog().get(None)
     assert profile.strategy_id == "COMPOUNDER"
     assert profile.entry_policy == "VALUATION_ZONE"
+
+
+def test_unknown_strategy_cannot_fall_back_to_compounder():
+    with pytest.raises(ValueError, match="Unknown strategy_id"):
+        StrategyCatalog().get("UNKNOWN_STRATEGY")
+
+
+def test_discovery_rejects_profile_without_runner():
+    from idos.workers.data.universe_pipeline import UniversePipeline
+
+    config_path = Path(__file__).parents[1].parent / "idos-config"
+    with pytest.raises(ValueError, match="no runner"):
+        UniversePipeline({"strategy_id": "MOMENTUM_ETF", "config_path": str(config_path)})
 
 
 def test_strategy_core_mapping():
