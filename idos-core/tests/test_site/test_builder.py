@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from idos.site.builder import SiteBuilder
+from idos.site.builder import SiteBuilder, write_site
 
 
 def _builder() -> SiteBuilder:
@@ -133,22 +133,38 @@ def test_universe_stats_empty_without_stats():
     assert result["universe_stats"] == {}
 
 
-def test_dashboard_exposes_ide_and_portfolio_metrics():
+def test_dashboard_exposes_ide_without_portfolio_metrics():
     opps = [{
         "ticker": "AAA", "status": "UNDER_RESEARCH",
         "scores": {"RiskAssessmentEngine": 70, "BusinessAssessmentEngine": 80},
         "conviction_overall": 75,
     }]
-    portfolio = {
-        "total_value": 1000,
-        "total_pl_pct": 12.5,
-        "positions_count": 1,
-        "corr_risk": {"score": 80, "hhi": 10000, "top_sector": "Technology"},
-    }
-    result = _builder()._build_dashboard(opps, [], [], [], [], portfolio=portfolio)
+    result = _builder()._build_dashboard(opps, [], [], [], [])
     assert result["ide"]["engine_averages"]["RiskAssessmentEngine"] == 70
     assert result["ide"]["conviction_average"] == 75
-    assert result["portfolio"]["corr_risk"]["score"] == 80
+    assert "portfolio" not in result
+    assert all(section["key"] != "portfolio" for section in result["sections"])
 
-    result = _builder()._build_dashboard(opps, [], [], [], [], portfolio=portfolio)
-    assert result["portfolio"]["total_value"] == 1000
+
+def test_public_build_omits_paper_positions(tmp_path: Path):
+    private = tmp_path / "idos-journal" / "paper" / "positions"
+    private.mkdir(parents=True)
+    (private / "SECRET.yml").write_text("ticker: SECRET\nquantity: 100\nentry_price: 12\n", encoding="utf-8")
+    held = tmp_path / "idos-journal" / "companies" / "PRIVATE" / "case_file" / "opportunities" / "OPP-PRIVATE"
+    held.mkdir(parents=True)
+    (held / "opportunity.yml").write_text("id: OPP-PRIVATE\nticker: PRIVATE\nstatus: FULL_POSITION\n", encoding="utf-8")
+    site = SiteBuilder(tmp_path).build()
+    assert site.positions == []
+    assert site.ledger == []
+    assert site.portfolio == {}
+    assert "SECRET" not in str(site)
+    assert "PRIVATE" not in str(site)
+    (tmp_path / "site").mkdir()
+    (tmp_path / "site" / "learning.html").write_text("old post mortem", encoding="utf-8")
+    output = write_site(tmp_path, tmp_path / "site")
+    assert "SECRET" not in (output / "data.json").read_text(encoding="utf-8")
+    assert "PRIVATE" not in (output / "data.json").read_text(encoding="utf-8")
+    assert not (output / "learning.html").exists()
+    script = (output / "assets" / "app.js").read_text(encoding="utf-8")
+    assert "['portfolio','Portfolio']" not in script
+    assert "Decisión pendiente de revisión humana" in script

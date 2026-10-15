@@ -1,9 +1,12 @@
 # IDOS — Investment Decision Operating System
 
 > Estado de la cartera familiar: el dashboard de GitHub Pages muestra investigación
-> y simulación. No almacena ni publica una cartera familiar real. El contrato
+> hasta Buy List. No almacena ni publica posiciones, movimientos o cartera
+> familiar real. El contrato
 > inicial de datos y las tareas pendientes están en
-> `SDD/20.IMPLEMENTACION-IDE-v2.1-y-cartera-familiar.md`.
+> `SDD/20.IMPLEMENTACION-IDE-v2.1-y-cartera-familiar.md`. La plantilla vacía
+> está en `templates/private-portfolio-template.xlsx` y su contrato en
+> `SDD/21.CONTRATO-CARTERA-PRIVADA-GOOGLE-SHEETS.md`.
 
 Sistema de gestión de inversiones para Family Office. Automatiza screening, due diligence,
 due diligence, monitoreo de cartera, generación de reportes y notificaciones.
@@ -773,10 +776,10 @@ idos site-build                     # Generar UI estática en ./site
 ## 12. Interfaz Web (estática, sin servidor)
 
 El sistema incluye una **UI estática** publicable en **GitHub Pages** que
-permite revisar oportunidades, decisiones pendientes, Buy List y aprendizaje.
-La vista Portfolio existente corresponde a la simulación `paper`; la cartera
-familiar real se mantendrá en una fuente privada aún por definir. Pages no
-debe recibir posiciones, efectivo ni obligaciones reales.
+permite revisar oportunidades, decisiones pendientes y Buy List.
+El sitio público omite también las posiciones y movimientos de simulación
+`paper`. La cartera familiar real se mantendrá en una hoja privada o fuente
+equivalente. Pages no recibe posiciones, efectivo ni obligaciones.
 
 ### 12.1 Vista previa
 
@@ -789,23 +792,23 @@ idos site-build                 # genera ./site (index.html + data.json + wiki/*
 
 | Vista | Qué muestra |
 |-------|-------------|
-| **Dashboard** | Funnel y alertas, métricas agregadas del IDE por engine, convicción media, riesgo de cartera (concentración/correlación proxy, HHI, P/L) y últimas señales sistemáticas |
+| **Dashboard** | Funnel y alertas del proceso, métricas agregadas del IDE por engine, convicción media y últimas señales sistemáticas |
 | **Oportunidades** | Activas (WATCHLIST / UNDER_DEEP_DD / APPROVED) con scores de los 5 engines, upside %, última investigación; toggle para **cerradas** (EXITED/POST_MORTEM/ARCHIVED) |
 | **Buy List** | Último precio, zona de compra (`buy_zone_top`), target, margen, última fecha de KB, estado Wyckoff y fecha, catalizadores |
-| **Portfolio** | Activos, peso %, entry, último precio, P/L por activo y total, stop loss (distancia), target, concentración por sector |
 | **Watchlist** | Candidatos del Discovery Domain (Scout), con score y razón |
 | **Wiki** | Índice de 60+ compañías → página por ticker con ficha y markdown renderizado |
-| **Learning** | Post-mortems de oportunidades cerradas (lecciones, sesgos, `would_invest_again`, precisión Wyckoff). El post-mortem evalúa la tesis y el análisis del **momento de entrada** desde el snapshot (`entry_snapshot.yml`), no los datos del cierre |
 
 Al hacer clic en cualquier ticker se abre la **Case View** integrada: decisión,
 scores, tesis/riesgos del DDD, última investigación (con badge de staleness),
-Wyckoff y post-mortem si existe.
+Wyckoff y evidencia anterior a cartera.
 
 ### 12.3 Datos y frescura
 
 El sitio se alimenta de los YAML del journal, del conocimiento y de la cache diaria
-de precios (`idos.db#price_history`, último cierre disponible). Los campos P/L y
-precios del portfolio quedan marcados como `—` si aún no hay precios cacheados.
+de precios (`idos.db#price_history`, último cierre disponible). Solo se publican
+datos anteriores a cartera; `positions`, `ledger`, `portfolio` y `learning`
+permanecen vacíos en `data.json` por compatibilidad del esquema público.
+Oportunidades en estados de tenencia o cierre no se exportan.
 
 El umbral de “research stale” por defecto es **30 días**, configurable en
 `idos-config/ui.yml`:

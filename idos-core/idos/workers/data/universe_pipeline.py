@@ -29,6 +29,10 @@ class UniversePipeline(BaseWorker):
         self.strategy_id = str(config.get("strategy_id", "COMPOUNDER")).upper()
         self.strategy_catalog = StrategyCatalog(Path(self.config_path) / "strategies.yml")
         self.strategy = self.strategy_catalog.get(self.strategy_id)
+        if not self.strategy.enabled:
+            raise ValueError(f"Strategy is disabled: {self.strategy_id}")
+        if self.strategy.discovery_profile != "compounder":
+            raise ValueError(f"UniversePipeline has no runner for discovery profile: {self.strategy.discovery_profile}")
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         metrics = PipelineMetrics()

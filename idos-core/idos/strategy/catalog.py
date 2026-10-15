@@ -46,7 +46,7 @@ class StrategyCatalog:
         return StrategyProfile("COMPOUNDER", "CORE_3_GROWTH", "HIGH_CONVICTION", "STRATEGIC", "compounder", "strategic", "VALUATION_ZONE", True)
 
     def get(self, strategy_id: str | None) -> StrategyProfile:
-        return self._profiles.get((strategy_id or "COMPOUNDER").upper(), self.default_compounder())
+        return self.require(strategy_id or "COMPOUNDER")
 
     def list(self, enabled_only: bool = False) -> list[StrategyProfile]:
         values = list(self._profiles.values())
