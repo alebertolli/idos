@@ -305,6 +305,13 @@ DISCOVERED ─────────────► UNDER_DEEP_DD ──► AP
                   → puede volver a UNDER_DEEP_DD
 ```
 
+La excepción es la estrategia sistemática `MOMENTUM_ETF`: un instrumento
+seleccionado por el ranking mensual se crea directamente en `ENTRY_PENDING`
+con `entry_policy: SIGNAL_REBALANCE`. No pasa por ResearchWorker, DDD
+fundamental, los cinco assessment engines ni DecisionBoard; el IDE/EntryMonitor
+evalúa la señal y el sizing. Por eso el momentum no tiene un `IDE score` de
+37/67 ni un score repetido en los cinco engines.
+
 > Nota de fidelidad: `SCREENED`, `UNDER_RESEARCH`, `FULL_POSITION`, `MONITORING` y
 > `REDUCING` están definidos en la state machine pero **no son escritos por ningún worker
 > de producción** (solo vía `opp-transition` manual). `WATCHLIST` es destino de

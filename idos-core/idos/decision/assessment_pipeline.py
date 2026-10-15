@@ -581,25 +581,20 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
 
     is_systematic = context.get("research_profile") == "systematic"
     if is_systematic:
-        signal = context.get("signal") or {}
-        try:
-            momentum = float(signal.get("momentum") or 0)
-        except (TypeError, ValueError):
-            momentum = 0.0
-        signal_score = max(0, min(100, round(momentum / 2.7 * 100)))
-        # Momentum is authorized by its reproducible signal. Fundamental
-        # authorization rules would manufacture failures from absent ETF
-        # metrics and keep systematic instruments in UNDER_RESEARCH.
-        context["precomputed_assessments"] = {
-            "BusinessAssessmentEngine": signal_score,
-            "ValuationAssessmentEngine": signal_score,
-            "RecoveryAssessmentEngine": signal_score,
-            "RiskAssessmentEngine": signal_score,
-            "PortfolioAssessmentEngine": signal_score,
+        # Momentum is a systematic entry signal, not a fundamental DDD
+        # opportunity. The strategy pipeline already places selected signals
+        # in ENTRY_PENDING; the IDE/entry worker evaluates them there.
+        # Returning here is intentional: never fabricate five IDE engine
+        # scores from the momentum value and never create a generic board
+        # proposal for an ETF signal.
+        return {
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "status": "skipped",
+            "reason": "Systematic signal is routed directly to ENTRY_PENDING for IDE evaluation",
         }
-        context["asymmetry"] = {"benefit_risk_ratio": 3.0, "upside_esperado_pct": 0, "downside_esperado_pct": 0}
-    else:
-        _register_authorization_rules(rules_engine, bp)
+
+    _register_authorization_rules(rules_engine, bp)
 
     proposal = orchestrator.run_pipeline("opportunity:transitioned", context)
     if proposal is None:
@@ -643,11 +638,6 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
 
     if resolution.approved:
         new_status = OpportunityStatus.APPROVED
-    elif is_systematic:
-        # Signal strategies are not sent through the fundamental deep-DD
-        # queue. A non-selected/weak signal returns to WATCHLIST until the
-        # next monthly ranking instead of becoming permanently UNDER_DEEP_DD.
-        new_status = OpportunityStatus.WATCHLIST
     elif not context.get("asymmetry"):
         new_status = OpportunityStatus.WATCHLIST
     else:
@@ -696,7 +686,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     _all_metrics = context.get("knowledge_base", {}).get("dynamic", {}).get("metrics", {})
     _core_metrics = {k: v for k, v in _all_metrics.items() if k in ("roic", "operating_margin", "revenue_growth", "pe_ratio", "debt_to_equity")}
     _zero_core = sum(1 for v in _core_metrics.values() if isinstance(v, (int, float)) and v == 0)
-    _data_quality = "signal" if is_systematic else ("poor" if _zero_core > len(_core_metrics) // 2 else "good")
+    _data_quality = "poor" if _zero_core > len(_core_metrics) // 2 else "good"
 
     return {
         "ticker": ticker,
