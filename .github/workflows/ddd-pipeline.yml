@@ -46,6 +46,30 @@ jobs:
       actions: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.event_name == 'repository_dispatch' && github.event.client_payload.target_branch || github.ref_name }}
+      - name: Validate write target branch
+        env:
+          WORKFLOW_RUN_HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          DISPATCH_TARGET_BRANCH: ${{ github.event.client_payload.target_branch }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_run" ]; then
+            TARGET_BRANCH="$WORKFLOW_RUN_HEAD_BRANCH"
+          elif [ "$GITHUB_EVENT_NAME" = "repository_dispatch" ]; then
+            TARGET_BRANCH="$DISPATCH_TARGET_BRANCH"
+          else
+            TARGET_BRANCH="$GITHUB_REF_NAME"
+          fi
+          if [ -z "$TARGET_BRANCH" ]; then
+            echo "::error::No hay rama objetivo explícita; ejecución cerrada sin escribir"
+            exit 1
+          fi
+          if { [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] || [ "$GITHUB_EVENT_NAME" = "repository_dispatch" ]; } && [ "$TARGET_BRANCH" = "main" ]; then
+            echo "::error::Ejecuciones manuales o dispatch no pueden escribir en main"
+            exit 1
+          fi
+          git check-ref-format --branch "$TARGET_BRANCH"
+          echo "TARGET_BRANCH=$TARGET_BRANCH" >> "$GITHUB_ENV"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -106,14 +130,14 @@ jobs:
             exit 0
           fi
           git commit -m "chore: ddd research $(date +%Y-%m-%d)"
-          git fetch origin main
-          if ! git rebase origin/main; then
+          git fetch origin "$TARGET_BRANCH"
+          if ! git rebase "origin/$TARGET_BRANCH"; then
             git rebase --abort
             echo "[ERROR] La investigación no se pudo pushear (conflicto con origin/main). Fallo a proposito para notificar."
             exit 1
           fi
-          if ! git push origin HEAD:main; then
-            echo "[ERROR] El push a origin/main fallo. La investigación no fue subida."
+          if ! git push origin "HEAD:$TARGET_BRANCH"; then
+            echo "[ERROR] El push a origin/$TARGET_BRANCH fallo. La investigación no fue subida."
             exit 1
           fi
 
