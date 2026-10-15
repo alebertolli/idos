@@ -31,10 +31,13 @@ class UniversePipeline(BaseWorker):
         self.strategy = self.strategy_catalog.get(self.strategy_id)
         if not self.strategy.enabled:
             raise ValueError(f"Strategy is disabled: {self.strategy_id}")
-        if self.strategy.discovery_profile != "compounder":
+        if self.strategy.discovery_profile not in {"compounder", "multibaggers"}:
             raise ValueError(f"UniversePipeline has no runner for discovery profile: {self.strategy.discovery_profile}")
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
+        if self.strategy.discovery_profile == "multibaggers":
+            from idos.discovery.multibaggers_pipeline import MultibaggersPipeline
+            return MultibaggersPipeline(self.config).run(context)
         metrics = PipelineMetrics()
         metrics.started_at = datetime.now(AR_TZ).isoformat()
         start_time = time.time()

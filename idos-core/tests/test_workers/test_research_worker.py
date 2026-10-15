@@ -32,6 +32,8 @@ def _mock_research_registry() -> MagicMock:
     def get_side_effect(prompt_name: str, category: str = "research"):
         if prompt_name == "wiki":
             return None
+        if prompt_name == "multibaggers":
+            return "MULTIBAGGERS {ticker} ({name}); Intake: {intake_package}; resumen: {financial_summary}"
         if prompt_name == "ddd":
             return "FASE 0 - clasificacion oportunidad for {ticker} ({name})"
         if prompt_name == "hypothesis":
@@ -46,6 +48,43 @@ def _mock_research_registry() -> MagicMock:
 
 
 class TestResearchWorker:
+    def test_multibaggers_research_routes_by_persisted_profile_and_intake(
+        self, tmp_sqlite, tmp_journal, mock_llm_client: MagicMock,
+        base_path: str, tmp_path: Path, monkeypatch,
+    ):
+        import yaml
+        ticker, opp_id = "TEST", "OPP-MB-TEST"
+        opp = {
+            "id": opp_id, "ticker": ticker, "status": OpportunityStatus.SCREENED.value,
+            "strategy_id": "MULTIBAGGERS", "strategy_version": "1.0",
+            "research_profile": "multibaggers", "entry_policy": "MANUAL_REVIEW",
+            "conviction": {}, "created_at": "2026-10-15T12:00:00+00:00",
+            "updated_at": "2026-10-15T12:00:00+00:00",
+        }
+        tmp_sqlite.save_opportunity(opp)
+        tmp_journal.save_opportunity(ticker, opp)
+        intake = {"ticker": ticker, "strategy_id": "MULTIBAGGERS", "strategy_version": "1.0",
+                  "research_profile": "multibaggers", "snapshot_hash": "fixture-hash",
+                  "constraints": ["PACKAGE_TOKEN"]}
+        intake_path = tmp_journal.opportunity_path(ticker, opp_id) / "research_intake.yml"
+        intake_path.write_text(yaml.safe_dump(intake), encoding="utf-8")
+        snapshot_path = tmp_journal.opportunity_path(ticker, opp_id) / "discovery_snapshot.yml"
+        snapshot_path.write_text(yaml.safe_dump({"ticker": ticker, "snapshot_hash": "fixture-hash"}), encoding="utf-8")
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+        monkeypatch.setattr(worker, "_load_financial_data", lambda *args: {})
+        monkeypatch.setattr(worker, "_enrich_company_info", lambda ticker, company, knowledge: {"name": ticker, "sector": "Technology"})
+        monkeypatch.setattr(worker, "_fetch_target_consensus", lambda *args: {})
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "completed"
+        first_prompt = mock_llm_client.generate_structured.call_args_list[0].kwargs["prompt"]
+        assert "MULTIBAGGERS" in first_prompt
+        assert "PACKAGE_TOKEN" in first_prompt
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.UNDER_RESEARCH.value
+
     def test_systematic_ddd_is_signal_specific(self):
         report = ResearchWorker._build_systematic_ddd(
             "XLE",

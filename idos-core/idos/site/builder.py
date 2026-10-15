@@ -519,6 +519,12 @@ class SiteBuilder:
             "thesis_type": opp.get("thesis_type"),
             "entry_policy": opp.get("entry_policy"),
             "research_profile": opp.get("research_profile"),
+            "discovery_score": opp.get("discovery_score"),
+            "research_priority": opp.get("research_priority"),
+            "discovery_type": opp.get("discovery_type"),
+            "data_quality": opp.get("data_quality"),
+            "red_flags": opp.get("red_flags", []),
+            "position_limit_pct": opp.get("position_limit_pct"),
             "origin": opp.get("origin", "legacy"),
             "signal": opp.get("signal", {}),
             "conviction_overall": conv.get("overall"),
@@ -1236,11 +1242,14 @@ function renderStrategies(){
   const groups = {};
   rows.forEach(o=>{ const k=o.strategy_id||'COMPOUNDER'; groups[k]=(groups[k]||0)+1; });
   let html = '<h2>Estrategias IDOS</h2><p class="muted">Discovery, Research y estado de cada estrategia sin alterar el lifecycle de oportunidades.</p>';
-  html += '<table><thead><tr><th>Estrategia</th><th>Oportunidades</th><th>Core</th><th>Sleeves</th></tr></thead><tbody>';
+  html += '<p class="muted">MULTIBAGGERS: Discovery Score refleja atractivo relativo; Prioridad Research ordena investigación. Ninguno es probabilidad, conviction ni recomendación de compra.</p>';
+  html += '<table><thead><tr><th>Estrategia</th><th>Oportunidades</th><th>Core</th><th>Sleeves</th><th>Discovery / prioridad Research</th></tr></thead><tbody>';
   Object.keys(groups).sort().forEach(k=>{
     const sample=rows.find(o=>(o.strategy_id||'COMPOUNDER')===k)||{};
     const sleeves=[...new Set(rows.filter(o=>(o.strategy_id||'COMPOUNDER')===k).map(o=>o.sleeve).filter(Boolean))].join(', ')||'—';
-    html += `<tr><td><b>${esc(k)}</b></td><td>${groups[k]}</td><td>${esc(sample.core||'—')}</td><td>${esc(sleeves)}</td></tr>`;
+    const mb=rows.filter(o=>(o.strategy_id||'COMPOUNDER')===k&&o.discovery_score!=null);
+    const evidence=k==='MULTIBAGGERS'&&mb.length?`Discovery ${fmt(mb[0].discovery_score,1)} · Research ${fmt(mb[0].research_priority,1)} · ${esc(mb[0].discovery_type||'')}`:'—';
+    html += `<tr><td><b>${esc(k)}</b></td><td>${groups[k]}</td><td>${esc(sample.core||'—')}</td><td>${esc(sleeves)}</td><td>${evidence}</td></tr>`;
   });
   html += '</tbody></table>';
   setView('strategies', html);
@@ -1438,6 +1447,7 @@ function showCase(oppId){
   html += `<h1>${esc(o.ticker)} <span class="tick">${esc(o.opp_id)}</span> ${badge(o.status)}</h1>`;
   html += `<div class="grid">`;
   html += `<div class="card"><div class="muted">Convicción</div><div style="font-size:22px;font-weight:700">${o.conviction_overall??'—'}</div><div class="muted">${esc(o.confidence||'')} · ${esc(o.trend||'')}</div></div>`;
+  if(o.strategy_id==='MULTIBAGGERS') html += `<div class="card"><div class="muted">Discovery Score · Prioridad Research</div><div style="font-size:20px;font-weight:700">${fmt(o.discovery_score,1)} · ${fmt(o.research_priority,1)}</div><div class="muted">${esc(o.discovery_type||'')} · no son probabilidad ni convicción</div></div>`;
   html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
   html += `<div class="card"><div class="muted">Última investigación</div><div style="font-size:16px">${dt(o.last_research)}</div>${staleBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">Última evaluación tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.updated_at)}</div>${thesisBadge(o)}</div>`;

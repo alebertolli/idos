@@ -337,6 +337,16 @@ class EntryMonitorWorker(BaseWorker):
             )
 
         benchmark_data = self._load_benchmark_data(sqlite)
+        strategy_limit = None
+        try:
+            from idos.strategy.catalog import StrategyCatalog
+            strategy_profile = StrategyCatalog(base / "idos-config" / "strategies.yml").get(opp.get("strategy_id"))
+            strategy_limit = strategy_profile.parameters.get("position_limit_pct")
+        except (OSError, ValueError, KeyError):
+            strategy_limit = None
+        proposed_weight = conviction.get("overall", 50) / 100 * 3 if conviction.get("overall") else 1.5
+        if isinstance(strategy_limit, (int, float)) and strategy_limit >= 0:
+            proposed_weight = min(proposed_weight, float(strategy_limit))
 
         return {
             "price_data": price_data,
@@ -347,7 +357,8 @@ class EntryMonitorWorker(BaseWorker):
             "buy_zone_top": buy_zone_top,
             "thesis_active": True,
             "portfolio": {"total_weight": 0},
-            "proposed_weight": conviction.get("overall", 50) / 100 * 3 if conviction.get("overall") else 1.5,
+            "proposed_weight": proposed_weight,
+            "strategy_max_position_pct": strategy_limit,
         }
 
     def _load_benchmark_data(self, sqlite: SQLiteStore) -> list[dict[str, Any]]:

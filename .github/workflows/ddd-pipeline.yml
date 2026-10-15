@@ -17,7 +17,7 @@ on:
         type: boolean
         default: false
   repository_dispatch:
-    types: [quarterly-results]
+    types: [quarterly-results, guidance-change, material-restatement, red-flag-change, financial-deterioration, thesis-change]
   schedule:
     - cron: "0 0 2 * *"  # 2do día de cada mes (NORMAL: procesa SCREENED)
     - cron: "0 6 */30 * *"  # Cada 30 días a las 6am (FORCE: re-research UNDER_RESEARCH)
@@ -58,7 +58,15 @@ jobs:
           echo "TICKER=$TICKER" >> $GITHUB_ENV
           if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
-            echo "EVENT_TYPE=${{ github.event.action }}" >> $GITHUB_ENV
+            case "${{ github.event.action }}" in
+              quarterly-results) echo "EVENT_TYPE=quarterly_results" >> $GITHUB_ENV ;;
+              guidance-change) echo "EVENT_TYPE=guidance_change" >> $GITHUB_ENV ;;
+              material-restatement) echo "EVENT_TYPE=material_restatement" >> $GITHUB_ENV ;;
+              red-flag-change) echo "EVENT_TYPE=red_flag_change" >> $GITHUB_ENV ;;
+              financial-deterioration) echo "EVENT_TYPE=material_financial_deterioration" >> $GITHUB_ENV ;;
+              thesis-change) echo "EVENT_TYPE=thesis_change" >> $GITHUB_ENV ;;
+              *) echo "EVENT_TYPE=${{ github.event.action }}" >> $GITHUB_ENV ;;
+            esac
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "FORCE=${{ github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
             echo "EVENT_TYPE=manual" >> $GITHUB_ENV
