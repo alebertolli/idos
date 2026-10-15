@@ -308,52 +308,8 @@ jobs:
           r = pr.output if hasattr(pr, 'output') else pr
           print(f'[REPORT] Status: {r.get(\"status\")}, Path: {r.get(\"report_path\", \"\")}')
           "
-      - name: Post-Mortem - Check exited opportunities
-        run: |
-          python -c "
-          import sys, os, json
-          from pathlib import Path
-          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
-          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
-          from idos.data.sqlite import SQLiteStore
-          from idos.data.journal import JournalRepository
-          from idos.models.enums import OpportunityStatus
-          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
-          sqlite = SQLiteStore(bp / 'idos.db')
-          journal = JournalRepository(bp / 'idos-journal')
-
-          exited = sqlite.list_opportunities(status=OpportunityStatus.EXITED.value)
-          if not exited:
-              print('[POSTMORTEM] No hay oportunidades EXITED pendientes')
-              exit(0)
-
-          print(f'[POSTMORTEM] {len(exited)} oportunidades EXITED encontradas')
-          for opp in exited:
-              ticker = opp['ticker']
-              opp_id = opp['id']
-              pm_dir = journal.opportunity_path(ticker, opp_id) / 'post_mortem'
-              if pm_dir.exists() and list(pm_dir.iterdir()):
-                  print(f'[POSTMORTEM] {ticker} ({opp_id}): post-mortem ya existe, skip')
-                  continue
-              print(f'[POSTMORTEM] {ticker} ({opp_id}): generando post-mortem...')
-              from idos.ai.service import LLMService
-              _mp = Path('idos-config/models.yml')
-              _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
-              from idos.workers.learning.post_mortem_worker import PostMortemWorker
-              w = PostMortemWorker({
-                  'llm_service': _llm_svc,
-                  'prompts_path': 'idos-config/prompts',
-              })
-              result = w.execute({
-                  'ticker': ticker,
-                  'opp_id': opp_id,
-                  'base_path': str(bp),
-                  'exit_reason': opp.get('exit_reason', 'unknown'),
-              })
-              r = result.output if hasattr(result, 'output') else result
-              status = r.get('status', 'failed')
-              print(f'[POSTMORTEM] {ticker} ({opp_id}): {status}' + (f' — {r.get(\"pm_id\", \"\")}' if status == 'completed' else ''))
-          "
+      - name: Post-Mortem requires private persistent runner
+        run: echo 'Post-mortem deferred to private runner; public CI does not process closed positions.'
       - name: Dispatch quarterly-results events
         run: |
           if [ ! -f cache/earnings_trigger.json ]; then

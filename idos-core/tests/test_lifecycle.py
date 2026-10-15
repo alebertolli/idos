@@ -198,7 +198,10 @@ class TestFullLifecycle:
         })
         assert pmw_result.status == "success"
         assert pmw_result.output["status"] == "completed"
-        assert pmw_result.output["archived"] is True
+        assert pmw_result.output["archived"] is False
+
+        from idos.learning.review import approve_report
+        approve_report(Path(base_path), pmw_result.output["pm_id"], "family-manager")
 
         final_opp = sqlite.get_opportunity(opp_id)
         assert final_opp["status"] == OpportunityStatus.ARCHIVED.value, \
