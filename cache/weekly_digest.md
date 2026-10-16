@@ -1,30 +1,31 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-16 12:10 AR _
+_Generado: 2026-10-16 19:38 AR _
 
 ## Resumen
 
-- 🟢 **Oportunidades procesadas:** 2
-- ✅ **Assessment completados:** 2
+- 🟢 **Oportunidades procesadas:** 1
+- ✅ **Assessment completados:** 1
 - 🔖 **Approved:** 0
 - 🔴 **Errores:** 0
 - 📊 **Total encontradas:** 0
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **XLE** (OPP-20261016-MOM-XLE): score=94, class=?
-- ✅ **XLF** (OPP-20261016-MOM-XLF): score=28, class=?
+- ✅ **RACE** (OPP-20261016-001): score=50, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **XLE**
-  - Opp: [OPP-20261016-MOM-XLE]
-  - Conviction: ?/100 | Rec: WAIT
-  - Dec: ?
-- ⚠️ **XLF**
-  - Opp: [OPP-20261016-MOM-XLF]
-  - Conviction: ?/100 | Rec: WAIT
-  - Dec: ?
+- ⚠️ **RACE**
+  - Opp: [OPP-20261016-001]
+  - Conviction: 44/100 | Rec: BLOCKED
+  - Dec: HOLD
+  - Scores: Business: 68 | Valuation: 55 | Recovery: 50 | Risk: 0 | Portfolio: 0
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 68/70
+    - 🚫 RULE-004: Risk: 0/50
+    - 🚫 RULE-005: Conviction: 44/65
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 

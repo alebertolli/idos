@@ -1,18 +1,11 @@
 {
   "processed": [
     {
-      "opp_id": "OPP-20261016-MOM-XLE",
-      "ticker": "XLE",
+      "opp_id": "OPP-20261016-001",
+      "ticker": "RACE",
       "status": "completed",
-      "score": 94,
-      "reason": "new entry: SCREENED (score=0)"
-    },
-    {
-      "opp_id": "OPP-20261016-MOM-XLF",
-      "ticker": "XLF",
-      "status": "completed",
-      "score": 28,
-      "reason": "new entry: SCREENED (score=0)"
+      "score": 50,
+      "reason": "new entry: SCREENED (score=61)"
     }
   ],
   "skipped": [
@@ -62,7 +55,7 @@
       "opp_id": "OPP-20260813-001",
       "ticker": "ACN",
       "status": "UNDER_RESEARCH",
-      "reason": "UNDER_RESEARCH fresh (7d <= 30d)"
+      "reason": "UNDER_RESEARCH fresh (8d <= 30d)"
     },
     {
       "opp_id": "OPP-20260725-012",
@@ -1499,6 +1492,18 @@
       "reason": "status WATCHLIST not processable in NORMAL mode"
     },
     {
+      "opp_id": "OPP-20261016-MOM-XLE",
+      "ticker": "XLE",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (0d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-20261016-MOM-XLF",
+      "ticker": "XLF",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (0d <= 30d)"
+    },
+    {
       "opp_id": "OPP-20260813-097",
       "ticker": "XOM",
       "status": "WATCHLIST",
@@ -1537,28 +1542,38 @@
   ],
   "assessments": [
     {
-      "ticker": "XLE",
-      "opp_id": "OPP-20261016-MOM-XLE",
-      "status": "decision_pending",
-      "recommendation": "WAIT",
-      "checks": {
-        "research_evidence": true,
-        "signal_evidence": true,
-        "signal_within_policy": true
+      "ticker": "RACE",
+      "opp_id": "OPP-20261016-001",
+      "status": "completed",
+      "conviction_score": 44,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": "HOLD",
+      "decision_id": "DEC-20261016193835",
+      "assessments": {
+        "BusinessAssessmentEngine": 68,
+        "ValuationAssessmentEngine": 55,
+        "RecoveryAssessmentEngine": 50,
+        "RiskAssessmentEngine": 0,
+        "PortfolioAssessmentEngine": 0
       },
-      "board_approved": false
-    },
-    {
-      "ticker": "XLF",
-      "opp_id": "OPP-20261016-MOM-XLF",
-      "status": "decision_pending",
-      "recommendation": "WAIT",
-      "checks": {
-        "research_evidence": true,
-        "signal_evidence": true,
-        "signal_within_policy": true
+      "rules_passed": [
+        "RULE-003"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-004",
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 68/70",
+        "RULE-003": "Rerating: 50/50",
+        "RULE-004": "Risk: 0/50",
+        "RULE-005": "Conviction: 44/65",
+        "RULE-008": "No hay datos de DDD para calcular asimetria"
       },
-      "board_approved": false
+      "data_quality": "good"
     }
   ],
   "errors": [],
