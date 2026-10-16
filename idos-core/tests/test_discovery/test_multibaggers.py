@@ -79,6 +79,7 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     config_dir = tmp_path / "idos-config"
     universe_path = config_dir / "universe" / "multibaggers.yml"
     universe_path.parent.mkdir(parents=True)
+    (config_dir / "universe" / "operable.yml").write_text(yaml.safe_dump({"operable_tickers": [{"ticker": "TEST"}]}), encoding="utf-8")
     profile = {"enabled": True, "core": "CORE_4_ALPHA_ASYMMETRY", "sleeve": "ALPHA_ASYMMETRY", "thesis_type": "STRATEGIC",
         "discovery_profile": "multibaggers", "research_profile": "multibaggers", "entry_policy": "MANUAL_REVIEW", "strategy_version": "1.0",
         "parameters": {**parameters(), "universe_path": str(universe_path)}}
@@ -104,6 +105,29 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     public_opp = next(item for item in site.opportunities if item["strategy_id"] == "MULTIBAGGERS")
     assert public_opp["discovery_score"] >= 65
     assert public_opp["research_priority"] is not None
+
+
+def test_multibaggers_excludes_tickers_missing_from_shared_operable_allowlist(tmp_path: Path):
+    config_dir = tmp_path / "idos-config"
+    universe_path = config_dir / "universe" / "multibaggers.yml"
+    universe_path.parent.mkdir(parents=True)
+    profile = {"enabled": True, "core": "CORE_4_ALPHA_ASYMMETRY", "sleeve": "ALPHA_ASYMMETRY", "thesis_type": "STRATEGIC",
+        "discovery_profile": "multibaggers", "research_profile": "multibaggers", "entry_policy": "MANUAL_REVIEW", "strategy_version": "1.0",
+        "parameters": {**parameters(), "universe_path": str(universe_path)}}
+    (config_dir / "strategies.yml").write_text(yaml.safe_dump({"default_strategy": "COMPOUNDER", "strategies": {"MULTIBAGGERS": profile}}), encoding="utf-8")
+    universe_path.write_text(yaml.safe_dump({"strategy_id": "MULTIBAGGERS", "enabled": True, "tickers": ["OUT"]}), encoding="utf-8")
+    (config_dir / "universe" / "operable.yml").write_text(yaml.safe_dump({"operable_tickers": [{"ticker": "IN"}]}), encoding="utf-8")
+
+    class CacheMustNotBeRead:
+        def get(self, _key):
+            raise AssertionError("discovery must not read data for an inoperable ticker")
+
+    result = MultibaggersPipeline({"base_path": str(tmp_path), "config_path": str(config_dir), "data_cache": CacheMustNotBeRead()}).run()
+
+    assert result["status"] == "no_eligible_tickers"
+    assert result["excluded_tickers"] == ["OUT"]
+    assert result["processed"] == 0
+    assert not (tmp_path / "idos.db").exists()
 
 
 def test_manual_review_stops_assessment_before_buy_list(tmp_path, monkeypatch):

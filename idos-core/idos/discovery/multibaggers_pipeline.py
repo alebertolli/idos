@@ -8,6 +8,7 @@ import yaml
 from idos.data.sqlite import SQLiteStore
 from idos.discovery.multibaggers import MultibaggersDiscoveryEngine, build_research_intake
 from idos.discovery.multibaggers_store import MultibaggersStore
+from idos.discovery.operability import OperabilityFilter
 from idos.models.conviction import Conviction
 from idos.models.enums import OpportunityStatus
 from idos.models.journal import Opportunity
@@ -30,6 +31,10 @@ class MultibaggersPipeline:
         if not universe_path.is_absolute():
             universe_path = self.root / universe_path
         self.universe_path = universe_path
+        operable_path = Path(self.config.get("operable_path", config_dir / "universe/operable.yml"))
+        if not operable_path.is_absolute():
+            operable_path = self.root / operable_path
+        self.operability = OperabilityFilter(str(operable_path))
         self.journal_root = Path(self.config.get("journal_path", self.root / "idos-journal"))
         if not self.journal_root.is_absolute():
             self.journal_root = self.root / self.journal_root
@@ -41,16 +46,19 @@ class MultibaggersPipeline:
             raise ValueError("Curated universe strategy_id must be MULTIBAGGERS")
         if not universe.get("enabled", False):
             raise ValueError("Curated MULTIBAGGERS universe is disabled")
-        tickers = sorted({str(t).strip().upper() for t in universe.get("tickers", []) if str(t).strip()})
+        curated_tickers = sorted({str(t).strip().upper() for t in universe.get("tickers", []) if str(t).strip()})
+        tickers, excluded_tickers = self.operability.filter_tickers(curated_tickers)
         if not tickers:
-            return {"status": "no_universe", "strategy_id": "MULTIBAGGERS", "processed": 0, "created": 0, "message": "Curated universe has no tickers"}
+            return {"status": "no_eligible_tickers", "strategy_id": "MULTIBAGGERS", "processed": 0, "created": 0,
+                    "excluded_tickers": excluded_tickers, "message": "No curated tickers are present in the operable allowlist"}
 
         from idos.workers.data.cache import DataCache
         cache = self.config.get("data_cache") or DataCache(str(self.db_path))
         engine = MultibaggersDiscoveryEngine(self.profile.parameters, self.profile.strategy_version)
         discovery_store = MultibaggersStore(self.db_path)
         sqlite = SQLiteStore(self.db_path)
-        output = {"status": "completed", "strategy_id": "MULTIBAGGERS", "processed": 0, "passed": 0, "blocked": 0, "created": 0, "existing": 0, "results": []}
+        output = {"status": "completed", "strategy_id": "MULTIBAGGERS", "processed": 0, "passed": 0, "blocked": 0,
+                  "created": 0, "existing": 0, "excluded_tickers": excluded_tickers, "results": []}
         for ticker in tickers:
             payload = cache.get(f"merged:{ticker}")
             if payload is None and self.config.get("refresh_missing", True):

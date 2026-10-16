@@ -34,6 +34,17 @@ class OperabilityFilter:
     def is_operable(self, ticker: str) -> bool:
         return ticker.upper() in self._tickers
 
+    def filter_tickers(self, tickers: list[str]) -> tuple[list[str], list[str]]:
+        """Split a candidate universe into allowlisted and excluded symbols."""
+        operable = []
+        excluded = []
+        for value in tickers:
+            ticker = str(value).strip().upper()
+            if not ticker:
+                continue
+            (operable if self.is_operable(ticker) else excluded).append(ticker)
+        return operable, excluded
+
     def add(
         self,
         ticker: str,
