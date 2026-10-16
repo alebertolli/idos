@@ -78,6 +78,31 @@ class TestFullLifecycle:
         assert rw_result.output["status"] == "completed"
         assert sqlite.get_opportunity(opp_id)["status"] == "UNDER_RESEARCH"
 
+        # Supply explicit synthetic risk evidence for this test-only happy path.
+        # Missing risk data is covered separately and must block approval.
+        journal.save_assessment(ticker, opp_id, {
+            "id": "ass-risk-lifecycle-fixture",
+            "engine": "RiskAssessmentEngine",
+            "version": "1.1",
+            "status": "COMPLETED",
+            "score": 80,
+            "confidence": "MEDIUM",
+            "findings": [],
+            "risks": [],
+            "recommendation": "LOW_RISK",
+            "evidence_ids": ["synthetic:lifecycle-test"],
+        })
+        sqlite.save_price_history(ticker, [
+            {"date": "2026-10-14", "close": 96.0, "volume": 1_000_000},
+            {"date": "2026-10-15", "close": 95.0, "volume": 1_100_000},
+        ])
+        buylist_path = tmp_path / "idos-journal" / "portfolio" / "buylist.yml"
+        buylist_path.parent.mkdir(parents=True, exist_ok=True)
+        buylist_path.write_text(
+            f"entries:\n  - ticker: {ticker}\n    target_price: 130.0\n    buy_zone_top: 100.0\n",
+            encoding="utf-8",
+        )
+
         dbw = DecisionBoardWorker({"provider": "test"})
         dbw.llm = mock_llm_client
 

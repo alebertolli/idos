@@ -362,6 +362,12 @@ rules:
     condition: "assessments.valuation.score >= 60"
     action: "PASS"
     active: true
+  - id: RULE-004
+    description: "Maximum risk score allowed"
+    priority: 100
+    condition: "assessments.risk.score >= 50"
+    action: "PASS"
+    active: true
   - id: RULE-008
     description: "Minimum asymmetry ratio 3:1"
     priority: 100

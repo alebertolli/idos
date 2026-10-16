@@ -15,6 +15,18 @@ class TestDecisionBoardWorker:
         base_path: str,
     ):
         ticker, opp_id = seeded_opportunity_under_dd
+        from idos.data.journal import JournalRepository
+        JournalRepository(Path(base_path) / "idos-journal").save_assessment(ticker, opp_id, {
+            "id": "ass-risk-001",
+            "engine": "RiskAssessmentEngine",
+            "version": "1.1",
+            "status": "COMPLETED",
+            "score": 80,
+            "confidence": "MEDIUM",
+            "findings": [],
+            "risks": [],
+            "recommendation": "LOW_RISK",
+        })
         worker = DecisionBoardWorker({"provider": "test"})
         worker.llm = mock_llm_client
 
@@ -29,6 +41,24 @@ class TestDecisionBoardWorker:
         assert output["decision"] == "APPROVED"
         assert output["all_rules_pass"] is True
         assert output["rules_evaluated"] >= 3
+
+    def test_missing_risk_assessment_blocks_approval_even_if_llm_is_favorable(
+        self,
+        seeded_opportunity_under_dd: tuple[str, str],
+        mock_llm_client: MagicMock,
+        base_path: str,
+    ):
+        ticker, opp_id = seeded_opportunity_under_dd
+        worker = DecisionBoardWorker({"provider": "test"})
+        worker.llm = mock_llm_client
+
+        result = worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result.status == "success"
+        assert result.output["decision"] == "WATCHLIST"
+        assert result.output["all_rules_pass"] is False
+        assert "RULE-004" in result.output["deterministic_failed"]
+        assert result.output["rules_details"]["RULE-004"] == "Risk score: 0/100"
 
     def test_rejects_poor_opportunity(
         self,
