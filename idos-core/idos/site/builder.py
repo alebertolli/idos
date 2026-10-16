@@ -377,20 +377,43 @@ class SiteBuilder:
 
         scores: dict[str, Any] = {}
         findings: dict[str, list[str]] = {}
+        risk_assessment = None
+        private_portfolio_assessment_present = False
         for engine, spec in (dp.get("assessments") or {}).items():
             if isinstance(spec, dict):
+                # Portfolio fit may depend on private holdings. It is never part
+                # of the public Pages payload, even when a private assessment exists.
+                if engine in {"PortfolioAssessmentEngine", "PortfolioEngine"}:
+                    private_portfolio_assessment_present = True
+                    continue
                 scores[engine] = spec.get("score")
                 findings[engine] = [
                     f.get("detail") or f"{f.get('dimension','')} {f.get('level','')}".strip()
                     for f in (spec.get("findings") or []) if isinstance(f, dict)
                 ]
+                if engine in {"RiskAssessmentEngine", "RiskEngine"}:
+                    risk_assessment = {
+                        "score": spec.get("score"),
+                        "confidence": spec.get("confidence"),
+                        "recommendation": spec.get("recommendation"),
+                        "findings": findings[engine],
+                        "risks": [
+                            {key: risk.get(key) for key in ("type", "metric", "detail") if risk.get(key) is not None}
+                            for risk in (spec.get("risks") or []) if isinstance(risk, dict)
+                        ],
+                    }
 
         conv = opp.get("conviction") or {}
         scores_conv = conv.get("scores") or {}
         # Real scores live in decision_proposal; opportunity.yml often has zeros.
-        final_scores = {k: (v if v else scores.get(k)) for k, v in scores_conv.items()}
-        final_scores.update({k: v for k, v in scores.items() if k not in final_scores})
-        final_scores = {k: v for k, v in final_scores.items() if v is not None and v != 0}
+        private_engine_names = {"PortfolioAssessmentEngine", "PortfolioEngine"}
+        final_scores = {
+            k: v for k, v in scores_conv.items()
+            if k not in private_engine_names and v not in (None, 0)
+        }
+        # Preserve explicit zero assessments: score 0 plus an insufficient-data
+        # recommendation is meaningful and must remain visible to the manager.
+        final_scores.update({k: v for k, v in scores.items() if k not in private_engine_names and v is not None})
 
         current_price = opp.get("current_price")
         intrinsic = opp.get("intrinsic_value")
@@ -405,6 +428,10 @@ class SiteBuilder:
             # Systematic strategies are evaluated from their signal and policy,
             # not a fundamental conviction score or intrinsic-value estimate.
             conv = {**conv, "overall": None}
+        elif private_portfolio_assessment_present:
+            # Aggregate conviction can encode a private portfolio-fit score.
+            # Suppress the dependent aggregate and confidence in public Pages.
+            conv = {**conv, "overall": None, "confidence": None, "trend": None}
         mkt = self._market_price(ticker)
         market_price = mkt["price"]
         price_date = mkt["date"]
@@ -543,6 +570,7 @@ class SiteBuilder:
             "trend": conv.get("trend"),
             "scores": final_scores,
             "findings": findings,
+            "risk_assessment": risk_assessment,
             "current_price": current_price,
             "intrinsic_value": intrinsic,
             "upside_pct": upside,
@@ -1534,6 +1562,16 @@ function showCase(oppId){
   if(o.decision?.justification) html += `<p class="muted">Justificación: ${esc(o.decision.justification)}</p>`;
   if((o.proposal?.rules_passed||[]).length) html += `<p>Reglas superadas: ${o.proposal.rules_passed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
   if((o.proposal?.rules_failed||[]).length) html += `<p class="neg">Reglas falladas: ${o.proposal.rules_failed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
+  html += `<h3>Evaluación de riesgo de la oportunidad</h3>`;
+  if(o.risk_assessment){
+    const ra=o.risk_assessment;
+    html += `<div class="card"><b>${esc(ra.recommendation||'REVIEW')}</b> · score ${ra.score??'—'}/100 · confianza ${esc(ra.confidence||'UNKNOWN')}</div>`;
+    if((ra.risks||[]).length) html += `<ul>${ra.risks.map(r=>`<li class="neg">${esc(r.type||'RISK')}${r.metric?' · '+esc(r.metric):''}: ${esc(r.detail||'')}</li>`).join('')}</ul>`;
+    if((ra.findings||[]).length) html += `<ul>${ra.findings.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`;
+  } else {
+    html += `<div class="card"><b>INSUFFICIENT_DATA</b> · No hay una evaluación de riesgo registrada.</div>`;
+  }
+  html += `<div class="card"><b>Portfolio fit:</b> no se calcula en Pages. Requiere una fuente privada reconciliada; las posiciones de simulación no representan la cartera familiar.</div>`;
   html += `<table><thead><tr><th>Engine</th><th>Score</th><th>Findings</th></tr></thead><tbody>`;
   Object.entries(o.scores||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td class="score">${v??'—'}</td><td>${(o.findings?.[k]||[]).map(esc).join(' · ')||'—'}</td></tr>`);
   html += '</tbody></table>';

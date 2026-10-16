@@ -170,6 +170,54 @@ def test_public_build_omits_paper_positions(tmp_path: Path):
     script = (output / "assets" / "app.js").read_text(encoding="utf-8")
     assert "['portfolio','Portfolio']" not in script
     assert "Decisión pendiente de revisión humana" in script
+    assert "no se calcula en Pages" in script
+
+
+def test_public_opportunity_explains_unknown_risk_and_omits_private_portfolio_fit(tmp_path: Path):
+    opp_dir = tmp_path / "OPP-RISK-UNKNOWN"
+    opp_dir.mkdir()
+    (opp_dir / "opportunity.yml").write_text(yaml.safe_dump({
+        "id": "OPP-RISK-UNKNOWN",
+        "status": "UNDER_RESEARCH",
+        "strategy_id": "COMPOUNDER",
+        "conviction": {
+            "overall": 62,
+            "confidence": "HIGH",
+            "trend": "IMPROVING",
+            "scores": {"RiskAssessmentEngine": 0, "PortfolioAssessmentEngine": 91},
+        },
+    }), encoding="utf-8")
+    (opp_dir / "decision_proposal.yml").write_text(yaml.safe_dump({
+        "assessments": {
+            "RiskAssessmentEngine": {
+                "score": 0,
+                "confidence": "LOW",
+                "recommendation": "INSUFFICIENT_DATA",
+                "findings": [],
+                "risks": [{"type": "DATA_QUALITY", "metric": "current_ratio", "detail": "current_ratio is UNKNOWN"}],
+            },
+            "PortfolioAssessmentEngine": {
+                "score": 91,
+                "confidence": "HIGH",
+                "recommendation": "EXCELLENT_FIT",
+                "findings": [{"type": "POSITIVE", "detail": "PRIVATE-HOLDING-DETAIL"}],
+                "risks": [],
+            },
+        },
+    }), encoding="utf-8")
+
+    builder = _builder()
+    builder._market_price = lambda ticker: {"price": None, "date": None}
+    result = builder._load_opportunity("AAA", opp_dir)
+
+    assert result["scores"]["RiskAssessmentEngine"] == 0
+    assert "PortfolioAssessmentEngine" not in result["scores"]
+    assert result["conviction_overall"] is None
+    assert result["confidence"] is None
+    assert result["trend"] is None
+    assert result["risk_assessment"]["recommendation"] == "INSUFFICIENT_DATA"
+    assert result["risk_assessment"]["risks"][0]["metric"] == "current_ratio"
+    assert "PRIVATE-HOLDING-DETAIL" not in str(result)
 
 
 def test_systematic_opportunity_uses_signal_without_fake_conviction_or_valuation(tmp_path: Path):
