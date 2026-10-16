@@ -190,7 +190,23 @@ def test_missing_report_date_blocks_otherwise_complete_source_evidence():
 
     assert result.metrics_snapshot["roic_pct"]["status"] == "incomplete"
     assert result.metrics_snapshot["roic_pct"]["value"] is None
+    assert result.metrics_snapshot["roic_pct"]["source_evidence"][0]["raw_value"] == 20
+    assert result.metrics_snapshot["roic_pct"]["source_evidence"][0]["reason_code"] == "REQUIRED_EVIDENCE_FIELD_MISSING"
     assert result.passed is False
+
+
+def test_incomplete_evidence_is_preserved_without_crashing_as_of_selection():
+    payload = valid_payload()
+    observations = payload["metric_observations"]["roic_pct"]
+    observations[0]["reported_at"] = None
+
+    result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
+
+    snapshot = result.metrics_snapshot["roic_pct"]
+    assert snapshot["status"] == "incomplete"
+    assert snapshot["as_of"] == "2026-09-30T00:00:00+00:00"
+    assert [item["status"] for item in snapshot["source_evidence"]] == ["incomplete", "observed"]
+    assert snapshot["source_evidence"][0]["raw_value"] == 20
 
 
 def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Path):

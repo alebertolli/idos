@@ -48,6 +48,7 @@ def reconcile_metric_observations(
         return _empty_result("missing", "NO_SOURCE_OBSERVATIONS")
 
     accepted: dict[str, dict[str, Any]] = {}
+    source_evidence: list[dict[str, Any]] = []
     invalid_source = False
     stale_source = False
     incomplete = False
@@ -56,12 +57,29 @@ def reconcile_metric_observations(
     for observation in observations:
         if not isinstance(observation, dict):
             incomplete = True
+            source_evidence.append({"status": "incomplete", "reason_code": "OBSERVATION_NOT_OBJECT"})
             continue
         source = canonical_source_id(observation.get("source_id"))
+        raw_value = _finite_number(observation.get("value"))
+        evidence_item = {
+            "source_id": source or _safe_text(observation.get("source_id"), 100),
+            "raw_value": raw_value,
+            "value": None,
+            "unit": _safe_text(observation.get("unit"), 40),
+            "currency": _safe_text(observation.get("currency"), 20),
+            "period": _safe_text(observation.get("period"), 100),
+            "reported_at": _safe_text(observation.get("reported_at"), 80),
+            "observed_at": _safe_text(observation.get("observed_at"), 80),
+            "source_url": _safe_text(observation.get("source_url"), 2048),
+            "status": "incomplete",
+            "reason_code": None,
+        }
+        source_evidence.append(evidence_item)
         if source is None:
             invalid_source = True
+            evidence_item["reason_code"] = "UNKNOWN_SOURCE"
             continue
-        value = _finite_number(observation.get("value"))
+        value = raw_value
         observed_at = _parse_date(observation.get("observed_at"))
         reported_at = _parse_date(observation.get("reported_at"))
         unit = _normalize_unit(value, observation.get("unit"), expected_unit)
@@ -70,22 +88,28 @@ def reconcile_metric_observations(
         source_url = str(observation.get("source_url") or "").strip()
         if value is None or observed_at is None or reported_at is None or unit is None or not period or not source_url:
             incomplete = True
+            evidence_item["reason_code"] = "REQUIRED_EVIDENCE_FIELD_MISSING"
             continue
         if not _source_url_matches(source, source_url):
             incomplete = True
+            evidence_item["reason_code"] = "SOURCE_URL_MISMATCH"
             continue
         if expected_currency and currency != expected_currency.upper():
             currencies.add(currency or "UNKNOWN")
             incomplete = True
+            evidence_item["reason_code"] = "SOURCE_CURRENCY_MISMATCH"
             continue
         if expected_currency is None and currency:
             currencies.add(currency)
         current = _parse_date(now)
         if current is None or reported_at > current or observed_at > current or observed_at < reported_at:
             incomplete = True
+            evidence_item["reason_code"] = "INVALID_EVIDENCE_DATES"
             continue
         if (current - reported_at).days > stale_after_days:
             stale_source = True
+            evidence_item["status"] = "stale"
+            evidence_item["reason_code"] = "STALE_SOURCE_OBSERVATION"
             continue
         periods.add(period)
         if expected_currency:
@@ -93,39 +117,45 @@ def reconcile_metric_observations(
         normalized = {
             "source_id": source,
             "value": unit[0],
+            "raw_value": value,
             "unit": unit[1],
             "currency": currency or None,
             "period": period,
             "reported_at": reported_at.isoformat(),
             "observed_at": observed_at.isoformat(),
             "source_url": source_url,
+            "status": "observed",
+            "reason_code": None,
         }
+        evidence_item.update(normalized)
         prior = accepted.get(source)
         if prior is not None and prior["value"] != normalized["value"]:
-            return _empty_result("conflicted", "DUPLICATE_SOURCE_VALUES", list(accepted.values()) + [normalized])
+            evidence_item["status"] = "conflicted"
+            evidence_item["reason_code"] = "DUPLICATE_SOURCE_VALUES"
+            return _empty_result("conflicted", "DUPLICATE_SOURCE_VALUES", source_evidence, list(accepted))
         accepted[source] = normalized
 
     evidence = [accepted[source] for source in sorted(accepted)]
     sources = sorted(accepted)
     if stale_source:
-        return _empty_result("stale", "STALE_SOURCE_OBSERVATION", evidence, sources)
+        return _empty_result("stale", "STALE_SOURCE_OBSERVATION", source_evidence, sources)
     if periods and len(periods) > 1:
-        return _empty_result("incompatible_period", "SOURCE_PERIOD_MISMATCH", evidence, sources)
+        return _empty_result("incompatible_period", "SOURCE_PERIOD_MISMATCH", source_evidence, sources)
     if expected_currency and currencies and currencies != {expected_currency.upper()}:
-        return _empty_result("incompatible_currency", "SOURCE_CURRENCY_MISMATCH", evidence, sources)
+        return _empty_result("incompatible_currency", "SOURCE_CURRENCY_MISMATCH", source_evidence, sources)
     if len(currencies) > 1:
-        return _empty_result("incompatible_currency", "SOURCE_CURRENCY_MISMATCH", evidence, sources)
+        return _empty_result("incompatible_currency", "SOURCE_CURRENCY_MISMATCH", source_evidence, sources)
     if incomplete or invalid_source:
-        return _empty_result("incomplete", "SOURCE_EVIDENCE_INCOMPLETE", evidence, sources)
+        return _empty_result("incomplete", "SOURCE_EVIDENCE_INCOMPLETE", source_evidence, sources)
     if len(sources) < minimum_sources:
-        return _empty_result("insufficient_sources", "INSUFFICIENT_INDEPENDENT_SOURCES", evidence, sources)
+        return _empty_result("insufficient_sources", "INSUFFICIENT_INDEPENDENT_SOURCES", source_evidence, sources)
 
     values = [item["value"] for item in evidence]
     mean = sum(values) / len(values)
     spread = max(values) - min(values)
     deviation = spread / abs(mean) * 100 if mean else (100.0 if spread else 0.0)
     if deviation > conflict_tolerance_pct:
-        return _empty_result("conflicted", "CRITICAL_SOURCE_CONFLICT", evidence, sources)
+        return _empty_result("conflicted", "CRITICAL_SOURCE_CONFLICT", source_evidence, sources)
 
     return {
         "value": round(mean, 4),
@@ -134,7 +164,7 @@ def reconcile_metric_observations(
         "period": next(iter(periods), None),
         "source": sources,
         "source_values": {item["source_id"]: item["value"] for item in evidence},
-        "source_evidence": evidence,
+        "source_evidence": source_evidence,
         "coverage": len(sources),
         "status": "observed",
         "reason_code": None,
@@ -183,6 +213,12 @@ def _finite_number(value: Any) -> float | None:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         return None
     return float(value) if math.isfinite(value) else None
+
+
+def _safe_text(value: Any, max_length: int) -> str | None:
+    if value is None:
+        return None
+    return str(value).strip()[:max_length]
 
 
 def _source_url_matches(source_id: str, value: str) -> bool:

@@ -119,7 +119,16 @@ class MultibaggersDiscoveryEngine:
             )
             result[name] = {
                 **evidence,
-                "as_of": max((obs["reported_at"] for obs in evidence["source_evidence"]), default=None),
+                "as_of": max(
+                    (
+                        reported_at
+                        for obs in evidence["source_evidence"]
+                        if isinstance(obs, dict)
+                        and isinstance((reported_at := obs.get("reported_at")), str)
+                        and reported_at
+                    ),
+                    default=None,
+                ),
             }
         return result
 
