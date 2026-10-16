@@ -144,6 +144,12 @@ def build_context(
         "thematic_correlations": {},
         "num_positions": len(positions),
         "position_weight": current_position_weight,
+        # Journal positions are paper/simulation data. They must never imply
+        # that the family portfolio was loaded or reconciled.
+        "source": "paper_simulation" if positions else "unavailable",
+        "snapshot_id": None,
+        "as_of": None,
+        "reconciled": False,
     }
 
     company_info = {"sector": company.get("sector", "")}

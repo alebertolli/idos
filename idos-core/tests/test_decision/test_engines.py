@@ -200,9 +200,29 @@ def test_portfolio_engine():
             "sector_exposure": {"Technology": 20.0},
             "num_positions": 12,
             "thematic_correlations": {},
+            "source": "private_snapshot",
+            "snapshot_id": "snapshot-2026-10-16",
+            "as_of": "2026-10-16",
+            "reconciled": True,
         },
         "proposed_weight": 3.0,
         "themes": ["AI", "Cloud"],
     }
     result = engine.evaluate(ctx)
     assert 0 <= result.score <= 100
+
+
+@pytest.mark.parametrize("portfolio", [
+    {},
+    {"source": "paper_simulation", "snapshot_id": "paper-1", "as_of": "2026-10-16", "reconciled": True},
+    {"source": "private_snapshot", "snapshot_id": "snapshot-1", "as_of": "2026-10-16", "reconciled": False},
+    {"source": "private_snapshot", "snapshot_id": "", "as_of": "2026-10-16", "reconciled": True},
+])
+def test_portfolio_engine_fails_closed_without_reconciled_private_snapshot(portfolio):
+    result = PortfolioAssessmentEngine().evaluate({"portfolio": portfolio})
+
+    assert result.score == 0
+    assert result.confidence == "LOW"
+    assert result.recommendation == "INSUFFICIENT_PORTFOLIO_DATA"
+    assert result.findings == []
+    assert result.risks[0]["type"] == "DATA_QUALITY"

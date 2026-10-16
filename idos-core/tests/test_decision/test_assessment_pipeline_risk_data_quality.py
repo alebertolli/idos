@@ -43,3 +43,5 @@ def test_build_context_preserves_financial_risk_metric_availability(tmp_path, mo
     dynamic = context["knowledge_base"]["dynamic"]
     assert dynamic["metrics"]["debt_to_equity"] == 0
     assert dynamic["metric_availability"] == availability
+    assert context["portfolio"]["source"] == "unavailable"
+    assert context["portfolio"]["reconciled"] is False

@@ -4,10 +4,23 @@ from idos.decision.engines.base import BaseAssessmentEngine, AssessmentResult
 
 class PortfolioAssessmentEngine(BaseAssessmentEngine):
     name = "PortfolioAssessmentEngine"
-    version = "1.0"
+    version = "1.1"
 
     def evaluate(self, context: dict[str, Any]) -> AssessmentResult:
         portfolio = context.get("portfolio", {})
+        if not self._has_verified_private_snapshot(portfolio):
+            return AssessmentResult(
+                engine=self.name,
+                version=self.version,
+                score=0,
+                confidence="LOW",
+                risks=[{
+                    "type": "DATA_QUALITY",
+                    "detail": "A reconciled private portfolio snapshot is required to assess portfolio fit",
+                }],
+                recommendation="INSUFFICIENT_PORTFOLIO_DATA",
+            )
+
         company = context.get("company", {})
         score = 60
         findings = []
@@ -61,4 +74,14 @@ class PortfolioAssessmentEngine(BaseAssessmentEngine):
             findings=findings,
             risks=risks,
             recommendation=recommendation,
+        )
+
+    @staticmethod
+    def _has_verified_private_snapshot(portfolio: dict[str, Any]) -> bool:
+        """Only score portfolio fit from a reconciled, explicitly private snapshot."""
+        return (
+            portfolio.get("source") == "private_snapshot"
+            and bool(portfolio.get("snapshot_id"))
+            and bool(portfolio.get("as_of"))
+            and portfolio.get("reconciled") is True
         )
