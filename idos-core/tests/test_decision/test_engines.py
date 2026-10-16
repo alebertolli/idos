@@ -1,3 +1,5 @@
+import pytest
+
 from idos.decision.engines.business import BusinessAssessmentEngine
 from idos.decision.engines.valuation import ValuationAssessmentEngine
 from idos.decision.engines.recovery import RecoveryAssessmentEngine
@@ -117,6 +119,76 @@ def test_risk_engine_high_leverage():
     result = engine.evaluate(ctx)
     assert result.score <= 40
     assert len(result.risks) >= 2
+
+
+def test_risk_engine_does_not_treat_missing_metrics_as_low_risk():
+    result = RiskAssessmentEngine().evaluate({})
+
+    assert result.score == 0
+    assert result.confidence == "LOW"
+    assert result.recommendation == "INSUFFICIENT_DATA"
+    assert not any(finding.get("detail") == "Low leverage" for finding in result.findings)
+    assert {risk["metric"] for risk in result.risks if risk["type"] == "DATA_QUALITY"} == {
+        "debt_to_equity", "volatility_90d", "current_ratio"
+    }
+
+
+def test_risk_engine_preserves_missingness_before_legacy_zero_normalization():
+    from idos.decision.assessment_pipeline import _attach_risk_metric_availability, _normalize_decimal_pcts
+
+    financial = _attach_risk_metric_availability({"current_ratio": 1.4})
+    financial = _normalize_decimal_pcts(financial)
+    context = {
+        "knowledge_base": {
+            "dynamic": {
+                "metrics": {
+                    "debt_to_equity": financial.get("debt_equity_ratio", 0),
+                    "volatility_90d": financial.get("volatility_90d", 0),
+                    "current_ratio": financial.get("current_ratio", 0),
+                },
+                "metric_availability": financial["_risk_metric_availability"],
+            }
+        }
+    }
+
+    result = RiskAssessmentEngine().evaluate(context)
+
+    assert context["knowledge_base"]["dynamic"]["metrics"]["debt_to_equity"] == 0
+    assert result.recommendation == "INSUFFICIENT_DATA"
+    assert result.score == 0
+    assert not any(finding.get("detail") == "Low leverage" for finding in result.findings)
+
+
+def test_risk_metric_availability_fills_unreported_metadata_conservatively():
+    from idos.decision.assessment_pipeline import _attach_risk_metric_availability
+
+    financial = _attach_risk_metric_availability({
+        "debt_equity_ratio": 0.2,
+        "current_ratio": 1.2,
+        "_risk_metric_availability": {"current_ratio": True},
+    })
+
+    assert financial["_risk_metric_availability"] == {
+        "debt_to_equity": True,
+        "volatility_90d": False,
+        "current_ratio": True,
+    }
+
+
+@pytest.mark.parametrize("metric_name, invalid_value", [
+    ("debt_to_equity", -0.1),
+    ("volatility_90d", float("inf")),
+    ("current_ratio", float("nan")),
+])
+def test_risk_engine_blocks_invalid_numeric_inputs(metric_name, invalid_value):
+    metrics = {"debt_to_equity": 1.2, "volatility_90d": 20, "current_ratio": 1.5}
+    metrics[metric_name] = invalid_value
+
+    result = RiskAssessmentEngine().evaluate({"knowledge_base": {"dynamic": {"metrics": metrics}}})
+
+    assert result.score == 0
+    assert result.recommendation == "INSUFFICIENT_DATA"
+    assert any(risk.get("metric") == metric_name and risk["type"] == "DATA_QUALITY" for risk in result.risks)
 
 
 def test_portfolio_engine():

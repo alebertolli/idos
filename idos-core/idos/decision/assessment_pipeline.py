@@ -98,7 +98,7 @@ def build_context(
         "wyckoff_phase": financial.get("wyckoff_phase", ""),
         "weinstein_stage": financial.get("weinstein_stage", ""),
         "relative_strength": financial.get("relative_strength", 0),
-        "debt_to_equity": financial.get("debt_equity_ratio", 0),
+        "debt_to_equity": financial.get("debt_equity_ratio", financial.get("debt_to_equity", 0)),
         "litigation_risk": financial.get("litigation_risk", ""),
         "volatility_90d": financial.get("volatility_90d", 0),
         "current_ratio": financial.get("current_ratio", 0),
@@ -213,7 +213,13 @@ def build_context(
     asymmetry = _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
 
     return {
-        "knowledge_base": {"dynamic": {"metrics": metrics}, "static": static},
+        "knowledge_base": {
+            "dynamic": {
+                "metrics": metrics,
+                "metric_availability": financial.get("_risk_metric_availability", {}),
+            },
+            "static": static,
+        },
         "portfolio": portfolio,
         "company": company_info,
         "margin_of_safety": margin_of_safety,
@@ -325,7 +331,7 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
         ).fetchone()
         if row:
             try:
-                return json.loads(row[0])
+                return _attach_risk_metric_availability(json.loads(row[0]))
             except (json.JSONDecodeError, TypeError):
                 pass
     except Exception:
@@ -342,6 +348,7 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
                 if data:
                     if "merged_data" in data:
                         data = data["merged_data"]
+                    data = _attach_risk_metric_availability(data)
                     data = _normalize_decimal_pcts(data)
                     data = _enrich_roic(data)
                     _warn_missing_metrics(ticker, data, "cache")
@@ -357,6 +364,7 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
             (Path("cache") / f"{ticker}.json").write_text(
                 json.dumps(result, default=str, indent=2), encoding="utf-8"
             )
+            result = _attach_risk_metric_availability(result)
             result = _normalize_decimal_pcts(result)
             result = _enrich_roic(result)
             _warn_missing_metrics(ticker, result, "stockanalysis.com live")
@@ -365,6 +373,24 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
         pass
     _warn_missing_metrics(ticker, {}, "ninguna")
     return {}
+
+
+def _attach_risk_metric_availability(data: dict[str, Any]) -> dict[str, Any]:
+    """Preserve whether risk metrics existed before legacy normalization fills zeros."""
+    aliases = {
+        "debt_to_equity": ("debt_equity_ratio", "debt_to_equity"),
+        "volatility_90d": ("volatility_90d",),
+        "current_ratio": ("current_ratio",),
+    }
+    existing = data.get("_risk_metric_availability")
+    availability = {}
+    for metric, keys in aliases.items():
+        declared = existing.get(metric) if isinstance(existing, dict) else None
+        availability[metric] = declared if isinstance(declared, bool) else any(
+            key in data and data[key] is not None for key in keys
+        )
+    data["_risk_metric_availability"] = availability
+    return data
 
 
 def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high):

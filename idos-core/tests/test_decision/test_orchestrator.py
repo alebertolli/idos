@@ -4,6 +4,8 @@ from idos.decision.engines.valuation import ValuationAssessmentEngine
 from idos.decision.engines.recovery import RecoveryAssessmentEngine
 from idos.decision.engines.risk import RiskAssessmentEngine
 from idos.decision.engines.portfolio import PortfolioAssessmentEngine
+from idos.decision.assessment_pipeline import _register_assessment_rules
+from idos.rules.engine import RulesEngine
 
 
 def test_orchestrator_classification():
@@ -70,3 +72,20 @@ def test_orchestrator_engine_error_handling():
     })
     assert proposal is not None
     assert proposal.assessments["FailingEngine"].score == 0
+
+
+def test_orchestrator_fails_risk_gate_when_risk_inputs_are_unknown():
+    rules = RulesEngine()
+    _register_assessment_rules(rules)
+    orch = DecisionOrchestrator(rules_engine=rules)
+    orch.register_engine(RiskAssessmentEngine())
+
+    proposal = orch.run_pipeline("opportunity:created", {
+        "opportunity_id": "OPP-UNKNOWN-RISK",
+        "force_relevance": True,
+    })
+
+    assert proposal.assessments["RiskAssessmentEngine"].recommendation == "INSUFFICIENT_DATA"
+    assert proposal.assessments["RiskAssessmentEngine"].score == 0
+    assert "RULE-004" in proposal.rules_failed
+    assert proposal.recommendation == "BLOCKED"

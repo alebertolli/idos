@@ -21,8 +21,12 @@ def test_momentum_discovery_research_assessment_wait(tmp_path: Path, monkeypatch
     config.mkdir()
     source = Path(__file__).resolve().parents[2] / "idos-config" / "strategies.yml"
     (config / "strategies.yml").write_bytes(source.read_bytes())
+    operable = config / "universe" / "operable.yml"
+    operable.parent.mkdir()
+    operable_source = Path(__file__).resolve().parents[2] / "idos-config" / "universe" / "operable.yml"
+    operable.write_bytes(operable_source.read_bytes())
 
-    MonthlyStrategyWorker({"price_provider": Prices()}).run({"base_path": tmp_path})
+    MonthlyStrategyWorker({"price_provider": Prices(), "operable_path": operable}).run({"base_path": tmp_path})
     store = SQLiteStore(tmp_path / "idos.db")
     opp_id = store.conn.execute("SELECT id FROM opportunities").fetchone()[0]
     opp = store.get_opportunity(opp_id)
