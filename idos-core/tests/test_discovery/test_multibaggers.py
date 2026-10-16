@@ -65,6 +65,32 @@ def test_missing_single_source_conflicted_and_stale_critical_data_fail_closed():
     assert result.metrics_snapshot["roic_pct"]["status"] == "stale"
 
 
+def test_missing_critical_metric_fails_source_gate_even_when_total_coverage_exceeds_minimum():
+    payload = valid_payload()
+    del payload["merged_data"]["expectation_gap_pct"]
+    payload["metric_sources"].pop("expectation_gap_pct")
+
+    result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
+
+    assert result.data_quality["critical_coverage"] >= .8
+    assert result.data_quality["critical_source_failures"] == 1
+    assert result.passed is False
+    assert "CRITICAL_METRIC_SOURCE_COVERAGE_FAILED" in result.reason_codes
+    assert "MISSING_CRITICAL_METRIC" in {flag["code"] for flag in result.red_flags}
+
+
+def test_duplicate_source_labels_do_not_satisfy_independent_source_gate():
+    payload = valid_payload()
+    payload["metric_sources"]["roic_pct"] = ["yfinance", " YFINANCE "]
+
+    result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
+
+    assert result.metrics_snapshot["roic_pct"]["source"] == ["yfinance"]
+    assert result.metrics_snapshot["roic_pct"]["coverage"] == 1
+    assert "SINGLE_SOURCE_CRITICAL_METRIC" in {flag["code"] for flag in result.red_flags}
+    assert result.passed is False
+
+
 def test_hard_flags_and_metric_units_are_auditable():
     payload = valid_payload()
     payload["merged_data"]["current_ratio"] = .3

@@ -130,6 +130,15 @@ class MultibaggersDiscoveryEngine:
             sources = source_map.get(raw_key or name, source_map.get(name, []))
             if isinstance(sources, dict):
                 sources = list(sources)
+            unique_sources: list[str] = []
+            seen_sources: set[str] = set()
+            if isinstance(sources, (list, tuple, set)):
+                for source in sources:
+                    label = str(source).strip()
+                    normalized_source = label.casefold()
+                    if label and normalized_source not in seen_sources:
+                        unique_sources.append(label)
+                        seen_sources.add(normalized_source)
             as_metric = metrics.get(f"{raw_key or name}_as_of") or metrics.get(f"{name}_as_of")
             stale = self._is_stale(as_metric, stale_after, now)
             status = "missing" if value is None or not as_metric else ("stale" if stale else "observed")
@@ -147,9 +156,9 @@ class MultibaggersDiscoveryEngine:
             period = metrics.get(f"{raw_key or name}_period")
             result[name] = {
                 "value": value, "unit": unit, "period": period,
-                "source": list(sources) if isinstance(sources, (list, tuple, set)) else [],
+                "source": unique_sources,
                 "as_of": as_metric if value is not None else None,
-                "coverage": len(sources) if isinstance(sources, (list, tuple, set)) else 0,
+                "coverage": len(unique_sources),
                 "source_values": source_values.get(raw_key or name, source_values.get(name, {})),
                 "currency": "USD" if name.endswith("_usd") and status != "missing" else currency,
                 "status": status,
@@ -160,7 +169,7 @@ class MultibaggersDiscoveryEngine:
         critical = [snapshot[name] for name in CRITICAL_METRICS]
         covered = sum(item["status"] in {"observed", "derived"} for item in critical)
         min_sources = int(self.parameters.get("data_quality", {}).get("critical_sources_min", 2))
-        source_failures = sum(item["status"] != "missing" and item["coverage"] < min_sources for item in critical)
+        source_failures = sum(item["coverage"] < min_sources for item in critical)
         conflict_fields = {str(c.get("field", "")) for c in conflicts}
         critical_fields = set(CRITICAL_METRICS) | {"market_cap", "avg_dollar_volume", "revenue_cagr_3y", "roic", "fcf_growth"}
         critical_conflicts = sorted(conflict_fields & critical_fields)
@@ -183,11 +192,12 @@ class MultibaggersDiscoveryEngine:
         for name in CRITICAL_METRICS:
             item = snapshot[name]
             if item["status"] == "missing":
-                continue
+                add("MISSING_CRITICAL_METRIC", name, "Critical metric is missing", None)
             if item["status"] == "stale":
                 add("STALE_CRITICAL_METRIC", name, "Critical metric is stale", item["as_of"])
             if item["coverage"] < int(self.parameters.get("data_quality", {}).get("critical_sources_min", 2)):
-                add("SINGLE_SOURCE_CRITICAL_METRIC", name, "Critical metric lacks independent source coverage", item["source"])
+                code = "SINGLE_SOURCE_CRITICAL_METRIC" if item["coverage"] == 1 else "INSUFFICIENT_CRITICAL_SOURCES"
+                add(code, name, "Critical metric lacks independent source coverage", item["source"])
         for conflict in conflicts:
             field = str(conflict.get("field", ""))
             tolerance = float(self.parameters.get("data_quality", {}).get("conflict_tolerance_pct", 20))
