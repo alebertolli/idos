@@ -5,8 +5,9 @@ from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 import hashlib
 import json
-import math
 from typing import Any
+
+from idos.discovery.financial_evidence import reconcile_metric_observations
 
 
 CRITICAL_METRICS = (
@@ -14,6 +15,11 @@ CRITICAL_METRICS = (
     "operating_margin_pct", "fcf_conversion_pct", "net_debt_ebitda",
     "dilution_yoy_pct", "market_cap_usd", "avg_dollar_volume_usd",
     "relative_strength_12m_pct", "expectation_gap_pct",
+)
+DISCOVERY_METRICS = CRITICAL_METRICS + (
+    "current_ratio", "interest_coverage", "fcf_runway_months", "share_count_cagr_3y_pct",
+    "gross_margin_pct", "revenue_growth_pct", "rd_to_revenue_pct", "capex_to_revenue_pct",
+    "drawdown_pct", "volatility_90d_pct",
 )
 
 
@@ -47,13 +53,12 @@ class MultibaggersDiscoveryEngine:
 
     def evaluate(self, ticker: str, payload: dict[str, Any], as_of: str | None = None) -> DiscoveryResult:
         now = as_of or payload.get("as_of") or datetime.now(timezone.utc).isoformat()
-        metrics = payload.get("merged_data", payload.get("metrics", payload)) or {}
-        metric_sources = payload.get("metric_sources", {}) or {}
-        metric_values = payload.get("metric_values", {}) or {}
-        conflicts = payload.get("conflicts", []) or []
-        snapshot = self._metric_snapshot(metrics, metric_sources, metric_values, now, conflicts)
-        quality = self._quality(snapshot, conflicts)
-        flags = self._hard_flags(snapshot, conflicts)
+        metric_observations = payload.get("metric_observations", {}) or {}
+        if not isinstance(metric_observations, dict):
+            metric_observations = {}
+        snapshot = self._metric_snapshot(metric_observations, now)
+        quality = self._quality(snapshot)
+        flags = self._hard_flags(snapshot)
         minimum_coverage = float(self.parameters.get("data_quality", {}).get("critical_coverage_min", .8))
         if quality["critical_coverage"] < minimum_coverage:
             flags.append({"code": "CRITICAL_COVERAGE_BELOW_MINIMUM", "severity": "hard", "metric": "critical_coverage", "message": "Critical metric coverage is below policy", "evidence": quality["critical_coverage"]})
@@ -97,83 +102,34 @@ class MultibaggersDiscoveryEngine:
         digest = hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":"), default=str).encode()).hexdigest()
         return DiscoveryResult(**body, snapshot_hash=digest)
 
-    def _metric_snapshot(self, metrics: dict[str, Any], source_map: dict[str, Any], source_values: dict[str, Any], now: str, conflicts: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
-        aliases = {
-            "revenue_cagr_3y_pct": ("revenue_cagr_3y_pct", "revenue_cagr_3y"),
-            "eps_growth_pct": ("eps_growth_pct", "eps_growth"),
-            "fcf_growth_pct": ("fcf_growth_pct", "fcf_growth"),
-            "roic_pct": ("roic_pct", "roic"),
-            "operating_margin_pct": ("operating_margin_pct", "operating_margin"),
-            "fcf_conversion_pct": ("fcf_conversion_pct",),
-            "net_debt_ebitda": ("net_debt_ebitda",),
-            "dilution_yoy_pct": ("dilution_yoy_pct",),
-            "market_cap_usd": ("market_cap_usd", "market_cap"),
-            "avg_dollar_volume_usd": ("avg_dollar_volume_usd", "avg_dollar_volume"),
-            "relative_strength_12m_pct": ("relative_strength_12m_pct", "relative_strength_12m"),
-            "expectation_gap_pct": ("expectation_gap_pct",),
-            "current_ratio": ("current_ratio",), "interest_coverage": ("interest_coverage", "interest_coverage_ratio"),
-            "fcf_runway_months": ("fcf_runway_months",), "share_count_cagr_3y_pct": ("share_count_cagr_3y_pct",),
-            "gross_margin_pct": ("gross_margin_pct",), "revenue_growth_pct": ("revenue_growth_pct",),
-            "recurring_revenue_pct": ("recurring_revenue_pct",), "rd_to_revenue_pct": ("rd_to_revenue_pct",),
-            "capex_to_revenue_pct": ("capex_to_revenue_pct",), "drawdown_pct": ("drawdown_pct",),
-            "volatility_90d_pct": ("volatility_90d_pct", "volatility_90d"),
-        }
-        conflicted_fields = {str(c.get("field", "")) for c in conflicts}
-        conflict_aliases = {"market_cap": "market_cap_usd", "avg_dollar_volume": "avg_dollar_volume_usd", "roic": "roic_pct", "fcf_growth": "fcf_growth_pct"}
+    def _metric_snapshot(self, metric_observations: dict[str, Any], now: str) -> dict[str, dict[str, Any]]:
         quality_cfg = self.parameters.get("data_quality", {})
         stale_after = int(quality_cfg.get("stale_after_days", 120))
         result: dict[str, dict[str, Any]] = {}
-        for name, candidates in aliases.items():
-            raw_key = next((key for key in candidates if metrics.get(key) is not None), None)
-            raw = metrics.get(raw_key) if raw_key else None
-            value = self._number(raw)
-            sources = source_map.get(raw_key or name, source_map.get(name, []))
-            if isinstance(sources, dict):
-                sources = list(sources)
-            unique_sources: list[str] = []
-            seen_sources: set[str] = set()
-            if isinstance(sources, (list, tuple, set)):
-                for source in sources:
-                    label = str(source).strip()
-                    normalized_source = label.casefold()
-                    if label and normalized_source not in seen_sources:
-                        unique_sources.append(label)
-                        seen_sources.add(normalized_source)
-            as_metric = metrics.get(f"{raw_key or name}_as_of") or metrics.get(f"{name}_as_of")
-            stale = self._is_stale(as_metric, stale_after, now)
-            status = "missing" if value is None or not as_metric else ("stale" if stale else "observed")
-            currency = "USD" if raw_key and raw_key.endswith("_usd") else metrics.get(f"{raw_key}_currency") if raw_key else None
-            if name.endswith("_usd") and value is not None and str(currency or metrics.get("currency", "")).upper() != "USD":
-                status = "missing"
-                value = None
-            if raw_key in conflicted_fields or name in conflicted_fields or conflict_aliases.get(raw_key) in conflicted_fields:
-                status = "conflicted"
-            if raw_key and raw_key in {"roic", "operating_margin", "revenue_growth", "eps_growth", "fcf_growth"}:
-                value *= 100 if abs(value) <= 1 else 1
-            if status in {"missing", "stale", "conflicted"}:
-                value = None
-            unit = "USD" if name.endswith("_usd") else ("percent" if name.endswith("_pct") or name in {"drawdown_pct", "volatility_90d_pct"} else "ratio")
-            period = metrics.get(f"{raw_key or name}_period")
+        for name in DISCOVERY_METRICS:
+            expected_unit = "USD" if name.endswith("_usd") else "percent" if name.endswith("_pct") else "months" if name.endswith("_months") else "ratio"
+            evidence = reconcile_metric_observations(
+                metric_observations.get(name),
+                expected_unit=expected_unit,
+                expected_currency="USD" if expected_unit == "USD" else None,
+                minimum_sources=int(quality_cfg.get("critical_sources_min", 2)),
+                conflict_tolerance_pct=float(quality_cfg.get("conflict_tolerance_pct", 20)),
+                stale_after_days=stale_after,
+                now=now,
+            )
             result[name] = {
-                "value": value, "unit": unit, "period": period,
-                "source": unique_sources,
-                "as_of": as_metric if value is not None else None,
-                "coverage": len(unique_sources),
-                "source_values": source_values.get(raw_key or name, source_values.get(name, {})),
-                "currency": "USD" if name.endswith("_usd") and status != "missing" else currency,
-                "status": status,
+                **evidence,
+                "as_of": max((obs["reported_at"] for obs in evidence["source_evidence"]), default=None),
             }
         return result
 
-    def _quality(self, snapshot: dict[str, dict[str, Any]], conflicts: list[dict[str, Any]]) -> dict[str, Any]:
+    def _quality(self, snapshot: dict[str, dict[str, Any]]) -> dict[str, Any]:
         critical = [snapshot[name] for name in CRITICAL_METRICS]
         covered = sum(item["status"] in {"observed", "derived"} for item in critical)
         min_sources = int(self.parameters.get("data_quality", {}).get("critical_sources_min", 2))
         source_failures = sum(item["coverage"] < min_sources for item in critical)
-        conflict_fields = {str(c.get("field", "")) for c in conflicts}
-        critical_fields = set(CRITICAL_METRICS) | {"market_cap", "avg_dollar_volume", "revenue_cagr_3y", "roic", "fcf_growth"}
-        critical_conflicts = sorted(conflict_fields & critical_fields)
         stale = sum(item["status"] == "stale" for item in critical)
+        critical_conflicts = sorted(name for name in CRITICAL_METRICS if snapshot[name]["status"] == "conflicted")
         coverage = covered / len(critical)
         return {
             "critical_metric_count": len(critical), "critical_metrics_covered": covered,
@@ -182,7 +138,7 @@ class MultibaggersDiscoveryEngine:
             "coverage_factor": round(coverage, 4), "freshness_factor": round(1 - stale / len(critical), 4),
         }
 
-    def _hard_flags(self, snapshot: dict[str, dict[str, Any]], conflicts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    def _hard_flags(self, snapshot: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
         def val(key: str) -> float | None:
             return snapshot.get(key, {}).get("value")
         cfg = self.parameters.get("hard_flags", {})
@@ -195,15 +151,19 @@ class MultibaggersDiscoveryEngine:
                 add("MISSING_CRITICAL_METRIC", name, "Critical metric is missing", None)
             if item["status"] == "stale":
                 add("STALE_CRITICAL_METRIC", name, "Critical metric is stale", item["as_of"])
+            evidence_flags = {
+                "incomplete": "INCOMPLETE_CRITICAL_EVIDENCE",
+                "insufficient_sources": "INSUFFICIENT_CRITICAL_SOURCES",
+                "incompatible_period": "INCOMPATIBLE_CRITICAL_PERIOD",
+                "incompatible_currency": "INCOMPATIBLE_CRITICAL_CURRENCY",
+                "conflicted": "CRITICAL_METRIC_CONFLICT",
+            }
+            evidence_flag = evidence_flags.get(item["status"])
+            if evidence_flag:
+                add(evidence_flag, name, "Critical metric evidence does not satisfy the source contract", item.get("source_evidence", []))
             if item["coverage"] < int(self.parameters.get("data_quality", {}).get("critical_sources_min", 2)):
                 code = "SINGLE_SOURCE_CRITICAL_METRIC" if item["coverage"] == 1 else "INSUFFICIENT_CRITICAL_SOURCES"
                 add(code, name, "Critical metric lacks independent source coverage", item["source"])
-        for conflict in conflicts:
-            field = str(conflict.get("field", ""))
-            tolerance = float(self.parameters.get("data_quality", {}).get("conflict_tolerance_pct", 20))
-            if field in CRITICAL_METRICS or field in {"market_cap", "avg_dollar_volume", "roic", "fcf_growth"}:
-                if float(conflict.get("deviation_pct", 0) or 0) > tolerance:
-                    add("CRITICAL_METRIC_CONFLICT", field, "Critical metric differs across sources beyond tolerance", conflict)
         cap = val("market_cap_usd")
         if cap is not None and cap < float(self.parameters.get("market_cap_min_usd", 2e9)):
             add("MARKET_CAP_BELOW_MINIMUM", "market_cap_usd", "Company is below the configured minimum market capitalization", cap)
@@ -240,41 +200,10 @@ class MultibaggersDiscoveryEngine:
         market = sum(score for key, score in [("relative_strength_12m_pct", scale(get("relative_strength_12m_pct"), -50, 50)), ("drawdown_pct", 100 - min(100, abs(get("drawdown_pct")))), ("volatility_90d_pct", 100 - min(100, get("volatility_90d_pct")))] if snapshot[key]["status"] == "observed") / max(1, sum(snapshot[key]["status"] == "observed" for key in ("relative_strength_12m_pct", "drawdown_pct", "volatility_90d_pct")))
         return {"economic_transition": round(transition, 2), "quality": round(quality, 2), "reinvestment": round(reinvestment, 2), "expectation_gap": expectation, "market_confirmation": round(market, 2)}
 
-    @staticmethod
-    def _number(value: Any) -> float | None:
-        if isinstance(value, bool) or value is None:
-            return None
-        if isinstance(value, (int, float)):
-            return float(value) if math.isfinite(value) else None
-        if isinstance(value, str):
-            normalized = value.strip().replace(",", "").replace("$", "").replace("%", "")
-            try:
-                number = float(normalized)
-                return number if math.isfinite(number) else None
-            except ValueError:
-                return None
-        return None
-
-    @staticmethod
-    def _is_stale(value: Any, max_days: int, now: str) -> bool:
-        if not value:
-            return False
-        try:
-            then = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
-            current = datetime.fromisoformat(now.replace("Z", "+00:00"))
-            if then.tzinfo is None:
-                then = then.replace(tzinfo=timezone.utc)
-            if current.tzinfo is None:
-                current = current.replace(tzinfo=timezone.utc)
-            return (current - then).days > max_days
-        except (TypeError, ValueError):
-            return True
-
-
 def build_research_intake(result: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
     """Build a deterministic, versioned handoff from Discovery to Research."""
     config_json = json.dumps(config, sort_keys=True, separators=(",", ":"), default=str)
-    missing = [name for name, metric in result["metrics_snapshot"].items() if metric["status"] in {"missing", "stale", "conflicted"}]
+    missing = [name for name, metric in result["metrics_snapshot"].items() if metric["status"] not in {"observed", "derived"}]
     flags = result["red_flags"]
     return {
         "ticker": result["ticker"], "strategy_id": result["strategy_id"],
