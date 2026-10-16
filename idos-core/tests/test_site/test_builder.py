@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import yaml
+
 from idos.site.builder import SiteBuilder, write_site
 
 
@@ -168,3 +170,36 @@ def test_public_build_omits_paper_positions(tmp_path: Path):
     script = (output / "assets" / "app.js").read_text(encoding="utf-8")
     assert "['portfolio','Portfolio']" not in script
     assert "Decisión pendiente de revisión humana" in script
+
+
+def test_systematic_opportunity_uses_signal_without_fake_conviction_or_valuation(tmp_path: Path):
+    opp_dir = tmp_path / "OPP-MOM-XLE"
+    opp_dir.mkdir()
+    (opp_dir / "opportunity.yml").write_text(yaml.safe_dump({
+        "id": "OPP-MOM-XLE",
+        "status": "UNDER_RESEARCH",
+        "strategy_id": "MOMENTUM_ETF",
+        "thesis_type": "SYSTEMATIC",
+        "current_price": 0,
+        "intrinsic_value": 0,
+        "conviction": {"overall": 0},
+        "signal": {"momentum": 2.53, "as_of_date": "2026-10-01"},
+    }), encoding="utf-8")
+    (opp_dir / "decision_proposal.yml").write_text(yaml.safe_dump({
+        "decision": "WAIT",
+        "status": "PENDING_HUMAN_REVIEW",
+        "reason": "Risk budget requires private portfolio review",
+    }), encoding="utf-8")
+    (opp_dir / "ddd_report.yml").write_text(yaml.safe_dump({"score_general": 94}), encoding="utf-8")
+
+    builder = _builder()
+    builder._market_price = lambda ticker: {"price": None, "date": None}
+    result = builder._load_opportunity("XLE", opp_dir)
+
+    assert result["conviction_overall"] is None
+    assert result["current_price"] is None
+    assert result["intrinsic_value"] is None
+    assert result["signal"]["momentum"] == 2.53
+    assert result["proposal"]["decision"] == "WAIT"
+    assert result["proposal"]["reason"] == "Risk budget requires private portfolio review"
+    assert result["ddd"]["score_general"] == 94

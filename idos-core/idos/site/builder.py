@@ -394,6 +394,17 @@ class SiteBuilder:
 
         current_price = opp.get("current_price")
         intrinsic = opp.get("intrinsic_value")
+        is_systematic = opp.get("thesis_type") == "SYSTEMATIC"
+        # Zero is the legacy placeholder for unavailable price/valuation data.
+        # Do not expose it as a real quote or valuation in the public dashboard.
+        if current_price is not None and current_price <= 0:
+            current_price = None
+        if intrinsic is not None and intrinsic <= 0:
+            intrinsic = None
+        if is_systematic:
+            # Systematic strategies are evaluated from their signal and policy,
+            # not a fundamental conviction score or intrinsic-value estimate.
+            conv = {**conv, "overall": None}
         mkt = self._market_price(ticker)
         market_price = mkt["price"]
         price_date = mkt["date"]
@@ -558,6 +569,7 @@ class SiteBuilder:
                 "conviction_score": dp.get("conviction_score"),
                 "rules_passed": dp.get("rules_passed") or [],
                 "rules_failed": dp.get("rules_failed") or [],
+                "reason": dp.get("reason"),
                 "reasoning": dp.get("reasoning"),
             },
             "ddd": ddd_summary,
@@ -1443,15 +1455,18 @@ function showCase(oppId){
   const o = findOpp(oppId);
   const by = DATA.buylist.find(b=>b.ticker===o.ticker);
   const d = o.ddd||{};
+  const systematic = o.thesis_type==='SYSTEMATIC';
+  const decision = o.proposal?.decision || o.proposal?.recommendation || o.decision?.decision_type;
   let html = `<button class="tab" onclick="renderAll()">← Volver</button>`;
   html += `<h1>${esc(o.ticker)} <span class="tick">${esc(o.opp_id)}</span> ${badge(o.status)}</h1>`;
   html += `<div class="grid">`;
-  html += `<div class="card"><div class="muted">Convicción</div><div style="font-size:22px;font-weight:700">${o.conviction_overall??'—'}</div><div class="muted">${esc(o.confidence||'')} · ${esc(o.trend||'')}</div></div>`;
+  html += `<div class="card"><div class="muted">${systematic?'Convicción fundamental':'Convicción'}</div><div style="font-size:22px;font-weight:700">${systematic?'No aplica':(o.conviction_overall??'—')}</div><div class="muted">${systematic?'La estrategia se evalúa por señal y reglas':`${esc(o.confidence||'')} · ${esc(o.trend||'')}`}</div></div>`;
   if(o.strategy_id==='MULTIBAGGERS') html += `<div class="card"><div class="muted">Discovery Score · Prioridad Research</div><div style="font-size:20px;font-weight:700">${fmt(o.discovery_score,1)} · ${fmt(o.research_priority,1)}</div><div class="muted">${esc(o.discovery_type||'')} · no son probabilidad ni convicción</div></div>`;
-  html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
+  if(systematic) html += `<div class="card"><div class="muted">Señal de estrategia</div><div style="font-size:20px;font-weight:700">${fmt(o.signal?.momentum,2)}</div><div class="muted">Momentum · ${dt(o.signal?.as_of_date)}</div></div>`;
+  else html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
   html += `<div class="card"><div class="muted">Última investigación</div><div style="font-size:16px">${dt(o.last_research)}</div>${staleBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">Última evaluación tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.updated_at)}</div>${thesisBadge(o)}</div>`;
-  html += `<div class="card"><div class="muted">Decisión</div><div style="font-size:18px">${esc(o.decision?.decision_type||'—')}</div><div class="muted">${esc(o.decision?.author||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
+  html += `<div class="card"><div class="muted">Decisión propuesta</div><div style="font-size:18px">${esc(decision||'—')}</div><div class="muted">${esc(o.proposal?.status||o.decision?.author||'')} · ${esc(o.proposal?.reason||o.proposal?.reasoning||'')}</div></div>`;
   html += '</div>';
 
   // Tesis e informe
@@ -1464,7 +1479,7 @@ function showCase(oppId){
     html += `<p><b>Categoría:</b> ${esc(cl.categoria||d.categoria)}${(cl.categorias_descartadas||[]).length?' <span class="muted">· descartadas: '+cl.categorias_descartadas.map(esc).join(', ')+'</span>':''}</p>`;
     if(cl.justificacion) html += `<p class="muted">${esc(cl.justificacion)}</p>`;
   }
-  if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>Score DDD:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
+  if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>${systematic?'Score normalizado de estrategia':'Score DDD'}:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
   if(d.catalizadores?.length){
     html += `<h3>Catalizadores</h3><table><thead><tr><th>Catalizador</th><th>Horizonte</th><th>Impacto</th><th>Prob.</th></tr></thead><tbody>`;
     d.catalizadores.forEach(c=>html+=`<tr><td>${esc(c.descripcion)}</td><td>${esc(c.horizonte)}</td><td>${esc(c.impacto)}</td><td>${c.probabilidad_pct!=null?pct(c.probabilidad_pct):'—'}</td></tr>`);
