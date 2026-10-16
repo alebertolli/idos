@@ -4,7 +4,13 @@ from typing import Any, Optional
 
 from idos.data.sqlite import SQLiteStore
 from idos.data.knowledge import KnowledgeRepository
-from idos.resilience.error_manager import ErrorManager, CATEGORY_DATOS, SEVERITY_LOW, SEVERITY_MEDIUM
+from idos.resilience.error_manager import (
+    ErrorManager,
+    CATEGORY_DATOS,
+    SEVERITY_HIGH,
+    SEVERITY_LOW,
+    SEVERITY_MEDIUM,
+)
 from idos.resilience.retry import RetryMechanism, RetryPolicy
 from idos.workers.base import BaseWorker
 from idos.workers.data.stockanalysis import StockAnalysisWorker
