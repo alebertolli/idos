@@ -3,31 +3,32 @@ as_of_date: '2026-10-16'
 eligible:
 - &id001
   as_of_date: '2026-10-01'
-  momentum: 2.529862356681729
+  momentum: 2.521861910533069
   ticker: XLE
 - &id002
   as_of_date: '2026-10-01'
-  momentum: 0.7448749061829822
+  momentum: 0.7360781684034379
   ticker: XLF
 formula: 12*P0/P1 + 4*P0/P3 + 2*P0/P6 + P0/P12 - 19
+ineligible_universe: []
 missing_history: []
 ranking:
 - *id001
 - *id002
 - as_of_date: '2026-10-01'
-  momentum: 0.26263190816658266
-  ticker: QQQ
-- as_of_date: '2026-10-01'
-  momentum: 0.2519555959247235
+  momentum: 0.259323428735005
   ticker: EFA
 - as_of_date: '2026-10-01'
-  momentum: 0.029970577248953134
+  momentum: 0.2256016030344803
+  ticker: QQQ
+- as_of_date: '2026-10-01'
+  momentum: 0.08241848991399081
   ticker: GLD
 - as_of_date: '2026-10-01'
-  momentum: 0.0007300552374935876
+  momentum: 0.026538350710939795
   ticker: XLI
 - as_of_date: '2026-10-01'
-  momentum: -0.4752965786661143
+  momentum: -0.4913530645547546
   ticker: EEM
 selected:
 - *id001
