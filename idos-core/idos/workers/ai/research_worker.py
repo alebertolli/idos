@@ -176,6 +176,11 @@ class ResearchWorker(BaseWorker):
             "error_mercado": market_error,
             "tesis_inversion": thesis,
             "score_general": score,
+            "research_status": "FAILED" if ddd_failed else "COMPLETED",
+            "research_error": (
+                "El análisis DDD devolvió una respuesta vacía o incompleta."
+                if ddd_failed else None
+            ),
             "dominio_riesgos": ddd_result.get("dominio_riesgos", []),
             "dominio_catalizadores": ddd_result.get("dominio_catalizadores", []),
             "dominio_business_quality": ddd_result.get("dominio_business_quality", {}),

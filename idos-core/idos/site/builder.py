@@ -482,8 +482,12 @@ class SiteBuilder:
             "dominios": [],
             "catalizadores": [],
             "evidencia": {},
+            "research_status": None,
+            "research_error": None,
         }
         if ddd:
+            ddd_summary["research_status"] = ddd.get("research_status")
+            ddd_summary["research_error"] = ddd.get("research_error")
             cls = ddd.get("clasificacion_oportunidad") or {}
             ddd_summary["categoria"] = cls.get("categoria")
             cls_desc = cls.get("categorias_descartadas") or []
@@ -975,6 +979,13 @@ class SiteBuilder:
         ] + [
             {"severity": "warn", "ticker": o["ticker"], "message": f"Tesis sin evaluar ({o.get('thesis_not_assessed_days')}d)"}
             for o in thesis_stale
+        ] + [
+            {
+                "severity": "high",
+                "ticker": o["ticker"],
+                "message": "DDD fallido: respuesta vacía o incompleta; assessment detenido",
+            }
+            for o in opps if (o.get("ddd") or {}).get("research_status") == "FAILED"
         ]
         for p in positions:
             if p.get("dist_to_stop_pct") is not None and p["dist_to_stop_pct"] <= 5:
@@ -1496,6 +1507,7 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">Última evaluación tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.updated_at)}</div>${thesisBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">Decisión propuesta</div><div style="font-size:18px">${esc(decision||'—')}</div><div class="muted">${esc(o.proposal?.status||o.decision?.author||'')} · ${esc(o.proposal?.reason||o.proposal?.reasoning||'')}</div></div>`;
   html += '</div>';
+  if(d.research_status==='FAILED') html += `<div class="alert high"><b>Investigación DDD fallida.</b> ${esc(d.research_error||'Respuesta vacía o incompleta; assessment detenido.')}</div>`;
 
   // Tesis e informe
   const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;

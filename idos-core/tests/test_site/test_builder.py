@@ -220,6 +220,34 @@ def test_public_opportunity_explains_unknown_risk_and_omits_private_portfolio_fi
     assert "PRIVATE-HOLDING-DETAIL" not in str(result)
 
 
+
+def test_failed_ddd_is_visible_as_high_dashboard_alert(tmp_path: Path):
+    opp_dir = tmp_path / "OPP-RACE-FAILED"
+    opp_dir.mkdir()
+    (opp_dir / "opportunity.yml").write_text(yaml.safe_dump({
+        "id": "OPP-RACE-FAILED",
+        "status": "UNDER_RESEARCH",
+        "ticker": "RACE",
+    }), encoding="utf-8")
+    (opp_dir / "ddd_report.yml").write_text(yaml.safe_dump({
+        "research_status": "FAILED",
+        "research_error": "El análisis DDD devolvió una respuesta vacía o incompleta.",
+    }), encoding="utf-8")
+
+    builder = _builder()
+    builder._market_price = lambda ticker: {"price": None, "date": None}
+    opportunity = builder._load_opportunity("RACE", opp_dir)
+    dashboard = builder._build_dashboard([opportunity], [], [], [], [])
+
+    assert opportunity["ddd"]["research_status"] == "FAILED"
+    assert any(
+        alert["severity"] == "high"
+        and alert["ticker"] == "RACE"
+        and "assessment detenido" in alert["message"]
+        for alert in dashboard["alerts"]
+    )
+
+
 def test_systematic_opportunity_uses_signal_without_fake_conviction_or_valuation(tmp_path: Path):
     opp_dir = tmp_path / "OPP-MOM-XLE"
     opp_dir.mkdir()
