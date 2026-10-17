@@ -129,3 +129,81 @@ def test_gemini_empty_response_has_actionable_error(monkeypatch, payload, messag
 
     with pytest.raises(ValueError, match=message):
         client._call_gemini("prompt", "system", 0.1, 100)
+
+
+def test_gemini_sends_api_key_in_header_not_url(monkeypatch):
+    class FakeResponse:
+        def json(self):
+            return {"candidates": [{"content": {"parts": [{"text": "ok"}]}}]}
+
+    client = LLMClient(provider="gemini", api_key="test-secret-key-123", model="test-model")
+    captured = {}
+
+    def capture_request(_method, url, **kwargs):
+        captured["url"] = url
+        captured["headers"] = kwargs["headers"]
+        return FakeResponse()
+
+    monkeypatch.setattr(client, "_request_with_retry", capture_request)
+
+    response = client._call_gemini("prompt", "system", 0.1, 100)
+
+    assert response.success
+    assert "test-secret-key-123" not in captured["url"]
+    assert "key=" not in captured["url"]
+    assert captured["headers"]["x-goog-api-key"] == "test-secret-key-123"
+
+
+def test_provider_http_errors_redact_api_keys_from_logs_and_result(monkeypatch, capsys):
+    import requests
+
+    secret = "test-secret-key-123"
+    client = LLMClient(provider="gemini", api_key=secret, model="test-model")
+    response = requests.Response()
+    response.status_code = 401
+
+    def fail_request(*_args, **_kwargs):
+        raise requests.HTTPError(
+            f"401 Unauthorized: https://example.test/path?key={secret}", response=response
+        )
+
+    monkeypatch.setattr(client, "_call_gemini", fail_request)
+
+    result = client.generate("prompt")
+
+    assert not result.success
+    assert secret not in result.error
+    assert "[REDACTED]" in result.error
+    assert secret not in capsys.readouterr().out
+
+
+def test_rate_limited_provider_does_not_call_same_provider_fallback(monkeypatch):
+    import requests
+    from idos.ai.llm import LLMClient as LC, LLMResponse
+
+    client = LC.__new__(LC)
+    client.provider = "openrouter"
+    client.api_key = "router-key"
+    client.model = "primary"
+    client.fallback_model = "free-fallback"
+    client.fallback_providers = [{"provider": "groq", "model": "groq-model", "api_key": "groq-key"}]
+    client.timeout = 5
+    called_models = []
+    rate_limit = requests.Response()
+    rate_limit.status_code = 429
+
+    def router_call(_prompt, _system, _temperature, _max_tokens, _api_key, model):
+        called_models.append(model)
+        raise requests.HTTPError("429 Too Many Requests", response=rate_limit)
+
+    monkeypatch.setattr(client, "_call_openrouter", router_call)
+    monkeypatch.setattr(
+        client,
+        "_call_groq",
+        lambda *_args: LLMResponse(content="ok", success=True, model="groq-model"),
+    )
+
+    result = client.generate("prompt")
+
+    assert result.success
+    assert called_models == ["primary"]

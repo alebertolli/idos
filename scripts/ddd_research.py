@@ -26,6 +26,16 @@ STALE_DAYS = 30
 SKIP_TICKERS = set()
 
 
+def _persist_results_or_fail(results: dict, path: Path) -> None:
+    """Persist audit evidence and fail the workflow when any research failed."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(results, indent=2), encoding="utf-8")
+    errors = results.get("errors", [])
+    if errors:
+        print(f"[ERROR] Research failed for {len(errors)} candidate(s); downstream assessment is blocked")
+        raise SystemExit(1)
+
+
 def _parse_dt(s):
     if not s:
         return None
@@ -311,11 +321,23 @@ def main():
                 'score': r.get('conviction_score', r.get('score')),
                 'reason': opp.get('reason', ''),
             })
-            if status in ('skipped', 'ddd_failed'):
+            if status == 'skipped':
+                skipped_list.append({
+                    'opp_id': opp_id,
+                    'ticker': ticker,
+                    'reason': r.get('reason', 'Research skipped'),
+                })
+            elif status == 'ddd_failed':
                 rw_errors.append({
                     'ticker': ticker,
                     'opp_id': opp_id,
                     'error': r.get('error') or r.get('reason') or status,
+                })
+            elif status != 'completed':
+                rw_errors.append({
+                    'ticker': ticker,
+                    'opp_id': opp_id,
+                    'error': r.get('error') or f'Unexpected research status: {status}',
                 })
         except Exception as e:
             import traceback
@@ -334,10 +356,8 @@ def main():
         'force': force,
         'stale_days_threshold': STALE_DAYS,
     }
-    Path('cache').mkdir(parents=True, exist_ok=True)
-    Path('cache/ddd_results.json').write_text(
-        json.dumps(results, indent=2), encoding='utf-8'
-    )
+    results['status'] = 'failed' if rw_errors else 'research_completed'
+    _persist_results_or_fail(results, Path('cache/ddd_results.json'))
     print('\n[DDD] Research completed for {}, errors in {}'.format(
         len(rw_results), len(rw_errors)))
 

@@ -107,6 +107,7 @@ jobs:
         run: python scripts/ddd_research.py --preview
 
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
+        id: research
         run: python scripts/ddd_research.py
 
       - name: STEP 3-7 - Assessment Engines + Conviction + Rules + Board + Entry
@@ -119,6 +120,7 @@ jobs:
         run: python scripts/ddd_digest.py
 
       - name: Commit results
+        if: ${{ always() && !cancelled() && (steps.research.outcome == 'success' || steps.research.outcome == 'failure') }}
         run: |
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
@@ -142,6 +144,7 @@ jobs:
           fi
 
       - name: Upload artifact
+        if: ${{ always() && !cancelled() && (steps.research.outcome == 'success' || steps.research.outcome == 'failure') }}
         uses: actions/upload-artifact@v4
         with:
           name: ddd-results-${{ github.run_id }}
