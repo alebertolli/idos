@@ -36,6 +36,40 @@ def _persist_results_or_fail(results: dict, path: Path) -> None:
         raise SystemExit(1)
 
 
+def _record_worker_result(
+    opportunity: dict,
+    result: dict,
+    processed: list[dict],
+    errors: list[dict],
+    skipped: list[dict],
+) -> None:
+    """Classify a ResearchWorker result so only completed work can proceed."""
+    status = result.get("status", "unknown")
+    opp_id = opportunity["opp_id"]
+    ticker = opportunity["ticker"]
+    processed.append({
+        "opp_id": opp_id,
+        "ticker": ticker,
+        "status": status,
+        "score": result.get("conviction_score", result.get("score")),
+        "reason": opportunity.get("reason", ""),
+    })
+    if status == "skipped":
+        skipped.append({
+            "opp_id": opp_id,
+            "ticker": ticker,
+            "reason": result.get("reason", "Research skipped"),
+        })
+    elif status != "completed":
+        errors.append({
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "error": result.get("error") or result.get("reason") or (
+                "ddd_failed" if status == "ddd_failed" else f"Unexpected research status: {status}"
+            ),
+        })
+
+
 def _parse_dt(s):
     if not s:
         return None
@@ -316,29 +350,7 @@ def main():
             status = r.get('status', 'unknown')
             print('  -> status={} score={}'.format(
                 status, r.get('conviction_score', r.get('score', '?'))))
-            rw_results.append({
-                'opp_id': opp_id, 'ticker': ticker, 'status': status,
-                'score': r.get('conviction_score', r.get('score')),
-                'reason': opp.get('reason', ''),
-            })
-            if status == 'skipped':
-                skipped_list.append({
-                    'opp_id': opp_id,
-                    'ticker': ticker,
-                    'reason': r.get('reason', 'Research skipped'),
-                })
-            elif status == 'ddd_failed':
-                rw_errors.append({
-                    'ticker': ticker,
-                    'opp_id': opp_id,
-                    'error': r.get('error') or r.get('reason') or status,
-                })
-            elif status != 'completed':
-                rw_errors.append({
-                    'ticker': ticker,
-                    'opp_id': opp_id,
-                    'error': r.get('error') or f'Unexpected research status: {status}',
-                })
+            _record_worker_result(opp, r, rw_results, rw_errors, skipped_list)
         except Exception as e:
             import traceback
             traceback.print_exc()

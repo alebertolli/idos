@@ -31,3 +31,33 @@ def test_successful_research_results_are_persisted_without_error(tmp_path):
     SCRIPT["_persist_results_or_fail"](results, results_path)
 
     assert json.loads(results_path.read_text(encoding="utf-8")) == results
+
+
+@pytest.mark.parametrize(
+    ("status", "expected_errors", "expected_skipped"),
+    [
+        ("completed", 0, 0),
+        ("skipped", 0, 1),
+        ("ddd_failed", 1, 0),
+        ("unknown", 1, 0),
+    ],
+)
+def test_worker_status_is_classified_before_downstream_assessment(
+    status, expected_errors, expected_skipped
+):
+    processed, errors, skipped = [], [], []
+    opportunity = {"opp_id": "OPP-1", "ticker": "VIST", "reason": "new candidate"}
+
+    SCRIPT["_record_worker_result"](
+        opportunity,
+        {"status": status, "error": "invalid response"},
+        processed,
+        errors,
+        skipped,
+    )
+
+    assert processed[0]["status"] == status
+    assert len(errors) == expected_errors
+    assert len(skipped) == expected_skipped
+    if expected_errors:
+        assert errors[0]["error"] == "invalid response"
