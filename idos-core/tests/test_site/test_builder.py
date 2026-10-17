@@ -148,13 +148,43 @@ def test_dashboard_exposes_ide_without_portfolio_metrics():
     assert all(section["key"] != "portfolio" for section in result["sections"])
 
 
-def test_public_build_omits_paper_positions(tmp_path: Path):
+def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
+    position_marker = "FAMILY_POSITION_SECRET_9876"
+    private_fit_marker = "FAMILY_PORTFOLIO_FIT_SECRET_4321"
     private = tmp_path / "idos-journal" / "paper" / "positions"
     private.mkdir(parents=True)
-    (private / "SECRET.yml").write_text("ticker: SECRET\nquantity: 100\nentry_price: 12\n", encoding="utf-8")
+    (private / f"{position_marker}.yml").write_text(
+        f"ticker: {position_marker}\nquantity: 100\nentry_price: 12\n", encoding="utf-8"
+    )
     held = tmp_path / "idos-journal" / "companies" / "PRIVATE" / "case_file" / "opportunities" / "OPP-PRIVATE"
     held.mkdir(parents=True)
     (held / "opportunity.yml").write_text("id: OPP-PRIVATE\nticker: PRIVATE\nstatus: FULL_POSITION\n", encoding="utf-8")
+    research = tmp_path / "idos-journal" / "companies" / "AAA" / "case_file" / "opportunities" / "OPP-AAA"
+    research.mkdir(parents=True)
+    (research / "opportunity.yml").write_text(yaml.safe_dump({
+        "id": "OPP-AAA",
+        "ticker": "AAA",
+        "status": "UNDER_RESEARCH",
+        "strategy_id": "COMPOUNDER",
+        "conviction": {
+            "overall": 95,
+            "confidence": "HIGH",
+            "trend": "IMPROVING",
+            "scores": {"PortfolioAssessmentEngine": 97},
+        },
+    }), encoding="utf-8")
+    (research / "decision_proposal.yml").write_text(yaml.safe_dump({
+        "assessments": {
+            "PortfolioAssessmentEngine": {
+                "score": 97,
+                "confidence": "HIGH",
+                "recommendation": "EXCELLENT_FIT",
+                "findings": [{"type": "POSITIVE", "detail": private_fit_marker}],
+                "risks": [],
+            },
+        },
+    }), encoding="utf-8")
+    monkeypatch.setattr(SiteBuilder, "_market_price", lambda _self, _ticker: {"price": None, "date": None})
     site = SiteBuilder(tmp_path).build()
     assert site.positions == []
     assert site.ledger == []
@@ -164,8 +194,16 @@ def test_public_build_omits_paper_positions(tmp_path: Path):
     (tmp_path / "site").mkdir()
     (tmp_path / "site" / "learning.html").write_text("old post mortem", encoding="utf-8")
     output = write_site(tmp_path, tmp_path / "site")
-    assert "SECRET" not in (output / "data.json").read_text(encoding="utf-8")
-    assert "PRIVATE" not in (output / "data.json").read_text(encoding="utf-8")
+    published_artifacts = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in output.rglob("*")
+        if path.is_file()
+    )
+    assert position_marker not in str(site)
+    assert private_fit_marker not in str(site)
+    assert position_marker not in published_artifacts
+    assert private_fit_marker not in published_artifacts
+    assert "PRIVATE" not in published_artifacts
     assert not (output / "learning.html").exists()
     script = (output / "assets" / "app.js").read_text(encoding="utf-8")
     assert "['portfolio','Portfolio']" not in script
