@@ -1,37 +1,22 @@
 {
-  "processed": [
-    {
-      "opp_id": "OPP-20260730-001",
-      "ticker": "RACE",
-      "status": "ddd_failed",
-      "score": 50,
-      "reason": "FORCE re-research UNDER_RESEARCH (score=55)"
-    },
-    {
-      "opp_id": "OPP-20261016-001",
-      "ticker": "RACE",
-      "status": "ddd_failed",
-      "score": 50,
-      "reason": "FORCE re-research UNDER_RESEARCH (score=44)"
-    }
-  ],
-  "skipped": [],
-  "assessments": [],
-  "errors": [
-    {
-      "ticker": "RACE",
-      "opp_id": "OPP-20260730-001",
-      "error": "DDD output empty or incomplete"
-    },
-    {
-      "ticker": "RACE",
-      "opp_id": "OPP-20261016-001",
-      "error": "DDD output empty or incomplete"
-    }
-  ],
-  "total": 2,
-  "status": "research_completed",
+  "processed": [],
+  "errors": [],
+  "status": "none",
   "event_type": "manual",
-  "force": true,
-  "stale_days_threshold": 30
+  "force": false,
+  "skipped": [
+    {
+      "opp_id": "OPP-20260730-001",
+      "ticker": "RACE",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (16d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-20261016-001",
+      "ticker": "RACE",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (0d <= 30d)"
+    }
+  ],
+  "assessments": []
 }

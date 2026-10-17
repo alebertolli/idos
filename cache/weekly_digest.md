@@ -1,24 +1,14 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-17 11:50 AR _
+_Generado: 2026-10-17 12:16 AR _
 
 ## Resumen
 
-- 🟢 **Oportunidades procesadas:** 2
+- 🟢 **Oportunidades procesadas:** 0
 - ✅ **Assessment completados:** 0
 - 🔖 **Approved:** 0
-- 🔴 **Errores:** 2
-- 📊 **Total encontradas:** 2
-
-### STEP 2 - Research (DDD + AOIF + Hypothesis)
-
-- ⚠️ **RACE** (OPP-20260730-001): score=50, class=?
-- ⚠️ **RACE** (OPP-20261016-001): score=50, class=?
-
-### Errores
-
-- ❌ **RACE**: DDD output empty or incomplete
-- ❌ **RACE**: DDD output empty or incomplete
+- 🔴 **Errores:** 0
+- 📊 **Total encontradas:** 0
 
 ---
 
