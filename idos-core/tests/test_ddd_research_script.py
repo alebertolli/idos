@@ -61,3 +61,51 @@ def test_worker_status_is_classified_before_downstream_assessment(
     assert len(skipped) == expected_skipped
     if expected_errors:
         assert errors[0]["error"] == "invalid response"
+
+
+def test_main_persists_worker_failure_and_exits_nonzero(
+    tmp_path, monkeypatch
+):
+    from idos.data.journal import JournalRepository
+    from idos.data.sqlite import SQLiteStore
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    opportunity_dir = (
+        tmp_path
+        / "idos-journal"
+        / "companies"
+        / "VIST"
+        / "case_file"
+        / "opportunities"
+        / "OPP-1"
+    )
+    opportunity_dir.mkdir(parents=True)
+    (opportunity_dir / "opportunity.yml").write_text(
+        "id: OPP-1\nticker: VIST\nstatus: SCREENED\nconviction:\n  overall: 70\n",
+        encoding="utf-8",
+    )
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    monkeypatch.delenv("TICKER", raising=False)
+    monkeypatch.setenv("FORCE", "false")
+    monkeypatch.setattr(SQLiteStore, "__init__", lambda self, *_args, **_kwargs: None)
+    monkeypatch.setattr(JournalRepository, "__init__", lambda self, *_args, **_kwargs: None)
+
+    class FailedResearchWorker:
+        def run(self, _context):
+            return {"status": "ddd_failed", "error": "invalid JSON"}
+
+    monkeypatch.setattr(
+        ResearchWorker,
+        "from_project_config",
+        classmethod(lambda cls, _base_path: FailedResearchWorker()),
+    )
+
+    with pytest.raises(SystemExit) as exc_info:
+        SCRIPT["main"]()
+
+    result = json.loads((tmp_path / "cache" / "ddd_results.json").read_text(encoding="utf-8"))
+    assert exc_info.value.code == 1
+    assert result["status"] == "failed"
+    assert result["processed"][0]["status"] == "ddd_failed"
+    assert result["errors"][0]["error"] == "invalid JSON"
