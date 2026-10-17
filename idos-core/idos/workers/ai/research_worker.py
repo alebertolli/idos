@@ -161,7 +161,7 @@ class ResearchWorker(BaseWorker):
         score = ddd_result.get("score_general", 50)
 
         ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
-        ddd_failed = ddd_empty and bool(ddd_result.get("error"))
+        ddd_failed = ddd_empty or bool(ddd_result.get("error"))
         if ddd_empty:
             print(f"[WARN] {ticker}: DDD del LLM vacío — score={score}, clasificacion={classification}, error={ddd_result.get('error','')}")
         elif not ddd_empty and score == 50 and not classification and not thesis:
@@ -212,6 +212,33 @@ class ResearchWorker(BaseWorker):
         import yaml as yaml_lib
         with open(report_path, "w", encoding="utf-8") as f:
             yaml_lib.dump(ddd_report, f, default_flow_style=False, allow_unicode=True)
+
+        if ddd_failed:
+            error = ddd_result.get("error") or "DDD output empty or incomplete"
+            event_data = {
+                "opp_id": opp_id,
+                "ticker": ticker,
+                "score": score,
+                "error": error,
+                "event_type": event_type,
+                "strategy_id": opp.get("strategy_id", "COMPOUNDER"),
+                "strategy_version": opp.get("strategy_version", "legacy-compatible"),
+                "original_status": current_status.value,
+            }
+            sqlite.log_event("research:failed", event_data)
+            journal.log_event("research:failed", event_data, source="research_worker")
+            return {
+                "ticker": ticker,
+                "opp_id": opp_id,
+                "status": "ddd_failed",
+                "score": score,
+                "classification": classification.get("categoria"),
+                "hypotheses_count": 0,
+                "assessment_id": None,
+                "ddd_empty": ddd_empty,
+                "error": error,
+                "target_consensus": consensus,
+            }
 
         if is_systematic:
             hypothesis_result = {
@@ -358,6 +385,7 @@ class ResearchWorker(BaseWorker):
             "hypotheses_count": len(hypotheses),
             "assessment_id": assessment_id,
             "ddd_empty": ddd_empty,
+            "error": (ddd_result.get("error") or "DDD output empty or incomplete") if ddd_failed else None,
             "target_consensus": consensus,
         }
 

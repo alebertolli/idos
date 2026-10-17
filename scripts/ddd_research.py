@@ -309,8 +309,12 @@ def main():
                 'score': r.get('conviction_score', r.get('score')),
                 'reason': opp.get('reason', ''),
             })
-            if status == 'skipped':
-                rw_errors.append({'ticker': ticker, 'opp_id': opp_id, 'reason': r.get('reason', 'skipped')})
+            if status in ('skipped', 'ddd_failed'):
+                rw_errors.append({
+                    'ticker': ticker,
+                    'opp_id': opp_id,
+                    'error': r.get('error') or r.get('reason') or status,
+                })
         except Exception as e:
             import traceback
             traceback.print_exc()
@@ -322,6 +326,7 @@ def main():
         'skipped': skipped_list,
         'assessments': [],
         'errors': rw_errors,
+        'total': len(opportunities),
         'status': 'research_completed',
         'event_type': event_type,
         'force': force,

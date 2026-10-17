@@ -124,6 +124,35 @@ class TestResearchWorker:
         assert output["classification"] == "compounder_castigado"
         assert output["market_error_conclusion"] == "SI"
 
+    def test_empty_ddd_fails_closed_without_advancing_lifecycle(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_path: Path,
+        monkeypatch,
+    ):
+        ticker, opp_id = seeded_opportunity
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+        monkeypatch.setattr("idos.workers.ai.research_worker.time.sleep", lambda *_: None)
+        monkeypatch.setattr(
+            worker,
+            "_run_prompt",
+            lambda prompt_name, _ticker, _kwargs: {} if prompt_name == "ddd" else {"hipotesis": []},
+        )
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "ddd_failed"
+        assert result["ddd_empty"] is True
+        assert result["error"] == "DDD output empty or incomplete"
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.SCREENED.value
+        assert not (tmp_journal.opportunity_path(ticker, opp_id) / "assessments").exists()
+
     def test_research_transition(
         self,
         seeded_opportunity: tuple[str, str],

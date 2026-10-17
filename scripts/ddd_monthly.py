@@ -85,19 +85,9 @@ last_day = calendar.monthrange(today.year, today.month)[1]
 days_left = last_day - today.day
 
 if days_left <= 2:
-    print('[MONTHLY] Fin de mes detectado - generando digest semanal')
-    # Generate digest
-    from idos.decision.assessment_pipeline import build_digest
-    try:
-        # Read total and errors from ddd results
-        ddd_data = json.loads(open('cache/ddd_results.json', encoding='utf-8').read()) if Path('cache/ddd_results.json').exists() else {'total': 0, 'errors': []}
-        build_digest(workspace, ddd_data.get('total', 0), ddd_data.get('errors', []))
-        print('[MONTHLY] Weekly digest generated')
-    except Exception as e:
-        print('[MONTHLY] Digest generation error: {}'.format(e))
-    else:
-        print('[MONTHLY] No es fin de mes ({}/{}), saliendo'.format(today.day, last_day))
-
+    print('[MONTHLY] Fin de mes detectado; el digest combinado se genera al final del workflow')
+else:
+    print('[MONTHLY] No es fin de mes ({}/{}), sin re-assessment mensual'.format(today.day, last_day))
 
 if __name__ == '__main__':
     main()

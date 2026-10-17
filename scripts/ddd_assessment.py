@@ -34,13 +34,31 @@ def main():
     errors = results.get('errors', [])
     total = results.get('total', 0)
 
-    # Use assessment results if available, else use processed
-    items = assessments if assessments else processed
+    # Only research results with substantive DDD output may enter assessment.
+    successful_research = [
+        item for item in processed
+        if isinstance(item, dict) and item.get("status") == "completed"
+    ]
+    failed_research = [
+        item for item in processed
+        if isinstance(item, dict) and item.get("status") == "ddd_failed"
+    ]
+    items = assessments + successful_research
+    known_failed_ids = {error.get("opp_id") for error in errors if isinstance(error, dict)}
+    for item in failed_research:
+        if item.get("opp_id") in known_failed_ids:
+            continue
+        errors.append({
+            "ticker": item.get("ticker", "?"),
+            "opp_id": item.get("opp_id", ""),
+            "error": item.get("error") or "DDD empty or incomplete; assessment blocked",
+        })
 
     if not items:
         print('[ASSESSMENT] No opportunities to assess')
         # Write empty results
         results['assessments'] = []
+        results['errors'] = errors
         Path('cache').mkdir(parents=True, exist_ok=True)
         with open(results_file, 'w', encoding='utf-8') as f:
             f.write(json.dumps(results, indent=2))
@@ -111,14 +129,6 @@ def main():
     print('\n[ASSESSMENT] Done: {} assessed, {} errors'.format(
         len(assessments), len(errors_list)))
 
-    # Generate digest after assessment
-    from idos.decision.assessment_pipeline import build_digest
-    print('[ASSESSMENT] Generating digest...')
-    try:
-        build_digest(workspace)
-        print('[ASSESSMENT] Digest generated successfully')
-    except Exception as e:
-        print('[ASSESSMENT] Digest generation error: {}'.format(e))
 
 
 if __name__ == '__main__':
