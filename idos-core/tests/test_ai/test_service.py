@@ -32,3 +32,30 @@ def test_service_fails_over_after_empty_primary_response(monkeypatch):
     assert result.success
     assert result.content == '{"thesis": "evidence-backed"}'
     assert calls == ["gemini", "groq"]
+
+
+def test_service_logs_request_metadata_without_prompt_or_response(monkeypatch, capsys):
+    service = LLMService.from_config({
+        "llm": {
+            "default_provider": "gemini",
+            "providers": {"gemini": {"model": "gemini-test", "task_types": ["analysis"]}},
+        }
+    })
+    prompt = "private-portfolio-context-marker"
+    response_body = '{"private": "response-marker"}'
+    monkeypatch.setattr(
+        service.clients["gemini"],
+        "generate",
+        lambda *_args, **_kwargs: LLMResponse(
+            content=response_body, success=True, latency_ms=5
+        ),
+    )
+
+    result = service.generate(prompt, system_prompt="private-system-marker")
+
+    logs = capsys.readouterr().out
+    assert result.success
+    assert "prompt_chars=" in logs
+    assert prompt not in logs
+    assert "private-system-marker" not in logs
+    assert response_body not in logs

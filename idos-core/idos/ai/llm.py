@@ -56,7 +56,6 @@ class LLMClient:
         _call_chain = [{"provider": self.provider, "model": self.model, "api_key": self.api_key, "fallback_model": self.fallback_model}]
         _call_chain += self.fallback_providers
         api_keys = [entry.get("api_key", "") for entry in _call_chain]
-        _trunc = lambda s, n=200: (s[:n] + "...") if len(s) > n else s
         first_error = ""
         start = time.time()
         for idx, entry in enumerate(_call_chain):
@@ -70,8 +69,10 @@ class LLMClient:
             else:
                 print(f"\n{'='*60}")
                 print(f"[LLM] {lbl}")
-            print(f"[LLM] SYSTEM: {_trunc(system_prompt)}")
-            print(f"[LLM] PROMPT: {_trunc(prompt)}")
+            print(
+                f"[LLM] Request metadata: system_chars={len(system_prompt)} "
+                f"prompt_chars={len(prompt)}"
+            )
             try:
                 if prov == "openai":
                     resp = self._call_openai(prompt, system_prompt, temperature, max_tokens, akey, modl)
@@ -115,7 +116,10 @@ class LLMClient:
                 if not first_error: first_error = safe_error
                 continue
             if resp.success and resp.content:
-                print(f"[LLM] RESPONSE ({resp.latency_ms}ms, {resp.tokens_in}→{resp.tokens_out} tok): {_trunc(resp.content, 500)}")
+                print(
+                    f"[LLM] RESPONSE ({resp.latency_ms}ms, "
+                    f"{resp.tokens_in}→{resp.tokens_out} tok)"
+                )
                 print(f"{'='*60}\n")
                 return resp
             msg = self._redact_error(resp.error or "respuesta vacía del proveedor", api_keys)

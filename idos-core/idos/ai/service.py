@@ -121,8 +121,10 @@ class LLMService:
 
         print(f"\n{'='*60}")
         print(f"[LLM] Task: {task_type} | Providers: {', '.join(providers)}")
-        print(f"[LLM] SYSTEM: {(system_prompt[:200] + '...') if len(system_prompt) > 200 else system_prompt}")
-        print(f"[LLM] PROMPT: {(prompt[:200] + '...') if len(prompt) > 200 else prompt}")
+        print(
+            f"[LLM] Request metadata: system_chars={len(system_prompt)} "
+            f"prompt_chars={len(prompt)}"
+        )
 
         for provider in providers:
             cb = self.circuit_breakers.get(provider)
@@ -233,7 +235,7 @@ class LLMService:
             except json.JSONDecodeError:
                 pass
 
-        print(f"[LLM] Failed to parse JSON, raw preview: {resp.content[:300]}")
+        print(f"[LLM] Failed to parse JSON (response_chars={len(resp.content)})")
         return {"error": "Failed to parse JSON", "_raw": resp.content}
 
     def health(self) -> dict[str, Any]:

@@ -207,3 +207,31 @@ def test_rate_limited_provider_does_not_call_same_provider_fallback(monkeypatch)
 
     assert result.success
     assert called_models == ["primary"]
+
+
+def test_generate_logs_request_metadata_without_prompt_or_response(monkeypatch, capsys):
+    from idos.ai.llm import LLMClient as LC, LLMResponse
+
+    client = LC.__new__(LC)
+    client.provider = "openai"
+    client.api_key = "test-key"
+    client.model = "test-model"
+    client.fallback_model = ""
+    client.fallback_providers = []
+    client.timeout = 5
+    prompt = "private-investment-thesis-marker"
+    response_body = "private-investment-response-marker"
+    monkeypatch.setattr(
+        client,
+        "_call_openai",
+        lambda *_args: LLMResponse(content=response_body, success=True, latency_ms=12),
+    )
+
+    result = client.generate(prompt, system_prompt="private-system-marker")
+
+    logs = capsys.readouterr().out
+    assert result.success
+    assert "prompt_chars=" in logs
+    assert prompt not in logs
+    assert "private-system-marker" not in logs
+    assert response_body not in logs
