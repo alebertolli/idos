@@ -1,5 +1,6 @@
 import time
 from datetime import datetime
+from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
@@ -23,6 +24,20 @@ class ResearchWorker(BaseWorker):
       - UNDER_RESEARCH -> UNDER_RESEARCH (re-research with force=true)
     """
     name = "research_worker"
+
+    @classmethod
+    def from_project_config(cls, base_path: str | Path | None = None) -> "ResearchWorker":
+        """Build a research worker with the project's shared LLM routing policy."""
+        from idos.ai.service import LLMService
+
+        root = Path(base_path) if base_path is not None else Path.cwd()
+        models_path = root / "idos-config" / "models.yml"
+        prompts_path = root / "idos-config" / "prompts"
+        llm_service = LLMService(str(models_path)) if models_path.exists() else LLMService()
+        return cls({
+            "llm_service": llm_service,
+            "prompts_path": str(prompts_path) if prompts_path.exists() else "",
+        })
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
@@ -78,7 +93,26 @@ class ResearchWorker(BaseWorker):
             raise ValueError(msg)
 
         current_status = OpportunityStatus(opp["status"])
-        is_systematic = str(opp.get("research_profile", "")).lower() == "systematic"
+        research_profile = str(opp.get("research_profile", "")).lower()
+        is_systematic = research_profile == "systematic"
+        is_multibaggers = research_profile == "multibaggers"
+        research_intake = None
+        if is_multibaggers:
+            intake_path = journal.opportunity_path(ticker, opp_id) / "research_intake.yml"
+            if not intake_path.exists():
+                raise ValueError(f"MULTIBAGGERS Research Intake Package is missing for {ticker}/{opp_id}")
+            import yaml
+            research_intake = yaml.safe_load(intake_path.read_text(encoding="utf-8")) or {}
+            if research_intake.get("strategy_id") != "MULTIBAGGERS" or research_intake.get("research_profile") != "multibaggers" or research_intake.get("ticker", "").upper() != ticker:
+                raise ValueError("MULTIBAGGERS Research Intake Package metadata is invalid")
+            if research_intake.get("strategy_version") != opp.get("strategy_version"):
+                raise ValueError("MULTIBAGGERS Research Intake Package strategy_version mismatch")
+            snapshot_path = journal.opportunity_path(ticker, opp_id) / "discovery_snapshot.yml"
+            if not snapshot_path.exists():
+                raise ValueError(f"MULTIBAGGERS Discovery snapshot is missing for {ticker}/{opp_id}")
+            discovery_snapshot = yaml.safe_load(snapshot_path.read_text(encoding="utf-8")) or {}
+            if not research_intake.get("snapshot_hash") or discovery_snapshot.get("snapshot_hash") != research_intake.get("snapshot_hash"):
+                raise ValueError("MULTIBAGGERS Research Intake Package does not match its Discovery snapshot")
         if not force_reprocess:
             if not self.state_machine.can_transition(current_status, OpportunityStatus.UNDER_RESEARCH):
                 return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
@@ -124,10 +158,17 @@ class ResearchWorker(BaseWorker):
         # thesis. Running them through the generic DDD prompt produced the same
         # boilerplate report for every ETF and left the lifecycle dependent on
         # fundamental rules that do not apply to this strategy.
-        ddd_result = (
-            self._build_systematic_ddd(ticker, opp, financial_data)
-            if is_systematic else self._run_prompt("ddd", ticker, ddd_inputs)
-        )
+        if is_systematic:
+            ddd_result = self._build_systematic_ddd(ticker, opp, financial_data)
+        elif is_multibaggers:
+            import json
+            ddd_result = self._run_prompt("multibaggers", ticker, {
+                "ticker": ticker, "name": company.get("name", ticker),
+                "intake_package": json.dumps(research_intake, ensure_ascii=False, sort_keys=True),
+                "financial_summary": json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str),
+            })
+        else:
+            ddd_result = self._run_prompt("ddd", ticker, ddd_inputs)
 
         classification = ddd_result.get("clasificacion_oportunidad", {})
         market_error = ddd_result.get("error_mercado", {})
@@ -135,7 +176,7 @@ class ResearchWorker(BaseWorker):
         score = ddd_result.get("score_general", 50)
 
         ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
-        ddd_failed = ddd_empty and bool(ddd_result.get("error"))
+        ddd_failed = ddd_empty or bool(ddd_result.get("error"))
         if ddd_empty:
             print(f"[WARN] {ticker}: DDD del LLM vacío — score={score}, clasificacion={classification}, error={ddd_result.get('error','')}")
         elif not ddd_empty and score == 50 and not classification and not thesis:
@@ -150,6 +191,11 @@ class ResearchWorker(BaseWorker):
             "error_mercado": market_error,
             "tesis_inversion": thesis,
             "score_general": score,
+            "research_status": "FAILED" if ddd_failed else "COMPLETED",
+            "research_error": (
+                "El análisis DDD devolvió una respuesta vacía o incompleta."
+                if ddd_failed else None
+            ),
             "dominio_riesgos": ddd_result.get("dominio_riesgos", []),
             "dominio_catalizadores": ddd_result.get("dominio_catalizadores", []),
             "dominio_business_quality": ddd_result.get("dominio_business_quality", {}),
@@ -186,6 +232,33 @@ class ResearchWorker(BaseWorker):
         import yaml as yaml_lib
         with open(report_path, "w", encoding="utf-8") as f:
             yaml_lib.dump(ddd_report, f, default_flow_style=False, allow_unicode=True)
+
+        if ddd_failed:
+            error = ddd_result.get("error") or "DDD output empty or incomplete"
+            event_data = {
+                "opp_id": opp_id,
+                "ticker": ticker,
+                "score": score,
+                "error": error,
+                "event_type": event_type,
+                "strategy_id": opp.get("strategy_id", "COMPOUNDER"),
+                "strategy_version": opp.get("strategy_version", "legacy-compatible"),
+                "original_status": current_status.value,
+            }
+            sqlite.log_event("research:failed", event_data)
+            journal.log_event("research:failed", event_data, source="research_worker")
+            return {
+                "ticker": ticker,
+                "opp_id": opp_id,
+                "status": "ddd_failed",
+                "score": score,
+                "classification": classification.get("categoria"),
+                "hypotheses_count": 0,
+                "assessment_id": None,
+                "ddd_empty": ddd_empty,
+                "error": error,
+                "target_consensus": consensus,
+            }
 
         if is_systematic:
             hypothesis_result = {
@@ -312,6 +385,11 @@ class ResearchWorker(BaseWorker):
                 "score": score, "hypotheses": len(hypotheses),
                 "classification": classification.get("categoria"),
                 "event_type": event_type,
+                "trigger_source": event_type,
+                "triggered_at": datetime.now(AR_TZ).isoformat(),
+                "strategy_id": opp.get("strategy_id", "COMPOUNDER"),
+                "strategy_version": opp.get("strategy_version", "legacy-compatible"),
+                "snapshot_hash": (research_intake or {}).get("snapshot_hash", ""),
                 "original_status": current_status.value,
             }
             event_data["ddd_empty"] = ddd_empty
@@ -327,6 +405,7 @@ class ResearchWorker(BaseWorker):
             "hypotheses_count": len(hypotheses),
             "assessment_id": assessment_id,
             "ddd_empty": ddd_empty,
+            "error": (ddd_result.get("error") or "DDD output empty or incomplete") if ddd_failed else None,
             "target_consensus": consensus,
         }
 

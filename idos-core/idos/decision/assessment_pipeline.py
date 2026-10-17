@@ -98,7 +98,7 @@ def build_context(
         "wyckoff_phase": financial.get("wyckoff_phase", ""),
         "weinstein_stage": financial.get("weinstein_stage", ""),
         "relative_strength": financial.get("relative_strength", 0),
-        "debt_to_equity": financial.get("debt_equity_ratio", 0),
+        "debt_to_equity": financial.get("debt_equity_ratio", financial.get("debt_to_equity", 0)),
         "litigation_risk": financial.get("litigation_risk", ""),
         "volatility_90d": financial.get("volatility_90d", 0),
         "current_ratio": financial.get("current_ratio", 0),
@@ -144,6 +144,12 @@ def build_context(
         "thematic_correlations": {},
         "num_positions": len(positions),
         "position_weight": current_position_weight,
+        # Journal positions are paper/simulation data. They must never imply
+        # that the family portfolio was loaded or reconciled.
+        "source": "paper_simulation" if positions else "unavailable",
+        "snapshot_id": None,
+        "as_of": None,
+        "reconciled": False,
     }
 
     company_info = {"sector": company.get("sector", "")}
@@ -213,7 +219,13 @@ def build_context(
     asymmetry = _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
 
     return {
-        "knowledge_base": {"dynamic": {"metrics": metrics}, "static": static},
+        "knowledge_base": {
+            "dynamic": {
+                "metrics": metrics,
+                "metric_availability": financial.get("_risk_metric_availability", {}),
+            },
+            "static": static,
+        },
         "portfolio": portfolio,
         "company": company_info,
         "margin_of_safety": margin_of_safety,
@@ -232,6 +244,8 @@ def build_context(
         "thesis_active": thesis_active,
         "strategy_id": (opp or {}).get("strategy_id", "COMPOUNDER") if opp else "COMPOUNDER",
         "research_profile": (opp or {}).get("research_profile", "") if opp else "",
+        "entry_policy": (opp or {}).get("entry_policy", "") if opp else "",
+        "strategy_version": (opp or {}).get("strategy_version", "legacy-compatible") if opp else "legacy-compatible",
         "signal": (opp or {}).get("signal", {}) if opp else {},
     }
 
@@ -323,7 +337,7 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
         ).fetchone()
         if row:
             try:
-                return json.loads(row[0])
+                return _attach_risk_metric_availability(json.loads(row[0]))
             except (json.JSONDecodeError, TypeError):
                 pass
     except Exception:
@@ -340,6 +354,7 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
                 if data:
                     if "merged_data" in data:
                         data = data["merged_data"]
+                    data = _attach_risk_metric_availability(data)
                     data = _normalize_decimal_pcts(data)
                     data = _enrich_roic(data)
                     _warn_missing_metrics(ticker, data, "cache")
@@ -355,6 +370,7 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
             (Path("cache") / f"{ticker}.json").write_text(
                 json.dumps(result, default=str, indent=2), encoding="utf-8"
             )
+            result = _attach_risk_metric_availability(result)
             result = _normalize_decimal_pcts(result)
             result = _enrich_roic(result)
             _warn_missing_metrics(ticker, result, "stockanalysis.com live")
@@ -363,6 +379,24 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
         pass
     _warn_missing_metrics(ticker, {}, "ninguna")
     return {}
+
+
+def _attach_risk_metric_availability(data: dict[str, Any]) -> dict[str, Any]:
+    """Preserve whether risk metrics existed before legacy normalization fills zeros."""
+    aliases = {
+        "debt_to_equity": ("debt_equity_ratio", "debt_to_equity"),
+        "volatility_90d": ("volatility_90d",),
+        "current_ratio": ("current_ratio",),
+    }
+    existing = data.get("_risk_metric_availability")
+    availability = {}
+    for metric, keys in aliases.items():
+        declared = existing.get(metric) if isinstance(existing, dict) else None
+        availability[metric] = declared if isinstance(declared, bool) else any(
+            key in data and data[key] is not None for key in keys
+        )
+    data["_risk_metric_availability"] = availability
+    return data
 
 
 def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high):
@@ -623,6 +657,11 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     context = build_context(opp_id, ticker, bp, sqlite, knowledge, journal)
     context["_settings"] = settings
     context["proposed_weight"] = settings.default_weight_pct
+    strategy_profile = StrategyCatalog(bp / "idos-config" / "strategies.yml").get(context.get("strategy_id"))
+    strategy_limit = strategy_profile.parameters.get("position_limit_pct")
+    if isinstance(strategy_limit, (int, float)) and strategy_limit >= 0:
+        context["strategy_max_position_pct"] = float(strategy_limit)
+        context["proposed_weight"] = min(float(context["proposed_weight"]), float(strategy_limit))
 
     is_systematic = context.get("research_profile") == "systematic"
     if is_systematic:
@@ -638,7 +677,9 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     board.submit(proposal)
     resolution = board.review()
 
-    if resolution.approved:
+    manual_review_required = context.get("entry_policy") == "MANUAL_REVIEW"
+    action_approved = resolution.approved and not manual_review_required
+    if action_approved:
         _add_to_buylist(ticker, proposal, context, opp_id, bp, knowledge)
 
     opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
@@ -651,7 +692,10 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "rules_passed": proposal.rules_passed,
         "rules_failed": proposal.rules_failed,
         "conviction_score": proposal.conviction_score,
-        "recommendation": proposal.recommendation,
+        "recommendation": "WAIT" if manual_review_required else proposal.recommendation,
+        "algorithmic_recommendation": proposal.recommendation,
+        "status": "PENDING_HUMAN_REVIEW" if manual_review_required and resolution.approved else ("BLOCKED" if not resolution.approved else "RESOLVED"),
+        "human_approval_required": manual_review_required,
         "reasoning": proposal.reasoning,
         "created_at": proposal.created_at,
         "generated_at": datetime.now(AR_TZ).isoformat(),
@@ -660,7 +704,9 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         yaml.dump(proposal_data, f, default_flow_style=False, allow_unicode=True)
 
     resolution_data = {
-        "approved": resolution.approved,
+        "approved": action_approved,
+        "algorithmic_approved": resolution.approved,
+        "human_approval_required": manual_review_required,
         "decision_id": resolution.decision_id,
         "decision_type": resolution.decision_type.value,
         "justification": resolution.justification,
@@ -670,8 +716,10 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     with open(opp_dir / "board_resolution.yml", "w", encoding="utf-8") as f:
         yaml.dump(resolution_data, f, default_flow_style=False, allow_unicode=True)
 
-    if resolution.approved:
+    if action_approved:
         new_status = OpportunityStatus.APPROVED
+    elif manual_review_required and resolution.approved:
+        new_status = OpportunityStatus.UNDER_RESEARCH
     elif not context.get("asymmetry"):
         new_status = OpportunityStatus.WATCHLIST
     else:
@@ -725,10 +773,10 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     return {
         "ticker": ticker,
         "opp_id": opp_id,
-        "status": "completed",
+        "status": "decision_pending" if manual_review_required and resolution.approved else "completed",
         "conviction_score": proposal.conviction_score,
-        "recommendation": proposal.recommendation,
-        "board_approved": resolution.approved,
+        "recommendation": "WAIT" if manual_review_required else proposal.recommendation,
+        "board_approved": action_approved,
         "decision_type": resolution.decision_type.value,
         "decision_id": resolution.decision_id,
         "assessments": {k: v.score for k, v in proposal.assessments.items()},

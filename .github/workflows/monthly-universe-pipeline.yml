@@ -20,6 +20,14 @@ jobs:
       IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
     steps:
       - uses: actions/checkout@v4
+      - name: Validate manual target branch
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          if [ "$GITHUB_REF_NAME" = "main" ]; then
+            echo "::error::E2E manual rechazado en main; seleccionar la rama de prueba"
+            exit 1
+          fi
+          git check-ref-format --branch "$GITHUB_REF_NAME"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

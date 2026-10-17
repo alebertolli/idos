@@ -26,6 +26,50 @@ STALE_DAYS = 30
 SKIP_TICKERS = set()
 
 
+def _persist_results_or_fail(results: dict, path: Path) -> None:
+    """Persist audit evidence and fail the workflow when any research failed."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(results, indent=2), encoding="utf-8")
+    errors = results.get("errors", [])
+    if errors:
+        print(f"[ERROR] Research failed for {len(errors)} candidate(s); downstream assessment is blocked")
+        raise SystemExit(1)
+
+
+def _record_worker_result(
+    opportunity: dict,
+    result: dict,
+    processed: list[dict],
+    errors: list[dict],
+    skipped: list[dict],
+) -> None:
+    """Classify a ResearchWorker result so only completed work can proceed."""
+    status = result.get("status", "unknown")
+    opp_id = opportunity["opp_id"]
+    ticker = opportunity["ticker"]
+    processed.append({
+        "opp_id": opp_id,
+        "ticker": ticker,
+        "status": status,
+        "score": result.get("conviction_score", result.get("score")),
+        "reason": opportunity.get("reason", ""),
+    })
+    if status == "skipped":
+        skipped.append({
+            "opp_id": opp_id,
+            "ticker": ticker,
+            "reason": result.get("reason", "Research skipped"),
+        })
+    elif status != "completed":
+        errors.append({
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "error": result.get("error") or result.get("reason") or (
+                "ddd_failed" if status == "ddd_failed" else f"Unexpected research status: {status}"
+            ),
+        })
+
+
 def _parse_dt(s):
     if not s:
         return None
@@ -284,7 +328,9 @@ def main():
     sqlite = SQLiteStore(base_path / 'idos.db')
     journal = JournalRepository(base_path / 'idos-journal')
 
-    rw = ResearchWorker()
+    # Use the same model configuration, provider routing and fallback policy
+    # as the rest of the platform instead of LLMClient's environment defaults.
+    rw = ResearchWorker.from_project_config(base_path)
     rw_results = []
     rw_errors = []
     for opp in opportunities:
@@ -304,13 +350,7 @@ def main():
             status = r.get('status', 'unknown')
             print('  -> status={} score={}'.format(
                 status, r.get('conviction_score', r.get('score', '?'))))
-            rw_results.append({
-                'opp_id': opp_id, 'ticker': ticker, 'status': status,
-                'score': r.get('conviction_score', r.get('score')),
-                'reason': opp.get('reason', ''),
-            })
-            if status == 'skipped':
-                rw_errors.append({'ticker': ticker, 'opp_id': opp_id, 'reason': r.get('reason', 'skipped')})
+            _record_worker_result(opp, r, rw_results, rw_errors, skipped_list)
         except Exception as e:
             import traceback
             traceback.print_exc()
@@ -322,15 +362,14 @@ def main():
         'skipped': skipped_list,
         'assessments': [],
         'errors': rw_errors,
+        'total': len(opportunities),
         'status': 'research_completed',
         'event_type': event_type,
         'force': force,
         'stale_days_threshold': STALE_DAYS,
     }
-    Path('cache').mkdir(parents=True, exist_ok=True)
-    Path('cache/ddd_results.json').write_text(
-        json.dumps(results, indent=2), encoding='utf-8'
-    )
+    results['status'] = 'failed' if rw_errors else 'research_completed'
+    _persist_results_or_fail(results, Path('cache/ddd_results.json'))
     print('\n[DDD] Research completed for {}, errors in {}'.format(
         len(rw_results), len(rw_errors)))
 

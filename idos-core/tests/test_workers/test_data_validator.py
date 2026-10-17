@@ -30,6 +30,15 @@ def test_cross_validate_conflict():
     assert result["conflicts"][0]["field"] == "pe_ratio"
 
 
+def test_cross_validate_conflict_uses_total_source_spread():
+    result = DataValidator(tolerance_pct=20).cross_validate({
+        "sa": {"roic_pct": 17.9},
+        "yf": {"roic_pct": 22.1},
+    })
+    assert result["conflicts"][0]["deviation_pct"] == 21.0
+    assert set(result["conflicts"][0]["sources"]) == {"sa", "yf"}
+
+
 def test_validate_metrics_warnings():
     v = DataValidator()
     warnings = v.validate_metrics({

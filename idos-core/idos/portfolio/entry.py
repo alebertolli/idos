@@ -90,9 +90,12 @@ class EntryEngine:
         wyckoff_score_ok = result.score >= self.min_wyckoff_score
         wyckoff_confirmed = wyckoff_ok and wyckoff_score_ok
 
-        proposed_weight = context.get("proposed_weight", 3.0)
+        proposed_weight = float(context.get("proposed_weight", 3.0))
+        strategy_limit = context.get("strategy_max_position_pct")
+        if isinstance(strategy_limit, (int, float)) and strategy_limit >= 0:
+            proposed_weight = min(proposed_weight, float(strategy_limit))
         multiplier = WYCOFF_CONFIDENCE_MULTIPLIER.get(result.confidence_label, 1.0)
-        adjusted_weight = round(proposed_weight * multiplier, 2)
+        adjusted_weight = round(min(proposed_weight * multiplier, strategy_limit) if isinstance(strategy_limit, (int, float)) else proposed_weight * multiplier, 2)
 
         pf_ok = True
         total_weight = portfolio.get("total_weight", 0)

@@ -90,7 +90,11 @@ class DecisionBoardWorker(BaseWorker):
             "BusinessAssessmentEngine": conviction.get("business", assessment_scores.get("ResearchWorker", 70)),
             "ValuationAssessmentEngine": assessment_scores.get("ValuationEngine", 70),
             "RecoveryAssessmentEngine": assessment_scores.get("ReratingEngine", 70),
-            "RiskAssessmentEngine": assessment_scores.get("RiskEngine", 70),
+            # Missing risk evidence is unknown, never a favorable default.
+            # The alias supports journals written by both engine versions.
+            "RiskAssessmentEngine": assessment_scores.get(
+                "RiskAssessmentEngine", assessment_scores.get("RiskEngine", 0)
+            ),
             "PortfolioAssessmentEngine": assessment_scores.get("PortfolioEngine", 70),
         }
 
@@ -126,7 +130,11 @@ class DecisionBoardWorker(BaseWorker):
             "opp_id": opp_id,
             "status": "APPROVED" if all_rules_pass else "REJECTED",
             "rules_evaluation": {
-                "deterministic": {"passed": rules_passed, "failed": rules_failed},
+                "deterministic": {
+                    "passed": rules_passed,
+                    "failed": rules_failed,
+                    "details": proposal.rules_details if proposal else {},
+                },
                 "llm": llm_eval.get("rules_detail", []),
             },
             "rationale": rationale,
@@ -160,6 +168,7 @@ class DecisionBoardWorker(BaseWorker):
             "all_rules_pass": all_rules_pass,
             "deterministic_passed": rules_passed,
             "deterministic_failed": rules_failed,
+            "rules_details": proposal.rules_details if proposal else {},
             "recommendation": recommendation,
             "decision_id": decision_id,
             "rules_evaluated": len(auth_rules),

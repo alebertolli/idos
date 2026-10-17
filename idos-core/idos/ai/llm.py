@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import time
 from dataclasses import dataclass, field
 from typing import Any, Optional
@@ -54,7 +55,7 @@ class LLMClient:
     ) -> LLMResponse:
         _call_chain = [{"provider": self.provider, "model": self.model, "api_key": self.api_key, "fallback_model": self.fallback_model}]
         _call_chain += self.fallback_providers
-        _trunc = lambda s, n=200: (s[:n] + "...") if len(s) > n else s
+        api_keys = [entry.get("api_key", "") for entry in _call_chain]
         first_error = ""
         start = time.time()
         for idx, entry in enumerate(_call_chain):
@@ -68,8 +69,10 @@ class LLMClient:
             else:
                 print(f"\n{'='*60}")
                 print(f"[LLM] {lbl}")
-            print(f"[LLM] SYSTEM: {_trunc(system_prompt)}")
-            print(f"[LLM] PROMPT: {_trunc(prompt)}")
+            print(
+                f"[LLM] Request metadata: system_chars={len(system_prompt)} "
+                f"prompt_chars={len(prompt)}"
+            )
             try:
                 if prov == "openai":
                     resp = self._call_openai(prompt, system_prompt, temperature, max_tokens, akey, modl)
@@ -83,7 +86,8 @@ class LLMClient:
                     resp = self._call_generic(prompt, system_prompt, temperature, max_tokens, akey, modl)
             except requests.HTTPError as e:
                 fbk = entry.get("fallback_model", "")
-                if fbk and e.response is not None and e.response.status_code in (429, 404):
+                status_code = e.response.status_code if e.response is not None else None
+                if fbk and status_code == 404:
                     print(f"[LLM] {e.response.status_code} en {modl}, fallback a {fbk}...")
                     try:
                         if prov == "gemini":
@@ -97,22 +101,28 @@ class LLMClient:
                         else:
                             resp = self._call_generic(prompt, system_prompt, temperature, max_tokens, akey, fbk)
                     except Exception as e2:
-                        print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {e2}")
-                        if not first_error: first_error = str(e2)
+                        safe_error = self._redact_error(e2, api_keys)
+                        print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {safe_error}")
+                        if not first_error: first_error = safe_error
                         continue
                 else:
-                    print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {e}")
-                    if not first_error: first_error = str(e)
+                    safe_error = self._redact_error(e, api_keys)
+                    print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {safe_error}")
+                    if not first_error: first_error = safe_error
                     continue
             except Exception as e:
-                print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {e}")
-                if not first_error: first_error = str(e)
+                safe_error = self._redact_error(e, api_keys)
+                print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {safe_error}")
+                if not first_error: first_error = safe_error
                 continue
             if resp.success and resp.content:
-                print(f"[LLM] RESPONSE ({resp.latency_ms}ms, {resp.tokens_in}→{resp.tokens_out} tok): {_trunc(resp.content, 500)}")
+                print(
+                    f"[LLM] RESPONSE ({resp.latency_ms}ms, "
+                    f"{resp.tokens_in}→{resp.tokens_out} tok)"
+                )
                 print(f"{'='*60}\n")
                 return resp
-            msg = resp.error or "respuesta vacía del proveedor"
+            msg = self._redact_error(resp.error or "respuesta vacía del proveedor", api_keys)
             if not first_error:
                 first_error = msg
             print(f"[LLM] {lbl}: respuesta sin contenido util ({msg}), intentando siguiente fallback")
@@ -121,6 +131,33 @@ class LLMClient:
         print(f"{'='*60}\n")
         return LLMResponse(content="", success=False, error=first_error,
                            latency_ms=int((time.time() - start) * 1000))
+
+    def _redact_error(self, error: Any, api_keys: list[str] | None = None) -> str:
+        """Remove credentials from provider errors before logging or persisting them."""
+        message = str(error)
+        known_keys = [
+            self.api_key,
+            *(api_keys or []),
+            os.getenv("GEMINI_API_KEY", ""),
+            os.getenv("GOOGLE_API_KEY", ""),
+            os.getenv("OPENROUTER_API_KEY", ""),
+            os.getenv("GROQ_API_KEY", ""),
+            os.getenv("OPENAI_API_KEY", ""),
+        ]
+        for secret in set(known_keys):
+            if secret and len(secret) >= 8:
+                message = message.replace(secret, "[REDACTED]")
+        message = re.sub(
+            r"(?i)([?&](?:key|api_key|access_token)=)[^&\s]+",
+            r"\1[REDACTED]",
+            message,
+        )
+        message = re.sub(
+            r"(?i)(authorization\s*:\s*bearer\s+)[^\s,]+",
+            r"\1[REDACTED]",
+            message,
+        )
+        return message
 
     def generate_structured(
         self,
@@ -136,7 +173,7 @@ class LLMClient:
         )
         resp = self.generate(structured_prompt, system_prompt, temperature, max_tokens)
         if not resp.success:
-            return {"error": resp.error, "_raw": resp.content}
+            return {"error": self._redact_error(resp.error), "_raw": resp.content}
 
         return self._parse_json(resp.content)
 
@@ -259,7 +296,7 @@ class LLMClient:
         start = time.time()
         url = (
             f"https://generativelanguage.googleapis.com/v1beta/models/"
-            f"{_mod}:generateContent?key={_key}"
+            f"{_mod}:generateContent"
         )
         contents = []
         if system_prompt:
@@ -268,6 +305,7 @@ class LLMClient:
             contents.append({"role": "user", "parts": [{"text": prompt}]})
 
         resp = self._request_with_retry("POST", url,
+            headers={"x-goog-api-key": _key, "Content-Type": "application/json"},
             json={
                 "contents": contents,
                 "generationConfig": {
@@ -278,8 +316,18 @@ class LLMClient:
             timeout=self.timeout,
         )
         data = resp.json()
-        candidate = data["candidates"][0]
-        text = candidate["content"]["parts"][0]["text"]
+        candidates = data.get("candidates") or []
+        if not candidates:
+            block_reason = (data.get("promptFeedback") or {}).get("blockReason")
+            reason = f" (block reason: {block_reason})" if block_reason else ""
+            raise ValueError(f"Gemini returned no candidates{reason}")
+        candidate = candidates[0]
+        parts = (candidate.get("content") or {}).get("parts") or []
+        text = "".join(part.get("text", "") for part in parts if isinstance(part, dict))
+        if not text.strip():
+            finish_reason = candidate.get("finishReason")
+            reason = f" (finish reason: {finish_reason})" if finish_reason else ""
+            raise ValueError(f"Gemini returned no text content{reason}")
 
         usage = data.get("usageMetadata", {})
         return LLMResponse(

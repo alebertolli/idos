@@ -17,7 +17,7 @@ on:
         type: boolean
         default: false
   repository_dispatch:
-    types: [quarterly-results]
+    types: [quarterly-results, guidance-change, material-restatement, red-flag-change, financial-deterioration, thesis-change]
   schedule:
     - cron: "0 0 2 * *"  # 2do día de cada mes (NORMAL: procesa SCREENED)
     - cron: "0 6 */30 * *"  # Cada 30 días a las 6am (FORCE: re-research UNDER_RESEARCH)
@@ -46,6 +46,30 @@ jobs:
       actions: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.event_name == 'repository_dispatch' && github.event.client_payload.target_branch || github.ref_name }}
+      - name: Validate write target branch
+        env:
+          WORKFLOW_RUN_HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          DISPATCH_TARGET_BRANCH: ${{ github.event.client_payload.target_branch }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_run" ]; then
+            TARGET_BRANCH="$WORKFLOW_RUN_HEAD_BRANCH"
+          elif [ "$GITHUB_EVENT_NAME" = "repository_dispatch" ]; then
+            TARGET_BRANCH="$DISPATCH_TARGET_BRANCH"
+          else
+            TARGET_BRANCH="$GITHUB_REF_NAME"
+          fi
+          if [ -z "$TARGET_BRANCH" ]; then
+            echo "::error::No hay rama objetivo explícita; ejecución cerrada sin escribir"
+            exit 1
+          fi
+          if { [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] || [ "$GITHUB_EVENT_NAME" = "repository_dispatch" ]; } && [ "$TARGET_BRANCH" = "main" ]; then
+            echo "::error::Ejecuciones manuales o dispatch no pueden escribir en main"
+            exit 1
+          fi
+          git check-ref-format --branch "$TARGET_BRANCH"
+          echo "TARGET_BRANCH=$TARGET_BRANCH" >> "$GITHUB_ENV"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -58,7 +82,15 @@ jobs:
           echo "TICKER=$TICKER" >> $GITHUB_ENV
           if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
-            echo "EVENT_TYPE=${{ github.event.action }}" >> $GITHUB_ENV
+            case "${{ github.event.action }}" in
+              quarterly-results) echo "EVENT_TYPE=quarterly_results" >> $GITHUB_ENV ;;
+              guidance-change) echo "EVENT_TYPE=guidance_change" >> $GITHUB_ENV ;;
+              material-restatement) echo "EVENT_TYPE=material_restatement" >> $GITHUB_ENV ;;
+              red-flag-change) echo "EVENT_TYPE=red_flag_change" >> $GITHUB_ENV ;;
+              financial-deterioration) echo "EVENT_TYPE=material_financial_deterioration" >> $GITHUB_ENV ;;
+              thesis-change) echo "EVENT_TYPE=thesis_change" >> $GITHUB_ENV ;;
+              *) echo "EVENT_TYPE=${{ github.event.action }}" >> $GITHUB_ENV ;;
+            esac
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "FORCE=${{ github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
             echo "EVENT_TYPE=manual" >> $GITHUB_ENV
@@ -75,6 +107,7 @@ jobs:
         run: python scripts/ddd_research.py --preview
 
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
+        id: research
         run: python scripts/ddd_research.py
 
       - name: STEP 3-7 - Assessment Engines + Conviction + Rules + Board + Entry
@@ -87,6 +120,7 @@ jobs:
         run: python scripts/ddd_digest.py
 
       - name: Commit results
+        if: ${{ always() && !cancelled() && (steps.research.outcome == 'success' || steps.research.outcome == 'failure') }}
         run: |
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
@@ -98,18 +132,19 @@ jobs:
             exit 0
           fi
           git commit -m "chore: ddd research $(date +%Y-%m-%d)"
-          git fetch origin main
-          if ! git rebase origin/main; then
+          git fetch origin "$TARGET_BRANCH"
+          if ! git rebase "origin/$TARGET_BRANCH"; then
             git rebase --abort
             echo "[ERROR] La investigación no se pudo pushear (conflicto con origin/main). Fallo a proposito para notificar."
             exit 1
           fi
-          if ! git push origin HEAD:main; then
-            echo "[ERROR] El push a origin/main fallo. La investigación no fue subida."
+          if ! git push origin "HEAD:$TARGET_BRANCH"; then
+            echo "[ERROR] El push a origin/$TARGET_BRANCH fallo. La investigación no fue subida."
             exit 1
           fi
 
       - name: Upload artifact
+        if: ${{ always() && !cancelled() && (steps.research.outcome == 'success' || steps.research.outcome == 'failure') }}
         uses: actions/upload-artifact@v4
         with:
           name: ddd-results-${{ github.run_id }}

@@ -32,6 +32,8 @@ def _mock_research_registry() -> MagicMock:
     def get_side_effect(prompt_name: str, category: str = "research"):
         if prompt_name == "wiki":
             return None
+        if prompt_name == "multibaggers":
+            return "MULTIBAGGERS {ticker} ({name}); Intake: {intake_package}; resumen: {financial_summary}"
         if prompt_name == "ddd":
             return "FASE 0 - clasificacion oportunidad for {ticker} ({name})"
         if prompt_name == "hypothesis":
@@ -46,6 +48,56 @@ def _mock_research_registry() -> MagicMock:
 
 
 class TestResearchWorker:
+    def test_project_factory_uses_central_model_and_fallback_configuration(self):
+        from pathlib import Path
+
+        from idos.ai.service import LLMService
+
+        project_root = Path(__file__).resolve().parents[3]
+        worker = ResearchWorker.from_project_config(project_root)
+
+        assert isinstance(worker.llm, LLMService)
+        assert worker.llm.default_provider == "gemini"
+        assert worker.llm.clients["gemini"].model == "gemini-3.8-flash"
+        assert worker.llm._rank_providers("analysis")[0] == "gemini"
+
+    def test_multibaggers_research_routes_by_persisted_profile_and_intake(
+        self, tmp_sqlite, tmp_journal, mock_llm_client: MagicMock,
+        base_path: str, tmp_path: Path, monkeypatch,
+    ):
+        import yaml
+        ticker, opp_id = "TEST", "OPP-MB-TEST"
+        opp = {
+            "id": opp_id, "ticker": ticker, "status": OpportunityStatus.SCREENED.value,
+            "strategy_id": "MULTIBAGGERS", "strategy_version": "1.0",
+            "research_profile": "multibaggers", "entry_policy": "MANUAL_REVIEW",
+            "conviction": {}, "created_at": "2026-10-15T12:00:00+00:00",
+            "updated_at": "2026-10-15T12:00:00+00:00",
+        }
+        tmp_sqlite.save_opportunity(opp)
+        tmp_journal.save_opportunity(ticker, opp)
+        intake = {"ticker": ticker, "strategy_id": "MULTIBAGGERS", "strategy_version": "1.0",
+                  "research_profile": "multibaggers", "snapshot_hash": "fixture-hash",
+                  "constraints": ["PACKAGE_TOKEN"]}
+        intake_path = tmp_journal.opportunity_path(ticker, opp_id) / "research_intake.yml"
+        intake_path.write_text(yaml.safe_dump(intake), encoding="utf-8")
+        snapshot_path = tmp_journal.opportunity_path(ticker, opp_id) / "discovery_snapshot.yml"
+        snapshot_path.write_text(yaml.safe_dump({"ticker": ticker, "snapshot_hash": "fixture-hash"}), encoding="utf-8")
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+        monkeypatch.setattr(worker, "_load_financial_data", lambda *args: {})
+        monkeypatch.setattr(worker, "_enrich_company_info", lambda ticker, company, knowledge: {"name": ticker, "sector": "Technology"})
+        monkeypatch.setattr(worker, "_fetch_target_consensus", lambda *args: {})
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "completed"
+        first_prompt = mock_llm_client.generate_structured.call_args_list[0].kwargs["prompt"]
+        assert "MULTIBAGGERS" in first_prompt
+        assert "PACKAGE_TOKEN" in first_prompt
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.UNDER_RESEARCH.value
+
     def test_systematic_ddd_is_signal_specific(self):
         report = ResearchWorker._build_systematic_ddd(
             "XLE",
@@ -84,6 +136,35 @@ class TestResearchWorker:
         assert output["hypotheses_count"] >= 1
         assert output["classification"] == "compounder_castigado"
         assert output["market_error_conclusion"] == "SI"
+
+    def test_empty_ddd_fails_closed_without_advancing_lifecycle(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_path: Path,
+        monkeypatch,
+    ):
+        ticker, opp_id = seeded_opportunity
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+        monkeypatch.setattr("idos.workers.ai.research_worker.time.sleep", lambda *_: None)
+        monkeypatch.setattr(
+            worker,
+            "_run_prompt",
+            lambda prompt_name, _ticker, _kwargs: {} if prompt_name == "ddd" else {"hipotesis": []},
+        )
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "ddd_failed"
+        assert result["ddd_empty"] is True
+        assert result["error"] == "DDD output empty or incomplete"
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.SCREENED.value
+        assert not (tmp_journal.opportunity_path(ticker, opp_id) / "assessments").exists()
 
     def test_research_transition(
         self,

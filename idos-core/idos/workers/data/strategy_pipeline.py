@@ -8,6 +8,7 @@ import yaml
 
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
+from idos.discovery.operability import OperabilityFilter
 from idos.market.prices import PriceProvider
 from idos.models.enums import OpportunityStatus
 from idos.strategy.catalog import StrategyCatalog
@@ -43,7 +44,12 @@ class MonthlyStrategyWorker(BaseWorker):
             return {"status": "skipped", "reason": "runner_not_implemented", "strategy_id": self.strategy_id}
 
         params = profile.parameters
-        universe = params.get("universe", [])
+        configured_universe = params.get("universe", [])
+        operable_path = Path(self.config.get("operable_path", "idos-config/universe/operable.yml"))
+        if not operable_path.is_absolute():
+            operable_path = base / operable_path
+        operable, excluded = OperabilityFilter(str(operable_path)).filter_tickers(configured_universe)
+        universe = operable
         provider = self.config.get("price_provider") or PriceProvider()
         rows: list[dict[str, Any]] = []
         missing: list[str] = []
@@ -63,7 +69,7 @@ class MonthlyStrategyWorker(BaseWorker):
             "strategy_id": self.strategy_id, "as_of_date": datetime.now(AR_TZ).date().isoformat(),
             "formula": "12*P0/P1 + 4*P0/P3 + 2*P0/P6 + P0/P12 - 19",
             "ranking": ranking, "eligible": eligible, "selected": selected,
-            "missing_history": missing, "action": action,
+            "missing_history": missing, "ineligible_universe": excluded, "action": action,
         }
         if context.get("dry_run", False) or not context.get("persist", True):
             return output

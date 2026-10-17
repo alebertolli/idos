@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from datetime import datetime, timezone
 
 
 class DataValidator:
@@ -8,6 +9,8 @@ class DataValidator:
     def cross_validate(self, sources: dict[str, dict[str, Any]]) -> dict[str, Any]:
         merged: dict[str, Any] = {}
         conflicts: list[dict[str, Any]] = []
+        metric_sources: dict[str, list[str]] = {}
+        metric_values: dict[str, dict[str, Any]] = {}
 
         all_keys: set[str] = set()
         for data in sources.values():
@@ -24,6 +27,8 @@ class DataValidator:
 
             if len(values) == 1:
                 merged[key] = list(values.values())[0]
+                metric_sources[key] = list(values)
+                metric_values[key] = dict(values)
                 continue
 
             numeric_values = {
@@ -32,29 +37,34 @@ class DataValidator:
 
             if len(numeric_values) < 2:
                 merged[key] = self._pick_best(values)
+                metric_sources[key] = list(values)
+                metric_values[key] = dict(values)
                 continue
 
             vals = list(numeric_values.values())
             avg = sum(vals) / len(vals)
-
-            for src, val in numeric_values.items():
-                if avg != 0:
-                    deviation = abs(val - avg) / abs(avg) * 100
-                    if deviation > self.tolerance_pct:
-                        conflicts.append({
-                            "field": key,
-                            "sources": {src: val},
-                            "avg": avg,
-                            "deviation_pct": round(deviation, 1),
-                        })
+            spread = max(vals) - min(vals)
+            deviation = spread / abs(avg) * 100 if avg != 0 else (100.0 if spread else 0.0)
+            if deviation > self.tolerance_pct:
+                conflicts.append({
+                    "field": key,
+                    "sources": dict(numeric_values),
+                    "avg": avg,
+                    "deviation_pct": round(deviation, 1),
+                })
 
             merged[key] = round(avg, 2) if isinstance(avg, float) else avg
+            metric_sources[key] = list(values)
+            metric_values[key] = dict(values)
 
         return {
             "merged_data": merged,
             "conflicts": conflicts,
             "source_count": len(sources),
             "sources_used": list(sources.keys()),
+            "metric_sources": metric_sources,
+            "metric_values": metric_values,
+            "as_of": datetime.now(timezone.utc).isoformat(),
         }
 
     def _pick_best(self, values: dict[str, Any]) -> Any:

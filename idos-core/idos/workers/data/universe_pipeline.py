@@ -2,6 +2,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
+from threading import local
 from typing import Any
 
 from idos.workers.base import BaseWorker
@@ -31,10 +32,13 @@ class UniversePipeline(BaseWorker):
         self.strategy = self.strategy_catalog.get(self.strategy_id)
         if not self.strategy.enabled:
             raise ValueError(f"Strategy is disabled: {self.strategy_id}")
-        if self.strategy.discovery_profile != "compounder":
+        if self.strategy.discovery_profile not in {"compounder", "multibaggers"}:
             raise ValueError(f"UniversePipeline has no runner for discovery profile: {self.strategy.discovery_profile}")
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
+        if self.strategy.discovery_profile == "multibaggers":
+            from idos.discovery.multibaggers_pipeline import MultibaggersPipeline
+            return MultibaggersPipeline(self.config).run(context)
         metrics = PipelineMetrics()
         metrics.started_at = datetime.now(AR_TZ).isoformat()
         start_time = time.time()
@@ -82,7 +86,7 @@ class UniversePipeline(BaseWorker):
         operable_path = str(Path(self.config_path) / "universe/operable.yml")
         operable = OperabilityFilter(operable_path)
         before = metrics.finviz_count
-        tickers = [t for t in metrics.finviz_tickers if operable.is_operable(t)]
+        tickers, _excluded = operable.filter_tickers(metrics.finviz_tickers)
         metrics.operable_count = len(tickers)
         metrics.operable_filtered = before - len(tickers)
         metrics.finviz_tickers = tickers
@@ -129,9 +133,14 @@ class UniversePipeline(BaseWorker):
 
         print(f"[PIPELINE] Fetching {len(to_fetch)} new tickers...")
         max_workers = self.config.get("max_fetch_workers", 5)
-        refresher = DataRefreshWorker(self.config)
+        worker_state = local()
 
         def fetch_one(ticker):
+            # DataRefreshWorker owns SQLite/provider clients. Keep one instance
+            # per executor thread instead of sharing a main-thread instance.
+            refresher = getattr(worker_state, "refresher", None)
+            if refresher is None:
+                refresher = worker_state.refresher = DataRefreshWorker(self.config)
             return ticker, refresher.execute({"tickers": [ticker]})
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:

@@ -377,23 +377,61 @@ class SiteBuilder:
 
         scores: dict[str, Any] = {}
         findings: dict[str, list[str]] = {}
+        risk_assessment = None
+        private_portfolio_assessment_present = False
         for engine, spec in (dp.get("assessments") or {}).items():
             if isinstance(spec, dict):
+                # Portfolio fit may depend on private holdings. It is never part
+                # of the public Pages payload, even when a private assessment exists.
+                if engine in {"PortfolioAssessmentEngine", "PortfolioEngine"}:
+                    private_portfolio_assessment_present = True
+                    continue
                 scores[engine] = spec.get("score")
                 findings[engine] = [
                     f.get("detail") or f"{f.get('dimension','')} {f.get('level','')}".strip()
                     for f in (spec.get("findings") or []) if isinstance(f, dict)
                 ]
+                if engine in {"RiskAssessmentEngine", "RiskEngine"}:
+                    risk_assessment = {
+                        "score": spec.get("score"),
+                        "confidence": spec.get("confidence"),
+                        "recommendation": spec.get("recommendation"),
+                        "findings": findings[engine],
+                        "risks": [
+                            {key: risk.get(key) for key in ("type", "metric", "detail") if risk.get(key) is not None}
+                            for risk in (spec.get("risks") or []) if isinstance(risk, dict)
+                        ],
+                    }
 
         conv = opp.get("conviction") or {}
         scores_conv = conv.get("scores") or {}
         # Real scores live in decision_proposal; opportunity.yml often has zeros.
-        final_scores = {k: (v if v else scores.get(k)) for k, v in scores_conv.items()}
-        final_scores.update({k: v for k, v in scores.items() if k not in final_scores})
-        final_scores = {k: v for k, v in final_scores.items() if v is not None and v != 0}
+        private_engine_names = {"PortfolioAssessmentEngine", "PortfolioEngine"}
+        final_scores = {
+            k: v for k, v in scores_conv.items()
+            if k not in private_engine_names and v not in (None, 0)
+        }
+        # Preserve explicit zero assessments: score 0 plus an insufficient-data
+        # recommendation is meaningful and must remain visible to the manager.
+        final_scores.update({k: v for k, v in scores.items() if k not in private_engine_names and v is not None})
 
         current_price = opp.get("current_price")
         intrinsic = opp.get("intrinsic_value")
+        is_systematic = opp.get("thesis_type") == "SYSTEMATIC"
+        # Zero is the legacy placeholder for unavailable price/valuation data.
+        # Do not expose it as a real quote or valuation in the public dashboard.
+        if current_price is not None and current_price <= 0:
+            current_price = None
+        if intrinsic is not None and intrinsic <= 0:
+            intrinsic = None
+        if is_systematic:
+            # Systematic strategies are evaluated from their signal and policy,
+            # not a fundamental conviction score or intrinsic-value estimate.
+            conv = {**conv, "overall": None}
+        elif private_portfolio_assessment_present:
+            # Aggregate conviction can encode a private portfolio-fit score.
+            # Suppress the dependent aggregate and confidence in public Pages.
+            conv = {**conv, "overall": None, "confidence": None, "trend": None}
         mkt = self._market_price(ticker)
         market_price = mkt["price"]
         price_date = mkt["date"]
@@ -444,8 +482,12 @@ class SiteBuilder:
             "dominios": [],
             "catalizadores": [],
             "evidencia": {},
+            "research_status": None,
+            "research_error": None,
         }
         if ddd:
+            ddd_summary["research_status"] = ddd.get("research_status")
+            ddd_summary["research_error"] = ddd.get("research_error")
             cls = ddd.get("clasificacion_oportunidad") or {}
             ddd_summary["categoria"] = cls.get("categoria")
             cls_desc = cls.get("categorias_descartadas") or []
@@ -519,6 +561,12 @@ class SiteBuilder:
             "thesis_type": opp.get("thesis_type"),
             "entry_policy": opp.get("entry_policy"),
             "research_profile": opp.get("research_profile"),
+            "discovery_score": opp.get("discovery_score"),
+            "research_priority": opp.get("research_priority"),
+            "discovery_type": opp.get("discovery_type"),
+            "data_quality": opp.get("data_quality"),
+            "red_flags": opp.get("red_flags", []),
+            "position_limit_pct": opp.get("position_limit_pct"),
             "origin": opp.get("origin", "legacy"),
             "signal": opp.get("signal", {}),
             "conviction_overall": conv.get("overall"),
@@ -526,6 +574,7 @@ class SiteBuilder:
             "trend": conv.get("trend"),
             "scores": final_scores,
             "findings": findings,
+            "risk_assessment": risk_assessment,
             "current_price": current_price,
             "intrinsic_value": intrinsic,
             "upside_pct": upside,
@@ -552,6 +601,7 @@ class SiteBuilder:
                 "conviction_score": dp.get("conviction_score"),
                 "rules_passed": dp.get("rules_passed") or [],
                 "rules_failed": dp.get("rules_failed") or [],
+                "reason": dp.get("reason"),
                 "reasoning": dp.get("reasoning"),
             },
             "ddd": ddd_summary,
@@ -929,6 +979,13 @@ class SiteBuilder:
         ] + [
             {"severity": "warn", "ticker": o["ticker"], "message": f"Tesis sin evaluar ({o.get('thesis_not_assessed_days')}d)"}
             for o in thesis_stale
+        ] + [
+            {
+                "severity": "high",
+                "ticker": o["ticker"],
+                "message": "DDD fallido: respuesta vacía o incompleta; assessment detenido",
+            }
+            for o in opps if (o.get("ddd") or {}).get("research_status") == "FAILED"
         ]
         for p in positions:
             if p.get("dist_to_stop_pct") is not None and p["dist_to_stop_pct"] <= 5:
@@ -1236,11 +1293,14 @@ function renderStrategies(){
   const groups = {};
   rows.forEach(o=>{ const k=o.strategy_id||'COMPOUNDER'; groups[k]=(groups[k]||0)+1; });
   let html = '<h2>Estrategias IDOS</h2><p class="muted">Discovery, Research y estado de cada estrategia sin alterar el lifecycle de oportunidades.</p>';
-  html += '<table><thead><tr><th>Estrategia</th><th>Oportunidades</th><th>Core</th><th>Sleeves</th></tr></thead><tbody>';
+  html += '<p class="muted">MULTIBAGGERS: Discovery Score refleja atractivo relativo; Prioridad Research ordena investigación. Ninguno es probabilidad, conviction ni recomendación de compra.</p>';
+  html += '<table><thead><tr><th>Estrategia</th><th>Oportunidades</th><th>Core</th><th>Sleeves</th><th>Discovery / prioridad Research</th></tr></thead><tbody>';
   Object.keys(groups).sort().forEach(k=>{
     const sample=rows.find(o=>(o.strategy_id||'COMPOUNDER')===k)||{};
     const sleeves=[...new Set(rows.filter(o=>(o.strategy_id||'COMPOUNDER')===k).map(o=>o.sleeve).filter(Boolean))].join(', ')||'—';
-    html += `<tr><td><b>${esc(k)}</b></td><td>${groups[k]}</td><td>${esc(sample.core||'—')}</td><td>${esc(sleeves)}</td></tr>`;
+    const mb=rows.filter(o=>(o.strategy_id||'COMPOUNDER')===k&&o.discovery_score!=null);
+    const evidence=k==='MULTIBAGGERS'&&mb.length?`Discovery ${fmt(mb[0].discovery_score,1)} · Research ${fmt(mb[0].research_priority,1)} · ${esc(mb[0].discovery_type||'')}`:'—';
+    html += `<tr><td><b>${esc(k)}</b></td><td>${groups[k]}</td><td>${esc(sample.core||'—')}</td><td>${esc(sleeves)}</td><td>${evidence}</td></tr>`;
   });
   html += '</tbody></table>';
   setView('strategies', html);
@@ -1434,15 +1494,20 @@ function showCase(oppId){
   const o = findOpp(oppId);
   const by = DATA.buylist.find(b=>b.ticker===o.ticker);
   const d = o.ddd||{};
+  const systematic = o.thesis_type==='SYSTEMATIC';
+  const decision = o.proposal?.decision || o.proposal?.recommendation || o.decision?.decision_type;
   let html = `<button class="tab" onclick="renderAll()">← Volver</button>`;
   html += `<h1>${esc(o.ticker)} <span class="tick">${esc(o.opp_id)}</span> ${badge(o.status)}</h1>`;
   html += `<div class="grid">`;
-  html += `<div class="card"><div class="muted">Convicción</div><div style="font-size:22px;font-weight:700">${o.conviction_overall??'—'}</div><div class="muted">${esc(o.confidence||'')} · ${esc(o.trend||'')}</div></div>`;
-  html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
+  html += `<div class="card"><div class="muted">${systematic?'Convicción fundamental':'Convicción'}</div><div style="font-size:22px;font-weight:700">${systematic?'No aplica':(o.conviction_overall??'—')}</div><div class="muted">${systematic?'La estrategia se evalúa por señal y reglas':`${esc(o.confidence||'')} · ${esc(o.trend||'')}`}</div></div>`;
+  if(o.strategy_id==='MULTIBAGGERS') html += `<div class="card"><div class="muted">Discovery Score · Prioridad Research</div><div style="font-size:20px;font-weight:700">${fmt(o.discovery_score,1)} · ${fmt(o.research_priority,1)}</div><div class="muted">${esc(o.discovery_type||'')} · no son probabilidad ni convicción</div></div>`;
+  if(systematic) html += `<div class="card"><div class="muted">Señal de estrategia</div><div style="font-size:20px;font-weight:700">${fmt(o.signal?.momentum,2)}</div><div class="muted">Momentum · ${dt(o.signal?.as_of_date)}</div></div>`;
+  else html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
   html += `<div class="card"><div class="muted">Última investigación</div><div style="font-size:16px">${dt(o.last_research)}</div>${staleBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">Última evaluación tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.updated_at)}</div>${thesisBadge(o)}</div>`;
-  html += `<div class="card"><div class="muted">Decisión</div><div style="font-size:18px">${esc(o.decision?.decision_type||'—')}</div><div class="muted">${esc(o.decision?.author||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
+  html += `<div class="card"><div class="muted">Decisión propuesta</div><div style="font-size:18px">${esc(decision||'—')}</div><div class="muted">${esc(o.proposal?.status||o.decision?.author||'')} · ${esc(o.proposal?.reason||o.proposal?.reasoning||'')}</div></div>`;
   html += '</div>';
+  if(d.research_status==='FAILED') html += `<div class="alert high"><b>Investigación DDD fallida.</b> ${esc(d.research_error||'Respuesta vacía o incompleta; assessment detenido.')}</div>`;
 
   // Tesis e informe
   const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;
@@ -1454,7 +1519,7 @@ function showCase(oppId){
     html += `<p><b>Categoría:</b> ${esc(cl.categoria||d.categoria)}${(cl.categorias_descartadas||[]).length?' <span class="muted">· descartadas: '+cl.categorias_descartadas.map(esc).join(', ')+'</span>':''}</p>`;
     if(cl.justificacion) html += `<p class="muted">${esc(cl.justificacion)}</p>`;
   }
-  if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>Score DDD:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
+  if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>${systematic?'Score normalizado de estrategia':'Score DDD'}:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
   if(d.catalizadores?.length){
     html += `<h3>Catalizadores</h3><table><thead><tr><th>Catalizador</th><th>Horizonte</th><th>Impacto</th><th>Prob.</th></tr></thead><tbody>`;
     d.catalizadores.forEach(c=>html+=`<tr><td>${esc(c.descripcion)}</td><td>${esc(c.horizonte)}</td><td>${esc(c.impacto)}</td><td>${c.probabilidad_pct!=null?pct(c.probabilidad_pct):'—'}</td></tr>`);
@@ -1509,6 +1574,16 @@ function showCase(oppId){
   if(o.decision?.justification) html += `<p class="muted">Justificación: ${esc(o.decision.justification)}</p>`;
   if((o.proposal?.rules_passed||[]).length) html += `<p>Reglas superadas: ${o.proposal.rules_passed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
   if((o.proposal?.rules_failed||[]).length) html += `<p class="neg">Reglas falladas: ${o.proposal.rules_failed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
+  html += `<h3>Evaluación de riesgo de la oportunidad</h3>`;
+  if(o.risk_assessment){
+    const ra=o.risk_assessment;
+    html += `<div class="card"><b>${esc(ra.recommendation||'REVIEW')}</b> · score ${ra.score??'—'}/100 · confianza ${esc(ra.confidence||'UNKNOWN')}</div>`;
+    if((ra.risks||[]).length) html += `<ul>${ra.risks.map(r=>`<li class="neg">${esc(r.type||'RISK')}${r.metric?' · '+esc(r.metric):''}: ${esc(r.detail||'')}</li>`).join('')}</ul>`;
+    if((ra.findings||[]).length) html += `<ul>${ra.findings.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`;
+  } else {
+    html += `<div class="card"><b>INSUFFICIENT_DATA</b> · No hay una evaluación de riesgo registrada.</div>`;
+  }
+  html += `<div class="card"><b>Portfolio fit:</b> no se calcula en Pages. Requiere una fuente privada reconciliada; las posiciones de simulación no representan la cartera familiar.</div>`;
   html += `<table><thead><tr><th>Engine</th><th>Score</th><th>Findings</th></tr></thead><tbody>`;
   Object.entries(o.scores||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td class="score">${v??'—'}</td><td>${(o.findings?.[k]||[]).map(esc).join(' · ')||'—'}</td></tr>`);
   html += '</tbody></table>';
