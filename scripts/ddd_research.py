@@ -284,7 +284,9 @@ def main():
     sqlite = SQLiteStore(base_path / 'idos.db')
     journal = JournalRepository(base_path / 'idos-journal')
 
-    rw = ResearchWorker()
+    # Use the same model configuration, provider routing and fallback policy
+    # as the rest of the platform instead of LLMClient's environment defaults.
+    rw = ResearchWorker.from_project_config(base_path)
     rw_results = []
     rw_errors = []
     for opp in opportunities:

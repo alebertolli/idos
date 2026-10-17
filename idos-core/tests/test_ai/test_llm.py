@@ -2,6 +2,8 @@
 
 import os
 
+import pytest
+
 from idos.ai.llm import LLMClient
 
 
@@ -108,3 +110,22 @@ def test_parse_json_with_text_prefix():
 
     result = client._parse_json('Here is the JSON: {"score": 85}')
     assert result["score"] == 85
+
+
+@pytest.mark.parametrize(
+    ("payload", "message"),
+    [
+        ({"candidates": []}, "Gemini returned no candidates"),
+        ({"candidates": [{"content": {"parts": []}, "finishReason": "SAFETY"}]}, "finish reason: SAFETY"),
+    ],
+)
+def test_gemini_empty_response_has_actionable_error(monkeypatch, payload, message):
+    class FakeResponse:
+        def json(self):
+            return payload
+
+    client = LLMClient(provider="gemini", api_key="test-key", model="test-model")
+    monkeypatch.setattr(client, "_request_with_retry", lambda *_args, **_kwargs: FakeResponse())
+
+    with pytest.raises(ValueError, match=message):
+        client._call_gemini("prompt", "system", 0.1, 100)

@@ -278,8 +278,18 @@ class LLMClient:
             timeout=self.timeout,
         )
         data = resp.json()
-        candidate = data["candidates"][0]
-        text = candidate["content"]["parts"][0]["text"]
+        candidates = data.get("candidates") or []
+        if not candidates:
+            block_reason = (data.get("promptFeedback") or {}).get("blockReason")
+            reason = f" (block reason: {block_reason})" if block_reason else ""
+            raise ValueError(f"Gemini returned no candidates{reason}")
+        candidate = candidates[0]
+        parts = (candidate.get("content") or {}).get("parts") or []
+        text = "".join(part.get("text", "") for part in parts if isinstance(part, dict))
+        if not text.strip():
+            finish_reason = candidate.get("finishReason")
+            reason = f" (finish reason: {finish_reason})" if finish_reason else ""
+            raise ValueError(f"Gemini returned no text content{reason}")
 
         usage = data.get("usageMetadata", {})
         return LLMResponse(

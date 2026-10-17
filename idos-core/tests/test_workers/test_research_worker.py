@@ -48,6 +48,19 @@ def _mock_research_registry() -> MagicMock:
 
 
 class TestResearchWorker:
+    def test_project_factory_uses_central_model_and_fallback_configuration(self):
+        from pathlib import Path
+
+        from idos.ai.service import LLMService
+
+        project_root = Path(__file__).resolve().parents[3]
+        worker = ResearchWorker.from_project_config(project_root)
+
+        assert isinstance(worker.llm, LLMService)
+        assert worker.llm.default_provider == "gemini"
+        assert worker.llm.clients["gemini"].model == "gemini-3.8-flash"
+        assert worker.llm._rank_providers("analysis")[0] == "gemini"
+
     def test_multibaggers_research_routes_by_persisted_profile_and_intake(
         self, tmp_sqlite, tmp_journal, mock_llm_client: MagicMock,
         base_path: str, tmp_path: Path, monkeypatch,

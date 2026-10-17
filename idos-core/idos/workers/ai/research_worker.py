@@ -1,5 +1,6 @@
 import time
 from datetime import datetime
+from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
@@ -23,6 +24,20 @@ class ResearchWorker(BaseWorker):
       - UNDER_RESEARCH -> UNDER_RESEARCH (re-research with force=true)
     """
     name = "research_worker"
+
+    @classmethod
+    def from_project_config(cls, base_path: str | Path | None = None) -> "ResearchWorker":
+        """Build a research worker with the project's shared LLM routing policy."""
+        from idos.ai.service import LLMService
+
+        root = Path(base_path) if base_path is not None else Path.cwd()
+        models_path = root / "idos-config" / "models.yml"
+        prompts_path = root / "idos-config" / "prompts"
+        llm_service = LLMService(str(models_path)) if models_path.exists() else LLMService()
+        return cls({
+            "llm_service": llm_service,
+            "prompts_path": str(prompts_path) if prompts_path.exists() else "",
+        })
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)

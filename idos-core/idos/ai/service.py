@@ -95,6 +95,8 @@ class LLMService:
         best = self.router.select(task_type)
         if best and best not in ordered:
             ordered.append(best)
+        if self.default_provider in self.clients and self.default_provider not in ordered:
+            ordered.append(self.default_provider)
         for entry in self.fallback_order:
             p = entry.get("provider")
             if p in self.clients and p not in ordered:
