@@ -1,22 +1,25 @@
 {
-  "processed": [],
-  "errors": [],
-  "status": "none",
-  "event_type": "manual",
-  "force": false,
-  "skipped": [
+  "processed": [
     {
-      "opp_id": "OPP-20260730-001",
-      "ticker": "RACE",
-      "status": "UNDER_RESEARCH",
-      "reason": "UNDER_RESEARCH fresh (16d <= 30d)"
-    },
-    {
-      "opp_id": "OPP-20261016-001",
-      "ticker": "RACE",
-      "status": "UNDER_RESEARCH",
-      "reason": "UNDER_RESEARCH fresh (0d <= 30d)"
+      "opp_id": "OPP-20260807-001",
+      "ticker": "VIST",
+      "status": "ddd_failed",
+      "score": 50,
+      "reason": "FORCE re-research UNDER_RESEARCH (score=67)"
     }
   ],
-  "assessments": []
+  "skipped": [],
+  "assessments": [],
+  "errors": [
+    {
+      "ticker": "VIST",
+      "opp_id": "OPP-20260807-001",
+      "error": "Failed to parse JSON"
+    }
+  ],
+  "total": 1,
+  "status": "research_completed",
+  "event_type": "manual",
+  "force": true,
+  "stale_days_threshold": 30
 }
