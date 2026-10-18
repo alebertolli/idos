@@ -10,8 +10,8 @@ assessments:
       type: POSITIVE
     - detail: 'Excellent margins: 34.88%'
       type: POSITIVE
-    generated_at: '2026-10-18T00:27:44.143316-03:00'
-    id: BusinessAssessmentEngine-20261018002744
+    generated_at: '2026-10-18T11:00:52.974092-03:00'
+    id: BusinessAssessmentEngine-20261018110052
     recommendation: NEUTRAL
     risks: []
     score: 66
@@ -23,8 +23,8 @@ assessments:
     engine: PortfolioAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-10-18T00:27:44.143404-03:00'
-    id: PortfolioAssessmentEngine-20261018002744
+    generated_at: '2026-10-18T11:00:52.974168-03:00'
+    id: PortfolioAssessmentEngine-20261018110052
     recommendation: INSUFFICIENT_PORTFOLIO_DATA
     risks:
     - detail: A reconciled private portfolio snapshot is required to assess portfolio
@@ -34,40 +34,18 @@ assessments:
     status: COMPLETED
     version: '1.1'
   RecoveryAssessmentEngine:
-    confidence: MEDIUM
+    confidence: LOW
     dependencies: []
     engine: RecoveryAssessmentEngine
     evidence_ids: []
     findings:
-    - dimension: business_momentum
-      level: MEDIUM
-      score: 60
-      type: DIMENSION
-    - dimension: valuation_gap
-      level: MEDIUM
-      score: 60
-      type: DIMENSION
-    - dimension: market_expectations
-      level: MEDIUM
-      score: 60
-      type: DIMENSION
-    - dimension: catalysts
-      level: HIGH
-      score: 75
-      type: DIMENSION
-    - dimension: technical_confirmation
-      level: MEDIUM
-      score: 50
-      type: DIMENSION
-    - dimension: risk_compression
-      level: MEDIUM
-      score: 50
-      type: DIMENSION
-    generated_at: '2026-10-18T00:27:44.143367-03:00'
-    id: RecoveryAssessmentEngine-20261018002744
-    recommendation: MODERATE
+    - detail: '''>'' not supported between instances of ''NoneType'' and ''int'''
+      type: ERROR
+    generated_at: '2026-10-18T11:00:52.974124-03:00'
+    id: RecoveryAssessmentEngine-20261018110052
+    recommendation: ERROR
     risks: []
-    score: 61
+    score: 0
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -93,8 +71,8 @@ assessments:
         unit: percent
       type: INPUT_PROVENANCE
       value: 40.93663797079475
-    generated_at: '2026-10-18T00:27:44.143397-03:00'
-    id: RiskAssessmentEngine-20261018002744
+    generated_at: '2026-10-18T11:00:52.974161-03:00'
+    id: RiskAssessmentEngine-20261018110052
     recommendation: MODERATE_RISK
     risks:
     - detail: 'Moderate leverage: 1.1x'
@@ -111,29 +89,29 @@ assessments:
     dependencies: []
     engine: ValuationAssessmentEngine
     evidence_ids: []
-    findings:
-    - detail: 'Price target upside: 30.0%'
-      type: POSITIVE
-    generated_at: '2026-10-18T00:27:44.143336-03:00'
-    id: ValuationAssessmentEngine-20261018002744
+    findings: []
+    generated_at: '2026-10-18T11:00:52.974108-03:00'
+    id: ValuationAssessmentEngine-20261018110052
     recommendation: FAIR
-    risks: []
-    score: 65
+    risks:
+    - detail: Current price and analyst target are required for valuation
+      type: DATA_QUALITY
+    score: 50
     status: COMPLETED
     version: '1.1'
-conviction_score: 54
-created_at: '2026-10-18T00:27:44.143469-03:00'
-generated_at: '2026-10-18T00:27:44.144440-03:00'
+conviction_score: 38
+created_at: '2026-10-18T11:00:52.974252-03:00'
+generated_at: '2026-10-18T11:00:52.975263-03:00'
 human_approval_required: false
 opportunity_id: OPP-20260807-001
-reasoning: 'Rules blocked: RULE-001, RULE-004, RULE-005, RULE-008'
+reasoning: 'Rules blocked: RULE-001, RULE-003, RULE-004, RULE-005, RULE-008'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
+- RULE-003
 - RULE-004
 - RULE-005
 - RULE-008
-rules_passed:
-- RULE-003
+rules_passed: []
 status: BLOCKED
 type: opportunity:transitioned
