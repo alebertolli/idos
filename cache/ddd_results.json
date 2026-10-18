@@ -3,22 +3,51 @@
     {
       "opp_id": "OPP-20260807-001",
       "ticker": "VIST",
-      "status": "ddd_failed",
-      "score": 50,
+      "status": "completed",
+      "score": 82,
       "reason": "FORCE re-research UNDER_RESEARCH (score=67)"
     }
   ],
   "skipped": [],
-  "assessments": [],
-  "errors": [
+  "assessments": [
     {
       "ticker": "VIST",
       "opp_id": "OPP-20260807-001",
-      "error": "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=60)"
+      "status": "completed",
+      "conviction_score": 48,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": "HOLD",
+      "decision_id": "DEC-20261017233826",
+      "assessments": {
+        "BusinessAssessmentEngine": 66,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 62,
+        "RiskAssessmentEngine": 0,
+        "PortfolioAssessmentEngine": 0
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-008"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-004",
+        "RULE-005"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 66/70",
+        "RULE-003": "Rerating: 62/50",
+        "RULE-004": "Risk: 0/50",
+        "RULE-005": "Conviction: 48/65",
+        "RULE-008": "B/R inf:1 \u2705 (upside 49.2% / downside 0.0%)"
+      },
+      "data_quality": "good"
     }
   ],
+  "errors": [],
   "total": 1,
-  "status": "failed",
+  "status": "research_completed",
   "event_type": "manual",
   "force": true,
   "stale_days_threshold": 30

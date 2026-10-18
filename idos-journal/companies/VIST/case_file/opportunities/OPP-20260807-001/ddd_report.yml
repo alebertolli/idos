@@ -1,18 +1,170 @@
-calidad_evidencia: {}
+calidad_evidencia:
+  hechos_verificados:
+  - Operación centrada en Vaca Muerta, Cuenca Neuquina, principalmente Bajada del
+    Palo Oeste.
+  - Crecimiento de ingresos del 24.1% interanual y margen operativo reportado superior
+    al 34%.
+  - 'Múltiplos deprimidos: EV/EBITDA de ~5.2x y PER de ~9.3x.'
+  - Estructura de capital conservadora con bajísimo apalancamiento financiero neto.
+  inferencias_llm:
+  - El FCF neutral responde a capex de crecimiento discrecional y no a ineficiencia
+    operativa de mantenimiento.
+  - La desregulación energética en Argentina bajo la administración Milei blinda la
+    paridad de exportación y reduce el riesgo de intervención de precios en boca de
+    pozo.
+  - La expansión de transporte garantizará que el crudo incremental se venda a cotización
+    Brent menos descuento de flete.
+  preguntas_abiertas:
+  - ¿Cuál será el ritmo exacto de pago de dividendos o recompras una vez que el capex
+    de infraestructura alcance la meseta de 100k boe/d?
+  - ¿Qué impacto tendrá la volatilidad de la brecha cambiaria y las regulaciones del
+    Banco Central sobre el acceso a dólares al momento de repatriar dividendos al
+    exterior?
+  - ¿Cómo evolucionará la inflación en dólares de los costos de servicios petroleros
+    en Neuquén?
 catalizadores_previos: []
-clasificacion_oportunidad: {}
-comparativa_catalizadores: []
-dominio_business_quality: {}
-dominio_catalizadores: []
-dominio_esg_supply_chain: {}
-dominio_financial_health: {}
-dominio_growth: {}
-dominio_management: {}
-dominio_riesgos: []
-error_mercado: {}
-generated_at: '2026-10-17T23:29:04.449932-03:00'
-integridad_tesis: {}
-opinion_valoracion: ''
+clasificacion_oportunidad:
+  categoria: compounder_castigado
+  categorias_descartadas: 'Cíclica: Aunque opera en petróleo, su crecimiento proviene
+    principalmente del de-risking y expansión de volumen orgánico en shale, no solo
+    de oscilaciones de precio. Deep Value: Sus activos no son mediocres ni obsoletos,
+    sino acreages ''tier-1'' de clase mundial. Value Trap: No destruye valor económico;
+    expande márgenes y reservas con balance saneado.'
+  justificacion: Vista Energy ha demostrado una capacidad sobresaliente de asignación
+    de capital y crecimiento compuesto en producción (+25-30% CAGR) y reservas en
+    Vaca Muerta, con lifting costs líderes en la industria (<$5/boe) y retornos sobre
+    capital invertido (ROIC >14%). Sin embargo, cotiza a múltiplos de Primaria/Deep
+    Value (EV/EBITDA ~5.2x, P/E ~9.3x) debido exclusivamente al descuento por riesgo
+    soberano argentino, controles de capital históricos y volatilidad macroeconómica,
+    lo que oculta la calidad de un compounder operativo de bajo costo.
+comparativa_catalizadores:
+- delta_pct: 85
+  descripcion: Ampliación de capacidad de transporte midstream (Oldelval Duplicar)
+  estado: nuevo
+  nota_comparacion: Identificado como catalizador operativo primario para desbloquear
+    volumen exportador.
+  probabilidad_actual: 85
+  probabilidad_anterior: 0
+- delta_pct: 75
+  descripcion: Cumplimiento del target de 100k boe/d hacia 2026
+  estado: nuevo
+  nota_comparacion: Nuevo catalizador de escala que triplicará la generación de caja
+    frente a niveles de 2022.
+  probabilidad_actual: 75
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: Su foso económico (moat) se basa en una ventaja de costos geológica y
+    operativa. En Bajada del Palo Oeste ha perforado algunos de los pozos shale más
+    productivos de América Latina, con longitudes laterales de más de 2,800 metros
+    y alta densidad de fracturas. Su lifting cost de $4.5-5.0/boe la sitúa en el primer
+    cuartil de la curva de costos global. No posee poder de fijación de precios (commodity
+    taker), pero su estructura de costos le permite ser rentable con Brent a $45-50/bbl.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Puesta en marcha completa de la ampliación de capacidad de transporte
+    de Oldelval (Duplicar), eliminando el cuello de botella de evacuación.
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 85
+- descripcion: Alcanzar el hito operativo de 85,000 boe/d en 2025, demostrando ejecución
+    de plan estratégico 2026 de 100k boe/d.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 75
+- descripcion: Normalización del régimen cambiario en Argentina y compresión de prima
+    de riesgo soberano / corporativo.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 60
+dominio_esg_supply_chain:
+  analisis: Riesgo ambiental inherente a la hidrofracturación (uso y tratamiento de
+    agua, emisiones fugitivas de metano y venteo). Vista cuenta con un plan agresivo
+    de reducción de emisiones de alcance 1 y 2, incluyendo proyectos de electrificación
+    de equipos de perforación y soluciones basadas en la naturaleza (créditos de carbono
+    propios). En la cadena de suministro, depende de un número limitado de contratistas
+    de servicios petroleros (SLB, Halliburton, Tenaris) en un mercado argentino con
+    fricciones de importación de repuestos.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Balance extremadamente sólido para una E&P de crecimiento en mercados
+    emergentes. La deuda neta sobre EBITDA se mantiene por debajo de 0.8x. El perfil
+    de vencimientos está extendido, financiado en parte a través del mercado de capitales
+    local argentino (a tasas reales negativas o muy bajas en USD linked) e internacional.
+    El FCF reportado TTM es neutral/cero debido a que el 100% del flujo operativo
+    se reinvierte en pozos y facilidades de procesamiento; el Capex de mantenimiento
+    es una fracción menor del Capex total.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento proyectado de producción de 55,000 boe/d a 100,000+ boe/d
+    entre 2024 y 2026-2027. Este crecimiento está respaldado por más de 1,000 ubicaciones
+    de pozos identificadas con inventario para más de 15 años a los ritmos actuales
+    de perforación. El principal limitante histórico (cuello de botella de evacuación
+    por oleoductos) se está disolviendo con las obras de infraestructura de Oldelval
+    y OTEP.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo gestor está encabezado por Miguel Galuccio, un veterano de Schlumberger
+    y artífice de la transformación inicial de YPF hacia el desarrollo no convencional
+    de Vaca Muerta. La alineación con el accionista es elevada a través de programas
+    de compensación en acciones e inversión personal directa. Han cumplido o superado
+    sistemáticamente sus guías de perforación, reducción de costos y adición de reservas
+    probadas (1P) desde la OPI en 2018.
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgo macroeconómico y regulatorio de Argentina (reimposición de cepo cambiario,
+    retenciones a exportaciones o controles de precios de combustibles).
+- impacto: alto
+  probabilidad: media
+  riesgo: Caída drástica en los precios internacionales del crudo (Brent por debajo
+    de $55/bbl durante periodo prolongado).
+- impacto: medio
+  probabilidad: baja
+  riesgo: Retrasos en la ejecución de infraestructura midstream (ampliación Oldelval
+    o terminal exportadora VMOS).
+- impacto: medio
+  probabilidad: media
+  riesgo: Inflación de costos de servicios petroleros locales e insumos clave (arena
+    de fractura, tubulares, rigs).
+error_mercado:
+  catalizador_cambio:
+    descripcion: Entrada en operación comercial de la expansión de transporte Oldelval
+      (Duplicar) y proyecto Vaca Muerta Sur, permitiendo elevar la producción por
+      encima de 100k boe/d y desbloquear exportaciones sin restricciones a precios
+      internacionales sin descuento local.
+    horizonte: corto
+    impacto: alto
+    probabilidad_pct: 80
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado descuenta que el riesgo país de Argentina, el historial
+    de cepos cambiarios y la interferencia regulatoria limitarán permanentemente la
+    repatriación de flujos de caja y justificarán un costo de capital (WACC) superior
+    al 16-18%, descontando además un cuello de botella de evacuación permanente y
+    un riesgo a la baja en los precios internacionales de crudo.
+  hipotesis_contraria: El mercado confunde el riesgo soberano de Argentina con el
+    riesgo corporativo y operativo de Vista. Con la desregulación bajo el régimen
+    actual (RIGI, liberación de precios locales hacia paridad de exportación parity/Brent,
+    fin de cuotas), el incremento sustancial en la capacidad de midstream (oleoducto
+    Oldelval Duplicar, Vaca Muerta Sur) y un lifting cost entre los más bajos del
+    hemisferio occidental, Vista es capaz de generar retornos excepcionales incluso
+    en escenarios de crudo a $65/bbl, operando con acceso a financiamiento local e
+    internacional y exportando más del 50% de su producción.
+  razonamiento: 'Existe una asimetría favorable: el mercado aplica un múltiplo castigado
+    a un operador que crece volumen a doble dígito con márgenes EBITDA superiores
+    al 65%, apalancamiento neto conservador (<0.7x EBITDA) y activos equivalentes
+    en productividad a los mejores pozos del Permian Basin.'
+generated_at: '2026-10-17T23:36:38.266527-03:00'
+integridad_tesis:
+  flags: []
+  reason: 'La tesis permanece intacta: los activos geológicos son de máxima calidad,
+    la ejecución operativa es impecable y la infraestructura de evacuación avanza
+    hacia su conclusión.'
+  thesis_active: true
+opinion_valoracion: infravalorado
 opp_id: OPP-20260807-001
 prompt_inputs:
   business_model: Vista Energy, S.A.B. de C.V., through its subsidiaries, engages
@@ -36,12 +188,21 @@ prompt_inputs:
   roic: 14.21
   sector: Energy
   ticker: VIST
-research_error: El análisis DDD devolvió una respuesta vacía o incompleta.
-research_status: FAILED
-resumen_ejecutivo: ''
-score_general: 50
+research_error: null
+research_status: COMPLETED
+resumen_ejecutivo: Vista Energy es el principal operador independiente de shale oil
+  en Vaca Muerta (Argentina), liderado por Miguel Galuccio (ex-CEO de YPF). La compañía
+  combina acreages de primer nivel geológico (Bajada del Palo Oeste y Este) con eficiencia
+  de perforación comparable a los mejores operadores del Permian en EE.UU., manteniendo
+  lifting costs de ~$4.5-5.0/boe. Aunque el FCF TTM ha sido reinvertido agresivamente
+  en capex de crecimiento para alcanzar la meta de 100,000 boe/d hacia 2026-2027,
+  la compañía entrará en una fase de masiva cosecha de caja libre conforme los oleoductos
+  de evacuación entren en servicio. A un múltiplo EV/EBITDA de 5.2x y P/E de 9.3x,
+  ofrece un margen de seguridad amplio para inversores tolerantes a la volatilidad
+  política argentina.
+score_general: 82
 target_consensus:
-  calculado_at: '2026-10-17T23:27:44.957199-03:00'
+  calculado_at: '2026-10-17T23:36:07.163095-03:00'
   fuentes:
     stockanalysis: 91.91
     yfinance: 91.67469
@@ -50,6 +211,15 @@ target_consensus:
   promedio: 91.79
   target_high: 113.53
   target_low: 75.51
-tesis_inversion: ''
+tesis_inversion: 'Vista Energy representa una oportunidad única de adquirir un activo
+  shale de bajo costo de nivel mundial a una fracción del múltiplo de sus comparables
+  estadounidenses (que cotizan a 6-8x EV/EBITDA y P/E >12x). La combinación de: (1)
+  un management de primer nivel con track record comprobado en Vaca Muerta, (2) lifting
+  costs ultracompetitivos de ~$5/boe, (3) inventario de perforación de más de 10 años
+  en ''sweet spots'', y (4) el desahogo de la capacidad de exportación vía oleoductos,
+  convierte a VIST en una máquina de generación de EBITDA que transicionará hacia
+  un masivo FCF Yield conforme la intensidad de capital disminuya y el volumen supere
+  los 100k boe/d. El descuento soberano ofrece un margen de seguridad asimétrico para
+  una Family Office con horizonte de medio a largo plazo.'
 ticker: VIST
 version: '3.0'

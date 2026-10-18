@@ -1,3 +1,4 @@
+algorithmic_recommendation: BLOCKED
 assessments:
   BusinessAssessmentEngine:
     confidence: MEDIUM
@@ -9,32 +10,29 @@ assessments:
       type: POSITIVE
     - detail: 'Excellent margins: 34.88%'
       type: POSITIVE
-    generated_at: '2026-10-01T09:31:45.319260-03:00'
-    id: BusinessAssessmentEngine-20261001093145
+    generated_at: '2026-10-17T23:38:26.044011-03:00'
+    id: BusinessAssessmentEngine-20261017233826
     recommendation: NEUTRAL
     risks: []
     score: 66
     status: COMPLETED
     version: '1.0'
   PortfolioAssessmentEngine:
-    confidence: HIGH
+    confidence: LOW
     dependencies: []
     engine: PortfolioAssessmentEngine
     evidence_ids: []
-    findings:
-    - detail: Portfolio has capacity for new position
-      type: POSITIVE
-    - detail: Sector Energy within diversification limits
-      type: POSITIVE
-    - detail: Only 0 positions, adding increases diversification
-      type: POSITIVE
-    generated_at: '2026-10-01T09:31:45.319326-03:00'
-    id: PortfolioAssessmentEngine-20261001093145
-    recommendation: EXCELLENT_FIT
-    risks: []
-    score: 90
+    findings: []
+    generated_at: '2026-10-17T23:38:26.044101-03:00'
+    id: PortfolioAssessmentEngine-20261017233826
+    recommendation: INSUFFICIENT_PORTFOLIO_DATA
+    risks:
+    - detail: A reconciled private portfolio snapshot is required to assess portfolio
+        fit
+      type: DATA_QUALITY
+    score: 0
     status: COMPLETED
-    version: '1.0'
+    version: '1.1'
   RecoveryAssessmentEngine:
     confidence: MEDIUM
     dependencies: []
@@ -54,8 +52,8 @@ assessments:
       score: 60
       type: DIMENSION
     - dimension: catalysts
-      level: LOW
-      score: 30
+      level: HIGH
+      score: 75
       type: DIMENSION
     - dimension: technical_confirmation
       level: MEDIUM
@@ -65,56 +63,61 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-10-01T09:31:45.319305-03:00'
-    id: RecoveryAssessmentEngine-20261001093145
+    generated_at: '2026-10-17T23:38:26.044062-03:00'
+    id: RecoveryAssessmentEngine-20261017233826
     recommendation: MODERATE
     risks: []
-    score: 53
+    score: 62
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
-    confidence: MEDIUM
+    confidence: LOW
     dependencies: []
     engine: RiskAssessmentEngine
     evidence_ids: []
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-10-01T09:31:45.319315-03:00'
-    id: RiskAssessmentEngine-20261001093145
-    recommendation: LOW_RISK
+    generated_at: '2026-10-17T23:38:26.044093-03:00'
+    id: RiskAssessmentEngine-20261017233826
+    recommendation: INSUFFICIENT_DATA
     risks:
+    - detail: volatility_90d is UNKNOWN
+      metric: volatility_90d
+      type: DATA_QUALITY
     - detail: 'Current ratio below 1: 0.7x'
       type: LIQUIDITY
-    score: 70
+    score: 0
     status: COMPLETED
-    version: '1.0'
+    version: '1.1'
   ValuationAssessmentEngine:
     confidence: MEDIUM
     dependencies: []
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Price target upside: 41.4%'
+    - detail: 'Price target upside: 27.4%'
       type: POSITIVE
-    generated_at: '2026-10-01T09:31:45.319278-03:00'
-    id: ValuationAssessmentEngine-20261001093145
-    recommendation: ATTRACTIVE
+    generated_at: '2026-10-17T23:38:26.044031-03:00'
+    id: ValuationAssessmentEngine-20261017233826
+    recommendation: FAIR
     risks: []
-    score: 70
+    score: 65
     status: COMPLETED
     version: '1.1'
-conviction_score: 67
-created_at: '2026-10-01T09:31:45.319383-03:00'
-generated_at: '2026-10-01T09:31:45.320481-03:00'
+conviction_score: 48
+created_at: '2026-10-17T23:38:26.044176-03:00'
+generated_at: '2026-10-17T23:38:26.045175-03:00'
+human_approval_required: false
 opportunity_id: OPP-20260807-001
-reasoning: 'Rules blocked: RULE-001, RULE-008'
+reasoning: 'Rules blocked: RULE-001, RULE-004, RULE-005'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
-- RULE-008
-rules_passed:
-- RULE-003
 - RULE-004
 - RULE-005
+rules_passed:
+- RULE-003
+- RULE-008
+status: BLOCKED
 type: opportunity:transitioned

@@ -24,3 +24,20 @@ events:
   event_type: research:failed
   source: research_worker
   timestamp: '2026-10-18T02:29:04.455877'
+- data:
+    classification: compounder_castigado
+    ddd_empty: false
+    event_type: manual
+    hypotheses: 4
+    opp_id: OPP-20260807-001
+    original_status: UNDER_RESEARCH
+    score: 82
+    snapshot_hash: ''
+    strategy_id: COMPOUNDER
+    strategy_version: legacy-compatible
+    ticker: VIST
+    trigger_source: manual
+    triggered_at: '2026-10-17T23:38:25.120716-03:00'
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-18T02:38:25.122623'
