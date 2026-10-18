@@ -84,6 +84,13 @@ def test_recovery_engine():
     assert len(result.findings) == 6
 
 
+def test_recovery_engine_accepts_missing_valuation_evidence():
+    result = RecoveryAssessmentEngine().evaluate({"margin_of_safety": None})
+
+    assert result.recommendation != "ERROR"
+    assert 0 <= result.score <= 100
+
+
 def test_risk_engine():
     engine = RiskAssessmentEngine()
     ctx = {

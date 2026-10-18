@@ -63,9 +63,10 @@ class RecoveryAssessmentEngine(BaseAssessmentEngine):
         pe_c = m.get("pe_ratio", 0)
         pe_h = m.get("pe_historical_avg", 0)
         if pe_h and pe_c and pe_c < pe_h * 0.7: s += 20
-        mos = ctx.get("margin_of_safety", 0)
-        if mos > 40: s += 15
-        elif mos >= 20: s += 10
+        mos = ctx.get("margin_of_safety")
+        if isinstance(mos, (int, float)):
+            if mos > 40: s += 15
+            elif mos >= 20: s += 10
         fcf = m.get("fcf_yield", 0)
         if fcf > 5: s += 10
         return max(0, min(100, s))
