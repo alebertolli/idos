@@ -65,10 +65,19 @@ class FinvizScreenerScraper(BaseWorker):
 
             if page == 1:
                 total = self._parse_total(soup)
+                if total is None:
+                    raise RuntimeError(
+                        "Finviz response did not contain a recognizable screener result count; "
+                        "the page may have changed or returned a challenge page."
+                    )
                 print(f"[FINVIZ-SCREENER] Total results: {total}")
 
             tickers = self._parse_page(soup)
             if not tickers:
+                if page == 1 and total > 0:
+                    raise RuntimeError(
+                        f"Finviz reported {total} screener results but no tickers could be parsed."
+                    )
                 break
 
             all_tickers.extend(tickers)
@@ -83,12 +92,13 @@ class FinvizScreenerScraper(BaseWorker):
         cache_path.mkdir(parents=True, exist_ok=True)
         import json
         from datetime import datetime
-        cache_data = {
-            "tickers": all_tickers,
-            "total": total,
-            "cached_at": datetime.now(AR_TZ).isoformat(),
-        }
-        cache_file.write_text(json.dumps(cache_data, indent=2), encoding="utf-8")
+        if all_tickers:
+            cache_data = {
+                "tickers": all_tickers,
+                "total": total,
+                "cached_at": datetime.now(AR_TZ).isoformat(),
+            }
+            cache_file.write_text(json.dumps(cache_data, indent=2), encoding="utf-8")
 
         return {"tickers": all_tickers, "total": total, "from_cache": False}
 
@@ -103,7 +113,7 @@ class FinvizScreenerScraper(BaseWorker):
             params += f"&r={start}"
         return f"{self.base_url}?{params}"
 
-    def _parse_total(self, soup: BeautifulSoup) -> int:
+    def _parse_total(self, soup: BeautifulSoup) -> int | None:
         total_el = soup.find(id="screener-total")
         if not total_el:
             total_el = soup.find(["td", "div", "span"], class_="count-text")
@@ -117,7 +127,7 @@ class FinvizScreenerScraper(BaseWorker):
             match = re.search(r"([\d,]+)", results_label.split(":")[1])
             if match:
                 return int(match.group(1).replace(",", ""))
-        return 0
+        return None
 
     def _parse_page(self, soup: BeautifulSoup) -> list[dict[str, Any]]:
         tickers = []

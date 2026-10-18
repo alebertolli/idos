@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from idos.workers.base import BaseWorker
+from idos.workers.base import BaseWorker, WorkerResult, WorkerStatus
 from idos.workers.data.finviz_screener import FinvizScreenerScraper
 from idos.workers.data.refresh_worker import DataRefreshWorker
 from idos.workers.data.cache import DataCache
@@ -61,6 +61,27 @@ class UniversePipeline(BaseWorker):
 
         self._send_notification(report_text)
 
+        if metrics.errors:
+            details = "; ".join(
+                f"{error.get('step', 'pipeline')}: {error.get('error', 'unknown error')}"
+                for error in metrics.errors
+            )
+            return WorkerResult(
+                status=WorkerStatus.FAILED,
+                worker=self.name,
+                output=metrics.to_dict(),
+                error=details,
+            )
+
+        if metrics.finviz_count == 0:
+            message = "Finviz screening completed with zero tickers; refusing to report a successful empty universe run."
+            return WorkerResult(
+                status=WorkerStatus.FAILED,
+                worker=self.name,
+                output=metrics.to_dict(),
+                error=message,
+            )
+
         return metrics.to_dict()
 
     def _run_screener(self, metrics: PipelineMetrics):
@@ -69,7 +90,7 @@ class UniversePipeline(BaseWorker):
         scraper = FinvizScreenerScraper(screener_config)
         result = scraper.execute({})
         if result.status == "failed":
-            metrics.errors.append({"step": "finviz", "error": result.error})
+            metrics.errors.append({"step": "finviz", "error": result.error or "screener request failed"})
             return
         tickers = result.output.get("tickers", [])
         metrics.finviz_count = len(tickers)

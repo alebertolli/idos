@@ -18,7 +18,7 @@ def main() -> int:
     result = UniversePipeline(config).execute({})
     print("=== PIPELINE COMPLETE ===")
     print(f"Status: {result.status}")
-    output = result.output if result.status != "failed" else {}
+    output = result.output
     if result.status == "failed":
         print(f"Error: {result.error}")
     else:
