@@ -1,0 +1,28 @@
+action: REVIEW_ALLOCATION
+as_of_date: '2026-10-18'
+candidate_count: 1
+candidate_source: idos-config/universe/operable.yml
+candidate_tickers:
+- XLF
+configured_universe_count: 7
+coverage_complete: false
+eligible:
+- &id001
+  as_of_date: '2026-10-01'
+  momentum: 0.6124063843262988
+  ticker: XLF
+eligible_universe_count: 7
+excluded_manual_tickers: []
+excluded_not_operable: []
+excluded_unsupported_asset_types: []
+formula: 12*P0/P1 + 4*P0/P3 + 2*P0/P6 + P0/P12 - 19
+generated_at: '2026-10-18T14:46:17.231040-03:00'
+missing_history: []
+ranking:
+- *id001
+requested_tickers:
+- XLF
+run_scope: bounded
+selected:
+- *id001
+strategy_id: MOMENTUM_ETF
