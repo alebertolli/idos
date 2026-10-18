@@ -276,6 +276,7 @@ def main():
             print('  skip: {} {} ({}) — {}'.format(s['ticker'], s['opp_id'], s['status'], s['reason']))
 
     # Execute ResearchWorker for each selected opportunity
+    from idos.ai.service import LLMService
     from idos.workers.ai.research_worker import ResearchWorker
     from idos.data.sqlite import SQLiteStore
     from idos.data.journal import JournalRepository
@@ -284,7 +285,12 @@ def main():
     sqlite = SQLiteStore(base_path / 'idos.db')
     journal = JournalRepository(base_path / 'idos-journal')
 
-    rw = ResearchWorker()
+    models_path = Path("idos-config/models.yml")
+    llm_service = LLMService(str(models_path)) if models_path.exists() else LLMService()
+    rw = ResearchWorker({
+        "llm_service": llm_service,
+        "prompts_path": "idos-config/prompts",
+    })
     rw_results = []
     rw_errors = []
     for opp in opportunities:

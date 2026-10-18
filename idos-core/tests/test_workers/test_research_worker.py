@@ -75,6 +75,23 @@ class TestResearchWorker:
         assert not (tmp_journal.opportunity_path(ticker, opp_id) / "assessments").exists()
         assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.SCREENED.value
 
+    def test_research_uses_injected_llm_service(self):
+        service = MagicMock()
+        service.generate_structured.return_value = {"ok": True}
+        worker = ResearchWorker({"llm_service": service})
+        worker.registry = MagicMock()
+        worker.registry.get.return_value = "Research prompt for {ticker}"
+        worker.registry.get_system.return_value = "System contract"
+
+        result = worker._run_prompt("ddd", "VIST", {"ticker": "VIST"})
+
+        assert result == {"ok": True}
+        service.generate_structured.assert_called_once_with(
+            prompt="Research prompt for VIST",
+            system_prompt="System contract",
+            temperature=0.1,
+        )
+
     def test_systematic_ddd_is_signal_specific(self):
         report = ResearchWorker._build_systematic_ddd(
             "XLE",
