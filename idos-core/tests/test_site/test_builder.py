@@ -184,6 +184,15 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
             },
         },
     }), encoding="utf-8")
+    (research / "ddd_report.yml").write_text(yaml.safe_dump({
+        "research_status": "COMPLETED",
+        "calidad_evidencia": {"hechos_reportados": [{
+            "statement": "Revenue grew 12%",
+            "period": "FY2025",
+            "unit": "%",
+            "sources": [{"title": "Annual report", "url": "https://example.com/report", "source_date": "2026-03-01"}],
+        }]},
+    }), encoding="utf-8")
     monkeypatch.setattr(SiteBuilder, "_market_price", lambda _self, _ticker: {"price": None, "date": None})
     site = SiteBuilder(tmp_path).build()
     assert site.positions == []
@@ -209,6 +218,9 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
     assert "['portfolio','Portfolio']" not in script
     assert "Decisión pendiente de revisión humana" in script
     assert "no se calcula en Pages" in script
+    assert "Annual report" in published_artifacts
+    assert "https://example.com/report" in published_artifacts
+    assert "Revenue grew 12%" in published_artifacts
 
 
 def test_public_opportunity_explains_unknown_risk_and_omits_private_portfolio_fit(tmp_path: Path):

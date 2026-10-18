@@ -21,6 +21,7 @@ def test_claim_create_and_store(tmp_path):
     assert retrieved.confidence == 0.92
     assert retrieved.status == ClaimStatus.ACTIVE
     assert retrieved.verification_status == ClaimVerificationStatus.UNVERIFIED
+    assert retrieved.last_review == ""
 
 def test_claim_legacy_record_defaults_to_unverified():
     claim = Claim.from_dict({

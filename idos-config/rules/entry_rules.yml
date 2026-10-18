@@ -70,3 +70,11 @@ rules:
     action: "BLOCK"
     stage: execution
     active: true
+
+  - id: RULE-010
+    description: "Research claims and catalysts require traceable, current source metadata"
+    priority: 100
+    condition: "claim sources and active catalyst review dates are complete and current"
+    action: "BLOCK"
+    stage: authorization
+    active: true

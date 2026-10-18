@@ -560,7 +560,7 @@ class SiteBuilder:
             ev = ddd.get("calidad_evidencia") or {}
             if isinstance(ev, dict):
                 ddd_summary["evidencia"] = {
-                    "hechos_verificados": ev.get("hechos_verificados") or [],
+                    "hechos_verificados": ev.get("hechos_reportados") or ev.get("hechos_verificados") or [],
                     "inferencias_llm": ev.get("inferencias_llm") or [],
                     "preguntas_abiertas": ev.get("preguntas_abiertas") or [],
                 }
@@ -1216,6 +1216,19 @@ async function boot(){
 }
 
 function esc(s){ if(s===null||s===undefined) return '—'; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function evidenceItem(item){
+  if(!item||typeof item!=='object') return esc(item);
+  const sources=Array.isArray(item.sources)?item.sources:[];
+  const links=sources.map(source=>{
+    try{
+      const u=new URL(String(source.url||''));
+      if(!['http:','https:'].includes(u.protocol)) return '';
+      const href=u.href.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer">${esc(source.title||u.hostname)}</a> <span class="muted">(${esc(source.source_date||'fecha s/d')})</span>`;
+    }catch(_){return '';}
+  }).filter(Boolean);
+  return `${esc(item.statement||'Afirmación sin texto')} <span class="muted">[${esc(item.period||'periodo s/d')} · ${esc(item.unit||'unidad s/d')}]</span>${links.length?`<br>Fuentes: ${links.join(' · ')}`:''}`;
+}
 function fmt(n, d=2){ if(n===null||n===undefined||isNaN(n)) return '—'; return n.toLocaleString('es-AR',{minimumFractionDigits:d, maximumFractionDigits:d}); }
 function money(n){ if(n===null||n===undefined||isNaN(n)) return '—'; return '$'+fmt(n,2); }
 function pct(n, sign=false){ if(n===null||n===undefined||isNaN(n)) return '—'; return (sign&&n>0?'+':'')+fmt(n,1)+'%'; }
@@ -1565,7 +1578,7 @@ function showCase(oppId){
   if((ev.hechos_verificados||[]).length || (ev.inferencias_llm||[]).length || (ev.preguntas_abiertas||[]).length){
     html += '<h2>Evidencia y verificación</h2><p class="muted">Las afirmaciones del análisis requieren cotejar fuentes y fechas. Una generación reciente no acredita la vigencia de cada dato o catalizador.</p>';
     [['Hechos reportados · verificación de fuentes pendiente',ev.hechos_verificados],['Inferencias del modelo',ev.inferencias_llm],['Preguntas abiertas',ev.preguntas_abiertas]].forEach(([title,items])=>{
-      if(Array.isArray(items)&&items.length) html += `<div class="card"><h3>${esc(title)}</h3><ul>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+      if(Array.isArray(items)&&items.length) html += `<div class="card"><h3>${esc(title)}</h3><ul>${items.map(x=>`<li>${evidenceItem(x)}</li>`).join('')}</ul></div>`;
     });
   }
 

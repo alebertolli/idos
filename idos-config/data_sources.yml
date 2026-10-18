@@ -42,3 +42,6 @@ cache:
 validation:
   tolerance_pct: 20.0
   required_sources: 1  # mínimo de fuentes requeridas para considerar datos válidos
+
+research_evidence:
+  stale_after_days: 365  # edad máxima de una fuente citada; no valida su relevancia ni veracidad

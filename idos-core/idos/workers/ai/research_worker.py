@@ -610,7 +610,7 @@ class ResearchWorker(BaseWorker):
         from idos.knowledge.lifecycle import KnowledgeLifecycle, KnowledgeObject, KnowledgeStatus
         from idos.knowledge.contradiction import ContradictionDetector
         from idos.knowledge.claims import (
-            ClaimStore, Claim, ClaimVerificationStatus, EvidenceCategory,
+            ClaimStore, Claim, ClaimSource, ClaimVerificationStatus, EvidenceCategory,
         )
 
         products = company.get("products") or []
@@ -712,20 +712,32 @@ class ResearchWorker(BaseWorker):
             lifecycle.register(obj)
             # LLM-generated wiki sections are drafts until independently sourced.
 
-        dd_claims = ddd_result.get("calidad_evidencia", {}).get("hechos_verificados", [])
+        quality = ddd_result.get("calidad_evidencia", {})
+        dd_claims = quality.get("hechos_reportados", quality.get("hechos_verificados", []))
         for i, fact in enumerate(dd_claims):
+            claim_data = fact if isinstance(fact, dict) else {"statement": str(fact)}
+            sources = [
+                ClaimSource(
+                    name=str(source.get("title", "")),
+                    url=str(source.get("url", "")),
+                    date=str(source.get("source_date", "")),
+                )
+                for source in claim_data.get("sources", [])
+                if isinstance(source, dict)
+            ]
             claim = Claim(
                 claim_id=f"CLAIM-{ticker}-DDD-{i+1}",
-                statement=fact,
+                statement=str(claim_data.get("statement", "")),
                 confidence=0.0,
                 category=EvidenceCategory.FACT,
                 verification_status=ClaimVerificationStatus.UNVERIFIED,
+                sources=sources,
                 tags=["ddd", ticker],
             )
             claim_store.put(claim)
             contradiction = contradiction_detector.evaluate(
                 ticker=ticker,
-                claim_statement=fact,
+                claim_statement=claim.statement,
                 new_evidence=wiki_md[:2000],
                 source=f"DDD {opp_id}",
             )

@@ -88,7 +88,10 @@ user_prompt: >
      (cumplido|vigente|desestimado|nuevo) en "comparativa_catalizadores".
 
   Calidad de Evidencia:
-  - verified_facts: hechos confirmados por fuentes múltiples
+  - No llames "verificado" a un dato por inferirlo o recordarlo. Devuelve hechos_reportados; cada hecho debe llevar statement, period, unit y sources.
+  - Cada source incluye title, url HTTPS/HTTP y source_date (YYYY-MM-DD). No inventes URL ni fecha; si no puedes proporcionar una fuente concreta, omite el hecho y agrega una pregunta abierta.
+  - Las citas adjuntas son referencias para revisión humana; no afirmes que IDOS las ha verificado ni que prueban el claim.
+  - Cada catalizador incluye sources con la misma estructura y review_by (YYYY-MM-DD), fecha futura de revisión. Si el hito ya ocurrió, está vencido o no tiene fuente, clasifícalo en comparativa_catalizadores y no lo presentes como catalizador activo.
   - llm_inferences: inferencias del analista basadas en datos disponibles
   - open_questions: lo que no se sabe y necesita investigación
 
@@ -118,7 +121,7 @@ user_prompt: >
     "dominio_growth": {{"rating": "fuerte|moderado|debil", "analisis": "..."}},
     "dominio_esg_supply_chain": {{"rating": "bajo_riesgo|medio_riesgo|alto_riesgo", "analisis": "..."}},
     "dominio_riesgos": [{{"riesgo": "...", "probabilidad": "alta|media|baja", "impacto": "alto|medio|bajo"}}],
-    "dominio_catalizadores": [{{"descripcion": "...", "probabilidad_pct": N, "impacto": "alto|medio|bajo", "horizonte": "corto|medio|largo", "nivel_confianza": "alto|medio|bajo"}}],
+    "dominio_catalizadores": [{{"descripcion": "...", "probabilidad_pct": N, "impacto": "alto|medio|bajo", "horizonte": "corto|medio|largo", "nivel_confianza": "alto|medio|bajo", "status": "active|completed|disconfirmed", "review_by": "YYYY-MM-DD", "sources": [{{"title": "...", "url": "https://...", "source_date": "YYYY-MM-DD"}}]}}],
     "opinion_valoracion": "infravalorado|justo|sobrevalorado",
     "tesis_inversion": "...",
     "integridad_tesis": {{
@@ -126,7 +129,7 @@ user_prompt: >
       "flags": ["moat_gone", "management_destroys_capital", "structural_growth_ended", "fraud", "insolvency_risk", "extreme_regulatory_risk", "position_inoperable", "delisting_risk", "severe_market_issues"],
       "reason": "Si thesis_active es false, explica cual de las 9 categorias se vulnero y la evidencia"
     }},
-    "calidad_evidencia": {{"hechos_verificados": [...], "inferencias_llm": [...], "preguntas_abiertas": [...]}},
+    "calidad_evidencia": {{"hechos_reportados": [{{"statement": "...", "period": "...", "unit": "...", "sources": [{{"title": "...", "url": "https://...", "source_date": "YYYY-MM-DD"}}]}}], "inferencias_llm": [...], "preguntas_abiertas": [...]}},
     "comparativa_catalizadores": [{{"descripcion": "...", "probabilidad_anterior": N, "probabilidad_actual": N, "estado": "cumplido|vigente|desestimado|nuevo", "delta_pct": N, "nota_comparacion": "..."}}],
     "score_general": 0-100
   }}

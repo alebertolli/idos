@@ -23,6 +23,7 @@ from idos.config import load_settings
 from idos.strategy.catalog import StrategyCatalog
 from idos.timezone import AR_TZ
 from datetime import datetime
+from idos.research.quality_gate import evaluate_research_quality
 
 def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, Any],
                      opp_id: str, bp: Path, knowledge: KnowledgeRepository):
@@ -224,6 +225,15 @@ def build_context(
     consensus_target = target_consensus.get("promedio", 0) or 0
 
     asymmetry = _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
+    evidence_ttl_days = 365
+    source_config = bp / "idos-config" / "data_sources.yml"
+    if source_config.exists():
+        try:
+            source_settings = yaml.safe_load(source_config.read_text(encoding="utf-8")) or {}
+            evidence_ttl_days = int((source_settings.get("research_evidence") or {}).get("stale_after_days", 365))
+        except (TypeError, ValueError, yaml.YAMLError):
+            evidence_ttl_days = 365
+    research_quality = evaluate_research_quality(report, stale_after_days=max(0, evidence_ttl_days))
 
     return {
         "knowledge_base": {
@@ -255,6 +265,7 @@ def build_context(
         "entry_policy": (opp or {}).get("entry_policy", "") if opp else "",
         "strategy_version": (opp or {}).get("strategy_version", "legacy-compatible") if opp else "legacy-compatible",
         "signal": (opp or {}).get("signal", {}) if opp else {},
+        "research_quality": research_quality,
     }
 
 
@@ -542,6 +553,13 @@ def _eval_competition(ctx):
     limit = t.max_positions if t else 10
     return RuleResult("RULE-009", num_pos < limit, f"Posiciones activas: {num_pos}/{limit} max (competencia por capital)")
 
+def _eval_research_quality(ctx):
+    quality = ctx.get("research_quality") or {}
+    passed = quality.get("passed") is True
+    failures = quality.get("failures") or ["research_quality_unavailable"]
+    details = "Research source/freshness metadata: " + ("PASS" if passed else ", ".join(failures))
+    return RuleResult("RULE-010", passed, details)
+
 ASSESSMENT_RULES = [
     (Rule(id="RULE-001", description="Minimum business quality score for entry", priority=100, condition="score >= 70", action="PASS"), _eval_business),
     (Rule(id="RULE-002", description="Price target vs current price margin > 20%", priority=90, condition="price_margin > 20", action="PASS"), _eval_valuation),
@@ -552,6 +570,7 @@ ASSESSMENT_RULES = [
     (Rule(id="RULE-007", description="Maximum sector exposure", priority=90, condition="sector <= 25.0", action="BLOCK"), _eval_sector_exposure),
     (Rule(id="RULE-008", description="Minimum asymmetry ratio 3:1", priority=100, condition="ratio >= 3.0", action="PASS"), _eval_asymmetry),
     (Rule(id="RULE-009", description="Capital competition - max 10 positions", priority=80, condition="num_positions < 10", action="BLOCK"), _eval_competition),
+    (Rule(id="RULE-010", description="Research claims and catalysts require traceable, current source metadata", priority=100, condition="claim sources and active catalyst review dates are complete and current", action="BLOCK"), _eval_research_quality),
 ]
 
 def _register_assessment_rules(engine: RulesEngine):
@@ -559,7 +578,7 @@ def _register_assessment_rules(engine: RulesEngine):
         engine.register_rule(rule, fn)
 
 
-AUTHORIZATION_RULE_IDS = {"RULE-001", "RULE-003", "RULE-004", "RULE-005", "RULE-008"}
+AUTHORIZATION_RULE_IDS = {"RULE-001", "RULE-003", "RULE-004", "RULE-005", "RULE-008", "RULE-010"}
 
 
 def _authorization_rule_ids(base_path: str | Path) -> set[str]:
@@ -579,7 +598,7 @@ def _authorization_rule_ids(base_path: str | Path) -> set[str]:
         r.get("id") for r in (data or {}).get("rules", [])
         if r.get("active", True) and r.get("stage", "authorization") == "authorization"
     }
-    return ids or set(AUTHORIZATION_RULE_IDS)
+    return ids | {"RULE-010"} if ids else set(AUTHORIZATION_RULE_IDS)
 
 
 def _register_authorization_rules(engine: RulesEngine, base_path: str | Path) -> None:

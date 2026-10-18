@@ -48,7 +48,7 @@ class Claim:
             self.created_at = now
         if not self.updated_at:
             self.updated_at = now
-        if not self.last_review:
+        if not self.last_review and self.verification_status == ClaimVerificationStatus.VERIFIED:
             self.last_review = now
 
     def to_dict(self) -> dict[str, Any]:
