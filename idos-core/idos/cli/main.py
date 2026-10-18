@@ -1054,7 +1054,7 @@ def universe_build():
         return
     output = result.output
     console.print(f"\n[green]Pipeline completed in {output.get('duration_seconds', 0):.0f}s[/green]")
-    console.print(f"  Finviz: {output.get('finviz_count', 0)} tickers")
+    console.print(f"  Candidate universe: {output.get('candidate_count', 0)} tickers")
     console.print(f"  Operable: {output.get('operable_count', 0)} tickers")
     console.print(f"  Fetched: {output.get('fetch_new', 0)} new, {output.get('fetch_cached', 0)} cached")
     console.print(f"  Scout: {output.get('scout_passed', 0)} passed, {output.get('scout_rejected', 0)} rejected")

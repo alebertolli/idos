@@ -22,7 +22,10 @@ def main() -> int:
     if result.status == "failed":
         print(f"Error: {result.error}")
     else:
-        print(f"Finviz: {output.get('finviz_count', 0)} tickers")
+        print(
+            f"Candidate universe: {output.get('candidate_count', 0)} tickers "
+            f"from {output.get('candidate_source', 'unknown source')}"
+        )
         print(f"Operable: {output.get('operable_count', 0)} tickers")
         print(f"Fetched: {output.get('fetch_new', 0)} new, {output.get('fetch_cached', 0)} cached")
         print(f"Scout: {output.get('scout_passed', 0)} passed, {output.get('scout_rejected', 0)} rejected")

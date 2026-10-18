@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import Any
 
 from idos.workers.base import BaseWorker, WorkerResult, WorkerStatus
-from idos.workers.data.finviz_screener import FinvizScreenerScraper
 from idos.workers.data.refresh_worker import DataRefreshWorker
 from idos.workers.data.cache import DataCache
 from idos.workers.data.pipeline_report import PipelineMetrics, PipelineReportGenerator
@@ -40,7 +39,7 @@ class UniversePipeline(BaseWorker):
         start_time = time.time()
 
         try:
-            self._run_screener(metrics)
+            self._load_candidate_universe(metrics)
             self._run_filter(metrics)
             self._run_pre_score(metrics)
             self._run_fetch(metrics)
@@ -73,8 +72,8 @@ class UniversePipeline(BaseWorker):
                 error=details,
             )
 
-        if metrics.finviz_count == 0:
-            message = "Finviz screening completed with zero tickers; refusing to report a successful empty universe run."
+        if metrics.candidate_count == 0:
+            message = "The operable universe contains zero candidates; refusing to report a successful empty universe run."
             return WorkerResult(
                 status=WorkerStatus.FAILED,
                 worker=self.name,
@@ -84,40 +83,41 @@ class UniversePipeline(BaseWorker):
 
         return metrics.to_dict()
 
-    def _run_screener(self, metrics: PipelineMetrics):
-        print("\n[PIPELINE] STEP 1: Finviz Screener")
-        screener_config = self._load_screener_config()
-        scraper = FinvizScreenerScraper(screener_config)
-        result = scraper.execute({})
-        if result.status == "failed":
-            metrics.errors.append({"step": "finviz", "error": result.error or "screener request failed"})
-            return
-        tickers = result.output.get("tickers", [])
-        metrics.finviz_count = len(tickers)
-        metrics.finviz_from_cache = result.output.get("from_cache", False)
-        metrics.finviz_tickers = [t.get("ticker", "") for t in tickers]
-        print(f"[PIPELINE] Finviz: {metrics.finviz_count} tickers (cache: {metrics.finviz_from_cache})")
+    def _load_candidate_universe(self, metrics: PipelineMetrics):
+        print("\n[PIPELINE] STEP 1: Operable Candidate Universe")
+        operable_path = str(Path(self.config_path) / "universe/operable.yml")
+        operable = OperabilityFilter(operable_path)
+        metrics.candidate_source = operable_path
+        metrics.candidate_tickers = sorted(operable.tickers)
+        metrics.candidate_count = len(metrics.candidate_tickers)
+        if not metrics.candidate_tickers:
+            metrics.errors.append({
+                "step": "candidate_universe",
+                "error": f"No operable candidates found in {operable_path}",
+            })
+        print(
+            f"[PIPELINE] Candidate universe: {metrics.candidate_count} tickers "
+            f"from {operable_path}"
+        )
 
     def _run_filter(self, metrics: PipelineMetrics):
         print("\n[PIPELINE] STEP 2: Operable Filter")
-        operable_path = str(Path(self.config_path) / "universe/operable.yml")
-        operable = OperabilityFilter(operable_path)
-        before = metrics.finviz_count
-        tickers = [t for t in metrics.finviz_tickers if operable.is_operable(t)]
-        metrics.operable_count = len(tickers)
-        metrics.operable_filtered = before - len(tickers)
-        metrics.finviz_tickers = tickers
+        # The candidate source is the operable registry itself. Keep this metric
+        # for report compatibility and make the invariant explicit here.
+        metrics.operable_count = len(metrics.candidate_tickers)
+        metrics.operable_filtered = 0
+        tickers = metrics.candidate_tickers
         print(f"[PIPELINE] Operable: {metrics.operable_count} tickers ({metrics.operable_filtered} filtered)")
 
     def _run_pre_score(self, metrics: PipelineMetrics):
-        if not metrics.finviz_tickers:
+        if not metrics.candidate_tickers:
             return
         print("\n[PIPELINE] STEP 3: Pre-Scoring")
         screener_dir = str(Path(self.config_path) / "screeners")
         screener = FinvizScreener(screener_dir)
         cache_path = Path(self.config.get("cache_path", "cache"))
         passed = []
-        for ticker in metrics.finviz_tickers:
+        for ticker in metrics.candidate_tickers:
             data = self._get_cached_data(cache_path, ticker)
             if not data:
                 passed.append(ticker)
@@ -128,16 +128,16 @@ class UniversePipeline(BaseWorker):
             else:
                 metrics.pre_score_rejected += 1
         metrics.pre_score_count = len(passed)
-        metrics.finviz_tickers = passed
+        metrics.candidate_tickers = passed
         print(f"[PIPELINE] Pre-Score: {metrics.pre_score_count} passed, {metrics.pre_score_rejected} rejected")
 
     def _run_fetch(self, metrics: PipelineMetrics):
-        if not metrics.finviz_tickers:
+        if not metrics.candidate_tickers:
             return
-        print(f"\n[PIPELINE] STEP 4: Data Fetch ({len(metrics.finviz_tickers)} tickers)")
+        print(f"\n[PIPELINE] STEP 4: Data Fetch ({len(metrics.candidate_tickers)} tickers)")
         cache_path = Path(self.config.get("cache_path", "cache"))
         to_fetch = []
-        for ticker in metrics.finviz_tickers:
+        for ticker in metrics.candidate_tickers:
             data = self._get_cached_data(cache_path, ticker)
             if data:
                 metrics.fetch_cached += 1
@@ -171,9 +171,9 @@ class UniversePipeline(BaseWorker):
         print(f"[PIPELINE] Fetch: {metrics.fetch_new} new, {metrics.fetch_cached} cached, {len(metrics.fetch_errors)} errors")
 
     def _run_scout(self, metrics: PipelineMetrics):
-        if not metrics.finviz_tickers:
+        if not metrics.candidate_tickers:
             return
-        print(f"\n[PIPELINE] STEP 5: Scout ({len(metrics.finviz_tickers)} tickers)")
+        print(f"\n[PIPELINE] STEP 5: Scout ({len(metrics.candidate_tickers)} tickers)")
         import yaml
         scoring_path = Path(self.config_path) / "scoring.yml"
         scout_min_score = 60
@@ -196,7 +196,7 @@ class UniversePipeline(BaseWorker):
         cache_path = Path(self.config.get("cache_path", "cache"))
 
         screened = []
-        for ticker in metrics.finviz_tickers:
+        for ticker in metrics.candidate_tickers:
             data = self._get_cached_data(cache_path, ticker)
             result = self._score_ticker(scout, ticker, data)
             if result["passed"]:
@@ -457,11 +457,3 @@ class UniversePipeline(BaseWorker):
         metrics.downgraded_to_watchlist = downgraded
         metrics.upgraded_to_screened = upgraded
         print(f"[PIPELINE] Monthly Evaluation: {upgraded} upgraded to SCREENED, {downgraded} downgraded to WATCHLIST, {unchanged} unchanged, {skipped_no_data} skipped (not in universe)")
-
-    def _load_screener_config(self) -> dict:
-        import yaml
-        config_path = Path(self.config_path) / "finviz_screener.yml"
-        if config_path.exists():
-            data = yaml.safe_load(config_path.read_text(encoding="utf-8"))
-            return data.get("screener", {})
-        return {}

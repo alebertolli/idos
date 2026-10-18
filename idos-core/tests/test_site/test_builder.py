@@ -86,6 +86,29 @@ def test_discovery_shows_operable_count_from_universe_stats():
     assert discovery["count"] == 267
 
 
+def test_pipeline_results_use_generic_candidate_metrics_and_keep_legacy_read_compatibility(tmp_path: Path):
+    import json
+
+    builder = _builder()
+    builder.base = tmp_path
+    (tmp_path / "cache").mkdir()
+    results = tmp_path / "cache" / "pipeline_results.json"
+    results.write_text(json.dumps({"output": {
+        "candidate_count": 2,
+        "candidate_source": "idos-config/universe/operable.yml",
+        "finviz_count": 999,
+        "operable_count": 2,
+    }}), encoding="utf-8")
+
+    stats = builder._load_universe_stats()
+
+    assert stats["candidate_count"] == 2
+    assert stats["candidate_source"] == "idos-config/universe/operable.yml"
+
+    results.write_text(json.dumps({"output": {"finviz_count": 5}}), encoding="utf-8")
+    assert builder._load_universe_stats()["candidate_count"] == 5
+
+
 def test_research_shows_under_research_count_from_opps():
     universe_stats = {
         "operable_count": 267,

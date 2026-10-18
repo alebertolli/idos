@@ -304,7 +304,8 @@ class SiteBuilder:
                 data = _json.loads(results_path.read_text(encoding="utf-8"))
                 output = data.get("output", {})
                 return {
-                    "finviz_count": output.get("finviz_count", 0),
+                    "candidate_count": output.get("candidate_count", output.get("finviz_count", 0)),
+                    "candidate_source": output.get("candidate_source", ""),
                     "operable_count": output.get("operable_count", 0),
                     "pre_score_count": output.get("pre_score_count", 0),
                     "scout_passed": output.get("scout_passed", 0),
@@ -315,7 +316,8 @@ class SiteBuilder:
             except Exception:
                 pass
         return {
-            "finviz_count": 0,
+            "candidate_count": 0,
+            "candidate_source": "",
             "operable_count": 0,
             "pre_score_count": 0,
             "scout_passed": 0,
@@ -674,9 +676,9 @@ class SiteBuilder:
         return out
 
     def _load_discovery_pool(self, universe_stats: dict = None) -> list[dict]:
-        """Returns all 267 operable tickers from latest pipeline run, with their Scout scores.
+        """Returns operable tickers from latest pipeline run, with their Scout scores.
 
-        Reads the list of tickers from `finviz_tickers` if the pipeline results include
+        Reads the list of tickers from `candidate_tickers` if pipeline results include
         them, else falls back to walking the cache directory. Each entry is enriched with
         the same Scout breakdown shown in the watchlist table so the UI can show all 267
         with their scores and metrics.
@@ -689,8 +691,8 @@ class SiteBuilder:
         if results_path.exists():
             try:
                 data = _json.loads(results_path.read_text(encoding="utf-8"))
-                finviz = data.get("output", {}).get("finviz_tickers") or []
-                tickers = list(finviz)
+                candidates = data.get("output", {}).get("candidate_tickers") or []
+                tickers = list(candidates)
             except Exception:
                 tickers = []
         if not tickers:

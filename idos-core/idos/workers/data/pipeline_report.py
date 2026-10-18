@@ -10,9 +10,9 @@ class PipelineMetrics:
     finished_at: str = ""
     duration_seconds: float = 0
 
-    finviz_count: int = 0
-    finviz_from_cache: bool = False
-    finviz_tickers: list[str] = field(default_factory=list)
+    candidate_source: str = ""
+    candidate_count: int = 0
+    candidate_tickers: list[str] = field(default_factory=list)
 
     operable_count: int = 0
     operable_filtered: int = 0
@@ -42,8 +42,9 @@ class PipelineMetrics:
             "started_at": self.started_at,
             "finished_at": self.finished_at,
             "duration_seconds": self.duration_seconds,
-            "finviz_count": self.finviz_count,
-            "finviz_from_cache": self.finviz_from_cache,
+            "candidate_source": self.candidate_source,
+            "candidate_count": self.candidate_count,
+            "candidate_tickers": self.candidate_tickers,
             "operable_count": self.operable_count,
             "operable_filtered": self.operable_filtered,
             "pre_score_count": self.pre_score_count,
@@ -69,8 +70,9 @@ class PipelineReportGenerator:
         lines.append("")
 
         lines.append("Pipeline Results:")
-        lines.append(f"  Finviz Screening: {metrics.finviz_count} tickers" +
-                     (" (cached)" if metrics.finviz_from_cache else ""))
+        lines.append(f"  Candidate Universe: {metrics.candidate_count} tickers")
+        if metrics.candidate_source:
+            lines.append(f"    Source: {metrics.candidate_source}")
         lines.append(f"  Operable Filter: {metrics.operable_count} tickers" +
                      (f" ({metrics.operable_filtered} filtered out)" if metrics.operable_filtered else ""))
         if metrics.pre_score_count > 0:

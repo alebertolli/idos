@@ -8,6 +8,7 @@ import yaml
 
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
+from idos.discovery.operability import OperabilityFilter
 from idos.market.prices import PriceProvider
 from idos.models.enums import OpportunityStatus
 from idos.strategy.catalog import StrategyCatalog
@@ -43,7 +44,16 @@ class MonthlyStrategyWorker(BaseWorker):
             return {"status": "skipped", "reason": "runner_not_implemented", "strategy_id": self.strategy_id}
 
         params = profile.parameters
-        universe = params.get("universe", [])
+        configured_universe = [str(t).upper() for t in params.get("universe", [])]
+        operable_path = config_path.parent / "universe" / "operable.yml"
+        if not operable_path.exists():
+            raise FileNotFoundError(f"Operable universe registry not found: {operable_path}")
+        operable = OperabilityFilter(str(operable_path))
+        universe = [ticker for ticker in configured_universe if operable.is_operable(ticker)]
+        if not universe:
+            raise ValueError(
+                f"Strategy {self.strategy_id} has no configured candidates in the operable universe"
+            )
         provider = self.config.get("price_provider") or PriceProvider()
         rows: list[dict[str, Any]] = []
         missing: list[str] = []
@@ -61,6 +71,11 @@ class MonthlyStrategyWorker(BaseWorker):
         action = "CASH_FALLBACK" if not selected else "REVIEW_ALLOCATION"
         output = {
             "strategy_id": self.strategy_id, "as_of_date": datetime.now(AR_TZ).date().isoformat(),
+            "candidate_source": str(operable_path),
+            "candidate_count": len(universe),
+            "configured_universe_count": len(configured_universe),
+            "excluded_not_operable": sorted(set(configured_universe) - set(universe)),
+            "candidate_tickers": universe,
             "formula": "12*P0/P1 + 4*P0/P3 + 2*P0/P6 + P0/P12 - 19",
             "ranking": ranking, "eligible": eligible, "selected": selected,
             "missing_history": missing, "action": action,
