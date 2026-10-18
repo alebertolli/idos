@@ -1537,22 +1537,23 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">Decisión propuesta</div><div style="font-size:18px">${esc(decision||'—')}</div><div class="muted">${esc(o.proposal?.status||o.decision?.author||'')} · ${esc(o.proposal?.reason||o.proposal?.reasoning||'')}</div></div>`;
   html += '</div>';
   if(d.research_status==='FAILED') html += `<div class="alert high"><b>Investigación DDD fallida.</b> ${esc(d.research_error||'Respuesta vacía o incompleta; assessment detenido.')}</div>`;
-  if(d.evidence_gate_blocked) html += `<div class="alert high" role="alert"><b>Evidencia pendiente: no usar esta tesis ni sus catalizadores para decidir.</b> RULE-010 falló por falta de trazabilidad o vigencia suficiente. Revise individualmente las fuentes, fechas y afirmaciones antes de considerar la oportunidad.</div>`;
+  if(d.evidence_gate_blocked) html += `<div class="alert high" role="alert"><b>Evidencia pendiente: no usar este análisis ni sus catalizadores para decidir.</b> RULE-010 falló por falta de trazabilidad o vigencia suficiente. Revise individualmente las fuentes, fechas y afirmaciones antes de considerar la oportunidad.</div>`;
 
   // Tesis e informe
   const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;
-  html += `<h2>Tesis de inversión</h2>`;
-  if(d.resumen_ejecutivo) html += `<div class="card"><div class="muted">Resumen ejecutivo</div><p>${esc(d.resumen_ejecutivo)}</p></div>`;
-  if(d.tesis_inversion) html += `<div class="card"><div class="muted">Tesis</div><p>${esc(d.tesis_inversion)}</p></div>`;
+  html += `<h2>${d.evidence_gate_blocked?'Análisis DDD · hipótesis pendiente de validación':'Tesis de inversión'}</h2>`;
+  if(d.resumen_ejecutivo) html += `<div class="card"><div class="muted">${d.evidence_gate_blocked?'Resumen generado · no validado':'Resumen ejecutivo'}</div><p>${esc(d.resumen_ejecutivo)}</p></div>`;
+  if(d.tesis_inversion) html += `<div class="card"><div class="muted">${d.evidence_gate_blocked?'Tesis generada · no validada':'Tesis'}</div><p>${esc(d.tesis_inversion)}</p></div>`;
   if(d.clasificacion){
     const cl = d.clasificacion||{};
     html += `<p><b>Categoría:</b> ${esc(cl.categoria||d.categoria)}${(cl.categorias_descartadas||[]).length?' <span class="muted">· descartadas: '+cl.categorias_descartadas.map(esc).join(', ')+'</span>':''}</p>`;
     if(cl.justificacion) html += `<p class="muted">${esc(cl.justificacion)}</p>`;
   }
-  if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>${systematic?'Score normalizado de estrategia':'Score DDD'}:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
+  if(d.evidence_gate_blocked && d.score_general!==null && d.score_general!==undefined) html += `<p class="muted">Score DDD y opinión de valoración omitidos: RULE-010 no validó las fuentes y la vigencia del análisis.</p>`;
+  else if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>${systematic?'Score normalizado de estrategia':'Score DDD'}:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
   if(d.catalizadores?.length){
     html += `<h3>${d.evidence_gate_blocked?'Catalizadores · pendientes de validación':'Catalizadores'}</h3>`;
-    if(d.evidence_gate_blocked) html += `<p class="muted">El gate de evidencia no confirmó fuente y fecha de revisión vigentes para los catalizadores activos. No asumir que siguen pendientes o que se cumplirán.</p>`;
+    if(d.evidence_gate_blocked) html += `<p class="muted">El gate de evidencia no confirmó fuente y fecha de revisión vigentes para los catalizadores activos. No asumir que son actuales ni que se cumplirán.</p>`;
     html += `<table><thead><tr><th>Catalizador</th><th>Horizonte</th><th>Impacto</th><th>Prob.</th></tr></thead><tbody>`;
     d.catalizadores.forEach(c=>html+=`<tr><td>${esc(c.descripcion)}</td><td>${esc(c.horizonte)}</td><td>${esc(c.impacto)}</td><td>${c.probabilidad_pct!=null?pct(c.probabilidad_pct):'—'}</td></tr>`);
     html += '</tbody></table>';

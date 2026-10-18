@@ -188,6 +188,8 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
     }), encoding="utf-8")
     (research / "ddd_report.yml").write_text(yaml.safe_dump({
         "research_status": "COMPLETED",
+        "score_general": 78,
+        "opinion_valoracion": "infravalorado",
         "dominio_catalizadores": [{
             "descripcion": "Production target for 2025",
             "horizonte": "medium",
@@ -232,7 +234,9 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
     assert "https://example.com/report" in published_artifacts
     assert "Revenue grew 12%" in published_artifacts
     assert "evidence_gate_blocked" in published_artifacts
-    assert "Evidencia pendiente: no usar esta tesis ni sus catalizadores para decidir." in published_artifacts
+    assert "Evidencia pendiente: no usar este análisis ni sus catalizadores para decidir." in published_artifacts
+    assert "Score DDD y opinión de valoración omitidos" in published_artifacts
+    assert "Análisis DDD · hipótesis pendiente de validación" in published_artifacts
     assert "Catalizadores · pendientes de validación" in published_artifacts
 
 
@@ -374,3 +378,4 @@ def test_systematic_opportunity_uses_signal_without_fake_conviction_or_valuation
     assert result["proposal"]["decision"] == "WAIT"
     assert result["proposal"]["reason"] == "Risk budget requires private portfolio review"
     assert result["ddd"]["score_general"] == 94
+    assert result["ddd"]["evidence_gate_blocked"] is False
