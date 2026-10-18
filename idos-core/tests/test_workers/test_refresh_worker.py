@@ -55,3 +55,21 @@ def test_refresh_worker_rejects_misaligned_yahoo_history():
         "price_history_dates": [],
         "volume_history": [],
     }) is None
+
+
+def test_refresh_worker_cache_payload_keeps_flat_metrics_and_field_provenance():
+    payload = DataRefreshWorker._cache_file_payload({
+        "merged_data": {"market_cap": 100.0, "ticker": "ACWI"},
+        "source_count": 2,
+        "sources_used": ["stockanalysis.com", "yfinance"],
+        "field_sources": {
+            "market_cap": ["stockanalysis.com", "yfinance"],
+            "roic_pct": ["stockanalysis.com"],
+        },
+        "conflicts": [],
+    })
+
+    assert payload["market_cap"] == 100.0
+    assert payload["ticker"] == "ACWI"
+    assert payload["data_provenance"]["source_count"] == 2
+    assert payload["data_provenance"]["field_sources"]["roic_pct"] == ["stockanalysis.com"]

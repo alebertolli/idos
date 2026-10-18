@@ -157,8 +157,9 @@ class DataRefreshWorker(BaseWorker):
                     import json
                     cache_dir = Path("cache")
                     cache_dir.mkdir(parents=True, exist_ok=True)
+                    cache_payload = self._cache_file_payload(validated)
                     (cache_dir / f"{ticker}.json").write_text(
-                        json.dumps(merged if "merged_data" in validated else validated, default=str, indent=2), encoding="utf-8"
+                        json.dumps(cache_payload, default=str, indent=2), encoding="utf-8"
                     )
                     self._save_company_info(ticker, merged)
                 else:
@@ -190,6 +191,17 @@ class DataRefreshWorker(BaseWorker):
         if not prices or not dates or len(prices) != len(dates):
             return None
         return {"prices": prices, "dates": dates, "volumes": volumes}
+
+    @staticmethod
+    def _cache_file_payload(validated: dict[str, Any]) -> dict[str, Any]:
+        """Keep the flat metrics contract and attach auditable source provenance."""
+        merged = validated.get("merged_data", validated)
+        payload = dict(merged)
+        provenance_keys = ("source_count", "sources_used", "field_sources", "conflicts")
+        provenance = {key: validated[key] for key in provenance_keys if key in validated}
+        if provenance:
+            payload["data_provenance"] = provenance
+        return payload
 
     @staticmethod
     def _save_price_history(db: SQLiteStore, ticker: str, history: dict[str, list]) -> None:
