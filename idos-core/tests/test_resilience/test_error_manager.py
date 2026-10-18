@@ -7,7 +7,11 @@ from idos.resilience.error_manager import (
     SEVERITY_MEDIUM,
     SEVERITY_LOW,
 )
-from idos.workers.automation.data_error_reporter import build_issue_body, consolidate_errors
+from idos.workers.automation.data_error_reporter import (
+    build_issue_body,
+    consolidate_errors,
+    report_data_errors,
+)
 
 
 class TestErrorManager:
@@ -78,3 +82,41 @@ class TestDataErrorReporter:
         pending = consolidate_errors(tmp_path)
         assert len(pending) == 1
         assert pending[0]["ticker"] == "NFLX"
+
+    def test_report_data_errors_serializes_error_records_before_building_issue(self, tmp_path: Path, monkeypatch):
+        em = ErrorManager(tmp_path)
+        em.report(category=CATEGORY_DATOS, severity=SEVERITY_HIGH,
+                  ticker="QQQ", message="provider unavailable")
+        captured = {}
+
+        def fake_create_issue(title, body, labels):
+            captured["body"] = body
+            return {"html_url": "https://github.com/example/repo/issues/1"}
+
+        monkeypatch.setattr(
+            "idos.workers.automation.data_error_reporter.create_issue",
+            fake_create_issue,
+        )
+
+        result = report_data_errors(tmp_path, mark_reported=False)
+
+        assert result["status"] == "issue_created"
+        assert "QQQ" in captured["body"]
+
+    def test_report_data_errors_dry_run_never_creates_issue(self, tmp_path: Path, monkeypatch):
+        em = ErrorManager(tmp_path)
+        em.report(category=CATEGORY_DATOS, severity=SEVERITY_HIGH,
+                  ticker="GLD", message="provider unavailable")
+
+        def unexpected_create_issue(**kwargs):
+            raise AssertionError("dry-run must not create a GitHub issue")
+
+        monkeypatch.setattr(
+            "idos.workers.automation.data_error_reporter.create_issue",
+            unexpected_create_issue,
+        )
+
+        result = report_data_errors(tmp_path, dry_run=True)
+
+        assert result["status"] == "dry_run"
+        assert result["issues_created"] == 0

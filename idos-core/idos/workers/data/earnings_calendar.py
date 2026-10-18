@@ -22,7 +22,11 @@ def _load_cache_tickers() -> dict[str, dict[str, Any]]:
             data = json.loads(f.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
+        if not isinstance(data, dict):
+            continue
         merged = data.get("merged_data", data)
+        if not isinstance(merged, dict):
+            continue
         et = merged.get("next_earnings_date")
         if et:
             result[ticker] = {"next_earnings_date": et, "source_file": f.name}
@@ -41,9 +45,8 @@ def _load_existing_config() -> dict[str, Any]:
         data = yaml.safe_load(raw) or {}
     except Exception:
         data = {}
-    if not isinstance(data, dict) or data.get("tickers") is None:
+    if not isinstance(data, dict) or not isinstance(data.get("tickers"), dict):
         data = {"tickers": {}}
-    data.setdefault("tickers", {})
     return data
 
 
