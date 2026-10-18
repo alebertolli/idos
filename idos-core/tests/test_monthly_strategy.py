@@ -13,8 +13,7 @@ class FakePrices:
 
 
 class FakeMarketGate:
-    def __init__(self, market_cap=3_000_000_000, dollar_volume=200_000):
-        self.market_cap = market_cap
+    def __init__(self, dollar_volume=200_000):
         self.dollar_volume = dollar_volume
         self.tickers = []
 
@@ -28,10 +27,6 @@ class FakeMarketGate:
             output={"data": {
                 ticker: {"merged_data": {
                     "asset_type": "etf",
-                    "size_metric_usd": self.market_cap,
-                    "size_metric_provenance": {"source": "fund-provider", "as_of": "2026-10-16"},
-                    "aum_usd": self.market_cap,
-                    "aum_provenance": {"source": "fund-provider", "as_of": "2026-10-16"},
                     "avg_dollar_volume_usd": self.dollar_volume,
                     "liquidity_provenance": {"price_source": "yfinance"},
                     "market_data_normalization": {"status": "complete"},
@@ -57,8 +52,8 @@ def test_monthly_strategy_dry_run_does_not_persist(tmp_path: Path):
     assert not (tmp_path / "idos-journal").exists()
 
 
-def test_monthly_strategy_excludes_assets_below_global_market_cap_gate():
-    gate = FakeMarketGate(market_cap=1_000_000_000)
+def test_monthly_strategy_excludes_etfs_below_global_liquidity_gate():
+    gate = FakeMarketGate(dollar_volume=99_999)
     prices = FakePrices()
     worker = MonthlyStrategyWorker({"price_provider": prices, "market_gate_worker": gate})
 
@@ -69,6 +64,16 @@ def test_monthly_strategy_excludes_assets_below_global_market_cap_gate():
     assert output["market_gate"]["rejected"]
     assert output["candidate_count"] == 0
     assert prices.tickers == []
+
+
+def test_monthly_strategy_etfs_need_no_aum_or_market_cap():
+    prices = FakePrices()
+    worker = MonthlyStrategyWorker({"price_provider": prices, "market_gate_worker": FakeMarketGate()})
+    output = worker.run({"dry_run": True, "persist": False, "candidate_tickers": ["QQQ"]})
+    assert output["market_gate"]["accepted_count"] == 1
+    assert output["market_gate"]["market_cap_applies_to"] == ["us_equity"]
+    assert "aum_min_usd" not in output["market_gate"]
+    assert output["candidate_tickers"] == prices.tickers == ["QQQ"]
 
 
 def test_monthly_strategy_persists_signal_in_sqlite(tmp_path: Path):

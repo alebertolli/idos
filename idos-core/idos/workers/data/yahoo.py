@@ -1,5 +1,4 @@
 from typing import Any, Optional
-from datetime import datetime, timezone
 
 import yfinance as yf
 
@@ -43,13 +42,6 @@ class YahooFinanceWorker(BaseWorker):
             "price": info.get("currentPrice") or info.get("regularMarketPrice"),
             "market_cap": market_cap,
             "market_cap_currency": quote_currency if market_cap is not None else None,
-            # Yahoo may expose fund net assets but does not always supply an
-            # observation date. Keep the date absent unless source metadata
-            # explicitly provides one; the global ETF gate then fails closed.
-            "aum": info.get("totalAssets"),
-            "aum_currency": quote_currency if info.get("totalAssets") is not None else None,
-            "aum_as_of": self._source_date(info.get("aumAsOfDate") or info.get("totalAssetsDate")),
-            "aum_source": "yfinance",
             "quote_currency": quote_currency,
             "exchange": exchange,
             "enterprise_value": info.get("enterpriseValue"),
@@ -122,17 +114,3 @@ class YahooFinanceWorker(BaseWorker):
 
         data = {k: v for k, v in data.items() if v is not None}
         return data
-
-    @staticmethod
-    def _source_date(value: Any) -> str | None:
-        if isinstance(value, str):
-            try:
-                return datetime.fromisoformat(value[:10]).date().isoformat()
-            except ValueError:
-                return None
-        if isinstance(value, (int, float)) and not isinstance(value, bool):
-            try:
-                return datetime.fromtimestamp(value, tz=timezone.utc).date().isoformat()
-            except (OverflowError, OSError, ValueError):
-                return None
-        return None

@@ -252,7 +252,6 @@ class UniversePipeline(BaseWorker):
             min_score=scout_config["min_score"],
             market_cap_min_usd=market_settings.market_cap_min_usd,
             avg_dollar_volume_min_usd=market_settings.avg_dollar_volume_min_usd,
-            aum_min_usd=market_settings.aum_min_usd,
         )
         watchlist = WatchlistManager(max_entries=scout_config["max_watchlist"])
         ranking = RankingSystem()
@@ -392,7 +391,7 @@ class UniversePipeline(BaseWorker):
         normalized_market_data = DataRefreshWorker._has_normalized_market_gates(data)
         metrics = {
             "asset_type": data.get("asset_type"),
-            "size_metric_label": "ETF AUM" if data.get("asset_type") == "etf" else "Market cap",
+            "size_metric_label": "Market cap",
             "size_metric_usd": _num(data.get("size_metric_usd")) if normalized_market_data else None,
             "market_cap_usd": _num(data.get("market_cap_usd")) if normalized_market_data else None,
             "avg_dollar_volume_usd": _num(data.get("avg_dollar_volume_usd")) if normalized_market_data else None,
@@ -406,8 +405,10 @@ class UniversePipeline(BaseWorker):
             "relative_strength_12m": _num(data.get("relative_strength_12m")) if data.get("relative_strength_12m") is not None else None,
             "price_volume_trend": _num(data.get("price_volume_trend")) if data.get("price_volume_trend") is not None else None,
         }
-        required = ("size_metric_usd", "avg_dollar_volume_usd", "roic", "debt_to_equity",
+        required = ("avg_dollar_volume_usd", "roic", "debt_to_equity",
                     "relative_strength_3m", "relative_strength_12m", "price_volume_trend")
+        if data.get("asset_type") != "etf":
+            required += ("size_metric_usd",)
         missing = [
             key for key in required
             if metrics[key] is None

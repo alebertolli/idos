@@ -253,16 +253,18 @@ estas pruebas.
 
 1. Confirmar que todas las estrategias activas consumen el registro común
    `idos-config/universe/operable.yml` y que el gate común aplica capitalización
-   mínima USD 2.000 millones y volumen promedio mínimo USD 100.000 en USD, con
+   mínima USD 2.000 millones sólo a acciones; ETFs no requieren tamaño ni AUM.
+   Ambos requieren volumen promedio mínimo USD 100.000 en USD, con
    base `UNDERLYING_USD_PROXY` cuando corresponda.
 2. Comprobar ventana de 20 ruedas, cobertura mínima de 80%, FX hasta 4 días
    calendario, lado vendedor y referencia MEP/CCL explícita por activo ARS.
 3. Verificar que la selección, filtros propios y estado de cada estrategia se
    mantienen aislados y que los reportes identifican `bounded` vs. universo
    completo. MULTIBAGGERS permanece deshabilitada hasta cerrar el gap de score.
-4. Si el proveedor carece de market cap verificable, confirmar `blocked` y
-   ausencia de oportunidad/dispatch habilitante; no sustituir capitalización
-   por AUM sin decisión formal registrada.
+4. Para acciones sin market cap verificable, confirmar `blocked` y ausencia de
+   oportunidad/dispatch habilitante. Para ETFs sin AUM ni market cap, confirmar
+   que la liquidez válida permite evaluar su señal mensual; volumen bajo o
+   sin procedencia bloquea. Una reclasificación ETF → acción exige market cap.
 
 ### 8.3 Research y calidad de decisión
 

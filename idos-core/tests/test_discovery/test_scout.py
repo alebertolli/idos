@@ -63,3 +63,11 @@ def test_scout_does_not_treat_share_volume_as_dollar_volume():
     assert result.passed is False
     assert result.details["investability"] == 0
     assert "unavailable" in result.reason or "dollar volume" in result.reason.lower()
+
+
+def test_scout_etf_investability_uses_liquidity_only():
+    scout = ScoutEngine(min_score=0)
+    liquid = {"asset_type": "etf", "avg_dollar_volume_usd": 100_000}
+    assert scout.scan("ETF", {"metrics": liquid}).passed
+    assert not scout.scan("ETF", {"metrics": {**liquid, "avg_dollar_volume_usd": 99_999}}).passed
+    assert not scout.scan("EQUITY", {"metrics": {**liquid, "asset_type": "us_equity"}}).passed

@@ -4,7 +4,6 @@ from pathlib import Path
 
 from idos.market.liquidity import FxObservation
 from idos.market.liquidity import expected_us_market_sessions
-from idos.market.liquidity import normalize_aum_usd
 from idos.workers.data.refresh_worker import DataRefreshWorker
 
 
@@ -185,7 +184,7 @@ def test_refresh_worker_normalizes_ars_underlying_with_explicit_fx_reference(mon
     assert result["liquidity_provenance"]["fx_side"] == "sell"
 
 
-def test_etf_gate_uses_dated_aum_without_populating_market_cap(monkeypatch):
+def test_etf_gate_accepts_liquidity_without_any_size_metric(monkeypatch):
     worker = DataRefreshWorker()
     latest = date(2026, 10, 16)
     sessions = _stub_weekday_sessions(monkeypatch, latest)
@@ -199,22 +198,22 @@ def test_etf_gate_uses_dated_aum_without_populating_market_cap(monkeypatch):
         "TESTETF",
         {
             "quote_currency": "USD", "exchange": "NMS",
-            "aum": 2_500_000_000, "aum_currency": "USD",
-            "aum_as_of": "2026-10-15", "aum_source": "fund-provider",
-            "market_cap": 99_000_000_000, "market_cap_currency": "USD",
         },
         history,
         asset_type="etf",
     )
 
-    assert result["aum_usd"] == 2_500_000_000
+    assert result.get("aum_usd") is None
     assert result.get("market_cap_usd") is None
-    assert result["size_metric_usd"] == result["aum_usd"]
-    assert result["size_metric_provenance"]["source"] == "fund-provider"
+    assert result.get("size_metric_usd") is None
     assert result["market_data_normalization"]["status"] == "complete"
+    assert DataRefreshWorker._has_normalized_market_gates(result)
+    assert not DataRefreshWorker._has_normalized_market_gates({**result, "liquidity_provenance": None})
+    # Changing the instrument classification cannot bypass equity capital requirements.
+    assert not DataRefreshWorker._has_normalized_market_gates({**result, "asset_type": "us_equity"})
 
 
-def test_etf_gate_blocks_missing_aum_date_even_when_market_cap_exists(monkeypatch):
+def test_etf_gate_ignores_invalid_size_but_requires_aligned_liquidity(monkeypatch):
     worker = DataRefreshWorker()
     latest = date(2026, 10, 16)
     sessions = _stub_weekday_sessions(monkeypatch, latest)
@@ -228,26 +227,19 @@ def test_etf_gate_blocks_missing_aum_date_even_when_market_cap_exists(monkeypatc
         "TESTETF",
         {
             "quote_currency": "USD", "exchange": "NMS",
-            "aum": 2_500_000_000, "aum_currency": "USD",
-            "market_cap": 99_000_000_000, "market_cap_currency": "USD",
+            "aum": None, "market_cap": -1,
         },
         history,
         asset_type="etf",
     )
 
-    assert result["market_data_normalization"]["status"] == "blocked"
+    assert result["market_data_normalization"]["status"] == "complete"
     assert result.get("size_metric_usd") is None
-    assert any("as-of date" in error for error in result["market_data_normalization"]["errors"])
-
-
-def test_aum_normalization_keeps_metric_and_provenance_separate():
-    result = normalize_aum_usd(
-        2_000_000_000, currency="USD", as_of=date(2026, 10, 16), source="fund-provider"
+    blocked = worker._normalize_market_gate_metrics(
+        "TESTETF", {"quote_currency": "USD", "exchange": "NMS"}, None, asset_type="etf",
     )
-
-    assert result["aum_usd"] == 2_000_000_000
-    assert result["aum_provenance"]["as_of"] == "2026-10-16"
-    assert "market_cap_usd" not in result
+    assert blocked["market_data_normalization"]["status"] == "blocked"
+    assert not DataRefreshWorker._has_normalized_market_gates(blocked)
 
 
 def _stub_weekday_sessions(monkeypatch, latest: date) -> list[date]:

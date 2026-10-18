@@ -28,7 +28,6 @@ from idos.market.liquidity import (
     MonedApiFxProvider,
     expected_us_market_sessions,
     normalize_average_dollar_turnover,
-    normalize_aum_usd,
     normalize_market_cap_usd,
 )
 
@@ -261,29 +260,33 @@ class DataRefreshWorker(BaseWorker):
         dollar_volume = merged.get("avg_dollar_volume_usd")
         normalization = merged.get("market_data_normalization")
         asset_type = merged.get("asset_type")
-        metric_key = "aum_usd" if asset_type == "etf" else "market_cap_usd"
+        common_gates_complete = (
+            asset_type in {"etf", "us_equity"}
+            and isinstance(dollar_volume, (int, float)) and not isinstance(dollar_volume, bool)
+            and math.isfinite(dollar_volume) and dollar_volume > 0
+            and isinstance(merged.get("liquidity_provenance"), dict)
+            and isinstance(normalization, dict) and normalization.get("status") == "complete"
+        )
+        if not common_gates_complete:
+            return False
+        if asset_type == "etf":
+            return True  # ETFs require liquidity, not market cap or AUM.
         size_provenance = merged.get("size_metric_provenance")
-        metric_provenance = merged.get("aum_provenance" if asset_type == "etf" else "market_cap_provenance")
+        metric_provenance = merged.get("market_cap_provenance")
         try:
             provenance_date = date.fromisoformat(str(size_provenance.get("as_of", "")))
         except (AttributeError, TypeError, ValueError):
             provenance_date = None
         return bool(
-            asset_type in {"etf", "us_equity"}
-            and isinstance(size_metric, (int, float)) and not isinstance(size_metric, bool)
+            isinstance(size_metric, (int, float)) and not isinstance(size_metric, bool)
             and math.isfinite(size_metric) and size_metric > 0
-            and merged.get(metric_key) == size_metric
+            and merged.get("market_cap_usd") == size_metric
             and isinstance(size_provenance, dict)
             and bool(str(size_provenance.get("source", "")).strip())
             and provenance_date is not None
             and isinstance(metric_provenance, dict)
             and metric_provenance.get("source") == size_provenance.get("source")
             and metric_provenance.get("as_of") == size_provenance.get("as_of")
-            and isinstance(dollar_volume, (int, float)) and not isinstance(dollar_volume, bool)
-            and math.isfinite(dollar_volume) and dollar_volume > 0
-            and isinstance(merged.get("size_metric_provenance"), dict)
-            and isinstance(merged.get("liquidity_provenance"), dict)
-            and isinstance(normalization, dict) and normalization.get("status") == "complete"
         )
 
     def _normalize_market_gate_metrics(
@@ -362,25 +365,7 @@ class DataRefreshWorker(BaseWorker):
                     errors.append(str(exc))
         size_metric = None
         size_provenance = None
-        if asset_type == "etf":
-            aum_currency = yahoo_data.get("aum_currency")
-            aum_as_of = self._parse_source_date(yahoo_data.get("aum_as_of"))
-            if yahoo_data.get("aum") is None or not aum_currency or not aum_as_of:
-                errors.append("ETF AUM requires a positive value, explicit currency, source and as-of date")
-            else:
-                try:
-                    aum_result = normalize_aum_usd(
-                        yahoo_data["aum"], currency=aum_currency, as_of=aum_as_of,
-                        source=str(yahoo_data.get("aum_source") or "yfinance"),
-                        fx_reference=fx_reference, fx_observations=fx_observations,
-                        max_fx_staleness_days=self.market_data_settings.liquidity.max_fx_staleness_days,
-                    )
-                    result.update(aum_result)
-                    size_metric = aum_result["aum_usd"]
-                    size_provenance = aum_result["aum_provenance"]
-                except MarketDataNormalizationError as exc:
-                    errors.append(str(exc))
-        elif asset_type == "us_equity":
+        if asset_type == "us_equity":
             cap_currency = yahoo_data.get("market_cap_currency")
             market_cap = yahoo_data.get("market_cap")
             if market_cap is not None and cap_currency and last_market_date:
@@ -402,8 +387,8 @@ class DataRefreshWorker(BaseWorker):
             result["size_metric_provenance"] = size_provenance
 
         result["market_data_normalization"] = {
-            "status": "complete" if not errors and size_metric is not None and result.get("avg_dollar_volume_usd") is not None else "blocked",
-            "size_metric": "aum_usd" if asset_type == "etf" else "market_cap_usd" if asset_type == "us_equity" else None,
+            "status": "complete" if not errors and (asset_type == "etf" or size_metric is not None) and result.get("avg_dollar_volume_usd") is not None else "blocked",
+            "size_metric": "market_cap_usd" if asset_type == "us_equity" else None,
             "errors": errors,
             "liquidity_basis": "UNDERLYING_USD_PROXY",
             "exchange_calendar": yahoo_data.get("exchange"),
@@ -411,17 +396,6 @@ class DataRefreshWorker(BaseWorker):
         if result.get("liquidity_provenance"):
             result["liquidity_provenance"]["basis"] = "UNDERLYING_USD_PROXY"
         return result
-
-    @staticmethod
-    def _parse_source_date(value: Any) -> date | None:
-        if isinstance(value, date) and not isinstance(value, datetime):
-            return value
-        if not isinstance(value, str):
-            return None
-        try:
-            return date.fromisoformat(value[:10])
-        except ValueError:
-            return None
 
     def _asset_type_for_ticker(self, ticker: str) -> str | None:
         path = Path(self.config.get("operable_path", Path(self.config_root) / "universe" / "operable.yml"))
@@ -453,7 +427,7 @@ class DataRefreshWorker(BaseWorker):
     def _yahoo_market_source(yahoo_data: dict[str, Any], history: dict[str, list] | None) -> dict[str, Any]:
         keys = (
             "ticker", "source", "quote_currency", "market_cap_currency", "market_cap",
-            "aum", "aum_currency", "aum_as_of", "aum_source", "exchange",
+            "exchange",
             "price_history", "volume_history", "price_history_dates",
             "price_history_basis",
         )
