@@ -12,8 +12,10 @@ class ValuationAssessmentEngine(BaseAssessmentEngine):
         findings = []
         risks = []
 
-        price_margin = context.get("price_margin", 0)
-        if price_margin > 30:
+        price_margin = context.get("price_margin")
+        if price_margin is None:
+            risks.append({"type": "DATA_QUALITY", "detail": "Current price and analyst target are required for valuation"})
+        elif price_margin > 30:
             score += 15
             findings.append({"type": "POSITIVE", "detail": f"Price target upside: {price_margin:.1f}%"})
         elif price_margin > 20:
@@ -48,11 +50,11 @@ class ValuationAssessmentEngine(BaseAssessmentEngine):
             score -= 10
             risks.append({"type": "FCF", "detail": "Negative free cash flow yield"})
 
-        margin_of_safety = context.get("margin_of_safety", 0)
-        if margin_of_safety > 40:
+        margin_of_safety = context.get("margin_of_safety")
+        if margin_of_safety is not None and margin_of_safety > 40:
             score += 10
             findings.append({"type": "POSITIVE", "detail": f"Margin of safety: {margin_of_safety:.0f}%"})
-        elif margin_of_safety >= 20:
+        elif margin_of_safety is not None and margin_of_safety >= 20:
             score += 5
 
         score = max(0, min(100, score))

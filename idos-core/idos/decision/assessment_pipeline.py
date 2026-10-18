@@ -156,8 +156,8 @@ def build_context(
     company_info = {"sector": company.get("sector", "")}
 
     opp = journal.load_opportunity(ticker, opp_id) or sqlite.get_opportunity(opp_id)
-    margin_of_safety = 30.0
-    if opp:
+    margin_of_safety = None if cache_only else 30.0
+    if opp and not cache_only:
         cv = opp.get("conviction", {}) or {}
         margin_of_safety = cv.get("margin_of_safety", 30.0)
     current_price = None
@@ -181,9 +181,9 @@ def build_context(
         if current_price and target_mean:
             price_margin = round((target_mean - current_price) / current_price * 100, 1)
         else:
-            price_margin = margin_of_safety
+            price_margin = None if cache_only else margin_of_safety
     except Exception:
-        price_margin = margin_of_safety
+        price_margin = None if cache_only else margin_of_safety
 
     opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
     ddd_report_path = opp_dir / "ddd_report.yml"
@@ -478,6 +478,8 @@ def _eval_valuation(ctx):
     pm = ctx.get("price_margin", 0)
     t = ctx.get("_settings")
     limit = t.rule_price_margin("RULE-002", 20) if t else 20
+    if pm is None:
+        return RuleResult("RULE-002", False, "Current price or analyst target unavailable; valuation rule blocked")
     return RuleResult("RULE-002", pm > limit, f"Price target margin: {pm:.1f}% (min {limit})")
 
 def _eval_recovery(ctx):
