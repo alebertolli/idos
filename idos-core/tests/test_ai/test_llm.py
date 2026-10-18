@@ -1,6 +1,7 @@
 """Tests for LLMClient — stub mode (no real API calls)."""
 
 import os
+from io import BytesIO
 
 import pytest
 
@@ -14,14 +15,18 @@ def test_llm_client_defaults():
     assert client.model == "test-model"
 
 
-def test_generate_fallback_on_no_api_key():
+def test_generate_fallback_on_no_api_key(monkeypatch):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.setattr("idos.ai.llm.requests.request", lambda *_args, **_kwargs: pytest.fail("No HTTP without credentials"))
     client = LLMClient(provider="openai", api_key="", model="gpt-4o")
     resp = client.generate("Hello")
     assert not resp.success
     assert resp.error != ""
 
 
-def test_generate_structured_parse_json():
+def test_generate_structured_parse_json(monkeypatch):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.setattr("idos.ai.llm.requests.request", lambda *_args, **_kwargs: pytest.fail("No HTTP without credentials"))
     client = LLMClient(provider="openai", api_key="", model="gpt-4o")
     result = client.generate_structured("Test")
     assert "error" in result
@@ -235,3 +240,98 @@ def test_generate_logs_request_metadata_without_prompt_or_response(monkeypatch, 
     assert prompt not in logs
     assert "private-system-marker" not in logs
     assert response_body not in logs
+
+
+@pytest.mark.parametrize("status", [408, 429, 500, 502, 503, 504])
+def test_transient_http_error_retries_then_returns_success(monkeypatch, status):
+    import requests
+
+    failed = requests.Response()
+    failed.status_code = status
+    failed.raw = BytesIO()
+    success = requests.Response()
+    success.status_code = 200
+    responses = iter([failed, success])
+    sleeps = []
+    monkeypatch.setattr("idos.ai.llm.requests.request", lambda *_args, **_kwargs: next(responses))
+    monkeypatch.setattr("idos.ai.llm.time.sleep", sleeps.append)
+    monkeypatch.setattr("idos.ai.llm.random.uniform", lambda *_args: 0.5)
+
+    result = LLMClient()._request_with_retry("POST", "https://example.test")
+
+    assert result is success
+    assert sleeps == [4.5]
+
+
+def test_persistent_503_stops_after_three_attempts(monkeypatch):
+    import requests
+
+    calls, sleeps = [], []
+
+    def unavailable(*_args, **_kwargs):
+        calls.append(1)
+        response = requests.Response()
+        response.status_code = 503
+        response.raw = BytesIO()
+        return response
+
+    monkeypatch.setattr("idos.ai.llm.requests.request", unavailable)
+    monkeypatch.setattr("idos.ai.llm.time.sleep", sleeps.append)
+    monkeypatch.setattr("idos.ai.llm.random.uniform", lambda *_args: 0.5)
+
+    with pytest.raises(requests.HTTPError):
+        LLMClient()._request_with_retry("POST", "https://example.test")
+
+    assert len(calls) == 3
+    assert sleeps == [4.5, 8.5]
+
+
+@pytest.mark.parametrize("status", [400, 401, 403, 404])
+def test_permanent_http_error_is_not_retried(monkeypatch, status):
+    import requests
+
+    calls = []
+    response = requests.Response()
+    response.status_code = status
+
+    def fail(*_args, **_kwargs):
+        calls.append(1)
+        return response
+
+    monkeypatch.setattr("idos.ai.llm.requests.request", fail)
+    monkeypatch.setattr("idos.ai.llm.time.sleep", lambda *_args: pytest.fail("Unexpected retry"))
+
+    with pytest.raises(requests.HTTPError):
+        LLMClient()._request_with_retry("POST", "https://example.test")
+
+    assert len(calls) == 1
+
+
+@pytest.mark.parametrize(
+    ("header", "expected"),
+    [("12", 12), ("-2", 0), ("invalid", 4.5), ("Thu, 01 Jan 1970 00:00:00 GMT", 0)],
+)
+def test_retry_after_seconds_date_and_invalid_values(monkeypatch, header, expected):
+    monkeypatch.setattr("idos.ai.llm.random.uniform", lambda *_args: 0.5)
+    assert LLMClient._retry_delay_seconds(header, 0) == expected
+
+
+def test_long_retry_after_fails_without_waiting(monkeypatch):
+    import requests
+
+    calls = []
+    response = requests.Response()
+    response.status_code = 503
+    response.headers["Retry-After"] = "121"
+
+    def fail(*_args, **_kwargs):
+        calls.append(1)
+        return response
+
+    monkeypatch.setattr("idos.ai.llm.requests.request", fail)
+    monkeypatch.setattr("idos.ai.llm.time.sleep", lambda *_args: pytest.fail("Unexpected retry"))
+
+    with pytest.raises(requests.HTTPError):
+        LLMClient()._request_with_retry("POST", "https://example.test")
+
+    assert len(calls) == 1

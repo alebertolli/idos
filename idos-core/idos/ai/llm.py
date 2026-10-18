@@ -1,8 +1,11 @@
 import json
 import os
+import random
 import re
 import time
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from typing import Any, Optional
 
 import requests
@@ -63,6 +66,12 @@ class LLMClient:
             modl = entry.get("model", self.model)
             akey = entry.get("api_key", self._resolve_api_key(prov))
             lbl = entry.get("label", f"{prov}/{modl}")
+            if not akey:
+                message = f"{prov}: API key not configured"
+                if not first_error:
+                    first_error = message
+                print(f"[LLM] {message}; skipping provider")
+                continue
             if idx > 0:
                 print(f"\n{'='*60}")
                 print(f"[LLM] Fallback {idx}: {lbl}")
@@ -178,22 +187,39 @@ class LLMClient:
         return self._parse_json(resp.content)
 
     def _request_with_retry(self, method: str, url: str, **kwargs) -> requests.Response:
-        max_retries = 3
-        for attempt in range(max_retries):
+        max_attempts = 3
+        transient_statuses = {408, 429, 500, 502, 503, 504}
+        for attempt in range(max_attempts):
             resp = requests.request(method, url, **kwargs)
-            if resp.status_code == 429 and attempt < max_retries - 1:
-                retry_after = resp.headers.get("Retry-After")
-                wait = int(retry_after) if retry_after else 2 ** (attempt + 2)
-                if retry_after and int(retry_after) > 120:
-                    print(f"[LLM] Rate limited (429), Retry-After={retry_after}s > 120s, failing immediately")
+            if resp.status_code in transient_statuses and attempt < max_attempts - 1:
+                wait = self._retry_delay_seconds(resp.headers.get("Retry-After"), attempt)
+                if wait > 120:
+                    print(f"[LLM] HTTP {resp.status_code}: retry delay exceeds 120s; trying next provider")
                     resp.raise_for_status()
-                    return resp
-                print(f"[LLM] Rate limited (429), retrying in {wait}s (attempt {attempt + 1}/{max_retries})")
+                print(
+                    f"[LLM] HTTP {resp.status_code}: retrying in {wait:.1f}s "
+                    f"(attempt {attempt + 1}/{max_attempts})"
+                )
+                resp.close()
                 time.sleep(wait)
                 continue
             resp.raise_for_status()
             return resp
-        return resp
+        raise RuntimeError("LLM request exhausted its attempt budget")
+
+    @staticmethod
+    def _retry_delay_seconds(retry_after: str | None, attempt: int) -> float:
+        """Honor Retry-After seconds/date; use bounded exponential backoff with jitter otherwise."""
+        if retry_after:
+            try:
+                return max(0, int(retry_after))
+            except ValueError:
+                try:
+                    retry_at = parsedate_to_datetime(retry_after)
+                    return max(0, (retry_at - datetime.now(timezone.utc)).total_seconds())
+                except (TypeError, ValueError, OverflowError):
+                    pass
+        return 2 ** (attempt + 2) + random.uniform(0, 1)
 
     def _call_openai(
         self,
