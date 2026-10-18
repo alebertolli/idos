@@ -54,6 +54,9 @@ def test_scout_worker_screen_with_data():
     result = w._run_scout("MELI", {
         "market_cap_usd": 100_000_000_000,
         "avg_dollar_volume_usd": 5_000_000,
+        "market_cap_provenance": {"source": "yfinance", "as_of": "2026-10-16"},
+        "liquidity_provenance": {"price_source": "yfinance", "basis": "UNDERLYING_USD_PROXY"},
+        "market_data_normalization": {"status": "complete"},
         "relative_strength_3m": 80,
         "relative_strength_12m": 70,
         "price_volume_trend": 5,
@@ -81,6 +84,19 @@ def test_scout_worker_rejects_share_volume_without_usd_normalization():
         "price_volume_trend": 5,
         "roic_pct": 22.5,
         "debt_equity_ratio": 0.4,
+    })
+
+    assert result.passed is False
+    assert result.details["investability"] == 0
+
+
+def test_scout_worker_rejects_unverified_canonical_usd_fields():
+    w = ScoutWorker({"universe_path": "", "min_score": 70})
+    result = w._run_scout("MELI", {
+        "market_cap_usd": 100_000_000_000,
+        "avg_dollar_volume_usd": 5_000_000,
+        "relative_strength_3m": 80,
+        "relative_strength_12m": 70,
     })
 
     assert result.passed is False

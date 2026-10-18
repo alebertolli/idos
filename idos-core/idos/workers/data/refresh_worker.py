@@ -1,4 +1,6 @@
+import math
 import re
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Any, Optional
 
@@ -17,6 +19,15 @@ from idos.workers.data.stockanalysis import StockAnalysisWorker
 from idos.workers.data.yahoo import YahooFinanceWorker
 from idos.workers.data.cache import DataCache
 from idos.workers.data.validator import DataValidator
+from idos.market.liquidity import (
+    FxObservation,
+    MarketDataNormalizationError,
+    MarketDataSettings,
+    MonedApiFxProvider,
+    expected_us_market_sessions,
+    normalize_average_dollar_turnover,
+    normalize_market_cap_usd,
+)
 
 
 class DataRefreshWorker(BaseWorker):
@@ -31,6 +42,9 @@ class DataRefreshWorker(BaseWorker):
         self.error_manager = ErrorManager()
         self.retry = RetryMechanism(RetryPolicy(max_retries=3, base_delay=1.0, max_delay=8.0))
         self.universe_path = config.get("universe_path", "")
+        self.config_root = config.get("config_path", "idos-config")
+        self.market_data_settings = MarketDataSettings.load(self.config_root)
+        self.fx_provider = MonedApiFxProvider()
         self.sources = {
             "stockanalysis": StockAnalysisWorker(config),
             "yfinance": YahooFinanceWorker(config),
@@ -49,7 +63,7 @@ class DataRefreshWorker(BaseWorker):
         for ticker in tickers:
             ticker = ticker.upper().strip()
             cached = self.cache.get(f"merged:{ticker}")
-            if cached:
+            if cached and self._has_normalized_market_gates(cached):
                 results[ticker] = cached
                 continue
 
@@ -119,34 +133,62 @@ class DataRefreshWorker(BaseWorker):
                             message="degradacion de fuente: fallback a yfinance",
                             detail="SDD-16 Capa 6: la degradacion siempre debe registrarse",
                         )
-                    validated = self.validator.cross_validate(source_data)
-                    merged = validated.get("merged_data", validated)
                     yf_raw = source_data.get("yfinance", {})
                     if yf_raw.get("next_earnings_date"):
-                        merged.setdefault("next_earnings_date", yf_raw["next_earnings_date"])
+                        source_data.setdefault("stockanalysis.com", {}).setdefault(
+                            "next_earnings_date", yf_raw["next_earnings_date"]
+                        )
                     history = self._extract_price_history(yf_raw)
                     if history is None:
-                        # StockAnalysis does not currently provide aligned daily history.
-                        # Fetch it only when the Yahoo worker was not already the source.
+                        # StockAnalysis has no aligned OHLCV or quote-currency contract.
+                        # Fetch Yahoo once for market history and its explicit currency.
                         try:
-                            import yfinance as yf
-                            hist = yf.Ticker(ticker).history(period="1y")
-                            if not hist.empty:
-                                history = {
-                                    "prices": hist["Close"].tolist(),
-                                    "volumes": hist["Volume"].tolist(),
-                                    "dates": [str(d.date()) for d in hist.index],
-                                }
+                            yf_result = self.retry.execute(
+                                self.sources["yfinance"].execute,
+                                {"ticker": ticker, "period": "1y"},
+                            )
+                            if yf_result and getattr(yf_result, "status", "") == "success":
+                                yf_raw = yf_result.output or {}
+                                history = self._extract_price_history(yf_raw)
+                                self.cache.set(
+                                    f"raw:yfinance:{ticker}", yf_raw,
+                                    source="yfinance", ttl_seconds=43200,
+                                )
+                            else:
+                                errors.append(f"{ticker}: Yahoo quote metadata unavailable")
                         except Exception as e:
                             self.error_manager.report(
                                 category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
-                                message=f"yfinance history fallo: {e}",
+                                message=f"yfinance market data fallo: {e}",
                             )
+                            errors.append(f"{ticker}: yfinance market data fail ({e})")
+
+                    market_metrics = self._normalize_market_gate_metrics(ticker, yf_raw, history)
+                    if "stockanalysis.com" in source_data and yf_raw:
+                        # Add Yahoo as a source only for quote metadata, normalized gate
+                        # fields and aligned history; do not average raw market-cap values.
+                        source_data["yfinance"] = self._yahoo_market_source(yf_raw, history)
+                        source_data["yfinance"].update(market_metrics)
+                    elif "yfinance" in source_data:
+                        source_data["yfinance"].update(market_metrics)
+
+                    validated = self.validator.cross_validate(source_data)
+                    merged = validated.get("merged_data", validated)
                     if history:
                         merged.setdefault("price_history", history["prices"])
                         merged.setdefault("volume_history", history["volumes"])
                         merged.setdefault("price_history_dates", history["dates"])
                         self._save_price_history(db, ticker, history)
+                    for key, value in market_metrics.items():
+                        merged[key] = value
+                    validated["merged_data"] = merged
+                    if history:
+                        validated.setdefault("field_sources", {}).setdefault("price_history", ["yfinance"])
+                    for key in ("market_cap_usd", "avg_dollar_volume_usd"):
+                        if merged.get(key) is not None:
+                            validated.setdefault("field_sources", {})[key] = ["yfinance"]
+                    if "yfinance" in source_data:
+                        validated["source_count"] = len(validated.get("sources_used", []))
                     results[ticker] = validated
                     self.cache.set(
                         f"merged:{ticker}",
@@ -188,9 +230,164 @@ class DataRefreshWorker(BaseWorker):
         prices = data.get("price_history", [])
         dates = data.get("price_history_dates", [])
         volumes = data.get("volume_history", [])
-        if not prices or not dates or len(prices) != len(dates):
+        if (
+            not prices or not dates or not volumes
+            or len(prices) != len(dates) or len(volumes) != len(dates)
+        ):
             return None
-        return {"prices": prices, "dates": dates, "volumes": volumes}
+        return {
+            "prices": prices,
+            "dates": dates,
+            "volumes": volumes,
+            "price_basis": data.get("price_history_basis"),
+        }
+
+    @staticmethod
+    def _has_normalized_market_gates(cached: dict[str, Any]) -> bool:
+        merged = cached.get("merged_data", cached) if isinstance(cached, dict) else {}
+        if not isinstance(merged, dict):
+            return False
+        cap = merged.get("market_cap_usd")
+        dollar_volume = merged.get("avg_dollar_volume_usd")
+        normalization = merged.get("market_data_normalization")
+        return bool(
+            isinstance(cap, (int, float)) and not isinstance(cap, bool)
+            and math.isfinite(cap) and cap > 0
+            and isinstance(dollar_volume, (int, float)) and not isinstance(dollar_volume, bool)
+            and math.isfinite(dollar_volume) and dollar_volume > 0
+            and isinstance(merged.get("market_cap_provenance"), dict)
+            and isinstance(merged.get("liquidity_provenance"), dict)
+            and isinstance(normalization, dict) and normalization.get("status") == "complete"
+        )
+
+    def _normalize_market_gate_metrics(
+        self,
+        ticker: str,
+        yahoo_data: dict[str, Any],
+        history: dict[str, list] | None,
+    ) -> dict[str, Any]:
+        result: dict[str, Any] = {
+            "market_data_normalization": {"status": "blocked", "errors": []}
+        }
+        errors = result["market_data_normalization"]["errors"]
+        if not yahoo_data:
+            errors.append("Yahoo quote metadata unavailable")
+            return result
+        currency = yahoo_data.get("quote_currency")
+        if not isinstance(currency, str) or not currency.strip():
+            errors.append("Yahoo quote currency missing")
+        if not history:
+            errors.append("Aligned daily price and volume history unavailable")
+        elif history.get("price_basis") != "close_unadjusted":
+            errors.append("Price history does not declare unadjusted closing prices")
+
+        fx_reference = yahoo_data.get("fx_reference") or self._fx_reference_for_ticker(ticker)
+        fx_observations: list[FxObservation] = []
+        expected_dates: list[date] = []
+        last_market_date = None
+        if history and history.get("dates"):
+            try:
+                last_market_date = date.fromisoformat(str(history["dates"][-1])[:10])
+                exchange = yahoo_data.get("exchange")
+                expected_dates = expected_us_market_sessions(
+                    last_market_date - timedelta(days=60), last_market_date, exchange
+                )[-self.market_data_settings.liquidity.window_sessions :]
+                if currency and currency.upper() == "ARS":
+                    if not fx_reference:
+                        raise MarketDataNormalizationError("ARS asset requires an explicit MEP or CCL reference")
+                    fx_from = (expected_dates[0] - timedelta(days=self.market_data_settings.liquidity.max_fx_staleness_days))
+                    fx_observations = self.fx_provider.history(
+                        fx_reference, fx_from, expected_dates[-1]
+                    )
+            except (ValueError, IndexError, MarketDataNormalizationError) as exc:
+                errors.append(str(exc))
+
+        rows = []
+        if history and history.get("price_basis") == "close_unadjusted":
+            rows = [
+                {
+                    "date": market_date,
+                    "close": close,
+                    "volume": volume,
+                    "price_basis": "close_unadjusted",
+                    "source": "yfinance",
+                }
+                for market_date, close, volume in zip(
+                    history.get("dates", []), history.get("prices", []), history.get("volumes", [])
+                )
+            ]
+            if currency and expected_dates:
+                try:
+                    result.update(normalize_average_dollar_turnover(
+                        rows,
+                        expected_market_dates=expected_dates,
+                        quote_currency=currency,
+                        source="yfinance",
+                        fx_reference=fx_reference,
+                        fx_observations=fx_observations,
+                        policy=self.market_data_settings.liquidity,
+                    ))
+                except MarketDataNormalizationError as exc:
+                    errors.append(str(exc))
+        cap_currency = yahoo_data.get("market_cap_currency")
+        market_cap = yahoo_data.get("market_cap")
+        if market_cap is not None and cap_currency and last_market_date:
+            try:
+                result.update(normalize_market_cap_usd(
+                    market_cap,
+                    currency=cap_currency,
+                    as_of=last_market_date,
+                    source="yfinance",
+                    fx_reference=fx_reference,
+                    fx_observations=fx_observations,
+                    max_fx_staleness_days=self.market_data_settings.liquidity.max_fx_staleness_days,
+                ))
+            except MarketDataNormalizationError as exc:
+                errors.append(str(exc))
+        else:
+            errors.append("Market cap value, explicit currency or market date missing")
+
+        result["market_data_normalization"] = {
+            "status": "complete" if not errors and result.get("market_cap_usd") is not None and result.get("avg_dollar_volume_usd") is not None else "blocked",
+            "errors": errors,
+            "liquidity_basis": "UNDERLYING_USD_PROXY",
+            "exchange_calendar": yahoo_data.get("exchange"),
+        }
+        if result.get("liquidity_provenance"):
+            result["liquidity_provenance"]["basis"] = "UNDERLYING_USD_PROXY"
+        return result
+
+    def _fx_reference_for_ticker(self, ticker: str) -> str | None:
+        universe_path = Path(self.config.get(
+            "operable_path", Path(self.config_root) / "universe" / "operable.yml"
+        ))
+        try:
+            import yaml
+            document = yaml.safe_load(universe_path.read_text(encoding="utf-8")) or {}
+            for entry in document.get("operable_tickers", []):
+                if str(entry.get("ticker", "")).upper() == ticker.upper():
+                    reference = entry.get("fx_reference")
+                    return str(reference).upper() if reference else None
+        except (OSError, TypeError, yaml.YAMLError):
+            return None
+        return None
+
+    @staticmethod
+    def _yahoo_market_source(yahoo_data: dict[str, Any], history: dict[str, list] | None) -> dict[str, Any]:
+        keys = (
+            "ticker", "source", "quote_currency", "market_cap_currency", "exchange",
+            "price_history", "volume_history", "price_history_dates",
+            "price_history_basis",
+        )
+        result = {key: yahoo_data[key] for key in keys if key in yahoo_data}
+        if history:
+            result.update({
+                "price_history": history["prices"],
+                "volume_history": history["volumes"],
+                "price_history_dates": history["dates"],
+                "price_history_basis": history["price_basis"],
+            })
+        return result
 
     @staticmethod
     def _cache_file_payload(validated: dict[str, Any]) -> dict[str, Any]:

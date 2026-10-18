@@ -11,6 +11,7 @@ from idos.workers.base import BaseWorker
 from idos.workers.data.refresh_worker import DataRefreshWorker
 from idos.workers.data.cache import DataCache
 from idos.data.journal import JournalRepository
+from idos.market.liquidity import MarketDataSettings
 
 
 class ScoutWorker(BaseWorker):
@@ -20,7 +21,12 @@ class ScoutWorker(BaseWorker):
         config = config if config is not None else {}
         super().__init__(config)
         self.universe_path = config.get("universe_path", "")
-        self.scout_engine = ScoutEngine(min_score=config.get("min_score", 50))
+        market_settings = MarketDataSettings.load(config.get("config_path", "idos-config"))
+        self.scout_engine = ScoutEngine(
+            min_score=config.get("min_score", 50),
+            market_cap_min_usd=market_settings.market_cap_min_usd,
+            avg_dollar_volume_min_usd=market_settings.avg_dollar_volume_min_usd,
+        )
         self.watchlist = WatchlistManager(max_entries=config.get("max_watchlist", 50))
         self.ranking = RankingSystem()
         self.data_refresher = DataRefreshWorker(config)
@@ -48,7 +54,10 @@ class ScoutWorker(BaseWorker):
         # ──────────────────────────────────────────────────────────
         # STEP 0: Data Fetch (asegurar datos financieros disponibles)
         # ──────────────────────────────────────────────────────────
-        to_fetch = [t for t in tickers if not self._get_cached_data(t)]
+        to_fetch = [
+            ticker for ticker in tickers
+            if not DataRefreshWorker._has_normalized_market_gates(self._get_cached_data(ticker))
+        ]
         if to_fetch:
             print(f"\n[SCOUT] === STEP 0: Data Fetch ({len(to_fetch)} tickers) ===")
             refresh_ctx = {"tickers": to_fetch, "max_tickers": context.get("max_tickers", 0)}
@@ -186,9 +195,10 @@ class ScoutWorker(BaseWorker):
                     pass
             return default
 
+        normalized_market_data = DataRefreshWorker._has_normalized_market_gates(financial_data)
         metrics = {
-            "market_cap_usd": _num(financial_data.get("market_cap_usd")),
-            "avg_dollar_volume_usd": _num(financial_data.get("avg_dollar_volume_usd")),
+            "market_cap_usd": _num(financial_data.get("market_cap_usd")) if normalized_market_data else 0.0,
+            "avg_dollar_volume_usd": _num(financial_data.get("avg_dollar_volume_usd")) if normalized_market_data else 0.0,
             "pe_ratio": _num(financial_data.get("pe_ratio_ttm")) or _num(financial_data.get("pe_ratio")),
             "ev_ebitda": _num(financial_data.get("ev_ebitda")),
             "roic": _num(financial_data.get("roic_pct")),

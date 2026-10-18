@@ -22,13 +22,28 @@ class YahooFinanceWorker(BaseWorker):
         stock = yf.Ticker(ticker)
 
         info = stock.info or {}
-        history = stock.history(period=period)
+        history = stock.history(period=period, auto_adjust=False)
+        market_cap = info.get("marketCap")
+        quote_currency = info.get("currency")
+        exchange = info.get("exchange")
+        # yfinance 1.x moved currency and market-cap access to fast_info. Its
+        # market_cap is derived from share count x last price in quote currency.
+        try:
+            fast_info = stock.fast_info
+            quote_currency = quote_currency or fast_info["currency"]
+            exchange = exchange or fast_info["exchange"]
+            market_cap = fast_info["market_cap"] or market_cap
+        except Exception:
+            pass
 
         data: dict[str, Any] = {
             "ticker": ticker,
             "source": "yahoo_finance",
             "price": info.get("currentPrice") or info.get("regularMarketPrice"),
-            "market_cap": info.get("marketCap"),
+            "market_cap": market_cap,
+            "market_cap_currency": quote_currency if market_cap is not None else None,
+            "quote_currency": quote_currency,
+            "exchange": exchange,
             "enterprise_value": info.get("enterpriseValue"),
             "pe_ratio": info.get("trailingPE"),
             "forward_pe": info.get("forwardPE"),
@@ -74,6 +89,7 @@ class YahooFinanceWorker(BaseWorker):
             data["price_history"] = prices
             data["volume_history"] = volumes
             data["price_history_dates"] = [str(d.date()) for d in history.index]
+            data["price_history_basis"] = "close_unadjusted"
             data["avg_volume"] = sum(volumes) / len(volumes) if volumes else 0
             data["price_change_1m"] = (
                 ((prices[-1] - prices[-21]) / prices[-21] * 100)

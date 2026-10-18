@@ -12,6 +12,32 @@ class FakePrices:
         return [{"date": f"2026-{(i % 12) + 1:02d}-01", "close": 100 + 2 * i, "volume": 1} for i in range(24)]
 
 
+class FakeMarketGate:
+    def __init__(self, market_cap=3_000_000_000, dollar_volume=200_000):
+        self.market_cap = market_cap
+        self.dollar_volume = dollar_volume
+        self.tickers = []
+
+    def execute(self, context):
+        from types import SimpleNamespace
+        from idos.workers.base import WorkerStatus
+
+        self.tickers.extend(context["tickers"])
+        return SimpleNamespace(
+            status=WorkerStatus.SUCCESS,
+            output={"data": {
+                ticker: {"merged_data": {
+                    "market_cap_usd": self.market_cap,
+                    "avg_dollar_volume_usd": self.dollar_volume,
+                    "market_cap_provenance": {"source": "yfinance", "as_of": "2026-10-16"},
+                    "liquidity_provenance": {"price_source": "yfinance"},
+                    "market_data_normalization": {"status": "complete"},
+                }}
+                for ticker in context["tickers"]
+            }},
+        )
+
+
 def test_momentum_score_requires_history():
     try:
         momentum_score([1.0] * 12)
@@ -22,14 +48,28 @@ def test_momentum_score_requires_history():
 
 
 def test_monthly_strategy_dry_run_does_not_persist(tmp_path: Path):
-    worker = MonthlyStrategyWorker({"price_provider": FakePrices()})
+    worker = MonthlyStrategyWorker({"price_provider": FakePrices(), "market_gate_worker": FakeMarketGate()})
     result = worker.run({"base_path": str(tmp_path), "dry_run": True, "persist": False})
     assert result["strategy_id"] == "MOMENTUM_ETF"
     assert not (tmp_path / "idos-journal").exists()
 
 
+def test_monthly_strategy_excludes_assets_below_global_market_cap_gate():
+    gate = FakeMarketGate(market_cap=1_000_000_000)
+    prices = FakePrices()
+    worker = MonthlyStrategyWorker({"price_provider": prices, "market_gate_worker": gate})
+
+    output = worker.run({"dry_run": True, "persist": False})
+
+    assert gate.tickers
+    assert output["market_gate"]["accepted_count"] == 0
+    assert output["market_gate"]["rejected"]
+    assert output["candidate_count"] == 0
+    assert prices.tickers == []
+
+
 def test_monthly_strategy_persists_signal_in_sqlite(tmp_path: Path):
-    worker = MonthlyStrategyWorker({"price_provider": FakePrices()})
+    worker = MonthlyStrategyWorker({"price_provider": FakePrices(), "market_gate_worker": FakeMarketGate()})
     worker.run({"base_path": str(tmp_path), "persist": True})
     from idos.data.sqlite import SQLiteStore
     store = SQLiteStore(tmp_path / "idos.db")
@@ -43,7 +83,7 @@ def test_monthly_strategy_persists_signal_in_sqlite(tmp_path: Path):
 def test_monthly_rerun_preserves_reviewed_status(tmp_path: Path):
     from idos.data.sqlite import SQLiteStore
 
-    worker = MonthlyStrategyWorker({"price_provider": FakePrices()})
+    worker = MonthlyStrategyWorker({"price_provider": FakePrices(), "market_gate_worker": FakeMarketGate()})
     worker.run({"base_path": str(tmp_path), "persist": True})
     store = SQLiteStore(tmp_path / "idos.db")
     opp_id = store.conn.execute("SELECT id FROM opportunities").fetchone()[0]
@@ -81,7 +121,11 @@ def test_momentum_strategy_intersects_configured_universe_with_operable_registry
         encoding="utf-8",
     )
     prices = FakePrices()
-    worker = MonthlyStrategyWorker({"config_path": str(config_dir / "strategies.yml"), "price_provider": prices})
+    worker = MonthlyStrategyWorker({
+        "config_path": str(config_dir / "strategies.yml"),
+        "price_provider": prices,
+        "market_gate_worker": FakeMarketGate(),
+    })
 
     output = worker.run({"base_path": str(tmp_path), "dry_run": True, "persist": False})
 
@@ -89,6 +133,7 @@ def test_momentum_strategy_intersects_configured_universe_with_operable_registry
     assert output["candidate_tickers"] == ["XLE"]
     assert output["candidate_count"] == 1
     assert output["excluded_not_operable"] == ["QQQ"]
+    assert output["market_gate"]["accepted_count"] == 1
 
 
 def test_momentum_strategy_manual_subset_is_limited_to_configured_operable_tickers(tmp_path: Path):
@@ -113,6 +158,7 @@ def test_momentum_strategy_manual_subset_is_limited_to_configured_operable_ticke
     worker = MonthlyStrategyWorker({
         "config_path": str(config_dir / "strategies.yml"),
         "price_provider": prices,
+        "market_gate_worker": FakeMarketGate(),
     })
 
     output = worker.run({
@@ -152,6 +198,7 @@ def test_momentum_strategy_rejects_non_operable_manual_subset(tmp_path: Path):
     worker = MonthlyStrategyWorker({
         "config_path": str(config_dir / "strategies.yml"),
         "price_provider": FakePrices(),
+        "market_gate_worker": FakeMarketGate(),
     })
 
     try:
@@ -163,7 +210,7 @@ def test_momentum_strategy_rejects_non_operable_manual_subset(tmp_path: Path):
 
 
 def test_monthly_strategy_persists_distinct_run_reports(tmp_path: Path):
-    worker = MonthlyStrategyWorker({"price_provider": FakePrices()})
+    worker = MonthlyStrategyWorker({"price_provider": FakePrices(), "market_gate_worker": FakeMarketGate()})
     for _ in range(2):
         worker.run({"base_path": str(tmp_path), "persist": True})
 

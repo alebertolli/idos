@@ -9,11 +9,13 @@ import yaml
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.discovery.operability import OperabilityFilter
+from idos.market.liquidity import MarketDataSettings
 from idos.market.prices import PriceProvider
 from idos.models.enums import OpportunityStatus
 from idos.strategy.catalog import StrategyCatalog
 from idos.timezone import AR_TZ
 from idos.workers.base import BaseWorker
+from idos.workers.data.refresh_worker import DataRefreshWorker
 
 
 def momentum_score(closes: list[float]) -> float:
@@ -33,9 +35,10 @@ class MonthlyStrategyWorker(BaseWorker):
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         base = Path(context.get("base_path", "."))
-        config_path = Path(self.config.get("config_path", base / "idos-config" / "strategies.yml"))
+        configured_path = self.config.get("config_path")
+        config_path = Path(configured_path) if configured_path else base / "idos-config" / "strategies.yml"
         if not config_path.exists():
-            config_path = Path("idos-config") / "strategies.yml"
+            config_path = Path(__file__).resolve().parents[4] / "idos-config" / "strategies.yml"
         catalog = StrategyCatalog(config_path)
         profile = catalog.require(self.strategy_id)
         if not profile.enabled:
@@ -93,6 +96,45 @@ class MonthlyStrategyWorker(BaseWorker):
             raise ValueError(
                 f"Strategy {self.strategy_id} has no configured candidates in the operable universe"
             )
+
+        market_settings = MarketDataSettings.load(str(config_path.parent))
+        refresh_config = {
+            **self.config,
+            "config_path": str(config_path.parent),
+            "operable_path": str(operable_path),
+        }
+        gate_worker = self.config.get("market_gate_worker") or DataRefreshWorker(refresh_config)
+        gate_result = gate_worker.execute({"tickers": universe})
+        gate_output = getattr(gate_result, "output", None) or {}
+        refreshed = gate_output.get("data", {}) if isinstance(gate_output, dict) else {}
+        market_gate_rejected = []
+        market_gate_passed = []
+        market_gate_blocked_count = 0
+        for ticker in universe:
+            item = refreshed.get(ticker, {}) if isinstance(refreshed, dict) else {}
+            merged = item.get("merged_data", item) if isinstance(item, dict) else {}
+            if not DataRefreshWorker._has_normalized_market_gates(merged):
+                market_gate_blocked_count += 1
+                normalization = merged.get("market_data_normalization", {}) if isinstance(merged, dict) else {}
+                errors = normalization.get("errors", []) if isinstance(normalization, dict) else []
+                market_gate_rejected.append({
+                    "ticker": ticker,
+                    "reason": "; ".join(str(error) for error in errors) or "normalized market data unavailable",
+                })
+                continue
+            cap = merged["market_cap_usd"]
+            dollar_volume = merged["avg_dollar_volume_usd"]
+            if cap < market_settings.market_cap_min_usd:
+                reason = f"market_cap_usd {cap:g} below {market_settings.market_cap_min_usd:g}"
+            elif dollar_volume < market_settings.avg_dollar_volume_min_usd:
+                reason = f"avg_dollar_volume_usd {dollar_volume:g} below {market_settings.avg_dollar_volume_min_usd:g}"
+            else:
+                market_gate_passed.append(ticker)
+                continue
+            market_gate_rejected.append({"ticker": ticker, "reason": reason})
+        universe = market_gate_passed
+        market_gate_eligible_count = len(universe)
+
         provider = self.config.get("price_provider") or PriceProvider()
         rows: list[dict[str, Any]] = []
         missing: list[str] = []
@@ -109,13 +151,30 @@ class MonthlyStrategyWorker(BaseWorker):
         selected = sorted(eligible, key=lambda r: r["momentum"], reverse=True)[: int(params["select_top"])]
         action = "CASH_FALLBACK" if not selected else "REVIEW_ALLOCATION"
         generated_at = datetime.now(AR_TZ).isoformat(timespec="microseconds")
-        coverage_complete = not missing and len(rows) == eligible_universe_count
+        market_gate_coverage_complete = (
+            market_gate_blocked_count == 0
+            and len(market_gate_passed) + len(market_gate_rejected) == len(
+                requested_tickers if requested_tickers else strategy_universe
+            )
+        )
+        coverage_complete = market_gate_coverage_complete and not missing and len(rows) == len(market_gate_passed)
         output = {
             "strategy_id": self.strategy_id,
             "as_of_date": datetime.now(AR_TZ).date().isoformat(),
             "generated_at": generated_at,
             "run_scope": run_scope,
             "coverage_complete": coverage_complete,
+            "market_gate": {
+                "basis": "UNDERLYING_USD_PROXY",
+                "market_cap_min_usd": market_settings.market_cap_min_usd,
+                "avg_dollar_volume_min_usd": market_settings.avg_dollar_volume_min_usd,
+                "evaluated_count": len(market_gate_passed) + len(market_gate_rejected),
+                "accepted_count": len(market_gate_passed),
+                "blocked_count": market_gate_blocked_count,
+                "strategy_universe_eligible_count": market_gate_eligible_count,
+                "rejected": market_gate_rejected,
+                "coverage_complete": market_gate_coverage_complete,
+            },
             "candidate_source": str(operable_path),
             "candidate_count": len(universe),
             "configured_universe_count": len(configured_universe),

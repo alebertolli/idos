@@ -22,8 +22,15 @@ class ScoutResult:
 
 
 class ScoutEngine:
-    def __init__(self, min_score: int = 70):
+    def __init__(
+        self,
+        min_score: int = 70,
+        market_cap_min_usd: float = 2e9,
+        avg_dollar_volume_min_usd: float = 100e3,
+    ):
         self.min_score = min_score
+        self.market_cap_min_usd = market_cap_min_usd
+        self.avg_dollar_volume_min_usd = avg_dollar_volume_min_usd
 
     def scan(self, ticker: str, data: dict[str, Any]) -> ScoutResult:
         metrics = data.get('metrics', {})
@@ -35,8 +42,8 @@ class ScoutEngine:
         # canonical, provenance-bearing fields.
         cap = self._positive_number(metrics.get('market_cap_usd'))
         dolvol_raw = self._positive_number(metrics.get('avg_dollar_volume_usd'))
-        min_cap = 2e9
-        min_dolvol = 100e3
+        min_cap = self.market_cap_min_usd
+        min_dolvol = self.avg_dollar_volume_min_usd
         is_investable = cap is not None and dolvol_raw is not None and cap >= min_cap and dolvol_raw >= min_dolvol
         details['investability'] = 100 if is_investable else 0
 
@@ -75,7 +82,7 @@ class ScoutEngine:
             cap = cap or 0
             dolvol_raw = dolvol_raw or 0
             if cap < min_cap:
-                reasons.append(f'Market cap ${cap:,.0f} < minimum $2B')
+                reasons.append(f'Market cap ${cap:,.0f} < minimum ${min_cap:,.0f}')
             if dolvol_raw < min_dolvol:
                 reasons.append(f'Dollar volume ${dolvol_raw:,.0f} < minimum ${min_dolvol:,.0f} or unavailable')
         elif score < self.min_score:
@@ -110,14 +117,6 @@ class ScoutEngine:
             return None
         number = float(value)
         return number if math.isfinite(number) and number > 0 else None
-
-    @staticmethod
-    def _score_market_cap(cap: float) -> tuple[int, bool]:
-        min_cap = 2e9  # $2B minimum
-        min_dolvol = 100e3  # $100K minimum average dollar volume
-        is_investable = cap >= min_cap
-        score = 90 if cap >= 10e9 else (70 if cap >= 2e9 else (50 if cap >= 300e6 else 20))
-        return score, is_investable
 
     @staticmethod
     def _score_momentum(rs_3m: float, rs_12m: float, price_vol_trend: float) -> int:

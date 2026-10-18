@@ -7,6 +7,8 @@ from idos.market.liquidity import (
     LiquidityPolicy,
     MarketDataNormalizationError,
     MonedApiFxProvider,
+    MarketDataSettings,
+    expected_us_market_sessions,
     normalize_average_dollar_turnover,
     normalize_market_cap_usd,
 )
@@ -194,3 +196,31 @@ def test_monedapi_adapter_rejects_bad_status_and_history_shape():
     provider = MonedApiFxProvider(get=lambda *args, **kwargs: BadJsonResponse())
     with pytest.raises(MarketDataNormalizationError, match="schema"):
         provider.history("CCL", date(2026, 9, 1), date(2026, 9, 10))
+
+
+def test_market_data_settings_load_shared_thresholds_and_liquidity_window(tmp_path):
+    (tmp_path / "market_data.yml").write_text(
+        "eligibility:\n  market_cap_min_usd: 3000000000\n"
+        "  avg_dollar_volume_min_usd: 250000\n"
+        "liquidity:\n  window_sessions: 20\n  minimum_coverage: 0.8\n"
+        "  max_fx_staleness_days: 4\n  fx_side: sell\n",
+        encoding="utf-8",
+    )
+    settings = MarketDataSettings.load(str(tmp_path))
+    assert settings.market_cap_min_usd == 3_000_000_000
+    assert settings.avg_dollar_volume_min_usd == 250_000
+    assert settings.liquidity.window_sessions == 20
+
+
+def test_market_data_settings_rejects_non_mapping_configuration(tmp_path):
+    (tmp_path / "market_data.yml").write_text("- invalid-root\n", encoding="utf-8")
+    with pytest.raises(MarketDataNormalizationError, match="Invalid market data configuration"):
+        MarketDataSettings.load(str(tmp_path))
+
+
+def test_exchange_calendar_excludes_us_market_holiday_and_unknown_exchange():
+    sessions = expected_us_market_sessions(date(2026, 9, 4), date(2026, 9, 8), "NMS")
+    assert date(2026, 9, 7) not in sessions  # Labor Day
+    assert date(2026, 9, 8) in sessions
+    with pytest.raises(MarketDataNormalizationError, match="Unsupported Yahoo exchange"):
+        expected_us_market_sessions(date(2026, 9, 1), date(2026, 9, 10), "UNKNOWN")

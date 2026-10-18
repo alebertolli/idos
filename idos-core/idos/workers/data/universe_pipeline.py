@@ -17,6 +17,7 @@ from idos.discovery.ranking import RankingSystem
 from idos.data.journal import JournalRepository
 from idos.timezone import AR_TZ
 from idos.strategy.catalog import StrategyCatalog
+from idos.market.liquidity import MarketDataSettings
 
 class UniversePipeline(BaseWorker):
     name = "universe_pipeline"
@@ -150,7 +151,7 @@ class UniversePipeline(BaseWorker):
         passed = []
         for ticker in metrics.candidate_tickers:
             data = self._get_cached_data(cache_path, ticker)
-            if not data:
+            if not data or not DataRefreshWorker._has_normalized_market_gates(data):
                 passed.append(ticker)
                 continue
             results = screener.run_all(data)
@@ -171,7 +172,7 @@ class UniversePipeline(BaseWorker):
         valid_cached = []
         for ticker in metrics.candidate_tickers:
             data = self._get_cached_data(cache_path, ticker)
-            if data and data.get("merged_data", data):
+            if data and DataRefreshWorker._has_normalized_market_gates(data):
                 metrics.fetch_cached += 1
                 valid_cached.append(ticker)
             else:
@@ -246,7 +247,12 @@ class UniversePipeline(BaseWorker):
             "journal_path": self.journal_path,
             "cache_path": self.config.get("cache_path", "cache"),
         }
-        scout = ScoutEngine(min_score=scout_config["min_score"])
+        market_settings = MarketDataSettings.load(self.config_path)
+        scout = ScoutEngine(
+            min_score=scout_config["min_score"],
+            market_cap_min_usd=market_settings.market_cap_min_usd,
+            avg_dollar_volume_min_usd=market_settings.avg_dollar_volume_min_usd,
+        )
         watchlist = WatchlistManager(max_entries=scout_config["max_watchlist"])
         ranking = RankingSystem()
         cache_path = Path(self.config.get("cache_path", "cache"))
@@ -378,9 +384,10 @@ class UniversePipeline(BaseWorker):
                     pass
             return default
 
+        normalized_market_data = DataRefreshWorker._has_normalized_market_gates(data)
         metrics = {
-            "market_cap_usd": _num(data.get("market_cap_usd")),
-            "avg_dollar_volume_usd": _num(data.get("avg_dollar_volume_usd")),
+            "market_cap_usd": _num(data.get("market_cap_usd")) if normalized_market_data else None,
+            "avg_dollar_volume_usd": _num(data.get("avg_dollar_volume_usd")) if normalized_market_data else None,
             "pe_ratio": _num(data.get("pe_ratio_ttm")) or _num(data.get("pe_ratio")),
             "ev_ebitda": _num(data.get("ev_ebitda")),
             "roic": _num(data.get("roic_pct")),

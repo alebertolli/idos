@@ -5,11 +5,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 import math
+from pathlib import Path
 from threading import Lock
 from time import monotonic
 from typing import Any, Callable, Iterable
 
 import requests
+import yaml
 
 
 class MarketDataNormalizationError(ValueError):
@@ -35,9 +37,68 @@ class LiquidityPolicy:
 
 
 @dataclass(frozen=True)
+class MarketDataSettings:
+    market_cap_min_usd: float = 2_000_000_000
+    avg_dollar_volume_min_usd: float = 100_000
+    liquidity: LiquidityPolicy = LiquidityPolicy()
+
+    def __post_init__(self) -> None:
+        if not math.isfinite(self.market_cap_min_usd) or self.market_cap_min_usd <= 0:
+            raise ValueError("market_cap_min_usd must be positive and finite")
+        if not math.isfinite(self.avg_dollar_volume_min_usd) or self.avg_dollar_volume_min_usd <= 0:
+            raise ValueError("avg_dollar_volume_min_usd must be positive and finite")
+
+    @classmethod
+    def load(cls, config_root: str | None = None) -> "MarketDataSettings":
+        path = Path(config_root or "idos-config") / "market_data.yml"
+        if not path.exists():
+            return cls()
+        try:
+            document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+            if not isinstance(document, dict):
+                raise TypeError("root must be a mapping")
+            gates = document.get("eligibility", {})
+            liquidity_values = document.get("liquidity", {})
+            if not isinstance(gates, dict) or not isinstance(liquidity_values, dict):
+                raise TypeError("eligibility and liquidity must be mappings")
+            return cls(
+                market_cap_min_usd=float(gates.get("market_cap_min_usd", 2_000_000_000)),
+                avg_dollar_volume_min_usd=float(gates.get("avg_dollar_volume_min_usd", 100_000)),
+                liquidity=LiquidityPolicy(
+                    window_sessions=int(liquidity_values.get("window_sessions", 20)),
+                    minimum_coverage=float(liquidity_values.get("minimum_coverage", 0.8)),
+                    max_fx_staleness_days=int(liquidity_values.get("max_fx_staleness_days", 4)),
+                    fx_side=str(liquidity_values.get("fx_side", "sell")).lower(),
+                ),
+            )
+        except (OSError, TypeError, ValueError, yaml.YAMLError) as exc:
+            raise MarketDataNormalizationError(f"Invalid market data configuration: {path}") from exc
+
+
+@dataclass(frozen=True)
 class FxObservation:
     observed_at: datetime
     sell: float
+
+
+YAHOO_US_EXCHANGES = {
+    "NMS": "XNYS", "NGM": "XNYS", "NCM": "XNYS", "NYQ": "XNYS",
+    "ASE": "XNYS", "PCX": "XNYS", "BTS": "XNYS",
+}
+
+
+def expected_us_market_sessions(start: date, end: date, yahoo_exchange: str) -> list[date]:
+    """Use the exchange calendar; unknown Yahoo exchange codes fail closed."""
+    calendar_name = YAHOO_US_EXCHANGES.get(str(yahoo_exchange or "").upper())
+    if not calendar_name:
+        raise MarketDataNormalizationError(f"Unsupported Yahoo exchange calendar: {yahoo_exchange}")
+    try:
+        import exchange_calendars
+
+        calendar = exchange_calendars.get_calendar(calendar_name)
+        return [session.date() for session in calendar.sessions_in_range(start.isoformat(), end.isoformat())]
+    except Exception as exc:
+        raise MarketDataNormalizationError("Could not resolve expected market sessions") from exc
 
 
 class MonedApiFxProvider:
