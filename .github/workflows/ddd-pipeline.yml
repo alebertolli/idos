@@ -3,6 +3,7 @@ name: DDD Research Pipeline
 on:
   workflow_run:
     workflows: ["Monthly Universe Pipeline"]
+    branches: [main]
     types:
       - completed
   workflow_dispatch:
