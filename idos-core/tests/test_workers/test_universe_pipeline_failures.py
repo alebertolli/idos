@@ -4,6 +4,7 @@ from pathlib import Path
 
 from idos.workers.data.universe_pipeline import UniversePipeline
 from idos.workers.data.pipeline_report import PipelineMetrics
+from idos.workers.base import WorkerResult, WorkerStatus
 
 
 def test_zero_ticker_universe_run_is_not_reported_as_success(tmp_path, monkeypatch):
@@ -61,6 +62,45 @@ def test_candidate_universe_uses_all_operable_asset_types_without_external_scree
     assert metrics.candidate_tickers == ["AAPL", "AAPL.BA", "SPY"]
     assert metrics.candidate_count == 3
     assert Path(metrics.candidate_source).parts[-2:] == ("universe", "operable.yml")
+
+
+def test_fetch_embedded_errors_do_not_mark_missing_data_as_fetched(tmp_path, monkeypatch):
+    project_root = Path(__file__).resolve().parents[3]
+    pipeline = UniversePipeline({"config_path": str(project_root / "idos-config")})
+    pipeline._get_cached_data = lambda cache_path, ticker: {}
+
+    class RefreshWithoutData:
+        def __init__(self, config):
+            pass
+
+        def execute(self, context):
+            return WorkerResult(
+                status=WorkerStatus.SUCCESS,
+                worker="data_refresh",
+                output={"data": {}, "errors": [f"{context['tickers'][0]}: source rate-limited"]},
+            )
+
+    monkeypatch.setattr("idos.workers.data.universe_pipeline.DataRefreshWorker", RefreshWithoutData)
+    metrics = PipelineMetrics(candidate_tickers=["AAPL"], candidate_count=1)
+
+    pipeline._run_fetch(metrics)
+
+    assert metrics.fetch_new == 0
+    assert metrics.fetch_errors == [{"ticker": "AAPL", "error": "AAPL: source rate-limited"}]
+    assert metrics.candidate_tickers == []
+    assert metrics.errors[0]["step"] == "data_quality"
+
+
+def test_scout_rejects_candidates_missing_critical_inputs(tmp_path):
+    project_root = Path(__file__).resolve().parents[3]
+    pipeline = UniversePipeline({"config_path": str(project_root / "idos-config")})
+
+    result = pipeline._score_ticker(None, "AAPL", {"market_cap": 10_000_000_000})
+
+    assert result["passed"] is False
+    assert result["score"] == 0
+    assert result["data_quality_valid"] is False
+    assert "relative_strength_3m" in result["missing_critical_metrics"]
 
 
 def test_pipeline_preserves_step_errors_in_failed_result(tmp_path, monkeypatch):

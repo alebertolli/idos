@@ -137,10 +137,12 @@ class UniversePipeline(BaseWorker):
         print(f"\n[PIPELINE] STEP 4: Data Fetch ({len(metrics.candidate_tickers)} tickers)")
         cache_path = Path(self.config.get("cache_path", "cache"))
         to_fetch = []
+        valid_cached = []
         for ticker in metrics.candidate_tickers:
             data = self._get_cached_data(cache_path, ticker)
-            if data:
+            if data and data.get("merged_data", data):
                 metrics.fetch_cached += 1
+                valid_cached.append(ticker)
             else:
                 to_fetch.append(ticker)
 
@@ -151,6 +153,7 @@ class UniversePipeline(BaseWorker):
         print(f"[PIPELINE] Fetching {len(to_fetch)} new tickers...")
         max_workers = self.config.get("max_fetch_workers", 5)
         refresher = DataRefreshWorker(self.config)
+        valid_fetched = []
 
         def fetch_one(ticker):
             return ticker, refresher.execute({"tickers": [ticker]})
@@ -161,14 +164,32 @@ class UniversePipeline(BaseWorker):
             for future in as_completed(futures):
                 ticker, result = future.result()
                 done += 1
-                if result.status == "failed":
+                output = result.output or {}
+                fetched_data = (output.get("data") or {}).get(ticker, {})
+                merged_data = fetched_data.get("merged_data", fetched_data) if isinstance(fetched_data, dict) else {}
+                nested_errors = output.get("errors") or []
+                if result.status == WorkerStatus.FAILED or not merged_data:
+                    detail = result.error or (nested_errors[0] if nested_errors else "no validated merged data")
                     metrics.fetch_errors.append({"ticker": ticker, "error": result.error})
+                    if metrics.fetch_errors[-1]["error"] is None:
+                        metrics.fetch_errors[-1]["error"] = str(detail)
                 else:
                     metrics.fetch_new += 1
+                    valid_fetched.append(ticker)
+                    if nested_errors:
+                        metrics.fetch_errors.extend(
+                            {"ticker": ticker, "error": str(error)} for error in nested_errors
+                        )
                 if done % 25 == 0:
                     print(f"[PIPELINE] Fetch: {done}/{len(to_fetch)} done")
 
         print(f"[PIPELINE] Fetch: {metrics.fetch_new} new, {metrics.fetch_cached} cached, {len(metrics.fetch_errors)} errors")
+        metrics.candidate_tickers = valid_cached + valid_fetched
+        if not metrics.candidate_tickers:
+            metrics.errors.append({
+                "step": "data_quality",
+                "error": "No candidate produced validated merged market data; refusing to score or create opportunities.",
+            })
 
     def _run_scout(self, metrics: PipelineMetrics):
         if not metrics.candidate_tickers:
@@ -196,6 +217,7 @@ class UniversePipeline(BaseWorker):
         cache_path = Path(self.config.get("cache_path", "cache"))
 
         screened = []
+        quality_rejections = 0
         for ticker in metrics.candidate_tickers:
             data = self._get_cached_data(cache_path, ticker)
             result = self._score_ticker(scout, ticker, data)
@@ -204,7 +226,16 @@ class UniversePipeline(BaseWorker):
                 watchlist.add(ticker=ticker, score=result["score"], reason=result["reason"])
             else:
                 metrics.scout_rejected += 1
+                if not result.get("data_quality_valid", True):
+                    metrics.scout_data_quality_rejected += 1
+                    quality_rejections += 1
             screened.append(result)
+
+        if metrics.candidate_tickers and quality_rejections == len(metrics.candidate_tickers):
+            metrics.errors.append({
+                "step": "scout_data_quality",
+                "error": "All candidates are missing critical inputs required for Scout scoring.",
+            })
 
         ranked = ranking.rank(screened)
         metrics.new_watchlist = [
@@ -302,7 +333,7 @@ class UniversePipeline(BaseWorker):
         print(f"[PIPELINE] Opportunities: {created} created, {metrics.opportunities_existing} existing, {len(eligible)} eligible")
 
     def _score_ticker(self, scout: ScoutEngine, ticker: str, data: dict) -> dict:
-        def _num(v, default=0.0):
+        def _num(v, default=None):
             if isinstance(v, (int, float)):
                 return float(v)
             if isinstance(v, str):
@@ -314,20 +345,42 @@ class UniversePipeline(BaseWorker):
 
         metrics = {
             "market_cap": _num(data.get("market_cap")),
-            "avg_volume": _num(data.get("volume_avg")) or _num(data.get("avg_volume")),
+            "avg_dollar_volume": _num(data.get("avg_dollar_volume")) or _num(data.get("volume_avg")) or _num(data.get("avg_volume")),
             "pe_ratio": _num(data.get("pe_ratio_ttm")) or _num(data.get("pe_ratio")),
             "ev_ebitda": _num(data.get("ev_ebitda")),
             "roic": _num(data.get("roic_pct")),
             "operating_margin": _num(data.get("operating_margin_pct")),
             "debt_to_equity": _num(data.get("debt_equity_ratio")),
             "revenue_growth": _num(data.get("revenue_growth_pct")),
+            "relative_strength_3m": _num(data.get("relative_strength_3m")) if data.get("relative_strength_3m") is not None else None,
+            "relative_strength_12m": _num(data.get("relative_strength_12m")) if data.get("relative_strength_12m") is not None else None,
+            "price_volume_trend": _num(data.get("price_volume_trend")) if data.get("price_volume_trend") is not None else None,
         }
+        required = ("market_cap", "avg_dollar_volume", "roic", "debt_to_equity",
+                    "relative_strength_3m", "relative_strength_12m", "price_volume_trend")
+        missing = [
+            key for key in required
+            if metrics[key] is None
+            or (key in ("market_cap", "avg_dollar_volume") and metrics[key] <= 0)
+        ]
+        if missing:
+            return {
+                "ticker": ticker,
+                "score": 0,
+                "scout_score": 0,
+                "passed": False,
+                "data_quality_valid": False,
+                "missing_critical_metrics": missing,
+                "details": {},
+                "reason": f"Missing critical Scout metrics: {', '.join(missing)}",
+            }
         result = scout.scan(ticker=ticker, data={"metrics": metrics})
         return {
             "ticker": ticker,
             "score": result.score,
             "scout_score": result.score,
             "passed": result.passed,
+            "data_quality_valid": True,
             "details": result.details,
             "reason": result.reason,
         }

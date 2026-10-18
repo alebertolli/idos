@@ -36,6 +36,7 @@ jobs:
       - name: Run enabled monthly strategies
         run: python scripts/run_monthly_strategy.py
       - name: Save & commit results
+        if: always() && !cancelled()
         run: |
           TARGET_BRANCH="${GITHUB_REF_NAME}"
           if [ -z "$TARGET_BRANCH" ]; then
@@ -67,5 +68,5 @@ jobs:
         if: failure()
         run: python scripts/notify_monthly_failure.py
       - name: 🐛 Report failure as GitHub Issue
-        if: failure()
+        if: failure() && github.ref_name == 'main'
         run: python -m idos.workers.automation.gha_error_reporter
