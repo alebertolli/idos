@@ -190,6 +190,13 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
         "research_status": "COMPLETED",
         "score_general": 78,
         "opinion_valoracion": "infravalorado",
+        "error_mercado": {
+            "conclusion_error_valoracion": "SI",
+            "consenso_actual": "Market consensus summary",
+            "hipotesis_contraria": "Contrarian view",
+            "razonamiento": "Reasoning text",
+            "catalizador_cambio": {"descripcion": "2025 production milestone"},
+        },
         "dominio_catalizadores": [{
             "descripcion": "Production target for 2025",
             "horizonte": "medium",
@@ -238,6 +245,10 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
     assert "Score DDD y opinión de valoración omitidos" in published_artifacts
     assert "Análisis DDD · hipótesis pendiente de validación" in published_artifacts
     assert "Catalizadores · pendientes de validación" in published_artifacts
+    assert "Hipótesis de mercado · no validada" in published_artifacts
+    assert "Consenso supuesto · no validado" in published_artifacts
+    assert "catalizador_cambio?.descripcion && !d.evidence_gate_blocked" in published_artifacts
+    assert "Dominios DDD · análisis no validado" in published_artifacts
 
 
 def test_public_opportunity_explains_unknown_risk_and_omits_private_portfolio_fit(tmp_path: Path):

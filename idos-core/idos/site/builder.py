@@ -1562,18 +1562,18 @@ function showCase(oppId){
   // Error de mercado
   const em = d.error_mercado||{};
   if(em.hipotesis_contraria || em.consenso_actual || em.razonamiento){
-    html += `<h2>Error de mercado</h2>`;
-    if(em.conclusion_error_valoracion) html += `<p><b>Conclusión:</b> <span class="${esc(em.conclusion_error_valoracion)?'':'neg'}">${esc(em.conclusion_error_valoracion)}</span></p>`;
-    if(em.consenso_actual) html += `<div class="card"><div class="muted">Consenso del mercado</div><p>${esc(em.consenso_actual)}</p></div>`;
-    if(em.hipotesis_contraria) html += `<div class="card"><div class="muted">Hipótesis contraria</div><p>${esc(em.hipotesis_contraria)}</p></div>`;
-    if(em.razonamiento) html += `<div class="card"><div class="muted">Razonamiento</div><p>${esc(em.razonamiento)}</p></div>`;
-    if(em.catalizador_cambio?.descripcion) html += `<p><b>Catalizador de cambio:</b> ${esc(em.catalizador_cambio.descripcion)} <span class="muted">(${esc(em.catalizador_cambio.horizonte||'')} · impacto ${esc(em.catalizador_cambio.impacto||'')}${em.catalizador_cambio.probabilidad_pct!=null?' · '+pct(em.catalizador_cambio.probabilidad_pct):''})</span></p>`;
+    html += `<h2>${d.evidence_gate_blocked?'Hipótesis de mercado · no validada':'Error de mercado'}</h2>`;
+    if(em.conclusion_error_valoracion && !d.evidence_gate_blocked) html += `<p><b>Conclusión:</b> <span class="${esc(em.conclusion_error_valoracion)?'':'neg'}">${esc(em.conclusion_error_valoracion)}</span></p>`;
+    if(em.consenso_actual) html += `<div class="card"><div class="muted">${d.evidence_gate_blocked?'Consenso supuesto · no validado':'Consenso del mercado'}</div><p>${esc(em.consenso_actual)}</p></div>`;
+    if(em.hipotesis_contraria) html += `<div class="card"><div class="muted">${d.evidence_gate_blocked?'Hipótesis contraria · no validada':'Hipótesis contraria'}</div><p>${esc(em.hipotesis_contraria)}</p></div>`;
+    if(em.razonamiento) html += `<div class="card"><div class="muted">${d.evidence_gate_blocked?'Razonamiento del modelo · no validado':'Razonamiento'}</div><p>${esc(em.razonamiento)}</p></div>`;
+    if(em.catalizador_cambio?.descripcion && !d.evidence_gate_blocked) html += `<p><b>Catalizador de cambio:</b> ${esc(em.catalizador_cambio.descripcion)} <span class="muted">(${esc(em.catalizador_cambio.horizonte||'')} · impacto ${esc(em.catalizador_cambio.impacto||'')}${em.catalizador_cambio.probabilidad_pct!=null?' · '+pct(em.catalizador_cambio.probabilidad_pct):''})</span></p>`;
   }
 
   // Dominios
   const doms = d.dominios?.length ? d.dominios : Object.entries(d.ratings||{}).map(([k,v])=>({dominio:k,rating:v}));
   if(doms.length){
-    html += `<h2>Dominios (DDD)</h2><table><thead><tr><th>Dominio</th><th>Rating</th><th>Análisis</th></tr></thead><tbody>`;
+    html += `<h2>${d.evidence_gate_blocked?'Dominios DDD · análisis no validado':'Dominios (DDD)'}</h2><table><thead><tr><th>Dominio</th><th>Rating</th><th>Análisis</th></tr></thead><tbody>`;
     doms.forEach(x=>html+=`<tr><td>${esc(x.dominio)}</td><td class="score">${esc(x.rating)}</td><td>${esc(x.analisis||'—')}</td></tr>`);
     html += '</tbody></table>';
   }
