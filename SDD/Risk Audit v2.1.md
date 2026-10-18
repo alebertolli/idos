@@ -555,3 +555,30 @@ El Risk Audit alimenta principalmente:
 * Risk Capacity Limit;
 * Portfolio Limit;
 * Liquidity Limit.
+
+---
+
+# 20. Estado de implementación y validación
+
+Al 2026-10-18, `idos-core/idos/portfolio/audit.py` implementa únicamente el
+capital exposure audit: conversión a moneda base con FX aportado en el
+snapshot, pesos por posición y agrupaciones conocidas (incluido economic
+cluster), reporte de clasificaciones desconocidas y bloqueo de autorización de
+asignación. Su salida declara `audit_scope: CAPITAL_EXPOSURE_ONLY`,
+`risk_audit_status: NOT_ASSESSED` y enumera los dominios pendientes. El campo
+legacy `status` describe sólo la integridad de las clasificaciones de capital;
+no significa que Risk Audit v2.1 esté completo.
+
+No se calculan ni infieren duration, convexidad, volatilidad, beta, crédito,
+recovery, liquidez efectiva, moneda económica, poder adquisitivo real,
+correlaciones, permanent-loss risk, escenarios, contribución de riesgo,
+presupuesto ni sizing. Deben permanecer `UNKNOWN / N/A` hasta que el snapshot
+aporte inputs con unidad, fuente y fecha, y exista un método versionado
+aplicable al tipo de activo. El reporte nunca autoriza operaciones.
+
+La validación actual cubre consolidación determinista de capital y
+clasificaciones, rechazo de valores/FX inválidos y CLI con salida separada del
+snapshot de entrada. La evaluación multidimensional completa requiere un
+contrato versionado de snapshot, fixtures por clase de activo, escenarios y
+correlaciones con métodos explícitos, pruebas de integración y revisión del
+gestor. No usar cartera simulada como sustituto de la hoja privada familiar.

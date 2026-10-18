@@ -21,6 +21,19 @@ _DIMENSIONS = (
     "sleeve", "sector", "country", "argentina_risk_bucket",
 )
 
+_RISK_DIMENSIONS_NOT_ASSESSED = (
+    "market_risk_duration_convexity_volatility_beta",
+    "credit_default_recovery_risk",
+    "liquidity_under_normal_and_stress",
+    "nominal_and_economic_currency_risk",
+    "inflation_and_real_purchasing_power",
+    "factor_correlation_and_return_stream_overlap",
+    "permanent_loss_risk",
+    "interest_rate_credit_argentina_equity_and_combined_scenarios",
+    "asset_specific_risk_contribution",
+    "risk_capacity_budget_and_position_sizing_limits",
+)
+
 
 def _decimal(value: Any, label: str, *, positive: bool = False) -> Decimal:
     if isinstance(value, bool):
@@ -113,6 +126,9 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
     return {
         "as_of": as_of,
         "base_currency": base,
+        "audit_scope": "CAPITAL_EXPOSURE_ONLY",
+        "risk_audit_status": "NOT_ASSESSED",
+        "risk_dimensions_not_assessed": list(_RISK_DIMENSIONS_NOT_ASSESSED),
         "total_market_value": float(total_value),
         "positions": [
             {**position,

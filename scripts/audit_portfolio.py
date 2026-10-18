@@ -8,7 +8,9 @@ from idos.portfolio.audit import PortfolioAuditError, audit_portfolio
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Audit portfolio capital exposure")
+    parser = argparse.ArgumentParser(
+        description="Audit portfolio capital exposure; full Risk Audit v2.1 is not implemented"
+    )
     parser.add_argument("snapshot", type=Path, help="Private JSON snapshot")
     parser.add_argument("--output", type=Path, help="Optional private JSON report path")
     args = parser.parse_args()

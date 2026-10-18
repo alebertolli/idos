@@ -33,6 +33,9 @@ def test_consolidates_economic_exposure_across_strategies_and_currencies():
     assert report["exposures_pct"]["economic_cluster"] == {"Issuer A": 100}
     assert report["exposures_pct"]["strategy_id"] == {"CREDIT": 60, "OPTIONALITY": 40}
     assert report["status"] == "COMPLETE"
+    assert report["audit_scope"] == "CAPITAL_EXPOSURE_ONLY"
+    assert report["risk_audit_status"] == "NOT_ASSESSED"
+    assert "credit_default_recovery_risk" in report["risk_dimensions_not_assessed"]
     assert report["allocation_authorized"] is False
 
 
@@ -69,4 +72,5 @@ def test_cli_end_to_end_keeps_input_separate_from_report(tmp_path: Path):
     )
     assert result.returncode == 0, result.stderr
     assert json.loads(output.read_text(encoding="utf-8"))["total_market_value"] == 10000
+    assert json.loads(output.read_text(encoding="utf-8"))["risk_audit_status"] == "NOT_ASSESSED"
     assert json.loads(source.read_text(encoding="utf-8"))["positions"][0]["market_value"] == "6000"
