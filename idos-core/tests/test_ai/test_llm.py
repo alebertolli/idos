@@ -335,3 +335,30 @@ def test_long_retry_after_fails_without_waiting(monkeypatch):
         LLMClient()._request_with_retry("POST", "https://example.test")
 
     assert len(calls) == 1
+
+
+def test_groq_reasoning_model_uses_completion_token_limit(monkeypatch):
+    client = LLMClient(provider="groq", api_key="test-groq-key", model="openai/gpt-oss-120b")
+    captured = {}
+
+    class FakeResponse:
+        def json(self):
+            return {
+                "model": "openai/gpt-oss-120b",
+                "choices": [{"message": {"content": '{"thesis": "sample"}', "reasoning": "internal"}}],
+                "usage": {"prompt_tokens": 100, "completion_tokens": 50},
+            }
+
+    def capture_request(_method, url, **kwargs):
+        captured.update(url=url, body=kwargs["json"])
+        return FakeResponse()
+
+    monkeypatch.setattr(client, "_request_with_retry", capture_request)
+    response = client._call_groq("prompt", "system", 0.1, 4096)
+
+    assert captured["url"] == "https://api.groq.com/openai/v1/chat/completions"
+    assert captured["body"]["max_completion_tokens"] == 4096
+    assert "max_tokens" not in captured["body"]
+    assert response.success
+    assert response.content == '{"thesis": "sample"}'
+    assert response.tokens_out == 50

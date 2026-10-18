@@ -391,7 +391,7 @@ class LLMClient:
                 "model": _mod,
                 "messages": messages,
                 "temperature": temperature,
-                "max_tokens": max_tokens,
+                "max_completion_tokens": max_tokens,
             },
             timeout=self.timeout,
         )

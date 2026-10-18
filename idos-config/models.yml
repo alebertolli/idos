@@ -11,8 +11,8 @@ llm:
         - analysis
         - classification
     groq:
-      model: llama-3.3-70b-versatile
-      fallback: llama-3.1-8b-instant
+      model: openai/gpt-oss-120b
+      fallback: openai/gpt-oss-20b
       rpm: 30
       rpd: 1000
       task_types:
@@ -29,8 +29,8 @@ llm:
         - classification
   fallback_order:
     - provider: groq
-      model: llama-3.3-70b-versatile
-      fallback_model: llama-3.1-8b-instant
+      model: openai/gpt-oss-120b
+      fallback_model: openai/gpt-oss-20b
     - provider: openrouter
       model: google/gemma-4-31b-it:free
       fallback_model: openrouter/free
