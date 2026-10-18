@@ -2,6 +2,7 @@ import sys
 from types import SimpleNamespace
 
 from idos.decision import assessment_pipeline
+from idos.data.journal import JournalRepository
 
 
 def test_build_context_preserves_financial_risk_metric_availability(tmp_path, monkeypatch):
@@ -37,7 +38,7 @@ def test_build_context_preserves_financial_risk_metric_availability(tmp_path, mo
             return None
 
     context = assessment_pipeline.build_context(
-        "OPP-1", "TEST", tmp_path, SQLite(), Knowledge(), object()
+        "OPP-1", "TEST", tmp_path, SQLite(), Knowledge(), JournalRepository(tmp_path / "idos-journal")
     )
 
     dynamic = context["knowledge_base"]["dynamic"]

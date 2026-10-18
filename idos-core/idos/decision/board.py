@@ -15,7 +15,7 @@ class BoardResolution:
     decision_id: str
     decision_type: DecisionType
     justification: str
-    author: str = "human"
+    author: str = "board"
     resolved_at: str = ""
 
     def __post_init__(self):
@@ -71,6 +71,7 @@ class DecisionBoard:
             decision_id=decision.id,
             decision_type=decision.type,
             justification=decision.justification,
+            author=decision.author,
         )
 
         bus = get_event_bus()

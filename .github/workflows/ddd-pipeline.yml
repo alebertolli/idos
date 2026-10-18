@@ -8,6 +8,11 @@ on:
       - completed
   workflow_dispatch:
     inputs:
+      assessment_only:
+        description: "Reevaluar tickers explicitos usando DDD y cache existentes, sin LLM"
+        required: false
+        type: boolean
+        default: false
       ticker:
         description: "Ticker específico (vacío = todos)"
         required: false
@@ -78,8 +83,10 @@ jobs:
         run: pip install -e idos-core
 
       - name: Set run context
+        env:
+          REQUESTED_TICKER: ${{ github.event.inputs.ticker || github.event.client_payload.ticker || '' }}
         run: |
-          TICKER="${{ github.event.inputs.ticker || github.event.client_payload.ticker || '' }}"
+          TICKER="$REQUESTED_TICKER"
           echo "TICKER=$TICKER" >> $GITHUB_ENV
           if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
@@ -105,27 +112,37 @@ jobs:
           echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE event=$EVENT_TYPE"
 
       - name: Preview candidates
+        if: github.event_name != 'workflow_dispatch' || inputs.assessment_only != true
         run: python scripts/ddd_research.py --preview
 
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
         id: research
+        if: github.event_name != 'workflow_dispatch' || inputs.assessment_only != true
         run: python scripts/ddd_research.py
 
+      - name: Reassess existing opportunities without LLM
+        id: reassessment
+        if: github.event_name == 'workflow_dispatch' && inputs.assessment_only == true
+        run: python scripts/reassess_opportunities.py
+
       - name: STEP 3-7 - Assessment Engines + Conviction + Rules + Board + Entry
+        if: github.event_name != 'workflow_dispatch' || inputs.assessment_only != true
         run: python scripts/ddd_assessment.py
 
       - name: STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)
+        if: github.event_name != 'workflow_dispatch' || inputs.assessment_only != true
         run: python scripts/ddd_monthly.py
 
       - name: Generate Combined Digest
+        if: github.event_name != 'workflow_dispatch' || inputs.assessment_only != true
         run: python scripts/ddd_digest.py
 
       - name: Commit results
-        if: ${{ always() && !cancelled() && (steps.research.outcome == 'success' || steps.research.outcome == 'failure') }}
+        if: ${{ always() && !cancelled() && (steps.research.outcome == 'success' || steps.research.outcome == 'failure' || steps.reassessment.outcome == 'success' || steps.reassessment.outcome == 'failure') }}
         run: |
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add cache/ddd_results.json cache/ddd_preview.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
+          git add cache/reassessment_results.json cache/ddd_results.json cache/ddd_preview.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
           git add idos-journal/ 2>/dev/null || true
           git add idos-knowledge/ 2>/dev/null || true
           if git diff --cached --quiet; then
@@ -145,11 +162,12 @@ jobs:
           fi
 
       - name: Upload artifact
-        if: ${{ always() && !cancelled() && (steps.research.outcome == 'success' || steps.research.outcome == 'failure') }}
+        if: ${{ always() && !cancelled() && (steps.research.outcome == 'success' || steps.research.outcome == 'failure' || steps.reassessment.outcome == 'success' || steps.reassessment.outcome == 'failure') }}
         uses: actions/upload-artifact@v4
         with:
           name: ddd-results-${{ github.run_id }}
           path: |
+            cache/reassessment_results.json
             cache/ddd_results.json
             cache/ddd_preview.json
             cache/weekly_digest.md

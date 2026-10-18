@@ -835,3 +835,7 @@ o cualquier push a `idos-journal/**` / `idos-knowledge/**` / `idos-config/ui.yml
 *360+ tests · 28 comandos CLI · Ciclo de vida completo · Entry 100% algorítmico · UI estática*
 
 <!-- Test auto-commit skill -->
+
+### Reevaluar un caso sin volver a llamar al LLM
+
+En GitHub Actions, DDD Research Pipeline permite seleccionar una rama de prueba, `assessment_only=true` y un `ticker` explicito. Requiere un DDD existente no fallido y cache financiera (ejecutar Daily Data Refresh primero). Recalcula Assessment/Decision con el journal como fuente de estrategia y conserva la fecha/historia de Research. No verifica por si mismo la calidad factual del reporte ni representa aprobacion humana. Ver el plan y evidencia en `SDD/19.OPERACION-Manual Test Plan.md`.

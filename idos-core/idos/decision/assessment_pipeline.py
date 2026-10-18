@@ -66,9 +66,9 @@ def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, 
 
 def build_context(
     opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
-    knowledge: KnowledgeRepository, journal: JournalRepository,
+    knowledge: KnowledgeRepository, journal: JournalRepository, *, cache_only: bool = False,
 ) -> dict[str, Any]:
-    financial = _load_financial_data(ticker, sqlite)
+    financial = _load_financial_data(ticker, sqlite, cache_only=True) if cache_only else _load_financial_data(ticker, sqlite)
     company = knowledge.load_company(ticker) or {}
 
     positions = []
@@ -155,7 +155,7 @@ def build_context(
 
     company_info = {"sector": company.get("sector", "")}
 
-    opp = sqlite.get_opportunity(opp_id)
+    opp = journal.load_opportunity(ticker, opp_id) or sqlite.get_opportunity(opp_id)
     margin_of_safety = 30.0
     if opp:
         cv = opp.get("conviction", {}) or {}
@@ -165,9 +165,15 @@ def build_context(
     target_mean = None
     target_high = None
     try:
-        import yfinance as yf
-        _s = yf.Ticker(ticker)
-        _i = _s.info or {}
+        if cache_only:
+            _i = {"currentPrice": financial.get("price") or financial.get("current_price"),
+                  "targetMeanPrice": financial.get("price_target_avg"),
+                  "targetLowPrice": financial.get("price_target_low"),
+                  "targetHighPrice": financial.get("price_target_high")}
+        else:
+            import yfinance as yf
+            _s = yf.Ticker(ticker)
+            _i = _s.info or {}
         current_price = _i.get("currentPrice") or _i.get("regularMarketPrice")
         target_mean = _i.get("targetMeanPrice")
         target_low = _i.get("targetLowPrice")
@@ -328,7 +334,7 @@ def _warn_missing_metrics(ticker: str, data: dict[str, Any], source: str = "fina
         print(w)
     return warnings
 
-def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
+def _load_financial_data(ticker: str, sqlite: SQLiteStore, *, cache_only: bool = False) -> dict[str, Any]:
     import json
     from pathlib import Path
     for cache_path in [
@@ -348,6 +354,8 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
                     return data
             except Exception:
                 pass
+    if cache_only:
+        raise ValueError(f"No financial cache for {ticker}; refresh data before reassessment")
     try:
         from idos.workers.data.stockanalysis import StockAnalysisWorker
         sa = StockAnalysisWorker()
@@ -624,7 +632,7 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
             "checks": checks, "board_approved": False}
 
 
-def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_reprocess: bool = False) -> dict[str, Any]:
+def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_reprocess: bool = False, *, cache_only: bool = False) -> dict[str, Any]:
     bp = Path(base_path)
     sqlite = SQLiteStore(bp / "idos.db")
     knowledge = KnowledgeRepository(bp / "idos-knowledge")
@@ -641,7 +649,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     orchestrator.register_engine(PortfolioAssessmentEngine())
     orchestrator.conviction_calc = ConvictionCalculator(settings=settings)
 
-    context = build_context(opp_id, ticker, bp, sqlite, knowledge, journal)
+    context = build_context(opp_id, ticker, bp, sqlite, knowledge, journal, cache_only=cache_only)
     context["_settings"] = settings
     context["proposed_weight"] = settings.default_weight_pct
     strategy_profile = StrategyCatalog(bp / "idos-config" / "strategies.yml").get(context.get("strategy_id"))
@@ -719,7 +727,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         now_iso = datetime.now(AR_TZ).isoformat()
         opp["status"] = new_status.value
         opp["updated_at"] = now_iso
-        opp["last_research_at"] = now_iso
+        opp["last_assessment_at"] = now_iso
         cp = context.get("current_price")
         iv = context.get("intrinsic_value")
         if cp:
@@ -742,7 +750,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         yaml_opp["status"] = final_yaml_status
         now_iso = datetime.now(AR_TZ).isoformat()
         yaml_opp["updated_at"] = now_iso
-        yaml_opp["last_research_at"] = now_iso
+        yaml_opp["last_assessment_at"] = now_iso
         yaml_opp.setdefault("conviction", {})["overall"] = proposal.conviction_score
         cp = context.get("current_price")
         iv = context.get("intrinsic_value")
