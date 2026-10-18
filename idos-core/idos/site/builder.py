@@ -1572,11 +1572,8 @@ function showCase(oppId){
     : `<div class="card" style="border-color:#3a2a10"><b class="neg">No listo para entrada</b> — condiciones fallidas:</div><ul>${actionFails.map(f=>`<li class="neg">${f}</li>`).join('')}</ul>`);
   html += detailsEntryThresholds();
 
-  // Riesgos + evidencia
+  // Riesgos (la evidencia se presenta una sola vez en su panel).
   if(d.riesgos?.length){ html += `<h2>Riesgos (DDD)</h2><ul>`; d.riesgos.forEach(r=>html+=`<li>${esc(r.riesgo)} <span class="muted">(${esc(r.probabilidad)} · ${esc(r.impacto)})</span></li>`); html += '</ul>'; }
-  if(d.evidencia?.hechos_verificados?.length){ html += `<h3>Hechos verificados</h3><ul>`; d.evidencia.hechos_verificados.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
-  if(d.evidencia?.inferencias_llm?.length){ html += `<h3>Inferencias LLM</h3><ul>`; d.evidencia.inferencias_llm.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
-  if(d.evidencia?.preguntas_abiertas?.length){ html += `<h3>Preguntas abiertas</h3><ul>`; d.evidencia.preguntas_abiertas.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
 
   // Decisión del board + scores
   html += `<h2>Decisión del board</h2>`;
