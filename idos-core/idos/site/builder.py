@@ -1545,6 +1545,15 @@ function showCase(oppId){
     html += '</tbody></table>';
   }
 
+  // Evidencia declarada por el modelo, pendiente de cotejo humano.
+  const ev = d.evidencia||{};
+  if((ev.hechos_verificados||[]).length || (ev.inferencias_llm||[]).length || (ev.preguntas_abiertas||[]).length){
+    html += '<h2>Evidencia y verificación</h2><p class="muted">Las afirmaciones del análisis requieren cotejar fuentes y fechas. Una generación reciente no acredita la vigencia de cada dato o catalizador.</p>';
+    [['Hechos reportados · verificación de fuentes pendiente',ev.hechos_verificados],['Inferencias del modelo',ev.inferencias_llm],['Preguntas abiertas',ev.preguntas_abiertas]].forEach(([title,items])=>{
+      if(Array.isArray(items)&&items.length) html += `<div class="card"><h3>${esc(title)}</h3><ul>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+    });
+  }
+
   // Acción requerida (si está en Buy List o Research)
   const actRow = by || {
     ticker: o.ticker,
