@@ -174,6 +174,8 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
         },
     }), encoding="utf-8")
     (research / "decision_proposal.yml").write_text(yaml.safe_dump({
+        "recommendation": "BLOCKED",
+        "rules_failed": ["RULE-010"],
         "assessments": {
             "PortfolioAssessmentEngine": {
                 "score": 97,
@@ -186,6 +188,12 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
     }), encoding="utf-8")
     (research / "ddd_report.yml").write_text(yaml.safe_dump({
         "research_status": "COMPLETED",
+        "dominio_catalizadores": [{
+            "descripcion": "Production target for 2025",
+            "horizonte": "medium",
+            "impacto": "high",
+            "probabilidad_pct": 75,
+        }],
         "calidad_evidencia": {"hechos_reportados": [{
             "statement": "Revenue grew 12%",
             "period": "FY2025",
@@ -195,6 +203,8 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
     }), encoding="utf-8")
     monkeypatch.setattr(SiteBuilder, "_market_price", lambda _self, _ticker: {"price": None, "date": None})
     site = SiteBuilder(tmp_path).build()
+    public_opp = next(o for o in site.opportunities if o["ticker"] == "AAA")
+    assert public_opp["ddd"]["evidence_gate_blocked"] is True
     assert site.positions == []
     assert site.ledger == []
     assert site.portfolio == {}
@@ -221,6 +231,9 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
     assert "Annual report" in published_artifacts
     assert "https://example.com/report" in published_artifacts
     assert "Revenue grew 12%" in published_artifacts
+    assert "evidence_gate_blocked" in published_artifacts
+    assert "Evidencia pendiente: no usar esta tesis ni sus catalizadores para decidir." in published_artifacts
+    assert "Catalizadores · pendientes de validación" in published_artifacts
 
 
 def test_public_opportunity_explains_unknown_risk_and_omits_private_portfolio_fit(tmp_path: Path):
