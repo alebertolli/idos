@@ -1,8 +1,10 @@
 import math
 import re
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any, Optional
+
+import yaml
 
 from idos.data.sqlite import SQLiteStore
 from idos.data.knowledge import KnowledgeRepository
@@ -26,6 +28,7 @@ from idos.market.liquidity import (
     MonedApiFxProvider,
     expected_us_market_sessions,
     normalize_average_dollar_turnover,
+    normalize_aum_usd,
     normalize_market_cap_usd,
 )
 
@@ -62,8 +65,15 @@ class DataRefreshWorker(BaseWorker):
 
         for ticker in tickers:
             ticker = ticker.upper().strip()
+            asset_type = self._asset_type_for_ticker(ticker)
             cached = self.cache.get(f"merged:{ticker}")
-            if cached and self._has_normalized_market_gates(cached):
+            cached_merged = cached.get("merged_data", cached) if isinstance(cached, dict) else {}
+            if (
+                cached
+                and self._has_normalized_market_gates(cached)
+                and isinstance(cached_merged, dict)
+                and cached_merged.get("asset_type") == asset_type
+            ):
                 results[ticker] = cached
                 continue
 
@@ -163,7 +173,7 @@ class DataRefreshWorker(BaseWorker):
                             )
                             errors.append(f"{ticker}: yfinance market data fail ({e})")
 
-                    market_metrics = self._normalize_market_gate_metrics(ticker, yf_raw, history)
+                    market_metrics = self._normalize_market_gate_metrics(ticker, yf_raw, history, asset_type=asset_type)
                     if "stockanalysis.com" in source_data and yf_raw:
                         # Add Yahoo as a source only for quote metadata, normalized gate
                         # fields and aligned history; do not average raw market-cap values.
@@ -247,15 +257,31 @@ class DataRefreshWorker(BaseWorker):
         merged = cached.get("merged_data", cached) if isinstance(cached, dict) else {}
         if not isinstance(merged, dict):
             return False
-        cap = merged.get("market_cap_usd")
+        size_metric = merged.get("size_metric_usd")
         dollar_volume = merged.get("avg_dollar_volume_usd")
         normalization = merged.get("market_data_normalization")
+        asset_type = merged.get("asset_type")
+        metric_key = "aum_usd" if asset_type == "etf" else "market_cap_usd"
+        size_provenance = merged.get("size_metric_provenance")
+        metric_provenance = merged.get("aum_provenance" if asset_type == "etf" else "market_cap_provenance")
+        try:
+            provenance_date = date.fromisoformat(str(size_provenance.get("as_of", "")))
+        except (AttributeError, TypeError, ValueError):
+            provenance_date = None
         return bool(
-            isinstance(cap, (int, float)) and not isinstance(cap, bool)
-            and math.isfinite(cap) and cap > 0
+            asset_type in {"etf", "us_equity"}
+            and isinstance(size_metric, (int, float)) and not isinstance(size_metric, bool)
+            and math.isfinite(size_metric) and size_metric > 0
+            and merged.get(metric_key) == size_metric
+            and isinstance(size_provenance, dict)
+            and bool(str(size_provenance.get("source", "")).strip())
+            and provenance_date is not None
+            and isinstance(metric_provenance, dict)
+            and metric_provenance.get("source") == size_provenance.get("source")
+            and metric_provenance.get("as_of") == size_provenance.get("as_of")
             and isinstance(dollar_volume, (int, float)) and not isinstance(dollar_volume, bool)
             and math.isfinite(dollar_volume) and dollar_volume > 0
-            and isinstance(merged.get("market_cap_provenance"), dict)
+            and isinstance(merged.get("size_metric_provenance"), dict)
             and isinstance(merged.get("liquidity_provenance"), dict)
             and isinstance(normalization, dict) and normalization.get("status") == "complete"
         )
@@ -265,11 +291,16 @@ class DataRefreshWorker(BaseWorker):
         ticker: str,
         yahoo_data: dict[str, Any],
         history: dict[str, list] | None,
+        *,
+        asset_type: str | None = None,
     ) -> dict[str, Any]:
         result: dict[str, Any] = {
+            "asset_type": asset_type,
             "market_data_normalization": {"status": "blocked", "errors": []}
         }
         errors = result["market_data_normalization"]["errors"]
+        if asset_type not in {"etf", "us_equity"}:
+            errors.append("Explicit supported asset type missing from operable universe")
         if not yahoo_data:
             errors.append("Yahoo quote metadata unavailable")
             return result
@@ -329,26 +360,50 @@ class DataRefreshWorker(BaseWorker):
                     ))
                 except MarketDataNormalizationError as exc:
                     errors.append(str(exc))
-        cap_currency = yahoo_data.get("market_cap_currency")
-        market_cap = yahoo_data.get("market_cap")
-        if market_cap is not None and cap_currency and last_market_date:
-            try:
-                result.update(normalize_market_cap_usd(
-                    market_cap,
-                    currency=cap_currency,
-                    as_of=last_market_date,
-                    source="yfinance",
-                    fx_reference=fx_reference,
-                    fx_observations=fx_observations,
-                    max_fx_staleness_days=self.market_data_settings.liquidity.max_fx_staleness_days,
-                ))
-            except MarketDataNormalizationError as exc:
-                errors.append(str(exc))
-        else:
-            errors.append("Market cap value, explicit currency or market date missing")
+        size_metric = None
+        size_provenance = None
+        if asset_type == "etf":
+            aum_currency = yahoo_data.get("aum_currency")
+            aum_as_of = self._parse_source_date(yahoo_data.get("aum_as_of"))
+            if yahoo_data.get("aum") is None or not aum_currency or not aum_as_of:
+                errors.append("ETF AUM requires a positive value, explicit currency, source and as-of date")
+            else:
+                try:
+                    aum_result = normalize_aum_usd(
+                        yahoo_data["aum"], currency=aum_currency, as_of=aum_as_of,
+                        source=str(yahoo_data.get("aum_source") or "yfinance"),
+                        fx_reference=fx_reference, fx_observations=fx_observations,
+                        max_fx_staleness_days=self.market_data_settings.liquidity.max_fx_staleness_days,
+                    )
+                    result.update(aum_result)
+                    size_metric = aum_result["aum_usd"]
+                    size_provenance = aum_result["aum_provenance"]
+                except MarketDataNormalizationError as exc:
+                    errors.append(str(exc))
+        elif asset_type == "us_equity":
+            cap_currency = yahoo_data.get("market_cap_currency")
+            market_cap = yahoo_data.get("market_cap")
+            if market_cap is not None and cap_currency and last_market_date:
+                try:
+                    result.update(normalize_market_cap_usd(
+                        market_cap, currency=cap_currency, as_of=last_market_date,
+                        source="yfinance", fx_reference=fx_reference,
+                        fx_observations=fx_observations,
+                        max_fx_staleness_days=self.market_data_settings.liquidity.max_fx_staleness_days,
+                    ))
+                    size_metric = result["market_cap_usd"]
+                    size_provenance = result["market_cap_provenance"]
+                except MarketDataNormalizationError as exc:
+                    errors.append(str(exc))
+            else:
+                errors.append("Market cap value, explicit currency or market date missing")
+        if size_metric is not None:
+            result["size_metric_usd"] = size_metric
+            result["size_metric_provenance"] = size_provenance
 
         result["market_data_normalization"] = {
-            "status": "complete" if not errors and result.get("market_cap_usd") is not None and result.get("avg_dollar_volume_usd") is not None else "blocked",
+            "status": "complete" if not errors and size_metric is not None and result.get("avg_dollar_volume_usd") is not None else "blocked",
+            "size_metric": "aum_usd" if asset_type == "etf" else "market_cap_usd" if asset_type == "us_equity" else None,
             "errors": errors,
             "liquidity_basis": "UNDERLYING_USD_PROXY",
             "exchange_calendar": yahoo_data.get("exchange"),
@@ -356,6 +411,28 @@ class DataRefreshWorker(BaseWorker):
         if result.get("liquidity_provenance"):
             result["liquidity_provenance"]["basis"] = "UNDERLYING_USD_PROXY"
         return result
+
+    @staticmethod
+    def _parse_source_date(value: Any) -> date | None:
+        if isinstance(value, date) and not isinstance(value, datetime):
+            return value
+        if not isinstance(value, str):
+            return None
+        try:
+            return date.fromisoformat(value[:10])
+        except ValueError:
+            return None
+
+    def _asset_type_for_ticker(self, ticker: str) -> str | None:
+        path = Path(self.config.get("operable_path", Path(self.config_root) / "universe" / "operable.yml"))
+        try:
+            document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+            for entry in document.get("operable_tickers", []):
+                if str(entry.get("ticker", "")).upper() == ticker.upper():
+                    return str(entry.get("type", "")).lower() or None
+        except (OSError, TypeError, yaml.YAMLError):
+            return None
+        return None
 
     def _fx_reference_for_ticker(self, ticker: str) -> str | None:
         universe_path = Path(self.config.get(
@@ -375,7 +452,8 @@ class DataRefreshWorker(BaseWorker):
     @staticmethod
     def _yahoo_market_source(yahoo_data: dict[str, Any], history: dict[str, list] | None) -> dict[str, Any]:
         keys = (
-            "ticker", "source", "quote_currency", "market_cap_currency", "exchange",
+            "ticker", "source", "quote_currency", "market_cap_currency", "market_cap",
+            "aum", "aum_currency", "aum_as_of", "aum_source", "exchange",
             "price_history", "volume_history", "price_history_dates",
             "price_history_basis",
         )

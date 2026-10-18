@@ -209,7 +209,7 @@ def test_scout_requires_canonical_usd_liquidity_fields(tmp_path):
 
     assert result["passed"] is False
     assert result["data_quality_valid"] is False
-    assert "market_cap_usd" in result["missing_critical_metrics"]
+    assert "size_metric_usd" in result["missing_critical_metrics"]
     assert "avg_dollar_volume_usd" in result["missing_critical_metrics"]
 
 

@@ -1,4 +1,4 @@
-"""Auditable normalization of traded turnover and market capitalization to USD."""
+"""Auditable normalization of traded turnover and asset size to USD."""
 
 from __future__ import annotations
 
@@ -41,10 +41,13 @@ class MarketDataSettings:
     market_cap_min_usd: float = 2_000_000_000
     avg_dollar_volume_min_usd: float = 100_000
     liquidity: LiquidityPolicy = LiquidityPolicy()
+    aum_min_usd: float = 2_000_000_000
 
     def __post_init__(self) -> None:
         if not math.isfinite(self.market_cap_min_usd) or self.market_cap_min_usd <= 0:
             raise ValueError("market_cap_min_usd must be positive and finite")
+        if not math.isfinite(self.aum_min_usd) or self.aum_min_usd <= 0:
+            raise ValueError("aum_min_usd must be positive and finite")
         if not math.isfinite(self.avg_dollar_volume_min_usd) or self.avg_dollar_volume_min_usd <= 0:
             raise ValueError("avg_dollar_volume_min_usd must be positive and finite")
 
@@ -63,6 +66,7 @@ class MarketDataSettings:
                 raise TypeError("eligibility and liquidity must be mappings")
             return cls(
                 market_cap_min_usd=float(gates.get("market_cap_min_usd", 2_000_000_000)),
+                aum_min_usd=float(gates.get("aum_min_usd", 2_000_000_000)),
                 avg_dollar_volume_min_usd=float(gates.get("avg_dollar_volume_min_usd", 100_000)),
                 liquidity=LiquidityPolicy(
                     window_sessions=int(liquidity_values.get("window_sessions", 20)),
@@ -295,6 +299,28 @@ def normalize_market_cap_usd(
     else:
         raise MarketDataNormalizationError(f"Unsupported market cap currency: {currency}")
     return {"market_cap_usd": usd, "market_cap_provenance": {"source": source, "as_of": as_of.isoformat(), "source_currency": code, "fx": fx_meta}}
+
+
+def normalize_aum_usd(
+    value: Any,
+    *,
+    currency: str,
+    as_of: date,
+    source: str,
+    fx_reference: str | None = None,
+    fx_observations: Iterable[FxObservation] = (),
+    max_fx_staleness_days: int = 4,
+) -> dict[str, Any]:
+    """Normalize fund assets separately from company market capitalization."""
+    normalized = normalize_market_cap_usd(
+        value, currency=currency, as_of=as_of, source=source,
+        fx_reference=fx_reference, fx_observations=fx_observations,
+        max_fx_staleness_days=max_fx_staleness_days,
+    )
+    return {
+        "aum_usd": normalized["market_cap_usd"],
+        "aum_provenance": normalized["market_cap_provenance"],
+    }
 
 
 def _normalize_row(row: dict[str, Any]) -> tuple[date, float | None, float | None, str | None]:

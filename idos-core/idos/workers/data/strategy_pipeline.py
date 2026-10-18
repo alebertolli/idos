@@ -122,10 +122,12 @@ class MonthlyStrategyWorker(BaseWorker):
                     "reason": "; ".join(str(error) for error in errors) or "normalized market data unavailable",
                 })
                 continue
-            cap = merged["market_cap_usd"]
+            size_metric = merged["size_metric_usd"]
+            size_name = "aum_usd" if merged["asset_type"] == "etf" else "market_cap_usd"
+            minimum_size = market_settings.aum_min_usd if merged["asset_type"] == "etf" else market_settings.market_cap_min_usd
             dollar_volume = merged["avg_dollar_volume_usd"]
-            if cap < market_settings.market_cap_min_usd:
-                reason = f"market_cap_usd {cap:g} below {market_settings.market_cap_min_usd:g}"
+            if size_metric < minimum_size:
+                reason = f"{size_name} {size_metric:g} below {minimum_size:g}"
             elif dollar_volume < market_settings.avg_dollar_volume_min_usd:
                 reason = f"avg_dollar_volume_usd {dollar_volume:g} below {market_settings.avg_dollar_volume_min_usd:g}"
             else:
@@ -167,6 +169,7 @@ class MonthlyStrategyWorker(BaseWorker):
             "market_gate": {
                 "basis": "UNDERLYING_USD_PROXY",
                 "market_cap_min_usd": market_settings.market_cap_min_usd,
+                "aum_min_usd": market_settings.aum_min_usd,
                 "avg_dollar_volume_min_usd": market_settings.avg_dollar_volume_min_usd,
                 "evaluated_count": len(market_gate_passed) + len(market_gate_rejected),
                 "accepted_count": len(market_gate_passed),

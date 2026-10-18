@@ -27,9 +27,12 @@ class FakeMarketGate:
             status=WorkerStatus.SUCCESS,
             output={"data": {
                 ticker: {"merged_data": {
-                    "market_cap_usd": self.market_cap,
+                    "asset_type": "etf",
+                    "size_metric_usd": self.market_cap,
+                    "size_metric_provenance": {"source": "fund-provider", "as_of": "2026-10-16"},
+                    "aum_usd": self.market_cap,
+                    "aum_provenance": {"source": "fund-provider", "as_of": "2026-10-16"},
                     "avg_dollar_volume_usd": self.dollar_volume,
-                    "market_cap_provenance": {"source": "yfinance", "as_of": "2026-10-16"},
                     "liquidity_provenance": {"price_source": "yfinance"},
                     "market_data_normalization": {"status": "complete"},
                 }}

@@ -26,6 +26,7 @@ class ScoutWorker(BaseWorker):
             min_score=config.get("min_score", 50),
             market_cap_min_usd=market_settings.market_cap_min_usd,
             avg_dollar_volume_min_usd=market_settings.avg_dollar_volume_min_usd,
+            aum_min_usd=market_settings.aum_min_usd,
         )
         self.watchlist = WatchlistManager(max_entries=config.get("max_watchlist", 50))
         self.ranking = RankingSystem()
@@ -197,6 +198,9 @@ class ScoutWorker(BaseWorker):
 
         normalized_market_data = DataRefreshWorker._has_normalized_market_gates(financial_data)
         metrics = {
+            "asset_type": financial_data.get("asset_type"),
+            "size_metric_usd": _num(financial_data.get("size_metric_usd")) if normalized_market_data else 0.0,
+            "size_metric_label": "ETF AUM" if financial_data.get("asset_type") == "etf" else "Market cap",
             "market_cap_usd": _num(financial_data.get("market_cap_usd")) if normalized_market_data else 0.0,
             "avg_dollar_volume_usd": _num(financial_data.get("avg_dollar_volume_usd")) if normalized_market_data else 0.0,
             "pe_ratio": _num(financial_data.get("pe_ratio_ttm")) or _num(financial_data.get("pe_ratio")),

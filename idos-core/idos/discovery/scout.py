@@ -27,10 +27,12 @@ class ScoutEngine:
         min_score: int = 70,
         market_cap_min_usd: float = 2e9,
         avg_dollar_volume_min_usd: float = 100e3,
+        aum_min_usd: float = 2e9,
     ):
         self.min_score = min_score
         self.market_cap_min_usd = market_cap_min_usd
         self.avg_dollar_volume_min_usd = avg_dollar_volume_min_usd
+        self.aum_min_usd = aum_min_usd
 
     def scan(self, ticker: str, data: dict[str, Any]) -> ScoutResult:
         metrics = data.get('metrics', {})
@@ -40,9 +42,14 @@ class ScoutEngine:
         # Eligibility requires normalized USD values. Share-volume aliases are
         # deliberately rejected until the market-data pipeline provides the
         # canonical, provenance-bearing fields.
-        cap = self._positive_number(metrics.get('market_cap_usd'))
+        # Populated only after the typed global gate validates market cap
+        # (equities) or AUM (ETFs), with provenance.
+        cap = self._positive_number(
+            metrics.get('size_metric_usd', metrics.get('market_cap_usd'))
+        )
+        cap_label = metrics.get('size_metric_label', 'market cap')
         dolvol_raw = self._positive_number(metrics.get('avg_dollar_volume_usd'))
-        min_cap = self.market_cap_min_usd
+        min_cap = self.aum_min_usd if metrics.get('asset_type') == 'etf' else self.market_cap_min_usd
         min_dolvol = self.avg_dollar_volume_min_usd
         is_investable = cap is not None and dolvol_raw is not None and cap >= min_cap and dolvol_raw >= min_dolvol
         details['investability'] = 100 if is_investable else 0
@@ -82,7 +89,7 @@ class ScoutEngine:
             cap = cap or 0
             dolvol_raw = dolvol_raw or 0
             if cap < min_cap:
-                reasons.append(f'Market cap ${cap:,.0f} < minimum ${min_cap:,.0f}')
+                reasons.append(f'{cap_label} ${cap:,.0f} < minimum ${min_cap:,.0f}')
             if dolvol_raw < min_dolvol:
                 reasons.append(f'Dollar volume ${dolvol_raw:,.0f} < minimum ${min_dolvol:,.0f} or unavailable')
         elif score < self.min_score:
