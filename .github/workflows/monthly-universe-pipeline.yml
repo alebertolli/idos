@@ -66,6 +66,9 @@ jobs:
           else
             git status --short -- idos-journal/ cache/
             git commit -m "chore: monthly universe pipeline $(date +%Y-%m-%d)"
+            # Generated market caches are not committed by this workflow. Stash
+            # those local writes so they cannot block rebasing the report commit.
+            git stash push --include-untracked -m 'monthly pipeline transient outputs'
             git fetch origin "$TARGET_BRANCH"
             git rebase "origin/$TARGET_BRANCH"
             git push origin "HEAD:$TARGET_BRANCH"

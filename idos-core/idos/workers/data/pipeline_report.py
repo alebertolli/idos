@@ -27,6 +27,7 @@ class PipelineMetrics:
     scout_passed: int = 0
     scout_rejected: int = 0
     scout_data_quality_rejected: int = 0
+    scout_data_quality_details: list[dict[str, Any]] = field(default_factory=list)
     new_watchlist: list[dict] = field(default_factory=list)
 
     opportunities_created: int = 0
@@ -55,6 +56,7 @@ class PipelineMetrics:
             "scout_passed": self.scout_passed,
             "scout_rejected": self.scout_rejected,
             "scout_data_quality_rejected": self.scout_data_quality_rejected,
+            "scout_data_quality_details": self.scout_data_quality_details,
             "new_watchlist_count": len(self.new_watchlist),
             "opportunities_eligible": self.opportunities_eligible,
             "opportunities_existing": self.opportunities_existing,
@@ -84,6 +86,11 @@ class PipelineReportGenerator:
         lines.append(f"  Scout: {metrics.scout_passed} passed, {metrics.scout_rejected} rejected")
         if metrics.scout_data_quality_rejected:
             lines.append(f"    Rejected for incomplete critical data: {metrics.scout_data_quality_rejected}")
+            for rejection in metrics.scout_data_quality_details[:10]:
+                missing = ", ".join(rejection.get("missing_critical_metrics", []))
+                lines.append(f"      {rejection.get('ticker', '?')}: missing {missing or 'critical data'}")
+            if len(metrics.scout_data_quality_details) > 10:
+                lines.append(f"      ... and {len(metrics.scout_data_quality_details) - 10} more")
         lines.append("")
 
         if metrics.new_watchlist:

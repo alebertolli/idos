@@ -269,6 +269,10 @@ class UniversePipeline(BaseWorker):
                 metrics.scout_rejected += 1
                 if not result.get("data_quality_valid", True):
                     metrics.scout_data_quality_rejected += 1
+                    metrics.scout_data_quality_details.append({
+                        "ticker": ticker,
+                        "missing_critical_metrics": result.get("missing_critical_metrics", []),
+                    })
                     quality_rejections += 1
             screened.append(result)
 

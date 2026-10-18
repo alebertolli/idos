@@ -4,6 +4,7 @@ from pathlib import Path
 
 from idos.workers.data.universe_pipeline import UniversePipeline
 from idos.workers.data.pipeline_report import PipelineMetrics
+from idos.workers.data.pipeline_report import PipelineReportGenerator
 from idos.workers.base import WorkerResult, WorkerStatus
 
 
@@ -242,3 +243,18 @@ def test_pipeline_preserves_step_errors_in_failed_result(tmp_path, monkeypatch):
     assert result.status == "failed"
     assert result.output["errors"] == [{"step": "candidate_universe", "error": "registry unavailable"}]
     assert "candidate_universe: registry unavailable" in result.error
+
+
+def test_pipeline_report_explains_missing_scout_data_quality_inputs():
+    metrics = PipelineMetrics(
+        finished_at="2026-10-18T20:00:00-03:00",
+        scout_data_quality_rejected=1,
+        scout_data_quality_details=[{
+            "ticker": "AAPL",
+            "missing_critical_metrics": ["relative_strength_3m", "price_volume_trend"],
+        }],
+    )
+
+    report = PipelineReportGenerator().generate(metrics)
+
+    assert "AAPL: missing relative_strength_3m, price_volume_trend" in report
