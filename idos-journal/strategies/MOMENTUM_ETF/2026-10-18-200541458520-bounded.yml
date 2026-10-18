@@ -1,0 +1,33 @@
+action: CASH_FALLBACK
+as_of_date: '2026-10-18'
+candidate_count: 0
+candidate_source: idos-config/universe/operable.yml
+candidate_tickers: []
+configured_universe_count: 7
+coverage_complete: false
+eligible: []
+eligible_universe_count: 7
+excluded_manual_tickers: []
+excluded_not_operable: []
+excluded_unsupported_asset_types: []
+formula: 12*P0/P1 + 4*P0/P3 + 2*P0/P6 + P0/P12 - 19
+generated_at: '2026-10-18T20:05:41.458520-03:00'
+market_gate:
+  accepted_count: 0
+  avg_dollar_volume_min_usd: 100000.0
+  basis: UNDERLYING_USD_PROXY
+  blocked_count: 1
+  coverage_complete: false
+  evaluated_count: 1
+  market_cap_min_usd: 2000000000.0
+  rejected:
+  - reason: Market cap value, explicit currency or market date missing
+    ticker: QQQ
+  strategy_universe_eligible_count: 0
+missing_history: []
+ranking: []
+requested_tickers:
+- QQQ
+run_scope: bounded
+selected: []
+strategy_id: MOMENTUM_ETF
