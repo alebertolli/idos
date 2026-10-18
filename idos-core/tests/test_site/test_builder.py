@@ -258,6 +258,38 @@ def test_public_opportunity_explains_unknown_risk_and_omits_private_portfolio_fi
     assert "PRIVATE-HOLDING-DETAIL" not in str(result)
 
 
+def test_dashboard_hides_stale_price_and_intrinsic_when_valuation_inputs_are_missing(tmp_path: Path):
+    opp_dir = tmp_path / "OPP-STALE-VALUATION"
+    opp_dir.mkdir()
+    (opp_dir / "opportunity.yml").write_text(yaml.safe_dump({
+        "id": "OPP-STALE-VALUATION",
+        "status": "UNDER_RESEARCH",
+        "current_price": 71.95,
+        "intrinsic_value": 91.79,
+    }), encoding="utf-8")
+    (opp_dir / "decision_proposal.yml").write_text(yaml.safe_dump({
+        "assessments": {
+            "ValuationAssessmentEngine": {
+                "score": 50,
+                "risks": [{
+                    "type": "DATA_QUALITY",
+                    "detail": "Current price and analyst target are required for valuation",
+                }],
+                "findings": [],
+            }
+        }
+    }), encoding="utf-8")
+
+    builder = _builder()
+    builder._market_price = lambda _ticker: {"price": 72.10, "date": "2026-10-16"}
+    result = builder._load_opportunity("VIST", opp_dir)
+
+    assert result["current_price"] is None
+    assert result["intrinsic_value"] is None
+    assert result["upside_pct"] is None
+    assert result["price_date"] is None
+
+
 
 def test_failed_ddd_is_visible_as_high_dashboard_alert(tmp_path: Path):
     opp_dir = tmp_path / "OPP-RACE-FAILED"

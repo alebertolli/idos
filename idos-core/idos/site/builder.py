@@ -379,6 +379,7 @@ class SiteBuilder:
         findings: dict[str, list[str]] = {}
         risk_assessment = None
         private_portfolio_assessment_present = False
+        valuation_unavailable = False
         for engine, spec in (dp.get("assessments") or {}).items():
             if isinstance(spec, dict):
                 # Portfolio fit may depend on private holdings. It is never part
@@ -402,6 +403,13 @@ class SiteBuilder:
                             for risk in (spec.get("risks") or []) if isinstance(risk, dict)
                         ],
                     }
+                if engine == "ValuationAssessmentEngine":
+                    valuation_unavailable = any(
+                        isinstance(risk, dict)
+                        and risk.get("type") == "DATA_QUALITY"
+                        and "required for valuation" in str(risk.get("detail", "")).lower()
+                        for risk in (spec.get("risks") or [])
+                    )
 
         conv = opp.get("conviction") or {}
         scores_conv = conv.get("scores") or {}
@@ -437,6 +445,13 @@ class SiteBuilder:
         price_date = mkt["date"]
         if market_price:
             current_price = market_price
+        if valuation_unavailable:
+            # Do not combine an old opportunity snapshot with a cache quote and
+            # present the result as current upside after Assessment says the
+            # required valuation inputs are unavailable.
+            current_price = None
+            intrinsic = None
+            price_date = None
         upside = None
         if current_price and intrinsic and current_price > 0:
             upside = round((intrinsic - current_price) / current_price * 100, 1)
