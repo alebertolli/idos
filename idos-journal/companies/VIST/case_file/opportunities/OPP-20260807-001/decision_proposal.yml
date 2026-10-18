@@ -6,12 +6,12 @@ assessments:
     engine: BusinessAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'High revenue growth: 24.09%'
+    - detail: 'High revenue growth: 24.3%'
       type: POSITIVE
     - detail: 'Excellent margins: 34.88%'
       type: POSITIVE
-    generated_at: '2026-10-17T23:38:26.044011-03:00'
-    id: BusinessAssessmentEngine-20261017233826
+    generated_at: '2026-10-18T00:27:44.143316-03:00'
+    id: BusinessAssessmentEngine-20261018002744
     recommendation: NEUTRAL
     risks: []
     score: 66
@@ -23,8 +23,8 @@ assessments:
     engine: PortfolioAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-10-17T23:38:26.044101-03:00'
-    id: PortfolioAssessmentEngine-20261017233826
+    generated_at: '2026-10-18T00:27:44.143404-03:00'
+    id: PortfolioAssessmentEngine-20261018002744
     recommendation: INSUFFICIENT_PORTFOLIO_DATA
     risks:
     - detail: A reconciled private portfolio snapshot is required to assess portfolio
@@ -61,63 +61,79 @@ assessments:
       type: DIMENSION
     - dimension: risk_compression
       level: MEDIUM
-      score: 60
+      score: 50
       type: DIMENSION
-    generated_at: '2026-10-17T23:38:26.044062-03:00'
-    id: RecoveryAssessmentEngine-20261017233826
+    generated_at: '2026-10-18T00:27:44.143367-03:00'
+    id: RecoveryAssessmentEngine-20261018002744
     recommendation: MODERATE
     risks: []
-    score: 62
+    score: 61
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
-    confidence: LOW
+    confidence: MEDIUM
     dependencies: []
     engine: RiskAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: Low leverage
-      type: POSITIVE
-    generated_at: '2026-10-17T23:38:26.044093-03:00'
-    id: RiskAssessmentEngine-20261017233826
-    recommendation: INSUFFICIENT_DATA
-    risks:
-    - detail: volatility_90d is UNKNOWN
+    - detail: '90-session annualized volatility: 40.93663797079475%; status OBSERVED'
       metric: volatility_90d
-      type: DATA_QUALITY
+      provenance:
+        adjustment: split_and_dividend_adjusted
+        annualization_sessions: 252
+        end_date: '2026-10-16'
+        evaluated_as_of: '2026-10-18'
+        lookback_returns: 90
+        max_age_days: 7
+        method: sample_stdev_daily_log_returns
+        observations: 91
+        source: yfinance
+        start_date: '2026-06-09'
+        status: OBSERVED
+        unit: percent
+      type: INPUT_PROVENANCE
+      value: 40.93663797079475
+    generated_at: '2026-10-18T00:27:44.143397-03:00'
+    id: RiskAssessmentEngine-20261018002744
+    recommendation: MODERATE_RISK
+    risks:
+    - detail: 'Moderate leverage: 1.1x'
+      type: LEVERAGE
+    - detail: 'High volatility: 40.93663797079475%'
+      type: VOLATILITY
     - detail: 'Current ratio below 1: 0.7x'
       type: LIQUIDITY
-    score: 0
+    score: 40
     status: COMPLETED
-    version: '1.1'
+    version: '1.2'
   ValuationAssessmentEngine:
     confidence: MEDIUM
     dependencies: []
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Price target upside: 27.4%'
+    - detail: 'Price target upside: 30.0%'
       type: POSITIVE
-    generated_at: '2026-10-17T23:38:26.044031-03:00'
-    id: ValuationAssessmentEngine-20261017233826
+    generated_at: '2026-10-18T00:27:44.143336-03:00'
+    id: ValuationAssessmentEngine-20261018002744
     recommendation: FAIR
     risks: []
     score: 65
     status: COMPLETED
     version: '1.1'
-conviction_score: 48
-created_at: '2026-10-17T23:38:26.044176-03:00'
-generated_at: '2026-10-17T23:38:26.045175-03:00'
+conviction_score: 54
+created_at: '2026-10-18T00:27:44.143469-03:00'
+generated_at: '2026-10-18T00:27:44.144440-03:00'
 human_approval_required: false
 opportunity_id: OPP-20260807-001
-reasoning: 'Rules blocked: RULE-001, RULE-004, RULE-005'
+reasoning: 'Rules blocked: RULE-001, RULE-004, RULE-005, RULE-008'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
 - RULE-004
 - RULE-005
+- RULE-008
 rules_passed:
 - RULE-003
-- RULE-008
 status: BLOCKED
 type: opportunity:transitioned
