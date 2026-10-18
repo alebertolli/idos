@@ -430,8 +430,39 @@ class SiteBuilder:
                 thesis_not_assessed_days = days
                 is_thesis_stale = days > self.stale_days
 
-        # ddd report summary (full thesis for the board)
+        # A DDD report is model output until the manager explicitly approves it.
+        # Do not serialize unreviewed claims into the public Pages data payload.
+        evidence_review = ddd.get("evidence_review") or {}
+        if not isinstance(evidence_review, dict):
+            evidence_review = {}
+        review_status = str(evidence_review.get("status") or "pending_manager_review").strip().lower()
+        reviewer = str(evidence_review.get("reviewed_by") or "").strip()
+        reviewed_at = evidence_review.get("reviewed_at")
+        review_approved = (
+            review_status == "manager_approved"
+            and bool(reviewer)
+            and _parse_dt(reviewed_at) is not None
+        )
+        strategy_context = ddd.get("strategy_context") or {}
+        systematic_report = (
+            isinstance(strategy_context, dict)
+            and bool(opp.get("strategy_id"))
+            and strategy_context.get("strategy_id") == opp.get("strategy_id")
+            and isinstance(strategy_context.get("signal"), dict)
+        )
+        ddd_publishable = review_approved or systematic_report
+
+        # Fundamental DDD conclusions are published only after explicit review;
+        # deterministic strategy reports follow their own typed path.
         ddd_summary = {
+            "evidence_review": {
+                "status": (
+                    "manager_approved" if review_approved
+                    else "systematic_report" if systematic_report
+                    else "pending_manager_review"
+                ),
+                "reviewed_at": reviewed_at if review_approved else None,
+            },
             "categoria": None,
             "clasificacion": {},
             "ratings": {},
@@ -445,7 +476,7 @@ class SiteBuilder:
             "catalizadores": [],
             "evidencia": {},
         }
-        if ddd:
+        if ddd and ddd_publishable:
             cls = ddd.get("clasificacion_oportunidad") or {}
             ddd_summary["categoria"] = cls.get("categoria")
             cls_desc = cls.get("categorias_descartadas") or []
@@ -1445,6 +1476,12 @@ function showCase(oppId){
   html += '</div>';
 
   // Tesis e informe
+  const dddReviewed = d.evidence_review?.status==='manager_approved';
+  const dddSystematic = d.evidence_review?.status==='systematic_report';
+  if(!dddReviewed && !dddSystematic){
+    html += `<h2>Análisis fundamental</h2><div class="card"><b>Informe pendiente de validación del gestor.</b><p class="muted">El detalle DDD no se publica como tesis vigente hasta registrar una revisión atribuible. Las cifras de assessment y la decisión del sistema se muestran por separado y no sustituyen esta validación.</p></div>`;
+  } else {
+  if(dddSystematic) html += `<div class="card"><b>Reporte sistemático.</b><p class="muted">Señal y métricas generadas por reglas de estrategia; no representan una tesis fundamental ni una aprobación de compra.</p></div>`;
   const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;
   html += `<h2>Tesis de inversión</h2>`;
   if(d.resumen_ejecutivo) html += `<div class="card"><div class="muted">Resumen ejecutivo</div><p>${esc(d.resumen_ejecutivo)}</p></div>`;
@@ -1503,6 +1540,7 @@ function showCase(oppId){
   if(d.evidencia?.hechos_verificados?.length){ html += `<h3>Hechos verificados</h3><ul>`; d.evidencia.hechos_verificados.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
   if(d.evidencia?.inferencias_llm?.length){ html += `<h3>Inferencias LLM</h3><ul>`; d.evidencia.inferencias_llm.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
   if(d.evidencia?.preguntas_abiertas?.length){ html += `<h3>Preguntas abiertas</h3><ul>`; d.evidencia.preguntas_abiertas.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
+  }
 
   // Decisión del board + scores
   html += `<h2>Decisión del board</h2>`;
