@@ -10,8 +10,8 @@ assessments:
       type: POSITIVE
     - detail: 'Excellent margins: 34.88%'
       type: POSITIVE
-    generated_at: '2026-10-18T11:04:05.103998-03:00'
-    id: BusinessAssessmentEngine-20261018110405
+    generated_at: '2026-10-18T11:23:05.205075-03:00'
+    id: BusinessAssessmentEngine-20261018112305
     recommendation: NEUTRAL
     risks: []
     score: 66
@@ -23,8 +23,8 @@ assessments:
     engine: PortfolioAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-10-18T11:04:05.104110-03:00'
-    id: PortfolioAssessmentEngine-20261018110405
+    generated_at: '2026-10-18T11:23:05.205185-03:00'
+    id: PortfolioAssessmentEngine-20261018112305
     recommendation: INSUFFICIENT_PORTFOLIO_DATA
     risks:
     - detail: A reconciled private portfolio snapshot is required to assess portfolio
@@ -45,7 +45,7 @@ assessments:
       type: DIMENSION
     - dimension: valuation_gap
       level: MEDIUM
-      score: 50
+      score: 60
       type: DIMENSION
     - dimension: market_expectations
       level: MEDIUM
@@ -63,11 +63,11 @@ assessments:
       level: MEDIUM
       score: 50
       type: DIMENSION
-    generated_at: '2026-10-18T11:04:05.104058-03:00'
-    id: RecoveryAssessmentEngine-20261018110405
+    generated_at: '2026-10-18T11:23:05.205134-03:00'
+    id: RecoveryAssessmentEngine-20261018112305
     recommendation: MODERATE
     risks: []
-    score: 59
+    score: 61
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -93,8 +93,8 @@ assessments:
         unit: percent
       type: INPUT_PROVENANCE
       value: 40.93663797079475
-    generated_at: '2026-10-18T11:04:05.104101-03:00'
-    id: RiskAssessmentEngine-20261018110405
+    generated_at: '2026-10-18T11:23:05.205176-03:00'
+    id: RiskAssessmentEngine-20261018112305
     recommendation: MODERATE_RISK
     risks:
     - detail: 'Moderate leverage: 1.1x'
@@ -111,29 +111,29 @@ assessments:
     dependencies: []
     engine: ValuationAssessmentEngine
     evidence_ids: []
-    findings: []
-    generated_at: '2026-10-18T11:04:05.104018-03:00'
-    id: ValuationAssessmentEngine-20261018110405
+    findings:
+    - detail: 'Price target upside: 27.4%'
+      type: POSITIVE
+    generated_at: '2026-10-18T11:23:05.205096-03:00'
+    id: ValuationAssessmentEngine-20261018112305
     recommendation: FAIR
-    risks:
-    - detail: Current price and analyst target are required for valuation
-      type: DATA_QUALITY
-    score: 50
+    risks: []
+    score: 65
     status: COMPLETED
     version: '1.1'
-conviction_score: 50
-created_at: '2026-10-18T11:04:05.104187-03:00'
-generated_at: '2026-10-18T11:04:05.105489-03:00'
+conviction_score: 54
+created_at: '2026-10-18T11:23:05.205268-03:00'
+generated_at: '2026-10-18T11:23:05.206550-03:00'
 human_approval_required: false
 opportunity_id: OPP-20260807-001
-reasoning: 'Rules blocked: RULE-001, RULE-004, RULE-005, RULE-008'
+reasoning: 'Rules blocked: RULE-001, RULE-004, RULE-005'
 recommendation: BLOCKED
 rules_failed:
 - RULE-001
 - RULE-004
 - RULE-005
-- RULE-008
 rules_passed:
 - RULE-003
+- RULE-008
 status: BLOCKED
 type: opportunity:transitioned

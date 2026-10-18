@@ -3,88 +3,142 @@
 ---
 
 ## 1. Visión General de la Compañía
+**Vista Energy, S.A.B. de C.V.** (anteriormente Vista Oil & Gas) es una compañía independiente de exploración y producción (E&P) de hidrocarburos constituida en 2017 y con sede operativa y legal en Ciudad de México, México. Sus activos operativos y núcleo de generación de valor radican en la cuenca Neuquina, particularmente en la formación de shale de **Vaca Muerta** (Argentina), manteniendo a su vez concesiones y activos de explotación menores en México.
 
-**Vista Energy, S.A.B. de C.V.** (NYSE: VIST; BMV: VIST) es una compañía independiente de exploración y producción (*E&P*) de hidrocarburos no convencionales (*shale*), centrada primordialmente en la formación **Vaca Muerta** dentro de la Cuenca Neuquina (Argentina). Constituida legalmente en la Ciudad de México en 2017 y con sede operativa en Buenos Aires, la firma fue fundada como una Special Purpose Acquisition Company (SPAC) por ex-ejecutivos del sector energético con el objetivo de consolidar activos de alto rendimiento en América Latina.
+El modelo de negocio se basa en la adquisición, desarrollo y explotación no convencional de reservas de petróleo crudo, gas natural y líquidos de gas natural (NGL), monetizándolos a través del abastecimiento a refinerías domésticas, contratos de suministro a distribuidoras y la exportación de crudo hacia mercados internacionales de commodities. 
 
-El modelo de negocio de Vista se focaliza en el desarrollo de bloques de *shale oil* de bajo costo y alta productividad mediante perforación horizontal y fracturación hidráulica multietapa. Sus activos centrales se ubican en la provincia del Neuquén, destacando los bloques **Bajada del Palo Oeste** (su principal motor de producción), **Bajada del Palo Este**, **Aguada Federal** y **Bandurria Norte**. La compañía extrae principalmente crudo liviano (*Medanito*), acompañado de gas natural y líquidos asociados (NGL), orientando sus ventas tanto al mercado refinador doméstico argentino como a la exportación a través de terminales en el Océano Atlántico.
+Dentro del ecosistema energético de transporte y exportación de hidrocarburos de la región, la dinámica de evacuación de producto de Vista se relaciona con desarrollos de infraestructura y proyectos globales de GNL, sector en el que operan pares energéticos y de midstream/downstream como [[GLNG]].
 
 ---
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Drivers de Ingresos y Cadena de Valor
-1. **Volumen de Producción Neta (boe/d)**: Crecimiento orgánico sostenido mediante la perforación de pozos horizontales (ramas laterales superiores a 2.800 metros y alta intensidad de fractura).
-2. **Precios Realizados**: Determinados por la cotización internacional del crudo Brent, ajustados por descuentos locales o paridad de exportación (*export parity*). Más del 50% de las ventas de crudo se canalizan gradualmente hacia el mercado internacional.
-3. **Eficiencia en Infraestructura y Evacuación**: Capacidad de transporte contratada en sistemas troncales de oleoductos hacia Puerto Rosales/Bahía Blanca.
+### Cadena de Valor y Drivers de Ingreso
+La cadena operativa de Vista comprende:
+1. **Adquisición de derechos y acreage:** Acceso a bloques exploratorios y de explotación en la cuenca Neuquina (concesiones clave en Vaca Muerta).
+2. **Desarrollo y perforación:** Uso intensivo de técnicas de fractura hidráulica y pozos horizontales para maximizar rendimientos unitarios.
+3. **Producción, recolección y tratamiento:** Procesamiento inicial de fluidos a boca de pozo.
+4. **Transporte/Evacuación:** Conexión con sistemas de oleoductos (ej. consorcio Oldelval) y facilidades de almacenaje/puerto.
+5. **Comercialización:** Distribución local y venta transfronteriza de petróleo ligero.
 
-### Análisis de Ventaja Competitiva (*Moat*)
-El foso económico de Vista Energy está catalogado como **estrecho** (*narrow moat*), sustentado exclusivamente en una **ventaja en costos operativos y geológicos**:
-* **Calidad de Acreage (Tier-1)**: Sus pozos en Bajada del Palo Oeste se sitúan entre los más productivos de América Latina, con curvas de declinación y producción acumulada comparables a los mejores *sweet spots* del *Permian Basin* en Estados Unidos.
-* **Costos de Extracción Lideres (*Lifting Cost*)**: La compañía opera con un costo de extracción unitario de **$4,5 - $5,0 por barril equivalente de petróleo (/boe)**, ubicándola en el primer cuartil de la curva global de costos de la industria.
-* **Ausencia de Poder de Fijación de Precios**: Como cualquier operador E&P puro, Vista es tomadora de precios (*price-taker*) de materias primas; sin embargo, su estructura de costos le confiere rentabilidad operativa con precios de equilibrio (*breakeven*) de Brent en el rango de $45–$50/bbl.
+Los principales drivers de ingresos son el volumen diario producido medido en barriles equivalentes de petróleo por día (**boe/d**), la velocidad de perforación/conexión de pozos (tie-in) y los precios netback realizados frente a marcadores internacionales (Brent/WTI).
 
-### Dinámica Competitiva e Industria
-En Vaca Muerta, Vista compite y coopera operativamente con la petrolera de mayoría estatal [[YPF]], así como con filiales de grandes multinacionales (Chevron, Shell, TotalEnergies, Pan American Energy). A diferencia de [[YPF]], Vista opera libre de mandatos de política pública doméstica (subsidios cruzados a combustibles o refinación deficitaria), lo que le permite concentrar el 100% de su capital en el desarrollo no convencional más rentable. En el plano de la infraestructura de evacuación y desarrollo de gas licuado en Argentina, comparte dinámicas de sector y desafíos de transporte con operadores orientados al downstream y midstream como [[GLNG]].
+### Análisis de Foso Competitivo (Moat)
+* **Clasificación del Moat:** *Estrecho (Narrow Moat)*.
+* **Fuentes de Ventaja:** Vista opera en uno de los bloques de shale de menor costo de extracción (lifting cost) fuera de América del Norte. Sus derechos superficiales y reservas de alta productividad proveen ventajas de costo geológico frente a cuencas maduras convencionales.
+* **Limitaciones:** Carece de poder de fijación de precios al ser un productor de commodities puros sujeto a benchmarks globales y marcos regulatorios locales (controles domésticos de precios de combustibles y restricciones cambiarias en Argentina).
+* **Posición Competitiva:** Retador operativo (*pure-play* independiente ágil) frente al operador estatal dominante YPF en la cuenca de Vaca Muerta.
 
 ---
 
 ## 3. Perfil Financiero
 
-La compañía transita por una fase de reinversión agresiva de capital financiada con su propia generación de caja operativa, manteniendo una política de endeudamiento conservadora.
+### Métricas Clave (TTM / Estado Actual)
+Vista combina altos márgenes operativos con un balance desapalancado, producto de un estricto control de costes y reinversión intensiva en pozos de alto retorno:
 
-### Métricas Clave
-
-| Métrica Financiera | Valor Reportado / TTM | Contexto / Benchmark |
+| Métrica | Valor Reportado / Estimado | Comentarios |
 | :--- | :--- | :--- |
-| **Crecimiento de Ingresos (YoY)** | 24,09% | Impulsado por aumento de volumen en Vaca Muerta |
-| **Margen Operativo** | 34,88% | Reflejo del bajo *lifting cost* y apalancamiento operativo |
-| **ROIC** | 14,21% | Retorno sobre capital invertido superior al costo de capital |
-| **Margen EBITDA** | > 65% | Perfil de rentabilidad líder entre E&P independientes |
-| **Deuda Neta / EBITDA** | < 0,8x | Balance desapalancado frente a pares de mercados emergentes |
-| **Deuda / Fondos Propios (D/E)** | ~0,01x | Estructura financiera con bajo apalancamiento contable |
-| **FCF Yield** | ~0% (Neutral) | Reabsorbido por Capex de expansión de capacidad |
-| **PER** | 9,34x | Descuento relevante frente a pares de EE.UU. (>12x) |
-| **EV / EBITDA** | 5,22x | Múltiplo castigado por prima de riesgo soberano |
+| **ROIC** | 14.21% | Creación de valor neta por encima del coste de capital estimado. |
+| **Margen Operativo** | 34.88% | Rentabilidad operativa robusta en extracción de shale. |
+| **Crecimiento de Ingresos (YoY)** | 24.09% – 24.30% | Impulsado por el incremento de volumen en Vaca Muerta. |
+| **Deuda / Fondos Propios (D/E)** | ~0.01x | Balance prácticamente sin apalancamiento neto. |
+| **P/E (PER)** | 9.34x – 9.71x | Descuento visible frente a pares globales de E&P. |
+| **EV / EBITDA** | 5.22x | Múltiplo comprimido atribuible al riesgo soberano argentino. |
+| **Conversión / Yield FCF** | 0.0% – 4.5% | Supeditado a reinversión agresiva de capital de desarrollo. |
 
-*Datos verificados a través de reportes financieros consolidados de la compañía.*
-
-### Estructura de Capital y Asignación de Flujo
-* **Reinversión**: El Flujo de Caja Libre (*FCF*) contable se mantiene temporalmente en niveles neutrales debido a que el flujo operativo se redirige en su totalidad a pozos de desarrollo e instalaciones de tratamiento central (*Central Processing Facilities*).
-* **Perfil de Deuda**: Emisiones diversificadas en el mercado local argentino (obligaciones negociables denominadas en USD vinculadas al tipo de cambio oficial a tasas reducidas) y bonos internacionales sénior, con vencimientos escalonados que mitigan el riesgo de refinanciación a corto plazo.
+### Estructura de Capital y Liquidez
+La compañía mantiene una política de apalancamiento conservadora (D/E de ~0.01x). A pesar de la elevada generación de EBITDA, el Free Cash Flow (FCF) contable reportado a corto plazo se encuentra absorbido por el programa acelerado de gastos de capital (CAPEX) destinado a la infraestructura de perforación y ampliación de transporte.
 
 ---
 
 ## 4. Management y Gobierno Corporativo
-
-* **Liderazgo Ejecutivo**: Encabezado por **Miguel Galuccio**, Chairman y CEO. Galuccio cuenta con trayectoria internacional previa en Schlumberger y fue el artífice de la refundación técnica de [[YPF]] (2012–2016), donde introdujo las primeras operaciones no convencionales a escala comercial en Vaca Muerta.
-* **Alineación de Intereses**: Alta participación accionaria directa de fundadores y equipo directivo, complementada con programas de compensación basados en acciones a largo plazo sujetos a métricas de retorno sobre capital y crecimiento de reservas.
-* **Ejecución Operativa**: Desde su salida a bolsa en 2018, la dirección ha cumplido o batido sus guías anuales de reducción de costos de perforación/completación por pie lateral y de adición de reservas probadas (1P).
+* **Liderazgo y Antigüedad:** El perfil de la alta gerencia refleja transiciones recientes en roles clave de liderazgo ejecutivo (antigüedad registrada de 0 años en métricas recientes de la dirección ejecutiva), si bien el equipo fundador posee un historial operativo probado en el sector energético latinoamericano.
+* **Alineación de Insiders:** La tenencia de acciones reportada por parte de miembros internos (*insiders*) es nula o moderada según las fuentes públicas, lo que genera dudas sobre la alineación directa a largo plazo mediante equidad patrimonial.
+* **Asignación de Capital:** Históricamente disciplinada; se ha priorizado la autofinanciación del plan de perforación en Vaca Muerta y el pago de obligaciones sin recurrir a endeudamiento lesivo bajo condiciones macroeconómicas adversas en Argentina.
+* **Gobierno Corporativo:** Sociedad Anónima Bursátil de Capital Variable (S.A.B. de C.V.) cotizada en México y en la NYSE (vía ADRs), sujeta a estándares de reporte duales, aunque con información ESG pública aún limitada.
 
 ---
 
 ## 5. Tesis de Inversión
 
-La tesis clasifica a Vista Energy como un **Compounder Castigado** (*mispriced compounder*):
+### Clasificación: Compounder de Recursos No Convencionales
+La hipótesis de inversión contraria sostiene que el mercado penaliza excesivamente a Vista Energy aplicando un descuento excesivo por riesgo país (Argentina), ignorando la calidad técnica de sus reservas y la rápida expansión de su capacidad de transporte.
 
-### Hipótesis Central
-El mercado valora a Vista aplicando un múltiplo de activo en liquidación o ciclo bajo (EV/EBITDA ~5,2x y PER ~9,3x) debido principalmente al riesgo soberano argentino, el régimen histórico de control de cambios (*cepo*) y el escepticismo sobre la capacidad de repatriar dividendos. Esta valoración omite que Vista es un operador de bajo costo con geología de nivel mundial y balance robusto, capaz de generar retornos sostenidos sobre el capital invertido (ROIC > 14%).
+```
+       Crecimiento de Capacidad (85k-100k boe/d)
+                         +
+  Desembotellamiento de Midstream (Oldelval)
+                         +
+   Normalización Cambiaria / Menor Riesgo País
+                         │
+                         ▼
+           Descompresión de Múltiplos
+        (Re-rating hacia pares de E&P)
+```
 
-### Pilares Fundamentales
-1. **Calidad de Activos de Clase Mundial**: El costo de extracción (<$5/boe) y los rendimientos iniciales de los pozos en Bajada del Palo Oeste sitúan a Vista a la par de los operadores más eficientes de la Cuenca Pérmica estadounidense, confiriéndole resiliencia operativa ante fluctuaciones moderadas del crudo.
-2. **Descompresión del Cuello de Botella Midstream**: Los proyectos de infraestructura troncal en desarrollo desbloquean la capacidad de evacuación de Vaca Muerta, permitiendo elevar la producción hacia el objetivo estratégico de **100.000 boe/d** para 2026-2027.
-3. **Punto de Inflexión de Caja Libre (*FCF Harvesting*)**: La meseta de gasto intensivo de capital transformará el EBITDA incremental en generación sustancial de FCF una vez que la capacidad instalada alcance la escala operativa objetivo.
+### Hechos Confirmados
+1. Generación de retornos sobre capital invertido (ROIC) del 14.21% y márgenes operativos cercanos al 35%, demostrando rentabilidad unitaria superior al promedio regional.
+2. Inexistencia de presión de deuda a corto plazo (D/E de 0.01x), reduciendo sustancialmente el riesgo de quiebra financiera ante caídas cíclicas de precios.
+3. Múltiplos deprimidos (EV/EBITDA de 5.22x y PER ~9.5x) que descuentan un escenario de estancamiento o expropiación regulatoria.
+
+### Hipótesis Inversionista
+* **Descompresión Macroeconómica:** La estabilización monetaria en Argentina y una eventual flexibilización de los controles de capital permitirán el acceso directo al flujo de caja en divisas duras.
+* **Economías de Escala en Vaca Muerta:** Al escalar la producción hacia los 85,000–100,000 boe/d entre 2025 y 2026, los costos fijos por barril se diluirán aún más, disparando la conversión a FCF libre una vez estabilizado el CAPEX intensivo.
 
 ---
 
 ## 6. Riesgos y Contra-Tesis
 
-### Caso Bajista y Principales Riesgos
-1. **Riesgo Macroeconómico y Cambiario Soberano**: 
-   * Restricciones para el acceso y remesa de divisas al exterior dictadas por el Banco Central de la República Argentina (BCRA).
-   * Eventual reinstauración de derechos de exportación (*retenciones*) o fijación artificial de precios en refinerías locales (*barril criollo*).
-2. **Ciclo de Precios de Commodities**: 
-   * Una caída prolongada del crudo Brent por debajo de los $55/bbl reduciría la rentabilidad marginal de los pozos de expansión y retrasaría los plazos de amortización de capex.
-3. **Inflación Local en Dólares y Cadena de Suministro**:
+### Riesgos Clave
+* **Riesgo Cambiario y Soberano (Argentina):** Imposición de restricciones a la remesa de dividendos o transferencias de divisas al exterior, sumado a posibles tipos de cambio oficiales desfavorables para la liquidación de exportaciones.
+* **Cuellos de Botella de Evacuación:** Retrasos en las obras de infraestructura de transporte por oleoducto (especialmente los proyectos de Oldelval), lo que obligaría a cerrar pozos o limitar la producción planificada.
+* **Volatilidad de Commodities:** Caída sostenida del precio internacional del crudo por debajo de los costes marginales de desarrollo local ($70/bbl o inferior).
+* **Riesgo Operativo / Geológico:** Problemas en la declinación de pozos o fallas en la ejecución de fracturas hidráulicas masivas.
+
+### Triggers de Falsación (Criterios de Salida)
+1. **Ruptura de la Eficiencia de Capital:** Caída estructural del ROIC por debajo del 10%.
+2. **Fracaso de Expansión:** Incapacidad de superar los 70,000 boe/d para fines de 2025 atribuible a problemas de reservorio o fallas de ejecución interna.
+3. **Deterioro de Balance:** Incremento del apalancamiento neto por encima de 2.0x EBITDA destinado a compensar déficit de caja operativo.
+
+---
+
+## 7. Catalizadores y Timeline
+
+| Hito / Catalizador | Plazo Estimado | Probabilidad | Impacto Potencial |
+| :--- | :--- | :--- | :--- |
+| **Ampliación de Transporte Oldelval:** Puesta en marcha completa de la infraestructura que duplica la capacidad de evacuación de crudo desde Neuquén. | Corto plazo | 85% | **Alto:** Elimina el principal cuello de botella físico de crecimiento. |
+| **Hito Operativo de 85,000 boe/d:** Confirmación en reportes trimestrales de 2025 del run-rate de producción proyectado. | Medio plazo (2025) | 75%–78% | **Alto:** Valida el objetivo de 100,000 boe/d para 2026 y apalanca el flujo de caja. |
+| **Normalización Cambiaria en Argentina:** Levantamiento de controles cambiarios (*cepo*) y unificación del tipo de cambio. | Medio plazo | 60% | **Medio / Alto:** Permite la expansión del múltiplo de valoración (re-rating soberano). |
+
+---
+
+## 8. Marco de Valoración
+
+El enfoque adecuado para Vista Energy combina el múltiplo de flujo operativo (**EV/EBITDA**) y el valor presente de activos probados y probables bajo régimen de flujo de caja descontado (DCF/NAV).
+
+### Escenarios de Valoración
+
+```
+[Bajista: $80 MXN] ◄────── [Caso Base: $115 MXN] ──────► [Alcista: $150 MXN]
+  Crudo <$70/bbl              Crudo ~$80/bbl              Crudo >$90/bbl
+  Retrasos Oldelval          Ejecución del Plan          Aceleración Vaca Muerta
+```
+
+* **Caso Base (Probabilidad 60%):** Cumplimiento progresivo de la curva de producción en Vaca Muerta hacia ~85k boe/d, precio promedio del crudo en $80/bbl, CAPEX contenido según guía corporativa. 
+  * *Precio Objetivo Estimado:* **$115.0 MXN / equivalente ADR**.
+* **Caso Alcista (Probabilidad 20%):** Aceleración de perforación, precios de crudo >$90/bbl, eliminación completa de trabas cambiarias y ampliación exitosa de exportaciones de gas natural. 
+  * *Precio Objetivo Estimado:* **$150.0 MXN / equivalente ADR**.
+* **Caso Bajista (Probabilidad 20%):** Precios del crudo cayendo por debajo de $70/bbl, retrasos de infraestructura que frenen la producción en niveles actuales y mayores cargas impositivas/regulatorias en Argentina.
+  * *Precio Objetivo Estimado:* **$80.0 MXN / equivalente ADR**.
+* **Valor Intrínseco Estimado (Ponderado):** **~$115.0 – $120.0 MXN**, lo que representa un margen de seguridad razonable frente a los niveles deprimidos por múltiplos históricos de riesgo país.
+
+---
+
+## 9. Preguntas Abiertas y Agenda de Investigación
+1. **Estructura y Gobernanza de Compensación:** ¿Qué esquemas de remuneración a largo plazo y paquetes de stock options se han fijado para retener al equipo ejecutivo actual y mitigar la falta de *insider ownership* directo?
+2. **Detalle Técnico de Deuda:** ¿Bajo qué jurisdicciones y covenants legales se estructurarían eventuales líneas de crédito de reserva destinadas a cubrir programas de perforación imprevistos?
+3. **Planes de Expansión de Gas Natural vs. Crudo:** ¿Qué porcentaje de la producción futura estará ligado al consumo interno de gas respecto al crudo de exportación ligera, y cómo impacta el desarrollo de plantas licuefactoras de GNL en la cuenca?
+4. **Métricas y Divulgación ESG:** ¿Cuáles son las metas oficiales de intensidad de carbono por barril extraído (Scope 1 y 2) y las políticas formales de manejo de agua residual en las fracturas hidráulicas de Neuquén?
 
 ---
 
