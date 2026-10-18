@@ -2,6 +2,7 @@ from typing import Any, Optional
 
 import yfinance as yf
 
+from idos.data.risk_metrics import enrich_price_risk, normalize_debt_equity
 from idos.workers.base import BaseWorker, WorkerResult, WorkerStatus
 
 
@@ -22,7 +23,7 @@ class YahooFinanceWorker(BaseWorker):
         stock = yf.Ticker(ticker)
 
         info = stock.info or {}
-        history = stock.history(period=period)
+        history = stock.history(period=period, auto_adjust=True)
 
         data: dict[str, Any] = {
             "ticker": ticker,
@@ -71,6 +72,8 @@ class YahooFinanceWorker(BaseWorker):
         if not history.empty:
             prices = history["Close"].tolist()
             volumes = history["Volume"].tolist()
+            data["price_history_source"] = "yfinance"
+            data["price_history_adjustment"] = "split_and_dividend_adjusted"
             data["price_history"] = prices
             data["volume_history"] = volumes
             data["price_history_dates"] = [str(d.date()) for d in history.index]
@@ -97,4 +100,4 @@ class YahooFinanceWorker(BaseWorker):
             )
 
         data = {k: v for k, v in data.items() if v is not None}
-        return data
+        return enrich_price_risk(normalize_debt_equity(data))

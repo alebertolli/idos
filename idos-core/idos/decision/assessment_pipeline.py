@@ -4,6 +4,7 @@ import json
 import yaml
 
 from idos.data.sqlite import SQLiteStore
+from idos.data.risk_metrics import enrich_price_risk, normalize_debt_equity
 from idos.data.knowledge import KnowledgeRepository
 from idos.data.journal import JournalRepository
 from idos.decision.orchestrator import DecisionOrchestrator, DecisionProposal
@@ -223,6 +224,7 @@ def build_context(
             "dynamic": {
                 "metrics": metrics,
                 "metric_availability": financial.get("_risk_metric_availability", {}),
+                "risk_metric_provenance": financial.get("risk_metric_provenance", {}),
             },
             "static": static,
         },
@@ -273,6 +275,7 @@ _NUMERIC_KEYS = {"pe_ratio", "pe_ratio_ttm", "pe_historical_avg", "peg_ratio", "
     "operating_margin", "roic"}
 
 def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:
+    normalize_debt_equity(data)
     _aliases = {"pe_ratio_ttm": "pe_ratio", "peg_ratio_ttm": "peg_ratio",
                 "short_pct_of_float": "short_interest_pct",
                 "eps_growth_this_year_pct": "eps_growth",
@@ -295,10 +298,6 @@ def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:
         v = data.get(k)
         if isinstance(v, (int, float)) and is_yahoo_format:
             data[k] = v * 100
-    de = data.get("debt_equity_ratio")
-    if isinstance(de, (int, float)):
-        if de > 1:
-            data["debt_equity_ratio"] = de / 100
     return data
 
 def _enrich_roic(data: dict[str, Any]) -> dict[str, Any]:
@@ -330,18 +329,6 @@ def _warn_missing_metrics(ticker: str, data: dict[str, Any], source: str = "fina
     return warnings
 
 def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
-    try:
-        row = sqlite.conn.execute(
-            "SELECT data_json FROM events_log WHERE data_json LIKE ? OR correlation_id LIKE ? ORDER BY timestamp DESC LIMIT 1",
-            (f"%{ticker}%", f"%{ticker}%"),
-        ).fetchone()
-        if row:
-            try:
-                return _attach_risk_metric_availability(json.loads(row[0]))
-            except (json.JSONDecodeError, TypeError):
-                pass
-    except Exception:
-        pass
     import json
     from pathlib import Path
     for cache_path in [
@@ -354,7 +341,7 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
                 if data:
                     if "merged_data" in data:
                         data = data["merged_data"]
-                    data = _attach_risk_metric_availability(data)
+                    data = _attach_risk_metric_availability(enrich_price_risk(data))
                     data = _normalize_decimal_pcts(data)
                     data = _enrich_roic(data)
                     _warn_missing_metrics(ticker, data, "cache")
@@ -370,7 +357,7 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
             (Path("cache") / f"{ticker}.json").write_text(
                 json.dumps(result, default=str, indent=2), encoding="utf-8"
             )
-            result = _attach_risk_metric_availability(result)
+            result = _attach_risk_metric_availability(enrich_price_risk(result))
             result = _normalize_decimal_pcts(result)
             result = _enrich_roic(result)
             _warn_missing_metrics(ticker, result, "stockanalysis.com live")

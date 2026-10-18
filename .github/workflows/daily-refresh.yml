@@ -5,6 +5,11 @@ on:
     - cron: "0 8 * * 1-5"
   workflow_dispatch:
     inputs:
+      tickers:
+        description: "Subset E2E separado por comas; vacio refresca watchlist, Research y Buy List"
+        required: false
+        type: string
+        default: ""
       run_portfolio_simulation:
         description: "Ejecutar Paper Trader, riesgo y salidas simuladas"
         required: false
@@ -45,33 +50,9 @@ jobs:
       - name: Install
         run: pip install -e idos-core
       - name: Refresh data
-        run: |
-          python -c "
-          import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
-          from idos.workers.data.refresh_worker import DataRefreshWorker
-          from idos.workers.data.cache import DataCache
-          from pathlib import Path
-          import os, json, yaml
-          from datetime import datetime
-          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
-          wl_path = Path('idos-journal/portfolio/watchlist.yml')
-          if wl_path.exists():
-              wl_data = yaml.safe_load(wl_path.read_text(encoding='utf-8'))
-              tickers = [e['ticker'] for e in wl_data.get('entries', []) if e.get('ticker')]
-          else:
-              tickers = []
-          print(f'[REFRESH] Loading {len(tickers)} tickers from watchlist.yml')
-          refresher = DataRefreshWorker({'universe_path': ''})
-          r = refresher.execute({'tickers': tickers})
-          print(f'[REFRESH] Processed: {r.output.get(\"tickers_processed\", 0)} tickers')
-          errors = r.output.get('errors', [])
-          if errors:
-              for e in errors:
-                  print(f'[REFRESH] Error: {e}')
-          Path('cache').mkdir(parents=True, exist_ok=True)
-          summary = {'refreshed_at': str(datetime.now()), 'tickers': tickers, 'errors': errors}
-          with open('cache/last_refresh.json','w') as f: json.dump(summary, f, indent=2)
-          "
+        env:
+          REFRESH_TICKERS: ${{ inputs.tickers }}
+        run: python scripts/refresh_daily_data.py
       - name: Populate earnings calendar from yfinance cache
         run: |
           python -c "

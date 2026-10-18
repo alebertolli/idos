@@ -9,6 +9,7 @@ from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.knowledge import KnowledgeRepository
 from idos.data.sqlite import SQLiteStore
+from idos.data.risk_metrics import enrich_price_risk, normalize_debt_equity
 from idos.models.enums import OpportunityStatus, HypothesisStatus, HypothesisPriority
 from idos.models.knowledge import Hypothesis, Prediction, FalsificationCondition
 from idos.state.machine import OpportunityStateMachine
@@ -456,12 +457,15 @@ class ResearchWorker(BaseWorker):
         # The configured strategy range is 0.6..2.7. Keep the score bounded and
         # preserve the raw signal so the decision can be reproduced later.
         signal_score = max(0, min(100, round(momentum / 2.7 * 100))) if momentum else 0
-        volatility = financial.get("volatility_90d") or financial.get("volatility")
+        import math
+        volatility = financial.get("volatility_90d")
         try:
-            volatility = float(volatility)
+            volatility = float(volatility) if not isinstance(volatility, bool) else math.nan
         except (TypeError, ValueError):
-            volatility = 0
-        risk_rating = "alto_riesgo" if volatility >= 45 else "medio_riesgo" if volatility >= 25 else "bajo_riesgo"
+            volatility = math.nan
+        known_volatility = math.isfinite(volatility) and volatility >= 0 and financial.get("_risk_metric_availability", {}).get("volatility_90d", True)
+        risk_rating = ("alto_riesgo" if volatility >= 45 else "medio_riesgo" if volatility >= 25 else "bajo_riesgo") if known_volatility else "datos_insuficientes"
+        volatility_text = f"{volatility:.1f}%" if known_volatility else "UNKNOWN (historial ajustado vigente no disponible)"
         thesis = f"{ticker}: exposición sistemática a momentum mensual; la señal actual es {momentum:.2f}."
         return {
             "clasificacion_oportunidad": {
@@ -495,7 +499,7 @@ class ResearchWorker(BaseWorker):
             "dominio_growth": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
             "dominio_esg_supply_chain": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
             "opinion_valoracion": "No aplica: la entrada se decide por señal y rebalanceo.",
-            "resumen_ejecutivo": f"Momentum mensual {momentum:.2f}; score normalizado {signal_score}/100; volatilidad 90d {volatility:.1f}%.",
+            "resumen_ejecutivo": f"Momentum mensual {momentum:.2f}; score normalizado {signal_score}/100; volatilidad 90d {volatility_text}.",
             "calidad_evidencia": {
                 "hechos_verificados": [f"Señal momentum mensual: {momentum:.2f}", f"Fecha de señal: {signal.get('as_of_date', 'N/A')}"],
                 "inferencias_llm": [],
@@ -736,21 +740,6 @@ class ResearchWorker(BaseWorker):
 
     def _load_financial_data(self, ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
         data: dict[str, Any] = {}
-        try:
-            for row in sqlite.conn.execute(
-                "SELECT data_json FROM events_log WHERE event_type LIKE ? AND data_json LIKE ? ORDER BY timestamp DESC LIMIT 1",
-                (f"%{ticker}%", f"%{ticker}%"),
-            ):
-                import json
-                try:
-                    data = json.loads(row[0])
-                except (json.JSONDecodeError, IndexError):
-                    pass
-        except Exception:
-            pass
-        if data:
-            self._warn_missing_financial(ticker, data, "SQLite")
-            return data
         from pathlib import Path
         import json
         for cache_path in [
@@ -763,7 +752,7 @@ class ResearchWorker(BaseWorker):
                     if raw:
                         if "merged_data" in raw:
                             raw = raw["merged_data"]
-                        raw = self._normalize_decimal_pcts(raw)
+                        raw = self._normalize_decimal_pcts(enrich_price_risk(raw))
                         raw = self._enrich_roic(raw)
                         self._warn_missing_financial(ticker, raw, "cache")
                         return raw
@@ -779,7 +768,7 @@ class ResearchWorker(BaseWorker):
                 (cache_dir / f"{ticker}.json").write_text(
                     json.dumps(result, default=str, indent=2), encoding="utf-8"
                 )
-                result = self._normalize_decimal_pcts(result)
+                result = self._normalize_decimal_pcts(enrich_price_risk(result))
                 result = self._enrich_roic(result)
                 self._warn_missing_financial(ticker, result, "stockanalysis live")
                 return result
@@ -790,6 +779,7 @@ class ResearchWorker(BaseWorker):
 
     @staticmethod
     def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:
+        normalize_debt_equity(data)
         _aliases = {"pe_ratio_ttm": "pe_ratio", "peg_ratio_ttm": "peg_ratio"}
         for src, dst in _aliases.items():
             if src in data and (dst not in data or data[dst] is None):
@@ -822,10 +812,6 @@ class ResearchWorker(BaseWorker):
             v = data.get(k)
             if isinstance(v, (int, float)) and is_yahoo_format:
                 data[k] = v * 100
-        de = data.get("debt_equity_ratio")
-        if isinstance(de, (int, float)):
-            if de > 1:
-                data["debt_equity_ratio"] = de / 100
         return data
 
     @staticmethod

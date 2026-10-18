@@ -2,6 +2,7 @@ import re
 from pathlib import Path
 from typing import Any, Optional
 
+from idos.data.risk_metrics import enrich_price_risk
 from idos.data.sqlite import SQLiteStore
 from idos.data.knowledge import KnowledgeRepository
 from idos.resilience.error_manager import (
@@ -135,14 +136,16 @@ class DataRefreshWorker(BaseWorker):
                         )
 
                     try:
-                        hist = yf.Ticker(ticker).history(period="1y")
+                        hist = yf.Ticker(ticker).history(period="1y", auto_adjust=True)
                         if not hist.empty:
                             prices = hist["Close"].tolist()
                             volumes = hist["Volume"].tolist()
                             dates = [str(d.date()) for d in hist.index]
-                            merged.setdefault("price_history", prices)
-                            merged.setdefault("volume_history", volumes)
-                            merged.setdefault("price_history_dates", dates)
+                            merged["price_history"] = prices
+                            merged["volume_history"] = volumes
+                            merged["price_history_dates"] = dates
+                            merged["price_history_source"] = "yfinance"
+                            merged["price_history_adjustment"] = "split_and_dividend_adjusted"
                             last_date = db.get_last_price_date(ticker)
                             new_rows = []
                             for i in range(len(prices)):
@@ -167,6 +170,7 @@ class DataRefreshWorker(BaseWorker):
                             category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
                             message=f"yfinance history fallo: {e}",
                         )
+                    enrich_price_risk(merged)
                     results[ticker] = validated
                     self.cache.set(
                         f"merged:{ticker}",

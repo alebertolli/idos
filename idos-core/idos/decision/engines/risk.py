@@ -5,7 +5,7 @@ from idos.decision.engines.base import BaseAssessmentEngine, AssessmentResult
 
 class RiskAssessmentEngine(BaseAssessmentEngine):
     name = "RiskAssessmentEngine"
-    version = "1.1"
+    version = "1.2"
 
     def evaluate(self, context: dict[str, Any]) -> AssessmentResult:
         knowledge_base = context.get("knowledge_base", {})
@@ -48,6 +48,12 @@ class RiskAssessmentEngine(BaseAssessmentEngine):
         debt_equity = metric("debt_to_equity")
         volatility = metric("volatility_90d")
         current_ratio = metric("current_ratio")
+        provenance = dynamic.get("risk_metric_provenance", {})
+        volatility_evidence = provenance.get("volatility_90d") if isinstance(provenance, dict) else None
+        if isinstance(volatility_evidence, dict):
+            findings.append({"type": "INPUT_PROVENANCE", "metric": "volatility_90d",
+                             "value": volatility, "provenance": volatility_evidence,
+                             "detail": f"90-session annualized volatility: {volatility if volatility is not None else 'UNKNOWN'}%; status {volatility_evidence.get('status', 'UNKNOWN')}"})
 
         if debt_equity is not None and debt_equity > 2:
             score -= 20
