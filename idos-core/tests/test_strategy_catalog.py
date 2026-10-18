@@ -61,6 +61,12 @@ def test_multibaggers_policy_is_disabled_and_configured():
         "market_confirmation": 0.15,
     }
 
+    import yaml
+
+    universe_path = Path(__file__).parents[1].parent / "idos-config" / "universe" / "multibaggers.yml"
+    universe = yaml.safe_load(universe_path.read_text(encoding="utf-8"))
+    assert "avg_dollar_volume_min_usd" not in universe
+
 
 def test_strategy_metadata_round_trips_through_sqlite(tmp_path: Path):
     store = SQLiteStore(tmp_path / "idos.db")
