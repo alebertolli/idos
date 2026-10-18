@@ -1479,7 +1479,7 @@ function showCase(oppId){
   const dddReviewed = d.evidence_review?.status==='manager_approved';
   const dddSystematic = d.evidence_review?.status==='systematic_report';
   if(!dddReviewed && !dddSystematic){
-    html += `<h2>Análisis fundamental</h2><div class="card"><b>Informe pendiente de validación del gestor.</b><p class="muted">El detalle DDD no se publica como tesis vigente hasta registrar una revisión atribuible. Las cifras de assessment y la decisión del sistema se muestran por separado y no sustituyen esta validación.</p></div>`;
+    html += `<h2>Análisis fundamental</h2><div class="card"><b>Informe pendiente de validación del gestor.</b><p class="muted">El detalle DDD no se publica como tesis vigente hasta registrar una revisión atribuible. Convicción, valor intrínseco, upside y scores de assessment son provisionales: no usarlos para decidir o dimensionar hasta validar sus fuentes. La decisión del sistema se muestra por separado y no sustituye esta validación.</p></div>`;
   } else {
   if(dddSystematic) html += `<div class="card"><b>Reporte sistemático.</b><p class="muted">Señal y métricas generadas por reglas de estrategia; no representan una tesis fundamental ni una aprobación de compra.</p></div>`;
   const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;

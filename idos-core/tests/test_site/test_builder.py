@@ -207,6 +207,7 @@ def test_public_site_withholds_unreviewed_ddd_claims(tmp_path: Path):
     assert "Tesis antigua sin validar" not in payload
     assert "Afirmación que requiere revisión" not in payload
     assert "Informe pendiente de validación del gestor" in app
+    assert "Convicción, valor intrínseco, upside y scores de assessment son provisionales" in app
 
 
 def test_public_site_exposes_ddd_only_after_attributable_manager_approval(tmp_path: Path):
