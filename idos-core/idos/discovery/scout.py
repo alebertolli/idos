@@ -111,13 +111,6 @@ class ScoutEngine:
         return score, is_investable
 
     @staticmethod
-    def _score_liquidity(volume: float) -> tuple[int, bool]:
-        min_vol = 1e6  # $1M minimum
-        is_liquid = volume >= min_vol
-        score = 90 if volume >= 1e6 else (70 if volume >= 500e3 else (50 if volume >= 100e3 else 20))
-        return score, is_liquid
-
-    @staticmethod
     def _score_momentum(rs_3m: float, rs_12m: float, price_vol_trend: float) -> int:
         s = 50
         # 3M relative strength (60% weight)
