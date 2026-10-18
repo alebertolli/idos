@@ -135,11 +135,29 @@ class ResearchWorker(BaseWorker):
         score = ddd_result.get("score_general", 50)
 
         ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
-        ddd_failed = ddd_empty and bool(ddd_result.get("error"))
         if ddd_empty:
             print(f"[WARN] {ticker}: DDD del LLM vacío — score={score}, clasificacion={classification}, error={ddd_result.get('error','')}")
         elif not ddd_empty and score == 50 and not classification and not thesis:
             print(f"[WARN] {ticker}: DDD con valores por defecto (score=50) — LLM no generó análisis real, error={ddd_result.get('error','')}")
+
+        if ddd_empty:
+            failure_reason = ddd_result.get("error") or "DDD returned no usable analysis"
+            event_data = {
+                "opp_id": opp_id,
+                "ticker": ticker,
+                "error": failure_reason,
+                "event_type": event_type,
+                "forced": bool(force_reprocess),
+            }
+            sqlite.log_event("research:failed", event_data)
+            journal.log_event("research:failed", event_data, source="research_worker")
+            return {
+                "ticker": ticker,
+                "opp_id": opp_id,
+                "status": "ddd_failed",
+                "error": failure_reason,
+                "ddd_empty": True,
+            }
 
         ddd_report = {
             "ticker": ticker,
@@ -275,38 +293,26 @@ class ResearchWorker(BaseWorker):
         sqlite.save_opportunity(opp)
 
         if not force_reprocess:
-            if ddd_failed:
-                event_data = {
-                    "opp_id": opp_id, "ticker": ticker,
-                    "score": score, "hypotheses": len(hypotheses),
-                    "classification": classification.get("categoria"),
-                    "error": ddd_result.get("error", "ddd_empty"),
-                }
-                sqlite.log_event("research:failed", event_data)
-                journal.log_event("research:failed", event_data, source="research_worker")
-            else:
-                opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
-                opp["last_research_at"] = datetime.now(AR_TZ).isoformat()
-                sqlite.save_opportunity(opp)
-                journal.save_opportunity(ticker, opp)
-                sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
-                                         cause="research_completed", worker="research_worker")
-                event_data = {
-                    "opp_id": opp_id, "ticker": ticker,
-                    "score": score, "hypotheses": len(hypotheses),
-                    "classification": classification.get("categoria"),
-                }
-                event_data["ddd_empty"] = ddd_empty
-                sqlite.log_event("research:completed", event_data)
-                journal.log_event("research:completed", event_data, source="research_worker")
+            opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
+            opp["last_research_at"] = datetime.now(AR_TZ).isoformat()
+            sqlite.save_opportunity(opp)
+            journal.save_opportunity(ticker, opp)
+            sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
+                                     cause="research_completed", worker="research_worker")
+            event_data = {
+                "opp_id": opp_id, "ticker": ticker,
+                "score": score, "hypotheses": len(hypotheses),
+                "classification": classification.get("categoria"),
+            }
+            sqlite.log_event("research:completed", event_data)
+            journal.log_event("research:completed", event_data, source="research_worker")
         else:
-            if not ddd_failed:
-                opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
-                opp["last_research_at"] = datetime.now(AR_TZ).isoformat()
-                sqlite.save_opportunity(opp)
-                journal.save_opportunity(ticker, opp)
-                sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
-                                         cause="research_completed", worker="research_worker")
+            opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
+            opp["last_research_at"] = datetime.now(AR_TZ).isoformat()
+            sqlite.save_opportunity(opp)
+            journal.save_opportunity(ticker, opp)
+            sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
+                                     cause="research_completed", worker="research_worker")
             event_data = {
                 "opp_id": opp_id, "ticker": ticker,
                 "score": score, "hypotheses": len(hypotheses),
@@ -320,13 +326,13 @@ class ResearchWorker(BaseWorker):
         return {
             "ticker": ticker,
             "opp_id": opp_id,
-            "status": "ddd_failed" if ddd_failed else "completed",
+            "status": "completed",
             "score": score,
             "classification": classification.get("categoria"),
             "market_error_conclusion": market_error.get("conclusion_error_valoracion"),
             "hypotheses_count": len(hypotheses),
             "assessment_id": assessment_id,
-            "ddd_empty": ddd_empty,
+            "ddd_empty": False,
             "target_consensus": consensus,
         }
 

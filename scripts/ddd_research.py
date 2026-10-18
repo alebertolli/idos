@@ -264,7 +264,7 @@ def main():
             'status': 'none', 'event_type': event_type, 'force': force,
             'skipped': skipped_list,
         }, indent=2), encoding='utf-8')
-        sys.exit(0)
+        return 0
 
     print('[DDD] To process: {}'.format(len(opportunities)))
     for o in opportunities:
@@ -309,8 +309,13 @@ def main():
                 'score': r.get('conviction_score', r.get('score')),
                 'reason': opp.get('reason', ''),
             })
-            if status == 'skipped':
-                rw_errors.append({'ticker': ticker, 'opp_id': opp_id, 'reason': r.get('reason', 'skipped')})
+            if status != 'completed':
+                rw_errors.append({
+                    'ticker': ticker,
+                    'opp_id': opp_id,
+                    'status': status,
+                    'error': r.get('error') or r.get('reason') or f'Unexpected ResearchWorker status: {status}',
+                })
         except Exception as e:
             import traceback
             traceback.print_exc()
@@ -322,7 +327,7 @@ def main():
         'skipped': skipped_list,
         'assessments': [],
         'errors': rw_errors,
-        'status': 'research_completed',
+        'status': 'failed' if rw_errors else 'research_completed',
         'event_type': event_type,
         'force': force,
         'stale_days_threshold': STALE_DAYS,
@@ -331,12 +336,13 @@ def main():
     Path('cache/ddd_results.json').write_text(
         json.dumps(results, indent=2), encoding='utf-8'
     )
-    print('\n[DDD] Research completed for {}, errors in {}'.format(
-        len(rw_results), len(rw_errors)))
+    print('\n[DDD] Research {} for {}, errors in {}'.format(
+        'failed' if rw_errors else 'completed', len(rw_results), len(rw_errors)))
+    return 1 if rw_errors else 0
 
 
 if __name__ == '__main__':
     if '--preview' in sys.argv:
         preview()
     else:
-        main()
+        sys.exit(main())

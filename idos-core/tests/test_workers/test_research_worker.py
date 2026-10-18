@@ -46,6 +46,35 @@ def _mock_research_registry() -> MagicMock:
 
 
 class TestResearchWorker:
+    def test_invalid_ddd_preserves_previous_report_and_stops_partial_writes(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        base_path: str,
+        tmp_path: Path,
+    ):
+        ticker, opp_id = seeded_opportunity
+        report_path = (
+            Path(base_path) / "idos-journal" / "companies" / ticker / "case_file"
+            / "opportunities" / opp_id / "ddd_report.yml"
+        )
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        previous_report = "ticker: TEST\nstatus: reviewed\n"
+        report_path.write_text(previous_report, encoding="utf-8")
+
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.registry = _mock_research_registry()
+        worker._run_prompt = MagicMock(return_value={"error": "Failed to parse JSON"})
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "ddd_failed"
+        assert result["error"] == "Failed to parse JSON"
+        assert report_path.read_text(encoding="utf-8") == previous_report
+        assert not (tmp_journal.opportunity_path(ticker, opp_id) / "assessments").exists()
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.SCREENED.value
+
     def test_systematic_ddd_is_signal_specific(self):
         report = ResearchWorker._build_systematic_ddd(
             "XLE",
