@@ -5,8 +5,8 @@ def test_scout_passes_good_company():
     scout = ScoutEngine(min_score=70)
     result = scout.scan("MELI", {
         "metrics": {
-            "market_cap": 50e9,
-            "avg_dollar_volume": 2e6,
+            "market_cap_usd": 50e9,
+            "avg_dollar_volume_usd": 2e6,
             "relative_strength_3m": 80,
             "relative_strength_12m": 70,
             "price_volume_trend": 5,
@@ -24,8 +24,8 @@ def test_scout_rejects_poor_company():
     scout = ScoutEngine(min_score=70)
     result = scout.scan("POOR", {
         "metrics": {
-            "market_cap": 50e6,
-            "avg_dollar_volume": 10e3,
+            "market_cap_usd": 50e6,
+            "avg_dollar_volume_usd": 10e3,
             "relative_strength_3m": -30,
             "relative_strength_12m": -50,
             "price_volume_trend": -5,
@@ -40,9 +40,26 @@ def test_scout_rejects_poor_company():
 
 def test_scout_all_dimensions_scored():
     scout = ScoutEngine()
-    result = scout.scan("TEST", {"metrics": {"market_cap": 10e9, "avg_dollar_volume": 1e6,
+    result = scout.scan("TEST", {"metrics": {"market_cap_usd": 10e9, "avg_dollar_volume_usd": 1e6,
         "relative_strength_3m": 10, "relative_strength_12m": 20,
         "roic": 0.15, "fcf_yield": 0.03, "debt_to_equity": 0.5}})
     assert len(result.details) >= 3
     for dim, s in result.details.items():
         assert 0 <= s <= 100
+
+
+def test_scout_does_not_treat_share_volume_as_dollar_volume():
+    result = ScoutEngine().scan("TEST", {"metrics": {
+        "market_cap": 10e9,
+        "avg_volume": 5_000_000,
+        "volume_avg": 5_000_000,
+        "relative_strength_3m": 80,
+        "relative_strength_12m": 70,
+        "price_volume_trend": 5,
+        "roic": 0.2,
+        "debt_to_equity": 0.2,
+    }})
+
+    assert result.passed is False
+    assert result.details["investability"] == 0
+    assert "unavailable" in result.reason or "dollar volume" in result.reason.lower()

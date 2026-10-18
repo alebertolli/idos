@@ -52,8 +52,8 @@ def test_scout_worker_screen_no_data():
 def test_scout_worker_screen_with_data():
     w = ScoutWorker({"universe_path": "", "min_score": 70})
     result = w._run_scout("MELI", {
-        "market_cap": 100_000_000_000,
-        "volume_avg": 5_000_000,
+        "market_cap_usd": 100_000_000_000,
+        "avg_dollar_volume_usd": 5_000_000,
         "relative_strength_3m": 80,
         "relative_strength_12m": 70,
         "price_volume_trend": 5,
@@ -68,6 +68,23 @@ def test_scout_worker_screen_with_data():
     # Total: 44 + 20 + 22 = 86
     assert result.score >= 70
     assert result.passed is True
+
+
+def test_scout_worker_rejects_share_volume_without_usd_normalization():
+    w = ScoutWorker({"universe_path": "", "min_score": 70})
+    result = w._run_scout("MELI", {
+        "market_cap": 100_000_000_000,
+        "avg_volume": 5_000_000,
+        "volume_avg": 5_000_000,
+        "relative_strength_3m": 80,
+        "relative_strength_12m": 70,
+        "price_volume_trend": 5,
+        "roic_pct": 22.5,
+        "debt_equity_ratio": 0.4,
+    })
+
+    assert result.passed is False
+    assert result.details["investability"] == 0
 
 
 def test_scout_worker_duplicates():

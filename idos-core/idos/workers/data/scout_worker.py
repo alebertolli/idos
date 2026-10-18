@@ -187,8 +187,8 @@ class ScoutWorker(BaseWorker):
             return default
 
         metrics = {
-            "market_cap": _num(financial_data.get("market_cap")),
-            "avg_dollar_volume": _num(financial_data.get("avg_dollar_volume")) or _num(financial_data.get("volume_avg")) or _num(financial_data.get("avg_volume")),
+            "market_cap_usd": _num(financial_data.get("market_cap_usd")),
+            "avg_dollar_volume_usd": _num(financial_data.get("avg_dollar_volume_usd")),
             "pe_ratio": _num(financial_data.get("pe_ratio_ttm")) or _num(financial_data.get("pe_ratio")),
             "ev_ebitda": _num(financial_data.get("ev_ebitda")),
             "roic": _num(financial_data.get("roic_pct")),

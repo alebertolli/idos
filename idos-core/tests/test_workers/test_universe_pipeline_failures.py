@@ -190,6 +190,28 @@ def test_scout_rejects_candidates_missing_critical_inputs(tmp_path):
     assert "relative_strength_3m" in result["missing_critical_metrics"]
 
 
+def test_scout_requires_canonical_usd_liquidity_fields(tmp_path):
+    project_root = Path(__file__).resolve().parents[3]
+    pipeline = UniversePipeline({"config_path": str(project_root / "idos-config")})
+    data = {
+        "market_cap": 10_000_000_000,
+        "avg_volume": 5_000_000,
+        "volume_avg": 5_000_000,
+        "roic_pct": 20,
+        "debt_equity_ratio": 0.2,
+        "relative_strength_3m": 80,
+        "relative_strength_12m": 70,
+        "price_volume_trend": 5,
+    }
+
+    result = pipeline._score_ticker(None, "AAPL", data)
+
+    assert result["passed"] is False
+    assert result["data_quality_valid"] is False
+    assert "market_cap_usd" in result["missing_critical_metrics"]
+    assert "avg_dollar_volume_usd" in result["missing_critical_metrics"]
+
+
 def test_pipeline_preserves_step_errors_in_failed_result(tmp_path, monkeypatch):
     project_root = Path(__file__).resolve().parents[3]
     pipeline = UniversePipeline(

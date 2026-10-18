@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from datetime import datetime
+import math
 from typing import Any
 from idos.timezone import AR_TZ
 
@@ -29,13 +30,14 @@ class ScoutEngine:
         details = {}
 
         # --- INVESTABILITY (filter, not scored into total) ---
-        cap = metrics.get('market_cap', 0)
-        # Support dollar volume in preferred/legacy field names:
-        #   avg_dollar_volume (preferred), volume_avg (legacy), avg_volume (pipeline)
-        dolvol_raw = metrics.get('avg_dollar_volume', 0) or metrics.get('volume_avg', 0) or metrics.get('avg_volume', 0)
-        min_cap = metrics.get('min_market_cap', 2e9)
-        min_dolvol = metrics.get('min_dollar_volume', 100e3)
-        is_investable = cap >= min_cap and dolvol_raw >= min_dolvol
+        # Eligibility requires normalized USD values. Share-volume aliases are
+        # deliberately rejected until the market-data pipeline provides the
+        # canonical, provenance-bearing fields.
+        cap = self._positive_number(metrics.get('market_cap_usd'))
+        dolvol_raw = self._positive_number(metrics.get('avg_dollar_volume_usd'))
+        min_cap = 2e9
+        min_dolvol = 100e3
+        is_investable = cap is not None and dolvol_raw is not None and cap >= min_cap and dolvol_raw >= min_dolvol
         details['investability'] = 100 if is_investable else 0
 
         # --- TRANSITION SCORE (50% weight) ---
@@ -70,12 +72,12 @@ class ScoutEngine:
         # --- DIAGNOSTIC BREAKDOWN ---
         reasons: list[str] = []
         if not is_investable:
-            cap = metrics.get('market_cap', 0)
-            dolvol_raw = metrics.get('avg_dollar_volume', 0) or metrics.get('volume_avg', 0) or metrics.get('avg_volume', 0)
-            if cap < 2e9:
+            cap = cap or 0
+            dolvol_raw = dolvol_raw or 0
+            if cap < min_cap:
                 reasons.append(f'Market cap ${cap:,.0f} < minimum $2B')
-            if dolvol_raw < 100e3:
-                reasons.append(f'Dollar volume ${dolvol_raw:,.0f} < minimum ${100e3:,.0f}')
+            if dolvol_raw < min_dolvol:
+                reasons.append(f'Dollar volume ${dolvol_raw:,.0f} < minimum ${min_dolvol:,.0f} or unavailable')
         elif score < self.min_score:
             reasons.append(f'Score {score} < threshold {self.min_score}')
         else:
@@ -101,6 +103,13 @@ class ScoutEngine:
             flags=flags,
             scanned_at=datetime.now(AR_TZ).isoformat(),
         )
+
+    @staticmethod
+    def _positive_number(value: Any) -> float | None:
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            return None
+        number = float(value)
+        return number if math.isfinite(number) and number > 0 else None
 
     @staticmethod
     def _score_market_cap(cap: float) -> tuple[int, bool]:

@@ -379,8 +379,8 @@ class UniversePipeline(BaseWorker):
             return default
 
         metrics = {
-            "market_cap": _num(data.get("market_cap")),
-            "avg_dollar_volume": _num(data.get("avg_dollar_volume")) or _num(data.get("volume_avg")) or _num(data.get("avg_volume")),
+            "market_cap_usd": _num(data.get("market_cap_usd")),
+            "avg_dollar_volume_usd": _num(data.get("avg_dollar_volume_usd")),
             "pe_ratio": _num(data.get("pe_ratio_ttm")) or _num(data.get("pe_ratio")),
             "ev_ebitda": _num(data.get("ev_ebitda")),
             "roic": _num(data.get("roic_pct")),
@@ -391,12 +391,12 @@ class UniversePipeline(BaseWorker):
             "relative_strength_12m": _num(data.get("relative_strength_12m")) if data.get("relative_strength_12m") is not None else None,
             "price_volume_trend": _num(data.get("price_volume_trend")) if data.get("price_volume_trend") is not None else None,
         }
-        required = ("market_cap", "avg_dollar_volume", "roic", "debt_to_equity",
+        required = ("market_cap_usd", "avg_dollar_volume_usd", "roic", "debt_to_equity",
                     "relative_strength_3m", "relative_strength_12m", "price_volume_trend")
         missing = [
             key for key in required
             if metrics[key] is None
-            or (key in ("market_cap", "avg_dollar_volume") and metrics[key] <= 0)
+            or (key in ("market_cap_usd", "avg_dollar_volume_usd") and metrics[key] <= 0)
         ]
         if missing:
             return {
