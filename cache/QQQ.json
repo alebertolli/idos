@@ -1,4 +1,8 @@
 {
+  "asset_type": "etf",
+  "aum": 498945982464,
+  "aum_currency": "USD",
+  "aum_source": "yfinance",
   "avg_dollar_volume_usd": 26611354401.419067,
   "avg_volume": 49693774.10358566,
   "dividend_yield_pct": 0.42,
@@ -48,8 +52,9 @@
   "ma_50d": 726.7734,
   "market_data_normalization": {
     "status": "blocked",
+    "size_metric": "aum_usd",
     "errors": [
-      "Market cap value, explicit currency or market date missing"
+      "ETF AUM requires a positive value, explicit currency, source and as-of date"
     ],
     "liquidity_basis": "UNDERLYING_USD_PROXY",
     "exchange_calendar": "NGM"
@@ -830,6 +835,18 @@
       "yfinance"
     ],
     "field_sources": {
+      "asset_type": [
+        "yfinance"
+      ],
+      "aum": [
+        "yfinance"
+      ],
+      "aum_currency": [
+        "yfinance"
+      ],
+      "aum_source": [
+        "yfinance"
+      ],
       "avg_dollar_volume_usd": [
         "yfinance"
       ],
