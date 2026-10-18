@@ -75,6 +75,12 @@ jobs:
           r = refresher.execute({'tickers': tickers})
           print(f'[REFRESH] Processed: {r.output.get(\"tickers_processed\", 0)} tickers')
           errors = r.output.get('errors', [])
+          for ticker, item in (r.output.get('data') or {}).items():
+              merged = item.get('merged_data', item) if isinstance(item, dict) else {}
+              gate = merged.get('market_data_normalization', {}) if isinstance(merged, dict) else {}
+              provenance = merged.get('liquidity_provenance', {}) if isinstance(merged, dict) else {}
+              errors_for_ticker = gate.get('errors', []) if isinstance(gate, dict) else []
+              print(f'[MARKET-GATE] {ticker}: status={gate.get("status", "unavailable")}; market_cap_usd={merged.get("market_cap_usd")}; avg_dollar_volume_usd={merged.get("avg_dollar_volume_usd")}; basis={provenance.get("basis", gate.get("liquidity_basis", "unavailable"))}; errors={errors_for_ticker}')
           if errors:
               for e in errors:
                   print(f'[REFRESH] Error: {e}')
@@ -377,17 +383,18 @@ jobs:
           fi
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add cache/last_refresh.json 2>/dev/null || true
-          git add cache/*.json 2>/dev/null || true
+          python -m idos.market.public_cache
+          git add cache/earnings_trigger.json 2>/dev/null || true
           git add idos-config/events/earnings.yml 2>/dev/null || true
           git add idos-journal/portfolio/buylist.yml 2>/dev/null || true
-          git add idos-journal/paper/ 2>/dev/null || true
           git add ":(glob)idos-journal/**/wyckoff/**" 2>/dev/null || true
           git add ":(glob)idos-knowledge/**/wyckoff/**" 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "chore: daily data refresh $(date +%Y-%m-%d)"
+            # Generated portfolio and signal files are transient on this runner.
+            git stash push --include-untracked -m 'daily refresh transient portfolio outputs'
             git fetch origin "$TARGET_BRANCH"
             git rebase "origin/$TARGET_BRANCH"
             git push origin "HEAD:$TARGET_BRANCH"
@@ -402,4 +409,3 @@ jobs:
           name: daily-refresh-${{ github.run_id }}
           path: |
             cache/last_refresh.json
-            cache/*.json
