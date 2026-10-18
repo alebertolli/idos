@@ -80,7 +80,14 @@ jobs:
               gate = merged.get('market_data_normalization', {}) if isinstance(merged, dict) else {}
               provenance = merged.get('liquidity_provenance', {}) if isinstance(merged, dict) else {}
               errors_for_ticker = gate.get('errors', []) if isinstance(gate, dict) else []
-              print(f'[MARKET-GATE] {ticker}: status={gate.get("status", "unavailable")}; market_cap_usd={merged.get("market_cap_usd")}; avg_dollar_volume_usd={merged.get("avg_dollar_volume_usd")}; basis={provenance.get("basis", gate.get("liquidity_basis", "unavailable"))}; errors={errors_for_ticker}')
+              gate_summary = {
+                  'status': gate.get('status', 'unavailable'),
+                  'market_cap_usd': merged.get('market_cap_usd'),
+                  'avg_dollar_volume_usd': merged.get('avg_dollar_volume_usd'),
+                  'basis': provenance.get('basis', gate.get('liquidity_basis', 'unavailable')),
+                  'errors': errors_for_ticker,
+              }
+              print('[MARKET-GATE] ' + ticker + ': ' + json.dumps(gate_summary, sort_keys=True))
           if errors:
               for e in errors:
                   print(f'[REFRESH] Error: {e}')
