@@ -8,6 +8,7 @@ def test_cross_validate_single_source():
     })
     assert result["merged_data"]["pe_ratio"] == 25.0
     assert len(result["conflicts"]) == 0
+    assert result["field_sources"]["pe_ratio"] == ["sa"]
 
 
 def test_cross_validate_agreement():
@@ -18,6 +19,17 @@ def test_cross_validate_agreement():
     })
     assert abs(result["merged_data"]["pe_ratio"] - 24.5) < 0.1
     assert len(result["conflicts"]) == 0
+
+
+def test_cross_validate_tracks_provenance_for_each_field():
+    result = DataValidator().cross_validate({
+        "stockanalysis.com": {"market_cap": 100_000_000_000, "roic_pct": 18.0},
+        "yfinance": {"market_cap": 102_000_000_000},
+    })
+
+    assert result["source_count"] == 2
+    assert result["field_sources"]["market_cap"] == ["stockanalysis.com", "yfinance"]
+    assert result["field_sources"]["roic_pct"] == ["stockanalysis.com"]
 
 
 def test_cross_validate_conflict():
