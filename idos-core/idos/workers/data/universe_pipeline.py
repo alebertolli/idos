@@ -1,4 +1,5 @@
 import time
+import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
@@ -152,11 +153,15 @@ class UniversePipeline(BaseWorker):
 
         print(f"[PIPELINE] Fetching {len(to_fetch)} new tickers...")
         max_workers = self.config.get("max_fetch_workers", 5)
-        refresher = DataRefreshWorker(self.config)
+        worker_local = threading.local()
         valid_fetched = []
 
         def fetch_one(ticker):
-            return ticker, refresher.execute({"tickers": [ticker]})
+            # Each DataRefreshWorker owns a SQLiteStore connection. Construct it
+            # in the worker thread and reuse it only on that same thread.
+            if not hasattr(worker_local, "refresher"):
+                worker_local.refresher = DataRefreshWorker(self.config)
+            return ticker, worker_local.refresher.execute({"tickers": [ticker]})
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {executor.submit(fetch_one, t): t for t in to_fetch}

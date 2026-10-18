@@ -121,52 +121,32 @@ class DataRefreshWorker(BaseWorker):
                         )
                     validated = self.validator.cross_validate(source_data)
                     merged = validated.get("merged_data", validated)
-                    try:
-                        import yfinance as yf
-                        yf_ticker = yf.Ticker(ticker)
-                        yfinfo = yf_ticker.info or {}
-                        et = yfinfo.get("earningsTimestamp")
-                        if et:
-                            merged["next_earnings_date"] = et
-                    except Exception as e:
-                        self.error_manager.report(
-                            category=CATEGORY_DATOS, severity=SEVERITY_LOW, ticker=ticker,
-                            message=f"yfinance info fallo: {e}",
-                        )
-
-                    try:
-                        hist = yf.Ticker(ticker).history(period="1y")
-                        if not hist.empty:
-                            prices = hist["Close"].tolist()
-                            volumes = hist["Volume"].tolist()
-                            dates = [str(d.date()) for d in hist.index]
-                            merged.setdefault("price_history", prices)
-                            merged.setdefault("volume_history", volumes)
-                            merged.setdefault("price_history_dates", dates)
-                            last_date = db.get_last_price_date(ticker)
-                            new_rows = []
-                            for i in range(len(prices)):
-                                d = dates[i]
-                                if last_date and d <= last_date:
-                                    continue
-                                new_rows.append({
-                                    "date": d,
-                                    "close": prices[i],
-                                    "volume": volumes[i] if i < len(volumes) else 0,
-                                })
-                            if new_rows:
-                                db.save_price_history(ticker, new_rows)
-                                print(f"[REFRESH] {ticker}: {len(new_rows)} nuevos registros en price_history desde yfinance directo")
-                        else:
+                    yf_raw = source_data.get("yfinance", {})
+                    if yf_raw.get("next_earnings_date"):
+                        merged.setdefault("next_earnings_date", yf_raw["next_earnings_date"])
+                    history = self._extract_price_history(yf_raw)
+                    if history is None:
+                        # StockAnalysis does not currently provide aligned daily history.
+                        # Fetch it only when the Yahoo worker was not already the source.
+                        try:
+                            import yfinance as yf
+                            hist = yf.Ticker(ticker).history(period="1y")
+                            if not hist.empty:
+                                history = {
+                                    "prices": hist["Close"].tolist(),
+                                    "volumes": hist["Volume"].tolist(),
+                                    "dates": [str(d.date()) for d in hist.index],
+                                }
+                        except Exception as e:
                             self.error_manager.report(
                                 category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
-                                message="sin price_history desde yfinance directo (1y vacio)",
+                                message=f"yfinance history fallo: {e}",
                             )
-                    except Exception as e:
-                        self.error_manager.report(
-                            category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
-                            message=f"yfinance history fallo: {e}",
-                        )
+                    if history:
+                        merged.setdefault("price_history", history["prices"])
+                        merged.setdefault("volume_history", history["volumes"])
+                        merged.setdefault("price_history_dates", history["dates"])
+                        self._save_price_history(db, ticker, history)
                     results[ticker] = validated
                     self.cache.set(
                         f"merged:{ticker}",
@@ -180,28 +160,7 @@ class DataRefreshWorker(BaseWorker):
                     (cache_dir / f"{ticker}.json").write_text(
                         json.dumps(merged if "merged_data" in validated else validated, default=str, indent=2), encoding="utf-8"
                     )
-                    self._save_company_info(ticker)
-                    last_date = db.get_last_price_date(ticker)
-                    yf_raw = source_data.get("yfinance", {})
-                    prices = yf_raw.get("price_history", [])
-                    dates = yf_raw.get("price_history_dates", [])
-                    volumes = yf_raw.get("volume_history", [])
-                    if prices and dates and len(prices) == len(dates):
-                        new_rows = []
-                        for i in range(len(prices)):
-                            d = dates[i]
-                            if last_date and d <= last_date:
-                                continue
-                            new_rows.append({
-                                "date": d,
-                                "close": prices[i],
-                                "volume": volumes[i] if i < len(volumes) else 0,
-                            })
-                        if new_rows:
-                            db.save_price_history(ticker, new_rows)
-                            print(f"[REFRESH] {ticker}: {len(new_rows)} nuevos registros en price_history")
-                    else:
-                        print(f"[REFRESH] {ticker}: sin price_history de yfinance")
+                    self._save_company_info(ticker, merged)
                 else:
                     msg = "no data from any source"
                     self.error_manager.report(
@@ -223,7 +182,27 @@ class DataRefreshWorker(BaseWorker):
             "data": results,
         }
 
-    def _save_company_info(self, ticker: str):
+    @staticmethod
+    def _extract_price_history(data: dict[str, Any]) -> dict[str, list] | None:
+        prices = data.get("price_history", [])
+        dates = data.get("price_history_dates", [])
+        volumes = data.get("volume_history", [])
+        if not prices or not dates or len(prices) != len(dates):
+            return None
+        return {"prices": prices, "dates": dates, "volumes": volumes}
+
+    @staticmethod
+    def _save_price_history(db: SQLiteStore, ticker: str, history: dict[str, list]) -> None:
+        last_date = db.get_last_price_date(ticker)
+        rows = [
+            {"date": date, "close": price, "volume": history["volumes"][i] if i < len(history["volumes"]) else 0}
+            for i, (date, price) in enumerate(zip(history["dates"], history["prices"]))
+            if not last_date or date > last_date
+        ]
+        if rows:
+            db.save_price_history(ticker, rows)
+
+    def _save_company_info(self, ticker: str, info: dict[str, Any] | None = None):
         try:
             from pathlib import Path
             import yaml
@@ -233,9 +212,7 @@ class DataRefreshWorker(BaseWorker):
                 existing = yaml.safe_load(company_file.read_text(encoding="utf-8")) or {}
                 if existing.get("sector"):
                     return
-            import yfinance as yf
-            tk = yf.Ticker(ticker)
-            info = tk.info or {}
+            info = info or {}
             resolved = (info.get("symbol") or ticker).upper().strip()
             if resolved != ticker:
                 print(f"[WARN] {ticker}: yfinance resolved to {resolved}, skipping yfinance company info")

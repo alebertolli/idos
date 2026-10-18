@@ -33,3 +33,25 @@ def test_refresh_worker_empty_context():
     w = DataRefreshWorker()
     result = w.run({"tickers": []})
     assert result["tickers_processed"] == 0
+
+
+def test_refresh_worker_reuses_aligned_yahoo_history():
+    history = DataRefreshWorker._extract_price_history({
+        "price_history": [10.0, 11.0],
+        "price_history_dates": ["2026-01-01", "2026-01-02"],
+        "volume_history": [100, 120],
+    })
+
+    assert history == {
+        "prices": [10.0, 11.0],
+        "dates": ["2026-01-01", "2026-01-02"],
+        "volumes": [100, 120],
+    }
+
+
+def test_refresh_worker_rejects_misaligned_yahoo_history():
+    assert DataRefreshWorker._extract_price_history({
+        "price_history": [10.0],
+        "price_history_dates": [],
+        "volume_history": [],
+    }) is None
