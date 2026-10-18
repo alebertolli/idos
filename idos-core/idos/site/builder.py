@@ -555,6 +555,10 @@ class SiteBuilder:
                     "horizonte": c.get("horizonte"),
                     "impacto": c.get("impacto"),
                     "probabilidad_pct": c.get("probabilidad_pct"),
+                    "status": c.get("status", "active"),
+                    "confirmed_on": c.get("confirmed_on"),
+                    "status_reason": c.get("status_reason"),
+                    "sources": c.get("sources") if isinstance(c.get("sources"), list) else [],
                 }
                 for c in (ddd.get("dominio_catalizadores") or []) if isinstance(c, dict)
             ]
@@ -1217,17 +1221,18 @@ async function boot(){
 }
 
 function esc(s){ if(s===null||s===undefined) return '—'; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function sourceLink(source){
+  try{
+    const u=new URL(String(source?.url||''));
+    if(!['http:','https:'].includes(u.protocol)) return '';
+    const href=u.href.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    return `<a href="${href}" target="_blank" rel="noopener noreferrer">${esc(source.title||u.hostname)}</a> <span class="muted">(${esc(source.source_date||'fecha s/d')})</span>`;
+  }catch(_){return '';}
+}
 function evidenceItem(item){
   if(!item||typeof item!=='object') return esc(item);
   const sources=Array.isArray(item.sources)?item.sources:[];
-  const links=sources.map(source=>{
-    try{
-      const u=new URL(String(source.url||''));
-      if(!['http:','https:'].includes(u.protocol)) return '';
-      const href=u.href.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-      return `<a href="${href}" target="_blank" rel="noopener noreferrer">${esc(source.title||u.hostname)}</a> <span class="muted">(${esc(source.source_date||'fecha s/d')})</span>`;
-    }catch(_){return '';}
-  }).filter(Boolean);
+  const links=sources.map(sourceLink).filter(Boolean);
   return `${esc(item.statement||'Afirmación sin texto')} <span class="muted">[${esc(item.period||'periodo s/d')} · ${esc(item.unit||'unidad s/d')}]</span>${links.length?`<br>Fuentes: ${links.join(' · ')}`:''}`;
 }
 function fmt(n, d=2){ if(n===null||n===undefined||isNaN(n)) return '—'; return n.toLocaleString('es-AR',{minimumFractionDigits:d, maximumFractionDigits:d}); }
@@ -1537,7 +1542,7 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">Decisión propuesta</div><div style="font-size:18px">${esc(decision||'—')}</div><div class="muted">${esc(o.proposal?.status||o.decision?.author||'')} · ${esc(o.proposal?.reason||o.proposal?.reasoning||'')}</div></div>`;
   html += '</div>';
   if(d.research_status==='FAILED') html += `<div class="alert high"><b>Investigación DDD fallida.</b> ${esc(d.research_error||'Respuesta vacía o incompleta; assessment detenido.')}</div>`;
-  if(d.evidence_gate_blocked) html += `<div class="alert high" role="alert"><b>Evidencia pendiente: no usar este análisis ni sus catalizadores para decidir.</b> RULE-010 falló por falta de trazabilidad o vigencia suficiente. Revise individualmente las fuentes, fechas y afirmaciones antes de considerar la oportunidad.</div>`;
+  if(d.evidence_gate_blocked) html += `<div class="alert high" role="alert"><b>Evidencia pendiente: no usar este análisis ni sus catalizadores para decidir.</b> RULE-010 no aprobó los requisitos de trazabilidad, vigencia y estado de catalizadores. Revise individualmente las fuentes y fechas antes de considerar la oportunidad.</div>`;
 
   // Tesis e informe
   const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;
@@ -1553,9 +1558,18 @@ function showCase(oppId){
   else if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>${systematic?'Score normalizado de estrategia':'Score DDD'}:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
   if(d.catalizadores?.length){
     html += `<h3>${d.evidence_gate_blocked?'Catalizadores · pendientes de validación':'Catalizadores'}</h3>`;
-    if(d.evidence_gate_blocked) html += `<p class="muted">El gate de evidencia no confirmó fuente y fecha de revisión vigentes para los catalizadores activos. No asumir que son actuales ni que se cumplirán.</p>`;
-    html += `<table><thead><tr><th>Catalizador</th><th>Horizonte</th><th>Impacto</th><th>Prob.</th></tr></thead><tbody>`;
-    d.catalizadores.forEach(c=>html+=`<tr><td>${esc(c.descripcion)}</td><td>${esc(c.horizonte)}</td><td>${esc(c.impacto)}</td><td>${c.probabilidad_pct!=null?pct(c.probabilidad_pct):'—'}</td></tr>`);
+    if(d.evidence_gate_blocked) html += `<p class="muted">No hay un catalizador futuro activo con fuente y fecha de revisión aprobadas. Los hitos completados o en revisión se identifican por separado; no asumir que son expectativas futuras.</p>`;
+    html += `<table><thead><tr><th>Catalizador</th><th>Estado</th><th>Horizonte</th><th>Impacto</th><th>Prob.</th></tr></thead><tbody>`;
+    d.catalizadores.forEach(c=>{
+      const status=c.status||'active';
+      const statusLabel=status==='completed'?`Completado · confirmado ${dt(c.confirmed_on)}`:status==='needs_review'?'En revisión':'Activo';
+      const statusTone=status==='completed'?'pos':status==='needs_review'?'neg':'muted';
+      const probability=status==='active'&&c.probabilidad_pct!=null?pct(c.probabilidad_pct):'—';
+      const sources=(c.sources||[]).map(sourceLink).filter(Boolean);
+      const note=c.status_reason?`<br><span class="muted">${esc(c.status_reason)}</span>`:'';
+      const sourceText=sources.length?`<br>Fuentes: ${sources.join(' · ')}`:'';
+      html+=`<tr><td>${esc(c.descripcion)}${note}${sourceText}</td><td class="${statusTone}">${esc(statusLabel)}</td><td>${esc(c.horizonte)}</td><td>${esc(c.impacto)}</td><td>${probability}</td></tr>`;
+    });
     html += '</tbody></table>';
   }
 

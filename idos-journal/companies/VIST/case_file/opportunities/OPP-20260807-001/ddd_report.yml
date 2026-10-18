@@ -1,10 +1,33 @@
 calidad_evidencia:
-  hechos_verificados:
-  - ROIC 14.21%, Operating Margin 34.88%, Revenue Growth 24.09% (TTM)
-  - PER 9.34, EV/EBITDA 5.22
-  - Deuda neta prácticamente nula (D/E ~0.01)
-  - Activos principales en Vaca Muerta, Argentina y México
-  - Objetivo de producción 85k‑100k boe/d para 2025‑2026
+  hechos_reportados:
+  - statement: La producción total promedio durante 2025 fue 115,479 boe/d.
+    period: FY2025
+    unit: boe/d
+    sources:
+    - title: Vista Energy — resultados FY2025 y 4T2025, SEC Exhibit 1
+      url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526071646/d946648dex1.htm
+      source_date: '2026-02-25'
+  - statement: La producción total del 4T2025 fue 135,414 boe/d y la producción de petróleo fue 118,285 bbl/d.
+    period: Q4 2025
+    unit: boe/d y bbl/d
+    sources:
+    - title: Vista Energy — resultados FY2025 y 4T2025, SEC Exhibit 1
+      url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526071646/d946648dex1.htm
+      source_date: '2026-02-25'
+  - statement: La producción total del 2T2026 fue 156,061 boe/d; el crecimiento interanual reportado combinó 20% de crecimiento orgánico y 12% por consolidación de participaciones adquiridas.
+    period: Q2 2026
+    unit: boe/d y porcentaje interanual
+    sources:
+    - title: Vista Energy — resultados 2T2026, SEC Exhibit 1
+      url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526306139/d151775dex1.htm
+      source_date: '2026-07-16'
+  - statement: Oldelval Duplicar estaba en operación y el transporte en camiones se había eliminado hacia el cierre del 1T2025.
+    period: Q1 2025
+    unit: estado operativo
+    sources:
+    - title: Vista Energy — resultados FY2025 y 4T2025, SEC Exhibit 1
+      url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526071646/d946648dex1.htm
+      source_date: '2026-02-25'
   inferencias_llm:
   - El bajo apalancamiento permite mayor flexibilidad de inversión
   - El riesgo cambiario argentino es el principal factor de descuento del mercado
@@ -59,24 +82,23 @@ comparativa_catalizadores:
 - delta_pct: 0
   descripcion: Puesta en marcha completa de la ampliación de capacidad de transporte
     de Oldelval (Duplicar), eliminando el cuello de botella de evacuación.
-  estado: vigente
-  nota_comparacion: Se mantiene la misma probabilidad y sigue siendo un catalizador
-    clave.
-  probabilidad_actual: 85
+  estado: completado
+  nota_comparacion: El filing FY2025 indica que Duplicar estaba operativo y que el transporte en camiones se había eliminado hacia el cierre del 1T2025; no es catalizador futuro.
+  probabilidad_actual: null
   probabilidad_anterior: 85
 - delta_pct: 0
   descripcion: Alcanzar el hito operativo de 85,000 boe/d en 2025, demostrando ejecución
     de plan estratégico 2026 de 100k boe/d.
-  estado: vigente
-  nota_comparacion: Objetivo sigue en el mismo nivel de confianza.
-  probabilidad_actual: 75
+  estado: completado
+  nota_comparacion: La producción promedio FY2025 fue 115,479 boe/d y la de 4T2025 fue 135,414 boe/d; no es un catalizador futuro.
+  probabilidad_actual: null
   probabilidad_anterior: 75
 - delta_pct: 0
   descripcion: Normalización del régimen cambiario en Argentina y compresión de prima
     de riesgo soberano / corporativo.
-  estado: vigente
-  nota_comparacion: Riesgo macro sigue siendo relevante; la probabilidad no ha variado.
-  probabilidad_actual: 60
+  estado: requiere_revision
+  nota_comparacion: No tiene métrica de cumplimiento, fecha de revisión ni fuente suficiente para tratarlo como catalizador activo; conservar como factor de riesgo macro hasta nueva investigación.
+  probabilidad_actual: null
   probabilidad_anterior: 60
 dominio_business_quality:
   analisis: La posición en Vaca Muerta brinda acceso a una de las reservas de shale
@@ -88,18 +110,34 @@ dominio_business_quality:
 dominio_catalizadores:
 - descripcion: Puesta en marcha completa de la ampliación de capacidad de transporte
     de Oldelval (duplicar capacidad de evacuación).
+  status: completed
+  confirmed_on: '2026-02-25'
+  status_reason: Informe FY2025 informa que Duplicar quedó operativo y eliminó el transporte en camiones hacia el cierre del 1T2025.
+  sources:
+  - title: Vista Energy — resultados FY2025 y 4T2025, SEC Exhibit 1
+    url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526071646/d946648dex1.htm
+    source_date: '2026-02-25'
   horizonte: corto
   impacto: alto
   nivel_confianza: alto
   probabilidad_pct: 85
 - descripcion: Alcanzar el hito operativo de 85,000 boe/d en 2025, demostrando ejecución
     del plan estratégico de 100k boe/d para 2026.
+  status: completed
+  confirmed_on: '2026-02-25'
+  status_reason: El promedio de producción total FY2025 fue 115,479 boe/d y el promedio de 4T2025 fue 135,414 boe/d; el cumplimiento del umbral queda confirmado, aunque el informe no fecha el día exacto en que se cruzó.
+  sources:
+  - title: Vista Energy — resultados FY2025 y 4T2025, SEC Exhibit 1
+    url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526071646/d946648dex1.htm
+    source_date: '2026-02-25'
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
   probabilidad_pct: 75
 - descripcion: Normalización del régimen cambiario en Argentina y compresión de la
     prima de riesgo soberano/corporativo.
+  status: needs_review
+  status_reason: No tiene métrica de cumplimiento, fecha de revisión ni fuente suficiente para tratarlo como catalizador activo; conservar como factor de riesgo macro hasta nueva investigación.
   horizonte: medio
   impacto: medio
   nivel_confianza: medio
@@ -170,6 +208,11 @@ error_mercado:
     se estabilice el entorno cambiario argentino. La combinación de bajo apalancamiento,
     alta rentabilidad y próximos hitos operacionales sugiere una subvaloración significativa.
 generated_at: '2026-10-18T11:21:56.653091-03:00'
+evidence_review:
+  reviewed_at: '2026-10-18T11:54:52-03:00'
+  method: assisted_primary_source_check
+  status: pending_manager_confirmation
+  note: Se corrigieron hitos pasados con filings oficiales SEC; no se verificaron la tesis completa, valoración, riesgo macro ni afirmaciones no incluidas en hechos_reportados.
 integridad_tesis:
   flags: []
   reason: ''

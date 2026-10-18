@@ -199,9 +199,24 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
         },
         "dominio_catalizadores": [{
             "descripcion": "Production target for 2025",
+            "status": "completed",
+            "confirmed_on": "2026-02-25",
+            "status_reason": "FY2025 filing confirms production above the target.",
+            "sources": [{
+                "title": "FY2025 results",
+                "url": "https://example.com/fy2025",
+                "source_date": "2026-02-25",
+            }],
             "horizonte": "medium",
             "impacto": "high",
             "probabilidad_pct": 75,
+        }, {
+            "descripcion": "FX regime normalization",
+            "status": "needs_review",
+            "status_reason": "No active evidence or measurable event.",
+            "horizonte": "medium",
+            "impacto": "medium",
+            "probabilidad_pct": 60,
         }],
         "calidad_evidencia": {"hechos_reportados": [{
             "statement": "Revenue grew 12%",
@@ -214,6 +229,8 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
     site = SiteBuilder(tmp_path).build()
     public_opp = next(o for o in site.opportunities if o["ticker"] == "AAA")
     assert public_opp["ddd"]["evidence_gate_blocked"] is True
+    assert public_opp["ddd"]["catalizadores"][0]["status"] == "completed"
+    assert public_opp["ddd"]["catalizadores"][1]["status"] == "needs_review"
     assert site.positions == []
     assert site.ledger == []
     assert site.portfolio == {}
@@ -242,13 +259,19 @@ def test_public_build_omits_paper_positions(tmp_path: Path, monkeypatch):
     assert "Revenue grew 12%" in published_artifacts
     assert "evidence_gate_blocked" in published_artifacts
     assert "Evidencia pendiente: no usar este análisis ni sus catalizadores para decidir." in published_artifacts
+    assert "RULE-010 no aprobó los requisitos de trazabilidad, vigencia y estado de catalizadores" in published_artifacts
     assert "Score DDD y opinión de valoración omitidos" in published_artifacts
     assert "Análisis DDD · hipótesis pendiente de validación" in published_artifacts
     assert "Catalizadores · pendientes de validación" in published_artifacts
+    assert "No hay un catalizador futuro activo con fuente y fecha de revisión aprobadas." in published_artifacts
     assert "Hipótesis de mercado · no validada" in published_artifacts
     assert "Consenso supuesto · no validado" in published_artifacts
     assert "catalizador_cambio?.descripcion && !d.evidence_gate_blocked" in published_artifacts
     assert "Dominios DDD · análisis no validado" in published_artifacts
+    assert "Completado · confirmado" in published_artifacts
+    assert "En revisión" in published_artifacts
+    assert "Fuentes: " in published_artifacts
+    assert "status==='active'&&c.probabilidad_pct!=null" in published_artifacts
 
 
 def test_public_opportunity_explains_unknown_risk_and_omits_private_portfolio_fit(tmp_path: Path):
