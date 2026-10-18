@@ -358,3 +358,83 @@ def test_strategy_signal_reports_expose_run_scope_and_latest_generated_report(tm
     assert signal["eligible_universe_count"] == 7
     assert "Prueba parcial" in app_js
     assert "no interpretar como señal global" in app_js
+
+
+def test_market_data_provenance_ignores_malformed_source_and_refresh_lists(tmp_path: Path):
+    import json
+
+    builder = _builder()
+    builder.cache = tmp_path / "cache"
+    builder.cache.mkdir()
+    (builder.cache / "AAA.json").write_text(
+        json.dumps({"data_provenance": {"sources_used": None, "field_sources": {}}}),
+        encoding="utf-8",
+    )
+    (builder.cache / "last_refresh.json").write_text(
+        json.dumps({"tickers": None, "refreshed_at": "2026-10-18T12:00:00Z"}),
+        encoding="utf-8",
+    )
+
+    provenance = builder._load_data_provenance("AAA", "2026-10-18")
+
+    assert provenance["sources_used"] == []
+    assert provenance["source_count"] == 0
+    assert provenance["refreshed_at"] is None
+
+
+def test_market_data_provenance_ignores_non_object_refresh_cache(tmp_path: Path):
+    import json
+
+    builder = _builder()
+    builder.cache = tmp_path / "cache"
+    builder.cache.mkdir()
+    (builder.cache / "AAA.json").write_text(
+        json.dumps({"data_provenance": {"sources_used": ["Yahoo"], "source_count": 1}}),
+        encoding="utf-8",
+    )
+    (builder.cache / "last_refresh.json").write_text("[]", encoding="utf-8")
+
+    provenance = builder._load_data_provenance("AAA")
+
+    assert provenance["sources_used"] == ["Yahoo"]
+    assert provenance["refreshed_at"] is None
+
+
+def test_public_site_exposes_market_provenance_and_single_source_alert(tmp_path: Path):
+    import json
+
+    _write_ddd_case(tmp_path, review=None)
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    (cache / "VIST.json").write_text(
+        json.dumps({
+            "price_history": [12.5],
+            "price_history_dates": ["2026-10-18"],
+            "data_provenance": {
+                "source_count": 1,
+                "sources_used": ["yfinance"],
+                "field_sources": {"price_history": ["yfinance"]},
+                "conflicts": [],
+            },
+        }),
+        encoding="utf-8",
+    )
+    (cache / "last_refresh.json").write_text(
+        json.dumps({"tickers": ["VIST"], "refreshed_at": "2026-10-18T12:00:00Z"}),
+        encoding="utf-8",
+    )
+
+    site = SiteBuilder(tmp_path).build()
+    opportunity = next(item for item in site.opportunities if item["ticker"] == "VIST")
+    alerts = site.dashboard["alerts"]
+    output = write_site(tmp_path, tmp_path / "site-output")
+    payload = json.loads((output / "data.json").read_text(encoding="utf-8"))
+    app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+
+    assert opportunity["market_data"]["sources_used"] == ["yfinance"]
+    assert opportunity["market_data"]["field_sources"] == {"price_history": ["yfinance"]}
+    assert opportunity["market_data"]["refreshed_at"] == "2026-10-18T12:00:00Z"
+    assert any(a["ticker"] == "VIST" and "una sola fuente" in a["message"] for a in alerts)
+    assert payload["opportunities"][0]["market_data"]["source_count"] == 1
+    assert "Procedencia por campo" in app
+    assert "Dato / fuentes" in app

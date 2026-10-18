@@ -296,6 +296,61 @@ class SiteBuilder:
                 prices[t] = {"date": r["date"], "price": r["close"]}
         return prices
 
+    def _load_data_provenance(self, ticker: str, price_date: str | None = None) -> dict:
+        """Expose only source metadata from the public market-data cache."""
+        cache_path = self.cache / f"{ticker.upper()}.json"
+        raw: dict[str, Any] = {}
+        if cache_path.exists():
+            try:
+                parsed = json.loads(cache_path.read_text(encoding="utf-8"))
+                if isinstance(parsed, dict):
+                    raw = parsed
+            except (OSError, ValueError):
+                pass
+
+        provenance = raw.get("data_provenance")
+        provenance = provenance if isinstance(provenance, dict) else {}
+        raw_sources = provenance.get("sources_used")
+        sources = sorted(
+            {str(source) for source in raw_sources if source}
+            if isinstance(raw_sources, list)
+            else set()
+        )
+        field_sources: dict[str, list[str]] = {}
+        raw_field_sources = provenance.get("field_sources")
+        if isinstance(raw_field_sources, dict):
+            for field_name, field_values in raw_field_sources.items():
+                if isinstance(field_values, list):
+                    field_sources[str(field_name)] = sorted({str(source) for source in field_values if source})
+
+        raw_count = provenance.get("source_count")
+        source_count = raw_count if isinstance(raw_count, int) and not isinstance(raw_count, bool) else len(sources)
+        conflicts = provenance.get("conflicts")
+        conflict_count = len(conflicts) if isinstance(conflicts, (list, dict)) else 0
+
+        refreshed_at = None
+        refresh_path = self.cache / "last_refresh.json"
+        if refresh_path.exists():
+            try:
+                refresh = json.loads(refresh_path.read_text(encoding="utf-8"))
+                raw_tickers = refresh.get("tickers") if isinstance(refresh, dict) else None
+                refreshed_tickers = {
+                    str(item).upper() for item in raw_tickers if item
+                } if isinstance(raw_tickers, list) else set()
+                if ticker.upper() in refreshed_tickers:
+                    refreshed_at = refresh.get("refreshed_at")
+            except (OSError, ValueError, AttributeError):
+                pass
+
+        return {
+            "price_as_of": price_date,
+            "refreshed_at": refreshed_at,
+            "source_count": source_count if provenance else None,
+            "sources_used": sources,
+            "field_sources": field_sources,
+            "conflict_count": conflict_count,
+        }
+
     def _load_universe_stats(self) -> dict:
         results_path = self.base / "cache" / "pipeline_results.json"
         if results_path.exists():
@@ -399,6 +454,7 @@ class SiteBuilder:
         mkt = self._market_price(ticker)
         market_price = mkt["price"]
         price_date = mkt["date"]
+        market_data = self._load_data_provenance(ticker, price_date)
         if market_price:
             current_price = market_price
         upside = None
@@ -567,6 +623,7 @@ class SiteBuilder:
             "intrinsic_value": intrinsic,
             "upside_pct": upside,
             "price_date": price_date,
+            "market_data": market_data,
             "created_at": opp.get("created_at"),
             "updated_at": opp.get("updated_at"),
             "last_research": last_research,
@@ -648,6 +705,7 @@ class SiteBuilder:
                 "catalysts": e.get("catalysts") or [],
                 "current_price": current,
                 "price_date": price_date,
+                "market_data": self._load_data_provenance(e.get("ticker", ""), price_date),
                 "industry": (self.companies.get((e.get("ticker") or "").upper()) or {}).get("industry"),
                 "wyckoff": wyckoff,
             })
@@ -967,6 +1025,17 @@ class SiteBuilder:
             {"severity": "warn", "ticker": o["ticker"], "message": f"Tesis sin evaluar ({o.get('thesis_not_assessed_days')}d)"}
             for o in thesis_stale
         ]
+        seen_single_source: set[str] = set()
+        for opportunity in opps:
+            market_data = opportunity.get("market_data") or {}
+            ticker = str(opportunity.get("ticker") or "").upper()
+            if market_data.get("source_count") == 1 and ticker and ticker not in seen_single_source:
+                alerts.append({
+                    "severity": "warn",
+                    "ticker": ticker,
+                    "message": "Datos de mercado con una sola fuente; revisar procedencia por campo.",
+                })
+                seen_single_source.add(ticker)
         for p in positions:
             if p.get("dist_to_stop_pct") is not None and p["dist_to_stop_pct"] <= 5:
                 alerts.append({"severity": "high", "ticker": p["ticker"],
@@ -1403,7 +1472,7 @@ function renderOpp(){
       {key:'valuation', label:'Valuation', value:r=>r.scores?.ValuationAssessmentEngine??null, cell:r=>`<td>${r.scores?.ValuationAssessmentEngine??'—'}</td>`},
       {key:'risk', label:'Risk', value:r=>r.scores?.RiskAssessmentEngine??null, cell:r=>`<td>${r.scores?.RiskAssessmentEngine??'—'}</td>`},
       {key:'recovery', label:'Recovery', value:r=>r.scores?.RecoveryAssessmentEngine??null, cell:r=>`<td>${r.scores?.RecoveryAssessmentEngine??'—'}</td>`},
-      {key:'price', label:'Precio', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}</td>`},
+      {key:'price', label:'Precio', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}<div class="muted">${dt(r.price_date)}</div></td>`},
       {key:'intrinsic', label:'Intrínseco', value:r=>r.intrinsic_value??null, cell:r=>`<td>${money(r.intrinsic_value)}</td>`},
       {key:'upside', label:'Upside', value:r=>r.upside_pct??null, cell:r=>`<td class="${r.upside_pct>=0?'pos':'neg'}">${pct(r.upside_pct,true)}</td>`},
       {key:'rules', label:'Rules failed', value:r=>(r.proposal?.rules_failed||[]).length, cell:r=>`<td>${rulesBadge(r.proposal?.rules_failed)}</td>`},
@@ -1439,6 +1508,7 @@ function renderBuylist(){
       {key:'margin', label:'Margen a target', value:r=>margin(r), cell:r=>{const m=margin(r); return `<td class="${m>=0?'pos':'neg'}">${pct(m,true)}</td>`;}},
       {key:'wy', label:'Wyckoff', value:r=>r.wyckoff?.score??null, cell:r=>{const wy=r.wyckoff; return `<td>${wyPhase(wy?.phase)} ${wy?.score??''}</td>`;}},
       {key:'fails', label:'Cond. fallida', value:r=>buylistEntryFails(r).length, cell:r=>{const f=buylistEntryFails(r); return `<td>${f.length?f.map(x=>`<span class="badge" style="background:#2a1516;color:#f87171">${x}</span>`).join(' '):'<span class="pos">Listo</span>'}</td>`;}},
+      {key:'data', label:'Dato / fuentes', value:r=>`${r.price_date||''} ${r.market_data?.source_count??''}`, cell:r=>`<td>${dt(r.price_date)} · ${r.market_data?.source_count??'sin dato'} fuente(s)</td>`},
       {key:'analyzed', label:'Últ. análisis', value:r=>r.wyckoff?.analyzed_at||'', cell:r=>`<td>${dt(r.wyckoff?.analyzed_at)}</td>`},
     ],
     tr: r=>` style="cursor:pointer" onclick="showOppFromBuylist('${r.opp_id||''}','${r.ticker}')"`,
@@ -1498,6 +1568,9 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">Última evaluación tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.updated_at)}</div>${thesisBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">Decisión</div><div style="font-size:18px">${esc(o.decision?.decision_type||'—')}</div><div class="muted">${esc(o.decision?.author||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
   html += '</div>';
+  const marketData=o.market_data||by?.market_data||{};
+  const sourceNames=(marketData.sources_used||[]).map(esc).join(', ')||'No registrada';
+  html += `<h2>Datos de mercado</h2><div class="card"><div>Precio al: ${dt(marketData.price_as_of||o.price_date)}</div><div>Fuentes del cache: ${marketData.source_count??'no disponible'} (${sourceNames})</div>${marketData.refreshed_at?`<div>Cache actualizado: ${dt(marketData.refreshed_at)}</div>`:''}${marketData.source_count===1?'<p class="neg">Fuente única; revisar la cobertura por campo antes de usar el dato.</p>':''}${marketData.conflict_count?`<p class="neg">Conflictos de datos: ${marketData.conflict_count}</p>`:''}<details><summary>Procedencia por campo</summary>${Object.keys(marketData.field_sources||{}).length?`<table><thead><tr><th>Campo</th><th>Fuentes</th></tr></thead><tbody>${Object.entries(marketData.field_sources).map(([field,sources])=>`<tr><td>${esc(field)}</td><td>${sources.map(esc).join(', ')}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">El cache no registra procedencia por campo.</p>'}</details></div>`;
 
   // Tesis e informe
   const dddReviewed = d.evidence_review?.status==='manager_approved';
