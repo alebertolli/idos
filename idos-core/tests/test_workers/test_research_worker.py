@@ -284,11 +284,13 @@ class TestResearchWorker:
         mock_llm_client: MagicMock,
         base_path: str,
         tmp_path: Path,
+        monkeypatch,
     ):
         ticker, opp_id = seeded_opportunity
         worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
         worker.llm = mock_llm_client
         worker.registry = _mock_research_registry()
+        monkeypatch.setattr("idos.workers.ai.research_worker.time.sleep", lambda *_: None)
 
         result = worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
         assert result.status == WorkerStatus.SUCCESS
@@ -305,6 +307,10 @@ class TestResearchWorker:
         claims = store.search(tag=ticker)
         assert len(claims) >= 1
         assert any("ROIC" in c.statement for c in claims), "Claim de ROIC no encontrado"
+        roic_claim = next(c for c in claims if "ROIC" in c.statement)
+        from idos.knowledge.claims import ClaimVerificationStatus
+        assert roic_claim.verification_status == ClaimVerificationStatus.UNVERIFIED
+        assert roic_claim.confidence == 0.0
 
     def test_research_requires_ticker_and_opp(
         self,

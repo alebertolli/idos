@@ -11,6 +11,11 @@ class ClaimStatus(StrEnum):
     DEPRECATED = "DEPRECATED"
     ARCHIVED = "ARCHIVED"
 
+class ClaimVerificationStatus(StrEnum):
+    UNVERIFIED = "UNVERIFIED"
+    VERIFIED = "VERIFIED"
+    REJECTED = "REJECTED"
+
 class EvidenceCategory(StrEnum):
     FACT = "FACT"
     INFERENCE = "INFERENCE"
@@ -28,6 +33,7 @@ class Claim:
     statement: str
     confidence: float = 0.0
     category: EvidenceCategory = EvidenceCategory.INFERENCE
+    verification_status: ClaimVerificationStatus = ClaimVerificationStatus.UNVERIFIED
     status: ClaimStatus = ClaimStatus.ACTIVE
     sources: list[ClaimSource] = field(default_factory=list)
     tags: list[str] = field(default_factory=list)
@@ -51,6 +57,7 @@ class Claim:
             "statement": self.statement,
             "confidence": self.confidence,
             "category": self.category.value,
+            "verification_status": self.verification_status.value,
             "status": self.status.value,
             "sources": [{"name": s.name, "url": s.url, "date": s.date} for s in self.sources],
             "tags": self.tags,
@@ -64,6 +71,9 @@ class Claim:
     def from_dict(cls, data: dict[str, Any]) -> "Claim":
         data["category"] = EvidenceCategory(data.get("category", "INFERENCE"))
         data["status"] = ClaimStatus(data.get("status", "ACTIVE"))
+        data["verification_status"] = ClaimVerificationStatus(
+            data.get("verification_status", ClaimVerificationStatus.UNVERIFIED.value)
+        )
         data["sources"] = [ClaimSource(**s) for s in data.get("sources", [])]
         return cls(**data)
 

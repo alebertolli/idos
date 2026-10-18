@@ -2,7 +2,9 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from idos.knowledge.claims import Claim, ClaimStore, ClaimStatus, EvidenceCategory
+from idos.knowledge.claims import (
+    Claim, ClaimStore, ClaimStatus, ClaimVerificationStatus, EvidenceCategory,
+)
 from idos.knowledge.wiki import AtomicWiki, WikiSection, WikiMetadata
 from idos.knowledge.lifecycle import KnowledgeLifecycle, KnowledgeObject, KnowledgeStatus
 from idos.knowledge.contradiction import ContradictionDetector
@@ -18,6 +20,14 @@ def test_claim_create_and_store(tmp_path):
     assert retrieved.statement == claim.statement
     assert retrieved.confidence == 0.92
     assert retrieved.status == ClaimStatus.ACTIVE
+    assert retrieved.verification_status == ClaimVerificationStatus.UNVERIFIED
+
+def test_claim_legacy_record_defaults_to_unverified():
+    claim = Claim.from_dict({
+        "claim_id": "LEGACY-001", "statement": "Legacy fact", "confidence": 0.85,
+        "category": "FACT", "status": "ACTIVE", "sources": [], "tags": [],
+    })
+    assert claim.verification_status == ClaimVerificationStatus.UNVERIFIED
 
 def test_claim_search(tmp_path):
     store = ClaimStore(str(tmp_path / "idon-knoledge"))

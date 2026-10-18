@@ -609,7 +609,9 @@ class ResearchWorker(BaseWorker):
         from idos.knowledge.wiki import AtomicWiki, WikiSection, WikiMetadata
         from idos.knowledge.lifecycle import KnowledgeLifecycle, KnowledgeObject, KnowledgeStatus
         from idos.knowledge.contradiction import ContradictionDetector
-        from idos.knowledge.claims import ClaimStore, Claim, EvidenceCategory
+        from idos.knowledge.claims import (
+            ClaimStore, Claim, ClaimVerificationStatus, EvidenceCategory,
+        )
 
         products = company.get("products") or []
         if isinstance(products, str):
@@ -708,16 +710,16 @@ class ResearchWorker(BaseWorker):
                 confidence=section.metadata.confidence,
             )
             lifecycle.register(obj)
-            lifecycle.verify(obj.object_id)
-            lifecycle.publish(obj.object_id)
+            # LLM-generated wiki sections are drafts until independently sourced.
 
         dd_claims = ddd_result.get("calidad_evidencia", {}).get("hechos_verificados", [])
         for i, fact in enumerate(dd_claims):
             claim = Claim(
                 claim_id=f"CLAIM-{ticker}-DDD-{i+1}",
                 statement=fact,
-                confidence=0.85,
+                confidence=0.0,
                 category=EvidenceCategory.FACT,
+                verification_status=ClaimVerificationStatus.UNVERIFIED,
                 tags=["ddd", ticker],
             )
             claim_store.put(claim)
