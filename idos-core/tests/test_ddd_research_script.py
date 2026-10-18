@@ -71,3 +71,25 @@ def test_research_worker_failure_marks_run_failed_and_returns_nonzero(
     assert captured_service_path["path"] == str(models_path.relative_to(tmp_path))
     assert captured_config["llm_service"] is service
     assert captured_config["prompts_path"] == "idos-config/prompts"
+
+
+def test_combined_ddd_digest_persists_results(tmp_path, monkeypatch):
+    import json
+    from scripts.ddd_digest import main
+
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    (cache / "ddd_results.json").write_text(json.dumps({
+        "total": 1,
+        "processed": [{"ticker": "XLF", "opp_id": "OPP-XLF", "status": "completed", "score": 23}],
+        "assessments": [{"ticker": "XLF", "opp_id": "OPP-XLF", "recommendation": "WAIT", "board_approved": False}],
+        "errors": [],
+    }), encoding="utf-8")
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+
+    main()
+
+    digest = (cache / "weekly_digest.md").read_text(encoding="utf-8")
+    assert "**XLF**" in digest
+    assert "**Assessment completados:** 1" in digest
+    assert "**Approved:** 0" in digest

@@ -111,14 +111,7 @@ def main():
     print('\n[ASSESSMENT] Done: {} assessed, {} errors'.format(
         len(assessments), len(errors_list)))
 
-    # Generate digest after assessment
-    from idos.decision.assessment_pipeline import build_digest
-    print('[ASSESSMENT] Generating digest...')
-    try:
-        build_digest(workspace)
-        print('[ASSESSMENT] Digest generated successfully')
-    except Exception as e:
-        print('[ASSESSMENT] Digest generation error: {}'.format(e))
+    # The workflow's final ddd_digest.py step owns the combined digest.
 
 
 if __name__ == '__main__':
