@@ -1,32 +1,26 @@
-action: REVIEW_ALLOCATION
+action: CASH_FALLBACK
 as_of_date: '2026-10-18'
-eligible:
-- &id001
-  as_of_date: '2026-10-01'
-  momentum: 0.6124063843262988
-  ticker: XLF
+candidate_count: 2
+candidate_source: idos-config/universe/operable.yml
+candidate_tickers:
+- QQQ
+- GLD
+configured_universe_count: 7
+eligible: []
+excluded_not_operable:
+- EEM
+- EFA
+- XLE
+- XLF
+- XLI
 formula: 12*P0/P1 + 4*P0/P3 + 2*P0/P6 + P0/P12 - 19
 missing_history: []
 ranking:
 - as_of_date: '2026-10-01'
-  momentum: 2.8370659545968664
-  ticker: XLE
-- *id001
-- as_of_date: '2026-10-01'
-  momentum: 0.0732886025456736
-  ticker: EFA
-- as_of_date: '2026-10-01'
   momentum: -0.009301259471051537
   ticker: GLD
 - as_of_date: '2026-10-01'
-  momentum: -0.09088249412361549
+  momentum: -0.09088207795008785
   ticker: QQQ
-- as_of_date: '2026-10-01'
-  momentum: -0.17655334197800343
-  ticker: XLI
-- as_of_date: '2026-10-01'
-  momentum: -0.6519179234411965
-  ticker: EEM
-selected:
-- *id001
+selected: []
 strategy_id: MOMENTUM_ETF
