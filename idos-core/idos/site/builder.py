@@ -446,11 +446,15 @@ class SiteBuilder:
             and _parse_dt(reviewed_at) is not None
         )
         strategy_context = ddd.get("strategy_context") or {}
+        opportunity_signal = opp.get("signal")
         systematic_report = (
-            isinstance(strategy_context, dict)
+            opp.get("research_profile") == "systematic"
+            and opp.get("entry_policy") == "SIGNAL_REBALANCE"
             and bool(opp.get("strategy_id"))
             and strategy_context.get("strategy_id") == opp.get("strategy_id")
             and isinstance(strategy_context.get("signal"), dict)
+            and isinstance(opportunity_signal, dict)
+            and strategy_context.get("signal") == opportunity_signal
         )
         ddd_publishable = review_approved or systematic_report
 

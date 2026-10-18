@@ -270,6 +270,9 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     opportunity_path = tmp_path / "idos-journal" / "companies" / "VIST" / "case_file" / "opportunities" / "OPP-1" / "opportunity.yml"
     opportunity = yaml.safe_load(opportunity_path.read_text(encoding="utf-8"))
     opportunity["strategy_id"] = "MOMENTUM_ETF"
+    opportunity["research_profile"] = "systematic"
+    opportunity["entry_policy"] = "SIGNAL_REBALANCE"
+    opportunity["signal"] = {"score": 71}
     opportunity_path.write_text(yaml.safe_dump(opportunity, allow_unicode=True), encoding="utf-8")
     report_path = tmp_path / "idos-journal" / "companies" / "VIST" / "case_file" / "opportunities" / "OPP-1" / "ddd_report.yml"
     report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
@@ -284,3 +287,32 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
 
     assert opp["ddd"]["evidence_review"]["status"] == "systematic_report"
     assert opp["ddd"]["resumen_ejecutivo"] == "Momentum mensual normalizado con score 71"
+    assert opp["ddd"]["score_general"] == 81
+    assert opp["ddd"]["tesis_inversion"] == ""
+
+
+def test_public_site_does_not_treat_forged_fundamental_context_as_systematic(tmp_path: Path):
+    import yaml
+
+    _write_ddd_case(tmp_path, review=None)
+    opportunity_path = tmp_path / "idos-journal" / "companies" / "VIST" / "case_file" / "opportunities" / "OPP-1" / "opportunity.yml"
+    opportunity = yaml.safe_load(opportunity_path.read_text(encoding="utf-8"))
+    opportunity.update({
+        "strategy_id": "COMPOUNDER",
+        "research_profile": "strategic",
+        "entry_policy": "VALUATION_ZONE",
+        "signal": {},
+    })
+    opportunity_path.write_text(yaml.safe_dump(opportunity, allow_unicode=True), encoding="utf-8")
+    report_path = tmp_path / "idos-journal" / "companies" / "VIST" / "case_file" / "opportunities" / "OPP-1" / "ddd_report.yml"
+    report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+    report["strategy_context"] = {"strategy_id": "COMPOUNDER", "signal": {"score": 99}}
+    report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
+
+    data = SiteBuilder(tmp_path).build()
+    opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
+
+    assert opp["ddd"]["evidence_review"]["status"] == "pending_manager_review"
+    assert opp["ddd"]["resumen_ejecutivo"] is None
+    assert opp["ddd"]["tesis_inversion"] is None
+    assert opp["ddd"]["score_general"] is None

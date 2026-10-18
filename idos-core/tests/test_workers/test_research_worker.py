@@ -313,3 +313,42 @@ class TestResearchWorker:
 
         rows = list(tmp_sqlite.conn.execute("SELECT id FROM hypotheses"))
         assert len(rows) == 1
+
+
+    def test_systematic_report_persists_authoritative_strategy_context(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        base_path: str,
+    ):
+        import yaml
+
+        ticker, opp_id = seeded_opportunity
+        signal = {"ticker": ticker, "momentum": 0.9, "as_of_date": "2026-10-01"}
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity.update({
+            "strategy_id": "MOMENTUM_ETF",
+            "strategy_version": "1.0",
+            "research_profile": "systematic",
+            "entry_policy": "SIGNAL_REBALANCE",
+            "signal": signal,
+        })
+        tmp_sqlite.save_opportunity(opportunity)
+        tmp_journal.save_opportunity(ticker, opportunity)
+
+        worker = ResearchWorker({"llm_service": MagicMock()})
+        worker._load_financial_data = MagicMock(return_value={"volatility_90d": 30})
+        worker._enrich_company_info = MagicMock(return_value={"name": "Test ETF", "sector": "Financials"})
+        worker._fetch_target_consensus = MagicMock(return_value={})
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "completed"
+        report_path = tmp_journal.opportunity_path(ticker, opp_id) / "ddd_report.yml"
+        report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+        assert report["strategy_context"] == {
+            "strategy_id": "MOMENTUM_ETF",
+            "signal": signal,
+            "risk_rating": "medio_riesgo",
+        }
