@@ -13,7 +13,15 @@ def test_public_cache_stages_refresh_summary_and_only_listed_market_tickers(tmp_
     (cache / "last_refresh.json").write_text(
         json.dumps({"tickers": ["AAPL", "QQQ", "AAPL"], "errors": []}), encoding="utf-8"
     )
-    for name in ("AAPL.json", "QQQ.json", "entry_signals.json", "exit_signals.json", "rebalance_result.json", "NVDA.json"):
+    market_and_private_caches = (
+        "AAPL.json",
+        "QQQ.json",
+        "entry_signals.json",
+        "exit_signals.json",
+        "rebalance_result.json",
+        "NVDA.json",
+    )
+    for name in market_and_private_caches:
         (cache / name).write_text("{}", encoding="utf-8")
 
     paths = public_market_cache_paths(cache)
@@ -54,7 +62,10 @@ def test_stage_public_market_cache_adds_only_allowlisted_paths(tmp_path: Path):
     (cache / "entry_signals.json").write_text("{}", encoding="utf-8")
     calls = []
 
-    paths = stage_public_market_cache(tmp_path, run=lambda args, **kwargs: calls.append((args, kwargs)))
+    paths = stage_public_market_cache(
+        tmp_path,
+        run=lambda args, **kwargs: calls.append((args, kwargs)),
+    )
 
     assert [path.name for path in paths] == ["last_refresh.json", "AAPL.json"]
     assert calls[0][0] == ["git", "add", "--", "cache/last_refresh.json", "cache/AAPL.json"]

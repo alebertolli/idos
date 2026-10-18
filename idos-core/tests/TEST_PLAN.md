@@ -223,3 +223,77 @@ idos position-exit MELI --reason manual  # Ver post-mortem
 | Archivos YAML temporales no limpiados | Contaminación entre tests | Usar tmp_path de pytest |
 | Estado global (EventBus singleton) | Tests acoplados | Reiniciar bus en setUp |
 | SQLite en disco | Datos residuales | Usar ":memory:" o tmp_path |
+
+## 8. Validación E2E posterior al deployment
+
+Este plan se ejecuta después de que el gestor revise y apruebe la rama y el
+despliegue de GitHub Pages. La validación remota en rama no equivale a
+deployment. No habilitar datos reales de cartera ni acciones de trading durante
+estas pruebas.
+
+### 8.1 Dashboard público hasta Buy List
+
+1. Verificar que el workflow de Pages se ejecutó con el commit aprobado y que la
+   URL pública carga sin errores de red ni errores JavaScript.
+2. Revisar visualmente Discovery, Research, Assessment, Decision y Buy List;
+   confirmar que cada registro muestra estrategia, ticker, etapa, fecha de
+   datos, tesis disponible, asimetría si está documentada, riesgos/catalizadores,
+   fuentes y estado de revisión humana.
+3. Confirmar que las pruebas parciales o los datos incompletos están
+   identificados como tales y que no aparecen como señal global de estrategia.
+4. Comprobar en `site/data.json`, HTML, archivos de caché publicados y artifacts
+   que no se expongan `positions`, `ledger`, `portfolio`, `entry_signals`,
+   `exit_signals`, `rebalance_result`, resultados de simulación, identificadores
+   de cuentas, saldos ni obligaciones. El límite visible y publicable termina
+   en Buy List.
+5. Guardar commit, URL, fecha, resultado de cada comprobación y captura de la
+   vista revisada por el gestor.
+
+### 8.2 Multi estrategia y gates comunes
+
+1. Confirmar que todas las estrategias activas consumen el registro común
+   `idos-config/universe/operable.yml` y que el gate común aplica capitalización
+   mínima USD 2.000 millones y volumen promedio mínimo USD 100.000 en USD, con
+   base `UNDERLYING_USD_PROXY` cuando corresponda.
+2. Comprobar ventana de 20 ruedas, cobertura mínima de 80%, FX hasta 4 días
+   calendario, lado vendedor y referencia MEP/CCL explícita por activo ARS.
+3. Verificar que la selección, filtros propios y estado de cada estrategia se
+   mantienen aislados y que los reportes identifican `bounded` vs. universo
+   completo. MULTIBAGGERS permanece deshabilitada hasta cerrar el gap de score.
+4. Si el proveedor carece de market cap verificable, confirmar `blocked` y
+   ausencia de oportunidad/dispatch habilitante; no sustituir capitalización
+   por AUM sin decisión formal registrada.
+
+### 8.3 Research y calidad de decisión
+
+1. Seleccionar un candidato operable que pase cobertura, frescura, procedencia
+   por campo y hard flags; registrar proveedor/modelo, costo esperado y alcance
+   antes de una llamada LLM real.
+2. Ejecutar Monthly Universe → DDD Research → Assessment/Decision → Buy List;
+   inspeccionar conteos y artefactos, no solo el estado verde de Actions.
+3. Confirmar que la tesis incluye evidencia fechada, hipótesis, asimetría,
+   catalizadores, riesgos, invalidación y fuentes; los faltantes deben bloquear
+   o requerir revisión humana, no completar datos inventados.
+4. No llamar recomendación de compra/venta a un resultado `WAIT`,
+   `PENDING_HUMAN_REVIEW`, `REVIEW_ALLOCATION` ni a un test parcial.
+
+### 8.4 Frontera privada de portfolio y Risk Audit
+
+1. Antes de conectar Google Sheets, validar con hoja ficticia privada y
+   credenciales de solo lectura; revisar permisos anónimos denegados, schema,
+   FX/fechas, identificadores duplicados y conciliación con extractos.
+2. Confirmar que snapshots, resultados completos de Risk Audit, alertas de
+   portfolio y learning quedan en almacenamiento/proceso privado y ausentes de
+   Pages, commits públicos, artifacts y logs.
+3. Validar exposiciones y alertas con fixtures de dos cuentas, monedas,
+   estrategias y clusters; confirmar el bloqueo cuando falten FX o conciliación.
+4. El gestor valida coherencia de posiciones, riesgo total y alertas antes de
+   usar datos reales. No habilitar órdenes automáticas.
+
+### 8.5 Criterio de cierre
+
+Cerrar deployment solo cuando los checks de 8.1–8.4 tengan evidencia adjunta,
+el gestor haya revisado el dashboard y el portfolio privado esté validado por
+separado. Si falta candidato que pase los gates, especificación aprobada,
+credenciales privadas o conciliación, registrar el bloqueo y mantener el
+comportamiento fail-closed.
