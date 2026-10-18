@@ -3,6 +3,7 @@ name: DDD Research Pipeline
 on:
   workflow_run:
     workflows: ["Monthly Universe Pipeline"]
+    branches: [main]
     types:
       - completed
   workflow_dispatch:
@@ -46,6 +47,14 @@ jobs:
       actions: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch || github.ref }}
+      - name: Validate test branch for manual runs
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
+            echo "::error::Manual E2E runs must use a test branch; main is reserved for automated production runs."
+            exit 1
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -88,6 +97,11 @@ jobs:
 
       - name: Commit results
         run: |
+          TARGET_BRANCH="${GITHUB_REF_NAME}"
+          if [ -z "$TARGET_BRANCH" ]; then
+            echo "::error::No target branch resolved; refusing to publish DDD results"
+            exit 1
+          fi
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
           git add cache/ddd_results.json cache/ddd_preview.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
@@ -98,14 +112,14 @@ jobs:
             exit 0
           fi
           git commit -m "chore: ddd research $(date +%Y-%m-%d)"
-          git fetch origin main
-          if ! git rebase origin/main; then
+          git fetch origin "$TARGET_BRANCH"
+          if ! git rebase "origin/$TARGET_BRANCH"; then
             git rebase --abort
-            echo "[ERROR] La investigación no se pudo pushear (conflicto con origin/main). Fallo a proposito para notificar."
+            echo "[ERROR] DDD could not rebase onto origin/$TARGET_BRANCH. Refusing to publish results."
             exit 1
           fi
-          if ! git push origin HEAD:main; then
-            echo "[ERROR] El push a origin/main fallo. La investigación no fue subida."
+          if ! git push origin "HEAD:$TARGET_BRANCH"; then
+            echo "[ERROR] Push to origin/$TARGET_BRANCH failed. DDD results were not published."
             exit 1
           fi
 

@@ -20,6 +20,12 @@ jobs:
       IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
     steps:
       - uses: actions/checkout@v4
+      - name: Validate test branch for manual runs
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
+            echo "::error::Manual E2E runs must use a test branch; main is reserved for scheduled production runs."
+            exit 1
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -31,6 +37,11 @@ jobs:
         run: python scripts/run_monthly_strategy.py
       - name: Save & commit results
         run: |
+          TARGET_BRANCH="${GITHUB_REF_NAME}"
+          if [ -z "$TARGET_BRANCH" ]; then
+            echo "::error::No target branch resolved; refusing to publish pipeline results"
+            exit 1
+          fi
           git config user.name 'idos-bot'
           git config user.email 'bot@idos.local'
           mkdir -p cache
@@ -45,8 +56,9 @@ jobs:
           else
             git status --short -- idos-journal/ cache/
             git commit -m "chore: monthly universe pipeline $(date +%Y-%m-%d)"
-            git pull --rebase --autostash -X theirs
-            git push
+            git fetch origin "$TARGET_BRANCH"
+            git rebase "origin/$TARGET_BRANCH"
+            git push origin "HEAD:$TARGET_BRANCH"
           fi
       - name: Notify
         run: |

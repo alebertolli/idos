@@ -4,6 +4,17 @@ on:
   schedule:
     - cron: "0 8 * * 1-5"
   workflow_dispatch:
+    inputs:
+      run_portfolio_simulation:
+        description: "Run paper portfolio monitoring and simulation steps"
+        required: false
+        type: boolean
+        default: false
+      dispatch_research_events:
+        description: "Dispatch earnings research events to the default branch"
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   refresh:
@@ -20,6 +31,12 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+      - name: Validate test branch for manual runs
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
+            echo "::error::Manual E2E runs must use a test branch; main is reserved for scheduled production runs."
+            exit 1
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -164,6 +181,7 @@ jobs:
           print(f'[BUYLIST] {r.get(\"status\")}: updated={r.get(\"updated\")} added={r.get(\"added\")} removed={r.get(\"removed\")} total={r.get(\"total_entries\")}')
           "
       - name: Entry Monitor - Check Buy List
+        if: github.event_name != 'workflow_dispatch' || inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json
@@ -234,9 +252,11 @@ jobs:
         run: |
           python -m idos.workers.automation.data_error_reporter
       - name: Paper Trader - Execute Entry
+        if: github.event_name != 'workflow_dispatch' || inputs.run_portfolio_simulation
         run: |
           python -m idos.workers.portfolio.execute_entry_signals
       - name: Risk Monitor - Daily risk assessment
+        if: github.event_name != 'workflow_dispatch' || inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json
@@ -256,6 +276,7 @@ jobs:
               print(f'[RISK] {r.get(\"positions_checked\", 0)} posiciones revisadas, sin alertas')
           "
       - name: Exit Decision Engine
+        if: github.event_name != 'workflow_dispatch' || inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json
@@ -281,6 +302,7 @@ jobs:
             exit 1
           fi
       - name: Monthly Portfolio Report
+        if: github.event_name != 'workflow_dispatch' || inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json, calendar
@@ -311,6 +333,7 @@ jobs:
       - name: Post-Mortem requires private persistent runner
         run: echo 'Post-mortem deferred to private runner; public CI does not process closed positions.'
       - name: Dispatch quarterly-results events
+        if: github.event_name != 'workflow_dispatch' || inputs.dispatch_research_events
         run: |
           if [ ! -f cache/earnings_trigger.json ]; then
             echo "[DISPATCH] No earnings to dispatch"
@@ -331,6 +354,11 @@ jobs:
 
       - name: Commit cache
         run: |
+          TARGET_BRANCH="${GITHUB_REF_NAME}"
+          if [ -z "$TARGET_BRANCH" ]; then
+            echo "::error::No target branch resolved; refusing to publish refresh results"
+            exit 1
+          fi
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
           git add cache/last_refresh.json 2>/dev/null || true
@@ -343,8 +371,9 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: daily data refresh $(date +%Y-%m-%d)"
-            git pull --rebase --autostash -X theirs
-            git push
+            git fetch origin "$TARGET_BRANCH"
+            git rebase "origin/$TARGET_BRANCH"
+            git push origin "HEAD:$TARGET_BRANCH"
           fi
       - name: 🐛 Report failure as GitHub Issue
         if: failure()
