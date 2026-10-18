@@ -89,3 +89,68 @@ def test_momentum_strategy_intersects_configured_universe_with_operable_registry
     assert output["candidate_tickers"] == ["XLE"]
     assert output["candidate_count"] == 1
     assert output["excluded_not_operable"] == ["QQQ"]
+
+
+def test_momentum_strategy_manual_subset_is_limited_to_configured_operable_tickers(tmp_path: Path):
+    config_dir = tmp_path / "config"
+    (config_dir / "universe").mkdir(parents=True)
+    (config_dir / "strategies.yml").write_text(
+        "version: '1.0'\ndefault_strategy: MOMENTUM_ETF\nstrategies:\n"
+        "  MOMENTUM_ETF:\n    enabled: true\n    core: CORE_3_GROWTH\n"
+        "    sleeve: SYSTEMATIC_RETURN\n    thesis_type: SYSTEMATIC\n"
+        "    discovery_profile: momentum_monthly\n    research_profile: systematic\n"
+        "    entry_policy: SIGNAL_REBALANCE\n    parameters:\n"
+        "      universe: [QQQ, GLD]\n      select_top: 2\n"
+        "      minimum_signal: 0.6\n      maximum_signal: 2.7\n",
+        encoding="utf-8",
+    )
+    (config_dir / "universe" / "operable.yml").write_text(
+        "operable_tickers:\n  - ticker: QQQ\n    type: etf\n"
+        "  - ticker: GLD\n    type: etf\n  - ticker: AAPL\n    type: us_equity\n",
+        encoding="utf-8",
+    )
+    prices = FakePrices()
+    worker = MonthlyStrategyWorker({
+        "config_path": str(config_dir / "strategies.yml"),
+        "price_provider": prices,
+    })
+
+    output = worker.run({
+        "base_path": str(tmp_path),
+        "dry_run": True,
+        "persist": False,
+        "candidate_tickers": ["GLD", "AAPL"],
+    })
+
+    assert prices.tickers == ["GLD"]
+    assert output["candidate_tickers"] == ["GLD"]
+
+
+def test_momentum_strategy_rejects_non_operable_manual_subset(tmp_path: Path):
+    config_dir = tmp_path / "config"
+    (config_dir / "universe").mkdir(parents=True)
+    (config_dir / "strategies.yml").write_text(
+        "version: '1.0'\ndefault_strategy: MOMENTUM_ETF\nstrategies:\n"
+        "  MOMENTUM_ETF:\n    enabled: true\n    core: CORE_3_GROWTH\n"
+        "    sleeve: SYSTEMATIC_RETURN\n    thesis_type: SYSTEMATIC\n"
+        "    discovery_profile: momentum_monthly\n    research_profile: systematic\n"
+        "    entry_policy: SIGNAL_REBALANCE\n    parameters:\n"
+        "      universe: [QQQ]\n      select_top: 1\n"
+        "      minimum_signal: 0.6\n      maximum_signal: 2.7\n",
+        encoding="utf-8",
+    )
+    (config_dir / "universe" / "operable.yml").write_text(
+        "operable_tickers:\n  - ticker: QQQ\n    type: etf\n",
+        encoding="utf-8",
+    )
+    worker = MonthlyStrategyWorker({
+        "config_path": str(config_dir / "strategies.yml"),
+        "price_provider": FakePrices(),
+    })
+
+    try:
+        worker.run({"base_path": str(tmp_path), "candidate_tickers": ["AAPL"]})
+    except ValueError as exc:
+        assert "AAPL" in str(exc)
+    else:
+        raise AssertionError("non-operable test ticker must be rejected")

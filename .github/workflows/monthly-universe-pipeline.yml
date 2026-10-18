@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 0 1 * *"  # primer dia de cada mes a medianoche
   workflow_dispatch:
+    inputs:
+      candidate_tickers:
+        description: "Optional comma-separated tickers from operable.yml for a bounded test run"
+        required: false
+        type: string
 
 jobs:
   pipeline:
@@ -32,8 +37,12 @@ jobs:
       - name: Install
         run: pip install -e idos-core
       - name: Run pipeline
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
         run: python scripts/run_monthly_universe_pipeline.py
       - name: Run enabled monthly strategies
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
         run: python scripts/run_monthly_strategy.py
       - name: Save & commit results
         if: always() && !cancelled()

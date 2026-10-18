@@ -15,7 +15,12 @@ def main() -> int:
         "journal_path": "idos-journal",
         "cache_path": "cache",
     }
-    result = UniversePipeline(config).execute({})
+    requested_tickers = [
+        ticker.strip().upper()
+        for ticker in os.environ.get("IDOS_CANDIDATE_TICKERS", "").split(",")
+        if ticker.strip()
+    ]
+    result = UniversePipeline(config).execute({"candidate_tickers": requested_tickers})
     print("=== PIPELINE COMPLETE ===")
     print(f"Status: {result.status}")
     output = result.output

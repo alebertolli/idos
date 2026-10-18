@@ -40,13 +40,14 @@ class UniversePipeline(BaseWorker):
         start_time = time.time()
 
         try:
-            self._load_candidate_universe(metrics)
-            self._run_filter(metrics)
-            self._run_pre_score(metrics)
-            self._run_fetch(metrics)
-            self._run_scout(metrics)
-            self._run_opportunity_creation(metrics)
-            self._run_monthly_evaluation(metrics)
+            self._load_candidate_universe(metrics, context.get("candidate_tickers"))
+            if not metrics.errors:
+                self._run_filter(metrics)
+                self._run_pre_score(metrics)
+                self._run_fetch(metrics)
+                self._run_scout(metrics)
+                self._run_opportunity_creation(metrics)
+                self._run_monthly_evaluation(metrics)
         except Exception as e:
             metrics.errors.append({"step": "pipeline", "error": str(e)})
 
@@ -74,6 +75,15 @@ class UniversePipeline(BaseWorker):
             )
 
         if metrics.candidate_count == 0:
+            if context.get("candidate_tickers"):
+                return {
+                    "status": "skipped",
+                    "reason": "no_requested_candidates_match_strategy_asset_types",
+                    "candidate_source": metrics.candidate_source,
+                    "requested_tickers": context["candidate_tickers"],
+                    "candidate_count": 0,
+                    "candidate_tickers": [],
+                }
             message = "The operable universe contains zero candidates; refusing to report a successful empty universe run."
             return WorkerResult(
                 status=WorkerStatus.FAILED,
@@ -84,14 +94,34 @@ class UniversePipeline(BaseWorker):
 
         return metrics.to_dict()
 
-    def _load_candidate_universe(self, metrics: PipelineMetrics):
+    def _load_candidate_universe(self, metrics: PipelineMetrics, requested_tickers=None):
         print("\n[PIPELINE] STEP 1: Operable Candidate Universe")
         operable_path = str(Path(self.config_path) / "universe/operable.yml")
         operable = OperabilityFilter(operable_path)
         metrics.candidate_source = operable_path
-        metrics.candidate_tickers = sorted(operable.tickers)
+        all_tickers = operable.tickers
+        supported_types = set(self.strategy.parameters.get("supported_asset_types", []))
+        if requested_tickers:
+            try:
+                requested = operable.validate_selection(requested_tickers)
+            except ValueError as exc:
+                metrics.errors.append({
+                    "step": "candidate_universe",
+                    "error": str(exc),
+                })
+                metrics.candidate_tickers = []
+                return
+            metrics.candidate_tickers = requested
+        else:
+            metrics.candidate_tickers = sorted(all_tickers)
+        if supported_types:
+            entries_by_ticker = {entry["ticker"]: entry for entry in operable.list()}
+            metrics.candidate_tickers = [
+                ticker for ticker in metrics.candidate_tickers
+                if entries_by_ticker.get(ticker, {}).get("type") in supported_types
+            ]
         metrics.candidate_count = len(metrics.candidate_tickers)
-        if not metrics.candidate_tickers:
+        if not metrics.candidate_tickers and not requested_tickers:
             metrics.errors.append({
                 "step": "candidate_universe",
                 "error": f"No operable candidates found in {operable_path}",

@@ -26,7 +26,7 @@ def test_zero_ticker_universe_run_is_not_reported_as_success(tmp_path, monkeypat
         "_run_opportunity_creation",
         "_run_monthly_evaluation",
     ):
-        monkeypatch.setattr(pipeline, step, lambda metrics: None)
+        monkeypatch.setattr(pipeline, step, lambda metrics, requested_tickers=None: None)
 
     result = pipeline.execute({})
 
@@ -62,6 +62,93 @@ def test_candidate_universe_uses_all_operable_asset_types_without_external_scree
     assert metrics.candidate_tickers == ["AAPL", "AAPL.BA", "SPY"]
     assert metrics.candidate_count == 3
     assert Path(metrics.candidate_source).parts[-2:] == ("universe", "operable.yml")
+
+
+def test_candidate_universe_manual_subset_must_be_operable(tmp_path):
+    config_dir = tmp_path / "config"
+    (config_dir / "universe").mkdir(parents=True)
+    (config_dir / "strategies.yml").write_text(
+        "version: '1.0'\ndefault_strategy: COMPOUNDER\nstrategies:\n"
+        "  COMPOUNDER:\n    enabled: true\n    discovery_profile: compounder\n"
+        "    core: CORE_3_GROWTH\n    sleeve: HIGH_CONVICTION\n"
+        "    thesis_type: STRATEGIC\n    entry_policy: VALUATION_ZONE\n"
+        "    research_profile: strategic\n",
+        encoding="utf-8",
+    )
+    (config_dir / "universe" / "operable.yml").write_text(
+        "operable_tickers:\n  - ticker: QQQ\n    type: etf\n  - ticker: GLD\n    type: etf\n",
+        encoding="utf-8",
+    )
+    pipeline = UniversePipeline({"config_path": str(config_dir)})
+    metrics = PipelineMetrics()
+
+    pipeline._load_candidate_universe(metrics, ["gld", "QQQ"])
+
+    assert metrics.candidate_tickers == ["GLD", "QQQ"]
+    assert metrics.candidate_count == 2
+    assert metrics.errors == []
+
+    invalid_metrics = PipelineMetrics()
+    pipeline._load_candidate_universe(invalid_metrics, ["GLD", "AAPL"])
+
+    assert invalid_metrics.candidate_tickers == []
+    assert invalid_metrics.errors[0]["step"] == "candidate_universe"
+    assert "AAPL" in invalid_metrics.errors[0]["error"]
+
+
+def test_candidate_universe_applies_strategy_asset_type_filter(tmp_path):
+    config_dir = tmp_path / "config"
+    (config_dir / "universe").mkdir(parents=True)
+    (config_dir / "strategies.yml").write_text(
+        "version: '1.0'\ndefault_strategy: COMPOUNDER\nstrategies:\n"
+        "  COMPOUNDER:\n    enabled: true\n    discovery_profile: compounder\n"
+        "    core: CORE_3_GROWTH\n    sleeve: HIGH_CONVICTION\n"
+        "    thesis_type: STRATEGIC\n    entry_policy: VALUATION_ZONE\n"
+        "    research_profile: strategic\n"
+        "    parameters:\n      supported_asset_types: [us_equity]\n",
+        encoding="utf-8",
+    )
+    (config_dir / "universe" / "operable.yml").write_text(
+        "operable_tickers:\n  - ticker: AAPL\n    type: us_equity\n"
+        "  - ticker: QQQ\n    type: etf\n",
+        encoding="utf-8",
+    )
+    pipeline = UniversePipeline({"config_path": str(config_dir)})
+    metrics = PipelineMetrics()
+
+    pipeline._load_candidate_universe(metrics, ["AAPL", "QQQ"])
+
+    assert metrics.candidate_tickers == ["AAPL"]
+    assert metrics.candidate_count == 1
+
+    etf_only_metrics = PipelineMetrics()
+    pipeline._load_candidate_universe(etf_only_metrics, ["QQQ"])
+    assert etf_only_metrics.candidate_tickers == []
+    assert etf_only_metrics.errors == []
+
+
+def test_candidate_universe_manual_selection_is_hard_bounded(tmp_path):
+    config_dir = tmp_path / "config"
+    (config_dir / "universe").mkdir(parents=True)
+    (config_dir / "strategies.yml").write_text(
+        "version: '1.0'\ndefault_strategy: COMPOUNDER\nstrategies:\n"
+        "  COMPOUNDER:\n    enabled: true\n    discovery_profile: compounder\n"
+        "    core: CORE_3_GROWTH\n    sleeve: HIGH_CONVICTION\n"
+        "    thesis_type: STRATEGIC\n    entry_policy: VALUATION_ZONE\n"
+        "    research_profile: strategic\n",
+        encoding="utf-8",
+    )
+    entries = "operable_tickers:\n" + "".join(
+        f"  - ticker: TICK{i}\n    type: us_equity\n" for i in range(6)
+    )
+    (config_dir / "universe" / "operable.yml").write_text(entries, encoding="utf-8")
+    pipeline = UniversePipeline({"config_path": str(config_dir)})
+    metrics = PipelineMetrics()
+
+    pipeline._load_candidate_universe(metrics, [f"TICK{i}" for i in range(6)])
+
+    assert metrics.candidate_tickers == []
+    assert "5-ticker limit" in metrics.errors[0]["error"]
 
 
 def test_fetch_embedded_errors_do_not_mark_missing_data_as_fetched(tmp_path, monkeypatch):
@@ -114,7 +201,7 @@ def test_pipeline_preserves_step_errors_in_failed_result(tmp_path, monkeypatch):
     )
     monkeypatch.setattr(pipeline, "_send_notification", lambda report: None)
 
-    def fail_candidate_load(metrics):
+    def fail_candidate_load(metrics, requested_tickers=None):
         metrics.errors.append({"step": "candidate_universe", "error": "registry unavailable"})
 
     monkeypatch.setattr(pipeline, "_load_candidate_universe", fail_candidate_load)

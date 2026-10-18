@@ -1,7 +1,7 @@
 # Lista de Activos Operables
 # Mantenida manualmente via `idos operable-add/remove/import`
 # Fuente: lista de instrumentos operables en el broker (puede incluir varias clases de activo)
-# Ultima actualizacion: 2026-07-19
+# Ultima actualizacion: 2026-10-18 (clasificación de los ETFs de MOMENTUM_ETF)
 
 operable_tickers:
   - ticker: AABA
@@ -714,15 +714,15 @@ operable_tickers:
     ratio: '1:1'
   - ticker: EEM
     name: ISHARES MSCI EMERGING MARKET
-    type: us_equity
+    type: etf
     source: manual
-    updated_at: '2026-07-19'
+    updated_at: '2026-10-18'
     ratio: '5:1'
   - ticker: EFA
     name: iShares MSCI EAFE ETF
-    type: us_equity
+    type: etf
     source: manual
-    updated_at: '2026-07-19'
+    updated_at: '2026-10-18'
     ratio: '18:1'
   - ticker: EFX
     name: Equifax Inc.
@@ -882,9 +882,9 @@ operable_tickers:
     ratio: '4:1'
   - ticker: GLD
     name: ETF SPDR GOLD TRUST
-    type: us_equity
+    type: etf
     source: manual
-    updated_at: '2026-07-19'
+    updated_at: '2026-10-18'
     ratio: '50:1'
   - ticker: GLOB
     name: Globant SA
@@ -1824,9 +1824,9 @@ operable_tickers:
     ratio: '11:1'
   - ticker: QQQ
     name: INVESCO QQQ TRUST
-    type: us_equity
+    type: etf
     source: manual
-    updated_at: '2026-07-19'
+    updated_at: '2026-10-18'
     ratio: '20:1'
   - ticker: RACE
     name: Ferrari
@@ -2520,21 +2520,21 @@ operable_tickers:
     ratio: '19:1'
   - ticker: XLE
     name: ENERGY SELECT SECTOR SPDR FUND
-    type: us_equity
+    type: etf
     source: manual
-    updated_at: '2026-07-19'
+    updated_at: '2026-10-18'
     ratio: '2:1'
   - ticker: XLF
     name: FINANCIAL SELECT SECTOR SPDR FUND
-    type: us_equity
+    type: etf
     source: manual
-    updated_at: '2026-07-19'
+    updated_at: '2026-10-18'
     ratio: '2:1'
   - ticker: XLI
     name: The Industrial Select Sector SPDR Fund
-    type: us_equity
+    type: etf
     source: manual
-    updated_at: '2026-07-19'
+    updated_at: '2026-10-18'
     ratio: '28:1'
   - ticker: XLK
     name: The Technology Select Sector SPDR Fund

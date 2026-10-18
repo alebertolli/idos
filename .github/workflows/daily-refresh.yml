@@ -15,6 +15,10 @@ on:
         required: false
         type: boolean
         default: false
+      candidate_tickers:
+        description: "Optional comma-separated operable tickers for a bounded manual refresh"
+        required: false
+        type: string
 
 jobs:
   refresh:
@@ -43,11 +47,14 @@ jobs:
       - name: Install
         run: pip install -e idos-core
       - name: Refresh data
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
         run: |
           python -c "
           import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
           from idos.workers.data.refresh_worker import DataRefreshWorker
           from idos.workers.data.cache import DataCache
+          from idos.discovery.operability import OperabilityFilter
           from pathlib import Path
           import os, json, yaml
           from datetime import datetime
@@ -58,7 +65,12 @@ jobs:
               tickers = [e['ticker'] for e in wl_data.get('entries', []) if e.get('ticker')]
           else:
               tickers = []
-          print(f'[REFRESH] Loading {len(tickers)} tickers from watchlist.yml')
+          requested = [t.strip().upper() for t in os.environ.get('IDOS_CANDIDATE_TICKERS', '').split(',') if t.strip()]
+          if requested:
+              operable = OperabilityFilter('idos-config/universe/operable.yml')
+              tickers = operable.validate_selection(requested)
+          source = 'manual operable selection' if requested else 'watchlist.yml'
+          print(f'[REFRESH] Loading {len(tickers)} tickers from {source}')
           refresher = DataRefreshWorker({'universe_path': ''})
           r = refresher.execute({'tickers': tickers})
           print(f'[REFRESH] Processed: {r.output.get(\"tickers_processed\", 0)} tickers')

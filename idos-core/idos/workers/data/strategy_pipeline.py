@@ -50,6 +50,25 @@ class MonthlyStrategyWorker(BaseWorker):
             raise FileNotFoundError(f"Operable universe registry not found: {operable_path}")
         operable = OperabilityFilter(str(operable_path))
         universe = [ticker for ticker in configured_universe if operable.is_operable(ticker)]
+        supported_types = set(params.get("supported_asset_types", []))
+        if supported_types:
+            entries_by_ticker = {entry["ticker"]: entry for entry in operable.list()}
+            universe = [
+                ticker for ticker in universe
+                if entries_by_ticker.get(ticker, {}).get("type") in supported_types
+            ]
+        requested_tickers = context.get("candidate_tickers") or []
+        if requested_tickers:
+            requested = set(operable.validate_selection(requested_tickers))
+            universe = [ticker for ticker in universe if ticker in requested]
+            if not universe:
+                return {
+                    "status": "skipped",
+                    "reason": "no_manual_candidates_in_strategy_universe",
+                    "strategy_id": self.strategy_id,
+                    "candidate_tickers": [],
+                    "candidate_source": str(operable_path),
+                }
         if not universe:
             raise ValueError(
                 f"Strategy {self.strategy_id} has no configured candidates in the operable universe"

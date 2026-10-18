@@ -34,6 +34,25 @@ class OperabilityFilter:
     def is_operable(self, ticker: str) -> bool:
         return ticker.upper() in self._tickers
 
+    def validate_selection(self, tickers: list[str], limit: int = 5) -> list[str]:
+        """Validate and normalize a bounded manual candidate selection."""
+        selected = sorted(
+            {
+                str(ticker).upper().strip()
+                for ticker in tickers
+                if str(ticker).strip()
+            }
+        )
+        if len(selected) > limit:
+            raise ValueError(f"Manual candidate selection exceeds the {limit}-ticker limit")
+        invalid = sorted(set(selected) - self.tickers)
+        if invalid:
+            raise ValueError(
+                "Requested test tickers are not in the operable registry: "
+                + ", ".join(invalid)
+            )
+        return selected
+
     def add(
         self,
         ticker: str,
