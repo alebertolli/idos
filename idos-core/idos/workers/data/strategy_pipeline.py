@@ -49,24 +49,44 @@ class MonthlyStrategyWorker(BaseWorker):
         if not operable_path.exists():
             raise FileNotFoundError(f"Operable universe registry not found: {operable_path}")
         operable = OperabilityFilter(str(operable_path))
-        universe = [ticker for ticker in configured_universe if operable.is_operable(ticker)]
+        entries_by_ticker = {entry["ticker"]: entry for entry in operable.list()}
+        operable_universe = [
+            ticker for ticker in configured_universe if operable.is_operable(ticker)
+        ]
+        excluded_not_operable = sorted(set(configured_universe) - set(operable_universe))
         supported_types = set(params.get("supported_asset_types", []))
-        if supported_types:
-            entries_by_ticker = {entry["ticker"]: entry for entry in operable.list()}
-            universe = [
-                ticker for ticker in universe
-                if entries_by_ticker.get(ticker, {}).get("type") in supported_types
-            ]
+        excluded_unsupported_asset_types = sorted(
+            ticker for ticker in operable_universe
+            if supported_types and entries_by_ticker.get(ticker, {}).get("type") not in supported_types
+        )
+        strategy_universe = [
+            ticker for ticker in operable_universe
+            if not supported_types or entries_by_ticker.get(ticker, {}).get("type") in supported_types
+        ]
+        eligible_universe_count = len(strategy_universe)
         requested_tickers = context.get("candidate_tickers") or []
+        excluded_manual_tickers = []
+        run_scope = "bounded" if requested_tickers else "full"
+        universe = strategy_universe
         if requested_tickers:
-            requested = set(operable.validate_selection(requested_tickers))
-            universe = [ticker for ticker in universe if ticker in requested]
+            requested_tickers = operable.validate_selection(requested_tickers)
+            requested = set(requested_tickers)
+            excluded_manual_tickers = sorted(requested - set(strategy_universe))
+            universe = [ticker for ticker in strategy_universe if ticker in requested]
             if not universe:
                 return {
                     "status": "skipped",
                     "reason": "no_manual_candidates_in_strategy_universe",
                     "strategy_id": self.strategy_id,
+                    "run_scope": run_scope,
+                    "requested_tickers": requested_tickers,
                     "candidate_tickers": [],
+                    "candidate_count": 0,
+                    "configured_universe_count": len(configured_universe),
+                    "eligible_universe_count": eligible_universe_count,
+                    "excluded_not_operable": excluded_not_operable,
+                    "excluded_unsupported_asset_types": excluded_unsupported_asset_types,
+                    "excluded_manual_tickers": excluded_manual_tickers,
                     "candidate_source": str(operable_path),
                 }
         if not universe:
@@ -88,12 +108,22 @@ class MonthlyStrategyWorker(BaseWorker):
         ranking = sorted(rows, key=lambda r: r["momentum"], reverse=True)
         selected = sorted(eligible, key=lambda r: r["momentum"], reverse=True)[: int(params["select_top"])]
         action = "CASH_FALLBACK" if not selected else "REVIEW_ALLOCATION"
+        generated_at = datetime.now(AR_TZ).isoformat(timespec="microseconds")
+        coverage_complete = not missing and len(rows) == eligible_universe_count
         output = {
-            "strategy_id": self.strategy_id, "as_of_date": datetime.now(AR_TZ).date().isoformat(),
+            "strategy_id": self.strategy_id,
+            "as_of_date": datetime.now(AR_TZ).date().isoformat(),
+            "generated_at": generated_at,
+            "run_scope": run_scope,
+            "coverage_complete": coverage_complete,
             "candidate_source": str(operable_path),
             "candidate_count": len(universe),
             "configured_universe_count": len(configured_universe),
-            "excluded_not_operable": sorted(set(configured_universe) - set(universe)),
+            "eligible_universe_count": eligible_universe_count,
+            "requested_tickers": requested_tickers,
+            "excluded_not_operable": excluded_not_operable,
+            "excluded_unsupported_asset_types": excluded_unsupported_asset_types,
+            "excluded_manual_tickers": excluded_manual_tickers,
             "candidate_tickers": universe,
             "formula": "12*P0/P1 + 4*P0/P3 + 2*P0/P6 + P0/P12 - 19",
             "ranking": ranking, "eligible": eligible, "selected": selected,
@@ -109,7 +139,14 @@ class MonthlyStrategyWorker(BaseWorker):
         sqlite = SQLiteStore(base / "idos.db")
         signal_dir = base / "idos-journal" / "strategies" / self.strategy_id
         signal_dir.mkdir(parents=True, exist_ok=True)
-        (signal_dir / f"{output['as_of_date']}.yml").write_text(yaml.dump(output, allow_unicode=True), encoding="utf-8")
+        generated = datetime.fromisoformat(output["generated_at"])
+        timestamp = generated.strftime("%H%M%S%f")
+        report_path = signal_dir / f"{output['as_of_date']}-{timestamp}-{output['run_scope']}.yml"
+        suffix = 1
+        while report_path.exists():
+            report_path = signal_dir / f"{output['as_of_date']}-{timestamp}-{output['run_scope']}-{suffix}.yml"
+            suffix += 1
+        report_path.write_text(yaml.dump(output, allow_unicode=True), encoding="utf-8")
         for row in output["selected"]:
             ticker = row["ticker"]
             opp_id = f"OPP-{output['as_of_date'].replace('-', '')}-MOM-{ticker}"

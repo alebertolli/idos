@@ -100,7 +100,7 @@ def test_momentum_strategy_manual_subset_is_limited_to_configured_operable_ticke
         "    sleeve: SYSTEMATIC_RETURN\n    thesis_type: SYSTEMATIC\n"
         "    discovery_profile: momentum_monthly\n    research_profile: systematic\n"
         "    entry_policy: SIGNAL_REBALANCE\n    parameters:\n"
-        "      universe: [QQQ, GLD]\n      select_top: 2\n"
+        "      universe: [QQQ, GLD]\n      supported_asset_types: [etf]\n      select_top: 2\n"
         "      minimum_signal: 0.6\n      maximum_signal: 2.7\n",
         encoding="utf-8",
     )
@@ -124,6 +124,12 @@ def test_momentum_strategy_manual_subset_is_limited_to_configured_operable_ticke
 
     assert prices.tickers == ["GLD"]
     assert output["candidate_tickers"] == ["GLD"]
+    assert output["run_scope"] == "bounded"
+    assert output["requested_tickers"] == ["AAPL", "GLD"]
+    assert output["candidate_count"] == 1
+    assert output["eligible_universe_count"] == 2
+    assert output["excluded_manual_tickers"] == ["AAPL"]
+    assert output["coverage_complete"] is False
 
 
 def test_momentum_strategy_rejects_non_operable_manual_subset(tmp_path: Path):
@@ -154,3 +160,12 @@ def test_momentum_strategy_rejects_non_operable_manual_subset(tmp_path: Path):
         assert "AAPL" in str(exc)
     else:
         raise AssertionError("non-operable test ticker must be rejected")
+
+
+def test_monthly_strategy_persists_distinct_run_reports(tmp_path: Path):
+    worker = MonthlyStrategyWorker({"price_provider": FakePrices()})
+    for _ in range(2):
+        worker.run({"base_path": str(tmp_path), "persist": True})
+
+    reports = list((tmp_path / "idos-journal" / "strategies" / "MOMENTUM_ETF").glob("*.yml"))
+    assert len(reports) == 2

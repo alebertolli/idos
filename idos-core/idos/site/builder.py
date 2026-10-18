@@ -1029,18 +1029,27 @@ class SiteBuilder:
         for strategy_dir in root.iterdir():
             if not strategy_dir.is_dir():
                 continue
-            reports = sorted(strategy_dir.glob("*.yml"))
+            reports = []
+            for path in strategy_dir.glob("*.yml"):
+                report = _load_yaml(path)
+                if isinstance(report, dict):
+                    reports.append((str(report.get("generated_at") or path.name), report))
             if not reports:
                 continue
-            report = _load_yaml(reports[-1])
-            if isinstance(report, dict):
-                latest[strategy_dir.name] = {
-                    "as_of_date": report.get("as_of_date"),
-                    "action": report.get("action"),
-                    "selected": report.get("selected") or [],
-                    "eligible_count": len(report.get("eligible") or []),
-                    "ranking": report.get("ranking") or [],
-                }
+            _, report = max(reports, key=lambda item: item[0])
+            latest[strategy_dir.name] = {
+                "as_of_date": report.get("as_of_date"),
+                "generated_at": report.get("generated_at"),
+                "run_scope": report.get("run_scope", "unknown"),
+                "action": report.get("action"),
+                "selected": report.get("selected") or [],
+                "eligible_count": len(report.get("eligible") or []),
+                "ranking": report.get("ranking") or [],
+                "candidate_count": report.get("candidate_count"),
+                "eligible_universe_count": report.get("eligible_universe_count"),
+                "coverage_complete": report.get("coverage_complete", False),
+                "missing_history": report.get("missing_history") or [],
+            }
         return latest
 
     # -- main build --
@@ -1315,7 +1324,16 @@ function renderDashboard(){
     html += '<h2>Señales sistemáticas</h2><div class="grid">';
     Object.entries(strategies).forEach(([name,s])=>{
       const selected=(s.selected||[]).map(x=>`${esc(x.ticker)} (${fmt(x.momentum,2)})`).join(', ')||'Sin selección';
-      html += `<div class="card"><div class="muted">${esc(name)} · ${esc(s.as_of_date||'')}</div><div style="font-weight:700">${esc(s.action||'—')}</div><div class="muted">${selected}</div><div class="muted">Elegibles: ${s.eligible_count??0}</div></div>`;
+      const candidateCount=s.candidate_count;
+      const universeCount=s.eligible_universe_count;
+      const fullRun=s.run_scope==='full' && s.coverage_complete===true && candidateCount===universeCount;
+      const scope=s.run_scope==='bounded'
+        ? `Prueba parcial · ${candidateCount??0}/${universeCount??'?'} activos de la estrategia`
+        : fullRun ? `Universo completo · ${candidateCount} activos analizados`
+        : s.run_scope==='full' ? `Cobertura incompleta · ${candidateCount??0}/${universeCount??'?'} activos`
+        : 'Alcance sin verificar · reporte anterior';
+      const action=fullRun ? (s.action||'—') : `${s.action||'—'} · no interpretar como señal global`;
+      html += `<div class="card"><div class="muted">${esc(name)} · ${esc(s.as_of_date||'')}</div><div class="muted">${esc(scope)}</div><div style="font-weight:700">${esc(action)}</div><div class="muted">${selected}</div><div class="muted">Elegibles: ${s.eligible_count??0}</div></div>`;
     });
     html += '</div>';
   }

@@ -316,3 +316,45 @@ def test_public_site_does_not_treat_forged_fundamental_context_as_systematic(tmp
     assert opp["ddd"]["resumen_ejecutivo"] is None
     assert opp["ddd"]["tesis_inversion"] is None
     assert opp["ddd"]["score_general"] is None
+
+
+def test_strategy_signal_reports_expose_run_scope_and_latest_generated_report(tmp_path: Path):
+    import json
+    import yaml
+
+    report_dir = tmp_path / "idos-journal" / "strategies" / "MOMENTUM_ETF"
+    report_dir.mkdir(parents=True)
+    older = {
+        "as_of_date": "2026-10-18",
+        "generated_at": "2026-10-18T10:00:00-03:00",
+        "run_scope": "full",
+        "action": "REVIEW_ALLOCATION",
+        "candidate_count": 7,
+        "eligible_universe_count": 7,
+        "coverage_complete": True,
+        "eligible": [{"ticker": "XLF"}],
+    }
+    newer = {
+        "as_of_date": "2026-10-18",
+        "generated_at": "2026-10-18T11:00:00-03:00",
+        "run_scope": "bounded",
+        "action": "CASH_FALLBACK",
+        "candidate_count": 2,
+        "eligible_universe_count": 7,
+        "coverage_complete": False,
+        "eligible": [],
+        "requested_tickers": ["QQQ", "GLD"],
+    }
+    (report_dir / "23-later-name.yml").write_text(yaml.safe_dump(older), encoding="utf-8")
+    (report_dir / "01-earlier-name.yml").write_text(yaml.safe_dump(newer), encoding="utf-8")
+
+    out = write_site(tmp_path, tmp_path / "site")
+    payload = json.loads((out / "data.json").read_text(encoding="utf-8"))
+    signal = payload["dashboard"]["ide"]["strategy_signals"]["MOMENTUM_ETF"]
+    app_js = (out / "assets" / "app.js").read_text(encoding="utf-8")
+
+    assert signal["run_scope"] == "bounded"
+    assert signal["candidate_count"] == 2
+    assert signal["eligible_universe_count"] == 7
+    assert "Prueba parcial" in app_js
+    assert "no interpretar como señal global" in app_js
