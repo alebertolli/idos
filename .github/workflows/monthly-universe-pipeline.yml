@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
     inputs:
       candidate_tickers:
-        description: "Optional comma-separated tickers from operable.yml for a bounded test run"
-        required: false
+        description: "Required for manual runs: 1-5 comma-separated tickers from operable.yml"
+        required: true
         type: string
 
 jobs:
@@ -18,9 +18,6 @@ jobs:
       issues: write
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
       IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
     steps:
@@ -36,6 +33,12 @@ jobs:
           python-version: "3.12"
       - name: Install
         run: pip install -e idos-core
+      - name: Validate bounded manual candidate scope
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+          IDOS_MANUAL_SELECTION_LIMIT: "5"
+        run: python scripts/validate_manual_candidate_scope.py
       - name: Run pipeline
         env:
           IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}

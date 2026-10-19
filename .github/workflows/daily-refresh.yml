@@ -16,8 +16,8 @@ on:
         type: boolean
         default: false
       candidate_tickers:
-        description: "Optional comma-separated operable tickers for a bounded manual refresh"
-        required: false
+        description: "Required for manual runs: 1-5 comma-separated tickers from operable.yml"
+        required: true
         type: string
 
 jobs:
@@ -46,6 +46,12 @@ jobs:
           python-version: "3.12"
       - name: Install
         run: pip install -e idos-core
+      - name: Validate bounded manual candidate scope
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+          IDOS_MANUAL_SELECTION_LIMIT: "5"
+        run: python scripts/validate_manual_candidate_scope.py
       - name: Refresh data
         env:
           IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}

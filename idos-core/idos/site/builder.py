@@ -1512,7 +1512,7 @@ function renderOpp(){
   };
   let html = `<h2>Research (${rows.length})</h2>`;
   html += `<p class="muted">Oportunidades en <b>Research / UNDER_RESEARCH</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Clic en una columna para ordenar.</p>`;
-  html += `<p class="muted">Estados siguientes (automatizados): el worker de Decision Board evalúa el caso y lo pasa a <b>APPROVED</b> (aprobado para entrada) o a <b>WATCHLIST</b> (rechazado) según las reglas de entrada. La transición es automática; no hay umbral numérico fijo.</p>`;
+  html += `<p class="muted">Assessment prepara una propuesta determinista. El gestor revisa los escenarios y la propuesta vigente mediante <b>Scenario Review</b> y <b>Decision Review</b>; una aprobación válida agrega el caso a la <b>Buy List</b>, sin crear posiciones ni órdenes. Los casos rechazados o que no superan los gates permanecen sin aprobación.</p>`;
   html += detailsEntryRules();
   html += tableInput('opp','opp-search','Buscar ticker...');
   html += `<table id="tbl-opp"><thead>${sortHeadRows('opp')}</thead><tbody>${sortTbody('opp')}</tbody></table>`;

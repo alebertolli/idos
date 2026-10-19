@@ -9,8 +9,8 @@ on:
   workflow_dispatch:
     inputs:
       ticker:
-        description: "Ticker específico (vacío = todos)"
-        required: false
+        description: "Required for manual runs: one operable ticker, e.g. AAPL"
+        required: true
         type: string
       force:
         description: "Reprocesar cualquier estado (ignora can_transition)"
@@ -60,6 +60,12 @@ jobs:
           python-version: "3.12"
       - name: Install
         run: pip install -e idos-core
+      - name: Validate bounded manual candidate scope
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.ticker }}
+          IDOS_MANUAL_SELECTION_LIMIT: "1"
+        run: python scripts/validate_manual_candidate_scope.py
 
       - name: Set run context
         run: |

@@ -5,6 +5,8 @@ from datetime import datetime
 from typing import Any
 from idos.timezone import AR_TZ
 
+DEFAULT_MANUAL_SELECTION_LIMIT = 5
+
 class OperabilityFilter:
     def __init__(self, operable_path: str = "idos-config/universe/operable.yml"):
         self.path = Path(operable_path)
@@ -34,7 +36,11 @@ class OperabilityFilter:
     def is_operable(self, ticker: str) -> bool:
         return ticker.upper() in self._tickers
 
-    def validate_selection(self, tickers: list[str], limit: int = 5) -> list[str]:
+    def validate_selection(
+        self,
+        tickers: list[str],
+        limit: int = DEFAULT_MANUAL_SELECTION_LIMIT,
+    ) -> list[str]:
         """Validate and normalize a bounded manual candidate selection."""
         selected = sorted(
             {
@@ -52,6 +58,17 @@ class OperabilityFilter:
                 + ", ".join(invalid)
             )
         return selected
+
+    def validate_manual_selection(
+        self,
+        raw_selection: str,
+        limit: int = DEFAULT_MANUAL_SELECTION_LIMIT,
+    ) -> list[str]:
+        """Require a non-empty comma-separated selection for bounded manual runs."""
+        tickers = [ticker.strip().upper() for ticker in raw_selection.split(",") if ticker.strip()]
+        if not tickers:
+            raise ValueError("Manual runs require at least one ticker from operable.yml")
+        return self.validate_selection(tickers, limit=limit)
 
     def add(
         self,

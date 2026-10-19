@@ -430,3 +430,21 @@ en el fixture.
    y revisar selector, proveedor/modelo, costo esperado, artifacts y commits;
    comprobar que una oportunidad no vencida no consume Research ni cambia su
    tesis. Registrar ref, SHA, run y resultado sin convertir un no-op en E2E.
+
+### Alcance seguro de workflows manuales
+
+1. Probar que la selección manual vacía, no operable y por encima del límite
+   falla antes de ejecutar workers o solicitar datos a proveedores. Confirmar
+   normalización, deduplicación y registro de los tickers elegidos.
+2. Verificar en Monthly Universe y Daily Refresh el límite de cinco símbolos;
+   en DDD, exactamente uno. Los cron deben conservar su selección normal y no
+   quedar sujetos a la guardia manual.
+3. En GitHub Actions, ejecutar Monthly Universe con `AAPL,QQQ` desde la rama
+   de prueba; revisar que COMPOUNDER sólo procese el activo compatible y que
+   MOMENTUM_ETF sólo procese el ETF. Confirmar que `candidate_count` no exceda
+   dos, no haya solicitudes para el resto de `operable.yml`, y auditar
+   resultados, rate limits, artifacts y commits antes de lanzar DDD.
+4. Inducir un fallo controlado de reporting sin proveedor IA: verificar que el
+   error reporter incluya workflow, ref, run y extracto de logs, cree una issue,
+   y no importe ni invoque AutoFixAgent. El análisis de reparación sólo ocurre
+   después del comando explícito de autorización.
