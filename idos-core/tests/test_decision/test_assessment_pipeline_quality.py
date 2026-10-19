@@ -1,3 +1,5 @@
+import json
+
 from idos.decision.assessment_pipeline import (
     _remove_buylist_entry,
     _authorization_rule_ids,
@@ -5,8 +7,10 @@ from idos.decision.assessment_pipeline import (
     _eval_asymmetry,
     _eval_financial_data_quality,
     _financial_data_quality,
+    _load_financial_data,
     _register_authorization_rules,
 )
+from idos.data.sqlite import SQLiteStore
 from idos.decision.orchestrator import DecisionOrchestrator
 from idos.rules.engine import RulesEngine
 
@@ -201,6 +205,35 @@ def test_financial_quality_uses_provider_reported_unix_cutoff_and_its_source():
         })
         assert invalid["as_of_date"] is None
         assert not _eval_financial_data_quality({"financial_data_quality": invalid}).passed
+
+
+def test_financial_loader_prefers_normalized_cache_with_cutoff_over_unstamped_event(tmp_path):
+    sqlite = SQLiteStore(tmp_path / "idos.db")
+    sqlite.log_event(
+        "market_data:refreshed",
+        {"ticker": "ARM", "source": "stockanalysis.com", "operating_margin_pct": 17.3},
+    )
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    (cache_dir / "ARM.json").write_text(
+        json.dumps({
+            "ticker": "ARM",
+            "source": "stockanalysis.com",
+            "operating_margin_pct": 17.3,
+            "financial_period_end_timestamp": 1782518400,
+            "data_provenance": {
+                "field_sources": {"financial_period_end_timestamp": ["yfinance"]},
+            },
+        }),
+        encoding="utf-8",
+    )
+
+    financial = _load_financial_data("ARM", sqlite)
+    quality = _financial_data_quality(financial)
+
+    assert financial["financial_period_end_timestamp"] == 1782518400
+    assert quality["as_of_date"] == "2026-06-27"
+    assert quality["as_of_date_source"] == "yfinance"
 
 
 def test_financial_quality_rule_cannot_be_disabled_by_custom_authorization_config(tmp_path):

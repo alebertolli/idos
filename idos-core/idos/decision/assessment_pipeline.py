@@ -450,6 +450,34 @@ def _warn_missing_metrics(ticker: str, data: dict[str, Any], source: str = "fina
     return warnings
 
 def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
+    cache_data = None
+    cache_dir = sqlite.db_path.parent / "cache"
+    for cache_path in [cache_dir / f"{ticker}_financial.json", cache_dir / f"{ticker}.json"]:
+        if not cache_path.exists():
+            continue
+        try:
+            data = json.loads(cache_path.read_text(encoding="utf-8"))
+            if not isinstance(data, dict) or not data:
+                continue
+            if "merged_data" in data and isinstance(data["merged_data"], dict):
+                data = data["merged_data"]
+            data = _normalize_decimal_pcts(data)
+            data = _enrich_roic(data)
+            if cache_data is None:
+                cache_data = data
+            cutoff_fields = (
+                "fundamentals_as_of", "as_of_date", "period_end_date",
+                "fiscal_period_end", "financial_period_end_timestamp",
+            )
+            cutoff = next((data.get(key) for key in cutoff_fields if data.get(key) is not None), None)
+            provenance = data.get("data_provenance")
+            provenance = provenance if isinstance(provenance, dict) else {}
+            if _valid_cutoff_date(cutoff or provenance.get("as_of_date")):
+                _warn_missing_metrics(ticker, data, "cache")
+                return data
+        except (OSError, ValueError, TypeError):
+            continue
+
     try:
         row = sqlite.conn.execute(
             "SELECT data_json FROM events_log WHERE data_json LIKE ? OR correlation_id LIKE ? ORDER BY timestamp DESC LIMIT 1",
@@ -462,24 +490,9 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
                 pass
     except Exception:
         pass
-    import json
-    from pathlib import Path
-    for cache_path in [
-        Path("cache") / f"{ticker}_financial.json",
-        Path("cache") / f"{ticker}.json",
-    ]:
-        if cache_path.exists():
-            try:
-                data = json.loads(cache_path.read_text(encoding="utf-8"))
-                if data:
-                    if "merged_data" in data:
-                        data = data["merged_data"]
-                    data = _normalize_decimal_pcts(data)
-                    data = _enrich_roic(data)
-                    _warn_missing_metrics(ticker, data, "cache")
-                    return data
-            except Exception:
-                pass
+    if cache_data is not None:
+        _warn_missing_metrics(ticker, cache_data, "cache")
+        return cache_data
     try:
         from idos.workers.data.stockanalysis import StockAnalysisWorker
         sa = StockAnalysisWorker()
