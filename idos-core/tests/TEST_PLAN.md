@@ -395,3 +395,8 @@ decisión real en una rama de prueba.
    deben cambiar perfiles sin revisión, comparación y versionado aprobados.
 10. Sólo tras configurar la fuente privada, probar importación con fixture
     ficticio, reconciliación y Risk Audit conforme a SDD/21.
+11. En el fixture de portfolio, incluir balances de Cash y obligaciones PENDING
+    en más de una moneda; exigir referencia de fuente por fila y FX fechado no
+    posterior al corte. Verificar activos brutos, pasivos, valor neto,
+    proporción sobre activos y que Risk Audit permanezca NOT_ASSESSED sin
+    autorizar allocation. Omitir una lista debe declarar balance parcial.

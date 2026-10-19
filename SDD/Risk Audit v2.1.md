@@ -560,14 +560,20 @@ El Risk Audit alimenta principalmente:
 
 # 20. Estado de implementación y validación
 
-Al 2026-10-18, `idos-core/idos/portfolio/audit.py` implementa únicamente el
-capital exposure audit: conversión a moneda base con FX aportado en el
-snapshot, pesos por posición y agrupaciones conocidas (incluido economic
-cluster), reporte de clasificaciones desconocidas y bloqueo de autorización de
-asignación. Su salida declara `audit_scope: CAPITAL_EXPOSURE_ONLY`,
-`risk_audit_status: NOT_ASSESSED` y enumera los dominios pendientes. El campo
-legacy `status` describe sólo la integridad de las clasificaciones de capital;
-no significa que Risk Audit v2.1 esté completo.
+Al 2026-10-19, `idos-core/idos/portfolio/audit.py` convierte posiciones,
+efectivo y obligaciones pendientes a moneda base usando FX aportado en el
+snapshot. Informa pesos por posición sobre holdings, peso adicional sobre
+activos brutos, agrupaciones conocidas (incluido economic cluster), cash por
+moneda/cuenta, obligaciones por moneda, activos brutos, pasivos y valor neto.
+Una lista faltante queda declarada como `balance_sheet_status: PARTIAL`; sólo
+ambas listas explícitas, incluso vacías, permiten `COMPLETE`. La obligación debe
+estar marcada `PENDING`. Cada posición, cash y obligación exige `source_ref`;
+cada FX no base exige fecha y referencia de fuente, y una fecha FX posterior al
+corte bloquea el cálculo. Aún no existe un umbral aprobado de antigüedad de FX,
+por lo que la validez temporal se limita a rechazar fechas futuras. El reporte
+mantiene `risk_audit_status: NOT_ASSESSED`, enumera los dominios pendientes y bloquea autorización de
+asignación. El campo legacy `status` describe sólo la integridad de las
+clasificaciones de capital; no significa que Risk Audit v2.1 esté completo.
 
 No se calculan ni infieren duration, convexidad, volatilidad, beta, crédito,
 recovery, liquidez efectiva, moneda económica, poder adquisitivo real,
@@ -576,9 +582,10 @@ presupuesto ni sizing. Deben permanecer `UNKNOWN / N/A` hasta que el snapshot
 aporte inputs con unidad, fuente y fecha, y exista un método versionado
 aplicable al tipo de activo. El reporte nunca autoriza operaciones.
 
-La validación actual cubre consolidación determinista de capital y
-clasificaciones, rechazo de valores/FX inválidos y CLI con salida separada del
-snapshot de entrada. La evaluación multidimensional completa requiere un
-contrato versionado de snapshot, fixtures por clase de activo, escenarios y
-correlaciones con métodos explícitos, pruebas de integración y revisión del
-gestor. No usar cartera simulada como sustituto de la hoja privada familiar.
+La validación local cubre consolidación determinista de capital y balance,
+clasificaciones, filas inválidas/duplicadas, FX faltante y CLI con salida
+separada del snapshot de entrada. La evaluación multidimensional completa
+requiere inputs versionados por clase de activo, fuentes/fechas, fixtures,
+escenarios y correlaciones con métodos explícitos, pruebas de integración y
+revisión del gestor. No usar cartera simulada como sustituto de la hoja privada
+familiar.
