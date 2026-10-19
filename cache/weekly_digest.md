@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-19 12:36 AR _
+_Generado: 2026-10-19 13:03 AR _
 
 ## Resumen
 
@@ -12,16 +12,16 @@ _Generado: 2026-10-19 12:36 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **ASML** (OPP-20260725-028): score=85, class=?
+- ✅ **ALAB** (OPP-20261019-001): score=71, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **ASML**
-  - Opp: [OPP-20260725-028]
-  - Conviction: 69/100 | Rec: BLOCKED
-  - Scores: Business: 76 | Valuation: 65 | Recovery: 64 | Risk: 80 | Portfolio: 50
+- ⚠️ **ALAB**
+  - Opp: [OPP-20261019-001]
+  - Conviction: 68/100 | Rec: BLOCKED
+  - Scores: Business: 72 | Valuation: 70 | Recovery: 60 | Risk: 80 | Portfolio: 50
   - Rules BLOCKED:
-    - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: BULL.sources[0]: la fecha de fuente no puede superar as_of_date
+    - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: Las probabilidades de catalizadores no son escenarios financieros mutuamente excluyentes validados.
 
 ---
 

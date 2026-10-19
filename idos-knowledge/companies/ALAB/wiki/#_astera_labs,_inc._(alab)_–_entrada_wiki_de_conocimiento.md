@@ -1,0 +1,1 @@
+> **Nota:** Los hechos marcados como **[✔]** provienen de fuentes verificadas (informes DDD, AOIF, datos de la compañía). Los enunciados marcados como **[✏]** son inferencias o hipótesis generadas por el modelo.

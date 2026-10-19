@@ -1,0 +1,175 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El número de clientes reportado en los resultados trimestrales de Q4
+      2027 es igual o inferior a 115.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa anuncia la cancelación o postergación del roadmap de COSMOS
+      antes del 2027-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El número de clientes reportado en los resultados trimestrales de Q4 2027 es igual
+    o inferior a 115.
+  - La empresa anuncia la cancelación o postergación del roadmap de COSMOS antes del
+    2027-06-30.
+  horizon: medio
+  id: H1-OPP-20261019-001
+  opportunity_id: OPP-20261019-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 130.0
+    met: null
+    metric: numero_clientes
+    prediction: El número total de clientes de centros de datos será de 130 o más
+      (partiendo de 100 a finales de 2026).
+    unit: clientes
+  priority: critical
+  probability: 0.5
+  rationale: La empresa ha anunciado recientemente nuevas alianzas con proveedores
+    de infraestructura y ha lanzado versiones mejoradas de sus adaptadores de alta
+    velocidad. La demanda de conectividad de baja latencia en IA generativa está creciendo
+    a una tasa compuesta superior al 25% anual, lo que crea un mercado atractivo para
+    la solución COSMOS.
+  review_trigger: Si Astera Labs publica un comunicado de que el desarrollo de COSMOS
+    será suspendido antes del 2027-06-30.
+  secondary_hypotheses: []
+  statement: Astera Labs incrementará su base de clientes de centros de datos en al
+    menos un 30% antes del 2027-12-31, impulsado por la adopción de la plataforma
+    COSMOS y su oferta integrada hardware‑software.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF anual reportado para FY2028 es negativo o inferior a 10 millones
+      de USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía emite una alerta de liquidez o un aviso de incumplimiento
+      de covenants antes del 2028-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF anual reportado para FY2028 es negativo o inferior a 10 millones de USD.
+  - La compañía emite una alerta de liquidez o un aviso de incumplimiento de covenants
+    antes del 2028-03-31.
+  horizon: largo
+  id: H2-OPP-20261019-001
+  opportunity_id: OPP-20261019-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 50.0
+    met: null
+    metric: FCF
+    prediction: FCF anual reportado para FY2028 será ≥ 50 millones de USD.
+    unit: USD millones
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento de la base de clientes (H1) y la mejora de los márgenes
+    brutos permitirán mayores ingresos recurrentes y menores costos de adquisición.
+    Además, la empresa ha anunciado planes de financiamiento mediante una línea de
+    crédito de 200 millones de USD que reducirá la presión de liquidez.
+  review_trigger: Si Astera Labs anuncia una emisión de deuda de emergencia superior
+    a 500 millones de USD antes del 2028-01-01, indicando que el negocio no genera
+    suficiente efectivo.
+  secondary_hypotheses:
+  - H1-OPP-20261019-001
+  statement: El flujo de caja libre (FCF) de Astera Labs será positivo y superará
+    los 50 millones de USD al cierre del ejercicio fiscal 2028 (2028-12-31).
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EV/Revenue reportado en la fecha objetivo es inferior a 8.0.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía es excluida del índice S&P Technology antes del 2028-01-01.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EV/Revenue reportado en la fecha objetivo es inferior a 8.0.
+  - La compañía es excluida del índice S&P Technology antes del 2028-01-01.
+  horizon: medio
+  id: H3-OPP-20261019-001
+  opportunity_id: OPP-20261019-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 12.0
+    met: null
+    metric: EV/Revenue
+    prediction: EV/Revenue reportado en Bloomberg/FactSet será ≥ 12.0.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: El aumento de clientes (H1) y la generación de flujo de caja positivo
+    (H2) mejorarán la percepción de rentabilidad sostenible. Los analistas del sector
+    han empezado a comparar a Astera con empresas de infraestructura de red con múltiplos
+    superiores, lo que impulsa la valoración.
+  review_trigger: Si el precio de la acción cae más del 40% desde su nivel de 2026-10-19
+    sin una causa fundamental de negocio, indicando pérdida de confianza del mercado.
+  secondary_hypotheses:
+  - H1-OPP-20261019-001
+  - H2-OPP-20261019-001
+  statement: El múltiplo EV/Revenue de Astera Labs alcanzará al menos 12x antes del
+    2028-06-30, reflejando una revaluación del mercado basada en su crecimiento de
+    ingresos y posicionamiento defensivo.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Margen bruto reportado para Q2 2027 es inferior al 45.0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Astera Labs anuncia un cambio de proceso de fabricación que incrementa
+      los costos unitarios antes del 2027-04-01.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Margen bruto reportado para Q2 2027 es inferior al 45.0%.
+  - Astera Labs anuncia un cambio de proceso de fabricación que incrementa los costos
+    unitarios antes del 2027-04-01.
+  horizon: corto
+  id: H4-OPP-20261019-001
+  opportunity_id: OPP-20261019-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 55.0
+    met: null
+    metric: margen_bruto
+    prediction: Margen bruto reportado para Q2 2027 será ≥ 55.0%.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: La empresa ha migrado la producción a un proceso de empaquetado avanzado
+    de 5nm, reduciendo costos de materiales y mejorando rendimientos. Además, la mayor
+    escala de producción derivada del crecimiento de clientes (H1) permite economías
+    de escala.
+  review_trigger: Si la compañía publica un aviso de deterioro de inventario o una
+    reducción significativa de precios de venta antes del 2027-04-01.
+  secondary_hypotheses:
+  - H1-OPP-20261019-001
+  statement: El margen bruto de la línea de productos de interconexión de alta velocidad
+    superará el 55% en el segundo trimestre de 2027 (2027-06-30).
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
