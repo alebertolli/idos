@@ -92,6 +92,11 @@ user_prompt: >
      (cumplido|vigente|desestimado|nuevo) en "comparativa_catalizadores".
 
   ESCENARIOS FINANCIEROS PARA ASIMETRÍA (Bear/Base/Bull):
+  Fecha del análisis: {analysis_as_of_date}. Usa esa fecha como as_of_date.
+  horizon_date debe ser posterior a la fecha actual del análisis. No uses escenarios
+  con horizontes ya vencidos ni identificadores ficticios en URLs (por ejemplo,
+  CIKs compuestos por ceros). Si no puedes verificar los precios, fechas o fuentes,
+  devuelve scenario_analysis como null.
   Define tres resultados mutuamente excluyentes y exhaustivos para el mismo
   horizonte. Las probabilidades deben sumar exactamente 100%; no normalices
   probabilidades de catalizadores. Propón precios objetivo en la moneda de la

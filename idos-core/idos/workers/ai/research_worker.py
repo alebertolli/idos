@@ -162,6 +162,7 @@ class ResearchWorker(BaseWorker):
             recent_events = f"{recent_events}\n\nEvento disparador validado para revisar: {event_context}"
 
         ddd_inputs = {
+            "analysis_as_of_date": datetime.now(AR_TZ).date().isoformat(),
             "ticker": ticker,
             "name": company.get("name", ticker),
             "current_price": financial_data.get("price") or financial_data.get("current_price") or "N/D",

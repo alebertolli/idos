@@ -9,6 +9,7 @@ import math
 import re
 from typing import Any
 from urllib.parse import urlparse
+from zoneinfo import ZoneInfo
 
 
 SCENARIO_IDS = ("BEAR", "BASE", "BULL")
@@ -25,13 +26,17 @@ def validate_scenario_analysis(value: Any, *, today: date | None = None) -> list
 
     as_of = _parse_date(value.get("as_of_date"))
     horizon = _parse_date(value.get("horizon_date"))
-    reference_date = today or date.today()
+    reference_date = today or datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date()
     if as_of is None:
         errors.append("as_of_date debe ser una fecha ISO válida")
     elif as_of > reference_date:
         errors.append("as_of_date no puede estar en el futuro")
+    elif as_of < reference_date:
+        errors.append("as_of_date debe coincidir con la fecha actual del análisis")
     if horizon is None:
         errors.append("horizon_date debe ser una fecha ISO válida")
+    elif horizon <= reference_date:
+        errors.append("horizon_date debe ser posterior a la fecha actual")
     elif as_of and horizon <= as_of:
         errors.append("horizon_date debe ser posterior a as_of_date")
 
@@ -80,6 +85,8 @@ def validate_scenario_analysis(value: Any, *, today: date | None = None) -> list
             parsed_url = urlparse(str(source.get("url", "")))
             if parsed_url.scheme != "https" or not parsed_url.netloc:
                 errors.append(f"{prefix}: url debe ser HTTPS")
+            elif re.search(r"0{6,}", f"{parsed_url.netloc}{parsed_url.path}"):
+                errors.append(f"{prefix}: url contiene un identificador de relleno")
             source_date = _parse_date(source.get("as_of_date"))
             if source_date is None:
                 errors.append(f"{prefix}: as_of_date debe ser una fecha ISO válida")
@@ -132,7 +139,8 @@ def validate_scenario_review(
     except ValueError:
         reviewed_timestamp = None
     reviewed_at = reviewed_timestamp.date() if reviewed_timestamp and reviewed_timestamp.tzinfo else None
-    if reviewed_at is None or reviewed_at > (today or date.today()):
+    reference_date = today or datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date()
+    if reviewed_at is None or reviewed_at > reference_date:
         return False, "la fecha de revisión es inválida"
     if len(str(review.get("note", "")).strip()) < 10:
         return False, "la revisión requiere una justificación de al menos 10 caracteres"

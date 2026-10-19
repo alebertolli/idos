@@ -50,6 +50,21 @@ def test_invalid_scenario_contract_fails_closed():
     assert calculate_scenario_asymmetry(analysis, current_price=100, quote_currency="USD")["validation_status"] == "invalid"
 
 
+def test_expired_horizon_and_placeholder_source_identifier_are_invalid():
+    analysis = scenario_set()
+    analysis["horizon_date"] = "2026-10-18"
+    analysis["as_of_date"] = "2026-10-18"
+    analysis["scenarios"][0]["sources"][0]["url"] = (
+        "https://www.sec.gov/Archives/edgar/data/0000000000/0000000000-23-000001.xbrl"
+    )
+
+    errors = validate_scenario_analysis(analysis, today=date(2026, 10, 19))
+
+    assert any("posterior a la fecha actual" in error for error in errors)
+    assert any("coincidir con la fecha actual" in error for error in errors)
+    assert any("identificador de relleno" in error for error in errors)
+
+
 def test_currency_mismatch_and_unsupported_one_sided_distribution_block_calculation():
     analysis = scenario_set()
     assert "moneda" in calculate_scenario_asymmetry(analysis, current_price=100, quote_currency="ARS")["validation_reason"]
