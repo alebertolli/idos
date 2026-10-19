@@ -12,7 +12,7 @@ conviction:
 core: ''
 created_at: '2026-07-25T02:40:17.041742-03:00'
 current_price: 1680.145
-discovery_last_evaluated_at: '2026-10-19T12:34:23.013108-03:00'
+discovery_last_evaluated_at: '2026-10-19T17:37:41.473479-03:00'
 entry_policy: ''
 exit_reason: ''
 id: OPP-20260725-028
@@ -23,24 +23,16 @@ latest_discovery_evidence:
   data_provenance:
     conflicts:
     - avg: 17062062272.0
-      deviation_pct: 39.2
+      deviation_pct: 78.4
       field: fcf
       sources:
         stockanalysis.com: 23750000000.0
-    - avg: 17062062272.0
-      deviation_pct: 39.2
-      field: fcf
-      sources:
         yfinance: 10374124544
     - avg: 42.29
-      deviation_pct: 30.5
+      deviation_pct: 61.1
       field: revenue_growth_pct
       sources:
         stockanalysis.com: 29.38
-    - avg: 42.29
-      deviation_pct: 30.5
-      field: revenue_growth_pct
-      sources:
         yfinance: 55.2
     field_sources:
       analyst_consensus:
@@ -177,11 +169,11 @@ latest_discovery_evidence:
     - stockanalysis.com
     - yfinance
   eligibility_status: PASSED
-  evaluated_at: '2026-10-19T12:34:23.013108-03:00'
+  evaluated_at: '2026-10-19T17:37:41.473479-03:00'
   financial_observations:
     fcf:
       currency: EUR
-      observed_at: '2026-10-19T15:34:22.259992+00:00'
+      observed_at: '2026-10-19T20:37:40.767164+00:00'
       period_status: PROVIDER_REPORTED_NOT_RECONCILED
       provider_period_end_timestamp: 1790467200
       selected_source: yfinance
@@ -191,7 +183,7 @@ latest_discovery_evidence:
         yfinance: 10374124544
     operating_margin_pct:
       currency: null
-      observed_at: '2026-10-19T15:34:22.259992+00:00'
+      observed_at: '2026-10-19T20:37:40.767164+00:00'
       period_status: PROVIDER_REPORTED_NOT_RECONCILED
       provider_period_end_timestamp: 1790467200
       selected_source: yfinance
@@ -201,7 +193,7 @@ latest_discovery_evidence:
         yfinance: 44.356
     revenue_growth_pct:
       currency: null
-      observed_at: '2026-10-19T15:34:22.259992+00:00'
+      observed_at: '2026-10-19T20:37:40.767164+00:00'
       period_status: PROVIDER_REPORTED_NOT_RECONCILED
       provider_period_end_timestamp: 1790467200
       selected_source: yfinance
@@ -257,6 +249,11 @@ latest_discovery_evidence:
     liquidity_basis: UNDERLYING_USD_PROXY
     size_metric: market_cap_usd
     status: complete
+  market_quote:
+    as_of_date: '2026-10-19'
+    currency: USD
+    price: 1647.1199951171875
+    source: yfinance
   metrics:
     fcf: 10374124544
     operating_margin_pct: 44.356
