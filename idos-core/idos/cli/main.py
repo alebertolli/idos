@@ -6,6 +6,7 @@ from rich.table import Table
 from rich.panel import Panel
 from datetime import datetime
 from typing import Optional
+from uuid import uuid4
 
 from idos.core.context import IDOSContext
 from idos.data.sqlite import SQLiteStore
@@ -441,8 +442,10 @@ def entry_evaluate(ticker: str, opp_id: str = ""):
 
 @app.command()
 def position_exit(ticker: str, reason: str = "thesis_broken",
-                  opp_id: str = ""):
-    """Cierra posición y genera post-mortem pendiente de revisión privada."""
+                  opp_id: str = "",
+                  reviewer: str = typer.Option(..., "--reviewer"),
+                  justification: str = typer.Option(..., "--justification")):
+    """Registra una decisión manual atribuida; no envía una orden de venta."""
     ctx = _get_context()
     sqlite, _, journal = _get_stores(ctx)
 
@@ -474,6 +477,9 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
     if reason not in valid_reasons:
         console.print(f"[red]Invalid reason. Options: {', '.join(valid_reasons.keys())}[/red]")
         return
+    if not reviewer.strip() or not justification.strip():
+        console.print("[red]Reviewer and justification are required; no exit was recorded.[/red]")
+        return
 
     old_status = opp["status"]
     opp["status"] = "EXITED"
@@ -482,11 +488,29 @@ def position_exit(ticker: str, reason: str = "thesis_broken",
     sqlite.save_opportunity(opp)
     sqlite.record_transition(opp_id, old_status, "EXITED", cause=reason, worker="cli")
     journal.save_opportunity(ticker.upper(), opp)
+    decision = {
+        "id": f"dec-{uuid4().hex[:8]}",
+        "type": "SELL",
+        "ticker": ticker.upper(),
+        "opp_id": opp_id,
+        "status": "MANAGER_CONFIRMED",
+        "reason": reason,
+        "rationale": justification.strip(),
+        "reviewer": reviewer.strip(),
+        "exit_pct": 100.0,
+        "human_approval_required": False,
+        "generated_at": datetime.now(AR_TZ).isoformat(),
+    }
+    journal.save_decision(ticker.upper(), opp_id, decision)
     journal.log_event("position:exited", {
         "opp_id": opp_id, "ticker": ticker.upper(),
         "from": old_status, "to": "EXITED", "reason": reason,
+        "reviewer": reviewer.strip(), "justification": justification.strip(),
+        "decision_id": decision["id"],
     }, source="cli")
+    sqlite.log_event("decision:exit_manager_confirmed", decision, source="cli")
     console.print(f"[yellow]{ticker}: {old_status} → EXITED ({valid_reasons[reason]})[/yellow]")
+    console.print("Decisión registrada; no se envió una orden de venta al mercado.")
 
     position = journal.load_position(ticker.upper())
     if position:
@@ -544,8 +568,15 @@ def learning_show(pm_id: str):
     if report is None:
         raise typer.BadParameter("Post-mortem privado no encontrado")
     console.print(f"{pm_id}: {report.get('review_status')} — {report.get('strategy_id')}")
+    analysis = report.get("analysis", {})
+    for observation in analysis.get("observations", []):
+        console.print(f"  [EVIDENCIA] {observation}")
+    for gap in analysis.get("data_gaps", []):
+        console.print(f"  [DATO FALTANTE] {gap}")
     for item in report.get("recommendations", []):
         console.print(f"  [{item.get('status', 'PROPOSED')}] {item.get('text', '')}")
+    if not report.get("recommendations"):
+        console.print("No hay propuestas de cambio de estrategia; se requiere una muestra suficiente.")
     console.print("Las propuestas no modifican parámetros ni generan órdenes.")
 
 
@@ -563,10 +594,7 @@ def learning_approve(pm_id: str, reviewer: str):
 @app.command()
 def thesis_invalidate(ticker: str, opp_id: str = "",
                       reason: str = "falsacion manual de la tesis"):
-    """Marca la tesis de una posición como invalidada (Thesis Exit).
-
-    El ExitMonitorWorker vende el 100% de la posición en el siguiente run diario.
-    """
+    """Invalida la tesis y registra una revisión humana de posible salida."""
     ctx = _get_context()
     sqlite, _, journal = _get_stores(ctx)
 

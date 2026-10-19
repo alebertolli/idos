@@ -111,10 +111,11 @@ tareas automatizadas (scheduled) e intervenciones manuales (CLI).
 
 | Test | Descripción | Verifica |
 |------|-------------|----------|
-| `test_post_mortem_generates` | Worker genera post-mortem con mock LLM | pm_id devuelto, status = "completed" |
+| `test_post_mortem_generates` | Worker genera resumen determinista sin usar `llm_service` | pm_id, versión de análisis y status = "completed"; proveedor no invocado |
 | `test_post_mortem_archives` | Oportunidad termina en ARCHIVED | Estado final ARCHIVED |
 | `test_post_mortem_persists` | Post-mortem guardado en directorio | Archivo YAML existe en post_mortem/ |
-| `test_post_mortem_injects_entry_snapshot` | El prompt incluye thesis/catalizadores/riesgos y wyckoff del snapshot de entrada | "TESIS AL MOMENTO DE ENTRADA" + fase score en prompt |
+| `test_post_mortem_injects_entry_snapshot` | Informe conserva los datos relevantes del snapshot de entrada | Tesis, precio, catalizadores, riesgos y Wyckoff en `analysis.evidence.entry` |
+| `test_post_mortem_reports_prediction_evidence_without_strategy_recommendations` | Predicciones y falsaciones se resumen desde los registros | Conteo cumplido/fallido, vacíos explícitos y sin recomendación de estrategia por caso único |
 | `test_post_mortem_skips_wrong_state` | Worker ignora si no está EXITED | status = "skipped" |
 
 ### 3.4b EntrySnapshot (`test_portfolio/test_entry_snapshot.py`)
@@ -204,7 +205,7 @@ pytest -v -m "slow"       # Tests lentos (con LLM real opcional)
 ```bash
 idos opp-research MELI     # Ver salida en consola
 idos entry-evaluate MELI   # Ver señal de entrada
-idos position-exit MELI --reason manual  # Ver post-mortem
+idos position-exit MELI --reason manual --reviewer <gestor> --justification "<motivo y evidencia>"  # registra decisión local; no envía orden
 ```
 
 ---

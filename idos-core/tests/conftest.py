@@ -162,20 +162,6 @@ MOCK_DECISION_BOARD_REJECT: dict[str, Any] = {
     ],
 }
 
-MOCK_POST_MORTEM: dict[str, Any] = {
-    "exit_analysis": "La tesis se invalidó por deterioro del moat",
-    "thesis_was_correct": False,
-    "what_went_wrong": ["Subestimamos la competencia"],
-    "what_went_right": ["Buena ejecución de entrada"],
-    "lessons_learned": ["Exigir más evidencia de moat durability"],
-    "methodological_errors": ["Sesgo de confirmación en DDD"],
-    "biases_detected": ["Anchoring en estimaciones de crecimiento"],
-    "would_invest_again": False,
-    "wyckoff_accuracy": "incorrecta",
-    "wyckoff_phase_was_correct": False,
-    "wyckoff_lessons": ["La fase de acumulacion no se confirmo en retrospectiva"],
-}
-
 MOCK_ENTRY_LLM_RESPONSE: dict[str, Any] = {
     "fase_wyckoff": "acumulacion",
     "eventos_wyckoff_detectados": [
@@ -239,8 +225,6 @@ def mock_llm_client() -> MagicMock:
             return dict(MOCK_AOIF_RESPONSE)
         if "Reglas de entrada" in prompt or "RULE" in prompt:
             return dict(MOCK_DECISION_BOARD_APPROVE)
-        if "Post-Mortem" in prompt or "post_mortem" in prompt:
-            return dict(MOCK_POST_MORTEM)
         if "Wyckoff" in prompt or "fase_wyckoff" in prompt:
             return dict(MOCK_ENTRY_LLM_RESPONSE)
         return {"score_general": 75, "tesis_inversion": "default thesis"}

@@ -124,7 +124,9 @@ class TestCLISmoke:
         assert result.exit_code == 0
 
     def test_position_exit_no_opps(self):
-        result = runner.invoke(app, ["position-exit", "NONEXISTENT"])
+        result = runner.invoke(app, ["position-exit", "NONEXISTENT",
+                                    "--reviewer", "family-manager",
+                                    "--justification", "Prueba sin posición"])
         assert result.exit_code == 0
 
     def test_opp_reject_no_opps(self):
@@ -172,5 +174,41 @@ class TestThesisInvalidate:
             result = runner.invoke(app, ["thesis-invalidate", "NONEXISTENT"])
             assert result.exit_code == 0
             assert "No active positions" in result.stdout
+        finally:
+            os.chdir(str(cwd))
+
+    def test_position_exit_records_manager_and_justification_without_order(self, tmp_path: Path):
+        cwd = Path.cwd()
+        try:
+            os.chdir(str(tmp_path))
+            from idos.data.sqlite import SQLiteStore
+            from idos.data.journal import JournalRepository
+
+            sqlite = SQLiteStore(tmp_path / "idos.db")
+            journal = JournalRepository(tmp_path / "idos-journal")
+            opp = {
+                "id": "OPP-2026-EXIT-001",
+                "ticker": "EXI",
+                "status": "FULL_POSITION",
+                "conviction": {"overall": 60},
+                "created_at": "2026-01-01T00:00:00",
+                "updated_at": "2026-01-01T00:00:00",
+            }
+            sqlite.save_opportunity(opp)
+            journal.save_opportunity("EXI", opp)
+
+            result = runner.invoke(app, [
+                "position-exit", "EXI", "--reason", "manual",
+                "--reviewer", "family-manager",
+                "--justification", "Decisión revisada con evidencia actualizada",
+            ])
+
+            assert result.exit_code == 0, result.stdout
+            assert "no se envió una orden" in result.stdout.lower()
+            assert sqlite.get_opportunity("OPP-2026-EXIT-001")["status"] == "POST_MORTEM"
+            decisions_dir = journal.opportunity_path("EXI", "OPP-2026-EXIT-001") / "decisions"
+            decisions = [path.read_text(encoding="utf-8") for path in decisions_dir.glob("*.yml")]
+            assert any("family-manager" in decision for decision in decisions)
+            assert any("Decisión revisada con evidencia actualizada" in decision for decision in decisions)
         finally:
             os.chdir(str(cwd))

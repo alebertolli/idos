@@ -206,8 +206,8 @@ class TestFullLifecycle:
                "rationale": "Entry", "price": 95.0, "generated_at": "2026-01-01T00:00:00"}
         journal.save_decision(ticker, opp_id, dec)
 
-        pmw = PostMortemWorker({"provider": "test"})
-        pmw.llm = mock_llm_client
+        llm_calls_before_post_mortem = mock_llm_client.generate_structured.call_count
+        pmw = PostMortemWorker()
 
         pmw_result = pmw.execute({
             "ticker": ticker,
@@ -218,6 +218,7 @@ class TestFullLifecycle:
         assert pmw_result.status == "success"
         assert pmw_result.output["status"] == "completed"
         assert pmw_result.output["archived"] is False
+        assert mock_llm_client.generate_structured.call_count == llm_calls_before_post_mortem
 
         from idos.learning.review import approve_report
         approve_report(Path(base_path), pmw_result.output["pm_id"], "family-manager")
