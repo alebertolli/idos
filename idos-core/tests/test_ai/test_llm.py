@@ -4,7 +4,7 @@ from pathlib import Path
 
 import yaml
 
-from idos.ai.llm import LLMClient
+from idos.ai.llm import LLMClient, redact_sensitive_text
 
 
 def test_llm_client_defaults():
@@ -149,15 +149,89 @@ def test_gemini_structured_request_uses_json_mime_type_and_joins_parts(monkeypat
             }
 
     def fake_request(method, url, **kwargs):
+        captured["url"] = url
         captured.update(kwargs)
         return Response()
 
     monkeypatch.setattr(client, "_request_with_retry", fake_request)
     result = client._call_gemini("prompt", "system", 0.1, 100, response_format="json")
 
+    assert captured["headers"]["x-goog-api-key"] == "key"
     assert captured["json"]["generationConfig"]["responseMimeType"] == "application/json"
+    assert "key=" not in captured.get("url", "")
     assert result.success
     assert result.content == '{"result":"ok"}'
+
+
+def test_redact_sensitive_text_removes_credentials_from_provider_errors():
+    message = (
+        "request failed at https://example.test/?key=abc123secret "
+        "Authorization: Bearer bearer-secret-value"
+    )
+
+    safe_message = redact_sensitive_text(
+        message, ["abc123secret", "bearer-secret-value"]
+    )
+
+    assert "abc123secret" not in safe_message
+    assert "bearer-secret-value" not in safe_message
+    assert "key=[REDACTED]" in safe_message
+    assert "Bearer [REDACTED]" in safe_message
+    assert "x-goog-api-key: [REDACTED]" in redact_sensitive_text(
+        "request headers: x-goog-api-key: header-secret-value"
+    )
+
+
+def test_llm_service_redacts_provider_error_defensively(monkeypatch, capsys):
+    from types import SimpleNamespace
+    from idos.ai.llm import LLMResponse
+    from idos.ai.service import LLMService
+
+    service = LLMService.__new__(LLMService)
+    service.clients = {
+        "gemini": SimpleNamespace(
+            model="gemini-test",
+            generate=lambda *args, **kwargs: LLMResponse(
+                content="", success=False,
+                error="request failed with x-goog-api-key: header-secret-value",
+            ),
+        )
+    }
+    service.circuit_breakers = {}
+    service.rate_limiters = {}
+    service.provider_limits = {}
+    service.router = SimpleNamespace(record_outcome=lambda *args: None)
+    monkeypatch.setattr(service, "_rank_providers", lambda *args: ["gemini"])
+
+    response = service.generate("prompt")
+    captured = capsys.readouterr()
+
+    assert "header-secret-value" not in response.error
+    assert "header-secret-value" not in captured.out
+
+
+def test_generate_redacts_credentials_from_logs_and_errors(monkeypatch, capsys):
+    import requests
+    from idos.ai.llm import LLMClient as LC
+
+    secret = "sensitive-api-secret"
+    client = LC(
+        provider="openai", api_key=secret, model="test-model",
+    )
+
+    def fail_request(*args, **kwargs):
+        raise requests.HTTPError(
+            f"request failed: https://example.test/?key={secret}"
+        )
+
+    monkeypatch.setattr(client, "_call_openai", fail_request)
+    response = client.generate("prompt")
+    captured = capsys.readouterr()
+
+    assert not response.success
+    assert secret not in response.error
+    assert secret not in captured.out
+    assert "key=[REDACTED]" in response.error
 
 
 def test_gemini_non_stop_finish_reason_marks_response_incomplete(monkeypatch):

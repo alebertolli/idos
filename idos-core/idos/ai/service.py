@@ -5,7 +5,7 @@ from typing import Any, Optional
 
 import yaml
 
-from idos.ai.llm import LLMClient, LLMResponse
+from idos.ai.llm import LLMClient, LLMResponse, redact_sensitive_text
 from idos.resilience.adaptive import AdaptiveRouter
 from idos.resilience.circuit import CircuitBreaker
 from idos.resilience.ratelimit import RateLimiter
@@ -171,15 +171,17 @@ class LLMService:
                 self.router.record_outcome(provider, False, resp.latency_ms)
                 if cb:
                     cb.record_failure()
+                safe_error = redact_sensitive_text(resp.error)
                 if not first_error:
-                    first_error = resp.error
-                print(f"[LLM] {provider}: FAILED - {resp.error[:150]}")
+                    first_error = safe_error
+                print(f"[LLM] {provider}: FAILED - {safe_error[:150]}")
                 time.sleep(2)
                 continue
 
         print(f"{'='*60}\n")
         return LLMResponse(
-            content="", success=False, error=first_error or "All providers failed",
+            content="", success=False,
+            error=redact_sensitive_text(first_error or "All providers failed"),
             latency_ms=int((time.time() - start) * 1000),
         )
 
