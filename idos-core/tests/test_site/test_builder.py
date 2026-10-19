@@ -481,13 +481,19 @@ def test_buylist_includes_strategy_and_signal_from_linked_opportunity(tmp_path: 
     site = SiteBuilder(tmp_path).build()
     entry = site.buylist[0]
     output = write_site(tmp_path, tmp_path / "site-output")
+    import json
+
     app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+    data = json.loads((output / "data.json").read_text(encoding="utf-8"))
 
     assert entry["strategy_id"] == "MOMENTUM_ETF"
     assert entry["entry_policy"] == "SIGNAL_REBALANCE"
     assert entry["strategy_signal"]["score"] == 1.2
-    assert "Estrategia" in app
-    assert "SIGNAL_REBALANCE" in app
+    assert data["buylist"][0]["strategy_id"] == "MOMENTUM_ETF"
+    assert data["buylist"][0]["entry_policy"] == "SIGNAL_REBALANCE"
+    assert data["buylist"][0]["strategy_signal"]["score"] == 1.2
+    assert "label:'Estrategia'" in app
+    assert "strategy_signal.score" in app
 
 def test_public_site_exposes_ddd_only_after_attributable_manager_approval(tmp_path: Path):
     _write_ddd_case(tmp_path, {
