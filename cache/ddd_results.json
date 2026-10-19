@@ -5,8 +5,8 @@
       "opp_id": "OPP-20261019-001",
       "ticker": "ALAB",
       "status": "completed",
-      "score": 71,
-      "reason": "new entry: SCREENED (score=0)",
+      "score": 68,
+      "reason": "FORCE re-research UNDER_RESEARCH (score=67)",
       "errors": []
     }
   ],
@@ -16,15 +16,15 @@
       "ticker": "ALAB",
       "opp_id": "OPP-20261019-001",
       "status": "completed",
-      "conviction_score": 67,
+      "conviction_score": 70,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": null,
       "decision_id": null,
       "assessments": {
         "BusinessAssessmentEngine": 72,
-        "ValuationAssessmentEngine": 65,
-        "RecoveryAssessmentEngine": 60,
+        "ValuationAssessmentEngine": 70,
+        "RecoveryAssessmentEngine": 67,
         "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 50
       },
@@ -40,10 +40,10 @@
       ],
       "rules_details": {
         "RULE-001": "Business quality: 72/70",
-        "RULE-003": "Rerating: 60/50",
+        "RULE-003": "Rerating: 67/50",
         "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 67/65",
-        "RULE-008": "No hay datos de DDD para calcular asimetria",
+        "RULE-005": "Conviction: 70/65",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: se requieren resultados con upside y downside para calcular B/R",
         "RULE-010": "conflicto entre fuentes en m\u00e9tricas core: revenue_growth_pct; periodo financiero no reconciliado en m\u00e9tricas core: operating_margin_pct, revenue_growth_pct"
       },
       "data_quality": "poor",
@@ -68,6 +68,6 @@
   "errors": [],
   "status": "research_completed",
   "event_type": "manual",
-  "force": false,
+  "force": true,
   "stale_days_threshold": 30
 }

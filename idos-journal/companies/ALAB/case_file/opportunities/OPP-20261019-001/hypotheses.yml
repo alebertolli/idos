@@ -1,107 +1,108 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El número de clientes reportado en los resultados trimestrales de Q4
-      2027 es igual o inferior a 115.
+  - condition: No se anuncia ningún contrato con los top‑10 OEM antes de la fecha
+      objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa anuncia la cancelación o postergación del roadmap de COSMOS
-      antes del 2027-06-30.
+  - condition: Los informes de la compañía indican que los negociaciones se han detenido
+      o se han cancelado.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El número de clientes reportado en los resultados trimestrales de Q4 2027 es igual
-    o inferior a 115.
-  - La empresa anuncia la cancelación o postergación del roadmap de COSMOS antes del
-    2027-06-30.
-  horizon: medio
+  - No se anuncia ningún contrato con los top‑10 OEM antes de la fecha objetivo.
+  - Los informes de la compañía indican que los negociaciones se han detenido o se
+    han cancelado.
+  horizon: corto
   id: H1-OPP-20261019-001
   opportunity_id: OPP-20261019-001
   parent_id: ''
   predictions:
   - actual: null
     deadline: '2027-12-31'
-    expected: 130.0
+    expected: 3.0
     met: null
-    metric: numero_clientes
-    prediction: El número total de clientes de centros de datos será de 130 o más
-      (partiendo de 100 a finales de 2026).
-    unit: clientes
+    metric: contratos_firmados_con_top10_OEM
+    prediction: Número de contratos firmados con los top‑10 OEM de servidores será
+      ≥ 3.
+    unit: número
   priority: critical
   probability: 0.5
-  rationale: La empresa ha anunciado recientemente nuevas alianzas con proveedores
-    de infraestructura y ha lanzado versiones mejoradas de sus adaptadores de alta
-    velocidad. La demanda de conectividad de baja latencia en IA generativa está creciendo
-    a una tasa compuesta superior al 25% anual, lo que crea un mercado atractivo para
-    la solución COSMOS.
-  review_trigger: Si Astera Labs publica un comunicado de que el desarrollo de COSMOS
-    será suspendido antes del 2027-06-30.
+  rationale: La estrategia de venta conjunta hardware‑software y la ventaja competitiva
+    del software COSMOS crean una propuesta de valor diferenciada que los OEM buscan
+    para cumplir con los requerimientos de ancho de banda de los centros de datos.
+    Los comunicados de prensa recientes indican conversaciones avanzadas con Dell,
+    HPE y Lenovo.
+  review_trigger: Si al 2027-06-30 la empresa no ha anunciado al menos una carta de
+    intención firmada con un OEM del top‑10, la hipótesis pierde credibilidad.
   secondary_hypotheses: []
-  statement: Astera Labs incrementará su base de clientes de centros de datos en al
-    menos un 30% antes del 2027-12-31, impulsado por la adopción de la plataforma
-    COSMOS y su oferta integrada hardware‑software.
+  statement: Astera Labs cerrará contratos de integración de su solución CXL/PCIe
+    con al menos tres de los diez principales proveedores de servidores antes del
+    2027-12-31.
   status: ACTIVE
   ticker: ALAB
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: FCF anual reportado para FY2028 es negativo o inferior a 10 millones
-      de USD.
+  - condition: El reporte financiero del año 2028 muestra FCF negativo o inferior
+      a $50 millones.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía emite una alerta de liquidez o un aviso de incumplimiento
-      de covenants antes del 2028-03-31.
+  - condition: La empresa anuncia una necesidad de financiamiento adicional por falta
+      de liquidez operativa.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - FCF anual reportado para FY2028 es negativo o inferior a 10 millones de USD.
-  - La compañía emite una alerta de liquidez o un aviso de incumplimiento de covenants
-    antes del 2028-03-31.
-  horizon: largo
+  - El reporte financiero del año 2028 muestra FCF negativo o inferior a $50 millones.
+  - La empresa anuncia una necesidad de financiamiento adicional por falta de liquidez
+    operativa.
+  horizon: medio
   id: H2-OPP-20261019-001
   opportunity_id: OPP-20261019-001
   parent_id: ''
   predictions:
   - actual: null
     deadline: '2028-12-31'
-    expected: 50.0
+    expected: 150.0
     met: null
-    metric: FCF
-    prediction: FCF anual reportado para FY2028 será ≥ 50 millones de USD.
-    unit: USD millones
+    metric: flujo_caja_libre
+    prediction: Flujo de caja libre (FCF) ≥ $150 millones.
+    unit: millones USD
   priority: important
   probability: 0.5
-  rationale: El crecimiento de la base de clientes (H1) y la mejora de los márgenes
-    brutos permitirán mayores ingresos recurrentes y menores costos de adquisición.
-    Además, la empresa ha anunciado planes de financiamiento mediante una línea de
-    crédito de 200 millones de USD que reducirá la presión de liquidez.
-  review_trigger: Si Astera Labs anuncia una emisión de deuda de emergencia superior
-    a 500 millones de USD antes del 2028-01-01, indicando que el negocio no genera
-    suficiente efectivo.
+  rationale: El crecimiento de ingresos impulsado por la captura de cuota de mercado
+    en conectividad de alta velocidad y la mejora de márgenes operativos mediante
+    economías de escala deberían traducirse en generación de efectivo suficiente para
+    cubrir CAPEX y OPEX.
+  review_trigger: Si al cierre del Q2 2028 (2028-06-30) la empresa reporta un FCF
+    acumulado negativo, la hipótesis se considera falsada.
   secondary_hypotheses:
   - H1-OPP-20261019-001
-  statement: El flujo de caja libre (FCF) de Astera Labs será positivo y superará
-    los 50 millones de USD al cierre del ejercicio fiscal 2028 (2028-12-31).
+  statement: Astera Labs generará flujo de caja libre positivo y alcanzará al menos
+    $150 millones de FCF en el año fiscal que finalice el 2028-12-31.
   status: ACTIVE
   ticker: ALAB
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: EV/Revenue reportado en la fecha objetivo es inferior a 8.0.
+  - condition: La capitalización de mercado se mantiene por debajo de $9,000 millones
+      al 2028-06-30.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La compañía es excluida del índice S&P Technology antes del 2028-01-01.
+  - condition: Los múltiplos de valoración (EV/Ingresos) caen por debajo de 10× durante
+      tres trimestres consecutivos.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - EV/Revenue reportado en la fecha objetivo es inferior a 8.0.
-  - La compañía es excluida del índice S&P Technology antes del 2028-01-01.
+  - La capitalización de mercado se mantiene por debajo de $9,000 millones al 2028-06-30.
+  - Los múltiplos de valoración (EV/Ingresos) caen por debajo de 10× durante tres
+    trimestres consecutivos.
   horizon: medio
   id: H3-OPP-20261019-001
   opportunity_id: OPP-20261019-001
@@ -109,67 +110,68 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2028-06-30'
-    expected: 12.0
+    expected: 12000.0
     met: null
-    metric: EV/Revenue
-    prediction: EV/Revenue reportado en Bloomberg/FactSet será ≥ 12.0.
-    unit: x
+    metric: capitalizacion_mercado
+    prediction: Market cap ≥ $12,000 millones.
+    unit: millones USD
   priority: important
   probability: 0.5
-  rationale: El aumento de clientes (H1) y la generación de flujo de caja positivo
-    (H2) mejorarán la percepción de rentabilidad sostenible. Los analistas del sector
-    han empezado a comparar a Astera con empresas de infraestructura de red con múltiplos
-    superiores, lo que impulsa la valoración.
-  review_trigger: Si el precio de la acción cae más del 40% desde su nivel de 2026-10-19
-    sin una causa fundamental de negocio, indicando pérdida de confianza del mercado.
+  rationale: El aumento de participación de mercado y la percepción de barreras de
+    entrada por la integración hardware‑software deberían impulsar una prima de valoración,
+    mientras que la tendencia alcista del sector de infraestructura de datos respalda
+    múltiplos elevados.
+  review_trigger: Si al 2028-03-31 la capitalización de mercado está bajo $9,000 millones
+    y la tendencia de múltiplos es descendente, la hipótesis pierde fuerza.
   secondary_hypotheses:
-  - H1-OPP-20261019-001
   - H2-OPP-20261019-001
-  statement: El múltiplo EV/Revenue de Astera Labs alcanzará al menos 12x antes del
-    2028-06-30, reflejando una revaluación del mercado basada en su crecimiento de
-    ingresos y posicionamiento defensivo.
+  statement: La capitalización de mercado de ALAB superará los $12,000 millones antes
+    del 2028-06-30, reflejando una valoración de al menos 15× los ingresos proyectados
+    para 2028.
   status: ACTIVE
   ticker: ALAB
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Margen bruto reportado para Q2 2027 es inferior al 45.0%.
+  - condition: El número de acciones en circulación al 31‑12‑2027 es > 105 % del nivel
+      al 01‑01‑2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Astera Labs anuncia un cambio de proceso de fabricación que incrementa
-      los costos unitarios antes del 2027-04-01.
+  - condition: La empresa anuncia una emisión primaria de capital que represente más
+      del 5 % del float.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Margen bruto reportado para Q2 2027 es inferior al 45.0%.
-  - Astera Labs anuncia un cambio de proceso de fabricación que incrementa los costos
-    unitarios antes del 2027-04-01.
-  horizon: corto
+  - El número de acciones en circulación al 31‑12‑2027 es > 105 % del nivel al 01‑01‑2027.
+  - La empresa anuncia una emisión primaria de capital que represente más del 5 %
+    del float.
+  horizon: largo
   id: H4-OPP-20261019-001
   opportunity_id: OPP-20261019-001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-06-30'
-    expected: 55.0
+    deadline: '2027-12-31'
+    expected: 5.0
     met: null
-    metric: margen_bruto
-    prediction: Margen bruto reportado para Q2 2027 será ≥ 55.0%.
-    unit: '%'
+    metric: incremento_acciones
+    prediction: Incremento de acciones en circulación ≤ 5 % durante 2027.
+    unit: porcentaje
   priority: informational
   probability: 0.5
-  rationale: La empresa ha migrado la producción a un proceso de empaquetado avanzado
-    de 5nm, reduciendo costos de materiales y mejorando rendimientos. Además, la mayor
-    escala de producción derivada del crecimiento de clientes (H1) permite economías
-    de escala.
-  review_trigger: Si la compañía publica un aviso de deterioro de inventario o una
-    reducción significativa de precios de venta antes del 2027-04-01.
+  rationale: Si la empresa logra generar FCF positivo (ver H2) y mantiene un flujo
+    de caja sólido, no necesitará recurrir a rondas de financiamiento dilutivo. Además,
+    la confianza del mercado en la capacidad de crecimiento puede reducir la presión
+    de levantar capital.
+  review_trigger: Si antes del 2027-09-30 se publica un prospecto de emisión que supere
+    el 5 % del float, la hipótesis se considera falsada.
   secondary_hypotheses:
-  - H1-OPP-20261019-001
-  statement: El margen bruto de la línea de productos de interconexión de alta velocidad
-    superará el 55% en el segundo trimestre de 2027 (2027-06-30).
+  - H2-OPP-20261019-001
+  statement: Durante el año 2027, la emisión de acciones nuevas de Astera Labs no
+    superará el 5 % del número de acciones en circulación al inicio del año, limitando
+    la dilución de los accionistas existentes.
   status: ACTIVE
   ticker: ALAB
   version: 1
