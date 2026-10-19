@@ -5,8 +5,8 @@
       "opp_id": "OPP-20261019-001",
       "ticker": "ARM",
       "status": "completed",
-      "score": 78,
-      "reason": "new entry: SCREENED (score=0)",
+      "score": 62,
+      "reason": "FORCE re-research UNDER_RESEARCH (score=64)",
       "errors": []
     }
   ],
@@ -43,7 +43,7 @@
         "RULE-003": "Rerating: 60/50",
         "RULE-004": "Risk: 80/50",
         "RULE-005": "Conviction: 64/65",
-        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: se requieren resultados con upside y downside para calcular B/R",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: Las probabilidades de catalizadores no son escenarios financieros mutuamente excluyentes validados.",
         "RULE-010": "fecha de corte ausente, inv\u00e1lida o futura; procedencia incompleta"
       },
       "data_quality": "partial",
@@ -65,6 +65,6 @@
   "errors": [],
   "status": "research_completed",
   "event_type": "manual",
-  "force": false,
+  "force": true,
   "stale_days_threshold": 30
 }

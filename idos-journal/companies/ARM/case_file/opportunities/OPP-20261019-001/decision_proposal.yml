@@ -7,8 +7,8 @@ assessments:
     findings:
     - detail: 'High revenue growth: 30.01%'
       type: POSITIVE
-    generated_at: '2026-10-19T15:53:38.859479-03:00'
-    id: BusinessAssessmentEngine-20261019155338
+    generated_at: '2026-10-19T16:29:11.617070-03:00'
+    id: BusinessAssessmentEngine-20261019162911
     recommendation: NEUTRAL
     risks: []
     score: 62
@@ -23,8 +23,8 @@ assessments:
     - detail: Private family portfolio source is not connected; portfolio fit is not
         assessed
       type: PENDING
-    generated_at: '2026-10-19T15:53:38.859547-03:00'
-    id: PortfolioAssessmentEngine-20261019155338
+    generated_at: '2026-10-19T16:29:11.617140-03:00'
+    id: PortfolioAssessmentEngine-20261019162911
     recommendation: NOT_ASSESSED
     risks:
     - detail: Do not infer capacity, diversification, or position count from missing
@@ -63,8 +63,8 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-10-19T15:53:38.859533-03:00'
-    id: RecoveryAssessmentEngine-20261019155338
+    generated_at: '2026-10-19T16:29:11.617124-03:00'
+    id: RecoveryAssessmentEngine-20261019162911
     recommendation: MODERATE
     risks: []
     score: 60
@@ -78,8 +78,8 @@ assessments:
     findings:
     - detail: Low leverage
       type: POSITIVE
-    generated_at: '2026-10-19T15:53:38.859542-03:00'
-    id: RiskAssessmentEngine-20261019155338
+    generated_at: '2026-10-19T16:29:11.617133-03:00'
+    id: RiskAssessmentEngine-20261019162911
     recommendation: LOW_RISK
     risks: []
     score: 80
@@ -91,17 +91,17 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Price target upside: 25.8%'
+    - detail: 'Price target upside: 25.2%'
       type: POSITIVE
-    generated_at: '2026-10-19T15:53:38.859500-03:00'
-    id: ValuationAssessmentEngine-20261019155338
+    generated_at: '2026-10-19T16:29:11.617089-03:00'
+    id: ValuationAssessmentEngine-20261019162911
     recommendation: FAIR
     risks: []
     score: 65
     status: COMPLETED
     version: '1.1'
 conviction_score: 64
-created_at: '2026-10-19T15:53:38.859633-03:00'
+created_at: '2026-10-19T16:29:11.617225-03:00'
 financial_data_quality:
   as_of_date: null
   as_of_date_source: null
@@ -113,7 +113,7 @@ financial_data_quality:
   source: stockanalysis.com
   status: partial
   unreconciled_core_metrics: []
-generated_at: '2026-10-19T15:53:38.859726-03:00'
+generated_at: '2026-10-19T16:29:11.617339-03:00'
 opportunity_id: OPP-20261019-001
 reasoning: 'Rules blocked: RULE-001, RULE-005, RULE-008, RULE-010'
 recommendation: BLOCKED
@@ -122,8 +122,8 @@ rules_details:
   RULE-003: 'Rerating: 60/50'
   RULE-004: 'Risk: 80/50'
   RULE-005: 'Conviction: 64/65'
-  RULE-008: 'Asimetría provisional; autorización bloqueada: se requieren resultados
-    con upside y downside para calcular B/R'
+  RULE-008: 'Asimetría provisional; autorización bloqueada: Las probabilidades de
+    catalizadores no son escenarios financieros mutuamente excluyentes validados.'
   RULE-010: fecha de corte ausente, inválida o futura; procedencia incompleta
 rules_failed:
 - RULE-001

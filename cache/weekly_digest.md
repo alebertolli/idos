@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-19 15:53 AR _
+_Generado: 2026-10-19 16:29 AR _
 
 ## Resumen
 
@@ -12,7 +12,7 @@ _Generado: 2026-10-19 15:53 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **ARM** (OPP-20261019-001): score=78, class=?
+- ✅ **ARM** (OPP-20261019-001): score=62, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
@@ -23,7 +23,7 @@ _Generado: 2026-10-19 15:53 AR _
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 62/70
     - 🚫 RULE-005: Conviction: 64/65
-    - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: se requieren resultados con upside y downside para calcular B/R
+    - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: Las probabilidades de catalizadores no son escenarios financieros mutuamente excluyentes validados.
     - 🚫 RULE-010: fecha de corte ausente, inválida o futura; procedencia incompleta
 
 ---

@@ -1,21 +1,17 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Cuota de mercado medida por analistas de la industria inferior al 10%
-      en la fecha objetivo.
+  - condition: Menos de 2 acuerdos anunciados antes de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Arm reporta menos de 5 acuerdos de licencia de Neoverse N2 con proveedores
-      de servidores para esa fecha.
+  - condition: Ingresos de licencia de IA reportados < 300 millones USD en el FY2028.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Cuota de mercado medida por analistas de la industria inferior al 10% en la fecha
-    objetivo.
-  - Arm reporta menos de 5 acuerdos de licencia de Neoverse N2 con proveedores de
-    servidores para esa fecha.
+  - Menos de 2 acuerdos anunciados antes de la fecha objetivo.
+  - Ingresos de licencia de IA reportados < 300 millones USD en el FY2028.
   horizon: medio
   id: H1-OPP-20261019-001
   opportunity_id: OPP-20261019-001
@@ -23,146 +19,149 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2027-12-31'
-    expected: 15.0
+    expected: 500.0
     met: null
-    metric: share_IA_IP
-    prediction: Cuota de mercado de IP de aceleradores de IA en centros de datos alcanzará
-      15% a nivel global.
-    unit: '%'
+    metric: ingresos_licencia_IA
+    prediction: Se anunciarán 3 o más acuerdos de licencia de IA y los ingresos de
+      licencia de IA alcanzarán ≥ 500 millones USD en el FY2028.
+    unit: millones USD
   priority: critical
   probability: 0.5
-  rationale: La creciente demanda de IA generativa impulsa a los proveedores de nube
-    a buscar arquitecturas eficientes en energía; Arm ha anunciado alianzas con varios
-    fabricantes de servidores y su roadmap Neoverse N2 ofrece mejor rendimiento por
-    vatio que la competencia, lo que debería traducirse en mayor adopción.
-  review_trigger: Si al 30 de junio de 2027 la cuota de mercado está por debajo del
-    8%, la hipótesis se descartará.
+  rationale: La creciente demanda de aceleradores de IA y la ventaja competitiva de
+    la arquitectura Arm para eficiencia energética hacen que los principales fabricantes
+    busquen licenciar la IP de Arm. Los comunicados recientes de Apple y Nvidia indican
+    interés, y la estrategia de Arm de crear paquetes de licencia específicos para
+    IA refuerza esta tendencia.
+  review_trigger: Si para el 2027-06-30 no se ha anunciado ningún nuevo acuerdo de
+    licencia de IA.
   secondary_hypotheses: []
-  statement: Arm aumentará su cuota de mercado de IP para aceleradores de IA en centros
-    de datos al menos al 15% mediante sus diseños Neoverse N2 antes del 31 de diciembre
-    de 2027.
+  statement: Arm cerrará al menos 3 nuevos acuerdos de licencia de arquitectura de
+    IA con fabricantes de chips antes del 2027-12-31, generando al menos 500 millones
+    de dólares en ingresos de licencia de IA en el FY2028.
   status: ACTIVE
   ticker: ARM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Ingresos de licencias de IA reportados en los resultados FY2028 menores
-      a 1.8 BUSD.
+  - condition: Margen FCF reportado < 8% en el FY2028.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Participación de IA en los ingresos totales inferior al 15% al cierre
-      del ejercicio.
+  - condition: FCF negativo en el FY2028.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Ingresos de licencias de IA reportados en los resultados FY2028 menores a 1.8 BUSD.
-  - Participación de IA en los ingresos totales inferior al 15% al cierre del ejercicio.
+  - Margen FCF reportado < 8% en el FY2028.
+  - FCF negativo en el FY2028.
   horizon: medio
   id: H2-OPP-20261019-001
   opportunity_id: OPP-20261019-001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-06-30'
-    expected: 2.5
+    deadline: '2028-04-30'
+    expected: 12.0
     met: null
-    metric: AI_licensing_revenue
-    prediction: Ingresos de licencias de IA = 2.5 BUSD.
-    unit: BUSD
+    metric: margen_fcf
+    prediction: Margen FCF ≥ 12% en el FY2028.
+    unit: '%'
   priority: important
   probability: 0.5
-  rationale: Arm ha lanzado versiones mejoradas de Cortex‑X y Neoverse con bloques
-    de IA integrados; los clientes de data‑center y automoción están ampliando sus
-    despliegues, lo que incrementa la facturación por licencias de IA.
-  review_trigger: Si al 31 de marzo de 2028 los ingresos de IA acumulados en el año
-    fiscal son menores a 0.5 BUSD, la hipótesis se considerará refutada.
-  secondary_hypotheses: []
-  statement: Los ingresos por licencias de IA de Arm superarán los 2.500 millones
-    de dólares en el ejercicio fiscal 2028, representando más del 20% del total de
-    ingresos.
+  rationale: Los ingresos adicionales provenientes de licencias de IA (ver H1) y la
+    mejora en la gestión de costos operativos permitirán a Arm convertir una mayor
+    parte de sus ingresos en efectivo libre. Históricamente, la empresa ha mostrado
+    una relación FCF/Ingresos del 8% cuando la base de licencias crece de forma sostenida.
+  review_trigger: Si al cierre del Q2 FY2028 (2027-12-31) el margen FCF es inferior
+    al 5%.
+  secondary_hypotheses:
+  - H1-OPP-20261019-001
+  statement: El margen de flujo de caja libre (FCF/Ingresos) de Arm alcanzará al menos
+    el 12% en el FY2028 (ejercicio que termina el 2028-03-31).
   status: ACTIVE
   ticker: ARM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Forward P/E medido por Bloomberg/FactSet inferior o igual a 25x en
-      la fecha objetivo.
+  - condition: EV/EBITDA permanece > 18x en la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El precio de la acción no supera el nivel que implicaría 30x basado
-      en estimaciones de EPS de 2028.
+  - condition: La capitalización de mercado aumenta mientras el EBITDA se mantiene
+      estable, manteniendo el múltiplo > 18x.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Forward P/E medido por Bloomberg/FactSet inferior o igual a 25x en la fecha objetivo.
-  - El precio de la acción no supera el nivel que implicaría 30x basado en estimaciones
-    de EPS de 2028.
-  horizon: corto
+  - EV/EBITDA permanece > 18x en la fecha objetivo.
+  - La capitalización de mercado aumenta mientras el EBITDA se mantiene estable, manteniendo
+    el múltiplo > 18x.
+  horizon: medio
   id: H3-OPP-20261019-001
   opportunity_id: OPP-20261019-001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-06-30'
-    expected: 30.0
+    deadline: '2028-06-30'
+    expected: 15.0
     met: null
-    metric: forward_PE
-    prediction: Forward P/E >= 30x.
+    metric: ev_ebitda
+    prediction: EV/EBITDA ≤ 15x al 2028-06-30.
     unit: x
   priority: important
   probability: 0.5
-  rationale: Los analistas están subvaluando el potencial de ingresos de IA; a medida
-    que los resultados de H1 y H2 se materialicen, el mercado ajustará el múltiplo
-    al alza.
-  review_trigger: Si al 31 de marzo de 2027 el forward P/E está por debajo de 27x,
-    la hipótesis será descartada.
-  secondary_hypotheses: []
-  statement: El múltiplo forward P/E de Arm alcanzará al menos 30x antes del 30 de
-    junio de 2027, reflejando una re‑valoración basada en el crecimiento de IA y data‑center.
+  rationale: Los analistas han sobrevalorado el potencial de crecimiento, y la aparición
+    de restricciones de licencias en China y la competencia de RISC‑V podrían reducir
+    las expectativas de ingresos futuros, presionando a la baja la valoración. Un
+    margen FCF más bajo (ver H2) también limitará la capacidad de la empresa para
+    justificar múltiplos altos.
+  review_trigger: Si al 2028-03-31 el EV/EBITDA sigue por encima de 18x.
+  secondary_hypotheses:
+  - H2-OPP-20261019-001
+  statement: El múltiplo EV/EBITDA de Arm caerá por debajo de 15x antes del 2028-06-30,
+    reflejando una revaluación a la baja tras la materialización de riesgos geopolíticos
+    y la presión competitiva.
   status: ACTIVE
   ticker: ARM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Menos de dos acuerdos firmados y anunciados públicamente antes de la
-      fecha objetivo.
+  - condition: Los ingresos de licencias en China disminuyen < 5% o se mantienen estables.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Los acuerdos anunciados no incluyen transferencia de IP de IA o Neoverse.
+  - condition: No se anuncian nuevas restricciones regulatorias que afecten a Arm.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Menos de dos acuerdos firmados y anunciados públicamente antes de la fecha objetivo.
-  - Los acuerdos anunciados no incluyen transferencia de IP de IA o Neoverse.
-  horizon: largo
+  - Los ingresos de licencias en China disminuyen < 5% o se mantienen estables.
+  - No se anuncian nuevas restricciones regulatorias que afecten a Arm.
+  horizon: corto
   id: H4-OPP-20261019-001
   opportunity_id: OPP-20261019-001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-12-31'
-    expected: 3.0
+    deadline: '2027-09-30'
+    expected: 10.0
     met: null
-    metric: local_manufacturing_partners
-    prediction: Número de acuerdos de fabricación local en China >= 3.
-    unit: count
+    metric: pérdida_ingresos_licencias_china
+    prediction: Reducción ≥ 10% de los ingresos de licencias provenientes de China
+      en el periodo 2027.
+    unit: '%'
   priority: informational
   probability: 0.5
-  rationale: Arm ha demostrado capacidad de operar bajo restricciones geopolíticas
-    mediante licencias indirectas; la presión regulatoria en EE.UU. impulsa a la compañía
-    a asegurar rutas de suministro locales.
-  review_trigger: Si al 30 de junio de 2028 solo se ha anunciado un acuerdo de fabricación
-    local, la hipótesis será rechazada.
+  rationale: Las tensiones geopolíticas entre EE.UU. y China están llevando a una
+    mayor vigilancia de tecnologías críticas. Recientes propuestas de regulación en
+    China apuntan a limitar el uso de IP extranjera en chips de alto rendimiento,
+    lo que podría forzar a los clientes chinos a migrar a arquitecturas locales o
+    a RISC‑V.
+  review_trigger: Si para el 2027-06-30 no se ha publicado ninguna normativa china
+    que limite licencias de arquitectura extranjera.
   secondary_hypotheses: []
-  statement: Arm firmará al menos tres acuerdos de fabricación local con socios chinos
-    para producir diseños basados en sus núcleos antes del 31 de diciembre de 2028,
-    mitigando riesgos de exportación.
+  statement: Arm perderá al menos el 10% de su base de ingresos de licencias en China
+    debido a nuevas restricciones regulatorias antes del 2027-09-30.
   status: ACTIVE
   ticker: ARM
   version: 1

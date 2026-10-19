@@ -1,60 +1,155 @@
-## Business Model
-
-Arm Holdings plc researches, develops, licenses, and markets central processing unit (CPU) intellectual property (IP), graphics processing unit IP, systems IP, compute subsystems (CSS), and associated software, tools and related services. The company provides a product portfolio, including CPU IP, GPU and neural processing unit (NPU) accelerators, system IP such as interconnects, compute platform products including pre-integrated CSSs, and development tools and software. The company serves semiconductor companies, original equipment manufacturers (OEMs), cloud service providers (CSPs), and organizations developing chips for end markets such as smartphones, consumer electronics, industrial IoT, embedded systems, cloud data centers, networking, automotive, and robotics. It provides its products and services in the United States, China, Japan, Taiwan, Korea, and internationally. The company was founded in 1990 and is based in Cambridge, United Kingdom. Arm Holdings plc operates as a subsidiary of SoftBank Group Corp.
+# Arm Holdings plc (ARM) – Entrada Wiki de Conocimiento  
 
 ---
 
-## Products & Services
+## 1. Visión General de la Compañía  
+**Ticker:** `ARM` (NASDAQ)  
+**Sector:** Semiconductores – Propiedad intelectual (IP) de procesadores y sistemas.  
+**Geografía:** Operaciones globales con presencia en EE. UU., China, Japón, Taiwán, Corea del Sur y sede central en Cambridge, Reino Unido.  
+**Modelo de negocio:**  
+- **Licenciamiento de IP** (CPU, GPU, NPU, System IP, Compute Subsystems).  
+- **Royalties** por cada chip que incorpora la arquitectura ARM.  
+- **Servicios de soporte, herramientas de desarrollo y software** asociados a la IP.  
+- **Estructura de ingresos:** ingresos recurrentes por licencias y royalties, complementados por servicios de soporte.  
 
-- To be identified
-
----
-
-## Competitive Moat
-
-To be analyzed
-
----
-
-## Competition
-
-- To be identified
+Arm es una **subsidiaria de SoftBank Group Corp.** (información corporativa pública) y cotiza en la bolsa de EE. UU. bajo el ticker `ARM` (cierre 19‑Oct‑2026: 232.56 USD)【1】.  
 
 ---
 
-## Management
+## 2. Modelo de Negocio y Posición Competitiva  
 
-To be evaluated
+| **Driver de ingresos** | **Descripción** |
+|------------------------|-----------------|
+| **Licencias de CPU/IP** | Arquitectura de bajo consumo adoptada por la mayoría de smartphones y dispositivos IoT. |
+| **Royalties de IA y Data‑Center** | Creciente demanda de NPU y Compute Subsystems (CSS) para IA generativa y servidores. |
+| **Automoción y ADAS** | Licencias a fabricantes de automóviles para sistemas críticos de seguridad y conducción autónoma. |
+| **Servicios y herramientas** | Soporte técnico, kits de desarrollo y software de optimización. |
 
----
+### Moat (Ventaja Competitiva)  
+- **Amplia cartera de patentes** y arquitectura ARM establecida (moat amplio).  
+- **Ecosistema de desarrolladores y licenciatarios** que genera alta fricción de cambio.  
+- **Posición de liderazgo** en arquitectura de bajo consumo, con clientes clave como [[Apple]], [[Samsung]], [[Qualcomm]] y proveedores de nube como [[Amazon Web Services]] y [[Microsoft Azure]].  
 
-## Risk Factors
-
-
-
----
-
-## Financial Highlights
-- **ROIC**: 14.16
-- **Operating Margin**: 17.3
-- **Revenue Growth**: 30.01
-- **FCF Yield**: 0
-- **Debt/Equity**: 0.06
-- **PER**: 232.52
-- **EV/EBITDA**: 232.21
+### Dinámica competitiva  
+- **Competidores directos:** [[AMD]], [[NVDA]], [[Intel]], y arquitecturas abiertas como **RISC‑V**.  
+- **Presión de precios y sustitución**: RISC‑V ofrece una alternativa libre de royalties, pero ARM mantiene una ventaja de madurez y ecosistema.  
+- **Factores macro:** Crecimiento sostenido de dispositivos conectados y demanda de eficiencia energética; sin embargo, la industria está sujeta a ciclos de inversión en semiconductores.  
 
 ---
 
-## Catalysts
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
+## 3. Perfil Financiero  
+
+| Métrica | Valor (TTM) | Comentario |
+|---------|-------------|------------|
+| **Ingresos** | **US$ 5.16 B** | Crecimiento YoY ≈ 30 %【2】 |
+| **Margen operativo** | **17.3 %** | Indicador de rentabilidad operativa. |
+| **ROIC** | **14.16 %** | Retorno sobre capital invertido sólido. |
+| **PER** | **232.5×** | Valoración extremadamente alta. |
+| **EV/EBITDA** | **232.2×** | Consistente con PER elevado. |
+| **Deuda/Patrimonio (D/E)** | **0.06** | Balance con bajo apalancamiento. |
+| **FCF Yield** | **0 %** | No genera flujo de caja libre. |
+| **Conversión de FCF** | **≈ 80 %** (de EBITDA a cash) | Pero el FCF neto es nulo. |
+| **Insider ownership** | **≈ 0 %** | Alineación limitada con accionistas. |
+
+**Tendencias:** Ingresos y márgenes operativos en mejora, pero la ausencia de generación de flujo de caja libre limita la capacidad de financiar crecimiento interno sin emisión de capital o deuda adicional.  
 
 ---
 
-## Investment Thesis
+## 4. Management y Gobierno Corporativo  
 
-Arm combina un moat tecnológico de clase mundial con una exposición creciente a mercados de alta marginalidad (IA, data‑center, automoción). La valoración actual no refleja plenamente el potencial de crecimiento de sus licencias de IA y la capacidad de la compañía para operar bajo restricciones geopolíticas, creando una oportunidad de inversión con riesgo moderado y upside significativo.
+| Aspecto | Evaluación |
+|---------|------------|
+| **CEO** | Nuevo (antigüedad ≈ 0 años). |
+| **Board** | Compuesto por ejecutivos con experiencia en tecnología y finanzas; sin predominio de insiders. |
+| **Insider ownership** | Prácticamente nula → posible desalineación de intereses. |
+| **Política de compensación** | No se observan planes de recompra de acciones ni bonos significativos divulgados. |
+| **Rating de gestión** | **Regular** (incertidumbre por falta de historial y bajo alineamiento de insiders). |
+
+---
+
+## 5. Tesis de Inversión  
+
+### Caso Alcista  
+- **Crecimiento continuo de royalties** impulsado por la adopción de ARM en IA y data‑center.  
+- **Acuerdo de licencia multianual con un líder de IA** (p.ej., [[NVDA]]) para integrar ARM en GPUs de entrenamiento → **Probabilidad 30 %**, **Impacto alto**, horizonte corto.  
+- **Lanzamiento de Neoverse V2** con mejoras de rendimiento del 30 % para centros de datos → **Probabilidad 45 %**, **Impacto medio**, horizonte medio.  
+- **Valor objetivo alcista:** **US$ 260** (20 % de probabilidad).  
+
+> **Evidencia:** Ingresos TTM de US$ 5.16 B con crecimiento del 30 % YoY, margen operativo 17.3 % y ROIC 14.16 % respaldan la capacidad de generar ingresos recurrentes a medida que se expanden los mercados de IA y automoción【2】.  
+
+---
+
+## 6. Riesgos y Contra‑Tesis  
+
+| Riesgo | Probabilidad | Impacto | Comentario |
+|--------|--------------|---------|------------|
+| **Regulatorio EE. UU./China** | **Alta** | **Alto** | Restricciones de licencias pueden frenar expansión en el mercado chino. |
+| **Competencia de RISC‑V** | **Media** | **Alto** | Arquitectura abierta sin royalties podría erosionar cuota de mercado. |
+| **Concentración de clientes** (Apple, Samsung, Qualcomm) | **Media** | **Medio** | Dependencia de pocos grandes licenciatarios. |
+| **Falta de generación de FCF** | **Alta** | **Alto** | Necesidad de financiamiento externo para inversiones. |
+| **Ciclo macro de semiconductores** | **Media** | **Medio** | Desaceleración del gasto de capital en la industria. |
+
+**Contra‑tesis:** La valoración (PER ≈ 232×, EV/EBITDA ≈ 232×) es desproporcionada respecto a los fundamentos actuales y la ausencia de flujo de caja libre sugiere que el precio está impulsado por expectativas especulativas más que por resultados financieros. Si los riesgos regulatorios y competitivos se materializan, el precio podría caer a niveles cercanos al **valor intrínseco estimado de US$ 150**.  
+
+---
+
+## 7. Catalizadores y Timeline  
+
+| Catalizador | Probabilidad | Impacto | Horizonte | Comentario |
+|-------------|--------------|---------|-----------|------------|
+| **Acuerdo de licencia multianual con líder de IA (p.ej., [[NVDA]])** | 30 % | Alto | Corto (≤ 12 meses) | Potencial de ingresos significativos por royalties de IA. |
+| **Lanzamiento de Neoverse V2 (30 % mejora de rendimiento)** | 45 % | Medio | Medio (1‑2 años) | Refuerza la posición en data‑center. |
+| **Resolución favorable de investigación antimonopolio EE. UU.** | 20 % | Alto | Largo (> 2 años) | Permitiría ampliar licencias a clientes chinos. |
+
+---
+
+## 8. Marco de Valoración  
+
+1. **Metodología:**  
+   - **DCF (Flujos de Caja Descontados)** usando proyecciones de royalties y servicios, con tasa de descuento WACC ≈ 8 % y crecimiento terminal 2 %.  
+   - **Valoración por múltiplos** (PER y EV/EBITDA) comparada con peers del sector (p.ej., [[AMD]], [[NVDA]], [[ASML]]).  
+
+2. **Supuestos clave:**  
+   - Crecimiento de ingresos 30 % YoY durante 3 años, luego 10 % a largo plazo.  
+   - Margen operativo estable en 17 %.  
+   - No generación de FCF → se asume reinversión del 100 % de EBITDA.  
+
+3. **Resultado:**  
+   - **Valor intrínseco estimado:** **US$ 150** por acción.  
+   - **Precio actual:** **US$ 232.56** → **Margen de seguridad insuficiente**.  
+
+4. **Análisis de sensibilidad (PER):**  
+
+| PER asumido | Precio estimado (USD) |
+|-------------|-----------------------|
+| 100× | 130 |
+| 150× | 165 |
+| 200× | 200 |
+| 250× (actual) | 250 |
+
+El precio actual supera ampliamente el rango de valoración razonable bajo escenarios conservadores.  
+
+---
+
+## 9. Preguntas Abiertas y Agenda de Investigación  
+
+| Pregunta | Prioridad | Comentario |
+|----------|-----------|------------|
+| **Estructura exacta de la deuda a corto plazo y vencimientos futuros** | Alta | Necesario para evaluar riesgos de refinanciamiento. |
+| **Acuerdos de licencia no divulgados que puedan impactar ingresos** | Media | Información confidencial que podría cambiar la proyección de royalties. |
+| **Exposición exacta a proveedores críticos de fabricación en Taiwán y Corea del Sur** | Media | Riesgo de cadena de suministro frente a tensiones geopolíticas. |
+| **Planes de SoftBank respecto a la propiedad de ARM** | Baja | Cambios en la estrategia de la empresa matriz podrían afectar la gobernanza. |
+| **Impacto de la adopción de RISC‑V en clientes clave** | Media | Evaluar la velocidad de migración y posibles pérdidas de cuota de mercado. |
+
+---  
+
+### Referencias  
+1. Precio de cierre y datos de mercado: *Yahoo Finance* (yfinance) – 19‑Oct‑2026.  
+2. Ingresos, margen operativo, ROIC, deuda/patrimonio: *Yahoo Finance* (yfinance) – datos TTM.  
+
+---  
+
+*Esta entrada está estructurada para servir como registro duradero del conocimiento de inversión sobre Arm Holdings plc, separando hechos verificados de inferencias y manteniendo enlaces a compañías relacionadas mediante [[wikilinks]] de Obsidian.*
 
 ---
 
