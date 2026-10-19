@@ -17,6 +17,11 @@ on:
         required: false
         type: boolean
         default: false
+      review_buylist:
+        description: "Re-investigar la oportunidad exacta de Buy List seleccionada (requiere force=true)"
+        required: false
+        type: boolean
+        default: false
   repository_dispatch:
     types: [quarterly-results]
   schedule:
@@ -73,15 +78,19 @@ jobs:
           echo "TICKER=$TICKER" >> $GITHUB_ENV
           if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=${{ github.event.action }}" >> $GITHUB_ENV
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "FORCE=${{ github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=${{ github.event.inputs.review_buylist || 'false' }}" >> $GITHUB_ENV
             echo "EVENT_TYPE=manual" >> $GITHUB_ENV
           elif [ "${{ github.event.schedule }}" = "0 6 */30 * *" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=re-research-30d" >> $GITHUB_ENV
           else
             echo "FORCE=false" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
           fi
           echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE event=$EVENT_TYPE"

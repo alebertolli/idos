@@ -456,3 +456,10 @@ en el fixture.
    error reporter incluya workflow, ref, run y extracto de logs, cree una issue,
    y no importe ni invoque AutoFixAgent. El análisis de reparación sólo ocurre
    después del comando explícito de autorización.
+5. Para re-revisar Buy List, ejecutar DDD sólo en rama de prueba con
+   `review_buylist=true`, `force=true` y un único ticker operable. Confirmar
+   que se selecciona el `opp_id` exacto, se rechazan selección vacía/múltiple o
+   posición paper, el nuevo Research invalida la aprobación anterior, retira
+   sólo esa entrada y conserva `decisions/*.yml`. Probar que Decision Review
+   rechaza el hash/proposal invalidado y que Pages no se dispara desde esa rama.
+   Revisar costo/proveedor, logs, artefactos y commit antes de aceptar el run.

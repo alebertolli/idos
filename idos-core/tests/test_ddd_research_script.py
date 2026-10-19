@@ -129,3 +129,87 @@ def test_selected_research_count_survives_assessment_and_digest(tmp_path, monkey
     assert result["total"] == len(result["processed"]) == len(result["assessments"]) == 1
     digest = (tmp_path / "cache/weekly_digest.md").read_text(encoding="utf-8")
     assert "**Total encontradas:** 1" in digest
+
+
+def test_buylist_re_review_requires_manual_single_ticker_and_selects_exact_entry(tmp_path, monkeypatch):
+    opportunity_root = tmp_path / "idos-journal/companies/TEST/case_file/opportunities"
+    opportunity_root.mkdir(parents=True)
+    for opp_id in ("OPP-APPROVED", "OPP-OTHER"):
+        path = opportunity_root / opp_id
+        path.mkdir()
+        (path / "opportunity.yml").write_text(yaml.safe_dump({
+            "id": opp_id,
+            "ticker": "TEST",
+            "status": "UNDER_DEEP_DD",
+            "conviction": {"overall": 75},
+        }), encoding="utf-8")
+    buylist_path = tmp_path / "idos-journal/portfolio/buylist.yml"
+    buylist_path.parent.mkdir(parents=True, exist_ok=True)
+    buylist_path.write_text(yaml.safe_dump({"entries": [
+        {"ticker": "TEST", "opp_id": "OPP-APPROVED"},
+    ]}), encoding="utf-8")
+    positions_dir = tmp_path / "idos-journal/paper/positions"
+    positions_dir.mkdir(parents=True)
+    (positions_dir / "AAPL.yml").write_text(yaml.safe_dump({"ticker": "AAPL"}), encoding="utf-8")
+
+    selected = []
+
+    class Research:
+        def __init__(self, config):
+            pass
+
+        def run(self, context):
+            selected.append(context)
+            return {"status": "completed", "score": 75}
+
+    monkeypatch.setattr("idos.workers.ai.research_worker.ResearchWorker", Research)
+    monkeypatch.setattr("idos.ai.service.LLMService", lambda *args: object())
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("FORCE", "true")
+    monkeypatch.setenv("TICKER", "TEST")
+    monkeypatch.setenv("EVENT_TYPE", "manual")
+    monkeypatch.setenv("REVIEW_BUYLIST", "true")
+    monkeypatch.chdir(tmp_path)
+
+    ddd_research.preview()
+    preview = json.loads((tmp_path / "cache/ddd_preview.json").read_text(encoding="utf-8"))
+    assert [(item["ticker"], item["opp_id"]) for item in preview["selected"]] == [
+        ("TEST", "OPP-APPROVED"),
+    ]
+
+    assert ddd_research.main() == 0
+    results = json.loads((tmp_path / "cache/ddd_results.json").read_text(encoding="utf-8"))
+    assert [(item["ticker"], item["opp_id"]) for item in selected] == [("TEST", "OPP-APPROVED")]
+    assert selected[0]["force_reprocess"] is True
+    assert results["skipped"] == [{
+        "opp_id": "OPP-OTHER", "ticker": "TEST", "status": "UNDER_DEEP_DD",
+        "reason": "in BUY_LIST/PORTFOLIO; explicit re-review not selected",
+    }]
+    assert all(item["ticker"] != "AAPL" for item in results["processed"])
+
+
+def test_buylist_re_review_rejects_nonmanual_or_unbounded_selection(tmp_path, monkeypatch):
+    monkeypatch.setenv("FORCE", "true")
+    monkeypatch.setenv("TICKER", "TEST,AAPL")
+    monkeypatch.setenv("EVENT_TYPE", "manual")
+    monkeypatch.setenv("REVIEW_BUYLIST", "true")
+    monkeypatch.chdir(tmp_path)
+
+    assert ddd_research.main() == 2
+
+
+def test_buylist_re_review_is_opt_in_and_pages_workflow_run_is_main_only():
+    repository_root = Path(__file__).resolve().parents[2]
+    ddd_workflow = yaml.load(
+        (repository_root / ".github/workflows/ddd-pipeline.yml").read_text(encoding="utf-8"),
+        Loader=yaml.BaseLoader,
+    )
+    pages_workflow = yaml.load(
+        (repository_root / ".github/workflows/gh-pages.yml").read_text(encoding="utf-8"),
+        Loader=yaml.BaseLoader,
+    )
+
+    input_config = ddd_workflow["on"]["workflow_dispatch"]["inputs"]["review_buylist"]
+    assert input_config["type"] == "boolean"
+    assert input_config["default"] == "false"
+    assert pages_workflow["on"]["workflow_run"]["branches"] == ["main"]

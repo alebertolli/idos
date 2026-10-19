@@ -9,7 +9,9 @@ Selection rules:
   FORCE mode (30-day re-research, manual, earnings):
     - UNDER_RESEARCH: re-research (no status change)
     - All others: skip
-  Tickers in BUY_LIST or PORTFOLIO: skip in both modes.
+  Tickers in BUY_LIST or PORTFOLIO: skip by default. A manual, single-ticker
+  REVIEW_BUYLIST run may re-research the exact Buy List opportunity; portfolio
+  positions remain excluded.
 
 Run with --preview to list candidates without processing.
 """
@@ -60,6 +62,39 @@ def _load_skip_tickers():
     return skip
 
 
+def _load_buylist_opportunities():
+    """Return exact Buy List (ticker, opportunity) pairs for explicit re-review."""
+    path = Path("idos-journal/portfolio/buylist.yml")
+    if not path.exists():
+        return set()
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        entries = data.get("entries", []) if isinstance(data, dict) else []
+        return {
+            (str(entry.get("ticker", "")).upper(), str(entry.get("opp_id", "")))
+            for entry in entries
+            if isinstance(entry, dict) and entry.get("ticker") and entry.get("opp_id")
+        }
+    except (OSError, yaml.YAMLError, AttributeError):
+        return set()
+
+
+def _load_portfolio_tickers():
+    """Return paper-position tickers, which remain excluded from DDD re-review."""
+    tickers = set()
+    positions_dir = Path("idos-journal/paper/positions")
+    if not positions_dir.exists():
+        return tickers
+    for path in positions_dir.glob("*.yml"):
+        try:
+            data = yaml.safe_load(path.read_text(encoding="utf-8"))
+            if isinstance(data, dict) and data.get("ticker"):
+                tickers.add(str(data["ticker"]).upper())
+        except (OSError, yaml.YAMLError):
+            continue
+    return tickers
+
+
 def _is_stale(opp: dict) -> tuple[bool, int | None]:
     """Return (is_stale, days_since_last_research)."""
     last_at = _parse_dt(opp.get("last_research_at") or opp.get("updated_at"))
@@ -72,13 +107,13 @@ def _is_stale(opp: dict) -> tuple[bool, int | None]:
     return days > STALE_DAYS, days
 
 
-def _needs_research(opp: dict, force: bool) -> tuple[bool, bool, str]:
+def _needs_research(opp: dict, force: bool, *, allow_buylist_research: bool = False) -> tuple[bool, bool, str]:
     """Return (should_process, force_reprocess, reason)."""
     status = opp.get("status", "")
     ticker = opp.get("ticker", "").upper()
     score = (opp.get("conviction") or {}).get("overall", 0)
 
-    if ticker in SKIP_TICKERS:
+    if ticker in SKIP_TICKERS and not allow_buylist_research:
         return False, False, "in BUY_LIST/PORTFOLIO"
 
     if opp.get("research_profile") == "systematic" and status in {"SCREENED", "UNDER_RESEARCH"}:
@@ -95,6 +130,8 @@ def _needs_research(opp: dict, force: bool) -> tuple[bool, bool, str]:
             return True, True, "systematic signal changed; re-research required"
 
     if force:
+        if allow_buylist_research:
+            return True, True, f"FORCE manager-requested Buy List re-review (status={status})"
         if status == "UNDER_RESEARCH":
             return True, True, f"FORCE re-research UNDER_RESEARCH (score={score})"
         return False, False, f"FORCE: status {status} not re-researchable"
@@ -151,6 +188,17 @@ def preview():
     skipped = []
     force = os.environ.get("FORCE", "false").lower() == "true"
     requested = {t.strip().upper() for t in os.environ.get("TICKER", "").split(",") if t.strip()}
+    review_buylist = os.environ.get("REVIEW_BUYLIST", "false").lower() == "true"
+    if review_buylist and (not force or len(requested) != 1):
+        raise ValueError("REVIEW_BUYLIST requires FORCE=true and exactly one selected TICKER")
+    buylist_opportunities = _load_buylist_opportunities()
+    portfolio_tickers = _load_portfolio_tickers()
+    if review_buylist:
+        selected_ticker = next(iter(requested))
+        if selected_ticker in portfolio_tickers:
+            raise ValueError("Portfolio positions cannot be selected for Buy List re-review")
+        if not any(ticker == selected_ticker for ticker, _ in buylist_opportunities):
+            raise ValueError("Selected ticker has no current Buy List opportunity to re-review")
 
     for d in sorted(companies_dir.iterdir()):
         if not d.is_dir():
@@ -158,7 +206,7 @@ def preview():
         ticker = d.name.upper()
         if requested and ticker not in requested:
             continue
-        if ticker in SKIP_TICKERS:
+        if ticker in portfolio_tickers:
             excluded.append(ticker)
             continue
         opp_dir = d / "case_file" / "opportunities"
@@ -174,10 +222,23 @@ def preview():
                 data = yaml.safe_load(yf.read_text(encoding="utf-8"))
                 if not data:
                     continue
+                is_selected_buylist_entry = (
+                    review_buylist
+                    and requested == {ticker}
+                    and (ticker, str(data.get("id", ""))) in buylist_opportunities
+                    and ticker not in portfolio_tickers
+                )
+                if (review_buylist and not is_selected_buylist_entry) or (
+                    ticker in SKIP_TICKERS and not is_selected_buylist_entry
+                ):
+                    excluded.append(ticker)
+                    continue
                 status = data.get("status", "")
                 score = (data.get("conviction") or {}).get("overall", 0)
 
-                should, reprocess, reason = _needs_research(data, force)
+                should, reprocess, reason = _needs_research(
+                    data, force, allow_buylist_research=is_selected_buylist_entry
+                )
                 entry = {"ticker": ticker, "opp_id": data["id"], "reason": reason, "force_reprocess": reprocess}
                 (selected if should else skipped).append(entry)
 
@@ -193,6 +254,9 @@ def preview():
                     excluded.append(ticker)
             except Exception:
                 pass
+
+    if review_buylist and not selected:
+        raise ValueError("No matching Buy List opportunity was selected for re-review")
 
     print(f"[PREVIEW] Selected for this run after policy/data gates: {len(selected)}")
     print(f"[PREVIEW] SCREENED before policy/data gates: {len(screened)}")
@@ -228,11 +292,25 @@ def main():
     tickers_env = os.environ.get('TICKER', '')
     tickers = [t.strip().upper() for t in tickers_env.split(',') if t.strip()] if tickers_env else []
     event_type = os.environ.get('EVENT_TYPE', 'monthly')
+    review_buylist = os.environ.get("REVIEW_BUYLIST", "false").lower() == "true"
+    if review_buylist and (not force or len(tickers) != 1 or event_type != "manual"):
+        print("[DDD] REVIEW_BUYLIST requires a manual run, FORCE=true, and exactly one TICKER")
+        return 2
 
     journal = Path('idos-journal')
     os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
     global SKIP_TICKERS
     SKIP_TICKERS = _load_skip_tickers()
+    buylist_opportunities = _load_buylist_opportunities()
+    portfolio_tickers = _load_portfolio_tickers()
+    if review_buylist:
+        selected_ticker = tickers[0]
+        if selected_ticker in portfolio_tickers:
+            print("[DDD] Portfolio positions cannot be selected for Buy List re-review")
+            return 2
+        if not any(ticker == selected_ticker for ticker, _ in buylist_opportunities):
+            print("[DDD] Selected ticker has no current Buy List opportunity to re-review")
+            return 2
 
     opportunities = []
     skipped_list = []
@@ -245,7 +323,7 @@ def main():
             ticker = d.name.upper()
             if tickers and ticker not in tickers:
                 continue
-            if ticker in SKIP_TICKERS:
+            if ticker in portfolio_tickers:
                 continue
             opp_dir = d / 'case_file' / 'opportunities'
             if not opp_dir.exists():
@@ -260,10 +338,27 @@ def main():
                     data = yaml.safe_load(yf.read_text(encoding='utf-8'))
                     if not data:
                         continue
+                    is_selected_buylist_entry = (
+                        review_buylist
+                        and tickers == [ticker]
+                        and (ticker, str(data.get("id", ""))) in buylist_opportunities
+                        and ticker not in portfolio_tickers
+                    )
+                    if (review_buylist and not is_selected_buylist_entry) or (
+                        ticker in SKIP_TICKERS and not is_selected_buylist_entry
+                    ):
+                        skipped_list.append({
+                            'opp_id': data.get('id', ''), 'ticker': ticker,
+                            'status': data.get('status', ''),
+                            'reason': 'in BUY_LIST/PORTFOLIO; explicit re-review not selected',
+                        })
+                        continue
                     status = data.get('status', '')
                     score = data.get('conviction', {}).get('overall', 0)
 
-                    should, opp_force, reason = _needs_research(data, force)
+                    should, opp_force, reason = _needs_research(
+                        data, force, allow_buylist_research=is_selected_buylist_entry
+                    )
                     if should:
                         opportunities.append({
                             'opp_id': data['id'],
@@ -285,6 +380,9 @@ def main():
 
     if not opportunities:
         print('[DDD] No eligible opportunities to process')
+        if review_buylist:
+            print('[DDD] Requested Buy List re-review was not eligible; refusing a successful no-op')
+            return 2
         Path('cache').mkdir(parents=True, exist_ok=True)
         Path('cache/ddd_results.json').write_text(json.dumps({
             'processed': [], 'errors': [], 'total': 0,

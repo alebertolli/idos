@@ -102,3 +102,16 @@ def test_manager_approval_rejects_stale_hash_or_failed_gate(tmp_path):
             "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.",
         )
     assert not (opp_dir / "board_resolution.yml").exists()
+
+
+def test_manager_cannot_approve_proposal_invalidated_by_new_research(tmp_path):
+    opp_dir, proposal = _seed_fundamental_case(tmp_path)
+    proposal["status"] = "INVALIDATED_BY_NEW_RESEARCH"
+    proposal_path = opp_dir / "decision_proposal.yml"
+    proposal_path.write_text(yaml.safe_dump(proposal), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="invalidated by newer Research"):
+        record_decision_review(
+            tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
+            "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.",
+        )

@@ -19,6 +19,7 @@ from idos.timezone import AR_TZ
 from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.decision.scenarios import validate_scenario_analysis
+from idos.decision.manager_approval import invalidate_manager_approval_after_research
 from idos.research.thesis_schedule import interval_days_for
 
 class ResearchWorker(BaseWorker):
@@ -285,6 +286,32 @@ class ResearchWorker(BaseWorker):
         with open(report_path, "w", encoding="utf-8") as f:
             yaml_lib.dump(ddd_report, f, default_flow_style=False, allow_unicode=True)
 
+        approval_invalidated = False
+        if force_reprocess:
+            invalidated_at = datetime.now(AR_TZ).isoformat()
+            approval_invalidated = invalidate_manager_approval_after_research(
+                bp, ticker, opp_id, invalidated_at=invalidated_at,
+            )
+            if approval_invalidated:
+                opp["approved_for_buylist"] = False
+                opp["manager_approval_invalidated_at"] = invalidated_at
+                opp["manager_approval_invalidation_reason"] = "new_research_version"
+                sqlite.save_opportunity(opp)
+                journal.save_opportunity(ticker, opp)
+                invalidation_event = {
+                    "opp_id": opp_id,
+                    "ticker": ticker,
+                    "event_type": event_type,
+                    "reason": "new_research_version",
+                    "invalidated_at": invalidated_at,
+                }
+                sqlite.log_event("decision:manager_approval_invalidated", invalidation_event)
+                journal.log_event(
+                    "decision:manager_approval_invalidated",
+                    invalidation_event,
+                    source="research_worker",
+                )
+
         if is_systematic:
             aoif_result = {
                 "tipo_analisis": "systematic_momentum",
@@ -390,6 +417,7 @@ class ResearchWorker(BaseWorker):
             "hypotheses_count": len(hypotheses),
             "assessment_id": assessment_id,
             "ddd_empty": False,
+            "approval_invalidated": approval_invalidated,
             "target_consensus": consensus,
         }
 

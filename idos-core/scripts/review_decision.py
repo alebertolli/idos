@@ -55,6 +55,8 @@ def record_decision_review(
         raise ValueError("Opportunity or Decision proposal is malformed")
     if proposal.get("opportunity_id") != opp_id or opportunity.get("ticker", ticker).upper() != ticker.upper():
         raise ValueError("Decision proposal does not match the selected opportunity")
+    if proposal.get("status") == "INVALIDATED_BY_NEW_RESEARCH":
+        raise ValueError("Decision proposal was invalidated by newer Research; run Assessment again")
     actual_hash = decision_proposal_fingerprint(proposal)
     if proposal_hash != actual_hash:
         raise ValueError("Decision proposal hash is stale; run Assessment again before review")
