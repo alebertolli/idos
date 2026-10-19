@@ -438,6 +438,31 @@ en el fixture.
    y revisar selector, proveedor/modelo, costo esperado, artifacts y commits;
    comprobar que una oportunidad no vencida no consume Research ni cambia su
    tesis. Registrar ref, SHA, run y resultado sin convertir un no-op en E2E.
+7. Para eventos materiales, comprobar que sólo perfiles habilitados y no
+   sistemáticos procesan sus triggers configurados; cubrir estados elegibles,
+   Buy List por `(ticker, opp_id)`, exclusión de posiciones y perfiles
+   deshabilitados. El modo `preview_only` debe mostrar la selección y omitir
+   Research, Assessment, Monthly Re-Assessment, digest y commits. Ejecutar una
+   sola prueba remota en la rama de test con un ticker, revisar el artifact de
+   preview y confirmar ausencia de llamadas IA y cambios Git. Una prueba de
+   Research real requiere además un evento con evidencia verificable; el
+   productor actual de resultados trimestrales sólo envía tipo y ticker.
+
+### Asimetría Bear/Base/Bull y RULE-008
+
+1. Aceptar exactamente un escenario BEAR, BASE y BULL con probabilidades que
+   sumen 100%, precios ordenados, horizonte posterior a la fecha de análisis,
+   moneda igual a la cotización y fuentes HTTPS fechadas.
+2. Rechazar escenario duplicado/ausente, probabilidades inválidas, fuente
+   posterior, fecha futura, moneda distinta y distribuciones sin retornos
+   positivos y negativos.
+3. Verificar que el ratio usa retornos ponderados contra el precio actual, y
+   que RULE-008 bloquea hasta una aprobación atribuible del gestor para el hash
+   vigente del conjunto. Un cambio de precio objetivo, probabilidad, fuente o
+   fecha debe invalidar la aprobación.
+4. Confirmar en dashboard que escenarios propuestos se muestran como pendientes
+   y no autorizan compra; los históricos sin detalle deben declararse como no
+   persistidos.
 
 ### Alcance seguro de workflows manuales
 

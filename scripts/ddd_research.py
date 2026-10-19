@@ -26,6 +26,21 @@ from pathlib import Path
 
 STALE_DAYS = 30
 SKIP_TICKERS = set()
+SUPPORTED_THESIS_EVENT_TYPES = {
+    "quarterly_results",
+    "guidance_change",
+    "material_restatement",
+    "red_flag_change",
+    "material_financial_deterioration",
+    "thesis_change",
+}
+EVENT_RESEARCHABLE_STATUSES = {
+    "SCREENED",
+    "UNDER_RESEARCH",
+    "UNDER_DEEP_DD",
+    "APPROVED",
+    "ENTRY_PENDING",
+}
 
 
 def _parse_dt(s):
@@ -95,6 +110,33 @@ def _load_portfolio_tickers():
     return tickers
 
 
+def _canonical_event_type(event_type: str) -> str | None:
+    canonical = str(event_type or "").strip().lower().replace("-", "_")
+    if canonical in {"", "manual", "monthly", "re_research_30d"}:
+        return None
+    return canonical if canonical in SUPPORTED_THESIS_EVENT_TYPES else None
+
+
+def _configured_event_trigger(opp: dict, event_type: str, catalog) -> str | None:
+    """Return a material event only when the opportunity's strategy enables it."""
+    canonical = _canonical_event_type(event_type)
+    if canonical is None:
+        return None
+    try:
+        profile = catalog.get(opp.get("strategy_id") or "COMPOUNDER")
+    except (ValueError, AttributeError):
+        return None
+    if not profile.enabled or profile.research_profile == "systematic":
+        return None
+    research_cfg = profile.parameters.get("research", {})
+    configured = research_cfg.get("event_triggers", []) if isinstance(research_cfg, dict) else []
+    allowed = {
+        str(item).strip().lower().replace("-", "_")
+        for item in configured if isinstance(item, str)
+    } if isinstance(configured, list) else set()
+    return canonical if canonical in allowed else None
+
+
 def _is_stale(opp: dict) -> tuple[bool, int | None]:
     """Return (is_stale, days_since_last_research)."""
     last_at = _parse_dt(opp.get("last_research_at") or opp.get("updated_at"))
@@ -107,14 +149,25 @@ def _is_stale(opp: dict) -> tuple[bool, int | None]:
     return days > STALE_DAYS, days
 
 
-def _needs_research(opp: dict, force: bool, *, allow_buylist_research: bool = False) -> tuple[bool, bool, str]:
+def _needs_research(
+    opp: dict,
+    force: bool,
+    *,
+    allow_buylist_research: bool = False,
+    event_trigger: str | None = None,
+) -> tuple[bool, bool, str]:
     """Return (should_process, force_reprocess, reason)."""
     status = opp.get("status", "")
     ticker = opp.get("ticker", "").upper()
     score = (opp.get("conviction") or {}).get("overall", 0)
 
-    if ticker in SKIP_TICKERS and not allow_buylist_research:
+    if ticker in SKIP_TICKERS and not (allow_buylist_research or event_trigger):
         return False, False, "in BUY_LIST/PORTFOLIO"
+
+    if event_trigger:
+        if status in EVENT_RESEARCHABLE_STATUSES:
+            return True, True, f"configured event trigger: {event_trigger} (status={status})"
+        return False, False, f"event trigger {event_trigger} not applicable to status {status}"
 
     if opp.get("research_profile") == "systematic" and status in {"SCREENED", "UNDER_RESEARCH"}:
         from idos.strategy.catalog import StrategyCatalog
@@ -187,6 +240,9 @@ def preview():
     selected = []
     skipped = []
     force = os.environ.get("FORCE", "false").lower() == "true"
+    event_type = os.environ.get("EVENT_TYPE", "monthly")
+    from idos.strategy.catalog import StrategyCatalog
+    strategy_catalog = StrategyCatalog(Path("idos-config/strategies.yml"))
     requested = {t.strip().upper() for t in os.environ.get("TICKER", "").split(",") if t.strip()}
     review_buylist = os.environ.get("REVIEW_BUYLIST", "false").lower() == "true"
     if review_buylist and (not force or len(requested) != 1):
@@ -222,14 +278,20 @@ def preview():
                 data = yaml.safe_load(yf.read_text(encoding="utf-8"))
                 if not data:
                     continue
+                event_trigger = _configured_event_trigger(data, event_type, strategy_catalog)
                 is_selected_buylist_entry = (
                     review_buylist
                     and requested == {ticker}
                     and (ticker, str(data.get("id", ""))) in buylist_opportunities
                     and ticker not in portfolio_tickers
                 )
+                is_event_buylist_entry = (
+                    event_trigger is not None
+                    and (ticker, str(data.get("id", ""))) in buylist_opportunities
+                    and ticker not in portfolio_tickers
+                )
                 if (review_buylist and not is_selected_buylist_entry) or (
-                    ticker in SKIP_TICKERS and not is_selected_buylist_entry
+                    ticker in SKIP_TICKERS and not (is_selected_buylist_entry or is_event_buylist_entry)
                 ):
                     excluded.append(ticker)
                     continue
@@ -237,9 +299,18 @@ def preview():
                 score = (data.get("conviction") or {}).get("overall", 0)
 
                 should, reprocess, reason = _needs_research(
-                    data, force, allow_buylist_research=is_selected_buylist_entry
+                    data,
+                    force,
+                    allow_buylist_research=is_selected_buylist_entry,
+                    event_trigger=event_trigger,
                 )
-                entry = {"ticker": ticker, "opp_id": data["id"], "reason": reason, "force_reprocess": reprocess}
+                entry = {
+                    "ticker": ticker,
+                    "opp_id": data["id"],
+                    "reason": reason,
+                    "force_reprocess": reprocess,
+                    "trigger_type": event_trigger,
+                }
                 (selected if should else skipped).append(entry)
 
                 if status == "SCREENED":
@@ -299,6 +370,8 @@ def main():
 
     journal = Path('idos-journal')
     os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+    from idos.strategy.catalog import StrategyCatalog
+    strategy_catalog = StrategyCatalog(Path("idos-config/strategies.yml"))
     global SKIP_TICKERS
     SKIP_TICKERS = _load_skip_tickers()
     buylist_opportunities = _load_buylist_opportunities()
@@ -338,14 +411,20 @@ def main():
                     data = yaml.safe_load(yf.read_text(encoding='utf-8'))
                     if not data:
                         continue
+                    event_trigger = _configured_event_trigger(data, event_type, strategy_catalog)
                     is_selected_buylist_entry = (
                         review_buylist
                         and tickers == [ticker]
                         and (ticker, str(data.get("id", ""))) in buylist_opportunities
                         and ticker not in portfolio_tickers
                     )
+                    is_event_buylist_entry = (
+                        event_trigger is not None
+                        and (ticker, str(data.get("id", ""))) in buylist_opportunities
+                        and ticker not in portfolio_tickers
+                    )
                     if (review_buylist and not is_selected_buylist_entry) or (
-                        ticker in SKIP_TICKERS and not is_selected_buylist_entry
+                        ticker in SKIP_TICKERS and not (is_selected_buylist_entry or is_event_buylist_entry)
                     ):
                         skipped_list.append({
                             'opp_id': data.get('id', ''), 'ticker': ticker,
@@ -357,7 +436,10 @@ def main():
                     score = data.get('conviction', {}).get('overall', 0)
 
                     should, opp_force, reason = _needs_research(
-                        data, force, allow_buylist_research=is_selected_buylist_entry
+                        data,
+                        force,
+                        allow_buylist_research=is_selected_buylist_entry,
+                        event_trigger=event_trigger,
                     )
                     if should:
                         opportunities.append({
@@ -367,6 +449,7 @@ def main():
                             'current_status': status,
                             'reason': reason,
                             'force_reprocess': opp_force,
+                            'trigger_type': event_trigger,
                         })
                     else:
                         skipped_list.append({

@@ -214,6 +214,113 @@ def test_assessment_only_skips_when_persisted_research_is_missing(tmp_path, monk
     assert saved["errors"] == []
 
 
+def test_event_research_is_strategy_configured_and_never_applies_to_systematic(tmp_path):
+    from idos.strategy.catalog import StrategyCatalog
+
+    config = tmp_path / "idos-config" / "strategies.yml"
+    config.parent.mkdir(parents=True)
+    config.write_text(yaml.safe_dump({"strategies": {
+        "COMPOUNDER": {
+            "core": "CORE_3_GROWTH", "sleeve": "HIGH_CONVICTION",
+            "thesis_type": "STRATEGIC", "discovery_profile": "compounder",
+            "research_profile": "strategic", "entry_policy": "VALUATION_ZONE",
+            "enabled": True,
+            "parameters": {"research": {"event_triggers": ["quarterly_results"]}},
+        },
+        "MOMENTUM_ETF": {
+            "core": "CORE_3_GROWTH", "sleeve": "SYSTEMATIC_RETURN",
+            "thesis_type": "SYSTEMATIC", "discovery_profile": "momentum_monthly",
+            "research_profile": "systematic", "entry_policy": "SIGNAL_REBALANCE",
+            "enabled": True,
+            "parameters": {"research": {"event_triggers": ["quarterly_results"]}},
+        },
+        "DISABLED": {
+            "core": "CORE_3_GROWTH", "sleeve": "HIGH_CONVICTION",
+            "thesis_type": "STRATEGIC", "discovery_profile": "compounder",
+            "research_profile": "strategic", "entry_policy": "VALUATION_ZONE",
+            "enabled": False,
+            "parameters": {"research": {"event_triggers": ["quarterly_results"]}},
+        },
+    }}), encoding="utf-8")
+    catalog = StrategyCatalog(config)
+
+    assert ddd_research._configured_event_trigger(
+        {"strategy_id": "COMPOUNDER"}, "quarterly-results", catalog,
+    ) == "quarterly_results"
+    assert ddd_research._configured_event_trigger(
+        {"strategy_id": "COMPOUNDER"}, "guidance-change", catalog,
+    ) is None
+    assert ddd_research._configured_event_trigger(
+        {"strategy_id": "MOMENTUM_ETF"}, "quarterly-results", catalog,
+    ) is None
+    assert ddd_research._configured_event_trigger(
+        {"strategy_id": "DISABLED"}, "quarterly-results", catalog,
+    ) is None
+
+
+def test_material_event_researches_approved_but_not_terminal_opportunities(monkeypatch):
+    monkeypatch.setattr(ddd_research, "SKIP_TICKERS", {"ASML"})
+    approved = {"ticker": "ASML", "status": "APPROVED"}
+    terminal = {"ticker": "ASML", "status": "WATCHLIST"}
+
+    should_research, force_reprocess, reason = ddd_research._needs_research(
+        approved, False, event_trigger="quarterly_results",
+    )
+    terminal_research, _, _ = ddd_research._needs_research(
+        terminal, False, event_trigger="quarterly_results",
+    )
+
+    assert should_research is True
+    assert force_reprocess is True
+    assert "quarterly_results" in reason
+    assert terminal_research is False
+
+
+def test_event_preview_researches_only_exact_buylist_entry_for_configured_strategy(tmp_path, monkeypatch):
+    from scripts import ddd_research as research_script
+
+    config = tmp_path / "idos-config" / "strategies.yml"
+    config.parent.mkdir(parents=True)
+    config.write_text(yaml.safe_dump({"strategies": {
+        "COMPOUNDER": {
+            "core": "CORE_3_GROWTH", "sleeve": "HIGH_CONVICTION",
+            "thesis_type": "STRATEGIC", "discovery_profile": "compounder",
+            "research_profile": "strategic", "entry_policy": "VALUATION_ZONE",
+            "enabled": True,
+            "parameters": {"research": {"event_triggers": ["quarterly_results"]}},
+        },
+    }}), encoding="utf-8")
+    opportunity_root = tmp_path / "idos-journal/companies/ASML/case_file/opportunities"
+    opportunity_root.mkdir(parents=True)
+    for opp_id in ("OPP-BUYLIST", "OPP-OTHER"):
+        opp_dir = opportunity_root / opp_id
+        opp_dir.mkdir()
+        (opp_dir / "opportunity.yml").write_text(yaml.safe_dump({
+            "id": opp_id, "ticker": "ASML", "strategy_id": "COMPOUNDER",
+            "status": "APPROVED",
+        }), encoding="utf-8")
+    buylist = tmp_path / "idos-journal/portfolio/buylist.yml"
+    buylist.parent.mkdir(parents=True)
+    buylist.write_text(yaml.safe_dump({"entries": [{
+        "ticker": "ASML", "opp_id": "OPP-BUYLIST",
+    }]}), encoding="utf-8")
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("TICKER", "ASML")
+    monkeypatch.setenv("FORCE", "true")
+    monkeypatch.setenv("EVENT_TYPE", "quarterly-results")
+    monkeypatch.setenv("REVIEW_BUYLIST", "false")
+
+    research_script.preview()
+
+    preview = json.loads((tmp_path / "cache/ddd_preview.json").read_text(encoding="utf-8"))
+    assert [(entry["ticker"], entry["opp_id"]) for entry in preview["selected"]] == [
+        ("ASML", "OPP-BUYLIST"),
+    ]
+    assert preview["selected"][0]["trigger_type"] == "quarterly_results"
+    assert preview["selected"][0]["force_reprocess"] is True
+
+
 def test_buylist_re_review_requires_manual_single_ticker_and_selects_exact_entry(tmp_path, monkeypatch):
     opportunity_root = tmp_path / "idos-journal/companies/TEST/case_file/opportunities"
     opportunity_root.mkdir(parents=True)
