@@ -134,6 +134,18 @@ def test_refresh_worker_normalizes_yahoo_underlying_metrics_with_exchange_sessio
     assert result["liquidity_provenance"]["basis"] == "UNDERLYING_USD_PROXY"
 
 
+def test_market_gate_retains_yahoo_endpoint_diagnostics():
+    result = DataRefreshWorker()._normalize_market_gate_metrics(
+        "TEST",
+        {"provider_errors": ["info: summary endpoint unavailable"]},
+        None,
+        asset_type="us_equity",
+    )
+
+    assert "Yahoo info: summary endpoint unavailable" in result["market_data_normalization"]["errors"]
+    assert any("quote currency missing" in item for item in result["market_data_normalization"]["errors"])
+
+
 def test_refresh_worker_reuses_only_complete_provenance_bearing_market_gates():
     complete = {
         "merged_data": {

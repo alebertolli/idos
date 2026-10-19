@@ -164,7 +164,11 @@ class DataRefreshWorker(BaseWorker):
                                     source="yfinance", ttl_seconds=43200,
                                 )
                             else:
-                                errors.append(f"{ticker}: Yahoo quote metadata unavailable")
+                                reason = (
+                                    getattr(yf_result, "error", None)
+                                    if yf_result else "Yahoo returned no response"
+                                )
+                                errors.append(f"{ticker}: Yahoo quote metadata unavailable ({reason})")
                         except Exception as e:
                             self.error_manager.report(
                                 category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
@@ -303,6 +307,9 @@ class DataRefreshWorker(BaseWorker):
             "market_data_normalization": {"status": "blocked", "errors": []}
         }
         errors = result["market_data_normalization"]["errors"]
+        provider_errors = yahoo_data.get("provider_errors", []) if isinstance(yahoo_data, dict) else []
+        if isinstance(provider_errors, list):
+            errors.extend(f"Yahoo {error}" for error in provider_errors if error)
         if asset_type not in {"etf", "us_equity"}:
             errors.append("Explicit supported asset type missing from operable universe")
         if not yahoo_data:
