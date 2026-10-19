@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/alebertolli/idos/compare/v0.1.1...v0.1.2) (2026-10-19)
+
+
+### Documentation
+
+* record clean main history reset ([#105](https://github.com/alebertolli/idos/issues/105)) ([9122547](https://github.com/alebertolli/idos/commit/91225470b62a4de45ff667b63b5ed85b9113e8ea))
+
 ## [0.1.1](https://github.com/alebertolli/idos/compare/v0.1.0...v0.1.1) (2026-10-01)
 
 
