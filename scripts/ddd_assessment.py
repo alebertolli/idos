@@ -32,7 +32,7 @@ def main():
     processed = results.get('processed', [])
     assessments = results.get('assessments', [])
     errors = results.get('errors', [])
-    total = results.get('total', 0)
+    total = results.get('total', len(processed))
 
     # Use assessment results if available, else use processed
     items = assessments if assessments else processed

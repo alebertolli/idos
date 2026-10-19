@@ -62,6 +62,7 @@ def test_research_worker_failure_marks_run_failed_and_returns_nonzero(
     results = json.loads((tmp_path / "cache" / "ddd_results.json").read_text(encoding="utf-8"))
     assert exit_code == 1
     assert results["status"] == "failed"
+    assert results["total"] == 1
     assert results["errors"] == [{
         "ticker": "TEST",
         "opp_id": "OPP-TEST-001",
@@ -93,3 +94,37 @@ def test_combined_ddd_digest_persists_results(tmp_path, monkeypatch):
     assert "**XLF**" in digest
     assert "**Assessment completados:** 1" in digest
     assert "**Approved:** 0" in digest
+
+
+def test_selected_research_count_survives_assessment_and_digest(tmp_path, monkeypatch):
+    from scripts import ddd_assessment, ddd_digest
+
+    opportunity = tmp_path / "idos-journal/companies/XLF/case_file/opportunities/OPP-XLF"
+    opportunity.mkdir(parents=True)
+    (opportunity / "opportunity.yml").write_text(yaml.safe_dump({
+        "id": "OPP-XLF", "ticker": "XLF", "status": "SCREENED",
+    }), encoding="utf-8")
+
+    class Research:
+        def __init__(self, config):
+            pass
+
+        def run(self, context):
+            return {"status": "completed", "score": 23}
+
+    monkeypatch.setattr("idos.workers.ai.research_worker.ResearchWorker", Research)
+    monkeypatch.setattr("idos.ai.service.LLMService", lambda *args: object())
+    monkeypatch.setattr("idos.decision.assessment_pipeline.run_full_pipeline", lambda *args, **kwargs: {
+        "ticker": "XLF", "opp_id": "OPP-XLF", "recommendation": "WAIT", "board_approved": False,
+    })
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("FORCE", "false")
+    monkeypatch.setenv("TICKER", "XLF")
+    monkeypatch.chdir(tmp_path)
+    assert ddd_research.main() == 0
+    ddd_assessment.main()
+    ddd_digest.main()
+    result = json.loads((tmp_path / "cache/ddd_results.json").read_text(encoding="utf-8"))
+    assert result["total"] == len(result["processed"]) == len(result["assessments"]) == 1
+    digest = (tmp_path / "cache/weekly_digest.md").read_text(encoding="utf-8")
+    assert "**Total encontradas:** 1" in digest

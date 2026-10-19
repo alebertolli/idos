@@ -278,6 +278,9 @@ estas pruebas.
    o requerir revisión humana, no completar datos inventados.
 4. No llamar recomendación de compra/venta a un resultado `WAIT`,
    `PENDING_HUMAN_REVIEW`, `REVIEW_ALLOCATION` ni a un test parcial.
+5. Conciliar el contador total de candidatos seleccionados con los procesados,
+   errores y omitidos; comprobar que Assessment y digest conservan el total
+   reportado por Research y que una ejecución con un caso no informa cero.
 
 ### 8.4 Frontera privada de portfolio y Risk Audit
 

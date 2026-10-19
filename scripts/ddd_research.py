@@ -260,7 +260,7 @@ def main():
     if not opportunities and not force:
         print('[DDD] No opportunities to process (no SCREENED found)')
         Path('cache/ddd_results.json').write_text(json.dumps({
-            'processed': [], 'errors': [],
+            'processed': [], 'errors': [], 'total': 0,
             'status': 'none', 'event_type': event_type, 'force': force,
             'skipped': skipped_list,
         }, indent=2), encoding='utf-8')
@@ -329,6 +329,7 @@ def main():
             rw_errors.append({'ticker': ticker, 'opp_id': opp_id, 'error': str(e)})
 
     results = {
+        'total': len(opportunities),
         'processed': rw_results,
         'skipped': skipped_list,
         'assessments': [],
