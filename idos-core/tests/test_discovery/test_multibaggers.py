@@ -415,8 +415,18 @@ def test_manual_review_stops_assessment_before_buy_list(tmp_path, monkeypatch):
     monkeypatch.setattr(assessment, "DecisionOrchestrator", FakeOrchestrator)
     monkeypatch.setattr(assessment, "DecisionBoard", FakeBoard)
     monkeypatch.setattr(assessment, "_register_authorization_rules", lambda *args: None)
-    monkeypatch.setattr(assessment, "build_context", lambda *args: {"strategy_id": "MULTIBAGGERS", "research_profile": "multibaggers",
-        "entry_policy": "MANUAL_REVIEW", "proposed_weight": 3.0, "asymmetry": 4.0, "knowledge_base": {"dynamic": {"metrics": {}}}})
+    monkeypatch.setattr(
+        assessment,
+        "build_context",
+        lambda *args, **kwargs: {
+            "strategy_id": "MULTIBAGGERS",
+            "research_profile": "multibaggers",
+            "entry_policy": "MANUAL_REVIEW",
+            "proposed_weight": 3.0,
+            "asymmetry": 4.0,
+            "knowledge_base": {"dynamic": {"metrics": {}}},
+        },
+    )
 
     result = assessment.run_full_pipeline("OPP-MB-TEST", "TEST", tmp_path)
 
