@@ -346,3 +346,18 @@ def test_risky_asset_volatility_is_scaled_to_net_asset_value_with_cash():
     assert report["risk_contributions"]["portfolio_annualized_volatility_pct"] == 4
     assert report["risk_contributions"]["return_streams"][0]["weight_pct"] == 50
     assert report["risk_contributions"]["positions"][0]["contribution_pct"] == 100
+
+
+def test_stress_nav_impact_uses_net_asset_value_after_obligations():
+    snapshot = snapshot_with_bond()
+    snapshot["obligations"] = [{
+        "obligation_id": "bill-1", "account_id": "account-1", "source_ref": "bill-1",
+        "due_date": "2026-11-01", "currency": "USD", "amount": 500, "status": "PENDING",
+    }]
+
+    report = audit_portfolio(snapshot)
+
+    assert report["net_asset_value_base"] == 500
+    rate_stress = next(row for row in report["scenarios"] if row["scenario_id"] == "INTEREST_RATE_UP_100")
+    assert rate_stress["total_pnl_base"] == -39
+    assert rate_stress["nav_impact_pct"] == -7.8

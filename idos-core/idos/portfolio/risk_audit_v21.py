@@ -125,7 +125,7 @@ def assess_risk_v21(
             "risk_metrics_evidence": metric_report,
         })
 
-    scenarios = _scenario_analysis(positions, scenario_rows, gross_assets, as_of)
+    scenarios = _scenario_analysis(positions, scenario_rows, net_asset_value, as_of)
     for scenario in scenarios:
         if scenario["status"] != "ASSESSED":
             missing_domains.add("interest_rate_credit_argentina_equity_and_combined_scenarios")
@@ -388,7 +388,7 @@ def _permanent_loss(profile: Mapping[str, Any], as_of: date) -> dict[str, Any]:
 def _scenario_analysis(
     positions: list[Mapping[str, Any]],
     direct_rows: Mapping[str, list[dict[str, Any]]],
-    gross_assets: Decimal,
+    net_asset_value: Decimal,
     as_of: date,
 ) -> list[dict[str, Any]]:
     output: list[dict[str, Any]] = []
@@ -442,7 +442,7 @@ def _scenario_analysis(
             "shock_unit": "basis_points" if family != "GLOBAL_EQUITY_CRASH" else "percent",
             "status": "ASSESSED" if complete else "PARTIAL",
             "total_pnl_base": round(float(total_pnl), 4) if complete else None,
-            "nav_impact_pct": round(float(total_pnl / gross_assets * 100), 6) if complete and gross_assets > 0 else None,
+            "nav_impact_pct": round(float(total_pnl / net_asset_value * 100), 6) if complete and net_asset_value > 0 else None,
             "positions": impacts,
             "interpretation": "Sensitivity only; not a forecast.",
         })
@@ -462,7 +462,7 @@ def _scenario_analysis(
             pnl = value * ret / Decimal(100)
             impacts.append({"position_id": position_id, "status": "ASSESSED", "return_pct": ret, "pnl_base": round(float(pnl), 4)})
         total_pnl = sum((_as_decimal(item.get("pnl_base")) or Decimal(0) for item in impacts), Decimal(0))
-        output.append({"scenario_id": scenario_id, "status": "ASSESSED" if complete else "PARTIAL", "total_pnl_base": round(float(total_pnl), 4) if complete else None, "nav_impact_pct": round(float(total_pnl / gross_assets * 100), 6) if complete and gross_assets > 0 else None, "positions": impacts, "interpretation": "Sensitivity only; not a forecast."})
+        output.append({"scenario_id": scenario_id, "status": "ASSESSED" if complete else "PARTIAL", "total_pnl_base": round(float(total_pnl), 4) if complete else None, "nav_impact_pct": round(float(total_pnl / net_asset_value * 100), 6) if complete and net_asset_value > 0 else None, "positions": impacts, "interpretation": "Sensitivity only; not a forecast."})
     return output
 
 
