@@ -447,3 +447,23 @@ def test_buylist_re_review_is_opt_in_and_pages_workflow_run_is_main_only():
     assert input_config["type"] == "boolean"
     assert input_config["default"] == "false"
     assert pages_workflow["on"]["workflow_run"]["branches"] == ["main"]
+
+
+def test_assessment_only_workflow_runs_assessment_but_skips_research_and_monthly():
+    repository_root = Path(__file__).resolve().parents[2]
+    workflow = yaml.load(
+        (repository_root / ".github/workflows/ddd-pipeline.yml").read_text(encoding="utf-8"),
+        Loader=yaml.BaseLoader,
+    )
+    steps = {step["name"]: step for step in workflow["jobs"]["ddd"]["steps"] if step.get("name")}
+
+    assert "assessment_only != 'true'" in steps["STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)"]["if"]
+    assert steps["STEP 3-7 - Assessment Engines + Conviction + Rules + Board + Entry"]["if"] == (
+        "github.event.inputs.preview_only != 'true'"
+    )
+    assert steps["STEP 3-7 - Assessment Engines + Conviction + Rules + Board + Entry"]["env"][
+        "REASSESS_EXISTING"
+    ] == "${{ inputs.assessment_only || false }}"
+    assert "assessment_only != 'true'" in steps[
+        "STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)"
+    ]["if"]

@@ -165,7 +165,7 @@ jobs:
         run: python scripts/ddd_research.py
 
       - name: STEP 3-7 - Assessment Engines + Conviction + Rules + Board + Entry
-        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true'
+        if: github.event.inputs.preview_only != 'true'
         env:
           REASSESS_EXISTING: ${{ inputs.assessment_only || false }}
         run: python scripts/ddd_assessment.py
