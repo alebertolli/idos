@@ -495,6 +495,34 @@ def test_buylist_includes_strategy_and_signal_from_linked_opportunity(tmp_path: 
     assert "label:'Estrategia'" in app
     assert "strategy_signal.score" in app
 
+def test_buylist_ignores_generic_signal_for_valuation_strategy(tmp_path: Path):
+    import yaml
+
+    opportunity_dir = (
+        tmp_path / "idos-journal" / "companies" / "VIST" / "case_file"
+        / "opportunities" / "OPP-C-VIST"
+    )
+    opportunity_dir.mkdir(parents=True)
+    (opportunity_dir / "opportunity.yml").write_text(yaml.safe_dump({
+        "id": "OPP-C-VIST",
+        "ticker": "VIST",
+        "status": "APPROVED",
+        "strategy_id": "COMPOUNDER",
+        "entry_policy": "VALUATION_ZONE",
+        "signal": {"technical_score": 71},
+    }), encoding="utf-8")
+    buylist_path = tmp_path / "idos-journal" / "portfolio" / "buylist.yml"
+    buylist_path.parent.mkdir(parents=True)
+    buylist_path.write_text(yaml.safe_dump({"entries": [{
+        "ticker": "VIST", "opp_id": "OPP-C-VIST",
+    }]}), encoding="utf-8")
+
+    entry = SiteBuilder(tmp_path).build().buylist[0]
+
+    assert entry["strategy_id"] == "COMPOUNDER"
+    assert entry["entry_policy"] == "VALUATION_ZONE"
+    assert entry["strategy_signal"] is None
+
 def test_public_site_exposes_ddd_only_after_attributable_manager_approval(tmp_path: Path):
     _write_ddd_case(tmp_path, {
         "status": "manager_approved",

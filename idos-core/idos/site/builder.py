@@ -785,6 +785,10 @@ class SiteBuilder:
             price_date = mkt["date"] or price["date"]
             buy_zone = e.get("buy_zone_top")
             target = e.get("target_price") or intrinsic
+            entry_policy = e.get("entry_policy") or (opp or {}).get("entry_policy")
+            strategy_signal = None
+            if entry_policy == "SIGNAL_REBALANCE":
+                strategy_signal = e.get("strategy_signal") or (opp or {}).get("signal")
             out.append({
                 "ticker": e.get("ticker"),
                 "strategy_id": (
@@ -792,8 +796,8 @@ class SiteBuilder:
                     or (opp or {}).get("strategy_id")
                     or ("COMPOUNDER" if opp else None)
                 ),
-                "entry_policy": e.get("entry_policy") or (opp or {}).get("entry_policy"),
-                "strategy_signal": e.get("strategy_signal") or (opp or {}).get("signal"),
+                "entry_policy": entry_policy,
+                "strategy_signal": strategy_signal,
                 "conviction_score": e.get("conviction_score"),
                 "target_price": target or None,
                 "buy_zone_top": buy_zone or None,
