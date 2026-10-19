@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-18 23:29 AR _
+_Generado: 2026-10-19 00:02 AR _
 
 ## Resumen
 
@@ -12,7 +12,7 @@ _Generado: 2026-10-18 23:29 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **AAPL** (OPP-20260813-073): score=68, class=?
+- ✅ **AAPL** (OPP-20260813-073): score=82, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
@@ -20,10 +20,9 @@ _Generado: 2026-10-18 23:29 AR _
   - Opp: [OPP-20260813-073]
   - Conviction: 64/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 72 | Valuation: 45 | Recovery: 58 | Risk: 70 | Portfolio: 90
+  - Scores: Business: 72 | Valuation: 45 | Recovery: 60 | Risk: 70 | Portfolio: 90
   - Rules BLOCKED:
     - 🚫 RULE-005: Conviction: 64/65
-    - 🚫 RULE-008: B/R 2.2:1 ❌ (upside 6.0% / downside 2.7%)
 
 ---
 

@@ -1,61 +1,205 @@
 hypotheses:
 - confidence: 0.0
-  falsification: []
-  falsification_conditions: []
+  falsification:
+  - condition: Los envíos totales de iPhone en FY2025 se sitúan por debajo de 228
+      millones de unidades.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento interanual de ingresos por iPhone en Q1-FY2025 y Q2-FY2025
+      resulta inferior al 2.0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Menos del 15% de las ventas totales de la serie iPhone 16 corresponden
+      a modelos con soporte completo de IA en mercados clave.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los envíos totales de iPhone en FY2025 se sitúan por debajo de 228 millones de
+    unidades.
+  - El crecimiento interanual de ingresos por iPhone en Q1-FY2025 y Q2-FY2025 resulta
+    inferior al 2.0%.
+  - Menos del 15% de las ventas totales de la serie iPhone 16 corresponden a modelos
+    con soporte completo de IA en mercados clave.
+  horizon: medio
   id: H1-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
-  predictions: []
+  predictions:
+  - actual: null
+    deadline: medio
+    expected: 240.0
+    met: null
+    metric: Envíos globales de iPhone en FY2025
+    unit: millones de unidades
   priority: critical
   probability: 0.5
-  statement: La intensificación de la competencia de Huawei y ecosistemas locales
-    en China continental provocará una contracción interanual continua en los ingresos
-    de Apple en Gran China, neutralizando el impacto promocional de Apple Intelligence.
+  rationale: Más del 85% de la base instalada actual de iPhone no cuenta con el silicio
+    requerido (A17 Pro o posterior / 8GB RAM) para ejecutar modelos locales de Apple
+    Intelligence. La exclusividad de funciones clave de IA para hardware reciente
+    forzará la renovación en dispositivos con más de 3 años de antigüedad.
+  review_trigger: Si en la presentación de resultados de Q2-FY2025 (abril/mayo 2025),
+    las ventas netas de iPhone muestran una contracción interanual superior al 3%
+    tras el despliegue general de Apple Intelligence en inglés.
+  secondary_hypotheses: []
+  statement: La integración progresiva de Apple Intelligence provocará un ciclo de
+    actualización acelerado en la base de usuarios premium, revirtiendo el estancamiento
+    de volumen de iPhone en el año fiscal 2025.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
-  falsification: []
-  falsification_conditions: []
+  falsification:
+  - condition: El margen bruto consolidado en FY2025 se reporta por debajo del 45.0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento interanual de ingresos de Servicios se desacelera a
+      un dígito bajo (<7%) en dos trimestres consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Resoluciones regulatorias adversas (DOJ/UE) fuerzan una reducción del
+      take-rate de la App Store reduciendo el margen de Servicios por debajo del 68%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto consolidado en FY2025 se reporta por debajo del 45.0%.
+  - El crecimiento interanual de ingresos de Servicios se desacelera a un dígito bajo
+    (<7%) en dos trimestres consecutivos.
+  - Resoluciones regulatorias adversas (DOJ/UE) fuerzan una reducción del take-rate
+    de la App Store reduciendo el margen de Servicios por debajo del 68%.
+  horizon: medio
   id: H2-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
-  predictions: []
+  predictions:
+  - actual: null
+    deadline: medio
+    expected: 46.5
+    met: null
+    metric: Margen Bruto Consolidado FY2025
+    unit: '%'
   priority: critical
   probability: 0.5
-  statement: La ejecución de medidas antimonopolio (DMA en Europa y resolución del
-    litigio DOJ contra Google que afecta los pagos por exclusividad de búsqueda) deteriorará
-    estructuralmente la rentabilidad del segmento Servicios.
+  rationale: El segmento de Servicios genera márgenes brutos superiores al 70% (casi
+    el doble del hardware). A medida que Servicios supera el 25% de la mezcla de ingresos
+    y se añaden suscripciones recurrentes ligadas a computación en la nube/IA, la
+    rentabilidad general de la compañía se expande estructuralmente.
+  review_trigger: Si el margen bruto en el informe 10-K de FY2025 se sitúa por debajo
+    del 45.5% o si una orden judicial prohíbe definitivamente los pagos de Google
+    por exclusividad de búsqueda antes de octubre 2025.
+  secondary_hypotheses: []
+  statement: La monetización de la base instalada activa mediante el segmento de Servicios
+    mantendrá una expansión sostenida del margen bruto consolidado, compensando la
+    presión de costes de componentes.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
-  falsification: []
-  falsification_conditions: []
+  falsification:
+  - condition: Los ingresos combinados de Resto de Asia-Pacífico decrecen o crecen
+      menos del 8% en FY2025.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Las ventas en Gran China caen más de un 15% interanual sin compensación
+      alguna de otros mercados emergentes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Apple reduce sus objetivos de fabricación de iPhone en India por debajo
+      del 15% de la producción global para fines de 2025.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos combinados de Resto de Asia-Pacífico decrecen o crecen menos del
+    8% en FY2025.
+  - Las ventas en Gran China caen más de un 15% interanual sin compensación alguna
+    de otros mercados emergentes.
+  - Apple reduce sus objetivos de fabricación de iPhone en India por debajo del 15%
+    de la producción global para fines de 2025.
+  horizon: largo
   id: H3-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
-  predictions: []
+  predictions:
+  - actual: null
+    deadline: largo
+    expected: 20.0
+    met: null
+    metric: Crecimiento de ingresos en Resto de Asia-Pacífico (incl. India)
+    unit: '% YoY'
   priority: important
   probability: 0.5
-  statement: La falta de un 'superciclo' masivo de hardware derivado de Apple Intelligence,
-    combinada con la presión sobre márgenes de Servicios, forzará una compresión de
-    múltiplos de valoración hacia su media histórica de cinco años.
+  rationale: La rápida expansión de la clase media en India, junto con la apertura
+    de tiendas retail propias y canales de distribución financiados, está generando
+    tasas de crecimiento superiores al 25% interanual en la región, mientras que la
+    producción local mitiga aranceles y diversifica el riesgo de cadena de suministro.
+  review_trigger: Si al término de Q3-FY2025 (junio 2025) los ingresos totales en
+    Gran China caen más de $6.000 millones interanuales acumulados y el Resto de Asia-Pacífico
+    no aporta al menos $3.500 millones de incremento neto compensatorio.
+  secondary_hypotheses: []
+  statement: El fuerte crecimiento de ventas y capacidad de fabricación en India neutralizará
+    el impacto contractivo de la cuota de mercado en Gran China sobre los ingresos
+    consolidados.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
-  falsification: []
-  falsification_conditions: []
+  falsification:
+  - condition: El múltiplo Forward P/E desciende por debajo de 26.0x al cierre de
+      cualquier mes de 2025.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El programa anual de recompras anunciado en mayo 2025 es inferior a
+      $90.000 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre de los últimos doce meses (TTM) cae por debajo
+      de $95.000 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El múltiplo Forward P/E desciende por debajo de 26.0x al cierre de cualquier mes
+    de 2025.
+  - El programa anual de recompras anunciado en mayo 2025 es inferior a $90.000 millones.
+  - El flujo de caja libre de los últimos doce meses (TTM) cae por debajo de $95.000
+    millones.
+  horizon: medio
   id: H4-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
-  predictions: []
+  predictions:
+  - actual: null
+    deadline: medio
+    expected: 30.0
+    met: null
+    metric: Múltiplo Forward P/E promedio en 2025
+    unit: x
   priority: important
   probability: 0.5
-  statement: La elasticidad del consumidor ante funciones de IA procesadas en el dispositivo
-    (on-device AI) será insuficiente para reactivar el volumen global de unidades
-    vendidas de iPhone a tasas de doble dígito.
+  rationale: La capacidad de generar más de 100.000 millones de dólares en flujo de
+    caja libre anual, combinada con la reducción continua de acciones en circulación
+    (2-3% anual) y la narrativa de IA defensiva sin intensidad extrema de capex propio,
+    otorga al valor un estatus cuasi-bono con crecimiento que defiende múltiplos elevados
+    frente al S&P 500.
+  review_trigger: Si en la junta de accionistas o reporte de Q2-FY2025 (mayo 2025)
+    la asignación para recompra de acciones se recorta en más de un 15% interanual
+    o la prima de valoración sobre el S&P 500 cae por debajo del 15%.
+  secondary_hypotheses:
+  - H1-OPP-20260813-073
+  - H2-OPP-20260813-073
+  statement: La disciplina de retorno de capital mediante recompras agresivas sostendrá
+    una prima de valoración, manteniendo el múltiplo Forward P/E en niveles iguales
+    o superiores a 30x durante el año natural 2025.
   status: ACTIVE
   ticker: AAPL
   version: 1

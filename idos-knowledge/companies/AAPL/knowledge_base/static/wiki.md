@@ -1,133 +1,133 @@
-# Apple Inc. (AAPL)
-
 ## 1. Visión General de la Compañía
-Apple Inc. es una corporación multinacional tecnológica estadounidense con sede en Cupertino, California, que diseña, manufactura y comercializa dispositivos móviles de comunicación y medios, ordenadores personales y reproductores de música digital portátiles, además de vender una variedad de software, servicios y accesorios relacionados. 
 
-Clasificada como un *compounder* global, su modelo se basa en un ecosistema integrado verticalmente que enlaza hardware de consumo de gama alta con software propietario y plataformas de servicios de alta recurrencia. La compañía opera a nivel global con una base instalada activa superior a los 2.200 millones de dispositivos, estructurada en cinco segmentos operativos principales:
-* **iPhone:** Línea central de teléfonos inteligentes basados en iOS.
-* **Servicios:** App Store, servicios financieros ([[UBER]] y retailers como socios en Apple Pay; Apple Card), suscripciones digitales (Apple Music, Apple TV+, iCloud, Apple Fitness+, Apple Arcade), publicidad y acuerdos de licencias de motores de búsqueda.
-* **Wearables, Home & Accessories:** Apple Watch, AirPods, Beats, Apple TV, HomePod y Apple Vision Pro.
-* **Mac:** Computación personal y profesional impulsada por su arquitectura propietaria Apple Silicon (en competencia indirecta con fabricantes tradicionales de PC como [[HPQ]] y arquitecturas de procesadores de [[AMD]]).
-* **iPad:** Tabletas multipropósito orientadas a productividad, consumo de medios y educación.
+Apple Inc. ([[AAPL]]) es una multinacional tecnológica estadounidense fundada en 1976 y con sede en Cupertino, California. La compañía opera dentro del sector de tecnología de la información y la industria de hardware de consumo y servicios digitales. Su presencia comercial es global, atendiendo a consumidores masivos y premium, pequeñas y medianas empresas, grandes corporaciones (*Enterprise*), así como a los sectores educativo y gubernamental.
+
+El modelo de negocio se basa en la integración vertical integral:
+* **Hardware:** Diseño de terminales premium incluyendo iPhone, ordenadores Mac, tabletas iPad y dispositivos Wearables, Home & Accessories (Apple Watch, AirPods, Apple TV y Apple Vision Pro).
+* **Silicio y Software Propietarios:** Arquitectura de chips avanzados (*Apple Silicon*), optimizada junto a sistemas operativos cerrados (iOS, macOS, iPadOS, watchOS).
+* **Servicios de Alto Margen:** Monetización de la base instalada a través de App Store, servicios de almacenamiento en la nube (iCloud), pagos (Apple Pay, Apple Card), suscripciones multimedia (Apple Music, Apple TV+, Apple Arcade, Apple Fitness+, Apple News+) y acuerdos de licencias publicitarias y de búsqueda.
+
+La cadena de suministro se apoya en un modelo *fabless* donde el diseño y la I+D son internos, mientras que la manufactura y ensamblaje están externalizados en fundiciones avanzadas como [[TSM]] y ensambladores como Foxconn y Pegatron.
 
 ---
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-### Motores de Ingresos (Revenue Drivers)
-1. **Monetización de la Base Instalada:** Expansión continua del Ingreso Medio por Usuario (ARPU) a través del ecosistema de Servicios, cuyos márgenes brutos superan el 70%.
-2. **Ciclos de Reemplazo Premium de Hardware:** Volumen y precio medio de venta (ASP) sostenido en el iPhone y Mac, apoyado por innovaciones de silicio y la integración a nivel de sistema operativo de capacidades de inteligencia artificial (*Apple Intelligence*).
-3. **Penetración en Mercados Emergentes:** Crecimiento secuencial y expansión de canal de distribución directa en regiones como India y el Sudeste Asiático.
+### Motores de Crecimiento de Ingresos (*Revenue Drivers*)
+1. **Volumen y Ticket Medio de Hardware:** Aunque el mercado global de smartphones muestra madurez volumétrica, Apple mantiene poder de fijación de precios (*pricing power*), elevando el precio medio de venta (ASP) a través de terminales de gama alta (gamas *Pro* y *Pro Max*).
+2. **Monetización de la Base Instalada (Servicios):** Con más de 2.200 millones de dispositivos activos a nivel global, los ingresos por servicios digitales recurrentes expanden de forma continuada el valor de vida del cliente (*Customer Lifetime Value* o LTV).
 
-### Análisis del Foso Económico (Moat)
-Apple posee un foso defensivo amplio (*wide moat*) sustentado en tres pilares:
-* **Costes de Cambio Elevados (Switching Costs):** La interconexión entre iOS, macOS, watchOS y servicios en la nube (iCloud, iMessage, sincronización de periféricos) genera una fricción de migración sustancial hacia entornos Android o Windows ([[MSFT]]).
-* **Activos Intangibles (Marca y Propiedad Intelectual):** Poder de fijación de precios demostrado frente a la competencia de hardware de consumo y propiedad del silicio de bajo consumo energético (procesadores serie A y M) diseñado internamente y fabricado con litografía extrema suministrada por [[ASML]] vía [[TSM]].
-* **Efectos de Red Indirectos:** La plataforma App Store atrae a millones de desarrolladores de software que crean aplicaciones optimizadas para iOS antes o en paralelo a otros sistemas operativos, reteniendo el valor dentro de la plataforma.
+### Análisis de Foso Defensivo (*Moat*)
+El foso competitivo de Apple está calificado como **amplio**, sostenido por cuatro pilares:
+* **Altos Costes de Cambio:** La interoperabilidad fluida entre dispositivos, el almacenamiento de datos en iCloud y la compra previa de aplicaciones hacen que la migración a otros ecosistemas (como Android) sea operativa y psicológicamente costosa. La retención de clientes es superior al 90%.
+* **Efecto de Red Indirecto:** La escala de la base activa crea un mercado imprescindible para desarrolladores de software en la App Store, consolidando un ecosistema bilateral.
+* **Valor de Marca y Prestigio:** Una de las marcas comerciales más valiosas del mundo, permitiendo cobrar un sobreprecio sostenido frente al hardware competidor de la industria.
+* **Ventajas de Escala y Silicio Propietario:** Ventajas de aprovisionamiento global de componentes y diseño de arquitectura de chips personalizados (*Apple Silicon*), optimizando el coste por rendimiento frente a proveedores de procesadores independientes como [[AMD]] o [[AVGO]].
 
-### Dinámica Competitiva y Cadena de Valor
-A diferencia de competidores que operan bajo modelos de licencia de software ([[MSFT]]) o arquitectura de silicio sin ecosistema cerrado de hardware ([[NVDA]], [[AVGO]]), Apple mantiene el control de toda la experiencia de usuario final. En el diseño de semiconductores avanzados, Apple depende críticamente de la fundición de obleas de [[TSM]], mientras que su ensamblaje final continúa concentrado en socios de manufactura por contrato en China continental (Foxconn, Luxshare) y, crecientemente, en instalaciones emergentes en India y Vietnam.
+### Dinámica Competitiva
+Apple ostenta una posición de **líder** en el segmento de smartphones y electrónica premium. En computación personal compite directamente con el ecosistema de [[MSFT]] y fabricantes OEM de PC como [[HPQ]]. En servicios de streaming, infraestructura en la nube y productividad digital, compite en segmentos seleccionados frente a gigantes como [[GOOGL]], [[AMZN]] y proveedores de software como [[ADBE]].
 
 ---
 
 ## 3. Perfil Financiero
 
-La compañía exhibe una capacidad de reinversión con retornos sobre el capital que superan ampliamente el coste medio ponderado del capital (WACC), combinada con una política de asignación orientada a una posición de caja neta neutra (*net cash neutral*).
+El perfil financiero de Apple se caracteriza por altos márgenes operativos, un rendimiento del capital extraordinario derivado de su baja intensidad de capital productivo (manufactura subcontratada) y un balance desapalancado.
 
-| Métrica | Valor Reportado / TTM | Contexto / Referencia |
+### Métricas Financieras Clave
+
+| Métrica | Valor TTM / Reportado | Comentario / Estado |
 | :--- | :--- | :--- |
-| **Crecimiento de Ingresos** | 10.97% | Madurez en volumen compensada por Servicios y precios |
-| **Margen Operativo** | 33.17% | Eficiencia de costes y expansión del mix de Servicios |
-| **ROIC** | 101.57% | Eficiencia extrema por externalización de manufactura |
-| **Deuda / Capital Propio (D/E)** | 0.78x | Estructura de apalancamiento conservadora |
-| **PER** | 36.28x | Elevado respecto a su media histórica (22x–26x) |
-| **EV / EBITDA** | 27.11x | Refleja prima sustancial sobre hardware tradicional |
-| **FCF Yield** | 2.85%* | Conversión de Utilidad Neta en FCF superior al 80-90% |
+| **Crecimiento de Ingresos (YoY)** | 10.97% | Impulsado por Servicios y ventas de terminales premium. |
+| **Margen Operativo** | 33.17% | Expansión estructural debido al mayor peso del mix de Servicios. |
+| **ROIC** | 101.57% | Excepcional; impulsado por optimización de capital y recompras. |
+| **Deuda / Patrimonio (D/E)** | 0.78x | Balance conservador con bajo apalancamiento neto. |
+| **Conversión de FCF** | >85% del EBITDA | Históricamente alta; el Capex se concentra en centros de datos e I+D. |
+| **PER (P/E)** | 36.28x | Múltiplo exigente respecto a medias históricas. |
+| **EV / EBITDA** | 27.11x | Valoración ajustada al segmento de compounders de alta calidad. |
+| **FCF Yield** | 2.85% | Rendimiento de caja comprimido por múltiplos elevados. |
 
-*\*Nota de conciliación de datos: Aunque los reportes crudos puntuales pueden reflejar un FCF Yield de 0 por distorsiones estacionales de capital circulante o ajustes de reporte TTM, la métrica normalizada de conversión de efectivo operativo a FCF se sitúa consistentemente sobre los 90.000–100.000 millones de USD anuales.*
+*Nota sobre datos de balance:* La estructura de capital refleja una política activa de retorno a los accionistas, utilizando la generación recurrente de caja operativa para ejecutar programas de recompras netas continuas de acciones comunes.
 
 ---
 
 ## 4. Management y Gobierno Corporativo
-* **Liderazgo Ejecutivo:** Tim Cook (CEO) ha liderado la transformación de Apple desde 2011, orquestando la optimización operativa de la cadena de suministro global y el despliegue del segmento Servicios como motor de margen. Luca Maestri (CFO) ha ejecutado una de las recompras de acciones más voluminosas de la historia corporativa, retirando de forma disciplinada capital excedente.
-* **Asignación de Capital:** Priorización estricta de Capex en I+D orgánica y herramientas de manufactura propietarias, descartando grandes adquisiciones especulativas en favor de la recompra constante de acciones propias y crecimiento sostenido del dividendo.
-* **Alineamiento e Incentivos:** La remuneración del equipo directivo está predominantemente indexada al retorno total para el accionista (TSR) relativo al índice S&P 500 y a objetivos de ingresos/beneficio operativo. El nivel de propiedad de acciones por parte de *insiders* es bajo en porcentaje respecto a la capitalización total debido al tamaño corporativo, pero sustancial en valor absoluto.
-* **Riesgo de Relevo:** Persiste la interrogante estratégica sobre la planificación del relevo generacional del núcleo directivo histórico y la capacidad organizativa de desarrollar nuevos saltos disruptivos en hardware (ej. computación espacial frente a móviles).
+
+* **Liderazgo Ejecutivo:** Tim Cook (CEO) ha demostrado un track record sobresaliente en la asignación de capital, la optimización fiscal, la expansión de la división de Servicios y la gestión logística global. La transición operativa post-Steve Jobs consolidó la monetización del ecosistema.
+* **Asignación de Capital:** Clasificada como **creadora de valor**. La directiva prioriza el desapalancamiento neto gradual, el crecimiento sostenido de dividendos y, predominantemente, la recompra masiva de acciones como mecanismo para incrementar el beneficio por acción (EPS).
+* **Alineamiento de Incentivos:** La remuneración del equipo ejecutivo está estrechamente indexada al desempeño del retorno total para el accionista (TSR) relativo al S&P 500 y al cumplimiento de metas de flujo operativo. El alineamiento con los accionistas se considera elevado.
+* **Gobierno Corporativo y Sucesión:** La composición del Consejo de Administración mantiene una alta proporción de directores independientes. No obstante, la planificación de la sucesión a largo plazo del puesto de CEO representa un factor de seguimiento relevante.
 
 ---
 
 ## 5. Tesis de Inversión
 
+### Clasificación: *Quality at a Fair Price*
+Apple se consolida como un negocio defensivo de calidad excepcional con una generación de caja predictible. La tesis actual no se fundamenta en una infravaloración evidente del negocio por parte del mercado, sino en la capacidad de la empresa de mantener rendimientos compuestos mediante su ecosistema.
+
 ### Hipótesis Alcista (Bull Case)
-La tesis del compounder defiende que la valoración actual de Apple está justificada por la durabilidad excepcional de sus flujos de caja y la transformación continua de su mix de ingresos:
-1. **Superciclo de Apple Intelligence:** La introducción progresiva de modelos de lenguaje en el borde (*edge AI*) integrados nativamente en el sistema operativo forzará una aceleración en el ciclo de sustitución de terminales de más de tres años de antigüedad, dado que las funciones de inferencia locales requieren silicio reciente (chips A17 Pro / M1 o superiores).
-2. **Desacoplamiento vía Servicios:** El crecimiento estructural de los ingresos por software y comisiones compensa la ciclicidad madura del hardware, expandiendo el margen bruto global de la compañía por encima del 45-47%.
-3. **Escudo Defensivo en Mercados Emergentes:** El incremento de la clase media en India y América Latina otorga un vector de crecimiento de volumen a largo plazo donde la marca mantiene un estatus aspiracional indiscutido.
+1. **Superciclo de Hardware impulsado por Apple Intelligence:** La integración a nivel de sistema operativo de capacidades de Inteligencia Artificial generativa local (*on-device*) en la gama iPhone podría forzar un ciclo de actualización acelerado entre la base activa de usuarios, acelerando el crecimiento orgánico por encima del consenso (5-7%).
+2. **Resiliencia y Expansión de Servicios:** El segmento de Servicios continuará creciendo a doble dígito, beneficiándose de una base de terminales cada vez más monetizada, lo que mitigará posibles vientos en contra regulatorios y elevará los márgenes operativos consolidados.
+3. **Pivote Geográfico Exitoso (India):** La rápida aceleración del ensamblaje y la captura de cuota de mercado en la India ofrece una doble vía de mitigación: diversificación industrial fuera de China y un mercado secular de consumidores de clase media en rápida expansión.
 
 ---
 
 ## 6. Riesgos y Contra-Tesis
 
-```
-                    Riesgos Clave identificados
-                                 │
-     ┌───────────────────────────┼───────────────────────────┐
-     ▼                           ▼                           ▼
-Geopolítico/Cadena         Regulatorio/Legal           Múltiplos/Mercado
-TSMC / Taiwán              DOJ / UE / Google TAC       PER 36x vs Crecimiento
-Concentración China        Comisiones App Store        Dígito Medio-Alto
-```
+### Hipótesis Bajista (Bear Case)
+La valoración actual (PER >36x) descuenta una ejecución operativa casi perfecta. La confluencia de presiones regulatorias, debilidad en China y una adopción tibia de funciones de IA podría comprimir los múltiplos de valoración hacia niveles históricamente más normalizados (20-25x).
 
-### Contra-Tesis (Bear Case e Hipótesis Contraria de 2º Nivel)
-El mercado descuenta un escenario de ejecución perfecta sin considerar el deterioro regulatorio ni la compresión del múltiplo de valoración:
-1. **Erosión de Márgenes de Servicios por Vía Legal:** Una resolución adversa en los litigios antimonopolio del Departamento de Justicia de EE. UU. (DOJ) contra Alphabet ([[GOOGL]]) podría desmantelar los pagos por costes de adquisición de tráfico (TAC) que Google abona a Apple por ser el motor predeterminado de Safari (estimados en ~20.000 millones de USD anuales de margen operativo puro). De igual forma, la Ley de Mercados Digitales (DMA) en Europa amenaza las comisiones de la App Store vía *sideloading*.
-2. **Pérdida de Terreno en Gran China:** Competencia intensificada de campeones locales que recuperan cuota en segmentos premium apoyados por sentimiento nacionalista, reduciendo el margen de crecimiento en una geografía clave.
-3. **Riesgo de Cadena de Suministro (Taiwán):** Dependencia monopólica de las fundiciones avanzadas de [[TSM]]. Una eventual disrupción militar o comercial en el estrecho de Taiwán paralizaría de forma inmediata la capacidad de ensamble y diseño de silicio de Apple, evento para el cual no existe redundancia a corto ni medio plazo en el sector de semiconductores ([[ASML]], [[AMAT]]).
+### Riesgos Principales
+* **Presión Regulatoria y Antimonopolio (Probabilidad: Alta | Impacto: Medio-Alto):** Escrutinio continuado bajo la Ley de Mercados Digitales (DMA) en la Unión Europea y demandas antimonopolio del Departamento de Justicia (DOJ) en EE. UU. Riesgo de impacto negativo en las tarifas de comisiones de la App Store y una eventual terminación o renegociación a la baja del acuerdo multimillonario de costes de adquisición de tráfico (TAC) que mantiene con Google ([[GOOGL]]).
+* **Concentración Geopolítica en China (Probabilidad: Media-Alta | Impacto: Alto):** Alta dependencia de la infraestructura fabril situada en China continental, junto con vientos en contra de consumo nacional y restricciones al uso de terminales occidentales por personal gubernamental en dicho país.
+* **Competencia e Incertidumbre en IA (Probabilidad: Media | Impacto: Medio):** Posibilidad de que las prestaciones de Apple Intelligence no ofrezcan una diferenciación tecnológica suficiente frente al ecosistema Android y soluciones integradas de competidores como [[GOOGL]] o soluciones empresariales de [[MSFT]].
+* **Madurez Estructural del Smartphone (Probabilidad: Alta | Impacto: Medio):** Alargamiento de los ciclos de renovación global de terminales por mejoras incrementales mínimas de hardware.
 
-### Triggers de Falsación
-* Caída secuencial sostenida de los ingresos del segmento Servicios por mandatos regulatorios.
-* Estancamiento de las tasas de renovación del iPhone tras el despliegue global de Apple Intelligence.
-* Pérdida de más de 300 puntos básicos de cuota de mercado en el segmento de telefonía premium en China durante dos trimestres consecutivos.
+### Criterios de Falsación de la Tesis (*Triggers*)
+* Desaceleración estructural del crecimiento de ingresos del segmento de Servicios por debajo del 8% de forma continuada debido a resoluciones judiciales.
+* Pérdida material de cuota de mercado en smartphones premium frente a fabricantes locales en mercados emergentes y China.
+* Destrucción de márgenes operativos derivada de disrupciones graves no diversificadas en la cadena de suministro asiática.
 
 ---
 
 ## 7. Catalizadores y Timeline
 
-| Hito / Evento | Horizonte Temporal | Probabilidad | Impacto Estimado |
-| :--- | :--- | :--- | :--- |
-| **Despliegue y Monetización de Apple Intelligence** | Corto Plazo | 55% | Medio: Determina si el ciclo de hardware se expande a doble dígito. |
-| **Fallo Judicial / Remedios en Litigio DOJ vs. Google** | Medio Plazo | 65% | Alto (Negativo): Riesgo de pérdida o ajuste del canon de tráfico Safari. |
-| **Aceleración de Capacidad Manufacturera en India** | Largo Plazo | 75% | Medio: Mitigación progresiva del riesgo geopolítico en Gran China. |
-| **Resolución de Procedimientos por DMA de la UE** | Corto-Medio Plazo | Alta | Medio: Impacto en las comisiones cobradas a desarrolladores dentro de la UE. |
+| Evento / Catalizador | Horizonte Temporal | Probabilidad Estimada | Impacto Esperado | Nivel de Confianza |
+| :--- | :--- | :--- | :--- | :--- |
+| **Lanzamiento y monetización de Apple Intelligence:** Despliegue de funciones avanzadas de IA generativa para forzar ciclo de reemplazo de terminales. | Corto plazo (< 12 meses) | 60% (al alza vs. 55% previo) | Alto | Medio |
+| **Resolución legal sobre acuerdo TAC con Google:** Impacto en el flujo de caja operativo derivado de decisiones antimonopolio sobre motores de búsqueda predeterminados. | Medio plazo (12-24 meses) | 65% | Alto (Negativo / Neutral) | Alto |
+| **Escalamiento de la manufactura y ventas en India:** Expansión de plantas de montaje alternativas a China y apertura continuada de tiendas propias minoristas. | Largo plazo (> 24 meses) | 75% | Medio | Alto |
 
 ---
 
 ## 8. Marco de Valoración
 
-Debido a su perfil de madurez, retorno de capital masivo y posición competitiva cuasi-monopólica en ecosistemas premium, la metodología primordial de valoración consiste en un Flujo de Caja Descontado (DCF) combinado con análisis de múltiplos históricos y relativos de mercado.
+* **Metodología de Valoración:** Flujo de Caja Descontado (DCF) ajustado por múltiplos comparativos de compounders de alta capitalización ([[MSFT]], [[GOOGL]]).
+* **Rango de Valor Intrínseco Estimado:** **195.00 - 210.00 USD**.
+* **Margen de Seguridad:** **Insuficiente** a precios de cotización actuales, que descuentan múltiplos elevados (PER 36.28x y EV/EBITDA 27.11x).
 
-### Supuestos Clave (Modelo DCF / Múltiplos)
-* **Tasa de Crecimiento de Flujo Operativo Normalizado:** 6% – 8% anual a medio plazo.
-* **Margen Operativo:** Estabilizado en el rango 30% – 33%.
-* **Tasa de Descuento (WACC):** 8.5% – 9.0%.
-* **PER Histórico Normal de Salida:** 24x – 26x.
+### Análisis de Escenarios
 
-### Matriz de Sensibilidad de Escenarios
+```
+                       ┌─── [20%] Caso Alcista: 280 USD
+                       │    (Superciclo IA + Expansión en India)
+                       │
+Valor Esperado:        ├─── [60%] Caso Base: 235 USD
+      232 USD          │    (Crecimiento ingresos 5-7%, recompras constantes)
+                       │
+                       └─── [20%] Caso Bajista: 175 USD
+                            (Pérdida TAC de Google + Vientos en contra en China)
+```
 
-| Escenario | Probabilidad | Supuestos Clave | Precio Objetivo Estimado |
-| :--- | :--- | :--- | :--- |
-| **Caso Alcista** | 20% | Superciclo de renovación impulsado por IA; márgenes brutos >47%; ARPU de Servicios en expansión acelerada sin daño regulatorio material. PER se sostiene en ~35x. | 275.00 USD |
-| **Caso Base** | 60% | Crecimiento de ingresos de dígito medio; resiliencia del ecosistema; recompra continua compensando presiones regulatorias menores. PER converge a ~30x. | 230.00 USD |
-| **Caso Bajista** | 20% | Ruptura o reducción severa del TAC de Google; desaceleración en China; compresión múltiple a media histórica (22x–25x PER) por fatiga de hardware. | 170.00 USD |
-
-**Conclusión de Valoración:** A los múltiplos actuales (PER ~36x, EV/EBITDA ~27x), Apple cotiza por encima de su valor intrínseco estimado central (~195 - 227 USD), ofreciendo un margen de seguridad insuficiente para asignación de nuevo capital patrimonial.
+* **Conclusión de Valoración:** **Precio Justo (*Fair Price*)**. El mercado valora adecuadamente la calidad operativa del negocio y la solidez de balance, pero los múltiplos actuales no ofrecen un margen de seguridad defensivo contra riesgos regulatorios o desaceleraciones operativas.
 
 ---
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
-* **Elasticidad de Monetización de IA:** ¿Estará el consumidor dispuesto a pagar tarifas de suscripción incrementales por servicios avanzados de IA o será percibido como una funcionalidad base obligatoria del hardware sin expansión directa de ARPU?
-* **Mitigación Geopolítica:** ¿Cuál es la fecha estimada en la que Apple podrá ensamblar y abastecer más del 25% de sus componentes críticos completamente fuera del radio de influencia geopolítica de China continental?
-* **Impacto Financiero de la DMA:** ¿Cuál ha sido la tasa efectiva de fuga de desarrolladores hacia métodos de pago y tiendas alternativas en Europa desde la entrada en vigor de los cambios normativos, y qué precedente sienta para la legislación en EE. UU. y Japón?
+
+* **Adopción Real de Apple Intelligence:** ¿Provocará el despliegue escalonado de las funciones de IA un incremento medible en las tasas de sustitución de terminales de más de 3 años, o se mantendrán los ciclos de renovación alargados?
+* **Cuantificación del Impacto TAC:** En caso de prohibición judicial de los pagos exclusivos de búsqueda por parte de [[GOOGL]], ¿cuál es el porcentaje de margen operativo directo en Servicios que no podrá ser compensado por publicidad propia u otros motores de búsqueda?
+* **Ritmo de Transición Fabril:** ¿A qué velocidad puede la infraestructura de la cadena de suministro en India y Vietnam absorber los volúmenes de ensamblaje de la gama alta de iPhone para aislar operativamente a la compañía ante fricciones comerciales entre EE. UU. y China?
+* **Normalización de Métricas de Caja:** Esclarecer las discrepancias puntuales de FCF en los reportes más recientes frente a la conversión histórica de EBITDA para confirmar el ritmo sostenible de recompras netas de acciones.
 
 ---
 

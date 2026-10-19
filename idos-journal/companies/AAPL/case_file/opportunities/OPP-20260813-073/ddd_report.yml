@@ -1,64 +1,104 @@
 calidad_evidencia:
   hechos_verificados:
-  - Márgenes operativos del 33.2% y ROIC por encima del 100%.
-  - 'Múltiplo de valoración exigente: PER de 36.28x y EV/EBITDA de 27.11x.'
-  - Dependencia crítica de TSMC para la fabricación de chips serie A y M.
+  - 'ROIC de 101.6% y margen operativo de 33.2% (fuente: datos financieros TTM).'
+  - 'Deuda sobre patrimonio de 0.8x (fuente: estados financieros).'
+  - 'Crecimiento de ingresos del 11% (fuente: reporte financiero).'
+  - 'Presencia global en sectores de consumo, educación y empresa (fuente: descripción
+    corporativa).'
   inferencias_llm:
-  - El valor FCF reportado en el prompt de 0M corresponde a un desfase de sincronización
-    de datos o ajuste contable temporal TTM; el flujo de caja libre real de Apple
-    supera los 100 mil millones anuales.
-  - Los fallos regulatorios contra el monopolio de búsqueda de Google tienen una probabilidad
-    elevada de cercenar parte de los ~20B$ anuales de puro margen operativo que Apple
-    recibe por tráfico Safari.
+  - El potencial de Apple Intelligence para impulsar renovaciones de hardware asume
+    una adopción rápida de funciones de IA.
+  - La diversificación en India mitigará riesgos en China, aunque la ejecución es
+    incierta.
+  - La valoración justa se basa en múltiplos altos pero justificados por la calidad
+    del negocio.
   preguntas_abiertas:
-  - ¿A qué ritmo exacto logrará Apple transferir más del 25% de la producción de componentes
-    críticos fuera de China continental?
-  - ¿Cuál será el ARPU incremental real derivado directamente de suscripciones premium
-    vinculadas a Apple Intelligence?
-catalizadores_previos: []
+  - ¿Cuál será la adopción real de Apple Intelligence por los usuarios?
+  - ¿Hasta qué punto la diversificación en India compensará la debilidad en China?
+  - ¿Cómo evolucionarán las regulaciones sobre App Store y su impacto en ingresos?
+  - ¿Cuál es el FCF ajustado real dado que se muestra en 0M en los datos proporcionados?
+catalizadores_previos:
+- descripcion: Lanzamiento y monetización acelerada de funciones avanzadas de Apple
+    Intelligence impulsando un ciclo de actualización de terminales premium.
+  generated_at: '2026-10-18T23:27:41.109100-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  opp_id: OPP-20260813-073
+  probabilidad_anterior: 55
+- descripcion: Resolución legal o renegociación a la baja del acuerdo con Google (TAC)
+    forzada por tribunales federales de EE. UU.
+  generated_at: '2026-10-18T23:27:41.109100-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  opp_id: OPP-20260813-073
+  probabilidad_anterior: 65
+- descripcion: Expansión de la cuota de mercado y fabricación en India mitigando la
+    debilidad en China y diversificando la cadena de suministro.
+  generated_at: '2026-10-18T23:27:41.109100-03:00'
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: alto
+  opp_id: OPP-20260813-073
+  probabilidad_anterior: 75
 clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: Quality at Fair Price (descartada porque a 36x PER y EV/EBITDA
-    de 27x no está a un precio 'fair' o razonable respecto a su crecimiento estructural
-    de dígito medio-alto; está cara). Compounder castigado (descartada porque el valor
-    no cotiza con descuento temporal significativo ni atraviesa una crisis de sentimiento
-    grave).
-  justificacion: 'Apple Inc. es el arquetipo de compounder global: una base instalada
-    activa superior a 2.2 mil millones de dispositivos, retornos sobre capital extraordinarios
-    (ROIC > 100%), márgenes operativos del 33% y un ecosistema de servicios con costes
-    de cambio masivos. Sin embargo, cotiza a múltiplos exigentes (PER ~36x, EV/EBITDA
-    ~27x), lo que refleja una valoración que ya premia su condición casi monopólica
-    en hardware premium y servicios integrados.'
+  categoria: quality_at_fair_price
+  categorias_descartadas: 'Compounder: No hay evidencia de sobrevaloración extrema
+    o desajuste entre precio y calidad. Compounder castigado: No hay indicadores de
+    caída temporal de mercado o desfavorabilidad. Turnaround: El negocio no muestra
+    declive operativo. Deep Value: No hay activos infravalorados ni negocio mediocre.
+    Cíclica: No depende fuertemente del ciclo económico. Special Situation: No hay
+    spin-offs, fusiones o reestructuraciones. Distressed: No hay riesgos de insolvencia.
+    Hype: Genera earnings consistentes. Value Trap: No destruye valor estructuralmente.'
+  justificacion: Apple Inc. posee un negocio excepcional con un moat defensivo basado
+    en la lealtad de marca, ecosistema integrado y alta barrera de entrada. Su modelo
+    de negocio genera flujos de caja consistentes, margen operativo elevado (33.2%)
+    y ROIC extremadamente alto (101.6%). Sin embargo, la valoración actual refleja
+    múltiplos ajustados a un negocio de calidad (PER 36.28x, EV/EBITDA 27.11x), sin
+    descuento significativo. No hay señales de castigo temporal, distorsión cíclica
+    o situación especial que lo clasifiquen como 'compounder castigado', 'ciclica'
+    o 'special situation'.
 comparativa_catalizadores:
-- delta_pct: 55
-  descripcion: Superciclo de reemplazo impulsado por Apple Intelligence
-  estado: nuevo
-  nota_comparacion: Incorporado como catalizador clave de corto plazo ante la narrativa
-    dominante del mercado.
-  probabilidad_actual: 55
-  probabilidad_anterior: 0
-- delta_pct: 65
-  descripcion: Presión regulatoria sobre ingresos de App Store y Google TAC
-  estado: nuevo
-  nota_comparacion: Identificado como el riesgo catalizador bajista principal para
-    la compresión de márgenes.
+- delta_pct: 5
+  descripcion: Lanzamiento y monetización acelerada de funciones avanzadas de Apple
+    Intelligence impulsando un ciclo de actualización de terminales premium.
+  estado: vigente
+  nota_comparacion: La probabilidad ha aumentado ligeramente, reflejando avances en
+    el desarrollo de Apple Intelligence y expectativas de integración en dispositivos
+    próximos.
+  probabilidad_actual: 60
+  probabilidad_anterior: 55
+- delta_pct: 0
+  descripcion: Resolución legal o renegociación a la baja del acuerdo con Google (TAC)
+    forzada por tribunales federales de EE. UU.
+  estado: vigente
+  nota_comparacion: Sin cambios significativos en el entorno legal; el caso sigue
+    en trámite con alta confianza en su resolución.
   probabilidad_actual: 65
-  probabilidad_anterior: 0
+  probabilidad_anterior: 65
+- delta_pct: 0
+  descripcion: Expansión de la cuota de mercado y fabricación en India mitigando la
+    debilidad en China y diversificando la cadena de suministro.
+  estado: vigente
+  nota_comparacion: La estrategia de diversificación continúa avanzando, con inversiones
+    en infraestructura india y reducción de dependencia china.
+  probabilidad_actual: 75
+  probabilidad_anterior: 75
 dominio_business_quality:
-  analisis: El moat de Apple combina costes de cambio elevadísimos (ecosistema iCloud,
-    iMessage, Watch, Apple Pay) con activos intangibles de marca incomparables y economías
-    de red en su App Store. La transición a silicio propio (Apple Silicon M-Series)
-    ha ampliado la brecha de eficiencia y rendimiento térmico/batería frente a la
-    competencia de PC, mientras que los Servicios generan ingresos recurrentes y márgenes
-    brutos superiores al 70%.
+  analisis: Apple mantiene un ecosistema integrado (hardware, software, servicios)
+    con alta lealtad de clientes y barreras de entrada significativas. El iPhone representa
+    la mayor parte de los ingresos, pero los servicios ofrecen estabilidad y margen
+    elevado. La marca es una de las más valiosos del mundo, y la retención de clientes
+    es superior al 90%.
   rating: excepcional
 dominio_catalizadores:
 - descripcion: Lanzamiento y monetización acelerada de funciones avanzadas de Apple
     Intelligence impulsando un ciclo de actualización de terminales premium.
   horizonte: corto
-  impacto: medio
+  impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 55
+  probabilidad_pct: 60
 - descripcion: Resolución legal o renegociación a la baja del acuerdo con Google (TAC)
     forzada por tribunales federales de EE. UU.
   horizonte: medio
@@ -72,80 +112,80 @@ dominio_catalizadores:
   nivel_confianza: alto
   probabilidad_pct: 75
 dominio_esg_supply_chain:
-  analisis: Punto más vulnerable de la tesis. Extrema concentración de manufactura
-    y empaquetado en Taiwán (TSMC para Apple Silicon) y ensamblaje final en China
-    continental (Foxconn, Luxshare). Aunque la diversificación a India y Vietnam avanza,
-    cualquier escalada militar o bloqueo comercial en el estrecho de Taiwán paralizaría
-    de forma inmediata e insustituible la producción de hardware de Apple.
-  rating: alto_riesgo
+  analisis: Apple enfrenta riesgos ESG en su cadena de suministro, especialmente en
+    condiciones laborales en fábricas de componentes (Foxconn). La dependencia de
+    proveedores en Asia (especialmente China) crea vulnerabilidad geopolítica. Sin
+    embargo, Apple ha implementado auditorías y programas de diversificación de proveedores
+    para mitigar estos riesgos.
+  rating: medio_riesgo
 dominio_financial_health:
-  analisis: Balance sumamente robusto con generación de caja operativa colosal. Aunque
-    la métrica de entrada muestra FCF Yield 0 (anomalía de reporte puntual), la conversión
-    de EBITDA a FCF históricamente excede el 80%. La estructura de deuda es conservadora
-    (D/E 0.78x) y la compañía mantiene una política de posición de caja neta neutra,
-    financiando recompras sostenidas y dividendos con holgura de cobertura de intereses.
+  analisis: El balance es sólido con bajo apalancamiento (D/E 0.8x) y generación de
+    caja libre consistente. Aunque el FCF ajustado se muestra en 0M en los datos proporcionados,
+    históricamente Apple genera cientos de miles de millones en FCF anual. La fortaleza
+    en efectivo global proporciona flexibilidad financiera.
   rating: fuerte
 dominio_growth:
-  analisis: El crecimiento de ingresos reportado (+11.0%) refleja madurez de volumen
-    en iPhone y Mac. Los motores estructurales son la expansión del segmento de Servicios
-    (suscripciones, publicidad, Apple Pay), la monetización de la base instalada existente
-    y el crecimiento en mercados emergentes como India. Vision Pro y computación espacial
-    permanecen como apuestas embrionarias sin impacto material a corto plazo.
+  analisis: El crecimiento de ingresos (~11%) se impulsa por servicios y renovaciones,
+    pero el crecimiento orgánico en hardware se desacelera debido a la madurez del
+    mercado de smartphones. La IA (Apple Intelligence) y la expansión en India son
+    oportunidades clave, pero con incertidumbre en ejecución y adopción.
   rating: moderado
 dominio_management:
-  analisis: Tim Cook y su equipo han demostrado una de las asignaciones de capital
-    más disciplinadas de la historia corporativa, retirando cientos de miles de millones
-    de dólares en acciones en circulación sin comprometer el capex estratégico de
-    I+D. La retención de talento y la cadena operativa liderada por Cook son de primer
-    nivel, aunque persiste el interrogante sobre el relevo generacional y la innovación
-    disruptiva post-Jobs.
+  analisis: Tim Cook ha demostrado una excelente capacidad de asignación de capital,
+    con enfoque en innovación, expansión de servicios y optimización fiscal. La alineación
+    con accionistas se refleja en políticas de recompra de acciones y dividendos crecientes.
+    El track record es sólido, aunque la sucesión podría ser un riesgo a largo plazo.
   rating: excepcional
 dominio_riesgos:
 - impacto: alto
+  probabilidad: alta
+  riesgo: 'Exposición a China: Dependencia de ventas y manufactura en un entorno geopolítico
+    volátil.'
+- impacto: alto
   probabilidad: media
-  riesgo: 'Riesgo geopolítico Taiwán/China: Disrupción militar o regulatoria que detenga
-    el suministro de semiconductores de TSMC o el ensamblaje en China.'
+  riesgo: 'Competencia en IA móvil: Riesgo de que Apple Intelligence no mantenga ventaja
+    frente a Android y soluciones de Google.'
+- impacto: alto
+  probabilidad: media
+  riesgo: 'Presión regulatoria: Posibles restricciones en App Store, impuestos digitales
+    y normativas de privacidad.'
 - impacto: medio
   probabilidad: alta
-  riesgo: Intervención antimonopolio y pérdida de tasas de App Store / Google TAC
-    (DOJ, DMA de la UE).
-- impacto: medio
-  probabilidad: media
-  riesgo: 'Compresión de múltiplos: Descenso de PER de 36x a su rango histórico (22-26x)
-    si la adopción de Apple Intelligence defrauda las expectativas de ciclo.'
+  riesgo: 'Saturación del mercado de smartphones: Crecimiento limitado en segmentos
+    maduros.'
 error_mercado:
   catalizador_cambio:
-    descripcion: Resolución adversa en el litigio DOJ/Google sobre ingresos por defecto
-      de Safari o desaceleración secuencial de ventas de iPhone en el ciclo AI que
-      fuerce compresión de múltiplos de 36x hacia su media histórica de 25x.
-    horizonte: medio
+    descripcion: Lanzamiento exitoso de funciones avanzadas de Apple Intelligence
+      impulsando renovaciones de iPhone y expansión de servicios, validando un nuevo
+      ciclo de crecimiento.
+    horizonte: corto
     impacto: alto
     probabilidad_pct: 60
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado descuenta que el ciclo de reemplazo impulsado por Apple
-    Intelligence generará un superciclo duradero de hardware iPhone, que el segmento
-    de Servicios mantendrá márgenes brutos superiores al 70% sin disrupción regulatoria
-    severa, y que la compañía puede sostener una expansión múltiple estructural a
-    perpetuidad respaldada por recompras masivas.
-  hipotesis_contraria: 'Pensamiento de 2º Nivel: El mercado sobreestima la velocidad
-    de monetización de la IA en el borde (on-device AI) y la elasticidad del consumidor
-    en renovaciones de hardware anuales. Subestima el impacto acumulativo de la presión
-    regulatoria (DMA en la UE, litigio antimonopolio del DOJ en EE. UU. contra la
-    App Store y los acuerdos de exclusividad de búsqueda con Google, que aportan rentas
-    puras de alto margen) y la pérdida paulatina de cuota en China frente a Huawei
-    y ecosistemas locales.'
-  razonamiento: 'Existe un error de valoración por complacencia: el mercado está valorando
-    a Apple con múltiplos de software SaaS puro/monopolio regulatorio inmune, asumiendo
-    un ciclo AI perfecto e ignorando el deterioro del moat legal/regulatorio en Servicios
-    y la madurez de su mercado central de hardware.'
-generated_at: '2026-10-18T23:27:41.109100-03:00'
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El mercado valora a Apple como un negocio maduro con crecimiento
+    moderado, reflejado en un PER de 36.28x y EV/EBITDA de 27.11x. Se asume que el
+    crecimiento de ingresos (~11%) se sostendrá gracias al ecosistema de servicios
+    y renovaciones de hardware, pero con límites debido a la saturación del mercado
+    de smartphones y la competencia en IA móvil.
+  hipotesis_contraria: El mercado podría estar subestimando el potencial de Apple
+    Intelligence (IA integrada) para impulsar un nuevo ciclo de actualización de dispositivos
+    premium. Además, la exposición a China es vista como un riesgo, pero la diversificación
+    en India y otras regiones podría mitigar esto. También se ignora el valor subyacente
+    de la red de efectivo global y la fortaleza del balance.
+  razonamiento: Aunque hay potencial para un error de valoración aprovechable, la
+    valoración actual no refleja un descuento claro. La calidad del negocio justifica
+    múltiplos altos, pero no hay suficiente evidencia concluyente de que el mercado
+    esté sistemáticamente equivocado. La incertidumbre radica en la evolución de la
+    IA, la geopolítica y la capacidad de Apple para mantener su liderazgo innovador.
+generated_at: '2026-10-18T23:59:35.588120-03:00'
 integridad_tesis:
   flags: []
-  reason: La tesis de compounder permanece activa; la compañía no sufre de obsolescencia
-    de foso, insolvencia o fraude. La cautela se fundamenta estrictamente en precio,
-    valoración relativa y riesgos regulatorios/geopolíticos.
+  reason: Ninguna de las 9 categorías de vulnerabilidad de la tesis se ha activado.
+    El negocio mantiene su fortaleza operativa, el management sigue demostrando capacidad
+    de asignación de capital, y no hay riesgos de insolvencia, fraude o distorsión
+    de mercado que invaliden la tesis.
   thesis_active: true
-opinion_valoracion: sobrevalorado
+opinion_valoracion: justo
 opp_id: OPP-20260813-073
 prompt_inputs:
   business_model: Apple Inc. designs, manufactures, and markets smartphones, personal
@@ -184,18 +224,17 @@ prompt_inputs:
   roic: 101.57
   sector: Technology
   ticker: AAPL
-resumen_ejecutivo: Apple presenta uno de los fosos defensivos más formidables del
-  capitalismo moderno gracias a su ecosistema integrado iOS y su gigantesca base de
-  usuarios cautiva. No obstante, desde la perspectiva de asignación de capital para
-  una Family Office, el perfil riesgo-recompensa actual está asimétricamente sesgado
-  a la baja debido a una valoración estirada (PER 36.3x, EV/EBITDA 27.1x), riesgos
-  geopolíticos extremos en su cadena de suministro (Taiwán/China) y una ofensiva antimonopolio
-  multilateral que amenaza sus flujos más rentables (Google TAC y App Store fees).
-  Excelente negocio, pero momento desfavorable de entrada.
-score_general: 68
+resumen_ejecutivo: Apple Inc. es un negocio de calidad excepcional con un moat defensivo,
+  generación de caja robusta y posición dominante en múltiples segmentos tecnológicos.
+  Su valoración actual refleja un múltiplo justo para su calidad, sin descuento significativo.
+  Los riesgos incluyen exposición a China, competencia en IA y presión regulatoria.
+  Sin embargo, el potencial de Apple Intelligence y la diversificación geográfica
+  ofrecen oportunidades de crecimiento. La tesis de inversión se mantiene activa,
+  pero con cautela dada la valoración ajustada.
+score_general: 82
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-10-18T23:27:23.153801-03:00'
+  calculado_at: '2026-10-18T23:57:14.496811-03:00'
   fuentes:
     stockanalysis: 329.38
     yfinance: 329.3759
@@ -204,12 +243,11 @@ target_consensus:
   promedio: 329.38
   target_high: 405.0
   target_low: 215.0
-tesis_inversion: Apple es una de las franquicias corporativas más resistentes del
-  mundo, respaldada por un ecosistema sin fricciones y un ROIC superior al 100%. Sin
-  embargo, a 36.3x PER y 27.1x EV/EBITDA, el margen de seguridad para un inversor
-  patrimonial es prácticamente nulo. El precio actual incorpora un escenario de ejecución
-  casi perfecta en IA y desestima el impacto de litigios antimonopolio clave sobre
-  los márgenes de Servicios, sumado a la fragilidad geopolítica en Taiwán. Recomendamos
-  mantener o esperar una corrección de valoración sustancial antes de iniciar posiciones.
+tesis_inversion: Apple Inc. representa una inversión de calidad con un moat defensivo,
+  generación de caja robusta y exposición a tendencias de crecimiento como la IA y
+  los servicios. Aunque la valoración actual no ofrece un descuento significativo,
+  la combinación de estabilidad operativa, innovación continua y diversificación geográfica
+  justifica una posición estratégica. Se recomienda monitorear de cerca los catalizadores
+  de IA y la evolución en China.
 ticker: AAPL
 version: '3.0'
