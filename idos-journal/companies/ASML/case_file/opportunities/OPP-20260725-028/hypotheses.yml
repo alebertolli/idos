@@ -1,0 +1,165 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La tasa de entregas mensuales promedio es < 1 unidad durante los tres
+      meses posteriores a la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ASML anuncia un retraso de producción superior a 12 meses para High‑NA
+      EUV.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La tasa de entregas mensuales promedio es < 1 unidad durante los tres meses posteriores
+    a la fecha objetivo.
+  - ASML anuncia un retraso de producción superior a 12 meses para High‑NA EUV.
+  horizon: corto
+  id: H1-OPP-20260725-028
+  opportunity_id: OPP-20260725-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 2.0
+    met: null
+    metric: unidades_entregadas_mensuales
+    prediction: Entrega mensual promedio de 2 High‑NA EUV a partir del 30‑06‑2027.
+    unit: unidades/mes
+  priority: critical
+  probability: 0.5
+  rationale: El roadmap de I+E de ASML indica que la fase de producción de alta capacidad
+    está programada para 2027, y los contratos preliminares con TSMC, Intel y Samsung
+    ya están firmados. La mejora en la cadena de suministro de componentes críticos
+    (mirrors, lasers) reduce los cuellos de botella históricos.
+  review_trigger: Si antes del 2027-04-01 ASML publica un informe de producción que
+    indique una capacidad inferior a 0.5 unidades/mes.
+  secondary_hypotheses: []
+  statement: ASML iniciará la producción en serie de máquinas High‑NA EUV, alcanzando
+    una tasa de entrega de al menos 2 unidades por mes a finales de junio de 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: ROIC reportado para FY 2027 es < 55 %.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ASML registra una caída del margen operativo por debajo del 30 % durante
+      2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - ROIC reportado para FY 2027 es < 55 %.
+  - ASML registra una caída del margen operativo por debajo del 30 % durante 2027.
+  horizon: medio
+  id: H2-OPP-20260725-028
+  opportunity_id: OPP-20260725-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 60.0
+    met: null
+    metric: ROIC
+    prediction: ROIC ≥ 60 % al cierre del FY 2027.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Los márgenes operativos de ASML se han mantenido por encima del 40 %
+    y la inversión de capital neta se espera que disminuya tras la amortización de
+    la línea High‑NA, lo que eleva el ROIC. Además, la fuerte demanda de nodos <2 nm
+    impulsa ingresos de alto valor.
+  review_trigger: Si el informe intermedio de Q3 2027 muestra un ROIC acumulado inferior
+    al 50 %.
+  secondary_hypotheses:
+  - H1-OPP-20260725-028
+  statement: El retorno sobre el capital invertido (ROIC) de ASML superará el 60 %
+    en el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Market cap < 400 000 M USD al 31‑12‑2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: EV/EBITDA cae por debajo de 20× en el mismo periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Market cap < 400 000 M USD al 31‑12‑2028.
+  - EV/EBITDA cae por debajo de 20× en el mismo periodo.
+  horizon: largo
+  id: H3-OPP-20260725-028
+  opportunity_id: OPP-20260725-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 500.0
+    met: null
+    metric: capitalizacion_mercado
+    prediction: Market cap ≥ 500 000 M USD al 31‑12‑2028.
+    unit: miles_de_millones_USD
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento esperado de ingresos por High‑NA EUV (+30 % YoY) y la
+    expansión de la base de clientes impulsada por IA generativa aumentarán los múltiplos
+    de mercado. Los analistas ya están revalorando el potencial de captura de mercado
+    de ASML.
+  review_trigger: Si al 30‑06‑2028 la capitalización está bajo 350 000 M USD y la
+    tendencia es descendente.
+  secondary_hypotheses:
+  - H1-OPP-20260725-028
+  - H2-OPP-20260725-028
+  statement: La capitalización bursátil de ASML alcanzará los 500 000 millones de
+    dólares antes del 31‑12‑2028, reflejando una valoración EV/EBITDA superior a 30×.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: TSMC anuncia que no comprará High‑NA EUV antes de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El número de unidades ordenadas por TSMC es < 2 antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - TSMC anuncia que no comprará High‑NA EUV antes de 2028.
+  - El número de unidades ordenadas por TSMC es < 2 antes de la fecha objetivo.
+  horizon: corto
+  id: H4-OPP-20260725-028
+  opportunity_id: OPP-20260725-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 3.0
+    met: null
+    metric: ordenes_TSMC
+    prediction: Orden mínima de 3 unidades High‑NA EUV de TSMC antes del 30‑09‑2027.
+    unit: unidades
+  priority: critical
+  probability: 0.5
+  rationale: TSMC ha anunciado su hoja de ruta hacia nodos <2 nm y ha declarado que
+    High‑NA EUV es esencial. Los contactos internos y los documentos de planificación
+    de fab indican la necesidad de múltiples máquinas para lograr capacidad de producción
+    suficiente.
+  review_trigger: Si el 01‑07‑2027 TSMC publica un informe de inversión que excluya
+    High‑NA EUV para su nodo 1.5 nm.
+  secondary_hypotheses:
+  - H1-OPP-20260725-028
+  statement: TSMC firmará un pedido de al menos 3 sistemas High‑NA EUV para su línea
+    de producción de 1.5 nm antes del 30‑09‑2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1

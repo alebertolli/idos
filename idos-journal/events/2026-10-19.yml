@@ -83,3 +83,24 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-10-19T03:54:05.175341'
+- data:
+    event_type: manual
+    invalidated_at: '2026-10-19T05:03:41.625106-03:00'
+    opp_id: OPP-20260725-028
+    reason: new_research_version
+    ticker: ASML
+  event_type: decision:manager_approval_invalidated
+  source: research_worker
+  timestamp: '2026-10-19T08:03:41.684189'
+- data:
+    classification: compounder
+    ddd_empty: false
+    event_type: manual
+    hypotheses: 4
+    opp_id: OPP-20260725-028
+    original_status: APPROVED
+    score: 87
+    ticker: ASML
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-19T08:05:51.438353'

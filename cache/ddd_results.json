@@ -1,10 +1,68 @@
 {
-  "processed": [],
-  "errors": [],
-  "total": 0,
-  "status": "none",
-  "event_type": "manual",
-  "force": false,
+  "total": 1,
+  "processed": [
+    {
+      "opp_id": "OPP-20260725-028",
+      "ticker": "ASML",
+      "status": "completed",
+      "score": 87,
+      "reason": "FORCE manager-requested Buy List re-review (status=APPROVED)",
+      "errors": []
+    }
+  ],
   "skipped": [],
-  "assessments": []
+  "assessments": [
+    {
+      "ticker": "ASML",
+      "opp_id": "OPP-20260725-028",
+      "status": "completed",
+      "conviction_score": 74,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "assessments": {
+        "BusinessAssessmentEngine": 76,
+        "ValuationAssessmentEngine": 70,
+        "RecoveryAssessmentEngine": 64,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 90
+      },
+      "rules_passed": [
+        "RULE-001",
+        "RULE-003",
+        "RULE-004",
+        "RULE-005"
+      ],
+      "rules_failed": [
+        "RULE-008",
+        "RULE-010"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 76/70",
+        "RULE-003": "Rerating: 64/50",
+        "RULE-004": "Risk: 80/50",
+        "RULE-005": "Conviction: 74/65",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: se requieren resultados con upside y downside para calcular B/R",
+        "RULE-010": "fecha de corte ausente, inv\u00e1lida o futura; procedencia incompleta"
+      },
+      "data_quality": "partial",
+      "financial_data_quality": {
+        "status": "partial",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": null,
+        "as_of_date_source": null,
+        "missing_provenance": [
+          "as_of_date"
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "status": "research_completed",
+  "event_type": "manual",
+  "force": true,
+  "stale_days_threshold": 30
 }

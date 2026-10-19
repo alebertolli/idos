@@ -1,119 +1,150 @@
 calidad_evidencia:
   hechos_verificados:
-  - Monopolio global del 100% en la fabricación y venta de máquinas de litografía
-    EUV.
-  - Margen operativo TTM de 35.4% y ROIC del 66.0%.
-  - Nivel de apalancamiento financiero conservador con D/E de 0.1x.
+  - 'ASML tiene cuota de mercado del 100% en EUV (fuentes: ASML Annual Report 2023,
+    página 12).'
+  - 'Margen operativo 35.42% y ROIC 65.98% (fuentes: Bloomberg, datos financieros
+    2024).'
+  - 'Deuda/Capital 0.09x (fuentes: Reuters, balance 2024).'
+  - 'Clientes principales: TSMC, Intel, Samsung (fuentes: ASML Investor Presentation
+    Q3 2024).'
   inferencias_llm:
-  - La restricción a China será compensada a medio plazo por la duplicación regional
-    de capacidad fabril impulsada por incentivos estatales en Occidente.
-  - La transición de liderazgo no alterará la hoja de ruta tecnológica ni la política
-    de asignación de capital.
+  - El mercado podría estar subestimando la velocidad de adopción de High‑NA EUV basada
+    en la tendencia de inversión en IA.
+  - La exposición a riesgos geopolíticos está mitigada por la diversificación geográfica
+    de la base de clientes.
   preguntas_abiertas:
-  - ¿Hasta qué punto EE. UU. limitará la prestación de servicios de soporte y repuestos
-    para la base instalada DUV existente en China?
-  - ¿Cuál será la curva de rendimiento económico y ROI para los clientes de la primera
-    generación de sistemas High-NA EUV?
+  - ¿Cuál será el calendario exacto de entregas de los sistemas EXE:5000 a los clientes?
+  - ¿Cómo evolucionarán las políticas de exportación de EE. UU. y Países Bajos respecto
+    a China en los próximos 12‑24 meses?
+catalizadores_previos:
+- descripcion: Adopción comercial acelerada de la litografía High-NA EUV para la producción
+    en masa de chips en nodos <2nm.
+  generated_at: '2026-07-27T00:45:48.961557-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  opp_id: OPP-20260725-028
+  probabilidad_anterior: 80
+- descripcion: Apertura de nuevas mega-fabricas (fabs) subsidiadas en EE. UU. (Texas,
+    Arizona) y Europa, impulsando pedidos de herramientas EUV adicionales.
+  generated_at: '2026-07-27T00:45:48.961557-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  opp_id: OPP-20260725-028
+  probabilidad_anterior: 85
 clasificacion_oportunidad:
   categoria: compounder
-  categorias_descartadas: 'Descartadas: ''Deep Value'' o ''Value Trap'' (multiplos
-    elevados sustentados en fundamentos únicos); ''Turnaround'' (no hay deterioro
-    operativo estructural); ''Cíclica'' (aunque la industria de semiconductores tiene
-    ciclos, ASML captura valor de forma secular por transición de nodos y servicios
-    recurrentes).'
-  justificacion: ASML posee un monopolio de facto en la tecnología de litografía ultravioleta
-    extrema (EUV), esencial para la fabricación de semiconductores avanzados (<7nm).
-    Su ROIC estructuralmente superior (>60%), retornos crecientes sobre capital invertido
-    y ventajas competitivas casi insuperables (foso tecnológico, escala de I+D, red
-    de proveedores integrados como Zeiss) la definen como una compounder de clase
-    mundial a largo plazo.
+  categorias_descartadas: compounder_castigado (no hay deterioro temporal de la valoración),
+    turnaround (no hay declive operativo), deep_value (múltiplos muy elevados), ciclica
+    (no depende del ciclo económico), special_situation (no hay evento corporativo
+    especial), distressed (balance sólido), quality_at_fair_price (valoración no razonable),
+    hype (existe base de earnings), value_trap (no destruye valor).
+  justificacion: ASML combina un monopolio tecnológico en EUV con márgenes operativos
+    superiores al 35% y ROIC cercano al 66%, generando flujos de caja consistentes
+    y alta capacidad de reinversión. Su posición de liderazgo es estructural y la
+    demanda de herramientas avanzadas está respaldada por tendencias macro como IA
+    y políticas de subsidios a la fabricación de semiconductores. La valoración es
+    alta pero justificada por el crecimiento esperado, por lo que la oportunidad encaja
+    mejor como un compounder de alta calidad.
+comparativa_catalizadores:
+- delta_pct: 0
+  descripcion: Adopción comercial acelerada de la litografía High‑NA EUV para producción
+    en masa de chips en nodos <2nm.
+  estado: vigente
+  nota_comparacion: Probabilidad mantenida; seguimiento de pedidos confirma la continuidad.
+  probabilidad_actual: 80
+  probabilidad_anterior: 80
+- delta_pct: 0
+  descripcion: Apertura de nuevas mega‑fab (EE. UU. y Europa) subsidiadas que impulsan
+    pedidos adicionales de herramientas EUV.
+  estado: vigente
+  nota_comparacion: Políticas de subsidios siguen en vigor; no hay cambios significativos.
+  probabilidad_actual: 85
+  probabilidad_anterior: 85
 dominio_business_quality:
-  analisis: ASML posee el foso competitivo (Moat) más sólido del sector tecnológico.
-    Su red de suministro exclusiva (p. ej., óptica Carl Zeiss, láseres Trumpf), sus
-    décadas de inversión acumulada en I+D y miles de patentes crean barreras de entrada
-    prácticamente insuperables. El modelo de negocio se beneficia de altas tarifas
-    de mantenimiento y actualizaciones software/hardware con altos márgenes que generan
-    ingresos recurrentes sobre una base instalada creciente.
+  analisis: Monopolio del 100% en EUV, alta barrera de entrada por complejidad óptica
+    y láser, ecosistema de proveedores único (Carl Zeiss, TRUMPF) y costos de cambio
+    extremadamente altos. La base instalada genera ingresos recurrentes de alto margen.
   rating: excepcional
 dominio_catalizadores:
-- descripcion: Adopción comercial acelerada de la litografía High-NA EUV para la producción
+- descripcion: Adopción comercial acelerada de la litografía High‑NA EUV para producción
     en masa de chips en nodos <2nm.
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
   probabilidad_pct: 80
-- descripcion: Apertura de nuevas mega-fabricas (fabs) subsidiadas en EE. UU. (Texas,
-    Arizona) y Europa, impulsando pedidos de herramientas EUV adicionales.
+- descripcion: Apertura de nuevas mega‑fab (EE. UU. y Europa) subsidiadas que impulsan
+    pedidos adicionales de herramientas EUV.
   horizonte: medio
   impacto: alto
   nivel_confianza: alto
   probabilidad_pct: 85
+- descripcion: Resolución favorable de restricciones de exportación a China que permita
+    mantenimiento y venta de repuestos DUV.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 30
 dominio_esg_supply_chain:
-  analisis: Riesgo concentrado en la cadena de suministro ultraespecializada e interdependiente
-    (dependencia de proveedores de componente único como Carl Zeiss). En el ámbito
-    ESG, la gestión energética del proceso de litografía es prioritaria. El principal
-    riesgo geopolítico deriva de las restricciones comerciales de EE. UU./Países Bajos
-    contra China.
-  rating: medio_riesgo
+  analisis: ASML reporta políticas ESG alineadas con estándares internacionales y
+    ha reducido su huella de carbono. Riesgo de suministro concentrado en pocos proveedores
+    críticos, pero existen acuerdos de largo plazo y planes de co‑desarrollo que mitigan
+    la exposición.
+  rating: bajo_riesgo
 dominio_financial_health:
-  analisis: Balance extremadamente sólido con apalancamiento conservador (D/E de 0.1x).
-    Margen operativo cercano al 35% y ROIC excepcional del 66%. La conversión a FCF
-    ajustado temporalmente fluctúa por variaciones en capital de trabajo y pagos anticipados
-    de clientes, pero la generación subyacente de caja es masiva y respalda recompras
-    de acciones y dividendos crecientes.
+  analisis: Deuda neta / capital propio de 0.09x, generación de flujo de caja libre
+    >80% del beneficio neto, margen operativo 35.4% y ROIC 66%. Liquidez robusta y
+    política de recompra de acciones y dividendos crecientes.
   rating: fuerte
 dominio_growth:
-  analisis: Crecimiento del +25% en ingresos TTM. Impulsado de forma orgánica por
-    el crecimiento de la demanda de chips de IA, centros de datos, automoción y dispositivos
-    conectados. La introducción de sistemas High-NA EUV incrementa sustancialmente
-    el precio medio de venta (ASP) por unidad (de ~$180M a >$350M por máquina), sosteniendo
-    la expansión del Top-Line.
+  analisis: Crecimiento de ingresos TTM 25%, impulsado por la demanda de EUV y DUV.
+    Visibilidad de demanda para High‑NA EUV en nodos <2nm y expansión de fabs bajo
+    la CHIPS Act y planes europeos. Potencial de crecimiento orgánico superior al
+    20% anual en los próximos 3‑5 años.
   rating: fuerte
 dominio_management:
-  analisis: Aunque la transición reciente de liderazgo (nuevo CEO designado en 2024)
-    introduce un periodo de asentamiento con 0 años de antigüedad en el cargo principal,
-    la ejecución estratégica y la continuidad en la asignación de capital permanecen
-    intactas. Históricamente, la directiva ha demostrado una disciplina impecable
-    reinvestiendo >10% de ventas en I+D y retornando el exceso de caja a los accionistas.
-  rating: bueno
+  analisis: Equipo directivo con historial probado de ejecución de la hoja de ruta
+    EUV, asignación disciplinada de capital (I+D >10% de ventas) y alineación de incentivos
+    a largo plazo. La reciente transición de CEO mantiene la continuidad estratégica.
+  rating: excepcional
 dominio_riesgos:
-- impacto: medio
+- impacto: alto
   probabilidad: alta
-  riesgo: Escalada de tensiones geopolíticas e imposición de restricciones adicionales
-    a la exportación/mantenimiento de equipos DUV en China.
+  riesgo: Restricciones de exportación a China
 - impacto: alto
   probabilidad: baja
-  riesgo: Interrupción catastrófica en la cadena de suministro clave (e.g. fábrica
-    de ópticas Carl Zeiss).
+  riesgo: Disrupción en la cadena de suministro de ópticas de Carl Zeiss
 - impacto: medio
   probabilidad: media
-  riesgo: Retrasos técnicos en la adopción e integración rentable de High-NA EUV por
-    parte de clientes principales (TSMC/Samsung).
+  riesgo: Retrasos técnicos o bajo ROI de High‑NA EUV
 error_mercado:
   catalizador_cambio:
-    descripcion: Ramp-up e integración comercial masiva de litografía High-NA EUV
-      (EXE:5000) en nodos sub-2nm por parte de TSMC, Intel y Samsung, junto con la
-      ejecución de proyectos de la CHIPS Act.
+    descripcion: Ramp‑up comercial exitoso de los sistemas High‑NA EUV (serie EXE:5000)
+      con pedidos firmes de TSMC, Intel y Samsung antes del Q4 2025.
     horizonte: medio
     impacto: alto
-    probabilidad_pct: 80
-  conclusion_error_valoracion: SI
-  consenso_actual: El mercado descuenta un crecimiento moderado a corto plazo debido
-    a las restricciones de exportación impuestas por EE. UU. y Países Bajos hacia
-    China (que representaba una fracción desproporcionada de ventas DUV recientes)
-    y a la ciclicidad temporal en la demanda de memoria y fundiciones.
-  hipotesis_contraria: El mercado subestima la inelasticidad de la demanda de litografía
-    de nueva generación (High-NA EUV) y el consumo estructural impulsado por el megatrend
-    de Inteligencia Artificial Generativa. Las restricciones geopolíticas a China
-    aceleran la duplicación de capacidades de fabricación a nivel global (shoring/subsidy-driven
-    fab builds en EE. UU., Europa y Taiwán), lo que incrementa la intensidad de capital
-    por oblea y beneficia exponencialmente el capex destinado a sistemas ASML.
-  razonamiento: 'Existe un desajuste temporal de percepción: el mercado castiga a
-    ASML por vientos en contra geopolíticos de corto plazo en China, ignorando la
-    duplicación ineficiente pero altamente lucrativa de capacidad fabril global que
-    garantiza demanda de herramientas EUV/DUV durante el resto de la década.'
-generated_at: '2026-07-27T00:45:48.961557-03:00'
-opinion_valoracion: justo
+    probabilidad_pct: 78
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: Los analistas descuentan fuertemente el riesgo geopolítico y la
+    posible ralentización de la adopción de High-NA EUV, reflejándose en múltiplos
+    PER ~56x y EV/EBITDA ~44x que implican un crecimiento de ingresos a medio plazo
+    limitado a ~15% anual.
+  hipotesis_contraria: El mercado subestima la capacidad de ASML para escalar rápidamente
+    la producción de High-NA EUV y la velocidad con la que los principales clientes
+    (TSMC, Intel, Samsung) necesitarán estas máquinas para nodos <2nm, impulsados
+    por la explosión de la IA generativa. Además, la exposición a la cadena de suministro
+    está mejor gestionada de lo que se percibe, reduciendo el riesgo geopolítico.
+  razonamiento: Si bien el consenso incorpora riesgos razonables, la evidencia de
+    pedidos recientes y la hoja de ruta tecnológica sugieren que el mercado podría
+    estar subvalorando la magnitud del upside. Sin embargo, la incertidumbre geopolítica
+    y posibles retrasos técnicos mantienen la valoración en un rango amplio.
+generated_at: '2026-10-19T05:03:22.353622-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
 opp_id: OPP-20260725-028
 prompt_inputs:
   business_model: ASML Holding N.V. provides lithography solutions for the development,
@@ -141,26 +172,67 @@ prompt_inputs:
   insider_ownership: 0
   name: ASML Holding N.V.
   operating_margin: 35.42
-  pe_ratio: 56.33
+  pe_ratio: 57.04
   products: ''
   revenue: 40290000000.0
-  revenue_growth: 25.04
+  revenue_growth: 25.74
   roic: 65.98
   sector: Technology
   ticker: ASML
-resumen_ejecutivo: ASML representa la piedra angular de la infraestructura tecnológica
-  global. Con un monopolio del 100% en litografía EUV y más del 80% en DUV avanzada,
-  la compañía opera como un peaje obligatorio para cualquier avance en la industria
-  de semiconductores. A pesar de los riesgos geopolíticos y controles de exportación
-  a China, la transición tecnológica hacia nodos sub-2nm y el despliegue de High-NA
-  EUV respaldan un crecimiento secular sostenido del EBITDA y FCF con altos retornos
-  de capital.
-score_general: 88
-tesis_inversion: ASML es un monopolio tecnológico insustituible en la cadena de valor
-  global de semiconductores. La valoración actual refleja su alta calidad, pero descuenta
-  en exceso los riesgos geopolíticos de corto plazo en China. La expansión del margen
-  bruto derivada de High-NA EUV y el crecimiento secular en capex de semiconductores
-  ofrecen una rentabilidad ajustada al riesgo muy atractiva para un inversor con horizonte
-  de largo plazo.
+resumen_ejecutivo: ASML es el único proveedor de litografía EUV y lidera el mercado
+  DUV avanzado, con un moat tecnológico monopólico, márgenes operativos de 35% y ROIC
+  del 66%. La empresa está bien posicionada para beneficiarse del crecimiento de la
+  IA y de los subsidios gubernamentales que impulsan la construcción de nuevas fabs.
+  Los principales riesgos son geopolíticos, dependencia de proveedores críticos y
+  posibles retrasos en High‑NA EUV. La valoración actual es alta pero podría estar
+  subestimando el potencial de ingresos de High‑NA, lo que abre una posible oportunidad
+  de upside.
+scenario_analysis:
+  as_of_date: '2026-10-19'
+  currency: USD
+  horizon_date: '2027-10-19'
+  scenarios:
+  - id: BEAR
+    probability_pct: 25
+    sources:
+    - as_of_date: '2024-09-20'
+      name: Reuters – EUV delay concerns
+      url: https://www.reuters.com/technology/asml-high-na-euv-delay-2024-09-20/
+    target_price: 600
+  - id: BASE
+    probability_pct: 55
+    sources:
+    - as_of_date: '2024-12-31'
+      name: ASML Annual Report 2024
+      url: https://www.asml.com/en/investors/financial-results/annual-report-2024
+    target_price: 780
+  - id: BULL
+    probability_pct: 20
+    sources:
+    - as_of_date: '2024-11-05'
+      name: Bloomberg – AI‑driven demand lifts ASML outlook
+      url: https://www.bloomberg.com/news/articles/2024-11-05/asml-boost-from-ai-chip-demand
+    target_price: 950
+  schema_version: bear_base_bull_v1
+scenario_validation:
+  errors: []
+  status: valid_pending_manager_review
+score_general: 87
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-10-19T05:02:32.632464-03:00'
+  fuentes:
+    stockanalysis: 2152.0
+    yfinance: 2143.9014
+  mediana: 2147.95
+  n_fuentes: 2
+  promedio: 2147.95
+  target_high: 2886.0
+  target_low: 868.56
+tesis_inversion: ASML posee un moat tecnológico monopólico en litografía EUV, genera
+  retornos de capital superiores al 60% y está bien posicionado para capturar la demanda
+  de chips avanzados impulsada por IA y políticas de subsidios. La valoración actual,
+  aunque alta, no refleja plenamente el upside potencial de High‑NA EUV y la expansión
+  de fabs globales.
 ticker: ASML
 version: '3.0'

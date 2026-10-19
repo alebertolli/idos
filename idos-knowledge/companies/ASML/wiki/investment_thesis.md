@@ -1,0 +1,1 @@
+ASML posee un moat tecnológico monopólico en litografía EUV, genera retornos de capital superiores al 60% y está bien posicionado para capturar la demanda de chips avanzados impulsada por IA y políticas de subsidios. La valoración actual, aunque alta, no refleja plenamente el upside potencial de High‑NA EUV y la expansión de fabs globales.
