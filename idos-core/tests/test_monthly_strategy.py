@@ -102,6 +102,30 @@ def test_monthly_rerun_preserves_reviewed_status(tmp_path: Path):
     assert store.get_opportunity(opp_id)["status"] == "UNDER_RESEARCH"
 
 
+def test_monthly_rerun_within_same_cycle_does_not_create_another_opportunity(tmp_path: Path):
+    from idos.data.sqlite import SQLiteStore
+    from idos.strategy.catalog import StrategyCatalog
+
+    worker = MonthlyStrategyWorker({"price_provider": FakePrices(), "market_gate_worker": FakeMarketGate()})
+    output = worker.run({
+        "base_path": str(tmp_path), "dry_run": True, "persist": False,
+        "candidate_tickers": ["QQQ"],
+    })
+    profile = StrategyCatalog(
+        Path(__file__).resolve().parents[2] / "idos-config" / "strategies.yml"
+    ).require("MOMENTUM_ETF")
+
+    output["as_of_date"] = "2026-10-01"
+    worker._persist(tmp_path, profile, output)
+    output["as_of_date"] = "2026-10-19"
+    output["generated_at"] = "2026-10-19T12:00:00-03:00"
+    worker._persist(tmp_path, profile, output)
+
+    store = SQLiteStore(tmp_path / "idos.db")
+    rows = list(store.conn.execute("SELECT id FROM opportunities WHERE strategy_id = 'MOMENTUM_ETF'"))
+    assert [row[0] for row in rows] == ["OPP-20261001-MOM-QQQ"]
+
+
 def test_momentum_strategy_intersects_configured_universe_with_operable_registry(tmp_path: Path):
     config_dir = tmp_path / "config"
     (config_dir / "universe").mkdir(parents=True)

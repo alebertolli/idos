@@ -207,9 +207,10 @@ class MonthlyStrategyWorker(BaseWorker):
             report_path = signal_dir / f"{output['as_of_date']}-{timestamp}-{output['run_scope']}-{suffix}.yml"
             suffix += 1
         report_path.write_text(yaml.dump(output, allow_unicode=True), encoding="utf-8")
+        cycle_date = datetime.strptime(output["as_of_date"], "%Y-%m-%d").replace(day=1)
         for row in output["selected"]:
             ticker = row["ticker"]
-            opp_id = f"OPP-{output['as_of_date'].replace('-', '')}-MOM-{ticker}"
+            opp_id = f"OPP-{cycle_date:%Y%m%d}-MOM-{ticker}"
             if sqlite.get_opportunity(opp_id) or journal.load_opportunity(ticker, opp_id):
                 continue  # A repeated monthly run must not reset a reviewed decision.
             opp = {
