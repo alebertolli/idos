@@ -78,14 +78,20 @@ class ResearchWorker(BaseWorker):
                 # Keep strategy-specific fields that older SQLite schemas did
                 # not persist (notably the raw Momentum signal).
                 if opp is not None:
-                    for key in ("signal", "strategy_id", "strategy_version", "research_profile", "entry_policy"):
+                    for key in (
+                        "signal", "strategy_id", "strategy_version", "research_profile", "entry_policy",
+                        "discovery_evidence", "latest_discovery_evidence",
+                    ):
                         if key in yaml_opp:
                             opp[key] = yaml_opp[key]
                 print(f"[RESEARCH] {ticker}: restored from journal YAML -> SQLite")
         else:
             yaml_opp = journal.load_opportunity(ticker, opp_id)
             if yaml_opp:
-                for key in ("signal", "strategy_id", "strategy_version", "research_profile", "entry_policy"):
+                for key in (
+                    "signal", "strategy_id", "strategy_version", "research_profile", "entry_policy",
+                    "discovery_evidence", "latest_discovery_evidence",
+                ):
                     if not opp.get(key) and yaml_opp.get(key):
                         opp[key] = yaml_opp[key]
         if not opp:
@@ -160,7 +166,12 @@ class ResearchWorker(BaseWorker):
         if event_evidence:
             event_context = json.dumps(event_evidence, ensure_ascii=False, sort_keys=True)
             recent_events = f"{recent_events}\n\nEvento disparador validado para revisar: {event_context}"
-        price_context = self._current_price_context(financial_data)
+        latest_discovery = opp.get("latest_discovery_evidence")
+        initial_discovery = opp.get("discovery_evidence")
+        latest_quote = latest_discovery.get("market_quote") if isinstance(latest_discovery, dict) else None
+        initial_quote = initial_discovery.get("market_quote") if isinstance(initial_discovery, dict) else None
+        quote_evidence = {"market_quote": latest_quote or initial_quote}
+        price_context = self._current_price_context(financial_data, quote_evidence)
 
         ddd_inputs = {
             "analysis_as_of_date": datetime.now(AR_TZ).date().isoformat(),
@@ -169,7 +180,12 @@ class ResearchWorker(BaseWorker):
             "current_price": price_context["price"],
             "current_price_as_of_date": price_context["as_of_date"],
             "current_price_source": price_context["source"],
-            "quote_currency": financial_data.get("quote_currency") or financial_data.get("currency") or "N/D",
+            "quote_currency": (
+                financial_data.get("quote_currency") or financial_data.get("currency")
+                or (quote_evidence.get("market_quote", {}).get("currency")
+                    if isinstance(quote_evidence.get("market_quote"), dict) else None)
+                or "N/D"
+            ),
             "existing_wiki": previous_wiki,
             "prior_catalysts": prior_catalysts,
             "sector": company.get("sector", ""),
@@ -1051,7 +1067,9 @@ class ResearchWorker(BaseWorker):
         return data
 
     @staticmethod
-    def _current_price_context(data: dict[str, Any]) -> dict[str, Any]:
+    def _current_price_context(
+        data: dict[str, Any], discovery_evidence: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Return a sourced quote, falling back only to the latest aligned close."""
         price = data.get("price") or data.get("current_price")
         quote_date = data.get("price_as_of_date") or data.get("current_price_as_of_date")
@@ -1082,6 +1100,26 @@ class ResearchWorker(BaseWorker):
             quote_provenance = data.get("price_provenance")
             if isinstance(quote_provenance, dict) and quote_provenance.get("source"):
                 sources = [quote_provenance["source"]]
+        if price is None:
+            market_quote = discovery_evidence.get("market_quote") if isinstance(discovery_evidence, dict) else None
+            if isinstance(market_quote, dict):
+                candidate = market_quote.get("price")
+                candidate_date = market_quote.get("as_of_date")
+                candidate_source = market_quote.get("source")
+                try:
+                    valid_date = isinstance(candidate_date, str) and date.fromisoformat(candidate_date).isoformat() == candidate_date
+                except ValueError:
+                    valid_date = False
+                if (
+                    isinstance(candidate, (int, float)) and not isinstance(candidate, bool)
+                    and math.isfinite(candidate) and candidate > 0
+                    and valid_date and isinstance(candidate_source, str) and candidate_source.strip()
+                    and isinstance(market_quote.get("currency"), str)
+                    and len(market_quote["currency"]) == 3
+                    and market_quote["currency"].isalpha()
+                    and market_quote["currency"] == market_quote["currency"].upper()
+                ):
+                    price, quote_date, sources = candidate, candidate_date, [candidate_source]
         source = ", ".join(sorted({str(item) for item in sources if item})) if isinstance(sources, list) else ""
         return {
             "price": price if price is not None else "N/D",

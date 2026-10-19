@@ -1,3 +1,4 @@
+import math
 import time
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -356,7 +357,7 @@ class UniversePipeline(BaseWorker):
     def _build_discovery_evidence(self, ticker: str) -> dict[str, Any]:
         cached = self._get_cached_data(Path(self.config.get("cache_path", "cache")), ticker)
         fields = [rule["metric"] for rule in self.strategy.parameters["scout"]["filters"]]
-        return {
+        evidence = {
             "policy": self.strategy.parameters["scout"],
             "eligibility_status": "PASSED",
             "evaluated_at": datetime.now(AR_TZ).isoformat(),
@@ -367,6 +368,46 @@ class UniversePipeline(BaseWorker):
             "market_cap_provenance": cached.get("market_cap_provenance", {}),
             "data_provenance": cached.get("data_provenance", {}),
         }
+        market_quote = self._latest_market_quote(cached)
+        if market_quote:
+            evidence["market_quote"] = market_quote
+        return evidence
+
+    @staticmethod
+    def _latest_market_quote(cached: dict[str, Any]) -> dict[str, Any] | None:
+        """Keep one dated public quote in the opportunity for later workflows."""
+        prices = cached.get("price_history")
+        dates = cached.get("price_history_dates")
+        if not isinstance(prices, list) or not isinstance(dates, list) or len(prices) != len(dates):
+            return None
+        for price, quote_date in reversed(list(zip(prices, dates))):
+            if not isinstance(price, (int, float)) or isinstance(price, bool) or not math.isfinite(price) or price <= 0:
+                continue
+            if not isinstance(quote_date, str):
+                continue
+            try:
+                if datetime.fromisoformat(quote_date).date().isoformat() != quote_date:
+                    continue
+            except ValueError:
+                continue
+            provenance = cached.get("data_provenance")
+            field_sources = provenance.get("field_sources", {}) if isinstance(provenance, dict) else {}
+            sources = field_sources.get("price_history", []) if isinstance(field_sources, dict) else []
+            source = ", ".join(sorted({str(item) for item in sources if item})) if isinstance(sources, list) else ""
+            currency = cached.get("quote_currency") or cached.get("currency")
+            valid_currency = (
+                isinstance(currency, str) and len(currency) == 3
+                and currency.isalpha() and currency == currency.upper()
+            )
+            if not source or not valid_currency:
+                return None
+            return {
+                "price": float(price),
+                "as_of_date": quote_date,
+                "currency": currency,
+                "source": source,
+            }
+        return None
 
     def _score_ticker(self, scout: ScoutEngine, ticker: str, data: dict) -> dict:
         from idos.discovery.configured_scout import configured_scout

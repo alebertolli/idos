@@ -92,6 +92,25 @@ def test_current_price_context_does_not_infer_from_unaligned_history():
     assert context == {"price": "N/D", "as_of_date": "N/D", "source": "N/D"}
 
 
+def test_current_price_context_uses_committed_discovery_quote_when_cache_is_absent():
+    context = ResearchWorker._current_price_context(
+        {},
+        {"market_quote": {
+            "price": 125.5, "as_of_date": "2026-10-19", "currency": "USD", "source": "yfinance",
+        }},
+    )
+
+    assert context == {"price": 125.5, "as_of_date": "2026-10-19", "source": "yfinance"}
+
+
+def test_current_price_context_rejects_invalid_discovery_quote():
+    context = ResearchWorker._current_price_context(
+        {}, {"market_quote": {"price": 125.5, "as_of_date": "2024-01-01", "source": ""}},
+    )
+
+    assert context == {"price": "N/D", "as_of_date": "N/D", "source": "N/D"}
+
+
 class TestResearchWorker:
     def test_multibaggers_research_requires_matching_intake_and_uses_strategy_prompt(
         self, seeded_opportunity, tmp_sqlite, tmp_journal, base_path: str

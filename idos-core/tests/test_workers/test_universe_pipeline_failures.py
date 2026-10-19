@@ -8,6 +8,29 @@ from idos.workers.data.pipeline_report import PipelineReportGenerator
 from idos.workers.base import WorkerResult, WorkerStatus
 
 
+def test_latest_market_quote_keeps_only_aligned_sourced_currency_data():
+    quote = UniversePipeline._latest_market_quote({
+        "price_history": [100.0, 120.0],
+        "price_history_dates": ["2026-10-16", "2026-10-19"],
+        "quote_currency": "USD",
+        "data_provenance": {"field_sources": {"price_history": ["yfinance"]}},
+    })
+
+    assert quote == {
+        "price": 120.0, "as_of_date": "2026-10-19", "currency": "USD", "source": "yfinance",
+    }
+
+
+def test_latest_market_quote_rejects_missing_source_or_currency():
+    assert UniversePipeline._latest_market_quote({
+        "price_history": [120.0], "price_history_dates": ["2026-10-19"], "quote_currency": "USD",
+    }) is None
+    assert UniversePipeline._latest_market_quote({
+        "price_history": [120.0], "price_history_dates": ["2026-10-19"],
+        "data_provenance": {"field_sources": {"price_history": ["yfinance"]}},
+    }) is None
+
+
 def test_zero_ticker_universe_run_is_not_reported_as_success(tmp_path, monkeypatch):
     project_root = Path(__file__).resolve().parents[3]
     pipeline = UniversePipeline(
@@ -334,7 +357,12 @@ def test_existing_opportunity_keeps_initial_discovery_and_records_latest_evidenc
     })
     pipeline._get_cached_data = lambda cache_path, ticker: {
         "operating_margin_pct": 25.0, "fcf": 1_000_000, "revenue_growth_pct": 10.0,
-        "data_provenance": {"sources_used": ["test-provider"]},
+        "price_history": [120.0], "price_history_dates": ["2026-10-19"],
+        "quote_currency": "USD",
+        "data_provenance": {
+            "sources_used": ["test-provider"],
+            "field_sources": {"price_history": ["yfinance"]},
+        },
     }
     metrics = PipelineMetrics(new_watchlist=[{
         "ticker": "AAPL", "score": 100, "rank": 1, "passed": True,
@@ -351,4 +379,7 @@ def test_existing_opportunity_keeps_initial_discovery_and_records_latest_evidenc
         "operating_margin_pct": 25.0, "fcf": 1_000_000, "revenue_growth_pct": 10.0,
     }
     assert saved["latest_discovery_evidence"]["data_provenance"]["sources_used"] == ["test-provider"]
+    assert saved["latest_discovery_evidence"]["market_quote"] == {
+        "price": 120.0, "as_of_date": "2026-10-19", "currency": "USD", "source": "yfinance",
+    }
     assert saved["status"] == "UNDER_RESEARCH"
