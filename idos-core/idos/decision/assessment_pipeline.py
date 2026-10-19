@@ -532,7 +532,16 @@ def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, ta
         "upside_esperado_pct": round(upside, 2),
         "downside_esperado_pct": round(downside, 2),
         "benefit_risk_ratio": br,
-        "passes_threshold": br >= 3.0,
+        # Research catalysts can coexist, so their probabilities do not define
+        # mutually exclusive price scenarios. Keep this estimate visible for
+        # human review, but never use it to authorize an Opportunity.
+        "validation_status": "provisional",
+        "authorization_eligible": False,
+        "validation_reason": (
+            "Las probabilidades de catalizadores no son escenarios financieros "
+            "mutuamente excluyentes validados."
+        ),
+        "passes_threshold": False,
         "horizonte_avg_years": round(horizon_avg, 2),
     }
 
@@ -590,6 +599,12 @@ def _eval_asymmetry(ctx):
     asym = ctx.get("asymmetry")
     if not asym:
         return RuleResult("RULE-008", False, "No hay datos de DDD para calcular asimetria")
+    if asym.get("validation_status") != "validated" or asym.get("authorization_eligible") is not True:
+        reason = asym.get(
+            "validation_reason",
+            "Falta un contrato validado de escenarios financieros mutuamente excluyentes.",
+        )
+        return RuleResult("RULE-008", False, f"Asimetría provisional; autorización bloqueada: {reason}")
     br = asym.get("benefit_risk_ratio", 0)
     upside = asym.get("upside_esperado_pct", 0)
     downside = asym.get("downside_esperado_pct", 0)

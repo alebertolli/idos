@@ -1,11 +1,36 @@
 from idos.decision.assessment_pipeline import (
     _authorization_rule_ids,
+    _compute_asymmetry,
+    _eval_asymmetry,
     _eval_financial_data_quality,
     _financial_data_quality,
     _register_authorization_rules,
 )
 from idos.decision.orchestrator import DecisionOrchestrator
 from idos.rules.engine import RulesEngine
+
+
+def test_catalyst_probability_estimate_is_provisional_and_cannot_pass_rule_008():
+    asymmetry = _compute_asymmetry(
+        [
+            {"descripcion": "Crecimiento acelerado", "impacto": "alto", "probabilidad_pct": 70},
+            {"descripcion": "Compresión de múltiplo", "impacto": "bajo", "probabilidad_pct": 30},
+        ],
+        current_price=100,
+        target_low=70,
+        target_mean=120,
+        target_high=160,
+    )
+
+    assert asymmetry is not None
+    assert asymmetry["benefit_risk_ratio"] >= 3
+    assert asymmetry["validation_status"] == "provisional"
+    assert asymmetry["authorization_eligible"] is False
+    assert asymmetry["passes_threshold"] is False
+
+    result = _eval_asymmetry({"asymmetry": asymmetry})
+    assert not result.passed
+    assert "autorización bloqueada" in result.details
 
 
 def test_financial_data_quality_accepts_zero_as_a_valid_numeric_value():
@@ -141,7 +166,9 @@ def test_missing_cutoff_blocks_orchestrated_decision_even_with_high_conviction(t
     rules_path = tmp_path / "idos-config" / "rules" / "entry_rules.yml"
     rules_path.parent.mkdir(parents=True)
     rules_path.write_text(
-        "rules:\n  - id: RULE-005\n    active: true\n    stage: authorization\n",
+        "rules:\n"
+        "  - id: RULE-005\n    active: true\n    stage: authorization\n"
+        "  - id: RULE-008\n    active: true\n    stage: authorization\n",
         encoding="utf-8",
     )
     engine = RulesEngine()
@@ -155,12 +182,23 @@ def test_missing_cutoff_blocks_orchestrated_decision_even_with_high_conviction(t
         "debt_equity_ratio": 0.5,
         "source": "provider-x",
     })
+    provisional_asymmetry = _compute_asymmetry(
+        [
+            {"descripcion": "Crecimiento acelerado", "impacto": "alto", "probabilidad_pct": 70},
+            {"descripcion": "Compresión de múltiplo", "impacto": "bajo", "probabilidad_pct": 30},
+        ],
+        current_price=100,
+        target_low=70,
+        target_mean=120,
+        target_high=160,
+    )
 
     proposal = orchestrator.run_pipeline("opportunity:transitioned", {
         "opportunity_id": "OPP-QUALITY-001",
         "ticker": "AAPL",
         "force_relevance": True,
         "financial_data_quality": quality,
+        "asymmetry": provisional_asymmetry,
         "precomputed_assessments": {
             "BusinessAssessmentEngine": 90,
             "ValuationAssessmentEngine": 90,
@@ -174,3 +212,4 @@ def test_missing_cutoff_blocks_orchestrated_decision_even_with_high_conviction(t
     assert proposal.conviction_score >= 70
     assert proposal.recommendation == "BLOCKED"
     assert "RULE-010" in proposal.rules_failed
+    assert "RULE-008" in proposal.rules_failed
