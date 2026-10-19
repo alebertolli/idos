@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 import sys
 
+import pytest
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
@@ -129,6 +130,88 @@ def test_selected_research_count_survives_assessment_and_digest(tmp_path, monkey
     assert result["total"] == len(result["processed"]) == len(result["assessments"]) == 1
     digest = (tmp_path / "cache/weekly_digest.md").read_text(encoding="utf-8")
     assert "**Total encontradas:** 1" in digest
+
+
+def test_assessment_only_replaces_selected_persisted_assessment_without_research(tmp_path, monkeypatch):
+    from scripts import ddd_assessment
+
+    opp_id = "OPP-ASML"
+    opportunity = tmp_path / "idos-journal/companies/ASML/case_file/opportunities" / opp_id
+    opportunity.mkdir(parents=True)
+    (opportunity / "ddd_report.yml").write_text("ticker: ASML\ntesis_inversion: thesis\n", encoding="utf-8")
+    previous = {
+        "ticker": "ASML",
+        "opp_id": opp_id,
+        "status": "completed",
+        "recommendation": "BLOCKED",
+        "assessments": {"PortfolioAssessmentEngine": 90},
+    }
+    other = {"ticker": "AAPL", "opp_id": "OPP-AAPL", "recommendation": "WAIT"}
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    (cache / "ddd_results.json").write_text(json.dumps({
+        "processed": [], "assessments": [previous.copy(), other.copy()], "errors": [], "total": 2,
+    }), encoding="utf-8")
+
+    calls = []
+    def run_assessment(selected_id, selected_ticker, *_args, **_kwargs):
+        calls.append((selected_id, selected_ticker))
+        return {
+            "ticker": selected_ticker,
+            "opp_id": selected_id,
+            "status": "completed",
+            "recommendation": "BLOCKED",
+            "assessments": {"PortfolioAssessmentEngine": 50},
+        }
+
+    monkeypatch.setattr("idos.decision.assessment_pipeline.run_full_pipeline", run_assessment)
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("TICKER", "ASML")
+    monkeypatch.setenv("REASSESS_EXISTING", "true")
+    monkeypatch.chdir(tmp_path)
+
+    ddd_assessment.main()
+
+    saved = json.loads((cache / "ddd_results.json").read_text(encoding="utf-8"))
+    assert calls == [(opp_id, "ASML")]
+    assert len(saved["assessments"]) == 2
+    assert saved["assessments"][0]["assessments"]["PortfolioAssessmentEngine"] == 50
+    assert saved["assessments"][1] == other
+
+
+def test_assessment_only_requires_one_ticker(tmp_path, monkeypatch):
+    from scripts import ddd_assessment
+
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("TICKER", "ASML,AAPL")
+    monkeypatch.setenv("REASSESS_EXISTING", "true")
+    with pytest.raises(ValueError, match="exactly one selected ticker"):
+        ddd_assessment.main()
+
+
+def test_assessment_only_skips_when_persisted_research_is_missing(tmp_path, monkeypatch):
+    from scripts import ddd_assessment
+
+    previous = {"ticker": "ASML", "opp_id": "OPP-ASML", "recommendation": "BLOCKED"}
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    results_path = cache / "ddd_results.json"
+    results_path.write_text(json.dumps({"processed": [], "assessments": [previous], "errors": []}), encoding="utf-8")
+    monkeypatch.setattr(
+        "idos.decision.assessment_pipeline.run_full_pipeline",
+        lambda *_args, **_kwargs: pytest.fail("must not assess without persisted Research"),
+    )
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("TICKER", "ASML")
+    monkeypatch.setenv("REASSESS_EXISTING", "true")
+    monkeypatch.chdir(tmp_path)
+
+    with pytest.raises(ValueError, match="persisted Research"):
+        ddd_assessment.main()
+
+    saved = json.loads(results_path.read_text(encoding="utf-8"))
+    assert saved["assessments"] == [previous]
+    assert saved["errors"] == []
 
 
 def test_buylist_re_review_requires_manual_single_ticker_and_selects_exact_entry(tmp_path, monkeypatch):

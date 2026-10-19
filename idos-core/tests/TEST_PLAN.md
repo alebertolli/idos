@@ -475,3 +475,8 @@ en el fixture.
    archivos o posiciones paper como capacidad/diversificación del fondo. En el
    dashboard público comprobar que esa falta de datos es visible y que no se
    publica ninguna posición, ledger ni valor patrimonial.
+8. Para cambios deterministas de Assessment, ejecutar DDD manual en la rama de
+   prueba con `assessment_only=true` y un solo ticker operable. Confirmar que el
+   run exige Research y Assessment previos, reemplaza solo el Assessment del
+   `(ticker, opp_id)` elegido, conserva los otros resultados, omite Research y
+   Monthly Re-Assessment, y genera artifacts/commit sin invocar IA ni Pages.

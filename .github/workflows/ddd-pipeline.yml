@@ -22,6 +22,11 @@ on:
         required: false
         type: boolean
         default: false
+      assessment_only:
+        description: "Re-evaluar Assessment determinista de un Research existente, sin volver a investigar"
+        required: false
+        type: boolean
+        default: false
   repository_dispatch:
     types: [quarterly-results]
   schedule:
@@ -60,6 +65,12 @@ jobs:
             echo "::error::Manual E2E runs must use a test branch; main is reserved for automated production runs."
             exit 1
           fi
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "${{ inputs.assessment_only }}" = "true" ]; then
+            if [ "${{ inputs.force }}" = "true" ] || [ "${{ inputs.review_buylist }}" = "true" ]; then
+              echo "::error::assessment_only cannot be combined with force or review_buylist."
+              exit 1
+            fi
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -83,6 +94,7 @@ jobs:
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "FORCE=${{ github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=${{ github.event.inputs.review_buylist || 'false' }}" >> $GITHUB_ENV
+            echo "ASSESSMENT_ONLY=${{ github.event.inputs.assessment_only || 'false' }}" >> $GITHUB_ENV
             echo "EVENT_TYPE=manual" >> $GITHUB_ENV
           elif [ "${{ github.event.schedule }}" = "0 6 */30 * *" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
@@ -93,18 +105,23 @@ jobs:
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
           fi
-          echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE event=$EVENT_TYPE"
+          echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE assessment_only=${{ github.event.inputs.assessment_only || 'false' }} event=$EVENT_TYPE"
 
       - name: Preview candidates
+        if: github.event.inputs.assessment_only != 'true'
         run: python scripts/ddd_research.py --preview
 
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
+        if: github.event.inputs.assessment_only != 'true'
         run: python scripts/ddd_research.py
 
       - name: STEP 3-7 - Assessment Engines + Conviction + Rules + Board + Entry
+        env:
+          REASSESS_EXISTING: ${{ inputs.assessment_only || false }}
         run: python scripts/ddd_assessment.py
 
       - name: STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)
+        if: github.event.inputs.assessment_only != 'true'
         run: python scripts/ddd_monthly.py
 
       - name: Generate Combined Digest
