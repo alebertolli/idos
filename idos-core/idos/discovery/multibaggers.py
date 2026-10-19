@@ -5,6 +5,7 @@ from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 import hashlib
 import json
+from math import isclose, isfinite
 from typing import Any
 
 from idos.discovery.financial_evidence import reconcile_metric_observations
@@ -29,8 +30,8 @@ class DiscoveryResult:
     strategy_id: str
     strategy_version: str
     passed: bool
-    discovery_score: float
-    research_priority: float
+    discovery_score: float | None
+    research_priority: float | None
     discovery_type: str
     component_scores: dict[str, float]
     metrics_snapshot: dict[str, dict[str, Any]]
@@ -64,7 +65,22 @@ class MultibaggersDiscoveryEngine:
             flags.append({"code": "CRITICAL_COVERAGE_BELOW_MINIMUM", "severity": "hard", "metric": "critical_coverage", "message": "Critical metric coverage is below policy", "evidence": quality["critical_coverage"]})
         components = self._components(snapshot)
         weights = self.parameters.get("weights", {})
-        score = round(sum(components.get(k, 0.0) * float(w) for k, w in weights.items()), 2)
+        if (
+            not isinstance(weights, dict)
+            or set(weights) != set(components)
+            or any(not isinstance(weight, (int, float)) or not isfinite(float(weight)) or weight < 0 for weight in weights.values())
+            or not isclose(sum(float(weight) for weight in weights.values()), 1.0, abs_tol=1e-9)
+        ):
+            raise ValueError("MULTIBAGGERS component weights must be non-negative, complete and sum to 1")
+        required_components = set(weights)
+        missing_components = sorted(
+            name for name in required_components if components.get(name) is None
+        )
+        score = (
+            round(sum(float(components[name]) * float(weights[name]) for name in required_components), 2)
+            if not missing_components
+            else None
+        )
         reasons = [f"HARD_FLAG:{flag['code']}" for flag in flags]
         if quality["critical_coverage"] < minimum_coverage:
             reasons.append("DATA_COVERAGE_BELOW_MINIMUM")
@@ -74,25 +90,31 @@ class MultibaggersDiscoveryEngine:
             reasons.append("CRITICAL_METRIC_CONFLICT")
         if quality["critical_stale"]:
             reasons.append("CRITICAL_METRIC_STALE")
+        if missing_components:
+            reasons.append("SCORING_INPUT_MISSING")
         threshold = float(self.parameters.get("discovery_threshold", 65))
-        passed = not reasons and score >= threshold
-        if score < threshold:
+        passed = not reasons and score is not None and score >= threshold
+        if score is not None and score < threshold:
             reasons.append("DISCOVERY_SCORE_BELOW_THRESHOLD")
         if quality["critical_coverage"] == 0:
             kind = "BLOCKED_DATA"
         elif flags or quality["critical_conflicts"] or quality["critical_stale"] or quality["critical_source_failures"]:
             kind = "BLOCKED_DATA"
-        elif components["economic_transition"] >= 65 and components["quality"] >= 65 and components["reinvestment"] >= 60:
+        elif all(components.get(name) is not None for name in ("economic_transition", "quality", "reinvestment")) and components["economic_transition"] >= 65 and components["quality"] >= 65 and components["reinvestment"] >= 60:
             kind = "FUNDAMENTAL_COMPOUNDING"
-        elif components["economic_transition"] >= 60 and components["market_confirmation"] < 50:
+        elif components.get("economic_transition") is not None and components.get("market_confirmation") is not None and components["economic_transition"] >= 60 and components["market_confirmation"] < 50:
             kind = "EARLY_TRANSITION"
-        elif components["economic_transition"] >= 60 and components["market_confirmation"] >= 60:
+        elif components.get("economic_transition") is not None and components.get("market_confirmation") is not None and components["economic_transition"] >= 60 and components["market_confirmation"] >= 60:
             kind = "MARKET_CONFIRMED_GROWTH"
         elif snapshot.get("expectation_gap_pct", {}).get("value") is not None:
             kind = "EXPECTATION_GAP"
         else:
             kind = "RESEARCH_REQUIRED"
-        priority = round(score * quality["coverage_factor"] * quality["freshness_factor"], 2)
+        priority = (
+            round(score * quality["coverage_factor"] * quality["freshness_factor"], 2)
+            if score is not None
+            else None
+        )
         body = {
             "ticker": ticker.upper(), "strategy_id": "MULTIBAGGERS", "strategy_version": self.strategy_version,
             "passed": passed, "discovery_score": score, "research_priority": priority,
@@ -177,7 +199,7 @@ class MultibaggersDiscoveryEngine:
         if cap is not None and cap < float(self.parameters.get("market_cap_min_usd", 2e9)):
             add("MARKET_CAP_BELOW_MINIMUM", "market_cap_usd", "Company is below the configured minimum market capitalization", cap)
         liquidity = val("avg_dollar_volume_usd")
-        if liquidity is not None and liquidity < float(self.parameters.get("avg_dollar_volume_min_usd", 1e6)):
+        if liquidity is not None and liquidity < float(self.parameters.get("avg_dollar_volume_min_usd", 100_000)):
             add("DOLLAR_VOLUME_BELOW_MINIMUM", "avg_dollar_volume_usd", "Average dollar volume is below the configured minimum", liquidity)
         checks = [
             ("current_ratio", "current_ratio_below", lambda v, t: v < t, "LOW_CURRENT_RATIO"),
@@ -193,21 +215,45 @@ class MultibaggersDiscoveryEngine:
                 add(code, metric, f"{metric} breached configured hard threshold", value)
         return flags
 
-    @staticmethod
-    def _components(snapshot: dict[str, dict[str, Any]]) -> dict[str, float]:
-        def get(key: str, default: float = 0.0) -> float:
-            item = snapshot.get(key, {})
-            v = item.get("value") if item.get("status") in {"observed", "derived"} else None
-            return float(v) if v is not None else default
-        def scale(value: float, low: float, high: float) -> float:
-            return round(max(0.0, min(100.0, (value - low) / (high - low) * 100)), 2)
-        transition = sum((scale(get("revenue_cagr_3y_pct"), 0, 40), scale(get("eps_growth_pct"), 0, 40), scale(get("revenue_growth_pct"), 0, 40), scale(get("operating_margin_pct"), 0, 25))) / 4
-        quality = sum((scale(get("roic_pct"), 0, 25), scale(get("gross_margin_pct"), 0, 70), scale(get("operating_margin_pct"), 0, 30), scale(get("fcf_conversion_pct"), 0, 100))) / 4
-        reinvestment = sum((scale(get("rd_to_revenue_pct"), 0, 25), scale(get("capex_to_revenue_pct"), 0, 25), scale(get("roic_pct"), 0, 25), scale(get("fcf_growth_pct"), 0, 40))) / 4
-        gap = get("expectation_gap_pct")
-        expectation = 0.0 if snapshot["expectation_gap_pct"]["status"] != "observed" else round(max(0, min(100, 50 + gap)), 2)
-        market = sum(score for key, score in [("relative_strength_12m_pct", scale(get("relative_strength_12m_pct"), -50, 50)), ("drawdown_pct", 100 - min(100, abs(get("drawdown_pct")))), ("volatility_90d_pct", 100 - min(100, get("volatility_90d_pct")))] if snapshot[key]["status"] == "observed") / max(1, sum(snapshot[key]["status"] == "observed" for key in ("relative_strength_12m_pct", "drawdown_pct", "volatility_90d_pct")))
-        return {"economic_transition": round(transition, 2), "quality": round(quality, 2), "reinvestment": round(reinvestment, 2), "expectation_gap": expectation, "market_confirmation": round(market, 2)}
+    def _components(self, snapshot: dict[str, dict[str, Any]]) -> dict[str, float | None]:
+        scoring = self.parameters.get("scoring")
+        if not isinstance(scoring, dict) or scoring.get("method") != "absolute_linear_clamped":
+            raise ValueError("MULTIBAGGERS requires a configured absolute scoring policy")
+        components = scoring.get("components")
+        if not isinstance(components, dict):
+            raise ValueError("MULTIBAGGERS scoring components must be configured")
+
+        result: dict[str, float | None] = {}
+        for component_name, component_cfg in components.items():
+            inputs = component_cfg.get("inputs") if isinstance(component_cfg, dict) else None
+            if not isinstance(inputs, list) or not inputs:
+                raise ValueError(f"Scoring component {component_name!r} needs configured inputs")
+            normalized: list[float] = []
+            for rule in inputs:
+                if not isinstance(rule, dict):
+                    raise ValueError(f"Scoring input for {component_name!r} must be a mapping")
+                metric = rule.get("metric")
+                low, high, direction = rule.get("min"), rule.get("max"), rule.get("direction")
+                if (
+                    not isinstance(metric, str)
+                    or not isinstance(low, (int, float))
+                    or not isinstance(high, (int, float))
+                    or not isfinite(float(low))
+                    or not isfinite(float(high))
+                    or low >= high
+                    or direction not in {"higher", "lower"}
+                ):
+                    raise ValueError(f"Invalid absolute scoring range for {component_name!r}")
+                observation = snapshot.get(metric, {})
+                value = observation.get("value")
+                if observation.get("status") not in {"observed", "derived"} or not isinstance(value, (int, float)) or not isfinite(float(value)):
+                    continue
+                ratio = (float(value) - float(low)) / (float(high) - float(low))
+                if direction == "lower":
+                    ratio = 1.0 - ratio
+                normalized.append(round(max(0.0, min(100.0, ratio * 100.0)), 2))
+            result[component_name] = round(sum(normalized) / len(inputs), 2) if len(normalized) == len(inputs) else None
+        return result
 
 def build_research_intake(result: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
     """Build a deterministic, versioned handoff from Discovery to Research."""

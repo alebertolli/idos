@@ -44,8 +44,30 @@ def valid_payload():
 
 
 def parameters():
-    return {"discovery_threshold": 65, "market_cap_min_usd": 2_000_000_000, "avg_dollar_volume_min_usd": 1_000_000,
+    return {"discovery_threshold": 65, "market_cap_min_usd": 2_000_000_000, "avg_dollar_volume_min_usd": 100_000,
         "weights": {"economic_transition": .25, "quality": .20, "reinvestment": .20, "expectation_gap": .20, "market_confirmation": .15},
+        "scoring": {"method": "absolute_linear_clamped", "version": "absolute-ranges-v1", "components": {
+            "economic_transition": {"inputs": [
+                {"metric": "revenue_cagr_3y_pct", "min": 0, "max": 40, "direction": "higher"},
+                {"metric": "eps_growth_pct", "min": 0, "max": 40, "direction": "higher"},
+                {"metric": "revenue_growth_pct", "min": 0, "max": 40, "direction": "higher"},
+                {"metric": "operating_margin_pct", "min": 0, "max": 25, "direction": "higher"}]},
+            "quality": {"inputs": [
+                {"metric": "roic_pct", "min": 0, "max": 25, "direction": "higher"},
+                {"metric": "gross_margin_pct", "min": 0, "max": 70, "direction": "higher"},
+                {"metric": "operating_margin_pct", "min": 0, "max": 30, "direction": "higher"},
+                {"metric": "fcf_conversion_pct", "min": 0, "max": 100, "direction": "higher"}]},
+            "reinvestment": {"inputs": [
+                {"metric": "revenue_growth_pct", "min": 0, "max": 40, "direction": "higher"},
+                {"metric": "roic_pct", "min": 0, "max": 25, "direction": "higher"},
+                {"metric": "fcf_growth_pct", "min": 0, "max": 40, "direction": "higher"},
+                {"metric": "fcf_conversion_pct", "min": 0, "max": 100, "direction": "higher"}]},
+            "expectation_gap": {"inputs": [
+                {"metric": "expectation_gap_pct", "min": -50, "max": 50, "direction": "higher"}]},
+            "market_confirmation": {"inputs": [
+                {"metric": "relative_strength_12m_pct", "min": -50, "max": 50, "direction": "higher"},
+                {"metric": "drawdown_pct", "min": 0, "max": 60, "direction": "lower"},
+                {"metric": "volatility_90d_pct", "min": 0, "max": 80, "direction": "lower"}]}}},
         "data_quality": {"critical_coverage_min": .8, "critical_sources_min": 2, "conflict_tolerance_pct": 20, "stale_after_days": 120},
         "hard_flags": {"current_ratio_below": .5, "interest_coverage_below": 2.0, "net_debt_ebitda_above": 4.0, "negative_fcf_runway_months_below": 12, "dilution_yoy_above_pct": 10, "share_count_cagr_3y_above_pct": 5},
         "position_limit_pct": 1.0}
@@ -62,6 +84,70 @@ def test_discovery_is_deterministic_and_keeps_scores_separate_from_conviction():
     assert first.data_quality["critical_coverage"] == 1
     assert first.metrics_snapshot["roic_pct"]["coverage"] == 2
     assert "conviction" not in first.to_dict()
+
+
+def test_absolute_ranges_are_configured_clamped_and_fail_closed_for_missing_inputs():
+    engine = MultibaggersDiscoveryEngine(parameters(), "1.0")
+    payload = valid_payload()
+    result = engine.evaluate("TEST", payload)
+    assert result.component_scores["economic_transition"] == 75.0
+    assert result.component_scores["expectation_gap"] == 55.0
+
+    for observation in payload["metric_observations"]["expectation_gap_pct"]:
+        observation["value"] = None
+    missing = engine.evaluate("TEST", payload)
+    assert missing.component_scores["expectation_gap"] is None
+    assert missing.discovery_score is None
+    assert missing.research_priority is None
+    assert "SCORING_INPUT_MISSING" in missing.reason_codes
+    assert missing.passed is False
+
+
+def test_absolute_scoring_configuration_rejects_invalid_ranges():
+    config = parameters()
+    config["scoring"]["components"]["quality"]["inputs"][0]["max"] = 0
+    try:
+        MultibaggersDiscoveryEngine(config).evaluate("TEST", valid_payload())
+    except ValueError as exc:
+        assert "Invalid absolute scoring range" in str(exc)
+    else:
+        raise AssertionError("Invalid absolute scoring range was accepted")
+
+
+def test_lower_is_better_and_values_outside_ranges_are_clamped():
+    payload = valid_payload()
+    values = {
+        "relative_strength_12m_pct": 100,
+        "drawdown_pct": 60,
+        "volatility_90d_pct": 80,
+    }
+    for metric, value in values.items():
+        for observation in payload["metric_observations"][metric]:
+            observation["value"] = value
+
+    result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
+
+    assert result.component_scores["market_confirmation"] == 33.33
+
+
+def test_repository_profile_uses_approved_global_liquidity_and_versioned_ranges():
+    repository_root = Path(__file__).resolve().parents[3]
+    config = yaml.safe_load((repository_root / "idos-config" / "strategies.yml").read_text(encoding="utf-8"))
+    profile = config["strategies"]["MULTIBAGGERS"]
+    policy = profile["parameters"]
+
+    assert config["default_strategy"] == "COMPOUNDER"
+    assert profile["enabled"] is False
+    assert profile["strategy_version"] == "1.1"
+    assert policy["avg_dollar_volume_min_usd"] == 100_000
+    universe = yaml.safe_load((repository_root / "idos-config" / "universe" / "multibaggers.yml").read_text(encoding="utf-8"))
+    assert universe["version"] == "1.1"
+    assert universe["avg_dollar_volume_min_usd"] == 100_000
+    assert policy["scoring"]["method"] == "absolute_linear_clamped"
+    assert policy["scoring"]["sector_normalization"] is False
+    assert policy["scoring"]["missing_input_policy"] == "block_component_and_candidate"
+    assert set(policy["scoring"]["components"]) == set(policy["weights"])
+    assert sum(policy["weights"].values()) == 1
 
 
 def test_missing_single_source_conflicted_and_stale_critical_data_fail_closed():
