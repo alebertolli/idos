@@ -212,7 +212,7 @@ jobs:
           print(f'[BUYLIST] {r.get(\"status\")}: updated={r.get(\"updated\")} added={r.get(\"added\")} removed={r.get(\"removed\")} total={r.get(\"total_entries\")}')
           "
       - name: Entry Monitor - Check Buy List
-        if: github.event_name != 'workflow_dispatch' || inputs.run_portfolio_simulation
+        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json
@@ -287,11 +287,11 @@ jobs:
             python -m idos.workers.automation.data_error_reporter --dry-run
           fi
       - name: Paper Trader - Execute Entry
-        if: github.event_name != 'workflow_dispatch' || inputs.run_portfolio_simulation
+        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
         run: |
           python -m idos.workers.portfolio.execute_entry_signals
       - name: Risk Monitor - Daily risk assessment
-        if: github.event_name != 'workflow_dispatch' || inputs.run_portfolio_simulation
+        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json
@@ -311,7 +311,7 @@ jobs:
               print(f'[RISK] {r.get(\"positions_checked\", 0)} posiciones revisadas, sin alertas')
           "
       - name: Exit Decision Engine
-        if: github.event_name != 'workflow_dispatch' || inputs.run_portfolio_simulation
+        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json
@@ -337,7 +337,7 @@ jobs:
             exit 1
           fi
       - name: Monthly Portfolio Report
-        if: github.event_name != 'workflow_dispatch' || inputs.run_portfolio_simulation
+        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json, calendar

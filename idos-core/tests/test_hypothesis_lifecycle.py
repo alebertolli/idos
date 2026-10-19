@@ -2,8 +2,8 @@
 
 Cubre:
   - HypothesisStateMachine.close_hypothesis: CLOSED solo desde CONFIRMED/INVALIDATED.
-  - apply_hypothesis_cascade: solo la hipótesis principal INVALIDADA activa la
-    salida total (EXITED); CLOSED de una hipótesis NO cierra la oportunidad.
+  - apply_hypothesis_cascade: la hipótesis principal INVALIDADA solicita una
+    revisión humana; CLOSED de una hipótesis NO cierra la oportunidad.
 """
 from pathlib import Path
 
@@ -77,18 +77,18 @@ class TestCloseHypothesis:
 
 
 class TestApplyCascade:
-    def test_principal_invalidada_exita_la_oportunidad(self, repos):
+    def test_principal_invalidada_solicita_revision_sin_cerrar_oportunidad(self, repos):
         sqlite, journal = repos
         _seed_opportunity(sqlite)
         result = apply_hypothesis_cascade(
             journal, sqlite, "HYP", "OPP-HYP-001",
             _principal(HypothesisStatus.INVALIDATED.value), is_principal=True,
         )
-        assert result["cascade"] == "exited"
-        assert result["to_status"] == OpportunityStatus.EXITED.value
+        assert result["cascade"] == "review_required"
+        assert result["from_status"] == OpportunityStatus.MONITORING.value
         opp = sqlite.get_opportunity("OPP-HYP-001")
-        assert opp["status"] == OpportunityStatus.EXITED.value
-        assert opp["exit_reason"] == "hypothesis_invalidated"
+        assert opp["status"] == OpportunityStatus.MONITORING.value
+        assert not opp.get("exit_reason")
 
     def test_secundaria_invalidada_no_cierra_oportunidad(self, repos):
         sqlite, journal = repos
@@ -130,7 +130,7 @@ class TestApplyCascade:
         )
         assert result["cascade"] == "already_exited"
 
-    def test_cascade_registra_evento_de_cambio(self, repos):
+    def test_cascade_registra_solicitud_de_revision_sin_transicion(self, repos):
         sqlite, journal = repos
         _seed_opportunity(sqlite)
         apply_hypothesis_cascade(
@@ -138,10 +138,11 @@ class TestApplyCascade:
             _principal(HypothesisStatus.INVALIDATED.value), is_principal=True,
         )
         rows = list(sqlite.conn.execute(
-            "SELECT from_status, to_status, cause FROM state_transitions "
+            "SELECT id FROM state_transitions "
             "WHERE opportunity_id = 'OPP-HYP-001' AND cause = 'hypothesis_invalidated'",
         ))
-        assert len(rows) == 1
-        row = dict(rows[0])
-        assert row["from_status"] == "MONITORING"
-        assert row["to_status"] == "EXITED"
+        assert rows == []
+        events = list(sqlite.conn.execute(
+            "SELECT event_type FROM events_log WHERE event_type = 'opportunity:exit_review_required'",
+        ))
+        assert len(events) == 1

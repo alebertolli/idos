@@ -108,7 +108,7 @@ class TestMonthlyReassessment:
         assert result["total_active"] == 1
         assert seen == {"thesis": ["AAA"], "conviction": ["AAA"], "portfolio": ["AAA"]}
 
-    def test_thesis_change_triggers_exit(self, tmp_path: Path):
+    def test_invalidated_thesis_creates_sell_proposal_without_exiting(self, tmp_path: Path):
         bp = tmp_path
         journal = JournalRepository(bp / "idos-journal")
         sqlite = SQLiteStore(bp / "idos.db")
@@ -133,16 +133,25 @@ class TestMonthlyReassessment:
         assert r["thesis_reassessed"] == 1
         assert r["thesis_failed"] == 0
         assert r["thesis_changed"] == 1
-        assert r["exits_triggered"]
-        assert len(r["exits_triggered"]) == 1
+        assert len(r["exit_proposals"]) == 1
+        proposal = r["exit_proposals"][0]
+        assert proposal["type"] == "SELL"
+        assert proposal["status"] == "PENDING_REVIEW"
+        assert proposal["human_approval_required"] is True
         opp = sqlite.get_opportunity("OPP-AAA-001")
-        assert opp["status"] == "EXITED"
-        assert opp["exit_reason"] == "thesis_monthly_reassessment"
+        assert opp["status"] == "FULL_POSITION"
         assert opp["thesis_active"] is False
+        assert not opp.get("exit_reason")
         assert datetime.fromisoformat(opp["next_thesis_review_at"]) > datetime.now(AR_TZ)
         journal_opp = journal.load_opportunity("AAA", "OPP-AAA-001")
-        assert journal_opp["status"] == "EXITED"
+        assert journal_opp["status"] == "FULL_POSITION"
+        assert journal_opp["thesis_active"] is False
         assert journal_opp["next_thesis_review_at"] == opp["next_thesis_review_at"]
+        transitions = list(sqlite.conn.execute(
+            "SELECT id FROM state_transitions WHERE opportunity_id = ? AND to_status = 'EXITED'",
+            ("OPP-AAA-001",),
+        ))
+        assert transitions == []
 
     def test_thesis_intact_no_exit(self, tmp_path: Path):
         bp = tmp_path
@@ -163,7 +172,7 @@ class TestMonthlyReassessment:
             w = _make_worker(bp)
             r = w.execute({"base_path": str(bp)}).output
 
-        assert len(r["exits_triggered"]) == 0
+        assert r["exit_proposals"] == []
         assert r["proposals"] == []
         opp = sqlite.get_opportunity("OPP-BBB-001")
         assert opp["status"] == "FULL_POSITION"
@@ -263,7 +272,7 @@ class TestMonthlyReassessment:
         r = w.execute({"base_path": str(bp)}).output
 
         assert r["total_active"] == 0
-        assert r["exits_triggered"] == []
+        assert r["exit_proposals"] == []
 
     def test_thesis_error_handled(self, tmp_path: Path):
         bp = tmp_path

@@ -146,8 +146,8 @@ class ThesisMonitorWorker(BaseWorker):
             lines = [f"🚨 *Hipótesis INVALIDADA* — {ticker} ({opp_id})"]
             for h in invalidated[:5]:
                 lines.append(f"- {h.get('statement', '')[:120]}")
-            if cascade.get("cascade") == "exited":
-                lines.append(f"\nCascade: oportunidad → EXITED (salida total).")
+            if cascade.get("cascade") == "review_required":
+                lines.append("\nRequiere revisión y decisión humana; no se ejecutó una salida.")
             tg = TelegramNotifier()
             tg.execute({"message": "\n".join(lines)[:4000]})
         except Exception as e:
