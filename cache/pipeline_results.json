@@ -1,9 +1,9 @@
 {
   "status": "success",
   "output": {
-    "started_at": "2026-10-19T17:37:38.139639-03:00",
-    "finished_at": "2026-10-19T17:37:41.810982-03:00",
-    "duration_seconds": 3.6713356971740723,
+    "started_at": "2026-10-19T17:55:13.547849-03:00",
+    "finished_at": "2026-10-19T17:55:16.686733-03:00",
+    "duration_seconds": 3.1388776302337646,
     "candidate_source": "idos-config/universe/operable.yml",
     "candidate_count": 1,
     "candidate_tickers": [
@@ -15,13 +15,25 @@
     "fetch_new": 1,
     "fetch_cached": 0,
     "fetch_errors": 0,
-    "scout_passed": 1,
-    "scout_rejected": 0,
-    "scout_data_quality_rejected": 0,
-    "scout_data_quality_details": [],
-    "new_watchlist_count": 1,
-    "opportunities_eligible": 1,
-    "opportunities_existing": 1,
+    "scout_passed": 0,
+    "scout_rejected": 1,
+    "scout_data_quality_rejected": 1,
+    "scout_data_quality_details": [
+      {
+        "ticker": "ASML",
+        "missing_critical_metrics": [
+          "fcf",
+          "revenue_growth_pct"
+        ],
+        "conflicting_critical_metrics": [
+          "fcf",
+          "revenue_growth_pct"
+        ]
+      }
+    ],
+    "new_watchlist_count": 0,
+    "opportunities_eligible": 0,
+    "opportunities_existing": 0,
     "opportunities_created": 0,
     "downgraded_to_watchlist": 0,
     "upgraded_to_screened": 0,
