@@ -1,5 +1,10 @@
 # IDOS — Plan de Testing Integral
 
+> **Vigencia:** las cifras, estados y ejemplos de los apartados 2–6 son el
+> plan inicial y no describen la cobertura actual. La auditoría vigente, la
+> matriz completa de funcionalidades y los pendientes están en
+> `SDD/26.AUDITORIA-FUNCIONAL-COBERTURA.md` y en el apartado §14 de este plan.
+
 ## Objetivo
 
 Validar el ciclo de vida completo de inversión (SDD-7 ILF) cubriendo
@@ -344,3 +349,49 @@ comportamiento fail-closed.
 8. Assessment debe persistir `PENDING_HUMAN_REVIEW` y no crear `board_resolution.approved=true`, Buy List ni estado `APPROVED` a partir de una recomendación automática. El Board debe exigir decisión, revisor y justificación; no debe permitir aprobar propuestas con gates fallidos. Board Review debe clasificar cualquier recomendación sin resolución como pendiente/bloqueada, nunca `AUTO_APPROVED`.
 9. `Decision Review` debe validar hash de Assessment vigente, `recommendation=APPROVE`, gates y escenarios aprobados cuando RULE-008 aplique; una aprobación agrega únicamente a la Buy List pública con `approved_for_buylist=true`, mantiene la etapa de Research y no genera posiciones ni `ENTRY_PENDING`. Un hash viejo, gate fallido, segunda Opportunity del mismo ticker ya listada o precio/objetivo ausente bloquean la mutación. Al crear Research/Assessment nuevo, comprobar que se invalida la aprobación previa y se retira sólo su entrada de Buy List, con registro histórico conservado.
 10. `BuyListRefreshWorker` debe conservar una Opportunity con `approved_for_buylist=true` aunque siga en Research/Assessment; `EntryMonitorWorker` no debe tratar ese flag como autorización de operación. Confirmar `positions/` y demás datos de portfolio vacíos en el build público.
+
+
+### §14 Cobertura funcional actual — 2026-10-19
+
+La suite actual contiene 97 archivos `test_*.py` bajo `idos-core/tests`. La
+ejecución completa local terminó con **608 passed, 1 skipped y 2 warnings** en
+263,53 s. Los warnings son `PytestUnknownMarkWarning` para las marcas `smoke` y
+`e2e`; conviene registrarlas en `pyproject.toml`. El detalle funcional y las
+áreas no cubiertas están trazados en `SDD/26.AUDITORIA-FUNCIONAL-COBERTURA.md`.
+
+La ejecución Windows requirió instalar `exchange-calendars` (ya declarada) y
+usar un plugin temporal para aislar `tmp_path`/`tempfile` por restricciones del
+sandbox sobre `%TEMP%`; el plugin no forma parte del producto y se elimina
+después. En CI Linux la suite debe ejecutarse sin ese adaptador.
+
+La suite local no valida workflows GitHub, proveedores reales, Pages ni una
+decisión atribuida al gestor. Monthly Universe, Daily Refresh y DDD acotados a
+AAPL fueron revisados en §8.3.5–8.3.6 de
+`SDD/25.PLAN-E2E-EN-RAMA-DE-PRUEBA.md`; los workflows `Scenario Review` y
+`Decision Review` quedan pendientes de usarse con una oportunidad vigente y
+decisión real en una rama de prueba.
+
+#### Secuencia posterior al deployment
+
+1. Confirmar ref/SHA autorizados; usar un activo de `operable.yml` y conservar
+   los workflows habilitados.
+2. Ejecutar Monthly Universe acotado; revisar conteos, gates globales y de
+   estrategia, cobertura/procedencia y persistencia. Un no-op no valida etapas
+   posteriores.
+3. Ejecutar Research sólo si existe oportunidad elegible; inspeccionar tesis,
+   hipótesis, fechas futuras, falsaciones, evidencia y errores estructurados.
+4. Revisar Assessment determinista y RULE-008; exigir Bear/Base/Bull vigente,
+   fuentes, horizonte, moneda y hash antes de decidir.
+5. Registrar revisión real de escenarios y Decision en rama; verificar actor,
+   justificación, hash, gates y Buy List sin generar posiciones.
+6. Ejecutar Daily Refresh con simulación desactivada; revisar gate, calendario,
+   Buy List, allowlist de artefactos y ausencia de datos privados.
+7. Generar dashboard; inspeccionar JSON, HTML y vista renderizada para tesis,
+   recomendación, asimetría, riesgos, antigüedad, alertas y Buy List. Confirmar
+   `positions=[]`, `ledger=[]`, `portfolio={}`.
+8. Probar alertas en fixtures: crear, actualizar, resolver y verificar
+   deduplicación y eliminación de alertas obsoletas antes de habilitar avisos.
+9. Validar Post-Mortem/learning en almacenamiento privado; sus propuestas no
+   deben cambiar perfiles sin revisión, comparación y versionado aprobados.
+10. Sólo tras configurar la fuente privada, probar importación con fixture
+    ficticio, reconciliación y Risk Audit conforme a SDD/21.

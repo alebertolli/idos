@@ -21,14 +21,15 @@ class ScoutWorker(BaseWorker):
         config = config if config is not None else {}
         super().__init__(config)
         self.universe_path = config.get("universe_path", "")
-        from idos.discovery.configured_scout import configured_scout
-        self.scout_engine = configured_scout(config.get("config_path", "idos-config"),
+        from idos.discovery.configured_scout import configured_scout, resolve_config_directory
+        config_path = resolve_config_directory(config.get("config_path", "idos-config"))
+        self.scout_engine = configured_scout(config_path,
                                               config.get("strategy_id", "COMPOUNDER"))
         self.watchlist = WatchlistManager(max_entries=config.get("max_watchlist", 50))
         self.ranking = RankingSystem()
         self.data_refresher = DataRefreshWorker(config)
         self.screener = FinvizScreener(
-            config.get("screeners_dir", "idos-config/screeners")
+            resolve_config_directory(config.get("screeners_dir", "idos-config/screeners"))
         )
         self.journal_path = config.get("journal_path", "")
 
@@ -187,7 +188,10 @@ class ScoutWorker(BaseWorker):
         return result if result else self._load_from_operable()
 
     def _load_from_operable(self) -> list[str]:
-        operable_path = self.config.get("operable_path", "idos-config/universe/operable.yml")
+        from idos.discovery.configured_scout import resolve_config_directory
+        operable_path = resolve_config_directory(
+            self.config.get("operable_path", "idos-config/universe/operable.yml")
+        )
         try:
             from idos.discovery.operability import OperabilityFilter
             op = OperabilityFilter(operable_path)

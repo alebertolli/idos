@@ -8,6 +8,15 @@ from idos.strategy.catalog import StrategyCatalog
 from idos.workers.data.refresh_worker import DataRefreshWorker
 
 
+def resolve_config_directory(config_path: str | Path) -> Path:
+    """Resolve config paths from the current directory or the source checkout."""
+    path = Path(config_path)
+    if path.is_absolute() or path.exists():
+        return path
+    checkout_config = Path(__file__).resolve().parents[3] / path
+    return checkout_config if checkout_config.exists() else path
+
+
 class ConfiguredScoutEngine(ScoutEngine):
     def __init__(self, policy: dict, settings: MarketDataSettings, supported_types: list[str]):
         super().__init__(market_cap_min_usd=settings.market_cap_min_usd,
@@ -93,7 +102,7 @@ class ConfiguredScoutEngine(ScoutEngine):
 
 
 def configured_scout(config_path: str | Path = "idos-config", strategy_id: str = "COMPOUNDER") -> ConfiguredScoutEngine:
-    path = Path(config_path)
+    path = resolve_config_directory(config_path)
     profile = StrategyCatalog(path / "strategies.yml").require(strategy_id)
     if not profile.enabled:
         raise ValueError(f"Strategy is disabled: {strategy_id}")

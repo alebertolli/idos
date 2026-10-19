@@ -68,6 +68,7 @@ def test_research_worker_failure_marks_run_failed_and_returns_nonzero(
         "opp_id": "OPP-TEST-001",
         "status": "ddd_failed",
         "error": "Failed to parse JSON",
+        "errors": [],
     }]
     assert captured_service_path["path"] == str(models_path.relative_to(tmp_path))
     assert captured_config["llm_service"] is service
