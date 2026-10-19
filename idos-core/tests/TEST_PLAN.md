@@ -463,3 +463,10 @@ en el fixture.
    sólo esa entrada y conserva `decisions/*.yml`. Probar que Decision Review
    rechaza el hash/proposal invalidado y que Pages no se dispara desde esa rama.
    Revisar costo/proveedor, logs, artefactos y commit antes de aceptar el run.
+6. Para respuestas JSON de Research, confirmar que Gemini recibe
+   `responseMimeType=application/json`, que el adaptador combina todas las
+   partes textuales y que `finishReason != STOP` dispara fallback y detiene la
+   respuesta incompleta. Una salida que falle parsing o contrato debe preservar
+   el Research anterior y omitir Assessment; registrar proveedor/modelo, causa
+   de parsing y ejecución remota acotada antes de considerar la corrección
+   validada.

@@ -347,14 +347,15 @@ El sistema gestiona simultáneamente múltiples estrategias de inversión bajo u
 7. THE Workers SHALL obtener el LLM_Service desde el contexto compartido (`config.get("llm_service")`); no SHALL instanciar LLMClient directamente.
 8. THE Assessment_Pipeline, THE DecisionBoardWorker, THE Entry_Monitor_Worker, THE Wyckoff_Indicator y THE Post_Mortem_Worker SHALL ser deterministas y no SHALL llamar al LLM_Service. El DecisionBoardWorker SHALL basar estado, recomendación, evaluación de reglas y rationale exclusivamente en resultados deterministas; IF una llamada al LLM_Service ocurre dentro de esos componentes, THEN THE IDOS SHALL permitir la llamada pero SHALL registrarla como `process_violation` en el RunManifest y en el log de auditoría.
 9. THE LLM_Service SHALL exponer un método `health()` que retorne el estado de todos los proveedores con: circuit state, RPM restantes, RPD restantes.
-10. WHEN un LLM retorna un JSON o Markdown que no valida con el schema Pydantic, THE LLM_Service SHALL ejecutar automáticamente un sub-prompt de reparación (Self-Healing) antes de lanzar un error de parsing; IF la reparación también falla la validación Pydantic, THEN THE LLM_Service SHALL lanzar el error de parsing.
+10. WHEN un proveedor retorna JSON estructurado inválido, THE LLM_Service SHALL intentar normalización determinista y sin otra llamada al proveedor; IF el resultado no parsea o Research rechaza el contrato de contenido, THEN SHALL fallar de forma cerrada antes de persistir o avanzar etapas.
 11. THE IDOS SHALL separar explícitamente las responsabilidades entre LLM_Service y Jev_Service: el LLM_Service se usa en Research para analizar texto libre (AOIF, síntesis de hipótesis y razonamiento cualitativo). Assessment, Decision y Post-Mortem SHALL usar reglas y evidencia deterministas. Jev_Service sólo SHALL adoptarse para scoring, clasificación, routing, validación de completitud o probabilidades de thesis validity después de evaluación en modo sombra y un contrato versionado; un Worker no debe usar LLM_Service donde una decisión tipada y validada sea suficiente.
+12. WHEN THE LLM_Service solicita una respuesta estructurada JSON a un proveedor compatible, SHALL solicitar su modo de salida JSON; SHALL unir todas las partes textuales de la respuesta; y SHALL tratar cualquier `finishReason` distinto de `STOP` como respuesta incompleta y fallar de forma cerrada. Un error de parsing SHALL registrar posición y causa sin exponer secretos, y no SHALL persistir resultados parciales.
 
 #### Propiedades de Corrección (Property-Based Testing)
 
 - **Corrección del circuit breaker**: Para un proveedor que falla exactamente `failure_threshold` veces consecutivas, el circuit breaker transiciona exactamente de `CLOSED` a `OPEN`. Para un proveedor que falla `failure_threshold - 1` veces y luego tiene éxito, permanece en `CLOSED`. Propiedad de invariante.
 - **Exclusión del proveedor en OPEN**: Mientras un circuit breaker está en estado `OPEN`, ninguna llamada al LLM_Service utiliza ese proveedor. Propiedad de invariante.
-- **Round-trip del Self-Healing**: Para un JSON inválido que puede ser reparado, el resultado del Self-Healing debe pasar la validación Pydantic. Propiedad de round-trip de validación.
+- **Round-trip del Self-Healing**: Para un JSON inválido reparable, la normalización determinista debe producir JSON parseable; una salida que no pueda repararse no puede reemplazar Research válido ni avanzar a Assessment.
 
 ---
 

@@ -127,3 +127,87 @@ def test_parse_json_with_text_prefix():
 
     result = client._parse_json('Here is the JSON: {"score": 85}')
     assert result["score"] == 85
+
+
+def test_gemini_structured_request_uses_json_mime_type_and_joins_parts(monkeypatch):
+    from idos.ai.llm import LLMClient as LC
+
+    client = LC.__new__(LC)
+    client.api_key = "key"
+    client.model = "gemini-test"
+    client.timeout = 5
+    captured = {}
+
+    class Response:
+        def json(self):
+            return {
+                "candidates": [{
+                    "finishReason": "STOP",
+                    "content": {"parts": [{"text": '{"result":'}, {"text": '"ok"}'}]},
+                }],
+                "usageMetadata": {"promptTokenCount": 10, "candidatesTokenCount": 4},
+            }
+
+    def fake_request(method, url, **kwargs):
+        captured.update(kwargs)
+        return Response()
+
+    monkeypatch.setattr(client, "_request_with_retry", fake_request)
+    result = client._call_gemini("prompt", "system", 0.1, 100, response_format="json")
+
+    assert captured["json"]["generationConfig"]["responseMimeType"] == "application/json"
+    assert result.success
+    assert result.content == '{"result":"ok"}'
+
+
+def test_gemini_non_stop_finish_reason_marks_response_incomplete(monkeypatch):
+    from idos.ai.llm import LLMClient as LC
+
+    client = LC.__new__(LC)
+    client.api_key = "key"
+    client.model = "gemini-test"
+    client.timeout = 5
+
+    class Response:
+        def json(self):
+            return {
+                "candidates": [{
+                    "finishReason": "MAX_TOKENS",
+                    "content": {"parts": [{"text": '{"partial":'}]},
+                }],
+            }
+
+    monkeypatch.setattr(client, "_request_with_retry", lambda *args, **kwargs: Response())
+    result = client._call_gemini("prompt", "system", 0.1, 100, response_format="json")
+
+    assert not result.success
+    assert "MAX_TOKENS" in result.error
+
+
+def test_llm_service_requests_json_mode_for_structured_research(monkeypatch):
+    from types import SimpleNamespace
+    from idos.ai.llm import LLMResponse
+    from idos.ai.service import LLMService
+
+    service = LLMService.__new__(LLMService)
+    captured = {}
+    service.clients = {
+        "gemini": SimpleNamespace(
+            model="gemini-test",
+            generate=lambda *args, **kwargs: (
+                captured.update(kwargs) or LLMResponse(
+                    content='{"ok": true}', model="gemini-test", success=True,
+                )
+            ),
+        )
+    }
+    service.circuit_breakers = {}
+    service.rate_limiters = {}
+    service.provider_limits = {}
+    service.router = SimpleNamespace(record_outcome=lambda *args: None)
+    monkeypatch.setattr(service, "_rank_providers", lambda *args: ["gemini"])
+
+    result = service.generate_structured("prompt", "system")
+
+    assert result == {"ok": True}
+    assert captured["response_format"] == "json"

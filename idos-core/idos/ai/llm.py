@@ -51,6 +51,7 @@ class LLMClient:
         temperature: float = 0.3,
         max_tokens: int = 4096,
         label: str = "",
+        response_format: str | None = None,
     ) -> LLMResponse:
         _call_chain = [{"provider": self.provider, "model": self.model, "api_key": self.api_key, "fallback_model": self.fallback_model}]
         _call_chain += self.fallback_providers
@@ -76,7 +77,10 @@ class LLMClient:
                 elif prov == "openrouter":
                     resp = self._call_openrouter(prompt, system_prompt, temperature, max_tokens, akey, modl)
                 elif prov == "gemini":
-                    resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens, akey, modl)
+                    resp = self._call_gemini(
+                        prompt, system_prompt, temperature, max_tokens, akey, modl,
+                        response_format=response_format,
+                    )
                 elif prov == "groq":
                     resp = self._call_groq(prompt, system_prompt, temperature, max_tokens, akey, modl)
                 else:
@@ -87,7 +91,10 @@ class LLMClient:
                     print(f"[LLM] {e.response.status_code} en {modl}, fallback a {fbk}...")
                     try:
                         if prov == "gemini":
-                            resp = self._call_gemini(prompt, system_prompt, temperature, max_tokens, akey, fbk)
+                            resp = self._call_gemini(
+                                prompt, system_prompt, temperature, max_tokens, akey, fbk,
+                                response_format=response_format,
+                            )
                         elif prov == "groq":
                             resp = self._call_groq(prompt, system_prompt, temperature, max_tokens, akey, fbk)
                         elif prov == "openrouter":
@@ -134,7 +141,10 @@ class LLMClient:
             "No incluyas markdown, ni ```json, ni explicaciones adicionales. "
             "Solo el objeto JSON."
         )
-        resp = self.generate(structured_prompt, system_prompt, temperature, max_tokens)
+        resp = self.generate(
+            structured_prompt, system_prompt, temperature, max_tokens,
+            response_format="json",
+        )
         if not resp.success:
             return {"error": resp.error, "_raw": resp.content}
 
@@ -253,6 +263,7 @@ class LLMClient:
         max_tokens: int,
         api_key: str = "",
         model: str = "",
+        response_format: str | None = None,
     ) -> LLMResponse:
         _key = api_key or self.api_key
         _mod = model or self.model
@@ -267,19 +278,31 @@ class LLMClient:
         else:
             contents.append({"role": "user", "parts": [{"text": prompt}]})
 
+        generation_config = {
+            "temperature": temperature,
+            "maxOutputTokens": max_tokens,
+        }
+        if response_format == "json":
+            generation_config["responseMimeType"] = "application/json"
+
         resp = self._request_with_retry("POST", url,
-            json={
-                "contents": contents,
-                "generationConfig": {
-                    "temperature": temperature,
-                    "maxOutputTokens": max_tokens,
-                },
-            },
+            json={"contents": contents, "generationConfig": generation_config},
             timeout=self.timeout,
         )
         data = resp.json()
         candidate = data["candidates"][0]
-        text = candidate["content"]["parts"][0]["text"]
+        finish_reason = candidate.get("finishReason")
+        parts = candidate.get("content", {}).get("parts", [])
+        text = "".join(part.get("text", "") for part in parts if isinstance(part, dict))
+
+        if finish_reason and finish_reason != "STOP":
+            return LLMResponse(
+                content=text,
+                model=_mod,
+                latency_ms=int((time.time() - start) * 1000),
+                success=False,
+                error=f"Gemini terminó con finishReason={finish_reason}; respuesta incompleta",
+            )
 
         usage = data.get("usageMetadata", {})
         return LLMResponse(
