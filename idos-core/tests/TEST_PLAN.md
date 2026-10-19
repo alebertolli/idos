@@ -371,6 +371,12 @@ AAPL fueron revisados en §8.3.5–8.3.6 de
 `Decision Review` quedan pendientes de usarse con una oportunidad vigente y
 decisión real en una rama de prueba.
 
+`DecisionBoardWorker` se conserva como shim legado que siempre responde
+`SKIPPED`; no ejecuta LLM, no persiste evaluaciones y no cambia estados. Los
+tests de worker y lifecycle verifican la ausencia de efectos automáticos. La
+simulación de entrada del lifecycle parte de una aprobación humana explícita
+en el fixture.
+
 #### Secuencia posterior al deployment
 
 1. Confirmar ref/SHA autorizados; usar un activo de `operable.yml` y conservar

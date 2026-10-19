@@ -79,16 +79,35 @@ class TestFullLifecycle:
         assert sqlite.get_opportunity(opp_id)["status"] == "UNDER_RESEARCH"
 
         dbw = DecisionBoardWorker({"provider": "test"})
-        dbw.llm = mock_llm_client
-
         dbw_result = dbw.execute({
             "ticker": ticker,
             "opp_id": opp_id,
             "base_path": base_path,
         })
-        assert dbw_result.status == "success"
-        assert dbw_result.output["decision"] == "APPROVED"
-        assert sqlite.get_opportunity(opp_id)["status"] == "APPROVED"
+        assert dbw_result.status == "skipped"
+        assert dbw_result.output["reason"] == "legacy_automatic_decision_disabled"
+        assert sqlite.get_opportunity(opp_id)["status"] == "UNDER_RESEARCH"
+
+        # The remaining paper-lifecycle scenario starts from an explicit
+        # manager-reviewed fixture; the legacy worker cannot authorize it.
+        reviewed = sqlite.get_opportunity(opp_id)
+        reviewed["status"] = OpportunityStatus.APPROVED.value
+        reviewed["updated_at"] = "2026-01-01T00:00:00"
+        sqlite.save_opportunity(reviewed)
+        sqlite.record_transition(
+            opp_id,
+            OpportunityStatus.UNDER_RESEARCH.value,
+            OpportunityStatus.APPROVED.value,
+            cause="manager_review_fixture",
+            worker="test_manager_review",
+        )
+        journal.save_decision(ticker, opp_id, {
+            "id": "DEC-MANAGER-REVIEW-FIXTURE",
+            "type": "BOARD_APPROVAL",
+            "status": "APPROVED",
+            "author": "test_manager",
+            "justification": "Approved explicitly for the simulated entry lifecycle test.",
+        })
 
         emw = EntryMonitorWorker({"provider": "test", "prompts_path": base_path})
         emw.entry_engine.min_margin_of_safety = 20.0
@@ -227,10 +246,10 @@ class TestFullLifecycle:
         for expected in expected_sequence:
             assert expected in recorded, f"Missing transition: {expected}"
 
-    def test_lifecycle_with_rejection(
+    def test_legacy_decision_worker_does_not_automatically_reject(
         self, tmp_path: Path, mock_llm_reject_client: MagicMock, base_path: str
     ):
-        """Opportunity rejected by DecisionBoard returns to WATCHLIST."""
+        """A retired legacy worker cannot mutate state based on evaluation."""
         ticker = "REJECT"
         opp_id = "OPP-2026-REJECT-001"
 
@@ -257,8 +276,7 @@ class TestFullLifecycle:
         }
         journal.save_assessment(ticker, opp_id, ass)
 
-        dbw = DecisionBoardWorker({"provider": "test"})
-        dbw.llm = mock_llm_reject_client
+        dbw = DecisionBoardWorker({"provider": "test", "llm_service": mock_llm_reject_client})
 
         result = dbw.execute({
             "ticker": ticker,
@@ -266,9 +284,10 @@ class TestFullLifecycle:
             "base_path": base_path,
         })
 
-        assert result.status == "success"
-        assert result.output["decision"] == "WATCHLIST"
-        assert sqlite.get_opportunity(opp_id)["status"] == "WATCHLIST"
+        assert result.status == "skipped"
+        assert result.output["reason"] == "legacy_automatic_decision_disabled"
+        assert sqlite.get_opportunity(opp_id)["status"] == "UNDER_RESEARCH"
+        mock_llm_reject_client.generate_structured.assert_not_called()
 
 
 class TestStateMachineNewModel:
