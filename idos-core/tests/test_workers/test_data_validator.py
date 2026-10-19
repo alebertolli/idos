@@ -51,6 +51,20 @@ def test_cross_validate_conflict_uses_total_source_spread():
     assert set(result["conflicts"][0]["sources"]) == {"sa", "yf"}
 
 
+def test_cross_validate_conflict_with_zero_mean_has_undefined_percentage():
+    result = DataValidator(tolerance_pct=20).cross_validate({
+        "a": {"roic_pct": -1.0},
+        "b": {"roic_pct": 1.0},
+    })
+
+    assert result["conflicts"] == [{
+        "field": "roic_pct",
+        "sources": {"a": -1.0, "b": 1.0},
+        "avg": 0.0,
+        "deviation_pct": None,
+    }]
+
+
 def test_validate_metrics_warnings():
     v = DataValidator()
     warnings = v.validate_metrics({

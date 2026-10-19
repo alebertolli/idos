@@ -42,17 +42,17 @@ class DataValidator:
 
             vals = list(numeric_values.values())
             avg = sum(vals) / len(vals)
-
-            for src, val in numeric_values.items():
-                if avg != 0:
-                    deviation = abs(val - avg) / abs(avg) * 100
-                    if deviation > self.tolerance_pct:
-                        conflicts.append({
-                            "field": key,
-                            "sources": {src: val},
-                            "avg": avg,
-                            "deviation_pct": round(deviation, 1),
-                        })
+            spread = max(vals) - min(vals)
+            deviation = spread / abs(avg) * 100 if avg != 0 else None
+            if (deviation is None and spread > 0) or (
+                deviation is not None and deviation > self.tolerance_pct
+            ):
+                conflicts.append({
+                    "field": key,
+                    "sources": numeric_values,
+                    "avg": avg,
+                    "deviation_pct": round(deviation, 1) if deviation is not None else None,
+                })
 
             merged[key] = round(avg, 2) if isinstance(avg, float) else avg
 
