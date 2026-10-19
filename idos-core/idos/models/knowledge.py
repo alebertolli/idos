@@ -91,13 +91,15 @@ class Hypothesis(BaseModel):
     opportunity_id: str
     ticker: str
     statement: str = ""
+    rationale: str = ""
+    review_trigger: str = ""
     status: HypothesisStatus = HypothesisStatus.DRAFT
     priority: HypothesisPriority = HypothesisPriority.IMPORTANT
     version: int = 1
     horizon: str = "24 months"
     author: str = "system"
-    probability: float = Field(default=0.5, ge=0.0, le=1.0)
-    confidence: float = Field(default=0.0, ge=0.0, le=1.0)
+    probability: float | None = Field(default=0.5, ge=0.0, le=1.0)
+    confidence: float | None = Field(default=0.0, ge=0.0, le=1.0)
     parent_id: str = ""
     falsification: list[FalsificationCondition] = Field(default_factory=list)
     falsification_conditions: list[str] = Field(default_factory=list)
@@ -141,14 +143,19 @@ class Hypothesis(BaseModel):
             "opportunity_id": self.opportunity_id,
             "ticker": self.ticker,
             "statement": self.statement,
+            "rationale": self.rationale,
+            "review_trigger": self.review_trigger,
             "status": self.status.value,
             "priority": self.priority.value,
             "version": self.version,
+            "horizon": self.horizon,
             "probability": self.probability,
             "confidence": self.confidence,
             "parent_id": self.parent_id,
+            "secondary_hypotheses": self.secondary_hypotheses,
             "falsification_conditions": self.falsification_conditions,
-            "predictions": [{"metric": p.metric, "expected": p.expected_value,
+            "predictions": [{"metric": p.metric, "prediction": p.notes,
+                             "expected": p.expected_value,
                              "unit": p.unit, "deadline": p.deadline,
                              "actual": p.actual_value, "met": p.met} for p in self.predictions],
             "falsification": [{"condition": f.condition, "metric": f.metric,

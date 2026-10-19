@@ -15,6 +15,30 @@ TEST_TICKER = "TEST"
 TEST_OPP_ID = "OPP-2026-TEST-001"
 
 
+@pytest.fixture
+def systematic_snapshot(tmp_path):
+    """Write isolated monthly selection evidence, never fetch market data."""
+    import yaml
+
+    root = tmp_path / "idos-journal" / "strategies" / "MOMENTUM_ETF"
+
+    def write(signal, parameters, **overrides):
+        root.mkdir(parents=True, exist_ok=True)
+        report = {
+            "strategy_id": "MOMENTUM_ETF", "generated_at": "2026-10-18T12:00:00-03:00",
+            "run_scope": "bounded", "requested_tickers": [signal["ticker"]],
+            "coverage_complete": True, "market_gate": {"coverage_complete": True},
+            "signal_policy": parameters, "action": "REVIEW_ALLOCATION",
+            "selected": [signal], "eligible": [signal], "ranking": [signal],
+        }
+        report.update(overrides)
+        path = root / f"snapshot-{len(list(root.glob('*.yml')))}.yml"
+        path.write_text(yaml.safe_dump(report), encoding="utf-8")
+        return path
+
+    return write
+
+
 # ──────────────────────────────────────────────
 # Mock LLM responses
 # ──────────────────────────────────────────────
@@ -65,13 +89,44 @@ MOCK_HYPOTHESIS_RESPONSE: dict[str, Any] = {
         {
             "id": "H1",
             "enunciado": "El crecimiento de revenue se acelerará en próximos 2 trimestres",
-            "prediccion": "Revenue growth > 10% en Q3 2026",
+            "por_que": "La renovación de producto y la expansión de servicios sostienen la demanda.",
+            "prediccion": "Revenue growth > 10% en FY2030",
+            "fecha_objetivo": "2030-12-31",
             "criterios_falsacion": "Revenue growth < 5%",
+            "cuando_dejar_de_creerla": "Revenue growth inferior a 5% durante dos trimestres consecutivos.",
             "plazo": "corto",
             "categoria": "operacional",
             "prioridad": "critical",
             "magnitud": {"metrica": "revenue_growth", "valor_esperado": 12.0, "unidad": "%"},
             "depende_de": [],
+        },
+        {
+            "id": "H2",
+            "enunciado": "El margen operativo se mantendrá por encima de 20%.",
+            "por_que": "La mezcla de productos y servicios conserva poder de fijación de precios.",
+            "prediccion": "El margen operativo superará 20% en FY2030.",
+            "fecha_objetivo": "2030-12-31",
+            "criterios_falsacion": ["El margen operativo cae por debajo de 18%"],
+            "cuando_dejar_de_creerla": "Si el margen reportado queda debajo de 18% en dos informes consecutivos.",
+            "plazo": "medio",
+            "categoria": "financiera",
+            "prioridad": "important",
+            "magnitud": {"metrica": "operating_margin", "valor_esperado": 20.0, "unidad": "%"},
+            "depende_de": ["H1"],
+        },
+        {
+            "id": "H3",
+            "enunciado": "La cotización convergerá hacia el valor intrínseco estimado.",
+            "por_que": "La mejora operativa y la generación de caja sostienen la valoración.",
+            "prediccion": "El precio alcanzará el objetivo de valor en los próximos 48 meses.",
+            "fecha_objetivo": "2030-12-31",
+            "criterios_falsacion": ["El precio y el valor intrínseco se separan en contra de la tesis"],
+            "cuando_dejar_de_creerla": "Si los resultados reducen el valor intrínseco más de 20%.",
+            "plazo": "largo",
+            "categoria": "mercado",
+            "prioridad": "important",
+            "magnitud": {"metrica": "upside_pct", "valor_esperado": 20.0, "unidad": "%"},
+            "depende_de": ["H1", "H2"],
         },
     ],
 }
@@ -105,20 +160,6 @@ MOCK_DECISION_BOARD_REJECT: dict[str, Any] = {
     "rules_detail": [
         {"rule_id": "RULE-001", "passes": False, "reason": "Business score 45 < 70"},
     ],
-}
-
-MOCK_POST_MORTEM: dict[str, Any] = {
-    "exit_analysis": "La tesis se invalidó por deterioro del moat",
-    "thesis_was_correct": False,
-    "what_went_wrong": ["Subestimamos la competencia"],
-    "what_went_right": ["Buena ejecución de entrada"],
-    "lessons_learned": ["Exigir más evidencia de moat durability"],
-    "methodological_errors": ["Sesgo de confirmación en DDD"],
-    "biases_detected": ["Anchoring en estimaciones de crecimiento"],
-    "would_invest_again": False,
-    "wyckoff_accuracy": "incorrecta",
-    "wyckoff_phase_was_correct": False,
-    "wyckoff_lessons": ["La fase de acumulacion no se confirmo en retrospectiva"],
 }
 
 MOCK_ENTRY_LLM_RESPONSE: dict[str, Any] = {
@@ -184,8 +225,6 @@ def mock_llm_client() -> MagicMock:
             return dict(MOCK_AOIF_RESPONSE)
         if "Reglas de entrada" in prompt or "RULE" in prompt:
             return dict(MOCK_DECISION_BOARD_APPROVE)
-        if "Post-Mortem" in prompt or "post_mortem" in prompt:
-            return dict(MOCK_POST_MORTEM)
         if "Wyckoff" in prompt or "fase_wyckoff" in prompt:
             return dict(MOCK_ENTRY_LLM_RESPONSE)
         return {"score_general": 75, "tesis_inversion": "default thesis"}

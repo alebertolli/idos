@@ -14,8 +14,18 @@ def main() -> int:
     args = parser.parse_args()
     root = Path(os.environ.get("GITHUB_WORKSPACE", ".")).resolve()
     os.chdir(root)
+    candidate_tickers = [
+        ticker.strip().upper()
+        for ticker in os.environ.get("IDOS_CANDIDATE_TICKERS", "").split(",")
+        if ticker.strip()
+    ]
     result = MonthlyStrategyWorker({"strategy_id": "MOMENTUM_ETF"}).execute(
-        {"base_path": ".", "dry_run": args.dry_run, "persist": not args.no_persist}
+        {
+            "base_path": ".",
+            "dry_run": args.dry_run,
+            "persist": not args.no_persist,
+            "candidate_tickers": candidate_tickers,
+        }
     )
     print(f"Strategy status: {result.status}")
     print(result.output)

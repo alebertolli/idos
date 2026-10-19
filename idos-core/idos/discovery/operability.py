@@ -5,6 +5,8 @@ from datetime import datetime
 from typing import Any
 from idos.timezone import AR_TZ
 
+DEFAULT_MANUAL_SELECTION_LIMIT = 5
+
 class OperabilityFilter:
     def __init__(self, operable_path: str = "idos-config/universe/operable.yml"):
         self.path = Path(operable_path)
@@ -33,6 +35,47 @@ class OperabilityFilter:
 
     def is_operable(self, ticker: str) -> bool:
         return ticker.upper() in self._tickers
+
+    def filter_tickers(self, tickers: list[str]) -> tuple[list[str], list[str]]:
+        """Return normalized operable symbols and the excluded symbols."""
+        normalized = sorted({str(ticker).strip().upper() for ticker in tickers if str(ticker).strip()})
+        eligible = [ticker for ticker in normalized if self.is_operable(ticker)]
+        excluded = [ticker for ticker in normalized if not self.is_operable(ticker)]
+        return eligible, excluded
+
+    def validate_selection(
+        self,
+        tickers: list[str],
+        limit: int = DEFAULT_MANUAL_SELECTION_LIMIT,
+    ) -> list[str]:
+        """Validate and normalize a bounded manual candidate selection."""
+        selected = sorted(
+            {
+                str(ticker).upper().strip()
+                for ticker in tickers
+                if str(ticker).strip()
+            }
+        )
+        if len(selected) > limit:
+            raise ValueError(f"Manual candidate selection exceeds the {limit}-ticker limit")
+        invalid = sorted(set(selected) - self.tickers)
+        if invalid:
+            raise ValueError(
+                "Requested test tickers are not in the operable registry: "
+                + ", ".join(invalid)
+            )
+        return selected
+
+    def validate_manual_selection(
+        self,
+        raw_selection: str,
+        limit: int = DEFAULT_MANUAL_SELECTION_LIMIT,
+    ) -> list[str]:
+        """Require a non-empty comma-separated selection for bounded manual runs."""
+        tickers = [ticker.strip().upper() for ticker in raw_selection.split(",") if ticker.strip()]
+        if not tickers:
+            raise ValueError("Manual runs require at least one ticker from operable.yml")
+        return self.validate_selection(tickers, limit=limit)
 
     def add(
         self,

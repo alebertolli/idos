@@ -2,20 +2,18 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from idos.ai.llm import LLMClient
-from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.workers.base import BaseWorker
 from idos.timezone import AR_TZ
+from idos.workers.ai.research_worker import ResearchWorker
 
 
 class ThesisMonitorWorker(BaseWorker):
     """Re-assesses the integrity of an investment thesis (Thesis Exit / Risk Exit).
 
-    Evaluates the 9 fundamental events via LLM and persists `thesis_active` on
-    the opportunity. Total liquidation happens downstream in ExitMonitorWorker
-    when thesis_active becomes false.
+    Coordinates a thesis review through ResearchWorker and persists its result.
+    It does not create an LLM client or perform investment analysis itself.
 
     Triggers: monthly schedule (re-assessment) + risk triggers (Risk Exit).
     """
@@ -23,15 +21,8 @@ class ThesisMonitorWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        self.llm = config.get("llm_service") or LLMClient(
-            provider=config.get("provider", ""),
-            api_key=config.get("api_key", ""),
-            model=config.get("model", ""),
-            fallback_model=config.get("fallback_model", ""),
-            fallback_providers=config.get("fallback_providers", []),
-        )
-        prompts_path = config.get("prompts_path", "")
-        self.registry = PromptRegistry(prompts_path) if prompts_path else PromptRegistry()
+        cfg = config or {}
+        self.research = cfg.get("research_worker") or ResearchWorker(cfg)
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         ticker = context.get("ticker", "").upper().strip()
@@ -155,8 +146,8 @@ class ThesisMonitorWorker(BaseWorker):
             lines = [f"🚨 *Hipótesis INVALIDADA* — {ticker} ({opp_id})"]
             for h in invalidated[:5]:
                 lines.append(f"- {h.get('statement', '')[:120]}")
-            if cascade.get("cascade") == "exited":
-                lines.append(f"\nCascade: oportunidad → EXITED (salida total).")
+            if cascade.get("cascade") == "review_required":
+                lines.append("\nRequiere revisión y decisión humana; no se ejecutó una salida.")
             tg = TelegramNotifier()
             tg.execute({"message": "\n".join(lines)[:4000]})
         except Exception as e:
@@ -165,83 +156,6 @@ class ThesisMonitorWorker(BaseWorker):
     def evaluate(self, ticker: str, opp_id: str, sqlite: SQLiteStore,
                  journal: JournalRepository, base_path: Path,
                  trigger_source: str = "manual") -> dict[str, Any]:
-        thesis_statement = ""
-        case_summary = ""
-        ddd_file = journal.opportunity_path(ticker, opp_id) / "ddd_report.yml"
-        if ddd_file.exists():
-            import yaml
-            try:
-                report = yaml.safe_load(ddd_file.read_text(encoding="utf-8")) or {}
-                thesis_statement = report.get("tesis_inversion", "")
-                integridad = report.get("integridad_tesis", {}) or {}
-                if integridad.get("thesis_active") is not None and trigger_source == "manual":
-                    case_summary = f"Evaluación DDD previa: {integridad.get('reason', 'sin detalle')}"
-            except Exception:
-                pass
-
-        case_file = journal.load_case_file(ticker)
-        if case_file:
-            case_summary = (case_summary + "\n" if case_summary else "") + \
-                f"Case file: {case_file.get('last_updated', '')} con {len(case_file.get('opportunities', []))} oportunidades"
-
-        financial = self._load_financial_summary(ticker, sqlite, base_path)
-        conviction = 0
-        opp = sqlite.get_opportunity(opp_id)
-        if opp:
-            conviction = opp.get("conviction", {}).get("overall", 0)
-
-        template = self.registry.get("thesis_monitor", category="research")
-        if not template:
-            return {}
-        system = self.registry.get_system("thesis_monitor", category="research") or ""
-        formatted = template.format(**{
-            "ticker": ticker,
-            "name": ticker,
-            "thesis_statement": thesis_statement or "No disponible",
-            "financial_summary": financial,
-            "recent_events": "",
-            "case_file_summary": case_summary or "Sin conocimiento acumulado",
-            "conviction": conviction,
-            "trigger_source": trigger_source,
-        })
-        return self.llm.generate_structured(prompt=formatted, system_prompt=system, temperature=0.1)
-
-    def _load_financial_summary(self, ticker: str, sqlite: SQLiteStore, base_path: Path) -> str:
-        import json
-        data: dict[str, Any] = {}
-        try:
-            for row in sqlite.conn.execute(
-                "SELECT data_json FROM events_log WHERE event_type LIKE ? AND data_json LIKE ? ORDER BY timestamp DESC LIMIT 1",
-                (f"%{ticker}%", f"%{ticker}%"),
-            ):
-                try:
-                    data = json.loads(row[0])
-                    break
-                except (json.JSONDecodeError, IndexError):
-                    pass
-        except Exception:
-            pass
-        if not data:
-            cache_file = base_path / "cache" / f"{ticker}.json"
-            if cache_file.exists():
-                try:
-                    raw = json.loads(cache_file.read_text(encoding="utf-8"))
-                    if isinstance(raw, dict) and "merged_data" in raw:
-                        data = raw["merged_data"]
-                    elif isinstance(raw, dict):
-                        data = raw
-                except Exception:
-                    pass
-        if not data:
-            return "Sin datos financieros disponibles"
-        keys = ["revenue_ttm", "revenue_growth_pct", "operating_margin_pct", "roic_pct",
-                "debt_equity_ratio", "fcf_adjusted", "pe_ratio", "interest_coverage_ratio"]
-        parts = []
-        for k in keys:
-            v = data.get(k)
-            if v is not None and v != "":
-                if isinstance(v, float):
-                    parts.append(f"{k}={v:.1f}")
-                else:
-                    parts.append(f"{k}={v}")
-        return ", ".join(parts) or "Sin datos financieros disponibles"
+        return self.research.reassess_thesis(
+            ticker, opp_id, sqlite, journal, base_path, trigger_source,
+        )

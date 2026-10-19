@@ -70,3 +70,11 @@ rules:
     action: "BLOCK"
     stage: execution
     active: true
+
+  - id: RULE-010
+    description: "Financial inputs must include a source and valid cutoff date"
+    priority: 110
+    condition: "financial_data_quality has valid source and as_of_date"
+    action: "PASS"
+    stage: authorization
+    active: true

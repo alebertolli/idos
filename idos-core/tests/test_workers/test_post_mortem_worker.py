@@ -19,8 +19,7 @@ class TestPostMortemWorker:
         base_path: str,
     ):
         ticker, opp_id = seeded_opportunity_exited
-        worker = PostMortemWorker({"provider": "test"})
-        worker.llm = mock_llm_client
+        worker = PostMortemWorker({"llm_service": mock_llm_client})
 
         result = worker.execute({
             "ticker": ticker,
@@ -34,6 +33,10 @@ class TestPostMortemWorker:
         assert output["status"] == "completed"
         assert output["pm_id"] is not None
         assert output["exit_reason"] == "thesis_broken"
+        mock_llm_client.generate_structured.assert_not_called()
+        report = list_reports(Path(base_path))[0]
+        assert report["analysis"]["analysis_version"] == "deterministic_post_mortem_v1"
+        assert report["recommendations"] == []
 
     def test_post_mortem_requires_human_approval(
         self,
@@ -44,8 +47,7 @@ class TestPostMortemWorker:
         monkeypatch,
     ):
         ticker, opp_id = seeded_opportunity_exited
-        worker = PostMortemWorker({"provider": "test"})
-        worker.llm = mock_llm_client
+        worker = PostMortemWorker({"llm_service": mock_llm_client})
 
         result = worker.execute({
             "ticker": ticker,
@@ -60,7 +62,8 @@ class TestPostMortemWorker:
         report = list_reports(Path(base_path))[0]
         assert report["strategy_id"] == "COMPOUNDER"
         assert report["review_status"] == "PENDING_REVIEW"
-        assert report["recommendations"][0]["status"] == "PROPOSED"
+        assert report["recommendations"] == []
+        assert "SINGLE_CASE_REPORT_ONLY" == report["analysis"]["strategy_recommendations_status"]
         monkeypatch.chdir(base_path)
         runner = CliRunner()
         listed = runner.invoke(app, ["learning-list"])
@@ -68,12 +71,12 @@ class TestPostMortemWorker:
         assert report["id"] in listed.stdout
         shown = runner.invoke(app, ["learning-show", report["id"]])
         assert shown.exit_code == 0
-        assert "PROPOSED" in shown.stdout
+        assert "No hay propuestas de cambio de estrategia" in shown.stdout
         approved = runner.invoke(app, ["learning-approve", report["id"], "family-manager"])
         assert approved.exit_code == 0
         assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.ARCHIVED.value
         assert list_reports(Path(base_path))[0]["review_status"] == "APPROVED"
-        assert list_reports(Path(base_path))[0]["recommendations"][0]["status"] == "PROPOSED"
+        assert list_reports(Path(base_path))[0]["recommendations"] == []
         approve_report(Path(base_path), report["id"], "family-manager")
         transitions = list(tmp_sqlite.conn.execute(
             "SELECT id FROM state_transitions WHERE opportunity_id = ? AND to_status = 'ARCHIVED'",
@@ -93,8 +96,7 @@ class TestPostMortemWorker:
         tmp_journal,
     ):
         ticker, opp_id = seeded_opportunity_exited
-        worker = PostMortemWorker({"provider": "test"})
-        worker.llm = mock_llm_client
+        worker = PostMortemWorker({"llm_service": mock_llm_client})
 
         worker.execute({
             "ticker": ticker,
@@ -108,6 +110,7 @@ class TestPostMortemWorker:
         yml_files = list(pm_dir.glob("*.yml"))
         assert len(yml_files) == 1
         assert not (tmp_journal.opportunity_path(ticker, opp_id) / "post_mortem").exists()
+        mock_llm_client.generate_structured.assert_not_called()
 
     def test_post_mortem_injects_entry_snapshot(
         self,
@@ -146,8 +149,7 @@ class TestPostMortemWorker:
         }
         save_entry_snapshot(tmp_journal, ticker, opp_id, snapshot)
 
-        worker = PostMortemWorker({"provider": "test"})
-        worker.llm = mock_llm_client
+        worker = PostMortemWorker({"llm_service": mock_llm_client})
 
         result = worker.execute({
             "ticker": ticker,
@@ -159,14 +161,15 @@ class TestPostMortemWorker:
         assert result.status == "success"
         assert result.output["status"] == "completed"
 
-        prompt = mock_llm_client.generate_structured.call_args.kwargs["prompt"]
-        assert "THESIS-DE-ENTRADA-UNICA" in prompt
-        assert "TESIS AL MOMENTO DE ENTRADA (snapshot)" in prompt
-        assert "Catalizador de prueba" in prompt
-        assert "Riesgo de prueba" in prompt
-        assert "accumulation" in prompt
-        assert "74" in prompt
-        assert "8/9" in prompt
+        report = list_reports(Path(base_path))[0]
+        entry = report["analysis"]["evidence"]["entry"]
+        assert entry["thesis"] == "THESIS-DE-ENTRADA-UNICA"
+        assert entry["entry_price"] == 95.0
+        assert entry["catalysts_count"] == 1
+        assert entry["risks_count"] == 1
+        assert entry["wyckoff_phase"] == "accumulation"
+        assert entry["wyckoff_score"] == 74
+        mock_llm_client.generate_structured.assert_not_called()
 
     def test_post_mortem_skips_wrong_state(        self,
         tmp_sqlite,
@@ -184,8 +187,7 @@ class TestPostMortemWorker:
         }
         tmp_sqlite.save_opportunity(opp)
 
-        worker = PostMortemWorker({"provider": "test"})
-        worker.llm = mock_llm_client
+        worker = PostMortemWorker({"llm_service": mock_llm_client})
 
         result = worker.execute({
             "ticker": ticker,
@@ -196,3 +198,44 @@ class TestPostMortemWorker:
 
         assert result.status == "success"
         assert result.output["status"] == "skipped"
+        mock_llm_client.generate_structured.assert_not_called()
+
+    def test_post_mortem_reports_prediction_evidence_without_strategy_recommendations(
+        self,
+        seeded_opportunity_exited: tuple[str, str],
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_journal,
+    ):
+        ticker, opp_id = seeded_opportunity_exited
+        tmp_journal.save_hypothesis(ticker, opp_id, {
+            "id": "H-PREDICTIONS",
+            "status": "INVALIDATED",
+            "predictions": [
+                {"metric": "revenue_growth", "expected": ">10%", "actual": "4%", "met": False},
+                {"metric": "gross_margin", "expected": ">40%", "actual": "44%", "met": True},
+                {"metric": "debt", "expected": "stable", "actual": None, "met": None},
+            ],
+            "falsification": [{"condition": "moat erosion", "triggered": True}],
+        })
+        worker = PostMortemWorker({"llm_service": mock_llm_client})
+        result = worker.execute({
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "exit_reason": "thesis_broken",
+            "base_path": base_path,
+        })
+
+        report = list_reports(Path(base_path))[0]
+        analysis = report["analysis"]
+        assert result.output["hypotheses"]["predictions_evaluated"] == 2
+        assert analysis["hypothesis_evaluation"]["predictions_met"] == 1
+        assert len(analysis["what_went_right"]) == 1
+        assert len(analysis["what_went_wrong"]) == 1
+        assert analysis["hypothesis_evaluation"]["was_falsification_applied"] is True
+        assert analysis["thesis_was_correct"] is None
+        assert analysis["biases_assessment"] == "NOT_ASSESSED"
+        assert analysis["portfolio_metrics"]["financial_pnl_usd"]["status"] == "NOT_ASSESSED"
+        assert analysis["portfolio_metrics"]["purchasing_power_impact_ars"]["status"] == "NOT_ASSESSED"
+        assert report["recommendations"] == []
+        mock_llm_client.generate_structured.assert_not_called()

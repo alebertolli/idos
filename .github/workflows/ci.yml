@@ -31,6 +31,7 @@ jobs:
           pip install pytest
       - name: Run tests
         run: |
+          set -o pipefail
           python -m pytest idos-core/tests/ -v 2>&1 | tee /tmp/ci_test_output.log
       - name: 🐛 Report failure as GitHub Issue
         if: failure()

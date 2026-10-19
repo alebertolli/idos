@@ -1,10 +1,8 @@
 from dataclasses import dataclass
-from datetime import datetime
 from typing import Any
 from idos.models.enums import HypothesisStatus, OpportunityStatus
 from idos.state.machine import StateMachine, Transition
 from idos.core.errors import StateTransitionError
-from idos.timezone import AR_TZ
 
 
 class HypothesisStateMachine(StateMachine):
@@ -64,23 +62,14 @@ class HypothesisStateMachine(StateMachine):
         )
 
 
-CASCADE_MAP: dict[HypothesisStatus, OpportunityStatus | None] = {
-    # Hipótesis principal invalidada → la tesis rompe → salida total.
-    # Lo CASE ccada NO cierra la oportunidad: es solo archivo de la hipótesis.
-    HypothesisStatus.INVALIDATED: OpportunityStatus.EXITED,
-    HypothesisStatus.CONFIRMED: None,
-    HypothesisStatus.CLOSED: None,
-}
-
-
 def apply_hypothesis_cascade(journal_repo: Any, sqlite: Any,
                              ticker: str, opp_id: str,
                              hypothesis: dict[str, Any],
                              is_principal: bool = False) -> dict[str, Any]:
     """Aplica el efecto de una hipótesis sobre la oportunidad.
 
-    - CLOSED de una hipótesis NO cierra la oportunidad (regla de cascade).
-    - Solo la hipótesis PRINCIPAL invalidada activa la salida total (EXITED).
+    - Invalidar la hipótesis principal solicita una revisión de salida.
+    - La oportunidad solo pasa a EXITED tras una decisión humana explícita.
     """
     if not is_principal:
         return {"cascade": "none"}
@@ -89,29 +78,25 @@ def apply_hypothesis_cascade(journal_repo: Any, sqlite: Any,
     if status != HypothesisStatus.INVALIDATED.value:
         return {"cascade": "none"}
 
-    target = CASCADE_MAP.get(HypothesisStatus.INVALIDATED)
-    if target is None:
-        return {"cascade": "none"}
-
     opp = sqlite.get_opportunity(opp_id)
     if not opp:
         return {"cascade": "none"}
 
     from_status = opp["status"]
-    if from_status == target.value:
+    if from_status == OpportunityStatus.EXITED.value:
         return {"cascade": "already_exited"}
-
-    opp["status"] = target.value
-    opp["updated_at"] = datetime.now(AR_TZ).isoformat()
-    opp["exit_reason"] = "hypothesis_invalidated"
-    sqlite.save_opportunity(opp)
-    sqlite.record_transition(opp_id, from_status, target.value,
-                             cause="hypothesis_invalidated", worker="hypothesis_lifecycle")
     journal_repo.log_event(
-        "opportunity:cascade_invalidate",
-        {"opp_id": opp_id, "ticker": ticker, "from": from_status, "to": target.value},
+        "opportunity:exit_review_required",
+        {"opp_id": opp_id, "ticker": ticker, "status": from_status,
+         "reason": "hypothesis_invalidated"},
         source="hypothesis_lifecycle",
     )
+    sqlite.log_event("opportunity:exit_review_required", {
+        "opp_id": opp_id,
+        "ticker": ticker,
+        "status": from_status,
+        "reason": "hypothesis_invalidated",
+    }, source="hypothesis_lifecycle")
     print(f"[HYP] {ticker} ({opp_id}): hipótesis principal INVALIDATED "
-          f"→ oportunidad {from_status} → {target.value}")
-    return {"cascade": "exited", "from_status": from_status, "to_status": target.value}
+          "→ requiere decisión humana para salir")
+    return {"cascade": "review_required", "from_status": from_status}

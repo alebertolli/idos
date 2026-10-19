@@ -70,20 +70,18 @@ jobs:
                   reasoning = data.get('reasoning', '')
                   created = data.get('created_at', '')
 
-                  decided = br.exists()
+                  decided = False
                   approved = False
-                  if decided:
+                  if br.exists():
                       try:
                           br_data = yaml.safe_load(br.read_text(encoding='utf-8'))
-                          approved = br_data.get('approved', False)
+                          author = str(br_data.get('author', '')).strip().lower()
+                          review_status = str(br_data.get('status', '')).strip().lower()
+                          decided = review_status in ('approved', 'rejected', 'decided') and author not in ('', 'system', 'board')
+                          approved = decided and bool(br_data.get('approved', False))
                       except Exception:
-                          pass
-                  elif recommendation == 'APPROVE':
-                      approved = True
-                  elif recommendation == 'BLOCKED':
-                      approved = False
-
-                  status = 'DECIDED' if decided else 'PENDING_REVIEW' if recommendation == 'PENDING_REVIEW' else ('AUTO_APPROVED' if recommendation == 'APPROVE' else 'AUTO_BLOCKED')
+                          decided = False
+                  status = 'DECIDED' if decided else 'BLOCKED' if recommendation == 'BLOCKED' else 'PENDING_REVIEW'
 
                   proposals.append({
                       'ticker': ticker,
@@ -102,8 +100,8 @@ jobs:
               json.dump(proposals, f, indent=2, ensure_ascii=False)
           print(f'Scanned {len(proposals)} proposals')
           pending = [p for p in proposals if p['status'] == 'PENDING_REVIEW']
-          approved_list = [p for p in proposals if p['status'] == 'AUTO_APPROVED' or (p['status'] == 'DECIDED' and p['approved'])]
-          blocked_list = [p for p in proposals if p['status'] == 'AUTO_BLOCKED' or (p['status'] == 'DECIDED' and not p['approved'] and p['recommendation'] != 'PENDING_REVIEW')]
+          approved_list = [p for p in proposals if p['status'] == 'DECIDED' and p['approved']]
+          blocked_list = [p for p in proposals if p['status'] == 'BLOCKED' or (p['status'] == 'DECIDED' and not p['approved'])]
           print(f'  PENDING_REVIEW: {len(pending)}')
           print(f'  APPROVED: {len(approved_list)}')
           print(f'  BLOCKED: {len(blocked_list)}')
@@ -116,8 +114,8 @@ jobs:
           proposals = json.loads(open('cache/board_proposals.json', encoding='utf-8').read())
 
           pending = [p for p in proposals if p['status'] == 'PENDING_REVIEW']
-          approved_list = [p for p in proposals if p['status'] in ('AUTO_APPROVED', 'DECIDED') and p['approved']]
-          blocked_list = [p for p in proposals if p['status'] in ('AUTO_BLOCKED', 'DECIDED') and not p['approved'] and p['status'] != 'PENDING_REVIEW']
+          approved_list = [p for p in proposals if p['status'] == 'DECIDED' and p['approved']]
+          blocked_list = [p for p in proposals if p['status'] == 'BLOCKED' or (p['status'] == 'DECIDED' and not p['approved'])]
 
           lines = []
           lines.append('*IDOS Board Review*')

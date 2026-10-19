@@ -8,6 +8,7 @@ class DataValidator:
     def cross_validate(self, sources: dict[str, dict[str, Any]]) -> dict[str, Any]:
         merged: dict[str, Any] = {}
         conflicts: list[dict[str, Any]] = []
+        field_sources: dict[str, list[str]] = {}
 
         all_keys: set[str] = set()
         for data in sources.values():
@@ -21,6 +22,11 @@ class DataValidator:
 
             if len(values) == 0:
                 continue
+
+            # Keep provenance per field. A global source_count is not enough to
+            # establish coverage for a critical metric when providers have
+            # different schemas or return partial responses.
+            field_sources[key] = list(values)
 
             if len(values) == 1:
                 merged[key] = list(values.values())[0]
@@ -36,17 +42,17 @@ class DataValidator:
 
             vals = list(numeric_values.values())
             avg = sum(vals) / len(vals)
-
-            for src, val in numeric_values.items():
-                if avg != 0:
-                    deviation = abs(val - avg) / abs(avg) * 100
-                    if deviation > self.tolerance_pct:
-                        conflicts.append({
-                            "field": key,
-                            "sources": {src: val},
-                            "avg": avg,
-                            "deviation_pct": round(deviation, 1),
-                        })
+            spread = max(vals) - min(vals)
+            deviation = spread / abs(avg) * 100 if avg != 0 else None
+            if (deviation is None and spread > 0) or (
+                deviation is not None and deviation > self.tolerance_pct
+            ):
+                conflicts.append({
+                    "field": key,
+                    "sources": numeric_values,
+                    "avg": avg,
+                    "deviation_pct": round(deviation, 1) if deviation is not None else None,
+                })
 
             merged[key] = round(avg, 2) if isinstance(avg, float) else avg
 
@@ -55,6 +61,7 @@ class DataValidator:
             "conflicts": conflicts,
             "source_count": len(sources),
             "sources_used": list(sources.keys()),
+            "field_sources": field_sources,
         }
 
     def _pick_best(self, values: dict[str, Any]) -> Any:

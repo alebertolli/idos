@@ -8,10 +8,12 @@ def test_pipeline_good_company_adds_to_watchlist():
     pipeline = ScreeningPipeline(min_watchlist_score=60)
     data = {
         "metrics": {
-            "market_cap": 50e9, "avg_dollar_volume": 2e6,
-            "relative_strength_3m": 80, "relative_strength_12m": 70,
-            "price_volume_trend": 5, "roic": 0.18,
-            "fcf_yield": 0.05, "debt_to_equity": 0.4,
+            "asset_type": "us_equity", "market_cap_usd": 50e9, "size_metric_usd": 50e9,
+            "avg_dollar_volume_usd": 2e6, "market_data_normalization": {"status": "complete"},
+            "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY"},
+            "size_metric_provenance": {"source": "test", "as_of": "2026-10-16"},
+            "market_cap_provenance": {"source": "test", "as_of": "2026-10-16"},
+            "operating_margin_pct": 12, "fcf": 1_000_000_000, "revenue_growth_pct": 15,
         }
     }
     result = pipeline.process("MELI", data)
@@ -22,10 +24,12 @@ def test_pipeline_good_company_adds_to_watchlist():
 def test_pipeline_rejects_poor_company():
     pipeline = ScreeningPipeline()
     data = {"metrics": {
-        "market_cap": 50e6, "avg_dollar_volume": 10e3,
-        "relative_strength_3m": -30, "relative_strength_12m": -50,
-        "price_volume_trend": -5, "roic": 0.02,
-        "fcf_yield": -0.01, "debt_to_equity": 3.0,
+        "asset_type": "us_equity", "market_cap_usd": 50e6, "size_metric_usd": 50e6,
+        "avg_dollar_volume_usd": 10e3, "market_data_normalization": {"status": "complete"},
+        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY"},
+        "size_metric_provenance": {"source": "test", "as_of": "2026-10-16"},
+        "market_cap_provenance": {"source": "test", "as_of": "2026-10-16"},
+        "operating_margin_pct": -1, "fcf": -1, "revenue_growth_pct": -1,
     }}
     result = pipeline.process("POOR", data)
     assert result.passed is False
@@ -37,10 +41,12 @@ def test_pipeline_events():
     bus.clear()
     pipeline = ScreeningPipeline(min_watchlist_score=50)
     data = {"metrics": {
-        "market_cap": 10e9, "avg_dollar_volume": 1e6,
-        "relative_strength_3m": 5, "relative_strength_12m": 10,
-        "price_volume_trend": 0, "roic": 0.2,
-        "fcf_yield": 0.03, "debt_to_equity": 0.4,
+        "asset_type": "us_equity", "market_cap_usd": 10e9, "size_metric_usd": 10e9,
+        "avg_dollar_volume_usd": 1e6, "market_data_normalization": {"status": "complete"},
+        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY"},
+        "size_metric_provenance": {"source": "test", "as_of": "2026-10-16"},
+        "market_cap_provenance": {"source": "test", "as_of": "2026-10-16"},
+        "operating_margin_pct": 10, "fcf": 1, "revenue_growth_pct": 1,
     }}
     pipeline.process("EVENT_TEST", data)
     events = bus.get_history()

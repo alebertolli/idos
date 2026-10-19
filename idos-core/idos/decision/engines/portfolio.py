@@ -4,9 +4,26 @@ from idos.decision.engines.base import BaseAssessmentEngine, AssessmentResult
 
 class PortfolioAssessmentEngine(BaseAssessmentEngine):
     name = "PortfolioAssessmentEngine"
-    version = "1.0"
+    version = "1.1"
 
     def evaluate(self, context: dict[str, Any]) -> AssessmentResult:
+        if not context.get("portfolio_data_available", False):
+            return AssessmentResult(
+                engine=self.name,
+                version=self.version,
+                score=50,
+                confidence="LOW",
+                findings=[{
+                    "type": "PENDING",
+                    "detail": "Private family portfolio source is not connected; portfolio fit is not assessed",
+                }],
+                risks=[{
+                    "type": "DATA_UNAVAILABLE",
+                    "detail": "Do not infer capacity, diversification, or position count from missing or paper data",
+                }],
+                recommendation="NOT_ASSESSED",
+            )
+
         portfolio = context.get("portfolio", {})
         company = context.get("company", {})
         score = 60

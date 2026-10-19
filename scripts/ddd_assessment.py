@@ -19,12 +19,18 @@ def main():
     tickers_env = os.environ.get('TICKER', '')
     tickers = [t.strip().upper() for t in tickers_env.split(',') if t.strip()] if tickers_env else []
     event_type = os.environ.get('EVENT_TYPE', 'monthly')
+    reassess_existing = os.environ.get('REASSESS_EXISTING', 'false').lower() == 'true'
+
+    if reassess_existing and len(tickers) != 1:
+        raise ValueError('REASSESS_EXISTING requires exactly one selected ticker')
 
     workspace = os.environ.get('GITHUB_WORKSPACE', '.')
     os.chdir(workspace)
 
     results_file = 'cache/ddd_results.json'
     if not Path(results_file).exists():
+        if reassess_existing:
+            raise ValueError('REASSESS_EXISTING requires a persisted DDD results file')
         print('[ASSESSMENT] No results file found')
         sys.exit(0)
 
@@ -32,10 +38,16 @@ def main():
     processed = results.get('processed', [])
     assessments = results.get('assessments', [])
     errors = results.get('errors', [])
-    total = results.get('total', 0)
+    total = results.get('total', len(processed))
 
-    # Use assessment results if available, else use processed
-    items = assessments if assessments else processed
+    # Re-assessment only targets a unique prior Assessment for the selected ticker.
+    if reassess_existing:
+        items = [item for item in assessments if str(item.get('ticker') or '').upper() in tickers]
+        if len(items) != 1:
+            raise ValueError('REASSESS_EXISTING requires exactly one previously assessed opportunity for the selected ticker')
+    else:
+        # Use assessment results if available, else use processed
+        items = assessments if assessments else processed
 
     if not items:
         print('[ASSESSMENT] No opportunities to assess')
@@ -67,17 +79,32 @@ def main():
             print('[ASSESSMENT] Skipping opportunity without ticker or opp_id')
             continue
 
-        # Check if already assessed
-        if any(a.get('opp_id') == opp_id for a in assessments):
+        # Re-assessment is an explicit, bounded operation over persisted Research.
+        existing_index = next((
+            index for index, item in enumerate(assessments)
+            if str(item.get('ticker') or '').upper() == ticker and item.get('opp_id') == opp_id
+        ), None)
+        if existing_index is not None and not reassess_existing:
             print('[ASSESSMENT] Skipping already assessed: {} {}'.format(ticker, opp_id))
             continue
+
+        if reassess_existing:
+            opportunity_path = (
+                Path(workspace) / 'idos-journal' / 'companies' / ticker / 'case_file'
+                / 'opportunities' / opp_id / 'ddd_report.yml'
+            )
+            if existing_index is None or not opportunity_path.is_file():
+                raise ValueError('REASSESS_EXISTING requires a prior result and persisted Research for {} {}'.format(ticker, opp_id))
 
         mode = 'FORCE' if opp.get('force', force) else 'NORMAL'
         print('\n[STEP 3-7] Running assessment pipeline for {} ({}) [{}]...'.format(ticker, opp_id, mode))
 
         try:
             result = run_full_pipeline(opp_id, ticker, workspace, force_reprocess=opp.get('force', False))
-            assessments.append(result)
+            if reassess_existing and existing_index is not None:
+                assessments[existing_index] = result
+            else:
+                assessments.append(result)
             processed_items.append({
                 'ticker': ticker,
                 'opp_id': opp_id,
@@ -111,14 +138,7 @@ def main():
     print('\n[ASSESSMENT] Done: {} assessed, {} errors'.format(
         len(assessments), len(errors_list)))
 
-    # Generate digest after assessment
-    from idos.decision.assessment_pipeline import build_digest
-    print('[ASSESSMENT] Generating digest...')
-    try:
-        build_digest(workspace)
-        print('[ASSESSMENT] Digest generated successfully')
-    except Exception as e:
-        print('[ASSESSMENT] Digest generation error: {}'.format(e))
+    # The workflow's final ddd_digest.py step owns the combined digest.
 
 
 if __name__ == '__main__':

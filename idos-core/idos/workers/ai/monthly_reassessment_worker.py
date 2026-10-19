@@ -2,8 +2,8 @@
 
 Runs once per month (first weekday). Performs three tasks:
 
-1. **Thesis Re-assessment**: Calls ThesisMonitorWorker for every active
-   opportunity to re-evaluate thesis integrity via LLM.
+1. **Thesis Re-assessment**: Calls ThesisMonitorWorker for due opportunities
+   to re-evaluate thesis integrity via LLM; skips reviews before their cadence.
 2. **Conviction Recalibration**: Adjusts conviction scores for all active
    opportunities based on overvaluation/undervaluation, thesis status,
    and risk drawdown.
@@ -21,6 +21,8 @@ from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.portfolio.competition import CapitalCompetitionEngine
 from idos.portfolio.exit import ExitEngine
+from idos.research.thesis_schedule import schedule_for_opportunity
+from idos.strategy.catalog import StrategyCatalog
 from idos.timezone import AR_TZ
 from idos.workers.base import BaseWorker
 
@@ -43,7 +45,12 @@ class MonthlyReassessmentWorker(BaseWorker):
         journal = JournalRepository(bp / "idos-journal")
         sqlite = SQLiteStore(bp / "idos.db")
 
-        opportunities = self._active_opportunities(sqlite)
+        requested_tickers = {
+            str(ticker).strip().upper()
+            for ticker in context.get("tickers", [])
+            if str(ticker).strip()
+        }
+        opportunities = self._active_opportunities(sqlite, requested_tickers or None)
         position_map = self._load_paper_positions(journal)
 
         for opp in opportunities:
@@ -53,34 +60,41 @@ class MonthlyReassessmentWorker(BaseWorker):
             opp.setdefault("stop_loss", pos.get("stop_loss", 0))
 
         thesis_results = self._reassess_theses(opportunities, sqlite, journal, bp)
+        completed_thesis_reviews = [r for r in thesis_results if r.get("status") == "completed"]
         conviction_results = self._recalibrate_conviction(opportunities, sqlite, journal)
         portfolio_results = self._review_portfolio(opportunities, sqlite, journal, bp)
 
         summary = {
             "date": datetime.now(AR_TZ).isoformat(),
             "total_active": len(opportunities),
-            "thesis_reassessed": len(thesis_results),
-            "thesis_changed": sum(1 for r in thesis_results if r.get("thesis_changed")),
+            "thesis_reassessed": len(completed_thesis_reviews),
+            "thesis_skipped_not_due": sum(1 for r in thesis_results if r.get("reason") == "review_not_due"),
+            "thesis_failed": sum(1 for r in thesis_results if r.get("status") == "failed"),
+            "thesis_changed": sum(1 for r in completed_thesis_reviews if r.get("thesis_changed")),
             "conviction_recalibrated": len(conviction_results),
             "portfolio_reviewed": len(portfolio_results),
             "proposals": [r for r in portfolio_results if r.get("proposal")],
-            "exits_triggered": [r for r in thesis_results if r.get("exit_triggered")],
+            "exit_proposals": [r["exit_proposal"] for r in thesis_results if r.get("exit_proposal")],
         }
 
         self._write_cache(bp, summary, thesis_results, conviction_results, portfolio_results)
 
-        if self.notify and (summary["thesis_changed"] or summary["proposals"] or summary["exits_triggered"]):
+        if self.notify and (summary["thesis_changed"] or summary["proposals"] or summary["exit_proposals"]):
             self._notify(summary, bp)
 
         return {"status": "completed", **summary}
 
     # ── thesis re-assessment ────────────────────────────────────────────
 
-    def _active_opportunities(self, sqlite: SQLiteStore) -> list[dict[str, Any]]:
-        return [
+    def _active_opportunities(self, sqlite: SQLiteStore,
+                              tickers: set[str] | None = None) -> list[dict[str, Any]]:
+        opportunities = [
             o for o in sqlite.list_opportunities()
             if o.get("status") in ("ACCUMULATING", "FULL_POSITION", "MONITORING", "REDUCING")
         ]
+        if tickers is not None:
+            opportunities = [o for o in opportunities if str(o.get("ticker", "")).upper() in tickers]
+        return opportunities
 
     @staticmethod
     def _load_paper_positions(journal: JournalRepository) -> dict[str, dict[str, Any]]:
@@ -101,12 +115,42 @@ class MonthlyReassessmentWorker(BaseWorker):
     def _reassess_theses(self, opportunities: list[dict[str, Any]], sqlite: SQLiteStore,
                            journal: JournalRepository, bp: Path) -> list[dict[str, Any]]:
         results = []
+        catalog = StrategyCatalog(bp / "idos-config" / "strategies.yml")
+        now = datetime.now(AR_TZ)
         for opp in opportunities:
             ticker = opp.get("ticker", "")
             opp_id = opp.get("id", "")
             if not ticker:
                 continue
             try:
+                if str(opp.get("research_profile", "")).lower() == "systematic":
+                    results.append({
+                        "ticker": ticker,
+                        "opp_id": opp_id,
+                        "status": "skipped",
+                        "reason": "systematic_strategy",
+                    })
+                    continue
+                profile = catalog.get(opp.get("strategy_id") or "COMPOUNDER")
+                schedule = schedule_for_opportunity(opp, profile, now)
+                if schedule.interval_days is None:
+                    results.append({
+                        "ticker": ticker,
+                        "opp_id": opp_id,
+                        "status": "skipped",
+                        "reason": schedule.reason,
+                    })
+                    continue
+                if not schedule.due:
+                    results.append({
+                        "ticker": ticker,
+                        "opp_id": opp_id,
+                        "status": "skipped",
+                        "reason": schedule.reason,
+                        "next_thesis_review_at": schedule.next_review_at.isoformat(),
+                    })
+                    continue
+
                 from idos.workers.ai.thesis_monitor_worker import ThesisMonitorWorker
                 worker = ThesisMonitorWorker({"llm_service": self.llm_service})
                 result = worker.run({
@@ -118,70 +162,94 @@ class MonthlyReassessmentWorker(BaseWorker):
                 if result.get("status") == "completed":
                     thesis_active = result.get("thesis_active", True)
                     changed = thesis_active != opp.get("thesis_active", True)
-                    exit_triggered = changed and not thesis_active
+                    exit_proposal = None
+                    reviewed_at = datetime.now(AR_TZ)
+                    next_review = (reviewed_at + timedelta(days=schedule.interval_days)).isoformat()
+                    opp["last_thesis_assessment_at"] = reviewed_at.isoformat()
+                    opp["next_thesis_review_at"] = next_review
+                    persisted_opp = sqlite.get_opportunity(opp_id) or dict(opp)
+                    persisted_opp["last_thesis_assessment_at"] = reviewed_at.isoformat()
+                    persisted_opp["next_thesis_review_at"] = next_review
+                    sqlite.save_opportunity(persisted_opp)
+                    journal_opp = journal.load_opportunity(ticker, opp_id) or dict(persisted_opp)
+                    journal_opp["last_thesis_assessment_at"] = reviewed_at.isoformat()
+                    journal_opp["next_thesis_review_at"] = next_review
+                    journal.save_opportunity(ticker, journal_opp)
                     results.append({
                         "ticker": ticker,
                         "opp_id": opp_id,
+                        "status": "completed",
                         "thesis_active": thesis_active,
                         "thesis_changed": changed,
-                        "exit_triggered": exit_triggered,
+                        "exit_proposal": None,
                         "reason": result.get("reason", ""),
                         "flags": result.get("flags", []),
                         "confidence": result.get("confidence", 0),
+                        "review_interval_days": schedule.interval_days,
+                        "last_thesis_assessment_at": reviewed_at.isoformat(),
+                        "next_thesis_review_at": next_review,
                     })
-                    if exit_triggered:
-                        self._trigger_exit(opp, result, sqlite, journal)
-                    elif changed:
+                    if changed:
                         self._update_opp_thesis(opp, result, sqlite, journal)
+                        if not thesis_active:
+                            exit_proposal = self._build_thesis_exit_proposal(opp, result, reviewed_at)
+                            results[-1]["exit_proposal"] = exit_proposal
+                            sqlite.log_event("decision:exit_proposed", exit_proposal,
+                                             source="monthly_reassessment_worker")
+                else:
+                    results.append({
+                        "ticker": ticker,
+                        "opp_id": opp_id,
+                        "status": "failed",
+                        "reason": result.get("reason", "thesis_monitor_failed"),
+                    })
             except Exception as e:
                 print(f"[MONTHLY] {ticker}: error en re-assessment: {e}")
                 results.append({
-                    "ticker": ticker, "opp_id": opp_id,
+                    "ticker": ticker,
+                    "opp_id": opp_id,
+                    "status": "failed",
                     "thesis_active": opp.get("thesis_active", True),
-                    "thesis_changed": False, "exit_triggered": False,
+                    "thesis_changed": False,
+                    "exit_proposal": None,
                     "error": str(e),
                 })
         return results
 
-    def _trigger_exit(self, opp: dict[str, Any], result: dict[str, Any],
-                      sqlite: SQLiteStore, journal: JournalRepository):
-        old_status = opp.get("status", "")
-        opp["thesis_active"] = False
-        opp["thesis_invalidated_reason"] = result.get("reason", "Tesis invalidada en re-assessment mensual")
-        opp["status"] = "EXITED"
-        opp["exit_reason"] = "thesis_monthly_reassessment"
-        opp["updated_at"] = datetime.now(AR_TZ).isoformat()
-        sqlite.save_opportunity(opp)
-        sqlite.record_transition(opp["id"], old_status, "EXITED",
-                                   cause="monthly_thesis_reassessment", worker="monthly_reassessment_worker")
-        old_status = "MONITORING"
-        decision = {
+    @staticmethod
+    def _build_thesis_exit_proposal(opp: dict[str, Any], result: dict[str, Any],
+                                    proposed_at: datetime) -> dict[str, Any]:
+        return {
             "id": f"dec-{uuid4().hex[:8]}",
             "type": "SELL",
             "ticker": opp.get("ticker", ""),
-            "opp_id": opp["id"],
-            "status": "TRIGGERED",
-            "reason": "thesis_monthly_reassessment",
-            "exit_pct": 1.0,
+            "opp_id": opp.get("id", ""),
+            "status": "PENDING_REVIEW",
+            "reason": "thesis_invalidated",
+            "exit_pct": 100.0,
             "urgency": "high",
-            "rationale": result.get("reason", "Re-assessment mensual invalidó la tesis"),
-            "generated_at": datetime.now(AR_TZ).isoformat(),
+            "rationale": result.get("reason", "La revisión de Research marcó la tesis como inválida"),
+            "flags": result.get("flags", []),
+            "confidence": result.get("confidence"),
+            "proposed_at": proposed_at.isoformat(),
+            "human_approval_required": True,
         }
-        journal.save_decision(opp.get("ticker", ""), opp["id"], decision)
-        journal.log_event("thesis:monthly_invalidated", {
-            "opp_id": opp["id"], "ticker": opp.get("ticker", ""),
-            "reason": result.get("reason", ""),
-        }, source="monthly_reassessment_worker")
-        sqlite.log_event("thesis:monthly_invalidated", {
-            "opp_id": opp["id"], "ticker": opp.get("ticker", ""),
-        }, source="monthly_reassessment_worker")
-        print(f"[MONTHLY] {opp.get('ticker')}: tesis invalidada por re-assessment → EXITED")
 
     def _update_opp_thesis(self, opp: dict[str, Any], result: dict[str, Any],
                            sqlite: SQLiteStore, journal: JournalRepository):
         opp["thesis_active"] = result.get("thesis_active", True)
+        if not opp["thesis_active"]:
+            opp["thesis_invalidated_reason"] = result.get("reason", "Tesis invalidada en re-assessment")
         opp["updated_at"] = datetime.now(AR_TZ).isoformat()
         sqlite.save_opportunity(opp)
+        journal_opp = journal.load_opportunity(opp.get("ticker", ""), opp["id"]) or dict(opp)
+        journal_opp.update({
+            "thesis_active": opp["thesis_active"],
+            "updated_at": opp["updated_at"],
+        })
+        if opp.get("thesis_invalidated_reason"):
+            journal_opp["thesis_invalidated_reason"] = opp["thesis_invalidated_reason"]
+        journal.save_opportunity(opp.get("ticker", ""), journal_opp)
         journal.log_event("thesis:reassessed_monthly", {
             "opp_id": opp["id"], "ticker": opp.get("ticker", ""),
             "thesis_active": opp["thesis_active"],
@@ -340,10 +408,10 @@ class MonthlyReassessmentWorker(BaseWorker):
         lines.append(f"Tesis cambiadas: {summary['thesis_changed']}")
         lines.append(f"Conviction recalibrado: {summary['conviction_recalibrated']}")
         lines.append(f"Propuestas de reemplazo: {len(summary['proposals'])}")
-        if summary["exits_triggered"]:
-            lines.append(f"Exits disparados: {len(summary['exits_triggered'])}")
-            for ex in summary["exits_triggered"]:
-                lines.append(f"  - {ex['ticker']}: {ex.get('reason', '')}")
+        if summary["exit_proposals"]:
+            lines.append(f"Propuestas SELL pendientes de revisión: {len(summary['exit_proposals'])}")
+            for proposal in summary["exit_proposals"]:
+                lines.append(f"  - {proposal['ticker']}: {proposal.get('reason', '')}")
         for pr in summary["proposals"]:
             lines.append(f"  Propuesta: {pr['ticker']} (asimetría {pr.get('asymmetry', 'N/A')})")
         message = "\n".join(lines)
@@ -378,4 +446,4 @@ if __name__ == "__main__":
     r = result.output if hasattr(result, "output") else result
     print(f"[MONTHLY] active={r.get('total_active')} thesis_reassessed={r.get('thesis_reassessed')} "
           f"changed={r.get('thesis_changed')} conviction={r.get('conviction_recalibrated')} "
-          f"proposals={len(r.get('proposals', []))} exits={len(r.get('exits_triggered', []))}")
+          f"proposals={len(r.get('proposals', []))} exit_proposals={len(r.get('exit_proposals', []))}")

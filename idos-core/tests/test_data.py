@@ -12,6 +12,7 @@ def test_sqlite_opportunity_crud():
         "ticker": "MELI",
         "status": "DISCOVERED",
         "conviction": {"overall": 0},
+        "next_thesis_review_at": "2026-01-31T00:00:00-03:00",
         "created_at": "2026-01-01T00:00:00",
         "updated_at": "2026-01-01T00:00:00",
     }
@@ -20,6 +21,7 @@ def test_sqlite_opportunity_crud():
     assert loaded is not None
     assert loaded["ticker"] == "MELI"
     assert loaded["status"] == "DISCOVERED"
+    assert loaded["next_thesis_review_at"] == "2026-01-31T00:00:00-03:00"
 
     opps = store.list_opportunities()
     assert len(opps) == 1

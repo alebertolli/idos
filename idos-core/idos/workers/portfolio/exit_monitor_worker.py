@@ -1,16 +1,16 @@
 """Exit Decision Engine - daily monitor.
 
-Evaluates the 4 exit rules for every active paper position and executes the
-appropriate action. Spec v2:
+Evaluates exit rules for every active paper position and emits proposals for
+human review. It does not sell or change the opportunity lifecycle.
 
-- Thesis Exit (100%): thesis_active == False -> full liquidation -> EXITED.
+- Thesis Exit (100%): thesis_active == False -> SELL proposal.
 - Risk Exit (100%): quantitative risk triggers (drawdown, etc.) launch a thesis
-  reassessment (LLM); if the thesis changed -> full liquidation -> EXITED.
+  reassessment; if the thesis changed -> SELL proposal.
 - Valuation Exit (partial): overvaluation = price/intrinsic - 1 >= threshold ->
-  partial trim (exit_pct_on_valuation) -> REDUCING. Never 100%.
+  REDUCE proposal (exit_pct_on_valuation). Never executes automatically.
 - Portfolio Exit (proposal): CapitalCompetitionEngine.should_replace AND current
   asymmetry < min_asymmetry_ratio -> proposal + notification, no auto-liquidation
-  (total replacement requires explicit CLI decision).
+  (all exit actions require explicit manager review).
 
 Technical signals (stop loss / trailing stop) are NOT used for exits.
 """
@@ -84,24 +84,17 @@ class ExitMonitorWorker(BaseWorker):
             if signal is None:
                 continue
 
-            if signal.reason == ExitReason.PORTFOLIO_REPLACEMENT:
-                proposal = self._build_proposal(ticker, pos, opp, signal)
-                proposals.append(proposal)
-                if self.notify:
-                    self._notify_proposal(proposal)
-                continue
-
-            result = self._execute_exit(ticker, pos, opp, price, signal, trader, journal, sqlite)
-            exits.append(result)
+            proposal = self._build_proposal(ticker, pos, opp, price, signal)
+            proposals.append(proposal)
             if self.notify:
-                self._notify_exit(result)
+                self._notify_proposal(proposal)
 
         self._write_exit_signals(bp, exits, proposals)
 
         return {
             "status": "completed",
             "positions_checked": len(positions),
-            "exits_executed": len(exits),
+            "exits_executed": 0,
             "proposals_generated": len(proposals),
             "exits": exits,
             "proposals": proposals,
@@ -230,85 +223,26 @@ class ExitMonitorWorker(BaseWorker):
         except Exception:
             return []
 
-    # ── execution ───────────────────────────────────────────────────────────
-
-    def _execute_exit(self, ticker: str, pos: dict[str, Any], opp: dict[str, Any],
-                      price: float, signal: ExitSignal, trader: PaperTrader,
-                      journal: JournalRepository, sqlite: SQLiteStore) -> dict[str, Any]:
-        exit_pct = signal.exit_pct / 100.0
-        result = trader.sell(ticker, price, signal.reason.value, exit_pct=exit_pct)
-        status = result.get("status", "error")
-        print(f"[EXIT] {ticker}: {signal.reason.value} exit_pct={exit_pct*100:.0f}% -> {status}")
-        if status == "executed":
-            if result.get("closed") or exit_pct >= 1.0:
-                new_status = "EXITED"
-                opp["exit_reason"] = signal.reason.value
-            else:
-                new_status = "REDUCING" if opp.get("status") not in ("REDUCING",) else "REDUCING"
-            self._transition_opp(opp, new_status, signal, journal, sqlite)
-
+    def _build_proposal(self, ticker: str, pos: dict[str, Any], opp: dict[str, Any],
+                        price: float, signal: ExitSignal) -> dict[str, Any]:
+        action = "REDUCE" if signal.exit_pct < 100 else "SELL"
         return {
-            "ticker": ticker,
-            "opp_id": opp.get("id", ""),
-            "reason": signal.reason.value,
-            "exit_pct": exit_pct,
-            "price": price,
-            "status": status,
-            "closed": result.get("closed", False),
-            "quantity": result.get("quantity", 0),
-            "pnl": result.get("pnl", 0),
-            "new_status": new_status,
-            "urgency": signal.urgency,
-            "details": signal.details,
-            "generated_at": datetime.now(AR_TZ).isoformat(),
-        }
-
-    def _transition_opp(self, opp: dict[str, Any], new_status: str, signal: ExitSignal,
-                        journal: JournalRepository, sqlite: SQLiteStore):
-        old_status = opp.get("status", "")
-        if old_status == new_status:
-            return
-        opp["status"] = new_status
-        opp["updated_at"] = datetime.now(AR_TZ).isoformat()
-        sqlite.save_opportunity(opp)
-        sqlite.record_transition(opp["id"], old_status, new_status,
-                                 cause=signal.reason.value, worker="exit_monitor_worker")
-        decision = {
             "id": f"dec-{uuid4().hex[:8]}",
             "type": "SELL",
-            "ticker": opp.get("ticker", ""),
-            "opp_id": opp["id"],
-            "status": "EXECUTED",
-            "reason": signal.reason.value,
-            "exit_pct": signal.exit_pct,
-            "urgency": signal.urgency,
-            "rationale": signal.details,
-            "generated_at": datetime.now(AR_TZ).isoformat(),
-        }
-        journal.save_decision(opp.get("ticker", ""), opp["id"], decision)
-        journal.log_event("position:exited" if new_status == "EXITED" else "position:reduced", {
-            "opp_id": opp["id"], "ticker": opp.get("ticker", ""),
-            "from": old_status, "to": new_status, "reason": signal.reason.value,
-            "exit_pct": signal.exit_pct,
-        }, source="exit_monitor_worker")
-        sqlite.log_event("exit:executed", {
-            "opp_id": opp["id"], "ticker": opp.get("ticker", ""),
-            "from": old_status, "to": new_status, "reason": signal.reason.value,
-            "exit_pct": signal.exit_pct,
-        }, source="exit_monitor_worker")
-
-    def _build_proposal(self, ticker: str, pos: dict[str, Any], opp: dict[str, Any],
-                        signal: ExitSignal) -> dict[str, Any]:
-        return {
             "ticker": ticker,
             "opp_id": opp.get("id", ""),
+            "status": "PENDING_REVIEW",
             "reason": signal.reason.value,
+            "rationale": signal.details,
+            "exit_pct": signal.exit_pct,
+            "price": price,
+            "urgency": signal.urgency,
             "conviction": opp.get("conviction", {}).get("overall", 0),
             "best_candidate_score": signal.conviction_after,
             "asymmetry": self._asymmetry(pos, opp.get("intrinsic_value", 0) or 0),
-            "action": "proposal",
-            "execution": "run: idos position-exit <TICKER> --reason portfolio_rebalance",
-            "generated_at": datetime.now(AR_TZ).isoformat(),
+            "action": action,
+            "proposed_at": datetime.now(AR_TZ).isoformat(),
+            "human_approval_required": True,
         }
 
     # ── helpers ─────────────────────────────────────────────────────────────
@@ -351,32 +285,18 @@ class ExitMonitorWorker(BaseWorker):
                    "generated_at": datetime.now(AR_TZ).isoformat()}
         (cache_dir / "exit_signals.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    def _notify_exit(self, result: dict[str, Any]):
-        ticker = result["ticker"]
-        reason = result["reason"]
-        exit_pct = result.get("exit_pct", 1.0)
-        message = (
-            f"**{ticker} - Salida Ejecutada**\n\n"
-            f"- Razón: `{reason}`\n"
-            f"- % Vendido: `{exit_pct*100:.0f}%`\n"
-            f"- Precio: `${result.get('price', 0):.2f}`\n"
-            f"- Nuevo estado: `{result.get('new_status', '')}`\n"
-            f"- Detalle: `{result.get('details', '')[:200]}`"
-        )
-        print(message)
-        self._send_notification(ticker, f"IDOS - Salida Ejecutada {ticker}", message)
-
     def _notify_proposal(self, proposal: dict[str, Any]):
         message = (
-            f"**{proposal['ticker']} - Propuesta de Sustitución**\n\n"
-            f"- Convicción actual: `{proposal.get('conviction', 0)}`\n"
-            f"- Mejor candidato: `{proposal.get('best_candidate_score', 0)}`\n"
-            f"- Asimetría actual: `{proposal.get('asymmetry', 'N/A')}`\n"
-            f"- La liquidación total requiere decisión explícita:\n"
-            f"  `idos position-exit {proposal['ticker']} --reason portfolio_rebalance`"
+            f"**{proposal['ticker']} - Propuesta {proposal['action']} pendiente de revisión**\n\n"
+            f"- Motivo: `{proposal.get('reason', '')}`\n"
+            f"- Porcentaje sugerido: `{proposal.get('exit_pct', 0):.0f}%`\n"
+            f"- Precio de referencia: `${proposal.get('price', 0):.2f}`\n"
+            f"- Urgencia: `{proposal.get('urgency', '')}`\n"
+            f"- Justificación: `{proposal.get('rationale', '')[:300]}`\n"
+            "No se ejecutó ninguna operación; requiere decisión explícita del gestor."
         )
         print(message)
-        self._send_notification(proposal["ticker"], f"IDOS - Propuesta de Sustitución {proposal['ticker']}", message)
+        self._send_notification(proposal["ticker"], f"IDOS - Propuesta {proposal['action']} {proposal['ticker']}", message)
 
     def _send_notification(self, ticker: str, subject: str, message: str):
         try:
@@ -408,4 +328,4 @@ if __name__ == "__main__":
     for ex in r.get("exits", []):
         print(f"  [EXIT] {ex['ticker']}: {ex['reason']} pct={ex.get('exit_pct', 0)*100:.0f}% -> {ex.get('new_status', '')}")
     for pr in r.get("proposals", []):
-        print(f"  [PROP] {pr['ticker']}: sustitución propuesta (no liquidada)")
+        print(f"  [PROP] {pr['ticker']}: {pr['action']} {pr['exit_pct']:.0f}% pendiente de revisión")

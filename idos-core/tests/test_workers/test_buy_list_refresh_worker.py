@@ -116,6 +116,30 @@ class TestBuyListRefreshWorker:
         entries = {e["ticker"]: e for e in data["entries"]}
         assert "AAPL" in entries, "buylist should be preserved when no approved opportunities"
 
+    def test_includes_manager_approved_candidate_without_entering_private_portfolio_flow(self, tmp_path: Path):
+        bp = tmp_path
+        journal = JournalRepository(bp / "idos-journal")
+        journal.save_opportunity("VIST", {
+            "id": "OPP-BL-REVIEWED",
+            "ticker": "VIST",
+            "status": OpportunityStatus.UNDER_DEEP_DD.value,
+            "approved_for_buylist": True,
+            "conviction": {"overall": 78, "intrinsic_value": 125, "current_price": 100},
+            "intrinsic_value": 125,
+            "current_price": 100,
+            "created_at": "2026-10-19T00:00:00-03:00",
+            "updated_at": "2026-10-19T00:00:00-03:00",
+        })
+
+        result = BuyListRefreshWorker().execute({"base_path": str(bp)})
+
+        assert result.status == "success"
+        assert result.output["added"] == 1
+        data = yaml.safe_load((bp / "idos-journal/portfolio/buylist.yml").read_text(encoding="utf-8"))
+        assert data["entries"][0]["ticker"] == "VIST"
+        assert not (bp / "idos-journal/portfolio/positions").exists()
+        assert journal.load_opportunity("VIST", "OPP-BL-REVIEWED")["status"] == OpportunityStatus.UNDER_DEEP_DD.value
+
     def test_skips_approved_without_intrinsic(self, buylist_env, tmp_path: Path):
         db, journal, bp = buylist_env
         opp_id = "OPP-BL-NOINTR"

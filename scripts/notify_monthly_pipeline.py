@@ -28,7 +28,7 @@ def main() -> int:
                 "📡 *IDOS Monthly Universe Pipeline*",
                 "",
                 "📊 *Pipeline Results:*",
-                f"  Finviz Screening: {output.get('finviz_count', 0)} tickers",
+                f"  Candidate Universe: {output.get('candidate_count', 0)} tickers",
                 f"  Operable Filter: {output.get('operable_count', 0)} tickers",
                 f"  Data Fetch: {output.get('fetch_new', 0)} new, {output.get('fetch_cached', 0)} cached",
                 f"  Scout: {output.get('scout_passed', 0)} passed, {output.get('scout_rejected', 0)} rejected",

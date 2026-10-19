@@ -1,6 +1,7 @@
 from datetime import datetime, timezone, timedelta, date
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 import json
 import yaml
 
@@ -22,10 +23,19 @@ def _load_cache_tickers() -> dict[str, dict[str, Any]]:
             data = json.loads(f.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
+        if not isinstance(data, dict):
+            continue
         merged = data.get("merged_data", data)
+        if not isinstance(merged, dict):
+            continue
         et = merged.get("next_earnings_date")
         if et:
-            result[ticker] = {"next_earnings_date": et, "source_file": f.name}
+            result[ticker] = {
+                "next_earnings_date": et,
+                "source_file": f.name,
+                "source_name": "Yahoo Finance earnings calendar via yfinance",
+                "source_url": f"https://finance.yahoo.com/calendar/earnings/?symbol={quote(ticker, safe='')}",
+            }
     return result
 
 
@@ -41,9 +51,8 @@ def _load_existing_config() -> dict[str, Any]:
         data = yaml.safe_load(raw) or {}
     except Exception:
         data = {}
-    if not isinstance(data, dict) or data.get("tickers") is None:
+    if not isinstance(data, dict) or not isinstance(data.get("tickers"), dict):
         data = {"tickers": {}}
-    data.setdefault("tickers", {})
     return data
 
 
@@ -54,14 +63,24 @@ def populate_earnings(dry_run: bool = False) -> dict[str, Any]:
     added = []
     updated = []
     skipped = []
+    metadata_updated = []
 
     for ticker in sorted(cache_data):
         ts = cache_data[ticker]["next_earnings_date"]
         date_str = _timestamp_to_date(ts)
         current = existing.get(ticker, {})
+        if not isinstance(current, dict):
+            current = {}
         current_earnings = current.get("earnings_date", "")
+        source_metadata = {
+            "source_name": cache_data[ticker]["source_name"],
+            "source_url": cache_data[ticker]["source_url"],
+        }
 
         if current_earnings == date_str:
+            if any(current.get(key) != value for key, value in source_metadata.items()):
+                existing[ticker] = {**current, **source_metadata}
+                metadata_updated.append(ticker)
             skipped.append(ticker)
             continue
 
@@ -70,9 +89,14 @@ def populate_earnings(dry_run: bool = False) -> dict[str, Any]:
         else:
             added.append(ticker)
 
-        existing.setdefault(ticker, {})
-        existing[ticker]["earnings_date"] = date_str
-        existing[ticker].setdefault("triggered_at", None)
+        # A new earnings date is a new event. Clear the previous quarter's
+        # trigger marker so the next post-earnings review can be dispatched.
+        existing[ticker] = {
+            **current,
+            **source_metadata,
+            "earnings_date": date_str,
+            "triggered_at": None,
+        }
 
     today = date.today()
     for ticker in list(existing.keys()):
@@ -91,7 +115,7 @@ def populate_earnings(dry_run: bool = False) -> dict[str, Any]:
     config["tickers"] = existing
 
     stale_names = [s.replace("*", "") for s in skipped if s.endswith("*")]
-    needs_save = bool(added or updated or stale_names)
+    needs_save = bool(added or updated or metadata_updated or stale_names)
     if not dry_run and needs_save:
         EARNINGS_CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
         EARNINGS_CONFIG_PATH.write_text(
@@ -103,6 +127,7 @@ def populate_earnings(dry_run: bool = False) -> dict[str, Any]:
         "tickers_found": len(cache_data),
         "added": added,
         "updated": updated,
+        "metadata_updated": metadata_updated,
         "skipped": [s for s in skipped if not s.endswith("*")],
         "stale_marked": stale_names,
         "dry_run": dry_run,

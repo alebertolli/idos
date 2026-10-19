@@ -50,6 +50,7 @@ class SQLiteStore:
                 exit_reason TEXT DEFAULT '',
                 last_research_at TEXT DEFAULT '',
                 last_thesis_assessment_at TEXT DEFAULT '',
+                next_thesis_review_at TEXT DEFAULT '',
                 signal_json TEXT DEFAULT '{}',
                 created_at TEXT NOT NULL,
                 updated_at TEXT NOT NULL
@@ -185,6 +186,10 @@ class SQLiteStore:
             c.execute("ALTER TABLE opportunities ADD COLUMN last_thesis_assessment_at TEXT DEFAULT ''")
         except Exception:
             pass
+        try:
+            c.execute("ALTER TABLE opportunities ADD COLUMN next_thesis_review_at TEXT DEFAULT ''")
+        except Exception:
+            pass
         for column, definition in (
             ("strategy_id", "TEXT DEFAULT 'COMPOUNDER'"),
             ("strategy_version", "TEXT DEFAULT 'legacy-compatible'"),
@@ -204,8 +209,8 @@ class SQLiteStore:
     def save_opportunity(self, opp: dict[str, Any]):
         with self._write_transaction() as c:
             c.execute("""
-                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, thesis_active, thesis_invalidated_reason, exit_reason, last_research_at, last_thesis_assessment_at, strategy_id, strategy_version, core, sleeve, thesis_type, entry_policy, research_profile, origin, signal_json, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT OR REPLACE INTO opportunities (id, ticker, status, conviction_json, current_price, intrinsic_value, thesis_active, thesis_invalidated_reason, exit_reason, last_research_at, last_thesis_assessment_at, next_thesis_review_at, strategy_id, strategy_version, core, sleeve, thesis_type, entry_policy, research_profile, origin, signal_json, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 opp["id"], opp["ticker"], opp["status"],
                 json.dumps(opp.get("conviction", {})),
@@ -216,6 +221,7 @@ class SQLiteStore:
                 opp.get("exit_reason", ""),
                 opp.get("last_research_at", ""),
                 opp.get("last_thesis_assessment_at", ""),
+                opp.get("next_thesis_review_at", ""),
                 opp.get("strategy_id", "COMPOUNDER"),
                 opp.get("strategy_version", "legacy-compatible"),
                 opp.get("core", ""),

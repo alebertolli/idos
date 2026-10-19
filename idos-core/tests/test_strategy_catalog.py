@@ -51,7 +51,9 @@ def test_multibaggers_policy_is_disabled_and_configured():
     assert profile.research_profile == "multibaggers"
     assert profile.parameters["discovery_threshold"] == 65
     assert profile.parameters["position_limit_pct"] == 1.0
+    assert profile.parameters["thesis_review_interval_days"] == 30
     assert profile.parameters["small_caps_enabled"] is False
+    assert "avg_dollar_volume_min_usd" not in profile.parameters
     assert profile.parameters["weights"] == {
         "economic_transition": 0.25,
         "quality": 0.20,
@@ -59,6 +61,12 @@ def test_multibaggers_policy_is_disabled_and_configured():
         "expectation_gap": 0.20,
         "market_confirmation": 0.15,
     }
+
+    import yaml
+
+    universe_path = Path(__file__).parents[1].parent / "idos-config" / "universe" / "multibaggers.yml"
+    universe = yaml.safe_load(universe_path.read_text(encoding="utf-8"))
+    assert "avg_dollar_volume_min_usd" not in universe
 
 
 def test_strategy_metadata_round_trips_through_sqlite(tmp_path: Path):

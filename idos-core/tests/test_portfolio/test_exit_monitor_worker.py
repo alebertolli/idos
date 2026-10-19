@@ -58,32 +58,44 @@ def _worker(bp: Path, **cfg) -> ExitMonitorWorker:
 
 
 class TestExitMonitorWorker:
-    def test_thesis_exit_sells_100(self, tmp_path: Path):
+    def test_invalidated_thesis_creates_sell_proposal_without_execution(self, tmp_path: Path):
         bp = tmp_path
         journal = JournalRepository(bp / "idos-journal")
         sqlite = SQLiteStore(bp / "idos.db")
         _make_position(journal, "AAA", price=100)
         _seed_opp(sqlite, "AAA", thesis_active=False, thesis_invalidated_reason="falsacion")
         _seed_price(sqlite, "AAA", 100)
+        position_path = bp / "idos-journal" / "paper" / "positions" / "AAA.yml"
+        quantity_before = yaml.safe_load(position_path.read_text(encoding="utf-8"))["quantity"]
 
         w = _worker(bp)
         result = w.execute({"base_path": str(bp)})
         r = result.output
 
-        assert r["exits_executed"] == 1
-        ex = r["exits"][0]
-        assert ex["ticker"] == "AAA"
-        assert ex["reason"] == "THESIS_INVALIDATED"
-        assert ex["exit_pct"] == 1.0
-        assert ex["new_status"] == "EXITED"
-        assert not (bp / "idos-journal" / "paper" / "positions" / "AAA.yml").exists()
+        assert r["exits_executed"] == 0
+        assert r["exits"] == []
+        assert r["proposals_generated"] == 1
+        proposal = r["proposals"][0]
+        assert proposal["ticker"] == "AAA"
+        assert proposal["reason"] == "THESIS_INVALIDATED"
+        assert proposal["action"] == "SELL"
+        assert proposal["exit_pct"] == 100
+        assert proposal["status"] == "PENDING_REVIEW"
+        assert proposal["human_approval_required"] is True
 
         opp = sqlite.get_opportunity("OPP-AAA-001")
-        assert opp["status"] == "EXITED"
-        assert opp["exit_reason"] == "THESIS_INVALIDATED"
+        assert opp["status"] == "FULL_POSITION"
+        assert position_path.exists()
+        position = yaml.safe_load(position_path.read_text(encoding="utf-8"))
+        assert position["quantity"] == quantity_before
+        assert list(sqlite.conn.execute(
+            "SELECT id FROM state_transitions WHERE opportunity_id = ? AND to_status = 'EXITED'",
+            ("OPP-AAA-001",),
+        )) == []
 
         signals = yaml.safe_load((bp / "cache" / "exit_signals.json").read_text(encoding="utf-8"))
-        assert len(signals["exits"]) == 1
+        assert signals["exits"] == []
+        assert len(signals["proposals"]) == 1
 
     def test_thesis_active_keeps_position(self, tmp_path: Path):
         bp = tmp_path
@@ -100,27 +112,31 @@ class TestExitMonitorWorker:
         assert (bp / "idos-journal" / "paper" / "positions" / "BBB.yml").exists()
         assert sqlite.get_opportunity("OPP-BBB-001")["status"] == "FULL_POSITION"
 
-    def test_valuation_exit_partial_never_full(self, tmp_path: Path):
+    def test_valuation_exit_creates_reduce_proposal_without_execution(self, tmp_path: Path):
         bp = tmp_path
         journal = JournalRepository(bp / "idos-journal")
         sqlite = SQLiteStore(bp / "idos.db")
         _make_position(journal, "CCC", price=100)
         _seed_opp(sqlite, "CCC", intrinsic_value=100)
         _seed_price(sqlite, "CCC", 140)  # overvaluation 40% >= 25%
+        position_path = bp / "idos-journal" / "paper" / "positions" / "CCC.yml"
+        quantity_before = yaml.safe_load(position_path.read_text(encoding="utf-8"))["quantity"]
 
         w = _worker(bp)
         r = w.execute({"base_path": str(bp)}).output
 
-        assert r["exits_executed"] == 1
-        ex = r["exits"][0]
-        assert ex["reason"] == "VALUATION_EXCESSIVE"
-        assert ex["exit_pct"] < 1.0
-        assert ex["new_status"] == "REDUCING"
+        assert r["exits_executed"] == 0
+        assert len(r["proposals"]) == 1
+        proposal = r["proposals"][0]
+        assert proposal["reason"] == "VALUATION_EXCESSIVE"
+        assert proposal["action"] == "REDUCE"
+        assert proposal["exit_pct"] == 50
+        assert proposal["status"] == "PENDING_REVIEW"
 
-        pos_file = bp / "idos-journal" / "paper" / "positions" / "CCC.yml"
-        assert pos_file.exists()
-        pos = yaml.safe_load(pos_file.read_text(encoding="utf-8"))
-        assert pos["quantity"] < 29
+        assert position_path.exists()
+        pos = yaml.safe_load(position_path.read_text(encoding="utf-8"))
+        assert pos["quantity"] == quantity_before
+        assert sqlite.get_opportunity("OPP-CCC-001")["status"] == "FULL_POSITION"
 
     def test_valuation_under_threshold_holds(self, tmp_path: Path):
         bp = tmp_path
@@ -153,9 +169,13 @@ class TestExitMonitorWorker:
             w = _worker(bp)
             r = w.execute({"base_path": str(bp)}).output
 
-        assert r["exits_executed"] == 1
-        assert r["exits"][0]["reason"] == "RISK_CONTROL"
-        assert r["exits"][0]["exit_pct"] == 1.0
+        assert r["exits_executed"] == 0
+        assert r["proposals_generated"] == 1
+        assert r["proposals"][0]["reason"] == "RISK_CONTROL"
+        assert r["proposals"][0]["action"] == "SELL"
+        assert r["proposals"][0]["status"] == "PENDING_REVIEW"
+        assert (bp / "idos-journal" / "paper" / "positions" / "EEE.yml").exists()
+        assert sqlite.get_opportunity("OPP-EEE-001")["status"] == "FULL_POSITION"
 
     def test_risk_trigger_no_thesis_change_keeps_position(self, tmp_path: Path):
         bp = tmp_path
@@ -199,7 +219,9 @@ class TestExitMonitorWorker:
         assert r["proposals_generated"] == 1
         prop = r["proposals"][0]
         assert prop["ticker"] == "GGG"
-        assert prop["action"] == "proposal"
+        assert prop["action"] == "SELL"
+        assert prop["status"] == "PENDING_REVIEW"
+        assert prop["human_approval_required"] is True
         # position sigue intacta
         assert (bp / "idos-journal" / "paper" / "positions" / "GGG.yml").exists()
         assert sqlite.get_opportunity("OPP-GGG-001")["status"] == "FULL_POSITION"

@@ -4,7 +4,6 @@ from idos.workers.data.refresh_worker import DataRefreshWorker
 from idos.workers.data.digest_worker import DigestWorker
 from idos.workers.data.git_queue_worker import GitQueueWorker
 from idos.workers.ai.research_worker import ResearchWorker
-from idos.workers.ai.decision_board_worker import DecisionBoardWorker
 from idos.workers.portfolio.entry_monitor_worker import EntryMonitorWorker
 from idos.workers.portfolio.rebalance_worker import RebalanceWorker, RiskMonitorWorker
 from idos.workers.learning.post_mortem_worker import PostMortemWorker

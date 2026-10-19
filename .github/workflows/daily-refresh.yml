@@ -4,6 +4,21 @@ on:
   schedule:
     - cron: "0 8 * * 1-5"
   workflow_dispatch:
+    inputs:
+      run_portfolio_simulation:
+        description: "Run paper portfolio monitoring and simulation steps"
+        required: false
+        type: boolean
+        default: false
+      dispatch_research_events:
+        description: "Dispatch earnings research events to the default branch"
+        required: false
+        type: boolean
+        default: false
+      candidate_tickers:
+        description: "Required for manual runs: 1-5 comma-separated tickers from operable.yml"
+        required: true
+        type: string
 
 jobs:
   refresh:
@@ -20,17 +35,32 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+      - name: Validate test branch for manual runs
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
+            echo "::error::Manual E2E runs must use a test branch; main is reserved for scheduled production runs."
+            exit 1
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Install
         run: pip install -e idos-core
+      - name: Validate bounded manual candidate scope
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+          IDOS_MANUAL_SELECTION_LIMIT: "5"
+        run: python scripts/validate_manual_candidate_scope.py
       - name: Refresh data
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
         run: |
           python -c "
           import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
           from idos.workers.data.refresh_worker import DataRefreshWorker
           from idos.workers.data.cache import DataCache
+          from idos.discovery.operability import OperabilityFilter
           from pathlib import Path
           import os, json, yaml
           from datetime import datetime
@@ -41,11 +71,29 @@ jobs:
               tickers = [e['ticker'] for e in wl_data.get('entries', []) if e.get('ticker')]
           else:
               tickers = []
-          print(f'[REFRESH] Loading {len(tickers)} tickers from watchlist.yml')
+          requested = [t.strip().upper() for t in os.environ.get('IDOS_CANDIDATE_TICKERS', '').split(',') if t.strip()]
+          if requested:
+              operable = OperabilityFilter('idos-config/universe/operable.yml')
+              tickers = operable.validate_selection(requested)
+          source = 'manual operable selection' if requested else 'watchlist.yml'
+          print(f'[REFRESH] Loading {len(tickers)} tickers from {source}')
           refresher = DataRefreshWorker({'universe_path': ''})
           r = refresher.execute({'tickers': tickers})
           print(f'[REFRESH] Processed: {r.output.get(\"tickers_processed\", 0)} tickers')
           errors = r.output.get('errors', [])
+          for ticker, item in (r.output.get('data') or {}).items():
+              merged = item.get('merged_data', item) if isinstance(item, dict) else {}
+              gate = merged.get('market_data_normalization', {}) if isinstance(merged, dict) else {}
+              provenance = merged.get('liquidity_provenance', {}) if isinstance(merged, dict) else {}
+              errors_for_ticker = gate.get('errors', []) if isinstance(gate, dict) else []
+              gate_summary = {
+                  'status': gate.get('status', 'unavailable'),
+                  'market_cap_usd': merged.get('market_cap_usd'),
+                  'avg_dollar_volume_usd': merged.get('avg_dollar_volume_usd'),
+                  'basis': provenance.get('basis', gate.get('liquidity_basis', 'unavailable')),
+                  'errors': errors_for_ticker,
+              }
+              print('[MARKET-GATE] ' + ticker + ': ' + json.dumps(gate_summary, sort_keys=True))
           if errors:
               for e in errors:
                   print(f'[REFRESH] Error: {e}')
@@ -66,7 +114,7 @@ jobs:
               print(f'[EARNINGS-CALENDAR] Nuevos: {\", \".join(result[\"added\"])}')
           if result['updated']:
               print(f'[EARNINGS-CALENDAR] Actualizados: {\", \".join(result[\"updated\"])}')
-          if not result['added'] and not result['updated']:
+          if not result['added'] and not result['updated'] and not result.get('metadata_updated'):
               print('[EARNINGS-CALENDAR] Calendario actualizado, sin cambios')
           "
       - name: Check earnings dates
@@ -102,6 +150,9 @@ jobs:
                   continue
               if earnings_date > target_date:
                   print(f'[EARNINGS] {ticker}: earnings on {earnings_date_str}, not yet 2d post')
+                  continue
+              if not info.get('source_name') or not info.get('source_url'):
+                  print(f'[EARNINGS] {ticker}: missing source metadata; leaving untriggered for retry')
                   continue
               print(f'[EARNINGS] {ticker}: ready to trigger (earnings_date={earnings_date_str}, 2d+ post-earnings)')
               info['triggered_at'] = today.isoformat()
@@ -164,6 +215,7 @@ jobs:
           print(f'[BUYLIST] {r.get(\"status\")}: updated={r.get(\"updated\")} added={r.get(\"added\")} removed={r.get(\"removed\")} total={r.get(\"total_entries\")}')
           "
       - name: Entry Monitor - Check Buy List
+        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json
@@ -232,11 +284,17 @@ jobs:
       - name: "Report Data Errors"
         if: always()
         run: |
-          python -m idos.workers.automation.data_error_reporter
+          if [ "$GITHUB_REF_NAME" = "main" ]; then
+            python -m idos.workers.automation.data_error_reporter
+          else
+            python -m idos.workers.automation.data_error_reporter --dry-run
+          fi
       - name: Paper Trader - Execute Entry
+        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
         run: |
           python -m idos.workers.portfolio.execute_entry_signals
       - name: Risk Monitor - Daily risk assessment
+        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json
@@ -256,6 +314,7 @@ jobs:
               print(f'[RISK] {r.get(\"positions_checked\", 0)} posiciones revisadas, sin alertas')
           "
       - name: Exit Decision Engine
+        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json
@@ -281,6 +340,7 @@ jobs:
             exit 1
           fi
       - name: Monthly Portfolio Report
+        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
         run: |
           python -c "
           import sys, os, json, calendar
@@ -311,6 +371,7 @@ jobs:
       - name: Post-Mortem requires private persistent runner
         run: echo 'Post-mortem deferred to private runner; public CI does not process closed positions.'
       - name: Dispatch quarterly-results events
+        if: github.event_name != 'workflow_dispatch' || inputs.dispatch_research_events
         run: |
           if [ ! -f cache/earnings_trigger.json ]; then
             echo "[DISPATCH] No earnings to dispatch"
@@ -322,32 +383,41 @@ jobs:
             exit 0
           fi
           echo "[DISPATCH] Dispatching quarterly-results for $TICKERS (batched)"
-          curl -s -X POST \
+          python scripts/build_earnings_dispatch_payload.py
+          curl --fail --show-error -s -X POST \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github+json" \
             https://api.github.com/repos/${{ github.repository }}/dispatches \
-            -d '{"event_type":"quarterly-results","client_payload":{"ticker":"'$TICKERS'"}}'
+            --data-binary @cache/earnings_dispatch_payload.json
           echo ""
 
       - name: Commit cache
         run: |
+          TARGET_BRANCH="${GITHUB_REF_NAME}"
+          if [ -z "$TARGET_BRANCH" ]; then
+            echo "::error::No target branch resolved; refusing to publish refresh results"
+            exit 1
+          fi
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add cache/last_refresh.json 2>/dev/null || true
-          git add cache/*.json 2>/dev/null || true
+          python -m idos.market.public_cache
+          git add cache/earnings_trigger.json 2>/dev/null || true
           git add idos-config/events/earnings.yml 2>/dev/null || true
-          git add idos-journal/paper/ 2>/dev/null || true
+          git add idos-journal/portfolio/buylist.yml 2>/dev/null || true
           git add ":(glob)idos-journal/**/wyckoff/**" 2>/dev/null || true
           git add ":(glob)idos-knowledge/**/wyckoff/**" 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "chore: daily data refresh $(date +%Y-%m-%d)"
-            git pull --rebase --autostash -X theirs
-            git push
+            # Generated portfolio and signal files are transient on this runner.
+            git stash push --include-untracked -m 'daily refresh transient portfolio outputs'
+            git fetch origin "$TARGET_BRANCH"
+            git rebase "origin/$TARGET_BRANCH"
+            git push origin "HEAD:$TARGET_BRANCH"
           fi
       - name: 🐛 Report failure as GitHub Issue
-        if: failure()
+        if: failure() && github.ref_name == 'main'
         run: python -m idos.workers.automation.gha_error_reporter
 
       - name: Upload cache artifact
@@ -356,4 +426,3 @@ jobs:
           name: daily-refresh-${{ github.run_id }}
           path: |
             cache/last_refresh.json
-            cache/*.json

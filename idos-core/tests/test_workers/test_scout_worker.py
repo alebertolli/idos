@@ -52,22 +52,56 @@ def test_scout_worker_screen_no_data():
 def test_scout_worker_screen_with_data():
     w = ScoutWorker({"universe_path": "", "min_score": 70})
     result = w._run_scout("MELI", {
-        "market_cap": 100_000_000_000,
-        "volume_avg": 5_000_000,
+        "asset_type": "us_equity",
+        "size_metric_usd": 100_000_000_000,
+        "size_metric_provenance": {"source": "yfinance", "as_of": "2026-10-16"},
+        "market_cap_usd": 100_000_000_000,
+        "avg_dollar_volume_usd": 5_000_000,
+        "market_cap_provenance": {"source": "yfinance", "as_of": "2026-10-16"},
+        "liquidity_provenance": {"price_source": "yfinance", "basis": "UNDERLYING_USD_PROXY"},
+        "market_data_normalization": {"status": "complete"},
         "relative_strength_3m": 80,
         "relative_strength_12m": 70,
         "price_volume_trend": 5,
         "roic_pct": 22.5,
         "operating_margin_pct": 18.0,
         "revenue_growth_pct": 20.0,
+        "fcf": 1_000_000_000,
     })
-    # New V1 model with min_score=70: Transition(50%) + Quality(25%) + Market(25%)
-    # Transition: 50 + (80/100)*30 + (70/100)*20 = 50+24+14 = 88 * 0.5 = 44
-    # Quality: 50 + (22.5/15)*20 = 50+30 = 80 * 0.25 = 20
-    # Market: 50 + (80/100)*30 + (70/100)*20 = 50+24+14 = 88 * 0.25 = 22
-    # Total: 44 + 20 + 22 = 86
-    assert result.score >= 70
+    # Scout score indicates filter eligibility only, never investment conviction.
+    assert result.policy_version == "positive_fundamentals_v1"
+    assert result.score == 100
     assert result.passed is True
+
+
+def test_scout_worker_rejects_share_volume_without_usd_normalization():
+    w = ScoutWorker({"universe_path": "", "min_score": 70})
+    result = w._run_scout("MELI", {
+        "market_cap": 100_000_000_000,
+        "avg_volume": 5_000_000,
+        "volume_avg": 5_000_000,
+        "relative_strength_3m": 80,
+        "relative_strength_12m": 70,
+        "price_volume_trend": 5,
+        "roic_pct": 22.5,
+        "debt_equity_ratio": 0.4,
+    })
+
+    assert result.passed is False
+    assert result.details["investability"] == 0
+
+
+def test_scout_worker_rejects_unverified_canonical_usd_fields():
+    w = ScoutWorker({"universe_path": "", "min_score": 70})
+    result = w._run_scout("MELI", {
+        "market_cap_usd": 100_000_000_000,
+        "avg_dollar_volume_usd": 5_000_000,
+        "relative_strength_3m": 80,
+        "relative_strength_12m": 70,
+    })
+
+    assert result.passed is False
+    assert result.details["investability"] == 0
 
 
 def test_scout_worker_duplicates():
