@@ -324,3 +324,4 @@ comportamiento fail-closed.
 5. Ejecutar Research/Assessment sobre una oportunidad elegible y confirmar que Research evalúa ROIC/moat y la decisión permanece sujeta a revisión humana.
 6. Renderizar Discovery y verificar filtros/pendientes y separación pública/privada. No desplegar a Pages sin la autorización correspondiente.
 7. Validar compatibilidad histórica, revisar `git diff --check`, suite focalizada y log remoto; registrar SHA/run y todo dato ausente.
+8. Con una ejecución `candidate_tickers` acotada, verificar que `passed=true` llegue intacto al Monthly Evaluation, que una Opportunity `UNDER_RESEARCH` elegible no se degrade, que la Watchlist previa se conserve y fusione los resultados acotados, y que las oportunidades existentes registren `latest_discovery_evidence` sin sobrescribir su evidencia inicial ni su estado.

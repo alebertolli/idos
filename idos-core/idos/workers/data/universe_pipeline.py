@@ -219,6 +219,8 @@ class UniversePipeline(BaseWorker):
         scout = configured_scout(self.config_path, self.strategy_id)
         scout_config = {"max_watchlist": self.config.get("max_watchlist", 300)}
         watchlist = WatchlistManager(max_entries=scout_config["max_watchlist"])
+        if self.journal_path:
+            watchlist.restore(JournalRepository(Path(self.journal_path)).load_watchlist())
         ranking = RankingSystem()
         cache_path = Path(self.config.get("cache_path", "cache"))
 
@@ -243,7 +245,7 @@ class UniversePipeline(BaseWorker):
 
         ranked = ranking.rank(screened)
         metrics.new_watchlist = [
-            {"ticker": r.ticker, "score": r.scout_score, "rank": r.rank}
+            {"ticker": r.ticker, "score": r.scout_score, "rank": r.rank, "passed": True}
             for r in ranked if r.ticker in {s["ticker"] for s in screened if s["passed"]}
         ]
 
@@ -268,6 +270,7 @@ class UniversePipeline(BaseWorker):
 
         journal_base = Path(self.journal_path) if self.journal_path else Path("idos-journal")
         existing = set()
+        existing_paths: dict[tuple[str, str], list[Path]] = {}
         companies_dir = journal_base / "companies"
         if companies_dir.exists():
             for d in companies_dir.iterdir():
@@ -282,7 +285,9 @@ class UniversePipeline(BaseWorker):
                                         raw = yaml.safe_load(opp_file.read_text(encoding="utf-8")) or {}
                                         existing_ticker = str(raw.get("ticker", d.name)).upper()
                                         existing_strategy = str(raw.get("strategy_id", "COMPOUNDER")).upper()
-                                        existing.add((existing_ticker, existing_strategy))
+                                        key = (existing_ticker, existing_strategy)
+                                        existing.add(key)
+                                        existing_paths.setdefault(key, []).append(opp_file)
                                     except Exception:
                                         pass
 
@@ -295,8 +300,25 @@ class UniversePipeline(BaseWorker):
         seq = 1
         for entry in eligible:
             ticker = entry["ticker"].upper()
-            if (ticker, self.strategy_id) in existing:
+            key = (ticker, self.strategy_id)
+            if key in existing:
                 metrics.opportunities_existing += 1
+                evidence = self._build_discovery_evidence(ticker)
+                for opp_file in existing_paths.get(key, []):
+                    try:
+                        existing_data = yaml.safe_load(opp_file.read_text(encoding="utf-8")) or {}
+                        existing_data["latest_discovery_evidence"] = evidence
+                        existing_data["discovery_last_evaluated_at"] = evidence["evaluated_at"]
+                        opp_file.write_text(
+                            yaml.dump(existing_data, default_flow_style=False, allow_unicode=True),
+                            encoding="utf-8",
+                        )
+                    except (OSError, yaml.YAMLError) as exc:
+                        metrics.errors.append({
+                            "step": "opportunity_discovery_evidence",
+                            "ticker": ticker,
+                            "error": str(exc),
+                        })
                 continue
 
             opp_id = f"OPP-{date_prefix}-{seq:03d}"
@@ -316,19 +338,7 @@ class UniversePipeline(BaseWorker):
                 conviction=Conviction(overall=0),
             )
             opp_data = opp.model_dump(mode="json")
-            cached = self._get_cached_data(Path(self.config.get("cache_path", "cache")), ticker)
-            fields = [rule["metric"] for rule in self.strategy.parameters["scout"]["filters"]]
-            opp_data["discovery_evidence"] = {
-                "policy": self.strategy.parameters["scout"],
-                "eligibility_status": "PASSED",
-                "evaluated_at": datetime.now(AR_TZ).isoformat(),
-                "metrics": {key: cached.get(key) for key in fields},
-                "financial_observations": cached.get("financial_observations", {}),
-                "market_data_normalization": cached.get("market_data_normalization", {}),
-                "liquidity_provenance": cached.get("liquidity_provenance", {}),
-                "market_cap_provenance": cached.get("market_cap_provenance", {}),
-                "data_provenance": cached.get("data_provenance", {}),
-            }
+            opp_data["discovery_evidence"] = self._build_discovery_evidence(ticker)
             opp_dir = journal_base / "companies" / ticker / "case_file" / "opportunities" / opp_id
             opp_dir.mkdir(parents=True, exist_ok=True)
             opp_file = opp_dir / "opportunity.yml"
@@ -339,6 +349,21 @@ class UniversePipeline(BaseWorker):
 
         metrics.opportunities_created = created
         print(f"[PIPELINE] Opportunities: {created} created, {metrics.opportunities_existing} existing, {len(eligible)} eligible")
+
+    def _build_discovery_evidence(self, ticker: str) -> dict[str, Any]:
+        cached = self._get_cached_data(Path(self.config.get("cache_path", "cache")), ticker)
+        fields = [rule["metric"] for rule in self.strategy.parameters["scout"]["filters"]]
+        return {
+            "policy": self.strategy.parameters["scout"],
+            "eligibility_status": "PASSED",
+            "evaluated_at": datetime.now(AR_TZ).isoformat(),
+            "metrics": {key: cached.get(key) for key in fields},
+            "financial_observations": cached.get("financial_observations", {}),
+            "market_data_normalization": cached.get("market_data_normalization", {}),
+            "liquidity_provenance": cached.get("liquidity_provenance", {}),
+            "market_cap_provenance": cached.get("market_cap_provenance", {}),
+            "data_provenance": cached.get("data_provenance", {}),
+        }
 
     def _score_ticker(self, scout: ScoutEngine, ticker: str, data: dict) -> dict:
         from idos.discovery.configured_scout import configured_scout

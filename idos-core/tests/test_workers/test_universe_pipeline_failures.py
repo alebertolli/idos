@@ -251,10 +251,104 @@ def test_pipeline_report_explains_missing_scout_data_quality_inputs():
         scout_data_quality_rejected=1,
         scout_data_quality_details=[{
             "ticker": "AAPL",
-            "missing_critical_metrics": ["relative_strength_3m", "price_volume_trend"],
+            "missing_critical_metrics": ["operating_margin_pct", "fcf"],
         }],
     )
 
     report = PipelineReportGenerator().generate(metrics)
 
-    assert "AAPL: missing relative_strength_3m, price_volume_trend" in report
+    assert "AAPL: missing operating_margin_pct, fcf" in report
+
+
+def test_monthly_evaluation_preserves_under_research_when_scout_passed(tmp_path):
+    import yaml
+    project_root = Path(__file__).resolve().parents[3]
+    journal = tmp_path / "journal"
+    case = journal / "companies" / "AAPL" / "case_file" / "opportunities" / "OPP-1"
+    case.mkdir(parents=True)
+    path = case / "opportunity.yml"
+    path.write_text(yaml.safe_dump({"id": "OPP-1", "ticker": "AAPL", "status": "UNDER_RESEARCH"}), encoding="utf-8")
+    pipeline = UniversePipeline({"config_path": str(project_root / "idos-config"), "journal_path": str(journal)})
+    metrics = PipelineMetrics(new_watchlist=[{"ticker": "AAPL", "score": 100, "passed": True}])
+
+    pipeline._run_monthly_evaluation(metrics)
+
+    saved = yaml.safe_load(path.read_text(encoding="utf-8"))
+    assert saved["status"] == "UNDER_RESEARCH"
+    assert metrics.downgraded_to_watchlist == 0
+
+
+def test_monthly_scout_merges_results_into_persisted_watchlist(tmp_path, monkeypatch):
+    import yaml
+
+    project_root = Path(__file__).resolve().parents[3]
+    journal = tmp_path / "journal"
+    journal.mkdir()
+    original_entries = [
+        {"ticker": "NTES", "score": 62, "reason": "Existing research", "added_at": "2026-10-01", "alerts": ["earnings"], "notified": True},
+        {"ticker": "VRTX", "score": 61, "reason": "Existing watch", "added_at": "2026-10-02", "alerts": [], "notified": False},
+    ]
+    (journal / "portfolio").mkdir()
+    (journal / "portfolio" / "watchlist.yml").write_text(
+        yaml.safe_dump({"entries": original_entries}), encoding="utf-8"
+    )
+    pipeline = UniversePipeline({
+        "config_path": str(project_root / "idos-config"),
+        "journal_path": str(journal),
+    })
+    pipeline._get_cached_data = lambda cache_path, ticker: {}
+    pipeline._score_ticker = lambda scout, ticker, data: {
+        "ticker": ticker, "score": 100, "scout_score": 100, "passed": True,
+        "status": "PASSED", "reason": "All configured filters passed",
+        "data_quality_valid": True,
+    }
+    metrics = PipelineMetrics(candidate_tickers=["AAPL"])
+
+    pipeline._run_scout(metrics)
+
+    saved = yaml.safe_load((journal / "portfolio" / "watchlist.yml").read_text(encoding="utf-8"))
+    by_ticker = {entry["ticker"]: entry for entry in saved["entries"]}
+    assert set(by_ticker) == {"NTES", "VRTX", "AAPL"}
+    assert by_ticker["NTES"] == original_entries[0]
+    assert by_ticker["VRTX"] == original_entries[1]
+    assert by_ticker["AAPL"]["reason"] == "All configured filters passed"
+
+
+def test_existing_opportunity_keeps_initial_discovery_and_records_latest_evidence(tmp_path):
+    import yaml
+
+    project_root = Path(__file__).resolve().parents[3]
+    journal = tmp_path / "journal"
+    case = journal / "companies" / "AAPL" / "case_file" / "opportunities" / "OPP-1"
+    case.mkdir(parents=True)
+    opportunity = case / "opportunity.yml"
+    initial_evidence = {"policy": {"version": "legacy"}, "eligibility_status": "PASSED"}
+    opportunity.write_text(yaml.safe_dump({
+        "id": "OPP-1", "ticker": "AAPL", "strategy_id": "COMPOUNDER",
+        "status": "UNDER_RESEARCH", "discovery_evidence": initial_evidence,
+    }), encoding="utf-8")
+    pipeline = UniversePipeline({
+        "config_path": str(project_root / "idos-config"),
+        "journal_path": str(journal),
+        "cache_path": str(tmp_path / "cache"),
+    })
+    pipeline._get_cached_data = lambda cache_path, ticker: {
+        "operating_margin_pct": 25.0, "fcf": 1_000_000, "revenue_growth_pct": 10.0,
+        "data_provenance": {"sources_used": ["test-provider"]},
+    }
+    metrics = PipelineMetrics(new_watchlist=[{
+        "ticker": "AAPL", "score": 100, "rank": 1, "passed": True,
+    }])
+
+    pipeline._run_opportunity_creation(metrics)
+
+    saved = yaml.safe_load(opportunity.read_text(encoding="utf-8"))
+    assert metrics.opportunities_created == 0
+    assert metrics.opportunities_existing == 1
+    assert saved["discovery_evidence"] == initial_evidence
+    assert saved["latest_discovery_evidence"]["policy"]["version"] == "positive_fundamentals_v1"
+    assert saved["latest_discovery_evidence"]["metrics"] == {
+        "operating_margin_pct": 25.0, "fcf": 1_000_000, "revenue_growth_pct": 10.0,
+    }
+    assert saved["latest_discovery_evidence"]["data_provenance"]["sources_used"] == ["test-provider"]
+    assert saved["status"] == "UNDER_RESEARCH"
