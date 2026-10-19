@@ -176,7 +176,8 @@ def test_target_consensus_records_urls_and_observation_dates(monkeypatch):
 def test_ddd_prompt_renders_the_scenario_evidence_contract():
     from idos.ai.prompts import PromptRegistry
 
-    registry = PromptRegistry(Path("idos-config/prompts"))
+    repo_root = Path(__file__).resolve().parents[3]
+    registry = PromptRegistry(repo_root / "idos-config" / "prompts")
     kwargs = {
         "ticker": "VIST", "name": "Vista", "existing_wiki": "", "prior_catalysts": "[]",
         "sector": "Energy", "business_model": "", "products": "", "geography": "",
