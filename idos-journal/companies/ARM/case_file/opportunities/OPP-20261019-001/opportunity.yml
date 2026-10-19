@@ -12,12 +12,270 @@ conviction:
 core: CORE_3_GROWTH
 created_at: '2026-10-19T15:48:01.765482-03:00'
 current_price: 231.06
+discovery_last_evaluated_at: '2026-10-19T16:25:54.299243-03:00'
 entry_policy: VALUATION_ZONE
 exit_reason: ''
 id: OPP-20261019-001
 intrinsic_value: 290.71
 last_research_at: '2026-10-19T15:53:38.867538-03:00'
 last_thesis_assessment_at: ''
+latest_discovery_evidence:
+  data_provenance:
+    conflicts:
+    - avg: 12.4515
+      deviation_pct: 77.9
+      field: operating_margin_pct
+      sources:
+        stockanalysis.com: 17.3
+        yfinance: 7.603
+    - avg: 26.205000000000002
+      deviation_pct: 29.0
+      field: revenue_growth_pct
+      sources:
+        stockanalysis.com: 30.01
+        yfinance: 22.400000000000002
+    field_sources:
+      analyst_consensus:
+      - stockanalysis.com
+      asset_type:
+      - yfinance
+      avg_dollar_volume_usd:
+      - yfinance
+      beta_5y:
+      - stockanalysis.com
+      current_ratio:
+      - stockanalysis.com
+      debt_ebitda:
+      - stockanalysis.com
+      debt_equity_ratio:
+      - stockanalysis.com
+      ebit:
+      - stockanalysis.com
+      ebitda:
+      - stockanalysis.com
+      ebitda_margin_pct:
+      - stockanalysis.com
+      enterprise_value:
+      - stockanalysis.com
+      ev_ebit:
+      - stockanalysis.com
+      ev_ebitda:
+      - stockanalysis.com
+      ev_fcf:
+      - stockanalysis.com
+      ev_sales:
+      - stockanalysis.com
+      exchange:
+      - yfinance
+      fcf:
+      - yfinance
+      fcf_margin_pct:
+      - stockanalysis.com
+      fcf_per_share:
+      - stockanalysis.com
+      fcf_yield_pct:
+      - stockanalysis.com
+      financial_currency:
+      - yfinance
+      financial_data_observed_at:
+      - yfinance
+      financial_period_end_timestamp:
+      - yfinance
+      forward_pe:
+      - stockanalysis.com
+      forward_ps:
+      - stockanalysis.com
+      gross_margin_pct:
+      - stockanalysis.com
+      liquidity_provenance:
+      - yfinance
+      ma_200d:
+      - stockanalysis.com
+      ma_50d:
+      - stockanalysis.com
+      market_cap:
+      - stockanalysis.com
+      - yfinance
+      market_cap_currency:
+      - yfinance
+      market_cap_provenance:
+      - yfinance
+      market_cap_usd:
+      - yfinance
+      market_data_normalization:
+      - yfinance
+      operating_margin_pct:
+      - yfinance
+      p_fcf_ratio:
+      - stockanalysis.com
+      payout_ratio_pct:
+      - stockanalysis.com
+      pb_ratio:
+      - stockanalysis.com
+      pe_ratio_ttm:
+      - stockanalysis.com
+      peg_ratio:
+      - stockanalysis.com
+      pretax_margin_pct:
+      - stockanalysis.com
+      price_history:
+      - yfinance
+      price_history_basis:
+      - yfinance
+      price_history_dates:
+      - yfinance
+      price_target_avg:
+      - stockanalysis.com
+      ps_ratio_ttm:
+      - stockanalysis.com
+      quick_ratio:
+      - stockanalysis.com
+      quote_currency:
+      - yfinance
+      revenue_growth_pct:
+      - yfinance
+      revenue_ttm:
+      - stockanalysis.com
+      roa_pct:
+      - stockanalysis.com
+      roe_pct:
+      - stockanalysis.com
+      roic_pct:
+      - stockanalysis.com
+      shares_outstanding:
+      - stockanalysis.com
+      short_pct_of_float:
+      - stockanalysis.com
+      short_ratio:
+      - stockanalysis.com
+      size_metric_provenance:
+      - yfinance
+      size_metric_usd:
+      - yfinance
+      source:
+      - stockanalysis.com
+      - yfinance
+      ticker:
+      - stockanalysis.com
+      - yfinance
+      url:
+      - stockanalysis.com
+      volume_avg:
+      - stockanalysis.com
+      volume_history:
+      - yfinance
+    source_count: 2
+    sources_used:
+    - stockanalysis.com
+    - yfinance
+  eligibility_status: PASSED
+  evaluated_at: '2026-10-19T16:25:54.299243-03:00'
+  financial_observations:
+    fcf:
+      currency: USD
+      observed_at: '2026-10-19T19:25:53.258078+00:00'
+      period_status: PROVIDER_REPORTED_NOT_RECONCILED
+      provider_period_end_timestamp: 1782777600
+      selected_source: yfinance
+      unit: provider_financial_currency
+      values:
+        stockanalysis.com: 1510000000.0
+        yfinance: 1334499968
+    operating_margin_pct:
+      currency: null
+      observed_at: '2026-10-19T19:25:53.258078+00:00'
+      period_status: PROVIDER_REPORTED_NOT_RECONCILED
+      provider_period_end_timestamp: 1782777600
+      selected_source: yfinance
+      unit: percentage_points
+      values:
+        stockanalysis.com: 17.3
+        yfinance: 7.603
+    revenue_growth_pct:
+      currency: null
+      observed_at: '2026-10-19T19:25:53.258078+00:00'
+      period_status: PROVIDER_REPORTED_NOT_RECONCILED
+      provider_period_end_timestamp: 1782777600
+      selected_source: yfinance
+      unit: percentage_points
+      values:
+        stockanalysis.com: 30.01
+        yfinance: 22.400000000000002
+  liquidity_provenance:
+    basis: UNDERLYING_USD_PROXY
+    coverage: 1.0
+    expected_observations: 20
+    first_price_date: '2026-09-22'
+    fx_observations: []
+    fx_reference: null
+    fx_side: null
+    fx_source: null
+    last_price_date: '2026-10-19'
+    minimum_coverage: 0.8
+    missing_market_dates: []
+    price_source: yfinance
+    quote_currency: USD
+    valid_observations: 20
+    valid_price_dates:
+    - '2026-09-22'
+    - '2026-09-23'
+    - '2026-09-24'
+    - '2026-09-25'
+    - '2026-09-28'
+    - '2026-09-29'
+    - '2026-09-30'
+    - '2026-10-01'
+    - '2026-10-02'
+    - '2026-10-05'
+    - '2026-10-06'
+    - '2026-10-07'
+    - '2026-10-08'
+    - '2026-10-09'
+    - '2026-10-12'
+    - '2026-10-13'
+    - '2026-10-14'
+    - '2026-10-15'
+    - '2026-10-16'
+    - '2026-10-19'
+    window_sessions: 20
+  market_cap_provenance:
+    as_of: '2026-10-19'
+    fx: null
+    source: yfinance
+    source_currency: USD
+  market_data_normalization:
+    errors: []
+    exchange_calendar: NMS
+    liquidity_basis: UNDERLYING_USD_PROXY
+    size_metric: market_cap_usd
+    status: complete
+  market_quote:
+    as_of_date: '2026-10-19'
+    currency: USD
+    price: 232.55999755859375
+    source: yfinance
+  metrics:
+    fcf: 1334499968
+    operating_margin_pct: 7.603
+    revenue_growth_pct: 22.400000000000002
+  policy:
+    filters:
+    - label: Margen operativo
+      metric: operating_margin_pct
+      operator: gt
+      unit: percentage_points
+      value: 0
+    - label: Flujo de caja libre
+      metric: fcf
+      operator: gt
+      unit: provider_currency
+      value: 0
+    - label: Crecimiento de ingresos
+      metric: revenue_growth_pct
+      operator: gt
+      unit: percentage_points
+      value: 0
+    version: positive_fundamentals_v1
 next_thesis_review_at: '2026-11-18T15:53:37.640000-03:00'
 origin: automated
 research_profile: strategic
