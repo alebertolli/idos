@@ -401,7 +401,10 @@ en el fixture.
    recomendación, asimetría, riesgos, antigüedad, alertas y Buy List. Confirmar
    `positions=[]`, `ledger=[]`, `portfolio={}`.
 8. Probar alertas en fixtures: crear, actualizar, resolver y verificar
-   deduplicación y eliminación de alertas obsoletas antes de habilitar avisos.
+   deduplicación por tipo/fuente, ID estable y eliminación del snapshot cuando
+   la condición se resuelve antes de habilitar avisos. La misma condición debe
+   actualizar el mensaje sin crear otra alerta; distintas estrategias u
+   oportunidades mantienen referencias independientes.
 9. Validar Post-Mortem/learning en almacenamiento privado; sus propuestas no
    deben cambiar perfiles sin revisión, comparación y versionado aprobados.
 10. Sólo tras configurar la fuente privada, probar importación con fixture

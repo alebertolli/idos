@@ -421,6 +421,7 @@ El sistema gestiona simultáneamente múltiples estrategias de inversión bajo u
 9. WHEN un Core supera su rango estructural máximo configurado, la vista privada del portfolio SHALL mostrar una alerta visual; la alerta puede activarse también por otras condiciones definidas en el sistema y no se publica en Pages.
 10. THE Notification_Center SHALL enviar un único Digest_Inteligente semanal consolidado en lugar de notificaciones individuales por cada evento de baja prioridad.
 11. Cada fila de Buy_List SHALL identificar la Opportunity vinculada y mostrar el estado vigente de su tesis y su próxima fecha de revisión. Una tesis invalidada, vencida, sin oportunidad vinculada o cuya vigencia no pueda verificarse SHALL mostrarse como `requiere revisión` y SHALL NOT presentarse como lista para actuar; la señal de una estrategia sistemática sin agenda de tesis requiere su propia validación.
+12. Cada alerta del dashboard SHALL exponer un identificador determinista, tipo, estado activo, severidad, ticker y mensaje. El identificador SHALL mantenerse mientras persista la misma condición y fuente; una actualización SHALL conservar la identidad y reflejar el valor actual. El snapshot SHALL deduplicar alertas repetidas de la misma fuente y condición, y una alerta SHALL dejar de aparecer cuando su condición ya no esté presente.
 
 ---
 

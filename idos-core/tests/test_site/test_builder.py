@@ -75,6 +75,30 @@ def test_no_alert_without_price():
     assert alerts == []
 
 
+def test_dashboard_alert_identity_is_stable_deduplicated_and_resolved_from_current_state():
+    stale_opportunity = {
+        **_opp("OPP-1", "AAA", 100.0),
+        "is_stale": True,
+        "stale_days": 31,
+    }
+    first = _alerts([stale_opportunity, stale_opportunity.copy()], [])
+
+    assert len(first) == 1
+    alert_id = first[0]["id"]
+    assert alert_id == "research_stale:AAA:OPP-1"
+    assert first[0]["type"] == "research_stale"
+    assert first[0]["status"] == "ACTIVE"
+    assert "31d" in first[0]["message"]
+
+    updated_opportunity = {**stale_opportunity, "stale_days": 40}
+    updated = _alerts([updated_opportunity], [])
+    assert updated[0]["id"] == alert_id
+    assert "40d" in updated[0]["message"]
+
+    resolved_opportunity = {**updated_opportunity, "is_stale": False}
+    assert _alerts([resolved_opportunity], []) == []
+
+
 def test_discovery_shows_operable_count_from_universe_stats():
     universe_stats = {
         "operable_count": 267,
@@ -279,6 +303,7 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
 
 def test_public_site_shows_next_thesis_review_and_alerts_when_overdue(tmp_path: Path):
     from datetime import datetime, timedelta
+    import json
 
     import yaml
 
@@ -296,6 +321,7 @@ def test_public_site_shows_next_thesis_review_and_alerts_when_overdue(tmp_path: 
     opportunity = next(o for o in data.opportunities if o["ticker"] == "VIST")
     alerts = data.dashboard["alerts"]
     output = write_site(tmp_path, tmp_path / "site-output")
+    payload = json.loads((output / "data.json").read_text(encoding="utf-8"))
     app = (output / "assets" / "app.js").read_text(encoding="utf-8")
 
     assert opportunity["thesis_review_interval_days"] == 30
@@ -303,7 +329,19 @@ def test_public_site_shows_next_thesis_review_and_alerts_when_overdue(tmp_path: 
     expected_next = (datetime.fromisoformat(opp["last_research_at"]) + timedelta(days=30)).isoformat()
     assert opportunity["next_thesis_review_at"] == expected_next
     assert any("Revisión de tesis vencida" in alert["message"] for alert in alerts)
+    due_alert = next(alert for alert in alerts if alert["type"] == "thesis_review_due")
+    assert due_alert["id"] == "thesis_review_due:VIST:OPP-1"
+    assert due_alert["status"] == "ACTIVE"
+    assert any(alert["id"] == due_alert["id"] for alert in payload["dashboard"]["alerts"])
     assert "próxima revisión de tesis" in app
+
+    opp["last_research_at"] = now.isoformat()
+    opp_path.write_text(yaml.safe_dump(opp, allow_unicode=True), encoding="utf-8")
+    refreshed = SiteBuilder(tmp_path).build()
+    assert not any(
+        alert["type"] in {"research_stale", "thesis_review_due"}
+        for alert in refreshed.dashboard["alerts"]
+    )
 
 
 @pytest.mark.parametrize(

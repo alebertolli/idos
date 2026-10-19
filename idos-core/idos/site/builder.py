@@ -1065,33 +1065,63 @@ class SiteBuilder:
 
         stale = [o for o in opps if o.get("is_stale")]
         thesis_stale = [o for o in opps if o.get("is_thesis_stale")]
-        alerts = [
-            {"severity": "warn", "ticker": o["ticker"], "message": f"Research stale ({o.get('stale_days')}d sin actualizar)"}
-            for o in stale
-        ] + [
-            {"severity": "warn", "ticker": o["ticker"], "message": f"Tesis sin evaluar ({o.get('thesis_not_assessed_days')}d)"}
-            for o in thesis_stale
-        ] + [
-            {"severity": "warn", "ticker": o["ticker"], "message": "Revisión de tesis vencida; actualizar Research antes de usar la recomendación"}
-            for o in opps
-            if o.get("thesis_review_status") == "due"
-            and o.get("status") in {"SCREENED", "UNDER_RESEARCH", "UNDER_DEEP_DD", "APPROVED", "ENTRY_PENDING"}
-        ]
+        alerts: list[dict[str, Any]] = []
+        seen_alert_ids: set[str] = set()
+
+        def add_alert(alert_type: str, ticker: str, severity: str, message: str,
+                      source_id: str | None = None) -> None:
+            normalized_ticker = str(ticker or "").upper().strip()
+            normalized_source = str(source_id or normalized_ticker).strip()
+            alert_id = f"{alert_type}:{normalized_ticker}:{normalized_source}"
+            if alert_id in seen_alert_ids:
+                return
+            seen_alert_ids.add(alert_id)
+            alerts.append({
+                "id": alert_id,
+                "type": alert_type,
+                "status": "ACTIVE",
+                "severity": severity,
+                "ticker": normalized_ticker,
+                "message": message,
+            })
+
+        for opportunity in stale:
+            add_alert(
+                "research_stale", opportunity.get("ticker", ""), "warn",
+                f"Research stale ({opportunity.get('stale_days')}d sin actualizar)",
+                str(opportunity.get("opp_id") or ""),
+            )
+        for opportunity in thesis_stale:
+            add_alert(
+                "thesis_not_assessed", opportunity.get("ticker", ""), "warn",
+                f"Tesis sin evaluar ({opportunity.get('thesis_not_assessed_days')}d)",
+                str(opportunity.get("opp_id") or ""),
+            )
+        for opportunity in opps:
+            if (opportunity.get("thesis_review_status") == "due"
+                    and opportunity.get("status") in {"SCREENED", "UNDER_RESEARCH", "UNDER_DEEP_DD", "APPROVED", "ENTRY_PENDING"}):
+                add_alert(
+                    "thesis_review_due", opportunity.get("ticker", ""), "warn",
+                    "Revisión de tesis vencida; actualizar Research antes de usar la recomendación",
+                    str(opportunity.get("opp_id") or ""),
+                )
         seen_single_source: set[str] = set()
         for opportunity in opps:
             market_data = opportunity.get("market_data") or {}
             ticker = str(opportunity.get("ticker") or "").upper()
             if market_data.get("source_count") == 1 and ticker and ticker not in seen_single_source:
-                alerts.append({
-                    "severity": "warn",
-                    "ticker": ticker,
-                    "message": "Datos de mercado con una sola fuente; revisar procedencia por campo.",
-                })
+                add_alert(
+                    "market_data_single_source", ticker, "warn",
+                    "Datos de mercado con una sola fuente; revisar procedencia por campo.",
+                )
                 seen_single_source.add(ticker)
         for p in positions:
             if p.get("dist_to_stop_pct") is not None and p["dist_to_stop_pct"] <= 5:
-                alerts.append({"severity": "high", "ticker": p["ticker"],
-                               "message": f"Precio a {abs(p['dist_to_stop_pct']):.1f}% del stop loss"})
+                add_alert(
+                    "stop_loss_proximity", p.get("ticker", ""), "high",
+                    f"Precio a {abs(p['dist_to_stop_pct']):.1f}% del stop loss",
+                    str(p.get("position_id") or p.get("opp_id") or ""),
+                )
         intrinsic_by_opp = {o["opp_id"]: o.get("intrinsic_value")
                             for o in opps if o.get("intrinsic_value")}
         intrinsic_by_ticker = {o["ticker"]: v for o in opps
@@ -1101,15 +1131,24 @@ class SiteBuilder:
                          or intrinsic_by_ticker.get(p.get("ticker")))
             if intrinsic and p.get("current_price") and p["current_price"] > intrinsic:
                 over = (p["current_price"] - intrinsic) / intrinsic * 100
-                alerts.append({"severity": "warn", "ticker": p["ticker"],
-                               "message": f"Precio {over:.1f}% sobre el valor intrínseco ({intrinsic:.2f})"})
+                add_alert(
+                    "price_over_intrinsic", p.get("ticker", ""), "warn",
+                    f"Precio {over:.1f}% sobre el valor intrínseco ({intrinsic:.2f})",
+                    str(p.get("position_id") or p.get("opp_id") or ""),
+                )
         for o in opps:
             if o.get("proposal", {}).get("status") == "PENDING_HUMAN_REVIEW":
-                alerts.append({"severity": "warn", "ticker": o["ticker"],
-                               "message": "Decisión sistemática pendiente de revisión humana"})
+                add_alert(
+                    "decision_pending", o.get("ticker", ""), "warn",
+                    "Decisión sistemática pendiente de revisión humana",
+                    str(o.get("opp_id") or ""),
+                )
             if o.get("trend") == "DETERIORATING":
-                alerts.append({"severity": "warn", "ticker": o["ticker"],
-                               "message": "Convicción deteriorándose"})
+                add_alert(
+                    "conviction_deteriorating", o.get("ticker", ""), "warn",
+                    "Convicción deteriorándose",
+                    str(o.get("opp_id") or ""),
+                )
 
         score_totals: dict[str, list[float]] = {}
         convictions: list[float] = []
