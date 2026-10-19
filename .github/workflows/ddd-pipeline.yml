@@ -45,6 +45,22 @@ on:
         required: false
         type: boolean
         default: false
+      event_date:
+        description: "Fecha del evento material (YYYY-MM-DD); obligatoria si event_type no es manual"
+        required: false
+        type: string
+      event_source_name:
+        description: "Nombre de la fuente de evidencia del evento"
+        required: false
+        type: string
+      event_source_url:
+        description: "URL HTTPS de la evidencia del evento"
+        required: false
+        type: string
+      event_summary:
+        description: "Resumen verificable del evento; Research debe contrastarlo con fuentes primarias"
+        required: false
+        type: string
   repository_dispatch:
     types:
       - quarterly-results

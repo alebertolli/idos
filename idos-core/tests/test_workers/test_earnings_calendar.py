@@ -60,6 +60,8 @@ def test_new_earnings_date_resets_previous_trigger_and_preserves_metadata(
         "earnings_date": "2026-11-05",
         "triggered_at": None,
         "alias_of": None,
+        "source_name": "Yahoo Finance earnings calendar via yfinance",
+        "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=AAPL",
     }
 
 
@@ -88,3 +90,5 @@ def test_unchanged_earnings_date_keeps_trigger_and_is_idempotent(tmp_path, monke
     assert result["updated"] == []
     assert result["skipped"] == ["AAPL"]
     assert saved["tickers"]["AAPL"]["triggered_at"] == "2026-11-07"
+    assert saved["tickers"]["AAPL"]["source_name"] == "Yahoo Finance earnings calendar via yfinance"
+    assert saved["tickers"]["AAPL"]["source_url"] == "https://finance.yahoo.com/calendar/earnings/?symbol=AAPL"

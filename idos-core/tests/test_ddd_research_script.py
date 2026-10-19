@@ -310,6 +310,15 @@ def test_event_preview_researches_only_exact_buylist_entry_for_configured_strate
     monkeypatch.setenv("FORCE", "true")
     monkeypatch.setenv("EVENT_TYPE", "quarterly-results")
     monkeypatch.setenv("REVIEW_BUYLIST", "false")
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "workflow_dispatch")
+    event_payload = tmp_path / "github-event.json"
+    event_payload.write_text(json.dumps({"inputs": {
+        "event_date": "2026-10-14",
+        "event_source_name": "ASML Investor Relations",
+        "event_source_url": "https://www.asml.com/en/news/press-releases/2026/q3-results",
+        "event_summary": "Quarterly results published; verify figures in the primary release.",
+    }}), encoding="utf-8")
+    monkeypatch.setenv("GITHUB_EVENT_PATH", str(event_payload))
 
     research_script.preview()
 
@@ -319,6 +328,41 @@ def test_event_preview_researches_only_exact_buylist_entry_for_configured_strate
     ]
     assert preview["selected"][0]["trigger_type"] == "quarterly_results"
     assert preview["selected"][0]["force_reprocess"] is True
+    assert preview["selected"][0]["event_evidence"]["source_name"] == "ASML Investor Relations"
+
+
+def test_material_event_without_evidence_fails_closed_even_when_force_is_true(tmp_path, monkeypatch):
+    config = tmp_path / "idos-config" / "strategies.yml"
+    config.parent.mkdir(parents=True)
+    config.write_text(yaml.safe_dump({"strategies": {
+        "COMPOUNDER": {
+            "core": "CORE_3_GROWTH", "sleeve": "HIGH_CONVICTION",
+            "thesis_type": "STRATEGIC", "discovery_profile": "compounder",
+            "research_profile": "strategic", "entry_policy": "VALUATION_ZONE",
+            "enabled": True,
+            "parameters": {"research": {"event_triggers": ["quarterly_results"]}},
+        },
+    }}), encoding="utf-8")
+    opp_dir = tmp_path / "idos-journal/companies/ASML/case_file/opportunities/OPP-ASML"
+    opp_dir.mkdir(parents=True)
+    (opp_dir / "opportunity.yml").write_text(yaml.safe_dump({
+        "id": "OPP-ASML", "ticker": "ASML", "strategy_id": "COMPOUNDER",
+        "status": "UNDER_DEEP_DD",
+    }), encoding="utf-8")
+    event_payload = tmp_path / "github-event.json"
+    event_payload.write_text(json.dumps({"inputs": {}}), encoding="utf-8")
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("TICKER", "ASML")
+    monkeypatch.setenv("FORCE", "true")
+    monkeypatch.setenv("EVENT_TYPE", "quarterly-results")
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "workflow_dispatch")
+    monkeypatch.setenv("GITHUB_EVENT_PATH", str(event_payload))
+
+    assert ddd_research.preview() == 2
+    preview = json.loads((tmp_path / "cache/ddd_preview.json").read_text(encoding="utf-8"))
+    assert preview["selected"] == []
+    assert "occurred_at" in preview["skipped"][0]["reason"]
 
 
 def test_buylist_re_review_requires_manual_single_ticker_and_selects_exact_entry(tmp_path, monkeypatch):

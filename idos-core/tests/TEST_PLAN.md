@@ -441,12 +441,17 @@ en el fixture.
 7. Para eventos materiales, comprobar que sólo perfiles habilitados y no
    sistemáticos procesan sus triggers configurados; cubrir estados elegibles,
    Buy List por `(ticker, opp_id)`, exclusión de posiciones y perfiles
-   deshabilitados. El modo `preview_only` debe mostrar la selección y omitir
-   Research, Assessment, Monthly Re-Assessment, digest y commits. Ejecutar una
-   sola prueba remota en la rama de test con un ticker, revisar el artifact de
-   preview y confirmar ausencia de llamadas IA y cambios Git. Una prueba de
-   Research real requiere además un evento con evidencia verificable; el
-   productor actual de resultados trimestrales sólo envía tipo y ticker.
+   deshabilitados. Exigir ticker, tipo, fecha del evento, fuente, URL HTTPS,
+   resumen y timestamp de observación; rechazar evidencia ausente, futura,
+   duplicada o de otro ticker. El modo `preview_only` debe mostrar selección y
+   evidencia normalizada, y omitir Research, Assessment, Monthly Re-Assessment,
+   digest y commits. Ejecutar una sola prueba remota en la rama de test con un
+   ticker, revisar el artifact y confirmar ausencia de llamadas IA y cambios
+   Git. El calendario Yahoo/yfinance sólo sugiere la fecha de resultados; no
+   demuestra que el reporte se haya publicado. Research debe contrastar el
+   evento con fuentes primarias. Una prueba real de Research debe verificar
+   que prompt, snapshot, journal y auditoría conservan la misma evidencia y que
+   el Research previo no se reemplaza ante respuesta inválida.
 
 ### Asimetría Bear/Base/Bull y RULE-008
 

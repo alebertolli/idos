@@ -1,6 +1,8 @@
 import time
 import math
 import re
+import hashlib
+import json
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -21,6 +23,7 @@ from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.decision.scenarios import validate_scenario_analysis
 from idos.decision.manager_approval import invalidate_manager_approval_after_research
 from idos.research.thesis_schedule import interval_days_for
+from idos.research.events import canonical_event_type, normalize_event_evidence
 
 class ResearchWorker(BaseWorker):
     """Orchestrates the full research pipeline: DDD -> AOIF -> Hypothesis.
@@ -52,9 +55,14 @@ class ResearchWorker(BaseWorker):
         base_path = context.get("base_path", "")
         force_reprocess = context.get("force_reprocess", False)
         event_type = context.get("event_type", "manual")
+        event_evidence = context.get("event_evidence")
         if not ticker or not opp_id:
             msg = "Both ticker and opp_id are required"
             raise ValueError(msg)
+        if canonical_event_type(event_type):
+            event_evidence = normalize_event_evidence(event_type, ticker, event_evidence)
+        elif event_evidence is not None:
+            raise ValueError("event_evidence sólo se admite para triggers materiales")
 
         bp = Path(base_path) if base_path else Path.cwd()
         sqlite = SQLiteStore(bp / "idos.db")
@@ -117,6 +125,11 @@ class ResearchWorker(BaseWorker):
         previous_wiki = knowledge.get_wiki_text(ticker)
         prior_catalysts = self._load_prior_catalysts(ticker, journal)
 
+        recent_events = financial_data.get("recent_events", company.get("business_model", "")[:500])
+        if event_evidence:
+            event_context = json.dumps(event_evidence, ensure_ascii=False, sort_keys=True)
+            recent_events = f"{recent_events}\n\nEvento disparador validado para revisar: {event_context}"
+
         ddd_inputs = {
             "ticker": ticker,
             "name": company.get("name", ticker),
@@ -141,7 +154,7 @@ class ResearchWorker(BaseWorker):
             "ceo_tenure": financial_data.get("ceo_tenure", 0),
             "insider_ownership": financial_data.get("insider_ownership", 0),
             "capital_allocation": financial_data.get("capital_allocation", "N/A"),
-            "recent_events": financial_data.get("recent_events", company.get("business_model", "")[:500]),
+            "recent_events": recent_events,
         }
         # Systematic strategies have a signal thesis, not a corporate fundamental
         # thesis. Running them through the generic DDD prompt produced the same
@@ -174,6 +187,7 @@ class ResearchWorker(BaseWorker):
                 "ticker": ticker,
                 "error": failure_reason,
                 "event_type": event_type,
+                "event_evidence": event_evidence,
                 "forced": bool(force_reprocess),
             }
             sqlite.log_event("research:failed", event_data)
@@ -186,11 +200,27 @@ class ResearchWorker(BaseWorker):
                 "ddd_empty": True,
             }
 
+        generated_at = datetime.now(AR_TZ).isoformat()
+        input_snapshot_hash = hashlib.sha256(
+            json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str).encode("utf-8")
+        ).hexdigest()
         ddd_report = {
             "ticker": ticker,
             "opp_id": opp_id,
             "version": "3.0",
-            "generated_at": datetime.now(AR_TZ).isoformat(),
+            "generated_at": generated_at,
+            "research_trigger": {
+                "trigger_type": event_type,
+                "triggered_at": generated_at,
+                "strategy_id": opp.get("strategy_id", ""),
+                "strategy_version": opp.get("strategy_version", ""),
+                "event_evidence": event_evidence,
+                "input_snapshot_ref": {
+                    "path": "research_input_snapshot",
+                    "sha256": input_snapshot_hash,
+                },
+            },
+            "research_input_snapshot": ddd_inputs,
             "clasificacion_oportunidad": classification,
             "error_mercado": market_error,
             "tesis_inversion": thesis,
@@ -268,6 +298,7 @@ class ResearchWorker(BaseWorker):
                     "ticker": ticker,
                     "errors": hypothesis_errors,
                     "event_type": event_type,
+                    "event_evidence": event_evidence,
                 }
                 sqlite.log_event("research:hypothesis_validation_failed", event_data)
                 journal.log_event("research:hypothesis_validation_failed", event_data, source="research_worker")
@@ -395,11 +426,16 @@ class ResearchWorker(BaseWorker):
             "opp_id": opp_id, "ticker": ticker,
             "score": score, "hypotheses": len(hypotheses),
             "classification": classification.get("categoria"),
+            "event_type": event_type,
+            "event_evidence": event_evidence,
+            "strategy_version": opp.get("strategy_version", ""),
+            "input_snapshot_sha256": input_snapshot_hash,
         }
         event_type_name = "research:completed"
         if force_reprocess:
             event_data.update({
                 "event_type": event_type,
+                "event_evidence": event_evidence,
                 "original_status": current_status.value,
                 "ddd_empty": ddd_empty,
             })

@@ -1,4 +1,6 @@
 from datetime import date
+import hashlib
+import json
 from pathlib import Path
 from unittest.mock import MagicMock
 
@@ -47,6 +49,56 @@ def _mock_research_registry() -> MagicMock:
 
 
 class TestResearchWorker:
+    def test_event_research_persists_evidence_and_prompt_snapshot(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_journal,
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_path: Path,
+    ):
+        import yaml
+
+        ticker, opp_id = seeded_opportunity
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+        evidence = {
+            "ticker": ticker,
+            "event_type": "quarterly_results",
+            "occurred_at": "2026-10-14",
+            "source_name": "Investor Relations",
+            "source_url": "https://example.com/ir/results",
+            "summary": "Quarterly results published; verify the primary source.",
+        }
+
+        result = worker.run({
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "base_path": base_path,
+            "force_reprocess": True,
+            "event_type": "quarterly_results",
+            "event_evidence": evidence,
+        })
+
+        assert result["status"] == "completed"
+        report_path = tmp_journal.opportunity_path(ticker, opp_id) / "ddd_report.yml"
+        report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+        trigger = report["research_trigger"]
+        assert trigger["event_evidence"]["source_url"] == evidence["source_url"]
+        assert trigger["strategy_version"] == "legacy-compatible"
+        assert len(trigger["input_snapshot_ref"]["sha256"]) == 64
+        assert report["research_input_snapshot"]["recent_events"].find("Evento disparador validado") >= 0
+        actual_hash = hashlib.sha256(
+            json.dumps(
+                report["research_input_snapshot"],
+                ensure_ascii=False,
+                sort_keys=True,
+                default=str,
+            ).encode("utf-8")
+        ).hexdigest()
+        assert trigger["input_snapshot_ref"]["sha256"] == actual_hash
+
     def test_invalid_ddd_preserves_previous_report_and_stops_partial_writes(
         self,
         seeded_opportunity: tuple[str, str],

@@ -23,17 +23,10 @@ import yaml
 from datetime import datetime, timezone
 from pathlib import Path
 
+from idos.research.events import canonical_event_type, load_event_evidence
 
 STALE_DAYS = 30
 SKIP_TICKERS = set()
-SUPPORTED_THESIS_EVENT_TYPES = {
-    "quarterly_results",
-    "guidance_change",
-    "material_restatement",
-    "red_flag_change",
-    "material_financial_deterioration",
-    "thesis_change",
-}
 EVENT_RESEARCHABLE_STATUSES = {
     "SCREENED",
     "UNDER_RESEARCH",
@@ -114,7 +107,17 @@ def _canonical_event_type(event_type: str) -> str | None:
     canonical = str(event_type or "").strip().lower().replace("-", "_")
     if canonical in {"", "manual", "monthly", "re_research_30d"}:
         return None
-    return canonical if canonical in SUPPORTED_THESIS_EVENT_TYPES else None
+    return canonical_event_type(canonical)
+
+
+def _event_evidence_for_ticker(event_type: str, ticker: str) -> tuple[dict | None, str | None]:
+    canonical = _canonical_event_type(event_type)
+    if canonical is None:
+        return None, None
+    try:
+        return load_event_evidence(canonical, ticker), None
+    except ValueError as exc:
+        return None, str(exc)
 
 
 def _configured_event_trigger(opp: dict, event_type: str, catalog) -> str | None:
@@ -241,6 +244,7 @@ def preview():
     skipped = []
     force = os.environ.get("FORCE", "false").lower() == "true"
     event_type = os.environ.get("EVENT_TYPE", "monthly")
+    event_requested = _canonical_event_type(event_type)
     from idos.strategy.catalog import StrategyCatalog
     strategy_catalog = StrategyCatalog(Path("idos-config/strategies.yml"))
     requested = {t.strip().upper() for t in os.environ.get("TICKER", "").split(",") if t.strip()}
@@ -279,6 +283,7 @@ def preview():
                 if not data:
                     continue
                 event_trigger = _configured_event_trigger(data, event_type, strategy_catalog)
+                event_evidence, evidence_error = _event_evidence_for_ticker(event_type, ticker)
                 is_selected_buylist_entry = (
                     review_buylist
                     and requested == {ticker}
@@ -302,8 +307,11 @@ def preview():
                     data,
                     force,
                     allow_buylist_research=is_selected_buylist_entry,
-                    event_trigger=event_trigger,
+                    event_trigger=event_trigger if event_evidence else None,
                 )
+                if event_requested and (event_trigger is None or event_evidence is None):
+                    should, reprocess = False, False
+                    reason = evidence_error or "event trigger is not enabled for this strategy"
                 entry = {
                     "ticker": ticker,
                     "opp_id": data["id"],
@@ -311,6 +319,8 @@ def preview():
                     "force_reprocess": reprocess,
                     "trigger_type": event_trigger,
                 }
+                if event_evidence:
+                    entry["event_evidence"] = event_evidence
                 (selected if should else skipped).append(entry)
 
                 if status == "SCREENED":
@@ -356,6 +366,10 @@ def preview():
         "fresh": [{"ticker": t, "opp_id": oid, "score": sc, "days": days} for t, oid, sc, days in fresh],
         "excluded_count": len(excluded),
     }, indent=2), encoding="utf-8")
+    if event_requested and not selected:
+        print("[DDD] Material event preview has no candidate with valid evidence")
+        return 2
+    return 0
 
 
 def main():
@@ -363,6 +377,7 @@ def main():
     tickers_env = os.environ.get('TICKER', '')
     tickers = [t.strip().upper() for t in tickers_env.split(',') if t.strip()] if tickers_env else []
     event_type = os.environ.get('EVENT_TYPE', 'monthly')
+    event_requested = _canonical_event_type(event_type)
     review_buylist = os.environ.get("REVIEW_BUYLIST", "false").lower() == "true"
     if review_buylist and (not force or len(tickers) != 1 or event_type != "manual"):
         print("[DDD] REVIEW_BUYLIST requires a manual run, FORCE=true, and exactly one TICKER")
@@ -412,6 +427,7 @@ def main():
                     if not data:
                         continue
                     event_trigger = _configured_event_trigger(data, event_type, strategy_catalog)
+                    event_evidence, evidence_error = _event_evidence_for_ticker(event_type, ticker)
                     is_selected_buylist_entry = (
                         review_buylist
                         and tickers == [ticker]
@@ -439,8 +455,11 @@ def main():
                         data,
                         force,
                         allow_buylist_research=is_selected_buylist_entry,
-                        event_trigger=event_trigger,
+                        event_trigger=event_trigger if event_evidence else None,
                     )
+                    if event_requested and (event_trigger is None or event_evidence is None):
+                        should, opp_force = False, False
+                        reason = evidence_error or "event trigger is not enabled for this strategy"
                     if should:
                         opportunities.append({
                             'opp_id': data['id'],
@@ -450,6 +469,7 @@ def main():
                             'reason': reason,
                             'force_reprocess': opp_force,
                             'trigger_type': event_trigger,
+                            'event_evidence': event_evidence,
                         })
                     else:
                         skipped_list.append({
@@ -465,6 +485,9 @@ def main():
         print('[DDD] No eligible opportunities to process')
         if review_buylist:
             print('[DDD] Requested Buy List re-review was not eligible; refusing a successful no-op')
+            return 2
+        if event_requested:
+            print('[DDD] Material event has no eligible opportunity with valid evidence')
             return 2
         Path('cache').mkdir(parents=True, exist_ok=True)
         Path('cache/ddd_results.json').write_text(json.dumps({
@@ -513,6 +536,7 @@ def main():
                 'base_path': str(base_path),
                 'force_reprocess': opp_force,
                 'event_type': event_type,
+                'event_evidence': opp.get('event_evidence'),
             }
             r = rw.run(ctx)
             status = r.get('status', 'unknown')
@@ -563,6 +587,6 @@ def main():
 
 if __name__ == '__main__':
     if '--preview' in sys.argv:
-        preview()
+        sys.exit(preview() or 0)
     else:
         sys.exit(main())
