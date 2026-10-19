@@ -1,0 +1,168 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Cuota de mercado medida por analistas de la industria inferior al 10%
+      en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Arm reporta menos de 5 acuerdos de licencia de Neoverse N2 con proveedores
+      de servidores para esa fecha.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Cuota de mercado medida por analistas de la industria inferior al 10% en la fecha
+    objetivo.
+  - Arm reporta menos de 5 acuerdos de licencia de Neoverse N2 con proveedores de
+    servidores para esa fecha.
+  horizon: medio
+  id: H1-OPP-20261019-001
+  opportunity_id: OPP-20261019-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 15.0
+    met: null
+    metric: share_IA_IP
+    prediction: Cuota de mercado de IP de aceleradores de IA en centros de datos alcanzará
+      15% a nivel global.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La creciente demanda de IA generativa impulsa a los proveedores de nube
+    a buscar arquitecturas eficientes en energía; Arm ha anunciado alianzas con varios
+    fabricantes de servidores y su roadmap Neoverse N2 ofrece mejor rendimiento por
+    vatio que la competencia, lo que debería traducirse en mayor adopción.
+  review_trigger: Si al 30 de junio de 2027 la cuota de mercado está por debajo del
+    8%, la hipótesis se descartará.
+  secondary_hypotheses: []
+  statement: Arm aumentará su cuota de mercado de IP para aceleradores de IA en centros
+    de datos al menos al 15% mediante sus diseños Neoverse N2 antes del 31 de diciembre
+    de 2027.
+  status: ACTIVE
+  ticker: ARM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Ingresos de licencias de IA reportados en los resultados FY2028 menores
+      a 1.8 BUSD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Participación de IA en los ingresos totales inferior al 15% al cierre
+      del ejercicio.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ingresos de licencias de IA reportados en los resultados FY2028 menores a 1.8 BUSD.
+  - Participación de IA en los ingresos totales inferior al 15% al cierre del ejercicio.
+  horizon: medio
+  id: H2-OPP-20261019-001
+  opportunity_id: OPP-20261019-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 2.5
+    met: null
+    metric: AI_licensing_revenue
+    prediction: Ingresos de licencias de IA = 2.5 BUSD.
+    unit: BUSD
+  priority: important
+  probability: 0.5
+  rationale: Arm ha lanzado versiones mejoradas de Cortex‑X y Neoverse con bloques
+    de IA integrados; los clientes de data‑center y automoción están ampliando sus
+    despliegues, lo que incrementa la facturación por licencias de IA.
+  review_trigger: Si al 31 de marzo de 2028 los ingresos de IA acumulados en el año
+    fiscal son menores a 0.5 BUSD, la hipótesis se considerará refutada.
+  secondary_hypotheses: []
+  statement: Los ingresos por licencias de IA de Arm superarán los 2.500 millones
+    de dólares en el ejercicio fiscal 2028, representando más del 20% del total de
+    ingresos.
+  status: ACTIVE
+  ticker: ARM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Forward P/E medido por Bloomberg/FactSet inferior o igual a 25x en
+      la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción no supera el nivel que implicaría 30x basado
+      en estimaciones de EPS de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Forward P/E medido por Bloomberg/FactSet inferior o igual a 25x en la fecha objetivo.
+  - El precio de la acción no supera el nivel que implicaría 30x basado en estimaciones
+    de EPS de 2028.
+  horizon: corto
+  id: H3-OPP-20261019-001
+  opportunity_id: OPP-20261019-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 30.0
+    met: null
+    metric: forward_PE
+    prediction: Forward P/E >= 30x.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: Los analistas están subvaluando el potencial de ingresos de IA; a medida
+    que los resultados de H1 y H2 se materialicen, el mercado ajustará el múltiplo
+    al alza.
+  review_trigger: Si al 31 de marzo de 2027 el forward P/E está por debajo de 27x,
+    la hipótesis será descartada.
+  secondary_hypotheses: []
+  statement: El múltiplo forward P/E de Arm alcanzará al menos 30x antes del 30 de
+    junio de 2027, reflejando una re‑valoración basada en el crecimiento de IA y data‑center.
+  status: ACTIVE
+  ticker: ARM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Menos de dos acuerdos firmados y anunciados públicamente antes de la
+      fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los acuerdos anunciados no incluyen transferencia de IP de IA o Neoverse.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Menos de dos acuerdos firmados y anunciados públicamente antes de la fecha objetivo.
+  - Los acuerdos anunciados no incluyen transferencia de IP de IA o Neoverse.
+  horizon: largo
+  id: H4-OPP-20261019-001
+  opportunity_id: OPP-20261019-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 3.0
+    met: null
+    metric: local_manufacturing_partners
+    prediction: Número de acuerdos de fabricación local en China >= 3.
+    unit: count
+  priority: informational
+  probability: 0.5
+  rationale: Arm ha demostrado capacidad de operar bajo restricciones geopolíticas
+    mediante licencias indirectas; la presión regulatoria en EE.UU. impulsa a la compañía
+    a asegurar rutas de suministro locales.
+  review_trigger: Si al 30 de junio de 2028 solo se ha anunciado un acuerdo de fabricación
+    local, la hipótesis será rechazada.
+  secondary_hypotheses: []
+  statement: Arm firmará al menos tres acuerdos de fabricación local con socios chinos
+    para producir diseños basados en sus núcleos antes del 31 de diciembre de 2028,
+    mitigando riesgos de exportación.
+  status: ACTIVE
+  ticker: ARM
+  version: 1

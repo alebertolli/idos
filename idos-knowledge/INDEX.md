@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 135 companies tracked
+Total: 136 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -130,6 +130,7 @@ Total: 135 companies tracked
 - 📄 [[ALAB|Astera Labs, Inc.]]
 - 📄 [[AMAT|Applied Materials, Inc.]]
 - 📄 [[AMD|AMD]]
+- 📄 [[ARM|Arm Holdings plc]]
 - 📄 [[ASML|ASML Holding N.V.]]
 - 📄 [[ASTS|AST SpaceMobile, Inc.]]
 - 📄 [[AVGO|Broadcom Inc.]]

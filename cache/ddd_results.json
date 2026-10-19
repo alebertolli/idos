@@ -3,71 +3,68 @@
   "processed": [
     {
       "opp_id": "OPP-20261019-001",
-      "ticker": "ALAB",
+      "ticker": "ARM",
       "status": "completed",
-      "score": 68,
-      "reason": "FORCE re-research UNDER_RESEARCH (score=67)",
+      "score": 78,
+      "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
   ],
   "skipped": [],
   "assessments": [
     {
-      "ticker": "ALAB",
+      "ticker": "ARM",
       "opp_id": "OPP-20261019-001",
       "status": "completed",
-      "conviction_score": 70,
+      "conviction_score": 64,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": null,
       "decision_id": null,
       "assessments": {
-        "BusinessAssessmentEngine": 72,
-        "ValuationAssessmentEngine": 70,
-        "RecoveryAssessmentEngine": 67,
+        "BusinessAssessmentEngine": 62,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 60,
         "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 50
       },
       "rules_passed": [
-        "RULE-001",
         "RULE-003",
-        "RULE-004",
-        "RULE-005"
+        "RULE-004"
       ],
       "rules_failed": [
+        "RULE-001",
+        "RULE-005",
         "RULE-008",
         "RULE-010"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 72/70",
-        "RULE-003": "Rerating: 67/50",
+        "RULE-001": "Business quality: 62/70",
+        "RULE-003": "Rerating: 60/50",
         "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 70/65",
+        "RULE-005": "Conviction: 64/65",
         "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: se requieren resultados con upside y downside para calcular B/R",
-        "RULE-010": "conflicto entre fuentes en m\u00e9tricas core: revenue_growth_pct; periodo financiero no reconciliado en m\u00e9tricas core: operating_margin_pct, revenue_growth_pct"
+        "RULE-010": "fecha de corte ausente, inv\u00e1lida o futura; procedencia incompleta"
       },
-      "data_quality": "poor",
+      "data_quality": "partial",
       "financial_data_quality": {
-        "status": "poor",
+        "status": "partial",
         "core_metric_coverage": "5/5",
         "missing_core_metrics": [],
         "source": "stockanalysis.com",
-        "as_of_date": "2026-06-30",
-        "as_of_date_source": "yfinance",
-        "missing_provenance": [],
-        "conflicting_core_metrics": [
-          "revenue_growth_pct"
+        "as_of_date": null,
+        "as_of_date_source": null,
+        "missing_provenance": [
+          "as_of_date"
         ],
-        "unreconciled_core_metrics": [
-          "operating_margin_pct",
-          "revenue_growth_pct"
-        ]
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
       }
     }
   ],
   "errors": [],
   "status": "research_completed",
   "event_type": "manual",
-  "force": true,
+  "force": false,
   "stale_days_threshold": 30
 }
