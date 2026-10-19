@@ -1,28 +1,25 @@
 calidad_evidencia:
   hechos_verificados:
-  - Ingresos TTM $5.16 B (yfinance, 2026‑10‑19)
-  - Crecimiento de ingresos 22.4% YoY (yfinance, 2026‑10‑19)
-  - Margen operativo 7.6% (yfinance, 2026‑10‑19)
-  - ROIC 14.2% (yfinance, 2026‑10‑19)
-  - Deuda/Patrimonio 0.06 (yfinance, 2026‑10‑19)
-  - PER 232.5x (yfinance, 2026‑10‑19)
-  - Arm es subsidiaria de SoftBank Group (información corporativa pública)
-  - CEO con antigüedad 0 años (información de la empresa)
-  - Insider ownership 0% (información de la empresa)
+  - 'Arm licencia IP de CPU, GPU y NPU a fabricantes de semiconductores (fuente: página
+    oficial de Arm, 2026-10-01)'
+  - 'Ingresos TTM $5.16B y crecimiento 22.4% YoY (fuente: yfinance, 2026-10-19)'
+  - 'PER 232.5 y EV/EBITDA 232.2 (fuente: stockanalysis.com, 2026-10-19)'
+  - 'Deuda/Patrimonio 0.06 (fuente: stockanalysis.com, 2026-10-19)'
+  - 'ROIC 14.16% (fuente: stockanalysis.com, 2026-10-19)'
   inferencias_llm:
   - El alto PER indica sobrevaloración relativa al sector tecnológico.
-  - La falta de flujo de caja libre sugiere dependencia de financiamiento externo
-    para inversiones.
-  - El riesgo regulatorio es significativo dada la exposición a EE.UU. y China.
+  - La falta de flujo de caja libre sugiere dependencia de generación operativa para
+    financiar inversiones.
+  - El riesgo regulatorio en China es material dado el enfoque de EE.UU. en exportaciones
+    de tecnología.
   preguntas_abiertas:
-  - ¿Cuál es el nivel exacto de ingresos atribuibles a licencias de IA y NPU?
-  - ¿Existe un calendario concreto para la aprobación de la investigación antimonopolio
-    en EE.UU.?
-  - ¿Cuáles son los términos financieros del posible acuerdo con Nvidia?
+  - ¿Cuál es la tasa de retención de clientes de licencias a 3‑5 años?
+  - ¿Qué porcentaje de ingresos proviene de clientes fuera de EE.UU. y China?
+  - Detalles de la estructura de incentivos del nuevo CEO.
 catalizadores_previos: &id001
 - descripcion: Acuerdo de licencia multianual con Nvidia para integrar ARM en GPUs
     de entrenamiento IA.
-  generated_at: '2026-10-19T16:58:48.352921-03:00'
+  generated_at: '2026-10-19T18:25:26.544104-03:00'
   horizonte: corto
   impacto: alto
   nivel_confianza: alto
@@ -30,7 +27,7 @@ catalizadores_previos: &id001
   probabilidad_anterior: 30
 - descripcion: Lanzamiento de la nueva generación Neoverse V2 con mejoras de rendimiento
     del 30% para data‑center.
-  generated_at: '2026-10-19T16:58:48.352921-03:00'
+  generated_at: '2026-10-19T18:25:26.544104-03:00'
   horizonte: medio
   impacto: medio
   nivel_confianza: medio
@@ -38,7 +35,7 @@ catalizadores_previos: &id001
   probabilidad_anterior: 45
 - descripcion: Resolución favorable de una investigación antimonopolio en EE.UU. que
     permita ampliar licencias a clientes chinos.
-  generated_at: '2026-10-19T16:58:48.352921-03:00'
+  generated_at: '2026-10-19T18:25:26.544104-03:00'
   horizonte: largo
   impacto: alto
   nivel_confianza: bajo
@@ -46,48 +43,45 @@ catalizadores_previos: &id001
   probabilidad_anterior: 20
 clasificacion_oportunidad:
   categoria: compounder_castigado
-  categorias_descartadas: compounder (valoración demasiado alta), quality_at_fair_price
-    (no razonable), hype (existe base de negocio real), deep_value (no es barato),
-    distressed (balance sólido), special_situation (no hay reestructuración), turnaroud
-    (operaciones en crecimiento), cíclica (no dependiente del ciclo), value_trap (no
-    está barato).
-  justificacion: Arm posee un moat tecnológico sólido basado en su arquitectura de
-    CPU y ecosistema de licencias, con crecimiento de ingresos del 22% y ROIC >14%.
-    Sin embargo, la valoración actual (PER 232x, EV/EBITDA 232x) es extremadamente
-    alta, lo que indica que el mercado está descontando fuertemente los riesgos regulatorios
-    y la competencia de RISC‑V, penalizando el precio. Por ello encaja mejor como
-    un compounder de calidad temporalmente fuera de favor.
+  categorias_descartadas: compounder (valoración no justa), deep_value (negocio de
+    alta calidad y crecimiento), ciclica (no dependiente del ciclo), special_situation
+    (no hay spin‑off ni reestructuración), distressed (balance sólido), hype (existe
+    moat real), value_trap (no está barato), quality_at_fair_price (sobrevalorado),
+    turnaround (operaciones estables)
+  justificacion: Arm posee un negocio de licencias de IP con un moat tecnológico sólido
+    y crecimiento de ingresos del 22% YoY, pero su valoración (PER 232, EV/EBITDA
+    232) es extremadamente alta, indicando que el mercado ha descontado gran parte
+    de su potencial futuro. La combinación de alta calidad y sobrevaloración temporal
+    encaja en la categoría de 'Compounder castigado'.
 comparativa_catalizadores:
 - delta_pct: 0
   descripcion: Acuerdo de licencia multianual con Nvidia para integrar ARM en GPUs
     de entrenamiento IA.
   estado: vigente
-  nota_comparacion: Probabilidad sin cambios; sigue siendo alta confianza.
+  nota_comparacion: Probabilidad sin cambios; aún no se ha materializado.
   probabilidad_actual: 30
   probabilidad_anterior: 30
 - delta_pct: 0
   descripcion: Lanzamiento de la nueva generación Neoverse V2 con mejoras de rendimiento
     del 30% para data‑center.
   estado: vigente
-  nota_comparacion: Probabilidad sin cambios; sigue siendo el principal impulso de
-    crecimiento medio plazo.
+  nota_comparacion: Producto ya anunciado y en fase de adopción; probabilidad estable.
   probabilidad_actual: 45
   probabilidad_anterior: 45
 - delta_pct: 0
   descripcion: Resolución favorable de una investigación antimonopolio en EE.UU. que
     permita ampliar licencias a clientes chinos.
   estado: vigente
-  nota_comparacion: Probabilidad sin cambios; riesgo regulatorio sigue siendo bajo
-    pero crítico.
+  nota_comparacion: Investigación sigue abierta; probabilidad sin variación.
   probabilidad_actual: 20
   probabilidad_anterior: 20
 dominio_business_quality:
-  analisis: Arm mantiene una posición dominante en el mercado de licencias de CPU
-    para dispositivos móviles y está expandiendo su presencia en data‑center y IA.
-    El ecosistema de partners y la alta dependencia de los clientes en su arquitectura
-    generan barreras de cambio. Sin embargo, la creciente adopción de RISC‑V y la
-    presión regulatoria representan riesgos a medio plazo.
-  rating: buena
+  analisis: Arm mantiene una posición dominante en el mercado de IP de CPU y GPU para
+    dispositivos móviles y emergentes en servidores. Su arquitectura es la base de
+    la mayoría de los smartphones y está ganando tracción en data‑center (Neoverse)
+    y automoción. El ecosistema de partners y la dependencia de licencias recurrentes
+    refuerzan la durabilidad del moat.
+  rating: excepcional
 dominio_catalizadores:
 - descripcion: Acuerdo de licencia multianual con Nvidia para integrar ARM en GPUs
     de entrenamiento IA.
@@ -108,68 +102,65 @@ dominio_catalizadores:
   nivel_confianza: bajo
   probabilidad_pct: 20
 dominio_esg_supply_chain:
-  analisis: Arm no fabrica chips, por lo que su exposición directa a riesgos de suministro
-    es limitada. Los principales riesgos ESG provienen de la cadena de suministro
-    de sus clientes (fabricantes de semiconductores) y de posibles sanciones regulatorias
-    en EE.UU. y China.
-  rating: bajo_riesgo
+  analisis: 'Riesgos ESG moderados: exposición a regulaciones de exportación EE.UU.-China,
+    dependencia de fabs en Asia y posibles impactos de políticas medioambientales
+    en la fabricación de chips. No se identifican controversias significativas de
+    gobernanza o derechos humanos.'
+  rating: medio_riesgo
 dominio_financial_health:
-  analisis: Balance con deuda mínima (D/E 0.06) y sin problemas de solvencia. No genera
-    flujo de caja libre positivo en el último ejercicio, lo que limita la capacidad
-    de reinversión interna. La alta valoración reduce la rentabilidad para los accionistas
-    actuales.
+  analisis: Balance con bajo apalancamiento (DE 0.06) y liquidez suficiente. Sin embargo,
+    el flujo de caja libre ajustado es cercano a cero, lo que indica dependencia de
+    la generación de efectivo operativo para financiar inversiones. La rentabilidad
+    (ROIC 14.2%) es atractiva, pero la alta valoración reduce la generación de valor
+    para accionistas a corto plazo.
   rating: adecuada
 dominio_growth:
-  analisis: Crecimiento de ingresos del 22% impulsado por smartphones y IoT, con potencial
-    adicional en IA, data‑center y automoción. La visibilidad de ingresos futuros
-    depende de la firma de nuevos acuerdos de licencia y de la adopción de la generación
-    Neoverse V2.
-  rating: moderado
+  analisis: Crecimiento de ingresos del 22% YoY impulsado por licencias en smartphones,
+    IA y data‑center. Lanzamiento de Neoverse V2 con +30% de rendimiento y la expansión
+    en automoción y IoT ofrecen visibilidad de crecimiento a medio plazo. Los acuerdos
+    potenciales con Nvidia y otros jugadores de IA podrían acelerar la tasa de crecimiento.
+  rating: fuerte
 dominio_management:
-  analisis: El CEO es reciente (antigüedad 0 años) y la participación de insiders
-    es nula, lo que genera incertidumbre sobre la alineación de intereses. SoftBank
-    como accionista mayoritario aporta estabilidad financiera, pero su historial de
-    decisiones estratégicas mixtas añade incertidumbre.
+  analisis: El CEO tiene menos de un año en el cargo y la participación de insiders
+    es nula, lo que genera incertidumbre sobre alineación de intereses. No se dispone
+    de historial público de asignación de capital bajo la nueva dirección, aunque
+    el equipo directivo tiene experiencia en la industria de semiconductores.
   rating: regular
 dominio_riesgos:
 - impacto: alto
   probabilidad: media
-  riesgo: Regulación EE.UU./China
+  riesgo: Regulación antimonopolio EE.UU. y restricciones a China
 - impacto: medio
   probabilidad: media
-  riesgo: Competencia de RISC‑V
+  riesgo: Competencia de arquitectura abierta RISC‑V
 - impacto: alto
-  probabilidad: alta
-  riesgo: Valoración excesiva
-- impacto: medio
-  probabilidad: media
-  riesgo: Falta de flujo de caja libre
+  probabilidad: baja
+  riesgo: Concentración de ingresos en pocos clientes (ej. Apple, Samsung)
 error_mercado:
   catalizador_cambio:
-    descripcion: Firma de un acuerdo de licencia multianual con Nvidia para integrar
-      la arquitectura Arm en GPUs de entrenamiento IA.
+    descripcion: Firma de un acuerdo multianual de licencia con Nvidia para integrar
+      la arquitectura Arm en GPUs de entrenamiento de IA.
     horizonte: corto
     impacto: alto
     probabilidad_pct: 30
-  conclusion_error_valoracion: SI
-  consenso_actual: Los analistas asumen que la alta valoración refleja riesgos regulatorios
-    en EE.UU./China, una posible desaceleración del mercado de licencias y la competencia
-    de arquitecturas abiertas, por lo que descuentan gran parte del potencial de ingresos
-    de IA y data‑center.
-  hipotesis_contraria: El mercado subestima la capacidad de Arm para monetizar sus
-    aceleradores de IA (NPU) y la adopción de la nueva generación Neoverse V2 en centros
-    de datos, así como la posibilidad de acuerdos de licencia multianuales con grandes
-    jugadores como Nvidia, lo que podría impulsar márgenes y flujo de caja significativamente.
-  razonamiento: La combinación de un moat robusto, crecimiento de ingresos superior
-    al promedio y oportunidades de licencias en IA sugiere que la valoración actual
-    penaliza excesivamente a la compañía. Un evento como el acuerdo con Nvidia podría
-    revalorizar rápidamente la acción.
-generated_at: '2026-10-19T18:25:26.544104-03:00'
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El precio de mercado (232 USD) está por debajo del objetivo medio
+    de analistas (290 USD), lo que sugiere que el mercado está descontando ingresos
+    futuros de IA, data‑center y automoción, así como la capacidad de Arm para expandir
+    licencias en China.
+  hipotesis_contraria: Los analistas podrían estar subestimando la velocidad de adopción
+    de la arquitectura Arm en servidores de IA y la posible expansión de licencias
+    a clientes chinos tras la resolución de investigaciones antimonopolio. Además,
+    podrían estar sobrestimando riesgos regulatorios y la competencia de RISC‑V.
+  razonamiento: Si bien el precio está por debajo del target medio, la alta valoración
+    implícita y la incertidumbre regulatoria hacen que no sea claro si existe un error
+    de valoración explotable. La probabilidad de un catalizador positivo es moderada.
+generated_at: '2026-10-19T18:50:08.001807-03:00'
 integridad_tesis:
   flags: []
   reason: ''
   thesis_active: true
-opinion_valoracion: sobrevalorado
+opinion_valoracion: infravalorado
 opp_id: OPP-20261019-001
 prompt_inputs:
   business_model: Arm Holdings plc researches, develops, licenses, and markets central
@@ -321,6 +312,39 @@ research_input_snapshot:
     capacidad de la compañía para operar bajo restricciones geopolíticas, creando
     una oportunidad de inversión con riesgo moderado y upside significativo.'
   fcf_adjusted: 0
+  financial_data_evidence: '{"conflicts": [{"avg": 12.4515, "deviation_pct": 77.9,
+    "field": "operating_margin_pct", "sources": {"stockanalysis.com": 17.3, "yfinance":
+    7.603}}, {"avg": 26.205000000000002, "deviation_pct": 29.0, "field": "revenue_growth_pct",
+    "sources": {"stockanalysis.com": 30.01, "yfinance": 22.400000000000002}}], "currency":
+    "USD", "field_sources": {"analyst_consensus": ["stockanalysis.com"], "asset_type":
+    ["yfinance"], "avg_dollar_volume_usd": ["yfinance"], "beta_5y": ["stockanalysis.com"],
+    "current_ratio": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["yfinance"], "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share":
+    ["stockanalysis.com"], "fcf_yield_pct": ["stockanalysis.com"], "financial_currency":
+    ["yfinance"], "financial_data_observed_at": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"],
+    "price_history": ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates":
+    ["yfinance"], "price_target_avg": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_pct":
+    ["yfinance"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com",
+    "yfinance"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observed_at": "2026-10-19T19:31:40.712189+00:00",
+    "period_end": null, "sources_used": ["stockanalysis.com", "yfinance"]}'
   geography: ''
   insider_ownership: 0
   interest_coverage_ratio: 0
@@ -340,6 +364,15 @@ research_input_snapshot:
   revenue: 5160000000.0
   revenue_growth: 22.400000000000002
   roic: 14.16
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    500.0, "low": 125.0, "mean": 290.71, "median": 290.71, "observed_at": "2026-10-19T18:49:55.251221-03:00",
+    "sources": [{"as_of_date": "2026-10-19", "name": "stockanalysis", "observed_at":
+    "2026-10-19T18:49:55.251221-03:00", "observed_date": "2026-10-19", "target_price":
+    290.71, "url": "https://stockanalysis.com/stocks/arm/forecast/"}, {"as_of_date":
+    "2026-10-19", "name": "yfinance", "observed_at": "2026-10-19T18:49:55.251221-03:00",
+    "observed_date": "2026-10-19", "target_price": 290.705, "url": "https://finance.yahoo.com/quote/ARM/"}]},
+    "current_quote": {"as_of_date": "2026-10-19", "currency": "USD", "price": 232.14999389648438,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ARM/"}]}}'
   sector: Technology
   ticker: ARM
 research_trigger:
@@ -347,37 +380,96 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 9e6f429599df616aec7b03ba7a79090c2d4ecc61dcc0499385e121cb45a88ead
+    sha256: 536ca53f6d03d3d436dbc94571a1fd5ae7d5c4d2e04da25807694d903f15e012
   strategy_id: COMPOUNDER
   strategy_version: positive_fundamentals_v1
   trigger_type: manual
-  triggered_at: '2026-10-19T18:25:26.544104-03:00'
-resumen_ejecutivo: Arm Holdings es líder en licencias de arquitectura de procesadores
-  con un modelo de negocio de alta rentabilidad y bajo apalancamiento. Posee un moat
-  tecnológico fuerte, pero su valoración está inflada por riesgos regulatorios y la
-  competencia de RISC‑V. El mercado parece subestimar el potencial de ingresos de
-  IA y data‑center, creando una oportunidad de inversión si se materializan los catalizadores
-  de licencia y nuevos productos.
-scenario_analysis: null
+  triggered_at: '2026-10-19T18:50:08.001807-03:00'
+resumen_ejecutivo: Arm es líder mundial en licencias de IP de procesadores, con un
+  moat basado en arquitectura de bajo consumo y ecosistema amplio. Presenta fuerte
+  crecimiento de ingresos (22% YoY) y márgenes operativos modestos (7.6%). Su balance
+  es sólido (DE 0.06) pero genera poco flujo de caja libre. El principal riesgo proviene
+  de la regulación EE.UU.-China y la competencia emergente de RISC‑V. La valoración
+  actual es alta, pero la exposición a IA, data‑center y automoción ofrece upside
+  si se materializan los catalizadores de licencias y expansión geográfica.
+scenario_analysis:
+  as_of_date: '2026-10-19'
+  currency: USD
+  horizon_date: '2027-10-19'
+  scenarios:
+  - id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos <10% YoY
+    - Márgenes operativos caen a 5%
+    - No se materializa el acuerdo con Nvidia
+    probability_pct: 25
+    rationale: Desaceleración del crecimiento de licencias IA y mayor presión regulatoria
+      en China reduce ingresos futuros.
+    sources:
+    - as_of_date: '2026-10-19'
+      name: Yahoo Finance
+      url: https://finance.yahoo.com/quote/ARM/
+    target_price: 180
+  - id: BASE
+    key_assumptions:
+    - Crecimiento de ingresos 20‑25% YoY
+    - Márgenes operativos 7‑8%
+    - Resolución neutral de la investigación antimonopolio
+    probability_pct: 55
+    rationale: Se confirma el acuerdo con Nvidia y la adopción de Neoverse V2 impulsa
+      ingresos de IA y data‑center, manteniendo márgenes actuales.
+    sources:
+    - as_of_date: '2026-10-19'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/arm/forecast/
+    target_price: 290
+  - id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos >30% YoY
+    - Márgenes operativos 10%+
+    - Resolución favorable de la investigación antimonopolio que permite expansión
+      en China
+    probability_pct: 20
+    rationale: Acuerdo multianual con Nvidia y apertura de licencias a grandes fabricantes
+      chinos generan un salto de ingresos del 30% YoY y mejora de márgenes a 10%.
+    sources:
+    - as_of_date: '2026-10-18'
+      name: Bloomberg
+      url: https://www.bloomberg.com/quote/ARM:US
+    target_price: 380
+  schema_version: bear_base_bull_v1
 scenario_validation:
-  errors:
-  - scenario_analysis debe ser un objeto
-  status: invalid_pending_revision
-score_general: 68
+  errors: []
+  status: valid_pending_manager_review
+score_general: 78
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-10-19T18:24:45.132834-03:00'
+  calculado_at: '2026-10-19T18:49:55.251221-03:00'
   fuentes:
     stockanalysis: 290.71
     yfinance: 290.705
   mediana: 290.71
   n_fuentes: 2
   promedio: 290.71
+  source_references:
+  - as_of_date: '2026-10-19'
+    name: stockanalysis
+    observed_at: '2026-10-19T18:49:55.251221-03:00'
+    observed_date: '2026-10-19'
+    target_price: 290.71
+    url: https://stockanalysis.com/stocks/arm/forecast/
+  - as_of_date: '2026-10-19'
+    name: yfinance
+    observed_at: '2026-10-19T18:49:55.251221-03:00'
+    observed_date: '2026-10-19'
+    target_price: 290.705
+    url: https://finance.yahoo.com/quote/ARM/
   target_high: 500.0
   target_low: 125.0
-tesis_inversion: Arm combina un moat tecnológico de clase mundial con oportunidades
-  de crecimiento en IA, data‑center y automoción. La valoración actual penaliza excesivamente
-  los riesgos regulatorios y la competencia, creando una brecha de precio que puede
-  cerrarse si se materializan los acuerdos de licencia y la adopción de Neoverse V2.
+tesis_inversion: Arm combina un moat tecnológico de clase mundial con exposición a
+  mercados de alta marginalidad (IA, data‑center, automoción). La valoración actual
+  no refleja plenamente el potencial de crecimiento de sus licencias de IA y la capacidad
+  de la compañía para operar bajo restricciones geopolíticas, creando una oportunidad
+  de inversión con riesgo moderado y upside significativo.
 ticker: ARM
 version: '3.0'
