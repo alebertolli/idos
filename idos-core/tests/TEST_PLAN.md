@@ -281,6 +281,10 @@ estas pruebas.
 5. Conciliar el contador total de candidatos seleccionados con los procesados,
    errores y omitidos; comprobar que Assessment y digest conservan el total
    reportado por Research y que una ejecución con un caso no informa cero.
+6. En reportes sistemáticos, verificar rango del perfil, fecha/señal, ausencia
+   de probabilidades y volatilidad inventadas, hipótesis con texto e invalidación
+   configurada, valor intrínseco `No aplica` y propuesta pendiente visible.
+   Reportes anteriores sin versión de método vigente requieren regeneración.
 
 ### 8.4 Frontera privada de portfolio y Risk Audit
 

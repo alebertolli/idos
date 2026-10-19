@@ -96,8 +96,8 @@ class Hypothesis(BaseModel):
     version: int = 1
     horizon: str = "24 months"
     author: str = "system"
-    probability: float = Field(default=0.5, ge=0.0, le=1.0)
-    confidence: float = Field(default=0.0, ge=0.0, le=1.0)
+    probability: float | None = Field(default=0.5, ge=0.0, le=1.0)
+    confidence: float | None = Field(default=0.0, ge=0.0, le=1.0)
     parent_id: str = ""
     falsification: list[FalsificationCondition] = Field(default_factory=list)
     falsification_conditions: list[str] = Field(default_factory=list)

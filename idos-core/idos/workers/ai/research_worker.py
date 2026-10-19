@@ -1,4 +1,5 @@
 import time
+import math
 from datetime import datetime
 from typing import Any
 from uuid import uuid4
@@ -13,6 +14,7 @@ from idos.models.knowledge import Hypothesis, Prediction, FalsificationCondition
 from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
 from idos.timezone import AR_TZ
+from idos.strategy.catalog import StrategyCatalog
 
 class ResearchWorker(BaseWorker):
     """Orchestrates the full research pipeline: DDD -> AOIF -> Hypothesis.
@@ -79,6 +81,12 @@ class ResearchWorker(BaseWorker):
 
         current_status = OpportunityStatus(opp["status"])
         is_systematic = str(opp.get("research_profile", "")).lower() == "systematic"
+        systematic_params = {}
+        if is_systematic:
+            profile = StrategyCatalog(bp / "idos-config" / "strategies.yml").require(opp.get("strategy_id", ""))
+            if not profile.enabled or profile.research_profile != "systematic":
+                raise ValueError("Systematic research requires an enabled systematic strategy")
+            systematic_params = profile.parameters
         if not force_reprocess:
             if not self.state_machine.can_transition(current_status, OpportunityStatus.UNDER_RESEARCH):
                 return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
@@ -91,7 +99,7 @@ class ResearchWorker(BaseWorker):
         if not company.get("sector"):
             company = self._enrich_company_info(ticker, company, knowledge)
 
-        consensus = self._fetch_target_consensus(ticker, bp)
+        consensus = None if is_systematic else self._fetch_target_consensus(ticker, bp)
 
         previous_wiki = knowledge.get_wiki_text(ticker)
         prior_catalysts = self._load_prior_catalysts(ticker, journal)
@@ -125,7 +133,7 @@ class ResearchWorker(BaseWorker):
         # boilerplate report for every ETF and left the lifecycle dependent on
         # fundamental rules that do not apply to this strategy.
         ddd_result = (
-            self._build_systematic_ddd(ticker, opp, financial_data)
+            self._build_systematic_ddd(ticker, opp, systematic_params)
             if is_systematic else self._run_prompt("ddd", ticker, ddd_inputs)
         )
 
@@ -210,11 +218,13 @@ class ResearchWorker(BaseWorker):
             hypothesis_result = {
                 "hipotesis": [{
                     "id": "H-MOMENTUM-1",
-                    "enunciado": f"La señal mensual de momentum de {ticker} se mantiene dentro del rango operativo y justifica la asignación hasta el próximo rebalanceo.",
-                    "probabilidad": 0.5,
-                    "confianza": 0.7,
-                    "predicciones": [{"metrica": "momentum_signal", "valor_esperado": opp.get("signal", {}).get("momentum", 0), "unidad": "score", "plazo": "1 mes"}],
-                    "condiciones_falsacion": [{"condicion": "La señal sale del rango operativo o cruza el umbral de salida", "metrica": "momentum_signal", "umbral": 0}],
+                    "enunciado": f"La señal mensual de {ticker} permanece entre {systematic_params['minimum_signal']} y {systematic_params['maximum_signal']} hasta el próximo rebalanceo; la asignación requiere revisión privada de riesgo.",
+                    "probabilidad": None,
+                    "confianza": None,
+                    "condiciones_falsacion": [
+                        {"condicion": "Señal por debajo del mínimo configurado", "metrica": "momentum_signal", "umbral": systematic_params["minimum_signal"]},
+                        {"condicion": "Señal por encima del máximo configurado", "metrica": "momentum_signal", "umbral": systematic_params["maximum_signal"]},
+                    ],
                 }]
             }
         else:
@@ -258,7 +268,7 @@ class ResearchWorker(BaseWorker):
             "version": "3.0",
             "status": "COMPLETED",
             "score": score,
-            "confidence": "HIGH" if score >= 75 else "MEDIUM" if score >= 50 else "LOW",
+            "confidence": "NOT_ASSESSED" if is_systematic else "HIGH" if score >= 75 else "MEDIUM" if score >= 50 else "LOW",
             "findings": [
                 f"Classification: {classification.get('categoria', 'unknown')}",
                 f"Market error: {market_error.get('conclusion_error_valoracion', 'N/A')}",
@@ -377,19 +387,19 @@ class ResearchWorker(BaseWorker):
         return prior
 
     @staticmethod
-    def _build_systematic_ddd(ticker: str, opportunity: dict[str, Any], financial: dict[str, Any]) -> dict[str, Any]:
+    def _build_systematic_ddd(ticker: str, opportunity: dict[str, Any], parameters: dict[str, Any]) -> dict[str, Any]:
         """Build an auditable DDD-shaped report for a signal-driven strategy."""
         signal = opportunity.get("signal") or {}
-        momentum = float(signal.get("momentum") or 0)
-        # The configured strategy range is 0.6..2.7. Keep the score bounded and
-        # preserve the raw signal so the decision can be reproduced later.
-        signal_score = max(0, min(100, round(momentum / 2.7 * 100))) if momentum else 0
-        volatility = financial.get("volatility_90d") or financial.get("volatility")
-        try:
-            volatility = float(volatility)
-        except (TypeError, ValueError):
-            volatility = 0
-        risk_rating = "alto_riesgo" if volatility >= 45 else "medio_riesgo" if volatility >= 25 else "bajo_riesgo"
+        momentum = signal.get("momentum")
+        minimum = parameters.get("minimum_signal")
+        maximum = parameters.get("maximum_signal")
+        if any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v)
+               for v in (momentum, minimum, maximum)) or not minimum < maximum or maximum <= 0:
+            raise ValueError("Systematic research requires a finite signal and configured signal range")
+        # Preserve the existing descriptive normalization, using the configured
+        # maximum. This is neither conviction nor a calibrated probability.
+        signal_score = max(0, min(100, round(momentum / maximum * 100)))
+        within_policy = minimum <= momentum <= maximum
         thesis = f"{ticker}: exposición sistemática a momentum mensual; la señal actual es {momentum:.2f}."
         return {
             "clasificacion_oportunidad": {
@@ -407,7 +417,7 @@ class ResearchWorker(BaseWorker):
             "score_general": signal_score,
             "dominio_riesgos": [{
                 "riesgo": "Reversión brusca del momentum",
-                "probabilidad": "media",
+                "probabilidad": "no evaluada",
                 "impacto": "alto",
                 "descripcion": "La señal puede deteriorarse entre rebalanceos; aplicar límites de peso y salida.",
             }],
@@ -415,7 +425,7 @@ class ResearchWorker(BaseWorker):
                 "descripcion": "Persistencia del ranking relativo hasta el próximo rebalanceo",
                 "horizonte": "corto",
                 "impacto": "alto",
-                "probabilidad_pct": 50,
+                "probabilidad_pct": None,
             }],
             "dominio_business_quality": {"rating": "no_aplica", "analisis": "No es un criterio de una estrategia sistemática."},
             "dominio_financial_health": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
@@ -423,14 +433,21 @@ class ResearchWorker(BaseWorker):
             "dominio_growth": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
             "dominio_esg_supply_chain": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
             "opinion_valoracion": "No aplica: la entrada se decide por señal y rebalanceo.",
-            "resumen_ejecutivo": f"Momentum mensual {momentum:.2f}; score normalizado {signal_score}/100; volatilidad 90d {volatility:.1f}%.",
+            "resumen_ejecutivo": f"Momentum mensual {momentum:.2f}; rango configurado {minimum:g}–{maximum:g}; índice descriptivo {signal_score}/100. Riesgo y probabilidad no evaluados.",
             "calidad_evidencia": {
                 "hechos_verificados": [f"Señal momentum mensual: {momentum:.2f}", f"Fecha de señal: {signal.get('as_of_date', 'N/A')}"],
                 "inferencias_llm": [],
                 "preguntas_abiertas": ["¿La señal persistirá hasta el próximo rebalanceo?"] ,
             },
-            "integridad_tesis": {"thesis_active": True, "reason": "La tesis permanece activa mientras la señal esté dentro del rango operativo."},
-            "strategy_context": {"strategy_id": opportunity.get("strategy_id"), "signal": signal, "risk_rating": risk_rating},
+            "integridad_tesis": {"thesis_active": within_policy, "reason": "Señal dentro del rango configurado." if within_policy else "Señal fuera del rango configurado."},
+            "strategy_context": {
+                "strategy_id": opportunity.get("strategy_id"), "signal": signal,
+                "risk_rating": "NOT_ASSESSED",
+                "signal_policy": {"minimum_signal": minimum, "maximum_signal": maximum},
+                "score_method": "momentum_div_max_v1",
+                "probability_status": "NOT_ASSESSED",
+                "report_method_version": "systematic_signal_v2",
+            },
         }
 
     def _persist_hypotheses(self, ticker: str, opp_id: str, thesis: str,
@@ -446,7 +463,7 @@ class ResearchWorker(BaseWorker):
                     hyp_data = {"statement": hyp_data}
             else:
                 continue
-            statement = hyp_data.get("hipotesis") or hyp_data.get("statement") or ""
+            statement = hyp_data.get("hipotesis") or hyp_data.get("statement") or hyp_data.get("enunciado") or ""
             if not statement:
                 statement = hyp_data.get("statement_provisional", "")
             raw_id = hyp_data.get("id")
@@ -481,12 +498,19 @@ class ResearchWorker(BaseWorker):
                 priority=HypothesisPriority(priority_raw)
                 if priority_raw in ("critical", "important", "informational")
                 else HypothesisPriority.IMPORTANT,
-                probability=float(hyp_data["probabilidad"]) if isinstance(hyp_data.get("probabilidad"), (int, float)) else 0.5,
-                confidence=float(hyp_data["confianza"]) if isinstance(hyp_data.get("confianza"), (int, float)) else 0.0,
+                probability=(
+                    None if "probabilidad" in hyp_data and hyp_data["probabilidad"] is None
+                    else float(hyp_data["probabilidad"]) if isinstance(hyp_data.get("probabilidad"), (int, float))
+                    else 0.5
+                ),
+                confidence=(
+                    None if "confianza" in hyp_data and hyp_data["confianza"] is None
+                    else float(hyp_data["confianza"]) if isinstance(hyp_data.get("confianza"), (int, float))
+                    else 0.0
+                ),
                 parent_id=parent_id,
                 predictions=predictions,
                 falsification=falsification,
-                falsification_conditions=[f.condition for f in falsification],
             )
             journal.save_hypothesis(ticker.upper(), opp_id, hypothesis.to_dict())
             sqlite.save_hypothesis(hypothesis.to_dict())

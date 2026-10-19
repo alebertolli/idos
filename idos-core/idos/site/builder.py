@@ -512,7 +512,12 @@ class SiteBuilder:
             and isinstance(opportunity_signal, dict)
             and strategy_context.get("signal") == opportunity_signal
         )
-        ddd_publishable = review_approved or systematic_report
+        current_systematic_report = systematic_report and strategy_context.get("report_method_version") == "systematic_signal_v2"
+        ddd_publishable = review_approved or current_systematic_report
+        if systematic_report:
+            # Corporate intrinsic value does not apply to a signal/rebalance case.
+            intrinsic = None
+            upside = None
 
         # Fundamental DDD conclusions are published only after explicit review;
         # deterministic strategy reports follow their own typed path.
@@ -520,7 +525,8 @@ class SiteBuilder:
             "evidence_review": {
                 "status": (
                     "manager_approved" if review_approved
-                    else "systematic_report" if systematic_report
+                    else "systematic_report" if current_systematic_report
+                    else "systematic_report_refresh_required" if systematic_report
                     else "pending_manager_review"
                 ),
                 "reviewed_at": reviewed_at if review_approved else None,
@@ -614,13 +620,14 @@ class SiteBuilder:
             "research_profile": opp.get("research_profile"),
             "origin": opp.get("origin", "legacy"),
             "signal": opp.get("signal", {}),
-            "conviction_overall": conv.get("overall"),
+            "conviction_overall": None if systematic_report else conv.get("overall"),
             "confidence": conv.get("confidence"),
             "trend": conv.get("trend"),
             "scores": final_scores,
             "findings": findings,
             "current_price": current_price,
             "intrinsic_value": intrinsic,
+            "valuation_status": "NOT_APPLICABLE" if systematic_report else "AVAILABLE" if intrinsic else "NOT_ASSESSED",
             "upside_pct": upside,
             "price_date": price_date,
             "market_data": market_data,
@@ -1473,7 +1480,7 @@ function renderOpp(){
       {key:'risk', label:'Risk', value:r=>r.scores?.RiskAssessmentEngine??null, cell:r=>`<td>${r.scores?.RiskAssessmentEngine??'—'}</td>`},
       {key:'recovery', label:'Recovery', value:r=>r.scores?.RecoveryAssessmentEngine??null, cell:r=>`<td>${r.scores?.RecoveryAssessmentEngine??'—'}</td>`},
       {key:'price', label:'Precio', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}<div class="muted">${dt(r.price_date)}</div></td>`},
-      {key:'intrinsic', label:'Intrínseco', value:r=>r.intrinsic_value??null, cell:r=>`<td>${money(r.intrinsic_value)}</td>`},
+      {key:'intrinsic', label:'Intrínseco', value:r=>r.intrinsic_value??null, cell:r=>`<td>${r.valuation_status==='NOT_APPLICABLE'?'No aplica':money(r.intrinsic_value)}</td>`},
       {key:'upside', label:'Upside', value:r=>r.upside_pct??null, cell:r=>`<td class="${r.upside_pct>=0?'pos':'neg'}">${pct(r.upside_pct,true)}</td>`},
       {key:'rules', label:'Rules failed', value:r=>(r.proposal?.rules_failed||[]).length, cell:r=>`<td>${rulesBadge(r.proposal?.rules_failed)}</td>`},
       {key:'last', label:'Última inv.', value:r=>r.last_research||'', cell:r=>`<td>${dt(r.last_research)} ${staleBadge(r)}</td>`},
@@ -1563,10 +1570,10 @@ function showCase(oppId){
   html += `<h1>${esc(o.ticker)} <span class="tick">${esc(o.opp_id)}</span> ${badge(o.status)}</h1>`;
   html += `<div class="grid">`;
   html += `<div class="card"><div class="muted">Convicción</div><div style="font-size:22px;font-weight:700">${o.conviction_overall??'—'}</div><div class="muted">${esc(o.confidence||'')} · ${esc(o.trend||'')}</div></div>`;
-  html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
+  html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${o.valuation_status==='NOT_APPLICABLE'?'No aplica':money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
   html += `<div class="card"><div class="muted">Última investigación</div><div style="font-size:16px">${dt(o.last_research)}</div>${staleBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">Última evaluación tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.updated_at)}</div>${thesisBadge(o)}</div>`;
-  html += `<div class="card"><div class="muted">Decisión</div><div style="font-size:18px">${esc(o.decision?.decision_type||'—')}</div><div class="muted">${esc(o.decision?.author||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
+  html += `<div class="card"><div class="muted">${o.decision?.decision_type?'Decisión':'Propuesta'}</div><div style="font-size:18px">${esc(o.decision?.decision_type||o.proposal?.decision||'—')}</div><div class="muted">${esc(o.decision?.author||o.proposal?.status||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
   html += '</div>';
   const marketData=o.market_data||by?.market_data||{};
   const sourceNames=(marketData.sources_used||[]).map(esc).join(', ')||'No registrada';
@@ -1575,7 +1582,9 @@ function showCase(oppId){
   // Tesis e informe
   const dddReviewed = d.evidence_review?.status==='manager_approved';
   const dddSystematic = d.evidence_review?.status==='systematic_report';
-  if(!dddReviewed && !dddSystematic){
+  if(d.evidence_review?.status==='systematic_report_refresh_required'){
+    html += `<h2>Reporte sistemático</h2><div class="card"><b>Requiere actualización.</b><p class="muted">Regenerar Research con la política vigente antes de interpretar sus métricas. La señal y su fecha siguen disponibles en la estrategia.</p></div>`;
+  } else if(!dddReviewed && !dddSystematic){
     html += `<h2>Análisis fundamental</h2><div class="card"><b>Informe pendiente de validación del gestor.</b><p class="muted">El detalle DDD no se publica como tesis vigente hasta registrar una revisión atribuible. Convicción, valor intrínseco, upside y scores de assessment son provisionales: no usarlos para decidir o dimensionar hasta validar sus fuentes. La decisión del sistema se muestra por separado y no sustituye esta validación.</p></div>`;
   } else {
   if(dddSystematic) html += `<div class="card"><b>Reporte sistemático.</b><p class="muted">Señal y métricas generadas por reglas de estrategia; no representan una tesis fundamental ni una aprobación de compra.</p></div>`;
@@ -1588,7 +1597,7 @@ function showCase(oppId){
     html += `<p><b>Categoría:</b> ${esc(cl.categoria||d.categoria)}${(cl.categorias_descartadas||[]).length?' <span class="muted">· descartadas: '+cl.categorias_descartadas.map(esc).join(', ')+'</span>':''}</p>`;
     if(cl.justificacion) html += `<p class="muted">${esc(cl.justificacion)}</p>`;
   }
-  if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>Score DDD:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
+  if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>${d.evidence_review?.status==='systematic_report'?'Índice descriptivo de señal':'Score DDD'}:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
   if(d.catalizadores?.length){
     html += `<h3>Catalizadores</h3><table><thead><tr><th>Catalizador</th><th>Horizonte</th><th>Impacto</th><th>Prob.</th></tr></thead><tbody>`;
     d.catalizadores.forEach(c=>html+=`<tr><td>${esc(c.descripcion)}</td><td>${esc(c.horizonte)}</td><td>${esc(c.impacto)}</td><td>${c.probabilidad_pct!=null?pct(c.probabilidad_pct):'—'}</td></tr>`);

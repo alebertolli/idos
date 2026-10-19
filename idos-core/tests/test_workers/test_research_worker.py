@@ -96,12 +96,28 @@ class TestResearchWorker:
         report = ResearchWorker._build_systematic_ddd(
             "XLE",
             {"strategy_id": "MOMENTUM_ETF", "signal": {"momentum": 1.8, "as_of_date": "2026-09-01"}},
-            {"volatility_90d": 30},
+            {"minimum_signal": 0.6, "maximum_signal": 2.7},
         )
         assert report["clasificacion_oportunidad"]["categoria"] == "systematic_momentum"
         assert report["score_general"] == 67
         assert report["strategy_context"]["signal"]["momentum"] == 1.8
         assert report["calidad_evidencia"]["inferencias_llm"] == []
+        assert report["strategy_context"]["risk_rating"] == "NOT_ASSESSED"
+        assert report["dominio_catalizadores"][0]["probabilidad_pct"] is None
+        assert "volatilidad" not in report["resumen_ejecutivo"].lower()
+
+    def test_systematic_report_uses_configured_range_and_invalidates_outside_signal(self):
+        report = ResearchWorker._build_systematic_ddd(
+            "XLF", {"signal": {"momentum": 1.8}},
+            {"minimum_signal": 2.0, "maximum_signal": 3.6},
+        )
+        assert report["score_general"] == 50
+        assert report["integridad_tesis"]["thesis_active"] is False
+        with pytest.raises(ValueError, match="finite signal"):
+            ResearchWorker._build_systematic_ddd(
+                "XLF", {"signal": {"momentum": float("nan")}},
+                {"minimum_signal": 0.6, "maximum_signal": 2.7},
+            )
 
     def test_research_completes(
         self,
@@ -341,6 +357,13 @@ class TestResearchWorker:
         worker._load_financial_data = MagicMock(return_value={"volatility_90d": 30})
         worker._enrich_company_info = MagicMock(return_value={"name": "Test ETF", "sector": "Financials"})
         worker._fetch_target_consensus = MagicMock(return_value={})
+        config_path = Path(base_path) / "idos-config" / "strategies.yml"
+        config_path.write_text(yaml.safe_dump({"strategies": {"MOMENTUM_ETF": {
+            "enabled": True, "core": "CORE_3_GROWTH", "sleeve": "SYSTEMATIC_RETURN",
+            "thesis_type": "SYSTEMATIC", "discovery_profile": "momentum_monthly",
+            "research_profile": "systematic", "entry_policy": "SIGNAL_REBALANCE",
+            "parameters": {"minimum_signal": 0.8, "maximum_signal": 3.6},
+        }}}), encoding="utf-8")
 
         result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
 
@@ -350,5 +373,20 @@ class TestResearchWorker:
         assert report["strategy_context"] == {
             "strategy_id": "MOMENTUM_ETF",
             "signal": signal,
-            "risk_rating": "medio_riesgo",
+            "risk_rating": "NOT_ASSESSED",
+            "signal_policy": {"minimum_signal": 0.8, "maximum_signal": 3.6},
+            "score_method": "momentum_div_max_v1",
+            "probability_status": "NOT_ASSESSED",
+            "report_method_version": "systematic_signal_v2",
         }
+        assert report["score_general"] == 25
+        worker._fetch_target_consensus.assert_not_called()
+        hypotheses = tmp_journal.load_hypotheses(ticker, opp_id)
+        assert len(hypotheses) == 1
+        assert hypotheses[0]["statement"]
+        assert hypotheses[0]["probability"] is None
+        assert hypotheses[0]["confidence"] is None
+        assert [item["threshold"] for item in hypotheses[0]["falsification"]] == [0.8, 3.6]
+        assert len(hypotheses[0]["falsification_conditions"]) == 2
+        stored = tmp_sqlite.conn.execute("SELECT probability, confidence FROM hypotheses WHERE opportunity_id=?", (opp_id,)).fetchone()
+        assert stored["probability"] is None and stored["confidence"] is None

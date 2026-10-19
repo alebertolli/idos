@@ -279,7 +279,7 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     report["resumen_ejecutivo"] = "Momentum mensual normalizado con score 71"
     report["tesis_inversion"] = ""
     report["dominio_business_quality"] = {"rating": "no_aplica", "analisis": "No es criterio de la señal"}
-    report["strategy_context"] = {"strategy_id": "MOMENTUM_ETF", "signal": {"score": 71}}
+    report["strategy_context"] = {"strategy_id": "MOMENTUM_ETF", "signal": {"score": 71}, "report_method_version": "systematic_signal_v2"}
     report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
 
     data = SiteBuilder(tmp_path).build()
@@ -289,6 +289,17 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     assert opp["ddd"]["resumen_ejecutivo"] == "Momentum mensual normalizado con score 71"
     assert opp["ddd"]["score_general"] == 81
     assert opp["ddd"]["tesis_inversion"] == ""
+    assert opp["intrinsic_value"] is None
+    assert opp["upside_pct"] is None
+    assert opp["valuation_status"] == "NOT_APPLICABLE"
+    assert opp["conviction_overall"] is None
+    # Older generated reports can contain synthetic volatility/probabilities.
+    # Preserve their journals but require regeneration before public display.
+    del report["strategy_context"]["report_method_version"]
+    report_path.write_text(yaml.safe_dump(report), encoding="utf-8")
+    legacy = next(o for o in SiteBuilder(tmp_path).build().opportunities if o["ticker"] == "VIST")
+    assert legacy["ddd"]["evidence_review"]["status"] == "systematic_report_refresh_required"
+    assert legacy["ddd"]["resumen_ejecutivo"] is None
 
 
 def test_public_site_does_not_treat_forged_fundamental_context_as_systematic(tmp_path: Path):
