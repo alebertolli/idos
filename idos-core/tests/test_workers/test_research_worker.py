@@ -168,6 +168,43 @@ class TestResearchWorker:
         assert opp is not None
         assert opp["status"] == OpportunityStatus.UNDER_RESEARCH.value
 
+    def test_forced_research_preserves_active_portfolio_status(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_path: Path,
+    ):
+        ticker, opp_id = seeded_opportunity
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity["status"] = OpportunityStatus.FULL_POSITION.value
+        tmp_sqlite.save_opportunity(opportunity)
+        tmp_journal.save_opportunity(ticker, opportunity)
+
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+
+        result = worker.execute({
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "base_path": base_path,
+            "force_reprocess": True,
+            "event_type": "thesis_reassessment",
+        })
+
+        assert result.status == WorkerStatus.SUCCESS
+        assert result.output["opportunity_status"] == OpportunityStatus.FULL_POSITION.value
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.FULL_POSITION.value
+        assert tmp_journal.load_opportunity(ticker, opp_id)["status"] == OpportunityStatus.FULL_POSITION.value
+        transitions = list(tmp_sqlite.conn.execute(
+            "SELECT from_status, to_status FROM state_transitions WHERE opportunity_id = ?",
+            (opp_id,),
+        ))
+        assert transitions == []
+
     def test_research_saves_assessment(
         self,
         seeded_opportunity: tuple[str, str],

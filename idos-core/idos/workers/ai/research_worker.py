@@ -2,6 +2,7 @@ import time
 import math
 import re
 from datetime import date, datetime, timedelta
+from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
@@ -54,7 +55,6 @@ class ResearchWorker(BaseWorker):
             msg = "Both ticker and opp_id are required"
             raise ValueError(msg)
 
-        from pathlib import Path
         bp = Path(base_path) if base_path else Path.cwd()
         sqlite = SQLiteStore(bp / "idos.db")
         knowledge = KnowledgeRepository(bp / "idos-knowledge")
@@ -349,7 +349,11 @@ class ResearchWorker(BaseWorker):
                 opp["thesis_invalidated_reason"] = integridad.get("reason", "Tesis invalidada en DDD")
         sqlite.save_opportunity(opp)
 
-        opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
+        # A forced run is a re-research of an existing opportunity. It must not
+        # move a live portfolio lifecycle back to the discovery/research lane.
+        # Initial research still promotes the candidate to UNDER_RESEARCH.
+        final_status = current_status if force_reprocess else OpportunityStatus.UNDER_RESEARCH
+        opp["status"] = final_status.value
         research_completed_at = datetime.now(AR_TZ)
         opp["last_research_at"] = research_completed_at.isoformat()
         next_review = self._next_thesis_review_at(opp, bp, research_completed_at)
@@ -357,8 +361,9 @@ class ResearchWorker(BaseWorker):
             opp["next_thesis_review_at"] = next_review
         sqlite.save_opportunity(opp)
         journal.save_opportunity(ticker, opp)
-        sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
-                                 cause="research_completed", worker="research_worker")
+        if final_status != current_status:
+            sqlite.record_transition(opp_id, current_status.value, final_status.value,
+                                     cause="research_completed", worker="research_worker")
         event_data = {
             "opp_id": opp_id, "ticker": ticker,
             "score": score, "hypotheses": len(hypotheses),
@@ -378,6 +383,7 @@ class ResearchWorker(BaseWorker):
             "ticker": ticker,
             "opp_id": opp_id,
             "status": "completed",
+            "opportunity_status": final_status.value,
             "score": score,
             "classification": classification.get("categoria"),
             "market_error_conclusion": market_error.get("conclusion_error_valoracion"),
@@ -901,7 +907,6 @@ class ResearchWorker(BaseWorker):
         if data:
             self._warn_missing_financial(ticker, data, "SQLite")
             return data
-        from pathlib import Path
         import json
         for cache_path in [
             Path.cwd() / "cache" / f"{ticker}_financial.json",
@@ -1031,6 +1036,88 @@ class ResearchWorker(BaseWorker):
                 print(f"[WARN] {ticker}: {key}={val} es negativo (fuente: {source})")
         if not data:
             print(f"[WARN] {ticker}: No hay datos financieros — DDD se generará sin fundamentos")
+
+    def reassess_thesis(self, ticker: str, opp_id: str, sqlite: SQLiteStore,
+                        journal: JournalRepository, base_path: Path,
+                        trigger_source: str = "manual") -> dict[str, Any]:
+        """Run a thesis review as a Research task using the shared LLM service."""
+        thesis_statement = ""
+        case_summary = ""
+        ddd_file = journal.opportunity_path(ticker, opp_id) / "ddd_report.yml"
+        if ddd_file.exists():
+            import yaml
+            try:
+                report = yaml.safe_load(ddd_file.read_text(encoding="utf-8")) or {}
+                thesis_statement = report.get("tesis_inversion", "")
+                integrity = report.get("integridad_tesis", {}) or {}
+                if integrity.get("thesis_active") is not None and trigger_source == "manual":
+                    case_summary = f"Evaluación DDD previa: {integrity.get('reason', 'sin detalle')}"
+            except (OSError, ValueError, TypeError):
+                pass
+
+        case_file = journal.load_case_file(ticker)
+        if case_file:
+            case_summary = (case_summary + "\n" if case_summary else "") + \
+                f"Case file: {case_file.get('last_updated', '')} con {len(case_file.get('opportunities', []))} oportunidades"
+
+        financial = self._load_thesis_review_financial_data(ticker, sqlite, base_path)
+        financial_summary = self._format_financial_summary(financial)
+        opportunity = sqlite.get_opportunity(opp_id) or {}
+        conviction = (opportunity.get("conviction") or {}).get("overall", 0)
+        return self._run_prompt("thesis_monitor", ticker, {
+            "ticker": ticker,
+            "name": ticker,
+            "thesis_statement": thesis_statement or "No disponible",
+            "financial_summary": financial_summary,
+            "recent_events": "",
+            "case_file_summary": case_summary or "Sin conocimiento acumulado",
+            "conviction": conviction,
+            "trigger_source": trigger_source,
+        })
+
+    @staticmethod
+    def _format_financial_summary(data: dict[str, Any]) -> str:
+        if not data:
+            return "Sin datos financieros disponibles"
+        keys = ["revenue_ttm", "revenue_growth_pct", "operating_margin_pct", "roic_pct",
+                "debt_equity_ratio", "fcf_adjusted", "pe_ratio", "interest_coverage_ratio"]
+        parts = []
+        for key in keys:
+            value = data.get(key)
+            if value is not None and value != "":
+                parts.append(f"{key}={value:.1f}" if isinstance(value, float) else f"{key}={value}")
+        return ", ".join(parts) or "Sin datos financieros disponibles"
+
+    @staticmethod
+    def _load_thesis_review_financial_data(ticker: str, sqlite: SQLiteStore,
+                                           base_path: Path) -> dict[str, Any]:
+        """Load already available evidence without starting a new provider fetch."""
+        import json
+
+        try:
+            rows = sqlite.conn.execute(
+                "SELECT data_json FROM events_log WHERE event_type LIKE ? AND data_json LIKE ? ORDER BY timestamp DESC LIMIT 1",
+                (f"%{ticker}%", f"%{ticker}%"),
+            )
+            for row in rows:
+                try:
+                    data = json.loads(row[0])
+                    if isinstance(data, dict) and data:
+                        return data
+                except (json.JSONDecodeError, IndexError, TypeError):
+                    continue
+        except Exception:
+            pass
+
+        cache_file = base_path / "cache" / f"{ticker}.json"
+        try:
+            raw = json.loads(cache_file.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return {}
+        if not isinstance(raw, dict):
+            return {}
+        data = raw.get("merged_data", raw)
+        return data if isinstance(data, dict) else {}
 
     def _run_prompt(self, prompt_name: str, ticker: str, kwargs: dict[str, Any]) -> dict[str, Any]:
         template = self.registry.get(prompt_name, category="research")
