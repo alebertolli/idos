@@ -62,6 +62,8 @@ def populate_earnings(dry_run: bool = False) -> dict[str, Any]:
         ts = cache_data[ticker]["next_earnings_date"]
         date_str = _timestamp_to_date(ts)
         current = existing.get(ticker, {})
+        if not isinstance(current, dict):
+            current = {}
         current_earnings = current.get("earnings_date", "")
 
         if current_earnings == date_str:
@@ -73,9 +75,13 @@ def populate_earnings(dry_run: bool = False) -> dict[str, Any]:
         else:
             added.append(ticker)
 
-        existing.setdefault(ticker, {})
-        existing[ticker]["earnings_date"] = date_str
-        existing[ticker].setdefault("triggered_at", None)
+        # A new earnings date is a new event. Clear the previous quarter's
+        # trigger marker so the next post-earnings review can be dispatched.
+        existing[ticker] = {
+            **current,
+            "earnings_date": date_str,
+            "triggered_at": None,
+        }
 
     today = date.today()
     for ticker in list(existing.keys()):
