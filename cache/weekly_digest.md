@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-18 11:23 AR _
+_Generado: 2026-10-08 12:13 AR _
 
 ## Resumen
 
@@ -8,23 +8,22 @@ _Generado: 2026-10-18 11:23 AR _
 - ✅ **Assessment completados:** 1
 - 🔖 **Approved:** 0
 - 🔴 **Errores:** 0
-- 📊 **Total encontradas:** 1
+- 📊 **Total encontradas:** 0
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **VIST** (OPP-20260807-001): score=78, class=?
+- ✅ **ACN** (OPP-20260813-001): score=50, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **VIST**
-  - Opp: [OPP-20260807-001]
-  - Conviction: 54/100 | Rec: BLOCKED
+- ⚠️ **ACN**
+  - Opp: [OPP-20260813-001]
+  - Conviction: 67/100 | Rec: BLOCKED
   - Dec: HOLD
-  - Scores: Business: 66 | Valuation: 65 | Recovery: 61 | Risk: 40 | Portfolio: 0
+  - Scores: Business: 64 | Valuation: 65 | Recovery: 54 | Risk: 80 | Portfolio: 90
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 66/70
-    - 🚫 RULE-004: Risk: 40/50
-    - 🚫 RULE-005: Conviction: 54/65
+    - 🚫 RULE-001: Business quality: 64/70
+    - 🚫 RULE-008: No hay datos de DDD para calcular asimetria
 
 ---
 

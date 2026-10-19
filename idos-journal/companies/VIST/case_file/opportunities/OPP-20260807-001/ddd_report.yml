@@ -1,223 +1,18 @@
-calidad_evidencia:
-  hechos_reportados:
-  - statement: La producción total promedio durante 2025 fue 115,479 boe/d.
-    period: FY2025
-    unit: boe/d
-    sources:
-    - title: Vista Energy — resultados FY2025 y 4T2025, SEC Exhibit 1
-      url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526071646/d946648dex1.htm
-      source_date: '2026-02-25'
-  - statement: La producción total del 4T2025 fue 135,414 boe/d y la producción de petróleo fue 118,285 bbl/d.
-    period: Q4 2025
-    unit: boe/d y bbl/d
-    sources:
-    - title: Vista Energy — resultados FY2025 y 4T2025, SEC Exhibit 1
-      url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526071646/d946648dex1.htm
-      source_date: '2026-02-25'
-  - statement: La producción total del 2T2026 fue 156,061 boe/d; el crecimiento interanual reportado combinó 20% de crecimiento orgánico y 12% por consolidación de participaciones adquiridas.
-    period: Q2 2026
-    unit: boe/d y porcentaje interanual
-    sources:
-    - title: Vista Energy — resultados 2T2026, SEC Exhibit 1
-      url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526306139/d151775dex1.htm
-      source_date: '2026-07-16'
-  - statement: Oldelval Duplicar estaba en operación y el transporte en camiones se había eliminado hacia el cierre del 1T2025.
-    period: Q1 2025
-    unit: estado operativo
-    sources:
-    - title: Vista Energy — resultados FY2025 y 4T2025, SEC Exhibit 1
-      url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526071646/d946648dex1.htm
-      source_date: '2026-02-25'
-  inferencias_llm:
-  - El bajo apalancamiento permite mayor flexibilidad de inversión
-  - El riesgo cambiario argentino es el principal factor de descuento del mercado
-  - La ampliación de Oldelval es crítica para desbloquear capacidad de producción
-  preguntas_abiertas:
-  - ¿Cuál es la política ESG formal de Vista Energy y sus métricas de desempeño?
-  - ¿Qué incentivos de compensación tiene el management para alinear intereses con
-    los accionistas?
-  - Detalle de la estructura de deuda (plazos, covenants) y posibles líneas de crédito
-    futuras
-catalizadores_previos:
-- descripcion: Puesta en marcha completa de la ampliación de capacidad de transporte
-    de Oldelval (Duplicar), eliminando el cuello de botella de evacuación.
-  generated_at: '2026-10-17T23:36:38.266527-03:00'
-  horizonte: corto
-  impacto: alto
-  nivel_confianza: alto
-  opp_id: OPP-20260807-001
-  probabilidad_anterior: 85
-- descripcion: Alcanzar el hito operativo de 85,000 boe/d en 2025, demostrando ejecución
-    de plan estratégico 2026 de 100k boe/d.
-  generated_at: '2026-10-17T23:36:38.266527-03:00'
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: alto
-  opp_id: OPP-20260807-001
-  probabilidad_anterior: 75
-- descripcion: Normalización del régimen cambiario en Argentina y compresión de prima
-    de riesgo soberano / corporativo.
-  generated_at: '2026-10-17T23:36:38.266527-03:00'
-  horizonte: medio
-  impacto: medio
-  nivel_confianza: medio
-  opp_id: OPP-20260807-001
-  probabilidad_anterior: 60
-clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: ciclica (aunque el sector es cíclico, la empresa tiene ventajas
-    competitivas que mitigan la exposición), deep_value (no es un negocio mediocre,
-    tiene alta calidad), special_situation (no hay spin‑off ni reestructuración),
-    distressed (balance sólido), quality_at_fair_price (la valoración está por debajo
-    de lo justo), hype (no hay crecimiento explosivo sin earnings), value_trap (no
-    destruye valor).
-  justificacion: Vista Energy muestra un ROIC del 14.2% superior al costo de capital,
-    márgenes operativos del 34.9% y crecimiento de ingresos del 24% YoY. Los múltiplos
-    de valoración (PER 9.34, EV/EBITDA 5.22) están por debajo del promedio del sector,
-    indicando que el mercado no está reconociendo plenamente su capacidad de generar
-    flujo de caja y reinvertir a alto retorno. La combinación de alta rentabilidad,
-    bajo apalancamiento y potencial de expansión en Vaca Muerta la posiciona como
-    un negocio que puede seguir compounding de forma sostenida.
-comparativa_catalizadores:
-- delta_pct: 0
-  descripcion: Puesta en marcha completa de la ampliación de capacidad de transporte
-    de Oldelval (Duplicar), eliminando el cuello de botella de evacuación.
-  estado: completado
-  nota_comparacion: El filing FY2025 indica que Duplicar estaba operativo y que el transporte en camiones se había eliminado hacia el cierre del 1T2025; no es catalizador futuro.
-  probabilidad_actual: null
-  probabilidad_anterior: 85
-- delta_pct: 0
-  descripcion: Alcanzar el hito operativo de 85,000 boe/d en 2025, demostrando ejecución
-    de plan estratégico 2026 de 100k boe/d.
-  estado: completado
-  nota_comparacion: La producción promedio FY2025 fue 115,479 boe/d y la de 4T2025 fue 135,414 boe/d; no es un catalizador futuro.
-  probabilidad_actual: null
-  probabilidad_anterior: 75
-- delta_pct: 0
-  descripcion: Normalización del régimen cambiario en Argentina y compresión de prima
-    de riesgo soberano / corporativo.
-  estado: requiere_revision
-  nota_comparacion: No tiene métrica de cumplimiento, fecha de revisión ni fuente suficiente para tratarlo como catalizador activo; conservar como factor de riesgo macro hasta nueva investigación.
-  probabilidad_actual: null
-  probabilidad_anterior: 60
-dominio_business_quality:
-  analisis: La posición en Vaca Muerta brinda acceso a una de las reservas de shale
-    más grandes del mundo, con costos de extracción competitivos. La empresa posee
-    derechos de superficie y una cartera de pozos en producción que le permite generar
-    cash flow estable. No se identifican barreras de entrada fuertes, pero la combinación
-    de experiencia operativa y acuerdos de transporte otorgan un moat moderado.
-  rating: buena
-dominio_catalizadores:
-- descripcion: Puesta en marcha completa de la ampliación de capacidad de transporte
-    de Oldelval (duplicar capacidad de evacuación).
-  status: completed
-  confirmed_on: '2026-02-25'
-  status_reason: Informe FY2025 informa que Duplicar quedó operativo y eliminó el transporte en camiones hacia el cierre del 1T2025.
-  sources:
-  - title: Vista Energy — resultados FY2025 y 4T2025, SEC Exhibit 1
-    url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526071646/d946648dex1.htm
-    source_date: '2026-02-25'
-  horizonte: corto
-  impacto: alto
-  nivel_confianza: alto
-  probabilidad_pct: 85
-- descripcion: Alcanzar el hito operativo de 85,000 boe/d en 2025, demostrando ejecución
-    del plan estratégico de 100k boe/d para 2026.
-  status: completed
-  confirmed_on: '2026-02-25'
-  status_reason: El promedio de producción total FY2025 fue 115,479 boe/d y el promedio de 4T2025 fue 135,414 boe/d; el cumplimiento del umbral queda confirmado, aunque el informe no fecha el día exacto en que se cruzó.
-  sources:
-  - title: Vista Energy — resultados FY2025 y 4T2025, SEC Exhibit 1
-    url: https://www.sec.gov/Archives/edgar/data/1762506/000119312526071646/d946648dex1.htm
-    source_date: '2026-02-25'
-  horizonte: medio
-  impacto: alto
-  nivel_confianza: alto
-  probabilidad_pct: 75
-- descripcion: Normalización del régimen cambiario en Argentina y compresión de la
-    prima de riesgo soberano/corporativo.
-  status: needs_review
-  status_reason: No tiene métrica de cumplimiento, fecha de revisión ni fuente suficiente para tratarlo como catalizador activo; conservar como factor de riesgo macro hasta nueva investigación.
-  horizonte: medio
-  impacto: medio
-  nivel_confianza: medio
-  probabilidad_pct: 60
-dominio_esg_supply_chain:
-  analisis: Riesgos ESG vinculados a la extracción de shale (uso de agua, gestión
-    de residuos) y a la exposición a regulaciones ambientales en Argentina y México.
-    La cadena de suministro depende de proveedores de equipos de perforación y servicios
-    logísticos, con cierta concentración en pocos jugadores internacionales, lo que
-    genera riesgo de interrupción. No se dispone de información pública detallada
-    sobre políticas ESG de la compañía.
-  rating: medio_riesgo
-dominio_financial_health:
-  analisis: Deuda neta prácticamente nula (D/E ~0.01) y cobertura de intereses inexistente
-    por falta de deuda. ROIC 14.2% supera al WACC estimado cercano a 0%, indicando
-    creación de valor. Sin embargo, el flujo de caja libre ajustado es cero, reflejando
-    alta reinversión de capital para expansión; se espera que mejore al alcanzar los
-    objetivos de producción.
-  rating: fuerte
-dominio_growth:
-  analisis: Objetivo de 85k‑100k boe/d para 2025‑2026 representa un crecimiento orgánico
-    del 30‑40% respecto a la producción actual. La ampliación de capacidad de transporte
-    y la disponibilidad de capital para drilling impulsarán la expansión. No se identifican
-    adquisiciones significativas previstas, por lo que el crecimiento será mayormente
-    interno.
-  rating: fuerte
-dominio_management:
-  analisis: El CEO tiene poca antigüedad (0 años) y la participación de insiders es
-    nula, lo que genera incertidumbre sobre alineación de intereses. No hay historial
-    público amplio de asignación de capital, pero la ejecución del plan de expansión
-    sugiere capacidad operativa. Se recomienda monitorear la composición del board
-    y posibles incentivos de desempeño.
-  rating: regular
-dominio_riesgos:
-- impacto: alto
-  probabilidad: alta
-  riesgo: Riesgo cambiario argentino
-- impacto: alto
-  probabilidad: media
-  riesgo: Retraso en la ampliación de capacidad de transporte (Oldelval)
-- impacto: medio
-  probabilidad: media
-  riesgo: Volatilidad de precios del petróleo
-- impacto: medio
-  probabilidad: baja
-  riesgo: Falta de alineación de management (baja insider ownership)
-error_mercado:
-  catalizador_cambio:
-    descripcion: Finalización de la ampliación de capacidad de transporte de Oldelval
-      y logro del hito de 85,000 boe/d en 2025, demostrando la ejecución del plan
-      de 100k boe/d para 2026.
-    horizonte: medio
-    impacto: alto
-    probabilidad_pct: 78
-  conclusion_error_valoracion: SI
-  consenso_actual: Los analistas descuentan a Vista Energy principalmente por riesgos
-    macroeconómicos de Argentina (devaluación, controles de cambio) y por la volatilidad
-    del precio del petróleo, reflejándose en múltiplos bajos y una expectativa de
-    crecimiento limitado.
-  hipotesis_contraria: El consenso subestima la velocidad de la reforma cambiaria
-    argentina, la reducción de la prima de riesgo soberano y la capacidad de Vista
-    para escalar producción en Vaca Muerta mediante la ampliación de la infraestructura
-    de transporte (Oldelval) y la ejecución del plan de 85k‑100k boe/d. Además, la
-    empresa mantiene un balance casi libre de deuda, lo que le permite aprovechar
-    oportunidades de inversión sin presión financiera.
-  razonamiento: Los múltiplos actuales no reflejan el potencial de generación de flujo
-    de caja libre una vez que la empresa alcance su capacidad operativa objetivo y
-    se estabilice el entorno cambiario argentino. La combinación de bajo apalancamiento,
-    alta rentabilidad y próximos hitos operacionales sugiere una subvaloración significativa.
-generated_at: '2026-10-18T11:21:56.653091-03:00'
-evidence_review:
-  reviewed_at: '2026-10-18T11:54:52-03:00'
-  method: assisted_primary_source_check
-  status: pending_manager_confirmation
-  note: Se corrigieron hitos pasados con filings oficiales SEC; no se verificaron la tesis completa, valoración, riesgo macro ni afirmaciones no incluidas en hechos_reportados.
-integridad_tesis:
-  flags: []
-  reason: ''
-  thesis_active: true
-opinion_valoracion: infravalorado
+calidad_evidencia: {}
+catalizadores_previos: []
+clasificacion_oportunidad: {}
+comparativa_catalizadores: []
+dominio_business_quality: {}
+dominio_catalizadores: []
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos: []
+error_mercado: {}
+generated_at: '2026-10-01T09:29:52.840747-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
 opp_id: OPP-20260807-001
 prompt_inputs:
   business_model: Vista Energy, S.A.B. de C.V., through its subsidiaries, engages
@@ -229,44 +24,30 @@ prompt_inputs:
     S.A.B. de C.V. in April 2022. Vista Energy, S.A.B. de C.V. was incorporated in
     2017 and is based in Mexico City, Mexico.
   ceo_tenure: 0
-  debt_to_equity: 1.07
+  debt_to_equity: 0.010700000000000001
   fcf_adjusted: 0
   insider_ownership: 0
   name: Vista Energy, S.A.B. de C.V.
   operating_margin: 34.88
-  pe_ratio: 9.71
+  pe_ratio: 9.34
   products: ''
   revenue: 3530000000.0
-  revenue_growth: 24.3
+  revenue_growth: 24.09
   roic: 14.21
   sector: Energy
   ticker: VIST
-research_error: null
-research_status: COMPLETED
-resumen_ejecutivo: Vista Energy es una compañía de exploración y producción con activos
-  estratégicos en Vaca Muerta, Argentina, y México. Presenta sólidos márgenes, alto
-  ROIC y crecimiento de ingresos, respaldados por un balance prácticamente sin deuda.
-  El mercado penaliza la exposición a riesgos macro de Argentina, pero la empresa
-  está posicionada para superar esos obstáculos mediante la expansión de infraestructura
-  y la normalización cambiaria, lo que crea una oportunidad de inversión tipo compounder
-  con margen de upside considerable.
-score_general: 78
+resumen_ejecutivo: ''
+score_general: 50
 target_consensus:
-  calculado_at: '2026-10-18T11:20:47.937199-03:00'
+  calculado_at: '2026-10-01T09:29:52.829637-03:00'
   fuentes:
-    stockanalysis: 91.91
-    yfinance: 91.67469
-  mediana: 91.79
+    stockanalysis: 92.9
+    yfinance: 92.26801
+  mediana: 92.58
   n_fuentes: 2
-  promedio: 91.79
-  target_high: 113.53
-  target_low: 75.51
-tesis_inversion: Vista Energy combina alta rentabilidad operativa, bajo apalancamiento
-  y una posición estratégica en Vaca Muerta que le permite escalar producción rápidamente.
-  El mercado penaliza la exposición a riesgos macro argentinos, pero la expectativa
-  de reforma cambiaria, la ampliación de infraestructura de transporte y la ejecución
-  del plan de producción crean un upside significativo. La inversión se justifica
-  como un compounder con margen de apreciación de precio y generación de flujo de
-  caja creciente.
+  promedio: 92.58
+  target_high: 115.95
+  target_low: 77.12
+tesis_inversion: ''
 ticker: VIST
 version: '3.0'
