@@ -799,3 +799,53 @@ def test_public_site_exposes_market_provenance_and_single_source_alert(tmp_path:
     assert payload["opportunities"][0]["market_data"]["source_count"] == 1
     assert "Procedencia por campo" in app
     assert "Dato / fuentes" in app
+
+
+def test_buylist_surfaces_failed_latest_scout_without_revoking_manager_approval(tmp_path: Path):
+    import yaml
+    from datetime import datetime
+    from idos.timezone import AR_TZ
+
+    opportunity_dir = (
+        tmp_path / "idos-journal" / "companies" / "VIST" / "case_file"
+        / "opportunities" / "OPP-1"
+    )
+    opportunity_dir.mkdir(parents=True)
+    now = datetime.now(AR_TZ).isoformat()
+    (opportunity_dir / "opportunity.yml").write_text(yaml.safe_dump({
+        "id": "OPP-1",
+        "ticker": "VIST",
+        "status": "APPROVED",
+        "strategy_id": "COMPOUNDER",
+        "research_profile": "strategic",
+        "created_at": now,
+        "last_research_at": now,
+        "thesis_active": True,
+        "latest_discovery_evidence": {
+            "eligibility_status": "PENDING_DATA",
+            "evaluated_at": now,
+            "reason": "Conflicto de proveedores en flujo de caja libre",
+            "missing_metrics": ["fcf"],
+            "conflicting_metrics": ["fcf"],
+        },
+    }), encoding="utf-8")
+    buylist = tmp_path / "idos-journal" / "portfolio" / "buylist.yml"
+    buylist.parent.mkdir(parents=True, exist_ok=True)
+    buylist.write_text(yaml.safe_dump({"entries": [{
+        "ticker": "VIST", "opp_id": "OPP-1", "target_price": 100, "buy_zone_top": 80,
+    }]}), encoding="utf-8")
+
+    site = SiteBuilder(tmp_path).build()
+    entry = site.buylist[0]
+    output = write_site(tmp_path, tmp_path / "site-output")
+    app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+
+    assert entry["discovery_status"] == "PENDING_DATA"
+    assert entry["discovery_review_required"] is True
+    assert entry["discovery_conflicting_metrics"] == ["fcf"]
+    assert entry["recommendation_state"] == "CURRENT"
+    assert "Último Scout" in app
+    assert "Datos pendientes" in app
+    assert "Scout: datos requieren revisión" in app
+    assert any(alert["type"] == "discovery_data_review" for alert in site.dashboard["alerts"])
+    assert "antes de usar esta oportunidad" in app

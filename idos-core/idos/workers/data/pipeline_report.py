@@ -33,6 +33,8 @@ class PipelineMetrics:
     opportunities_created: int = 0
     opportunities_eligible: int = 0
     opportunities_existing: int = 0
+    opportunities_discovery_review: int = 0
+    scout_evaluations: list[dict[str, Any]] = field(default_factory=list)
 
     downgraded_to_watchlist: int = 0
     upgraded_to_screened: int = 0
@@ -60,6 +62,7 @@ class PipelineMetrics:
             "new_watchlist_count": len(self.new_watchlist),
             "opportunities_eligible": self.opportunities_eligible,
             "opportunities_existing": self.opportunities_existing,
+            "opportunities_discovery_review": self.opportunities_discovery_review,
             "opportunities_created": self.opportunities_created,
             "downgraded_to_watchlist": self.downgraded_to_watchlist,
             "upgraded_to_screened": self.upgraded_to_screened,
@@ -113,6 +116,12 @@ class PipelineReportGenerator:
             lines.append(f"  Opportunities: {metrics.opportunities_created} created, "
                          f"{metrics.opportunities_existing} already exist, "
                          f"{metrics.opportunities_eligible} eligible")
+            lines.append("")
+        if metrics.opportunities_discovery_review:
+            lines.append(
+                f"  Existing opportunities flagged for Discovery data review: "
+                f"{metrics.opportunities_discovery_review}"
+            )
             lines.append("")
 
         if metrics.fetch_errors:

@@ -233,10 +233,12 @@ class UniversePipeline(BaseWorker):
         for ticker in metrics.candidate_tickers:
             data = self._get_cached_data(cache_path, ticker)
             result = self._score_ticker(scout, ticker, data)
+            metrics.scout_evaluations.append(result)
             if result["passed"]:
                 metrics.scout_passed += 1
                 watchlist.add(ticker=ticker, score=result["score"], reason=result["reason"])
             else:
+                watchlist.remove(ticker)
                 metrics.scout_rejected += 1
                 if not result.get("data_quality_valid", True):
                     metrics.scout_data_quality_rejected += 1
@@ -264,7 +266,7 @@ class UniversePipeline(BaseWorker):
                 print(f"  {entry['ticker']}: score={entry['score']} rank={entry['rank']}")
 
     def _run_opportunity_creation(self, metrics: PipelineMetrics):
-        if not metrics.new_watchlist:
+        if not metrics.new_watchlist and not metrics.scout_evaluations:
             return
         print(f"\n[PIPELINE] STEP 6: Opportunity Creation")
 
@@ -272,6 +274,11 @@ class UniversePipeline(BaseWorker):
         # new_watchlist contains only candidates passing every profile predicate.
         eligible = metrics.new_watchlist
         metrics.opportunities_eligible = len(eligible)
+        evaluations_by_ticker = {
+            str(result.get("ticker", "")).upper(): result
+            for result in metrics.scout_evaluations
+            if result.get("ticker")
+        }
 
         journal_base = Path(self.journal_path) if self.journal_path else Path("idos-journal")
         existing = set()
@@ -296,6 +303,33 @@ class UniversePipeline(BaseWorker):
                                     except Exception:
                                         pass
 
+        # Record a failed current screen on existing cases without changing
+        # their lifecycle or any attributed manager decision.
+        for result in metrics.scout_evaluations:
+            if str(result.get("status", "")).upper() == "PASSED":
+                continue
+            ticker = str(result.get("ticker", "")).upper()
+            paths = existing_paths.get((ticker, self.strategy_id), [])
+            if not paths:
+                continue
+            evidence = self._build_discovery_evidence(ticker, result)
+            for opp_file in paths:
+                try:
+                    existing_data = yaml.safe_load(opp_file.read_text(encoding="utf-8")) or {}
+                    existing_data["latest_discovery_evidence"] = evidence
+                    existing_data["discovery_last_evaluated_at"] = evidence["evaluated_at"]
+                    opp_file.write_text(
+                        yaml.dump(existing_data, default_flow_style=False, allow_unicode=True),
+                        encoding="utf-8",
+                    )
+                    metrics.opportunities_discovery_review += 1
+                except (OSError, yaml.YAMLError) as exc:
+                    metrics.errors.append({
+                        "step": "opportunity_discovery_evidence",
+                        "ticker": ticker,
+                        "error": str(exc),
+                    })
+
         from idos.models.enums import OpportunityStatus
         from idos.models.journal import Opportunity
         from idos.models.conviction import Conviction
@@ -308,7 +342,9 @@ class UniversePipeline(BaseWorker):
             key = (ticker, self.strategy_id)
             if key in existing:
                 metrics.opportunities_existing += 1
-                evidence = self._build_discovery_evidence(ticker)
+                evidence = self._build_discovery_evidence(
+                    ticker, evaluations_by_ticker.get(ticker)
+                )
                 for opp_file in existing_paths.get(key, []):
                     try:
                         existing_data = yaml.safe_load(opp_file.read_text(encoding="utf-8")) or {}
@@ -343,7 +379,9 @@ class UniversePipeline(BaseWorker):
                 conviction=Conviction(overall=0),
             )
             opp_data = opp.model_dump(mode="json")
-            opp_data["discovery_evidence"] = self._build_discovery_evidence(ticker)
+            opp_data["discovery_evidence"] = self._build_discovery_evidence(
+                ticker, evaluations_by_ticker.get(ticker)
+            )
             opp_dir = journal_base / "companies" / ticker / "case_file" / "opportunities" / opp_id
             opp_dir.mkdir(parents=True, exist_ok=True)
             opp_file = opp_dir / "opportunity.yml"
@@ -355,14 +393,21 @@ class UniversePipeline(BaseWorker):
         metrics.opportunities_created = created
         print(f"[PIPELINE] Opportunities: {created} created, {metrics.opportunities_existing} existing, {len(eligible)} eligible")
 
-    def _build_discovery_evidence(self, ticker: str) -> dict[str, Any]:
+    def _build_discovery_evidence(
+        self, ticker: str, scout_result: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         cached = self._get_cached_data(Path(self.config.get("cache_path", "cache")), ticker)
         fields = [rule["metric"] for rule in self.strategy.parameters["scout"]["filters"]]
+        result = scout_result or {}
         evidence = {
             "policy": self.strategy.parameters["scout"],
-            "eligibility_status": "PASSED",
+            "eligibility_status": str(result.get("status", "PASSED")).upper(),
             "evaluated_at": datetime.now(AR_TZ).isoformat(),
             "metrics": {key: cached.get(key) for key in fields},
+            "reason": result.get("reason"),
+            "missing_metrics": result.get("missing_critical_metrics", []),
+            "conflicting_metrics": result.get("conflicting_metrics", []),
+            "filter_results": result.get("details", {}),
             "financial_observations": cached.get("financial_observations", {}),
             "market_data_normalization": cached.get("market_data_normalization", {}),
             "liquidity_provenance": cached.get("liquidity_provenance", {}),

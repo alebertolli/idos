@@ -338,6 +338,38 @@ def test_monthly_scout_merges_results_into_persisted_watchlist(tmp_path, monkeyp
     assert by_ticker["AAPL"]["reason"] == "All configured filters passed"
 
 
+def test_monthly_scout_removes_rejected_ticker_from_persisted_watchlist(tmp_path, monkeypatch):
+    import yaml
+
+    project_root = Path(__file__).resolve().parents[3]
+    journal = tmp_path / "journal"
+    portfolio = journal / "portfolio"
+    portfolio.mkdir(parents=True)
+    watchlist_path = portfolio / "watchlist.yml"
+    watchlist_path.write_text(yaml.safe_dump({"entries": [{
+        "ticker": "AAPL", "score": 100, "reason": "Previous screen passed",
+        "added_at": "2026-10-01", "alerts": [], "notified": False,
+    }]}), encoding="utf-8")
+    pipeline = UniversePipeline({
+        "config_path": str(project_root / "idos-config"),
+        "journal_path": str(journal),
+    })
+    pipeline._get_cached_data = lambda cache_path, ticker: {}
+    pipeline._score_ticker = lambda scout, ticker, data: {
+        "ticker": ticker, "score": 0, "scout_score": 0, "passed": False,
+        "status": "PENDING_DATA", "reason": "Conflicting critical financial evidence",
+        "data_quality_valid": False, "missing_critical_metrics": ["fcf"],
+        "conflicting_metrics": ["fcf"], "details": {},
+    }
+    metrics = PipelineMetrics(candidate_tickers=["AAPL"])
+
+    pipeline._run_scout(metrics)
+
+    saved = yaml.safe_load(watchlist_path.read_text(encoding="utf-8"))
+    assert saved["entries"] == []
+    assert metrics.scout_evaluations[0]["status"] == "PENDING_DATA"
+
+
 def test_existing_opportunity_keeps_initial_discovery_and_records_latest_evidence(tmp_path):
     import yaml
 
@@ -384,3 +416,50 @@ def test_existing_opportunity_keeps_initial_discovery_and_records_latest_evidenc
         "price": 120.0, "as_of_date": "2026-10-19", "currency": "USD", "source": "yfinance",
     }
     assert saved["status"] == "UNDER_RESEARCH"
+
+
+def test_failed_current_scout_is_recorded_on_existing_opportunity_without_changing_decision(tmp_path):
+    import yaml
+
+    project_root = Path(__file__).resolve().parents[3]
+    journal = tmp_path / "journal"
+    case = journal / "companies" / "AAPL" / "case_file" / "opportunities" / "OPP-1"
+    case.mkdir(parents=True)
+    opportunity = case / "opportunity.yml"
+    resolution = {"approved": True, "author": "manager@example.com", "resolved_at": "2026-10-01T10:00:00-03:00"}
+    resolution_path = case / "board_resolution.yml"
+    resolution_path.write_text(yaml.safe_dump(resolution), encoding="utf-8")
+    opportunity.write_text(yaml.safe_dump({
+        "id": "OPP-1", "ticker": "AAPL", "strategy_id": "COMPOUNDER",
+        "status": "APPROVED",
+        "discovery_evidence": {"eligibility_status": "PASSED"},
+    }), encoding="utf-8")
+    pipeline = UniversePipeline({
+        "config_path": str(project_root / "idos-config"),
+        "journal_path": str(journal),
+        "cache_path": str(tmp_path / "cache"),
+    })
+    pipeline._get_cached_data = lambda cache_path, ticker: {
+        "operating_margin_pct": 25.0,
+        "fcf": None,
+        "revenue_growth_pct": 10.0,
+        "data_provenance": {"sources_used": ["test-provider"], "conflicts": [{"field": "fcf"}]},
+    }
+    metrics = PipelineMetrics(scout_evaluations=[{
+        "ticker": "AAPL",
+        "status": "PENDING_DATA",
+        "reason": "Evidencia contradictoria: flujo de caja libre",
+        "missing_critical_metrics": ["fcf"],
+        "conflicting_metrics": ["fcf"],
+        "details": {"operating_margin_pct": 100, "fcf": None},
+    }])
+
+    pipeline._run_opportunity_creation(metrics)
+
+    saved = yaml.safe_load(opportunity.read_text(encoding="utf-8"))
+    assert metrics.opportunities_discovery_review == 1
+    assert saved["latest_discovery_evidence"]["eligibility_status"] == "PENDING_DATA"
+    assert saved["latest_discovery_evidence"]["conflicting_metrics"] == ["fcf"]
+    assert saved["latest_discovery_evidence"]["reason"].startswith("Evidencia contradictoria")
+    assert saved["status"] == "APPROVED"
+    assert yaml.safe_load(resolution_path.read_text(encoding="utf-8")) == resolution

@@ -711,6 +711,7 @@ class SiteBuilder:
             "upside_pct": upside,
             "price_date": price_date,
             "market_data": market_data,
+            "latest_discovery_evidence": opp.get("latest_discovery_evidence") or {},
             "created_at": opp.get("created_at"),
             "updated_at": opp.get("updated_at"),
             "last_research": last_research,
@@ -784,6 +785,10 @@ class SiteBuilder:
             wyckoff = self._load_wyckoff_latest(e.get("ticker", ""), e.get("opp_id", ""))
             opp = self._find_opp(e.get("ticker", ""), e.get("opp_id", ""))
             recommendation_state = self._buylist_recommendation_state(opp)
+            discovery_evidence = (opp or {}).get("latest_discovery_evidence") or {}
+            if not isinstance(discovery_evidence, dict):
+                discovery_evidence = {}
+            discovery_status = str(discovery_evidence.get("eligibility_status") or "NOT_EVALUATED").upper()
             intrinsic = e.get("target_price") or (opp or {}).get("intrinsic_value") or 0
             current = mkt["price"] or price["price"] or (opp or {}).get("current_price")
             price_date = mkt["date"] or price["date"]
@@ -815,6 +820,12 @@ class SiteBuilder:
                 "current_price": current,
                 "price_date": price_date,
                 "market_data": self._load_data_provenance(e.get("ticker", ""), price_date),
+                "latest_discovery_evidence": discovery_evidence,
+                "discovery_status": discovery_status,
+                "discovery_review_required": discovery_status in {"PENDING_DATA", "REJECTED"},
+                "discovery_reason": discovery_evidence.get("reason"),
+                "discovery_missing_metrics": discovery_evidence.get("missing_metrics") or [],
+                "discovery_conflicting_metrics": discovery_evidence.get("conflicting_metrics") or [],
                 "industry": (self.companies.get((e.get("ticker") or "").upper()) or {}).get("industry"),
                 "wyckoff": wyckoff,
                 "recommendation_state": recommendation_state,
@@ -1123,6 +1134,17 @@ class SiteBuilder:
                 add_alert(
                     "thesis_review_due", opportunity.get("ticker", ""), "warn",
                     "Revisión de tesis vencida; actualizar Research antes de usar la recomendación",
+                    str(opportunity.get("opp_id") or ""),
+                )
+            discovery = opportunity.get("latest_discovery_evidence") or {}
+            discovery_status = str(discovery.get("eligibility_status") or "").upper()
+            if discovery_status in {"PENDING_DATA", "REJECTED"}:
+                detail = str(discovery.get("reason") or "Revisar los datos críticos del último Scout.")
+                if len(detail) > 240:
+                    detail = detail[:237] + "..."
+                add_alert(
+                    "discovery_data_review", opportunity.get("ticker", ""), "high",
+                    f"Último Scout: {discovery_status}. {detail} Revisar antes de usar la oportunidad.",
                     str(opportunity.get("opp_id") or ""),
                 )
         seen_single_source: set[str] = set()
@@ -1562,6 +1584,7 @@ function buylistEntryFails(r){
     REVIEW_UNVERIFIED:'Vigencia de tesis sin verificar'
   };
   if(thesisState!=='CURRENT') fails.push(thesisMessages[thesisState]||'Revisión de tesis requerida');
+  if(r.discovery_review_required) fails.push('Scout: datos requieren revisión');
   if(!r.current_price || r.current_price<=0){
     fails.push('Precio sin datos');
   } else if(r.buy_zone_top && r.buy_zone_top>0){
@@ -1632,6 +1655,7 @@ function renderBuylist(){
       {key:'target', label:'Target', value:r=>r.target_price??null, cell:r=>`<td>${money(r.target_price)}</td>`},
       {key:'margin', label:'Margen a target', value:r=>margin(r), cell:r=>{const m=margin(r); return `<td class="${m>=0?'pos':'neg'}">${pct(m,true)}</td>`;}},
       {key:'thesis', label:'Vigencia de tesis', value:r=>r.recommendation_state||'REVIEW_UNVERIFIED', cell:r=>{const s=r.recommendation_state||'REVIEW_UNVERIFIED'; const labels={CURRENT:'Vigente',REVIEW_DUE:'Revisión vencida',INVALIDATED:'Invalidada',UNLINKED:'Sin vínculo',CONFIGURATION_ERROR:'Error de configuración',NOT_APPLICABLE:'No aplica',REVIEW_UNVERIFIED:'Sin verificar'}; return `<td><span class="badge" style="background:${s==='CURRENT'?'#12351f':'#2a1516'};color:${s==='CURRENT'?'#86efac':'#f87171'}">${labels[s]||'Revisión requerida'}</span><div class="muted">Próxima: ${dt(r.next_thesis_review_at)||'sin fecha'}</div></td>`;}},
+      {key:'discovery', label:'Último Scout', value:r=>r.discovery_status||'NOT_EVALUATED', cell:r=>{const s=r.discovery_status||'NOT_EVALUATED'; const labels={PASSED:'Elegible',PENDING_DATA:'Datos pendientes',REJECTED:'No elegible',NOT_EVALUATED:'Sin evaluación'}; const bad=!!r.discovery_review_required; const title=r.discovery_reason?` title="${esc(r.discovery_reason)}"`:''; return `<td><span class="badge"${title} style="background:${bad?'#2a1516':'#12351f'};color:${bad?'#f87171':'#86efac'}">${labels[s]||'Revisar'}</span></td>`;}},
       {key:'wy', label:'Wyckoff', value:r=>r.wyckoff?.score??null, cell:r=>{const wy=r.wyckoff; return `<td>${wyPhase(wy?.phase)} ${wy?.score??''}</td>`;}},
       {key:'fails', label:'Cond. fallida', value:r=>buylistEntryFails(r).length, cell:r=>{const f=buylistEntryFails(r); return `<td>${f.length?f.map(x=>`<span class="badge" style="background:#2a1516;color:#f87171">${x}</span>`).join(' '):'<span class="pos">Listo</span>'}</td>`;}},
       {key:'data', label:'Dato / fuentes', value:r=>`${r.price_date||''} ${r.market_data?.source_count??''}`, cell:r=>`<td>${dt(r.price_date)} · ${r.market_data?.source_count??'sin dato'} fuente(s)</td>`},
@@ -1643,7 +1667,7 @@ function renderBuylist(){
     q:'',
   };
   let html = `<h2>Buy List (${rows.length})</h2>`;
-  html += `<p class="muted">La lista conserva las entradas aprobadas. La vigencia de tesis se valida por oportunidad: una tesis vencida, invalidada o sin verificar requiere revisión y nunca aparece como lista para actuar.</p>`;
+  html += `<p class="muted">La lista conserva las entradas aprobadas. La vigencia de tesis y el último Scout se muestran por oportunidad: una tesis vencida o un Scout con datos pendientes requiere revisión antes de actuar.</p>`;
   html += detailsEntryThresholds();
   if(!rows.length) html += `<div class="card"><p class="muted">La Buy List está vacía.</p></div>`;
   html += tableInput('buylist','bl-search','Buscar ticker...');
@@ -1686,8 +1710,12 @@ function showCase(oppId){
   const o = findOpp(oppId);
   const by = DATA.buylist.find(b=>b.ticker===o.ticker);
   const d = o.ddd||{};
+  const discovery = o.latest_discovery_evidence||{};
   let html = `<button class="tab" onclick="renderAll()">← Volver</button>`;
   html += `<h1>${esc(o.ticker)} <span class="tick">${esc(o.opp_id)}</span> ${badge(o.status)}</h1>`;
+  if(['PENDING_DATA','REJECTED'].includes(String(discovery.eligibility_status||'').toUpperCase())){
+    html += `<div class="card" style="border-color:#5a2424"><b class="neg">Último Scout: ${esc(discovery.eligibility_status)}</b><p>${esc(discovery.reason||'Revisar la evidencia de Discovery antes de usar esta oportunidad.')}</p><p class="muted">Datos faltantes: ${esc((discovery.missing_metrics||[]).join(', ')||'ninguno')} · Conflictos: ${esc((discovery.conflicting_metrics||[]).join(', ')||'ninguno')}</p></div>`;
+  }
   html += `<div class="grid">`;
   html += `<div class="card"><div class="muted">Convicción</div><div style="font-size:22px;font-weight:700">${o.conviction_overall??'—'}</div><div class="muted">${esc(o.confidence||'')} · ${esc(o.trend||'')}</div></div>`;
   if(o.strategy_id==='MULTIBAGGERS') html += `<div class="card"><div class="muted">Discovery Score · Prioridad Research</div><div style="font-size:20px;font-weight:700">${fmt(o.discovery_score,1)} · ${fmt(o.research_priority,1)}</div><div class="muted">${esc(o.discovery_type||'')} · no son probabilidad ni convicción</div></div>`;
