@@ -7,12 +7,12 @@ calidad_evidencia:
   - ¿La señal persistirá hasta el próximo rebalanceo?
 catalizadores_previos:
 - descripcion: Persistencia del ranking relativo hasta el próximo rebalanceo
-  generated_at: '2026-10-18T21:00:44.260541-03:00'
+  generated_at: '2026-10-18T21:08:23.925368-03:00'
   horizonte: corto
   impacto: alto
   nivel_confianza: ''
   opp_id: OPP-20261018-MOM-XLF
-  probabilidad_anterior: 50
+  probabilidad_anterior: null
 clasificacion_oportunidad:
   categoria: systematic_momentum
   categorias_descartadas:
@@ -54,7 +54,7 @@ error_mercado:
   hipotesis_contraria: La persistencia del momentum puede romperse antes del próximo
     rebalanceo.
   razonamiento: La señal cuantitativa y sus límites son la evidencia primaria.
-generated_at: '2026-10-18T21:08:23.925368-03:00'
+generated_at: '2026-10-18T21:22:31.930267-03:00'
 integridad_tesis:
   reason: Señal dentro del rango configurado.
   thesis_active: true
@@ -88,13 +88,22 @@ strategy_context:
   report_method_version: systematic_signal_v2
   risk_rating: NOT_ASSESSED
   score_method: momentum_div_max_v1
-  signal:
+  signal: &id001
     as_of_date: '2026-10-01'
-    momentum: 0.6124063843262988
+    momentum: 0.6124063046490562
     ticker: XLF
   signal_policy:
     maximum_signal: 2.7
     minimum_signal: 0.6
+  signal_snapshot:
+    generated_at: '2026-10-18T21:21:35.467168-03:00'
+    run_scope: bounded
+    signal: *id001
+    signal_policy:
+      maximum_signal: 2.7
+      minimum_signal: 0.6
+      select_top: 2
+    source: idos-journal/strategies/MOMENTUM_ETF/2026-10-18-212135467168-bounded.yml
   strategy_id: MOMENTUM_ETF
 target_consensus: null
 tesis_inversion: 'XLF: exposición sistemática a momentum mensual; la señal actual

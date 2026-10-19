@@ -5,11 +5,26 @@ decision: WAIT
 status: PENDING_HUMAN_REVIEW
 checks:
   research_evidence: true
+  research_matches_signal: true
+  current_selection: true
   signal_evidence: true
   signal_within_policy: true
 signal:
   as_of_date: '2026-10-01'
-  momentum: 0.6124063843262988
+  momentum: 0.6124063046490562
   ticker: XLF
-reason: Risk budget and real portfolio context require private review
-generated_at: '2026-10-18T21:08:24.844048-03:00'
+reason: Presupuesto de riesgo y contexto de cartera requieren revisión privada.
+reason_code: null
+signal_snapshot:
+  signal:
+    as_of_date: '2026-10-01'
+    momentum: 0.6124063046490562
+    ticker: XLF
+  signal_policy:
+    minimum_signal: 0.6
+    maximum_signal: 2.7
+    select_top: 2
+  source: idos-journal/strategies/MOMENTUM_ETF/2026-10-18-212135467168-bounded.yml
+  generated_at: '2026-10-18T21:21:35.467168-03:00'
+  run_scope: bounded
+generated_at: '2026-10-18T21:22:32.354060-03:00'

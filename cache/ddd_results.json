@@ -6,7 +6,7 @@
       "ticker": "XLF",
       "status": "completed",
       "score": 23,
-      "reason": "FORCE re-research UNDER_RESEARCH (score=0)"
+      "reason": "systematic signal changed; re-research required"
     }
   ],
   "skipped": [],
@@ -18,6 +18,8 @@
       "recommendation": "WAIT",
       "checks": {
         "research_evidence": true,
+        "research_matches_signal": true,
+        "current_selection": true,
         "signal_evidence": true,
         "signal_within_policy": true
       },
