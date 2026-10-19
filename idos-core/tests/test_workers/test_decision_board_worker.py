@@ -15,8 +15,7 @@ class TestDecisionBoardWorker:
         base_path: str,
     ):
         ticker, opp_id = seeded_opportunity_under_dd
-        worker = DecisionBoardWorker({"provider": "test"})
-        worker.llm = mock_llm_client
+        worker = DecisionBoardWorker({"llm_service": mock_llm_client})
 
         result = worker.execute({
             "ticker": ticker,
@@ -29,6 +28,7 @@ class TestDecisionBoardWorker:
         assert output["decision"] == "APPROVED"
         assert output["all_rules_pass"] is True
         assert output["rules_evaluated"] >= 3
+        mock_llm_client.generate_structured.assert_not_called()
 
     def test_rejects_poor_opportunity(
         self,
@@ -54,8 +54,7 @@ class TestDecisionBoardWorker:
                "status": "COMPLETED", "generated_at": "2026-01-01T00:00:00"}
         tmp_journal.save_assessment(ticker, opp_id, ass)
 
-        worker = DecisionBoardWorker({"provider": "test"})
-        worker.llm = mock_llm_reject_client
+        worker = DecisionBoardWorker({"llm_service": mock_llm_reject_client})
 
         result = worker.execute({
             "ticker": ticker,
@@ -66,6 +65,7 @@ class TestDecisionBoardWorker:
         assert result.status == "success"
         output = result.output
         assert output["decision"] == "WATCHLIST"
+        mock_llm_reject_client.generate_structured.assert_not_called()
 
     def test_saves_decision_record(
         self,
@@ -75,8 +75,7 @@ class TestDecisionBoardWorker:
         tmp_journal,
     ):
         ticker, opp_id = seeded_opportunity_under_dd
-        worker = DecisionBoardWorker({"provider": "test"})
-        worker.llm = mock_llm_client
+        worker = DecisionBoardWorker({"llm_service": mock_llm_client})
 
         worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
 
@@ -84,6 +83,12 @@ class TestDecisionBoardWorker:
         assert dec_path.exists()
         yml_files = list(dec_path.glob("*.yml"))
         assert len(yml_files) >= 1
+        import yaml
+        decision = yaml.safe_load(yml_files[0].read_text(encoding="utf-8"))
+        assert decision["decision_method"] == "deterministic_authorization_rules"
+        assert decision["recommendation"] == "APPROVE"
+        assert "llm" not in decision["rules_evaluation"]
+        mock_llm_client.generate_structured.assert_not_called()
 
     def test_skips_invalid_state(
         self,
@@ -102,8 +107,7 @@ class TestDecisionBoardWorker:
         }
         tmp_sqlite.save_opportunity(opp)
 
-        worker = DecisionBoardWorker({"provider": "test"})
-        worker.llm = mock_llm_client
+        worker = DecisionBoardWorker({"llm_service": mock_llm_client})
 
         result = worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
 

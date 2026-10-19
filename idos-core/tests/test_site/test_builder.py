@@ -216,7 +216,13 @@ def _write_ddd_case(tmp_path: Path, review: dict | None) -> None:
         "rationale": "La renovación de producto sostiene la demanda.",
         "horizon": "medio",
         "review_trigger": "Abandonar la hipótesis si el crecimiento cae debajo de 3%.",
-        "predictions": [{"metric": "revenue_growth", "expected": 8, "unit": "%", "deadline": "FY2027"}],
+        "predictions": [{
+            "metric": "revenue_growth",
+            "prediction": "Ingresos crecerán 8% para FY2027.",
+            "expected": 8,
+            "unit": "%",
+            "deadline": "2027-09-30",
+        }],
         "falsification_conditions": ["El crecimiento queda debajo de 3% en FY2027."],
     }]}, allow_unicode=True), encoding="utf-8")
     (opp / "decision_proposal.yml").write_text(yaml.safe_dump({
@@ -242,6 +248,7 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert opp["ddd"]["score_general"] == 81
     assert opp["ddd"]["dominios"][0]["analisis"] == "Afirmación sin fuente"
     assert opp["ddd"]["hipotesis"][0]["predictions"][0]["expected"] == 8
+    assert opp["ddd"]["hipotesis"][0]["predictions"][0]["prediction"] == "Ingresos crecerán 8% para FY2027."
     assert opp["ddd"]["financial_data_quality"]["status"] == "partial"
 
     output = write_site(tmp_path, tmp_path / "site-output")
@@ -250,6 +257,7 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert "Tesis antigua sin validar" in payload
     assert "Afirmación que requiere revisión" in payload
     assert "El crecimiento de ingresos superará 8%." in payload
+    assert "Ingresos crecerán 8% para FY2027." in payload
     assert "Informe pendiente de validación del gestor" in app
     assert "Tesis de inversión (provisional)" in app
     assert "Calidad de datos financieros" in app

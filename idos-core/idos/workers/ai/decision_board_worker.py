@@ -2,8 +2,6 @@ from datetime import datetime
 from typing import Any
 from uuid import uuid4
 
-from idos.ai.llm import LLMClient
-from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.decision.orchestrator import DecisionOrchestrator
@@ -25,15 +23,6 @@ class DecisionBoardWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
-        self.llm = config.get("llm_service") or LLMClient(
-            provider=config.get("provider", ""),
-            api_key=config.get("api_key", ""),
-            model=config.get("model", ""),
-            fallback_model=config.get("fallback_model", ""),
-            fallback_providers=config.get("fallback_providers", []),
-        )
-        prompts_path = config.get("prompts_path", "")
-        self.registry = PromptRegistry(prompts_path) if prompts_path else PromptRegistry()
         self.state_machine = OpportunityStateMachine()
         self.rules_engine = RulesEngine()
         register_default_rules(self.rules_engine)
@@ -113,10 +102,13 @@ class DecisionBoardWorker(BaseWorker):
         rules_passed = proposal.rules_passed if proposal else []
         rules_failed = proposal.rules_failed if proposal else []
 
-        # LLM evaluation for explicability (secondary)
-        llm_eval = self._llm_evaluate(ticker, assessments, auth_rules)
-        recommendation = llm_eval.get("recommendation", "APPROVE" if all_rules_pass else "REJECT")
-        rationale = llm_eval.get("rationale", "")
+        recommendation = "APPROVE" if all_rules_pass else "REJECT"
+        if all_rules_pass:
+            rationale = "Todas las reglas de autorización aprobaron."
+        elif rules_failed:
+            rationale = "Reglas de autorización fallidas: " + ", ".join(rules_failed)
+        else:
+            rationale = "No se generó una propuesta válida para autorizar la oportunidad."
 
         decision_id = f"dec-{uuid4().hex[:8]}"
         decision = {
@@ -125,11 +117,12 @@ class DecisionBoardWorker(BaseWorker):
             "ticker": ticker,
             "opp_id": opp_id,
             "status": "APPROVED" if all_rules_pass else "REJECTED",
+            "recommendation": recommendation,
             "rules_evaluation": {
                 "deterministic": {"passed": rules_passed, "failed": rules_failed},
-                "llm": llm_eval.get("rules_detail", []),
             },
             "rationale": rationale,
+            "decision_method": "deterministic_authorization_rules",
             "generated_at": datetime.now(AR_TZ).isoformat(),
         }
         journal.save_decision(ticker, opp_id, decision)
@@ -187,36 +180,3 @@ class DecisionBoardWorker(BaseWorker):
         with open(rules_path, encoding="utf-8") as f:
             data = yaml.safe_load(f)
         return data.get("rules", []) if data else []
-
-    def _llm_evaluate(self, ticker: str, assessments: list[dict],
-                       rules: list[dict]) -> dict[str, Any]:
-        rules_text = "\n".join(
-            f"- RULE {r.get('id','?')}: {r.get('description','')} "
-            f"(condition: {r.get('condition','')}, priority: {r.get('priority','')})"
-            for r in rules if r.get("active", True)
-        )
-        ass_text = "\n".join(
-            f"- {a.get('engine','?')}: score={a.get('score','?')}, "
-            f"confidence={a.get('confidence','?')}, findings={a.get('findings',[])}"
-            for a in assessments
-        )
-
-        prompt = (
-            f"Evalúa si {ticker} cumple las reglas de entrada del fondo.\n\n"
-            f"Assessments disponibles:\n{ass_text}\n\n"
-            f"Reglas de entrada:\n{rules_text}\n\n"
-            "Para cada regla indica: rule_id, condition, passes (true/false), reason.\n"
-            "Responde en JSON con:\n"
-            '{{"all_rules_pass": bool, "recommendation": "APPROVE|REJECT|REVIEW", '
-            '"rationale": "...", '
-            '"rules_detail": [{{"rule_id": "...", "passes": bool, "reason": "..."}}]}}'
-        )
-        return self.llm.generate_structured(
-            prompt=prompt,
-            system_prompt=(
-                "Eres el Decision Board de una Family Office. Evalúa fríamente "
-                "si una oportunidad cumple TODAS las reglas de entrada. "
-                "Si hay duda, responde REJECT. La preservación del capital es prioritaria."
-            ),
-            temperature=0.1,
-        )

@@ -1,6 +1,7 @@
 import time
 import math
-from datetime import datetime
+import re
+from datetime import date, datetime
 from typing import Any
 from uuid import uuid4
 
@@ -219,12 +220,6 @@ class ResearchWorker(BaseWorker):
                 "insider_ownership": financial_data.get("insider_ownership", 0),
             },
         }
-        report_path = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id / "ddd_report.yml"
-        report_path.parent.mkdir(parents=True, exist_ok=True)
-        import yaml as yaml_lib
-        with open(report_path, "w", encoding="utf-8") as f:
-            yaml_lib.dump(ddd_report, f, default_flow_style=False, allow_unicode=True)
-
         if is_systematic:
             hypothesis_result = {
                 "hipotesis": [{
@@ -244,6 +239,7 @@ class ResearchWorker(BaseWorker):
             "ticker": ticker,
             "name": company.get("name", ticker),
             "sector": company.get("sector", ""),
+            "as_of_date": datetime.now(AR_TZ).date().isoformat(),
             "thesis_statement": thesis,
             "key_drivers": market_error.get("hipotesis_contraria", ""),
             "recent_events": financial_data.get("recent_events", ""),
@@ -267,6 +263,14 @@ class ResearchWorker(BaseWorker):
                     "status": "hypothesis_validation_failed",
                     "errors": hypothesis_errors,
                 }
+
+        # Persist a complete report only after its hypothesis contract passes.
+        # Otherwise a failed re-research would replace the last usable report.
+        report_path = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id / "ddd_report.yml"
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        import yaml as yaml_lib
+        with open(report_path, "w", encoding="utf-8") as f:
+            yaml_lib.dump(ddd_report, f, default_flow_style=False, allow_unicode=True)
 
         if is_systematic:
             aoif_result = {
@@ -538,7 +542,11 @@ class ResearchWorker(BaseWorker):
                         metric=p.get("metrica") or p.get("metric", ""),
                         expected_value=expected,
                         unit=p.get("unidad", p.get("unit", "")),
-                        deadline=p.get("plazo") or p.get("deadline") or hyp_data.get("plazo", ""),
+                        deadline=(
+                            p.get("fecha_objetivo") or p.get("target_date") or p.get("deadline")
+                            or hyp_data.get("fecha_objetivo") or hyp_data.get("target_date")
+                            or p.get("plazo") or hyp_data.get("plazo", "")
+                        ),
                         notes=p.get("notes") or p.get("prediccion") or p.get("prediction", ""),
                     ))
             falsification = []
@@ -601,12 +609,13 @@ class ResearchWorker(BaseWorker):
             print(f"[HYP] {ticker} ({opp_id}): {len(raw)} hipótesis persistidas en hypotheses.yml + SQLite")
 
     @staticmethod
-    def _validate_hypothesis_contract(raw: Any) -> list[str]:
+    def _validate_hypothesis_contract(raw: Any, as_of_date: date | None = None) -> list[str]:
         """Validate the five HMF answers before a FULL_DDD result can advance."""
         if not isinstance(raw, list) or not raw:
             return ["hypotheses must be a non-empty list"]
 
         errors: list[str] = []
+        today = as_of_date or datetime.now(AR_TZ).date()
         if not 3 <= len(raw) <= 5:
             errors.append("FULL_DDD requires 3 to 5 hypotheses")
         for index, item in enumerate(raw, start=1):
@@ -616,6 +625,7 @@ class ResearchWorker(BaseWorker):
             statement = item.get("enunciado") or item.get("statement") or item.get("hipotesis")
             rationale = item.get("por_que") or item.get("rationale") or item.get("why")
             prediction = item.get("prediccion") or item.get("prediction")
+            target_date = item.get("fecha_objetivo") or item.get("target_date") or item.get("deadline")
             magnitude = item.get("magnitud") or item.get("magnitude") or {}
             metric = magnitude.get("metrica") or magnitude.get("metric") if isinstance(magnitude, dict) else None
             expected = magnitude.get("valor_esperado", magnitude.get("expected_value")) if isinstance(magnitude, dict) else None
@@ -644,6 +654,36 @@ class ResearchWorker(BaseWorker):
                 or not math.isfinite(expected)
             ):
                 errors.append(f"{prefix}: missing observable quantitative prediction")
+            temporal_text = [value for value in (prediction, stop_condition) if isinstance(value, str)]
+            if isinstance(falsification, str):
+                temporal_text.append(falsification)
+            elif isinstance(falsification, list):
+                temporal_text.extend(
+                    value if isinstance(value, str) else str(value.get("condicion") or value.get("condition") or "")
+                    for value in falsification if isinstance(value, (str, dict))
+                )
+            year_tokens = re.findall(
+                r"\b(?:FY\s*)?(20\d{2})\b", " ".join(temporal_text), flags=re.IGNORECASE
+            )
+            referenced_years = [int(year) for year in year_tokens]
+            if any(year < today.year for year in referenced_years):
+                errors.append(f"{prefix}: prediction or trigger references an expired year")
+            try:
+                valid_iso_shape = (
+                    isinstance(target_date, str)
+                    and len(target_date) == 10
+                    and target_date[4] == "-"
+                    and target_date[7] == "-"
+                )
+                if not valid_iso_shape:
+                    raise ValueError("expected YYYY-MM-DD")
+                parsed_target_date = date.fromisoformat(target_date)
+                if parsed_target_date.isoformat() != target_date:
+                    raise ValueError("expected canonical YYYY-MM-DD")
+                if parsed_target_date <= today:
+                    errors.append(f"{prefix}: target date must be after the as-of date ({today.isoformat()})")
+            except ValueError:
+                errors.append(f"{prefix}: missing valid ISO target date (YYYY-MM-DD)")
             has_falsification = (
                 isinstance(falsification, str) and bool(falsification.strip())
             ) or (

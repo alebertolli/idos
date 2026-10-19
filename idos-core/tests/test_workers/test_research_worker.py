@@ -1,3 +1,4 @@
+from datetime import date
 from pathlib import Path
 from unittest.mock import MagicMock
 
@@ -337,6 +338,7 @@ class TestResearchWorker:
             "enunciado": "La demanda de iPhone se recuperará durante el próximo ejercicio.",
             "por_que": "La renovación de dispositivos y los servicios sostienen la demanda.",
             "prediccion": "Los ingresos de iPhone crecerán al menos 8% en FY2027.",
+            "fecha_objetivo": "2027-09-30",
             "magnitud": {"metrica": "iphone_revenue_growth", "valor_esperado": 8, "unidad": "%"},
             "criterios_falsacion": "Ingresos de iPhone crecen menos de 3% en FY2027.",
             "cuando_dejar_de_creerla": "Dejar de creerla si los ingresos crecen menos de 3% al cierre de FY2027.",
@@ -349,9 +351,10 @@ class TestResearchWorker:
         [hypothesis] = tmp_journal.load_hypotheses("AAPL", "OPP-AAPL-1")
         assert hypothesis["predictions"] == [{
             "metric": "iphone_revenue_growth",
+            "prediction": "Los ingresos de iPhone crecerán al menos 8% en FY2027.",
             "expected": 8,
             "unit": "%",
-            "deadline": "largo",
+            "deadline": "2027-09-30",
             "actual": None,
             "met": None,
         }]
@@ -369,11 +372,29 @@ class TestResearchWorker:
             "enunciado": "Creemos que el margen operativo crecerá.",
             "por_que": "La mezcla de servicios aumenta.",
             "prediccion": "El margen supera 34% en FY2027.",
+            "fecha_objetivo": "2027-09-30",
             "magnitud": {"metrica": "operating_margin", "valor_esperado": 34},
             "criterios_falsacion": ["El margen queda debajo de 32%"],
             "cuando_dejar_de_creerla": "Si queda debajo de 32% en FY2027.",
         }] * 3
-        assert ResearchWorker._validate_hypothesis_contract(valid) == []
+        assert ResearchWorker._validate_hypothesis_contract(valid, date(2026, 10, 19)) == []
+
+        expired = [dict(item, fecha_objetivo="2025-09-30") for item in valid]
+        expired_errors = ResearchWorker._validate_hypothesis_contract(expired, date(2026, 10, 19))
+        assert sum("target date must be after" in error for error in expired_errors) == 3
+
+        stale_year = [dict(item, prediccion="El resultado ocurrirá durante FY2025.") for item in valid]
+        stale_year_errors = ResearchWorker._validate_hypothesis_contract(stale_year, date(2026, 10, 19))
+        assert sum("references an expired year" in error for error in stale_year_errors) == 3
+
+        stale_trigger = [dict(item, cuando_dejar_de_creerla="Tras el resultado de Q2-FY2025.") for item in valid]
+        stale_trigger_errors = ResearchWorker._validate_hypothesis_contract(stale_trigger, date(2026, 10, 19))
+        assert sum("references an expired year" in error for error in stale_trigger_errors) == 3
+
+        missing_date = [dict(item) for item in valid]
+        del missing_date[0]["fecha_objetivo"]
+        missing_date_errors = ResearchWorker._validate_hypothesis_contract(missing_date, date(2026, 10, 19))
+        assert any("missing valid ISO target date" in error for error in missing_date_errors)
 
         incomplete = [{"enunciado": "Creemos que el margen crecerá."}]
         errors = ResearchWorker._validate_hypothesis_contract(incomplete)
@@ -381,6 +402,51 @@ class TestResearchWorker:
         assert any("prediction" in error for error in errors)
         assert any("falsification" in error for error in errors)
         assert any("stop-belief" in error for error in errors)
+
+    def test_expired_hypothesis_keeps_previous_report_and_stops_before_assessment(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        base_path: str,
+        tmp_path: Path,
+        monkeypatch,
+    ):
+        ticker, opp_id = seeded_opportunity
+        report_path = tmp_journal.opportunity_path(ticker, opp_id) / "ddd_report.yml"
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        previous_report = "ticker: TEST\nstatus: reviewed\n"
+        report_path.write_text(previous_report, encoding="utf-8")
+
+        expired_hypothesis = {
+            "enunciado": "El margen operativo mejorará.",
+            "por_que": "La mejora del mix de producto sostiene el margen.",
+            "prediccion": "El margen superará 30%.",
+            "fecha_objetivo": "2025-09-30",
+            "magnitud": {"metrica": "operating_margin", "valor_esperado": 30, "unidad": "%"},
+            "criterios_falsacion": ["El margen queda por debajo de 28%."],
+            "cuando_dejar_de_creerla": "Si el margen cae debajo de 28%.",
+        }
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.registry = _mock_research_registry()
+        worker._run_prompt = MagicMock(side_effect=[
+            {"tesis_inversion": "Tesis", "score_general": 75},
+            {"hipotesis": [dict(expired_hypothesis) for _ in range(3)]},
+        ])
+        worker._load_financial_data = MagicMock(return_value={})
+        worker._enrich_company_info = MagicMock(return_value={"name": "Test", "sector": "Technology"})
+        worker._fetch_target_consensus = MagicMock(return_value=None)
+        worker._load_prior_catalysts = MagicMock(return_value=[])
+        monkeypatch.setattr("idos.workers.ai.research_worker.time.sleep", lambda _: None)
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "hypothesis_validation_failed"
+        assert any("target date must be after" in error for error in result["errors"])
+        assert report_path.read_text(encoding="utf-8") == previous_report
+        assert not (tmp_journal.opportunity_path(ticker, opp_id) / "assessments").exists()
+        assert not (tmp_journal.opportunity_path(ticker, opp_id) / "hypotheses.yml").exists()
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.SCREENED.value
 
 
     def test_systematic_report_persists_authoritative_strategy_context(

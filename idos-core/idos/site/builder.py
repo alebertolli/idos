@@ -1563,7 +1563,7 @@ function showCase(oppId){
   if(d.hipotesis?.length){
     html += `<h3>Hipótesis de inversión</h3><table><thead><tr><th>Hipótesis</th><th>Por qué</th><th>Predicción</th><th>Falsación</th><th>Cuándo abandonarla</th></tr></thead><tbody>`;
     d.hipotesis.forEach(h=>{
-      const predictions=(h.predictions||[]).map(p=>`${esc(p.metric||'')}: ${esc(p.expected??'—')}${p.unit?` ${esc(p.unit)}`:''} · ${esc(p.deadline||'sin plazo')}`).join('<br>')||'—';
+      const predictions=(h.predictions||[]).map(p=>`${p.prediction?`${esc(p.prediction)} · `:''}${esc(p.metric||'')}: ${esc(p.expected??'—')}${p.unit?` ${esc(p.unit)}`:''} · ${esc(p.deadline||'sin plazo')}`).join('<br>')||'—';
       const falsification=(h.falsification_conditions||[]).map(esc).join('<br>')||'—';
       html += `<tr><td>${esc(h.statement||'—')}</td><td>${esc(h.rationale||'—')}</td><td>${predictions}</td><td>${falsification}</td><td>${esc(h.review_trigger||'—')}</td></tr>`;
     });
