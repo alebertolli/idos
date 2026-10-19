@@ -1,0 +1,63 @@
+adjusted_weight: 3.38
+analyzed_at: '2026-07-30T13:03:09.339498-03:00'
+confidence: alta
+entry_point: spring_3
+indicators:
+  algorithmic_phase: unknown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 1.4%)'
+  current_price: 37.1
+  high_52w: 52.32
+  low_52w: 20.63
+  ma_200d: 40.97
+  ma_50d: 38.6
+  pct_from_52w_high: -29.1
+  pct_from_52w_low: 79.8
+  pct_from_ma200: -9.4
+  pct_from_ma50: -3.9
+  recent_trend: tendencia de 60d lateral (-4%). últimos 5d estables (-0%)
+  resistance_levels: 'resistencias identificadas: $52.32, $51.52, $51.40, $50.65,
+    $50.53 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $20.63, $20.65, $20.89, $21.68, $22.04
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (0.7x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: alta
+    descripcion: Volumen alto, spread amplio, primer signo de compra
+    evento: PS
+  fase_wyckoff: acumulacion
+  justificacion: Se detecta un Preliminary Support (PS) con alta confianza y se cumplen
+    4 de las 9 pruebas de compra
+  limitaciones: ''
+  precio_objetivo_wyckoff:
+    estimado: 45.67
+    metodo: conteo_pnf
+    razonamiento: Se estima un conteo P&F aproximado para el objetivo de precio
+  pruebas_compra:
+    prueba_1_objetivo_caida: Pasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: Pasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: Pasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: Pasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 4
+    total_pruebas: 9
+  punto_entrada: spring_3
+  senal_entrada: COMPRAR
+  stop_loss_sugerido:
+    distancia_pct: -7.1
+    fundamento: Se sugiere un Stop Loss a 7.1% por debajo del precio actual
+    precio: 34.5
+opp_id: OPP-20260725-005
+phase: accumulation
+price_target: 45.67
+score: 74
+stop_loss: 34.5
+ticker: B
+triggered_entry: true

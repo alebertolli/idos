@@ -1,0 +1,70 @@
+adjusted_weight: 3.38
+analyzed_at: '2026-08-03T08:23:10.481015-03:00'
+confidence: alta
+entry_point: ninguno
+indicators:
+  algorithmic_phase: unknown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 1.8%)'
+  current_price: 36.73
+  high_52w: 52.32
+  low_52w: 20.89
+  ma_200d: 40.99
+  ma_50d: 38.56
+  pct_from_52w_high: -29.8
+  pct_from_52w_low: 75.8
+  pct_from_ma200: -10.4
+  pct_from_ma50: -4.7
+  recent_trend: tendencia de 60d bajista moderada (-11%). últimos 5d estables (-2%)
+  resistance_levels: 'resistencias identificadas: $52.32, $51.52, $51.40, $50.65,
+    $50.53 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $20.89, $21.68, $22.04, $22.22, $22.33
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (0.7x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: false
+  eventos_wyckoff_detectados:
+  - confianza: baja
+    descripcion: No se identifican eventos de parada (PS, SC) ni señales de acumulación
+      (Spring, SOS) en el rango actual. El precio se mantiene en retroceso ordenado
+      por debajo de sus medias clave.
+    evento: Ninguno
+  fase_wyckoff: markdown
+  justificacion: El activo cotiza por debajo de la MA50 (-4.7%) y MA200 (-10.4%) con
+    una tendencia bajista de -11% en los últimos 60 días. No existe un Rango de Trading
+    definido ni volumen de parada (SC) o absorción de oferta. Siguiendo el principio
+    de prudencia del Método Wyckoff, ante la ausencia de una estructura de acumulación
+    clara, la posición lógica para una Family Office es NEUTRAL.
+  limitaciones: Falta de histórico de barras detallado para evaluar esfuerzo vs resultado
+    bar-by-bar y ausencia de gráfico Punto y Figura para conteo de causa.
+  precio_objetivo_wyckoff:
+    estimado: 0
+    metodo: no_determinable
+    razonamiento: Sin causa construida en Rango de Trading (TR) lateral no es posible
+      estimar una proyección P&F confiable.
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: NoPasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 0
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: 0.0
+    fundamento: Sin punto de entrada válido no se establece nivel de Stop Loss.
+    precio: 0
+opp_id: OPP-20260725-005
+phase: markdown
+price_target: null
+score: 15
+stop_loss: null
+ticker: B
+triggered_entry: false

@@ -1,0 +1,118 @@
+assessments:
+  BusinessAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: BusinessAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: 'Exceptional ROIC: 57.22%'
+      type: POSITIVE
+    - detail: 'Excellent margins: 36.32%'
+      type: POSITIVE
+    generated_at: '2026-10-01T09:31:32.654143-03:00'
+    id: BusinessAssessmentEngine-20261001093132
+    recommendation: NEUTRAL
+    risks: []
+    score: 68
+    status: COMPLETED
+    version: '1.0'
+  PortfolioAssessmentEngine:
+    confidence: HIGH
+    dependencies: []
+    engine: PortfolioAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: Portfolio has capacity for new position
+      type: POSITIVE
+    - detail: Sector Technology within diversification limits
+      type: POSITIVE
+    - detail: Only 0 positions, adding increases diversification
+      type: POSITIVE
+    generated_at: '2026-10-01T09:31:32.654207-03:00'
+    id: PortfolioAssessmentEngine-20261001093132
+    recommendation: EXCELLENT_FIT
+    risks: []
+    score: 90
+    status: COMPLETED
+    version: '1.0'
+  RecoveryAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RecoveryAssessmentEngine
+    evidence_ids: []
+    findings:
+    - dimension: business_momentum
+      level: MEDIUM
+      score: 60
+      type: DIMENSION
+    - dimension: valuation_gap
+      level: HIGH
+      score: 70
+      type: DIMENSION
+    - dimension: market_expectations
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: catalysts
+      level: LOW
+      score: 30
+      type: DIMENSION
+    - dimension: technical_confirmation
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: risk_compression
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    generated_at: '2026-10-01T09:31:32.654187-03:00'
+    id: RecoveryAssessmentEngine-20261001093132
+    recommendation: MODERATE
+    risks: []
+    score: 52
+    status: COMPLETED
+    version: '1.0'
+  RiskAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RiskAssessmentEngine
+    evidence_ids: []
+    findings: []
+    generated_at: '2026-10-01T09:31:32.654197-03:00'
+    id: RiskAssessmentEngine-20261001093132
+    recommendation: MODERATE_RISK
+    risks:
+    - detail: 'Current ratio below 1: 0.8x'
+      type: LIQUIDITY
+    score: 60
+    status: COMPLETED
+    version: '1.0'
+  ValuationAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: ValuationAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: 'FCF Yield: 11.7%'
+      type: POSITIVE
+    generated_at: '2026-10-01T09:31:32.654160-03:00'
+    id: ValuationAssessmentEngine-20261001093132
+    recommendation: FAIR
+    risks: []
+    score: 65
+    status: COMPLETED
+    version: '1.1'
+conviction_score: 65
+created_at: '2026-10-01T09:31:32.654266-03:00'
+generated_at: '2026-10-01T09:31:32.655369-03:00'
+opportunity_id: OPP-20260725-012
+reasoning: 'Rules blocked: RULE-001, RULE-008'
+recommendation: BLOCKED
+rules_failed:
+- RULE-001
+- RULE-008
+rules_passed:
+- RULE-003
+- RULE-004
+- RULE-005
+type: opportunity:transitioned

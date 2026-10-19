@@ -1,0 +1,73 @@
+adjusted_weight: 2.1
+analyzed_at: '2026-08-03T08:25:33.837251-03:00'
+confidence: media
+entry_point: ninguno
+indicators:
+  algorithmic_phase: unknown
+  bar_spread_description: 'spreads recientes ampliándose (promedio diario: 3.0%, histórico:
+    2.0%)'
+  current_price: 464.72
+  high_52w: 538.66
+  low_52w: 352.83
+  ma_200d: 432.26
+  ma_50d: 399.39
+  pct_from_52w_high: -13.7
+  pct_from_52w_low: 31.7
+  pct_from_ma200: 7.5
+  pct_from_ma50: 16.4
+  recent_trend: tendencia de 60d alcista moderada (+13%). aceleración alcista en últimos
+    5d (+19%)
+  resistance_levels: 'resistencias identificadas: $538.66, $538.14, $531.40, $528.17,
+    $525.24 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $352.83, $356.00, $358.18, $365.18, $365.46
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente superior al histórico (1.3x el promedio)
+llm_response:
+  confianza: media
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: media
+    descripcion: Aceleración alcista importante del +19% en los últimos 5 días con
+      incremento de spread y volumen relativo de 1.3x.
+    evento: SOS
+  fase_wyckoff: absorcion
+  justificacion: Aunque el activo muestra un claro Signo de Fortaleza (SOS) reciente
+    (+19% en 5 días con volumen superior al promedio), el precio se halla extendido.
+    Comprar al nivel actual ($464.72) ofrece una relación Riesgo/Beneficio desfavorable
+    e inferior a 3:1 respecto al objetivo en $538.66. Bajo la disciplina Wyckoff y
+    el mandato de prudencia de la Family Office, es preferible no actuar y esperar
+    una prueba de retroceso con bajo volumen (LPS) que confirme la absorción de oferta.
+  limitaciones: Falta de gráfico Punto y Figura (P&F) para un conteo formal de causa-efecto
+    y datos del índice comparativo para determinar fortaleza relativa.
+  precio_objetivo_wyckoff:
+    estimado: 538.66
+    metodo: causa_efecto
+    razonamiento: Resistencia estructural del máximo de 52 semanas ($538.66) como
+      objetivo principal del movimiento alcista en curso.
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: Pasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: Pasa
+    prueba_6_soportes_crecientes: Pasa
+    prueba_7_maximos_crecientes: Pasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 4
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: 7.0
+    fundamento: Nivel de la media móvil de 200 días ($432.26) como soporte clave de
+      la tendencia estructural.
+    precio: 432.26
+opp_id: OPP-20260725-018
+phase: absorption
+price_target: 538.66
+score: 42
+stop_loss: 432.26
+ticker: MSFT
+triggered_entry: false

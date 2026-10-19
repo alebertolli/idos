@@ -1,0 +1,1 @@
+Companhia de Saneamento Básico do Estado de São Paulo - SABESP provides basic and environmental sanitation services in the São Paulo State, Brazil. It supplies treated water and sewage services on a wholesale basis. Companhia de Saneamento Básico do Estado de São Paulo - SABESP was founded in 1954 and is headquartered in São Paulo, Brazil.

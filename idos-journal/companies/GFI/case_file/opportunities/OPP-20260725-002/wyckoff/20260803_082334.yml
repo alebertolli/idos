@@ -1,0 +1,73 @@
+adjusted_weight: 3.29
+analyzed_at: '2026-08-03T08:23:34.103002-03:00'
+confidence: alta
+entry_point: ninguno
+indicators:
+  algorithmic_phase: unknown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.5%)'
+  current_price: 32.42
+  high_52w: 59.77
+  low_52w: 24.87
+  ma_200d: 42.69
+  ma_50d: 35.34
+  pct_from_52w_high: -45.8
+  pct_from_52w_low: 30.4
+  pct_from_ma200: -24.1
+  pct_from_ma50: -8.3
+  recent_trend: tendencia de 60d bajista fuerte (-30%). últimos 5d estables (-1%)
+  resistance_levels: 'resistencias identificadas: $59.77, $57.17, $56.95, $56.86,
+    $56.53 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $24.87, $27.50, $28.48, $28.91, $29.03
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (1.0x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: media
+    descripcion: No se identifican eventos de parada (PS/SC) ni señales de acumulación
+      confirmadas; la tendencia bajista de 60 días predomina sin un Rango de Trading
+      lateral claro.
+    evento: Ninguno
+  fase_wyckoff: markdown
+  justificacion: El activo atraviesa una clara fase de Markdown (-30% en 60 días,
+    cotizando a -8.3% de la MA50 y -24.1% de la MA200). Aunque muestra 5 días de estabilización,
+    el volumen reciente (1.0x) no evidencia absorción institucional ni esfuerzo comprador
+    significativo. No hay una causa construida (Rango de Trading) ni se cumple ninguna
+    de las Pruebas de Compra de Wyckoff. Atendiendo al criterio de prudencia de la
+    Family Office, la postura correcta es NEUTRAL hasta que se defina una estructura
+    de acumulación válida.
+  limitaciones: Ausencia de gráfico de Punto y Figura para proyección exacta de precios
+    y falta de índice de referencia para medir fortaleza relativa.
+  precio_objetivo_wyckoff:
+    estimado: 0
+    metodo: no_determinable
+    razonamiento: Incapaz de establecer un conteo Punto y Figura o Causa/Efecto debido
+      a la ausencia de una base o Rango de Trading lateral maduro.
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: NoPasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 0
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: -23.29
+    fundamento: Último mínimo relevante de 52 semanas; una pérdida de este nivel reanudaría
+      la fase de markdown.
+    precio: 24.87
+opp_id: OPP-20260725-002
+phase: markdown
+price_target: null
+score: 15
+stop_loss: 24.87
+ticker: GFI
+triggered_entry: false

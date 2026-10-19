@@ -1,0 +1,63 @@
+adjusted_weight: 1.11
+analyzed_at: '2026-07-30T13:06:04.044038-03:00'
+confidence: baja
+entry_point: ninguno
+indicators:
+  algorithmic_phase: markup
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.0%)'
+  current_price: 193.23
+  high_52w: 235.47
+  low_52w: 164.98
+  ma_200d: 192.86
+  ma_50d: 206.48
+  pct_from_52w_high: -17.9
+  pct_from_52w_low: 17.1
+  pct_from_ma200: 0.2
+  pct_from_ma50: -6.4
+  recent_trend: tendencia de 60d lateral (-2%). aceleración bajista en últimos 5d
+    (-7%)
+  resistance_levels: 'resistencias identificadas: $235.47, $225.57, $225.06, $224.10,
+    $223.21 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $164.98, $166.80, $167.32, $168.09, $170.07
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (0.9x el promedio)
+llm_response:
+  confianza: baja
+  datos_suficientes: false
+  eventos_wyckoff_detectados:
+  - confianza: alta
+    descripcion: Volumen alto, spread amplio, primer signo de compra
+    evento: PS
+  fase_wyckoff: markup
+  justificacion: No hay suficientes datos para determinar la señal de entrada
+  limitaciones: No hay suficientes datos para aplicar las pruebas de compra
+  precio_objetivo_wyckoff:
+    estimado: null
+    metodo: no_determinable
+    razonamiento: No hay suficientes datos para estimar un precio objetivo
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: Pasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: Pasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 3
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: null
+    fundamento: No hay suficientes datos para sugerir un stop loss
+    precio: null
+opp_id: OPP-20260725-044
+phase: markup
+price_target: null
+score: 11
+stop_loss: null
+ticker: NVDA
+triggered_entry: false

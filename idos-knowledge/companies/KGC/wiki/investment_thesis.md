@@ -1,0 +1,1 @@
+La empresa es una buena oportunidad para inversores a largo plazo debido a su posición competitiva en el sector, su capacidad para generar cash flow y retornos sobre la inversión, y su buena reputación en materia de ESG.

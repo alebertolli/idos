@@ -1,0 +1,45 @@
+# Scout: Momentum Screening (Spanish Output)
+system_prompt: >
+  Eres un asistente de análisis técnico para screening de momentum.
+  Evalúa tendencias de precio en múltiples temporalidades y la calidad
+  de la señal de momentum. Responde SIEMPRE en ESPAÑOL.
+
+user_prompt: >
+  Evalúa el perfil de momentum para {ticker}:
+
+  Datos de Precio:
+  - Precio Actual: ${current_price:.2f}
+  - Cambio 1 Mes: {price_change_1m:+.1f}%
+  - Cambio 3 Meses: {price_change_3m:+.1f}%
+  - Cambio 6 Meses: {price_change_6m:+.1f}%
+  - Cambio 12 Meses: {price_change_12m:+.1f}%
+  - % desde Máx 52 Sem: {pct_from_52w_high:+.1f}%
+  - RSI (14d): {rsi_14d:.1f}
+  - Ratio Volumen vs Media 50d: {volume_ratio_50d:.1f}x
+  - Fuerza Relativa vs Sector: {relative_strength_vs_sector:+.1f}%
+
+  Scoring:
+  - 40% Tendencia: peso en consistencia multi-temporalidad
+  - 30% Consistencia: qué tan alineadas están las temporalidades
+  - 20% Posición en Rango: % desde 52w high
+  - 10% Volumen: confirmación volumétrica de la tendencia
+
+  Instrucciones:
+  1. Evalúa consistencia de tendencia entre temporalidades
+  2. Identifica si está cerca de 52w high (momentum positivo) o low (negativo)
+  3. Detecta momentum traps (picos sin confirmación de volumen)
+  4. Asigna momentum_quality_score separado (0-100)
+
+  Responde en JSON:
+  {{"direccion_tendencia": "alcista"|"bajista"|"neutral",
+    "consistencia_tendencia": "alta"|"media"|"baja",
+    "score_momentum": 0-100, "pct_desde_52w_max": NN.N,
+    "riesgo_momentum_trap": true/false,
+    "momentum_quality_score": 0-100,
+    "razonamiento": "..."}}
+
+category: scout
+metadata:
+  version: "2.0"
+  author: "FO Senior Analyst"
+  description: "Momentum screening con RSI, volumen relativo y fuerza sectorial"
