@@ -38,7 +38,7 @@ def main():
 
     w = MonthlyReassessmentWorker({'llm_service': _llm_svc, 'prompts_path': prompts_path})
 
-    result = w.execute({'base_path': workspace})
+    result = w.execute({'base_path': workspace, 'tickers': tickers})
     r = result.output if hasattr(result, 'output') else result
 
     # Print summary

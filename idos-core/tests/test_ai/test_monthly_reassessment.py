@@ -61,6 +61,31 @@ def _make_worker(bp: Path, **overrides) -> MonthlyReassessmentWorker:
 
 
 class TestMonthlyReassessment:
+    def test_manual_ticker_scope_limits_all_monthly_reassessment_steps(self, tmp_path: Path):
+        bp = tmp_path
+        journal = JournalRepository(bp / "idos-journal")
+        sqlite = SQLiteStore(bp / "idos.db")
+        _seed_full_position(sqlite, journal, bp, "AAA")
+        _seed_full_position(sqlite, journal, bp, "BBB")
+        _seed_price(sqlite, "AAA", 100)
+        _seed_price(sqlite, "BBB", 100)
+
+        worker = _make_worker(bp)
+        seen = {}
+        def record_scope(name):
+            def record(opportunities, *args):
+                seen[name] = [opportunity["ticker"] for opportunity in opportunities]
+                return []
+            return record
+
+        with patch.object(worker, "_reassess_theses", side_effect=record_scope("thesis")), \
+             patch.object(worker, "_recalibrate_conviction", side_effect=record_scope("conviction")), \
+             patch.object(worker, "_review_portfolio", side_effect=record_scope("portfolio")):
+            result = worker.execute({"base_path": str(bp), "tickers": ["aaa"]}).output
+
+        assert result["total_active"] == 1
+        assert seen == {"thesis": ["AAA"], "conviction": ["AAA"], "portfolio": ["AAA"]}
+
     def test_thesis_change_triggers_exit(self, tmp_path: Path):
         bp = tmp_path
         journal = JournalRepository(bp / "idos-journal")

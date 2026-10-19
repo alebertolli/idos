@@ -43,7 +43,12 @@ class MonthlyReassessmentWorker(BaseWorker):
         journal = JournalRepository(bp / "idos-journal")
         sqlite = SQLiteStore(bp / "idos.db")
 
-        opportunities = self._active_opportunities(sqlite)
+        requested_tickers = {
+            str(ticker).strip().upper()
+            for ticker in context.get("tickers", [])
+            if str(ticker).strip()
+        }
+        opportunities = self._active_opportunities(sqlite, requested_tickers or None)
         position_map = self._load_paper_positions(journal)
 
         for opp in opportunities:
@@ -76,11 +81,15 @@ class MonthlyReassessmentWorker(BaseWorker):
 
     # ── thesis re-assessment ────────────────────────────────────────────
 
-    def _active_opportunities(self, sqlite: SQLiteStore) -> list[dict[str, Any]]:
-        return [
+    def _active_opportunities(self, sqlite: SQLiteStore,
+                              tickers: set[str] | None = None) -> list[dict[str, Any]]:
+        opportunities = [
             o for o in sqlite.list_opportunities()
             if o.get("status") in ("ACCUMULATING", "FULL_POSITION", "MONITORING", "REDUCING")
         ]
+        if tickers is not None:
+            opportunities = [o for o in opportunities if str(o.get("ticker", "")).upper() in tickers]
+        return opportunities
 
     @staticmethod
     def _load_paper_positions(journal: JournalRepository) -> dict[str, dict[str, Any]]:

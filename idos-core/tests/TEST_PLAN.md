@@ -325,3 +325,4 @@ comportamiento fail-closed.
 6. Renderizar Discovery y verificar filtros/pendientes y separación pública/privada. No desplegar a Pages sin la autorización correspondiente.
 7. Validar compatibilidad histórica, revisar `git diff --check`, suite focalizada y log remoto; registrar SHA/run y todo dato ausente.
 8. Con una ejecución `candidate_tickers` acotada, verificar que `passed=true` llegue intacto al Monthly Evaluation, que una Opportunity `UNDER_RESEARCH` elegible no se degrade, que la Watchlist previa se conserve y fusione los resultados acotados, y que las oportunidades existentes registren `latest_discovery_evidence` sin sobrescribir su evidencia inicial ni su estado.
+9. En DDD manual con `ticker` definido, confirmar que Research, Assessment y Monthly Re-Assessment procesen el alcance solicitado; el selector debe limitar thesis monitor, recalibración y competencia de capital, mientras la ejecución sin selector conserva el comportamiento global configurado.
