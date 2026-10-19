@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.2](https://github.com/alebertolli/idos/compare/v0.1.1...v0.1.2) (2026-10-19)
+
+
+### Features
+
+* add fail-closed portfolio exposure audit and SDD rollout plan ([e5ba9f4](https://github.com/alebertolli/idos/commit/e5ba9f4bd30b11c1b7bccd03dd3ee199a6de479c))
+
+
+### Documentation
+
+* close multibaggers policy ([2f88052](https://github.com/alebertolli/idos/commit/2f88052fdad29584723734566e7687dd91c8f47b))
+* define multistrategy gates and final cleanup criteria ([ecc8ae1](https://github.com/alebertolli/idos/commit/ecc8ae14770d1025be903c906fcb1e36d1fabdb9))
+* record blocked strategy and portfolio scope ([#103](https://github.com/alebertolli/idos/issues/103)) ([31ded93](https://github.com/alebertolli/idos/commit/31ded93e12160cc97f9c6f6c368e93f53e8c24ad))
+* record production deployment verification ([#102](https://github.com/alebertolli/idos/issues/102)) ([6d3e01e](https://github.com/alebertolli/idos/commit/6d3e01ec698050e3e01b54dce91f36915d6da4d7))
+* specify MULTIBAGGERS strategy ([52a8262](https://github.com/alebertolli/idos/commit/52a82624960b5c82542b03370500ed145cc91832))
+
 ## [0.1.1](https://github.com/alebertolli/idos/compare/v0.1.0...v0.1.1) (2026-10-01)
 
 
