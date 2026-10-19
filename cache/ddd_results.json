@@ -5,7 +5,7 @@
       "opp_id": "OPP-20261019-001",
       "ticker": "ARM",
       "status": "completed",
-      "score": 62,
+      "score": 78,
       "reason": "FORCE re-research UNDER_RESEARCH (score=64)",
       "errors": []
     }
@@ -16,13 +16,13 @@
       "ticker": "ARM",
       "opp_id": "OPP-20261019-001",
       "status": "completed",
-      "conviction_score": 64,
+      "conviction_score": 63,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": null,
       "decision_id": null,
       "assessments": {
-        "BusinessAssessmentEngine": 62,
+        "BusinessAssessmentEngine": 58,
         "ValuationAssessmentEngine": 65,
         "RecoveryAssessmentEngine": 60,
         "RiskAssessmentEngine": 80,
@@ -39,26 +39,30 @@
         "RULE-010"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 62/70",
+        "RULE-001": "Business quality: 58/70",
         "RULE-003": "Rerating: 60/50",
         "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 64/65",
-        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: Las probabilidades de catalizadores no son escenarios financieros mutuamente excluyentes validados.",
-        "RULE-010": "fecha de corte ausente, inv\u00e1lida o futura; procedencia incompleta"
+        "RULE-005": "Conviction: 63/65",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: el gestor a\u00fan no revis\u00f3 los escenarios",
+        "RULE-010": "conflicto entre fuentes en m\u00e9tricas core: operating_margin_pct, revenue_growth_pct; periodo financiero no reconciliado en m\u00e9tricas core: operating_margin_pct, revenue_growth_pct"
       },
-      "data_quality": "partial",
+      "data_quality": "poor",
       "financial_data_quality": {
-        "status": "partial",
+        "status": "poor",
         "core_metric_coverage": "5/5",
         "missing_core_metrics": [],
         "source": "stockanalysis.com",
-        "as_of_date": null,
-        "as_of_date_source": null,
-        "missing_provenance": [
-          "as_of_date"
+        "as_of_date": "2026-06-30",
+        "as_of_date_source": "yfinance",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [
+          "operating_margin_pct",
+          "revenue_growth_pct"
         ],
-        "conflicting_core_metrics": [],
-        "unreconciled_core_metrics": []
+        "unreconciled_core_metrics": [
+          "operating_margin_pct",
+          "revenue_growth_pct"
+        ]
       }
     }
   ],
