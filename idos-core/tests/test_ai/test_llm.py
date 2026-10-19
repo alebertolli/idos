@@ -1,6 +1,8 @@
 """Tests for LLMClient — stub mode (no real API calls)."""
 
-import os
+from pathlib import Path
+
+import yaml
 
 from idos.ai.llm import LLMClient
 
@@ -10,6 +12,23 @@ def test_llm_client_defaults():
     assert client.provider == "test"
     assert client.api_key == "key"
     assert client.model == "test-model"
+
+
+def test_provider_model_config_uses_pinned_models_and_no_random_router():
+    repo_root = Path(__file__).resolve().parents[3]
+    config = yaml.safe_load((repo_root / "idos-config" / "models.yml").read_text(encoding="utf-8"))
+    providers = config["llm"]["providers"]
+
+    assert providers["gemini"]["model"] == "gemini-3.8-flash"
+    assert providers["gemini"]["fallback"] == "gemini-3.7-flash"
+    assert providers["groq"]["model"] == "openai/gpt-oss-120b"
+    assert providers["groq"]["fallback"] == "openai/gpt-oss-20b"
+    assert providers["openrouter"]["model"] == "google/gemma-4-31b-it:free"
+    assert "fallback" not in providers["openrouter"]
+    assert all(
+        entry.get("fallback_model") != "openrouter/free"
+        for entry in config["llm"]["fallback_order"]
+    )
 
 
 def test_generate_fallback_on_no_api_key():
