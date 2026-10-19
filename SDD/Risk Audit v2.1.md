@@ -573,7 +573,9 @@ umbral aprobado de antigüedad de FX. El campo legacy `status` describe sólo la
 integridad de las clasificaciones de capital.
 
 `idos-core/idos/portfolio/risk_audit_v21.py` implementa una primera capa
-multidimensional basada en `risk_profile` por posición. Las métricas aceptan
+multidimensional basada en `risk_profile` por posición. El perfil requiere
+`schema_version: "1.0"`; otros perfiles permanecen `UNKNOWN` y no se interpretan.
+Las métricas aceptan
 `value`, `unit`, `as_of` y `source_ref`; unidades incompatibles, fuentes o
 fechas faltantes, evidencia posterior al corte y valores requeridos ausentes
 quedan `UNKNOWN`/`PARTIAL`, nunca se convierten implícitamente en cero. La capa

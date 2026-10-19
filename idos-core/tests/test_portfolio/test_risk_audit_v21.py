@@ -14,6 +14,7 @@ def snapshot_with_bond():
             "currency": "USD", "market_value": 1000, "issuer": "Issuer A",
             "economic_cluster": "Issuer A", "strategy_id": "CREDIT",
             "risk_profile": {
+                "schema_version": "1.0",
                 "instrument_type": "CORPORATE_DEBT",
                 "distressed_assessment": {
                     "value": False, "as_of": "2026-10-15", "source_ref": "credit-review-1"
@@ -145,3 +146,16 @@ def test_risk_evidence_after_snapshot_is_unknown():
     scenario = next(row for row in report["scenarios"] if row["scenario_id"] == "INTEREST_RATE_UP_100")
     assert scenario["positions"][0]["status"] == "UNKNOWN"
     assert report["risk_audit_status"] == "PARTIAL"
+
+
+def test_unsupported_risk_profile_schema_is_not_interpreted():
+    snapshot = snapshot_with_bond()
+    snapshot["positions"][0]["risk_profile"]["schema_version"] = "2.0"
+
+    report = audit_portfolio(snapshot)
+
+    position = report["risk_positions"][0]
+    assert position["risk_profile_schema_status"] == "UNKNOWN"
+    assert position["instrument_type"] == "UNKNOWN"
+    assert report["risk_audit_status"] == "PARTIAL"
+    assert report["risk_contributions"]["status"] == "UNKNOWN"

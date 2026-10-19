@@ -23,6 +23,7 @@ _SIZING_LIMITS = (
 _FIXED_INCOME = {"SOVEREIGN_DEBT", "CORPORATE_DEBT", "FIXED_INCOME"}
 _EQUITY = {"EQUITY", "ETF"}
 _SUPPORTED_INSTRUMENT_TYPES = _FIXED_INCOME | _EQUITY | {"CASH"}
+_RISK_PROFILE_SCHEMA_VERSION = "1.0"
 
 
 def assess_risk_v21(
@@ -47,9 +48,16 @@ def assess_risk_v21(
         profile = position.get("risk_profile")
         if not isinstance(profile, Mapping):
             profile = {}
-        kind = str(profile.get("instrument_type", "UNKNOWN")).strip().upper()
-        metrics = profile.get("metrics")
-        metrics = metrics if isinstance(metrics, Mapping) else {}
+        profile_version = profile.get("schema_version")
+        profile_supported = profile_version == _RISK_PROFILE_SCHEMA_VERSION
+        risk_profile = profile if profile_supported else {}
+        if profile_supported:
+            kind = str(risk_profile.get("instrument_type", "UNKNOWN")).strip().upper()
+            metrics = risk_profile.get("metrics")
+            metrics = metrics if isinstance(metrics, Mapping) else {}
+        else:
+            kind = "UNKNOWN"
+            metrics = {}
         position_id = str(position.get("position_id", "UNKNOWN"))
         value = _as_decimal(position.get("market_value_base")) or Decimal(0)
         if kind not in _SUPPORTED_INSTRUMENT_TYPES:
@@ -63,7 +71,7 @@ def assess_risk_v21(
         if market["status"] != "ASSESSED":
             missing_domains.add("market_risk_duration_convexity_volatility_beta")
 
-        credit = _credit_risk(kind, metrics, as_of, value, profile)
+        credit = _credit_risk(kind, metrics, as_of, value, risk_profile)
         if credit["applicable"]:
             if credit["status"] == "ASSESSED":
                 credit_expected_loss += Decimal(str(credit["expected_loss_base"]))
@@ -75,7 +83,7 @@ def assess_risk_v21(
         if liquidity["status"] != "ASSESSED":
             missing_domains.add("liquidity_under_normal_and_stress")
 
-        currency = _currency_risk(position, profile, value, as_of)
+        currency = _currency_risk(position, risk_profile, value, as_of)
         if currency["status"] != "ASSESSED":
             missing_domains.add("nominal_and_economic_currency_risk")
 
@@ -87,7 +95,7 @@ def assess_risk_v21(
         if inflation["status"] != "ASSESSED":
             missing_domains.add("inflation_and_real_purchasing_power")
 
-        permanent_loss = _permanent_loss(profile, as_of)
+        permanent_loss = _permanent_loss(risk_profile, as_of)
         if permanent_loss["status"] != "ASSESSED":
             missing_domains.add("permanent_loss_risk")
 
@@ -98,8 +106,8 @@ def assess_risk_v21(
         else:
             risk_scores.append((position_id, risk_score))
 
-        sizing.append(_position_sizing(position_id, profile, as_of))
-        profile_scenarios = profile.get("scenario_returns_pct")
+        sizing.append(_position_sizing(position_id, risk_profile, as_of))
+        profile_scenarios = risk_profile.get("scenario_returns_pct")
         profile_scenarios = profile_scenarios if isinstance(profile_scenarios, Mapping) else {}
         for scenario_id, evidence in profile_scenarios.items():
             parsed = _read_evidence(evidence, as_of, expected_unit="percent")
@@ -114,6 +122,8 @@ def assess_risk_v21(
 
         position_reports.append({
             "position_id": position_id,
+            "risk_profile_schema_version": profile_version,
+            "risk_profile_schema_status": "SUPPORTED" if profile_supported else "UNKNOWN",
             "instrument_type": kind,
             "market_risk": market,
             "credit_risk": credit,
@@ -396,6 +406,10 @@ def _scenario_analysis(
         complete = True
         for position_id, position in by_id.items():
             profile = position.get("risk_profile") if isinstance(position.get("risk_profile"), Mapping) else {}
+            if profile.get("schema_version") != _RISK_PROFILE_SCHEMA_VERSION:
+                complete = False
+                impacts.append({"position_id": position_id, "status": "UNKNOWN", "return_pct": None, "pnl_base": None})
+                continue
             kind = str(profile.get("instrument_type", "UNKNOWN")).upper()
             market_value = _as_decimal(position.get("market_value_base")) or Decimal(0)
             metrics = profile.get("metrics") if isinstance(profile.get("metrics"), Mapping) else {}
@@ -463,7 +477,7 @@ def _correlation_report(snapshot: Mapping[str, Any], positions: list[Mapping[str
     rows = snapshot.get("correlations")
     if not isinstance(rows, list) or not rows:
         profile = positions[0].get("risk_profile") if len(positions) == 1 else None
-        if isinstance(profile, Mapping) and profile.get("return_stream_id"):
+        if isinstance(profile, Mapping) and profile.get("schema_version") == _RISK_PROFILE_SCHEMA_VERSION and profile.get("return_stream_id"):
             return {"status": "ASSESSED", "return_stream_count": 1, "correlations": [], "reason": "SINGLE_RETURN_STREAM"}
         return {"status": "UNKNOWN", "return_stream_count": None, "correlations": [], "reason": "CORRELATION_MATRIX_MISSING"}
     known = {str(pos.get("position_id")) for pos in positions}
@@ -477,7 +491,13 @@ def _correlation_report(snapshot: Mapping[str, Any], positions: list[Mapping[str
         if left not in known or right not in known or left == right or value is None or abs(value) > 1:
             continue
         results.append({"position_id_a": left, "position_id_b": right, "correlation": float(value), "as_of": evidence["as_of"], "source_ref": evidence["source_ref"]})
-    streams = {str(profile.get("return_stream_id")) for pos in positions if isinstance((profile := pos.get("risk_profile")), Mapping) and profile.get("return_stream_id")}
+    streams = {
+        str(profile.get("return_stream_id"))
+        for pos in positions
+        if isinstance((profile := pos.get("risk_profile")), Mapping)
+        and profile.get("schema_version") == _RISK_PROFILE_SCHEMA_VERSION
+        and profile.get("return_stream_id")
+    }
     has_single_stream = len(positions) == 1 and bool(streams)
     status = "ASSESSED" if has_single_stream or (results and len(results) == len(rows)) else "PARTIAL" if results else "UNKNOWN"
     return {"status": status, "return_stream_count": len(streams) if streams else None, "correlations": results}

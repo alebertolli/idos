@@ -307,7 +307,8 @@ estas pruebas.
 
 El motor Risk Audit v2.1 tiene cobertura local de fixture sintético en
 `tests/test_portfolio/test_risk_audit_v21.py`: duration/convexity, PD×LGD,
-spread duration, datos/convexidad faltantes, corte de evidencia, cinco límites
+spread duration, perfiles con versión incompatible, datos/convexidad faltantes,
+corte de evidencia, cinco límites
 de sizing, presupuesto y permanencia de `allocation_authorized: false`. Esto
 demuestra el cálculo con contrato explícito; no demuestra una auditoría de la
 cartera familiar ni cobertura completa. Antes de declarar REQ-20-05 completo,
