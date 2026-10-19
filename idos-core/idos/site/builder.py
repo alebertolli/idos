@@ -787,6 +787,13 @@ class SiteBuilder:
             target = e.get("target_price") or intrinsic
             out.append({
                 "ticker": e.get("ticker"),
+                "strategy_id": (
+                    e.get("strategy_id")
+                    or (opp or {}).get("strategy_id")
+                    or ("COMPOUNDER" if opp else None)
+                ),
+                "entry_policy": e.get("entry_policy") or (opp or {}).get("entry_policy"),
+                "strategy_signal": e.get("strategy_signal") or (opp or {}).get("signal"),
                 "conviction_score": e.get("conviction_score"),
                 "target_price": target or None,
                 "buy_zone_top": buy_zone or None,
@@ -1609,6 +1616,7 @@ function renderBuylist(){
     rows,
     cols: [
       {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
+      {key:'strategy', label:'Estrategia', value:r=>r.strategy_id||'UNKNOWN', cell:r=>`<td>${esc(r.strategy_id||'Sin identificar')}<div class="muted">${esc(r.entry_policy||'')}</div>${r.strategy_signal?`<div class="muted">Señal: ${esc(r.strategy_signal.signal_type||r.strategy_signal.type||'sistemática')} ${r.strategy_signal.score??r.strategy_signal.momentum??''}</div>`:''}</td>`},
       {key:'industry', label:'Industria', value:r=>r.industry||'', cell:r=>`<td class="muted">${esc(r.industry||'—')}</td>`},
       {key:'conviction', label:'Conv.', value:r=>r.conviction_score??null, cell:r=>`<td>${r.conviction_score??'—'}</td>`},
       {key:'price', label:'Último precio', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}</td>`},

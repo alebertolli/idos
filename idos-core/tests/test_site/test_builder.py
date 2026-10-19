@@ -456,6 +456,39 @@ def test_buylist_discloses_thesis_state_and_blocks_noncurrent_recommendations(
         assert entry["thesis_invalidated_reason"] == "Falsación registrada"
 
 
+def test_buylist_includes_strategy_and_signal_from_linked_opportunity(tmp_path: Path):
+    import yaml
+
+    opportunity_dir = (
+        tmp_path / "idos-journal" / "companies" / "VIST" / "case_file"
+        / "opportunities" / "OPP-MOM-VIST"
+    )
+    opportunity_dir.mkdir(parents=True)
+    (opportunity_dir / "opportunity.yml").write_text(yaml.safe_dump({
+        "id": "OPP-MOM-VIST",
+        "ticker": "VIST",
+        "status": "APPROVED",
+        "strategy_id": "MOMENTUM_ETF",
+        "entry_policy": "SIGNAL_REBALANCE",
+        "signal": {"signal_type": "momentum", "score": 1.2, "as_of_date": "2026-10-15"},
+    }), encoding="utf-8")
+    buylist_path = tmp_path / "idos-journal" / "portfolio" / "buylist.yml"
+    buylist_path.parent.mkdir(parents=True)
+    buylist_path.write_text(yaml.safe_dump({"entries": [{
+        "ticker": "VIST", "opp_id": "OPP-MOM-VIST",
+    }]}), encoding="utf-8")
+
+    site = SiteBuilder(tmp_path).build()
+    entry = site.buylist[0]
+    output = write_site(tmp_path, tmp_path / "site-output")
+    app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+
+    assert entry["strategy_id"] == "MOMENTUM_ETF"
+    assert entry["entry_policy"] == "SIGNAL_REBALANCE"
+    assert entry["strategy_signal"]["score"] == 1.2
+    assert "Estrategia" in app
+    assert "SIGNAL_REBALANCE" in app
+
 def test_public_site_exposes_ddd_only_after_attributable_manager_approval(tmp_path: Path):
     _write_ddd_case(tmp_path, {
         "status": "manager_approved",
