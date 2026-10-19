@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+
 from idos.site.builder import SiteBuilder, write_site
 
 
@@ -302,6 +304,83 @@ def test_public_site_shows_next_thesis_review_and_alerts_when_overdue(tmp_path: 
     assert opportunity["next_thesis_review_at"] == expected_next
     assert any("Revisión de tesis vencida" in alert["message"] for alert in alerts)
     assert "próxima revisión de tesis" in app
+
+
+@pytest.mark.parametrize(
+    ("opportunity_fields", "expected_state", "expected_label"),
+    [
+        ({"thesis_active": True, "research_age_days": 10}, "CURRENT", "Vigente"),
+        ({"thesis_active": True, "research_age_days": 31}, "REVIEW_DUE", "Revisión vencida"),
+        ({"thesis_active": False, "research_age_days": 10}, "INVALIDATED", "Invalidada"),
+        (None, "UNLINKED", "Sin vínculo"),
+        ({
+            "thesis_active": True,
+            "research_age_days": 10,
+            "research_profile": "systematic",
+        }, "NOT_APPLICABLE", "No aplica"),
+    ],
+)
+def test_buylist_discloses_thesis_state_and_blocks_noncurrent_recommendations(
+    tmp_path: Path,
+    opportunity_fields: dict | None,
+    expected_state: str,
+    expected_label: str,
+):
+    from datetime import datetime, timedelta
+
+    import yaml
+
+    from idos.timezone import AR_TZ
+
+    if opportunity_fields is not None:
+        opp_dir = (
+            tmp_path / "idos-journal" / "companies" / "VIST" / "case_file"
+            / "opportunities" / "OPP-1"
+        )
+        opp_dir.mkdir(parents=True)
+        now = datetime.now(AR_TZ)
+        opportunity = {
+            "id": "OPP-1",
+            "ticker": "VIST",
+            "status": "APPROVED",
+            "strategy_id": opportunity_fields.get("strategy_id", "COMPOUNDER"),
+            "research_profile": opportunity_fields.get("research_profile", "strategic"),
+            "created_at": (now - timedelta(days=40)).isoformat(),
+            "last_research_at": (
+                now - timedelta(days=opportunity_fields["research_age_days"])
+            ).isoformat(),
+            "thesis_active": opportunity_fields["thesis_active"],
+        }
+        if not opportunity_fields["thesis_active"]:
+            opportunity["thesis_invalidated_reason"] = "Falsación registrada"
+        (opp_dir / "opportunity.yml").write_text(
+            yaml.safe_dump(opportunity, allow_unicode=True), encoding="utf-8"
+        )
+    buylist_path = tmp_path / "idos-journal" / "portfolio" / "buylist.yml"
+    buylist_path.parent.mkdir(parents=True, exist_ok=True)
+    buylist_path.write_text(yaml.safe_dump({"entries": [{
+        "ticker": "VIST",
+        "opp_id": "OPP-1",
+        "target_price": 100,
+        "buy_zone_top": 80,
+    }]}), encoding="utf-8")
+
+    site = SiteBuilder(tmp_path).build()
+    entry = site.buylist[0]
+    output = write_site(tmp_path, tmp_path / "site-output")
+    app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+
+    assert entry["recommendation_state"] == expected_state
+    if opportunity_fields is not None:
+        assert entry["thesis_active"] is opportunity_fields["thesis_active"]
+    else:
+        assert entry["recommendation_state"] == "UNLINKED"
+    assert expected_label in app
+    assert "thesisState!=='CURRENT'" in app
+    if expected_state == "REVIEW_DUE":
+        assert entry["thesis_review_status"] == "due"
+    if expected_state == "INVALIDATED":
+        assert entry["thesis_invalidated_reason"] == "Falsación registrada"
 
 
 def test_public_site_exposes_ddd_only_after_attributable_manager_approval(tmp_path: Path):

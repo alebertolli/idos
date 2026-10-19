@@ -420,6 +420,7 @@ El sistema gestiona simultáneamente múltiples estrategias de inversión bajo u
 8. THE Telegram_Bot SHALL soportar los comandos: `/watchlist`, `/dashboard`, `/scout TICKER1,TICKER2`, `/opp-list`, `/position-list`, `/event-log`, `/help`.
 9. WHEN un Core supera su rango estructural máximo configurado, la vista privada del portfolio SHALL mostrar una alerta visual; la alerta puede activarse también por otras condiciones definidas en el sistema y no se publica en Pages.
 10. THE Notification_Center SHALL enviar un único Digest_Inteligente semanal consolidado en lugar de notificaciones individuales por cada evento de baja prioridad.
+11. Cada fila de Buy_List SHALL identificar la Opportunity vinculada y mostrar el estado vigente de su tesis y su próxima fecha de revisión. Una tesis invalidada, vencida, sin oportunidad vinculada o cuya vigencia no pueda verificarse SHALL mostrarse como `requiere revisión` y SHALL NOT presentarse como lista para actuar; la señal de una estrategia sistemática sin agenda de tesis requiere su propia validación.
 
 ---
 

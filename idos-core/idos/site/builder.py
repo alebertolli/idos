@@ -709,6 +709,9 @@ class SiteBuilder:
             "is_stale": is_stale,
             "thesis_not_assessed_days": thesis_not_assessed_days,
             "is_thesis_stale": is_thesis_stale,
+            "thesis_active": opp.get("thesis_active", True),
+            "thesis_invalidated_reason": opp.get("thesis_invalidated_reason"),
+            "last_thesis_assessment_at": opp.get("last_thesis_assessment_at"),
             "thesis_review_interval_days": thesis_review_interval_days,
             "next_thesis_review_at": next_thesis_review_at,
             "thesis_review_status": thesis_review_status,
@@ -771,6 +774,7 @@ class SiteBuilder:
             mkt = self._market_price(e.get("ticker", ""))
             wyckoff = self._load_wyckoff_latest(e.get("ticker", ""), e.get("opp_id", ""))
             opp = self._find_opp(e.get("ticker", ""), e.get("opp_id", ""))
+            recommendation_state = self._buylist_recommendation_state(opp)
             intrinsic = e.get("target_price") or (opp or {}).get("intrinsic_value") or 0
             current = mkt["price"] or price["price"] or (opp or {}).get("current_price")
             price_date = mkt["date"] or price["date"]
@@ -793,8 +797,32 @@ class SiteBuilder:
                 "market_data": self._load_data_provenance(e.get("ticker", ""), price_date),
                 "industry": (self.companies.get((e.get("ticker") or "").upper()) or {}).get("industry"),
                 "wyckoff": wyckoff,
+                "recommendation_state": recommendation_state,
+                "thesis_review_status": (opp or {}).get("thesis_review_status", "not_available"),
+                "thesis_active": (opp or {}).get("thesis_active"),
+                "thesis_invalidated_reason": (opp or {}).get("thesis_invalidated_reason"),
+                "last_thesis_assessment_at": (opp or {}).get("last_thesis_assessment_at"),
+                "next_thesis_review_at": (opp or {}).get("next_thesis_review_at"),
             })
         return out
+
+    @staticmethod
+    def _buylist_recommendation_state(opportunity: dict | None) -> str:
+        """Fail closed when a Buy List row lacks a current, active thesis."""
+        if not opportunity:
+            return "UNLINKED"
+        if opportunity.get("thesis_active") is False:
+            return "INVALIDATED"
+        review_status = opportunity.get("thesis_review_status")
+        if review_status == "due":
+            return "REVIEW_DUE"
+        if review_status == "configuration_error":
+            return "CONFIGURATION_ERROR"
+        if review_status == "not_applicable":
+            return "NOT_APPLICABLE"
+        if review_status == "scheduled":
+            return "CURRENT"
+        return "REVIEW_UNVERIFIED"
 
     def _find_opp(self, ticker: str, opp_id: str = "") -> dict | None:
         if opp_id:
@@ -1465,6 +1493,16 @@ function detailsEntryThresholds(){
 function buylistEntryFails(r){
   const c = ENTRY_CFG||{};
   const fails = [];
+  const thesisState = r.recommendation_state||'REVIEW_UNVERIFIED';
+  const thesisMessages = {
+    REVIEW_DUE:'Tesis vencida; actualizar Research',
+    INVALIDATED:'Tesis invalidada',
+    UNLINKED:'Sin oportunidad vinculada',
+    CONFIGURATION_ERROR:'Error en agenda de tesis',
+    NOT_APPLICABLE:'Revisar vigencia de señal sistemática',
+    REVIEW_UNVERIFIED:'Vigencia de tesis sin verificar'
+  };
+  if(thesisState!=='CURRENT') fails.push(thesisMessages[thesisState]||'Revisión de tesis requerida');
   if(!r.current_price || r.current_price<=0){
     fails.push('Precio sin datos');
   } else if(r.buy_zone_top && r.buy_zone_top>0){
@@ -1533,6 +1571,7 @@ function renderBuylist(){
       {key:'zone', label:'Zona compra (top)', value:r=>r.buy_zone_top??null, cell:r=>`<td>${money(r.buy_zone_top)}</td>`},
       {key:'target', label:'Target', value:r=>r.target_price??null, cell:r=>`<td>${money(r.target_price)}</td>`},
       {key:'margin', label:'Margen a target', value:r=>margin(r), cell:r=>{const m=margin(r); return `<td class="${m>=0?'pos':'neg'}">${pct(m,true)}</td>`;}},
+      {key:'thesis', label:'Vigencia de tesis', value:r=>r.recommendation_state||'REVIEW_UNVERIFIED', cell:r=>{const s=r.recommendation_state||'REVIEW_UNVERIFIED'; const labels={CURRENT:'Vigente',REVIEW_DUE:'Revisión vencida',INVALIDATED:'Invalidada',UNLINKED:'Sin vínculo',CONFIGURATION_ERROR:'Error de configuración',NOT_APPLICABLE:'No aplica',REVIEW_UNVERIFIED:'Sin verificar'}; return `<td><span class="badge" style="background:${s==='CURRENT'?'#12351f':'#2a1516'};color:${s==='CURRENT'?'#86efac':'#f87171'}">${labels[s]||'Revisión requerida'}</span><div class="muted">Próxima: ${dt(r.next_thesis_review_at)||'sin fecha'}</div></td>`;}},
       {key:'wy', label:'Wyckoff', value:r=>r.wyckoff?.score??null, cell:r=>{const wy=r.wyckoff; return `<td>${wyPhase(wy?.phase)} ${wy?.score??''}</td>`;}},
       {key:'fails', label:'Cond. fallida', value:r=>buylistEntryFails(r).length, cell:r=>{const f=buylistEntryFails(r); return `<td>${f.length?f.map(x=>`<span class="badge" style="background:#2a1516;color:#f87171">${x}</span>`).join(' '):'<span class="pos">Listo</span>'}</td>`;}},
       {key:'data', label:'Dato / fuentes', value:r=>`${r.price_date||''} ${r.market_data?.source_count??''}`, cell:r=>`<td>${dt(r.price_date)} · ${r.market_data?.source_count??'sin dato'} fuente(s)</td>`},
@@ -1544,7 +1583,7 @@ function renderBuylist(){
     q:'',
   };
   let html = `<h2>Buy List (${rows.length})</h2>`;
-  html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada (siguiente paso: <b>ENTRY_PENDING</b>). Clic en una columna para ordenar.</p>`;
+  html += `<p class="muted">La lista conserva las entradas aprobadas. La vigencia de tesis se valida por oportunidad: una tesis vencida, invalidada o sin verificar requiere revisión y nunca aparece como lista para actuar.</p>`;
   html += detailsEntryThresholds();
   if(!rows.length) html += `<div class="card"><p class="muted">La Buy List está vacía.</p></div>`;
   html += tableInput('buylist','bl-search','Buscar ticker...');

@@ -254,6 +254,10 @@ estas pruebas.
    en Buy List.
 5. Guardar commit, URL, fecha, resultado de cada comprobación y captura de la
    vista revisada por el gestor.
+6. En la Buy List comprobar que una tesis vigente aparece como `Vigente`, y que
+   tesis vencidas, invalidadas, no vinculadas o sin agenda verificable quedan
+   marcadas como revisión requerida; ninguna debe mostrar `Listo` ni presentarse
+   como recomendación actual.
 
 ### 8.2 Multi estrategia y gates comunes
 
