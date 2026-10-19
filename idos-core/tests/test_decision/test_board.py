@@ -1,5 +1,6 @@
 import tempfile
 from pathlib import Path
+import yaml
 from idos.decision.board import DecisionBoard
 from idos.decision.orchestrator import DecisionProposal
 from idos.decision.engines.base import AssessmentResult
@@ -41,7 +42,7 @@ def test_board_rejects_blocked():
 def test_board_with_journal():
     with tempfile.TemporaryDirectory() as tmp:
         repo = JournalRepository(Path(tmp))
-        board = DecisionBoard(journal_repo=repo)
+        board = DecisionBoard(journal_repo=repo, ticker="AAPL")
         proposal = DecisionProposal(
             type="buy", opportunity_id="OPP-001",
             assessments={
@@ -53,3 +54,7 @@ def test_board_with_journal():
         board.submit(proposal)
         resolution = board.review()
         assert resolution.decision_id.startswith("DEC-")
+        decision_path = repo.opportunity_path("AAPL", "OPP-001") / "decisions" / f"{resolution.decision_id}.yml"
+        saved = yaml.safe_load(decision_path.read_text(encoding="utf-8"))
+        assert saved["type"] == "BUY"
+        assert saved["opportunity_id"] == "OPP-001"

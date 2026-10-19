@@ -330,6 +330,58 @@ class TestResearchWorker:
         rows = list(tmp_sqlite.conn.execute("SELECT id FROM hypotheses"))
         assert len(rows) == 1
 
+    def test_persist_hypotheses_maps_configured_spanish_prompt_schema(self, tmp_sqlite, tmp_journal):
+        worker = ResearchWorker({"provider": "test"})
+        raw = [{
+            "id": "H1",
+            "enunciado": "La demanda de iPhone se recuperará durante el próximo ejercicio.",
+            "por_que": "La renovación de dispositivos y los servicios sostienen la demanda.",
+            "prediccion": "Los ingresos de iPhone crecerán al menos 8% en FY2027.",
+            "magnitud": {"metrica": "iphone_revenue_growth", "valor_esperado": 8, "unidad": "%"},
+            "criterios_falsacion": "Ingresos de iPhone crecen menos de 3% en FY2027.",
+            "cuando_dejar_de_creerla": "Dejar de creerla si los ingresos crecen menos de 3% al cierre de FY2027.",
+            "plazo": "largo",
+            "depende_de": ["H2"],
+        }]
+
+        worker._persist_hypotheses("AAPL", "OPP-AAPL-1", "tesis", raw, tmp_journal, tmp_sqlite)
+
+        [hypothesis] = tmp_journal.load_hypotheses("AAPL", "OPP-AAPL-1")
+        assert hypothesis["predictions"] == [{
+            "metric": "iphone_revenue_growth",
+            "expected": 8,
+            "unit": "%",
+            "deadline": "largo",
+            "actual": None,
+            "met": None,
+        }]
+        assert hypothesis["falsification_conditions"] == [
+            "Ingresos de iPhone crecen menos de 3% en FY2027."
+        ]
+        assert hypothesis["falsification"][0]["condition"] == hypothesis["falsification_conditions"][0]
+        assert hypothesis["horizon"] == "largo"
+        assert hypothesis["secondary_hypotheses"] == ["H2-OPP-AAPL-1"]
+        assert hypothesis["rationale"] == "La renovación de dispositivos y los servicios sostienen la demanda."
+        assert hypothesis["review_trigger"].startswith("Dejar de creerla")
+
+    def test_full_ddd_hypothesis_contract_requires_each_hmf_answer(self):
+        valid = [{
+            "enunciado": "Creemos que el margen operativo crecerá.",
+            "por_que": "La mezcla de servicios aumenta.",
+            "prediccion": "El margen supera 34% en FY2027.",
+            "magnitud": {"metrica": "operating_margin", "valor_esperado": 34},
+            "criterios_falsacion": ["El margen queda debajo de 32%"],
+            "cuando_dejar_de_creerla": "Si queda debajo de 32% en FY2027.",
+        }] * 3
+        assert ResearchWorker._validate_hypothesis_contract(valid) == []
+
+        incomplete = [{"enunciado": "Creemos que el margen crecerá."}]
+        errors = ResearchWorker._validate_hypothesis_contract(incomplete)
+        assert any("rationale" in error for error in errors)
+        assert any("prediction" in error for error in errors)
+        assert any("falsification" in error for error in errors)
+        assert any("stop-belief" in error for error in errors)
+
 
     def test_systematic_report_persists_authoritative_strategy_context(
         self,

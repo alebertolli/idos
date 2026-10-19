@@ -15,14 +15,13 @@ user_prompt: >
   - Eventos Recientes: {recent_events}
 
   Para cada hipótesis:
-  1. Enunciado claro y testable
-  2. Predicción específica (qué, cuándo, cuánto)
-  3. Criterios de falsación
-  4. Evidencia necesaria para confirmar
-  5. Plazo (corto: <3m, medio: 3-12m, largo: >12m)
-  6. Prioridad (critical|important|informational)
-   7. Magnitud esperada (métrica, valor esperado, unidad)
-  8. Dependencias de otras hipótesis
+  1. Enunciado: qué creemos que ocurrirá.
+  2. Por qué creemos que ocurrirá: mecanismo causal y evidencia relevante.
+  3. Predicción observable con fecha/plazo y magnitud cuantitativa.
+  4. Criterios concretos que demostrarían que estamos equivocados.
+  5. Condición explícita que nos haría dejar de creerla, con fecha o evento.
+  6. Evidencia necesaria para confirmar, plazo y prioridad.
+  7. Dependencias de otras hipótesis.
 
   Genera 3-5 hipótesis cubriendo:
   - Al menos una operacional/de negocio
@@ -35,8 +34,10 @@ user_prompt: >
       {{
         "id": "H1",
         "enunciado": "...",
+        "por_que": "...",
         "prediccion": "...",
-        "criterios_falsacion": "...",
+        "criterios_falsacion": ["..."],
+        "cuando_dejar_de_creerla": "...",
         "evidencia_necesaria": "...",
         "plazo": "corto|medio|largo",
         "categoria": "operacional|financiera|mercado",
@@ -49,6 +50,6 @@ user_prompt: >
 
 category: research
 metadata:
-  version: "2.0"
+  version: "2.1"
   author: "FO Senior Analyst"
   description: "Hypothesis generation con prioridad, magnitud y dependencias"

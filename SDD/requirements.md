@@ -401,15 +401,16 @@ El sistema gestiona simultáneamente múltiples estrategias de inversión bajo u
 
 #### Acceptance Criteria
 
-1. THE Dashboard SHALL organizarse en cinco widgets principales: Portfolio_Widget (evolución patrimonial dual —moneda fuerte y poder adquisitivo argentino—, rentabilidad, efectivo, drawdown), Watchlist_Widget (top 10 oportunidades por score, con strategy_id visible), Buy_List_Widget (oportunidades en zona de compra con entry_policy y velocidad de entrada), Alerts_Widget (riesgos activos y tesis debilitadas), Calendar_Widget (próximos earnings y revisiones planificadas).
-2. THE Dashboard SHALL ser estático (HTML/JS generado, sin servidor de aplicaciones) y SHALL poder publicarse en GitHub Pages.
+1. THE Dashboard público SHALL organizar el flujo de oportunidades hasta la Buy_List: Watchlist_Widget (top oportunidades por score, con strategy_id visible), Buy_List_Widget (oportunidades con entry_policy, decisión pendiente y condiciones de entrada), Alerts_Widget (riesgos de oportunidades y tesis debilitadas) y Calendar_Widget (próximos earnings y revisiones planificadas).
+2. THE Dashboard público SHALL ser estático (HTML/JS generado, sin servidor de aplicaciones) y SHALL poder publicarse en GitHub Pages; SHALL mostrar Research/DDD e hipótesis no aprobadas con estado provisional y procedencia visible para revisión del gestor.
+2a. THE Portfolio_Widget SHALL consumir exclusivamente una fuente privada autenticada (por ejemplo, Google Sheets privado); posiciones, tenencias, efectivo, transacciones, Risk Audit y métricas patrimoniales SHALL NOT incluirse en el HTML, JSON, artifacts o commits públicos de GitHub Pages. Si no hay una interfaz privada conectada, el widget SHALL permanecer fuera de Pages.
 3. THE Decision_Inbox SHALL agregar todas las propuestas que requieren intervención humana ordenadas por prioridad (Alta, Media, Baja), con gate fallido, strategy_id, acción requerida y límite estimado.
 4. THE Dashboard SHALL mostrar la alerta `is_stale` ("Research stale Nd") únicamente para Opportunities en `SCREENED` o `UNDER_RESEARCH` cuando `last_research_at` supera los 30 días.
-5. THE Dashboard SHALL mostrar la alerta `is_thesis_stale` ("Tesis sin evaluar Nd") para posiciones activas del portfolio (`ACCUMULATING`, `ACTIVE`, `REDUCED`, `MONITORING`) cuando `last_thesis_assessment_at` supera los 30 días.
+5. La vista privada del portfolio SHALL mostrar la alerta `is_thesis_stale` ("Tesis sin evaluar Nd") para posiciones activas (`ACCUMULATING`, `ACTIVE`, `REDUCED`, `MONITORING`) cuando `last_thesis_assessment_at` supera los 30 días; esta alerta no se serializa en Pages.
 6. THE Dashboard SHALL mostrar tablas con columnas ordenables (clic en encabezado alterna ASC/DESC con indicador ▲/▼) y búsqueda por ticker en vivo sobre la tabla.
-7. THE Dashboard SHALL generar una vista de detalle de activo (case view) con: arquitectura (Core, Sleeve, Risk Overlays), tesis, gates evaluados (PASS/FAIL por gate), scores, entry_policy, condiciones de entrada, Patrimonio_Dual impact y strategy_id.
+7. THE Dashboard SHALL generar una vista pública de detalle de oportunidad con: arquitectura (Core, Sleeve, Risk Overlays), tesis y su estado de aprobación, Research/DDD, hipótesis, procedencia, gates evaluados (PASS/FAIL por gate), scores provisionales, entry_policy, condiciones de entrada y strategy_id. El impacto patrimonial y los gates dependientes de posiciones se mostrarán como pendientes de datos privados; sus valores reales sólo estarán disponibles en la vista privada.
 8. THE Telegram_Bot SHALL soportar los comandos: `/watchlist`, `/dashboard`, `/scout TICKER1,TICKER2`, `/opp-list`, `/position-list`, `/event-log`, `/help`.
-9. WHEN un Core supera su rango estructural máximo configurado, THE Portfolio_Widget SHALL mostrar una alerta visual; la alerta puede activarse también por otras condiciones definidas en el sistema.
+9. WHEN un Core supera su rango estructural máximo configurado, la vista privada del portfolio SHALL mostrar una alerta visual; la alerta puede activarse también por otras condiciones definidas en el sistema y no se publica en Pages.
 10. THE Notification_Center SHALL enviar un único Digest_Inteligente semanal consolidado en lugar de notificaciones individuales por cada evento de baja prioridad.
 
 ---

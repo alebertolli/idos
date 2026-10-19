@@ -249,6 +249,25 @@ class ResearchWorker(BaseWorker):
             "recent_events": financial_data.get("recent_events", ""),
             })
 
+        hypotheses = hypothesis_result.get("hipotesis", []) if isinstance(hypothesis_result, dict) else []
+        if not is_systematic:
+            hypothesis_errors = self._validate_hypothesis_contract(hypotheses)
+            if hypothesis_errors:
+                event_data = {
+                    "opp_id": opp_id,
+                    "ticker": ticker,
+                    "errors": hypothesis_errors,
+                    "event_type": event_type,
+                }
+                sqlite.log_event("research:hypothesis_validation_failed", event_data)
+                journal.log_event("research:hypothesis_validation_failed", event_data, source="research_worker")
+                return {
+                    "ticker": ticker,
+                    "opp_id": opp_id,
+                    "status": "hypothesis_validation_failed",
+                    "errors": hypothesis_errors,
+                }
+
         if is_systematic:
             aoif_result = {
                 "tipo_analisis": "systematic_momentum",
@@ -291,7 +310,6 @@ class ResearchWorker(BaseWorker):
         }
         journal.save_assessment(ticker, opp_id, assessment)
 
-        hypotheses = hypothesis_result.get("hipotesis", [])
         self._persist_hypotheses(ticker, opp_id, thesis, hypotheses, journal, sqlite)
 
         case_file = journal.load_case_file(ticker) or {
@@ -482,23 +500,68 @@ class ResearchWorker(BaseWorker):
             hyp_id = f"{base_id}-{opp_id}"
             parent_raw = hyp_data.get("parent_id", "")
             parent_id = f"{parent_raw}-{opp_id}" if parent_raw else ""
+            raw_dependencies = hyp_data.get("depende_de") or hyp_data.get("depends_on") or []
+            if isinstance(raw_dependencies, str):
+                raw_dependencies = [raw_dependencies]
+            dependencies = [
+                item if str(item).endswith(f"-{opp_id}") else f"{item}-{opp_id}"
+                for item in raw_dependencies
+                if item
+            ]
             predictions = []
-            for p in (hyp_data.get("predicciones") or []):
+            raw_predictions = (
+                hyp_data.get("predicciones")
+                or hyp_data.get("predictions")
+                or hyp_data.get("prediccion")
+                or hyp_data.get("prediction")
+                or []
+            )
+            if isinstance(raw_predictions, (str, dict)):
+                raw_predictions = [raw_predictions]
+            magnitude = hyp_data.get("magnitud") or hyp_data.get("magnitude") or {}
+            if isinstance(magnitude, dict) and not raw_predictions and magnitude.get("metrica", magnitude.get("metric")):
+                raw_predictions = [magnitude]
+            for p in raw_predictions:
+                if isinstance(p, str):
+                    p = {
+                        **(magnitude if isinstance(magnitude, dict) else {}),
+                        "notes": p,
+                    }
                 if isinstance(p, dict):
+                    expected = p.get("valor_esperado", p.get("expected_value", 0)) or 0
+                    if isinstance(expected, str):
+                        try:
+                            expected = float(expected.replace(",", "."))
+                        except ValueError:
+                            expected = 0
                     predictions.append(Prediction(
                         metric=p.get("metrica") or p.get("metric", ""),
-                        expected_value=p.get("valor_esperado", p.get("expected_value", 0)) or 0,
+                        expected_value=expected,
                         unit=p.get("unidad", p.get("unit", "")),
-                        deadline=p.get("plazo") or p.get("deadline", ""),
+                        deadline=p.get("plazo") or p.get("deadline") or hyp_data.get("plazo", ""),
+                        notes=p.get("notes") or p.get("prediccion") or p.get("prediction", ""),
                     ))
             falsification = []
-            for f in (hyp_data.get("condiciones_falsacion") or hyp_data.get("falsification") or []):
+            raw_falsification = (
+                hyp_data.get("condiciones_falsacion")
+                or hyp_data.get("criterios_falsacion")
+                or hyp_data.get("falsification_conditions")
+                or hyp_data.get("falsification")
+                or []
+            )
+            if isinstance(raw_falsification, (str, dict)):
+                raw_falsification = [raw_falsification]
+            for f in raw_falsification:
+                if isinstance(f, str) and f.strip():
+                    falsification.append(FalsificationCondition(condition=f.strip()))
                 if isinstance(f, dict):
-                    falsification.append(FalsificationCondition(
-                        condition=f.get("condicion") or f.get("condition", ""),
-                        metric=f.get("metrica") or f.get("metric", ""),
-                        threshold=f.get("umbral", f.get("threshold", 0)) or 0,
-                    ))
+                    condition = f.get("condicion") or f.get("condition", "")
+                    if condition:
+                        falsification.append(FalsificationCondition(
+                            condition=condition,
+                            metric=f.get("metrica") or f.get("metric", ""),
+                            threshold=f.get("umbral", f.get("threshold", 0)) or 0,
+                        ))
             priority_raw = hyp_data.get("prioridad", "important")
             hypothesis = Hypothesis(
                 id=hyp_id,
@@ -520,14 +583,82 @@ class ResearchWorker(BaseWorker):
                     else 0.0
                 ),
                 parent_id=parent_id,
+                rationale=hyp_data.get("por_que") or hyp_data.get("rationale") or hyp_data.get("why", ""),
+                review_trigger=(
+                    hyp_data.get("cuando_dejar_de_creerla")
+                    or hyp_data.get("review_trigger")
+                    or hyp_data.get("when_to_stop_believing", "")
+                ),
                 predictions=predictions,
                 falsification=falsification,
+                horizon=hyp_data.get("plazo") or hyp_data.get("horizon") or "24 months",
+                secondary_hypotheses=dependencies,
             )
             journal.save_hypothesis(ticker.upper(), opp_id, hypothesis.to_dict())
             sqlite.save_hypothesis(hypothesis.to_dict())
             print(f"[HYP] {ticker} ({opp_id}): persistida hipótesis '{statement[:60]}' id={hypothesis.id}")
         if raw:
             print(f"[HYP] {ticker} ({opp_id}): {len(raw)} hipótesis persistidas en hypotheses.yml + SQLite")
+
+    @staticmethod
+    def _validate_hypothesis_contract(raw: Any) -> list[str]:
+        """Validate the five HMF answers before a FULL_DDD result can advance."""
+        if not isinstance(raw, list) or not raw:
+            return ["hypotheses must be a non-empty list"]
+
+        errors: list[str] = []
+        if not 3 <= len(raw) <= 5:
+            errors.append("FULL_DDD requires 3 to 5 hypotheses")
+        for index, item in enumerate(raw, start=1):
+            if not isinstance(item, dict):
+                errors.append(f"H{index}: hypothesis must be an object")
+                continue
+            statement = item.get("enunciado") or item.get("statement") or item.get("hipotesis")
+            rationale = item.get("por_que") or item.get("rationale") or item.get("why")
+            prediction = item.get("prediccion") or item.get("prediction")
+            magnitude = item.get("magnitud") or item.get("magnitude") or {}
+            metric = magnitude.get("metrica") or magnitude.get("metric") if isinstance(magnitude, dict) else None
+            expected = magnitude.get("valor_esperado", magnitude.get("expected_value")) if isinstance(magnitude, dict) else None
+            falsification = (
+                item.get("criterios_falsacion")
+                or item.get("condiciones_falsacion")
+                or item.get("falsification_conditions")
+            )
+            stop_condition = (
+                item.get("cuando_dejar_de_creerla")
+                or item.get("review_trigger")
+                or item.get("when_to_stop_believing")
+            )
+            prefix = f"H{index}"
+            if not isinstance(statement, str) or not statement.strip():
+                errors.append(f"{prefix}: missing belief statement")
+            if not isinstance(rationale, str) or not rationale.strip():
+                errors.append(f"{prefix}: missing rationale (why)")
+            if (
+                not isinstance(prediction, str)
+                or not prediction.strip()
+                or not isinstance(metric, str)
+                or not metric.strip()
+                or isinstance(expected, bool)
+                or not isinstance(expected, (int, float))
+                or not math.isfinite(expected)
+            ):
+                errors.append(f"{prefix}: missing observable quantitative prediction")
+            has_falsification = (
+                isinstance(falsification, str) and bool(falsification.strip())
+            ) or (
+                isinstance(falsification, list)
+                and any(
+                    isinstance(value, str) and value.strip()
+                    or isinstance(value, dict) and bool(value.get("condicion") or value.get("condition"))
+                    for value in falsification
+                )
+            )
+            if not has_falsification:
+                errors.append(f"{prefix}: missing falsification criteria")
+            if not isinstance(stop_condition, str) or not stop_condition.strip():
+                errors.append(f"{prefix}: missing stop-belief condition")
+        return errors
 
     def _fetch_target_consensus(self, ticker: str, bp: Any) -> dict[str, Any] | None:
         try:

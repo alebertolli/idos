@@ -210,27 +210,51 @@ def _write_ddd_case(tmp_path: Path, review: dict | None) -> None:
         "evidence_review": review or {},
     }
     (opp / "ddd_report.yml").write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
+    (opp / "hypotheses.yml").write_text(yaml.safe_dump({"hypotheses": [{
+        "id": "H1-OPP-1",
+        "statement": "El crecimiento de ingresos superará 8%.",
+        "rationale": "La renovación de producto sostiene la demanda.",
+        "horizon": "medio",
+        "review_trigger": "Abandonar la hipótesis si el crecimiento cae debajo de 3%.",
+        "predictions": [{"metric": "revenue_growth", "expected": 8, "unit": "%", "deadline": "FY2027"}],
+        "falsification_conditions": ["El crecimiento queda debajo de 3% en FY2027."],
+    }]}, allow_unicode=True), encoding="utf-8")
+    (opp / "decision_proposal.yml").write_text(yaml.safe_dump({
+        "financial_data_quality": {
+            "status": "partial",
+            "core_metric_coverage": "5/5",
+            "source": "provider-x",
+            "as_of_date": None,
+            "missing_provenance": ["as_of_date"],
+        },
+    }, allow_unicode=True), encoding="utf-8")
 
 
-def test_public_site_withholds_unreviewed_ddd_claims(tmp_path: Path):
+def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_path: Path):
     _write_ddd_case(tmp_path, review=None)
 
     data = SiteBuilder(tmp_path).build()
     opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
 
     assert opp["ddd"]["evidence_review"]["status"] == "pending_manager_review"
-    assert opp["ddd"]["resumen_ejecutivo"] is None
-    assert opp["ddd"]["tesis_inversion"] is None
-    assert opp["ddd"]["score_general"] is None
-    assert opp["ddd"]["dominios"] == []
+    assert opp["ddd"]["resumen_ejecutivo"] == "Tesis antigua sin validar"
+    assert opp["ddd"]["tesis_inversion"] == "Afirmación que requiere revisión"
+    assert opp["ddd"]["score_general"] == 81
+    assert opp["ddd"]["dominios"][0]["analisis"] == "Afirmación sin fuente"
+    assert opp["ddd"]["hipotesis"][0]["predictions"][0]["expected"] == 8
+    assert opp["ddd"]["financial_data_quality"]["status"] == "partial"
 
     output = write_site(tmp_path, tmp_path / "site-output")
     payload = (output / "data.json").read_text(encoding="utf-8")
     app = (output / "assets" / "app.js").read_text(encoding="utf-8")
-    assert "Tesis antigua sin validar" not in payload
-    assert "Afirmación que requiere revisión" not in payload
+    assert "Tesis antigua sin validar" in payload
+    assert "Afirmación que requiere revisión" in payload
+    assert "El crecimiento de ingresos superará 8%." in payload
     assert "Informe pendiente de validación del gestor" in app
-    assert "Convicción, valor intrínseco, upside y scores de assessment son provisionales" in app
+    assert "Tesis de inversión (provisional)" in app
+    assert "Calidad de datos financieros" in app
+    assert "Fecha de corte" in app
+    assert "Cuándo abandonarla" in app
 
 
 def test_public_site_exposes_ddd_only_after_attributable_manager_approval(tmp_path: Path):
@@ -260,7 +284,7 @@ def test_public_site_does_not_accept_approval_without_reviewer_and_date(tmp_path
     opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
 
     assert opp["ddd"]["evidence_review"]["status"] == "pending_manager_review"
-    assert opp["ddd"]["resumen_ejecutivo"] is None
+    assert opp["ddd"]["resumen_ejecutivo"] == "Tesis antigua sin validar"
 
 
 def test_public_site_keeps_deterministic_systematic_report_separate_from_fundamental_review(tmp_path: Path):
@@ -324,9 +348,9 @@ def test_public_site_does_not_treat_forged_fundamental_context_as_systematic(tmp
     opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
 
     assert opp["ddd"]["evidence_review"]["status"] == "pending_manager_review"
-    assert opp["ddd"]["resumen_ejecutivo"] is None
-    assert opp["ddd"]["tesis_inversion"] is None
-    assert opp["ddd"]["score_general"] is None
+    assert opp["ddd"]["resumen_ejecutivo"] == "Tesis antigua sin validar"
+    assert opp["ddd"]["tesis_inversion"] == "Afirmación que requiere revisión"
+    assert opp["ddd"]["score_general"] == 81
 
 
 def test_strategy_signal_reports_expose_run_scope_and_latest_generated_report(tmp_path: Path):

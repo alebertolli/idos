@@ -433,6 +433,9 @@ class SiteBuilder:
         br = br if isinstance(br, dict) else {}
         ddd = _load_yaml(opp_dir / "ddd_report.yml")
         ddd = ddd if isinstance(ddd, dict) else {}
+        hypotheses_doc = _load_yaml(opp_dir / "hypotheses.yml")
+        hypotheses_doc = hypotheses_doc if isinstance(hypotheses_doc, dict) else {}
+        raw_hypotheses = hypotheses_doc.get("hypotheses") or []
 
         scores: dict[str, Any] = {}
         findings: dict[str, list[str]] = {}
@@ -515,7 +518,10 @@ class SiteBuilder:
             and strategy_context.get("signal") == opportunity_signal
         )
         current_systematic_report = systematic_report and strategy_context.get("report_method_version") == "systematic_signal_v2"
-        ddd_publishable = review_approved or current_systematic_report
+        # Fundamental research is public through the Buy List by product
+        # decision; expose it as provisional until an attributable review.
+        # Legacy systematic reports remain hidden until regenerated.
+        ddd_publishable = bool(ddd) and (not systematic_report or current_systematic_report)
         if systematic_report:
             # Corporate intrinsic value does not apply to a signal/rebalance case.
             intrinsic = None
@@ -545,6 +551,8 @@ class SiteBuilder:
             "dominios": [],
             "catalizadores": [],
             "evidencia": {},
+            "hipotesis": [],
+            "financial_data_quality": dp.get("financial_data_quality") or {},
         }
         if ddd and ddd_publishable:
             cls = ddd.get("clasificacion_oportunidad") or {}
@@ -608,6 +616,18 @@ class SiteBuilder:
                     "inferencias_llm": ev.get("inferencias_llm") or [],
                     "preguntas_abiertas": ev.get("preguntas_abiertas") or [],
                 }
+            ddd_summary["hipotesis"] = [
+                {
+                    "id": h.get("id"),
+                    "statement": h.get("statement"),
+                    "rationale": h.get("rationale"),
+                    "horizon": h.get("horizon"),
+                    "review_trigger": h.get("review_trigger"),
+                    "predictions": h.get("predictions") or [],
+                    "falsification_conditions": h.get("falsification_conditions") or [],
+                }
+                for h in raw_hypotheses if isinstance(h, dict)
+            ]
 
         return {
             "opp_id": opp.get("id") or opp_dir.name,
@@ -1524,20 +1544,31 @@ function showCase(oppId){
   const dddSystematic = d.evidence_review?.status==='systematic_report';
   if(d.evidence_review?.status==='systematic_report_refresh_required'){
     html += `<h2>Reporte sistemático</h2><div class="card"><b>Requiere actualización.</b><p class="muted">Regenerar Research con la política vigente antes de interpretar sus métricas. La señal y su fecha siguen disponibles en la estrategia.</p></div>`;
-  } else if(!dddReviewed && !dddSystematic){
-    html += `<h2>Análisis fundamental</h2><div class="card"><b>Informe pendiente de validación del gestor.</b><p class="muted">El detalle DDD no se publica como tesis vigente hasta registrar una revisión atribuible. Convicción, valor intrínseco, upside y scores de assessment son provisionales: no usarlos para decidir o dimensionar hasta validar sus fuentes. La decisión del sistema se muestra por separado y no sustituye esta validación.</p></div>`;
   } else {
+  const dddProvisional = !dddReviewed && !dddSystematic;
+  if(dddProvisional) html += `<h2>Análisis fundamental · provisional</h2><div class="card"><b>Informe pendiente de validación del gestor.</b><p class="muted">El DDD y las hipótesis se muestran para revisión, todavía no son una tesis aprobada. Convicción, valor intrínseco, upside y scores de assessment son provisionales; validar las fuentes y la fecha de corte antes de decidir o dimensionar. La decisión del sistema se muestra por separado y no sustituye la revisión humana.</p></div>`;
   if(dddSystematic) html += `<div class="card"><b>Reporte sistemático.</b><p class="muted">Señal y métricas generadas por reglas de estrategia; no representan una tesis fundamental ni una aprobación de compra.</p></div>`;
   const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;
-  html += `<h2>Tesis de inversión</h2>`;
+  html += `<h2>${dddProvisional?'Tesis de inversión (provisional)':'Tesis de inversión'}</h2>`;
   if(d.resumen_ejecutivo) html += `<div class="card"><div class="muted">Resumen ejecutivo</div><p>${esc(d.resumen_ejecutivo)}</p></div>`;
   if(d.tesis_inversion) html += `<div class="card"><div class="muted">Tesis</div><p>${esc(d.tesis_inversion)}</p></div>`;
+  const dq = d.financial_data_quality||{};
+  if(Object.keys(dq).length) html += `<div class="card"><b>Calidad de datos financieros:</b> ${esc(dq.status||'sin evaluar')} · <b>Métricas core:</b> ${esc(dq.core_metric_coverage||'—')} · <b>Fuente:</b> ${esc(dq.source||'—')} · <b>Fecha de corte:</b> ${dt(dq.as_of_date)}${(dq.missing_core_metrics||[]).length?`<p class="neg">Métricas faltantes: ${dq.missing_core_metrics.map(esc).join(', ')}</p>`:''}${(dq.missing_provenance||[]).length?`<p class="neg">Procedencia faltante: ${dq.missing_provenance.map(esc).join(', ')}</p>`:''}</div>`;
   if(d.clasificacion){
     const cl = d.clasificacion||{};
     html += `<p><b>Categoría:</b> ${esc(cl.categoria||d.categoria)}${(cl.categorias_descartadas||[]).length?' <span class="muted">· descartadas: '+cl.categorias_descartadas.map(esc).join(', ')+'</span>':''}</p>`;
     if(cl.justificacion) html += `<p class="muted">${esc(cl.justificacion)}</p>`;
   }
   if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>${d.evidence_review?.status==='systematic_report'?'Índice descriptivo de señal':'Score DDD'}:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
+  if(d.hipotesis?.length){
+    html += `<h3>Hipótesis de inversión</h3><table><thead><tr><th>Hipótesis</th><th>Por qué</th><th>Predicción</th><th>Falsación</th><th>Cuándo abandonarla</th></tr></thead><tbody>`;
+    d.hipotesis.forEach(h=>{
+      const predictions=(h.predictions||[]).map(p=>`${esc(p.metric||'')}: ${esc(p.expected??'—')}${p.unit?` ${esc(p.unit)}`:''} · ${esc(p.deadline||'sin plazo')}`).join('<br>')||'—';
+      const falsification=(h.falsification_conditions||[]).map(esc).join('<br>')||'—';
+      html += `<tr><td>${esc(h.statement||'—')}</td><td>${esc(h.rationale||'—')}</td><td>${predictions}</td><td>${falsification}</td><td>${esc(h.review_trigger||'—')}</td></tr>`;
+    });
+    html += '</tbody></table>';
+  }
   if(d.catalizadores?.length){
     html += `<h3>Catalizadores</h3><table><thead><tr><th>Catalizador</th><th>Horizonte</th><th>Impacto</th><th>Prob.</th></tr></thead><tbody>`;
     d.catalizadores.forEach(c=>html+=`<tr><td>${esc(c.descripcion)}</td><td>${esc(c.horizonte)}</td><td>${esc(c.impacto)}</td><td>${c.probabilidad_pct!=null?pct(c.probabilidad_pct):'—'}</td></tr>`);

@@ -63,7 +63,7 @@ class DecisionBoard:
             self.journal.save_decision(
                 self.ticker,
                 proposal.opportunity_id,
-                decision.model_dump(),
+                decision.model_dump(mode="json"),
             )
 
         resolution = BoardResolution(

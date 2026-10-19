@@ -91,6 +91,8 @@ class Hypothesis(BaseModel):
     opportunity_id: str
     ticker: str
     statement: str = ""
+    rationale: str = ""
+    review_trigger: str = ""
     status: HypothesisStatus = HypothesisStatus.DRAFT
     priority: HypothesisPriority = HypothesisPriority.IMPORTANT
     version: int = 1
@@ -141,12 +143,16 @@ class Hypothesis(BaseModel):
             "opportunity_id": self.opportunity_id,
             "ticker": self.ticker,
             "statement": self.statement,
+            "rationale": self.rationale,
+            "review_trigger": self.review_trigger,
             "status": self.status.value,
             "priority": self.priority.value,
             "version": self.version,
+            "horizon": self.horizon,
             "probability": self.probability,
             "confidence": self.confidence,
             "parent_id": self.parent_id,
+            "secondary_hypotheses": self.secondary_hypotheses,
             "falsification_conditions": self.falsification_conditions,
             "predictions": [{"metric": p.metric, "expected": p.expected_value,
                              "unit": p.unit, "deadline": p.deadline,

@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import Any
+import math
 import json
 import yaml
 
@@ -23,6 +24,59 @@ from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.timezone import AR_TZ
 from datetime import datetime
+
+
+_CORE_FINANCIAL_FIELDS = {
+    "roic": ("roic_pct", "roic"),
+    "operating_margin": ("operating_margin_pct", "operating_margin"),
+    "revenue_growth": ("revenue_growth_pct", "revenue_growth"),
+    "pe_ratio": ("pe_ratio", "pe_ratio_ttm"),
+    "debt_to_equity": ("debt_equity_ratio", "debt_to_equity"),
+}
+
+
+def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
+    """Report core input coverage and provenance without treating zero as missing."""
+    missing = []
+    for field_name, source_keys in _CORE_FINANCIAL_FIELDS.items():
+        value = next((financial.get(key) for key in source_keys if key in financial), None)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            missing.append(field_name)
+
+    provenance = financial.get("data_provenance")
+    provenance = provenance if isinstance(provenance, dict) else {}
+    sources = provenance.get("sources_used")
+    sources = sources if isinstance(sources, list) else []
+    source = financial.get("source") or (", ".join(map(str, sources)) if sources else "")
+    as_of_date = (
+        financial.get("fundamentals_as_of")
+        or financial.get("as_of_date")
+        or financial.get("period_end_date")
+        or financial.get("fiscal_period_end")
+        or provenance.get("as_of_date")
+    )
+    missing_provenance = []
+    if not source:
+        missing_provenance.append("source")
+    if not as_of_date:
+        missing_provenance.append("as_of_date")
+
+    coverage = len(_CORE_FINANCIAL_FIELDS) - len(missing)
+    if coverage == len(_CORE_FINANCIAL_FIELDS) and not missing_provenance:
+        status = "good"
+    elif coverage >= math.ceil(len(_CORE_FINANCIAL_FIELDS) * 0.8):
+        status = "partial"
+    else:
+        status = "poor"
+    return {
+        "status": status,
+        "core_metric_coverage": f"{coverage}/{len(_CORE_FINANCIAL_FIELDS)}",
+        "missing_core_metrics": missing,
+        "source": source or None,
+        "as_of_date": as_of_date,
+        "missing_provenance": missing_provenance,
+    }
+
 
 def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, Any],
                      opp_id: str, bp: Path, knowledge: KnowledgeRepository):
@@ -69,6 +123,7 @@ def build_context(
     knowledge: KnowledgeRepository, journal: JournalRepository,
 ) -> dict[str, Any]:
     financial = _load_financial_data(ticker, sqlite)
+    financial_quality = _financial_data_quality(financial)
     company = knowledge.load_company(ticker) or {}
 
     positions = []
@@ -215,6 +270,7 @@ def build_context(
 
     return {
         "knowledge_base": {"dynamic": {"metrics": metrics}, "static": static},
+        "financial_data_quality": financial_quality,
         "portfolio": portfolio,
         "company": company_info,
         "margin_of_safety": margin_of_safety,
@@ -678,6 +734,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "conviction_score": proposal.conviction_score,
         "recommendation": proposal.recommendation,
         "reasoning": proposal.reasoning,
+        "financial_data_quality": context.get("financial_data_quality", {}),
         "created_at": proposal.created_at,
         "generated_at": datetime.now(AR_TZ).isoformat(),
     }
@@ -742,10 +799,8 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
             yaml_opp["intrinsic_value"] = iv
         journal.save_opportunity(ticker, yaml_opp)
 
-    _all_metrics = context.get("knowledge_base", {}).get("dynamic", {}).get("metrics", {})
-    _core_metrics = {k: v for k, v in _all_metrics.items() if k in ("roic", "operating_margin", "revenue_growth", "pe_ratio", "debt_to_equity")}
-    _zero_core = sum(1 for v in _core_metrics.values() if isinstance(v, (int, float)) and v == 0)
-    _data_quality = "poor" if _zero_core > len(_core_metrics) // 2 else "good"
+    financial_quality = context.get("financial_data_quality", {})
+    data_quality = financial_quality.get("status", "poor")
 
     return {
         "ticker": ticker,
@@ -760,7 +815,8 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "rules_passed": proposal.rules_passed,
         "rules_failed": proposal.rules_failed,
         "rules_details": proposal.rules_details,
-        "data_quality": _data_quality,
+        "data_quality": data_quality,
+        "financial_data_quality": financial_quality,
     }
 
 
