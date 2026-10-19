@@ -75,6 +75,75 @@ class MarketDataSettings:
             raise MarketDataNormalizationError(f"Invalid market data configuration: {path}") from exc
 
 
+def evaluate_global_market_eligibility(
+    merged_data: dict[str, Any],
+    *,
+    asset_type: str | None,
+    settings: MarketDataSettings,
+) -> dict[str, Any]:
+    """Apply the shared, fail-closed size and underlying-liquidity policy."""
+    reasons: list[str] = []
+    if asset_type not in {"etf", "us_equity"}:
+        reasons.append("UNSUPPORTED_OR_MISSING_ASSET_TYPE")
+
+    normalization = merged_data.get("market_data_normalization")
+    liquidity = merged_data.get("avg_dollar_volume_usd")
+    liquidity_provenance = merged_data.get("liquidity_provenance")
+    valid_liquidity = (
+        isinstance(liquidity, (int, float))
+        and not isinstance(liquidity, bool)
+        and math.isfinite(float(liquidity))
+        and float(liquidity) > 0
+        and isinstance(liquidity_provenance, dict)
+        and liquidity_provenance.get("basis") == "UNDERLYING_USD_PROXY"
+        and liquidity_provenance.get("window_sessions") == settings.liquidity.window_sessions
+        and isinstance(liquidity_provenance.get("coverage"), (int, float))
+        and not isinstance(liquidity_provenance.get("coverage"), bool)
+        and float(liquidity_provenance["coverage"]) >= settings.liquidity.minimum_coverage
+    )
+    if not isinstance(normalization, dict) or normalization.get("status") != "complete":
+        reasons.append("MARKET_DATA_NORMALIZATION_INCOMPLETE")
+    if not valid_liquidity:
+        reasons.append("GLOBAL_LIQUIDITY_EVIDENCE_INCOMPLETE")
+    elif float(liquidity) < settings.avg_dollar_volume_min_usd:
+        reasons.append("GLOBAL_LIQUIDITY_BELOW_MINIMUM")
+
+    size = merged_data.get("size_metric_usd")
+    size_provenance = merged_data.get("size_metric_provenance")
+    if asset_type == "us_equity":
+        market_cap_provenance = merged_data.get("market_cap_provenance")
+        valid_size = (
+            isinstance(size, (int, float))
+            and not isinstance(size, bool)
+            and math.isfinite(float(size))
+            and float(size) > 0
+            and isinstance(size_provenance, dict)
+            and size_provenance.get("source")
+            and size_provenance.get("as_of")
+            and isinstance(market_cap_provenance, dict)
+            and market_cap_provenance.get("source") == size_provenance.get("source")
+            and market_cap_provenance.get("as_of") == size_provenance.get("as_of")
+        )
+        if not valid_size:
+            reasons.append("GLOBAL_MARKET_CAP_EVIDENCE_INCOMPLETE")
+        elif float(size) < settings.market_cap_min_usd:
+            reasons.append("GLOBAL_MARKET_CAP_BELOW_MINIMUM")
+
+    return {
+        "passed": not reasons,
+        "asset_type": asset_type,
+        "size_metric_usd": size if asset_type == "us_equity" else None,
+        "market_cap_min_usd": settings.market_cap_min_usd if asset_type == "us_equity" else None,
+        "avg_dollar_volume_usd": liquidity,
+        "avg_dollar_volume_min_usd": settings.avg_dollar_volume_min_usd,
+        "liquidity_basis": "UNDERLYING_USD_PROXY",
+        "reason_codes": reasons,
+        "normalization": normalization,
+        "size_provenance": size_provenance,
+        "liquidity_provenance": liquidity_provenance,
+    }
+
+
 @dataclass(frozen=True)
 class FxObservation:
     observed_at: datetime
