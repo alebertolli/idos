@@ -30,7 +30,7 @@ user_prompt: >
   - Moat: {moat_description}
 
   Resumen Financiero (TTM):
-  - Precio de cotización vigente: {current_price} {quote_currency}
+  - Último cierre disponible: {current_price} {quote_currency}, corte {current_price_as_of_date}, fuente {current_price_source}
   - Revenue: ${revenue:,.0f}M
   - Crecimiento Revenue: {revenue_growth:+.1f}%
   - Margen Operativo: {operating_margin:.1f}%

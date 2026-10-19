@@ -160,12 +160,15 @@ class ResearchWorker(BaseWorker):
         if event_evidence:
             event_context = json.dumps(event_evidence, ensure_ascii=False, sort_keys=True)
             recent_events = f"{recent_events}\n\nEvento disparador validado para revisar: {event_context}"
+        price_context = self._current_price_context(financial_data)
 
         ddd_inputs = {
             "analysis_as_of_date": datetime.now(AR_TZ).date().isoformat(),
             "ticker": ticker,
             "name": company.get("name", ticker),
-            "current_price": financial_data.get("price") or financial_data.get("current_price") or "N/D",
+            "current_price": price_context["price"],
+            "current_price_as_of_date": price_context["as_of_date"],
+            "current_price_source": price_context["source"],
             "quote_currency": financial_data.get("quote_currency") or financial_data.get("currency") or "N/D",
             "existing_wiki": previous_wiki,
             "prior_catalysts": prior_catalysts,
@@ -1046,6 +1049,45 @@ class ResearchWorker(BaseWorker):
             pass
         self._warn_missing_financial(ticker, {}, "ninguna")
         return data
+
+    @staticmethod
+    def _current_price_context(data: dict[str, Any]) -> dict[str, Any]:
+        """Return a sourced quote, falling back only to the latest aligned close."""
+        price = data.get("price") or data.get("current_price")
+        quote_date = data.get("price_as_of_date") or data.get("current_price_as_of_date")
+        if not isinstance(price, (int, float)) or isinstance(price, bool) or not math.isfinite(price) or price <= 0:
+            price = None
+
+        prices = data.get("price_history")
+        dates = data.get("price_history_dates")
+        if price is None and isinstance(prices, list) and isinstance(dates, list) and len(prices) == len(dates):
+            for candidate, candidate_date in reversed(list(zip(prices, dates))):
+                if (
+                    isinstance(candidate, (int, float)) and not isinstance(candidate, bool)
+                    and math.isfinite(candidate) and candidate > 0
+                    and isinstance(candidate_date, str)
+                ):
+                    try:
+                        if date.fromisoformat(candidate_date).isoformat() != candidate_date:
+                            continue
+                    except ValueError:
+                        continue
+                    price, quote_date = candidate, candidate_date
+                    break
+
+        provenance = data.get("data_provenance")
+        field_sources = provenance.get("field_sources", {}) if isinstance(provenance, dict) else {}
+        sources = field_sources.get("price_history", []) if isinstance(field_sources, dict) else []
+        if not sources:
+            quote_provenance = data.get("price_provenance")
+            if isinstance(quote_provenance, dict) and quote_provenance.get("source"):
+                sources = [quote_provenance["source"]]
+        source = ", ".join(sorted({str(item) for item in sources if item})) if isinstance(sources, list) else ""
+        return {
+            "price": price if price is not None else "N/D",
+            "as_of_date": quote_date if isinstance(quote_date, str) else "N/D",
+            "source": source or "N/D",
+        }
 
     @staticmethod
     def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:

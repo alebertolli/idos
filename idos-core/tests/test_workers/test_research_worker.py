@@ -69,6 +69,29 @@ def _mock_research_registry() -> MagicMock:
     return registry
 
 
+def test_current_price_context_uses_latest_aligned_close_with_provenance():
+    context = ResearchWorker._current_price_context({
+        "price_history": [100.0, None, 125.5],
+        "price_history_dates": ["2026-10-15", "2026-10-16", "2026-10-19"],
+        "data_provenance": {"field_sources": {"price_history": ["yfinance"]}},
+    })
+
+    assert context == {
+        "price": 125.5,
+        "as_of_date": "2026-10-19",
+        "source": "yfinance",
+    }
+
+
+def test_current_price_context_does_not_infer_from_unaligned_history():
+    context = ResearchWorker._current_price_context({
+        "price_history": [100.0, 125.5],
+        "price_history_dates": ["2026-10-15"],
+    })
+
+    assert context == {"price": "N/D", "as_of_date": "N/D", "source": "N/D"}
+
+
 class TestResearchWorker:
     def test_multibaggers_research_requires_matching_intake_and_uses_strategy_prompt(
         self, seeded_opportunity, tmp_sqlite, tmp_journal, base_path: str
