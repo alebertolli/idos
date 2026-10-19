@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-19 11:10 AR _
+_Generado: 2026-10-19 11:14 AR _
 
 ## Resumen
 
@@ -22,7 +22,6 @@ _Generado: 2026-10-19 11:10 AR _
   - Scores: Business: 76 | Valuation: 65 | Recovery: 64 | Risk: 80 | Portfolio: 50
   - Rules BLOCKED:
     - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: BULL.sources[0]: la fecha de fuente no puede superar as_of_date
-    - 🚫 RULE-010: fecha de corte ausente, inválida o futura; procedencia incompleta
 
 ---
 
