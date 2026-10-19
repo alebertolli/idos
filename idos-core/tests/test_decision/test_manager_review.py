@@ -42,7 +42,8 @@ def _seed_fundamental_case(base_path: Path, *, recommendation="APPROVE", rules_f
         "scenario_hash": "",
         "reviewed_by": "github-manager",
         "reviewed_at": "2026-10-19T12:00:00-03:00",
-        "note": "Reviewed evidence and valuation assumptions.",
+        "note": "Reviewed source links, dates and valuation assumptions.",
+        "sources_verified": True,
     }
     from idos.decision.scenarios import scenario_fingerprint
     review["scenario_hash"] = scenario_fingerprint(analysis)
