@@ -30,7 +30,7 @@ def assess_risk_v21(
     snapshot: Mapping[str, Any],
     positions: list[Mapping[str, Any]],
     *,
-    total_market_value: Decimal,
+    net_asset_value: Decimal,
     gross_assets: Decimal,
     as_of: date,
 ) -> dict[str, Any]:
@@ -40,8 +40,6 @@ def assess_risk_v21(
     scenario_rows: dict[str, list[dict[str, Any]]] = {}
     credit_expected_loss = Decimal(0)
     credit_expected_loss_complete = True
-    risk_scores: list[tuple[str, Decimal]] = []
-    risk_score_complete = True
     sizing: list[dict[str, Any]] = []
 
     for position in positions:
@@ -99,13 +97,6 @@ def assess_risk_v21(
         if permanent_loss["status"] != "ASSESSED":
             missing_domains.add("permanent_loss_risk")
 
-        risk_score = _risk_contribution(position_id, value, total_market_value, metrics, as_of)
-        if risk_score is None:
-            risk_score_complete = False
-            missing_domains.add("asset_specific_risk_contribution")
-        else:
-            risk_scores.append((position_id, risk_score))
-
         sizing.append(_position_sizing(position_id, risk_profile, as_of))
         profile_scenarios = risk_profile.get("scenario_returns_pct")
         profile_scenarios = profile_scenarios if isinstance(profile_scenarios, Mapping) else {}
@@ -143,7 +134,9 @@ def assess_risk_v21(
     if correlation["status"] != "ASSESSED":
         missing_domains.add("factor_correlation_and_return_stream_overlap")
 
-    contributions = _normalize_risk_contributions(risk_scores, risk_score_complete)
+    contributions = _risk_contributions(positions, net_asset_value, correlation, as_of)
+    if contributions["status"] != "ASSESSED":
+        missing_domains.add("asset_specific_risk_contribution")
     risk_budget = _risk_budget(snapshot, as_of)
     sizing_complete = bool(sizing) and all(row["status"] == "ASSESSED" for row in sizing)
     if not risk_budget["status"] == "ASSESSED":
@@ -580,23 +573,190 @@ def _correlation_report(snapshot: Mapping[str, Any], positions: list[Mapping[str
     }
 
 
-def _risk_contribution(position_id: str, value: Decimal, total: Decimal, metrics: Mapping[str, Any], as_of: date) -> Decimal | None:
-    intensity = _metric(metrics, "risk_intensity", as_of, "ratio")
-    adjustment = _metric(metrics, "correlation_adjustment", as_of, "ratio")
-    if total <= 0 or intensity is None or adjustment is None or intensity < 0 or adjustment < 0:
-        return None
-    return value / total * intensity * adjustment
+def _risk_contributions(
+    positions: list[Mapping[str, Any]],
+    net_asset_value: Decimal,
+    correlation: Mapping[str, Any],
+    as_of: date,
+) -> dict[str, Any]:
+    """Decompose portfolio volatility by return stream using Euler contributions."""
+    methodology = "euler_volatility_covariance_v1"
 
+    def unknown(reason: str) -> dict[str, Any]:
+        return {
+            "status": "UNKNOWN",
+            "methodology": methodology,
+            "portfolio_annualized_volatility_pct": None,
+            "return_streams": [],
+            "positions": [],
+            "reason": reason,
+        }
 
-def _normalize_risk_contributions(rows: list[tuple[str, Decimal]], complete: bool) -> dict[str, Any]:
-    total = sum((score for _, score in rows), Decimal(0))
-    if not complete or not rows or total <= 0:
-        return {"status": "UNKNOWN", "methodology": "capital_weight_times_risk_intensity_times_correlation_adjustment_v1", "positions": []}
+    if net_asset_value <= 0 or not positions:
+        return unknown("POSITIVE_NET_ASSET_VALUE_REQUIRED")
+    if correlation.get("status") != "ASSESSED":
+        return unknown("COMPLETE_RETURN_STREAM_CORRELATIONS_REQUIRED")
+
+    streams: dict[str, dict[str, Any]] = {}
+    for position in positions:
+        position_id = str(position.get("position_id", "UNKNOWN"))
+        profile = position.get("risk_profile")
+        if not isinstance(profile, Mapping) or profile.get("schema_version") != _RISK_PROFILE_SCHEMA_VERSION:
+            return unknown("SUPPORTED_RISK_PROFILE_REQUIRED")
+        stream_id = str(profile.get("return_stream_id", "")).strip()
+        metrics = profile.get("metrics")
+        if not stream_id or not isinstance(metrics, Mapping):
+            return unknown("RETURN_STREAM_AND_VOLATILITY_REQUIRED")
+        volatility_evidence = _read_evidence(
+            metrics.get("annualized_volatility_pct"), as_of, expected_unit="percent"
+        )
+        volatility = (
+            _as_decimal(volatility_evidence.get("value"))
+            if volatility_evidence["status"] == "ASSESSED"
+            else None
+        )
+        value = _as_decimal(position.get("market_value_base"))
+        if volatility is None or volatility < 0 or value is None or value < 0:
+            return unknown("DATED_VOLATILITY_AND_VALID_MARKET_VALUE_REQUIRED")
+        stream = streams.setdefault(stream_id, {
+            "market_value_base": Decimal(0),
+            "annualized_volatility_pct": volatility,
+            "members": [],
+            "volatility_evidence": [],
+        })
+        if stream["annualized_volatility_pct"] != volatility:
+            return unknown("INCONSISTENT_VOLATILITY_WITHIN_RETURN_STREAM")
+        stream["market_value_base"] += value
+        stream["members"].append({"position_id": position_id, "market_value_base": value})
+        stream["volatility_evidence"].append({
+            "position_id": position_id,
+            "value_pct": float(volatility),
+            "as_of": volatility_evidence["as_of"],
+            "source_ref": volatility_evidence["source_ref"],
+        })
+
+    stream_ids = sorted(streams)
+    if stream_ids != sorted(
+        item.get("return_stream_id") for item in correlation.get("return_streams", [])
+        if isinstance(item, Mapping) and isinstance(item.get("return_stream_id"), str)
+    ):
+        return unknown("CORRELATION_STREAMS_DO_NOT_MATCH_POSITIONS")
+
+    pair_values: dict[tuple[str, str], Decimal] = {}
+    for row in correlation.get("correlations", []):
+        if not isinstance(row, Mapping):
+            return unknown("INVALID_CORRELATION_EVIDENCE")
+        left = str(row.get("return_stream_id_a", ""))
+        right = str(row.get("return_stream_id_b", ""))
+        value = _as_decimal(row.get("correlation"))
+        if not left or not right or value is None:
+            return unknown("INVALID_CORRELATION_EVIDENCE")
+        pair_values[(left, right)] = value
+        pair_values[(right, left)] = value
+
+    weights = {
+        stream_id: streams[stream_id]["market_value_base"] / net_asset_value
+        for stream_id in stream_ids
+    }
+    volatilities = {
+        stream_id: streams[stream_id]["annualized_volatility_pct"] / Decimal(100)
+        for stream_id in stream_ids
+    }
+    covariance: list[list[Decimal]] = []
+    for left in stream_ids:
+        row: list[Decimal] = []
+        for right in stream_ids:
+            if left == right:
+                rho = Decimal(1)
+            else:
+                rho = pair_values.get((left, right))
+                if rho is None:
+                    return unknown("COMPLETE_RETURN_STREAM_CORRELATIONS_REQUIRED")
+            row.append(volatilities[left] * volatilities[right] * rho)
+        covariance.append(row)
+    if not _is_positive_semidefinite(covariance):
+        return unknown("CORRELATION_MATRIX_NOT_POSITIVE_SEMIDEFINITE")
+
+    variance = sum(
+        weights[stream_ids[i]] * covariance[i][j] * weights[stream_ids[j]]
+        for i in range(len(stream_ids))
+        for j in range(len(stream_ids))
+    )
+    if not variance.is_finite() or variance <= 0:
+        return unknown("PORTFOLIO_VARIANCE_MUST_BE_POSITIVE")
+    portfolio_volatility = variance.sqrt()
+
+    stream_reports: list[dict[str, Any]] = []
+    position_reports: list[dict[str, Any]] = []
+    for index, stream_id in enumerate(stream_ids):
+        marginal_variance = sum(
+            covariance[index][j] * weights[stream_ids[j]]
+            for j in range(len(stream_ids))
+        )
+        absolute_contribution_pct = weights[stream_id] * marginal_variance / portfolio_volatility * 100
+        relative_contribution_pct = weights[stream_id] * marginal_variance / variance * 100
+        stream = streams[stream_id]
+        stream_reports.append({
+            "return_stream_id": stream_id,
+            "market_value_base": float(stream["market_value_base"]),
+            "weight_pct": round(float(weights[stream_id] * 100), 6),
+            "annualized_volatility_pct": float(stream["annualized_volatility_pct"]),
+            "volatility_evidence": sorted(
+                stream["volatility_evidence"], key=lambda row: row["position_id"]
+            ),
+            "volatility_contribution_pct_points": round(float(absolute_contribution_pct), 6),
+            "risk_contribution_pct": round(float(relative_contribution_pct), 6),
+        })
+        stream_value = stream["market_value_base"]
+        for member in stream["members"]:
+            member_share = member["market_value_base"] / stream_value if stream_value > 0 else Decimal(0)
+            position_reports.append({
+                "position_id": member["position_id"],
+                "return_stream_id": stream_id,
+                "contribution_pct": round(float(relative_contribution_pct * member_share), 6),
+            })
+
     return {
         "status": "ASSESSED",
-        "methodology": "capital_weight_times_risk_intensity_times_correlation_adjustment_v1",
-        "positions": [{"position_id": position_id, "contribution_pct": round(float(score / total * 100), 6)} for position_id, score in rows],
+        "methodology": methodology,
+        "portfolio_annualized_volatility_pct": round(float(portfolio_volatility * 100), 6),
+        "return_streams": stream_reports,
+        "positions": sorted(position_reports, key=lambda row: row["position_id"]),
+        "reason": None,
     }
+
+
+def _is_positive_semidefinite(matrix: list[list[Decimal]]) -> bool:
+    """Check a symmetric matrix with an LDLᵀ factorization and fixed tolerance."""
+    size = len(matrix)
+    lower = [[Decimal(0) for _ in range(size)] for _ in range(size)]
+    diagonal = [Decimal(0) for _ in range(size)]
+    tolerance = Decimal("1e-12")
+    for row in range(size):
+        pivot = matrix[row][row] - sum(
+            lower[row][k] * lower[row][k] * diagonal[k]
+            for k in range(row)
+        )
+        if pivot < -tolerance:
+            return False
+        if abs(pivot) <= tolerance:
+            diagonal[row] = Decimal(0)
+            for below in range(row + 1, size):
+                residual = matrix[below][row] - sum(
+                    lower[below][k] * lower[row][k] * diagonal[k]
+                    for k in range(row)
+                )
+                if abs(residual) > tolerance:
+                    return False
+            continue
+        diagonal[row] = pivot
+        for below in range(row + 1, size):
+            residual = matrix[below][row] - sum(
+                lower[below][k] * lower[row][k] * diagonal[k]
+                for k in range(row)
+            )
+            lower[below][row] = residual / pivot
+    return True
 
 
 def _risk_budget(snapshot: Mapping[str, Any], as_of: date) -> dict[str, Any]:

@@ -229,7 +229,7 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
     risk_report = assess_risk_v21(
         snapshot,
         risk_positions,
-        total_market_value=total_value,
+        net_asset_value=net_asset_value,
         gross_assets=gross_assets,
         as_of=as_of_date,
     )

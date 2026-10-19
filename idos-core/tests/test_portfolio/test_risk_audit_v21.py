@@ -35,8 +35,6 @@ def snapshot_with_bond():
                     "spread_duration_years": evidence(3, "years"),
                     "pd_1y_pct": evidence(2, "percent"),
                     "lgd_pct": evidence(40, "percent"),
-                    "risk_intensity": evidence(0.2, "ratio"),
-                    "correlation_adjustment": evidence(1.1, "ratio"),
                 },
                 "return_stream_id": "issuer-a-credit",
                 "economic_currency_exposures": [{
@@ -65,6 +63,10 @@ def test_risk_audit_uses_explicit_duration_convexity_and_credit_inputs():
     assert scenarios["GLOBAL_EQUITY_CRASH_-20"]["status"] == "PARTIAL"
     assert report["risk_budget"]["available_base"] == 700
     assert "liquidity_under_normal_and_stress" in report["risk_dimensions_not_assessed"]
+    assert report["risk_contributions"]["status"] == "ASSESSED"
+    assert report["risk_contributions"]["methodology"] == "euler_volatility_covariance_v1"
+    assert report["risk_contributions"]["portfolio_annualized_volatility_pct"] == 8
+    assert report["risk_contributions"]["positions"][0]["contribution_pct"] == 100
 
 
 def test_distressed_credit_exposes_sourced_recovery_waterfall_and_scenarios():
@@ -226,6 +228,9 @@ def test_positions_in_one_return_stream_do_not_require_pairwise_correlations():
         "return_stream_id": "issuer-a-credit",
         "position_ids": ["bond-1", "bond-2"],
     }]
+    contributions = audit_portfolio(snapshot)["risk_contributions"]
+    assert contributions["status"] == "ASSESSED"
+    assert len(contributions["return_streams"][0]["volatility_evidence"]) == 2
 
 
 def test_missing_return_stream_identity_keeps_correlation_partial():
@@ -240,3 +245,104 @@ def test_missing_return_stream_identity_keeps_correlation_partial():
 
     assert correlation["status"] == "PARTIAL"
     assert correlation["positions_without_return_stream"] == ["bond-1"]
+
+
+def test_risk_contributions_use_euler_volatility_and_correlation_matrix():
+    snapshot = snapshot_with_bond()
+    first = snapshot["positions"][0]
+    first["risk_profile"]["return_stream_id"] = "stream-a"
+    first["risk_profile"]["metrics"]["annualized_volatility_pct"] = evidence(10, "percent")
+    second = deepcopy(first)
+    second["position_id"] = "bond-2"
+    second["risk_profile"]["return_stream_id"] = "stream-b"
+    second["risk_profile"]["metrics"]["annualized_volatility_pct"] = evidence(20, "percent")
+    snapshot["positions"].append(second)
+    snapshot["correlations"] = [{
+        "return_stream_id_a": "stream-a", "return_stream_id_b": "stream-b",
+        "value": 0.5, "as_of": "2026-10-15", "source_ref": "corr-ab",
+    }]
+
+    contributions = audit_portfolio(snapshot)["risk_contributions"]
+
+    assert contributions["status"] == "ASSESSED"
+    assert contributions["portfolio_annualized_volatility_pct"] == 13.228757
+    rows = {row["position_id"]: row["contribution_pct"] for row in contributions["positions"]}
+    assert rows == {"bond-1": 28.571429, "bond-2": 71.428571}
+    assert sum(rows.values()) == 100
+
+
+def test_risk_contributions_reject_non_positive_semidefinite_correlations():
+    snapshot = snapshot_with_bond()
+    first = snapshot["positions"][0]
+    first["risk_profile"]["return_stream_id"] = "stream-a"
+    second = deepcopy(first)
+    second["position_id"] = "bond-2"
+    second["risk_profile"]["return_stream_id"] = "stream-b"
+    third = deepcopy(first)
+    third["position_id"] = "bond-3"
+    third["risk_profile"]["return_stream_id"] = "stream-c"
+    snapshot["positions"].extend((second, third))
+    snapshot["correlations"] = [
+        {"return_stream_id_a": "stream-a", "return_stream_id_b": "stream-b", "value": 0.9, "as_of": "2026-10-15", "source_ref": "corr-ab"},
+        {"return_stream_id_a": "stream-a", "return_stream_id_b": "stream-c", "value": 0.9, "as_of": "2026-10-15", "source_ref": "corr-ac"},
+        {"return_stream_id_a": "stream-b", "return_stream_id_b": "stream-c", "value": -0.9, "as_of": "2026-10-15", "source_ref": "corr-bc"},
+    ]
+
+    report = audit_portfolio(snapshot)
+
+    assert report["correlation_and_return_streams"]["status"] == "ASSESSED"
+    assert report["risk_contributions"]["status"] == "UNKNOWN"
+    assert report["risk_contributions"]["reason"] == "CORRELATION_MATRIX_NOT_POSITIVE_SEMIDEFINITE"
+    assert "asset_specific_risk_contribution" in report["risk_dimensions_not_assessed"]
+
+
+def test_risk_contributions_accept_singular_positive_semidefinite_matrix():
+    snapshot = snapshot_with_bond()
+    positions = []
+    for position_id, stream_id in (("bond-1", "stream-a"), ("bond-2", "stream-b"), ("bond-3", "stream-c")):
+        position = deepcopy(snapshot["positions"][0])
+        position["position_id"] = position_id
+        position["risk_profile"]["return_stream_id"] = stream_id
+        positions.append(position)
+    snapshot["positions"] = positions
+    snapshot["correlations"] = [
+        {"return_stream_id_a": left, "return_stream_id_b": right, "value": 1.0, "as_of": "2026-10-15", "source_ref": f"corr-{left}-{right}"}
+        for left, right in (("stream-a", "stream-b"), ("stream-a", "stream-c"), ("stream-b", "stream-c"))
+    ]
+
+    contributions = audit_portfolio(snapshot)["risk_contributions"]
+
+    assert contributions["status"] == "ASSESSED"
+    assert contributions["portfolio_annualized_volatility_pct"] == 8
+    assert [row["risk_contribution_pct"] for row in contributions["return_streams"]] == [
+        33.333333, 33.333333, 33.333333
+    ]
+
+
+def test_one_return_stream_requires_consistent_volatility_across_positions():
+    snapshot = snapshot_with_bond()
+    second = deepcopy(snapshot["positions"][0])
+    second["position_id"] = "bond-2"
+    second["risk_profile"]["metrics"]["annualized_volatility_pct"] = evidence(12, "percent")
+    snapshot["positions"].append(second)
+
+    contributions = audit_portfolio(snapshot)["risk_contributions"]
+
+    assert contributions["status"] == "UNKNOWN"
+    assert contributions["reason"] == "INCONSISTENT_VOLATILITY_WITHIN_RETURN_STREAM"
+
+
+def test_risky_asset_volatility_is_scaled_to_net_asset_value_with_cash():
+    snapshot = snapshot_with_bond()
+    snapshot["cash"] = [{
+        "cash_id": "cash-1", "account_id": "account-1", "source_ref": "custody-cash-1",
+        "currency": "USD", "balance": 1000,
+    }]
+
+    report = audit_portfolio(snapshot)
+
+    assert report["net_asset_value_base"] == 2000
+    assert report["risk_contributions"]["status"] == "ASSESSED"
+    assert report["risk_contributions"]["portfolio_annualized_volatility_pct"] == 4
+    assert report["risk_contributions"]["return_streams"][0]["weight_pct"] == 50
+    assert report["risk_contributions"]["positions"][0]["contribution_pct"] == 100

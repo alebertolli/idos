@@ -507,17 +507,30 @@ de:
 Risk Contribution
 ```
 
-Una aproximación inicial:
+Cuando existen volatilidades anuales con fuente/fecha y una matriz completa por
+`return_stream_id`, la implementación descompone la volatilidad con la
+contribución de Euler:
 
 ```text
-Risk Contribution
-=
-Capital Weight
-× Risk Intensity
-× Correlation Adjustment
+Covariance(i, j) = Volatility(i) × Volatility(j) × Correlation(i, j)
+Portfolio Volatility = sqrt(wᵀ × Covariance × w)
+Risk Contribution Share(i) = w(i) × (Covariance × w)(i) / Portfolio Variance
 ```
 
-La fórmula concreta dependerá del asset class.
+Los activos con el mismo `return_stream_id` se agregan como un retorno común;
+los pesos usan el valor de mercado dividido por NAV neto y la contribución de
+ese stream se distribuye entre sus posiciones según su exposición. Así, efectivo
+reduce la volatilidad de mercado por NAV y los pasivos amplifican la exposición;
+FX e inflación del efectivo se presentan en sus dominios específicos. El método
+exige volatilidad consistente dentro de cada stream, correlaciones fechadas y
+trazables, matriz positiva semidefinida y varianza de cartera positiva. Con
+datos faltantes, inconsistentes o una matriz inválida el resultado queda
+`UNKNOWN`; no se inventa una correlación ni una volatilidad. Una contribución
+negativa puede representar cobertura y no se recorta a cero. La suma de
+contribuciones relativas es 100% cuando el cálculo está `ASSESSED`.
+
+El resultado es atribución de volatilidad observada, no pérdida esperada,
+pronóstico ni autorización de asignación.
 
 ---
 
