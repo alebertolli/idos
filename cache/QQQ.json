@@ -1,12 +1,11 @@
 {
   "asset_type": "etf",
-  "aum": 498945982464,
-  "aum_currency": "USD",
-  "aum_source": "yfinance",
-  "avg_dollar_volume_usd": 26611354401.419067,
-  "avg_volume": 49693774.10358566,
+  "avg_dollar_volume_usd": 25750986184.768394,
+  "avg_volume": 49503458.23505976,
   "dividend_yield_pct": 0.42,
   "exchange": "NGM",
+  "financial_currency": "USD",
+  "financial_data_observed_at": "2026-10-19T17:53:25.532644+00:00",
   "high_52w": 762.86,
   "liquidity_provenance": {
     "quote_currency": "USD",
@@ -17,13 +16,12 @@
     "valid_observations": 20,
     "coverage": 1.0,
     "minimum_coverage": 0.8,
-    "first_price_date": "2026-09-21",
-    "last_price_date": "2026-10-16",
+    "first_price_date": "2026-09-22",
+    "last_price_date": "2026-10-19",
     "price_source": "yfinance",
     "fx_source": null,
     "fx_observations": [],
     "valid_price_dates": [
-      "2026-09-21",
       "2026-09-22",
       "2026-09-23",
       "2026-09-24",
@@ -42,7 +40,8 @@
       "2026-10-13",
       "2026-10-14",
       "2026-10-15",
-      "2026-10-16"
+      "2026-10-16",
+      "2026-10-19"
     ],
     "missing_market_dates": [],
     "basis": "UNDERLYING_USD_PROXY"
@@ -51,22 +50,19 @@
   "ma_200d": 674.90924,
   "ma_50d": 726.7734,
   "market_data_normalization": {
-    "status": "blocked",
-    "size_metric": "aum_usd",
-    "errors": [
-      "ETF AUM requires a positive value, explicit currency, source and as-of date"
-    ],
+    "status": "complete",
+    "size_metric": null,
+    "errors": [],
     "liquidity_basis": "UNDERLYING_USD_PROXY",
     "exchange_calendar": "NGM"
   },
-  "pb_ratio": 1.983934,
-  "pe_ratio": 27.178759,
-  "price": 709.8,
-  "price_change_1m": -1.6148068773917141,
-  "price_change_3m": 0.117073659554378,
-  "price_change_6m": 9.741958271802595,
+  "pb_ratio": 2.0099003,
+  "pe_ratio": 27.534481,
+  "price": 719.09,
+  "price_change_1m": -3.018321001784291,
+  "price_change_3m": 1.947976429447995,
+  "price_change_6m": 11.602751351439935,
   "price_history": [
-    603.9299926757812,
     611.5399780273438,
     611.3800048828125,
     605.489990234375,
@@ -316,11 +312,11 @@
     743.5700073242188,
     728.9500122070312,
     728.0,
-    709.7999877929688
+    709.7999877929688,
+    719.0900268554688
   ],
   "price_history_basis": "close_unadjusted",
   "price_history_dates": [
-    "2025-10-17",
     "2025-10-20",
     "2025-10-21",
     "2025-10-22",
@@ -570,14 +566,14 @@
     "2026-10-13",
     "2026-10-14",
     "2026-10-15",
-    "2026-10-16"
+    "2026-10-16",
+    "2026-10-19"
   ],
   "quote_currency": "USD",
   "shares_outstanding": 393100000,
   "source": "yahoo_finance",
   "ticker": "QQQ",
   "volume_history": [
-    72024900,
     45761700,
     44538200,
     61478800,
@@ -827,8 +823,10 @@
     28738600,
     52383600,
     49828700,
-    66693300
+    66693300,
+    24255617
   ],
+  "financial_observations": {},
   "data_provenance": {
     "source_count": 1,
     "sources_used": [
@@ -836,15 +834,6 @@
     ],
     "field_sources": {
       "asset_type": [
-        "yfinance"
-      ],
-      "aum": [
-        "yfinance"
-      ],
-      "aum_currency": [
-        "yfinance"
-      ],
-      "aum_source": [
         "yfinance"
       ],
       "avg_dollar_volume_usd": [
@@ -857,6 +846,12 @@
         "yfinance"
       ],
       "exchange": [
+        "yfinance"
+      ],
+      "financial_currency": [
+        "yfinance"
+      ],
+      "financial_data_observed_at": [
         "yfinance"
       ],
       "high_52w": [
