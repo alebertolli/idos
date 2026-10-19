@@ -566,26 +566,39 @@ snapshot. Informa pesos por posición sobre holdings, peso adicional sobre
 activos brutos, agrupaciones conocidas (incluido economic cluster), cash por
 moneda/cuenta, obligaciones por moneda, activos brutos, pasivos y valor neto.
 Una lista faltante queda declarada como `balance_sheet_status: PARTIAL`; sólo
-ambas listas explícitas, incluso vacías, permiten `COMPLETE`. La obligación debe
-estar marcada `PENDING`. Cada posición, cash y obligación exige `source_ref`;
-cada FX no base exige fecha y referencia de fuente, y una fecha FX posterior al
-corte bloquea el cálculo. Aún no existe un umbral aprobado de antigüedad de FX,
-por lo que la validez temporal se limita a rechazar fechas futuras. El reporte
-mantiene `risk_audit_status: NOT_ASSESSED`, enumera los dominios pendientes y bloquea autorización de
-asignación. El campo legacy `status` describe sólo la integridad de las
-clasificaciones de capital; no significa que Risk Audit v2.1 esté completo.
+ambas listas explícitas, incluso vacías, permiten `COMPLETE`. Cada posición,
+cash y obligación exige `source_ref`; cada FX no base exige fecha y referencia
+de fuente, y una fecha posterior al corte bloquea el cálculo. Aún no existe un
+umbral aprobado de antigüedad de FX. El campo legacy `status` describe sólo la
+integridad de las clasificaciones de capital.
 
-No se calculan ni infieren duration, convexidad, volatilidad, beta, crédito,
-recovery, liquidez efectiva, moneda económica, poder adquisitivo real,
-correlaciones, permanent-loss risk, escenarios, contribución de riesgo,
-presupuesto ni sizing. Deben permanecer `UNKNOWN / N/A` hasta que el snapshot
-aporte inputs con unidad, fuente y fecha, y exista un método versionado
-aplicable al tipo de activo. El reporte nunca autoriza operaciones.
+`idos-core/idos/portfolio/risk_audit_v21.py` implementa una primera capa
+multidimensional basada en `risk_profile` por posición. Las métricas aceptan
+`value`, `unit`, `as_of` y `source_ref`; unidades incompatibles, fuentes o
+fechas faltantes, evidencia posterior al corte y valores requeridos ausentes
+quedan `UNKNOWN`/`PARTIAL`, nunca se convierten implícitamente en cero. La capa
+calcula sensibilidad de renta fija con duration y convexidad, shocks de spread
+con spread duration, crash de equity con beta, pérdida crediticia esperada
+`PD × LGD`, contribución aproximada `peso de capital × intensidad × ajuste de
+correlación`, presupuesto explícito y límite de peso como mínimo de cinco
+límites aportados. Reporta exposiciones económicas de moneda, clasificación de
+crédito, pérdida permanente revisada por una persona y escenarios explícitos
+con P&L e impacto sobre activos brutos. Los shocks estándar de tasas, spreads y
+equity son sensibilidades, no pronósticos.
 
-La validación local cubre consolidación determinista de capital y balance,
-clasificaciones, filas inválidas/duplicadas, FX faltante y CLI con salida
-separada del snapshot de entrada. La evaluación multidimensional completa
-requiere inputs versionados por clase de activo, fuentes/fechas, fixtures,
-escenarios y correlaciones con métodos explícitos, pruebas de integración y
-revisión del gestor. No usar cartera simulada como sustituto de la hoja privada
-familiar.
+El estado continúa `PARTIAL` hasta que cada dominio aplicable tenga cobertura
+completa. Liquidez no se clasifica Alta/Media/Baja mientras no se aprueben
+umbrales; inflación/poder adquisitivo, correlación entre posiciones y estrés
+de Argentina o combinado requieren evidencia explícita. La implementación no
+estima correlaciones a partir de retornos ni deriva recuperación de crédito;
+el análisis de recupero ante distress exige una cascada documentada. El
+contrato de perfil de riesgo no está conectado a una fuente privada validada,
+por lo que estos resultados aún no auditan la cartera familiar. Siempre se
+devuelve `allocation_authorized: false`.
+
+La validación local incluye cálculos con fixture sintético, ausencia de datos,
+unidades/fechas, convexidad faltante, sizing por los cinco límites y
+consolidación de capital/balance. El test CLI existente requiere un directorio
+temporal que el entorno Windows actual no permite enumerar; debe repetirse en
+CI. No usar cartera simulada como sustituto de la hoja privada ni publicar
+perfiles de riesgo en Pages.

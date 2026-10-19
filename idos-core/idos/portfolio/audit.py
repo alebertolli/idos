@@ -1,6 +1,6 @@
-"""Deterministic capital and balance-sheet audit for a supplied snapshot.
+"""Deterministic capital, balance-sheet, and sourced risk audit for a snapshot.
 
-This module does not value assets, infer missing classifications, or authorize trades.
+This module does not value assets, infer missing evidence, or authorize trades.
 Amounts are converted using rates supplied with the snapshot, never live quotes.
 """
 
@@ -11,6 +11,8 @@ from datetime import date
 from decimal import Decimal, InvalidOperation
 from typing import Any, Mapping
 
+from idos.portfolio.risk_audit_v21 import assess_risk_v21
+
 
 class PortfolioAuditError(ValueError):
     """The snapshot cannot be audited reliably."""
@@ -20,20 +22,6 @@ _DIMENSIONS = (
     "instrument_id", "issuer", "economic_cluster", "strategy_id",
     "sleeve", "sector", "country", "argentina_risk_bucket",
 )
-
-_RISK_DIMENSIONS_NOT_ASSESSED = (
-    "market_risk_duration_convexity_volatility_beta",
-    "credit_default_recovery_risk",
-    "liquidity_under_normal_and_stress",
-    "nominal_and_economic_currency_risk",
-    "inflation_and_real_purchasing_power",
-    "factor_correlation_and_return_stream_overlap",
-    "permanent_loss_risk",
-    "interest_rate_credit_argentina_equity_and_combined_scenarios",
-    "asset_specific_risk_contribution",
-    "risk_capacity_budget_and_position_sizing_limits",
-)
-
 
 def _decimal(value: Any, label: str, *, positive: bool = False) -> Decimal:
     if isinstance(value, bool):
@@ -55,7 +43,7 @@ def _required_text(row: Mapping[str, Any], key: str, label: str) -> str:
 
 
 def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
-    """Audit capital and balance-sheet exposure without inventing risk scores.
+    """Audit capital, balance-sheet, and evidence-backed portfolio risk.
 
     ``fx_to_base`` expresses one unit of each currency in ``base_currency``.
     A missing rate, duplicate position ID, invalid amount or empty portfolio
@@ -113,6 +101,7 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
         raise PortfolioAuditError("snapshot.obligations must be a list")
 
     positions: list[dict[str, Any]] = []
+    risk_positions: list[dict[str, Any]] = []
     seen: set[str] = set()
     totals: dict[str, dict[str, Decimal]] = {key: defaultdict(Decimal) for key in _DIMENSIONS}
     missing: list[dict[str, str]] = []
@@ -218,6 +207,12 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
             "market_value_base": value,
             "classifications": groups,
         })
+        risk_positions.append({
+            "position_id": position_id,
+            "currency": currency,
+            "market_value_base": value,
+            "risk_profile": raw.get("risk_profile"),
+        })
 
     def pct(value: Decimal, denominator: Decimal) -> float:
         if denominator <= 0:
@@ -231,6 +226,13 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
 
     gross_assets = total_value + cash_total
     net_asset_value = gross_assets - liabilities_total
+    risk_report = assess_risk_v21(
+        snapshot,
+        risk_positions,
+        total_market_value=total_value,
+        gross_assets=gross_assets,
+        as_of=as_of_date,
+    )
 
     return {
         "as_of": as_of,
@@ -242,8 +244,6 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
             if "cash" in snapshot or "obligations" in snapshot
             else "CAPITAL_EXPOSURE_ONLY"
         ),
-        "risk_audit_status": "NOT_ASSESSED",
-        "risk_dimensions_not_assessed": list(_RISK_DIMENSIONS_NOT_ASSESSED),
         "balance_sheet_status": (
             "COMPLETE" if "cash" in snapshot and "obligations" in snapshot
             else "PARTIAL" if "cash" in snapshot or "obligations" in snapshot
@@ -280,4 +280,5 @@ def audit_portfolio(snapshot: Mapping[str, Any]) -> dict[str, Any]:
             "currency": {name: share(value, gross_assets) for name, value in sorted(liabilities_by_currency.items())},
         },
         "methodology": "capital_balance_sheet_exposure_v1",
+        **risk_report,
     }

@@ -305,6 +305,16 @@ estas pruebas.
 
 ### 8.4 Frontera privada de portfolio y Risk Audit
 
+El motor Risk Audit v2.1 tiene cobertura local de fixture sintético en
+`tests/test_portfolio/test_risk_audit_v21.py`: duration/convexity, PD×LGD,
+spread duration, datos/convexidad faltantes, corte de evidencia, cinco límites
+de sizing, presupuesto y permanencia de `allocation_authorized: false`. Esto
+demuestra el cálculo con contrato explícito; no demuestra una auditoría de la
+cartera familiar ni cobertura completa. Antes de declarar REQ-20-05 completo,
+confirmar el caso CLI en CI y agregar fixtures de liquidez/clasificación,
+monedas económicas, correlaciones y escenarios Argentina/combined desde la
+fuente privada validada.
+
 1. Antes de conectar Google Sheets, validar con hoja ficticia privada y
    credenciales de solo lectura; revisar permisos anónimos denegados, schema,
    FX/fechas, identificadores duplicados y conciliación con extractos.
