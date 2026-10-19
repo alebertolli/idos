@@ -1,0 +1,19 @@
+# IDOS MULTIBAGGERS — universo curado P1
+#
+# Este archivo es la fuente versionada de inclusión. La estrategia permanece
+# deshabilitada hasta que cada ticker tenga revisión humana y evidencia mínima.
+# Small caps están excluidas en P1: market_cap_min_usd = 2B.
+# La liquidez usa el mismo gate global de USD 100.000/día que las demás estrategias.
+
+version: "1.1"
+strategy_id: MULTIBAGGERS
+enabled: false
+market_cap_min_usd: 2000000000
+avg_dollar_volume_min_usd: 100000
+small_caps_enabled: false
+review_policy:
+  owner: investment_decision_owner
+  cadence: quarterly
+  require_reason: true
+  require_source_links: true
+tickers: []

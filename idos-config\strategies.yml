@@ -1,0 +1,85 @@
+version: "1.0"
+default_strategy: COMPOUNDER
+strategies:
+  EMERGENCY_LIQ: {enabled: false, core: CORE_1_SURVIVAL_LIQUIDITY, sleeve: SURVIVAL_LIQUIDITY, thesis_type: LIQUIDITY_CREDIT, discovery_profile: emergency_liquidity, research_profile: liquidity_credit, entry_policy: LIQUIDITY_ALLOCATION}
+  OPPORTUNITY_LIQ: {enabled: false, core: CORE_1_SURVIVAL_LIQUIDITY, sleeve: OPPORTUNITY_LIQUIDITY, thesis_type: LIQUIDITY_CREDIT, discovery_profile: opportunity_liquidity, research_profile: liquidity_credit, entry_policy: LIQUIDITY_ALLOCATION}
+  MONETARY_HEDGE: {enabled: false, core: CORE_2_PRESERVATION, sleeve: MONETARY_HEDGE, thesis_type: MONETARY_HEDGE, discovery_profile: monetary_hedge, research_profile: monetary_hedge, entry_policy: HEDGE_RULE}
+  COMPOUNDER: {enabled: true, core: CORE_3_GROWTH, sleeve: HIGH_CONVICTION, thesis_type: STRATEGIC, discovery_profile: compounder, research_profile: strategic, entry_policy: VALUATION_ZONE, parameters: {min_score: 60}}
+  GROWTH: {enabled: false, core: CORE_3_GROWTH, sleeve: HIGH_CONVICTION, thesis_type: STRATEGIC, discovery_profile: growth, research_profile: strategic, entry_policy: VALUATION_ZONE}
+  MOMENTUM_ETF: {enabled: true, core: CORE_3_GROWTH, sleeve: SYSTEMATIC_RETURN, thesis_type: SYSTEMATIC, discovery_profile: momentum_monthly, research_profile: systematic, entry_policy: SIGNAL_REBALANCE, parameters: {universe: [QQQ, XLE, XLF, XLI, EFA, EEM, GLD], select_top: 2, minimum_signal: 0.6, maximum_signal: 2.7, no_signal_action: CASH_MEP, rebalance: FIRST_TRADING_DAY_OF_MONTH}}
+  GLOBAL_ETF: {enabled: false, core: CORE_3_GROWTH, sleeve: GLOBAL_BASE, thesis_type: SYSTEMATIC, discovery_profile: global_etf, research_profile: systematic, entry_policy: SIGNAL_REBALANCE}
+  TACTICAL_SWING: {enabled: false, core: CORE_4_ALPHA_ASYMMETRY, sleeve: TACTICAL, thesis_type: TACTICAL, discovery_profile: tactical_swing, research_profile: tactical, entry_policy: RULED_TACTICAL, parameters: {max_sleeve: 0.05, target_ratio: 3.0}}
+  ASYMETRIC: {enabled: false, core: CORE_4_ALPHA_ASYMMETRY, sleeve: ALPHA_ASYMMETRY, thesis_type: STRATEGIC, discovery_profile: asymmetric, research_profile: strategic, entry_policy: VALUATION_ZONE}
+  DEEP_VALUE: {enabled: false, core: CORE_4_ALPHA_ASYMMETRY, sleeve: VALUE_ASYMMETRY, thesis_type: STRATEGIC, discovery_profile: deep_value, research_profile: strategic, entry_policy: VALUATION_ZONE}
+  SPECULATIVE: {enabled: false, core: CORE_4_ALPHA_ASYMMETRY, sleeve: SPECULATIVE, thesis_type: TACTICAL, discovery_profile: speculative, research_profile: tactical, entry_policy: MANUAL_REVIEW, parameters: {max_weight: 0.01}}
+  MULTIBAGGERS:
+    enabled: false
+    core: CORE_4_ALPHA_ASYMMETRY
+    sleeve: ALPHA_ASYMMETRY
+    thesis_type: STRATEGIC
+    discovery_profile: multibaggers
+    research_profile: multibaggers
+    strategy_version: "1.1"
+    entry_policy: MANUAL_REVIEW
+    parameters:
+      universe: curated
+      universe_path: idos-config/universe/multibaggers.yml
+      small_caps_enabled: false
+      market_cap_min_usd: 2000000000
+      avg_dollar_volume_min_usd: 100000
+      discovery_threshold: 65
+      position_limit_pct: 1.0
+      weights:
+        economic_transition: 0.25
+        quality: 0.20
+        reinvestment: 0.20
+        expectation_gap: 0.20
+        market_confirmation: 0.15
+      scoring:
+        method: absolute_linear_clamped
+        version: absolute-ranges-v1
+        missing_input_policy: block_component_and_candidate
+        non_applicable_policy: block_component_and_candidate
+        sector_normalization: false
+        components:
+          economic_transition:
+            inputs:
+              - {metric: revenue_cagr_3y_pct, min: 0, max: 40, direction: higher}
+              - {metric: eps_growth_pct, min: 0, max: 40, direction: higher}
+              - {metric: revenue_growth_pct, min: 0, max: 40, direction: higher}
+              - {metric: operating_margin_pct, min: 0, max: 25, direction: higher}
+          quality:
+            inputs:
+              - {metric: roic_pct, min: 0, max: 25, direction: higher}
+              - {metric: gross_margin_pct, min: 0, max: 70, direction: higher}
+              - {metric: operating_margin_pct, min: 0, max: 30, direction: higher}
+              - {metric: fcf_conversion_pct, min: 0, max: 100, direction: higher}
+          reinvestment:
+            inputs:
+              - {metric: revenue_growth_pct, min: 0, max: 40, direction: higher}
+              - {metric: roic_pct, min: 0, max: 25, direction: higher}
+              - {metric: fcf_growth_pct, min: 0, max: 40, direction: higher}
+              - {metric: fcf_conversion_pct, min: 0, max: 100, direction: higher}
+          expectation_gap:
+            inputs:
+              - {metric: expectation_gap_pct, min: -50, max: 50, direction: higher}
+          market_confirmation:
+            inputs:
+              - {metric: relative_strength_12m_pct, min: -50, max: 50, direction: higher}
+              - {metric: drawdown_pct, min: 0, max: 60, direction: lower}
+              - {metric: volatility_90d_pct, min: 0, max: 80, direction: lower}
+      data_quality:
+        critical_coverage_min: 0.80
+        critical_sources_min: 2
+        conflict_tolerance_pct: 20
+        stale_critical_blocks: true
+      research:
+        force_interval_days: 30
+        event_triggers: [quarterly_results, guidance_change, material_restatement, red_flag_change, material_financial_deterioration, thesis_change]
+      hard_flags:
+        current_ratio_below: 0.5
+        interest_coverage_below: 2.0
+        net_debt_ebitda_above: 4.0
+        negative_fcf_runway_months_below: 12
+        dilution_yoy_above_pct: 10
+        share_count_cagr_3y_above_pct: 5
