@@ -46,6 +46,10 @@ def valid_payload():
 def parameters():
     return {"discovery_threshold": 65, "market_cap_min_usd": 2_000_000_000, "avg_dollar_volume_min_usd": 100_000,
         "weights": {"economic_transition": .25, "quality": .20, "reinvestment": .20, "expectation_gap": .20, "market_confirmation": .15},
+        "classification": {"fundamental_transition_min": 65, "fundamental_quality_min": 65,
+            "fundamental_reinvestment_min": 60, "early_transition_min": 60,
+            "early_market_confirmation_max": 50, "market_confirmed_transition_min": 60,
+            "market_confirmed_min": 60},
         "scoring": {"method": "absolute_linear_clamped", "version": "absolute-ranges-v1", "components": {
             "economic_transition": {"inputs": [
                 {"metric": "revenue_cagr_3y_pct", "min": 0, "max": 40, "direction": "higher"},
@@ -146,8 +150,19 @@ def test_repository_profile_uses_approved_global_liquidity_and_versioned_ranges(
     assert policy["scoring"]["method"] == "absolute_linear_clamped"
     assert policy["scoring"]["sector_normalization"] is False
     assert policy["scoring"]["missing_input_policy"] == "block_component_and_candidate"
+    assert policy["classification"]["fundamental_transition_min"] == 65
     assert set(policy["scoring"]["components"]) == set(policy["weights"])
     assert sum(policy["weights"].values()) == 1
+
+
+def test_multibaggers_does_not_add_one_million_dollar_liquidity_gate():
+    payload = valid_payload()
+    for observation in payload["metric_observations"]["avg_dollar_volume_usd"]:
+        observation["value"] = 100_000
+
+    result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
+
+    assert "DOLLAR_VOLUME_BELOW_MINIMUM" not in {flag["code"] for flag in result.red_flags}
 
 
 def test_missing_single_source_conflicted_and_stale_critical_data_fail_closed():

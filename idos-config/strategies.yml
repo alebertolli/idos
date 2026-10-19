@@ -29,6 +29,14 @@ strategies:
       avg_dollar_volume_min_usd: 100000
       discovery_threshold: 65
       position_limit_pct: 1.0
+      classification:
+        fundamental_transition_min: 65
+        fundamental_quality_min: 65
+        fundamental_reinvestment_min: 60
+        early_transition_min: 60
+        early_market_confirmation_max: 50
+        market_confirmed_transition_min: 60
+        market_confirmed_min: 60
       weights:
         economic_transition: 0.25
         quality: 0.20
@@ -72,6 +80,7 @@ strategies:
         critical_coverage_min: 0.80
         critical_sources_min: 2
         conflict_tolerance_pct: 20
+        stale_after_days: 120
         stale_critical_blocks: true
       research:
         force_interval_days: 30

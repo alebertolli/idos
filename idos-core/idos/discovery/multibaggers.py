@@ -60,7 +60,7 @@ class MultibaggersDiscoveryEngine:
         snapshot = self._metric_snapshot(metric_observations, now)
         quality = self._quality(snapshot)
         flags = self._hard_flags(snapshot)
-        minimum_coverage = float(self.parameters.get("data_quality", {}).get("critical_coverage_min", .8))
+        minimum_coverage = float(self.parameters["data_quality"]["critical_coverage_min"])
         if quality["critical_coverage"] < minimum_coverage:
             flags.append({"code": "CRITICAL_COVERAGE_BELOW_MINIMUM", "severity": "hard", "metric": "critical_coverage", "message": "Critical metric coverage is below policy", "evidence": quality["critical_coverage"]})
         components = self._components(snapshot)
@@ -92,19 +92,37 @@ class MultibaggersDiscoveryEngine:
             reasons.append("CRITICAL_METRIC_STALE")
         if missing_components:
             reasons.append("SCORING_INPUT_MISSING")
-        threshold = float(self.parameters.get("discovery_threshold", 65))
+        threshold = float(self.parameters["discovery_threshold"])
+        if not isfinite(threshold) or not 0 <= threshold <= 100:
+            raise ValueError("MULTIBAGGERS discovery_threshold must be between 0 and 100")
         passed = not reasons and score is not None and score >= threshold
         if score is not None and score < threshold:
             reasons.append("DISCOVERY_SCORE_BELOW_THRESHOLD")
+        classification = self.parameters.get("classification")
+        classification_keys = {
+            "fundamental_transition_min", "fundamental_quality_min",
+            "fundamental_reinvestment_min", "early_transition_min",
+            "early_market_confirmation_max", "market_confirmed_transition_min",
+            "market_confirmed_min",
+        }
+        if not isinstance(classification, dict) or not classification_keys.issubset(classification):
+            raise ValueError("MULTIBAGGERS classification thresholds must be configured")
+        classification = {key: float(classification[key]) for key in classification_keys}
+        if any(not isfinite(value) or not 0 <= value <= 100 for value in classification.values()):
+            raise ValueError("MULTIBAGGERS classification thresholds must be between 0 and 100")
+        transition = components.get("economic_transition")
+        quality_score = components.get("quality")
+        reinvestment = components.get("reinvestment")
+        market = components.get("market_confirmation")
         if quality["critical_coverage"] == 0:
             kind = "BLOCKED_DATA"
         elif flags or quality["critical_conflicts"] or quality["critical_stale"] or quality["critical_source_failures"]:
             kind = "BLOCKED_DATA"
-        elif all(components.get(name) is not None for name in ("economic_transition", "quality", "reinvestment")) and components["economic_transition"] >= 65 and components["quality"] >= 65 and components["reinvestment"] >= 60:
+        elif all(value is not None for value in (transition, quality_score, reinvestment)) and transition >= classification["fundamental_transition_min"] and quality_score >= classification["fundamental_quality_min"] and reinvestment >= classification["fundamental_reinvestment_min"]:
             kind = "FUNDAMENTAL_COMPOUNDING"
-        elif components.get("economic_transition") is not None and components.get("market_confirmation") is not None and components["economic_transition"] >= 60 and components["market_confirmation"] < 50:
+        elif transition is not None and market is not None and transition >= classification["early_transition_min"] and market < classification["early_market_confirmation_max"]:
             kind = "EARLY_TRANSITION"
-        elif components.get("economic_transition") is not None and components.get("market_confirmation") is not None and components["economic_transition"] >= 60 and components["market_confirmation"] >= 60:
+        elif transition is not None and market is not None and transition >= classification["market_confirmed_transition_min"] and market >= classification["market_confirmed_min"]:
             kind = "MARKET_CONFIRMED_GROWTH"
         elif snapshot.get("expectation_gap_pct", {}).get("value") is not None:
             kind = "EXPECTATION_GAP"
@@ -126,7 +144,7 @@ class MultibaggersDiscoveryEngine:
 
     def _metric_snapshot(self, metric_observations: dict[str, Any], now: str) -> dict[str, dict[str, Any]]:
         quality_cfg = self.parameters.get("data_quality", {})
-        stale_after = int(quality_cfg.get("stale_after_days", 120))
+        stale_after = int(quality_cfg["stale_after_days"])
         result: dict[str, dict[str, Any]] = {}
         for name in DISCOVERY_METRICS:
             expected_unit = "USD" if name.endswith("_usd") else "percent" if name.endswith("_pct") else "months" if name.endswith("_months") else "ratio"
@@ -135,7 +153,7 @@ class MultibaggersDiscoveryEngine:
                 expected_unit=expected_unit,
                 expected_currency="USD" if expected_unit == "USD" else None,
                 minimum_sources=int(quality_cfg.get("critical_sources_min", 2)),
-                conflict_tolerance_pct=float(quality_cfg.get("conflict_tolerance_pct", 20)),
+                conflict_tolerance_pct=float(quality_cfg["conflict_tolerance_pct"]),
                 stale_after_days=stale_after,
                 now=now,
             )
@@ -157,7 +175,7 @@ class MultibaggersDiscoveryEngine:
     def _quality(self, snapshot: dict[str, dict[str, Any]]) -> dict[str, Any]:
         critical = [snapshot[name] for name in CRITICAL_METRICS]
         covered = sum(item["status"] in {"observed", "derived"} for item in critical)
-        min_sources = int(self.parameters.get("data_quality", {}).get("critical_sources_min", 2))
+        min_sources = int(self.parameters["data_quality"]["critical_sources_min"])
         source_failures = sum(item["coverage"] < min_sources for item in critical)
         stale = sum(item["status"] == "stale" for item in critical)
         critical_conflicts = sorted(name for name in CRITICAL_METRICS if snapshot[name]["status"] == "conflicted")
@@ -192,14 +210,14 @@ class MultibaggersDiscoveryEngine:
             evidence_flag = evidence_flags.get(item["status"])
             if evidence_flag:
                 add(evidence_flag, name, "Critical metric evidence does not satisfy the source contract", item.get("source_evidence", []))
-            if item["coverage"] < int(self.parameters.get("data_quality", {}).get("critical_sources_min", 2)):
+            if item["coverage"] < int(self.parameters["data_quality"]["critical_sources_min"]):
                 code = "SINGLE_SOURCE_CRITICAL_METRIC" if item["coverage"] == 1 else "INSUFFICIENT_CRITICAL_SOURCES"
                 add(code, name, "Critical metric lacks independent source coverage", item["source"])
         cap = val("market_cap_usd")
-        if cap is not None and cap < float(self.parameters.get("market_cap_min_usd", 2e9)):
+        if cap is not None and cap < float(self.parameters["market_cap_min_usd"]):
             add("MARKET_CAP_BELOW_MINIMUM", "market_cap_usd", "Company is below the configured minimum market capitalization", cap)
         liquidity = val("avg_dollar_volume_usd")
-        if liquidity is not None and liquidity < float(self.parameters.get("avg_dollar_volume_min_usd", 100_000)):
+        if liquidity is not None and liquidity < float(self.parameters["avg_dollar_volume_min_usd"]):
             add("DOLLAR_VOLUME_BELOW_MINIMUM", "avg_dollar_volume_usd", "Average dollar volume is below the configured minimum", liquidity)
         checks = [
             ("current_ratio", "current_ratio_below", lambda v, t: v < t, "LOW_CURRENT_RATIO"),
