@@ -15,6 +15,11 @@ class ScoutResult:
     discovery_type: str = ''
     flags: list[str] = field(default_factory=list)
     scanned_at: str = ''
+    status: str = ''
+    missing_metrics: list[str] = field(default_factory=list)
+    policy_version: str = ''
+    observed_metrics: dict[str, float | None] = field(default_factory=dict)
+    filter_results: dict[str, int | None] = field(default_factory=dict)
 
     def __post_init__(self):
         if not self.scanned_at:

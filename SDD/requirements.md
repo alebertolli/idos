@@ -589,3 +589,20 @@ El sistema gestiona simultáneamente múltiples estrategias de inversión bajo u
 - **Completitud del reporte dual**: Para todo reporte periódico generado por el sistema, existen exactamente dos métricas patrimoniales: variación en USD y variación en poder adquisitivo argentino. Ningún reporte puede generarse con solo una métrica. Propiedad de invariante.
 - **Trazabilidad en post-mortem**: Para toda Opportunity en estado `ARCHIVED`, el Post_Mortem registra tanto `financial_pnl_usd` como `purchasing_power_impact_ars` calculados al cierre. Propiedad de invariante.
 - **Consistencia de la Decision**: Para toda Decision con estado `APPROVED`, existen los campos `expected_usd_impact` y `expected_ars_purchasing_power_impact` con valores distintos de null. Propiedad de invariante de completitud del contrato.
+
+
+---
+
+### Requirement 20: Scout configurable por estrategia
+
+**User Story:** Como gestor, quiero que Scout aplique filtros financieros simples y configurables por estrategia para poder modificar la preselección sin cambiar un motor global ni confundir elegibilidad con convicción.
+
+#### Acceptance Criteria
+
+1. COMPOUNDER aplica margen operativo > 0, FCF > 0 y crecimiento de ingresos > 0; la política tiene versión y cada filtro declara métrica, operador, valor y etiqueta en `idos-config/strategies.yml`.
+2. Cap y liquidez normalizados siguen siendo gates comunes; ETFs no requieren capitalización/AUM y las acciones requieren market cap mínimo USD 2.000 millones; liquidez mínima USD 100.000/día y cobertura según `market_data.yml`.
+3. ROIC y moat se evalúan en Research, no bloquean el Scout COMPOUNDER.
+4. Métrica requerida ausente, no numérica, no finita o con evidencia fuente contradictoria queda `PENDING_DATA`; el sistema no inventa valores ni promociona el candidato.
+5. Filtros cumplidos informan elegibilidad de screening y jamás se copian como convicción, probabilidad o recomendación.
+6. El reporte de oportunidad conserva versión de política, valores observados, unidad, moneda/período disponible, proveedor y procedencia de gates de mercado.
+7. Discovery público expone las condiciones y estados de los filtros; no presenta el cumplimiento como recomendación de inversión.

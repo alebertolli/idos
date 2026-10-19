@@ -144,24 +144,8 @@ class UniversePipeline(BaseWorker):
     def _run_pre_score(self, metrics: PipelineMetrics):
         if not metrics.candidate_tickers:
             return
-        print("\n[PIPELINE] STEP 3: Pre-Scoring")
-        screener_dir = str(Path(self.config_path) / "screeners")
-        screener = FinvizScreener(screener_dir)
-        cache_path = Path(self.config.get("cache_path", "cache"))
-        passed = []
-        for ticker in metrics.candidate_tickers:
-            data = self._get_cached_data(cache_path, ticker)
-            if not data or not DataRefreshWorker._has_normalized_market_gates(data):
-                passed.append(ticker)
-                continue
-            results = screener.run_all(data)
-            if any(results.values()):
-                passed.append(ticker)
-            else:
-                metrics.pre_score_rejected += 1
-        metrics.pre_score_count = len(passed)
-        metrics.candidate_tickers = passed
-        print(f"[PIPELINE] Pre-Score: {metrics.pre_score_count} passed, {metrics.pre_score_rejected} rejected")
+        # Strategy predicates run once, after fresh market/financial data.
+        metrics.pre_score_count = len(metrics.candidate_tickers)
 
     def _run_fetch(self, metrics: PipelineMetrics):
         if not metrics.candidate_tickers:
@@ -231,28 +215,9 @@ class UniversePipeline(BaseWorker):
         if not metrics.candidate_tickers:
             return
         print(f"\n[PIPELINE] STEP 5: Scout ({len(metrics.candidate_tickers)} tickers)")
-        import yaml
-        scoring_path = Path(self.config_path) / "scoring.yml"
-        scout_min_score = 60
-        if scoring_path.exists():
-            scoring_data = yaml.safe_load(scoring_path.read_text(encoding="utf-8"))
-            scout_min_score = scoring_data.get("scoring", {}).get("min_opportunity_score", 60)
-        print(f"[PIPELINE] Scout min_score: {scout_min_score}")
-
-        scout_config = {
-            "min_score": scout_min_score,
-            "max_watchlist": self.config.get("max_watchlist", 300),
-            "screeners_dir": str(Path(self.config_path) / "screeners"),
-            "operable_path": str(Path(self.config_path) / "universe/operable.yml"),
-            "journal_path": self.journal_path,
-            "cache_path": self.config.get("cache_path", "cache"),
-        }
-        market_settings = MarketDataSettings.load(self.config_path)
-        scout = ScoutEngine(
-            min_score=scout_config["min_score"],
-            market_cap_min_usd=market_settings.market_cap_min_usd,
-            avg_dollar_volume_min_usd=market_settings.avg_dollar_volume_min_usd,
-        )
+        from idos.discovery.configured_scout import configured_scout
+        scout = configured_scout(self.config_path, self.strategy_id)
+        scout_config = {"max_watchlist": self.config.get("max_watchlist", 300)}
         watchlist = WatchlistManager(max_entries=scout_config["max_watchlist"])
         ranking = RankingSystem()
         cache_path = Path(self.config.get("cache_path", "cache"))
@@ -276,12 +241,6 @@ class UniversePipeline(BaseWorker):
                     quality_rejections += 1
             screened.append(result)
 
-        if metrics.candidate_tickers and quality_rejections == len(metrics.candidate_tickers):
-            metrics.errors.append({
-                "step": "scout_data_quality",
-                "error": "All candidates are missing critical inputs required for Scout scoring.",
-            })
-
         ranked = ranking.rank(screened)
         metrics.new_watchlist = [
             {"ticker": r.ticker, "score": r.scout_score, "rank": r.rank}
@@ -303,18 +262,9 @@ class UniversePipeline(BaseWorker):
         print(f"\n[PIPELINE] STEP 6: Opportunity Creation")
 
         import yaml
-        scoring_path = Path(self.config_path) / "scoring.yml"
-        min_score = 60
-        if scoring_path.exists():
-            scoring_data = yaml.safe_load(scoring_path.read_text(encoding="utf-8"))
-            min_score = scoring_data.get("scoring", {}).get("min_opportunity_score", 60)
-        print(f"[PIPELINE] Min opportunity score: {min_score}")
-
-        eligible = [e for e in metrics.new_watchlist if e.get("score", 0) >= min_score]
+        # new_watchlist contains only candidates passing every profile predicate.
+        eligible = metrics.new_watchlist
         metrics.opportunities_eligible = len(eligible)
-        if not eligible:
-            print(f"[PIPELINE] No tickers with score >= {min_score}")
-            return
 
         journal_base = Path(self.journal_path) if self.journal_path else Path("idos-journal")
         existing = set()
@@ -356,16 +306,29 @@ class UniversePipeline(BaseWorker):
                 ticker=ticker,
                 status=OpportunityStatus.SCREENED,
                 strategy_id=self.strategy.strategy_id,
-                strategy_version="1.0",
+                strategy_version=self.strategy.parameters["scout"]["version"],
                 core=self.strategy.core,
                 sleeve=self.strategy.sleeve,
                 thesis_type=self.strategy.thesis_type,
                 entry_policy=self.strategy.entry_policy,
                 research_profile=self.strategy.research_profile,
                 origin="automated",
-                conviction=Conviction(overall=entry.get("score", 0)),
+                conviction=Conviction(overall=0),
             )
             opp_data = opp.model_dump(mode="json")
+            cached = self._get_cached_data(Path(self.config.get("cache_path", "cache")), ticker)
+            fields = [rule["metric"] for rule in self.strategy.parameters["scout"]["filters"]]
+            opp_data["discovery_evidence"] = {
+                "policy": self.strategy.parameters["scout"],
+                "eligibility_status": "PASSED",
+                "evaluated_at": datetime.now(AR_TZ).isoformat(),
+                "metrics": {key: cached.get(key) for key in fields},
+                "financial_observations": cached.get("financial_observations", {}),
+                "market_data_normalization": cached.get("market_data_normalization", {}),
+                "liquidity_provenance": cached.get("liquidity_provenance", {}),
+                "market_cap_provenance": cached.get("market_cap_provenance", {}),
+                "data_provenance": cached.get("data_provenance", {}),
+            }
             opp_dir = journal_base / "companies" / ticker / "case_file" / "opportunities" / opp_id
             opp_dir.mkdir(parents=True, exist_ok=True)
             opp_file = opp_dir / "opportunity.yml"
@@ -378,69 +341,23 @@ class UniversePipeline(BaseWorker):
         print(f"[PIPELINE] Opportunities: {created} created, {metrics.opportunities_existing} existing, {len(eligible)} eligible")
 
     def _score_ticker(self, scout: ScoutEngine, ticker: str, data: dict) -> dict:
-        def _num(v, default=None):
-            if isinstance(v, (int, float)):
-                return float(v)
-            if isinstance(v, str):
-                try:
-                    return float(v.replace(",", "").replace("$", "").replace("%", ""))
-                except (ValueError, TypeError):
-                    pass
-            return default
-
-        normalized_market_data = DataRefreshWorker._has_normalized_market_gates(data)
-        metrics = {
-            "asset_type": data.get("asset_type"),
-            "size_metric_label": "Market cap",
-            "size_metric_usd": _num(data.get("size_metric_usd")) if normalized_market_data else None,
-            "market_cap_usd": _num(data.get("market_cap_usd")) if normalized_market_data else None,
-            "avg_dollar_volume_usd": _num(data.get("avg_dollar_volume_usd")) if normalized_market_data else None,
-            "pe_ratio": _num(data.get("pe_ratio_ttm")) or _num(data.get("pe_ratio")),
-            "ev_ebitda": _num(data.get("ev_ebitda")),
-            "roic": _num(data.get("roic_pct")),
-            "operating_margin": _num(data.get("operating_margin_pct")),
-            "debt_to_equity": _num(data.get("debt_equity_ratio")),
-            "revenue_growth": _num(data.get("revenue_growth_pct")),
-            "relative_strength_3m": _num(data.get("relative_strength_3m")) if data.get("relative_strength_3m") is not None else None,
-            "relative_strength_12m": _num(data.get("relative_strength_12m")) if data.get("relative_strength_12m") is not None else None,
-            "price_volume_trend": _num(data.get("price_volume_trend")) if data.get("price_volume_trend") is not None else None,
-        }
-        required = ("avg_dollar_volume_usd", "roic", "debt_to_equity",
-                    "relative_strength_3m", "relative_strength_12m", "price_volume_trend")
-        if data.get("asset_type") != "etf":
-            required += ("size_metric_usd",)
-        missing = [
-            key for key in required
-            if metrics[key] is None
-            or (key in ("size_metric_usd", "avg_dollar_volume_usd") and metrics[key] <= 0)
-        ]
-        if missing:
-            return {
-                "ticker": ticker,
-                "score": 0,
-                "scout_score": 0,
-                "passed": False,
-                "data_quality_valid": False,
-                "missing_critical_metrics": missing,
-                "details": {},
-                "reason": f"Missing critical Scout metrics: {', '.join(missing)}",
-            }
-        result = scout.scan(ticker=ticker, data={"metrics": metrics})
+        from idos.discovery.configured_scout import configured_scout
+        scout = scout or configured_scout(self.config_path, self.strategy_id)
+        result = scout.scan_market_data(ticker, data)
         return {
-            "ticker": ticker,
-            "score": result.score,
-            "scout_score": result.score,
-            "passed": result.passed,
-            "data_quality_valid": True,
-            "details": result.details,
-            "reason": result.reason,
+            "ticker": ticker, "score": result.score, "scout_score": result.score,
+            "passed": result.passed, "status": result.status,
+            "data_quality_valid": result.status != "PENDING_DATA",
+            "missing_critical_metrics": result.missing_metrics,
+            "policy_version": result.policy_version,
+            "details": result.details, "reason": result.reason,
         }
 
     def _get_cached_data(self, cache_path: Path, ticker: str) -> dict:
         cache = DataCache()
         data = cache.get(f"merged:{ticker}")
         if data:
-            return data.get("merged_data", data)
+            return DataRefreshWorker._cache_file_payload(data)
         return {}
 
     def _save_watchlist(self, watchlist: WatchlistManager):
@@ -476,7 +393,7 @@ class UniversePipeline(BaseWorker):
             print(f"[PIPELINE] Notification failed: {e}")
 
     def _run_monthly_evaluation(self, metrics: PipelineMetrics):
-        """Evalúa oportunidades existentes: score < threshold → WATCHLIST, score >= threshold en WATCHLIST → SCREENED."""
+        """Re-evalúa elegibilidad con los filtros financieros vigentes del perfil."""
         from idos.models.enums import OpportunityStatus
         from idos.data.journal import JournalRepository
 
@@ -487,12 +404,6 @@ class UniversePipeline(BaseWorker):
             return
 
         import yaml
-        scoring_path = Path(self.config_path) / "scoring.yml"
-        min_score = 60
-        if scoring_path.exists():
-            scoring_data = yaml.safe_load(scoring_path.read_text(encoding="utf-8"))
-            min_score = scoring_data.get("scoring", {}).get("min_opportunity_score", 60)
-
         downgraded = 0
         upgraded = 0
         unchanged = 0
@@ -528,29 +439,29 @@ class UniversePipeline(BaseWorker):
                             skipped_no_data += 1
                         continue
 
-                    score = scout_result.get("score", 0)
+                    eligible = scout_result.get("passed", False)
                     opp_id = data.get("id", opp.name)
 
                     if current_status == "WATCHLIST":
-                        if score >= min_score:
+                        if eligible:
                             data["status"] = "SCREENED"
                             data["updated_at"] = datetime.now(AR_TZ).strftime("%Y-%m-%dT%H:%M:%S")
                             yf.write_text(yaml.dump(data, default_flow_style=False, allow_unicode=True), encoding="utf-8")
                             if journal:
                                 journal.save_opportunity(ticker, data)
                             upgraded += 1
-                            print(f"  {ticker}: WATCHLIST -> SCREENED (score={score})")
+                            print(f"  {ticker}: WATCHLIST -> SCREENED (configured Scout filters passed)")
                         else:
                             unchanged += 1
                     elif current_status in ("SCREENED", "UNDER_RESEARCH"):
-                        if score < min_score:
+                        if not eligible:
                             data["status"] = "WATCHLIST"
                             data["updated_at"] = datetime.now(AR_TZ).strftime("%Y-%m-%dT%H:%M:%S")
                             yf.write_text(yaml.dump(data, default_flow_style=False, allow_unicode=True), encoding="utf-8")
                             if journal:
                                 journal.save_opportunity(ticker, data)
                             downgraded += 1
-                            print(f"  {ticker}: {current_status} -> WATCHLIST (score={score} < {min_score})")
+                            print(f"  {ticker}: {current_status} -> WATCHLIST (configured Scout filters failed)")
                         else:
                             unchanged += 1
                     else:

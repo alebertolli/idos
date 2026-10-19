@@ -188,7 +188,7 @@ def test_scout_rejects_candidates_missing_critical_inputs(tmp_path):
     assert result["passed"] is False
     assert result["score"] == 0
     assert result["data_quality_valid"] is False
-    assert "relative_strength_3m" in result["missing_critical_metrics"]
+    assert {"operating_margin_pct", "fcf", "revenue_growth_pct"} <= set(result["missing_critical_metrics"])
 
 
 def test_scout_requires_canonical_usd_liquidity_fields(tmp_path):

@@ -211,6 +211,7 @@ class SiteData:
     entry_rules: list[dict] = field(default_factory=list)
     universe_stats: dict = field(default_factory=dict)
     discovery_pool: list[dict] = field(default_factory=list)
+    scout_policy: dict = field(default_factory=dict)
 
 
 class SiteBuilder:
@@ -222,6 +223,7 @@ class SiteBuilder:
         self.db_path = base_path / "idos.db"
         self.cache = base_path / "cache"
         self.stale_days = stale_days
+        self._configured_scout = None
         self.prices: dict[str, dict[str, Any]] = self._load_prices()
         self.disc_min_score = self._load_disc_min_score()
         self.entry_rules = self._load_entry_rules()
@@ -776,6 +778,8 @@ class SiteBuilder:
 
         operable_path = self.config / "universe" / "operable.yml"
         op_filter = OperabilityFilter(str(operable_path)) if operable_path.exists() else None
+        operable_types = ({entry["ticker"].upper(): entry.get("type")
+                           for entry in op_filter.list()} if op_filter is not None else {})
 
         out: list[dict] = []
         from datetime import datetime as _dt
@@ -789,19 +793,11 @@ class SiteBuilder:
                 raw = _json.loads(cache_file.read_text(encoding="utf-8"))
             except Exception:
                 continue
-            metrics = {
-                "market_cap": self._scout_num(raw.get("market_cap")),
-                "avg_volume": self._scout_num(raw.get("volume_avg")) or self._scout_num(raw.get("avg_volume")),
-                "pe_ratio": self._scout_num(raw.get("pe_ratio_ttm")) or self._scout_num(raw.get("pe_ratio")),
-                "ev_ebitda": self._scout_num(raw.get("ev_ebitda")),
-                "roic": self._scout_num(raw.get("roic_pct")),
-                "operating_margin": self._scout_num(raw.get("operating_margin_pct")),
-                "debt_to_equity": self._scout_num(raw.get("debt_equity_ratio")),
-                "revenue_growth": self._scout_num(raw.get("revenue_growth_pct")),
-            }
-            score = self._scout_score_for(metrics)
-            om = metrics["operating_margin"]
-            roic = metrics["roic"]
+            # Older caches may predate explicit asset_type. The operable registry
+            # is authoritative for the configured instrument classification.
+            if ticker.upper() in operable_types:
+                raw["asset_type"] = operable_types[ticker.upper()]
+            result = self._configured_scout_result(ticker, raw)
             added_at = None
             try:
                 ts = cache_file.stat().st_mtime
@@ -810,13 +806,16 @@ class SiteBuilder:
                 pass
             out.append({
                 "ticker": ticker,
-                "score": score,
+                "score": result.score,
                 "added_at": added_at,
-                "metrics": {
-                    "transition_score": max(0, min(100, int(round(50 + (om / 15.0) * 30)))) if om else 50,
-                    "quality_score": max(0, min(100, int(round(50 + (roic / 20.0) * 30)))) if roic else 50,
-                    "margin_score": max(0, min(100, int(round(50 + (om / 10.0) * 20)))) if om else 50,
-                },
+                "status": result.status,
+                "reason": result.reason,
+                "policy_version": result.policy_version,
+                "metrics": result.observed_metrics,
+                "filter_results": result.filter_results,
+                "financial_observations": raw.get("financial_observations", {}),
+                "data_provenance": raw.get("data_provenance", {}),
+                "market_data_normalization": raw.get("market_data_normalization", {}),
             })
         out.sort(key=lambda e: e.get("score") or 0, reverse=True)
         if universe_stats and universe_stats.get("operable_count"):
@@ -825,92 +824,29 @@ class SiteBuilder:
                 out = out[:target]
         return out
 
-    def _scout_score_for(self, metrics: dict) -> int:
-        """Compute a simple global Scout score for a ticker given its metric dict."""
-        from idos.discovery.scout import ScoutEngine
-        res = ScoutEngine(min_score=0).scan(ticker="", data={"metrics": metrics})
-        return int(res.score or 0)
-
-    # -- scout metric breakdown (recompute from cache, mirrors ScoutEngine) --
-    def _scout_num(self, v: Any, default: float = 0.0) -> float:
-        if isinstance(v, (int, float)):
-            return float(v)
-        if isinstance(v, str):
-            try:
-                return float(v.replace(",", "").replace("$", "").replace("%", ""))
-            except (ValueError, TypeError):
-                pass
-        return default
+    def _configured_scout_result(self, ticker: str, raw: dict):
+        from idos.discovery.configured_scout import configured_scout
+        from idos.discovery.scout import ScoutResult
+        try:
+            engine = getattr(self, "_configured_scout", None)
+            if engine is None:
+                engine = configured_scout(self.config)
+                self._configured_scout = engine
+            return engine.scan_market_data(ticker, raw)
+        except (OSError, ValueError) as exc:
+            result = ScoutResult(ticker=ticker, score=0, passed=False,
+                                 reason=f"Scout policy unavailable: {exc}")
+            result.status = "PENDING_DATA"
+            result.missing_metrics = ["versioned Scout policy"]
+            return result
 
     def _scout_metrics(self, ticker: str) -> dict[str, Any]:
-        cache_file = self.base / "cache" / f"{ticker}.json"
-        raw: dict[str, Any] = {}
-        if cache_file.exists():
-            try:
-                raw = json.loads(cache_file.read_text(encoding="utf-8"))
-            except Exception:
-                raw = {}
-        if not raw:
-            return {"transition_score": None, "quality_score": None, "margin_score": None}
-
-        metrics = {
-            "market_cap": self._scout_num(raw.get("market_cap")),
-            "avg_volume": self._scout_num(raw.get("volume_avg")) or self._scout_num(raw.get("avg_volume")),
-            "pe_ratio": self._scout_num(raw.get("pe_ratio_ttm")) or self._scout_num(raw.get("pe_ratio")),
-            "ev_ebitda": self._scout_num(raw.get("ev_ebitda")),
-            "roic": self._scout_num(raw.get("roic_pct")),
-            "operating_margin": self._scout_num(raw.get("operating_margin_pct")),
-            "debt_to_equity": self._scout_num(raw.get("debt_equity_ratio")),
-            "revenue_growth": self._scout_num(raw.get("revenue_growth_pct")),
-        }
-
-        # momentum from price history (approx 3m / 12m trading days)
-        ph = raw.get("price_history") if isinstance(raw.get("price_history"), list) else []
-        if len(ph) >= 2 and ph[-1]:
-            n = len(ph)
-            # last close vs ~64 trading days ago (3m) and n ago relative (12m)
-            base3 = ph[n-64] if n >= 64 else ph[0]
-            base12 = ph[0]
-            chg3 = (ph[-1] - base3) / base3 * 100 if base3 else 0.0
-            chg12 = (ph[-1] - base12) / base12 * 100 if base12 else 0.0
-            metrics["price_change_3m"] = chg3
-            metrics["price_change_12m"] = chg12
-
-        # reuse the exact ScoutEngine scorer
-        from idos.discovery.scout import ScoutEngine
-        res = ScoutEngine(min_score=0).scan(ticker=ticker, data={"metrics": metrics})
-        details = dict(res.details)
-        # Add margin score from operating_margin (if available)
-        operating_margin = metrics.get('operating_margin')
-        if operating_margin is not None:
-            # Normalize: score = 50 + (operating_margin / 10) * 20, capped at 0-100
-            m_score = 50 + (operating_margin / 10.0) * 20
-            details['margin_score'] = max(0, min(100, int(round(m_score))))
-        else:
-            details['margin_score'] = 50  # neutral default
-        # Ensure transition_score and quality_score have default values
-        if 'transition' not in details or details['transition'] is None:
-            # Use operating_margin as proxy: higher margin → better transition trend
-            if operating_margin is not None:
-                t_score = 50 + (operating_margin / 15.0) * 30
-                details['transition_score'] = max(0, min(100, int(round(t_score))))
-            else:
-                details['transition_score'] = 50  # neutral default
-        else:
-            # Convert detail key to UI key
-            details['transition_score'] = details.pop('transition')
-        if 'quality' not in details or details['quality'] is None:
-            # Use roic as proxy: roic > 25 → good quality, roic < 5 → poor quality
-            roic = metrics.get('roic')
-            if roic is not None:
-                q_score = 50 + (roic / 20.0) * 30
-                details['quality_score'] = max(0, min(100, int(round(q_score))))
-            else:
-                details['quality_score'] = 50  # neutral default
-        else:
-            # Convert detail key to UI key
-            details['quality_score'] = details.pop('quality')
-        return details
+        path = self.cache / f"{ticker}.json"
+        try:
+            raw = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            raw = {}
+        return self._configured_scout_result(ticker, raw).details
 
     def _load_wyckoff_latest(self, ticker: str, opp_id: str) -> dict | None:
         w_dir = self.journal / "companies" / ticker / "case_file" / "opportunities" / opp_id / "wyckoff"
@@ -1130,6 +1066,8 @@ class SiteBuilder:
 
     # -- main build --
     def build(self) -> SiteData:
+        from idos.strategy.catalog import StrategyCatalog
+        scout_policy = StrategyCatalog(self.config / "strategies.yml").get("COMPOUNDER").parameters.get("scout", {})
         ui_cfg = _load_yaml(self.config / "ui.yml")
         if isinstance(ui_cfg, dict):
             self.stale_days = int(ui_cfg.get("stale_days", self.stale_days))
@@ -1170,6 +1108,7 @@ class SiteBuilder:
             entry_rules=self.entry_rules,
             universe_stats=universe_stats,
             discovery_pool=discovery_pool,
+            scout_policy=scout_policy,
         )
 
 
@@ -1535,14 +1474,15 @@ function renderBuylist(){
 // ---------- Discovery ----------
 function renderScreening(){
   const rows = (DATA.discovery_pool && DATA.discovery_pool.length) ? DATA.discovery_pool : DATA.watchlist;
-  const mkeys = ['transition_score','quality_score','margin_score'];
-  const mlabels = ['Transition','Quality','Margin'];
+  const filters = DATA.scout_policy?.filters||[];
+  const mkeys = filters.map(f=>f.metric);
+  const mlabels = filters.map(f=>`${f.label||f.metric} > ${f.value}`);
   TABLES['screening'] = {
     rows,
     cols: [
       {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
-      {key:'score', label:'Score', value:r=>r.score??null, cell:r=>`<td><b class="${r.score>=70?'pos':''}">${r.score??'—'}</b></td>`},
-      ...mkeys.map((k,i)=>({key:k, label:mlabels[i], value:r=>r.metrics?r.metrics[k]:null, cell:r=>{const v=r.metrics?r.metrics[k]:null; return `<td class="${v>=70?'pos':''}">${v??'—'}</td>`;}})),
+      {key:'status', label:'Resultado actual', value:r=>r.status||'', cell:r=>`<td title="${esc(r.reason||'')}">${esc(r.status||'Histórico')}</td>`},
+      ...mkeys.map((k,i)=>({key:k, label:mlabels[i], value:r=>r.metrics?r.metrics[k]:null, cell:r=>{const v=r.metrics?r.metrics[k]:null; const passed=r.filter_results?.[k]===100; const obs=r.financial_observations?.[k]||{}; const currency=obs.currency; const suffix=k==='operating_margin_pct'||k==='revenue_growth_pct'?'%':k==='fcf'?(currency?` ${currency}`:' (moneda no informada)'):''; const shown=v==null?'Pendiente':`${Number(v).toLocaleString('es-AR',{maximumFractionDigits:2})}${suffix} · ${passed?'Cumple':'No cumple'}`; return `<td class="${passed?'pos':''}" title="${esc(JSON.stringify({observation:obs, data_provenance:r.data_provenance?.field_sources?.[k]||[]}))}">${shown}</td>`;}})),
       {key:'added', label:'Agregado', value:r=>r.added_at||'', cell:r=>`<td>${dt(r.added_at)}</td>`},
     ],
     tr: r=>` style="cursor:pointer" onclick="showCaseFromOpp('${r.opp_id||''}','${r.ticker}')"`,
@@ -1551,9 +1491,9 @@ function renderScreening(){
     q:'',
   };
   const total = rows.length;
-  const poolLabel = (DATA.discovery_pool && DATA.discovery_pool.length) ? 'Candidatos operables (267 del último pipeline)' : 'Watchlist';
+  const poolLabel = (DATA.discovery_pool && DATA.discovery_pool.length) ? 'Candidatos operables' : 'Watchlist';
   let html = `<h2>Discovery (${total})</h2>`;
-  html += `<p class="muted"><b>${poolLabel}.</b> Candidatos del Discovery Domain (Scout), primer estado del funnel. La promoción es automática por el pipeline mensual: si el score de screening es <b>≥ ${DISC_MIN_SCORE}</b> (umbral <code>scoring.min_opportunity_score</code>), el caso pasa solo a <b>Research / UNDER_RESEARCH</b>, sin aprobación manual. El score global es el promedio de las 5 métricas del Scout. Clic en una columna para ordenar.</p>`;
+  html += `<p class="muted"><b>${poolLabel}.</b> COMPOUNDER aplica los filtros configurados de la tabla (${esc(DATA.scout_policy?.version||"sin política")}), además del gate común de operabilidad y liquidez y capitalización para acciones. Los datos ausentes quedan pendientes. Cumplir los filtros habilita screening y Research; no representa convicción ni una recomendación de compra. ROIC y moat se evalúan en Research.</p>`;
   html += tableInput('screening','screen-search','Buscar ticker...');
   html += `<table id="tbl-screening"><thead>${sortHeadRows('screening')}</thead><tbody>${sortTbody('screening')}</tbody></table>`;
   setView('screening', html);

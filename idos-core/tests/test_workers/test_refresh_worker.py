@@ -89,6 +89,21 @@ def test_refresh_worker_cache_payload_keeps_flat_metrics_and_field_provenance():
     assert payload["data_provenance"]["field_sources"]["roic_pct"] == ["stockanalysis.com"]
 
 
+def test_refresh_worker_preserves_financial_source_values_without_averaging_periods():
+    validated = {"merged_data": {"fcf": 4, "operating_margin_pct": 8}, "field_sources": {}}
+    DataRefreshWorker._preserve_financial_observations(validated, {
+        "stockanalysis.com": {"fcf": 4, "operating_margin_pct": 8},
+        "yfinance": {"fcf": -2, "operating_margin_pct": 0.08,
+                     "financial_currency": "USD", "financial_data_observed_at": "2026-10-18T00:00:00+00:00"},
+    })
+    assert validated["merged_data"]["fcf"] == -2
+    assert validated["merged_data"]["operating_margin_pct"] == 0.08
+    assert validated["field_sources"]["fcf"] == ["yfinance"]
+    assert validated["merged_data"]["financial_observations"]["fcf"]["values"] == {
+        "stockanalysis.com": 4, "yfinance": -2,
+    }
+
+
 def test_refresh_worker_normalizes_yahoo_underlying_metrics_with_exchange_sessions(monkeypatch):
     worker = DataRefreshWorker()
     latest = date(2026, 10, 16)

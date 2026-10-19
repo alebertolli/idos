@@ -183,6 +183,7 @@ class DataRefreshWorker(BaseWorker):
 
                     validated = self.validator.cross_validate(source_data)
                     merged = validated.get("merged_data", validated)
+                    self._preserve_financial_observations(validated, source_data)
                     if history:
                         merged.setdefault("price_history", history["prices"])
                         merged.setdefault("volume_history", history["volumes"])
@@ -424,12 +425,38 @@ class DataRefreshWorker(BaseWorker):
         return None
 
     @staticmethod
+    def _preserve_financial_observations(validated: dict, sources: dict) -> None:
+        """Do not average fundamentals from potentially different reporting periods."""
+        merged = validated["merged_data"]
+        observations = {}
+        for field in ("operating_margin_pct", "revenue_growth_pct", "fcf"):
+            values = {source: data[field] for source, data in sources.items()
+                      if isinstance(data.get(field), (int, float))
+                      and not isinstance(data[field], bool) and math.isfinite(data[field])}
+            if not values:
+                continue
+            selected = "yfinance" if "yfinance" in values else next(iter(values))
+            merged[field] = values[selected]
+            validated.setdefault("field_sources", {})[field] = [selected]
+            observations[field] = {
+                "selected_source": selected, "values": values,
+                "observed_at": sources[selected].get("financial_data_observed_at"),
+                "provider_period_end_timestamp": sources[selected].get("financial_period_end_timestamp"),
+                "unit": "provider_financial_currency" if field == "fcf" else "percentage_points",
+                "currency": sources[selected].get("financial_currency") if field == "fcf" else None,
+                "period_status": "PROVIDER_REPORTED_NOT_RECONCILED",
+            }
+        merged["financial_observations"] = observations
+
+    @staticmethod
     def _yahoo_market_source(yahoo_data: dict[str, Any], history: dict[str, list] | None) -> dict[str, Any]:
         keys = (
             "ticker", "source", "quote_currency", "market_cap_currency", "market_cap",
             "exchange",
             "price_history", "volume_history", "price_history_dates",
             "price_history_basis",
+            "fcf", "operating_margin_pct", "revenue_growth_pct",
+            "financial_currency", "financial_data_observed_at", "financial_period_end_timestamp",
         )
         result = {key: yahoo_data[key] for key in keys if key in yahoo_data}
         if history:

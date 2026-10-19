@@ -1,4 +1,6 @@
 from typing import Any, Optional
+from datetime import datetime, timezone
+import math
 
 import yfinance as yf
 
@@ -7,6 +9,12 @@ from idos.workers.base import BaseWorker, WorkerResult, WorkerStatus
 
 class YahooFinanceWorker(BaseWorker):
     name = "yahoo_finance"
+
+    @staticmethod
+    def _percent_points(value: Any) -> float | None:
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            return None
+        return float(value) * 100 if math.isfinite(value) else None
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
@@ -54,9 +62,9 @@ class YahooFinanceWorker(BaseWorker):
             "eps_ttm": info.get("trailingEps"),
             "eps_forward": info.get("forwardEps"),
             "revenue_ttm": info.get("totalRevenue"),
-            "revenue_growth_pct": info.get("revenueGrowth"),
+            "revenue_growth_pct": self._percent_points(info.get("revenueGrowth")),
             "gross_margin_pct": info.get("grossMargins"),
-            "operating_margin_pct": info.get("operatingMargins"),
+            "operating_margin_pct": self._percent_points(info.get("operatingMargins")),
             "net_margin_pct": info.get("profitMargins"),
             "roa_pct": info.get("returnOnAssets"),
             "roe_pct": info.get("returnOnEquity"),
@@ -68,6 +76,9 @@ class YahooFinanceWorker(BaseWorker):
             "shares_outstanding": info.get("sharesOutstanding"),
             "float_shares": info.get("floatShares"),
             "fcf": info.get("freeCashflow"),
+            "financial_currency": info.get("financialCurrency"),
+            "financial_data_observed_at": datetime.now(timezone.utc).isoformat(),
+            "financial_period_end_timestamp": info.get("mostRecentQuarter"),
             "operating_cf": info.get("operatingCashFlow"),
             "high_52w": info.get("fiftyTwoWeekHigh"),
             "low_52w": info.get("fiftyTwoWeekLow"),

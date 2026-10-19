@@ -21,12 +21,9 @@ class ScoutWorker(BaseWorker):
         config = config if config is not None else {}
         super().__init__(config)
         self.universe_path = config.get("universe_path", "")
-        market_settings = MarketDataSettings.load(config.get("config_path", "idos-config"))
-        self.scout_engine = ScoutEngine(
-            min_score=config.get("min_score", 50),
-            market_cap_min_usd=market_settings.market_cap_min_usd,
-            avg_dollar_volume_min_usd=market_settings.avg_dollar_volume_min_usd,
-        )
+        from idos.discovery.configured_scout import configured_scout
+        self.scout_engine = configured_scout(config.get("config_path", "idos-config"),
+                                              config.get("strategy_id", "COMPOUNDER"))
         self.watchlist = WatchlistManager(max_entries=config.get("max_watchlist", 50))
         self.ranking = RankingSystem()
         self.data_refresher = DataRefreshWorker(config)
@@ -71,21 +68,9 @@ class ScoutWorker(BaseWorker):
         # ──────────────────────────────────────────────────────────
         # STEP 1: FinvizScreener (0 LLM, reglas programaticas)
         # ──────────────────────────────────────────────────────────
-        print(f"\n[SCOUT] === STEP 1: FinvizScreener ({len(tickers)} tickers) ===")
-        screener_passed = []
+        # The profile is the single financial preselection policy.
+        screener_passed = list(tickers)
         screener_skipped = 0
-        for ticker in tickers:
-            financial_data = self._get_cached_data(ticker)
-            if not financial_data:
-                screener_passed.append(ticker)
-                continue
-            results = self.screener.run_all(financial_data)
-            if any(results.values()):
-                screener_passed.append(ticker)
-            else:
-                screener_skipped += 1
-        print(f"[SCOUT] Screener: {len(screener_passed)} passed, {screener_skipped} filtered out")
-        tickers = screener_passed
 
         # ──────────────────────────────────────────────────────────
         # STEP 2: OperabilityFilter (solo activos operables)
@@ -114,11 +99,8 @@ class ScoutWorker(BaseWorker):
             scout_result = self._run_scout(ticker, financial_data)
             print(f"[SCOUT] [{i}/{len(tickers)}] {ticker}: score={scout_result.score} passed={scout_result.passed}")
 
-            self.watchlist.add(
-                ticker=ticker,
-                score=scout_result.score,
-                reason=scout_result.reason,
-            )
+            if scout_result.passed:
+                self.watchlist.add(ticker=ticker, score=scout_result.score, reason=scout_result.reason)
 
             screened.append({
                 "ticker": ticker,
@@ -179,38 +161,13 @@ class ScoutWorker(BaseWorker):
             cache = DataCache()
             data = cache.get(f"merged:{ticker}")
             if data:
-                return data.get("merged_data", data)
+                return DataRefreshWorker._cache_file_payload(data)
         except Exception:
             pass
         return {}
 
     def _run_scout(self, ticker: str, financial_data: dict[str, Any]) -> ScoutResult:
-        def _num(v: Any, default: float = 0.0) -> float:
-            if isinstance(v, (int, float)):
-                return float(v)
-            if isinstance(v, str):
-                try:
-                    return float(v.replace(",", "").replace("$", "").replace("%", ""))
-                except (ValueError, TypeError):
-                    pass
-            return default
-
-        normalized_market_data = DataRefreshWorker._has_normalized_market_gates(financial_data)
-        metrics = {
-            "asset_type": financial_data.get("asset_type"),
-            "size_metric_usd": _num(financial_data.get("size_metric_usd")) if normalized_market_data else 0.0,
-            "size_metric_label": "Market cap",
-            "market_cap_usd": _num(financial_data.get("market_cap_usd")) if normalized_market_data else 0.0,
-            "avg_dollar_volume_usd": _num(financial_data.get("avg_dollar_volume_usd")) if normalized_market_data else 0.0,
-            "pe_ratio": _num(financial_data.get("pe_ratio_ttm")) or _num(financial_data.get("pe_ratio")),
-            "ev_ebitda": _num(financial_data.get("ev_ebitda")),
-            "roic": _num(financial_data.get("roic_pct")),
-            "relative_strength_3m": _num(financial_data.get("relative_strength_3m")),
-            "relative_strength_12m": _num(financial_data.get("relative_strength_12m")),
-            "price_volume_trend": _num(financial_data.get("price_volume_trend")),
-        }
-        data = {"metrics": metrics}
-        return self.scout_engine.scan(ticker=ticker, data=data)
+        return self.scout_engine.scan_market_data(ticker, financial_data)
 
     def _load_tickers(self) -> list[str]:
         if not self.universe_path:

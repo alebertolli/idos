@@ -313,3 +313,14 @@ el gestor haya revisado el dashboard y el portfolio privado esté validado por
 separado. Si falta candidato que pase los gates, especificación aprobada,
 credenciales privadas o conciliación, registrar el bloqueo y mantener el
 comportamiento fail-closed.
+
+
+### §9 COMPOUNDER Scout configurable (antes de cada release)
+
+1. Verificar que el perfil habilitado declare versión, tres predicados positivos y métricas únicas; política inválida debe fallar cerrada.
+2. Probar valor positivo, cero, negativo, ausente, booleano, no numérico, infinito y conflicto de signos entre fuentes para cada criterio.
+3. Probar gate de mercado para equity/ETF, normalización/procedencia incompleta y que AUM nunca sea requerido.
+4. Ejecutar una corrida manual acotada en rama de prueba; revisar candidatos, métricas, proveedor/unidad/corte disponible, estados Scout, oportunidades y convicción cero.
+5. Ejecutar Research/Assessment sobre una oportunidad elegible y confirmar que Research evalúa ROIC/moat y la decisión permanece sujeta a revisión humana.
+6. Renderizar Discovery y verificar filtros/pendientes y separación pública/privada. No desplegar a Pages sin la autorización correspondiente.
+7. Validar compatibilidad histórica, revisar `git diff --check`, suite focalizada y log remoto; registrar SHA/run y todo dato ausente.
