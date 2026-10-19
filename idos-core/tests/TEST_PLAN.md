@@ -470,3 +470,8 @@ en el fixture.
    el Research anterior y omitir Assessment; registrar proveedor/modelo, causa
    de parsing y ejecución remota acotada antes de considerar la corrección
    validada.
+7. Sin conector de portfolio privado, confirmar que `PortfolioAssessmentEngine`
+   devuelve `NOT_ASSESSED` con placeholder neutral y no interpreta ausencia de
+   archivos o posiciones paper como capacidad/diversificación del fondo. En el
+   dashboard público comprobar que esa falta de datos es visible y que no se
+   publica ninguna posición, ledger ni valor patrimonial.

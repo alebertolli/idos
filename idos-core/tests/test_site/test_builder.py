@@ -301,6 +301,41 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert "Detalles de reglas" in app
 
 
+def test_public_site_displays_unassessed_portfolio_recommendation(tmp_path: Path):
+    import json
+    import yaml
+
+    _write_ddd_case(tmp_path, review=None)
+    proposal_path = (
+        tmp_path / "idos-journal" / "companies" / "VIST" / "case_file"
+        / "opportunities" / "OPP-1" / "decision_proposal.yml"
+    )
+    proposal = yaml.safe_load(proposal_path.read_text(encoding="utf-8"))
+    proposal["assessments"] = {
+        "PortfolioAssessmentEngine": {
+            "score": 50,
+            "recommendation": "NOT_ASSESSED",
+            "findings": [{
+                "type": "PENDING",
+                "detail": "Private family portfolio source is not connected; portfolio fit is not assessed",
+            }],
+        }
+    }
+    proposal_path.write_text(yaml.safe_dump(proposal, allow_unicode=True), encoding="utf-8")
+
+    output = write_site(tmp_path, tmp_path / "site-output")
+    payload = json.loads((output / "data.json").read_text(encoding="utf-8"))
+    app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+    opportunity = next(item for item in payload["opportunities"] if item["ticker"] == "VIST")
+
+    assert opportunity["assessment_recommendations"]["PortfolioAssessmentEngine"] == "NOT_ASSESSED"
+    assert opportunity["findings"]["PortfolioAssessmentEngine"] == [
+        "Private family portfolio source is not connected; portfolio fit is not assessed"
+    ]
+    assert "<th>Assessment</th>" in app
+    assert "assessment_recommendations" in app
+
+
 def test_public_site_shows_next_thesis_review_and_alerts_when_overdue(tmp_path: Path):
     from datetime import datetime, timedelta
     import json

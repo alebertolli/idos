@@ -316,6 +316,11 @@ def build_context(
         "knowledge_base": {"dynamic": {"metrics": metrics}, "static": static},
         "financial_data_quality": financial_quality,
         "portfolio": portfolio,
+        # Repository positions are paper/test state, not the family's private
+        # source of truth. Until an authenticated portfolio adapter exists,
+        # the portfolio engine must not interpret an absent file as zero risk.
+        "portfolio_data_available": False,
+        "portfolio_data_source": "private_family_portfolio_not_connected",
         "company": company_info,
         "margin_of_safety": margin_of_safety,
         "price_margin": price_margin,

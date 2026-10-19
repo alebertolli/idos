@@ -453,9 +453,13 @@ class SiteBuilder:
 
         scores: dict[str, Any] = {}
         findings: dict[str, list[str]] = {}
+        assessment_recommendations: dict[str, str] = {}
         for engine, spec in (dp.get("assessments") or {}).items():
             if isinstance(spec, dict):
                 scores[engine] = spec.get("score")
+                recommendation = spec.get("recommendation")
+                if recommendation:
+                    assessment_recommendations[engine] = str(recommendation)
                 findings[engine] = [
                     f.get("detail") or f"{f.get('dimension','')} {f.get('level','')}".strip()
                     for f in (spec.get("findings") or []) if isinstance(f, dict)
@@ -696,6 +700,7 @@ class SiteBuilder:
             "trend": conv.get("trend"),
             "scores": final_scores,
             "findings": findings,
+            "assessment_recommendations": assessment_recommendations,
             "current_price": current_price,
             "intrinsic_value": intrinsic,
             "valuation_status": "NOT_APPLICABLE" if systematic_report else "AVAILABLE" if intrinsic else "NOT_ASSESSED",
@@ -1785,8 +1790,8 @@ function showCase(oppId){
   }
   const explainedRules=[...(o.proposal?.rules_passed||[]),...(o.proposal?.rules_failed||[])].filter(id=>ruleDetails[id]);
   if(explainedRules.length) html += `<details><summary>Detalles de reglas</summary><ul>${[...new Set(explainedRules)].map(id=>`<li><b>${esc(id)}</b>: ${esc(ruleDetails[id])}</li>`).join('')}</ul></details>`;
-  html += `<table><thead><tr><th>Engine</th><th>Score</th><th>Findings</th></tr></thead><tbody>`;
-  Object.entries(o.scores||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td class="score">${v??'—'}</td><td>${(o.findings?.[k]||[]).map(esc).join(' · ')||'—'}</td></tr>`);
+  html += `<table><thead><tr><th>Engine</th><th>Score</th><th>Assessment</th><th>Findings</th></tr></thead><tbody>`;
+  Object.entries(o.scores||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td class="score">${v??'—'}</td><td>${esc(o.assessment_recommendations?.[k]||'Not recorded')}</td><td>${(o.findings?.[k]||[]).map(esc).join(' · ')||'—'}</td></tr>`);
   html += '</tbody></table>';
 
   // Wyckoff
