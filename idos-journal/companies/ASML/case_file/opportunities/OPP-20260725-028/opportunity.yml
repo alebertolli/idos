@@ -12,7 +12,7 @@ conviction:
 core: ''
 created_at: '2026-07-25T02:40:17.041742-03:00'
 current_price: 1680.145
-discovery_last_evaluated_at: '2026-10-19T17:37:41.473479-03:00'
+discovery_last_evaluated_at: '2026-10-19T18:15:52.716149-03:00'
 entry_policy: ''
 exit_reason: ''
 id: OPP-20260725-028
@@ -20,6 +20,9 @@ intrinsic_value: 2150.6
 last_research_at: '2026-10-19T12:36:31.673846-03:00'
 last_thesis_assessment_at: ''
 latest_discovery_evidence:
+  conflicting_metrics:
+  - fcf
+  - revenue_growth_pct
   data_provenance:
     conflicts:
     - avg: 17062062272.0
@@ -168,12 +171,17 @@ latest_discovery_evidence:
     sources_used:
     - stockanalysis.com
     - yfinance
-  eligibility_status: PASSED
-  evaluated_at: '2026-10-19T17:37:41.473479-03:00'
+  eligibility_status: PENDING_DATA
+  evaluated_at: '2026-10-19T18:15:52.716149-03:00'
+  filter_results:
+    fcf: null
+    investability: 100
+    operating_margin_pct: 100
+    revenue_growth_pct: null
   financial_observations:
     fcf:
       currency: EUR
-      observed_at: '2026-10-19T20:37:40.767164+00:00'
+      observed_at: '2026-10-19T21:15:52.059197+00:00'
       period_status: PROVIDER_REPORTED_NOT_RECONCILED
       provider_period_end_timestamp: 1790467200
       selected_source: yfinance
@@ -183,7 +191,7 @@ latest_discovery_evidence:
         yfinance: 10374124544
     operating_margin_pct:
       currency: null
-      observed_at: '2026-10-19T20:37:40.767164+00:00'
+      observed_at: '2026-10-19T21:15:52.059197+00:00'
       period_status: PROVIDER_REPORTED_NOT_RECONCILED
       provider_period_end_timestamp: 1790467200
       selected_source: yfinance
@@ -193,7 +201,7 @@ latest_discovery_evidence:
         yfinance: 44.356
     revenue_growth_pct:
       currency: null
-      observed_at: '2026-10-19T20:37:40.767164+00:00'
+      observed_at: '2026-10-19T21:15:52.059197+00:00'
       period_status: PROVIDER_REPORTED_NOT_RECONCILED
       provider_period_end_timestamp: 1790467200
       selected_source: yfinance
@@ -258,6 +266,9 @@ latest_discovery_evidence:
     fcf: 10374124544
     operating_margin_pct: 44.356
     revenue_growth_pct: 55.2
+  missing_metrics:
+  - fcf
+  - revenue_growth_pct
   policy:
     filters:
     - label: Margen operativo
@@ -276,6 +287,8 @@ latest_discovery_evidence:
       unit: percentage_points
       value: 0
     version: positive_fundamentals_v1
+  reason: 'Datos pendientes: Flujo de caja libre, Crecimiento de ingresos; Evidencia
+    contradictoria: Flujo de caja libre, Crecimiento de ingresos'
 next_thesis_review_at: '2026-11-18T11:01:03.172832-03:00'
 origin: automated
 research_profile: ''
