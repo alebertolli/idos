@@ -9,8 +9,8 @@ assessments:
       type: POSITIVE
     - detail: 'Excellent margins: 33.17%'
       type: POSITIVE
-    generated_at: '2026-10-01T09:31:31.802515-03:00'
-    id: BusinessAssessmentEngine-20261001093131
+    generated_at: '2026-10-18T23:29:56.631843-03:00'
+    id: BusinessAssessmentEngine-20261018232956
     recommendation: FAVORABLE
     risks: []
     score: 72
@@ -28,8 +28,8 @@ assessments:
       type: POSITIVE
     - detail: Only 0 positions, adding increases diversification
       type: POSITIVE
-    generated_at: '2026-10-01T09:31:31.802591-03:00'
-    id: PortfolioAssessmentEngine-20261001093131
+    generated_at: '2026-10-18T23:29:56.631924-03:00'
+    id: PortfolioAssessmentEngine-20261018232956
     recommendation: EXCELLENT_FIT
     risks: []
     score: 90
@@ -54,8 +54,8 @@ assessments:
       score: 50
       type: DIMENSION
     - dimension: catalysts
-      level: LOW
-      score: 30
+      level: HIGH
+      score: 70
       type: DIMENSION
     - dimension: technical_confirmation
       level: MEDIUM
@@ -65,11 +65,11 @@ assessments:
       level: MEDIUM
       score: 50
       type: DIMENSION
-    generated_at: '2026-10-01T09:31:31.802570-03:00'
-    id: RecoveryAssessmentEngine-20261001093131
+    generated_at: '2026-10-18T23:29:56.631903-03:00'
+    id: RecoveryAssessmentEngine-20261018232956
     recommendation: MODERATE
     risks: []
-    score: 50
+    score: 58
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
@@ -78,8 +78,8 @@ assessments:
     engine: RiskAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-10-01T09:31:31.802579-03:00'
-    id: RiskAssessmentEngine-20261001093131
+    generated_at: '2026-10-18T23:29:56.631912-03:00'
+    id: RiskAssessmentEngine-20261018232956
     recommendation: LOW_RISK
     risks: []
     score: 70
@@ -91,18 +91,18 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings: []
-    generated_at: '2026-10-01T09:31:31.802535-03:00'
-    id: ValuationAssessmentEngine-20261001093131
+    generated_at: '2026-10-18T23:29:56.631867-03:00'
+    id: ValuationAssessmentEngine-20261018232956
     recommendation: FAIR
     risks:
-    - detail: 'Price target below current: -1.5%'
+    - detail: 'Price target below current: -4.1%'
       type: VALUATION
     score: 45
     status: COMPLETED
     version: '1.1'
-conviction_score: 62
-created_at: '2026-10-01T09:31:31.802666-03:00'
-generated_at: '2026-10-01T09:31:31.803960-03:00'
+conviction_score: 64
+created_at: '2026-10-18T23:29:56.632011-03:00'
+generated_at: '2026-10-18T23:29:56.633152-03:00'
 opportunity_id: OPP-20260813-073
 reasoning: 'Rules blocked: RULE-005, RULE-008'
 recommendation: BLOCKED
