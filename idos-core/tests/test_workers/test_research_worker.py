@@ -337,6 +337,7 @@ class TestResearchWorker:
         tmp_sqlite,
         tmp_journal,
         base_path: str,
+        systematic_snapshot,
     ):
         import yaml
 
@@ -362,8 +363,9 @@ class TestResearchWorker:
             "enabled": True, "core": "CORE_3_GROWTH", "sleeve": "SYSTEMATIC_RETURN",
             "thesis_type": "SYSTEMATIC", "discovery_profile": "momentum_monthly",
             "research_profile": "systematic", "entry_policy": "SIGNAL_REBALANCE",
-            "parameters": {"minimum_signal": 0.8, "maximum_signal": 3.6},
+            "parameters": {"minimum_signal": 0.8, "maximum_signal": 3.6, "select_top": 2},
         }}}), encoding="utf-8")
+        snapshot_path = systematic_snapshot(signal, {"minimum_signal": 0.8, "maximum_signal": 3.6, "select_top": 2})
 
         result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
 
@@ -378,6 +380,12 @@ class TestResearchWorker:
             "score_method": "momentum_div_max_v1",
             "probability_status": "NOT_ASSESSED",
             "report_method_version": "systematic_signal_v2",
+            "signal_snapshot": {
+                "signal": signal,
+                "signal_policy": {"minimum_signal": 0.8, "maximum_signal": 3.6, "select_top": 2},
+                "source": snapshot_path.relative_to(Path(base_path)).as_posix(),
+                "generated_at": "2026-10-18T12:00:00-03:00", "run_scope": "bounded",
+            },
         }
         assert report["score_general"] == 25
         worker._fetch_target_consensus.assert_not_called()

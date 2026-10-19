@@ -20,6 +20,7 @@ from idos.models.enums import OpportunityStatus
 from idos.portfolio.buylist import BuyListManager, BuyListEntry
 from idos.config import load_settings
 from idos.strategy.catalog import StrategyCatalog
+from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.timezone import AR_TZ
 from datetime import datetime
 
@@ -580,18 +581,37 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     value = signal.get("momentum")
     minimum = profile.parameters.get("minimum_signal")
     maximum = profile.parameters.get("maximum_signal")
+    snapshot = None
+    snapshot_error = None
+    try:
+        snapshot = current_selection(bp, strategy_id, ticker, profile.parameters)
+    except SignalEvidenceError as exc:
+        snapshot_error = str(exc)
+    report_context = report.get("strategy_context", {}) if isinstance(report, dict) else {}
     checks = {
-        "research_evidence": isinstance(report, dict) and report.get("opp_id") == opp_id,
+        "research_evidence": isinstance(report, dict) and report.get("opp_id") == opp_id and report.get("ticker") == ticker,
+        "research_matches_signal": isinstance(report_context, dict) and report_context.get("strategy_id") == strategy_id
+        and report_context.get("signal") == signal and report_context.get("signal_policy") == {"minimum_signal": minimum, "maximum_signal": maximum}
+        and report_context.get("report_method_version") == "systematic_signal_v2",
+        "current_selection": snapshot is not None and snapshot["signal"] == signal,
         "signal_evidence": signal.get("ticker") == ticker and bool(signal.get("as_of_date")),
         "signal_within_policy": isinstance(value, (int, float)) and isinstance(minimum, (int, float))
         and isinstance(maximum, (int, float)) and minimum <= value <= maximum,
     }
     passed = all(checks.values())
+    blocked_reason = {
+        "not_selected_in_latest_snapshot": "El último Monthly que evaluó este activo no lo seleccionó.",
+        "signal_snapshot_incomplete": "El último reporte mensual tiene datos incompletos.",
+        "signal_policy_changed_or_unrecorded": "Ejecutar Monthly con los parámetros vigentes.",
+        "signal_snapshot_unavailable": "Falta un reporte mensual vigente para este activo.",
+    }.get(snapshot_error, "La señal o su Research no coinciden con la evidencia mensual vigente.")
     proposal = {
         "opportunity_id": opp_id, "strategy_id": strategy_id,
         "stage": "DECISION", "decision": "WAIT", "status": "PENDING_HUMAN_REVIEW" if passed else "BLOCKED",
         "checks": checks, "signal": signal,
-        "reason": "Risk budget and real portfolio context require private review" if passed else "Incomplete or invalid systematic evidence",
+        "reason": "Presupuesto de riesgo y contexto de cartera requieren revisión privada." if passed else blocked_reason,
+        "reason_code": None if passed else snapshot_error or "systematic_evidence_superseded",
+        "signal_snapshot": snapshot,
         "generated_at": datetime.now(AR_TZ).isoformat(),
     }
     case_dir.mkdir(parents=True, exist_ok=True)
@@ -606,8 +626,13 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
 def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_reprocess: bool = False) -> dict[str, Any]:
     bp = Path(base_path)
     sqlite = SQLiteStore(bp / "idos.db")
-    knowledge = KnowledgeRepository(bp / "idos-knowledge")
     journal = JournalRepository(bp / "idos-journal")
+    opportunity = sqlite.get_opportunity(opp_id) or journal.load_opportunity(ticker, opp_id) or {}
+    if opportunity.get("research_profile") == "systematic":
+        # This path needs selection evidence and human review, not corporate
+        # analyst targets or reads of private portfolio positions.
+        return _assess_systematic(opp_id, ticker, bp, sqlite, journal, opportunity)
+    knowledge = KnowledgeRepository(bp / "idos-knowledge")
     settings = load_settings(bp / "idos-config")
 
     rules_engine = RulesEngine()

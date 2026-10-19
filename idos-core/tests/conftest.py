@@ -15,6 +15,30 @@ TEST_TICKER = "TEST"
 TEST_OPP_ID = "OPP-2026-TEST-001"
 
 
+@pytest.fixture
+def systematic_snapshot(tmp_path):
+    """Write isolated monthly selection evidence, never fetch market data."""
+    import yaml
+
+    root = tmp_path / "idos-journal" / "strategies" / "MOMENTUM_ETF"
+
+    def write(signal, parameters, **overrides):
+        root.mkdir(parents=True, exist_ok=True)
+        report = {
+            "strategy_id": "MOMENTUM_ETF", "generated_at": "2026-10-18T12:00:00-03:00",
+            "run_scope": "bounded", "requested_tickers": [signal["ticker"]],
+            "coverage_complete": True, "market_gate": {"coverage_complete": True},
+            "signal_policy": parameters, "action": "REVIEW_ALLOCATION",
+            "selected": [signal], "eligible": [signal], "ranking": [signal],
+        }
+        report.update(overrides)
+        path = root / f"snapshot-{len(list(root.glob('*.yml')))}.yml"
+        path.write_text(yaml.safe_dump(report), encoding="utf-8")
+        return path
+
+    return write
+
+
 # ──────────────────────────────────────────────
 # Mock LLM responses
 # ──────────────────────────────────────────────

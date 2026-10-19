@@ -285,6 +285,13 @@ estas pruebas.
    de probabilidades y volatilidad inventadas, hipótesis con texto e invalidación
    configurada, valor intrínseco `No aplica` y propuesta pendiente visible.
    Reportes anteriores sin versión de método vigente requieren regeneración.
+7. Verificar Monthly → Research → Assessment con snapshots: selección positiva
+   consistente permite WAIT; resultado posterior negativo/incompleto bloquea sin
+   reutilizar una selección anterior; una prueba bounded de otro ticker no
+   invalida el caso; cambio de señal requiere re-research y reporte coincidente.
+   Confirmar mismo selector en preview/ejecución, no-op sin llamadas a proveedores
+   cuando no quedan candidatos y ausencia de consultas corporativas/portfolio
+   en el Assessment sistemático.
 
 ### 8.4 Frontera privada de portfolio y Risk Audit
 

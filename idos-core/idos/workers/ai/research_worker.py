@@ -15,6 +15,7 @@ from idos.state.machine import OpportunityStateMachine
 from idos.workers.base import BaseWorker
 from idos.timezone import AR_TZ
 from idos.strategy.catalog import StrategyCatalog
+from idos.strategy.signals import SignalEvidenceError, current_selection
 
 class ResearchWorker(BaseWorker):
     """Orchestrates the full research pipeline: DDD -> AOIF -> Hypothesis.
@@ -82,11 +83,19 @@ class ResearchWorker(BaseWorker):
         current_status = OpportunityStatus(opp["status"])
         is_systematic = str(opp.get("research_profile", "")).lower() == "systematic"
         systematic_params = {}
+        signal_snapshot = None
         if is_systematic:
             profile = StrategyCatalog(bp / "idos-config" / "strategies.yml").require(opp.get("strategy_id", ""))
             if not profile.enabled or profile.research_profile != "systematic":
                 raise ValueError("Systematic research requires an enabled systematic strategy")
             systematic_params = profile.parameters
+            if current_status not in {OpportunityStatus.SCREENED, OpportunityStatus.UNDER_RESEARCH}:
+                return {"ticker": ticker, "opp_id": opp_id, "status": "skipped", "reason": "reviewed_opportunity_signal_locked"}
+            try:
+                signal_snapshot = current_selection(bp, profile.strategy_id, ticker, systematic_params)
+            except SignalEvidenceError as exc:
+                return {"ticker": ticker, "opp_id": opp_id, "status": "blocked", "reason": str(exc)}
+            opp["signal"] = signal_snapshot["signal"]
         if not force_reprocess:
             if not self.state_machine.can_transition(current_status, OpportunityStatus.UNDER_RESEARCH):
                 return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
@@ -138,6 +147,8 @@ class ResearchWorker(BaseWorker):
         )
 
         classification = ddd_result.get("clasificacion_oportunidad", {})
+        if signal_snapshot is not None:
+            ddd_result["strategy_context"]["signal_snapshot"] = signal_snapshot
         market_error = ddd_result.get("error_mercado", {})
         thesis = ddd_result.get("tesis_inversion", "")
         score = ddd_result.get("score_general", 50)

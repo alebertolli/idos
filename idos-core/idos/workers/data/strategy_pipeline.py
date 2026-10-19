@@ -163,6 +163,7 @@ class MonthlyStrategyWorker(BaseWorker):
             "generated_at": generated_at,
             "run_scope": run_scope,
             "coverage_complete": coverage_complete,
+            "signal_policy": {key: params[key] for key in ("minimum_signal", "maximum_signal", "select_top")},
             "market_gate": {
                 "basis": "UNDERLYING_USD_PROXY",
                 "market_cap_min_usd": market_settings.market_cap_min_usd,

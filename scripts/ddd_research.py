@@ -81,6 +81,19 @@ def _needs_research(opp: dict, force: bool) -> tuple[bool, bool, str]:
     if ticker in SKIP_TICKERS:
         return False, False, "in BUY_LIST/PORTFOLIO"
 
+    if opp.get("research_profile") == "systematic" and status in {"SCREENED", "UNDER_RESEARCH"}:
+        from idos.strategy.catalog import StrategyCatalog
+        from idos.strategy.signals import current_selection
+        try:
+            profile = StrategyCatalog("idos-config/strategies.yml").require(opp.get("strategy_id", ""))
+            if not profile.enabled or profile.research_profile != "systematic":
+                return False, False, "systematic strategy not enabled"
+            evidence = current_selection(Path.cwd(), profile.strategy_id, ticker, profile.parameters)
+        except (ValueError, OSError) as exc:
+            return False, False, f"systematic evidence: {exc}"
+        if status == "UNDER_RESEARCH" and evidence["signal"] != opp.get("signal"):
+            return True, True, "systematic signal changed; re-research required"
+
     if force:
         if status == "UNDER_RESEARCH":
             return True, True, f"FORCE re-research UNDER_RESEARCH (score={score})"
@@ -106,6 +119,7 @@ def preview():
     from idos.data.sqlite import SQLiteStore
     from pathlib import Path
 
+    global SKIP_TICKERS
     SKIP_TICKERS = set()
     bl = Path("idos-journal/portfolio/buylist.yml")
     if bl.exists():
@@ -133,11 +147,17 @@ def preview():
     fresh = []
     force_list = []
     excluded = []
+    selected = []
+    skipped = []
+    force = os.environ.get("FORCE", "false").lower() == "true"
+    requested = {t.strip().upper() for t in os.environ.get("TICKER", "").split(",") if t.strip()}
 
     for d in sorted(companies_dir.iterdir()):
         if not d.is_dir():
             continue
         ticker = d.name.upper()
+        if requested and ticker not in requested:
+            continue
         if ticker in SKIP_TICKERS:
             excluded.append(ticker)
             continue
@@ -157,6 +177,10 @@ def preview():
                 status = data.get("status", "")
                 score = (data.get("conviction") or {}).get("overall", 0)
 
+                should, reprocess, reason = _needs_research(data, force)
+                entry = {"ticker": ticker, "opp_id": data["id"], "reason": reason, "force_reprocess": reprocess}
+                (selected if should else skipped).append(entry)
+
                 if status == "SCREENED":
                     screened.append((ticker, data["id"], score))
                 elif status == "UNDER_RESEARCH":
@@ -170,19 +194,20 @@ def preview():
             except Exception:
                 pass
 
-    print(f"[PREVIEW] SCREENED (will process normally): {len(screened)}")
+    print(f"[PREVIEW] Selected for this run after policy/data gates: {len(selected)}")
+    print(f"[PREVIEW] SCREENED before policy/data gates: {len(screened)}")
     for t, oid, sc in screened[:5]:
         print(f"  - {t} {oid} score={sc}")
     if screened[5:]:
         print(f"  ... and {len(screened)-5} more")
 
-    print(f"[PREVIEW] UNDER_RESEARCH stale>30d (will force re-research): {len(stale)}")
+    print(f"[PREVIEW] UNDER_RESEARCH stale>30d before policy/data gates: {len(stale)}")
     for t, oid, sc, days in stale[:5]:
         print(f"  - {t} {oid} score={sc} ({days}d)")
     if stale[5:]:
         print(f"  ... and {len(stale)-5} more")
 
-    print(f"[PREVIEW] UNDER_RESEARCH fresh<=30d (will skip): {len(fresh)}")
+    print(f"[PREVIEW] UNDER_RESEARCH fresh<=30d before FORCE/signal-change checks: {len(fresh)}")
     for t, oid, sc, days in fresh[:5]:
         print(f"  - {t} {oid} score={sc} ({days}d)")
 
@@ -190,6 +215,7 @@ def preview():
 
     Path("cache").mkdir(parents=True, exist_ok=True)
     Path("cache/ddd_preview.json").write_text(json.dumps({
+        "selected": selected, "skipped": skipped,
         "screened": [{"ticker": t, "opp_id": oid, "score": sc} for t, oid, sc in screened],
         "stale": [{"ticker": t, "opp_id": oid, "score": sc, "days": days} for t, oid, sc, days in stale],
         "fresh": [{"ticker": t, "opp_id": oid, "score": sc, "days": days} for t, oid, sc, days in fresh],
@@ -257,8 +283,9 @@ def main():
                 except Exception as e:
                     print('[DDD] Error reading {}: {}'.format(yf, e))
 
-    if not opportunities and not force:
-        print('[DDD] No opportunities to process (no SCREENED found)')
+    if not opportunities:
+        print('[DDD] No eligible opportunities to process')
+        Path('cache').mkdir(parents=True, exist_ok=True)
         Path('cache/ddd_results.json').write_text(json.dumps({
             'processed': [], 'errors': [], 'total': 0,
             'status': 'none', 'event_type': event_type, 'force': force,

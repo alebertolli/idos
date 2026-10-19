@@ -1634,7 +1634,9 @@ function showCase(oppId){
   const actionFails = buylistEntryFails(actRow);
   const actionResolved = actionFails.length===0;
   html += `<h2>Indicador de acción</h2>`;
-  html += (o.proposal?.status==='PENDING_HUMAN_REVIEW'
+  html += (o.proposal?.status==='BLOCKED'
+    ? `<div class="card"><b>Decisión bloqueada.</b> ${esc(o.proposal?.reason||'Evidencia incompleta o no vigente.')} La señal no autoriza una entrada.</div>`
+    : o.proposal?.status==='PENDING_HUMAN_REVIEW'
     ? `<div class="card"><b>Decisión pendiente de revisión humana.</b> La señal no autoriza una entrada.</div>`
     : actionResolved
     ? `<div class="card" style="border-color:#1c4731"><b class="pos">Listo para entrada</b> — no hay condiciones fallidas frente a los umbrales de ENTRY.</div>`
