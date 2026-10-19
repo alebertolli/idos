@@ -274,13 +274,14 @@ def test_pipeline_report_explains_missing_scout_data_quality_inputs():
         scout_data_quality_rejected=1,
         scout_data_quality_details=[{
             "ticker": "AAPL",
-            "missing_critical_metrics": ["operating_margin_pct", "fcf"],
+            "missing_critical_metrics": ["operating_margin_pct"],
+            "conflicting_critical_metrics": ["fcf"],
         }],
     )
 
     report = PipelineReportGenerator().generate(metrics)
 
-    assert "AAPL: missing operating_margin_pct, fcf" in report
+    assert "AAPL: missing operating_margin_pct; conflicts fcf" in report
 
 
 def test_monthly_evaluation_preserves_under_research_when_scout_passed(tmp_path):

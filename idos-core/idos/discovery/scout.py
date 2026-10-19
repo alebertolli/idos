@@ -17,6 +17,7 @@ class ScoutResult:
     scanned_at: str = ''
     status: str = ''
     missing_metrics: list[str] = field(default_factory=list)
+    conflicting_metrics: list[str] = field(default_factory=list)
     policy_version: str = ''
     observed_metrics: dict[str, float | None] = field(default_factory=dict)
     filter_results: dict[str, int | None] = field(default_factory=dict)

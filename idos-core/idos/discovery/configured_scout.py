@@ -43,8 +43,14 @@ class ConfiguredScoutEngine(ScoutEngine):
 
     def scan(self, ticker: str, data: dict) -> ScoutResult:
         metrics = data.get("metrics", {})
+        provenance = metrics.get("data_provenance") or data.get("data_provenance") or {}
+        raw_conflicts = provenance.get("conflicts", []) if isinstance(provenance, dict) else []
+        conflicted_fields = {
+            item.get("field") for item in raw_conflicts
+            if isinstance(item, dict) and isinstance(item.get("field"), str)
+        }
         asset_type = metrics.get("asset_type")
-        missing, failed, details = [], [], {}
+        missing, failed, conflicting, details = [], [], [], {}
         observed = {}
         for rule in self.policy["filters"]:
             key = rule["metric"]
@@ -52,8 +58,9 @@ class ConfiguredScoutEngine(ScoutEngine):
             observed[key] = value
             observations = (metrics.get("financial_observations") or {}).get(key, {}).get("values", {})
             outcomes = {v > rule["value"] for v in observations.values() if self.number(v) is not None}
-            if len(outcomes) > 1:
+            if key in conflicted_fields or len(outcomes) > 1:
                 value = None  # Conflicting evidence cannot promote an opportunity.
+                conflicting.append(key)
             details[key] = None if value is None else (100 if value > rule["value"] else 0)
             if value is None:
                 missing.append(key)
@@ -78,6 +85,8 @@ class ConfiguredScoutEngine(ScoutEngine):
         reasons = []
         if missing:
             reasons.append("Datos pendientes: " + ", ".join(labels.get(key, key) for key in missing))
+        if conflicting:
+            reasons.append("Evidencia contradictoria: " + ", ".join(labels.get(key, key) for key in conflicting))
         if failed:
             reasons.append("No cumple: " + ", ".join(labels.get(key, key) for key in failed))
         if not supported:
@@ -88,6 +97,7 @@ class ConfiguredScoutEngine(ScoutEngine):
                              discovery_type="FUNDAMENTAL_SCREEN", flags=[status])
         result.status = status
         result.missing_metrics = missing
+        result.conflicting_metrics = sorted(set(conflicting))
         result.policy_version = self.policy["version"]
         result.observed_metrics = observed
         result.filter_results = {rule["metric"]: details[rule["metric"]]

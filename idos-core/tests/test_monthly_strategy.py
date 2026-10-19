@@ -168,7 +168,7 @@ def test_momentum_strategy_intersects_configured_universe_with_operable_registry
     assert output["market_gate"]["accepted_count"] == 1
 
 
-def test_momentum_strategy_manual_subset_is_limited_to_configured_operable_tickers(tmp_path: Path):
+def test_momentum_strategy_manual_subset_measures_coverage_for_applicable_tickers(tmp_path: Path):
     config_dir = tmp_path / "config"
     (config_dir / "universe").mkdir(parents=True)
     (config_dir / "strategies.yml").write_text(
@@ -207,7 +207,10 @@ def test_momentum_strategy_manual_subset_is_limited_to_configured_operable_ticke
     assert output["candidate_count"] == 1
     assert output["eligible_universe_count"] == 2
     assert output["excluded_manual_tickers"] == ["AAPL"]
-    assert output["coverage_complete"] is False
+    assert output["market_gate"]["expected_count"] == 1
+    assert output["market_gate"]["evaluated_count"] == 1
+    assert output["market_gate"]["coverage_complete"] is True
+    assert output["coverage_complete"] is True
 
 
 def test_momentum_strategy_rejects_non_operable_manual_subset(tmp_path: Path):

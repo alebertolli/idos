@@ -62,6 +62,46 @@ def test_conflicting_source_signs_block_promotion():
     assert "fcf" in result.missing_metrics
 
 
+def test_material_source_conflict_blocks_promotion_even_when_both_values_pass_filter():
+    engine = configured_scout(Path(__file__).parents[3] / "idos-config")
+    result = engine.scan_market_data("TEST", _market(
+        operating_margin_pct=44.356, fcf=10_374_124_544, revenue_growth_pct=55.2,
+        data_provenance={"conflicts": [
+            {"field": "fcf", "deviation_pct": 78.4},
+            {"field": "revenue_growth_pct", "deviation_pct": 61.1},
+        ]},
+        financial_observations={
+            "fcf": {"values": {"stockanalysis.com": 23_750_000_000, "yfinance": 10_374_124_544}},
+            "revenue_growth_pct": {"values": {"stockanalysis.com": 29.38, "yfinance": 55.2}},
+        },
+    ))
+
+    assert result.status == "PENDING_DATA"
+    assert result.conflicting_metrics == ["fcf", "revenue_growth_pct"]
+    assert set(result.missing_metrics) >= {"fcf", "revenue_growth_pct"}
+    assert "Evidencia contradictoria" in result.reason
+    assert not result.passed
+
+
+def test_universe_pipeline_preserves_conflicting_metric_reason():
+    from idos.workers.data.universe_pipeline import UniversePipeline
+
+    config = Path(__file__).parents[3] / "idos-config"
+    pipeline = UniversePipeline({"config_path": str(config)})
+    result = pipeline._score_ticker(None, "TEST", _market(
+        operating_margin_pct=44.356, fcf=10_374_124_544, revenue_growth_pct=55.2,
+        data_provenance={"conflicts": [{"field": "fcf", "deviation_pct": 78.4}]},
+        financial_observations={
+            "fcf": {"values": {"stockanalysis.com": 23_750_000_000, "yfinance": 10_374_124_544}},
+        },
+    ))
+
+    assert result["status"] == "PENDING_DATA"
+    assert result["data_quality_valid"] is False
+    assert result["conflicting_metrics"] == ["fcf"]
+    assert "Evidencia contradictoria" in result["reason"]
+
+
 def test_etf_scout_needs_liquidity_but_not_market_cap_or_aum():
     config = Path(__file__).parents[3] / "idos-config"
     equity = configured_scout(config)

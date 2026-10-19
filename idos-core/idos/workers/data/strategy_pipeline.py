@@ -97,6 +97,10 @@ class MonthlyStrategyWorker(BaseWorker):
                 f"Strategy {self.strategy_id} has no configured candidates in the operable universe"
             )
 
+        # The workflow may pass a shared candidate selection to several
+        # strategies. Measure this strategy's market-data coverage only over
+        # the candidates that survived its own universe and asset-type rules.
+        market_gate_expected_tickers = list(universe)
         market_settings = MarketDataSettings.load(str(config_path.parent))
         refresh_config = {
             **self.config,
@@ -153,7 +157,7 @@ class MonthlyStrategyWorker(BaseWorker):
         market_gate_coverage_complete = (
             market_gate_blocked_count == 0
             and len(market_gate_passed) + len(market_gate_rejected) == len(
-                requested_tickers if requested_tickers else strategy_universe
+                market_gate_expected_tickers
             )
         )
         coverage_complete = market_gate_coverage_complete and not missing and len(rows) == len(market_gate_passed)
@@ -169,6 +173,7 @@ class MonthlyStrategyWorker(BaseWorker):
                 "market_cap_min_usd": market_settings.market_cap_min_usd,
                 "market_cap_applies_to": ["us_equity"],
                 "avg_dollar_volume_min_usd": market_settings.avg_dollar_volume_min_usd,
+                "expected_count": len(market_gate_expected_tickers),
                 "evaluated_count": len(market_gate_passed) + len(market_gate_rejected),
                 "accepted_count": len(market_gate_passed),
                 "blocked_count": market_gate_blocked_count,

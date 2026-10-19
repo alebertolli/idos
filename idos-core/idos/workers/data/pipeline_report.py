@@ -85,10 +85,16 @@ class PipelineReportGenerator:
         lines.append(f"  Data Fetch: {metrics.fetch_new} new, {metrics.fetch_cached} cached")
         lines.append(f"  Scout: {metrics.scout_passed} passed, {metrics.scout_rejected} rejected")
         if metrics.scout_data_quality_rejected:
-            lines.append(f"    Rejected for incomplete critical data: {metrics.scout_data_quality_rejected}")
+            lines.append(f"    Rejected for missing or conflicting critical data: {metrics.scout_data_quality_rejected}")
             for rejection in metrics.scout_data_quality_details[:10]:
                 missing = ", ".join(rejection.get("missing_critical_metrics", []))
-                lines.append(f"      {rejection.get('ticker', '?')}: missing {missing or 'critical data'}")
+                conflicts = ", ".join(rejection.get("conflicting_critical_metrics", []))
+                reasons = []
+                if missing:
+                    reasons.append(f"missing {missing}")
+                if conflicts:
+                    reasons.append(f"conflicts {conflicts}")
+                lines.append(f"      {rejection.get('ticker', '?')}: {'; '.join(reasons) or 'critical data'}")
             if len(metrics.scout_data_quality_details) > 10:
                 lines.append(f"      ... and {len(metrics.scout_data_quality_details) - 10} more")
         lines.append("")

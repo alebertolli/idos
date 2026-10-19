@@ -243,6 +243,7 @@ class UniversePipeline(BaseWorker):
                     metrics.scout_data_quality_details.append({
                         "ticker": ticker,
                         "missing_critical_metrics": result.get("missing_critical_metrics", []),
+                        "conflicting_critical_metrics": result.get("conflicting_metrics", []),
                     })
                     quality_rejections += 1
             screened.append(result)
@@ -418,6 +419,7 @@ class UniversePipeline(BaseWorker):
             "passed": result.passed, "status": result.status,
             "data_quality_valid": result.status != "PENDING_DATA",
             "missing_critical_metrics": result.missing_metrics,
+            "conflicting_metrics": result.conflicting_metrics,
             "policy_version": result.policy_version,
             "details": result.details, "reason": result.reason,
         }
