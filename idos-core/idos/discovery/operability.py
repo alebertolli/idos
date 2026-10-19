@@ -36,6 +36,13 @@ class OperabilityFilter:
     def is_operable(self, ticker: str) -> bool:
         return ticker.upper() in self._tickers
 
+    def filter_tickers(self, tickers: list[str]) -> tuple[list[str], list[str]]:
+        """Return normalized operable symbols and the excluded symbols."""
+        normalized = sorted({str(ticker).strip().upper() for ticker in tickers if str(ticker).strip()})
+        eligible = [ticker for ticker in normalized if self.is_operable(ticker)]
+        excluded = [ticker for ticker in normalized if not self.is_operable(ticker)]
+        return eligible, excluded
+
     def validate_selection(
         self,
         tickers: list[str],

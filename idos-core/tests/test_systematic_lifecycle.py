@@ -2,6 +2,7 @@
 
 from pathlib import Path
 from datetime import datetime, timedelta
+import sys
 
 import yaml
 
@@ -10,6 +11,11 @@ from idos.decision.assessment_pipeline import run_full_pipeline
 from idos.site.builder import SiteBuilder
 from idos.workers.ai.research_worker import ResearchWorker
 from idos.workers.data.strategy_pipeline import MonthlyStrategyWorker
+
+# These tests exercise the repository-level Actions entrypoints from an
+# isolated working directory. Keep the repository root importable after
+# monkeypatch.chdir(tmp_path), matching test_ddd_research_script.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 
 class Prices:

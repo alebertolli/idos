@@ -960,9 +960,9 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     return {
         "ticker": ticker,
         "opp_id": opp_id,
-        "status": "completed",
+        "status": "decision_pending" if proposal_data["status"] == "PENDING_HUMAN_REVIEW" else "completed",
         "conviction_score": proposal.conviction_score,
-        "recommendation": proposal.recommendation,
+        "recommendation": "WAIT" if proposal_data["status"] == "PENDING_HUMAN_REVIEW" else proposal.recommendation,
         "board_approved": False,
         "decision_type": None,
         "decision_id": None,

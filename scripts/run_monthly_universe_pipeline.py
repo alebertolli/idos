@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 
 from idos.workers.data.universe_pipeline import UniversePipeline
+from idos.strategy.catalog import StrategyCatalog
 
 
 def main() -> int:
@@ -21,6 +22,16 @@ def main() -> int:
         if ticker.strip()
     ]
     result = UniversePipeline(config).execute({"candidate_tickers": requested_tickers})
+    multibaggers_result = None
+    strategy = StrategyCatalog(Path("idos-config/strategies.yml")).require("MULTIBAGGERS")
+    if strategy.enabled:
+        multibaggers_result = UniversePipeline({**config, "strategy_id": "MULTIBAGGERS"}).execute({})
+        print(f"MULTIBAGGERS status: {multibaggers_result.status}")
+        if multibaggers_result.status == "failed":
+            print(f"MULTIBAGGERS error: {multibaggers_result.error}")
+            return 1
+    else:
+        print("MULTIBAGGERS: disabled; monthly runner skipped")
     print("=== PIPELINE COMPLETE ===")
     print(f"Status: {result.status}")
     output = result.output
@@ -44,7 +55,16 @@ def main() -> int:
     Path("cache").mkdir(exist_ok=True)
     Path("cache/pipeline_results.json").write_text(
         json.dumps(
-            {"status": str(result.status), "output": output, "error": result.error},
+            {
+                "status": str(result.status),
+                "output": output,
+                "error": result.error,
+                "multibaggers": (
+                    {"status": str(multibaggers_result.status), "output": multibaggers_result.output,
+                     "error": multibaggers_result.error}
+                    if multibaggers_result else {"status": "disabled"}
+                ),
+            },
             indent=2,
             default=str,
         ),

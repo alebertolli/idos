@@ -13,6 +13,27 @@ from idos.knowledge.wiki import AtomicWiki
 from idos.research.wiki import WikiBuilder
 
 
+def _write_multibaggers_profile(base_path: str, *, enabled: bool) -> None:
+    import yaml
+
+    config_dir = Path(base_path) / "idos-config"
+    config_dir.mkdir(parents=True, exist_ok=True)
+    (config_dir / "strategies.yml").write_text(yaml.safe_dump({
+        "strategies": {
+            "MULTIBAGGERS": {
+                "enabled": enabled,
+                "core": "CORE_4_ALPHA_ASYMMETRY",
+                "sleeve": "ALPHA_ASYMMETRY",
+                "thesis_type": "STRATEGIC",
+                "discovery_profile": "multibaggers",
+                "research_profile": "multibaggers",
+                "entry_policy": "MANUAL_REVIEW",
+                "strategy_version": "1.1",
+            },
+        },
+    }), encoding="utf-8")
+
+
 @pytest.fixture
 def seeded_opportunity(tmp_sqlite, tmp_journal):
     """Research starts after Discovery qualifies an opportunity."""
@@ -49,6 +70,111 @@ def _mock_research_registry() -> MagicMock:
 
 
 class TestResearchWorker:
+    def test_multibaggers_research_requires_matching_intake_and_uses_strategy_prompt(
+        self, seeded_opportunity, tmp_sqlite, tmp_journal, base_path: str
+    ):
+        import yaml
+
+        _write_multibaggers_profile(base_path, enabled=True)
+        ticker, opp_id = seeded_opportunity
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity.update({
+            "strategy_id": "MULTIBAGGERS",
+            "strategy_version": "1.1",
+            "research_profile": "multibaggers",
+            "entry_policy": "MANUAL_REVIEW",
+        })
+        tmp_sqlite.save_opportunity(opportunity)
+        tmp_journal.save_opportunity(ticker, opportunity)
+        opportunity_dir = tmp_journal.opportunity_path(ticker, opp_id)
+        opportunity_dir.mkdir(parents=True, exist_ok=True)
+        evidence_hash = "a" * 64
+        (opportunity_dir / "discovery_snapshot.yml").write_text(
+            yaml.safe_dump({"snapshot_hash": evidence_hash}), encoding="utf-8"
+        )
+        (opportunity_dir / "research_intake.yml").write_text(
+            yaml.safe_dump({
+                "ticker": ticker,
+                "strategy_id": "MULTIBAGGERS",
+                "strategy_version": "1.1",
+                "research_profile": "multibaggers",
+                "snapshot_hash": evidence_hash,
+            }),
+            encoding="utf-8",
+        )
+
+        worker = ResearchWorker({"provider": "test"})
+        worker._load_financial_data = MagicMock(return_value={})
+        worker._enrich_company_info = MagicMock(return_value={"name": "Test", "sector": "Technology"})
+        worker._fetch_target_consensus = MagicMock()
+        worker._run_prompt = MagicMock(return_value={})
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "ddd_failed"
+        assert worker._run_prompt.call_args.args[0] == "multibaggers"
+        worker._fetch_target_consensus.assert_not_called()
+
+    def test_multibaggers_research_blocks_mismatched_snapshot_before_llm(
+        self, seeded_opportunity, tmp_sqlite, tmp_journal, base_path: str
+    ):
+        import yaml
+
+        _write_multibaggers_profile(base_path, enabled=True)
+        ticker, opp_id = seeded_opportunity
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity.update({
+            "strategy_id": "MULTIBAGGERS",
+            "strategy_version": "1.1",
+            "research_profile": "multibaggers",
+            "entry_policy": "MANUAL_REVIEW",
+        })
+        tmp_sqlite.save_opportunity(opportunity)
+        tmp_journal.save_opportunity(ticker, opportunity)
+        opportunity_dir = tmp_journal.opportunity_path(ticker, opp_id)
+        opportunity_dir.mkdir(parents=True, exist_ok=True)
+        (opportunity_dir / "discovery_snapshot.yml").write_text(
+            yaml.safe_dump({"snapshot_hash": "snapshot-a"}), encoding="utf-8"
+        )
+        (opportunity_dir / "research_intake.yml").write_text(
+            yaml.safe_dump({
+                "ticker": ticker,
+                "strategy_id": "MULTIBAGGERS",
+                "strategy_version": "1.1",
+                "research_profile": "multibaggers",
+                "snapshot_hash": "snapshot-b",
+            }),
+            encoding="utf-8",
+        )
+        worker = ResearchWorker({"provider": "test"})
+        worker._run_prompt = MagicMock()
+
+        with pytest.raises(ValueError, match="does not match its Discovery snapshot"):
+            worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        worker._run_prompt.assert_not_called()
+
+    def test_multibaggers_research_rejects_disabled_strategy_before_llm(
+        self, seeded_opportunity, tmp_sqlite, base_path: str
+    ):
+        _write_multibaggers_profile(base_path, enabled=False)
+        ticker, opp_id = seeded_opportunity
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity.update({
+            "strategy_id": "MULTIBAGGERS",
+            "strategy_version": "1.1",
+            "research_profile": "multibaggers",
+        })
+        tmp_sqlite.save_opportunity(opportunity)
+
+        worker = ResearchWorker({"provider": "test"})
+        worker._run_prompt = MagicMock()
+
+        with pytest.raises(ValueError, match="requires a matching enabled strategy profile"):
+            worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        worker._run_prompt.assert_not_called()
+
     def test_event_research_persists_evidence_and_prompt_snapshot(
         self,
         seeded_opportunity: tuple[str, str],

@@ -93,9 +93,12 @@ class ResearchWorker(BaseWorker):
             raise ValueError(msg)
 
         current_status = OpportunityStatus(opp["status"])
-        is_systematic = str(opp.get("research_profile", "")).lower() == "systematic"
+        research_profile = str(opp.get("research_profile", "")).lower()
+        is_systematic = research_profile == "systematic"
+        is_multibaggers = research_profile == "multibaggers"
         systematic_params = {}
         signal_snapshot = None
+        research_intake = None
         if is_systematic:
             profile = StrategyCatalog(bp / "idos-config" / "strategies.yml").require(opp.get("strategy_id", ""))
             if not profile.enabled or profile.research_profile != "systematic":
@@ -108,6 +111,34 @@ class ResearchWorker(BaseWorker):
             except SignalEvidenceError as exc:
                 return {"ticker": ticker, "opp_id": opp_id, "status": "blocked", "reason": str(exc)}
             opp["signal"] = signal_snapshot["signal"]
+        if is_multibaggers:
+            profile = StrategyCatalog(bp / "idos-config" / "strategies.yml").require(
+                opp.get("strategy_id", "")
+            )
+            if (
+                not profile.enabled
+                or profile.research_profile != "multibaggers"
+                or profile.strategy_version != str(opp.get("strategy_version", ""))
+            ):
+                raise ValueError("MULTIBAGGERS research requires a matching enabled strategy profile")
+            opportunity_dir = journal.opportunity_path(ticker, opp_id)
+            intake_path = opportunity_dir / "research_intake.yml"
+            snapshot_path = opportunity_dir / "discovery_snapshot.yml"
+            if not intake_path.is_file() or not snapshot_path.is_file():
+                raise ValueError(f"MULTIBAGGERS Discovery evidence is missing for {ticker}/{opp_id}")
+            import yaml
+            research_intake = yaml.safe_load(intake_path.read_text(encoding="utf-8")) or {}
+            discovery_snapshot = yaml.safe_load(snapshot_path.read_text(encoding="utf-8")) or {}
+            if (
+                research_intake.get("strategy_id") != profile.strategy_id
+                or research_intake.get("research_profile") != "multibaggers"
+                or str(research_intake.get("ticker", "")).upper() != ticker
+                or research_intake.get("strategy_version") != profile.strategy_version
+                or not research_intake.get("snapshot_hash")
+                or discovery_snapshot.get("snapshot_hash") != research_intake.get("snapshot_hash")
+                or (opp.get("snapshot_hash") and opp.get("snapshot_hash") != research_intake.get("snapshot_hash"))
+            ):
+                raise ValueError("MULTIBAGGERS Research Intake Package does not match its Discovery snapshot")
         if not force_reprocess:
             if not self.state_machine.can_transition(current_status, OpportunityStatus.UNDER_RESEARCH):
                 return {"ticker": ticker, "opp_id": opp_id, "status": "skipped",
@@ -120,7 +151,7 @@ class ResearchWorker(BaseWorker):
         if not company.get("sector"):
             company = self._enrich_company_info(ticker, company, knowledge)
 
-        consensus = None if is_systematic else self._fetch_target_consensus(ticker, bp)
+        consensus = None if is_systematic or is_multibaggers else self._fetch_target_consensus(ticker, bp)
 
         previous_wiki = knowledge.get_wiki_text(ticker)
         prior_catalysts = self._load_prior_catalysts(ticker, journal)
@@ -160,10 +191,17 @@ class ResearchWorker(BaseWorker):
         # thesis. Running them through the generic DDD prompt produced the same
         # boilerplate report for every ETF and left the lifecycle dependent on
         # fundamental rules that do not apply to this strategy.
-        ddd_result = (
-            self._build_systematic_ddd(ticker, opp, systematic_params)
-            if is_systematic else self._run_prompt("ddd", ticker, ddd_inputs)
-        )
+        if is_systematic:
+            ddd_result = self._build_systematic_ddd(ticker, opp, systematic_params)
+        elif is_multibaggers:
+            ddd_result = self._run_prompt("multibaggers", ticker, {
+                "ticker": ticker,
+                "name": company.get("name", ticker),
+                "intake_package": json.dumps(research_intake, ensure_ascii=False, sort_keys=True),
+                "financial_summary": json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str),
+            })
+        else:
+            ddd_result = self._run_prompt("ddd", ticker, ddd_inputs)
 
         classification = ddd_result.get("clasificacion_oportunidad", {})
         if signal_snapshot is not None:
@@ -214,6 +252,7 @@ class ResearchWorker(BaseWorker):
                 "triggered_at": generated_at,
                 "strategy_id": opp.get("strategy_id", ""),
                 "strategy_version": opp.get("strategy_version", ""),
+                "discovery_snapshot_hash": (research_intake or {}).get("snapshot_hash"),
                 "event_evidence": event_evidence,
                 "input_snapshot_ref": {
                     "path": "research_input_snapshot",

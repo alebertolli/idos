@@ -445,7 +445,6 @@ def test_manual_review_stops_assessment_before_buy_list(tmp_path, monkeypatch):
     from types import SimpleNamespace
     import yaml
     from idos.data.sqlite import SQLiteStore
-    from idos.models.enums import DecisionType
     import idos.decision.assessment_pipeline as assessment
 
     config_dir = tmp_path / "idos-config"
@@ -468,14 +467,7 @@ def test_manual_review_stops_assessment_before_buy_list(tmp_path, monkeypatch):
         def run_pipeline(self, event_type, context):
             return SimpleNamespace(type=event_type, opportunity_id=opp["id"], assessments={}, rules_passed=["all"],
                 rules_failed=[], conviction_score=90, recommendation="APPROVE", rules_details={}, reasoning="approved by algorithm", created_at="2026-10-15T00:00:00+00:00")
-    class FakeBoard:
-        def __init__(self, **kwargs): pass
-        def submit(self, proposal): pass
-        def review(self):
-            return SimpleNamespace(approved=True, decision_id="DEC-1", decision_type=DecisionType.BUY,
-                justification="algorithmic approval", author="system", resolved_at="2026-10-15T00:00:00+00:00")
     monkeypatch.setattr(assessment, "DecisionOrchestrator", FakeOrchestrator)
-    monkeypatch.setattr(assessment, "DecisionBoard", FakeBoard)
     monkeypatch.setattr(assessment, "_register_authorization_rules", lambda *args: None)
     monkeypatch.setattr(
         assessment,
@@ -500,4 +492,3 @@ def test_manual_review_stops_assessment_before_buy_list(tmp_path, monkeypatch):
     resolution = yaml.safe_load((journal / "board_resolution.yml").read_text(encoding="utf-8"))
     assert proposal["status"] == "PENDING_HUMAN_REVIEW"
     assert resolution["approved"] is False
-    assert resolution["algorithmic_approved"] is True

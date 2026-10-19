@@ -688,6 +688,10 @@ class SiteBuilder:
             "status": opp.get("status", "UNKNOWN"),
             "strategy_id": opp.get("strategy_id", "COMPOUNDER"),
             "strategy_version": opp.get("strategy_version", "legacy-compatible"),
+            "discovery_score": opp.get("discovery_score"),
+            "research_priority": opp.get("research_priority"),
+            "discovery_type": opp.get("discovery_type"),
+            "position_limit_pct": opp.get("position_limit_pct"),
             "core": opp.get("core"),
             "sleeve": opp.get("sleeve"),
             "thesis_type": opp.get("thesis_type"),
@@ -1686,6 +1690,7 @@ function showCase(oppId){
   html += `<h1>${esc(o.ticker)} <span class="tick">${esc(o.opp_id)}</span> ${badge(o.status)}</h1>`;
   html += `<div class="grid">`;
   html += `<div class="card"><div class="muted">Convicción</div><div style="font-size:22px;font-weight:700">${o.conviction_overall??'—'}</div><div class="muted">${esc(o.confidence||'')} · ${esc(o.trend||'')}</div></div>`;
+  if(o.strategy_id==='MULTIBAGGERS') html += `<div class="card"><div class="muted">Discovery Score · Prioridad Research</div><div style="font-size:20px;font-weight:700">${fmt(o.discovery_score,1)} · ${fmt(o.research_priority,1)}</div><div class="muted">${esc(o.discovery_type||'')} · no son probabilidad ni convicción</div></div>`;
   html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${o.valuation_status==='NOT_APPLICABLE'?'No aplica':money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
   html += `<div class="card"><div class="muted">Última investigación</div><div style="font-size:16px">${dt(o.last_research)}</div>${staleBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">Evaluación / próxima revisión de tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.last_research||o.updated_at)} / ${dt(o.next_thesis_review_at)||'Pendiente'}</div><div class="muted">Cadencia: ${o.thesis_review_interval_days?`${o.thesis_review_interval_days} días`:'No aplica'} · ${esc(o.thesis_review_status||'sin agenda')}</div>${thesisBadge(o)}</div>`;

@@ -48,6 +48,7 @@ def reconcile_metric_observations(
         return _empty_result("missing", "NO_SOURCE_OBSERVATIONS")
 
     accepted: dict[str, dict[str, Any]] = {}
+    incomplete_evidence: list[dict[str, Any]] = []
     invalid_source = False
     stale_source = False
     incomplete = False
@@ -70,6 +71,18 @@ def reconcile_metric_observations(
         source_url = str(observation.get("source_url") or "").strip()
         if value is None or observed_at is None or reported_at is None or unit is None or not period or not source_url:
             incomplete = True
+            incomplete_evidence.append({
+                "source_id": source,
+                "raw_value": value,
+                "unit": observation.get("unit"),
+                "currency": currency or None,
+                "period": period or None,
+                "reported_at": reported_at.isoformat() if reported_at else None,
+                "observed_at": observed_at.isoformat() if observed_at else None,
+                "source_url": source_url or None,
+                "status": "incomplete",
+                "reason_code": "REQUIRED_EVIDENCE_FIELD_MISSING",
+            })
             continue
         if not _source_url_matches(source, source_url):
             incomplete = True
@@ -92,6 +105,7 @@ def reconcile_metric_observations(
             currencies.add(currency)
         normalized = {
             "source_id": source,
+            "status": "observed",
             "value": unit[0],
             "unit": unit[1],
             "currency": currency or None,
@@ -105,7 +119,10 @@ def reconcile_metric_observations(
             return _empty_result("conflicted", "DUPLICATE_SOURCE_VALUES", list(accepted.values()) + [normalized])
         accepted[source] = normalized
 
-    evidence = [accepted[source] for source in sorted(accepted)]
+    evidence = sorted(
+        [*accepted.values(), *incomplete_evidence],
+        key=lambda item: str(item.get("source_id") or ""),
+    )
     sources = sorted(accepted)
     if stale_source:
         return _empty_result("stale", "STALE_SOURCE_OBSERVATION", evidence, sources)
