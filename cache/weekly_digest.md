@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-18 20:54 AR _
+_Generado: 2026-10-18 21:00 AR _
 
 ## Resumen
 
@@ -8,7 +8,7 @@ _Generado: 2026-10-18 20:54 AR _
 - ✅ **Assessment completados:** 1
 - 🔖 **Approved:** 0
 - 🔴 **Errores:** 0
-- 📊 **Total encontradas:** 0
+- 📊 **Total encontradas:** 1
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
