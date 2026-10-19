@@ -675,6 +675,7 @@ class SiteBuilder:
                 "conviction_score": dp.get("conviction_score"),
                 "rules_passed": dp.get("rules_passed") or [],
                 "rules_failed": dp.get("rules_failed") or [],
+                "rules_details": dp.get("rules_details") or {},
                 "reasoning": dp.get("reasoning"),
             },
             "ddd": ddd_summary,
@@ -1626,6 +1627,13 @@ function showCase(oppId){
   if(o.decision?.justification) html += `<p class="muted">Justificación: ${esc(o.decision.justification)}</p>`;
   if((o.proposal?.rules_passed||[]).length) html += `<p>Reglas superadas: ${o.proposal.rules_passed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
   if((o.proposal?.rules_failed||[]).length) html += `<p class="neg">Reglas falladas: ${o.proposal.rules_failed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
+  const ruleDetails=o.proposal?.rules_details||{};
+  const asymmetryRuleState=(o.proposal?.rules_passed||[]).includes('RULE-008')?'superó':(o.proposal?.rules_failed||[]).includes('RULE-008')?'falló':null;
+  if(asymmetryRuleState){
+    html += `<div class="card"><b>Asimetría del modelo (RULE-008 · ${asymmetryRuleState})</b>${ruleDetails['RULE-008']?`<p>${esc(ruleDetails['RULE-008'])}</p>`:'<p class="muted">El detalle cuantitativo no fue persistido en esta evaluación.</p>'}<p class="muted">Métrica provisional del motor. Validar escenarios, fuentes y fechas junto con la tesis; por sí sola no autoriza una compra.</p></div>`;
+  }
+  const explainedRules=[...(o.proposal?.rules_passed||[]),...(o.proposal?.rules_failed||[])].filter(id=>ruleDetails[id]);
+  if(explainedRules.length) html += `<details><summary>Detalles de reglas</summary><ul>${[...new Set(explainedRules)].map(id=>`<li><b>${esc(id)}</b>: ${esc(ruleDetails[id])}</li>`).join('')}</ul></details>`;
   html += `<table><thead><tr><th>Engine</th><th>Score</th><th>Findings</th></tr></thead><tbody>`;
   Object.entries(o.scores||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td class="score">${v??'—'}</td><td>${(o.findings?.[k]||[]).map(esc).join(' · ')||'—'}</td></tr>`);
   html += '</tbody></table>';

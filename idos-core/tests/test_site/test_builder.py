@@ -233,6 +233,8 @@ def _write_ddd_case(tmp_path: Path, review: dict | None) -> None:
             "as_of_date": None,
             "missing_provenance": ["as_of_date"],
         },
+        "rules_passed": ["RULE-008"],
+        "rules_details": {"RULE-008": "B/R 6.8:1 ✅ (upside 10.9% / downside 1.6%)"},
     }, allow_unicode=True), encoding="utf-8")
 
 
@@ -250,6 +252,7 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert opp["ddd"]["hipotesis"][0]["predictions"][0]["expected"] == 8
     assert opp["ddd"]["hipotesis"][0]["predictions"][0]["prediction"] == "Ingresos crecerán 8% para FY2027."
     assert opp["ddd"]["financial_data_quality"]["status"] == "partial"
+    assert opp["proposal"]["rules_details"]["RULE-008"].startswith("B/R 6.8:1")
 
     output = write_site(tmp_path, tmp_path / "site-output")
     payload = (output / "data.json").read_text(encoding="utf-8")
@@ -263,6 +266,9 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert "Calidad de datos financieros" in app
     assert "Fecha de corte" in app
     assert "Cuándo abandonarla" in app
+    assert "Asimetría del modelo (RULE-008" in app
+    assert "Métrica provisional del motor" in app
+    assert "Detalles de reglas" in app
 
 
 def test_public_site_exposes_ddd_only_after_attributable_manager_approval(tmp_path: Path):

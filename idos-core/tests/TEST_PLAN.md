@@ -338,3 +338,4 @@ comportamiento fail-closed.
 2. Probar fecha ausente, formato inválido, fecha imposible y fecha futura: `RULE-010` debe fallar con motivo explícito y la decisión debe quedar bloqueada.
 3. Probar cobertura parcial 4/5 con fuente/corte válidos (80%): la regla de procedencia pasa sin convertir el campo faltante en cero; cobertura pobre, fuente ausente o fecha inválida bloquean.
 4. Revisar el Assessment y el Decision persistidos para confirmar el estado, el motivo de `RULE-010` y la procedencia; el dashboard debe exponer calidad parcial sin mostrar el caso como aprobado.
+5. Persistir y mostrar `rules_details` de la evaluación, incluyendo `RULE-008` cuando corresponda. Presentar la asimetría como métrica provisional, con sus componentes y advertencia de que no autoriza una compra por sí sola; un registro histórico sin detalle debe indicarlo explícitamente.

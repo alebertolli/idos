@@ -784,6 +784,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "conviction_score": proposal.conviction_score,
         "recommendation": proposal.recommendation,
         "reasoning": proposal.reasoning,
+        "rules_details": proposal.rules_details,
         "financial_data_quality": context.get("financial_data_quality", {}),
         "created_at": proposal.created_at,
         "generated_at": datetime.now(AR_TZ).isoformat(),
