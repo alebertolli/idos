@@ -259,6 +259,8 @@ def _write_ddd_case(tmp_path: Path, review: dict | None) -> None:
             "as_of_date": None,
             "as_of_date_source": None,
             "missing_provenance": ["as_of_date"],
+            "conflicting_core_metrics": ["revenue_growth_pct"],
+            "unreconciled_core_metrics": ["revenue_growth_pct"],
         },
         "rules_passed": ["RULE-008"],
         "rules_details": {"RULE-008": "B/R 6.8:1 ✅ (upside 10.9% / downside 1.6%)"},
@@ -295,6 +297,8 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert "Calidad de datos financieros" in app
     assert "Fecha de corte" in app
     assert "dq.as_of_date_source" in app
+    assert "Conflictos entre fuentes" in app
+    assert "Periodos sin reconciliar" in app
     assert "Cuándo abandonarla" in app
     assert "Asimetría del modelo (RULE-008" in app
     assert "Métrica provisional del motor" in app

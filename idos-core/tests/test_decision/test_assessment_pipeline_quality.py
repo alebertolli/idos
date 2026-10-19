@@ -74,6 +74,57 @@ def test_financial_data_quality_marks_sparse_core_metrics_poor():
     }
 
 
+def test_financial_quality_gate_blocks_conflicting_core_metric_sources():
+    quality = _financial_data_quality({
+        "roic_pct": 25,
+        "operating_margin_pct": 20,
+        "revenue_growth_pct": 84.785,
+        "pe_ratio_ttm": 18,
+        "debt_equity_ratio": 0.5,
+        "source": "stockanalysis.com, yfinance",
+        "fundamentals_as_of": "2026-09-30",
+        "data_provenance": {
+            "conflicts": [{
+                "field": "revenue_growth_pct",
+                "sources": {"stockanalysis.com": 65.07, "yfinance": 104.5},
+                "deviation_pct": 23.3,
+            }],
+        },
+    })
+
+    result = _eval_financial_data_quality({"financial_data_quality": quality})
+
+    assert quality["status"] == "poor"
+    assert quality["conflicting_core_metrics"] == ["revenue_growth_pct"]
+    assert not result.passed
+    assert "cobertura de métricas insuficiente" not in result.details
+    assert "conflicto entre fuentes" in result.details
+
+
+def test_financial_quality_gate_blocks_unreconciled_core_metric_periods():
+    quality = _financial_data_quality({
+        "roic_pct": 25,
+        "operating_margin_pct": 20,
+        "revenue_growth_pct": 104.5,
+        "pe_ratio_ttm": 18,
+        "debt_equity_ratio": 0.5,
+        "source": "stockanalysis.com, yfinance",
+        "fundamentals_as_of": "2026-09-30",
+        "financial_observations": {
+            "revenue_growth_pct": {
+                "period_status": "PROVIDER_REPORTED_NOT_RECONCILED",
+            },
+        },
+    })
+
+    result = _eval_financial_data_quality({"financial_data_quality": quality})
+
+    assert quality["status"] == "poor"
+    assert quality["unreconciled_core_metrics"] == ["revenue_growth_pct"]
+    assert not result.passed
+    assert "periodo financiero no reconciliado" in result.details
+
+
 def test_financial_quality_gate_blocks_missing_cutoff_and_passes_valid_partial_coverage():
     missing_cutoff = _financial_data_quality({
         "roic_pct": 25,

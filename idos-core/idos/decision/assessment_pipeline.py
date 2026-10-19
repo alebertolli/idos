@@ -72,8 +72,33 @@ def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
     if not as_of_date:
         missing_provenance.append("as_of_date")
 
+    core_source_fields = {
+        source_key
+        for source_keys in _CORE_FINANCIAL_FIELDS.values()
+        for source_key in source_keys
+    }
+    raw_conflicts = provenance.get("conflicts")
+    raw_conflicts = raw_conflicts if isinstance(raw_conflicts, list) else []
+    conflicting_metrics = sorted({
+        str(item.get("field"))
+        for item in raw_conflicts
+        if isinstance(item, dict) and item.get("field") in core_source_fields
+    })
+
+    observations = financial.get("financial_observations")
+    observations = observations if isinstance(observations, dict) else {}
+    unreconciled_metrics = sorted(
+        str(metric)
+        for metric, item in observations.items()
+        if metric in core_source_fields
+        and isinstance(item, dict)
+        and item.get("period_status") == "PROVIDER_REPORTED_NOT_RECONCILED"
+    )
+
     coverage = len(_CORE_FINANCIAL_FIELDS) - len(missing)
-    if coverage == len(_CORE_FINANCIAL_FIELDS) and not missing_provenance:
+    if conflicting_metrics or unreconciled_metrics:
+        status = "poor"
+    elif coverage == len(_CORE_FINANCIAL_FIELDS) and not missing_provenance:
         status = "good"
     elif coverage >= math.ceil(len(_CORE_FINANCIAL_FIELDS) * 0.8):
         status = "partial"
@@ -87,6 +112,8 @@ def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
         "as_of_date": as_of_date.isoformat() if as_of_date else None,
         "as_of_date_source": as_of_date_source if as_of_date else None,
         "missing_provenance": missing_provenance,
+        "conflicting_core_metrics": conflicting_metrics,
+        "unreconciled_core_metrics": unreconciled_metrics,
     }
 
 
@@ -662,7 +689,7 @@ def _eval_financial_data_quality(ctx):
         return RuleResult("RULE-010", False, "Falta el reporte de calidad financiera")
 
     issues = []
-    if quality.get("status") not in {"good", "partial"}:
+    if quality.get("status") not in {"good", "partial"} and quality.get("missing_core_metrics"):
         issues.append("cobertura de métricas insuficiente")
     if not quality.get("source"):
         issues.append("fuente financiera ausente")
@@ -670,6 +697,16 @@ def _eval_financial_data_quality(ctx):
         issues.append("fecha de corte ausente, inválida o futura")
     if quality.get("missing_provenance"):
         issues.append("procedencia incompleta")
+    if quality.get("conflicting_core_metrics"):
+        issues.append(
+            "conflicto entre fuentes en métricas core: "
+            + ", ".join(quality["conflicting_core_metrics"])
+        )
+    if quality.get("unreconciled_core_metrics"):
+        issues.append(
+            "periodo financiero no reconciliado en métricas core: "
+            + ", ".join(quality["unreconciled_core_metrics"])
+        )
 
     if issues:
         return RuleResult("RULE-010", False, "; ".join(issues))
