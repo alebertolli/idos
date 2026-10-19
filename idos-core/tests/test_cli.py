@@ -115,6 +115,9 @@ class TestCLISmoke:
     def test_opp_approve_no_opps(self):
         result = runner.invoke(app, ["opp-approve", "NONEXISTENT"])
         assert result.exit_code == 0
+        output = " ".join(result.stdout.split())
+        assert "está deshabilitado" in output
+        assert "no debe aprobar oportunidades automáticamente" in output
 
     def test_entry_evaluate_no_opps(self):
         result = runner.invoke(app, ["entry-evaluate", "NONEXISTENT"])

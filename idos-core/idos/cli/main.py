@@ -349,38 +349,15 @@ def opp_research(ticker: str, opp_id: str = "", force: bool = False):
 
 @app.command()
 def opp_approve(ticker: str, opp_id: str = ""):
-    """Evalúa DDD vs reglas de entrada (UNDER_RESEARCH → APPROVED o WATCHLIST)."""
-    ctx = _get_context()
-    sqlite, _, journal = _get_stores(ctx)
-
-    if not opp_id:
-        opps = sqlite.list_opportunities("UNDER_RESEARCH")
-        matching = [o for o in opps if o.get("ticker", "") == ticker.upper()]
-        if not matching:
-            opps = journal.list_all_opportunities("UNDER_RESEARCH")
-            matching = [o for o in opps if o.get("ticker", "") == ticker.upper()]
-        if not matching:
-            console.print(f"[red]No UNDER_RESEARCH opportunities found for {ticker.upper()}[/red]")
-            return
-        opp_id = matching[0]["id"]
-
-    console.print(f"[cyan]Evaluating {ticker} ({opp_id}) via Decision Board...[/cyan]")
-    from idos.workers.ai.decision_board_worker import DecisionBoardWorker
-    worker = DecisionBoardWorker({})
-    result = worker.execute({
-        "ticker": ticker,
-        "opp_id": opp_id,
-        "base_path": str(ctx.config_path.parent),
-    })
-    if result.status == "failed":
-        console.print(f"[red]Decision Board failed: {result.error}[/red]")
-        return
-    output = result.output
-    decision = output.get("decision", "UNKNOWN")
-    color = "green" if decision == "APPROVED" else "yellow" if decision == "WATCHLIST" else "red"
-    console.print(f"[{color}]Decision: {decision}[/{color}]")
-    console.print(f"Rules pass: {output.get('all_rules_pass')}")
-    console.print(f"Decision ID: {output.get('decision_id')}")
+    """Deprecated: evaluations cannot substitute for manager approval."""
+    console.print(
+        "[yellow]opp-approve está deshabilitado: el DecisionBoardWorker es legado "
+        "y no debe aprobar oportunidades automáticamente.[/yellow]"
+    )
+    console.print(
+        "Ejecuta el workflow DDD/Assessment para generar una propuesta y usa "
+        "Decision Review en una rama de prueba para registrar la decisión del gestor."
+    )
 
 @app.command()
 def opp_reject(ticker: str, opp_id: str = "", reason: str = "insufficient_evidence"):

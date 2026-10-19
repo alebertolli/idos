@@ -234,6 +234,7 @@ El sistema gestiona simultáneamente múltiples estrategias de inversión bajo u
 17. El cálculo de B/R SHALL usar el retorno de cada escenario contra la cotización actual en la misma moneda; upside y downside son las sumas ponderadas por sus probabilidades de los retornos positivos y negativos, respectivamente. Si falta una cola con retorno no nulo, difiere la moneda o falla la validación/aprobación, RULE-008 SHALL bloquear la autorización.
 18. Un resultado `APPROVE` del motor SHALL ser sólo una propuesta. Una Opportunity no SHALL entrar en Buy List sin una decisión explícita del gestor con identidad, fecha y justificación ligada al hash de Assessment vigente; ninguna evaluación automática SHALL fabricar una resolución humana. La acción de revisión SHALL comprobar gates y escenario aprobado, y la aprobación a Buy List SHALL quedar separada de cualquier autorización para operar o modificar posiciones privadas.
 19. WHEN Research o Assessment generan una versión nueva de la oportunidad, THE IDOS SHALL invalidar su aprobación anterior para Buy List y retirar sólo la entrada asociada a ese `opp_id`; SHALL conservar entradas de otros activos y el registro inmutable de la decisión histórica.
+20. THE legacy CLI command `opp-approve` SHALL NOT transition an Opportunity to `APPROVED` or create an approval. It SHALL direct the operator to the current Assessment proposal and attributable manager review flow.
 
 #### Propiedades de Corrección (Property-Based Testing)
 
