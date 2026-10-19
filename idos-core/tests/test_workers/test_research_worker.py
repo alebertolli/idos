@@ -103,6 +103,102 @@ def test_current_price_context_uses_committed_discovery_quote_when_cache_is_abse
     assert context == {"price": 125.5, "as_of_date": "2026-10-19", "source": "yfinance"}
 
 
+def test_scenario_market_evidence_keeps_quote_and_analyst_target_provenance():
+    evidence = ResearchWorker._scenario_market_evidence(
+        ticker="BRK.B",
+        price_context={"price": 500.0, "as_of_date": "2026-10-19", "source": "yfinance"},
+        quote_currency="USD",
+        target_consensus={
+            "promedio": 520.0,
+            "mediana": 515.0,
+            "target_low": 450.0,
+            "target_high": 600.0,
+            "calculado_at": "2026-10-19T12:00:00-03:00",
+            "source_references": [{
+                "name": "stockanalysis",
+                "url": "https://stockanalysis.com/stocks/brk.b/forecast/",
+                "as_of_date": "2026-10-19",
+            }],
+        },
+    )
+
+    assert evidence["current_quote"] == {
+        "price": 500.0,
+        "currency": "USD",
+        "as_of_date": "2026-10-19",
+        "sources": [{
+            "name": "yfinance",
+            "url": "https://finance.yahoo.com/quote/BRK.B/",
+        }],
+    }
+    assert evidence["analyst_target_consensus"]["low"] == 450.0
+    assert evidence["analyst_target_consensus"]["sources"][0]["as_of_date"] == "2026-10-19"
+
+
+def test_target_consensus_records_urls_and_observation_dates(monkeypatch):
+    from types import SimpleNamespace
+
+    import idos.valuation.target_consensus as target_consensus
+
+    monkeypatch.setattr(target_consensus, "fetch_target_consensus", lambda ticker, **_: SimpleNamespace(
+        promedio=520.0,
+        mediana=515.0,
+        fuentes={"stockanalysis": 520.0, "yfinance": 520.0},
+        n_fuentes=2,
+        calculado_at="2026-10-19T12:00:00-03:00",
+        target_low=450.0,
+        target_high=600.0,
+    ))
+
+    result = ResearchWorker()._fetch_target_consensus("BRK.B", Path.cwd())
+
+    assert result is not None
+    assert result["source_references"] == [
+        {
+            "name": "stockanalysis",
+            "url": "https://stockanalysis.com/stocks/brk.b/forecast/",
+            "observed_at": "2026-10-19T12:00:00-03:00",
+            "observed_date": "2026-10-19",
+            "as_of_date": "2026-10-19",
+            "target_price": 520.0,
+        },
+        {
+            "name": "yfinance",
+            "url": "https://finance.yahoo.com/quote/BRK.B/",
+            "observed_at": "2026-10-19T12:00:00-03:00",
+            "observed_date": "2026-10-19",
+            "as_of_date": "2026-10-19",
+            "target_price": 520.0,
+        },
+    ]
+
+
+def test_ddd_prompt_renders_the_scenario_evidence_contract():
+    from idos.ai.prompts import PromptRegistry
+
+    registry = PromptRegistry(Path("idos-config/prompts"))
+    kwargs = {
+        "ticker": "VIST", "name": "Vista", "existing_wiki": "", "prior_catalysts": "[]",
+        "sector": "Energy", "business_model": "", "products": "", "geography": "",
+        "moat_description": "", "revenue": 1, "revenue_growth": 2, "operating_margin": 3,
+        "roic": 4, "excess_return_roic_wacc": 0, "fcf_adjusted": 5, "debt_to_equity": 0.1,
+        "debt_maturity_profile": "N/A", "interest_coverage_ratio": 4, "ceo_tenure": 1,
+        "insider_ownership": 0, "capital_allocation": "N/A", "recent_events": "",
+        "analysis_as_of_date": "2026-10-19", "current_price": 100,
+        "current_price_as_of_date": "2026-10-19", "current_price_source": "yfinance",
+        "quote_currency": "USD", "scenario_market_evidence": '{"current_quote": {}}',
+        "financial_data_evidence": '{"conflicts": []}',
+    }
+
+    prompt = registry.load("ddd", category="research").user_prompt.format(**kwargs)
+
+    assert prompt is not None
+    assert '{"current_quote": {}}' in prompt
+    assert '{"conflicts": []}' in prompt
+    assert '"rationale"' in prompt
+    assert '"key_assumptions"' in prompt
+
+
 def test_current_price_context_rejects_invalid_discovery_quote():
     context = ResearchWorker._current_price_context(
         {}, {"market_quote": {"price": 125.5, "as_of_date": "2024-01-01", "source": ""}},

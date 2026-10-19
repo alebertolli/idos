@@ -3,6 +3,7 @@ import math
 import re
 import hashlib
 import json
+from urllib.parse import quote
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -206,6 +207,29 @@ class ResearchWorker(BaseWorker):
             "insider_ownership": financial_data.get("insider_ownership", 0),
             "capital_allocation": financial_data.get("capital_allocation", "N/A"),
             "recent_events": recent_events,
+            "financial_data_evidence": json.dumps(
+                self._financial_evidence_context(financial_data),
+                ensure_ascii=False,
+                sort_keys=True,
+                default=str,
+            ),
+            "scenario_market_evidence": json.dumps(
+                self._scenario_market_evidence(
+                    ticker=ticker,
+                    price_context=price_context,
+                    quote_currency=(
+                        financial_data.get("quote_currency")
+                        or financial_data.get("currency")
+                        or (quote_evidence.get("market_quote", {}).get("currency")
+                            if isinstance(quote_evidence.get("market_quote"), dict) else None)
+                        or "N/D"
+                    ),
+                    target_consensus=consensus,
+                ),
+                ensure_ascii=False,
+                sort_keys=True,
+                default=str,
+            ),
         }
         # Systematic strategies have a signal thesis, not a corporate fundamental
         # thesis. Running them through the generic DDD prompt produced the same
@@ -858,14 +882,89 @@ class ResearchWorker(BaseWorker):
         print(f"[DDD] {ticker}: target consensus = ${result.promedio:.2f} "
               f"(median ${result.mediana:.2f}) de {result.n_fuentes} fuentes: "
               f"{', '.join(f'{k}=${v:.2f}' for k, v in result.fuentes.items())}")
+        calculated_at = result.calculado_at
+        observed_date = calculated_at[:10] if isinstance(calculated_at, str) else ""
+        source_urls = {
+            "yfinance": f"https://finance.yahoo.com/quote/{quote(ticker, safe='.-^')}/",
+            "finviz": f"https://finviz.com/quote.ashx?t={quote(ticker, safe='.-^')}",
+            "stockanalysis": f"https://stockanalysis.com/stocks/{quote(ticker.lower(), safe='.-')}/forecast/",
+        }
+        source_references = [
+            {
+                "name": source,
+                "url": source_urls[source],
+                "observed_at": calculated_at,
+                "observed_date": observed_date,
+                "as_of_date": observed_date,
+                "target_price": value,
+            }
+            for source, value in sorted(result.fuentes.items())
+            if source in source_urls and observed_date
+        ]
         return {
             "promedio": result.promedio,
             "mediana": result.mediana,
             "fuentes": result.fuentes,
+            "source_references": source_references,
             "n_fuentes": result.n_fuentes,
             "calculado_at": result.calculado_at,
             "target_low": result.target_low,
             "target_high": result.target_high,
+        }
+
+    @staticmethod
+    def _financial_evidence_context(data: dict[str, Any]) -> dict[str, Any]:
+        provenance = data.get("data_provenance")
+        provenance = provenance if isinstance(provenance, dict) else {}
+        return {
+            "observed_at": data.get("financial_data_observed_at"),
+            "period_end": data.get("financial_data_as_of_date")
+            or data.get("financial_period_end"),
+            "currency": data.get("financial_currency") or data.get("currency"),
+            "sources_used": provenance.get("sources_used", []),
+            "field_sources": provenance.get("field_sources", {}),
+            "conflicts": provenance.get("conflicts", []),
+        }
+
+    @staticmethod
+    def _scenario_market_evidence(
+        *,
+        ticker: str,
+        price_context: dict[str, Any],
+        quote_currency: str,
+        target_consensus: dict[str, Any] | None,
+    ) -> dict[str, Any]:
+        source_urls = {
+            "yfinance": f"https://finance.yahoo.com/quote/{quote(ticker, safe='.-^')}/",
+            "finviz": f"https://finviz.com/quote.ashx?t={quote(ticker, safe='.-^')}",
+            "stockanalysis": f"https://stockanalysis.com/stocks/{quote(ticker.lower(), safe='.-')}/",
+        }
+        source_names = [
+            source.strip()
+            for source in str(price_context.get("source") or "").split(",")
+            if source.strip()
+        ]
+        quote_references = [
+            {"name": source, "url": source_urls[source]}
+            for source in source_names if source in source_urls
+        ]
+        consensus = target_consensus if isinstance(target_consensus, dict) else {}
+        return {
+            "current_quote": {
+                "price": price_context.get("price"),
+                "currency": quote_currency,
+                "as_of_date": price_context.get("as_of_date"),
+                "sources": quote_references,
+            },
+            "analyst_target_consensus": {
+                "currency": quote_currency,
+                "mean": consensus.get("promedio"),
+                "median": consensus.get("mediana"),
+                "low": consensus.get("target_low"),
+                "high": consensus.get("target_high"),
+                "observed_at": consensus.get("calculado_at"),
+                "sources": consensus.get("source_references", []),
+            } if consensus else None,
         }
 
     def _build_knowledge_base(

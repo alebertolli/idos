@@ -571,9 +571,9 @@ def test_public_site_shows_scenarios_with_sources_and_manager_review_hash(tmp_pa
         "horizon_date": "2027-10-19",
         "currency": "USD",
         "scenarios": [
-            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": "2026-10-18"}]},
-            {"id": "BASE", "probability_pct": 50, "target_price": 110, "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": "2026-10-18"}]},
-            {"id": "BULL", "probability_pct": 25, "target_price": 150, "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": "2026-10-18"}]},
+            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "rationale": "Demanda inferior", "key_assumptions": ["Ingresos caen"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": "2026-10-18"}]},
+            {"id": "BASE", "probability_pct": 50, "target_price": 110, "rationale": "Crecimiento moderado", "key_assumptions": ["Márgenes estables"], "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": "2026-10-18"}]},
+            {"id": "BULL", "probability_pct": 25, "target_price": 150, "rationale": "Aceleración del negocio", "key_assumptions": ["Adopción superior"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": "2026-10-18"}]},
         ],
     }
     report["scenario_validation"] = {"status": "valid_pending_manager_review", "errors": []}
@@ -593,6 +593,8 @@ def test_public_site_shows_scenarios_with_sources_and_manager_review_hash(tmp_pa
     assert "abre cada fuente y verifica que exista" in app
     assert "confirmación explícita de fuentes verificadas" in app
     assert "https://example.com/bear" in payload
+    assert "Lectura y supuestos" in app
+    assert "key_assumptions" in payload
 
 
 def test_public_site_does_not_present_automated_board_resolution_as_human_approval(tmp_path: Path):
