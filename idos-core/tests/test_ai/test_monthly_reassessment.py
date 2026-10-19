@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import datetime, timedelta
 from unittest.mock import MagicMock, patch, ANY
 
 import pytest
@@ -8,6 +9,7 @@ from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.models.enums import OpportunityStatus
 from idos.workers.ai.monthly_reassessment_worker import MonthlyReassessmentWorker
+from idos.timezone import AR_TZ
 
 
 def _seed_full_position(sqlite: SQLiteStore, journal: JournalRepository, bp: Path,
@@ -61,6 +63,26 @@ def _make_worker(bp: Path, **overrides) -> MonthlyReassessmentWorker:
 
 
 class TestMonthlyReassessment:
+    def test_recent_thesis_review_skips_llm_until_next_profile_date(self, tmp_path: Path):
+        bp = tmp_path
+        journal = JournalRepository(bp / "idos-journal")
+        sqlite = SQLiteStore(bp / "idos.db")
+        _seed_full_position(sqlite, journal, bp, "DUE")
+        now = datetime.now(AR_TZ)
+        opp = sqlite.get_opportunity("OPP-DUE-001")
+        opp["last_thesis_assessment_at"] = (now - timedelta(days=10)).isoformat()
+        sqlite.save_opportunity(opp)
+        journal.save_opportunity("DUE", opp)
+
+        worker = _make_worker(bp)
+        with patch("idos.workers.ai.thesis_monitor_worker.ThesisMonitorWorker") as mock_cls:
+            results = worker._reassess_theses([opp], sqlite, journal, bp)
+
+        mock_cls.assert_not_called()
+        assert results[0]["status"] == "skipped"
+        assert results[0]["reason"] == "review_not_due"
+        assert results[0]["next_thesis_review_at"] == (now + timedelta(days=20)).isoformat()
+
     def test_manual_ticker_scope_limits_all_monthly_reassessment_steps(self, tmp_path: Path):
         bp = tmp_path
         journal = JournalRepository(bp / "idos-journal")
@@ -109,6 +131,7 @@ class TestMonthlyReassessment:
 
         assert r["total_active"] == 1
         assert r["thesis_reassessed"] == 1
+        assert r["thesis_failed"] == 0
         assert r["thesis_changed"] == 1
         assert r["exits_triggered"]
         assert len(r["exits_triggered"]) == 1
@@ -116,6 +139,10 @@ class TestMonthlyReassessment:
         assert opp["status"] == "EXITED"
         assert opp["exit_reason"] == "thesis_monthly_reassessment"
         assert opp["thesis_active"] is False
+        assert datetime.fromisoformat(opp["next_thesis_review_at"]) > datetime.now(AR_TZ)
+        journal_opp = journal.load_opportunity("AAA", "OPP-AAA-001")
+        assert journal_opp["status"] == "EXITED"
+        assert journal_opp["next_thesis_review_at"] == opp["next_thesis_review_at"]
 
     def test_thesis_intact_no_exit(self, tmp_path: Path):
         bp = tmp_path
@@ -253,7 +280,8 @@ class TestMonthlyReassessment:
             w = _make_worker(bp)
             r = w.execute({"base_path": str(bp)}).output
 
-        assert r["thesis_reassessed"] == 1
+        assert r["thesis_reassessed"] == 0
+        assert r["thesis_failed"] == 1
         assert r["thesis_changed"] == 0
         opp = sqlite.get_opportunity("OPP-III-001")
         assert opp["status"] == "FULL_POSITION"

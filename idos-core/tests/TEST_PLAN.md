@@ -406,3 +406,27 @@ en el fixture.
     posterior al corte. Verificar activos brutos, pasivos, valor neto,
     proporción sobre activos y que Risk Audit permanezca NOT_ASSESSED sin
     autorizar allocation. Omitir una lista debe declarar balance parcial.
+
+### Cadencia de re-research de tesis
+
+1. Validar el valor por defecto de 30 días y que cada perfil estratégico pueda
+   configurar `parameters.thesis_review_interval_days` como entero positivo.
+   Rechazar booleanos, cero, negativos y valores de otro tipo; los perfiles
+   sistemáticos no reciben agenda de tesis fundamental.
+2. Confirmar que Research guarda `next_thesis_review_at` en SQLite y journal;
+   reiniciar el proceso y verificar que el dashboard y Monthly Reassessment
+   conservan la misma fecha.
+3. Con una fecha futura, ejecutar Monthly Reassessment y verificar que el
+   ticker se cuenta como omitido y que ThesisMonitor/LLM no se invoca. Con una
+   fecha vencida, comprobar una única revisión y que `last_thesis_assessment_at`
+   y la siguiente fecha avanzan juntas por el intervalo configurado.
+4. En el dashboard, comprobar fecha, cadencia y alerta de tesis vencida en
+   oportunidades previas a cartera; verificar que perfiles sistemáticos no
+   muestran una revisión fundamental aplicable.
+5. Repetir tras cambiar el intervalo del perfil y comprobar el recálculo desde
+   la última revisión. Probar persistencia en una base SQLite creada con el
+   esquema anterior y confirmar la migración aditiva.
+6. En una ejecución remota de prueba, seleccionar una sola oportunidad vencida
+   y revisar selector, proveedor/modelo, costo esperado, artifacts y commits;
+   comprobar que una oportunidad no vencida no consume Research ni cambia su
+   tesis. Registrar ref, SHA, run y resultado sin convertir un no-op en E2E.

@@ -248,6 +248,8 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert opp["ddd"]["evidence_review"]["status"] == "pending_manager_review"
     assert opp["ddd"]["resumen_ejecutivo"] == "Tesis antigua sin validar"
     assert opp["ddd"]["tesis_inversion"] == "Afirmación que requiere revisión"
+    assert data.positions == []
+    assert data.portfolio == {}
     assert opp["ddd"]["score_general"] == 81
     assert opp["ddd"]["dominios"][0]["analisis"] == "Afirmación sin fuente"
     assert opp["ddd"]["hipotesis"][0]["predictions"][0]["expected"] == 8
@@ -271,6 +273,35 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert "Asimetría del modelo (RULE-008" in app
     assert "Métrica provisional del motor" in app
     assert "Detalles de reglas" in app
+
+
+def test_public_site_shows_next_thesis_review_and_alerts_when_overdue(tmp_path: Path):
+    from datetime import datetime, timedelta
+
+    import yaml
+
+    from idos.timezone import AR_TZ
+
+    _write_ddd_case(tmp_path, review=None)
+    opp_path = tmp_path / "idos-journal/companies/VIST/case_file/opportunities/OPP-1/opportunity.yml"
+    opp = yaml.safe_load(opp_path.read_text(encoding="utf-8"))
+    now = datetime.now(AR_TZ)
+    opp["last_research_at"] = (now - timedelta(days=31)).isoformat()
+    opp["strategy_id"] = "COMPOUNDER"
+    opp_path.write_text(yaml.safe_dump(opp, allow_unicode=True), encoding="utf-8")
+
+    data = SiteBuilder(tmp_path).build()
+    opportunity = next(o for o in data.opportunities if o["ticker"] == "VIST")
+    alerts = data.dashboard["alerts"]
+    output = write_site(tmp_path, tmp_path / "site-output")
+    app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+
+    assert opportunity["thesis_review_interval_days"] == 30
+    assert opportunity["thesis_review_status"] == "due"
+    expected_next = (datetime.fromisoformat(opp["last_research_at"]) + timedelta(days=30)).isoformat()
+    assert opportunity["next_thesis_review_at"] == expected_next
+    assert any("Revisión de tesis vencida" in alert["message"] for alert in alerts)
+    assert "próxima revisión de tesis" in app
 
 
 def test_public_site_exposes_ddd_only_after_attributable_manager_approval(tmp_path: Path):

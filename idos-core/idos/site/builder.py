@@ -25,6 +25,8 @@ import yaml
 
 from idos.decision.scenarios import scenario_fingerprint, validate_scenario_analysis, validate_scenario_review
 from idos.decision.proposal_review import decision_proposal_fingerprint
+from idos.research.thesis_schedule import schedule_for_opportunity
+from idos.strategy.catalog import StrategyCatalog
 from idos.timezone import AR_TZ
 
 
@@ -222,6 +224,7 @@ class SiteBuilder:
         self.journal = base_path / "idos-journal"
         self.knowledge = base_path / "idos-knowledge"
         self.config = base_path / "idos-config"
+        self.strategy_catalog = StrategyCatalog(self.config / "strategies.yml")
         self.db_path = base_path / "idos.db"
         self.cache = base_path / "cache"
         self.stale_days = stale_days
@@ -496,13 +499,36 @@ class SiteBuilder:
 
         thesis_not_assessed_days = None
         is_thesis_stale = False
+        thesis_review_status = "not_scheduled"
+        next_thesis_review_at = None
+        thesis_review_interval_days = None
+        try:
+            if str(opp.get("research_profile", "")).lower() == "systematic":
+                thesis_review_status = "not_applicable"
+            else:
+                profile = self.strategy_catalog.get(opp.get("strategy_id") or "COMPOUNDER")
+                schedule = schedule_for_opportunity(opp, profile)
+                thesis_review_interval_days = schedule.interval_days
+                next_thesis_review_at = (
+                    schedule.next_review_at.isoformat()
+                    if schedule.next_review_at
+                    else opp.get("next_thesis_review_at") or None
+                )
+                if schedule.interval_days is None:
+                    thesis_review_status = "not_applicable"
+                elif schedule.next_review_at is None:
+                    thesis_review_status = "due"
+                else:
+                    thesis_review_status = "due" if schedule.due else "scheduled"
+        except ValueError:
+            thesis_review_status = "configuration_error"
         if current_status in {"ACCUMULATING", "FULL_POSITION", "MONITORING", "REDUCING"}:
             lta = opp.get("last_thesis_assessment_at") or opp.get("updated_at")
             lta_dt = _parse_dt(lta)
             if lta_dt:
                 days = max(0, (datetime.now(AR_TZ).replace(tzinfo=None) - lta_dt.replace(tzinfo=None)).days)
                 thesis_not_assessed_days = days
-                is_thesis_stale = days > self.stale_days
+                is_thesis_stale = thesis_review_status == "due"
 
         # A DDD report is model output until the manager explicitly approves it.
         # Do not serialize unreviewed claims into the public Pages data payload.
@@ -683,6 +709,9 @@ class SiteBuilder:
             "is_stale": is_stale,
             "thesis_not_assessed_days": thesis_not_assessed_days,
             "is_thesis_stale": is_thesis_stale,
+            "thesis_review_interval_days": thesis_review_interval_days,
+            "next_thesis_review_at": next_thesis_review_at,
+            "thesis_review_status": thesis_review_status,
             "decision": {
                 "approved": bool(br.get("approved")) if decision_attributable else False,
                 "decision_type": br.get("decision_type") if decision_attributable else None,
@@ -1014,6 +1043,11 @@ class SiteBuilder:
         ] + [
             {"severity": "warn", "ticker": o["ticker"], "message": f"Tesis sin evaluar ({o.get('thesis_not_assessed_days')}d)"}
             for o in thesis_stale
+        ] + [
+            {"severity": "warn", "ticker": o["ticker"], "message": "Revisión de tesis vencida; actualizar Research antes de usar la recomendación"}
+            for o in opps
+            if o.get("thesis_review_status") == "due"
+            and o.get("status") in {"SCREENED", "UNDER_RESEARCH", "UNDER_DEEP_DD", "APPROVED", "ENTRY_PENDING"}
         ]
         seen_single_source: set[str] = set()
         for opportunity in opps:
@@ -1114,7 +1148,7 @@ class SiteBuilder:
     # -- main build --
     def build(self) -> SiteData:
         from idos.strategy.catalog import StrategyCatalog
-        scout_policy = StrategyCatalog(self.config / "strategies.yml").get("COMPOUNDER").parameters.get("scout", {})
+        scout_policy = self.strategy_catalog.get("COMPOUNDER").parameters.get("scout", {})
         ui_cfg = _load_yaml(self.config / "ui.yml")
         if isinstance(ui_cfg, dict):
             self.stale_days = int(ui_cfg.get("stale_days", self.stale_days))
@@ -1559,7 +1593,7 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">Convicción</div><div style="font-size:22px;font-weight:700">${o.conviction_overall??'—'}</div><div class="muted">${esc(o.confidence||'')} · ${esc(o.trend||'')}</div></div>`;
   html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${o.valuation_status==='NOT_APPLICABLE'?'No aplica':money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
   html += `<div class="card"><div class="muted">Última investigación</div><div style="font-size:16px">${dt(o.last_research)}</div>${staleBadge(o)}</div>`;
-  html += `<div class="card"><div class="muted">Última evaluación tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.updated_at)}</div>${thesisBadge(o)}</div>`;
+  html += `<div class="card"><div class="muted">Evaluación / próxima revisión de tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.last_research||o.updated_at)} / ${dt(o.next_thesis_review_at)||'Pendiente'}</div><div class="muted">Cadencia: ${o.thesis_review_interval_days?`${o.thesis_review_interval_days} días`:'No aplica'} · ${esc(o.thesis_review_status||'sin agenda')}</div>${thesisBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">${o.decision?.decision_type?'Decisión':'Propuesta'}</div><div style="font-size:18px">${esc(o.decision?.decision_type||o.proposal?.decision||'—')}</div><div class="muted">${esc(o.decision?.author||o.proposal?.status||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
   html += '</div>';
   if(o.proposal?.status==='PENDING_HUMAN_REVIEW' && o.proposal?.proposal_hash){

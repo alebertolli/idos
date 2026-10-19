@@ -2,8 +2,8 @@
 
 Runs once per month (first weekday). Performs three tasks:
 
-1. **Thesis Re-assessment**: Calls ThesisMonitorWorker for every active
-   opportunity to re-evaluate thesis integrity via LLM.
+1. **Thesis Re-assessment**: Calls ThesisMonitorWorker for due opportunities
+   to re-evaluate thesis integrity via LLM; skips reviews before their cadence.
 2. **Conviction Recalibration**: Adjusts conviction scores for all active
    opportunities based on overvaluation/undervaluation, thesis status,
    and risk drawdown.
@@ -21,6 +21,8 @@ from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.portfolio.competition import CapitalCompetitionEngine
 from idos.portfolio.exit import ExitEngine
+from idos.research.thesis_schedule import schedule_for_opportunity
+from idos.strategy.catalog import StrategyCatalog
 from idos.timezone import AR_TZ
 from idos.workers.base import BaseWorker
 
@@ -58,14 +60,17 @@ class MonthlyReassessmentWorker(BaseWorker):
             opp.setdefault("stop_loss", pos.get("stop_loss", 0))
 
         thesis_results = self._reassess_theses(opportunities, sqlite, journal, bp)
+        completed_thesis_reviews = [r for r in thesis_results if r.get("status") == "completed"]
         conviction_results = self._recalibrate_conviction(opportunities, sqlite, journal)
         portfolio_results = self._review_portfolio(opportunities, sqlite, journal, bp)
 
         summary = {
             "date": datetime.now(AR_TZ).isoformat(),
             "total_active": len(opportunities),
-            "thesis_reassessed": len(thesis_results),
-            "thesis_changed": sum(1 for r in thesis_results if r.get("thesis_changed")),
+            "thesis_reassessed": len(completed_thesis_reviews),
+            "thesis_skipped_not_due": sum(1 for r in thesis_results if r.get("reason") == "review_not_due"),
+            "thesis_failed": sum(1 for r in thesis_results if r.get("status") == "failed"),
+            "thesis_changed": sum(1 for r in completed_thesis_reviews if r.get("thesis_changed")),
             "conviction_recalibrated": len(conviction_results),
             "portfolio_reviewed": len(portfolio_results),
             "proposals": [r for r in portfolio_results if r.get("proposal")],
@@ -110,12 +115,42 @@ class MonthlyReassessmentWorker(BaseWorker):
     def _reassess_theses(self, opportunities: list[dict[str, Any]], sqlite: SQLiteStore,
                            journal: JournalRepository, bp: Path) -> list[dict[str, Any]]:
         results = []
+        catalog = StrategyCatalog(bp / "idos-config" / "strategies.yml")
+        now = datetime.now(AR_TZ)
         for opp in opportunities:
             ticker = opp.get("ticker", "")
             opp_id = opp.get("id", "")
             if not ticker:
                 continue
             try:
+                if str(opp.get("research_profile", "")).lower() == "systematic":
+                    results.append({
+                        "ticker": ticker,
+                        "opp_id": opp_id,
+                        "status": "skipped",
+                        "reason": "systematic_strategy",
+                    })
+                    continue
+                profile = catalog.get(opp.get("strategy_id") or "COMPOUNDER")
+                schedule = schedule_for_opportunity(opp, profile, now)
+                if schedule.interval_days is None:
+                    results.append({
+                        "ticker": ticker,
+                        "opp_id": opp_id,
+                        "status": "skipped",
+                        "reason": schedule.reason,
+                    })
+                    continue
+                if not schedule.due:
+                    results.append({
+                        "ticker": ticker,
+                        "opp_id": opp_id,
+                        "status": "skipped",
+                        "reason": schedule.reason,
+                        "next_thesis_review_at": schedule.next_review_at.isoformat(),
+                    })
+                    continue
+
                 from idos.workers.ai.thesis_monitor_worker import ThesisMonitorWorker
                 worker = ThesisMonitorWorker({"llm_service": self.llm_service})
                 result = worker.run({
@@ -128,26 +163,52 @@ class MonthlyReassessmentWorker(BaseWorker):
                     thesis_active = result.get("thesis_active", True)
                     changed = thesis_active != opp.get("thesis_active", True)
                     exit_triggered = changed and not thesis_active
+                    reviewed_at = datetime.now(AR_TZ)
+                    next_review = (reviewed_at + timedelta(days=schedule.interval_days)).isoformat()
+                    opp["last_thesis_assessment_at"] = reviewed_at.isoformat()
+                    opp["next_thesis_review_at"] = next_review
+                    persisted_opp = sqlite.get_opportunity(opp_id) or dict(opp)
+                    persisted_opp["last_thesis_assessment_at"] = reviewed_at.isoformat()
+                    persisted_opp["next_thesis_review_at"] = next_review
+                    sqlite.save_opportunity(persisted_opp)
+                    journal_opp = journal.load_opportunity(ticker, opp_id) or dict(persisted_opp)
+                    journal_opp["last_thesis_assessment_at"] = reviewed_at.isoformat()
+                    journal_opp["next_thesis_review_at"] = next_review
+                    journal.save_opportunity(ticker, journal_opp)
                     results.append({
                         "ticker": ticker,
                         "opp_id": opp_id,
+                        "status": "completed",
                         "thesis_active": thesis_active,
                         "thesis_changed": changed,
                         "exit_triggered": exit_triggered,
                         "reason": result.get("reason", ""),
                         "flags": result.get("flags", []),
                         "confidence": result.get("confidence", 0),
+                        "review_interval_days": schedule.interval_days,
+                        "last_thesis_assessment_at": reviewed_at.isoformat(),
+                        "next_thesis_review_at": next_review,
                     })
                     if exit_triggered:
                         self._trigger_exit(opp, result, sqlite, journal)
                     elif changed:
                         self._update_opp_thesis(opp, result, sqlite, journal)
+                else:
+                    results.append({
+                        "ticker": ticker,
+                        "opp_id": opp_id,
+                        "status": "failed",
+                        "reason": result.get("reason", "thesis_monitor_failed"),
+                    })
             except Exception as e:
                 print(f"[MONTHLY] {ticker}: error en re-assessment: {e}")
                 results.append({
-                    "ticker": ticker, "opp_id": opp_id,
+                    "ticker": ticker,
+                    "opp_id": opp_id,
+                    "status": "failed",
                     "thesis_active": opp.get("thesis_active", True),
-                    "thesis_changed": False, "exit_triggered": False,
+                    "thesis_changed": False,
+                    "exit_triggered": False,
                     "error": str(e),
                 })
         return results
@@ -161,6 +222,16 @@ class MonthlyReassessmentWorker(BaseWorker):
         opp["exit_reason"] = "thesis_monthly_reassessment"
         opp["updated_at"] = datetime.now(AR_TZ).isoformat()
         sqlite.save_opportunity(opp)
+        journal_opp = journal.load_opportunity(opp.get("ticker", ""), opp["id"]) or dict(opp)
+        journal_opp.update({
+            "status": "EXITED",
+            "thesis_active": False,
+            "thesis_invalidated_reason": opp["thesis_invalidated_reason"],
+            "exit_reason": opp["exit_reason"],
+            "next_thesis_review_at": opp.get("next_thesis_review_at", ""),
+            "updated_at": opp["updated_at"],
+        })
+        journal.save_opportunity(opp.get("ticker", ""), journal_opp)
         sqlite.record_transition(opp["id"], old_status, "EXITED",
                                    cause="monthly_thesis_reassessment", worker="monthly_reassessment_worker")
         old_status = "MONITORING"

@@ -51,6 +51,7 @@ def test_multibaggers_policy_is_disabled_and_configured():
     assert profile.research_profile == "multibaggers"
     assert profile.parameters["discovery_threshold"] == 65
     assert profile.parameters["position_limit_pct"] == 1.0
+    assert profile.parameters["thesis_review_interval_days"] == 30
     assert profile.parameters["small_caps_enabled"] is False
     assert "avg_dollar_volume_min_usd" not in profile.parameters
     assert profile.parameters["weights"] == {

@@ -1,7 +1,7 @@
 import time
 import math
 import re
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from typing import Any
 from uuid import uuid4
 
@@ -18,6 +18,7 @@ from idos.timezone import AR_TZ
 from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.decision.scenarios import validate_scenario_analysis
+from idos.research.thesis_schedule import interval_days_for
 
 class ResearchWorker(BaseWorker):
     """Orchestrates the full research pipeline: DDD -> AOIF -> Hypothesis.
@@ -348,37 +349,31 @@ class ResearchWorker(BaseWorker):
                 opp["thesis_invalidated_reason"] = integridad.get("reason", "Tesis invalidada en DDD")
         sqlite.save_opportunity(opp)
 
-        if not force_reprocess:
-            opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
-            opp["last_research_at"] = datetime.now(AR_TZ).isoformat()
-            sqlite.save_opportunity(opp)
-            journal.save_opportunity(ticker, opp)
-            sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
-                                     cause="research_completed", worker="research_worker")
-            event_data = {
-                "opp_id": opp_id, "ticker": ticker,
-                "score": score, "hypotheses": len(hypotheses),
-                "classification": classification.get("categoria"),
-            }
-            sqlite.log_event("research:completed", event_data)
-            journal.log_event("research:completed", event_data, source="research_worker")
-        else:
-            opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
-            opp["last_research_at"] = datetime.now(AR_TZ).isoformat()
-            sqlite.save_opportunity(opp)
-            journal.save_opportunity(ticker, opp)
-            sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
-                                     cause="research_completed", worker="research_worker")
-            event_data = {
-                "opp_id": opp_id, "ticker": ticker,
-                "score": score, "hypotheses": len(hypotheses),
-                "classification": classification.get("categoria"),
+        opp["status"] = OpportunityStatus.UNDER_RESEARCH.value
+        research_completed_at = datetime.now(AR_TZ)
+        opp["last_research_at"] = research_completed_at.isoformat()
+        next_review = self._next_thesis_review_at(opp, bp, research_completed_at)
+        if next_review:
+            opp["next_thesis_review_at"] = next_review
+        sqlite.save_opportunity(opp)
+        journal.save_opportunity(ticker, opp)
+        sqlite.record_transition(opp_id, current_status.value, "UNDER_RESEARCH",
+                                 cause="research_completed", worker="research_worker")
+        event_data = {
+            "opp_id": opp_id, "ticker": ticker,
+            "score": score, "hypotheses": len(hypotheses),
+            "classification": classification.get("categoria"),
+        }
+        event_type_name = "research:completed"
+        if force_reprocess:
+            event_data.update({
                 "event_type": event_type,
                 "original_status": current_status.value,
-            }
-            event_data["ddd_empty"] = ddd_empty
-            sqlite.log_event("research:force_reprocess", event_data)
-            journal.log_event("research:force_reprocess", event_data, source="research_worker")
+                "ddd_empty": ddd_empty,
+            })
+            event_type_name = "research:force_reprocess"
+        sqlite.log_event(event_type_name, event_data)
+        journal.log_event(event_type_name, event_data, source="research_worker")
         return {
             "ticker": ticker,
             "opp_id": opp_id,
@@ -391,6 +386,15 @@ class ResearchWorker(BaseWorker):
             "ddd_empty": False,
             "target_consensus": consensus,
         }
+
+    @staticmethod
+    def _next_thesis_review_at(opp: dict[str, Any], base_path: Path, anchor: datetime) -> str | None:
+        if str(opp.get("research_profile", "")).lower() == "systematic":
+            return None
+        catalog = StrategyCatalog(base_path / "idos-config" / "strategies.yml")
+        profile = catalog.get(opp.get("strategy_id") or "COMPOUNDER")
+        interval = interval_days_for(profile)
+        return (anchor + timedelta(days=interval)).isoformat() if interval is not None else None
 
     @staticmethod
     def _load_prior_catalysts(ticker: str, journal: Any) -> list[dict]:
