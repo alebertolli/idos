@@ -1,205 +1,150 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Los envíos totales de iPhone en FY2025 se sitúan por debajo de 228
-      millones de unidades.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El crecimiento interanual de ingresos por iPhone en Q1-FY2025 y Q2-FY2025
-      resulta inferior al 2.0%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Menos del 15% de las ventas totales de la serie iPhone 16 corresponden
-      a modelos con soporte completo de IA en mercados clave.
+  - condition: Apple anuncia el lanzamiento exitoso de las funciones de IA antes del
+      30‑09‑2027 y el crecimiento de ingresos del Q2 FY2027 supera el 5% interanual.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los envíos totales de iPhone en FY2025 se sitúan por debajo de 228 millones de
-    unidades.
-  - El crecimiento interanual de ingresos por iPhone en Q1-FY2025 y Q2-FY2025 resulta
-    inferior al 2.0%.
-  - Menos del 15% de las ventas totales de la serie iPhone 16 corresponden a modelos
-    con soporte completo de IA en mercados clave.
+  - Apple anuncia el lanzamiento exitoso de las funciones de IA antes del 30‑09‑2027
+    y el crecimiento de ingresos del Q2 FY2027 supera el 5% interanual.
   horizon: medio
   id: H1-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
   predictions:
   - actual: null
-    deadline: medio
-    expected: 240.0
+    deadline: '2027-07-31'
+    expected: 3.0
     met: null
-    metric: Envíos globales de iPhone en FY2025
-    unit: millones de unidades
+    metric: Crecimiento ingresos YoY
+    prediction: El crecimiento interanual de ingresos del Q2 FY2027 será ≤ 3%, por
+      debajo del consenso del 5% esperado.
+    unit: '%'
   priority: critical
   probability: 0.5
-  rationale: Más del 85% de la base instalada actual de iPhone no cuenta con el silicio
-    requerido (A17 Pro o posterior / 8GB RAM) para ejecutar modelos locales de Apple
-    Intelligence. La exclusividad de funciones clave de IA para hardware reciente
-    forzará la renovación en dispositivos con más de 3 años de antigüedad.
-  review_trigger: Si en la presentación de resultados de Q2-FY2025 (abril/mayo 2025),
-    las ventas netas de iPhone muestran una contracción interanual superior al 3%
-    tras el despliegue general de Apple Intelligence en inglés.
+  rationale: Los desarrollos internos de IA requieren integración profunda con el
+    hardware y el ecosistema de servicios; los retrasos técnicos y la falta de adopción
+    temprana reducen la capacidad de monetizar estas funciones, como evidencian los
+    informes de proveedores y la ausencia de anuncios de productos en los últimos
+    eventos de la compañía.
+  review_trigger: Si Apple publica un comunicado oficial antes del 30‑09‑2027 confirmando
+    la disponibilidad general de las funciones de IA y los resultados de ingresos
+    del Q2 FY2027 superan el 5% interanual.
   secondary_hypotheses: []
-  statement: La integración progresiva de Apple Intelligence provocará un ciclo de
-    actualización acelerado en la base de usuarios premium, revirtiendo el estancamiento
-    de volumen de iPhone en el año fiscal 2025.
+  statement: Apple retrasará el despliegue masivo de funciones de IA en sus dispositivos
+    de consumo durante el segundo trimestre fiscal 2027, lo que limitará el crecimiento
+    de ingresos.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen bruto consolidado en FY2025 se reporta por debajo del 45.0%.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El crecimiento interanual de ingresos de Servicios se desacelera a
-      un dígito bajo (<7%) en dos trimestres consecutivos.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Resoluciones regulatorias adversas (DOJ/UE) fuerzan una reducción del
-      take-rate de la App Store reduciendo el margen de Servicios por debajo del 68%.
+  - condition: Apple reporta un margen bruto del FY2027 ≥ 40%.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen bruto consolidado en FY2025 se reporta por debajo del 45.0%.
-  - El crecimiento interanual de ingresos de Servicios se desacelera a un dígito bajo
-    (<7%) en dos trimestres consecutivos.
-  - Resoluciones regulatorias adversas (DOJ/UE) fuerzan una reducción del take-rate
-    de la App Store reduciendo el margen de Servicios por debajo del 68%.
+  - Apple reporta un margen bruto del FY2027 ≥ 40%.
   horizon: medio
   id: H2-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
   predictions:
   - actual: null
-    deadline: medio
-    expected: 46.5
+    deadline: '2027-10-30'
+    expected: 38.5
     met: null
-    metric: Margen Bruto Consolidado FY2025
+    metric: Margen bruto
+    prediction: El margen bruto del FY2027 será ≤ 38.5%, comparado con 39.7% en FY2026.
     unit: '%'
-  priority: critical
+  priority: important
   probability: 0.5
-  rationale: El segmento de Servicios genera márgenes brutos superiores al 70% (casi
-    el doble del hardware). A medida que Servicios supera el 25% de la mezcla de ingresos
-    y se añaden suscripciones recurrentes ligadas a computación en la nube/IA, la
-    rentabilidad general de la compañía se expande estructuralmente.
-  review_trigger: Si el margen bruto en el informe 10-K de FY2025 se sitúa por debajo
-    del 45.5% o si una orden judicial prohíbe definitivamente los pagos de Google
-    por exclusividad de búsqueda antes de octubre 2025.
-  secondary_hypotheses: []
-  statement: La monetización de la base instalada activa mediante el segmento de Servicios
-    mantendrá una expansión sostenida del margen bruto consolidado, compensando la
-    presión de costes de componentes.
+  rationale: Los pagos de Google TAC representan aproximadamente $20 B con márgenes
+    cercanos al 100%; la presión regulatoria para compartir estos ingresos y la apertura
+    de la App Store a competidores reducirán la rentabilidad de los servicios, impactando
+    el margen bruto consolidado.
+  review_trigger: Si el informe 10‑K del FY2027 muestra un margen bruto superior al
+    40% antes del 30‑10‑2027.
+  secondary_hypotheses:
+  - H1-OPP-20260813-073
+  statement: El margen bruto de Apple se comprimirá al menos 150 puntos básicos en
+    el FY2027 debido a mayores costos regulatorios vinculados a Google TAC y a la
+    pérdida de exclusividad de la App Store.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos combinados de Resto de Asia-Pacífico decrecen o crecen
-      menos del 8% en FY2025.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Las ventas en Gran China caen más de un 15% interanual sin compensación
-      alguna de otros mercados emergentes.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Apple reduce sus objetivos de fabricación de iPhone en India por debajo
-      del 15% de la producción global para fines de 2025.
+  - condition: El PER de AAPL supera los 27x al cierre del 31‑12‑2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos combinados de Resto de Asia-Pacífico decrecen o crecen menos del
-    8% en FY2025.
-  - Las ventas en Gran China caen más de un 15% interanual sin compensación alguna
-    de otros mercados emergentes.
-  - Apple reduce sus objetivos de fabricación de iPhone en India por debajo del 15%
-    de la producción global para fines de 2025.
-  horizon: largo
+  - El PER de AAPL supera los 27x al cierre del 31‑12‑2027.
+  horizon: medio
   id: H3-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
   predictions:
   - actual: null
-    deadline: largo
-    expected: 20.0
+    deadline: '2027-12-31'
+    expected: 25.0
     met: null
-    metric: Crecimiento de ingresos en Resto de Asia-Pacífico (incl. India)
-    unit: '% YoY'
+    metric: PER
+    prediction: El PER al 31‑12‑2027 será ≤ 25x.
+    unit: x
   priority: important
   probability: 0.5
-  rationale: La rápida expansión de la clase media en India, junto con la apertura
-    de tiendas retail propias y canales de distribución financiados, está generando
-    tasas de crecimiento superiores al 25% interanual en la región, mientras que la
-    producción local mitiga aranceles y diversifica el riesgo de cadena de suministro.
-  review_trigger: Si al término de Q3-FY2025 (junio 2025) los ingresos totales en
-    Gran China caen más de $6.000 millones interanuales acumulados y el Resto de Asia-Pacífico
-    no aporta al menos $3.500 millones de incremento neto compensatorio.
-  secondary_hypotheses: []
-  statement: El fuerte crecimiento de ventas y capacidad de fabricación en India neutralizará
-    el impacto contractivo de la cuota de mercado en Gran China sobre los ingresos
-    consolidados.
+  rationale: La compresión de márgenes y la desaceleración del crecimiento de ingresos
+    reducirán la utilidad neta proyectada, mientras que el precio de la acción se
+    ajustará a la percepción de mayor riesgo regulatorio, llevando el PER a niveles
+    más bajos que los actuales 36.3x.
+  review_trigger: Si el PER registrado el 31‑12‑2027 es mayor a 27x, indicando que
+    el mercado no ha ajustado la valoración.
+  secondary_hypotheses:
+  - H2-OPP-20260813-073
+  statement: El PER de AAPL caerá a 25x para finales de 2027, alineándose con los
+    múltiplos históricos de valoración y reflejando la corrección de expectativas
+    de crecimiento.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El múltiplo Forward P/E desciende por debajo de 26.0x al cierre de
-      cualquier mes de 2025.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El programa anual de recompras anunciado en mayo 2025 es inferior a
-      $90.000 millones.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El flujo de caja libre de los últimos doce meses (TTM) cae por debajo
-      de $95.000 millones.
+  - condition: Los ingresos de servicios de Apple en FY2028 crecen ≥ 5% interanual.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El múltiplo Forward P/E desciende por debajo de 26.0x al cierre de cualquier mes
-    de 2025.
-  - El programa anual de recompras anunciado en mayo 2025 es inferior a $90.000 millones.
-  - El flujo de caja libre de los últimos doce meses (TTM) cae por debajo de $95.000
-    millones.
-  horizon: medio
+  - Los ingresos de servicios de Apple en FY2028 crecen ≥ 5% interanual.
+  horizon: largo
   id: H4-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
   predictions:
   - actual: null
-    deadline: medio
-    expected: 30.0
+    deadline: '2028-10-30'
+    expected: 2.0
     met: null
-    metric: Múltiplo Forward P/E promedio en 2025
-    unit: x
-  priority: important
+    metric: Crecimiento ingresos servicios YoY
+    prediction: El crecimiento interanual de ingresos de servicios en FY2028 será
+      ≤ 2%, frente al 8% promedio de los últimos tres años.
+    unit: '%'
+  priority: critical
   probability: 0.5
-  rationale: La capacidad de generar más de 100.000 millones de dólares en flujo de
-    caja libre anual, combinada con la reducción continua de acciones en circulación
-    (2-3% anual) y la narrativa de IA defensiva sin intensidad extrema de capex propio,
-    otorga al valor un estatus cuasi-bono con crecimiento que defiende múltiplos elevados
-    frente al S&P 500.
-  review_trigger: Si en la junta de accionistas o reporte de Q2-FY2025 (mayo 2025)
-    la asignación para recompra de acciones se recorta en más de un 15% interanual
-    o la prima de valoración sobre el S&P 500 cae por debajo del 15%.
+  rationale: Las decisiones regulatorias en EE. UU. (FTC) y la UE (DMA) están avanzando
+    hacia la apertura de plataformas de pago a terceros; la eliminación de la exclusividad
+    disminuirá la participación de Apple en los ingresos de transacciones, que representan
+    una parte significativa de los servicios.
+  review_trigger: Si los organismos regulatorios confirman la mantención de la exclusividad
+    de pagos más allá del 30‑06‑2028.
   secondary_hypotheses:
-  - H1-OPP-20260813-073
   - H2-OPP-20260813-073
-  statement: La disciplina de retorno de capital mediante recompras agresivas sostendrá
-    una prima de valoración, manteniendo el múltiplo Forward P/E en niveles iguales
-    o superiores a 30x durante el año natural 2025.
+  statement: Apple perderá la exclusividad de los pagos de la App Store en EE. UU.
+    y la UE antes de mediados de 2028, reduciendo los ingresos de servicios en FY2028
+    en al menos $2 B.
   status: ACTIVE
   ticker: AAPL
   version: 1

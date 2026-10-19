@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-19 00:02 AR _
+_Generado: 2026-10-19 00:27 AR _
 
 ## Resumen
 
@@ -12,7 +12,7 @@ _Generado: 2026-10-19 00:02 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **AAPL** (OPP-20260813-073): score=82, class=?
+- ✅ **AAPL** (OPP-20260813-073): score=74, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
