@@ -213,12 +213,6 @@ class MultibaggersDiscoveryEngine:
             if item["coverage"] < int(self.parameters["data_quality"]["critical_sources_min"]):
                 code = "SINGLE_SOURCE_CRITICAL_METRIC" if item["coverage"] == 1 else "INSUFFICIENT_CRITICAL_SOURCES"
                 add(code, name, "Critical metric lacks independent source coverage", item["source"])
-        cap = val("market_cap_usd")
-        if cap is not None and cap < float(self.parameters["market_cap_min_usd"]):
-            add("MARKET_CAP_BELOW_MINIMUM", "market_cap_usd", "Company is below the configured minimum market capitalization", cap)
-        liquidity = val("avg_dollar_volume_usd")
-        if liquidity is not None and liquidity < float(self.parameters["avg_dollar_volume_min_usd"]):
-            add("DOLLAR_VOLUME_BELOW_MINIMUM", "avg_dollar_volume_usd", "Average dollar volume is below the configured minimum", liquidity)
         checks = [
             ("current_ratio", "current_ratio_below", lambda v, t: v < t, "LOW_CURRENT_RATIO"),
             ("interest_coverage", "interest_coverage_below", lambda v, t: v < t, "LOW_INTEREST_COVERAGE"),

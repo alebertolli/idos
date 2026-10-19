@@ -1,6 +1,8 @@
 """Strategy-scoped runner for the curated MULTIBAGGERS universe."""
 from __future__ import annotations
 
+import hashlib
+import json
 from pathlib import Path
 from typing import Any
 import yaml
@@ -9,6 +11,7 @@ from idos.data.sqlite import SQLiteStore
 from idos.discovery.multibaggers import MultibaggersDiscoveryEngine, build_research_intake
 from idos.discovery.multibaggers_store import MultibaggersStore
 from idos.discovery.operability import OperabilityFilter
+from idos.market.liquidity import MarketDataSettings, evaluate_global_market_eligibility
 from idos.models.conviction import Conviction
 from idos.models.enums import OpportunityStatus
 from idos.models.journal import Opportunity
@@ -35,6 +38,7 @@ class MultibaggersPipeline:
         if not operable_path.is_absolute():
             operable_path = self.root / operable_path
         self.operability = OperabilityFilter(str(operable_path))
+        self.market_data_settings = MarketDataSettings.load(str(config_dir))
         self.journal_root = Path(self.config.get("journal_path", self.root / "idos-journal"))
         if not self.journal_root.is_absolute():
             self.journal_root = self.root / self.journal_root
@@ -61,20 +65,71 @@ class MultibaggersPipeline:
                   "created": 0, "existing": 0, "excluded_tickers": excluded_tickers, "results": []}
         for ticker in tickers:
             payload = cache.get(f"merged:{ticker}")
-            if payload is None and self.config.get("refresh_missing", True):
+            needs_refresh = payload is None or self._market_data_needs_refresh(ticker, payload)
+            if needs_refresh and self.config.get("refresh_missing", True):
                 factory = self.config.get("refresh_worker_factory")
-                worker = factory(self.config) if factory else __import__("idos.workers.data.refresh_worker", fromlist=["DataRefreshWorker"]).DataRefreshWorker(self.config)
+                worker = (
+                    factory(self.config)
+                    if factory
+                    else __import__(
+                        "idos.workers.data.refresh_worker", fromlist=["DataRefreshWorker"]
+                    ).DataRefreshWorker(self.config)
+                )
                 worker.execute({"tickers": [ticker]})
                 payload = cache.get(f"merged:{ticker}")
             payload = payload or {"merged_data": {}, "metric_sources": {}, "conflicts": [], "as_of": None}
-            result = engine.evaluate(ticker, payload, payload.get("as_of"))
+            merged_data = payload.get("merged_data", payload) if isinstance(payload, dict) else {}
+            market_eligibility = evaluate_global_market_eligibility(
+                merged_data if isinstance(merged_data, dict) else {},
+                asset_type=self._asset_type(ticker),
+                settings=self.market_data_settings,
+            )
+            result = engine.evaluate(
+                ticker,
+                payload,
+                payload.get("as_of") if isinstance(payload, dict) else None,
+            )
             result_data = result.to_dict()
-            intake = build_research_intake(result_data, {"parameters": self.profile.parameters, "universe": universe}) if result.passed else {}
+            result_data["global_market_eligibility"] = market_eligibility
+            if not market_eligibility["passed"]:
+                result_data["passed"] = False
+                result_data["reason_codes"] = sorted(
+                    set(result_data["reason_codes"] + market_eligibility["reason_codes"])
+                )
+                result_data["red_flags"] = result_data["red_flags"] + [
+                    {
+                        "code": code,
+                        "severity": "hard",
+                        "metric": "global_market_eligibility",
+                        "message": code.replace("_", " ").lower(),
+                        "evidence": market_eligibility,
+                    }
+                    for code in market_eligibility["reason_codes"]
+                ]
+                result_data["discovery_type"] = "BLOCKED_DATA"
+            hash_body = {key: value for key, value in result_data.items() if key != "snapshot_hash"}
+            result_data["snapshot_hash"] = hashlib.sha256(
+                json.dumps(hash_body, sort_keys=True, separators=(",", ":"), default=str).encode("utf-8")
+            ).hexdigest()
+            if result_data["passed"]:
+                intake = build_research_intake(result_data, {"parameters": self.profile.parameters, "universe": universe})
+            else:
+                intake = {}
             discovery_store.save(result_data, intake)
             output["processed"] += 1
-            output["passed" if result.passed else "blocked"] += 1
-            output["results"].append({"ticker": ticker, "passed": result.passed, "score": result.discovery_score, "priority": result.research_priority, "discovery_type": result.discovery_type, "reason_codes": result.reason_codes, "snapshot_hash": result.snapshot_hash})
-            if not result.passed:
+            passed = result_data["passed"]
+            output["passed" if passed else "blocked"] += 1
+            output["results"].append({
+                "ticker": ticker,
+                "passed": passed,
+                "score": result.discovery_score,
+                "priority": result.research_priority,
+                "discovery_type": result_data["discovery_type"],
+                "reason_codes": result_data["reason_codes"],
+                "snapshot_hash": result_data["snapshot_hash"],
+                "global_market_eligibility": market_eligibility,
+            })
+            if not passed:
                 continue
 
             from idos.data.journal import JournalRepository
@@ -85,14 +140,60 @@ class MultibaggersPipeline:
                 output["existing"] += 1
             else:
                 opp_id = f"OPP-MB-{ticker}"
-                opp = Opportunity(id=opp_id, ticker=ticker, status=OpportunityStatus.SCREENED, strategy_id="MULTIBAGGERS", strategy_version=self.profile.strategy_version, core=self.profile.core, sleeve=self.profile.sleeve, thesis_type=self.profile.thesis_type, entry_policy=self.profile.entry_policy, research_profile=self.profile.research_profile, origin="multibaggers_discovery", conviction=Conviction())
+                opp = Opportunity(
+                    id=opp_id,
+                    ticker=ticker,
+                    status=OpportunityStatus.SCREENED,
+                    strategy_id="MULTIBAGGERS",
+                    strategy_version=self.profile.strategy_version,
+                    core=self.profile.core,
+                    sleeve=self.profile.sleeve,
+                    thesis_type=self.profile.thesis_type,
+                    entry_policy=self.profile.entry_policy,
+                    research_profile=self.profile.research_profile,
+                    origin="multibaggers_discovery",
+                    conviction=Conviction(),
+                )
                 opp_data = opp.model_dump(mode="json")
-                opp_data.update({"discovery_score": result.discovery_score, "research_priority": result.research_priority, "discovery_type": result.discovery_type, "snapshot_hash": result.snapshot_hash, "position_limit_pct": float(self.profile.parameters.get("position_limit_pct", 1.0)), "risk_limits": {"max_position_pct": float(self.profile.parameters.get("position_limit_pct", 1.0))}})
+                position_limit = float(self.profile.parameters.get("position_limit_pct", 1.0))
+                opp_data.update({
+                    "discovery_score": result.discovery_score,
+                    "research_priority": result.research_priority,
+                    "discovery_type": result_data["discovery_type"],
+                    "snapshot_hash": result_data["snapshot_hash"],
+                    "position_limit_pct": position_limit,
+                    "risk_limits": {"max_position_pct": position_limit},
+                })
                 journal.save_opportunity(ticker, opp_data)
                 sqlite.save_opportunity(opp_data)
                 output["created"] += 1
             opp_path = journal.opportunity_path(ticker, opp_id)
             opp_path.mkdir(parents=True, exist_ok=True)
-            (opp_path / "discovery_snapshot.yml").write_text(yaml.safe_dump(result_data, allow_unicode=True, sort_keys=False), encoding="utf-8")
-            (opp_path / "research_intake.yml").write_text(yaml.safe_dump(intake, allow_unicode=True, sort_keys=False), encoding="utf-8")
+            (opp_path / "discovery_snapshot.yml").write_text(
+                yaml.safe_dump(result_data, allow_unicode=True, sort_keys=False), encoding="utf-8"
+            )
+            (opp_path / "research_intake.yml").write_text(
+                yaml.safe_dump(intake, allow_unicode=True, sort_keys=False), encoding="utf-8"
+            )
         return output
+
+    def _asset_type(self, ticker: str) -> str | None:
+        entry = self.operability.check(ticker)
+        return str(entry.get("type", "")).strip().lower() if entry else None
+
+    def _market_eligibility(self, ticker: str, payload: Any) -> dict[str, Any]:
+        merged = payload.get("merged_data", payload) if isinstance(payload, dict) else {}
+        return evaluate_global_market_eligibility(
+            merged if isinstance(merged, dict) else {},
+            asset_type=self._asset_type(ticker),
+            settings=self.market_data_settings,
+        )
+
+    def _market_data_needs_refresh(self, ticker: str, payload: Any) -> bool:
+        reasons = self._market_eligibility(ticker, payload)["reason_codes"]
+        incomplete_evidence = {
+            "MARKET_DATA_NORMALIZATION_INCOMPLETE",
+            "GLOBAL_LIQUIDITY_EVIDENCE_INCOMPLETE",
+            "GLOBAL_MARKET_CAP_EVIDENCE_INCOMPLETE",
+        }
+        return bool(incomplete_evidence.intersection(reasons))

@@ -40,11 +40,21 @@ def valid_payload():
              "reported_at": "2026-09-30T00:00:00+00:00", "observed_at": "2026-10-15T12:00:00+00:00",
              "source_url": f"https://finance.yahoo.com/quote/TEST/{key}"},
         ]
-    return {"merged_data": metrics, "metric_sources": sources, "metric_values": {key: {"stockanalysis.com": value, "yfinance": value} for key, value in metrics.items()}, "metric_observations": observations, "conflicts": [], "as_of": "2026-10-15T12:00:00+00:00"}
+    merged_data = {
+        **metrics,
+        "asset_type": "us_equity",
+        "size_metric_usd": metrics["market_cap_usd"],
+        "size_metric_provenance": {"source": "yfinance", "as_of": "2026-10-15"},
+        "market_cap_provenance": {"source": "yfinance", "as_of": "2026-10-15"},
+        "avg_dollar_volume_usd": metrics["avg_dollar_volume_usd"],
+        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY", "window_sessions": 20, "coverage": 0.8},
+        "market_data_normalization": {"status": "complete", "liquidity_basis": "UNDERLYING_USD_PROXY"},
+    }
+    return {"merged_data": merged_data, "metric_sources": sources, "metric_values": {key: {"stockanalysis.com": value, "yfinance": value} for key, value in metrics.items()}, "metric_observations": observations, "conflicts": [], "as_of": "2026-10-15T12:00:00+00:00"}
 
 
 def parameters():
-    return {"discovery_threshold": 65, "market_cap_min_usd": 2_000_000_000, "avg_dollar_volume_min_usd": 100_000,
+    return {"discovery_threshold": 65,
         "weights": {"economic_transition": .25, "quality": .20, "reinvestment": .20, "expectation_gap": .20, "market_confirmation": .15},
         "classification": {"fundamental_transition_min": 65, "fundamental_quality_min": 65,
             "fundamental_reinvestment_min": 60, "early_transition_min": 60,
@@ -134,7 +144,7 @@ def test_lower_is_better_and_values_outside_ranges_are_clamped():
     assert result.component_scores["market_confirmation"] == 33.33
 
 
-def test_repository_profile_uses_approved_global_liquidity_and_versioned_ranges():
+def test_repository_profile_uses_shared_market_policy_and_versioned_ranges():
     repository_root = Path(__file__).resolve().parents[3]
     config = yaml.safe_load((repository_root / "idos-config" / "strategies.yml").read_text(encoding="utf-8"))
     profile = config["strategies"]["MULTIBAGGERS"]
@@ -143,10 +153,11 @@ def test_repository_profile_uses_approved_global_liquidity_and_versioned_ranges(
     assert config["default_strategy"] == "COMPOUNDER"
     assert profile["enabled"] is False
     assert profile["strategy_version"] == "1.1"
-    assert policy["avg_dollar_volume_min_usd"] == 100_000
     universe = yaml.safe_load((repository_root / "idos-config" / "universe" / "multibaggers.yml").read_text(encoding="utf-8"))
     assert universe["version"] == "1.1"
-    assert universe["avg_dollar_volume_min_usd"] == 100_000
+    market_data = yaml.safe_load((repository_root / "idos-config" / "market_data.yml").read_text(encoding="utf-8"))
+    assert market_data["eligibility"]["market_cap_min_usd"] == 2_000_000_000
+    assert market_data["eligibility"]["avg_dollar_volume_min_usd"] == 100_000
     assert policy["scoring"]["method"] == "absolute_linear_clamped"
     assert policy["scoring"]["sector_normalization"] is False
     assert policy["scoring"]["missing_input_policy"] == "block_component_and_candidate"
@@ -155,7 +166,24 @@ def test_repository_profile_uses_approved_global_liquidity_and_versioned_ranges(
     assert sum(policy["weights"].values()) == 1
 
 
-def test_multibaggers_does_not_add_one_million_dollar_liquidity_gate():
+def test_shared_market_gate_fails_closed_and_does_not_require_etf_aum():
+    from idos.market.liquidity import MarketDataSettings, evaluate_global_market_eligibility
+
+    settings = MarketDataSettings()
+    complete_etf = {
+        "market_data_normalization": {"status": "complete"},
+        "avg_dollar_volume_usd": 150_000,
+        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY", "window_sessions": 20, "coverage": 0.8},
+    }
+    assert evaluate_global_market_eligibility(complete_etf, asset_type="etf", settings=settings)["passed"]
+
+    incomplete_equity = evaluate_global_market_eligibility({}, asset_type="us_equity", settings=settings)
+    assert incomplete_equity["passed"] is False
+    assert "GLOBAL_MARKET_CAP_EVIDENCE_INCOMPLETE" in incomplete_equity["reason_codes"]
+    assert "GLOBAL_LIQUIDITY_EVIDENCE_INCOMPLETE" in incomplete_equity["reason_codes"]
+
+
+def test_multibaggers_engine_does_not_duplicate_global_market_thresholds():
     payload = valid_payload()
     for observation in payload["metric_observations"]["avg_dollar_volume_usd"]:
         observation["value"] = 100_000
@@ -314,7 +342,7 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     config_dir = tmp_path / "idos-config"
     universe_path = config_dir / "universe" / "multibaggers.yml"
     universe_path.parent.mkdir(parents=True)
-    (config_dir / "universe" / "operable.yml").write_text(yaml.safe_dump({"operable_tickers": [{"ticker": "TEST"}]}), encoding="utf-8")
+    (config_dir / "universe" / "operable.yml").write_text(yaml.safe_dump({"operable_tickers": [{"ticker": "TEST", "type": "us_equity"}]}), encoding="utf-8")
     profile = {"enabled": True, "core": "CORE_4_ALPHA_ASYMMETRY", "sleeve": "ALPHA_ASYMMETRY", "thesis_type": "STRATEGIC",
         "discovery_profile": "multibaggers", "research_profile": "multibaggers", "entry_policy": "MANUAL_REVIEW", "strategy_version": "1.0",
         "parameters": {**parameters(), "universe_path": str(universe_path)}}
@@ -354,6 +382,40 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     public_opp = next(item for item in site.opportunities if item["strategy_id"] == "MULTIBAGGERS")
     assert public_opp["discovery_score"] >= 65
     assert public_opp["research_priority"] is not None
+
+
+def test_multibaggers_pipeline_blocks_missing_or_below_threshold_global_market_evidence(tmp_path: Path):
+    config_dir = tmp_path / "idos-config"
+    universe_path = config_dir / "universe" / "multibaggers.yml"
+    universe_path.parent.mkdir(parents=True)
+    (config_dir / "universe" / "operable.yml").write_text(yaml.safe_dump({"operable_tickers": [{"ticker": "TEST", "type": "us_equity"}]}), encoding="utf-8")
+    profile = {"enabled": True, "core": "CORE_4_ALPHA_ASYMMETRY", "sleeve": "ALPHA_ASYMMETRY", "thesis_type": "STRATEGIC",
+        "discovery_profile": "multibaggers", "research_profile": "multibaggers", "entry_policy": "MANUAL_REVIEW", "strategy_version": "1.0",
+        "parameters": {**parameters(), "universe_path": str(universe_path)}}
+    (config_dir / "strategies.yml").write_text(yaml.safe_dump({"default_strategy": "COMPOUNDER", "strategies": {"MULTIBAGGERS": profile}}), encoding="utf-8")
+    universe_path.write_text(yaml.safe_dump({"strategy_id": "MULTIBAGGERS", "enabled": True, "tickers": ["TEST"]}), encoding="utf-8")
+
+    class FakeCache:
+        payload = valid_payload()
+        def get(self, _key): return self.payload
+
+    cache = FakeCache()
+    config = {"base_path": str(tmp_path), "config_path": str(config_dir), "journal_path": str(tmp_path / "idos-journal"), "data_cache": cache, "refresh_missing": False}
+    cache.payload["merged_data"].pop("market_data_normalization")
+    result = MultibaggersPipeline(config).run()
+    assert result["blocked"] == 1
+    assert result["created"] == 0
+    assert "MARKET_DATA_NORMALIZATION_INCOMPLETE" in result["results"][0]["reason_codes"]
+
+    cache.payload = valid_payload()
+    cache.payload["merged_data"]["avg_dollar_volume_usd"] = 99_999
+    config["refresh_worker_factory"] = lambda _config: (_ for _ in ()).throw(
+        AssertionError("below-threshold evidence must not trigger another market-data fetch")
+    )
+    result = MultibaggersPipeline(config).run()
+    assert result["blocked"] == 1
+    assert result["created"] == 0
+    assert "GLOBAL_LIQUIDITY_BELOW_MINIMUM" in result["results"][0]["reason_codes"]
 
 
 def test_multibaggers_excludes_tickers_missing_from_shared_operable_allowlist(tmp_path: Path):
