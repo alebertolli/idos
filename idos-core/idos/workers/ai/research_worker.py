@@ -249,6 +249,7 @@ class ResearchWorker(BaseWorker):
         if not is_systematic:
             hypothesis_errors = self._validate_hypothesis_contract(hypotheses)
             if hypothesis_errors:
+                print("[HYPOTHESIS] Contract validation failed: " + "; ".join(hypothesis_errors))
                 event_data = {
                     "opp_id": opp_id,
                     "ticker": ticker,

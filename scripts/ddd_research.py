@@ -335,19 +335,24 @@ def main():
             }
             r = rw.run(ctx)
             status = r.get('status', 'unknown')
+            validation_errors = [str(error) for error in (r.get('errors') or []) if error]
             print('  -> status={} score={}'.format(
                 status, r.get('conviction_score', r.get('score', '?'))))
+            if validation_errors:
+                print('  -> errors: {}'.format('; '.join(validation_errors)))
             rw_results.append({
                 'opp_id': opp_id, 'ticker': ticker, 'status': status,
                 'score': r.get('conviction_score', r.get('score')),
                 'reason': opp.get('reason', ''),
+                'errors': validation_errors,
             })
             if status != 'completed':
                 rw_errors.append({
                     'ticker': ticker,
                     'opp_id': opp_id,
                     'status': status,
-                    'error': r.get('error') or r.get('reason') or f'Unexpected ResearchWorker status: {status}',
+                    'error': r.get('error') or r.get('reason') or '; '.join(validation_errors) or f'Unexpected ResearchWorker status: {status}',
+                    'errors': validation_errors,
                 })
         except Exception as e:
             import traceback

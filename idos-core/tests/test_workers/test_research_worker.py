@@ -411,6 +411,7 @@ class TestResearchWorker:
         base_path: str,
         tmp_path: Path,
         monkeypatch,
+        capsys,
     ):
         ticker, opp_id = seeded_opportunity
         report_path = tmp_journal.opportunity_path(ticker, opp_id) / "ddd_report.yml"
@@ -443,6 +444,7 @@ class TestResearchWorker:
 
         assert result["status"] == "hypothesis_validation_failed"
         assert any("target date must be after" in error for error in result["errors"])
+        assert "[HYPOTHESIS] Contract validation failed" in capsys.readouterr().out
         assert report_path.read_text(encoding="utf-8") == previous_report
         assert not (tmp_journal.opportunity_path(ticker, opp_id) / "assessments").exists()
         assert not (tmp_journal.opportunity_path(ticker, opp_id) / "hypotheses.yml").exists()
