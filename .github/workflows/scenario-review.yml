@@ -26,6 +26,11 @@ on:
         description: Short rationale for the decision
         required: true
         type: string
+      sources_verified:
+        description: Confirm only after opening each source and checking it supports the scenario and date
+        required: true
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -60,6 +65,7 @@ jobs:
           REVIEW_SCENARIO_HASH: ${{ inputs.scenario_hash }}
           REVIEW_DECISION: ${{ inputs.decision }}
           REVIEW_NOTE: ${{ inputs.note }}
+          REVIEW_SOURCES_VERIFIED: ${{ inputs.sources_verified }}
           REVIEWER: ${{ github.actor }}
         run: >-
           python scripts/review_scenario.py --base-path ..
@@ -69,6 +75,7 @@ jobs:
           --decision "$REVIEW_DECISION"
           --reviewer "$REVIEWER"
           --note "$REVIEW_NOTE"
+          --sources-verified "$REVIEW_SOURCES_VERIFIED"
 
       - name: Commit review record on selected branch
         env:

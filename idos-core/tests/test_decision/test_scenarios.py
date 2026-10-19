@@ -83,7 +83,8 @@ def test_scenario_review_is_bound_to_exact_content_and_requires_rationale():
         "scenario_hash": scenario_fingerprint(analysis),
         "reviewed_by": "manager",
         "reviewed_at": "2026-10-19T12:00:00-03:00",
-        "note": "Reviewed evidence and valuation assumptions.",
+        "note": "Reviewed source links, dates and valuation assumptions.",
+        "sources_verified": True,
     }
     assert validate_scenario_review(analysis, review, today=date(2026, 10, 19)) == (True, "escenarios vigentes aprobados por el gestor")
 
@@ -106,7 +107,8 @@ def test_rule_008_requires_manager_review_for_explicit_scenario_contract():
         "scenario_hash": scenario_fingerprint(analysis),
         "reviewed_by": "manager",
         "reviewed_at": "2026-10-19T12:00:00-03:00",
-        "note": "Reviewed evidence and valuation assumptions.",
+        "note": "Reviewed source links, dates and valuation assumptions.",
+        "sources_verified": True,
     }
     approved = _calculate_report_asymmetry(report, [], 100, None, None, None, "USD", review)
     assert approved["authorization_eligible"] is True
@@ -120,11 +122,17 @@ def test_rejected_or_unattributed_review_cannot_authorize():
         "scenario_hash": scenario_fingerprint(analysis),
         "reviewed_by": "",
         "reviewed_at": "2026-10-19T12:00:00-03:00",
-        "note": "Reviewed evidence and valuation assumptions.",
+        "note": "Reviewed source links, dates and valuation assumptions.",
+        "sources_verified": True,
     }
     approved, reason = validate_scenario_review(analysis, review, today=date(2026, 10, 19))
     assert not approved
     assert "identidad" in reason
+    review["reviewed_by"] = "manager"
+    review["sources_verified"] = False
+    approved, reason = validate_scenario_review(analysis, review, today=date(2026, 10, 19))
+    assert not approved
+    assert "no confirmó" in reason
     review["status"] = "rejected"
     review["reviewed_by"] = "manager"
     approved, _ = validate_scenario_review(analysis, review, today=date(2026, 10, 19))
@@ -139,12 +147,18 @@ def test_review_command_records_authenticated_identity_for_current_hash(tmp_path
 
     path = record_scenario_review(
         tmp_path, "ACME", "OPP-1", scenario_fingerprint(analysis), "approved",
-        "github-manager", "Checked scenario source dates and target assumptions.",
+        "github-manager", "Checked source links, source dates and target assumptions.", True,
     )
     review = yaml.safe_load(path.read_text(encoding="utf-8"))
     assert review["status"] == "approved"
     assert review["reviewed_by"] == "github-manager"
     assert review["scenario_hash"] == scenario_fingerprint(analysis)
+    assert review["sources_verified"] is True
+    with pytest.raises(ValueError, match="source and source-date verification"):
+        record_scenario_review(
+            tmp_path, "ACME", "OPP-1", scenario_fingerprint(analysis), "approved",
+            "github-manager", "Approved without verifying sources.",
+        )
 
 
 def test_review_command_rejects_stale_hash_and_path_traversal(tmp_path):
@@ -155,6 +169,6 @@ def test_review_command_rejects_stale_hash_and_path_traversal(tmp_path):
 
     args = (tmp_path, "ACME", "OPP-1")
     with pytest.raises(ValueError, match="stale"):
-        record_scenario_review(*args, "0" * 64, "approved", "github-manager", "Checked scenario sources.")
+        record_scenario_review(*args, "0" * 64, "approved", "github-manager", "Checked scenario sources.", True)
     with pytest.raises(ValueError, match="Opportunity id"):
-        record_scenario_review(tmp_path, "ACME", "../private", scenario_fingerprint(analysis), "approved", "github-manager", "Checked scenario sources.")
+        record_scenario_review(tmp_path, "ACME", "../private", scenario_fingerprint(analysis), "approved", "github-manager", "Checked scenario sources.", True)

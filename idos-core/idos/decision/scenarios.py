@@ -130,6 +130,8 @@ def validate_scenario_review(
         return False, "el gestor aún no revisó los escenarios"
     if review.get("status") != "approved":
         return False, "los escenarios no están aprobados por el gestor"
+    if review.get("sources_verified") is not True:
+        return False, "el gestor no confirmó que verificó las fuentes y sus fechas"
     if review.get("scenario_hash") != scenario_fingerprint(analysis):
         return False, "la aprobación no corresponde a la versión actual de escenarios"
     if not str(review.get("reviewed_by", "")).strip():

@@ -23,6 +23,7 @@ def record_scenario_review(
     decision: str,
     reviewer: str,
     note: str,
+    sources_verified: bool = False,
 ) -> Path:
     if not re.fullmatch(r"[A-Za-z0-9.^=_-]{1,24}", ticker) or ticker in {".", ".."}:
         raise ValueError("Ticker has invalid characters")
@@ -34,6 +35,8 @@ def record_scenario_review(
         raise ValueError("Authenticated reviewer identity is required")
     if not 10 <= len(note.strip()) <= 2000:
         raise ValueError("Review note must contain between 10 and 2000 characters")
+    if decision == "approved" and sources_verified is not True:
+        raise ValueError("Approval requires explicit source and source-date verification")
 
     opportunity_dir = (
         base_path / "idos-journal" / "companies" / ticker.upper()
@@ -60,6 +63,7 @@ def record_scenario_review(
         "reviewed_by": reviewer.strip(),
         "reviewed_at": datetime.now(AR_TZ).isoformat(),
         "note": note.strip(),
+        "sources_verified": sources_verified,
     }
     review_path = opportunity_dir / "scenario_review.yml"
     review_path.write_text(yaml.safe_dump(review, allow_unicode=True, sort_keys=False), encoding="utf-8")
@@ -75,10 +79,11 @@ def main() -> int:
     parser.add_argument("--decision", choices=("approved", "rejected"), required=True)
     parser.add_argument("--reviewer", required=True)
     parser.add_argument("--note", required=True)
+    parser.add_argument("--sources-verified", choices=("true", "false"), default="false")
     args = parser.parse_args()
     path = record_scenario_review(
         args.base_path, args.ticker, args.opp_id, args.scenario_hash,
-        args.decision, args.reviewer, args.note,
+        args.decision, args.reviewer, args.note, args.sources_verified == "true",
     )
     print(f"Scenario review recorded: {path}")
     return 0
