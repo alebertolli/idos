@@ -23,7 +23,7 @@ from idos.config import load_settings
 from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.timezone import AR_TZ
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 
 
 _CORE_FINANCIAL_FIELDS = {
@@ -48,14 +48,22 @@ def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
     sources = provenance.get("sources_used")
     sources = sources if isinstance(sources, list) else []
     source = financial.get("source") or (", ".join(map(str, sources)) if sources else "")
-    raw_as_of_date = (
-        financial.get("fundamentals_as_of")
-        or financial.get("as_of_date")
-        or financial.get("period_end_date")
-        or financial.get("fiscal_period_end")
-        or provenance.get("as_of_date")
+    cutoff_fields = (
+        "fundamentals_as_of",
+        "as_of_date",
+        "period_end_date",
+        "fiscal_period_end",
+        "financial_period_end_timestamp",
     )
+    cutoff_field = next((key for key in cutoff_fields if financial.get(key) is not None), None)
+    raw_as_of_date = financial.get(cutoff_field) if cutoff_field else provenance.get("as_of_date")
     as_of_date = _valid_cutoff_date(raw_as_of_date)
+    field_sources = provenance.get("field_sources")
+    field_sources = field_sources if isinstance(field_sources, dict) else {}
+    raw_cutoff_sources = field_sources.get(cutoff_field, []) if cutoff_field else []
+    if isinstance(raw_cutoff_sources, str):
+        raw_cutoff_sources = [raw_cutoff_sources]
+    as_of_date_source = ", ".join(sorted({str(value) for value in raw_cutoff_sources if value})) or (source or None)
     missing_provenance = []
     if not source:
         missing_provenance.append("source")
@@ -75,6 +83,7 @@ def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
         "missing_core_metrics": missing,
         "source": source or None,
         "as_of_date": as_of_date.isoformat() if as_of_date else None,
+        "as_of_date_source": as_of_date_source if as_of_date else None,
         "missing_provenance": missing_provenance,
     }
 
@@ -85,6 +94,13 @@ def _valid_cutoff_date(value: Any) -> date | None:
         cutoff = value.date()
     elif isinstance(value, date):
         cutoff = value
+    elif isinstance(value, (int, float)) and not isinstance(value, bool):
+        if not math.isfinite(value) or not 946684800 <= value <= 4102444800:
+            return None
+        try:
+            cutoff = datetime.fromtimestamp(value, timezone.utc).date()
+        except (OverflowError, OSError, ValueError):
+            return None
     elif isinstance(value, str) and value.strip():
         normalized = value.strip()
         try:

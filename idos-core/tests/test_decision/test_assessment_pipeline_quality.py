@@ -91,6 +91,41 @@ def test_financial_quality_gate_rejects_malformed_or_future_cutoff():
         assert not result.passed
 
 
+def test_financial_quality_uses_provider_reported_unix_cutoff_and_its_source():
+    quality = _financial_data_quality({
+        "roic_pct": 25,
+        "operating_margin_pct": 20,
+        "revenue_growth_pct": 5,
+        "pe_ratio_ttm": 18,
+        "source": "stockanalysis.com",
+        "financial_period_end_timestamp": 1782518400,
+        "data_provenance": {
+            "field_sources": {"financial_period_end_timestamp": ["yfinance"]},
+        },
+    })
+
+    assert quality["as_of_date"] == "2026-06-27"
+    assert quality["as_of_date_source"] == "yfinance"
+    assert quality["status"] == "partial"
+    assert _eval_financial_data_quality({"financial_data_quality": quality}).passed
+
+    for timestamp in (1782518400000, 1800000000):
+        invalid = _financial_data_quality({
+            "roic_pct": 25,
+            "operating_margin_pct": 20,
+            "revenue_growth_pct": 5,
+            "pe_ratio_ttm": 18,
+            "debt_equity_ratio": 0.5,
+            "source": "provider-x",
+            "financial_period_end_timestamp": timestamp,
+            "data_provenance": {
+                "field_sources": {"financial_period_end_timestamp": ["yfinance"]},
+            },
+        })
+        assert invalid["as_of_date"] is None
+        assert not _eval_financial_data_quality({"financial_data_quality": invalid}).passed
+
+
 def test_financial_quality_rule_cannot_be_disabled_by_custom_authorization_config(tmp_path):
     rules_path = tmp_path / "idos-config" / "rules" / "entry_rules.yml"
     rules_path.parent.mkdir(parents=True)

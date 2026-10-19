@@ -231,6 +231,7 @@ def _write_ddd_case(tmp_path: Path, review: dict | None) -> None:
             "core_metric_coverage": "5/5",
             "source": "provider-x",
             "as_of_date": None,
+            "as_of_date_source": None,
             "missing_provenance": ["as_of_date"],
         },
         "rules_passed": ["RULE-008"],
@@ -265,6 +266,7 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert "Tesis de inversión (provisional)" in app
     assert "Calidad de datos financieros" in app
     assert "Fecha de corte" in app
+    assert "dq.as_of_date_source" in app
     assert "Cuándo abandonarla" in app
     assert "Asimetría del modelo (RULE-008" in app
     assert "Métrica provisional del motor" in app

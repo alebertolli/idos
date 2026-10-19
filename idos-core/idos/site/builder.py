@@ -1554,7 +1554,7 @@ function showCase(oppId){
   if(d.resumen_ejecutivo) html += `<div class="card"><div class="muted">Resumen ejecutivo</div><p>${esc(d.resumen_ejecutivo)}</p></div>`;
   if(d.tesis_inversion) html += `<div class="card"><div class="muted">Tesis</div><p>${esc(d.tesis_inversion)}</p></div>`;
   const dq = d.financial_data_quality||{};
-  if(Object.keys(dq).length) html += `<div class="card"><b>Calidad de datos financieros:</b> ${esc(dq.status||'sin evaluar')} · <b>Métricas core:</b> ${esc(dq.core_metric_coverage||'—')} · <b>Fuente:</b> ${esc(dq.source||'—')} · <b>Fecha de corte:</b> ${dt(dq.as_of_date)}${(dq.missing_core_metrics||[]).length?`<p class="neg">Métricas faltantes: ${dq.missing_core_metrics.map(esc).join(', ')}</p>`:''}${(dq.missing_provenance||[]).length?`<p class="neg">Procedencia faltante: ${dq.missing_provenance.map(esc).join(', ')}</p>`:''}</div>`;
+  if(Object.keys(dq).length) html += `<div class="card"><b>Calidad de datos financieros:</b> ${esc(dq.status||'sin evaluar')} · <b>Métricas core:</b> ${esc(dq.core_metric_coverage||'—')} · <b>Fuente:</b> ${esc(dq.source||'—')} · <b>Fecha de corte:</b> ${dt(dq.as_of_date)}${dq.as_of_date_source?` (${esc(dq.as_of_date_source)})`:''}${(dq.missing_core_metrics||[]).length?`<p class="neg">Métricas faltantes: ${dq.missing_core_metrics.map(esc).join(', ')}</p>`:''}${(dq.missing_provenance||[]).length?`<p class="neg">Procedencia faltante: ${dq.missing_provenance.map(esc).join(', ')}</p>`:''}</div>`;
   if(d.clasificacion){
     const cl = d.clasificacion||{};
     html += `<p><b>Categoría:</b> ${esc(cl.categoria||d.categoria)}${(cl.categorias_descartadas||[]).length?' <span class="muted">· descartadas: '+cl.categorias_descartadas.map(esc).join(', ')+'</span>':''}</p>`;
