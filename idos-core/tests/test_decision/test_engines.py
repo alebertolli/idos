@@ -122,6 +122,7 @@ def test_risk_engine_high_leverage():
 def test_portfolio_engine():
     engine = PortfolioAssessmentEngine()
     ctx = {
+        "portfolio_data_available": True,
         "company": {"sector": "Technology"},
         "portfolio": {
             "total_weight": 60.0,
@@ -134,3 +135,16 @@ def test_portfolio_engine():
     }
     result = engine.evaluate(ctx)
     assert 0 <= result.score <= 100
+
+
+def test_portfolio_engine_marks_missing_private_source_not_assessed():
+    result = PortfolioAssessmentEngine().evaluate({
+        "company": {"sector": "Technology"},
+        "portfolio": {"num_positions": 0},
+    })
+
+    assert result.score == 50  # neutral placeholder, not a portfolio-fit score
+    assert result.confidence == "LOW"
+    assert result.recommendation == "NOT_ASSESSED"
+    assert not any("positions" in finding["detail"] for finding in result.findings)
+    assert result.risks[0]["type"] == "DATA_UNAVAILABLE"

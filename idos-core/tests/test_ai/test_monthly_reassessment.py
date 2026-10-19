@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import datetime, timedelta
 from unittest.mock import MagicMock, patch, ANY
 
 import pytest
@@ -8,6 +9,7 @@ from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.models.enums import OpportunityStatus
 from idos.workers.ai.monthly_reassessment_worker import MonthlyReassessmentWorker
+from idos.timezone import AR_TZ
 
 
 def _seed_full_position(sqlite: SQLiteStore, journal: JournalRepository, bp: Path,
@@ -61,7 +63,52 @@ def _make_worker(bp: Path, **overrides) -> MonthlyReassessmentWorker:
 
 
 class TestMonthlyReassessment:
-    def test_thesis_change_triggers_exit(self, tmp_path: Path):
+    def test_recent_thesis_review_skips_llm_until_next_profile_date(self, tmp_path: Path):
+        bp = tmp_path
+        journal = JournalRepository(bp / "idos-journal")
+        sqlite = SQLiteStore(bp / "idos.db")
+        _seed_full_position(sqlite, journal, bp, "DUE")
+        now = datetime.now(AR_TZ)
+        opp = sqlite.get_opportunity("OPP-DUE-001")
+        opp["last_thesis_assessment_at"] = (now - timedelta(days=10)).isoformat()
+        sqlite.save_opportunity(opp)
+        journal.save_opportunity("DUE", opp)
+
+        worker = _make_worker(bp)
+        with patch("idos.workers.ai.thesis_monitor_worker.ThesisMonitorWorker") as mock_cls:
+            results = worker._reassess_theses([opp], sqlite, journal, bp)
+
+        mock_cls.assert_not_called()
+        assert results[0]["status"] == "skipped"
+        assert results[0]["reason"] == "review_not_due"
+        assert results[0]["next_thesis_review_at"] == (now + timedelta(days=20)).isoformat()
+
+    def test_manual_ticker_scope_limits_all_monthly_reassessment_steps(self, tmp_path: Path):
+        bp = tmp_path
+        journal = JournalRepository(bp / "idos-journal")
+        sqlite = SQLiteStore(bp / "idos.db")
+        _seed_full_position(sqlite, journal, bp, "AAA")
+        _seed_full_position(sqlite, journal, bp, "BBB")
+        _seed_price(sqlite, "AAA", 100)
+        _seed_price(sqlite, "BBB", 100)
+
+        worker = _make_worker(bp)
+        seen = {}
+        def record_scope(name):
+            def record(opportunities, *args):
+                seen[name] = [opportunity["ticker"] for opportunity in opportunities]
+                return []
+            return record
+
+        with patch.object(worker, "_reassess_theses", side_effect=record_scope("thesis")), \
+             patch.object(worker, "_recalibrate_conviction", side_effect=record_scope("conviction")), \
+             patch.object(worker, "_review_portfolio", side_effect=record_scope("portfolio")):
+            result = worker.execute({"base_path": str(bp), "tickers": ["aaa"]}).output
+
+        assert result["total_active"] == 1
+        assert seen == {"thesis": ["AAA"], "conviction": ["AAA"], "portfolio": ["AAA"]}
+
+    def test_invalidated_thesis_creates_sell_proposal_without_exiting(self, tmp_path: Path):
         bp = tmp_path
         journal = JournalRepository(bp / "idos-journal")
         sqlite = SQLiteStore(bp / "idos.db")
@@ -84,13 +131,27 @@ class TestMonthlyReassessment:
 
         assert r["total_active"] == 1
         assert r["thesis_reassessed"] == 1
+        assert r["thesis_failed"] == 0
         assert r["thesis_changed"] == 1
-        assert r["exits_triggered"]
-        assert len(r["exits_triggered"]) == 1
+        assert len(r["exit_proposals"]) == 1
+        proposal = r["exit_proposals"][0]
+        assert proposal["type"] == "SELL"
+        assert proposal["status"] == "PENDING_REVIEW"
+        assert proposal["human_approval_required"] is True
         opp = sqlite.get_opportunity("OPP-AAA-001")
-        assert opp["status"] == "EXITED"
-        assert opp["exit_reason"] == "thesis_monthly_reassessment"
+        assert opp["status"] == "FULL_POSITION"
         assert opp["thesis_active"] is False
+        assert not opp.get("exit_reason")
+        assert datetime.fromisoformat(opp["next_thesis_review_at"]) > datetime.now(AR_TZ)
+        journal_opp = journal.load_opportunity("AAA", "OPP-AAA-001")
+        assert journal_opp["status"] == "FULL_POSITION"
+        assert journal_opp["thesis_active"] is False
+        assert journal_opp["next_thesis_review_at"] == opp["next_thesis_review_at"]
+        transitions = list(sqlite.conn.execute(
+            "SELECT id FROM state_transitions WHERE opportunity_id = ? AND to_status = 'EXITED'",
+            ("OPP-AAA-001",),
+        ))
+        assert transitions == []
 
     def test_thesis_intact_no_exit(self, tmp_path: Path):
         bp = tmp_path
@@ -111,7 +172,7 @@ class TestMonthlyReassessment:
             w = _make_worker(bp)
             r = w.execute({"base_path": str(bp)}).output
 
-        assert len(r["exits_triggered"]) == 0
+        assert r["exit_proposals"] == []
         assert r["proposals"] == []
         opp = sqlite.get_opportunity("OPP-BBB-001")
         assert opp["status"] == "FULL_POSITION"
@@ -211,7 +272,7 @@ class TestMonthlyReassessment:
         r = w.execute({"base_path": str(bp)}).output
 
         assert r["total_active"] == 0
-        assert r["exits_triggered"] == []
+        assert r["exit_proposals"] == []
 
     def test_thesis_error_handled(self, tmp_path: Path):
         bp = tmp_path
@@ -228,7 +289,8 @@ class TestMonthlyReassessment:
             w = _make_worker(bp)
             r = w.execute({"base_path": str(bp)}).output
 
-        assert r["thesis_reassessed"] == 1
+        assert r["thesis_reassessed"] == 0
+        assert r["thesis_failed"] == 1
         assert r["thesis_changed"] == 0
         opp = sqlite.get_opportunity("OPP-III-001")
         assert opp["status"] == "FULL_POSITION"

@@ -38,10 +38,18 @@ def build_issue_body(errors: list[dict], run_url: str = "") -> str:
     return "\n".join(lines)
 
 
-def report_data_errors(base_path: str | Path | None = None, mark_reported: bool = True) -> dict:
+def report_data_errors(
+    base_path: str | Path | None = None,
+    mark_reported: bool = True,
+    dry_run: bool = False,
+) -> dict:
     """Create/update ONE consolidated GitHub issue per day for data errors."""
     em = ErrorManager(base_path)
-    errors = [e for e in em.errors_since(days=1) if not e.reported]
+    errors = [
+        e.to_dict()
+        for e in em.errors_since(days=1)
+        if not e.reported
+    ]
     if not errors:
         return {"status": "no_errors", "issues_created": 0, "errors": []}
 
@@ -54,6 +62,9 @@ def report_data_errors(base_path: str | Path | None = None, mark_reported: bool 
     today = datetime.now().strftime("%Y-%m-%d")
     title = f"⚠️ IDOS: errores de datos [{today}]"
     body = build_issue_body(errors, run_url)
+    if dry_run:
+        print(f"[ERROR-REPORT] Dry-run; no se creó issue: {title}\n{body}")
+        return {"status": "dry_run", "issues_created": 0, "errors": errors}
 
     labels = ["auto-fix-proposed"]
     try:
@@ -75,5 +86,6 @@ def report_data_errors(base_path: str | Path | None = None, mark_reported: bool 
 
 
 if __name__ == "__main__":
-    result = report_data_errors()
+    import sys
+    result = report_data_errors(dry_run="--dry-run" in sys.argv)
     print(f"Status: {result.get('status')} | Errores: {len(result.get('errors', []))}")

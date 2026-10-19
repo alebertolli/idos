@@ -5,7 +5,7 @@ from typing import Any, Optional
 
 import yaml
 
-from idos.ai.llm import LLMClient, LLMResponse
+from idos.ai.llm import LLMClient, LLMResponse, redact_sensitive_text
 from idos.resilience.adaptive import AdaptiveRouter
 from idos.resilience.circuit import CircuitBreaker
 from idos.resilience.ratelimit import RateLimiter
@@ -112,6 +112,7 @@ class LLMService:
         max_tokens: int = 4096,
         task_type: str = "analysis",
         provider_hint: str | None = None,
+        response_format: str | None = None,
     ) -> LLMResponse:
         providers = self._rank_providers(task_type, provider_hint)
         first_error = ""
@@ -148,7 +149,13 @@ class LLMService:
             print(f"\n{'─'*50}")
             print(f"[LLM] Trying {provider}/{client.model}...")
 
-            resp = client.generate(prompt, system_prompt, temperature, max_tokens)
+            if response_format:
+                resp = client.generate(
+                    prompt, system_prompt, temperature, max_tokens,
+                    response_format=response_format,
+                )
+            else:
+                resp = client.generate(prompt, system_prompt, temperature, max_tokens)
 
             if resp.success:
                 self.router.record_outcome(provider, True, resp.latency_ms)
@@ -164,15 +171,17 @@ class LLMService:
                 self.router.record_outcome(provider, False, resp.latency_ms)
                 if cb:
                     cb.record_failure()
+                safe_error = redact_sensitive_text(resp.error)
                 if not first_error:
-                    first_error = resp.error
-                print(f"[LLM] {provider}: FAILED - {resp.error[:150]}")
+                    first_error = safe_error
+                print(f"[LLM] {provider}: FAILED - {safe_error[:150]}")
                 time.sleep(2)
                 continue
 
         print(f"{'='*60}\n")
         return LLMResponse(
-            content="", success=False, error=first_error or "All providers failed",
+            content="", success=False,
+            error=redact_sensitive_text(first_error or "All providers failed"),
             latency_ms=int((time.time() - start) * 1000),
         )
 
@@ -197,6 +206,7 @@ class LLMService:
         resp = self.generate(
             structured_prompt, system_prompt, temperature, max_tokens,
             task_type=task_type, provider_hint=provider_hint,
+            response_format="json",
         )
         if not resp.success:
             return {"error": resp.error, "_raw": resp.content}
@@ -208,16 +218,17 @@ class LLMService:
         cleaned = re.sub(r"(?<!\\)\\(?![/\"\\bftnru])", "\\\\", cleaned)
         cleaned = re.sub(r",\s*([\]}])", r"\1", cleaned)
 
+        parse_error: json.JSONDecodeError | None = None
         try:
             return json.loads(cleaned)
-        except json.JSONDecodeError:
-            pass
+        except json.JSONDecodeError as exc:
+            parse_error = exc
 
         collapsed = re.sub(r"\s+", " ", cleaned)
         try:
             return json.loads(collapsed)
-        except json.JSONDecodeError:
-            pass
+        except json.JSONDecodeError as exc:
+            parse_error = exc
 
         healer = SelfHealer()
         result = healer.parse_with_healing(cleaned)
@@ -228,11 +239,15 @@ class LLMService:
         if match:
             try:
                 return json.loads(match.group())
-            except json.JSONDecodeError:
-                pass
+            except json.JSONDecodeError as exc:
+                parse_error = exc
 
-        print(f"[LLM] Failed to parse JSON, raw preview: {resp.content[:300]}")
-        return {"error": "Failed to parse JSON", "_raw": resp.content}
+        detail = (
+            f" at line {parse_error.lineno}, column {parse_error.colno}: {parse_error.msg}"
+            if parse_error else " (JSON recovery failed)"
+        )
+        print(f"[LLM] Failed to parse JSON{detail}; response length={len(resp.content)}")
+        return {"error": f"Failed to parse JSON{detail}", "_raw": resp.content}
 
     def health(self) -> dict[str, Any]:
         status = {}

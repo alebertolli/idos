@@ -8,6 +8,7 @@ def test_cross_validate_single_source():
     })
     assert result["merged_data"]["pe_ratio"] == 25.0
     assert len(result["conflicts"]) == 0
+    assert result["field_sources"]["pe_ratio"] == ["sa"]
 
 
 def test_cross_validate_agreement():
@@ -20,6 +21,17 @@ def test_cross_validate_agreement():
     assert len(result["conflicts"]) == 0
 
 
+def test_cross_validate_tracks_provenance_for_each_field():
+    result = DataValidator().cross_validate({
+        "stockanalysis.com": {"market_cap": 100_000_000_000, "roic_pct": 18.0},
+        "yfinance": {"market_cap": 102_000_000_000},
+    })
+
+    assert result["source_count"] == 2
+    assert result["field_sources"]["market_cap"] == ["stockanalysis.com", "yfinance"]
+    assert result["field_sources"]["roic_pct"] == ["stockanalysis.com"]
+
+
 def test_cross_validate_conflict():
     v = DataValidator(tolerance_pct=10)
     result = v.cross_validate({
@@ -28,6 +40,29 @@ def test_cross_validate_conflict():
     })
     assert len(result["conflicts"]) >= 1
     assert result["conflicts"][0]["field"] == "pe_ratio"
+
+
+def test_cross_validate_conflict_uses_total_source_spread():
+    result = DataValidator(tolerance_pct=20).cross_validate({
+        "sa": {"roic_pct": 17.9},
+        "yf": {"roic_pct": 22.1},
+    })
+    assert result["conflicts"][0]["deviation_pct"] == 21.0
+    assert set(result["conflicts"][0]["sources"]) == {"sa", "yf"}
+
+
+def test_cross_validate_conflict_with_zero_mean_has_undefined_percentage():
+    result = DataValidator(tolerance_pct=20).cross_validate({
+        "a": {"roic_pct": -1.0},
+        "b": {"roic_pct": 1.0},
+    })
+
+    assert result["conflicts"] == [{
+        "field": "roic_pct",
+        "sources": {"a": -1.0, "b": 1.0},
+        "avg": 0.0,
+        "deviation_pct": None,
+    }]
 
 
 def test_validate_metrics_warnings():

@@ -178,27 +178,6 @@ def _send_email_notification(issue: dict, workflow: str):
         print(f"[EMAIL] Failed to send notification: {e}")
 
 
-def _run_auto_analyze(issue_number: int):
-    try:
-        from idos.workers.automation.auto_fix_agent import AutoFixAgent
-        agent = AutoFixAgent()
-        result = agent.run({"action": "analyze", "issue_number": issue_number})
-        status = "unknown"
-        if isinstance(result, dict):
-            status = result.get('status', '?')
-            if 'status' in result:
-                print(f"[AUTO-FIX] Analyze complete: {status} - PR: {result.get('pr_url', 'N/A')}")
-            else:
-                print(f"[AUTO-FIX] Analyze complete: {status}")
-        elif hasattr(result, 'status'):
-            status = result.status.value if hasattr(result.status, 'value') else str(result.status)
-            print(f"[AUTO-FIX] Analyze complete: {status}")
-        else:
-            print(f"[AUTO-FIX] Analyze result: {result}")
-    except Exception as e:
-        print(f"[AUTO-FIX] Analyze failed (non-fatal): {e}")
-
-
 def main():
     reporter = GHAErrorReporter()
     wf = sys.argv[1] if len(sys.argv) > 1 else ""
@@ -208,9 +187,6 @@ def main():
     issue["run_id"] = rid
     print(f"[AUTO-FIX] Issue created: {issue['html_url']}")
     _send_email_notification(issue, wf)
-    issue_number = issue.get("number")
-    if issue_number:
-        _run_auto_analyze(issue_number)
 
 
 if __name__ == "__main__":

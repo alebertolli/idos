@@ -1,5 +1,10 @@
 # IDOS — Plan de Testing Integral
 
+> **Vigencia:** las cifras, estados y ejemplos de los apartados 2–6 son el
+> plan inicial y no describen la cobertura actual. La auditoría vigente, la
+> matriz completa de funcionalidades y los pendientes están en
+> `SDD/26.AUDITORIA-FUNCIONAL-COBERTURA.md` y en el apartado §14 de este plan.
+
 ## Objetivo
 
 Validar el ciclo de vida completo de inversión (SDD-7 ILF) cubriendo
@@ -106,10 +111,11 @@ tareas automatizadas (scheduled) e intervenciones manuales (CLI).
 
 | Test | Descripción | Verifica |
 |------|-------------|----------|
-| `test_post_mortem_generates` | Worker genera post-mortem con mock LLM | pm_id devuelto, status = "completed" |
+| `test_post_mortem_generates` | Worker genera resumen determinista sin usar `llm_service` | pm_id, versión de análisis y status = "completed"; proveedor no invocado |
 | `test_post_mortem_archives` | Oportunidad termina en ARCHIVED | Estado final ARCHIVED |
 | `test_post_mortem_persists` | Post-mortem guardado en directorio | Archivo YAML existe en post_mortem/ |
-| `test_post_mortem_injects_entry_snapshot` | El prompt incluye thesis/catalizadores/riesgos y wyckoff del snapshot de entrada | "TESIS AL MOMENTO DE ENTRADA" + fase score en prompt |
+| `test_post_mortem_injects_entry_snapshot` | Informe conserva los datos relevantes del snapshot de entrada | Tesis, precio, catalizadores, riesgos y Wyckoff en `analysis.evidence.entry` |
+| `test_post_mortem_reports_prediction_evidence_without_strategy_recommendations` | Predicciones y falsaciones se resumen desde los registros | Conteo cumplido/fallido, vacíos explícitos y sin recomendación de estrategia por caso único |
 | `test_post_mortem_skips_wrong_state` | Worker ignora si no está EXITED | status = "skipped" |
 
 ### 3.4b EntrySnapshot (`test_portfolio/test_entry_snapshot.py`)
@@ -199,7 +205,7 @@ pytest -v -m "slow"       # Tests lentos (con LLM real opcional)
 ```bash
 idos opp-research MELI     # Ver salida en consola
 idos entry-evaluate MELI   # Ver señal de entrada
-idos position-exit MELI --reason manual  # Ver post-mortem
+idos position-exit MELI --reason manual --reviewer <gestor> --justification "<motivo y evidencia>"  # registra decisión local; no envía orden
 ```
 
 ---
@@ -223,3 +229,295 @@ idos position-exit MELI --reason manual  # Ver post-mortem
 | Archivos YAML temporales no limpiados | Contaminación entre tests | Usar tmp_path de pytest |
 | Estado global (EventBus singleton) | Tests acoplados | Reiniciar bus en setUp |
 | SQLite en disco | Datos residuales | Usar ":memory:" o tmp_path |
+
+## 8. Validación E2E posterior al deployment
+
+Este plan se ejecuta después de que el gestor revise y apruebe la rama y el
+despliegue de GitHub Pages. La validación remota en rama no equivale a
+deployment. No habilitar datos reales de cartera ni acciones de trading durante
+estas pruebas.
+
+### 8.1 Dashboard público hasta Buy List
+
+1. Verificar que el workflow de Pages se ejecutó con el commit aprobado y que la
+   URL pública carga sin errores de red ni errores JavaScript.
+2. Revisar visualmente Discovery, Research, Assessment, Decision y Buy List;
+   confirmar que cada registro muestra estrategia, ticker, etapa, fecha de
+   datos, tesis disponible, asimetría si está documentada, riesgos/catalizadores,
+   fuentes y estado de revisión humana.
+3. Confirmar que las pruebas parciales o los datos incompletos están
+   identificados como tales y que no aparecen como señal global de estrategia.
+4. Comprobar en `site/data.json`, HTML, archivos de caché publicados y artifacts
+   que no se expongan `positions`, `ledger`, `portfolio`, `entry_signals`,
+   `exit_signals`, `rebalance_result`, resultados de simulación, identificadores
+   de cuentas, saldos ni obligaciones. El límite visible y publicable termina
+   en Buy List.
+5. Guardar commit, URL, fecha, resultado de cada comprobación y captura de la
+   vista revisada por el gestor.
+6. En la Buy List comprobar que una tesis vigente aparece como `Vigente`, y que
+   tesis vencidas, invalidadas, no vinculadas o sin agenda verificable quedan
+   marcadas como revisión requerida; ninguna debe mostrar `Listo` ni presentarse
+   como recomendación actual.
+
+### 8.2 Multi estrategia y gates comunes
+
+1. Confirmar que todas las estrategias activas consumen el registro común
+   `idos-config/universe/operable.yml` y que el gate común aplica capitalización
+   mínima USD 2.000 millones sólo a acciones; ETFs no requieren tamaño ni AUM.
+   Ambos requieren volumen promedio mínimo USD 100.000 en USD, con
+   base `UNDERLYING_USD_PROXY` cuando corresponda.
+2. Comprobar ventana de 20 ruedas, cobertura mínima de 80%, FX hasta 4 días
+   calendario, lado vendedor y referencia MEP/CCL explícita por activo ARS.
+3. Verificar que la selección, filtros propios y estado de cada estrategia se
+   mantienen aislados y que los reportes identifican `bounded` vs. universo
+   completo. MULTIBAGGERS permanece deshabilitada hasta cerrar el gap de score.
+4. Para acciones sin market cap verificable, confirmar `blocked` y ausencia de
+   oportunidad/dispatch habilitante. Para ETFs sin AUM ni market cap, confirmar
+   que la liquidez válida permite evaluar su señal mensual; volumen bajo o
+   sin procedencia bloquea. Una reclasificación ETF → acción exige market cap.
+
+### 8.3 Research y calidad de decisión
+
+1. Seleccionar un candidato operable que pase cobertura, frescura, procedencia
+   por campo y hard flags; registrar proveedor/modelo, costo esperado y alcance
+   antes de una llamada LLM real.
+2. Ejecutar Monthly Universe → DDD Research → Assessment/Decision → Buy List;
+   inspeccionar conteos y artefactos, no solo el estado verde de Actions.
+3. Confirmar que la tesis incluye evidencia fechada, hipótesis, asimetría,
+   catalizadores, riesgos, invalidación y fuentes; los faltantes deben bloquear
+   o requerir revisión humana, no completar datos inventados.
+4. No llamar recomendación de compra/venta a un resultado `WAIT`,
+   `PENDING_HUMAN_REVIEW`, `REVIEW_ALLOCATION` ni a un test parcial.
+5. Conciliar el contador total de candidatos seleccionados con los procesados,
+   errores y omitidos; comprobar que Assessment y digest conservan el total
+   reportado por Research y que una ejecución con un caso no informa cero.
+6. En reportes sistemáticos, verificar rango del perfil, fecha/señal, ausencia
+   de probabilidades y volatilidad inventadas, hipótesis con texto e invalidación
+   configurada, valor intrínseco `No aplica` y propuesta pendiente visible.
+   Reportes anteriores sin versión de método vigente requieren regeneración.
+7. Verificar Monthly → Research → Assessment con snapshots: selección positiva
+   consistente permite WAIT; resultado posterior negativo/incompleto bloquea sin
+   reutilizar una selección anterior; una prueba bounded de otro ticker no
+   invalida el caso; cambio de señal requiere re-research y reporte coincidente.
+   Confirmar mismo selector en preview/ejecución, no-op sin llamadas a proveedores
+   cuando no quedan candidatos y ausencia de consultas corporativas/portfolio
+   en el Assessment sistemático.
+
+### 8.4 Frontera privada de portfolio y Risk Audit
+
+El motor Risk Audit v2.1 tiene cobertura local de fixture sintético en
+`tests/test_portfolio/test_risk_audit_v21.py`: duration/convexity, PD×LGD,
+spread duration, perfiles con versión incompatible, datos/convexidad faltantes,
+corte de evidencia, cinco límites
+de sizing, presupuesto y permanencia de `allocation_authorized: false`. Esto
+demuestra el cálculo con contrato explícito; no demuestra una auditoría de la
+cartera familiar ni cobertura completa. Antes de declarar REQ-20-05 completo,
+confirmar el caso CLI en CI y agregar fixtures de liquidez/clasificación,
+monedas económicas, correlaciones y escenarios Argentina/combined desde la
+fuente privada validada.
+
+1. Antes de conectar Google Sheets, validar con hoja ficticia privada y
+   credenciales de solo lectura; revisar permisos anónimos denegados, schema,
+   FX/fechas, identificadores duplicados y conciliación con extractos.
+2. Confirmar que snapshots, resultados completos de Risk Audit, alertas de
+   portfolio y learning quedan en almacenamiento/proceso privado y ausentes de
+   Pages, commits públicos, artifacts y logs.
+3. Validar exposiciones y alertas con fixtures de dos cuentas, monedas,
+   estrategias y clusters; confirmar el bloqueo cuando falten FX o conciliación.
+4. El gestor valida coherencia de posiciones, riesgo total y alertas antes de
+   usar datos reales. No habilitar órdenes automáticas.
+
+### 8.5 Criterio de cierre
+
+Cerrar deployment solo cuando los checks de 8.1–8.4 tengan evidencia adjunta,
+el gestor haya revisado el dashboard y el portfolio privado esté validado por
+separado. Si falta candidato que pase los gates, especificación aprobada,
+credenciales privadas o conciliación, registrar el bloqueo y mantener el
+comportamiento fail-closed.
+
+
+### §9 COMPOUNDER Scout configurable (antes de cada release)
+
+1. Verificar que el perfil habilitado declare versión, tres predicados positivos y métricas únicas; política inválida debe fallar cerrada.
+2. Probar valor positivo, cero, negativo, ausente, booleano, no numérico, infinito y conflicto de signos entre fuentes para cada criterio.
+3. Probar gate de mercado para equity/ETF, normalización/procedencia incompleta y que AUM nunca sea requerido.
+4. Ejecutar una corrida manual acotada en rama de prueba; revisar candidatos, métricas, proveedor/unidad/corte disponible, estados Scout, oportunidades y convicción cero.
+5. Ejecutar Research/Assessment sobre una oportunidad elegible y confirmar que Research evalúa ROIC/moat y la decisión permanece sujeta a revisión humana.
+6. Renderizar Discovery y verificar filtros/pendientes y separación pública/privada. No desplegar a Pages sin la autorización correspondiente.
+7. Validar compatibilidad histórica, revisar `git diff --check`, suite focalizada y log remoto; registrar SHA/run y todo dato ausente.
+8. Con una ejecución `candidate_tickers` acotada, verificar que `passed=true` llegue intacto al Monthly Evaluation, que una Opportunity `UNDER_RESEARCH` elegible no se degrade, que la Watchlist previa se conserve y fusione los resultados acotados, y que las oportunidades existentes registren `latest_discovery_evidence` sin sobrescribir su evidencia inicial ni su estado.
+9. En DDD manual con `ticker` definido, confirmar que Research, Assessment y Monthly Re-Assessment procesen el alcance solicitado; el selector debe limitar thesis monitor, recalibración y competencia de capital, mientras la ejecución sin selector conserva el comportamiento global configurado.
+
+10. Para `FULL_DDD`, validar de forma fail-closed 3–5 hipótesis con enunciado, razón, predicción cuantitativa y texto, fecha objetivo ISO futura, criterio de falsación y condición explícita de abandono; rechazar fechas vencidas o ejercicios fiscales pasados; comprobar round-trip YAML/SQLite de horizonte, texto/valor/unidad/fecha, dependencias y campos HMF. Un resultado inválido debe quedar en `hypothesis_validation_failed`, conservar el último DDD utilizable y detenerse antes de persistir hipótesis, Assessment o Decision.
+11. Assessment debe mostrar cobertura de métricas core y procedencia (fuente y fecha de corte); `0` es un valor válido si está presente, pero una fecha/fuente ausente impide marcar calidad `good`. La lectura de decisiones persistidas debe usar `yaml.safe_load` sin tipos específicos de Python.
+12. En dashboard público, mostrar DDD e hipótesis no aprobadas únicamente como provisionales, con fecha/fuente/cobertura; al registrar aprobación válida reflejar el estado atribuible. Verificar que `data.json` y artifact no contengan identidad del revisor ni posiciones, tenencias, liquidez o Risk Audit del portfolio privado.
+
+
+### §13 Gate de procedencia financiera
+
+1. Verificar que toda estrategia que evalúe métricas financieras requiera fuente y fecha de corte ISO válida y no futura; comprobar que una configuración de estrategia no pueda desactivar `RULE-010`. Las estrategias sistemáticas deben seguir exigiendo procedencia/fecha de su snapshot de señal en su gate específico.
+2. Probar fecha ausente, formato inválido, fecha imposible y fecha futura: `RULE-010` debe fallar con motivo explícito y la decisión debe quedar bloqueada.
+3. Probar cobertura parcial 4/5 con fuente/corte válidos (80%): la regla de procedencia pasa sin convertir el campo faltante en cero; cobertura pobre, fuente ausente o fecha inválida bloquean.
+4. Revisar el Assessment y el Decision persistidos para confirmar el estado, el motivo de `RULE-010` y la procedencia; el dashboard debe exponer calidad parcial sin mostrar el caso como aprobado.
+5. Persistir y mostrar `rules_details` de la evaluación, incluyendo `RULE-008` cuando corresponda. Mostrar cálculos basados en probabilidades de catalizadores como provisionales y verificar que `RULE-008` bloquee autorización hasta existir escenarios Bear/Base/Bull mutuamente excluyentes validados con precios, horizonte común, moneda coincidente, fuentes fechadas y aprobación humana atribuible ligada al hash. Editar escenario/fuente, usar hash anterior, porcentaje que no suma 100%, precio no ordenado, URL no HTTPS, fecha inválida/futura o moneda distinta debe bloquear; un registro histórico sin detalle debe indicarlo explícitamente.
+6. Si `financial_period_end_timestamp` llega desde el proveedor, convertir segundos Unix a fecha UTC ISO y conservar la fuente del campo; rechazar milisegundos, valores fuera de rango y fechas futuras.
+7. La revisión de escenarios vía `Scenario Review` debe aceptar sólo contrato vigente y hash SHA-256 exacto, registrar `github.actor`, fecha y justificación, y conservar la última revisión si el input falla. Rechazar un escenario y cambiar su contenido deben impedir `RULE-008`.
+8. Assessment debe persistir `PENDING_HUMAN_REVIEW` y no crear `board_resolution.approved=true`, Buy List ni estado `APPROVED` a partir de una recomendación automática. El Board debe exigir decisión, revisor y justificación; no debe permitir aprobar propuestas con gates fallidos. Board Review debe clasificar cualquier recomendación sin resolución como pendiente/bloqueada, nunca `AUTO_APPROVED`.
+9. `Decision Review` debe validar hash de Assessment vigente, `recommendation=APPROVE`, gates y escenarios aprobados cuando RULE-008 aplique; una aprobación agrega únicamente a la Buy List pública con `approved_for_buylist=true`, mantiene la etapa de Research y no genera posiciones ni `ENTRY_PENDING`. Un hash viejo, gate fallido, segunda Opportunity del mismo ticker ya listada o precio/objetivo ausente bloquean la mutación. Al crear Research/Assessment nuevo, comprobar que se invalida la aprobación previa y se retira sólo su entrada de Buy List, con registro histórico conservado.
+10. `BuyListRefreshWorker` debe conservar una Opportunity con `approved_for_buylist=true` aunque siga en Research/Assessment; `EntryMonitorWorker` no debe tratar ese flag como autorización de operación. Confirmar `positions/` y demás datos de portfolio vacíos en el build público.
+
+
+### §14 Cobertura funcional actual — 2026-10-19
+
+La suite actual contiene 97 archivos `test_*.py` bajo `idos-core/tests`. La
+ejecución completa local terminó con **608 passed, 1 skipped y 2 warnings** en
+263,53 s. Los warnings son `PytestUnknownMarkWarning` para las marcas `smoke` y
+`e2e`; conviene registrarlas en `pyproject.toml`. El detalle funcional y las
+áreas no cubiertas están trazados en `SDD/26.AUDITORIA-FUNCIONAL-COBERTURA.md`.
+
+La ejecución Windows requirió instalar `exchange-calendars` (ya declarada) y
+usar un plugin temporal para aislar `tmp_path`/`tempfile` por restricciones del
+sandbox sobre `%TEMP%`; el plugin no forma parte del producto y se elimina
+después. En CI Linux la suite debe ejecutarse sin ese adaptador.
+
+La suite local no valida workflows GitHub, proveedores reales, Pages ni una
+decisión atribuida al gestor. Monthly Universe, Daily Refresh y DDD acotados a
+AAPL fueron revisados en §8.3.5–8.3.6 de
+`SDD/25.PLAN-E2E-EN-RAMA-DE-PRUEBA.md`; los workflows `Scenario Review` y
+`Decision Review` quedan pendientes de usarse con una oportunidad vigente y
+decisión real en una rama de prueba.
+
+`DecisionBoardWorker` se conserva como shim legado que siempre responde
+`SKIPPED`; no ejecuta LLM, no persiste evaluaciones y no cambia estados. Los
+tests de worker y lifecycle verifican la ausencia de efectos automáticos. La
+simulación de entrada del lifecycle parte de una aprobación humana explícita
+en el fixture.
+
+#### Secuencia posterior al deployment
+
+1. Confirmar ref/SHA autorizados; usar un activo de `operable.yml` y conservar
+   los workflows habilitados.
+2. Ejecutar Monthly Universe acotado; revisar conteos, gates globales y de
+   estrategia, cobertura/procedencia y persistencia. Un no-op no valida etapas
+   posteriores.
+3. Ejecutar Research sólo si existe oportunidad elegible; inspeccionar tesis,
+   hipótesis, fechas futuras, falsaciones, evidencia y errores estructurados.
+4. Revisar Assessment determinista y RULE-008; exigir Bear/Base/Bull vigente,
+   fuentes, horizonte, moneda y hash antes de decidir.
+5. Registrar revisión real de escenarios y Decision en rama; verificar actor,
+   justificación, hash, gates y Buy List sin generar posiciones.
+6. Ejecutar Daily Refresh con simulación desactivada; revisar gate, calendario,
+   Buy List, allowlist de artefactos y ausencia de datos privados.
+7. Generar dashboard; inspeccionar JSON, HTML y vista renderizada para tesis,
+   recomendación, asimetría, riesgos, antigüedad, alertas y Buy List. Confirmar
+   `positions=[]`, `ledger=[]`, `portfolio={}`.
+8. Probar alertas en fixtures: crear, actualizar, resolver y verificar
+   deduplicación por tipo/fuente, ID estable y eliminación del snapshot cuando
+   la condición se resuelve antes de habilitar avisos. La misma condición debe
+   actualizar el mensaje sin crear otra alerta; distintas estrategias u
+   oportunidades mantienen referencias independientes.
+9. Validar Post-Mortem/learning en almacenamiento privado; sus propuestas no
+   deben cambiar perfiles sin revisión, comparación y versionado aprobados.
+10. Sólo tras configurar la fuente privada, probar importación con fixture
+    ficticio, reconciliación y Risk Audit conforme a SDD/21.
+11. En el fixture de portfolio, incluir balances de Cash y obligaciones PENDING
+    en más de una moneda; exigir referencia de fuente por fila y FX fechado no
+    posterior al corte. Verificar activos brutos, pasivos, valor neto,
+    proporción sobre activos y que Risk Audit permanezca NOT_ASSESSED sin
+    autorizar allocation. Omitir una lista debe declarar balance parcial.
+
+### Cadencia de re-research de tesis
+
+1. Validar el valor por defecto de 30 días y que cada perfil estratégico pueda
+   configurar `parameters.thesis_review_interval_days` como entero positivo.
+   Rechazar booleanos, cero, negativos y valores de otro tipo; los perfiles
+   sistemáticos no reciben agenda de tesis fundamental.
+2. Confirmar que Research guarda `next_thesis_review_at` en SQLite y journal;
+   reiniciar el proceso y verificar que el dashboard y Monthly Reassessment
+   conservan la misma fecha.
+3. Con una fecha futura, ejecutar Monthly Reassessment y verificar que el
+   ticker se cuenta como omitido y que ThesisMonitor/LLM no se invoca. Con una
+   fecha vencida, comprobar una única revisión y que `last_thesis_assessment_at`
+   y la siguiente fecha avanzan juntas por el intervalo configurado.
+4. En el dashboard, comprobar fecha, cadencia y alerta de tesis vencida en
+   oportunidades previas a cartera; verificar que perfiles sistemáticos no
+   muestran una revisión fundamental aplicable.
+5. Repetir tras cambiar el intervalo del perfil y comprobar el recálculo desde
+   la última revisión. Probar persistencia en una base SQLite creada con el
+   esquema anterior y confirmar la migración aditiva.
+6. En una ejecución remota de prueba, seleccionar una sola oportunidad vencida
+   y revisar selector, proveedor/modelo, costo esperado, artifacts y commits;
+   comprobar que una oportunidad no vencida no consume Research ni cambia su
+   tesis. Registrar ref, SHA, run y resultado sin convertir un no-op en E2E.
+7. Para eventos materiales, comprobar que sólo perfiles habilitados y no
+   sistemáticos procesan sus triggers configurados; cubrir estados elegibles,
+   Buy List por `(ticker, opp_id)`, exclusión de posiciones y perfiles
+   deshabilitados. Exigir ticker, tipo, fecha del evento, fuente, URL HTTPS,
+   resumen y timestamp de observación; rechazar evidencia ausente, futura,
+   duplicada o de otro ticker. El modo `preview_only` debe mostrar selección y
+   evidencia normalizada, y omitir Research, Assessment, Monthly Re-Assessment,
+   digest y commits. Ejecutar una sola prueba remota en la rama de test con un
+   ticker, revisar el artifact y confirmar ausencia de llamadas IA y cambios
+   Git. El calendario Yahoo/yfinance sólo sugiere la fecha de resultados; no
+   demuestra que el reporte se haya publicado. Research debe contrastar el
+   evento con fuentes primarias. Una prueba real de Research debe verificar
+   que prompt, snapshot, journal y auditoría conservan la misma evidencia y que
+   el Research previo no se reemplaza ante respuesta inválida.
+
+### Asimetría Bear/Base/Bull y RULE-008
+
+1. Aceptar exactamente un escenario BEAR, BASE y BULL con probabilidades que
+   sumen 100%, precios ordenados, horizonte posterior a la fecha de análisis,
+   moneda igual a la cotización y fuentes HTTPS fechadas.
+2. Rechazar escenario duplicado/ausente, probabilidades inválidas, fuente
+   posterior, fecha futura, moneda distinta y distribuciones sin retornos
+   positivos y negativos.
+3. Verificar que el ratio usa retornos ponderados contra el precio actual, y
+   que RULE-008 bloquea hasta una aprobación atribuible del gestor para el hash
+   vigente del conjunto. Un cambio de precio objetivo, probabilidad, fuente o
+   fecha debe invalidar la aprobación.
+4. Confirmar en dashboard que escenarios propuestos se muestran como pendientes
+   y no autorizan compra; los históricos sin detalle deben declararse como no
+   persistidos.
+
+### Alcance seguro de workflows manuales
+
+1. Probar que la selección manual vacía, no operable y por encima del límite
+   falla antes de ejecutar workers o solicitar datos a proveedores. Confirmar
+   normalización, deduplicación y registro de los tickers elegidos.
+2. Verificar en Monthly Universe y Daily Refresh el límite de cinco símbolos;
+   en DDD, exactamente uno. Los cron deben conservar su selección normal y no
+   quedar sujetos a la guardia manual.
+3. En GitHub Actions, ejecutar Monthly Universe con `AAPL,QQQ` desde la rama
+   de prueba; revisar que COMPOUNDER sólo procese el activo compatible y que
+   MOMENTUM_ETF sólo procese el ETF. Confirmar que `candidate_count` no exceda
+   dos, no haya solicitudes para el resto de `operable.yml`, y auditar
+   resultados, rate limits, artifacts y commits antes de lanzar DDD.
+4. Inducir un fallo controlado de reporting sin proveedor IA: verificar que el
+   error reporter incluya workflow, ref, run y extracto de logs, cree una issue,
+   y no importe ni invoque AutoFixAgent. El análisis de reparación sólo ocurre
+   después del comando explícito de autorización.
+5. Para re-revisar Buy List, ejecutar DDD sólo en rama de prueba con
+   `review_buylist=true`, `force=true` y un único ticker operable. Confirmar
+   que se selecciona el `opp_id` exacto, se rechazan selección vacía/múltiple o
+   posición paper, el nuevo Research invalida la aprobación anterior, retira
+   sólo esa entrada y conserva `decisions/*.yml`. Probar que Decision Review
+   rechaza el hash/proposal invalidado y que Pages no se dispara desde esa rama.
+   Revisar costo/proveedor, logs, artefactos y commit antes de aceptar el run.
+6. Para respuestas JSON de Research, confirmar que Gemini recibe
+   `responseMimeType=application/json`, que el adaptador combina todas las
+   partes textuales y que `finishReason != STOP` dispara fallback y detiene la
+   respuesta incompleta. Una salida que falle parsing o contrato debe preservar
+   el Research anterior y omitir Assessment; registrar proveedor/modelo, causa
+   de parsing y ejecución remota acotada antes de considerar la corrección
+   validada.
+7. Sin conector de portfolio privado, confirmar que `PortfolioAssessmentEngine`
+   devuelve `NOT_ASSESSED` con placeholder neutral y no interpreta ausencia de
+   archivos o posiciones paper como capacidad/diversificación del fondo. En el
+   dashboard público comprobar que esa falta de datos es visible y que no se
+   publica ninguna posición, ledger ni valor patrimonial.
+8. Para cambios deterministas de Assessment, ejecutar DDD manual en la rama de
+   prueba con `assessment_only=true` y un solo ticker operable. Confirmar que el
+   run exige Research y Assessment previos, reemplaza solo el Assessment del
+   `(ticker, opp_id)` elegido, conserva los otros resultados, omite Research y
+   Monthly Re-Assessment, y genera artifacts/commit sin invocar IA ni Pages.

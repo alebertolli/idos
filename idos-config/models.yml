@@ -2,8 +2,8 @@ llm:
   default_provider: gemini
   providers:
     gemini:
-      model: gemini-2.0-flash
-      fallback: gemini-flash-latest
+      model: gemini-3.8-flash
+      fallback: gemini-3.7-flash
       rpm: 60
       rpd: 1500
       task_types:
@@ -11,8 +11,8 @@ llm:
         - analysis
         - classification
     groq:
-      model: llama-3.3-70b-versatile
-      fallback: llama-3.1-8b-instant
+      model: openai/gpt-oss-120b
+      fallback: openai/gpt-oss-20b
       rpm: 30
       rpd: 1000
       task_types:
@@ -20,7 +20,6 @@ llm:
         - analysis
     openrouter:
       model: google/gemma-4-31b-it:free
-      fallback: openrouter/free
       rpm: 20
       rpd: 50
       task_types:
@@ -29,11 +28,10 @@ llm:
         - classification
   fallback_order:
     - provider: groq
-      model: llama-3.3-70b-versatile
-      fallback_model: llama-3.1-8b-instant
+      model: openai/gpt-oss-120b
+      fallback_model: openai/gpt-oss-20b
     - provider: openrouter
       model: google/gemma-4-31b-it:free
-      fallback_model: openrouter/free
   circuit_breaker:
     failure_threshold: 3
     recovery_timeout: 60

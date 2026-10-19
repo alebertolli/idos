@@ -36,8 +36,7 @@ Crea la estructura de directorios:
 ```
 idos-config/
   universe/watchlist.md       ← tickers a monitorear
-  universe/operable.yml       ← lista de activos operables (CEDEARs + broker)
-  universe/cedears.yml        ← lista de CEDEARs conocidos
+  universe/operable.yml       ← registro de todos los activos operables en el broker
   screeners/                  ← 5 screeners programaticos (value, growth, etc.)
   finviz_screener.yml         ← config de filtros Finviz
   data_sources.yml            ← fuentes de datos financieros
@@ -122,18 +121,21 @@ Validación cruzada automática cuando hay múltiples fuentes disponibles.
 
 ### 2.3 Lista de Activos Operables
 
-El archivo `idos-config/universe/operable.yml` contiene la lista curada de
-activos que realmente se pueden operar (CEDEARs en BYMA + acciones US directas
-disponibles en tu broker). Se usa como pre-filter del scout para que solo
-pasen a análisis los tickers que puedas comprar.
+El archivo `idos-config/universe/operable.yml` es el registro común de los
+instrumentos que realmente se pueden operar en tu broker. Puede incluir CEDEARs,
+acciones locales o extranjeras, ETF y otras clases de activos; no se deriva del
+listado oficial de CEDEARs. Cada estrategia intersecta este registro con su
+universo propio, si lo tiene, y luego aplica los filtros específicos de esa
+estrategia antes de consultar datos o crear oportunidades.
 
 Mantenimiento manual via CLI:
 
 ```bash
-idos operable-add AAPL --name "Apple Inc." --type cedear --source broker_ppi
+idos operable-add AAPL --name "Apple Inc." --type us_equity --source broker_ppi
+idos operable-add GGAL --name "Grupo Financiero Galicia" --type local_equity --source broker_ppi
 idos operable-list
 idos operable-check MELI
-idos operable-import ./lista_cedears.csv
+idos operable-import ./activos_operables.csv
 ```
 
 ### 2.4 Screeners Programaticos
@@ -205,7 +207,7 @@ idos schedule-status              # Estado del scheduler
 ### 3.4 Gestión de Activos Operables
 
 ```bash
-idos operable-add AAPL --name "Apple Inc." --type cedear --source broker_ppi  # Agrega activo operable
+idos operable-add AAPL --name "Apple Inc." --type us_equity --source broker_ppi  # Agrega activo operable
 idos operable-remove AAPL           # Elimina activo
 idos operable-list                  # Lista todos los activos operables
 idos operable-list --type cedear    # Filtra por tipo

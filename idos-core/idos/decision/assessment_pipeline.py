@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import Any
+import math
 import json
 import yaml
 
@@ -7,7 +8,10 @@ from idos.data.sqlite import SQLiteStore
 from idos.data.knowledge import KnowledgeRepository
 from idos.data.journal import JournalRepository
 from idos.decision.orchestrator import DecisionOrchestrator, DecisionProposal
-from idos.decision.board import DecisionBoard, BoardResolution
+from idos.decision.scenarios import (
+    calculate_scenario_asymmetry,
+    validate_scenario_review,
+)
 from idos.decision.conviction import ConvictionCalculator
 from idos.decision.engines.business import BusinessAssessmentEngine
 from idos.decision.engines.valuation import ValuationAssessmentEngine
@@ -17,50 +21,158 @@ from idos.decision.engines.portfolio import PortfolioAssessmentEngine
 from idos.rules.engine import RulesEngine, RuleResult
 from idos.models.knowledge import Rule
 from idos.models.enums import OpportunityStatus
-from idos.portfolio.buylist import BuyListManager, BuyListEntry
 from idos.config import load_settings
 from idos.strategy.catalog import StrategyCatalog
+from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.timezone import AR_TZ
-from datetime import datetime
+from datetime import date, datetime, timezone
 
-def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, Any],
-                     opp_id: str, bp: Path, knowledge: KnowledgeRepository):
-    target_price = context.get("intrinsic_value", 0) or 0
-    margin = context.get("margin_of_safety", 30.0)
-    buy_zone_top = target_price / (1 + margin / 100) if target_price else 0
-    entry = BuyListEntry(
-        ticker=ticker,
-        target_price=target_price,
-        buy_zone_top=buy_zone_top,
-        max_position_pct=context.get("proposed_weight", 3.0),
-        conviction_score=proposal.conviction_score,
-        horizon="12-36 months",
-        catalysts=context.get("catalysts", []),
-        kb_last_update=proposal.created_at,
+
+_CORE_FINANCIAL_FIELDS = {
+    "roic": ("roic_pct", "roic"),
+    "operating_margin": ("operating_margin_pct", "operating_margin"),
+    "revenue_growth": ("revenue_growth_pct", "revenue_growth"),
+    "pe_ratio": ("pe_ratio", "pe_ratio_ttm"),
+    "debt_to_equity": ("debt_equity_ratio", "debt_to_equity"),
+}
+
+
+def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
+    """Report core input coverage and provenance without treating zero as missing."""
+    missing = []
+    for field_name, source_keys in _CORE_FINANCIAL_FIELDS.items():
+        value = next((financial.get(key) for key in source_keys if key in financial), None)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            missing.append(field_name)
+
+    provenance = financial.get("data_provenance")
+    provenance = provenance if isinstance(provenance, dict) else {}
+    sources = provenance.get("sources_used")
+    sources = sources if isinstance(sources, list) else []
+    source = financial.get("source") or (", ".join(map(str, sources)) if sources else "")
+    cutoff_fields = (
+        "fundamentals_as_of",
+        "as_of_date",
+        "period_end_date",
+        "fiscal_period_end",
+        "financial_period_end_timestamp",
     )
-    buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
-    buylist_path.parent.mkdir(parents=True, exist_ok=True)
-    import yaml
-    existing = {}
-    if buylist_path.exists():
-        existing = yaml.safe_load(buylist_path.read_text(encoding="utf-8")) or {}
-    entries = existing.get("entries", [])
-    entries = [e for e in entries if e.get("ticker") != ticker]
-    entries.append({
-        "ticker": ticker,
-        "opp_id": opp_id,
-        "target_price": target_price,
-        "buy_zone_top": buy_zone_top,
-        "max_position_pct": entry.max_position_pct,
-        "conviction_score": proposal.conviction_score,
-        "horizon": "12-36 months",
-        "catalysts": context.get("catalysts", []),
-        "kb_last_update": proposal.created_at,
-        "added_at": entry.added_at,
-        "monitoring": True,
+    cutoff_field = next((key for key in cutoff_fields if financial.get(key) is not None), None)
+    raw_as_of_date = financial.get(cutoff_field) if cutoff_field else provenance.get("as_of_date")
+    as_of_date = _valid_cutoff_date(raw_as_of_date)
+    field_sources = provenance.get("field_sources")
+    field_sources = field_sources if isinstance(field_sources, dict) else {}
+    raw_cutoff_sources = field_sources.get(cutoff_field, []) if cutoff_field else []
+    if isinstance(raw_cutoff_sources, str):
+        raw_cutoff_sources = [raw_cutoff_sources]
+    as_of_date_source = ", ".join(sorted({str(value) for value in raw_cutoff_sources if value})) or (source or None)
+    missing_provenance = []
+    if not source:
+        missing_provenance.append("source")
+    if not as_of_date:
+        missing_provenance.append("as_of_date")
+
+    core_source_fields = {
+        source_key
+        for source_keys in _CORE_FINANCIAL_FIELDS.values()
+        for source_key in source_keys
+    }
+    raw_conflicts = provenance.get("conflicts")
+    raw_conflicts = raw_conflicts if isinstance(raw_conflicts, list) else []
+    conflicting_metrics = sorted({
+        str(item.get("field"))
+        for item in raw_conflicts
+        if isinstance(item, dict) and item.get("field") in core_source_fields
     })
-    buylist_path.write_text(yaml.dump({"entries": entries}, default_flow_style=False, allow_unicode=True), encoding="utf-8")
-    print(f"[BUYLIST] {ticker} added to persistent Buy List (target={target_price}, zone={buy_zone_top})")
+
+    observations = financial.get("financial_observations")
+    observations = observations if isinstance(observations, dict) else {}
+    unreconciled_metrics = sorted(
+        str(metric)
+        for metric, item in observations.items()
+        if metric in core_source_fields
+        and isinstance(item, dict)
+        and item.get("period_status") == "PROVIDER_REPORTED_NOT_RECONCILED"
+    )
+
+    coverage = len(_CORE_FINANCIAL_FIELDS) - len(missing)
+    if conflicting_metrics or unreconciled_metrics:
+        status = "poor"
+    elif coverage == len(_CORE_FINANCIAL_FIELDS) and not missing_provenance:
+        status = "good"
+    elif coverage >= math.ceil(len(_CORE_FINANCIAL_FIELDS) * 0.8):
+        status = "partial"
+    else:
+        status = "poor"
+    return {
+        "status": status,
+        "core_metric_coverage": f"{coverage}/{len(_CORE_FINANCIAL_FIELDS)}",
+        "missing_core_metrics": missing,
+        "source": source or None,
+        "as_of_date": as_of_date.isoformat() if as_of_date else None,
+        "as_of_date_source": as_of_date_source if as_of_date else None,
+        "missing_provenance": missing_provenance,
+        "conflicting_core_metrics": conflicting_metrics,
+        "unreconciled_core_metrics": unreconciled_metrics,
+    }
+
+
+def _valid_cutoff_date(value: Any) -> date | None:
+    """Return an ISO-compatible financial cutoff date that is not in the future."""
+    if isinstance(value, datetime):
+        cutoff = value.date()
+    elif isinstance(value, date):
+        cutoff = value
+    elif isinstance(value, (int, float)) and not isinstance(value, bool):
+        if not math.isfinite(value) or not 946684800 <= value <= 4102444800:
+            return None
+        try:
+            cutoff = datetime.fromtimestamp(value, timezone.utc).date()
+        except (OverflowError, OSError, ValueError):
+            return None
+    elif isinstance(value, str) and value.strip():
+        normalized = value.strip()
+        try:
+            if len(normalized) == 10:
+                cutoff = date.fromisoformat(normalized)
+                if cutoff.isoformat() != normalized:
+                    return None
+            else:
+                cutoff = datetime.fromisoformat(normalized.replace("Z", "+00:00")).date()
+        except ValueError:
+            return None
+    else:
+        return None
+    if cutoff > datetime.now(AR_TZ).date():
+        return None
+    return cutoff
+
+
+def _remove_buylist_entry(ticker: str, opp_id: str, base_path: Path) -> bool:
+    """Remove only a stale, version-specific public Buy List entry."""
+    path = base_path / "idos-journal" / "portfolio" / "buylist.yml"
+    if not path.exists():
+        return False
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError):
+        return False
+    if not isinstance(data, dict) or not isinstance(data.get("entries", []), list):
+        return False
+    entries = data.get("entries", [])
+    filtered = [
+        entry for entry in entries
+        if not (
+            isinstance(entry, dict)
+            and str(entry.get("ticker", "")).upper() == ticker.upper()
+            and entry.get("opp_id") == opp_id
+        )
+    ]
+    if len(filtered) == len(entries):
+        return False
+    data["entries"] = filtered
+    path.write_text(yaml.safe_dump(data, allow_unicode=True, sort_keys=False), encoding="utf-8")
+    return True
 
 
 def build_context(
@@ -68,6 +180,7 @@ def build_context(
     knowledge: KnowledgeRepository, journal: JournalRepository,
 ) -> dict[str, Any]:
     financial = _load_financial_data(ticker, sqlite)
+    financial_quality = _financial_data_quality(financial)
     company = knowledge.load_company(ticker) or {}
 
     positions = []
@@ -154,6 +267,7 @@ def build_context(
         cv = opp.get("conviction", {}) or {}
         margin_of_safety = cv.get("margin_of_safety", 30.0)
     current_price = None
+    quote_currency = None
     target_low = None
     target_mean = None
     target_high = None
@@ -162,6 +276,7 @@ def build_context(
         _s = yf.Ticker(ticker)
         _i = _s.info or {}
         current_price = _i.get("currentPrice") or _i.get("regularMarketPrice")
+        quote_currency = _i.get("currency")
         target_mean = _i.get("targetMeanPrice")
         target_low = _i.get("targetLowPrice")
         target_high = _i.get("targetHighPrice")
@@ -210,11 +325,29 @@ def build_context(
     target_consensus = report.get("target_consensus") or {}
     consensus_target = target_consensus.get("promedio", 0) or 0
 
-    asymmetry = _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
+    scenario_review = None
+    scenario_review_path = opp_dir / "scenario_review.yml"
+    if scenario_review_path.exists():
+        try:
+            scenario_review = yaml.safe_load(scenario_review_path.read_text(encoding="utf-8"))
+        except (OSError, yaml.YAMLError):
+            scenario_review = None
+    # Catalyst-derived estimates may coexist and remain visible for context,
+    # but only an approved, version-matched Bear/Base/Bull set can authorize.
+    asymmetry = _calculate_report_asymmetry(
+        report, raw_catalysts, current_price, target_low, target_mean, target_high,
+        quote_currency, scenario_review,
+    )
 
     return {
         "knowledge_base": {"dynamic": {"metrics": metrics}, "static": static},
+        "financial_data_quality": financial_quality,
         "portfolio": portfolio,
+        # Repository positions are paper/test state, not the family's private
+        # source of truth. Until an authenticated portfolio adapter exists,
+        # the portfolio engine must not interpret an absent file as zero risk.
+        "portfolio_data_available": False,
+        "portfolio_data_source": "private_family_portfolio_not_connected",
         "company": company_info,
         "margin_of_safety": margin_of_safety,
         "price_margin": price_margin,
@@ -222,6 +355,7 @@ def build_context(
         "risk_events": risk_events,
         "asymmetry": asymmetry,
         "current_price": current_price,
+        "quote_currency": quote_currency,
         "intrinsic_value": consensus_target or target_mean,
         "target_consensus": target_consensus,
         "proposed_weight": 3.0,
@@ -316,6 +450,34 @@ def _warn_missing_metrics(ticker: str, data: dict[str, Any], source: str = "fina
     return warnings
 
 def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
+    cache_data = None
+    cache_dir = sqlite.db_path.parent / "cache"
+    for cache_path in [cache_dir / f"{ticker}_financial.json", cache_dir / f"{ticker}.json"]:
+        if not cache_path.exists():
+            continue
+        try:
+            data = json.loads(cache_path.read_text(encoding="utf-8"))
+            if not isinstance(data, dict) or not data:
+                continue
+            if "merged_data" in data and isinstance(data["merged_data"], dict):
+                data = data["merged_data"]
+            data = _normalize_decimal_pcts(data)
+            data = _enrich_roic(data)
+            if cache_data is None:
+                cache_data = data
+            cutoff_fields = (
+                "fundamentals_as_of", "as_of_date", "period_end_date",
+                "fiscal_period_end", "financial_period_end_timestamp",
+            )
+            cutoff = next((data.get(key) for key in cutoff_fields if data.get(key) is not None), None)
+            provenance = data.get("data_provenance")
+            provenance = provenance if isinstance(provenance, dict) else {}
+            if _valid_cutoff_date(cutoff or provenance.get("as_of_date")):
+                _warn_missing_metrics(ticker, data, "cache")
+                return data
+        except (OSError, ValueError, TypeError):
+            continue
+
     try:
         row = sqlite.conn.execute(
             "SELECT data_json FROM events_log WHERE data_json LIKE ? OR correlation_id LIKE ? ORDER BY timestamp DESC LIMIT 1",
@@ -328,24 +490,9 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
                 pass
     except Exception:
         pass
-    import json
-    from pathlib import Path
-    for cache_path in [
-        Path("cache") / f"{ticker}_financial.json",
-        Path("cache") / f"{ticker}.json",
-    ]:
-        if cache_path.exists():
-            try:
-                data = json.loads(cache_path.read_text(encoding="utf-8"))
-                if data:
-                    if "merged_data" in data:
-                        data = data["merged_data"]
-                    data = _normalize_decimal_pcts(data)
-                    data = _enrich_roic(data)
-                    _warn_missing_metrics(ticker, data, "cache")
-                    return data
-            except Exception:
-                pass
+    if cache_data is not None:
+        _warn_missing_metrics(ticker, cache_data, "cache")
+        return cache_data
     try:
         from idos.workers.data.stockanalysis import StockAnalysisWorker
         sa = StockAnalysisWorker()
@@ -434,9 +581,47 @@ def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, ta
         "upside_esperado_pct": round(upside, 2),
         "downside_esperado_pct": round(downside, 2),
         "benefit_risk_ratio": br,
-        "passes_threshold": br >= 3.0,
+        # Research catalysts can coexist, so their probabilities do not define
+        # mutually exclusive price scenarios. Keep this estimate visible for
+        # human review, but never use it to authorize an Opportunity.
+        "validation_status": "provisional",
+        "authorization_eligible": False,
+        "validation_reason": (
+            "Las probabilidades de catalizadores no son escenarios financieros "
+            "mutuamente excluyentes validados."
+        ),
+        "passes_threshold": False,
         "horizonte_avg_years": round(horizon_avg, 2),
     }
+
+
+def _calculate_report_asymmetry(
+    report: Any,
+    raw_catalysts: list,
+    current_price: Any,
+    target_low: Any,
+    target_mean: Any,
+    target_high: Any,
+    quote_currency: str | None,
+    scenario_review: Any,
+) -> dict[str, Any] | None:
+    """Prefer an approved explicit scenario contract; retain catalyst math only as provisional context."""
+    report = report if isinstance(report, dict) else {}
+    analysis = report.get("scenario_analysis")
+    if analysis is None:
+        return _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
+    asymmetry = calculate_scenario_asymmetry(
+        analysis,
+        current_price=current_price,
+        quote_currency=quote_currency,
+    )
+    review_approved, review_reason = validate_scenario_review(analysis, scenario_review)
+    asymmetry["authorization_eligible"] = review_approved and asymmetry.get("validation_status") == "validated"
+    asymmetry["validation_reason"] = (
+        asymmetry.get("validation_reason") if asymmetry.get("validation_status") != "validated"
+        else review_reason
+    )
+    return asymmetry
 
 
 def _eval_business(ctx):
@@ -492,6 +677,12 @@ def _eval_asymmetry(ctx):
     asym = ctx.get("asymmetry")
     if not asym:
         return RuleResult("RULE-008", False, "No hay datos de DDD para calcular asimetria")
+    if asym.get("validation_status") != "validated" or asym.get("authorization_eligible") is not True:
+        reason = asym.get(
+            "validation_reason",
+            "Falta un contrato validado de escenarios financieros mutuamente excluyentes.",
+        )
+        return RuleResult("RULE-008", False, f"Asimetría provisional; autorización bloqueada: {reason}")
     br = asym.get("benefit_risk_ratio", 0)
     upside = asym.get("upside_esperado_pct", 0)
     downside = asym.get("downside_esperado_pct", 0)
@@ -503,6 +694,40 @@ def _eval_asymmetry(ctx):
     else:
         detail = f"B/R {br:.1f}:1 ❌ (upside {upside:.1f}% / downside {abs(downside):.1f}%)"
     return RuleResult("RULE-008", passes, detail)
+
+
+def _eval_financial_data_quality(ctx):
+    quality = ctx.get("financial_data_quality")
+    if not isinstance(quality, dict):
+        return RuleResult("RULE-010", False, "Falta el reporte de calidad financiera")
+
+    issues = []
+    if quality.get("status") not in {"good", "partial"} and quality.get("missing_core_metrics"):
+        issues.append("cobertura de métricas insuficiente")
+    if not quality.get("source"):
+        issues.append("fuente financiera ausente")
+    if not _valid_cutoff_date(quality.get("as_of_date")):
+        issues.append("fecha de corte ausente, inválida o futura")
+    if quality.get("missing_provenance"):
+        issues.append("procedencia incompleta")
+    if quality.get("conflicting_core_metrics"):
+        issues.append(
+            "conflicto entre fuentes en métricas core: "
+            + ", ".join(quality["conflicting_core_metrics"])
+        )
+    if quality.get("unreconciled_core_metrics"):
+        issues.append(
+            "periodo financiero no reconciliado en métricas core: "
+            + ", ".join(quality["unreconciled_core_metrics"])
+        )
+
+    if issues:
+        return RuleResult("RULE-010", False, "; ".join(issues))
+    return RuleResult(
+        "RULE-010",
+        True,
+        f"Fuente y fecha de corte verificadas; cobertura {quality.get('core_metric_coverage', 'n/d')}",
+    )
 
 def _eval_competition(ctx):
     port = ctx.get("portfolio", {})
@@ -521,6 +746,7 @@ ASSESSMENT_RULES = [
     (Rule(id="RULE-007", description="Maximum sector exposure", priority=90, condition="sector <= 25.0", action="BLOCK"), _eval_sector_exposure),
     (Rule(id="RULE-008", description="Minimum asymmetry ratio 3:1", priority=100, condition="ratio >= 3.0", action="PASS"), _eval_asymmetry),
     (Rule(id="RULE-009", description="Capital competition - max 10 positions", priority=80, condition="num_positions < 10", action="BLOCK"), _eval_competition),
+    (Rule(id="RULE-010", description="Financial inputs include source and valid cutoff date", priority=110, condition="financial_data_quality has source and valid as_of_date", action="PASS"), _eval_financial_data_quality),
 ]
 
 def _register_assessment_rules(engine: RulesEngine):
@@ -528,7 +754,7 @@ def _register_assessment_rules(engine: RulesEngine):
         engine.register_rule(rule, fn)
 
 
-AUTHORIZATION_RULE_IDS = {"RULE-001", "RULE-003", "RULE-004", "RULE-005", "RULE-008"}
+AUTHORIZATION_RULE_IDS = {"RULE-001", "RULE-003", "RULE-004", "RULE-005", "RULE-008", "RULE-010"}
 
 
 def _authorization_rule_ids(base_path: str | Path) -> set[str]:
@@ -548,7 +774,7 @@ def _authorization_rule_ids(base_path: str | Path) -> set[str]:
         r.get("id") for r in (data or {}).get("rules", [])
         if r.get("active", True) and r.get("stage", "authorization") == "authorization"
     }
-    return ids or set(AUTHORIZATION_RULE_IDS)
+    return ids.union({"RULE-010"}) if ids else set(AUTHORIZATION_RULE_IDS)
 
 
 def _register_authorization_rules(engine: RulesEngine, base_path: str | Path) -> None:
@@ -580,18 +806,37 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     value = signal.get("momentum")
     minimum = profile.parameters.get("minimum_signal")
     maximum = profile.parameters.get("maximum_signal")
+    snapshot = None
+    snapshot_error = None
+    try:
+        snapshot = current_selection(bp, strategy_id, ticker, profile.parameters)
+    except SignalEvidenceError as exc:
+        snapshot_error = str(exc)
+    report_context = report.get("strategy_context", {}) if isinstance(report, dict) else {}
     checks = {
-        "research_evidence": isinstance(report, dict) and report.get("opp_id") == opp_id,
+        "research_evidence": isinstance(report, dict) and report.get("opp_id") == opp_id and report.get("ticker") == ticker,
+        "research_matches_signal": isinstance(report_context, dict) and report_context.get("strategy_id") == strategy_id
+        and report_context.get("signal") == signal and report_context.get("signal_policy") == {"minimum_signal": minimum, "maximum_signal": maximum}
+        and report_context.get("report_method_version") == "systematic_signal_v2",
+        "current_selection": snapshot is not None and snapshot["signal"] == signal,
         "signal_evidence": signal.get("ticker") == ticker and bool(signal.get("as_of_date")),
         "signal_within_policy": isinstance(value, (int, float)) and isinstance(minimum, (int, float))
         and isinstance(maximum, (int, float)) and minimum <= value <= maximum,
     }
     passed = all(checks.values())
+    blocked_reason = {
+        "not_selected_in_latest_snapshot": "El último Monthly que evaluó este activo no lo seleccionó.",
+        "signal_snapshot_incomplete": "El último reporte mensual tiene datos incompletos.",
+        "signal_policy_changed_or_unrecorded": "Ejecutar Monthly con los parámetros vigentes.",
+        "signal_snapshot_unavailable": "Falta un reporte mensual vigente para este activo.",
+    }.get(snapshot_error, "La señal o su Research no coinciden con la evidencia mensual vigente.")
     proposal = {
         "opportunity_id": opp_id, "strategy_id": strategy_id,
         "stage": "DECISION", "decision": "WAIT", "status": "PENDING_HUMAN_REVIEW" if passed else "BLOCKED",
         "checks": checks, "signal": signal,
-        "reason": "Risk budget and real portfolio context require private review" if passed else "Incomplete or invalid systematic evidence",
+        "reason": "Presupuesto de riesgo y contexto de cartera requieren revisión privada." if passed else blocked_reason,
+        "reason_code": None if passed else snapshot_error or "systematic_evidence_superseded",
+        "signal_snapshot": snapshot,
         "generated_at": datetime.now(AR_TZ).isoformat(),
     }
     case_dir.mkdir(parents=True, exist_ok=True)
@@ -606,8 +851,13 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
 def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_reprocess: bool = False) -> dict[str, Any]:
     bp = Path(base_path)
     sqlite = SQLiteStore(bp / "idos.db")
-    knowledge = KnowledgeRepository(bp / "idos-knowledge")
     journal = JournalRepository(bp / "idos-journal")
+    opportunity = sqlite.get_opportunity(opp_id) or journal.load_opportunity(ticker, opp_id) or {}
+    if opportunity.get("research_profile") == "systematic":
+        # This path needs selection evidence and human review, not corporate
+        # analyst targets or reads of private portfolio positions.
+        return _assess_systematic(opp_id, ticker, bp, sqlite, journal, opportunity)
+    knowledge = KnowledgeRepository(bp / "idos-knowledge")
     settings = load_settings(bp / "idos-config")
 
     rules_engine = RulesEngine()
@@ -634,13 +884,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     if proposal is None:
         return {"ticker": ticker, "opp_id": opp_id, "status": "skipped", "reason": "Pipeline returned None"}
 
-    board = DecisionBoard(journal_repo=journal, ticker=ticker)
-    board.submit(proposal)
-    resolution = board.review()
-
-    if resolution.approved:
-        _add_to_buylist(ticker, proposal, context, opp_id, bp, knowledge)
-
+    # Assessment is a proposal. A passing ruleset is not a manager decision.
     opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
     opp_dir.mkdir(parents=True, exist_ok=True)
 
@@ -653,6 +897,11 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "conviction_score": proposal.conviction_score,
         "recommendation": proposal.recommendation,
         "reasoning": proposal.reasoning,
+        "rules_details": proposal.rules_details,
+        "financial_data_quality": context.get("financial_data_quality", {}),
+        "status": "PENDING_HUMAN_REVIEW"
+        if proposal.recommendation in {"APPROVE", "PENDING_REVIEW"}
+        else "BLOCKED" if proposal.recommendation == "BLOCKED" else "NOT_RECOMMENDED",
         "created_at": proposal.created_at,
         "generated_at": datetime.now(AR_TZ).isoformat(),
     }
@@ -660,19 +909,17 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         yaml.dump(proposal_data, f, default_flow_style=False, allow_unicode=True)
 
     resolution_data = {
-        "approved": resolution.approved,
-        "decision_id": resolution.decision_id,
-        "decision_type": resolution.decision_type.value,
-        "justification": resolution.justification,
-        "author": resolution.author,
-        "resolved_at": resolution.resolved_at,
+        "approved": False,
+        "status": proposal_data["status"],
+        "justification": "Propuesta pendiente de revisión explícita del gestor."
+        if proposal_data["status"] == "PENDING_HUMAN_REVIEW"
+        else proposal.reasoning,
+        "author": "system",
     }
     with open(opp_dir / "board_resolution.yml", "w", encoding="utf-8") as f:
         yaml.dump(resolution_data, f, default_flow_style=False, allow_unicode=True)
 
-    if resolution.approved:
-        new_status = OpportunityStatus.APPROVED
-    elif not context.get("asymmetry"):
+    if not context.get("asymmetry"):
         new_status = OpportunityStatus.WATCHLIST
     else:
         new_status = OpportunityStatus.UNDER_DEEP_DD
@@ -694,11 +941,14 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         sqlite.save_opportunity(opp)
         sqlite.record_transition(
             opp_id, old, new_status.value,
-            cause=f"board:{resolution.decision_type.value.lower()}", worker="assessment_pipeline",
+            cause="assessment:manager_review_pending", worker="assessment_pipeline",
         )
 
     yaml_opp = journal.load_opportunity(ticker, opp_id)
     if yaml_opp:
+        if yaml_opp.get("approved_for_buylist") is True:
+            _remove_buylist_entry(ticker, opp_id, bp)
+        yaml_opp["approved_for_buylist"] = False
         yaml_old_status = yaml_opp.get("status", "")
         if proposal.rules_failed and yaml_old_status in (OpportunityStatus.SCREENED.value, OpportunityStatus.UNDER_RESEARCH.value):
             final_yaml_status = OpportunityStatus.UNDER_RESEARCH.value
@@ -717,25 +967,24 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
             yaml_opp["intrinsic_value"] = iv
         journal.save_opportunity(ticker, yaml_opp)
 
-    _all_metrics = context.get("knowledge_base", {}).get("dynamic", {}).get("metrics", {})
-    _core_metrics = {k: v for k, v in _all_metrics.items() if k in ("roic", "operating_margin", "revenue_growth", "pe_ratio", "debt_to_equity")}
-    _zero_core = sum(1 for v in _core_metrics.values() if isinstance(v, (int, float)) and v == 0)
-    _data_quality = "poor" if _zero_core > len(_core_metrics) // 2 else "good"
+    financial_quality = context.get("financial_data_quality", {})
+    data_quality = financial_quality.get("status", "poor")
 
     return {
         "ticker": ticker,
         "opp_id": opp_id,
-        "status": "completed",
+        "status": "decision_pending" if proposal_data["status"] == "PENDING_HUMAN_REVIEW" else "completed",
         "conviction_score": proposal.conviction_score,
-        "recommendation": proposal.recommendation,
-        "board_approved": resolution.approved,
-        "decision_type": resolution.decision_type.value,
-        "decision_id": resolution.decision_id,
+        "recommendation": "WAIT" if proposal_data["status"] == "PENDING_HUMAN_REVIEW" else proposal.recommendation,
+        "board_approved": False,
+        "decision_type": None,
+        "decision_id": None,
         "assessments": {k: v.score for k, v in proposal.assessments.items()},
         "rules_passed": proposal.rules_passed,
         "rules_failed": proposal.rules_failed,
         "rules_details": proposal.rules_details,
-        "data_quality": _data_quality,
+        "data_quality": data_quality,
+        "financial_data_quality": financial_quality,
     }
 
 

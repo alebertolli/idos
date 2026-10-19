@@ -1,3 +1,6 @@
+from datetime import date
+import hashlib
+import json
 from pathlib import Path
 from unittest.mock import MagicMock
 
@@ -8,6 +11,27 @@ from idos.workers.ai.research_worker import ResearchWorker
 from idos.workers.base import WorkerStatus
 from idos.knowledge.wiki import AtomicWiki
 from idos.research.wiki import WikiBuilder
+
+
+def _write_multibaggers_profile(base_path: str, *, enabled: bool) -> None:
+    import yaml
+
+    config_dir = Path(base_path) / "idos-config"
+    config_dir.mkdir(parents=True, exist_ok=True)
+    (config_dir / "strategies.yml").write_text(yaml.safe_dump({
+        "strategies": {
+            "MULTIBAGGERS": {
+                "enabled": enabled,
+                "core": "CORE_4_ALPHA_ASYMMETRY",
+                "sleeve": "ALPHA_ASYMMETRY",
+                "thesis_type": "STRATEGIC",
+                "discovery_profile": "multibaggers",
+                "research_profile": "multibaggers",
+                "entry_policy": "MANUAL_REVIEW",
+                "strategy_version": "1.1",
+            },
+        },
+    }), encoding="utf-8")
 
 
 @pytest.fixture
@@ -45,17 +69,373 @@ def _mock_research_registry() -> MagicMock:
     return registry
 
 
+def test_current_price_context_uses_latest_aligned_close_with_provenance():
+    context = ResearchWorker._current_price_context({
+        "price_history": [100.0, None, 125.5],
+        "price_history_dates": ["2026-10-15", "2026-10-16", "2026-10-19"],
+        "data_provenance": {"field_sources": {"price_history": ["yfinance"]}},
+    })
+
+    assert context == {
+        "price": 125.5,
+        "as_of_date": "2026-10-19",
+        "source": "yfinance",
+    }
+
+
+def test_current_price_context_does_not_infer_from_unaligned_history():
+    context = ResearchWorker._current_price_context({
+        "price_history": [100.0, 125.5],
+        "price_history_dates": ["2026-10-15"],
+    })
+
+    assert context == {"price": "N/D", "as_of_date": "N/D", "source": "N/D"}
+
+
+def test_current_price_context_uses_committed_discovery_quote_when_cache_is_absent():
+    context = ResearchWorker._current_price_context(
+        {},
+        {"market_quote": {
+            "price": 125.5, "as_of_date": "2026-10-19", "currency": "USD", "source": "yfinance",
+        }},
+    )
+
+    assert context == {"price": 125.5, "as_of_date": "2026-10-19", "source": "yfinance"}
+
+
+def test_scenario_market_evidence_keeps_quote_and_analyst_target_provenance():
+    evidence = ResearchWorker._scenario_market_evidence(
+        ticker="BRK.B",
+        price_context={"price": 500.0, "as_of_date": "2026-10-19", "source": "yfinance"},
+        quote_currency="USD",
+        target_consensus={
+            "promedio": 520.0,
+            "mediana": 515.0,
+            "target_low": 450.0,
+            "target_high": 600.0,
+            "calculado_at": "2026-10-19T12:00:00-03:00",
+            "source_references": [{
+                "name": "stockanalysis",
+                "url": "https://stockanalysis.com/stocks/brk.b/forecast/",
+                "as_of_date": "2026-10-19",
+            }],
+        },
+    )
+
+    assert evidence["current_quote"] == {
+        "price": 500.0,
+        "currency": "USD",
+        "as_of_date": "2026-10-19",
+        "sources": [{
+            "name": "yfinance",
+            "url": "https://finance.yahoo.com/quote/BRK.B/",
+        }],
+    }
+    assert evidence["analyst_target_consensus"]["low"] == 450.0
+    assert evidence["analyst_target_consensus"]["sources"][0]["as_of_date"] == "2026-10-19"
+
+
+def test_target_consensus_records_urls_and_observation_dates(monkeypatch):
+    from types import SimpleNamespace
+
+    import idos.valuation.target_consensus as target_consensus
+
+    monkeypatch.setattr(target_consensus, "fetch_target_consensus", lambda ticker, **_: SimpleNamespace(
+        promedio=520.0,
+        mediana=515.0,
+        fuentes={"stockanalysis": 520.0, "yfinance": 520.0},
+        n_fuentes=2,
+        calculado_at="2026-10-19T12:00:00-03:00",
+        target_low=450.0,
+        target_high=600.0,
+    ))
+
+    result = ResearchWorker()._fetch_target_consensus("BRK.B", Path.cwd())
+
+    assert result is not None
+    assert result["source_references"] == [
+        {
+            "name": "stockanalysis",
+            "url": "https://stockanalysis.com/stocks/brk.b/forecast/",
+            "observed_at": "2026-10-19T12:00:00-03:00",
+            "observed_date": "2026-10-19",
+            "as_of_date": "2026-10-19",
+            "target_price": 520.0,
+        },
+        {
+            "name": "yfinance",
+            "url": "https://finance.yahoo.com/quote/BRK.B/",
+            "observed_at": "2026-10-19T12:00:00-03:00",
+            "observed_date": "2026-10-19",
+            "as_of_date": "2026-10-19",
+            "target_price": 520.0,
+        },
+    ]
+
+
+def test_ddd_prompt_renders_the_scenario_evidence_contract():
+    from idos.ai.prompts import PromptRegistry
+
+    repo_root = Path(__file__).resolve().parents[3]
+    registry = PromptRegistry(repo_root / "idos-config" / "prompts")
+    kwargs = {
+        "ticker": "VIST", "name": "Vista", "existing_wiki": "", "prior_catalysts": "[]",
+        "sector": "Energy", "business_model": "", "products": "", "geography": "",
+        "moat_description": "", "revenue": 1, "revenue_growth": 2, "operating_margin": 3,
+        "roic": 4, "excess_return_roic_wacc": 0, "fcf_adjusted": 5, "debt_to_equity": 0.1,
+        "debt_maturity_profile": "N/A", "interest_coverage_ratio": 4, "ceo_tenure": 1,
+        "insider_ownership": 0, "capital_allocation": "N/A", "recent_events": "",
+        "analysis_as_of_date": "2026-10-19", "current_price": 100,
+        "current_price_as_of_date": "2026-10-19", "current_price_source": "yfinance",
+        "quote_currency": "USD", "scenario_market_evidence": '{"current_quote": {}}',
+        "financial_data_evidence": '{"conflicts": []}',
+    }
+
+    prompt = registry.load("ddd", category="research").user_prompt.format(**kwargs)
+
+    assert prompt is not None
+    assert '{"current_quote": {}}' in prompt
+    assert '{"conflicts": []}' in prompt
+    assert '"rationale"' in prompt
+    assert '"key_assumptions"' in prompt
+
+
+def test_current_price_context_rejects_invalid_discovery_quote():
+    context = ResearchWorker._current_price_context(
+        {}, {"market_quote": {"price": 125.5, "as_of_date": "2024-01-01", "source": ""}},
+    )
+
+    assert context == {"price": "N/D", "as_of_date": "N/D", "source": "N/D"}
+
+
 class TestResearchWorker:
+    def test_multibaggers_research_requires_matching_intake_and_uses_strategy_prompt(
+        self, seeded_opportunity, tmp_sqlite, tmp_journal, base_path: str
+    ):
+        import yaml
+
+        _write_multibaggers_profile(base_path, enabled=True)
+        ticker, opp_id = seeded_opportunity
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity.update({
+            "strategy_id": "MULTIBAGGERS",
+            "strategy_version": "1.1",
+            "research_profile": "multibaggers",
+            "entry_policy": "MANUAL_REVIEW",
+        })
+        tmp_sqlite.save_opportunity(opportunity)
+        tmp_journal.save_opportunity(ticker, opportunity)
+        opportunity_dir = tmp_journal.opportunity_path(ticker, opp_id)
+        opportunity_dir.mkdir(parents=True, exist_ok=True)
+        evidence_hash = "a" * 64
+        (opportunity_dir / "discovery_snapshot.yml").write_text(
+            yaml.safe_dump({"snapshot_hash": evidence_hash}), encoding="utf-8"
+        )
+        (opportunity_dir / "research_intake.yml").write_text(
+            yaml.safe_dump({
+                "ticker": ticker,
+                "strategy_id": "MULTIBAGGERS",
+                "strategy_version": "1.1",
+                "research_profile": "multibaggers",
+                "snapshot_hash": evidence_hash,
+            }),
+            encoding="utf-8",
+        )
+
+        worker = ResearchWorker({"provider": "test"})
+        worker._load_financial_data = MagicMock(return_value={})
+        worker._enrich_company_info = MagicMock(return_value={"name": "Test", "sector": "Technology"})
+        worker._fetch_target_consensus = MagicMock()
+        worker._run_prompt = MagicMock(return_value={})
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "ddd_failed"
+        assert worker._run_prompt.call_args.args[0] == "multibaggers"
+        worker._fetch_target_consensus.assert_not_called()
+
+    def test_multibaggers_research_blocks_mismatched_snapshot_before_llm(
+        self, seeded_opportunity, tmp_sqlite, tmp_journal, base_path: str
+    ):
+        import yaml
+
+        _write_multibaggers_profile(base_path, enabled=True)
+        ticker, opp_id = seeded_opportunity
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity.update({
+            "strategy_id": "MULTIBAGGERS",
+            "strategy_version": "1.1",
+            "research_profile": "multibaggers",
+            "entry_policy": "MANUAL_REVIEW",
+        })
+        tmp_sqlite.save_opportunity(opportunity)
+        tmp_journal.save_opportunity(ticker, opportunity)
+        opportunity_dir = tmp_journal.opportunity_path(ticker, opp_id)
+        opportunity_dir.mkdir(parents=True, exist_ok=True)
+        (opportunity_dir / "discovery_snapshot.yml").write_text(
+            yaml.safe_dump({"snapshot_hash": "snapshot-a"}), encoding="utf-8"
+        )
+        (opportunity_dir / "research_intake.yml").write_text(
+            yaml.safe_dump({
+                "ticker": ticker,
+                "strategy_id": "MULTIBAGGERS",
+                "strategy_version": "1.1",
+                "research_profile": "multibaggers",
+                "snapshot_hash": "snapshot-b",
+            }),
+            encoding="utf-8",
+        )
+        worker = ResearchWorker({"provider": "test"})
+        worker._run_prompt = MagicMock()
+
+        with pytest.raises(ValueError, match="does not match its Discovery snapshot"):
+            worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        worker._run_prompt.assert_not_called()
+
+    def test_multibaggers_research_rejects_disabled_strategy_before_llm(
+        self, seeded_opportunity, tmp_sqlite, base_path: str
+    ):
+        _write_multibaggers_profile(base_path, enabled=False)
+        ticker, opp_id = seeded_opportunity
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity.update({
+            "strategy_id": "MULTIBAGGERS",
+            "strategy_version": "1.1",
+            "research_profile": "multibaggers",
+        })
+        tmp_sqlite.save_opportunity(opportunity)
+
+        worker = ResearchWorker({"provider": "test"})
+        worker._run_prompt = MagicMock()
+
+        with pytest.raises(ValueError, match="requires a matching enabled strategy profile"):
+            worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        worker._run_prompt.assert_not_called()
+
+    def test_event_research_persists_evidence_and_prompt_snapshot(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_journal,
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_path: Path,
+    ):
+        import yaml
+
+        ticker, opp_id = seeded_opportunity
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+        evidence = {
+            "ticker": ticker,
+            "event_type": "quarterly_results",
+            "occurred_at": "2026-10-14",
+            "source_name": "Investor Relations",
+            "source_url": "https://example.com/ir/results",
+            "summary": "Quarterly results published; verify the primary source.",
+        }
+
+        result = worker.run({
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "base_path": base_path,
+            "force_reprocess": True,
+            "event_type": "quarterly_results",
+            "event_evidence": evidence,
+        })
+
+        assert result["status"] == "completed"
+        report_path = tmp_journal.opportunity_path(ticker, opp_id) / "ddd_report.yml"
+        report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+        trigger = report["research_trigger"]
+        assert trigger["event_evidence"]["source_url"] == evidence["source_url"]
+        assert trigger["strategy_version"] == "legacy-compatible"
+        assert len(trigger["input_snapshot_ref"]["sha256"]) == 64
+        assert report["research_input_snapshot"]["recent_events"].find("Evento disparador validado") >= 0
+        actual_hash = hashlib.sha256(
+            json.dumps(
+                report["research_input_snapshot"],
+                ensure_ascii=False,
+                sort_keys=True,
+                default=str,
+            ).encode("utf-8")
+        ).hexdigest()
+        assert trigger["input_snapshot_ref"]["sha256"] == actual_hash
+
+    def test_invalid_ddd_preserves_previous_report_and_stops_partial_writes(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        base_path: str,
+        tmp_path: Path,
+    ):
+        ticker, opp_id = seeded_opportunity
+        report_path = (
+            Path(base_path) / "idos-journal" / "companies" / ticker / "case_file"
+            / "opportunities" / opp_id / "ddd_report.yml"
+        )
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        previous_report = "ticker: TEST\nstatus: reviewed\n"
+        report_path.write_text(previous_report, encoding="utf-8")
+
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.registry = _mock_research_registry()
+        worker._run_prompt = MagicMock(return_value={"error": "Failed to parse JSON"})
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "ddd_failed"
+        assert result["error"] == "Failed to parse JSON"
+        assert report_path.read_text(encoding="utf-8") == previous_report
+        assert not (tmp_journal.opportunity_path(ticker, opp_id) / "assessments").exists()
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.SCREENED.value
+
+    def test_research_uses_injected_llm_service(self):
+        service = MagicMock()
+        service.generate_structured.return_value = {"ok": True}
+        worker = ResearchWorker({"llm_service": service})
+        worker.registry = MagicMock()
+        worker.registry.get.return_value = "Research prompt for {ticker}"
+        worker.registry.get_system.return_value = "System contract"
+
+        result = worker._run_prompt("ddd", "VIST", {"ticker": "VIST"})
+
+        assert result == {"ok": True}
+        service.generate_structured.assert_called_once_with(
+            prompt="Research prompt for VIST",
+            system_prompt="System contract",
+            temperature=0.1,
+        )
+
     def test_systematic_ddd_is_signal_specific(self):
         report = ResearchWorker._build_systematic_ddd(
             "XLE",
             {"strategy_id": "MOMENTUM_ETF", "signal": {"momentum": 1.8, "as_of_date": "2026-09-01"}},
-            {"volatility_90d": 30},
+            {"minimum_signal": 0.6, "maximum_signal": 2.7},
         )
         assert report["clasificacion_oportunidad"]["categoria"] == "systematic_momentum"
         assert report["score_general"] == 67
         assert report["strategy_context"]["signal"]["momentum"] == 1.8
         assert report["calidad_evidencia"]["inferencias_llm"] == []
+        assert report["strategy_context"]["risk_rating"] == "NOT_ASSESSED"
+        assert report["dominio_catalizadores"][0]["probabilidad_pct"] is None
+        assert "volatilidad" not in report["resumen_ejecutivo"].lower()
+
+    def test_systematic_report_uses_configured_range_and_invalidates_outside_signal(self):
+        report = ResearchWorker._build_systematic_ddd(
+            "XLF", {"signal": {"momentum": 1.8}},
+            {"minimum_signal": 2.0, "maximum_signal": 3.6},
+        )
+        assert report["score_general"] == 50
+        assert report["integridad_tesis"]["thesis_active"] is False
+        with pytest.raises(ValueError, match="finite signal"):
+            ResearchWorker._build_systematic_ddd(
+                "XLF", {"signal": {"momentum": float("nan")}},
+                {"minimum_signal": 0.6, "maximum_signal": 2.7},
+            )
 
     def test_research_completes(
         self,
@@ -104,6 +484,105 @@ class TestResearchWorker:
         opp = tmp_sqlite.get_opportunity(opp_id)
         assert opp is not None
         assert opp["status"] == OpportunityStatus.UNDER_RESEARCH.value
+
+    def test_forced_research_preserves_active_portfolio_status(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_path: Path,
+    ):
+        ticker, opp_id = seeded_opportunity
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity["status"] = OpportunityStatus.FULL_POSITION.value
+        tmp_sqlite.save_opportunity(opportunity)
+        tmp_journal.save_opportunity(ticker, opportunity)
+
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+
+        result = worker.execute({
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "base_path": base_path,
+            "force_reprocess": True,
+            "event_type": "thesis_reassessment",
+        })
+
+        assert result.status == WorkerStatus.SUCCESS
+        assert result.output["opportunity_status"] == OpportunityStatus.FULL_POSITION.value
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.FULL_POSITION.value
+        assert tmp_journal.load_opportunity(ticker, opp_id)["status"] == OpportunityStatus.FULL_POSITION.value
+        transitions = list(tmp_sqlite.conn.execute(
+            "SELECT from_status, to_status FROM state_transitions WHERE opportunity_id = ?",
+            (opp_id,),
+        ))
+        assert transitions == []
+
+    def test_forced_research_invalidates_old_buylist_approval_and_preserves_history(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_path: Path,
+    ):
+        import yaml
+
+        ticker, opp_id = seeded_opportunity
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity.update({
+            "status": OpportunityStatus.UNDER_DEEP_DD.value,
+            "approved_for_buylist": True,
+        })
+        tmp_sqlite.save_opportunity(opportunity)
+        tmp_journal.save_opportunity(ticker, opportunity)
+
+        opportunity_dir = tmp_journal.opportunity_path(ticker, opp_id)
+        (opportunity_dir / "decision_proposal.yml").write_text(yaml.safe_dump({
+            "opportunity_id": opp_id, "status": "MANAGER_APPROVED",
+        }), encoding="utf-8")
+        (opportunity_dir / "board_resolution.yml").write_text(yaml.safe_dump({
+            "approved": True, "status": "approved", "decision_id": "DEC-OLD",
+        }), encoding="utf-8")
+        decisions_dir = opportunity_dir / "decisions"
+        decisions_dir.mkdir()
+        decision_path = decisions_dir / "DEC-OLD.yml"
+        prior_decision = "approved: true\nstatus: approved\ndecision_id: DEC-OLD\n"
+        decision_path.write_text(prior_decision, encoding="utf-8")
+        buylist_path = Path(base_path) / "idos-journal/portfolio/buylist.yml"
+        buylist_path.parent.mkdir(parents=True, exist_ok=True)
+        buylist_path.write_text(yaml.safe_dump({"entries": [
+            {"ticker": ticker, "opp_id": opp_id},
+            {"ticker": "AAPL", "opp_id": "OPP-AAPL"},
+        ]}), encoding="utf-8")
+
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+        result = worker.execute({
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "base_path": base_path,
+            "force_reprocess": True,
+            "event_type": "thesis_reassessment",
+        })
+
+        assert result.status == WorkerStatus.SUCCESS
+        assert result.output["approval_invalidated"] is True
+        assert tmp_journal.load_opportunity(ticker, opp_id)["approved_for_buylist"] is False
+        proposal = yaml.safe_load((opportunity_dir / "decision_proposal.yml").read_text(encoding="utf-8"))
+        assert proposal["status"] == "INVALIDATED_BY_NEW_RESEARCH"
+        resolution = yaml.safe_load((opportunity_dir / "board_resolution.yml").read_text(encoding="utf-8"))
+        assert resolution["status"] == "invalidated_by_new_research"
+        assert yaml.safe_load(buylist_path.read_text(encoding="utf-8"))["entries"] == [
+            {"ticker": "AAPL", "opp_id": "OPP-AAPL"},
+        ]
+        assert decision_path.read_text(encoding="utf-8") == prior_decision
 
     def test_research_saves_assessment(
         self,
@@ -267,3 +746,191 @@ class TestResearchWorker:
 
         rows = list(tmp_sqlite.conn.execute("SELECT id FROM hypotheses"))
         assert len(rows) == 1
+
+    def test_persist_hypotheses_maps_configured_spanish_prompt_schema(self, tmp_sqlite, tmp_journal):
+        worker = ResearchWorker({"provider": "test"})
+        raw = [{
+            "id": "H1",
+            "enunciado": "La demanda de iPhone se recuperará durante el próximo ejercicio.",
+            "por_que": "La renovación de dispositivos y los servicios sostienen la demanda.",
+            "prediccion": "Los ingresos de iPhone crecerán al menos 8% en FY2027.",
+            "fecha_objetivo": "2027-09-30",
+            "magnitud": {"metrica": "iphone_revenue_growth", "valor_esperado": 8, "unidad": "%"},
+            "criterios_falsacion": "Ingresos de iPhone crecen menos de 3% en FY2027.",
+            "cuando_dejar_de_creerla": "Dejar de creerla si los ingresos crecen menos de 3% al cierre de FY2027.",
+            "plazo": "largo",
+            "depende_de": ["H2"],
+        }]
+
+        worker._persist_hypotheses("AAPL", "OPP-AAPL-1", "tesis", raw, tmp_journal, tmp_sqlite)
+
+        [hypothesis] = tmp_journal.load_hypotheses("AAPL", "OPP-AAPL-1")
+        assert hypothesis["predictions"] == [{
+            "metric": "iphone_revenue_growth",
+            "prediction": "Los ingresos de iPhone crecerán al menos 8% en FY2027.",
+            "expected": 8,
+            "unit": "%",
+            "deadline": "2027-09-30",
+            "actual": None,
+            "met": None,
+        }]
+        assert hypothesis["falsification_conditions"] == [
+            "Ingresos de iPhone crecen menos de 3% en FY2027."
+        ]
+        assert hypothesis["falsification"][0]["condition"] == hypothesis["falsification_conditions"][0]
+        assert hypothesis["horizon"] == "largo"
+        assert hypothesis["secondary_hypotheses"] == ["H2-OPP-AAPL-1"]
+        assert hypothesis["rationale"] == "La renovación de dispositivos y los servicios sostienen la demanda."
+        assert hypothesis["review_trigger"].startswith("Dejar de creerla")
+
+    def test_full_ddd_hypothesis_contract_requires_each_hmf_answer(self):
+        valid = [{
+            "enunciado": "Creemos que el margen operativo crecerá.",
+            "por_que": "La mezcla de servicios aumenta.",
+            "prediccion": "El margen supera 34% en FY2027.",
+            "fecha_objetivo": "2027-09-30",
+            "magnitud": {"metrica": "operating_margin", "valor_esperado": 34},
+            "criterios_falsacion": ["El margen queda debajo de 32%"],
+            "cuando_dejar_de_creerla": "Si queda debajo de 32% en FY2027.",
+        }] * 3
+        assert ResearchWorker._validate_hypothesis_contract(valid, date(2026, 10, 19)) == []
+
+        expired = [dict(item, fecha_objetivo="2025-09-30") for item in valid]
+        expired_errors = ResearchWorker._validate_hypothesis_contract(expired, date(2026, 10, 19))
+        assert sum("target date must be after" in error for error in expired_errors) == 3
+
+        stale_year = [dict(item, prediccion="El resultado ocurrirá durante FY2025.") for item in valid]
+        stale_year_errors = ResearchWorker._validate_hypothesis_contract(stale_year, date(2026, 10, 19))
+        assert sum("references an expired year" in error for error in stale_year_errors) == 3
+
+        stale_trigger = [dict(item, cuando_dejar_de_creerla="Tras el resultado de Q2-FY2025.") for item in valid]
+        stale_trigger_errors = ResearchWorker._validate_hypothesis_contract(stale_trigger, date(2026, 10, 19))
+        assert sum("references an expired year" in error for error in stale_trigger_errors) == 3
+
+        missing_date = [dict(item) for item in valid]
+        del missing_date[0]["fecha_objetivo"]
+        missing_date_errors = ResearchWorker._validate_hypothesis_contract(missing_date, date(2026, 10, 19))
+        assert any("missing valid ISO target date" in error for error in missing_date_errors)
+
+        incomplete = [{"enunciado": "Creemos que el margen crecerá."}]
+        errors = ResearchWorker._validate_hypothesis_contract(incomplete)
+        assert any("rationale" in error for error in errors)
+        assert any("prediction" in error for error in errors)
+        assert any("falsification" in error for error in errors)
+        assert any("stop-belief" in error for error in errors)
+
+    def test_expired_hypothesis_keeps_previous_report_and_stops_before_assessment(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        base_path: str,
+        tmp_path: Path,
+        monkeypatch,
+        capsys,
+    ):
+        ticker, opp_id = seeded_opportunity
+        report_path = tmp_journal.opportunity_path(ticker, opp_id) / "ddd_report.yml"
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        previous_report = "ticker: TEST\nstatus: reviewed\n"
+        report_path.write_text(previous_report, encoding="utf-8")
+
+        expired_hypothesis = {
+            "enunciado": "El margen operativo mejorará.",
+            "por_que": "La mejora del mix de producto sostiene el margen.",
+            "prediccion": "El margen superará 30%.",
+            "fecha_objetivo": "2025-09-30",
+            "magnitud": {"metrica": "operating_margin", "valor_esperado": 30, "unidad": "%"},
+            "criterios_falsacion": ["El margen queda por debajo de 28%."],
+            "cuando_dejar_de_creerla": "Si el margen cae debajo de 28%.",
+        }
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.registry = _mock_research_registry()
+        worker._run_prompt = MagicMock(side_effect=[
+            {"tesis_inversion": "Tesis", "score_general": 75},
+            {"hipotesis": [dict(expired_hypothesis) for _ in range(3)]},
+        ])
+        worker._load_financial_data = MagicMock(return_value={})
+        worker._enrich_company_info = MagicMock(return_value={"name": "Test", "sector": "Technology"})
+        worker._fetch_target_consensus = MagicMock(return_value=None)
+        worker._load_prior_catalysts = MagicMock(return_value=[])
+        monkeypatch.setattr("idos.workers.ai.research_worker.time.sleep", lambda _: None)
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "hypothesis_validation_failed"
+        assert any("target date must be after" in error for error in result["errors"])
+        assert "[HYPOTHESIS] Contract validation failed" in capsys.readouterr().out
+        assert report_path.read_text(encoding="utf-8") == previous_report
+        assert not (tmp_journal.opportunity_path(ticker, opp_id) / "assessments").exists()
+        assert not (tmp_journal.opportunity_path(ticker, opp_id) / "hypotheses.yml").exists()
+        assert tmp_sqlite.get_opportunity(opp_id)["status"] == OpportunityStatus.SCREENED.value
+
+
+    def test_systematic_report_persists_authoritative_strategy_context(
+        self,
+        seeded_opportunity: tuple[str, str],
+        tmp_sqlite,
+        tmp_journal,
+        base_path: str,
+        systematic_snapshot,
+    ):
+        import yaml
+
+        ticker, opp_id = seeded_opportunity
+        signal = {"ticker": ticker, "momentum": 0.9, "as_of_date": "2026-10-01"}
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity.update({
+            "strategy_id": "MOMENTUM_ETF",
+            "strategy_version": "1.0",
+            "research_profile": "systematic",
+            "entry_policy": "SIGNAL_REBALANCE",
+            "signal": signal,
+        })
+        tmp_sqlite.save_opportunity(opportunity)
+        tmp_journal.save_opportunity(ticker, opportunity)
+
+        worker = ResearchWorker({"llm_service": MagicMock()})
+        worker._load_financial_data = MagicMock(return_value={"volatility_90d": 30})
+        worker._enrich_company_info = MagicMock(return_value={"name": "Test ETF", "sector": "Financials"})
+        worker._fetch_target_consensus = MagicMock(return_value={})
+        config_path = Path(base_path) / "idos-config" / "strategies.yml"
+        config_path.write_text(yaml.safe_dump({"strategies": {"MOMENTUM_ETF": {
+            "enabled": True, "core": "CORE_3_GROWTH", "sleeve": "SYSTEMATIC_RETURN",
+            "thesis_type": "SYSTEMATIC", "discovery_profile": "momentum_monthly",
+            "research_profile": "systematic", "entry_policy": "SIGNAL_REBALANCE",
+            "parameters": {"minimum_signal": 0.8, "maximum_signal": 3.6, "select_top": 2},
+        }}}), encoding="utf-8")
+        snapshot_path = systematic_snapshot(signal, {"minimum_signal": 0.8, "maximum_signal": 3.6, "select_top": 2})
+
+        result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+
+        assert result["status"] == "completed"
+        report_path = tmp_journal.opportunity_path(ticker, opp_id) / "ddd_report.yml"
+        report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+        assert report["strategy_context"] == {
+            "strategy_id": "MOMENTUM_ETF",
+            "signal": signal,
+            "risk_rating": "NOT_ASSESSED",
+            "signal_policy": {"minimum_signal": 0.8, "maximum_signal": 3.6},
+            "score_method": "momentum_div_max_v1",
+            "probability_status": "NOT_ASSESSED",
+            "report_method_version": "systematic_signal_v2",
+            "signal_snapshot": {
+                "signal": signal,
+                "signal_policy": {"minimum_signal": 0.8, "maximum_signal": 3.6, "select_top": 2},
+                "source": snapshot_path.relative_to(Path(base_path)).as_posix(),
+                "generated_at": "2026-10-18T12:00:00-03:00", "run_scope": "bounded",
+            },
+        }
+        assert report["score_general"] == 25
+        worker._fetch_target_consensus.assert_not_called()
+        hypotheses = tmp_journal.load_hypotheses(ticker, opp_id)
+        assert len(hypotheses) == 1
+        assert hypotheses[0]["statement"]
+        assert hypotheses[0]["probability"] is None
+        assert hypotheses[0]["confidence"] is None
+        assert [item["threshold"] for item in hypotheses[0]["falsification"]] == [0.8, 3.6]
+        assert len(hypotheses[0]["falsification_conditions"]) == 2
+        stored = tmp_sqlite.conn.execute("SELECT probability, confidence FROM hypotheses WHERE opportunity_id=?", (opp_id,)).fetchone()
+        assert stored["probability"] is None and stored["confidence"] is None

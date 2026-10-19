@@ -23,6 +23,10 @@ from typing import Any, Iterable
 
 import yaml
 
+from idos.decision.scenarios import scenario_fingerprint, validate_scenario_analysis, validate_scenario_review
+from idos.decision.proposal_review import decision_proposal_fingerprint
+from idos.research.thesis_schedule import schedule_for_opportunity
+from idos.strategy.catalog import StrategyCatalog
 from idos.timezone import AR_TZ
 
 
@@ -211,6 +215,7 @@ class SiteData:
     entry_rules: list[dict] = field(default_factory=list)
     universe_stats: dict = field(default_factory=dict)
     discovery_pool: list[dict] = field(default_factory=list)
+    scout_policy: dict = field(default_factory=dict)
 
 
 class SiteBuilder:
@@ -219,9 +224,11 @@ class SiteBuilder:
         self.journal = base_path / "idos-journal"
         self.knowledge = base_path / "idos-knowledge"
         self.config = base_path / "idos-config"
+        self.strategy_catalog = StrategyCatalog(self.config / "strategies.yml")
         self.db_path = base_path / "idos.db"
         self.cache = base_path / "cache"
         self.stale_days = stale_days
+        self._configured_scout = None
         self.prices: dict[str, dict[str, Any]] = self._load_prices()
         self.disc_min_score = self._load_disc_min_score()
         self.entry_rules = self._load_entry_rules()
@@ -296,6 +303,61 @@ class SiteBuilder:
                 prices[t] = {"date": r["date"], "price": r["close"]}
         return prices
 
+    def _load_data_provenance(self, ticker: str, price_date: str | None = None) -> dict:
+        """Expose only source metadata from the public market-data cache."""
+        cache_path = self.cache / f"{ticker.upper()}.json"
+        raw: dict[str, Any] = {}
+        if cache_path.exists():
+            try:
+                parsed = json.loads(cache_path.read_text(encoding="utf-8"))
+                if isinstance(parsed, dict):
+                    raw = parsed
+            except (OSError, ValueError):
+                pass
+
+        provenance = raw.get("data_provenance")
+        provenance = provenance if isinstance(provenance, dict) else {}
+        raw_sources = provenance.get("sources_used")
+        sources = sorted(
+            {str(source) for source in raw_sources if source}
+            if isinstance(raw_sources, list)
+            else set()
+        )
+        field_sources: dict[str, list[str]] = {}
+        raw_field_sources = provenance.get("field_sources")
+        if isinstance(raw_field_sources, dict):
+            for field_name, field_values in raw_field_sources.items():
+                if isinstance(field_values, list):
+                    field_sources[str(field_name)] = sorted({str(source) for source in field_values if source})
+
+        raw_count = provenance.get("source_count")
+        source_count = raw_count if isinstance(raw_count, int) and not isinstance(raw_count, bool) else len(sources)
+        conflicts = provenance.get("conflicts")
+        conflict_count = len(conflicts) if isinstance(conflicts, (list, dict)) else 0
+
+        refreshed_at = None
+        refresh_path = self.cache / "last_refresh.json"
+        if refresh_path.exists():
+            try:
+                refresh = json.loads(refresh_path.read_text(encoding="utf-8"))
+                raw_tickers = refresh.get("tickers") if isinstance(refresh, dict) else None
+                refreshed_tickers = {
+                    str(item).upper() for item in raw_tickers if item
+                } if isinstance(raw_tickers, list) else set()
+                if ticker.upper() in refreshed_tickers:
+                    refreshed_at = refresh.get("refreshed_at")
+            except (OSError, ValueError, AttributeError):
+                pass
+
+        return {
+            "price_as_of": price_date,
+            "refreshed_at": refreshed_at,
+            "source_count": source_count if provenance else None,
+            "sources_used": sources,
+            "field_sources": field_sources,
+            "conflict_count": conflict_count,
+        }
+
     def _load_universe_stats(self) -> dict:
         results_path = self.base / "cache" / "pipeline_results.json"
         if results_path.exists():
@@ -304,7 +366,8 @@ class SiteBuilder:
                 data = _json.loads(results_path.read_text(encoding="utf-8"))
                 output = data.get("output", {})
                 return {
-                    "finviz_count": output.get("finviz_count", 0),
+                    "candidate_count": output.get("candidate_count", output.get("finviz_count", 0)),
+                    "candidate_source": output.get("candidate_source", ""),
                     "operable_count": output.get("operable_count", 0),
                     "pre_score_count": output.get("pre_score_count", 0),
                     "scout_passed": output.get("scout_passed", 0),
@@ -315,7 +378,8 @@ class SiteBuilder:
             except Exception:
                 pass
         return {
-            "finviz_count": 0,
+            "candidate_count": 0,
+            "candidate_source": "",
             "operable_count": 0,
             "pre_score_count": 0,
             "scout_passed": 0,
@@ -372,14 +436,30 @@ class SiteBuilder:
         dp = dp if isinstance(dp, dict) else {}
         br = _load_yaml(opp_dir / "board_resolution.yml")
         br = br if isinstance(br, dict) else {}
+        decision_author = str(br.get("author") or "").strip()
+        decision_resolved_at = br.get("resolved_at")
+        decision_attributable = (
+            bool(decision_author)
+            and decision_author.lower() not in {"system", "board"}
+            and _parse_dt(decision_resolved_at) is not None
+        )
         ddd = _load_yaml(opp_dir / "ddd_report.yml")
         ddd = ddd if isinstance(ddd, dict) else {}
+        scenario_review = _load_yaml(opp_dir / "scenario_review.yml")
+        scenario_review = scenario_review if isinstance(scenario_review, dict) else None
+        hypotheses_doc = _load_yaml(opp_dir / "hypotheses.yml")
+        hypotheses_doc = hypotheses_doc if isinstance(hypotheses_doc, dict) else {}
+        raw_hypotheses = hypotheses_doc.get("hypotheses") or []
 
         scores: dict[str, Any] = {}
         findings: dict[str, list[str]] = {}
+        assessment_recommendations: dict[str, str] = {}
         for engine, spec in (dp.get("assessments") or {}).items():
             if isinstance(spec, dict):
                 scores[engine] = spec.get("score")
+                recommendation = spec.get("recommendation")
+                if recommendation:
+                    assessment_recommendations[engine] = str(recommendation)
                 findings[engine] = [
                     f.get("detail") or f"{f.get('dimension','')} {f.get('level','')}".strip()
                     for f in (spec.get("findings") or []) if isinstance(f, dict)
@@ -397,6 +477,7 @@ class SiteBuilder:
         mkt = self._market_price(ticker)
         market_price = mkt["price"]
         price_date = mkt["date"]
+        market_data = self._load_data_provenance(ticker, price_date)
         if market_price:
             current_price = market_price
         upside = None
@@ -422,16 +503,86 @@ class SiteBuilder:
 
         thesis_not_assessed_days = None
         is_thesis_stale = False
+        thesis_review_status = "not_scheduled"
+        next_thesis_review_at = None
+        thesis_review_interval_days = None
+        try:
+            if str(opp.get("research_profile", "")).lower() == "systematic":
+                thesis_review_status = "not_applicable"
+            else:
+                profile = self.strategy_catalog.get(opp.get("strategy_id") or "COMPOUNDER")
+                schedule = schedule_for_opportunity(opp, profile)
+                thesis_review_interval_days = schedule.interval_days
+                next_thesis_review_at = (
+                    schedule.next_review_at.isoformat()
+                    if schedule.next_review_at
+                    else opp.get("next_thesis_review_at") or None
+                )
+                if schedule.interval_days is None:
+                    thesis_review_status = "not_applicable"
+                elif schedule.next_review_at is None:
+                    thesis_review_status = "due"
+                else:
+                    thesis_review_status = "due" if schedule.due else "scheduled"
+        except ValueError:
+            thesis_review_status = "configuration_error"
         if current_status in {"ACCUMULATING", "FULL_POSITION", "MONITORING", "REDUCING"}:
             lta = opp.get("last_thesis_assessment_at") or opp.get("updated_at")
             lta_dt = _parse_dt(lta)
             if lta_dt:
                 days = max(0, (datetime.now(AR_TZ).replace(tzinfo=None) - lta_dt.replace(tzinfo=None)).days)
                 thesis_not_assessed_days = days
-                is_thesis_stale = days > self.stale_days
+                is_thesis_stale = thesis_review_status == "due"
 
-        # ddd report summary (full thesis for the board)
+        # A DDD report is model output until the manager explicitly approves it.
+        # Do not serialize unreviewed claims into the public Pages data payload.
+        evidence_review = ddd.get("evidence_review") or {}
+        if not isinstance(evidence_review, dict):
+            evidence_review = {}
+        review_status = str(evidence_review.get("status") or "pending_manager_review").strip().lower()
+        reviewer = str(evidence_review.get("reviewed_by") or "").strip()
+        reviewed_at = evidence_review.get("reviewed_at")
+        review_approved = (
+            review_status == "manager_approved"
+            and bool(reviewer)
+            and _parse_dt(reviewed_at) is not None
+        )
+        scenario_analysis = ddd.get("scenario_analysis")
+        scenario_valid = not validate_scenario_analysis(scenario_analysis) if scenario_analysis is not None else False
+        scenario_review_approved, scenario_review_reason = validate_scenario_review(scenario_analysis, scenario_review)
+        strategy_context = ddd.get("strategy_context") or {}
+        opportunity_signal = opp.get("signal")
+        systematic_report = (
+            opp.get("research_profile") == "systematic"
+            and opp.get("entry_policy") == "SIGNAL_REBALANCE"
+            and bool(opp.get("strategy_id"))
+            and strategy_context.get("strategy_id") == opp.get("strategy_id")
+            and isinstance(strategy_context.get("signal"), dict)
+            and isinstance(opportunity_signal, dict)
+            and strategy_context.get("signal") == opportunity_signal
+        )
+        current_systematic_report = systematic_report and strategy_context.get("report_method_version") == "systematic_signal_v2"
+        # Fundamental research is public through the Buy List by product
+        # decision; expose it as provisional until an attributable review.
+        # Legacy systematic reports remain hidden until regenerated.
+        ddd_publishable = bool(ddd) and (not systematic_report or current_systematic_report)
+        if systematic_report:
+            # Corporate intrinsic value does not apply to a signal/rebalance case.
+            intrinsic = None
+            upside = None
+
+        # Fundamental DDD conclusions are published only after explicit review;
+        # deterministic strategy reports follow their own typed path.
         ddd_summary = {
+            "evidence_review": {
+                "status": (
+                    "manager_approved" if review_approved
+                    else "systematic_report" if current_systematic_report
+                    else "systematic_report_refresh_required" if systematic_report
+                    else "pending_manager_review"
+                ),
+                "reviewed_at": reviewed_at if review_approved else None,
+            },
             "categoria": None,
             "clasificacion": {},
             "ratings": {},
@@ -444,8 +595,19 @@ class SiteBuilder:
             "dominios": [],
             "catalizadores": [],
             "evidencia": {},
+            "hipotesis": [],
+            "financial_data_quality": dp.get("financial_data_quality") or {},
+            "scenario_analysis": None,
+            "scenario_review": {
+                "status": "manager_approved" if scenario_review_approved else "pending_manager_review",
+                "reason": scenario_review_reason,
+                "scenario_hash": scenario_fingerprint(scenario_analysis) if scenario_valid else None,
+            },
+            "scenario_validation": ddd.get("scenario_validation") or {},
         }
-        if ddd:
+        if ddd and ddd_publishable:
+            if scenario_valid:
+                ddd_summary["scenario_analysis"] = scenario_analysis
             cls = ddd.get("clasificacion_oportunidad") or {}
             ddd_summary["categoria"] = cls.get("categoria")
             cls_desc = cls.get("categorias_descartadas") or []
@@ -507,6 +669,18 @@ class SiteBuilder:
                     "inferencias_llm": ev.get("inferencias_llm") or [],
                     "preguntas_abiertas": ev.get("preguntas_abiertas") or [],
                 }
+            ddd_summary["hipotesis"] = [
+                {
+                    "id": h.get("id"),
+                    "statement": h.get("statement"),
+                    "rationale": h.get("rationale"),
+                    "horizon": h.get("horizon"),
+                    "review_trigger": h.get("review_trigger"),
+                    "predictions": h.get("predictions") or [],
+                    "falsification_conditions": h.get("falsification_conditions") or [],
+                }
+                for h in raw_hypotheses if isinstance(h, dict)
+            ]
 
         return {
             "opp_id": opp.get("id") or opp_dir.name,
@@ -514,6 +688,10 @@ class SiteBuilder:
             "status": opp.get("status", "UNKNOWN"),
             "strategy_id": opp.get("strategy_id", "COMPOUNDER"),
             "strategy_version": opp.get("strategy_version", "legacy-compatible"),
+            "discovery_score": opp.get("discovery_score"),
+            "research_priority": opp.get("research_priority"),
+            "discovery_type": opp.get("discovery_type"),
+            "position_limit_pct": opp.get("position_limit_pct"),
             "core": opp.get("core"),
             "sleeve": opp.get("sleeve"),
             "thesis_type": opp.get("thesis_type"),
@@ -521,15 +699,19 @@ class SiteBuilder:
             "research_profile": opp.get("research_profile"),
             "origin": opp.get("origin", "legacy"),
             "signal": opp.get("signal", {}),
-            "conviction_overall": conv.get("overall"),
+            "conviction_overall": None if systematic_report else conv.get("overall"),
             "confidence": conv.get("confidence"),
             "trend": conv.get("trend"),
             "scores": final_scores,
             "findings": findings,
+            "assessment_recommendations": assessment_recommendations,
             "current_price": current_price,
             "intrinsic_value": intrinsic,
+            "valuation_status": "NOT_APPLICABLE" if systematic_report else "AVAILABLE" if intrinsic else "NOT_ASSESSED",
             "upside_pct": upside,
             "price_date": price_date,
+            "market_data": market_data,
+            "latest_discovery_evidence": opp.get("latest_discovery_evidence") or {},
             "created_at": opp.get("created_at"),
             "updated_at": opp.get("updated_at"),
             "last_research": last_research,
@@ -537,21 +719,31 @@ class SiteBuilder:
             "is_stale": is_stale,
             "thesis_not_assessed_days": thesis_not_assessed_days,
             "is_thesis_stale": is_thesis_stale,
+            "thesis_active": opp.get("thesis_active", True),
+            "thesis_invalidated_reason": opp.get("thesis_invalidated_reason"),
+            "last_thesis_assessment_at": opp.get("last_thesis_assessment_at"),
+            "thesis_review_interval_days": thesis_review_interval_days,
+            "next_thesis_review_at": next_thesis_review_at,
+            "thesis_review_status": thesis_review_status,
             "decision": {
-                "approved": br.get("approved"),
-                "decision_type": br.get("decision_type"),
-                "decision_id": br.get("decision_id"),
-                "justification": br.get("justification"),
-                "author": br.get("author"),
+                "approved": bool(br.get("approved")) if decision_attributable else False,
+                "decision_type": br.get("decision_type") if decision_attributable else None,
+                "decision_id": br.get("decision_id") if decision_attributable else None,
+                "justification": br.get("justification") if decision_attributable else None,
+                "author": decision_author if decision_attributable else None,
+                "resolved_at": decision_resolved_at if decision_attributable else None,
             },
             "proposal": {
                 "recommendation": dp.get("recommendation"),
                 "status": dp.get("status"),
+                "proposal_hash": decision_proposal_fingerprint(dp) if dp else None,
+                "manager_review": dp.get("manager_review") or {},
                 "decision": dp.get("decision"),
                 "checks": dp.get("checks") or {},
                 "conviction_score": dp.get("conviction_score"),
                 "rules_passed": dp.get("rules_passed") or [],
                 "rules_failed": dp.get("rules_failed") or [],
+                "rules_details": dp.get("rules_details") or {},
                 "reasoning": dp.get("reasoning"),
             },
             "ddd": ddd_summary,
@@ -592,13 +784,29 @@ class SiteBuilder:
             mkt = self._market_price(e.get("ticker", ""))
             wyckoff = self._load_wyckoff_latest(e.get("ticker", ""), e.get("opp_id", ""))
             opp = self._find_opp(e.get("ticker", ""), e.get("opp_id", ""))
+            recommendation_state = self._buylist_recommendation_state(opp)
+            discovery_evidence = (opp or {}).get("latest_discovery_evidence") or {}
+            if not isinstance(discovery_evidence, dict):
+                discovery_evidence = {}
+            discovery_status = str(discovery_evidence.get("eligibility_status") or "NOT_EVALUATED").upper()
             intrinsic = e.get("target_price") or (opp or {}).get("intrinsic_value") or 0
             current = mkt["price"] or price["price"] or (opp or {}).get("current_price")
             price_date = mkt["date"] or price["date"]
             buy_zone = e.get("buy_zone_top")
             target = e.get("target_price") or intrinsic
+            entry_policy = e.get("entry_policy") or (opp or {}).get("entry_policy")
+            strategy_signal = None
+            if entry_policy == "SIGNAL_REBALANCE":
+                strategy_signal = e.get("strategy_signal") or (opp or {}).get("signal")
             out.append({
                 "ticker": e.get("ticker"),
+                "strategy_id": (
+                    e.get("strategy_id")
+                    or (opp or {}).get("strategy_id")
+                    or ("COMPOUNDER" if opp else None)
+                ),
+                "entry_policy": entry_policy,
+                "strategy_signal": strategy_signal,
                 "conviction_score": e.get("conviction_score"),
                 "target_price": target or None,
                 "buy_zone_top": buy_zone or None,
@@ -611,10 +819,41 @@ class SiteBuilder:
                 "catalysts": e.get("catalysts") or [],
                 "current_price": current,
                 "price_date": price_date,
+                "market_data": self._load_data_provenance(e.get("ticker", ""), price_date),
+                "latest_discovery_evidence": discovery_evidence,
+                "discovery_status": discovery_status,
+                "discovery_review_required": discovery_status in {"PENDING_DATA", "REJECTED"},
+                "discovery_reason": discovery_evidence.get("reason"),
+                "discovery_missing_metrics": discovery_evidence.get("missing_metrics") or [],
+                "discovery_conflicting_metrics": discovery_evidence.get("conflicting_metrics") or [],
                 "industry": (self.companies.get((e.get("ticker") or "").upper()) or {}).get("industry"),
                 "wyckoff": wyckoff,
+                "recommendation_state": recommendation_state,
+                "thesis_review_status": (opp or {}).get("thesis_review_status", "not_available"),
+                "thesis_active": (opp or {}).get("thesis_active"),
+                "thesis_invalidated_reason": (opp or {}).get("thesis_invalidated_reason"),
+                "last_thesis_assessment_at": (opp or {}).get("last_thesis_assessment_at"),
+                "next_thesis_review_at": (opp or {}).get("next_thesis_review_at"),
             })
         return out
+
+    @staticmethod
+    def _buylist_recommendation_state(opportunity: dict | None) -> str:
+        """Fail closed when a Buy List row lacks a current, active thesis."""
+        if not opportunity:
+            return "UNLINKED"
+        if opportunity.get("thesis_active") is False:
+            return "INVALIDATED"
+        review_status = opportunity.get("thesis_review_status")
+        if review_status == "due":
+            return "REVIEW_DUE"
+        if review_status == "configuration_error":
+            return "CONFIGURATION_ERROR"
+        if review_status == "not_applicable":
+            return "NOT_APPLICABLE"
+        if review_status == "scheduled":
+            return "CURRENT"
+        return "REVIEW_UNVERIFIED"
 
     def _find_opp(self, ticker: str, opp_id: str = "") -> dict | None:
         if opp_id:
@@ -643,9 +882,9 @@ class SiteBuilder:
         return out
 
     def _load_discovery_pool(self, universe_stats: dict = None) -> list[dict]:
-        """Returns all 267 operable tickers from latest pipeline run, with their Scout scores.
+        """Returns operable tickers from latest pipeline run, with their Scout scores.
 
-        Reads the list of tickers from `finviz_tickers` if the pipeline results include
+        Reads the list of tickers from `candidate_tickers` if pipeline results include
         them, else falls back to walking the cache directory. Each entry is enriched with
         the same Scout breakdown shown in the watchlist table so the UI can show all 267
         with their scores and metrics.
@@ -658,8 +897,8 @@ class SiteBuilder:
         if results_path.exists():
             try:
                 data = _json.loads(results_path.read_text(encoding="utf-8"))
-                finviz = data.get("output", {}).get("finviz_tickers") or []
-                tickers = list(finviz)
+                candidates = data.get("output", {}).get("candidate_tickers") or []
+                tickers = list(candidates)
             except Exception:
                 tickers = []
         if not tickers:
@@ -674,6 +913,8 @@ class SiteBuilder:
 
         operable_path = self.config / "universe" / "operable.yml"
         op_filter = OperabilityFilter(str(operable_path)) if operable_path.exists() else None
+        operable_types = ({entry["ticker"].upper(): entry.get("type")
+                           for entry in op_filter.list()} if op_filter is not None else {})
 
         out: list[dict] = []
         from datetime import datetime as _dt
@@ -687,19 +928,11 @@ class SiteBuilder:
                 raw = _json.loads(cache_file.read_text(encoding="utf-8"))
             except Exception:
                 continue
-            metrics = {
-                "market_cap": self._scout_num(raw.get("market_cap")),
-                "avg_volume": self._scout_num(raw.get("volume_avg")) or self._scout_num(raw.get("avg_volume")),
-                "pe_ratio": self._scout_num(raw.get("pe_ratio_ttm")) or self._scout_num(raw.get("pe_ratio")),
-                "ev_ebitda": self._scout_num(raw.get("ev_ebitda")),
-                "roic": self._scout_num(raw.get("roic_pct")),
-                "operating_margin": self._scout_num(raw.get("operating_margin_pct")),
-                "debt_to_equity": self._scout_num(raw.get("debt_equity_ratio")),
-                "revenue_growth": self._scout_num(raw.get("revenue_growth_pct")),
-            }
-            score = self._scout_score_for(metrics)
-            om = metrics["operating_margin"]
-            roic = metrics["roic"]
+            # Older caches may predate explicit asset_type. The operable registry
+            # is authoritative for the configured instrument classification.
+            if ticker.upper() in operable_types:
+                raw["asset_type"] = operable_types[ticker.upper()]
+            result = self._configured_scout_result(ticker, raw)
             added_at = None
             try:
                 ts = cache_file.stat().st_mtime
@@ -708,13 +941,16 @@ class SiteBuilder:
                 pass
             out.append({
                 "ticker": ticker,
-                "score": score,
+                "score": result.score,
                 "added_at": added_at,
-                "metrics": {
-                    "transition_score": max(0, min(100, int(round(50 + (om / 15.0) * 30)))) if om else 50,
-                    "quality_score": max(0, min(100, int(round(50 + (roic / 20.0) * 30)))) if roic else 50,
-                    "margin_score": max(0, min(100, int(round(50 + (om / 10.0) * 20)))) if om else 50,
-                },
+                "status": result.status,
+                "reason": result.reason,
+                "policy_version": result.policy_version,
+                "metrics": result.observed_metrics,
+                "filter_results": result.filter_results,
+                "financial_observations": raw.get("financial_observations", {}),
+                "data_provenance": raw.get("data_provenance", {}),
+                "market_data_normalization": raw.get("market_data_normalization", {}),
             })
         out.sort(key=lambda e: e.get("score") or 0, reverse=True)
         if universe_stats and universe_stats.get("operable_count"):
@@ -723,92 +959,29 @@ class SiteBuilder:
                 out = out[:target]
         return out
 
-    def _scout_score_for(self, metrics: dict) -> int:
-        """Compute a simple global Scout score for a ticker given its metric dict."""
-        from idos.discovery.scout import ScoutEngine
-        res = ScoutEngine(min_score=0).scan(ticker="", data={"metrics": metrics})
-        return int(res.score or 0)
-
-    # -- scout metric breakdown (recompute from cache, mirrors ScoutEngine) --
-    def _scout_num(self, v: Any, default: float = 0.0) -> float:
-        if isinstance(v, (int, float)):
-            return float(v)
-        if isinstance(v, str):
-            try:
-                return float(v.replace(",", "").replace("$", "").replace("%", ""))
-            except (ValueError, TypeError):
-                pass
-        return default
+    def _configured_scout_result(self, ticker: str, raw: dict):
+        from idos.discovery.configured_scout import configured_scout
+        from idos.discovery.scout import ScoutResult
+        try:
+            engine = getattr(self, "_configured_scout", None)
+            if engine is None:
+                engine = configured_scout(self.config)
+                self._configured_scout = engine
+            return engine.scan_market_data(ticker, raw)
+        except (OSError, ValueError) as exc:
+            result = ScoutResult(ticker=ticker, score=0, passed=False,
+                                 reason=f"Scout policy unavailable: {exc}")
+            result.status = "PENDING_DATA"
+            result.missing_metrics = ["versioned Scout policy"]
+            return result
 
     def _scout_metrics(self, ticker: str) -> dict[str, Any]:
-        cache_file = self.base / "cache" / f"{ticker}.json"
-        raw: dict[str, Any] = {}
-        if cache_file.exists():
-            try:
-                raw = json.loads(cache_file.read_text(encoding="utf-8"))
-            except Exception:
-                raw = {}
-        if not raw:
-            return {"transition_score": None, "quality_score": None, "margin_score": None}
-
-        metrics = {
-            "market_cap": self._scout_num(raw.get("market_cap")),
-            "avg_volume": self._scout_num(raw.get("volume_avg")) or self._scout_num(raw.get("avg_volume")),
-            "pe_ratio": self._scout_num(raw.get("pe_ratio_ttm")) or self._scout_num(raw.get("pe_ratio")),
-            "ev_ebitda": self._scout_num(raw.get("ev_ebitda")),
-            "roic": self._scout_num(raw.get("roic_pct")),
-            "operating_margin": self._scout_num(raw.get("operating_margin_pct")),
-            "debt_to_equity": self._scout_num(raw.get("debt_equity_ratio")),
-            "revenue_growth": self._scout_num(raw.get("revenue_growth_pct")),
-        }
-
-        # momentum from price history (approx 3m / 12m trading days)
-        ph = raw.get("price_history") if isinstance(raw.get("price_history"), list) else []
-        if len(ph) >= 2 and ph[-1]:
-            n = len(ph)
-            # last close vs ~64 trading days ago (3m) and n ago relative (12m)
-            base3 = ph[n-64] if n >= 64 else ph[0]
-            base12 = ph[0]
-            chg3 = (ph[-1] - base3) / base3 * 100 if base3 else 0.0
-            chg12 = (ph[-1] - base12) / base12 * 100 if base12 else 0.0
-            metrics["price_change_3m"] = chg3
-            metrics["price_change_12m"] = chg12
-
-        # reuse the exact ScoutEngine scorer
-        from idos.discovery.scout import ScoutEngine
-        res = ScoutEngine(min_score=0).scan(ticker=ticker, data={"metrics": metrics})
-        details = dict(res.details)
-        # Add margin score from operating_margin (if available)
-        operating_margin = metrics.get('operating_margin')
-        if operating_margin is not None:
-            # Normalize: score = 50 + (operating_margin / 10) * 20, capped at 0-100
-            m_score = 50 + (operating_margin / 10.0) * 20
-            details['margin_score'] = max(0, min(100, int(round(m_score))))
-        else:
-            details['margin_score'] = 50  # neutral default
-        # Ensure transition_score and quality_score have default values
-        if 'transition' not in details or details['transition'] is None:
-            # Use operating_margin as proxy: higher margin → better transition trend
-            if operating_margin is not None:
-                t_score = 50 + (operating_margin / 15.0) * 30
-                details['transition_score'] = max(0, min(100, int(round(t_score))))
-            else:
-                details['transition_score'] = 50  # neutral default
-        else:
-            # Convert detail key to UI key
-            details['transition_score'] = details.pop('transition')
-        if 'quality' not in details or details['quality'] is None:
-            # Use roic as proxy: roic > 25 → good quality, roic < 5 → poor quality
-            roic = metrics.get('roic')
-            if roic is not None:
-                q_score = 50 + (roic / 20.0) * 30
-                details['quality_score'] = max(0, min(100, int(round(q_score))))
-            else:
-                details['quality_score'] = 50  # neutral default
-        else:
-            # Convert detail key to UI key
-            details['quality_score'] = details.pop('quality')
-        return details
+        path = self.cache / f"{ticker}.json"
+        try:
+            raw = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            raw = {}
+        return self._configured_scout_result(ticker, raw).details
 
     def _load_wyckoff_latest(self, ticker: str, opp_id: str) -> dict | None:
         w_dir = self.journal / "companies" / ticker / "case_file" / "opportunities" / opp_id / "wyckoff"
@@ -923,17 +1096,74 @@ class SiteBuilder:
 
         stale = [o for o in opps if o.get("is_stale")]
         thesis_stale = [o for o in opps if o.get("is_thesis_stale")]
-        alerts = [
-            {"severity": "warn", "ticker": o["ticker"], "message": f"Research stale ({o.get('stale_days')}d sin actualizar)"}
-            for o in stale
-        ] + [
-            {"severity": "warn", "ticker": o["ticker"], "message": f"Tesis sin evaluar ({o.get('thesis_not_assessed_days')}d)"}
-            for o in thesis_stale
-        ]
+        alerts: list[dict[str, Any]] = []
+        seen_alert_ids: set[str] = set()
+
+        def add_alert(alert_type: str, ticker: str, severity: str, message: str,
+                      source_id: str | None = None) -> None:
+            normalized_ticker = str(ticker or "").upper().strip()
+            normalized_source = str(source_id or normalized_ticker).strip()
+            alert_id = f"{alert_type}:{normalized_ticker}:{normalized_source}"
+            if alert_id in seen_alert_ids:
+                return
+            seen_alert_ids.add(alert_id)
+            alerts.append({
+                "id": alert_id,
+                "type": alert_type,
+                "status": "ACTIVE",
+                "severity": severity,
+                "ticker": normalized_ticker,
+                "message": message,
+            })
+
+        for opportunity in stale:
+            add_alert(
+                "research_stale", opportunity.get("ticker", ""), "warn",
+                f"Research stale ({opportunity.get('stale_days')}d sin actualizar)",
+                str(opportunity.get("opp_id") or ""),
+            )
+        for opportunity in thesis_stale:
+            add_alert(
+                "thesis_not_assessed", opportunity.get("ticker", ""), "warn",
+                f"Tesis sin evaluar ({opportunity.get('thesis_not_assessed_days')}d)",
+                str(opportunity.get("opp_id") or ""),
+            )
+        for opportunity in opps:
+            if (opportunity.get("thesis_review_status") == "due"
+                    and opportunity.get("status") in {"SCREENED", "UNDER_RESEARCH", "UNDER_DEEP_DD", "APPROVED", "ENTRY_PENDING"}):
+                add_alert(
+                    "thesis_review_due", opportunity.get("ticker", ""), "warn",
+                    "Revisión de tesis vencida; actualizar Research antes de usar la recomendación",
+                    str(opportunity.get("opp_id") or ""),
+                )
+            discovery = opportunity.get("latest_discovery_evidence") or {}
+            discovery_status = str(discovery.get("eligibility_status") or "").upper()
+            if discovery_status in {"PENDING_DATA", "REJECTED"}:
+                detail = str(discovery.get("reason") or "Revisar los datos críticos del último Scout.")
+                if len(detail) > 240:
+                    detail = detail[:237] + "..."
+                add_alert(
+                    "discovery_data_review", opportunity.get("ticker", ""), "high",
+                    f"Último Scout: {discovery_status}. {detail} Revisar antes de usar la oportunidad.",
+                    str(opportunity.get("opp_id") or ""),
+                )
+        seen_single_source: set[str] = set()
+        for opportunity in opps:
+            market_data = opportunity.get("market_data") or {}
+            ticker = str(opportunity.get("ticker") or "").upper()
+            if market_data.get("source_count") == 1 and ticker and ticker not in seen_single_source:
+                add_alert(
+                    "market_data_single_source", ticker, "warn",
+                    "Datos de mercado con una sola fuente; revisar procedencia por campo.",
+                )
+                seen_single_source.add(ticker)
         for p in positions:
             if p.get("dist_to_stop_pct") is not None and p["dist_to_stop_pct"] <= 5:
-                alerts.append({"severity": "high", "ticker": p["ticker"],
-                               "message": f"Precio a {abs(p['dist_to_stop_pct']):.1f}% del stop loss"})
+                add_alert(
+                    "stop_loss_proximity", p.get("ticker", ""), "high",
+                    f"Precio a {abs(p['dist_to_stop_pct']):.1f}% del stop loss",
+                    str(p.get("position_id") or p.get("opp_id") or ""),
+                )
         intrinsic_by_opp = {o["opp_id"]: o.get("intrinsic_value")
                             for o in opps if o.get("intrinsic_value")}
         intrinsic_by_ticker = {o["ticker"]: v for o in opps
@@ -943,15 +1173,24 @@ class SiteBuilder:
                          or intrinsic_by_ticker.get(p.get("ticker")))
             if intrinsic and p.get("current_price") and p["current_price"] > intrinsic:
                 over = (p["current_price"] - intrinsic) / intrinsic * 100
-                alerts.append({"severity": "warn", "ticker": p["ticker"],
-                               "message": f"Precio {over:.1f}% sobre el valor intrínseco ({intrinsic:.2f})"})
+                add_alert(
+                    "price_over_intrinsic", p.get("ticker", ""), "warn",
+                    f"Precio {over:.1f}% sobre el valor intrínseco ({intrinsic:.2f})",
+                    str(p.get("position_id") or p.get("opp_id") or ""),
+                )
         for o in opps:
             if o.get("proposal", {}).get("status") == "PENDING_HUMAN_REVIEW":
-                alerts.append({"severity": "warn", "ticker": o["ticker"],
-                               "message": "Decisión sistemática pendiente de revisión humana"})
+                add_alert(
+                    "decision_pending", o.get("ticker", ""), "warn",
+                    "Decisión sistemática pendiente de revisión humana",
+                    str(o.get("opp_id") or ""),
+                )
             if o.get("trend") == "DETERIORATING":
-                alerts.append({"severity": "warn", "ticker": o["ticker"],
-                               "message": "Convicción deteriorándose"})
+                add_alert(
+                    "conviction_deteriorating", o.get("ticker", ""), "warn",
+                    "Convicción deteriorándose",
+                    str(o.get("opp_id") or ""),
+                )
 
         score_totals: dict[str, list[float]] = {}
         convictions: list[float] = []
@@ -992,22 +1231,33 @@ class SiteBuilder:
         for strategy_dir in root.iterdir():
             if not strategy_dir.is_dir():
                 continue
-            reports = sorted(strategy_dir.glob("*.yml"))
+            reports = []
+            for path in strategy_dir.glob("*.yml"):
+                report = _load_yaml(path)
+                if isinstance(report, dict):
+                    reports.append((str(report.get("generated_at") or path.name), report))
             if not reports:
                 continue
-            report = _load_yaml(reports[-1])
-            if isinstance(report, dict):
-                latest[strategy_dir.name] = {
-                    "as_of_date": report.get("as_of_date"),
-                    "action": report.get("action"),
-                    "selected": report.get("selected") or [],
-                    "eligible_count": len(report.get("eligible") or []),
-                    "ranking": report.get("ranking") or [],
-                }
+            _, report = max(reports, key=lambda item: item[0])
+            latest[strategy_dir.name] = {
+                "as_of_date": report.get("as_of_date"),
+                "generated_at": report.get("generated_at"),
+                "run_scope": report.get("run_scope", "unknown"),
+                "action": report.get("action"),
+                "selected": report.get("selected") or [],
+                "eligible_count": len(report.get("eligible") or []),
+                "ranking": report.get("ranking") or [],
+                "candidate_count": report.get("candidate_count"),
+                "eligible_universe_count": report.get("eligible_universe_count"),
+                "coverage_complete": report.get("coverage_complete", False),
+                "missing_history": report.get("missing_history") or [],
+            }
         return latest
 
     # -- main build --
     def build(self) -> SiteData:
+        from idos.strategy.catalog import StrategyCatalog
+        scout_policy = self.strategy_catalog.get("COMPOUNDER").parameters.get("scout", {})
         ui_cfg = _load_yaml(self.config / "ui.yml")
         if isinstance(ui_cfg, dict):
             self.stale_days = int(ui_cfg.get("stale_days", self.stale_days))
@@ -1048,6 +1298,7 @@ class SiteBuilder:
             entry_rules=self.entry_rules,
             universe_stats=universe_stats,
             discovery_pool=discovery_pool,
+            scout_policy=scout_policy,
         )
 
 
@@ -1278,7 +1529,16 @@ function renderDashboard(){
     html += '<h2>Señales sistemáticas</h2><div class="grid">';
     Object.entries(strategies).forEach(([name,s])=>{
       const selected=(s.selected||[]).map(x=>`${esc(x.ticker)} (${fmt(x.momentum,2)})`).join(', ')||'Sin selección';
-      html += `<div class="card"><div class="muted">${esc(name)} · ${esc(s.as_of_date||'')}</div><div style="font-weight:700">${esc(s.action||'—')}</div><div class="muted">${selected}</div><div class="muted">Elegibles: ${s.eligible_count??0}</div></div>`;
+      const candidateCount=s.candidate_count;
+      const universeCount=s.eligible_universe_count;
+      const fullRun=s.run_scope==='full' && s.coverage_complete===true && candidateCount===universeCount;
+      const scope=s.run_scope==='bounded'
+        ? `Prueba parcial · ${candidateCount??0}/${universeCount??'?'} activos de la estrategia`
+        : fullRun ? `Universo completo · ${candidateCount} activos analizados`
+        : s.run_scope==='full' ? `Cobertura incompleta · ${candidateCount??0}/${universeCount??'?'} activos`
+        : 'Alcance sin verificar · reporte anterior';
+      const action=fullRun ? (s.action||'—') : `${s.action||'—'} · no interpretar como señal global`;
+      html += `<div class="card"><div class="muted">${esc(name)} · ${esc(s.as_of_date||'')}</div><div class="muted">${esc(scope)}</div><div style="font-weight:700">${esc(action)}</div><div class="muted">${selected}</div><div class="muted">Elegibles: ${s.eligible_count??0}</div></div>`;
     });
     html += '</div>';
   }
@@ -1314,6 +1574,17 @@ function detailsEntryThresholds(){
 function buylistEntryFails(r){
   const c = ENTRY_CFG||{};
   const fails = [];
+  const thesisState = r.recommendation_state||'REVIEW_UNVERIFIED';
+  const thesisMessages = {
+    REVIEW_DUE:'Tesis vencida; actualizar Research',
+    INVALIDATED:'Tesis invalidada',
+    UNLINKED:'Sin oportunidad vinculada',
+    CONFIGURATION_ERROR:'Error en agenda de tesis',
+    NOT_APPLICABLE:'Revisar vigencia de señal sistemática',
+    REVIEW_UNVERIFIED:'Vigencia de tesis sin verificar'
+  };
+  if(thesisState!=='CURRENT') fails.push(thesisMessages[thesisState]||'Revisión de tesis requerida');
+  if(r.discovery_review_required) fails.push('Scout: datos requieren revisión');
   if(!r.current_price || r.current_price<=0){
     fails.push('Precio sin datos');
   } else if(r.buy_zone_top && r.buy_zone_top>0){
@@ -1348,8 +1619,8 @@ function renderOpp(){
       {key:'valuation', label:'Valuation', value:r=>r.scores?.ValuationAssessmentEngine??null, cell:r=>`<td>${r.scores?.ValuationAssessmentEngine??'—'}</td>`},
       {key:'risk', label:'Risk', value:r=>r.scores?.RiskAssessmentEngine??null, cell:r=>`<td>${r.scores?.RiskAssessmentEngine??'—'}</td>`},
       {key:'recovery', label:'Recovery', value:r=>r.scores?.RecoveryAssessmentEngine??null, cell:r=>`<td>${r.scores?.RecoveryAssessmentEngine??'—'}</td>`},
-      {key:'price', label:'Precio', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}</td>`},
-      {key:'intrinsic', label:'Intrínseco', value:r=>r.intrinsic_value??null, cell:r=>`<td>${money(r.intrinsic_value)}</td>`},
+      {key:'price', label:'Precio', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}<div class="muted">${dt(r.price_date)}</div></td>`},
+      {key:'intrinsic', label:'Intrínseco', value:r=>r.intrinsic_value??null, cell:r=>`<td>${r.valuation_status==='NOT_APPLICABLE'?'No aplica':money(r.intrinsic_value)}</td>`},
       {key:'upside', label:'Upside', value:r=>r.upside_pct??null, cell:r=>`<td class="${r.upside_pct>=0?'pos':'neg'}">${pct(r.upside_pct,true)}</td>`},
       {key:'rules', label:'Rules failed', value:r=>(r.proposal?.rules_failed||[]).length, cell:r=>`<td>${rulesBadge(r.proposal?.rules_failed)}</td>`},
       {key:'last', label:'Última inv.', value:r=>r.last_research||'', cell:r=>`<td>${dt(r.last_research)} ${staleBadge(r)}</td>`},
@@ -1361,7 +1632,7 @@ function renderOpp(){
   };
   let html = `<h2>Research (${rows.length})</h2>`;
   html += `<p class="muted">Oportunidades en <b>Research / UNDER_RESEARCH</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Clic en una columna para ordenar.</p>`;
-  html += `<p class="muted">Estados siguientes (automatizados): el worker de Decision Board evalúa el caso y lo pasa a <b>APPROVED</b> (aprobado para entrada) o a <b>WATCHLIST</b> (rechazado) según las reglas de entrada. La transición es automática; no hay umbral numérico fijo.</p>`;
+  html += `<p class="muted">Assessment prepara una propuesta determinista. El gestor revisa los escenarios y la propuesta vigente mediante <b>Scenario Review</b> y <b>Decision Review</b>; una aprobación válida agrega el caso a la <b>Buy List</b>, sin crear posiciones ni órdenes. Los casos rechazados o que no superan los gates permanecen sin aprobación.</p>`;
   html += detailsEntryRules();
   html += tableInput('opp','opp-search','Buscar ticker...');
   html += `<table id="tbl-opp"><thead>${sortHeadRows('opp')}</thead><tbody>${sortTbody('opp')}</tbody></table>`;
@@ -1376,14 +1647,18 @@ function renderBuylist(){
     rows,
     cols: [
       {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
+      {key:'strategy', label:'Estrategia', value:r=>r.strategy_id||'UNKNOWN', cell:r=>`<td>${esc(r.strategy_id||'Sin identificar')}<div class="muted">${esc(r.entry_policy||'')}</div>${r.strategy_signal?`<div class="muted">Señal: ${esc(r.strategy_signal.signal_type||r.strategy_signal.type||'sistemática')} ${esc(r.strategy_signal.score??r.strategy_signal.momentum??'')}</div>`:''}</td>`},
       {key:'industry', label:'Industria', value:r=>r.industry||'', cell:r=>`<td class="muted">${esc(r.industry||'—')}</td>`},
       {key:'conviction', label:'Conv.', value:r=>r.conviction_score??null, cell:r=>`<td>${r.conviction_score??'—'}</td>`},
       {key:'price', label:'Último precio', value:r=>r.current_price??null, cell:r=>`<td>${money(r.current_price)}</td>`},
       {key:'zone', label:'Zona compra (top)', value:r=>r.buy_zone_top??null, cell:r=>`<td>${money(r.buy_zone_top)}</td>`},
       {key:'target', label:'Target', value:r=>r.target_price??null, cell:r=>`<td>${money(r.target_price)}</td>`},
       {key:'margin', label:'Margen a target', value:r=>margin(r), cell:r=>{const m=margin(r); return `<td class="${m>=0?'pos':'neg'}">${pct(m,true)}</td>`;}},
+      {key:'thesis', label:'Vigencia de tesis', value:r=>r.recommendation_state||'REVIEW_UNVERIFIED', cell:r=>{const s=r.recommendation_state||'REVIEW_UNVERIFIED'; const labels={CURRENT:'Vigente',REVIEW_DUE:'Revisión vencida',INVALIDATED:'Invalidada',UNLINKED:'Sin vínculo',CONFIGURATION_ERROR:'Error de configuración',NOT_APPLICABLE:'No aplica',REVIEW_UNVERIFIED:'Sin verificar'}; return `<td><span class="badge" style="background:${s==='CURRENT'?'#12351f':'#2a1516'};color:${s==='CURRENT'?'#86efac':'#f87171'}">${labels[s]||'Revisión requerida'}</span><div class="muted">Próxima: ${dt(r.next_thesis_review_at)||'sin fecha'}</div></td>`;}},
+      {key:'discovery', label:'Último Scout', value:r=>r.discovery_status||'NOT_EVALUATED', cell:r=>{const s=r.discovery_status||'NOT_EVALUATED'; const labels={PASSED:'Elegible',PENDING_DATA:'Datos pendientes',REJECTED:'No elegible',NOT_EVALUATED:'Sin evaluación'}; const bad=!!r.discovery_review_required; const title=r.discovery_reason?` title="${esc(r.discovery_reason)}"`:''; return `<td><span class="badge"${title} style="background:${bad?'#2a1516':'#12351f'};color:${bad?'#f87171':'#86efac'}">${labels[s]||'Revisar'}</span></td>`;}},
       {key:'wy', label:'Wyckoff', value:r=>r.wyckoff?.score??null, cell:r=>{const wy=r.wyckoff; return `<td>${wyPhase(wy?.phase)} ${wy?.score??''}</td>`;}},
       {key:'fails', label:'Cond. fallida', value:r=>buylistEntryFails(r).length, cell:r=>{const f=buylistEntryFails(r); return `<td>${f.length?f.map(x=>`<span class="badge" style="background:#2a1516;color:#f87171">${x}</span>`).join(' '):'<span class="pos">Listo</span>'}</td>`;}},
+      {key:'data', label:'Dato / fuentes', value:r=>`${r.price_date||''} ${r.market_data?.source_count??''}`, cell:r=>`<td>${dt(r.price_date)} · ${r.market_data?.source_count??'sin dato'} fuente(s)</td>`},
       {key:'analyzed', label:'Últ. análisis', value:r=>r.wyckoff?.analyzed_at||'', cell:r=>`<td>${dt(r.wyckoff?.analyzed_at)}</td>`},
     ],
     tr: r=>` style="cursor:pointer" onclick="showOppFromBuylist('${r.opp_id||''}','${r.ticker}')"`,
@@ -1392,7 +1667,7 @@ function renderBuylist(){
     q:'',
   };
   let html = `<h2>Buy List (${rows.length})</h2>`;
-  html += `<p class="muted">Activos <b>APPROVED</b> listos para entrada (siguiente paso: <b>ENTRY_PENDING</b>). Clic en una columna para ordenar.</p>`;
+  html += `<p class="muted">La lista conserva las entradas aprobadas. La vigencia de tesis y el último Scout se muestran por oportunidad: una tesis vencida o un Scout con datos pendientes requiere revisión antes de actuar.</p>`;
   html += detailsEntryThresholds();
   if(!rows.length) html += `<div class="card"><p class="muted">La Buy List está vacía.</p></div>`;
   html += tableInput('buylist','bl-search','Buscar ticker...');
@@ -1403,14 +1678,15 @@ function renderBuylist(){
 // ---------- Discovery ----------
 function renderScreening(){
   const rows = (DATA.discovery_pool && DATA.discovery_pool.length) ? DATA.discovery_pool : DATA.watchlist;
-  const mkeys = ['transition_score','quality_score','margin_score'];
-  const mlabels = ['Transition','Quality','Margin'];
+  const filters = DATA.scout_policy?.filters||[];
+  const mkeys = filters.map(f=>f.metric);
+  const mlabels = filters.map(f=>`${f.label||f.metric} > ${f.value}`);
   TABLES['screening'] = {
     rows,
     cols: [
       {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
-      {key:'score', label:'Score', value:r=>r.score??null, cell:r=>`<td><b class="${r.score>=70?'pos':''}">${r.score??'—'}</b></td>`},
-      ...mkeys.map((k,i)=>({key:k, label:mlabels[i], value:r=>r.metrics?r.metrics[k]:null, cell:r=>{const v=r.metrics?r.metrics[k]:null; return `<td class="${v>=70?'pos':''}">${v??'—'}</td>`;}})),
+      {key:'status', label:'Resultado actual', value:r=>r.status||'', cell:r=>`<td title="${esc(r.reason||'')}">${esc(r.status||'Histórico')}</td>`},
+      ...mkeys.map((k,i)=>({key:k, label:mlabels[i], value:r=>r.metrics?r.metrics[k]:null, cell:r=>{const v=r.metrics?r.metrics[k]:null; const passed=r.filter_results?.[k]===100; const obs=r.financial_observations?.[k]||{}; const currency=obs.currency; const suffix=k==='operating_margin_pct'||k==='revenue_growth_pct'?'%':k==='fcf'?(currency?` ${currency}`:' (moneda no informada)'):''; const shown=v==null?'Pendiente':`${Number(v).toLocaleString('es-AR',{maximumFractionDigits:2})}${suffix} · ${passed?'Cumple':'No cumple'}`; return `<td class="${passed?'pos':''}" title="${esc(JSON.stringify({observation:obs, data_provenance:r.data_provenance?.field_sources?.[k]||[]}))}">${shown}</td>`;}})),
       {key:'added', label:'Agregado', value:r=>r.added_at||'', cell:r=>`<td>${dt(r.added_at)}</td>`},
     ],
     tr: r=>` style="cursor:pointer" onclick="showCaseFromOpp('${r.opp_id||''}','${r.ticker}')"`,
@@ -1419,9 +1695,9 @@ function renderScreening(){
     q:'',
   };
   const total = rows.length;
-  const poolLabel = (DATA.discovery_pool && DATA.discovery_pool.length) ? 'Candidatos operables (267 del último pipeline)' : 'Watchlist';
+  const poolLabel = (DATA.discovery_pool && DATA.discovery_pool.length) ? 'Candidatos operables' : 'Watchlist';
   let html = `<h2>Discovery (${total})</h2>`;
-  html += `<p class="muted"><b>${poolLabel}.</b> Candidatos del Discovery Domain (Scout), primer estado del funnel. La promoción es automática por el pipeline mensual: si el score de screening es <b>≥ ${DISC_MIN_SCORE}</b> (umbral <code>scoring.min_opportunity_score</code>), el caso pasa solo a <b>Research / UNDER_RESEARCH</b>, sin aprobación manual. El score global es el promedio de las 5 métricas del Scout. Clic en una columna para ordenar.</p>`;
+  html += `<p class="muted"><b>${poolLabel}.</b> COMPOUNDER aplica los filtros configurados de la tabla (${esc(DATA.scout_policy?.version||"sin política")}), además del gate común de operabilidad y liquidez y capitalización para acciones. Los datos ausentes quedan pendientes. Cumplir los filtros habilita screening y Research; no representa convicción ni una recomendación de compra. ROIC y moat se evalúan en Research.</p>`;
   html += tableInput('screening','screen-search','Buscar ticker...');
   html += `<table id="tbl-screening"><thead>${sortHeadRows('screening')}</thead><tbody>${sortTbody('screening')}</tbody></table>`;
   setView('screening', html);
@@ -1434,27 +1710,69 @@ function showCase(oppId){
   const o = findOpp(oppId);
   const by = DATA.buylist.find(b=>b.ticker===o.ticker);
   const d = o.ddd||{};
+  const discovery = o.latest_discovery_evidence||{};
   let html = `<button class="tab" onclick="renderAll()">← Volver</button>`;
   html += `<h1>${esc(o.ticker)} <span class="tick">${esc(o.opp_id)}</span> ${badge(o.status)}</h1>`;
+  if(['PENDING_DATA','REJECTED'].includes(String(discovery.eligibility_status||'').toUpperCase())){
+    html += `<div class="card" style="border-color:#5a2424"><b class="neg">Último Scout: ${esc(discovery.eligibility_status)}</b><p>${esc(discovery.reason||'Revisar la evidencia de Discovery antes de usar esta oportunidad.')}</p><p class="muted">Datos faltantes: ${esc((discovery.missing_metrics||[]).join(', ')||'ninguno')} · Conflictos: ${esc((discovery.conflicting_metrics||[]).join(', ')||'ninguno')}</p></div>`;
+  }
   html += `<div class="grid">`;
   html += `<div class="card"><div class="muted">Convicción</div><div style="font-size:22px;font-weight:700">${o.conviction_overall??'—'}</div><div class="muted">${esc(o.confidence||'')} · ${esc(o.trend||'')}</div></div>`;
-  html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
+  if(o.strategy_id==='MULTIBAGGERS') html += `<div class="card"><div class="muted">Discovery Score · Prioridad Research</div><div style="font-size:20px;font-weight:700">${fmt(o.discovery_score,1)} · ${fmt(o.research_priority,1)}</div><div class="muted">${esc(o.discovery_type||'')} · no son probabilidad ni convicción</div></div>`;
+  html += `<div class="card"><div class="muted">Precio / Intrínseco</div><div style="font-size:18px">${money(o.current_price)} / ${o.valuation_status==='NOT_APPLICABLE'?'No aplica':money(o.intrinsic_value)}</div><div class="${o.upside_pct>=0?'pos':'neg'}">${pct(o.upside_pct,true)}</div></div>`;
   html += `<div class="card"><div class="muted">Última investigación</div><div style="font-size:16px">${dt(o.last_research)}</div>${staleBadge(o)}</div>`;
-  html += `<div class="card"><div class="muted">Última evaluación tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.updated_at)}</div>${thesisBadge(o)}</div>`;
-  html += `<div class="card"><div class="muted">Decisión</div><div style="font-size:18px">${esc(o.decision?.decision_type||'—')}</div><div class="muted">${esc(o.decision?.author||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
+  html += `<div class="card"><div class="muted">Evaluación / próxima revisión de tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.last_research||o.updated_at)} / ${dt(o.next_thesis_review_at)||'Pendiente'}</div><div class="muted">Cadencia: ${o.thesis_review_interval_days?`${o.thesis_review_interval_days} días`:'No aplica'} · ${esc(o.thesis_review_status||'sin agenda')}</div>${thesisBadge(o)}</div>`;
+  html += `<div class="card"><div class="muted">${o.decision?.decision_type?'Decisión':'Propuesta'}</div><div style="font-size:18px">${esc(o.decision?.decision_type||o.proposal?.decision||'—')}</div><div class="muted">${esc(o.decision?.author||o.proposal?.status||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
   html += '</div>';
+  if(o.proposal?.status==='PENDING_HUMAN_REVIEW' && o.proposal?.proposal_hash){
+    html += `<div class="card"><b>Revisión del gestor requerida</b><p>La recomendación del Assessment no agrega por sí sola una oportunidad a Buy List. Si corresponde, abre <a href="https://github.com/alebertolli/idos/actions/workflows/decision-review.yml" target="_blank" rel="noopener noreferrer">Decision Review en GitHub Actions</a>, verifica que el hash sea el del Assessment vigente y registra aprobar/rechazar con una justificación.</p><details><summary>Hash del Assessment</summary><code>${esc(o.proposal.proposal_hash)}</code></details></div>`;
+  }
+  const marketData=o.market_data||by?.market_data||{};
+  const sourceNames=(marketData.sources_used||[]).map(esc).join(', ')||'No registrada';
+  html += `<h2>Datos de mercado</h2><div class="card"><div>Precio al: ${dt(marketData.price_as_of||o.price_date)}</div><div>Fuentes del cache: ${marketData.source_count??'no disponible'} (${sourceNames})</div>${marketData.refreshed_at?`<div>Cache actualizado: ${dt(marketData.refreshed_at)}</div>`:''}${marketData.source_count===1?'<p class="neg">Fuente única; revisar la cobertura por campo antes de usar el dato.</p>':''}${marketData.conflict_count?`<p class="neg">Conflictos de datos: ${marketData.conflict_count}</p>`:''}<details><summary>Procedencia por campo</summary>${Object.keys(marketData.field_sources||{}).length?`<table><thead><tr><th>Campo</th><th>Fuentes</th></tr></thead><tbody>${Object.entries(marketData.field_sources).map(([field,sources])=>`<tr><td>${esc(field)}</td><td>${sources.map(esc).join(', ')}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">El cache no registra procedencia por campo.</p>'}</details></div>`;
 
   // Tesis e informe
+  const dddReviewed = d.evidence_review?.status==='manager_approved';
+  const dddSystematic = d.evidence_review?.status==='systematic_report';
+  if(d.evidence_review?.status==='systematic_report_refresh_required'){
+    html += `<h2>Reporte sistemático</h2><div class="card"><b>Requiere actualización.</b><p class="muted">Regenerar Research con la política vigente antes de interpretar sus métricas. La señal y su fecha siguen disponibles en la estrategia.</p></div>`;
+  } else {
+  const dddProvisional = !dddReviewed && !dddSystematic;
+  if(dddProvisional) html += `<h2>Análisis fundamental · provisional</h2><div class="card"><b>Informe pendiente de validación del gestor.</b><p class="muted">El DDD y las hipótesis se muestran para revisión, todavía no son una tesis aprobada. Convicción, valor intrínseco, upside y scores de assessment son provisionales; validar las fuentes y la fecha de corte antes de decidir o dimensionar. La decisión del sistema se muestra por separado y no sustituye la revisión humana.</p></div>`;
+  if(dddSystematic) html += `<div class="card"><b>Reporte sistemático.</b><p class="muted">Señal y métricas generadas por reglas de estrategia; no representan una tesis fundamental ni una aprobación de compra.</p></div>`;
   const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;
-  html += `<h2>Tesis de inversión</h2>`;
+  html += `<h2>${dddProvisional?'Tesis de inversión (provisional)':'Tesis de inversión'}</h2>`;
   if(d.resumen_ejecutivo) html += `<div class="card"><div class="muted">Resumen ejecutivo</div><p>${esc(d.resumen_ejecutivo)}</p></div>`;
   if(d.tesis_inversion) html += `<div class="card"><div class="muted">Tesis</div><p>${esc(d.tesis_inversion)}</p></div>`;
+  const dq = d.financial_data_quality||{};
+  if(Object.keys(dq).length) html += `<div class="card"><b>Calidad de datos financieros:</b> ${esc(dq.status||'sin evaluar')} · <b>Métricas core:</b> ${esc(dq.core_metric_coverage||'—')} · <b>Fuente:</b> ${esc(dq.source||'—')} · <b>Fecha de corte:</b> ${dt(dq.as_of_date)}${dq.as_of_date_source?` (${esc(dq.as_of_date_source)})`:''}${(dq.missing_core_metrics||[]).length?`<p class="neg">Métricas faltantes: ${dq.missing_core_metrics.map(esc).join(', ')}</p>`:''}${(dq.missing_provenance||[]).length?`<p class="neg">Procedencia faltante: ${dq.missing_provenance.map(esc).join(', ')}</p>`:''}${(dq.conflicting_core_metrics||[]).length?`<p class="neg">Conflictos entre fuentes: ${dq.conflicting_core_metrics.map(esc).join(', ')}</p>`:''}${(dq.unreconciled_core_metrics||[]).length?`<p class="neg">Periodos sin reconciliar: ${dq.unreconciled_core_metrics.map(esc).join(', ')}</p>`:''}</div>`;
+  const sa=d.scenario_analysis;
+  if(sa?.scenarios?.length){
+    const scenarioRows=sa.scenarios.map(s=>{
+      const sources=(s.sources||[]).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.name)}</a> (${dt(x.as_of_date)})`).join('<br>');
+      const assumptions=(s.key_assumptions||[]).map(x=>`<li>${esc(x)}</li>`).join('');
+      const rationale=s.rationale?`<p>${esc(s.rationale)}</p>`:'';
+      return `<tr><td>${esc(s.id)}</td><td>${pct(s.probability_pct)}</td><td>${esc(sa.currency)} ${money(s.target_price)}</td><td>${rationale}${assumptions?`<ul>${assumptions}</ul>`:''}</td><td>${sources}</td></tr>`;
+    }).join('');
+    html += `<h3>Asimetría · escenarios Bear / Base / Bull</h3><div class="card"><b>${d.scenario_review?.status==='manager_approved'?'Escenarios aprobados por el gestor':'Propuesta pendiente de aprobación del gestor'}</b><p class="muted">Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table><thead><tr><th>Escenario</th><th>Probabilidad</th><th>Precio objetivo</th><th>Lectura y supuestos</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><p class="muted">Antes de aprobar, abre cada fuente y verifica que exista, respalde el supuesto y tenga la fecha indicada. La propuesta de Research no habilita una compra; RULE-008 sólo puede pasar con una revisión atribuida al gestor y una confirmación explícita de fuentes verificadas.</p>${d.scenario_review?.scenario_hash?`<details><summary>Hash del conjunto para revisión</summary><code>${esc(d.scenario_review.scenario_hash)}</code><p class="muted">En GitHub Actions, ejecuta Scenario Review, verifica las fuentes, marca la confirmación y copia este hash.</p></details>`:''}</div>`;
+  } else if(d.scenario_validation?.errors?.length){
+    html += `<h3>Escenarios Bear / Base / Bull</h3><div class="card"><b class="neg">Propuesta incompleta o inválida; RULE-008 permanece bloqueada.</b><ul>${d.scenario_validation.errors.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+  }
   if(d.clasificacion){
     const cl = d.clasificacion||{};
     html += `<p><b>Categoría:</b> ${esc(cl.categoria||d.categoria)}${(cl.categorias_descartadas||[]).length?' <span class="muted">· descartadas: '+cl.categorias_descartadas.map(esc).join(', ')+'</span>':''}</p>`;
     if(cl.justificacion) html += `<p class="muted">${esc(cl.justificacion)}</p>`;
   }
-  if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>Score DDD:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
+  if(d.score_general!==null && d.score_general!==undefined) html += `<p><b>${d.evidence_review?.status==='systematic_report'?'Índice descriptivo de señal':'Score DDD'}:</b> <span class="score">${esc(d.score_general)}</span> · <b>Opinión:</b> ${esc(d.opinion_valoracion||'—')}${dddVerdict!=null?` · <b>Error de valoración:</b> <span class="${String(dddVerdict).toUpperCase()==='SI'?'pos':'neg'}">${esc(dddVerdict)}</span>`:''}</p>`;
+  if(d.hipotesis?.length){
+    html += `<h3>Hipótesis de inversión</h3><table><thead><tr><th>Hipótesis</th><th>Por qué</th><th>Predicción</th><th>Falsación</th><th>Cuándo abandonarla</th></tr></thead><tbody>`;
+    d.hipotesis.forEach(h=>{
+      const predictions=(h.predictions||[]).map(p=>`${p.prediction?`${esc(p.prediction)} · `:''}${esc(p.metric||'')}: ${esc(p.expected??'—')}${p.unit?` ${esc(p.unit)}`:''} · ${esc(p.deadline||'sin plazo')}`).join('<br>')||'—';
+      const falsification=(h.falsification_conditions||[]).map(esc).join('<br>')||'—';
+      html += `<tr><td>${esc(h.statement||'—')}</td><td>${esc(h.rationale||'—')}</td><td>${predictions}</td><td>${falsification}</td><td>${esc(h.review_trigger||'—')}</td></tr>`;
+    });
+    html += '</tbody></table>';
+  }
   if(d.catalizadores?.length){
     html += `<h3>Catalizadores</h3><table><thead><tr><th>Catalizador</th><th>Horizonte</th><th>Impacto</th><th>Prob.</th></tr></thead><tbody>`;
     d.catalizadores.forEach(c=>html+=`<tr><td>${esc(c.descripcion)}</td><td>${esc(c.horizonte)}</td><td>${esc(c.impacto)}</td><td>${c.probabilidad_pct!=null?pct(c.probabilidad_pct):'—'}</td></tr>`);
@@ -1491,7 +1809,9 @@ function showCase(oppId){
   const actionFails = buylistEntryFails(actRow);
   const actionResolved = actionFails.length===0;
   html += `<h2>Indicador de acción</h2>`;
-  html += (o.proposal?.status==='PENDING_HUMAN_REVIEW'
+  html += (o.proposal?.status==='BLOCKED'
+    ? `<div class="card"><b>Decisión bloqueada.</b> ${esc(o.proposal?.reason||'Evidencia incompleta o no vigente.')} La señal no autoriza una entrada.</div>`
+    : o.proposal?.status==='PENDING_HUMAN_REVIEW'
     ? `<div class="card"><b>Decisión pendiente de revisión humana.</b> La señal no autoriza una entrada.</div>`
     : actionResolved
     ? `<div class="card" style="border-color:#1c4731"><b class="pos">Listo para entrada</b> — no hay condiciones fallidas frente a los umbrales de ENTRY.</div>`
@@ -1503,14 +1823,22 @@ function showCase(oppId){
   if(d.evidencia?.hechos_verificados?.length){ html += `<h3>Hechos verificados</h3><ul>`; d.evidencia.hechos_verificados.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
   if(d.evidencia?.inferencias_llm?.length){ html += `<h3>Inferencias LLM</h3><ul>`; d.evidencia.inferencias_llm.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
   if(d.evidencia?.preguntas_abiertas?.length){ html += `<h3>Preguntas abiertas</h3><ul>`; d.evidencia.preguntas_abiertas.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
+  }
 
   // Decisión del board + scores
   html += `<h2>Decisión del board</h2>`;
   if(o.decision?.justification) html += `<p class="muted">Justificación: ${esc(o.decision.justification)}</p>`;
   if((o.proposal?.rules_passed||[]).length) html += `<p>Reglas superadas: ${o.proposal.rules_passed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
   if((o.proposal?.rules_failed||[]).length) html += `<p class="neg">Reglas falladas: ${o.proposal.rules_failed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
-  html += `<table><thead><tr><th>Engine</th><th>Score</th><th>Findings</th></tr></thead><tbody>`;
-  Object.entries(o.scores||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td class="score">${v??'—'}</td><td>${(o.findings?.[k]||[]).map(esc).join(' · ')||'—'}</td></tr>`);
+  const ruleDetails=o.proposal?.rules_details||{};
+  const asymmetryRuleState=(o.proposal?.rules_passed||[]).includes('RULE-008')?'superó':(o.proposal?.rules_failed||[]).includes('RULE-008')?'falló':null;
+  if(asymmetryRuleState){
+    html += `<div class="card"><b>Asimetría del modelo (RULE-008 · ${asymmetryRuleState})</b>${ruleDetails['RULE-008']?`<p>${esc(ruleDetails['RULE-008'])}</p>`:'<p class="muted">El detalle cuantitativo no fue persistido en esta evaluación.</p>'}<p class="muted">Métrica provisional del motor. Validar escenarios, fuentes y fechas junto con la tesis; por sí sola no autoriza una compra.</p></div>`;
+  }
+  const explainedRules=[...(o.proposal?.rules_passed||[]),...(o.proposal?.rules_failed||[])].filter(id=>ruleDetails[id]);
+  if(explainedRules.length) html += `<details><summary>Detalles de reglas</summary><ul>${[...new Set(explainedRules)].map(id=>`<li><b>${esc(id)}</b>: ${esc(ruleDetails[id])}</li>`).join('')}</ul></details>`;
+  html += `<table><thead><tr><th>Engine</th><th>Score</th><th>Assessment</th><th>Findings</th></tr></thead><tbody>`;
+  Object.entries(o.scores||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td class="score">${v??'—'}</td><td>${esc(o.assessment_recommendations?.[k]||'Not recorded')}</td><td>${(o.findings?.[k]||[]).map(esc).join(' · ')||'—'}</td></tr>`);
   html += '</tbody></table>';
 
   // Wyckoff

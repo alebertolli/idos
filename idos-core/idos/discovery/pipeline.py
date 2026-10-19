@@ -12,7 +12,8 @@ class ScreeningPipeline:
                  watchlist: WatchlistManager | None = None,
                  state_machine: OpportunityStateMachine | None = None,
                  min_watchlist_score: int = 60):
-        self.scout = scout or ScoutEngine()
+        from idos.discovery.configured_scout import configured_scout
+        self.scout = scout or configured_scout()
         self.watchlist = watchlist or WatchlistManager()
         self.state_machine = state_machine or OpportunityStateMachine()
         self.min_watchlist_score = min_watchlist_score

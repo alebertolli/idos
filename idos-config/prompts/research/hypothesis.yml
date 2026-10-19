@@ -9,20 +9,26 @@ user_prompt: >
   Genera hipótesis de inversión para {ticker} ({name}):
 
   Contexto:
+  - Fecha de corte de Research: {as_of_date}
   - Sector: {sector}
   - Tesis: {thesis_statement}
   - Drivers Clave: {key_drivers}
   - Eventos Recientes: {recent_events}
 
   Para cada hipótesis:
-  1. Enunciado claro y testable
-  2. Predicción específica (qué, cuándo, cuánto)
-  3. Criterios de falsación
-  4. Evidencia necesaria para confirmar
-  5. Plazo (corto: <3m, medio: 3-12m, largo: >12m)
-  6. Prioridad (critical|important|informational)
-   7. Magnitud esperada (métrica, valor esperado, unidad)
-  8. Dependencias de otras hipótesis
+  1. Enunciado: qué creemos que ocurrirá.
+  2. Por qué creemos que ocurrirá: mecanismo causal y evidencia relevante.
+  3. Predicción observable con magnitud cuantitativa y fecha objetivo futura.
+  4. Criterios concretos que demostrarían que estamos equivocados.
+  5. Condición explícita que nos haría dejar de creerla, con fecha o evento.
+  6. Evidencia necesaria para confirmar, plazo y prioridad.
+  7. Dependencias de otras hipótesis.
+
+  La fecha de corte es {as_of_date}. Cada fecha_objetivo debe ser posterior a esa fecha,
+  usar formato ISO YYYY-MM-DD y corresponder al plazo real de la predicción. No uses
+  fechas, ejercicios fiscales ni eventos vencidos; si una predicción ya venció, formula
+  una predicción vigente y verificable a futuro. El campo plazo indica horizonte
+  cualitativo (corto|medio|largo) y no sustituye la fecha_objetivo.
 
   Genera 3-5 hipótesis cubriendo:
   - Al menos una operacional/de negocio
@@ -35,8 +41,11 @@ user_prompt: >
       {{
         "id": "H1",
         "enunciado": "...",
+        "por_que": "...",
         "prediccion": "...",
-        "criterios_falsacion": "...",
+        "fecha_objetivo": "YYYY-MM-DD",
+        "criterios_falsacion": ["..."],
+        "cuando_dejar_de_creerla": "...",
         "evidencia_necesaria": "...",
         "plazo": "corto|medio|largo",
         "categoria": "operacional|financiera|mercado",
@@ -49,6 +58,6 @@ user_prompt: >
 
 category: research
 metadata:
-  version: "2.0"
+  version: "2.2"
   author: "FO Senior Analyst"
   description: "Hypothesis generation con prioridad, magnitud y dependencias"

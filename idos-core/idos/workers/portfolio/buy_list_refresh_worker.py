@@ -40,8 +40,14 @@ class BuyListRefreshWorker(BaseWorker):
         ]
         approved = [o for o in valuation_opportunities if o["status"] == OpportunityStatus.APPROVED.value]
         entry_pending = [o for o in valuation_opportunities if o["status"] == OpportunityStatus.ENTRY_PENDING.value]
+        manager_approved = [
+            o for o in valuation_opportunities
+            if o.get("approved_for_buylist") is True
+            and o["status"] not in (OpportunityStatus.APPROVED.value, OpportunityStatus.ENTRY_PENDING.value)
+        ]
+        eligible = approved + entry_pending + manager_approved
 
-        if not approved and not entry_pending:
+        if not eligible:
             print("[BUYLIST] No approved/entry-pending opportunities in journal; preserving existing buylist")
             return {
                 "status": "completed",
@@ -58,7 +64,7 @@ class BuyListRefreshWorker(BaseWorker):
 
         margin_of_safety = self._load_margin_of_safety(bp)
 
-        for opp in approved + entry_pending:
+        for opp in eligible:
             ticker = opp["ticker"]
             opp_id = opp["id"]
             conviction = opp.get("conviction", {})
@@ -94,7 +100,10 @@ class BuyListRefreshWorker(BaseWorker):
                 ))
                 added += 1
 
-        all_tickers = {o["ticker"] for o in valuation_opportunities if o["status"] in ("APPROVED", "ENTRY_PENDING")}
+        all_tickers = {
+            o["ticker"] for o in valuation_opportunities
+            if o["status"] in ("APPROVED", "ENTRY_PENDING") or o.get("approved_for_buylist") is True
+        }
         for entry in self.buylist.all():
             if entry.ticker not in all_tickers:
                 self.buylist.remove(entry.ticker)

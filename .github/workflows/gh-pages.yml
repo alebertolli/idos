@@ -8,9 +8,10 @@ on:
       - Monthly Universe Pipeline
       - Monthly Rebalance
       - Friday Weekly Digest
-    branches: [main]
     types:
       - completed
+    branches:
+      - main
   push:
     branches:
       - main
@@ -53,5 +54,6 @@ jobs:
         with:
           path: site
       - name: Deploy to Pages
+        if: github.ref == 'refs/heads/main'
         id: deployment
         uses: actions/deploy-pages@v4

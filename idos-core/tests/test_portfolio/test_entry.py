@@ -44,3 +44,12 @@ class TestEntryEngine:
         })
         assert signal.all_conditions_met is False
         assert signal.portfolio_fit is False
+
+
+def test_multibaggers_strategy_limit_caps_entry_even_after_confidence_multiplier():
+    prices = [{"close": 20 + i * 1.5, "volume": 3000} for i in range(20)] + [{"close": 50 + i * 3, "volume": 5000} for i in range(30)]
+    signal = EntryEngine(min_margin_of_safety=20).evaluate("AAPL", {
+        "price_data": prices, "intrinsic_value": 200, "current_price": 100, "thesis_active": True,
+        "portfolio": {"total_weight": 0}, "proposed_weight": 3.0, "strategy_max_position_pct": 1.0,
+    })
+    assert signal.adjusted_weight <= 1.0

@@ -10,9 +10,9 @@ class PipelineMetrics:
     finished_at: str = ""
     duration_seconds: float = 0
 
-    finviz_count: int = 0
-    finviz_from_cache: bool = False
-    finviz_tickers: list[str] = field(default_factory=list)
+    candidate_source: str = ""
+    candidate_count: int = 0
+    candidate_tickers: list[str] = field(default_factory=list)
 
     operable_count: int = 0
     operable_filtered: int = 0
@@ -26,11 +26,15 @@ class PipelineMetrics:
 
     scout_passed: int = 0
     scout_rejected: int = 0
+    scout_data_quality_rejected: int = 0
+    scout_data_quality_details: list[dict[str, Any]] = field(default_factory=list)
     new_watchlist: list[dict] = field(default_factory=list)
 
     opportunities_created: int = 0
     opportunities_eligible: int = 0
     opportunities_existing: int = 0
+    opportunities_discovery_review: int = 0
+    scout_evaluations: list[dict[str, Any]] = field(default_factory=list)
 
     downgraded_to_watchlist: int = 0
     upgraded_to_screened: int = 0
@@ -42,8 +46,9 @@ class PipelineMetrics:
             "started_at": self.started_at,
             "finished_at": self.finished_at,
             "duration_seconds": self.duration_seconds,
-            "finviz_count": self.finviz_count,
-            "finviz_from_cache": self.finviz_from_cache,
+            "candidate_source": self.candidate_source,
+            "candidate_count": self.candidate_count,
+            "candidate_tickers": self.candidate_tickers,
             "operable_count": self.operable_count,
             "operable_filtered": self.operable_filtered,
             "pre_score_count": self.pre_score_count,
@@ -52,9 +57,12 @@ class PipelineMetrics:
             "fetch_errors": len(self.fetch_errors),
             "scout_passed": self.scout_passed,
             "scout_rejected": self.scout_rejected,
+            "scout_data_quality_rejected": self.scout_data_quality_rejected,
+            "scout_data_quality_details": self.scout_data_quality_details,
             "new_watchlist_count": len(self.new_watchlist),
             "opportunities_eligible": self.opportunities_eligible,
             "opportunities_existing": self.opportunities_existing,
+            "opportunities_discovery_review": self.opportunities_discovery_review,
             "opportunities_created": self.opportunities_created,
             "downgraded_to_watchlist": self.downgraded_to_watchlist,
             "upgraded_to_screened": self.upgraded_to_screened,
@@ -69,8 +77,9 @@ class PipelineReportGenerator:
         lines.append("")
 
         lines.append("Pipeline Results:")
-        lines.append(f"  Finviz Screening: {metrics.finviz_count} tickers" +
-                     (" (cached)" if metrics.finviz_from_cache else ""))
+        lines.append(f"  Candidate Universe: {metrics.candidate_count} tickers")
+        if metrics.candidate_source:
+            lines.append(f"    Source: {metrics.candidate_source}")
         lines.append(f"  Operable Filter: {metrics.operable_count} tickers" +
                      (f" ({metrics.operable_filtered} filtered out)" if metrics.operable_filtered else ""))
         if metrics.pre_score_count > 0:
@@ -78,6 +87,19 @@ class PipelineReportGenerator:
                          (f" ({metrics.pre_score_rejected} rejected)" if metrics.pre_score_rejected else ""))
         lines.append(f"  Data Fetch: {metrics.fetch_new} new, {metrics.fetch_cached} cached")
         lines.append(f"  Scout: {metrics.scout_passed} passed, {metrics.scout_rejected} rejected")
+        if metrics.scout_data_quality_rejected:
+            lines.append(f"    Rejected for missing or conflicting critical data: {metrics.scout_data_quality_rejected}")
+            for rejection in metrics.scout_data_quality_details[:10]:
+                missing = ", ".join(rejection.get("missing_critical_metrics", []))
+                conflicts = ", ".join(rejection.get("conflicting_critical_metrics", []))
+                reasons = []
+                if missing:
+                    reasons.append(f"missing {missing}")
+                if conflicts:
+                    reasons.append(f"conflicts {conflicts}")
+                lines.append(f"      {rejection.get('ticker', '?')}: {'; '.join(reasons) or 'critical data'}")
+            if len(metrics.scout_data_quality_details) > 10:
+                lines.append(f"      ... and {len(metrics.scout_data_quality_details) - 10} more")
         lines.append("")
 
         if metrics.new_watchlist:
@@ -94,6 +116,12 @@ class PipelineReportGenerator:
             lines.append(f"  Opportunities: {metrics.opportunities_created} created, "
                          f"{metrics.opportunities_existing} already exist, "
                          f"{metrics.opportunities_eligible} eligible")
+            lines.append("")
+        if metrics.opportunities_discovery_review:
+            lines.append(
+                f"  Existing opportunities flagged for Discovery data review: "
+                f"{metrics.opportunities_discovery_review}"
+            )
             lines.append("")
 
         if metrics.fetch_errors:

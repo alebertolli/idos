@@ -15,6 +15,7 @@ class StrategyProfile:
     entry_policy: str
     enabled: bool = False
     parameters: dict[str, Any] = field(default_factory=dict)
+    strategy_version: str = "1.0"
 
     @property
     def is_systematic(self) -> bool:
@@ -38,6 +39,7 @@ class StrategyCatalog:
                 thesis_type=data["thesis_type"], discovery_profile=data["discovery_profile"],
                 research_profile=data["research_profile"], entry_policy=data["entry_policy"],
                 enabled=bool(data.get("enabled", False)), parameters=data.get("parameters", {}) or {},
+                strategy_version=str(data.get("strategy_version", "1.0")),
             )
         self._profiles.setdefault("COMPOUNDER", self.default_compounder())
 
