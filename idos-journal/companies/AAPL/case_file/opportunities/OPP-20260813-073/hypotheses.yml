@@ -1,150 +1,161 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Apple anuncia el lanzamiento exitoso de las funciones de IA antes del
-      30‑09‑2027 y el crecimiento de ingresos del Q2 FY2027 supera el 5% interanual.
+  - condition: Los ingresos por servicios crecen menos del 2% YoY en Q2‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Apple anuncia un retraso de más de 12 meses en la disponibilidad de
+      Apple Intelligence.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Apple anuncia el lanzamiento exitoso de las funciones de IA antes del 30‑09‑2027
-    y el crecimiento de ingresos del Q2 FY2027 supera el 5% interanual.
-  horizon: medio
+  - Los ingresos por servicios crecen menos del 2% YoY en Q2‑2027.
+  - Apple anuncia un retraso de más de 12 meses en la disponibilidad de Apple Intelligence.
+  horizon: corto
   id: H1-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-07-31'
-    expected: 3.0
+    deadline: '2027-06-30'
+    expected: 5.0
     met: null
-    metric: Crecimiento ingresos YoY
-    prediction: El crecimiento interanual de ingresos del Q2 FY2027 será ≤ 3%, por
-      debajo del consenso del 5% esperado.
-    unit: '%'
+    metric: crecimiento_ingresos_servicios
+    prediction: Los ingresos por servicios de Apple aumentarán un 5% YoY respecto
+      al trimestre Q2‑2027.
+    unit: porcentaje
   priority: critical
   probability: 0.5
-  rationale: Los desarrollos internos de IA requieren integración profunda con el
-    hardware y el ecosistema de servicios; los retrasos técnicos y la falta de adopción
-    temprana reducen la capacidad de monetizar estas funciones, como evidencian los
-    informes de proveedores y la ausencia de anuncios de productos en los últimos
-    eventos de la compañía.
-  review_trigger: Si Apple publica un comunicado oficial antes del 30‑09‑2027 confirmando
-    la disponibilidad general de las funciones de IA y los resultados de ingresos
-    del Q2 FY2027 superan el 5% interanual.
+  rationale: Apple ha invertido $10 bn en IA generativa y ha anunciado la integración
+    de modelos de lenguaje en sus dispositivos. La tendencia de monetización de IA
+    en la industria tecnológica muestra que los servicios premium pueden generar ingresos
+    adicionales rápidamente.
+  review_trigger: Si al cierre del trimestre Q2‑2027 los ingresos por servicios no
+    superan el 2% de crecimiento YoY.
   secondary_hypotheses: []
-  statement: Apple retrasará el despliegue masivo de funciones de IA en sus dispositivos
-    de consumo durante el segundo trimestre fiscal 2027, lo que limitará el crecimiento
-    de ingresos.
+  statement: Apple lanzará la plataforma Apple Intelligence integrada en iOS y macOS,
+    impulsando un crecimiento del 5% interanual en los ingresos por servicios.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Apple reporta un margen bruto del FY2027 ≥ 40%.
+  - condition: EPS FY2027 reportado ≤ $7.00.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Reducción del COGS inferior al 0.5% interanual.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Apple reporta un margen bruto del FY2027 ≥ 40%.
+  - EPS FY2027 reportado ≤ $7.00.
+  - Reducción del COGS inferior al 0.5% interanual.
   horizon: medio
   id: H2-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-10-30'
-    expected: 38.5
+    deadline: '2027-10-31'
+    expected: 7.5
     met: null
-    metric: Margen bruto
-    prediction: El margen bruto del FY2027 será ≤ 38.5%, comparado con 39.7% en FY2026.
-    unit: '%'
+    metric: EPS
+    prediction: EPS FY2027 > $7.50.
+    unit: USD
   priority: important
   probability: 0.5
-  rationale: Los pagos de Google TAC representan aproximadamente $20 B con márgenes
-    cercanos al 100%; la presión regulatoria para compartir estos ingresos y la apertura
-    de la App Store a competidores reducirán la rentabilidad de los servicios, impactando
-    el margen bruto consolidado.
-  review_trigger: Si el informe 10‑K del FY2027 muestra un margen bruto superior al
-    40% antes del 30‑10‑2027.
+  rationale: El impulso de Apple Intelligence y la expansión de suscripciones (Apple
+    TV+, Fitness+, iCloud) aumentan los márgenes, mientras que la externalización
+    de producción a India reduce el COGS en aproximadamente 2 puntos porcentuales.
+  review_trigger: Si el informe anual de Apple del 31‑Oct‑2027 muestra EPS ≤ $7.00.
   secondary_hypotheses:
-  - H1-OPP-20260813-073
-  statement: El margen bruto de Apple se comprimirá al menos 150 puntos básicos en
-    el FY2027 debido a mayores costos regulatorios vinculados a Google TAC y a la
-    pérdida de exclusividad de la App Store.
+  - H4-OPP-20260813-073
+  statement: El beneficio por acción (EPS) de Apple para el ejercicio fiscal 2027
+    superará los $7.50, reflejando la combinación de mayor margen de servicios y reducción
+    de costos operativos.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El PER de AAPL supera los 27x al cierre del 31‑12‑2027.
+  - condition: Precio de cierre de AAPL < $220 al 31‑Mar‑2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Múltiplo P/E cae por debajo de 18x tras el reporte FY2027.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El PER de AAPL supera los 27x al cierre del 31‑12‑2027.
-  horizon: medio
+  - Precio de cierre de AAPL < $220 al 31‑Mar‑2028.
+  - Múltiplo P/E cae por debajo de 18x tras el reporte FY2027.
+  horizon: largo
   id: H3-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-31'
-    expected: 25.0
+    deadline: '2028-03-31'
+    expected: 250.0
     met: null
-    metric: PER
-    prediction: El PER al 31‑12‑2027 será ≤ 25x.
-    unit: x
+    metric: precio_accion
+    prediction: Precio de cierre de AAPL ≥ $250.
+    unit: USD
   priority: important
   probability: 0.5
-  rationale: La compresión de márgenes y la desaceleración del crecimiento de ingresos
-    reducirán la utilidad neta proyectada, mientras que el precio de la acción se
-    ajustará a la percepción de mayor riesgo regulatorio, llevando el PER a niveles
-    más bajos que los actuales 36.3x.
-  review_trigger: Si el PER registrado el 31‑12‑2027 es mayor a 27x, indicando que
-    el mercado no ha ajustado la valoración.
+  rationale: Los múltiplos actuales (P/E ~27x) no incorporan plenamente el upside
+    de AI y servicios. Con EPS esperado de $7.50 y una valoración objetivo de 20x,
+    el precio implícito es $150, pero la combinación de mayor cash flow y menor riesgo
+    percibido justifica un múltiplo de 25x, llevando el precio a $250.
+  review_trigger: Si el 31‑Mar‑2028 el precio de cierre está por debajo de $220.
   secondary_hypotheses:
+  - H1-OPP-20260813-073
   - H2-OPP-20260813-073
-  statement: El PER de AAPL caerá a 25x para finales de 2027, alineándose con los
-    múltiplos históricos de valoración y reflejando la corrección de expectativas
-    de crecimiento.
+  statement: El precio de la acción de Apple alcanzará los $250 antes del 31‑Mar‑2028,
+    reflejando una revaloración del múltiplo P/E a 20x basado en el EPS proyectado.
   status: ACTIVE
   ticker: AAPL
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos de servicios de Apple en FY2028 crecen ≥ 5% interanual.
+  - condition: COGS/Ingresos FY2027 > 39.5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Apple reporta que la producción en India representa menos del 10% del
+      total.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Los ingresos de servicios de Apple en FY2028 crecen ≥ 5% interanual.
-  horizon: largo
+  - COGS/Ingresos FY2027 > 39.5%.
+  - Apple reporta que la producción en India representa menos del 10% del total.
+  horizon: medio
   id: H4-OPP-20260813-073
   opportunity_id: OPP-20260813-073
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-10-30'
-    expected: 2.0
+    deadline: '2027-09-30'
+    expected: 38.0
     met: null
-    metric: Crecimiento ingresos servicios YoY
-    prediction: El crecimiento interanual de ingresos de servicios en FY2028 será
-      ≤ 2%, frente al 8% promedio de los últimos tres años.
-    unit: '%'
+    metric: cogs_sobre_ingresos
+    prediction: COGS/Ingresos FY2027 ≤ 38%. (Valor actual FY2026 ≈ 40%).
+    unit: porcentaje
   priority: critical
   probability: 0.5
-  rationale: Las decisiones regulatorias en EE. UU. (FTC) y la UE (DMA) están avanzando
-    hacia la apertura de plataformas de pago a terceros; la eliminación de la exclusividad
-    disminuirá la participación de Apple en los ingresos de transacciones, que representan
-    una parte significativa de los servicios.
-  review_trigger: Si los organismos regulatorios confirman la mantención de la exclusividad
-    de pagos más allá del 30‑06‑2028.
-  secondary_hypotheses:
-  - H2-OPP-20260813-073
-  statement: Apple perderá la exclusividad de los pagos de la App Store en EE. UU.
-    y la UE antes de mediados de 2028, reduciendo los ingresos de servicios en FY2028
-    en al menos $2 B.
+  rationale: Apple ha anunciado planes de trasladar el 30% de la producción de iPhone
+    a fábricas indias, donde los costos laborales son ~40% menores que en China. Historias
+    de éxito de otras compañías tecnológicas muestran reducciones de COGS del 1‑3%
+    tras similares reubicaciones.
+  review_trigger: Si al cierre del FY2027 el ratio COGS/Ingresos supera el 39.5%.
+  secondary_hypotheses: []
+  statement: Apple reducirá su costo de bienes vendidos (COGS) como porcentaje de
+    ingresos en 2 puntos porcentuales para el cierre del FY2027, gracias a la migración
+    de producción a India.
   status: ACTIVE
   ticker: AAPL
   version: 1

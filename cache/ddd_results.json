@@ -5,8 +5,9 @@
       "opp_id": "OPP-20260813-073",
       "ticker": "AAPL",
       "status": "completed",
-      "score": 74,
-      "reason": "FORCE re-research UNDER_RESEARCH (score=64)"
+      "score": 86,
+      "reason": "FORCE re-research UNDER_RESEARCH (score=64)",
+      "errors": []
     }
   ],
   "skipped": [],
@@ -15,15 +16,15 @@
       "ticker": "AAPL",
       "opp_id": "OPP-20260813-073",
       "status": "completed",
-      "conviction_score": 64,
-      "recommendation": "BLOCKED",
+      "conviction_score": 65,
+      "recommendation": "PENDING_REVIEW",
       "board_approved": false,
       "decision_type": "HOLD",
-      "decision_id": "DEC-20261019002758",
+      "decision_id": "DEC-20261019005406",
       "assessments": {
         "BusinessAssessmentEngine": 72,
         "ValuationAssessmentEngine": 45,
-        "RecoveryAssessmentEngine": 60,
+        "RecoveryAssessmentEngine": 62,
         "RiskAssessmentEngine": 70,
         "PortfolioAssessmentEngine": 90
       },
@@ -31,28 +32,28 @@
         "RULE-001",
         "RULE-003",
         "RULE-004",
-        "RULE-008"
+        "RULE-005",
+        "RULE-008",
+        "RULE-010"
       ],
-      "rules_failed": [
-        "RULE-005"
-      ],
+      "rules_failed": [],
       "rules_details": {
         "RULE-001": "Business quality: 72/70",
-        "RULE-003": "Rerating: 60/50",
+        "RULE-003": "Rerating: 62/50",
         "RULE-004": "Risk: 70/50",
-        "RULE-005": "Conviction: 64/65",
-        "RULE-008": "B/R 6.8:1 \u2705 (upside 10.9% / downside 1.6%)"
+        "RULE-005": "Conviction: 65/65",
+        "RULE-008": "B/R 7.1:1 \u2705 (upside 11.1% / downside 1.6%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
       },
-      "data_quality": "partial",
+      "data_quality": "good",
       "financial_data_quality": {
-        "status": "partial",
+        "status": "good",
         "core_metric_coverage": "5/5",
         "missing_core_metrics": [],
         "source": "stockanalysis.com",
-        "as_of_date": null,
-        "missing_provenance": [
-          "as_of_date"
-        ]
+        "as_of_date": "2026-06-27",
+        "as_of_date_source": "yfinance",
+        "missing_provenance": []
       }
     }
   ],
