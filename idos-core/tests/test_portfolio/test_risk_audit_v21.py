@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 from idos.portfolio.audit import audit_portfolio
 
 
@@ -159,3 +161,82 @@ def test_unsupported_risk_profile_schema_is_not_interpreted():
     assert position["instrument_type"] == "UNKNOWN"
     assert report["risk_audit_status"] == "PARTIAL"
     assert report["risk_contributions"]["status"] == "UNKNOWN"
+
+
+def _add_position_on_stream(snapshot, position_id, stream_id):
+    position = deepcopy(snapshot["positions"][0])
+    position["position_id"] = position_id
+    position["issuer"] = f"Issuer {position_id}"
+    position["economic_cluster"] = f"Cluster {position_id}"
+    position["risk_profile"]["return_stream_id"] = stream_id
+    snapshot["positions"].append(position)
+
+
+def test_correlation_coverage_requires_each_unique_return_stream_pair():
+    snapshot = snapshot_with_bond()
+    _add_position_on_stream(snapshot, "bond-2", "stream-b")
+    _add_position_on_stream(snapshot, "bond-3", "stream-c")
+    snapshot["positions"][0]["risk_profile"]["return_stream_id"] = "stream-a"
+    snapshot["correlations"] = [
+        {"position_id_a": "bond-1", "position_id_b": "bond-2", "value": 0.2, "as_of": "2026-10-15", "source_ref": "corr-ab"},
+        {"position_id_a": "bond-1", "position_id_b": "bond-3", "value": 0.1, "as_of": "2026-10-15", "source_ref": "corr-ac"},
+        {"position_id_a": "bond-2", "position_id_b": "bond-3", "value": 0.3, "as_of": "2026-10-15", "source_ref": "corr-bc"},
+    ]
+
+    report = audit_portfolio(snapshot)
+    correlation = report["correlation_and_return_streams"]
+
+    assert correlation["status"] == "ASSESSED"
+    assert correlation["return_stream_count"] == 3
+    assert correlation["expected_pair_count"] == 3
+    assert correlation["observed_pair_count"] == 3
+    assert correlation["missing_pairs"] == []
+
+
+def test_duplicate_correlation_rows_cannot_hide_missing_stream_pairs():
+    snapshot = snapshot_with_bond()
+    _add_position_on_stream(snapshot, "bond-2", "stream-b")
+    _add_position_on_stream(snapshot, "bond-3", "stream-c")
+    snapshot["positions"][0]["risk_profile"]["return_stream_id"] = "stream-a"
+    snapshot["correlations"] = [
+        {"position_id_a": "bond-1", "position_id_b": "bond-2", "value": 0.2, "as_of": "2026-10-15", "source_ref": "corr-ab-1"},
+        {"position_id_a": "bond-2", "position_id_b": "bond-1", "value": 0.25, "as_of": "2026-10-15", "source_ref": "corr-ab-2"},
+        {"position_id_a": "bond-1", "position_id_b": "bond-3", "value": 0.1, "as_of": "2026-10-15", "source_ref": "corr-ac"},
+    ]
+
+    correlation = audit_portfolio(snapshot)["correlation_and_return_streams"]
+
+    assert correlation["status"] == "PARTIAL"
+    assert correlation["expected_pair_count"] == 3
+    assert correlation["observed_pair_count"] == 2
+    assert correlation["duplicate_pairs"] == [["stream-a", "stream-b"]]
+    assert correlation["missing_pairs"] == [["stream-b", "stream-c"]]
+
+
+def test_positions_in_one_return_stream_do_not_require_pairwise_correlations():
+    snapshot = snapshot_with_bond()
+    _add_position_on_stream(snapshot, "bond-2", "issuer-a-credit")
+    snapshot["correlations"] = []
+
+    correlation = audit_portfolio(snapshot)["correlation_and_return_streams"]
+
+    assert correlation["status"] == "ASSESSED"
+    assert correlation["return_stream_count"] == 1
+    assert correlation["return_streams"] == [{
+        "return_stream_id": "issuer-a-credit",
+        "position_ids": ["bond-1", "bond-2"],
+    }]
+
+
+def test_missing_return_stream_identity_keeps_correlation_partial():
+    snapshot = snapshot_with_bond()
+    _add_position_on_stream(snapshot, "bond-2", "stream-b")
+    snapshot["positions"][0]["risk_profile"].pop("return_stream_id")
+    snapshot["correlations"] = [
+        {"return_stream_id_a": "issuer-a-credit", "return_stream_id_b": "stream-b", "value": 0.2, "as_of": "2026-10-15", "source_ref": "corr-ab"},
+    ]
+
+    correlation = audit_portfolio(snapshot)["correlation_and_return_streams"]
+
+    assert correlation["status"] == "PARTIAL"
+    assert correlation["positions_without_return_stream"] == ["bond-1"]

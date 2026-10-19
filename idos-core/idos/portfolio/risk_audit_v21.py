@@ -475,32 +475,109 @@ def _scenario_analysis(
 
 def _correlation_report(snapshot: Mapping[str, Any], positions: list[Mapping[str, Any]], as_of: date) -> dict[str, Any]:
     rows = snapshot.get("correlations")
-    if not isinstance(rows, list) or not rows:
-        profile = positions[0].get("risk_profile") if len(positions) == 1 else None
-        if isinstance(profile, Mapping) and profile.get("schema_version") == _RISK_PROFILE_SCHEMA_VERSION and profile.get("return_stream_id"):
-            return {"status": "ASSESSED", "return_stream_count": 1, "correlations": [], "reason": "SINGLE_RETURN_STREAM"}
-        return {"status": "UNKNOWN", "return_stream_count": None, "correlations": [], "reason": "CORRELATION_MATRIX_MISSING"}
-    known = {str(pos.get("position_id")) for pos in positions}
-    results = []
+    rows = rows if isinstance(rows, list) else []
+    members_by_stream: dict[str, list[str]] = {}
+    stream_by_position: dict[str, str] = {}
+    positions_without_stream: list[str] = []
+    for position in positions:
+        position_id = str(position.get("position_id", "UNKNOWN"))
+        profile = position.get("risk_profile")
+        stream_id = (
+            str(profile.get("return_stream_id", "")).strip()
+            if isinstance(profile, Mapping)
+            and profile.get("schema_version") == _RISK_PROFILE_SCHEMA_VERSION
+            else ""
+        )
+        if not stream_id:
+            positions_without_stream.append(position_id)
+            continue
+        stream_by_position[position_id] = stream_id
+        members_by_stream.setdefault(stream_id, []).append(position_id)
+
+    streams = sorted(members_by_stream)
+    expected_pairs = {
+        (left, right)
+        for index, left in enumerate(streams)
+        for right in streams[index + 1:]
+    }
+    if len(streams) == 1 and not positions_without_stream and not rows:
+        return {
+            "status": "ASSESSED",
+            "return_stream_count": 1,
+            "return_streams": [
+                {"return_stream_id": streams[0], "position_ids": sorted(members_by_stream[streams[0]])}
+            ],
+            "correlations": [],
+            "expected_pair_count": 0,
+            "observed_pair_count": 0,
+            "missing_pairs": [],
+            "duplicate_pairs": [],
+            "invalid_row_count": 0,
+            "reason": "SINGLE_RETURN_STREAM",
+        }
+
+    results: list[dict[str, Any]] = []
+    observed_pairs: set[tuple[str, str]] = set()
+    duplicate_pairs: set[tuple[str, str]] = set()
+    invalid_row_count = 0
     for row in rows:
         if not isinstance(row, Mapping):
+            invalid_row_count += 1
             continue
-        left, right = str(row.get("position_id_a", "")), str(row.get("position_id_b", ""))
+        if "return_stream_id_a" in row or "return_stream_id_b" in row:
+            left = str(row.get("return_stream_id_a", "")).strip()
+            right = str(row.get("return_stream_id_b", "")).strip()
+            if left not in members_by_stream or right not in members_by_stream:
+                invalid_row_count += 1
+                continue
+        else:
+            position_a = str(row.get("position_id_a", ""))
+            position_b = str(row.get("position_id_b", ""))
+            left = stream_by_position.get(position_a, "")
+            right = stream_by_position.get(position_b, "")
         evidence = _read_evidence({"value": row.get("value"), "unit": "ratio", "as_of": row.get("as_of"), "source_ref": row.get("source_ref")}, as_of, expected_unit="ratio")
         value = _as_decimal(evidence.get("value")) if evidence["status"] == "ASSESSED" else None
-        if left not in known or right not in known or left == right or value is None or abs(value) > 1:
+        if not left or not right or left == right or value is None or abs(value) > 1:
+            invalid_row_count += 1
             continue
-        results.append({"position_id_a": left, "position_id_b": right, "correlation": float(value), "as_of": evidence["as_of"], "source_ref": evidence["source_ref"]})
-    streams = {
-        str(profile.get("return_stream_id"))
-        for pos in positions
-        if isinstance((profile := pos.get("risk_profile")), Mapping)
-        and profile.get("schema_version") == _RISK_PROFILE_SCHEMA_VERSION
-        and profile.get("return_stream_id")
+        pair = tuple(sorted((left, right)))
+        if pair in observed_pairs:
+            duplicate_pairs.add(pair)
+            continue
+        observed_pairs.add(pair)
+        results.append({
+            "return_stream_id_a": pair[0],
+            "return_stream_id_b": pair[1],
+            "correlation": float(value),
+            "as_of": evidence["as_of"],
+            "source_ref": evidence["source_ref"],
+        })
+
+    missing_pairs = sorted(expected_pairs - observed_pairs)
+    complete = (
+        bool(streams)
+        and not positions_without_stream
+        and observed_pairs == expected_pairs
+        and not duplicate_pairs
+        and invalid_row_count == 0
+    )
+    status = "ASSESSED" if complete else "PARTIAL" if results or streams else "UNKNOWN"
+    return {
+        "status": status,
+        "return_stream_count": len(streams) if streams else None,
+        "return_streams": [
+            {"return_stream_id": stream, "position_ids": sorted(members_by_stream[stream])}
+            for stream in streams
+        ],
+        "positions_without_return_stream": sorted(positions_without_stream),
+        "correlations": results,
+        "expected_pair_count": len(expected_pairs),
+        "observed_pair_count": len(observed_pairs),
+        "missing_pairs": [list(pair) for pair in missing_pairs],
+        "duplicate_pairs": [list(pair) for pair in sorted(duplicate_pairs)],
+        "invalid_row_count": invalid_row_count,
+        "reason": "CORRELATION_PAIR_COVERAGE_INCOMPLETE" if status != "ASSESSED" else None,
     }
-    has_single_stream = len(positions) == 1 and bool(streams)
-    status = "ASSESSED" if has_single_stream or (results and len(results) == len(rows)) else "PARTIAL" if results else "UNKNOWN"
-    return {"status": status, "return_stream_count": len(streams) if streams else None, "correlations": results}
 
 
 def _risk_contribution(position_id: str, value: Decimal, total: Decimal, metrics: Mapping[str, Any], as_of: date) -> Decimal | None:

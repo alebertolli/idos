@@ -590,8 +590,12 @@ equity son sensibilidades, no pronósticos.
 
 El estado continúa `PARTIAL` hasta que cada dominio aplicable tenga cobertura
 completa. Liquidez no se clasifica Alta/Media/Baja mientras no se aprueben
-umbrales; inflación/poder adquisitivo, correlación entre posiciones y estrés
-de Argentina o combinado requieren evidencia explícita. La implementación no
+umbrales; inflación/poder adquisitivo y estrés de Argentina o combinado
+requieren evidencia explícita. Para correlación, se identifican los
+`return_stream_id` únicos y se exige un valor fechado/fuenteado para cada par
+distinto; posiciones de un único stream no requieren una matriz. Pares
+duplicados, ausentes, inválidos o posiciones sin stream dejan el dominio
+`PARTIAL`/`UNKNOWN`, aunque la cantidad de filas coincida. La implementación no
 estima correlaciones a partir de retornos ni deriva recuperación de crédito;
 el análisis de recupero ante distress exige una cascada documentada. El
 contrato de perfil de riesgo no está conectado a una fuente privada validada,
