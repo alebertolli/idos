@@ -1,0 +1,139 @@
+calidad_evidencia:
+  hechos_verificados:
+  - Ingresos TTM de $19,040,000,000 con crecimiento del 13.5%.
+  - Margen operativo del 50.7% y ROIC del 22.7%.
+  - Nivel de endeudamiento D/E de 0.1x.
+  - Cambio de denominación corporativa a Barrick Mining Corporation en mayo de 2025.
+  inferencias_llm:
+  - El FCF Ajustado reportado en 0M se debe a una fase intensiva de CapEx de expansión
+    en megaproyectos de cobre.
+  - El mercado aplica un descuento excesivo por riesgo soberano en mercados emergentes.
+  preguntas_abiertas:
+  - ¿Cuál es el desglose real de la estructura de propiedad del equipo directivo más
+    allá del 0.0% reportado en la ficha?
+  - ¿Cuáles son los AISC (All-In Sustaining Costs) proyectados por onza de oro y libra
+    de cobre para los próximos 3 años?
+  - ¿Cuál es la tasa exacta de cobertura de intereses tras el ajuste de vencimientos
+    de deuda?
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'Compounder: Descartada porque los productores de materias
+    primas carecen de fijación de precios estructural a largo plazo y sufren volatilidad
+    cíclica severa. Deep Value: Descartada porque la empresa cotiza cerca de valor
+    razonable respaldado por activos productivos y márgenes operativos elevados (50.7%),
+    en lugar de liquidez neta o descuento por quiebra.'
+  justificacion: Barrick Mining Corporation es uno de los mayores productores globales
+    de oro y cobre. Al ser un extractor de materias primas (commodity price taker),
+    sus ingresos y flujos de caja están inherentemente vinculados a los ciclos macroeconómicos
+    globales y la cotización spot de los metales, a pesar de poseer activos de bajo
+    coste de producción (Tier-1).
+dominio_business_quality:
+  analisis: Barrick posee una cartera diversificada de minas 'Tier-1' (grandes, de
+    larga vida y bajo coste) en oro y cobre. Su desventaja estructural es la falta
+    de poder de fijación de precios al comercializar commodities, compensada por su
+    escala global y bajos costes de extracción agregados.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Avances regulatorios y de construcción en el proyecto Reko Diq en Pakistán.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 70
+- descripcion: Aumento sostenido en la demanda global y precio spot del cobre por
+    aceleración en la transición energética.
+  horizonte: largo
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 60
+dominio_esg_supply_chain:
+  analisis: Elevado riesgo inherente por operar en jurisdicciones políticamente inestables
+    (Mali, RDC, Pakistán) y por el alto impacto ambiental en consumo de agua, emisiones
+    de carbono y gestión de relaves mineros.
+  rating: alto_riesgo
+dominio_financial_health:
+  analisis: Balance extremadamente robusto con un ratio Deuda/Patrimonio de solo 0.1x.
+    Aunque el FCF ajustado reportado aparece neutral en el periodo TTM por intensas
+    inversiones de capital (CapEx de desarrollo), el margen operativo del 50.7% e
+    ingresos de $19.04B garantizan solvencia absoluta.
+  rating: fuerte
+dominio_growth:
+  analisis: Impulsado por un crecimiento reciente de ingresos del +13.5%. El motor
+    futuro de crecimiento proviene de la aceleración en producción de cobre estratégica
+    para electrificación global, superando la madurez de algunos yacimientos de oro
+    tradicionales.
+  rating: moderado
+dominio_management:
+  analisis: Datos suministrados reflejan 0% de propiedad interna (insider ownership)
+    y 0 años de antigüedad reportada en el cargo para el CEO actual, lo cual genera
+    incertidumbre sobre la alineación directa a través de acciones, a pesar del histórico
+    rigor operativo de la firma.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Caída drástica en los precios internacionales del oro y del cobre.
+- impacto: alto
+  probabilidad: alta
+  riesgo: Riesgo de expropiación, cambios regulatorios o incrementos impositivos en
+    minas operadas en países emergentes.
+- impacto: medio
+  probabilidad: alta
+  riesgo: Inflación de costes operativos (energía, maquinaria, suministros) incrementando
+    el All-In Sustaining Cost (AISC).
+error_mercado:
+  catalizador_cambio:
+    descripcion: Entrada en fase de producción comercial de proyectos clave de cobre
+      (Reko Diq) y consolidación de precios de cobre/oro en niveles elevados.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 65
+  conclusion_error_valoracion: SI
+  consenso_actual: El mercado descuenta que el crecimiento reciente en ingresos (+13.5%)
+    es temporal y dependiente exclusivamente de picos en los precios del oro, aplicando
+    un descuento significativo por riesgos geopolíticos en sus jurisdicciones mineras
+    (Muntan ia, Pakistán, Mali, República Democrática del Congo) y la presión inflacionaria
+    en los costes sostenibles de producción (AISC).
+  hipotesis_contraria: El mercado infravalora el giro estratégico hacia la producción
+    masiva de cobre (proyecto Reko Diq y expansión de Lumwana) enfocado en la transición
+    energética, así como la altísima calidad del balance (D/E de 0.1x) y un margen
+    operativo del 50.7% que provee un colchón defensivo superior al de sus competidores
+    directos.
+  razonamiento: 'Existe una asimetría favorable no descontada totalmente: la valoración
+    refleja los riesgos geopolíticos tradicionales del sector minero, ignorando la
+    transformación estratégica hacia activos de cobre de larga vida útil con costes
+    de extracción en el primer cuartil de la curva global.'
+generated_at: '2026-07-27T00:48:14.787082-03:00'
+opinion_valoracion: infravalorado
+opp_id: OPP-20260725-005
+prompt_inputs:
+  business_model: Barrick Mining Corporation engages in the exploration, development,
+    production, and sale of mineral properties. It explores for gold, copper, silver,
+    and energy materials. The company was formerly known as Barrick Gold Corporation
+    and changed its name to Barrick Mining Corporation in May 2025. Barrick Mining
+    Corporation was founded in 1983 and is based in Toronto, Canada.
+  ceo_tenure: 0
+  debt_to_equity: 0.13
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: B
+  operating_margin: 50.74
+  pe_ratio: 10.17
+  products: ''
+  revenue: 19040000000.0
+  revenue_growth: 13.51
+  roic: 22.67
+  sector: Basic Materials
+  ticker: B
+resumen_ejecutivo: Barrick Mining Corporation presenta una sólida posición financiera
+  con un nivel de apalancamiento sumamente bajo (D/E 0.1x) y márgenes operativos excepcionales
+  (50.7%). Si bien es un negocio cíclico expuesto a precios de materias primas y jurisdicciones
+  complejas, la expansión planificada en cobre y la optimización de sus minas Tier-1
+  ofrecen una rentabilidad ajustada por riesgo atractiva.
+score_general: 74
+tesis_inversion: Barrick ofrece una opción atractiva sobre los precios de metales
+  con un balance desapalancado (D/E 0.1x) y alta rentabilidad sobre el capital (ROIC
+  22.7%). La expansión hacia la minería de cobre otorga un catalizador de revalorización
+  no plenamente apreciado por el consenso, justificando una posición en un portafolio
+  diversificado.
+ticker: B
+version: '3.0'

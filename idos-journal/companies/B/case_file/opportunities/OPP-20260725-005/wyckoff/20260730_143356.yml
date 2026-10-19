@@ -1,0 +1,75 @@
+adjusted_weight: 1.12
+analyzed_at: '2026-07-30T14:33:56.373669-03:00'
+confidence: baja
+entry_point: ninguno
+indicators:
+  algorithmic_phase: unknown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 1.5%)'
+  current_price: 37.28
+  high_52w: 52.32
+  low_52w: 20.63
+  ma_200d: 40.97
+  ma_50d: 38.6
+  pct_from_52w_high: -28.7
+  pct_from_52w_low: 80.7
+  pct_from_ma200: -9.0
+  pct_from_ma50: -3.4
+  recent_trend: tendencia de 60d lateral (-3%). últimos 5d estables (+0%)
+  resistance_levels: 'resistencias identificadas: $52.32, $51.52, $51.40, $50.65,
+    $50.53 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $20.63, $20.65, $20.89, $21.68, $22.04
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (0.7x el promedio)
+llm_response:
+  confianza: baja
+  datos_suficientes: false
+  eventos_wyckoff_detectados:
+  - confianza: baja
+    descripcion: El precio se localiza en la zona media del rango anual ($37.28 vs
+      $20.63-$52.32) con volumen bajo (0.7x) y rango estrecho, sin evidencia clara
+      de eventos característicos como SC, Spring o SOS en la estructura reciente de
+      60 días.
+    evento: Ninguno
+  fase_wyckoff: desconocida
+  justificacion: El activo se encuentra en una consolidación lateral apática (-3%
+    en 60d) en el centro de su rango amplio de 52 semanas, cotizando por debajo de
+    sus MAs de 50d (-3.4%) y 200d (-9.0%). La Ley de Oferta y Demanda muestra falta
+    de interés (volumen 0.7x), la Ley de Causa y Efecto no ofrece un rango acumulativo
+    delimitado a niveles clave de soporte, y la Ley de Esfuerzo/Resultado no muestra
+    absorción clara. Siguiendo el principio de prudencia estricta de Wyckoff, la falta
+    de una estructura clara justifica mantenerse al margen.
+  limitaciones: Se requiere historial detallado de volumen por barra en los giros
+    principales (soporte/resistencia) y un gráfico de Punto y Figura para determinar
+    causa/efecto.
+  precio_objetivo_wyckoff:
+    estimado: 0
+    metodo: no_determinable
+    razonamiento: Sin una delimitación precisa del TR (Trading Range) ni acumulación
+      validada, no es posible aplicar la Ley de Causa y Efecto mediante conteo Punto
+      y Figura.
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: NoPasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 0
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: 0.0
+    fundamento: No aplica al no haber un punto de entrada validado.
+    precio: 0
+opp_id: OPP-20260725-005
+phase: unknown
+price_target: null
+score: 0
+stop_loss: null
+ticker: B
+triggered_entry: false

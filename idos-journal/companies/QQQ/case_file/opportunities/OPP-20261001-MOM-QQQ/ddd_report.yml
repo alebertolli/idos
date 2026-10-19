@@ -1,0 +1,83 @@
+calidad_evidencia:
+  hechos_verificados:
+  - 'Señal momentum mensual: 1.23'
+  - 'Fecha de señal: 2026-09-01'
+  inferencias_llm: []
+  preguntas_abiertas:
+  - ¿La señal persistirá hasta el próximo rebalanceo?
+catalizadores_previos: []
+clasificacion_oportunidad:
+  categoria: systematic_momentum
+  categorias_descartadas:
+  - compounder
+  - deep_value
+  - growth_fundamental
+  justificacion: La oportunidad se evalúa por señal, ranking y rebalanceo mensual;
+    no por DDD corporativo.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: No es un criterio de una estrategia sistemática.
+  rating: no_aplica
+dominio_catalizadores:
+- descripcion: Persistencia del ranking relativo hasta el próximo rebalanceo
+  horizonte: corto
+  impacto: alto
+  probabilidad_pct: 50
+dominio_esg_supply_chain:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_financial_health:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_growth:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_management:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_riesgos:
+- descripcion: La señal puede deteriorarse entre rebalanceos; aplicar límites de peso
+    y salida.
+  impacto: alto
+  probabilidad: media
+  riesgo: Reversión brusca del momentum
+error_mercado:
+  conclusion_error_valoracion: NO_APLICA
+  consenso_actual: No se utiliza consenso fundamental.
+  hipotesis_contraria: La persistencia del momentum puede romperse antes del próximo
+    rebalanceo.
+  razonamiento: La señal cuantitativa y sus límites son la evidencia primaria.
+generated_at: '2026-10-01T01:19:24.445443-03:00'
+integridad_tesis:
+  reason: La tesis permanece activa mientras la señal esté dentro del rango operativo.
+  thesis_active: true
+opinion_valoracion: 'No aplica: la entrada se decide por señal y rebalanceo.'
+opp_id: OPP-20261001-MOM-QQQ
+prompt_inputs:
+  business_model: To maintain the correspondence between the composition and weights
+    of the securities in the trust (the "securities") and the stocks in the NASDAQ-100
+    Index®, the adviser adjusts the securities from time to time to conform to periodic
+    changes in the identity and/or relative weights of index securities. The composition
+    and weighting of the securities portion of a portfolio deposit are also adjusted
+    to conform to changes in the index.
+  ceo_tenure: 0
+  debt_to_equity: 0
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: Invesco QQQ Trust
+  operating_margin: 0
+  pe_ratio: 0
+  products: ''
+  revenue: 0
+  revenue_growth: 0
+  roic: 0
+  sector: ''
+  ticker: QQQ
+resumen_ejecutivo: Momentum mensual 1.23; score normalizado 45/100; volatilidad 90d
+  0.0%.
+score_general: 45
+target_consensus: null
+tesis_inversion: 'QQQ: exposición sistemática a momentum mensual; la señal actual
+  es 1.23.'
+ticker: QQQ
+version: '3.0'

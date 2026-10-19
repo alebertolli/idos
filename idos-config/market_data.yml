@@ -1,0 +1,10 @@
+# Global market eligibility and normalization settings shared by every strategy.
+eligibility:
+  market_cap_min_usd: 2000000000
+  avg_dollar_volume_min_usd: 100000
+
+liquidity:
+  window_sessions: 20
+  minimum_coverage: 0.8
+  max_fx_staleness_days: 4
+  fx_side: sell

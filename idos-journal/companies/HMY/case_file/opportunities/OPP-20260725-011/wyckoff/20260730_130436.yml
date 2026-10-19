@@ -1,0 +1,62 @@
+adjusted_weight: 3.33
+analyzed_at: '2026-07-30T13:04:36.555110-03:00'
+confidence: alta
+entry_point: spring_3
+indicators:
+  algorithmic_phase: unknown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.3%)'
+  current_price: 15.89
+  high_52w: 25.55
+  low_52w: 12.37
+  ma_200d: 17.79
+  ma_50d: 16.0
+  pct_from_52w_high: -37.8
+  pct_from_52w_low: 28.4
+  pct_from_ma200: -10.7
+  pct_from_ma50: -0.7
+  recent_trend: tendencia de 60d lateral (+2%). últimos 5d estables (+0%)
+  resistance_levels: 'resistencias identificadas: $25.55, $24.04, $23.70, $23.13,
+    $23.01 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $12.37, $13.03, $13.07, $13.21, $13.22
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (0.8x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: alta
+    descripcion: Volumen alto, spread amplio, primer signo de compra
+    evento: PS
+  fase_wyckoff: acumulacion
+  justificacion: La tendencia reciente es lateral y se han identificado soportes crecientes
+  limitaciones: ''
+  precio_objetivo_wyckoff:
+    estimado: 23.01
+    metodo: conteo_pnf
+    razonamiento: Se puede estimar un conteo P&F aproximado para el objetivo de precio
+  pruebas_compra:
+    prueba_1_objetivo_caida: Pasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: Pasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: Pasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: Pasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 4
+    total_pruebas: 9
+  punto_entrada: spring_3
+  senal_entrada: COMPRAR
+  stop_loss_sugerido:
+    distancia_pct: 23.7
+    fundamento: Soportes crecientes
+    precio: 12.37
+opp_id: OPP-20260725-011
+phase: accumulation
+price_target: 23.01
+score: 74
+stop_loss: 12.37
+ticker: HMY
+triggered_entry: true

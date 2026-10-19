@@ -1,0 +1,71 @@
+adjusted_weight: 2.22
+analyzed_at: '2026-08-03T08:23:59.151257-03:00'
+confidence: media
+entry_point: ninguno
+indicators:
+  algorithmic_phase: unknown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.6%)'
+  current_price: 15.75
+  high_52w: 25.55
+  low_52w: 12.37
+  ma_200d: 17.77
+  ma_50d: 15.99
+  pct_from_52w_high: -38.4
+  pct_from_52w_low: 27.3
+  pct_from_ma200: -11.4
+  pct_from_ma50: -1.5
+  recent_trend: tendencia de 60d bajista moderada (-10%). últimos 5d estables (-1%)
+  resistance_levels: 'resistencias identificadas: $25.55, $24.04, $23.70, $23.13,
+    $23.01 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $12.37, $13.03, $13.07, $13.39, $13.60
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (0.8x el promedio)
+llm_response:
+  confianza: media
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: baja
+    descripcion: El volumen reciente es inferior al promedio (0.8x) y la tendencia
+      de 60 días es bajista (-10%), sin evidencias de volumen climático (SC) ni señal
+      clara de parada o absorción por parte del dinero institucional.
+    evento: Ninguno
+  fase_wyckoff: desconocida
+  justificacion: El activo cotiza por debajo de sus medias móviles clave de 50d ($15.99)
+    y 200d ($17.77) en una tendencia bajista de corto/medio plazo. La Ley de Esfuerzo
+    vs Resultado refleja apatía (volumen 0.8x del promedio), sin presencia de barras
+    de demanda significativa ni un Rango de Trading constituido. Al no cumplirse las
+    pruebas de compra de Wyckoff y existiendo incertidumbre estructural, el principio
+    de prudencia exige mantenerse al margen.
+  limitaciones: Ausencia de datos del índice de referencia para evaluar la fortaleza
+    relativa y falta de desglose diario para realizar un conteo P&F exacto.
+  precio_objetivo_wyckoff:
+    estimado: 0
+    metodo: no_determinable
+    razonamiento: Sin una causa lateral de acumulación definida ni conteo de Punto
+      y Figura no es posible establecer una proyección de precio fiable.
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: NoPasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 0
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: 21.46
+    fundamento: Nivel de soporte estructural previo basado en el mínimo de 52 semanas.
+    precio: 12.37
+opp_id: OPP-20260725-011
+phase: unknown
+price_target: null
+score: 8
+stop_loss: 12.37
+ticker: HMY
+triggered_entry: false

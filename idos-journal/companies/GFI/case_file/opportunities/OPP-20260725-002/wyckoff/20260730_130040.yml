@@ -1,0 +1,72 @@
+adjusted_weight: 3.29
+analyzed_at: '2026-07-30T13:00:40.465664-03:00'
+confidence: alta
+entry_point: ninguno
+indicators:
+  algorithmic_phase: unknown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.1%)'
+  current_price: 33.11
+  high_52w: 59.77
+  low_52w: 23.67
+  ma_200d: 42.73
+  ma_50d: 35.47
+  pct_from_52w_high: -44.6
+  pct_from_52w_low: 39.9
+  pct_from_ma200: -22.5
+  pct_from_ma50: -6.6
+  recent_trend: tendencia de 60d bajista fuerte (-21%). últimos 5d estables (+1%)
+  resistance_levels: 'resistencias identificadas: $59.77, $57.17, $56.95, $56.86,
+    $56.53 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $23.67, $23.77, $24.87, $27.50, $28.48
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (1.0x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: media
+    descripcion: No hay evidencia clara de parada (SC/AR) ni de estructura de acumulación
+      confirmada en el rango reciente.
+    evento: Ninguno
+  fase_wyckoff: markdown
+  justificacion: 'La estructura de mercado muestra un contexto de markdown activo
+    (tendencia de 60 días a la baja de -21%, precio por debajo de MA50 y MA200). La
+    ley de oferta y demanda indica que la oferta sigue en control o la demanda es
+    insuficiente. Al no cumplir ninguna de las 9 pruebas de compra de Wyckoff y ante
+    la falta de una causa lateral bien construida, la máxima de Wyckoff impone prudencia:
+    es preferible abstenerse y permanecer en NEUTRAL hasta ver señales claras de absorción
+    o un Spring confirmado con test.'
+  limitaciones: Se requiere histórico detallado de volumen en los mínimos de $23.67
+    para confirmar si existió un Selling Climax primario y gráficos P&F para estimación
+    de objetivos.
+  precio_objetivo_wyckoff:
+    estimado: null
+    metodo: no_determinable
+    razonamiento: Ausencia de un Rango de Trading (TR) lateral consolidado que permita
+      realizar un conteo de causa P&F.
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: NoPasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 0
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: null
+    fundamento: No existe punto de entrada válido según el método Wyckoff.
+    precio: null
+opp_id: OPP-20260725-002
+phase: markdown
+price_target: null
+score: 15
+stop_loss: null
+ticker: GFI
+triggered_entry: false

@@ -1,0 +1,65 @@
+# Research: AOIF Protocol (Análisis-Integración, Spanish Output)
+system_prompt: >
+  Eres un analista AOIF (Análisis Opinión Integración Framework).
+  Sigue estrictamente el protocolo de 8 pasos en orden. Cada paso
+  construye sobre el anterior. No omitas pasos. Responde SIEMPRE en ESPAÑOL.
+
+user_prompt: >
+  Ejecuta protocolo AOIF para {ticker} ({name}):
+
+  Datos de la Compañía:
+  {company_data}
+
+  Paso 1 - Entendimiento del Negocio:
+  Describe el modelo de negocio, drivers de revenue, segmentos de clientes y cadena de valor.
+  {{"modelo_negocio": "...", "productos": [...], "segmentos_clientes": [...],
+    "cadena_valor": "...", "status": "completado"}}
+
+  Paso 2 - Análisis Financiero:
+  Analiza tendencias de revenue, márgenes, retornos y flujo de caja.
+  {{"roic": {roic}, "margen_operativo": {operating_margin},
+    "crecimiento_revenue": {revenue_growth}, "conversion_fcf": "...",
+    "calidad_tendencia": "mejorando|estable|deteriorando", "status": "completado"}}
+
+  Paso 3 - Análisis Competitivo:
+  Evalúa el moat, posición competitiva y dinámica de la industria.
+  {{"moat": "...", "amplitud_moat": "amplio|estrecho|ninguno",
+    "posicion_competitiva": "lider|retador|seguidor",
+    "dinamica_industria": "...", "status": "completado"}}
+
+  Paso 4 - Evaluación del Management:
+  Evalúa calidad del liderazgo, incentivos y asignación de capital.
+  {{"calidad": "excepcional|buena|regular|debil",
+    "asignacion_capital": "crea_valor|neutral|destruye_valor",
+    "alineamiento_insiders": "fuerte|moderado|debil", "status": "completado"}}
+
+  Paso 5 - Evaluación de Riesgos:
+  Categoriza y prioriza riesgos.
+  {{"riesgos": [{{"riesgo": "...", "categoria": "negocio|financiero|regulatorio|macro",
+                  "probabilidad": "alta|media|baja", "impacto": "alto|medio|bajo"}}],
+    "status": "completado"}}
+
+  Paso 6 - Análisis de Valoración:
+  Analiza valoración actual vs estimación de valor intrínseco.
+  {{"per": {pe_ratio}, "ev_ebitda": {ev_ebitda},
+    "fcf_yield": {fcf_yield}, "valor_intrinseco_estimado": "...",
+    "margen_seguridad": "adecuado|insuficiente", "status": "completado"}}
+
+  Paso 7 - Análisis de Escenarios:
+  Define casos base, alcista y bajista con probabilidades.
+  {{"caso_base": {{"probabilidad": 0.60, "descripcion": "...", "precio_objetivo": N}},
+    "caso_alcista": {{"probabilidad": 0.20, "descripcion": "...", "precio_objetivo": N}},
+    "caso_bajista": {{"probabilidad": 0.20, "descripcion": "...", "precio_objetivo": N}},
+    "valor_esperado": N, "status": "completado"}}
+
+  Paso 8 - Formulación de Tesis:
+  Produce la tesis de inversión final y recomendación.
+  {{"tesis": "...", "recomendacion": "comprar|mantener|vender|pasar",
+    "rango_conviccion": [min, max], "puntos_monitoreo_clave": [...],
+    "status": "completado"}}
+
+category: research
+metadata:
+  version: "2.0"
+  author: "FO Senior Analyst"
+  description: "AOIF 8-step protocol en español con salida JSON"

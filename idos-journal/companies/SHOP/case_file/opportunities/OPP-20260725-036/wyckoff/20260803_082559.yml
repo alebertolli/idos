@@ -1,0 +1,80 @@
+adjusted_weight: 3.24
+analyzed_at: '2026-08-03T08:25:59.206107-03:00'
+confidence: alta
+entry_point: ninguno
+indicators:
+  algorithmic_phase: markdown
+  bar_spread_description: 'spreads estables (promedio diario reciente: 3.7%)'
+  current_price: 117.15
+  high_52w: 179.01
+  low_52w: 95.4
+  ma_200d: 133.16
+  ma_50d: 116.07
+  pct_from_52w_high: -34.6
+  pct_from_52w_low: 22.8
+  pct_from_ma200: -12.0
+  pct_from_ma50: 0.9
+  recent_trend: tendencia de 60d alcista moderada (+11%). aceleración bajista en últimos
+    5d (-8%)
+  resistance_levels: 'resistencias identificadas: $179.01, $178.96, $175.06, $173.86,
+    $173.61 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $95.40, $97.42, $99.84, $100.28, $101.01
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (1.1x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: media
+    descripcion: Posible Clímax de Venta (Selling Climax) alcanzado en el mínimo de
+      52 semanas ($95.40), iniciando la recuperación posterior.
+    evento: SC
+  - confianza: media
+    descripcion: Rally Automático que llevó el precio desde $95.40 hasta niveles cercanos
+      a $127 (+22.8% desde mínimos).
+    evento: AR
+  - confianza: baja
+    descripcion: Retroceso reciente del -8% en 5 días que podría estar testeando la
+      fortaleza de la demanda dentro del Rango de Trading.
+    evento: ST
+  fase_wyckoff: acumulacion
+  justificacion: Aplicando el principio de prudencia del Método Wyckoff, la estructura
+    actual presenta dudas significativas. La reciente aceleración bajista (-8% en
+    5 días) muestra reaparición de oferta en el corto plazo. El activo cotiza un 12.0%
+    por debajo de la MM200 y solo cumple 3 de las 9 pruebas de compra. No existe confirmación
+    de un Spring o LPS con volumen agotado. Es preferible esperar a que la causa (rango
+    lateral) se desarrolle completamente antes de arriesgar capital.
+  limitaciones: Falta de gráfico de Punto y Figura para el cálculo formal del objetivo
+    de precio y falta de índice comparativo para la prueba de fortaleza relativa.
+  precio_objetivo_wyckoff:
+    estimado: 0
+    metodo: no_determinable
+    razonamiento: No se puede establecer un objetivo por conteo P&F preciso debido
+      a la falta de un rango de trading consolidado con suficiente causa acumulada.
+  pruebas_compra:
+    prueba_1_objetivo_caida: Pasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: Pasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: Pasa
+    prueba_7_maximos_crecientes: NoPasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 3
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: 19.3
+    fundamento: Nivel ubicado justo por debajo del soporte estructural y mínimo de
+      52 semanas ($95.40).
+    precio: 94.5
+opp_id: OPP-20260725-036
+phase: accumulation
+price_target: null
+score: 62
+stop_loss: 94.5
+ticker: SHOP
+triggered_entry: false

@@ -1,0 +1,303 @@
+assessments:
+- confidence: MEDIUM
+  engine: BusinessAssessmentEngine
+  findings:
+  - detail: 'Exceptional ROIC: 22.67%'
+    type: POSITIVE
+  - detail: 'Excellent margins: 50.74%'
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:37.501466-03:00'
+  recommendation: FAVORABLE
+  risks: []
+  score: 72
+- confidence: HIGH
+  engine: PortfolioAssessmentEngine
+  findings:
+  - detail: Portfolio has capacity for new position
+    type: POSITIVE
+  - detail: Sector Basic Materials within diversification limits
+    type: POSITIVE
+  - detail: Only 0 positions, adding increases diversification
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:37.501534-03:00'
+  recommendation: EXCELLENT_FIT
+  risks: []
+  score: 90
+- confidence: MEDIUM
+  engine: RecoveryAssessmentEngine
+  findings:
+  - dimension: business_momentum
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  - dimension: valuation_gap
+    level: HIGH
+    score: 70
+    type: DIMENSION
+  - dimension: market_expectations
+    level: MEDIUM
+    score: 50
+    type: DIMENSION
+  - dimension: catalysts
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  - dimension: technical_confirmation
+    level: MEDIUM
+    score: 50
+    type: DIMENSION
+  - dimension: risk_compression
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  generated_at: '2026-07-27T02:36:37.501515-03:00'
+  recommendation: MODERATE
+  risks: []
+  score: 60
+- confidence: HIGH
+  engine: RiskAssessmentEngine
+  findings:
+  - detail: Low leverage
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:37.501525-03:00'
+  recommendation: LOW_RISK
+  risks: []
+  score: 80
+- confidence: HIGH
+  engine: ValuationAssessmentEngine
+  findings:
+  - detail: 'Price target upside: 43.6%'
+    type: POSITIVE
+  - detail: 'FCF Yield: 8.1%'
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:37.501487-03:00'
+  recommendation: ATTRACTIVE
+  risks: []
+  score: 80
+- confidence: MEDIUM
+  engine: ResearchWorker
+  findings:
+  - 'Classification: ciclica'
+  - 'Market error: SI'
+  - 'Thesis: Barrick ofrece una opción atractiva sobre los precios de metales con
+    un balance desapalancado (D/E 0.1x) y alta rentabilidad sobre el capital (ROIC
+    22.7%). La expansión hacia la minería de cobre otorg'
+  generated_at: '2026-07-27T00:49:59.468512-03:00'
+  recommendation: REVIEW
+  risks:
+  - impacto: alto
+    probabilidad: media
+    riesgo: Caída drástica en los precios internacionales del oro y del cobre.
+  - impacto: alto
+    probabilidad: alta
+    riesgo: Riesgo de expropiación, cambios regulatorios o incrementos impositivos
+      en minas operadas en países emergentes.
+  - impacto: medio
+    probabilidad: alta
+    riesgo: Inflación de costes operativos (energía, maquinaria, suministros) incrementando
+      el All-In Sustaining Cost (AISC).
+  score: 74
+catalysts: &id001
+- descripcion: Avances regulatorios y de construcción en el proyecto Reko Diq en Pakistán.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 70
+- descripcion: Aumento sostenido en la demanda global y precio spot del cobre por
+    aceleración en la transición energética.
+  horizonte: largo
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 60
+dominios:
+  dominio_business_quality:
+    analisis: Barrick posee una cartera diversificada de minas 'Tier-1' (grandes,
+      de larga vida y bajo coste) en oro y cobre. Su desventaja estructural es la
+      falta de poder de fijación de precios al comercializar commodities, compensada
+      por su escala global y bajos costes de extracción agregados.
+    rating: buena
+  dominio_catalizadores: *id001
+  dominio_esg_supply_chain:
+    analisis: Elevado riesgo inherente por operar en jurisdicciones políticamente
+      inestables (Mali, RDC, Pakistán) y por el alto impacto ambiental en consumo
+      de agua, emisiones de carbono y gestión de relaves mineros.
+    rating: alto_riesgo
+  dominio_financial_health:
+    analisis: Balance extremadamente robusto con un ratio Deuda/Patrimonio de solo
+      0.1x. Aunque el FCF ajustado reportado aparece neutral en el periodo TTM por
+      intensas inversiones de capital (CapEx de desarrollo), el margen operativo del
+      50.7% e ingresos de $19.04B garantizan solvencia absoluta.
+    rating: fuerte
+  dominio_growth:
+    analisis: Impulsado por un crecimiento reciente de ingresos del +13.5%. El motor
+      futuro de crecimiento proviene de la aceleración en producción de cobre estratégica
+      para electrificación global, superando la madurez de algunos yacimientos de
+      oro tradicionales.
+    rating: moderado
+  dominio_management:
+    analisis: Datos suministrados reflejan 0% de propiedad interna (insider ownership)
+      y 0 años de antigüedad reportada en el cargo para el CEO actual, lo cual genera
+      incertidumbre sobre la alineación directa a través de acciones, a pesar del
+      histórico rigor operativo de la firma.
+    rating: regular
+  dominio_riesgos: &id002
+  - impacto: alto
+    probabilidad: media
+    riesgo: Caída drástica en los precios internacionales del oro y del cobre.
+  - impacto: alto
+    probabilidad: alta
+    riesgo: Riesgo de expropiación, cambios regulatorios o incrementos impositivos
+      en minas operadas en países emergentes.
+  - impacto: medio
+    probabilidad: alta
+    riesgo: Inflación de costes operativos (energía, maquinaria, suministros) incrementando
+      el All-In Sustaining Cost (AISC).
+entry:
+  conviction_at_entry: 75
+  current_price: 37.11
+  entry_date: '2026-07-30T13:03:09.538218-03:00'
+  entry_price: 37.11
+  intrinsic_value: 53.30625
+  margin_of_safety_pct: null
+  quantity: 80
+  stop_loss: 31.71
+  target_price: 53.30625
+fundamentals:
+  business_model: Barrick Mining Corporation engages in the exploration, development,
+    production, and sale of mineral properties. It explores for gold, copper, silver,
+    and energy materials. The company was formerly known as Barrick Gold Corporation
+    and changed its name to Barrick Mining Corporation in May 2025. Barrick Mining
+    Corporation was founded in 1983 and is based in Toronto, Canada.
+  ceo_tenure: 0
+  debt_to_equity: 0.13
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: B
+  operating_margin: 50.74
+  pe_ratio: 10.17
+  products: ''
+  revenue: 19040000000.0
+  revenue_growth: 13.51
+  roic: 22.67
+  sector: Basic Materials
+  ticker: B
+opp_id: OPP-20260725-005
+recommendation: APPROVE
+risks: *id002
+rules_failed: []
+rules_passed:
+- RULE-001
+- RULE-003
+- RULE-004
+- RULE-005
+- RULE-008
+snapshot_at: '2026-08-12T01:33:06.913624-03:00'
+technical:
+  analyzed_at: '2026-07-30T13:03:09.339498-03:00'
+  indicators:
+    algorithmic_phase: unknown
+    bar_spread_description: 'spreads estables (promedio diario reciente: 1.4%)'
+    current_price: 37.1
+    high_52w: 52.32
+    low_52w: 20.63
+    ma_200d: 40.97
+    ma_50d: 38.6
+    pct_from_52w_high: -29.1
+    pct_from_52w_low: 79.8
+    pct_from_ma200: -9.4
+    pct_from_ma50: -3.9
+    recent_trend: tendencia de 60d lateral (-4%). últimos 5d estables (-0%)
+    resistance_levels: 'resistencias identificadas: $52.32, $51.52, $51.40, $50.65,
+      $50.53 (basado en máximos históricos)'
+    support_levels: 'soportes identificados: $20.63, $20.65, $20.89, $21.68, $22.04
+      (basado en mínimos históricos)'
+    ticker: ''
+    volume_description: volumen reciente en línea con histórico (0.7x el promedio)
+  llm_response:
+    confianza: alta
+    datos_suficientes: true
+    eventos_wyckoff_detectados:
+    - confianza: alta
+      descripcion: Volumen alto, spread amplio, primer signo de compra
+      evento: PS
+    fase_wyckoff: acumulacion
+    justificacion: Se detecta un Preliminary Support (PS) con alta confianza y se
+      cumplen 4 de las 9 pruebas de compra
+    limitaciones: ''
+    precio_objetivo_wyckoff:
+      estimado: 45.67
+      metodo: conteo_pnf
+      razonamiento: Se estima un conteo P&F aproximado para el objetivo de precio
+    pruebas_compra:
+      prueba_1_objetivo_caida: Pasa
+      prueba_2_actividad_alcista: NoPasa
+      prueba_3_parada_critica: Pasa
+      prueba_4_fortaleza_relativa: N/A
+      prueba_5_linea_suministro: NoPasa
+      prueba_6_soportes_crecientes: Pasa
+      prueba_7_maximos_crecientes: NoPasa
+      prueba_8_base_construida: Pasa
+      prueba_9_relacion_3_1: NoPasa
+      pruebas_pasan: 4
+      total_pruebas: 9
+    punto_entrada: spring_3
+    senal_entrada: COMPRAR
+    stop_loss_sugerido:
+      distancia_pct: -7.1
+      fundamento: Se sugiere un Stop Loss a 7.1% por debajo del precio actual
+      precio: 34.5
+  triggered_entry: true
+  wyckoff_confidence: alta
+  wyckoff_entry_point: spring_3
+  wyckoff_phase: accumulation
+  wyckoff_price_target: 45.67
+  wyckoff_score: 74
+thesis:
+  catalizador_cambio: &id003
+    descripcion: Entrada en fase de producción comercial de proyectos clave de cobre
+      (Reko Diq) y consolidación de precios de cobre/oro en niveles elevados.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 65
+  clasificacion_oportunidad:
+    categoria: ciclica
+    categorias_descartadas: 'Compounder: Descartada porque los productores de materias
+      primas carecen de fijación de precios estructural a largo plazo y sufren volatilidad
+      cíclica severa. Deep Value: Descartada porque la empresa cotiza cerca de valor
+      razonable respaldado por activos productivos y márgenes operativos elevados
+      (50.7%), en lugar de liquidez neta o descuento por quiebra.'
+    justificacion: Barrick Mining Corporation es uno de los mayores productores globales
+      de oro y cobre. Al ser un extractor de materias primas (commodity price taker),
+      sus ingresos y flujos de caja están inherentemente vinculados a los ciclos macroeconómicos
+      globales y la cotización spot de los metales, a pesar de poseer activos de bajo
+      coste de producción (Tier-1).
+  error_mercado:
+    catalizador_cambio: *id003
+    conclusion_error_valoracion: SI
+    consenso_actual: El mercado descuenta que el crecimiento reciente en ingresos
+      (+13.5%) es temporal y dependiente exclusivamente de picos en los precios del
+      oro, aplicando un descuento significativo por riesgos geopolíticos en sus jurisdicciones
+      mineras (Muntan ia, Pakistán, Mali, República Democrática del Congo) y la presión
+      inflacionaria en los costes sostenibles de producción (AISC).
+    hipotesis_contraria: El mercado infravalora el giro estratégico hacia la producción
+      masiva de cobre (proyecto Reko Diq y expansión de Lumwana) enfocado en la transición
+      energética, así como la altísima calidad del balance (D/E de 0.1x) y un margen
+      operativo del 50.7% que provee un colchón defensivo superior al de sus competidores
+      directos.
+    razonamiento: 'Existe una asimetría favorable no descontada totalmente: la valoración
+      refleja los riesgos geopolíticos tradicionales del sector minero, ignorando
+      la transformación estratégica hacia activos de cobre de larga vida útil con
+      costes de extracción en el primer cuartil de la curva global.'
+  opinion_valoracion: infravalorado
+  resumen_ejecutivo: Barrick Mining Corporation presenta una sólida posición financiera
+    con un nivel de apalancamiento sumamente bajo (D/E 0.1x) y márgenes operativos
+    excepcionales (50.7%). Si bien es un negocio cíclico expuesto a precios de materias
+    primas y jurisdicciones complejas, la expansión planificada en cobre y la optimización
+    de sus minas Tier-1 ofrecen una rentabilidad ajustada por riesgo atractiva.
+  score_general: 74
+  tesis_inversion: Barrick ofrece una opción atractiva sobre los precios de metales
+    con un balance desapalancado (D/E 0.1x) y alta rentabilidad sobre el capital (ROIC
+    22.7%). La expansión hacia la minería de cobre otorga un catalizador de revalorización
+    no plenamente apreciado por el consenso, justificando una posición en un portafolio
+    diversificado.
+ticker: B

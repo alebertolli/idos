@@ -1,0 +1,23 @@
+name: "Deep Value"
+description: "Empresas muy infravaloradas con margen de seguridad"
+finviz_ref: "https://finviz.com/screener.ashx?v=121&f=fa_pe_low,fa_pb_low,fa_debt_plus"
+expected_pass_rate: 0.05
+mode: all
+
+rules:
+  - field: pe_ratio
+    operator: lt
+    value: 15
+    weight: 3
+  - field: pb_ratio
+    operator: lt
+    value: 1.5
+    weight: 2
+  - field: fcf_yield_pct
+    operator: gt
+    value: 5
+    weight: 3
+  - field: debt_equity_ratio
+    operator: lt
+    value: 2
+    weight: 2

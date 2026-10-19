@@ -1,0 +1,279 @@
+assessments:
+- confidence: MEDIUM
+  engine: BusinessAssessmentEngine
+  findings:
+  - detail: 'Exceptional ROIC: 28.72%'
+    type: POSITIVE
+  - detail: 'Excellent margins: 31.31%'
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:40.116569-03:00'
+  recommendation: FAVORABLE
+  risks: []
+  score: 72
+- confidence: HIGH
+  engine: PortfolioAssessmentEngine
+  findings:
+  - detail: Portfolio has capacity for new position
+    type: POSITIVE
+  - detail: Sector Basic Materials within diversification limits
+    type: POSITIVE
+  - detail: Only 0 positions, adding increases diversification
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:40.116636-03:00'
+  recommendation: EXCELLENT_FIT
+  risks: []
+  score: 90
+- confidence: MEDIUM
+  engine: RecoveryAssessmentEngine
+  findings:
+  - dimension: business_momentum
+    level: HIGH
+    score: 70
+    type: DIMENSION
+  - dimension: valuation_gap
+    level: HIGH
+    score: 70
+    type: DIMENSION
+  - dimension: market_expectations
+    level: MEDIUM
+    score: 50
+    type: DIMENSION
+  - dimension: catalysts
+    level: MEDIUM
+    score: 65
+    type: DIMENSION
+  - dimension: technical_confirmation
+    level: MEDIUM
+    score: 50
+    type: DIMENSION
+  - dimension: risk_compression
+    level: MEDIUM
+    score: 60
+    type: DIMENSION
+  generated_at: '2026-07-27T02:36:40.116616-03:00'
+  recommendation: MODERATE
+  risks: []
+  score: 63
+- confidence: MEDIUM
+  engine: RiskAssessmentEngine
+  findings:
+  - detail: Low leverage
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:40.116626-03:00'
+  recommendation: LOW_RISK
+  risks:
+  - detail: 'Current ratio below 1: 0.5x'
+    type: LIQUIDITY
+  score: 70
+- confidence: HIGH
+  engine: ValuationAssessmentEngine
+  findings:
+  - detail: 'Price target upside: 30.6%'
+    type: POSITIVE
+  - detail: 'FCF Yield: 6.6%'
+    type: POSITIVE
+  generated_at: '2026-07-27T02:36:40.116589-03:00'
+  recommendation: ATTRACTIVE
+  risks: []
+  score: 80
+- confidence: HIGH
+  engine: ResearchWorker
+  findings:
+  - 'Classification: compounder'
+  - 'Market error: SI'
+  - 'Thesis: La empresa Harmony Gold Mining Company Limited es un compounder con una
+    larga historia de crecimiento y una posición competitiva sólida en el sector de
+    la minería de oro. El precio actual es un error '
+  generated_at: '2026-07-27T01:13:22.068066-03:00'
+  recommendation: REVIEW
+  risks:
+  - impacto: medio
+    probabilidad: media
+    riesgo: riesgo operativo
+  - impacto: bajo
+    probabilidad: baja
+    riesgo: riesgo financiero
+  score: 85
+catalysts: &id001
+- descripcion: un aumento en la demanda de oro
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 70
+- descripcion: una mejora en la eficiencia operativa de la empresa
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 60
+dominios:
+  dominio_business_quality:
+    analisis: La empresa tiene una posición competitiva sólida y una buena salud financiera,
+      lo que sugiere que es un negocio de alta calidad.
+    rating: excepcional
+  dominio_catalizadores: *id001
+  dominio_esg_supply_chain:
+    analisis: La empresa no tiene riesgos significativos en términos de ESG y su cadena
+      de suministro es estable.
+    rating: bajo_riesgo
+  dominio_financial_health:
+    analisis: La empresa tiene una buena salud financiera, con un crecimiento de la
+      renta y un margen operativo sólidos.
+    rating: fuerte
+  dominio_growth:
+    analisis: La empresa tiene un crecimiento de la renta sólido y una buena salud
+      financiera, lo que sugiere que el crecimiento futuro es probable.
+    rating: fuerte
+  dominio_management:
+    analisis: La falta de experiencia del CEO y la baja participación de los accionistas
+      en la empresa sugieren que la gestión no es de alta calidad.
+    rating: bueno
+  dominio_riesgos: &id002
+  - impacto: medio
+    probabilidad: media
+    riesgo: riesgo operativo
+  - impacto: bajo
+    probabilidad: baja
+    riesgo: riesgo financiero
+entry:
+  conviction_at_entry: 74
+  current_price: 15.87
+  entry_date: '2026-07-30T13:04:36.659880-03:00'
+  entry_price: 15.87
+  intrinsic_value: 20.72537
+  margin_of_safety_pct: null
+  quantity: 188
+  stop_loss: 14.25
+  target_price: 20.72537
+fundamentals:
+  business_model: Harmony Gold Mining Company Limited engages in the exploration,
+    extraction, and processing of mineral properties in South Africa, Papua New Guinea,
+    and Australia. The company explores for gold, uranium, silver, and copper deposits.
+    It has nine underground operations in the Witwatersrand Basin; the Kraaipan Greenstone
+    Belt; and various surface source operations in South Africa. In addition, the
+    company owns interests in the Hidden Valley, an open-pit gold and silver mine;
+    and the Wafi-Golpu project located in Morobe Province in Papua New Guinea. Further,
+    it holds interest in Eva Copper Project located in Queensland, Australia. Harmony
+    Gold Mining Company Limited was incorporated in 1950 and is based in Randfontein,
+    South Africa.
+  ceo_tenure: 0
+  debt_to_equity: 0.25
+  fcf_adjusted: 0
+  insider_ownership: 0
+  name: Harmony Gold Mining Company Limited
+  operating_margin: 31.31
+  pe_ratio: 10.15
+  products: ''
+  revenue: 4900000000.0
+  revenue_growth: 19.35
+  roic: 28.72
+  sector: Basic Materials
+  ticker: HMY
+opp_id: OPP-20260725-011
+recommendation: APPROVE
+risks: *id002
+rules_failed: []
+rules_passed:
+- RULE-001
+- RULE-003
+- RULE-004
+- RULE-005
+- RULE-008
+snapshot_at: '2026-08-12T01:33:09.586377-03:00'
+technical:
+  analyzed_at: '2026-07-30T13:04:36.555110-03:00'
+  indicators:
+    algorithmic_phase: unknown
+    bar_spread_description: 'spreads estables (promedio diario reciente: 2.3%)'
+    current_price: 15.89
+    high_52w: 25.55
+    low_52w: 12.37
+    ma_200d: 17.79
+    ma_50d: 16.0
+    pct_from_52w_high: -37.8
+    pct_from_52w_low: 28.4
+    pct_from_ma200: -10.7
+    pct_from_ma50: -0.7
+    recent_trend: tendencia de 60d lateral (+2%). últimos 5d estables (+0%)
+    resistance_levels: 'resistencias identificadas: $25.55, $24.04, $23.70, $23.13,
+      $23.01 (basado en máximos históricos)'
+    support_levels: 'soportes identificados: $12.37, $13.03, $13.07, $13.21, $13.22
+      (basado en mínimos históricos)'
+    ticker: ''
+    volume_description: volumen reciente en línea con histórico (0.8x el promedio)
+  llm_response:
+    confianza: alta
+    datos_suficientes: true
+    eventos_wyckoff_detectados:
+    - confianza: alta
+      descripcion: Volumen alto, spread amplio, primer signo de compra
+      evento: PS
+    fase_wyckoff: acumulacion
+    justificacion: La tendencia reciente es lateral y se han identificado soportes
+      crecientes
+    limitaciones: ''
+    precio_objetivo_wyckoff:
+      estimado: 23.01
+      metodo: conteo_pnf
+      razonamiento: Se puede estimar un conteo P&F aproximado para el objetivo de
+        precio
+    pruebas_compra:
+      prueba_1_objetivo_caida: Pasa
+      prueba_2_actividad_alcista: NoPasa
+      prueba_3_parada_critica: Pasa
+      prueba_4_fortaleza_relativa: N/A
+      prueba_5_linea_suministro: NoPasa
+      prueba_6_soportes_crecientes: Pasa
+      prueba_7_maximos_crecientes: NoPasa
+      prueba_8_base_construida: Pasa
+      prueba_9_relacion_3_1: NoPasa
+      pruebas_pasan: 4
+      total_pruebas: 9
+    punto_entrada: spring_3
+    senal_entrada: COMPRAR
+    stop_loss_sugerido:
+      distancia_pct: 23.7
+      fundamento: Soportes crecientes
+      precio: 12.37
+  triggered_entry: true
+  wyckoff_confidence: alta
+  wyckoff_entry_point: spring_3
+  wyckoff_phase: accumulation
+  wyckoff_price_target: 23.01
+  wyckoff_score: 74
+thesis:
+  catalizador_cambio: &id003
+    descripcion: Un aumento en la demanda de oro o una mejora en la eficiencia operativa
+      de la empresa
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 60
+  clasificacion_oportunidad:
+    categoria: compounder
+    categorias_descartadas: turnaround, deep_value, ciclica, special_situation, distressed,
+      hype, value_trap
+    justificacion: La empresa tiene una larga historia de crecimiento y ha mantenido
+      una posición competitiva en el sector de la minería de oro. El crecimiento de
+      la renta y el margen operativo sugieren una buena salud financiera.
+  error_mercado:
+    catalizador_cambio: *id003
+    conclusion_error_valoracion: SI
+    consenso_actual: El precio de la empresa está influenciado por la creencia de
+      que la minería de oro es un sector en declive y que la empresa no puede mantener
+      su posición competitiva.
+    hipotesis_contraria: La empresa tiene una posición competitiva sólida y una buena
+      salud financiera, lo que sugiere que el precio actual es un error de valoración.
+    razonamiento: La creencia de que la minería de oro es un sector en declive es
+      una hipótesis que puede ser desafiada por la realidad. La empresa tiene una
+      posición competitiva sólida y una buena salud financiera, lo que sugiere que
+      el precio actual es un error de valoración.
+  opinion_valoracion: infravalorado
+  resumen_ejecutivo: La empresa Harmony Gold Mining Company Limited es un compounder
+    con una larga historia de crecimiento y una posición competitiva sólida en el
+    sector de la minería de oro. El precio actual es un error de valoración debido
+    a la creencia de que la minería de oro es un sector en declive.
+  score_general: 85
+  tesis_inversion: La empresa Harmony Gold Mining Company Limited es un compounder
+    con una larga historia de crecimiento y una posición competitiva sólida en el
+    sector de la minería de oro. El precio actual es un error de valoración debido
+    a la creencia de que la minería de oro es un sector en declive.
+ticker: HMY

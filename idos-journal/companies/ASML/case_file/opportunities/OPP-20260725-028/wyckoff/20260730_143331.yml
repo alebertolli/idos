@@ -1,0 +1,76 @@
+adjusted_weight: 3.24
+analyzed_at: '2026-07-30T14:33:31.472723-03:00'
+confidence: alta
+entry_point: ninguno
+indicators:
+  algorithmic_phase: markup
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.8%)'
+  current_price: 1653.85
+  high_52w: 1986.85
+  low_52w: 685.11
+  ma_200d: 1384.56
+  ma_50d: 1745.63
+  pct_from_52w_high: -16.8
+  pct_from_52w_low: 141.4
+  pct_from_ma200: 19.4
+  pct_from_ma50: -5.3
+  recent_trend: tendencia de 60d alcista moderada (+15%). aceleración bajista en últimos
+    5d (-6%)
+  resistance_levels: 'resistencias identificadas: $1986.85, $1927.17, $1926.74, $1897.01,
+    $1890.20 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $685.11, $685.30, $686.43, $690.16, $694.78
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (1.2x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: media
+    descripcion: El precio se encuentra en una fase de avance (Markup) sufriendo un
+      retroceso del -6% en los últimos 5 días, situándose por debajo de la MA50. No
+      se observa una estructura clara de acumulación reciente ni un punto de giro
+      confirmado (Spring/LPS).
+    evento: Ninguno
+  fase_wyckoff: markup
+  justificacion: Siguiendo los principios de prudencia de Wyckoff, la aceleración
+    bajista reciente (-6% en 5 días) con volumen superior al promedio (1.2x) indica
+    presencia de oferta a corto plazo. El precio está por debajo de la MA50 y retrocediendo
+    desde el máximo de 52 semanas sin haber completado una estructura de reacumulación
+    limpia (sin Spring ni LPS confirmados). Solo se cumplen 2 de las 9 pruebas de
+    compra. Es preferible esperar a que la oferta se agote y aparezca una señal clara
+    de parada o confirmación de LPS.
+  limitaciones: Se requiere gráfico de Punto y Figura para realizar un conteo exacto
+    de Causa y Efecto, así como detalle del comportamiento volumen/precio intradía
+    en las zonas de soporte clave.
+  precio_objetivo_wyckoff:
+    estimado: 1986.85
+    metodo: causa_efecto
+    razonamiento: En caso de reanudar la tendencia alcista de fondo, el primer objetivo
+      lógico es volver a testear la resistencia del máximo de 52 semanas en $1986.85.
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: NoPasa
+    prueba_6_soportes_crecientes: Pasa
+    prueba_7_maximos_crecientes: Pasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 2
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: -16.28
+    fundamento: Ubicado por debajo de la media móvil de 200 días ($1384.56) que actúa
+      como soporte dinámico estructural.
+    precio: 1384.56
+opp_id: OPP-20260725-028
+phase: markup
+price_target: 1986.85
+score: 20
+stop_loss: 1384.56
+ticker: ASML
+triggered_entry: false
