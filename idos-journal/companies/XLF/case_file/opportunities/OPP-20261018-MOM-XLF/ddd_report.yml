@@ -7,7 +7,7 @@ calidad_evidencia:
   - ¿La señal persistirá hasta el próximo rebalanceo?
 catalizadores_previos:
 - descripcion: Persistencia del ranking relativo hasta el próximo rebalanceo
-  generated_at: '2026-10-18T20:54:44.352078-03:00'
+  generated_at: '2026-10-18T21:00:44.260541-03:00'
   horizonte: corto
   impacto: alto
   nivel_confianza: ''
@@ -29,7 +29,7 @@ dominio_catalizadores:
 - descripcion: Persistencia del ranking relativo hasta el próximo rebalanceo
   horizonte: corto
   impacto: alto
-  probabilidad_pct: 50
+  probabilidad_pct: null
 dominio_esg_supply_chain:
   analisis: No es un criterio de selección de la señal.
   rating: no_aplica
@@ -46,7 +46,7 @@ dominio_riesgos:
 - descripcion: La señal puede deteriorarse entre rebalanceos; aplicar límites de peso
     y salida.
   impacto: alto
-  probabilidad: media
+  probabilidad: no evaluada
   riesgo: Reversión brusca del momentum
 error_mercado:
   conclusion_error_valoracion: NO_APLICA
@@ -54,9 +54,9 @@ error_mercado:
   hipotesis_contraria: La persistencia del momentum puede romperse antes del próximo
     rebalanceo.
   razonamiento: La señal cuantitativa y sus límites son la evidencia primaria.
-generated_at: '2026-10-18T21:00:44.260541-03:00'
+generated_at: '2026-10-18T21:08:23.925368-03:00'
 integridad_tesis:
-  reason: La tesis permanece activa mientras la señal esté dentro del rango operativo.
+  reason: Señal dentro del rango configurado.
   thesis_active: true
 opinion_valoracion: 'No aplica: la entrada se decide por señal y rebalanceo.'
 opp_id: OPP-20261018-MOM-XLF
@@ -80,15 +80,21 @@ prompt_inputs:
   roic: 0
   sector: ''
   ticker: XLF
-resumen_ejecutivo: Momentum mensual 0.61; score normalizado 23/100; volatilidad 90d
-  0.0%.
+resumen_ejecutivo: Momentum mensual 0.61; rango configurado 0.6–2.7; índice descriptivo
+  23/100. Riesgo y probabilidad no evaluados.
 score_general: 23
 strategy_context:
-  risk_rating: bajo_riesgo
+  probability_status: NOT_ASSESSED
+  report_method_version: systematic_signal_v2
+  risk_rating: NOT_ASSESSED
+  score_method: momentum_div_max_v1
   signal:
     as_of_date: '2026-10-01'
     momentum: 0.6124063843262988
     ticker: XLF
+  signal_policy:
+    maximum_signal: 2.7
+    minimum_signal: 0.6
   strategy_id: MOMENTUM_ETF
 target_consensus: null
 tesis_inversion: 'XLF: exposición sistemática a momentum mensual; la señal actual

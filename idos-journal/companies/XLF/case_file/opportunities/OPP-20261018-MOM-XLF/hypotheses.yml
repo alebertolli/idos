@@ -1,26 +1,25 @@
 hypotheses:
-- confidence: 0.7
+- confidence: null
   falsification:
-  - condition: La señal sale del rango operativo o cruza el umbral de salida
+  - condition: Señal por debajo del mínimo configurado
     metric: momentum_signal
-    threshold: 0.0
+    threshold: 0.6
+    triggered: false
+  - condition: Señal por encima del máximo configurado
+    metric: momentum_signal
+    threshold: 2.7
     triggered: false
   falsification_conditions:
-  - La señal sale del rango operativo o cruza el umbral de salida
-  - La señal sale del rango operativo o cruza el umbral de salida
+  - Señal por debajo del mínimo configurado
+  - Señal por encima del máximo configurado
   id: H-MOMENTUM-1-OPP-20261018-MOM-XLF
   opportunity_id: OPP-20261018-MOM-XLF
   parent_id: ''
-  predictions:
-  - actual: null
-    deadline: 1 mes
-    expected: 0.6124063843262988
-    met: null
-    metric: momentum_signal
-    unit: score
+  predictions: []
   priority: important
-  probability: 0.5
-  statement: ''
+  probability: null
+  statement: La señal mensual de XLF permanece entre 0.6 y 2.7 hasta el próximo rebalanceo;
+    la asignación requiere revisión privada de riesgo.
   status: ACTIVE
   ticker: XLF
   version: 1
