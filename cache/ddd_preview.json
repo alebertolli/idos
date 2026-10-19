@@ -3,8 +3,19 @@
     {
       "ticker": "ASML",
       "opp_id": "OPP-20260725-028",
-      "reason": "FORCE manager-requested Buy List re-review (status=APPROVED)",
-      "force_reprocess": true
+      "reason": "configured event trigger: quarterly_results (status=UNDER_DEEP_DD)",
+      "force_reprocess": true,
+      "trigger_type": "quarterly_results",
+      "event_evidence": {
+        "event_type": "quarterly_results",
+        "ticker": "ASML",
+        "occurred_at": "2026-10-14",
+        "source_name": "ASML Investor Relations",
+        "source_url": "https://www.investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026",
+        "summary": "ASML public\u00f3 resultados del tercer trimestre de 2026 el 14 de octubre; contrastar ventas, beneficio y guidance con el comunicado oficial.",
+        "observed_at": "2026-10-19T13:58:23.688643+00:00",
+        "event_id": "5b305df30d2cdcb25f474610422d94bdec241db89ce84a804dfe46144e93c174"
+      }
     }
   ],
   "skipped": [],

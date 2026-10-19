@@ -5,8 +5,8 @@
       "opp_id": "OPP-20260725-028",
       "ticker": "ASML",
       "status": "completed",
-      "score": 87,
-      "reason": "FORCE manager-requested Buy List re-review (status=APPROVED)",
+      "score": 85,
+      "reason": "configured event trigger: quarterly_results (status=UNDER_DEEP_DD)",
       "errors": []
     }
   ],
@@ -16,14 +16,14 @@
       "ticker": "ASML",
       "opp_id": "OPP-20260725-028",
       "status": "completed",
-      "conviction_score": 70,
+      "conviction_score": 69,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": null,
       "decision_id": null,
       "assessments": {
         "BusinessAssessmentEngine": 76,
-        "ValuationAssessmentEngine": 70,
+        "ValuationAssessmentEngine": 65,
         "RecoveryAssessmentEngine": 64,
         "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 50
@@ -42,8 +42,8 @@
         "RULE-001": "Business quality: 76/70",
         "RULE-003": "Rerating: 64/50",
         "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 70/65",
-        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: se requieren resultados con upside y downside para calcular B/R",
+        "RULE-005": "Conviction: 69/65",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: BULL.sources[0]: la fecha de fuente no puede superar as_of_date",
         "RULE-010": "fecha de corte ausente, inv\u00e1lida o futura; procedencia incompleta"
       },
       "data_quality": "partial",
@@ -62,7 +62,7 @@
   ],
   "errors": [],
   "status": "research_completed",
-  "event_type": "manual",
+  "event_type": "quarterly_results",
   "force": true,
   "stale_days_threshold": 30
 }

@@ -104,3 +104,27 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-10-19T08:05:51.438353'
+- data:
+    classification: compounder
+    ddd_empty: false
+    event_evidence:
+      event_id: 5b305df30d2cdcb25f474610422d94bdec241db89ce84a804dfe46144e93c174
+      event_type: quarterly_results
+      observed_at: '2026-10-19T13:58:23.989304+00:00'
+      occurred_at: '2026-10-14'
+      source_name: ASML Investor Relations
+      source_url: https://www.investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026
+      summary: ASML publicó resultados del tercer trimestre de 2026 el 14 de octubre;
+        contrastar ventas, beneficio y guidance con el comunicado oficial.
+      ticker: ASML
+    event_type: quarterly_results
+    hypotheses: 4
+    input_snapshot_sha256: b67354f81c01887da4cf0b611291a20292a0612a12d725f4f2b12a46930e8136
+    opp_id: OPP-20260725-028
+    original_status: UNDER_DEEP_DD
+    score: 85
+    strategy_version: legacy-compatible
+    ticker: ASML
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-19T14:01:03.193459'
