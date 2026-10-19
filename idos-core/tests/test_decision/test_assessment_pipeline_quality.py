@@ -1,4 +1,5 @@
 from idos.decision.assessment_pipeline import (
+    _remove_buylist_entry,
     _authorization_rule_ids,
     _compute_asymmetry,
     _eval_asymmetry,
@@ -213,3 +214,22 @@ def test_missing_cutoff_blocks_orchestrated_decision_even_with_high_conviction(t
     assert proposal.recommendation == "BLOCKED"
     assert "RULE-010" in proposal.rules_failed
     assert "RULE-008" in proposal.rules_failed
+
+
+def test_reassessment_removes_only_the_stale_manager_approved_buylist_entry(tmp_path):
+    import yaml
+
+    path = tmp_path / "idos-journal/portfolio/buylist.yml"
+    path.parent.mkdir(parents=True)
+    path.write_text(yaml.safe_dump({"entries": [
+        {"ticker": "VIST", "opp_id": "OPP-OLD"},
+        {"ticker": "VIST", "opp_id": "OPP-CURRENT"},
+        {"ticker": "AAPL", "opp_id": "OPP-AAPL"},
+    ]}), encoding="utf-8")
+
+    assert _remove_buylist_entry("VIST", "OPP-CURRENT", tmp_path)
+    entries = yaml.safe_load(path.read_text(encoding="utf-8"))["entries"]
+    assert entries == [
+        {"ticker": "VIST", "opp_id": "OPP-OLD"},
+        {"ticker": "AAPL", "opp_id": "OPP-AAPL"},
+    ]

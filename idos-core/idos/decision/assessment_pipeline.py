@@ -8,7 +8,10 @@ from idos.data.sqlite import SQLiteStore
 from idos.data.knowledge import KnowledgeRepository
 from idos.data.journal import JournalRepository
 from idos.decision.orchestrator import DecisionOrchestrator, DecisionProposal
-from idos.decision.board import DecisionBoard, BoardResolution
+from idos.decision.scenarios import (
+    calculate_scenario_asymmetry,
+    validate_scenario_review,
+)
 from idos.decision.conviction import ConvictionCalculator
 from idos.decision.engines.business import BusinessAssessmentEngine
 from idos.decision.engines.valuation import ValuationAssessmentEngine
@@ -18,7 +21,6 @@ from idos.decision.engines.portfolio import PortfolioAssessmentEngine
 from idos.rules.engine import RulesEngine, RuleResult
 from idos.models.knowledge import Rule
 from idos.models.enums import OpportunityStatus
-from idos.portfolio.buylist import BuyListManager, BuyListEntry
 from idos.config import load_settings
 from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
@@ -119,44 +121,31 @@ def _valid_cutoff_date(value: Any) -> date | None:
     return cutoff
 
 
-def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, Any],
-                     opp_id: str, bp: Path, knowledge: KnowledgeRepository):
-    target_price = context.get("intrinsic_value", 0) or 0
-    margin = context.get("margin_of_safety", 30.0)
-    buy_zone_top = target_price / (1 + margin / 100) if target_price else 0
-    entry = BuyListEntry(
-        ticker=ticker,
-        target_price=target_price,
-        buy_zone_top=buy_zone_top,
-        max_position_pct=context.get("proposed_weight", 3.0),
-        conviction_score=proposal.conviction_score,
-        horizon="12-36 months",
-        catalysts=context.get("catalysts", []),
-        kb_last_update=proposal.created_at,
-    )
-    buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
-    buylist_path.parent.mkdir(parents=True, exist_ok=True)
-    import yaml
-    existing = {}
-    if buylist_path.exists():
-        existing = yaml.safe_load(buylist_path.read_text(encoding="utf-8")) or {}
-    entries = existing.get("entries", [])
-    entries = [e for e in entries if e.get("ticker") != ticker]
-    entries.append({
-        "ticker": ticker,
-        "opp_id": opp_id,
-        "target_price": target_price,
-        "buy_zone_top": buy_zone_top,
-        "max_position_pct": entry.max_position_pct,
-        "conviction_score": proposal.conviction_score,
-        "horizon": "12-36 months",
-        "catalysts": context.get("catalysts", []),
-        "kb_last_update": proposal.created_at,
-        "added_at": entry.added_at,
-        "monitoring": True,
-    })
-    buylist_path.write_text(yaml.dump({"entries": entries}, default_flow_style=False, allow_unicode=True), encoding="utf-8")
-    print(f"[BUYLIST] {ticker} added to persistent Buy List (target={target_price}, zone={buy_zone_top})")
+def _remove_buylist_entry(ticker: str, opp_id: str, base_path: Path) -> bool:
+    """Remove only a stale, version-specific public Buy List entry."""
+    path = base_path / "idos-journal" / "portfolio" / "buylist.yml"
+    if not path.exists():
+        return False
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError):
+        return False
+    if not isinstance(data, dict) or not isinstance(data.get("entries", []), list):
+        return False
+    entries = data.get("entries", [])
+    filtered = [
+        entry for entry in entries
+        if not (
+            isinstance(entry, dict)
+            and str(entry.get("ticker", "")).upper() == ticker.upper()
+            and entry.get("opp_id") == opp_id
+        )
+    ]
+    if len(filtered) == len(entries):
+        return False
+    data["entries"] = filtered
+    path.write_text(yaml.safe_dump(data, allow_unicode=True, sort_keys=False), encoding="utf-8")
+    return True
 
 
 def build_context(
@@ -251,6 +240,7 @@ def build_context(
         cv = opp.get("conviction", {}) or {}
         margin_of_safety = cv.get("margin_of_safety", 30.0)
     current_price = None
+    quote_currency = None
     target_low = None
     target_mean = None
     target_high = None
@@ -259,6 +249,7 @@ def build_context(
         _s = yf.Ticker(ticker)
         _i = _s.info or {}
         current_price = _i.get("currentPrice") or _i.get("regularMarketPrice")
+        quote_currency = _i.get("currency")
         target_mean = _i.get("targetMeanPrice")
         target_low = _i.get("targetLowPrice")
         target_high = _i.get("targetHighPrice")
@@ -307,7 +298,19 @@ def build_context(
     target_consensus = report.get("target_consensus") or {}
     consensus_target = target_consensus.get("promedio", 0) or 0
 
-    asymmetry = _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
+    scenario_review = None
+    scenario_review_path = opp_dir / "scenario_review.yml"
+    if scenario_review_path.exists():
+        try:
+            scenario_review = yaml.safe_load(scenario_review_path.read_text(encoding="utf-8"))
+        except (OSError, yaml.YAMLError):
+            scenario_review = None
+    # Catalyst-derived estimates may coexist and remain visible for context,
+    # but only an approved, version-matched Bear/Base/Bull set can authorize.
+    asymmetry = _calculate_report_asymmetry(
+        report, raw_catalysts, current_price, target_low, target_mean, target_high,
+        quote_currency, scenario_review,
+    )
 
     return {
         "knowledge_base": {"dynamic": {"metrics": metrics}, "static": static},
@@ -320,6 +323,7 @@ def build_context(
         "risk_events": risk_events,
         "asymmetry": asymmetry,
         "current_price": current_price,
+        "quote_currency": quote_currency,
         "intrinsic_value": consensus_target or target_mean,
         "target_consensus": target_consensus,
         "proposed_weight": 3.0,
@@ -544,6 +548,35 @@ def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, ta
         "passes_threshold": False,
         "horizonte_avg_years": round(horizon_avg, 2),
     }
+
+
+def _calculate_report_asymmetry(
+    report: Any,
+    raw_catalysts: list,
+    current_price: Any,
+    target_low: Any,
+    target_mean: Any,
+    target_high: Any,
+    quote_currency: str | None,
+    scenario_review: Any,
+) -> dict[str, Any] | None:
+    """Prefer an approved explicit scenario contract; retain catalyst math only as provisional context."""
+    report = report if isinstance(report, dict) else {}
+    analysis = report.get("scenario_analysis")
+    if analysis is None:
+        return _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
+    asymmetry = calculate_scenario_asymmetry(
+        analysis,
+        current_price=current_price,
+        quote_currency=quote_currency,
+    )
+    review_approved, review_reason = validate_scenario_review(analysis, scenario_review)
+    asymmetry["authorization_eligible"] = review_approved and asymmetry.get("validation_status") == "validated"
+    asymmetry["validation_reason"] = (
+        asymmetry.get("validation_reason") if asymmetry.get("validation_status") != "validated"
+        else review_reason
+    )
+    return asymmetry
 
 
 def _eval_business(ctx):
@@ -796,13 +829,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     if proposal is None:
         return {"ticker": ticker, "opp_id": opp_id, "status": "skipped", "reason": "Pipeline returned None"}
 
-    board = DecisionBoard(journal_repo=journal, ticker=ticker)
-    board.submit(proposal)
-    resolution = board.review()
-
-    if resolution.approved:
-        _add_to_buylist(ticker, proposal, context, opp_id, bp, knowledge)
-
+    # Assessment is a proposal. A passing ruleset is not a manager decision.
     opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
     opp_dir.mkdir(parents=True, exist_ok=True)
 
@@ -817,6 +844,9 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "reasoning": proposal.reasoning,
         "rules_details": proposal.rules_details,
         "financial_data_quality": context.get("financial_data_quality", {}),
+        "status": "PENDING_HUMAN_REVIEW"
+        if proposal.recommendation in {"APPROVE", "PENDING_REVIEW"}
+        else "BLOCKED" if proposal.recommendation == "BLOCKED" else "NOT_RECOMMENDED",
         "created_at": proposal.created_at,
         "generated_at": datetime.now(AR_TZ).isoformat(),
     }
@@ -824,19 +854,17 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         yaml.dump(proposal_data, f, default_flow_style=False, allow_unicode=True)
 
     resolution_data = {
-        "approved": resolution.approved,
-        "decision_id": resolution.decision_id,
-        "decision_type": resolution.decision_type.value,
-        "justification": resolution.justification,
-        "author": resolution.author,
-        "resolved_at": resolution.resolved_at,
+        "approved": False,
+        "status": proposal_data["status"],
+        "justification": "Propuesta pendiente de revisión explícita del gestor."
+        if proposal_data["status"] == "PENDING_HUMAN_REVIEW"
+        else proposal.reasoning,
+        "author": "system",
     }
     with open(opp_dir / "board_resolution.yml", "w", encoding="utf-8") as f:
         yaml.dump(resolution_data, f, default_flow_style=False, allow_unicode=True)
 
-    if resolution.approved:
-        new_status = OpportunityStatus.APPROVED
-    elif not context.get("asymmetry"):
+    if not context.get("asymmetry"):
         new_status = OpportunityStatus.WATCHLIST
     else:
         new_status = OpportunityStatus.UNDER_DEEP_DD
@@ -858,11 +886,14 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         sqlite.save_opportunity(opp)
         sqlite.record_transition(
             opp_id, old, new_status.value,
-            cause=f"board:{resolution.decision_type.value.lower()}", worker="assessment_pipeline",
+            cause="assessment:manager_review_pending", worker="assessment_pipeline",
         )
 
     yaml_opp = journal.load_opportunity(ticker, opp_id)
     if yaml_opp:
+        if yaml_opp.get("approved_for_buylist") is True:
+            _remove_buylist_entry(ticker, opp_id, bp)
+        yaml_opp["approved_for_buylist"] = False
         yaml_old_status = yaml_opp.get("status", "")
         if proposal.rules_failed and yaml_old_status in (OpportunityStatus.SCREENED.value, OpportunityStatus.UNDER_RESEARCH.value):
             final_yaml_status = OpportunityStatus.UNDER_RESEARCH.value
@@ -890,9 +921,9 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "status": "completed",
         "conviction_score": proposal.conviction_score,
         "recommendation": proposal.recommendation,
-        "board_approved": resolution.approved,
-        "decision_type": resolution.decision_type.value,
-        "decision_id": resolution.decision_id,
+        "board_approved": False,
+        "decision_type": None,
+        "decision_id": None,
         "assessments": {k: v.score for k, v in proposal.assessments.items()},
         "rules_passed": proposal.rules_passed,
         "rules_failed": proposal.rules_failed,

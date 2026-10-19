@@ -17,6 +17,7 @@ from idos.workers.base import BaseWorker
 from idos.timezone import AR_TZ
 from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
+from idos.decision.scenarios import validate_scenario_analysis
 
 class ResearchWorker(BaseWorker):
     """Orchestrates the full research pipeline: DDD -> AOIF -> Hypothesis.
@@ -117,6 +118,8 @@ class ResearchWorker(BaseWorker):
         ddd_inputs = {
             "ticker": ticker,
             "name": company.get("name", ticker),
+            "current_price": financial_data.get("price") or financial_data.get("current_price") or "N/D",
+            "quote_currency": financial_data.get("quote_currency") or financial_data.get("currency") or "N/D",
             "existing_wiki": previous_wiki,
             "prior_catalysts": prior_catalysts,
             "sector": company.get("sector", ""),
@@ -153,6 +156,8 @@ class ResearchWorker(BaseWorker):
         market_error = ddd_result.get("error_mercado", {})
         thesis = ddd_result.get("tesis_inversion", "")
         score = ddd_result.get("score_general", 50)
+        scenario_analysis = None if is_systematic else ddd_result.get("scenario_analysis")
+        scenario_validation_errors = [] if is_systematic else validate_scenario_analysis(scenario_analysis)
 
         ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
         if ddd_empty:
@@ -203,6 +208,12 @@ class ResearchWorker(BaseWorker):
             "target_consensus": consensus,
             "catalizadores_previos": prior_catalysts,
             "comparativa_catalizadores": ddd_result.get("comparativa_catalizadores", []),
+            "scenario_analysis": scenario_analysis,
+            "scenario_validation": {
+                "status": "not_applicable" if is_systematic else "valid_pending_manager_review"
+                if not scenario_validation_errors else "invalid_pending_revision",
+                "errors": scenario_validation_errors,
+            },
             "prompt_inputs": {
                 "ticker": ticker,
                 "name": company.get("name", ticker),

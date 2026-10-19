@@ -303,6 +303,60 @@ def test_public_site_does_not_accept_approval_without_reviewer_and_date(tmp_path
     assert opp["ddd"]["resumen_ejecutivo"] == "Tesis antigua sin validar"
 
 
+def test_public_site_shows_scenarios_with_sources_and_manager_review_hash(tmp_path: Path):
+    import yaml
+    from idos.decision.scenarios import scenario_fingerprint
+
+    _write_ddd_case(tmp_path, review=None)
+    opp_dir = tmp_path / "idos-journal/companies/VIST/case_file/opportunities/OPP-1"
+    report_path = opp_dir / "ddd_report.yml"
+    report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+    report["scenario_analysis"] = {
+        "schema_version": "bear_base_bull_v1",
+        "as_of_date": "2026-10-19",
+        "horizon_date": "2027-10-19",
+        "currency": "USD",
+        "scenarios": [
+            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": "2026-10-18"}]},
+            {"id": "BASE", "probability_pct": 50, "target_price": 110, "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": "2026-10-18"}]},
+            {"id": "BULL", "probability_pct": 25, "target_price": 150, "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": "2026-10-18"}]},
+        ],
+    }
+    report["scenario_validation"] = {"status": "valid_pending_manager_review", "errors": []}
+    report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
+
+    data = SiteBuilder(tmp_path).build()
+    opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
+    assert opp["ddd"]["scenario_analysis"]["scenarios"][0]["id"] == "BEAR"
+    assert opp["ddd"]["scenario_review"]["status"] == "pending_manager_review"
+    assert opp["ddd"]["scenario_review"]["scenario_hash"] == scenario_fingerprint(report["scenario_analysis"])
+
+    output = write_site(tmp_path, tmp_path / "site-output")
+    app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+    payload = (output / "data.json").read_text(encoding="utf-8")
+    assert "Escenarios Bear / Base / Bull" in app
+    assert "aprobación del gestor" in app
+    assert "https://example.com/bear" in payload
+
+
+def test_public_site_does_not_present_automated_board_resolution_as_human_approval(tmp_path: Path):
+    import yaml
+
+    _write_ddd_case(tmp_path, review=None)
+    opp_dir = tmp_path / "idos-journal/companies/VIST/case_file/opportunities/OPP-1"
+    (opp_dir / "board_resolution.yml").write_text(yaml.safe_dump({
+        "approved": True,
+        "decision_type": "BUY",
+        "decision_id": "DEC-LEGACY",
+        "author": "board",
+        "resolved_at": "2026-10-18T12:00:00-03:00",
+    }), encoding="utf-8")
+
+    opp = next(o for o in SiteBuilder(tmp_path).build().opportunities if o["ticker"] == "VIST")
+    assert opp["decision"]["approved"] is False
+    assert opp["decision"]["decision_id"] is None
+
+
 def test_public_site_keeps_deterministic_systematic_report_separate_from_fundamental_review(tmp_path: Path):
     import yaml
 

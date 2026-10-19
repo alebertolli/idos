@@ -15,7 +15,7 @@ class BoardResolution:
     decision_id: str
     decision_type: DecisionType
     justification: str
-    author: str = "human"
+    author: str = "system"
     resolved_at: str = ""
 
     def __post_init__(self):
@@ -40,23 +40,31 @@ class DecisionBoard:
             data={"opp_id": proposal.opportunity_id, "recommendation": proposal.recommendation},
         ))
 
-    def review(self, proposal_index: int = -1) -> BoardResolution:
+    def review(
+        self,
+        proposal_index: int = -1,
+        *,
+        approved: bool | None = None,
+        reviewer: str = "",
+        justification: str = "",
+    ) -> BoardResolution:
         if not self._pending_proposals:
             raise ValueError("No pending proposals")
-        proposal = self._pending_proposals.pop(proposal_index)
-
-        approved = proposal.recommendation == "APPROVE"
-        if proposal.recommendation == "BLOCKED":
-            approved = False
+        if approved is None or not reviewer.strip() or len(justification.strip()) < 10:
+            raise ValueError("An explicit manager decision, reviewer, and justification are required")
+        proposal = self._pending_proposals[proposal_index]
+        if approved and (proposal.recommendation != "APPROVE" or proposal.rules_failed):
+            raise ValueError("A proposal that is not eligible cannot be manager-approved")
+        self._pending_proposals.pop(proposal_index)
 
         decision = Decision(
             id=f"DEC-{datetime.now(AR_TZ).strftime('%Y%m%d%H%M%S')}",
             type=DecisionType.BUY if "buy" in proposal.type.lower() else DecisionType.HOLD,
             opportunity_id=proposal.opportunity_id,
-            justification=proposal.reasoning,
+            justification=justification.strip(),
             assessment_ids=[a.to_assessment_dict("")["id"] for a in proposal.assessments.values()],
             rules_applied=proposal.rules_passed + proposal.rules_failed,
-            author="board",
+            author=reviewer.strip(),
         )
 
         if self.journal and self.ticker:
@@ -71,6 +79,7 @@ class DecisionBoard:
             decision_id=decision.id,
             decision_type=decision.type,
             justification=decision.justification,
+            author=reviewer.strip(),
         )
 
         bus = get_event_bus()

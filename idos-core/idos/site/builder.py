@@ -23,6 +23,8 @@ from typing import Any, Iterable
 
 import yaml
 
+from idos.decision.scenarios import scenario_fingerprint, validate_scenario_analysis, validate_scenario_review
+from idos.decision.proposal_review import decision_proposal_fingerprint
 from idos.timezone import AR_TZ
 
 
@@ -431,8 +433,17 @@ class SiteBuilder:
         dp = dp if isinstance(dp, dict) else {}
         br = _load_yaml(opp_dir / "board_resolution.yml")
         br = br if isinstance(br, dict) else {}
+        decision_author = str(br.get("author") or "").strip()
+        decision_resolved_at = br.get("resolved_at")
+        decision_attributable = (
+            bool(decision_author)
+            and decision_author.lower() not in {"system", "board"}
+            and _parse_dt(decision_resolved_at) is not None
+        )
         ddd = _load_yaml(opp_dir / "ddd_report.yml")
         ddd = ddd if isinstance(ddd, dict) else {}
+        scenario_review = _load_yaml(opp_dir / "scenario_review.yml")
+        scenario_review = scenario_review if isinstance(scenario_review, dict) else None
         hypotheses_doc = _load_yaml(opp_dir / "hypotheses.yml")
         hypotheses_doc = hypotheses_doc if isinstance(hypotheses_doc, dict) else {}
         raw_hypotheses = hypotheses_doc.get("hypotheses") or []
@@ -506,6 +517,9 @@ class SiteBuilder:
             and bool(reviewer)
             and _parse_dt(reviewed_at) is not None
         )
+        scenario_analysis = ddd.get("scenario_analysis")
+        scenario_valid = not validate_scenario_analysis(scenario_analysis) if scenario_analysis is not None else False
+        scenario_review_approved, scenario_review_reason = validate_scenario_review(scenario_analysis, scenario_review)
         strategy_context = ddd.get("strategy_context") or {}
         opportunity_signal = opp.get("signal")
         systematic_report = (
@@ -553,8 +567,17 @@ class SiteBuilder:
             "evidencia": {},
             "hipotesis": [],
             "financial_data_quality": dp.get("financial_data_quality") or {},
+            "scenario_analysis": None,
+            "scenario_review": {
+                "status": "manager_approved" if scenario_review_approved else "pending_manager_review",
+                "reason": scenario_review_reason,
+                "scenario_hash": scenario_fingerprint(scenario_analysis) if scenario_valid else None,
+            },
+            "scenario_validation": ddd.get("scenario_validation") or {},
         }
         if ddd and ddd_publishable:
+            if scenario_valid:
+                ddd_summary["scenario_analysis"] = scenario_analysis
             cls = ddd.get("clasificacion_oportunidad") or {}
             ddd_summary["categoria"] = cls.get("categoria")
             cls_desc = cls.get("categorias_descartadas") or []
@@ -661,15 +684,18 @@ class SiteBuilder:
             "thesis_not_assessed_days": thesis_not_assessed_days,
             "is_thesis_stale": is_thesis_stale,
             "decision": {
-                "approved": br.get("approved"),
-                "decision_type": br.get("decision_type"),
-                "decision_id": br.get("decision_id"),
-                "justification": br.get("justification"),
-                "author": br.get("author"),
+                "approved": bool(br.get("approved")) if decision_attributable else False,
+                "decision_type": br.get("decision_type") if decision_attributable else None,
+                "decision_id": br.get("decision_id") if decision_attributable else None,
+                "justification": br.get("justification") if decision_attributable else None,
+                "author": decision_author if decision_attributable else None,
+                "resolved_at": decision_resolved_at if decision_attributable else None,
             },
             "proposal": {
                 "recommendation": dp.get("recommendation"),
                 "status": dp.get("status"),
+                "proposal_hash": decision_proposal_fingerprint(dp) if dp else None,
+                "manager_review": dp.get("manager_review") or {},
                 "decision": dp.get("decision"),
                 "checks": dp.get("checks") or {},
                 "conviction_score": dp.get("conviction_score"),
@@ -1536,6 +1562,9 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">Última evaluación tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.updated_at)}</div>${thesisBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">${o.decision?.decision_type?'Decisión':'Propuesta'}</div><div style="font-size:18px">${esc(o.decision?.decision_type||o.proposal?.decision||'—')}</div><div class="muted">${esc(o.decision?.author||o.proposal?.status||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
   html += '</div>';
+  if(o.proposal?.status==='PENDING_HUMAN_REVIEW' && o.proposal?.proposal_hash){
+    html += `<div class="card"><b>Revisión del gestor requerida</b><p>La recomendación del Assessment no agrega por sí sola una oportunidad a Buy List. Si corresponde, abre <a href="https://github.com/alebertolli/idos/actions/workflows/decision-review.yml" target="_blank" rel="noopener noreferrer">Decision Review en GitHub Actions</a>, verifica que el hash sea el del Assessment vigente y registra aprobar/rechazar con una justificación.</p><details><summary>Hash del Assessment</summary><code>${esc(o.proposal.proposal_hash)}</code></details></div>`;
+  }
   const marketData=o.market_data||by?.market_data||{};
   const sourceNames=(marketData.sources_used||[]).map(esc).join(', ')||'No registrada';
   html += `<h2>Datos de mercado</h2><div class="card"><div>Precio al: ${dt(marketData.price_as_of||o.price_date)}</div><div>Fuentes del cache: ${marketData.source_count??'no disponible'} (${sourceNames})</div>${marketData.refreshed_at?`<div>Cache actualizado: ${dt(marketData.refreshed_at)}</div>`:''}${marketData.source_count===1?'<p class="neg">Fuente única; revisar la cobertura por campo antes de usar el dato.</p>':''}${marketData.conflict_count?`<p class="neg">Conflictos de datos: ${marketData.conflict_count}</p>`:''}<details><summary>Procedencia por campo</summary>${Object.keys(marketData.field_sources||{}).length?`<table><thead><tr><th>Campo</th><th>Fuentes</th></tr></thead><tbody>${Object.entries(marketData.field_sources).map(([field,sources])=>`<tr><td>${esc(field)}</td><td>${sources.map(esc).join(', ')}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">El cache no registra procedencia por campo.</p>'}</details></div>`;
@@ -1555,6 +1584,16 @@ function showCase(oppId){
   if(d.tesis_inversion) html += `<div class="card"><div class="muted">Tesis</div><p>${esc(d.tesis_inversion)}</p></div>`;
   const dq = d.financial_data_quality||{};
   if(Object.keys(dq).length) html += `<div class="card"><b>Calidad de datos financieros:</b> ${esc(dq.status||'sin evaluar')} · <b>Métricas core:</b> ${esc(dq.core_metric_coverage||'—')} · <b>Fuente:</b> ${esc(dq.source||'—')} · <b>Fecha de corte:</b> ${dt(dq.as_of_date)}${dq.as_of_date_source?` (${esc(dq.as_of_date_source)})`:''}${(dq.missing_core_metrics||[]).length?`<p class="neg">Métricas faltantes: ${dq.missing_core_metrics.map(esc).join(', ')}</p>`:''}${(dq.missing_provenance||[]).length?`<p class="neg">Procedencia faltante: ${dq.missing_provenance.map(esc).join(', ')}</p>`:''}</div>`;
+  const sa=d.scenario_analysis;
+  if(sa?.scenarios?.length){
+    const scenarioRows=sa.scenarios.map(s=>{
+      const sources=(s.sources||[]).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.name)}</a> (${dt(x.as_of_date)})`).join('<br>');
+      return `<tr><td>${esc(s.id)}</td><td>${pct(s.probability_pct)}</td><td>${esc(sa.currency)} ${money(s.target_price)}</td><td>${sources}</td></tr>`;
+    }).join('');
+    html += `<h3>Asimetría · escenarios Bear / Base / Bull</h3><div class="card"><b>${d.scenario_review?.status==='manager_approved'?'Escenarios aprobados por el gestor':'Propuesta pendiente de aprobación del gestor'}</b><p class="muted">Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table><thead><tr><th>Escenario</th><th>Probabilidad</th><th>Precio objetivo</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><p class="muted">La propuesta de Research no habilita una compra. RULE-008 sólo puede pasar cuando el conjunto vigente tenga una revisión del gestor.</p>${d.scenario_review?.scenario_hash?`<details><summary>Hash del conjunto para revisión</summary><code>${esc(d.scenario_review.scenario_hash)}</code><p class="muted">En GitHub Actions, ejecuta Scenario Review, selecciona aprobar/rechazar y copia este hash.</p></details>`:''}</div>`;
+  } else if(d.scenario_validation?.errors?.length){
+    html += `<h3>Escenarios Bear / Base / Bull</h3><div class="card"><b class="neg">Propuesta incompleta o inválida; RULE-008 permanece bloqueada.</b><ul>${d.scenario_validation.errors.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+  }
   if(d.clasificacion){
     const cl = d.clasificacion||{};
     html += `<p><b>Categoría:</b> ${esc(cl.categoria||d.categoria)}${(cl.categorias_descartadas||[]).length?' <span class="muted">· descartadas: '+cl.categorias_descartadas.map(esc).join(', ')+'</span>':''}</p>`;

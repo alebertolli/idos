@@ -27,6 +27,7 @@ user_prompt: >
   - Moat: {moat_description}
 
   Resumen Financiero (TTM):
+  - Precio de cotización vigente: {current_price} {quote_currency}
   - Revenue: ${revenue:,.0f}M
   - Crecimiento Revenue: {revenue_growth:+.1f}%
   - Margen Operativo: {operating_margin:.1f}%
@@ -87,6 +88,15 @@ user_prompt: >
      actuales: retén su probabilidad_anterior, marca el cambio y clasifica su estado
      (cumplido|vigente|desestimado|nuevo) en "comparativa_catalizadores".
 
+  ESCENARIOS FINANCIEROS PARA ASIMETRÍA (Bear/Base/Bull):
+  Define tres resultados mutuamente excluyentes y exhaustivos para el mismo
+  horizonte. Las probabilidades deben sumar exactamente 100%; no normalices
+  probabilidades de catalizadores. Propón precios objetivo en la moneda de la
+  cotización, fundamenta cada precio con al menos una fuente HTTPS y su fecha de
+  corte. Bear <= Base <= Bull. Si no hay base suficiente para proponer alguno,
+  devuelve scenario_analysis como null; no inventes fuentes, precios ni fechas.
+  La propuesta queda pendiente de validación explícita del gestor.
+
   Calidad de Evidencia:
   - verified_facts: hechos confirmados por fuentes múltiples
   - llm_inferences: inferencias del analista basadas en datos disponibles
@@ -128,6 +138,17 @@ user_prompt: >
     }},
     "calidad_evidencia": {{"hechos_verificados": [...], "inferencias_llm": [...], "preguntas_abiertas": [...]}},
     "comparativa_catalizadores": [{{"descripcion": "...", "probabilidad_anterior": N, "probabilidad_actual": N, "estado": "cumplido|vigente|desestimado|nuevo", "delta_pct": N, "nota_comparacion": "..."}}],
+    "scenario_analysis": {{
+      "schema_version": "bear_base_bull_v1",
+      "as_of_date": "YYYY-MM-DD",
+      "horizon_date": "YYYY-MM-DD",
+      "currency": "USD",
+      "scenarios": [
+        {{"id": "BEAR", "probability_pct": N, "target_price": N, "sources": [{{"name": "...", "url": "https://...", "as_of_date": "YYYY-MM-DD"}}]}},
+        {{"id": "BASE", "probability_pct": N, "target_price": N, "sources": [{{"name": "...", "url": "https://...", "as_of_date": "YYYY-MM-DD"}}]}},
+        {{"id": "BULL", "probability_pct": N, "target_price": N, "sources": [{{"name": "...", "url": "https://...", "as_of_date": "YYYY-MM-DD"}}]}}
+      ]
+    }},
     "score_general": 0-100
   }}
 
