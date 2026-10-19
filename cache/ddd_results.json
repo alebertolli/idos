@@ -16,14 +16,14 @@
       "ticker": "ALAB",
       "opp_id": "OPP-20261019-001",
       "status": "completed",
-      "conviction_score": 68,
+      "conviction_score": 67,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": null,
       "decision_id": null,
       "assessments": {
         "BusinessAssessmentEngine": 72,
-        "ValuationAssessmentEngine": 70,
+        "ValuationAssessmentEngine": 65,
         "RecoveryAssessmentEngine": 60,
         "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 50
@@ -32,29 +32,36 @@
         "RULE-001",
         "RULE-003",
         "RULE-004",
-        "RULE-005",
-        "RULE-010"
+        "RULE-005"
       ],
       "rules_failed": [
-        "RULE-008"
+        "RULE-008",
+        "RULE-010"
       ],
       "rules_details": {
         "RULE-001": "Business quality: 72/70",
         "RULE-003": "Rerating: 60/50",
         "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 68/65",
-        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: Las probabilidades de catalizadores no son escenarios financieros mutuamente excluyentes validados.",
-        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+        "RULE-005": "Conviction: 67/65",
+        "RULE-008": "No hay datos de DDD para calcular asimetria",
+        "RULE-010": "conflicto entre fuentes en m\u00e9tricas core: revenue_growth_pct; periodo financiero no reconciliado en m\u00e9tricas core: operating_margin_pct, revenue_growth_pct"
       },
-      "data_quality": "good",
+      "data_quality": "poor",
       "financial_data_quality": {
-        "status": "good",
+        "status": "poor",
         "core_metric_coverage": "5/5",
         "missing_core_metrics": [],
         "source": "stockanalysis.com",
         "as_of_date": "2026-06-30",
         "as_of_date_source": "yfinance",
-        "missing_provenance": []
+        "missing_provenance": [],
+        "conflicting_core_metrics": [
+          "revenue_growth_pct"
+        ],
+        "unreconciled_core_metrics": [
+          "operating_margin_pct",
+          "revenue_growth_pct"
+        ]
       }
     }
   ],
