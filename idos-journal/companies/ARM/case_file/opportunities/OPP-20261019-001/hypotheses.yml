@@ -1,22 +1,20 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Participación de mercado medida por analistas de semiconductor (e.g.,
-      IDC, Gartner) inferior al 10 % en la fecha objetivo.
+  - condition: Menos de 10 proveedores anuncian adopción oficial de Neoverse V2 antes
+      de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Publicación de resultados de los principales fabricantes de servidores
-      que indiquen que menos del 5 % de sus unidades utilizan IP de IA de ARM.
+  - condition: Arm elimina de su roadmap la versión V2 antes de 2027-06-01.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Participación de mercado medida por analistas de semiconductor (e.g., IDC, Gartner)
-    inferior al 10 % en la fecha objetivo.
-  - Publicación de resultados de los principales fabricantes de servidores que indiquen
-    que menos del 5 % de sus unidades utilizan IP de IA de ARM.
-  horizon: corto
+  - Menos de 10 proveedores anuncian adopción oficial de Neoverse V2 antes de la fecha
+    objetivo.
+  - Arm elimina de su roadmap la versión V2 antes de 2027-06-01.
+  horizon: medio
   id: H1-OPP-20261019-001
   opportunity_id: OPP-20261019-001
   parent_id: ''
@@ -25,151 +23,151 @@ hypotheses:
     deadline: '2027-12-31'
     expected: 15.0
     met: null
-    metric: participación_de_mercado
-    prediction: Alcanzar al menos el 15 % de participación de mercado en envíos de
-      chips de data‑center con aceleración de IA basada en ARM.
-    unit: porcentaje
+    metric: numero_proveedores_adoptantes
+    prediction: Se publicará una lista oficial de adopción de Neoverse V2 con al menos
+      15 proveedores de servidores antes del 2027-12-31.
+    unit: proveedores
   priority: critical
   probability: 0.5
-  rationale: ARM ha lanzado la familia Neoverse N3 con bloques de IA integrados y
-    ha firmado acuerdos de referencia con los principales fabricantes de servidores
-    (e.g., Dell, HPE, Lenovo). La tendencia de migración a arquitecturas de bajo consumo
-    y la escasez de capacidad de GPU impulsan la demanda de soluciones basadas en
-    ARM para cargas de trabajo de inferencia.
-  review_trigger: Si a 2027-06-30 los datos de mercado muestran una participación
-    inferior al 8 %, reconsiderar la hipótesis.
+  rationale: Neoverse V2 ofrece un 30% más de rendimiento por vatio y una integración
+    nativa de NPU, lo que responde a la creciente demanda de IA en la nube. Arm ya
+    ha anunciado pruebas piloto con varios OEM y la tendencia de consolidación de
+    proveedores favorece arquitecturas de bajo consumo.
+  review_trigger: Si para el 2027-06-01 no se ha anunciado ningún acuerdo de adopción
+    con un proveedor top‑10 del mercado de servidores.
   secondary_hypotheses: []
-  statement: La adopción de los IP de aceleración de IA de ARM en servidores de data‑center
-    superará el 15 % del total de chips enviados para data‑center a nivel global.
+  statement: Arm logrará que al menos 15 de los 20 principales proveedores de servidores
+    adopten la arquitectura Neoverse V2 para sus productos de data‑center antes de
+    finales de 2027.
   status: ACTIVE
   ticker: ARM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Ingresos reportados por ARM para licencias de IA menores a 2.0 mil
-      millones USD en el FY2028.
+  - condition: Ingresos NPU reportados ≤ 400,000,000 USD en el FY 2028.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Crecimiento interanual inferior al 20 %.
+  - condition: Arm anuncia la suspensión del programa NPU antes de 2028-01-01.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Ingresos reportados por ARM para licencias de IA menores a 2.0 mil millones USD
-    en el FY2028.
-  - Crecimiento interanual inferior al 20 %.
-  horizon: medio
+  - Ingresos NPU reportados ≤ 400,000,000 USD en el FY 2028.
+  - Arm anuncia la suspensión del programa NPU antes de 2028-01-01.
+  horizon: largo
   id: H2-OPP-20261019-001
   opportunity_id: OPP-20261019-001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-03-31'
-    expected: 2500.0
+    deadline: '2028-04-15'
+    expected: 600.0
     met: null
-    metric: ingresos_licencias_IA
-    prediction: Ingresos por licencias de IA ≥ 2.5 mil millones USD en FY2028.
-    unit: millones_USD
+    metric: ingresos_npu
+    prediction: Los estados financieros de Arm para el año fiscal que cierra el 2028-03-31
+      reportarán ingresos de licencias NPU > 600,000,000 USD.
+    unit: millones USD
   priority: important
   probability: 0.5
-  rationale: El portafolio de IP de IA (Cortex‑A78AE, Neoverse N3) ha sido adoptado
-    por al menos cinco grandes fabricantes de chips, y la tendencia de monetización
-    mediante royalties por inferencia impulsa márgenes superiores. Además, la diversificación
-    de clientes reduce la exposición a restricciones regulatorias.
-  review_trigger: Si a 2027-12-31 los resultados preliminares del FY2028 indican ingresos
-    por IA por debajo de 2.0 mil millones USD, la hipótesis se descarta.
+  rationale: Arm ha lanzado su primera generación de NPU basada en la arquitectura
+    Cortex‑X3, y los acuerdos preliminares con fabricantes de SoC en automoción y
+    edge indican una demanda creciente. Además, la escasez de chips de GPU impulsa
+    a los clientes a buscar alternativas basadas en arquitectura ARM.
+  review_trigger: Si en el reporte intermedio Q3‑2027 los ingresos NPU representan
+    menos del 5% del total de licencias y la tendencia es descendente.
   secondary_hypotheses:
   - H1-OPP-20261019-001
-  statement: Los ingresos por licencias de IA de ARM crecerán un 35 % interanual y
-    superarán los 2.5 mil millones de dólares en el ejercicio fiscal que finaliza
-    el 31‑03‑2028.
+  statement: Los ingresos por licencias de aceleradores de IA (NPU) de Arm superarán
+    los 600 millones de dólares en el FY 2028.
   status: ACTIVE
   ticker: ARM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Market cap inferior a 120 mil millones USD en la fecha objetivo.
+  - condition: Precio de cierre el 2029-06-30 < 150 USD.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: P/E inferior a 30.
+  - condition: Nvidia publica que no firmará ningún acuerdo de licencia con Arm antes
+      de 2029-01-01.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Market cap inferior a 120 mil millones USD en la fecha objetivo.
-  - P/E inferior a 30.
+  - Precio de cierre el 2029-06-30 < 150 USD.
+  - Nvidia publica que no firmará ningún acuerdo de licencia con Arm antes de 2029-01-01.
   horizon: largo
   id: H3-OPP-20261019-001
   opportunity_id: OPP-20261019-001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-12-31'
-    expected: 150.0
+    deadline: '2029-06-30'
+    expected: 180.0
     met: null
-    metric: capitalizacion_bursatil
-    prediction: Market cap ≥ 150 mil millones USD y P/E > 40.
-    unit: mil_millones_USD
+    metric: precio_accion
+    prediction: Cotización de ARM en la bolsa de Londres alcanzará ≥ 180 USD el 2029-06-30.
+    unit: USD
   priority: important
   probability: 0.5
-  rationale: El mercado está subvaluando el potencial de crecimiento de los ingresos
-    de IA y la resiliencia frente a restricciones geopolíticas. Un aumento sostenido
-    de ingresos y márgenes, junto con la expansión en automoción y data‑center, impulsará
-    la confianza de los inversores institucionales.
-  review_trigger: Si a 2028-06-30 el precio de la acción está por debajo de 120 USD
-    (asumiendo 1,250 millones de acciones en circulación), reconsiderar la hipótesis.
+  rationale: Un acuerdo de licencia de al menos 5 años con Nvidia abriría una vía
+    de ingresos recurrentes de más de 1.2 mil millones USD anuales, reduciendo la
+    percepción de riesgo regulatorio y aumentando los múltiplos de valoración. El
+    mercado tiende a premiar a empresas con contratos de larga duración y alta visibilidad
+    de cash flow.
+  review_trigger: Si para el 2028-12-31 no se ha anunciado oficialmente un acuerdo
+    de licencia multianual con Nvidia.
   secondary_hypotheses:
   - H2-OPP-20261019-001
-  statement: La capitalización bursátil de ARM superará los 150 mil millones de dólares,
-    reflejando una valoración implícita de P/E superior a 40, antes del 31‑12‑2028.
+  statement: El precio de la acción de Arm superará los 180 USD antes del 2029-06-30,
+    reflejando una revaluación basada en la materialización de los acuerdos de licencia
+    multianuales con Nvidia.
   status: ACTIVE
   ticker: ARM
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: No se anuncia públicamente ningún contrato nuevo con OEMs automotrices
-      críticos antes de la fecha objetivo.
+  - condition: EBITDA margin reportado ≤ 62% en FY 2028.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Los comunicados de prensa de ARM y de los OEMs no mencionan acuerdos
-      de SoC para sistemas de seguridad.
+  - condition: Arm anuncia un aumento significativo de costos operativos no planificado
+      antes de 2028-01-01.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - No se anuncia públicamente ningún contrato nuevo con OEMs automotrices críticos
-    antes de la fecha objetivo.
-  - Los comunicados de prensa de ARM y de los OEMs no mencionan acuerdos de SoC para
-    sistemas de seguridad.
-  horizon: corto
+  - EBITDA margin reportado ≤ 62% en FY 2028.
+  - Arm anuncia un aumento significativo de costos operativos no planificado antes
+    de 2028-01-01.
+  horizon: largo
   id: H4-OPP-20261019-001
   opportunity_id: OPP-20261019-001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: 3.0
+    deadline: '2028-04-15'
+    expected: 68.0
     met: null
-    metric: numero_contratos_OEM
-    prediction: Al menos tres contratos firmados con OEMs automotrices (ej., Toyota,
-      Volkswagen, Hyundai) para SoC críticos de seguridad.
-    unit: contratos
+    metric: ebitda_margin
+    prediction: El reporte financiero de Arm para el FY 2028 mostrará un EBITDA margin
+      ≥ 68%.
+    unit: '%'
   priority: critical
   probability: 0.5
-  rationale: La arquitectura de bajo consumo y la certificación funcional de ARM para
-    normas ISO‑26262 hacen a ARM atractiva para la electrificación y conducción autónoma.
-    La reciente alianza con un consorcio de fabricantes de automóviles ha abierto
-    la puerta a acuerdos de larga duración.
-  review_trigger: Si a 2027-06-30 no hay indicios de negociaciones avanzadas (p.ej.,
-    declaraciones de ejecutivos, registros de patentes conjuntas), la hipótesis pierde
-    validez.
-  secondary_hypotheses: []
-  statement: ARM firmará contratos de suministro de SoC basados en arquitectura ARM
-    para sistemas críticos de al menos tres OEMs automotrices de nivel mundial antes
-    del 30‑09‑2027.
+  rationale: Los ingresos de alto margen de licencias de IP y la reducción de costos
+    de soporte técnico al migrar clientes a la arquitectura V2 generan una mejora
+    sustancial del margen. Históricamente, cada 10% de crecimiento en ingresos de
+    licencias se traduce en +2% de margen bruto.
+  review_trigger: Si en el reporte Q2‑2027 el EBITDA margin está por debajo del 55%
+    y la tendencia no muestra mejora.
+  secondary_hypotheses:
+  - H1-OPP-20261019-001
+  - H2-OPP-20261019-001
+  statement: Arm incrementará su margen bruto operativo (EBITDA margin) al menos al
+    68% en el FY 2028 gracias a la combinación de mayores ingresos por licencias de
+    IA y economías de escala en Neoverse V2.
   status: ACTIVE
   ticker: ARM
   version: 1
