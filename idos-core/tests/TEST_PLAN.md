@@ -330,3 +330,11 @@ comportamiento fail-closed.
 10. Para `FULL_DDD`, validar de forma fail-closed 3–5 hipótesis con enunciado, razón, predicción cuantitativa y texto, fecha objetivo ISO futura, criterio de falsación y condición explícita de abandono; rechazar fechas vencidas o ejercicios fiscales pasados; comprobar round-trip YAML/SQLite de horizonte, texto/valor/unidad/fecha, dependencias y campos HMF. Un resultado inválido debe quedar en `hypothesis_validation_failed`, conservar el último DDD utilizable y detenerse antes de persistir hipótesis, Assessment o Decision.
 11. Assessment debe mostrar cobertura de métricas core y procedencia (fuente y fecha de corte); `0` es un valor válido si está presente, pero una fecha/fuente ausente impide marcar calidad `good`. La lectura de decisiones persistidas debe usar `yaml.safe_load` sin tipos específicos de Python.
 12. En dashboard público, mostrar DDD e hipótesis no aprobadas únicamente como provisionales, con fecha/fuente/cobertura; al registrar aprobación válida reflejar el estado atribuible. Verificar que `data.json` y artifact no contengan identidad del revisor ni posiciones, tenencias, liquidez o Risk Audit del portfolio privado.
+
+
+### §13 Gate de procedencia financiera
+
+1. Verificar que toda estrategia que evalúe métricas financieras requiera fuente y fecha de corte ISO válida y no futura; comprobar que una configuración de estrategia no pueda desactivar `RULE-010`. Las estrategias sistemáticas deben seguir exigiendo procedencia/fecha de su snapshot de señal en su gate específico.
+2. Probar fecha ausente, formato inválido, fecha imposible y fecha futura: `RULE-010` debe fallar con motivo explícito y la decisión debe quedar bloqueada.
+3. Probar cobertura parcial 4/5 con fuente/corte válidos (80%): la regla de procedencia pasa sin convertir el campo faltante en cero; cobertura pobre, fuente ausente o fecha inválida bloquean.
+4. Revisar el Assessment y el Decision persistidos para confirmar el estado, el motivo de `RULE-010` y la procedencia; el dashboard debe exponer calidad parcial sin mostrar el caso como aprobado.

@@ -23,7 +23,7 @@ from idos.config import load_settings
 from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.timezone import AR_TZ
-from datetime import datetime
+from datetime import date, datetime
 
 
 _CORE_FINANCIAL_FIELDS = {
@@ -48,13 +48,14 @@ def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
     sources = provenance.get("sources_used")
     sources = sources if isinstance(sources, list) else []
     source = financial.get("source") or (", ".join(map(str, sources)) if sources else "")
-    as_of_date = (
+    raw_as_of_date = (
         financial.get("fundamentals_as_of")
         or financial.get("as_of_date")
         or financial.get("period_end_date")
         or financial.get("fiscal_period_end")
         or provenance.get("as_of_date")
     )
+    as_of_date = _valid_cutoff_date(raw_as_of_date)
     missing_provenance = []
     if not source:
         missing_provenance.append("source")
@@ -73,9 +74,33 @@ def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
         "core_metric_coverage": f"{coverage}/{len(_CORE_FINANCIAL_FIELDS)}",
         "missing_core_metrics": missing,
         "source": source or None,
-        "as_of_date": as_of_date,
+        "as_of_date": as_of_date.isoformat() if as_of_date else None,
         "missing_provenance": missing_provenance,
     }
+
+
+def _valid_cutoff_date(value: Any) -> date | None:
+    """Return an ISO-compatible financial cutoff date that is not in the future."""
+    if isinstance(value, datetime):
+        cutoff = value.date()
+    elif isinstance(value, date):
+        cutoff = value
+    elif isinstance(value, str) and value.strip():
+        normalized = value.strip()
+        try:
+            if len(normalized) == 10:
+                cutoff = date.fromisoformat(normalized)
+                if cutoff.isoformat() != normalized:
+                    return None
+            else:
+                cutoff = datetime.fromisoformat(normalized.replace("Z", "+00:00")).date()
+        except ValueError:
+            return None
+    else:
+        return None
+    if cutoff > datetime.now(AR_TZ).date():
+        return None
+    return cutoff
 
 
 def _add_to_buylist(ticker: str, proposal: DecisionProposal, context: dict[str, Any],
@@ -561,6 +586,30 @@ def _eval_asymmetry(ctx):
         detail = f"B/R {br:.1f}:1 ❌ (upside {upside:.1f}% / downside {abs(downside):.1f}%)"
     return RuleResult("RULE-008", passes, detail)
 
+
+def _eval_financial_data_quality(ctx):
+    quality = ctx.get("financial_data_quality")
+    if not isinstance(quality, dict):
+        return RuleResult("RULE-010", False, "Falta el reporte de calidad financiera")
+
+    issues = []
+    if quality.get("status") not in {"good", "partial"}:
+        issues.append("cobertura de métricas insuficiente")
+    if not quality.get("source"):
+        issues.append("fuente financiera ausente")
+    if not _valid_cutoff_date(quality.get("as_of_date")):
+        issues.append("fecha de corte ausente, inválida o futura")
+    if quality.get("missing_provenance"):
+        issues.append("procedencia incompleta")
+
+    if issues:
+        return RuleResult("RULE-010", False, "; ".join(issues))
+    return RuleResult(
+        "RULE-010",
+        True,
+        f"Fuente y fecha de corte verificadas; cobertura {quality.get('core_metric_coverage', 'n/d')}",
+    )
+
 def _eval_competition(ctx):
     port = ctx.get("portfolio", {})
     num_pos = port.get("num_positions", 0)
@@ -578,6 +627,7 @@ ASSESSMENT_RULES = [
     (Rule(id="RULE-007", description="Maximum sector exposure", priority=90, condition="sector <= 25.0", action="BLOCK"), _eval_sector_exposure),
     (Rule(id="RULE-008", description="Minimum asymmetry ratio 3:1", priority=100, condition="ratio >= 3.0", action="PASS"), _eval_asymmetry),
     (Rule(id="RULE-009", description="Capital competition - max 10 positions", priority=80, condition="num_positions < 10", action="BLOCK"), _eval_competition),
+    (Rule(id="RULE-010", description="Financial inputs include source and valid cutoff date", priority=110, condition="financial_data_quality has source and valid as_of_date", action="PASS"), _eval_financial_data_quality),
 ]
 
 def _register_assessment_rules(engine: RulesEngine):
@@ -585,7 +635,7 @@ def _register_assessment_rules(engine: RulesEngine):
         engine.register_rule(rule, fn)
 
 
-AUTHORIZATION_RULE_IDS = {"RULE-001", "RULE-003", "RULE-004", "RULE-005", "RULE-008"}
+AUTHORIZATION_RULE_IDS = {"RULE-001", "RULE-003", "RULE-004", "RULE-005", "RULE-008", "RULE-010"}
 
 
 def _authorization_rule_ids(base_path: str | Path) -> set[str]:
@@ -605,7 +655,7 @@ def _authorization_rule_ids(base_path: str | Path) -> set[str]:
         r.get("id") for r in (data or {}).get("rules", [])
         if r.get("active", True) and r.get("stage", "authorization") == "authorization"
     }
-    return ids or set(AUTHORIZATION_RULE_IDS)
+    return ids.union({"RULE-010"}) if ids else set(AUTHORIZATION_RULE_IDS)
 
 
 def _register_authorization_rules(engine: RulesEngine, base_path: str | Path) -> None:
