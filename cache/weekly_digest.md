@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-19 05:05 AR _
+_Generado: 2026-10-19 05:34 AR _
 
 ## Resumen
 
@@ -18,8 +18,8 @@ _Generado: 2026-10-19 05:05 AR _
 
 - ⚠️ **ASML**
   - Opp: [OPP-20260725-028]
-  - Conviction: 74/100 | Rec: BLOCKED
-  - Scores: Business: 76 | Valuation: 70 | Recovery: 64 | Risk: 80 | Portfolio: 90
+  - Conviction: 70/100 | Rec: BLOCKED
+  - Scores: Business: 76 | Valuation: 70 | Recovery: 64 | Risk: 80 | Portfolio: 50
   - Rules BLOCKED:
     - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: se requieren resultados con upside y downside para calcular B/R
     - 🚫 RULE-010: fecha de corte ausente, inválida o futura; procedencia incompleta
