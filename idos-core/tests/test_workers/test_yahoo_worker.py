@@ -75,3 +75,28 @@ def test_yahoo_free_cash_flow_is_labeled_as_levered(monkeypatch):
     assert result["levered_fcf"] == 10_374_124_544
     assert result["financial_currency"] == "EUR"
     assert "fcf" not in result
+
+
+def test_yahoo_financial_metrics_declare_period_and_units(monkeypatch):
+    class Stock:
+        info = {
+            "financialCurrency": "USD",
+            "mostRecentQuarter": 1790467200,
+            "operatingMargins": 0.183,
+            "revenueGrowth": 0.552,
+        }
+        fast_info = {}
+
+        def history(self, **kwargs):
+            return SimpleNamespace(empty=True)
+
+    monkeypatch.setattr(yahoo.yf, "Ticker", lambda ticker: Stock())
+
+    result = YahooFinanceWorker().run({"ticker": "ASML"})
+
+    metadata = result["financial_metric_metadata"]
+    assert result["operating_margin_pct"] == 18.3
+    assert result["revenue_growth_pct"] == 55.2
+    assert metadata["operating_margin_pct"]["period_type"] == "PROVIDER_REPORTED_UNSPECIFIED"
+    assert metadata["revenue_growth_pct"]["period_type"] == "PROVIDER_REPORTED_UNSPECIFIED"
+    assert metadata["operating_margin_pct"]["period_end_date"] == "2026-09-27"

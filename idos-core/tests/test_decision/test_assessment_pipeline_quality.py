@@ -130,6 +130,60 @@ def test_financial_quality_gate_blocks_unreconciled_core_metric_periods():
     assert "periodo financiero no reconciliado" in result.details
 
 
+def test_financial_quality_gate_blocks_unspecified_core_metric_period():
+    quality = _financial_data_quality({
+        "roic_pct": 25,
+        "operating_margin_pct": 20,
+        "revenue_growth_pct": 104.5,
+        "pe_ratio_ttm": 18,
+        "debt_equity_ratio": 0.5,
+        "source": "yfinance",
+        "fundamentals_as_of": "2026-09-30",
+        "financial_observations": {
+            "revenue_growth_pct": {
+                "period_status": "PERIOD_UNSPECIFIED",
+            },
+        },
+    })
+
+    result = _eval_financial_data_quality({"financial_data_quality": quality})
+
+    assert quality["status"] == "poor"
+    assert quality["unreconciled_core_metrics"] == ["revenue_growth_pct"]
+    assert not result.passed
+
+
+def test_financial_quality_accepts_single_source_metric_with_non_comparable_peer():
+    quality = _financial_data_quality({
+        "roic_pct": 25,
+        "operating_margin_pct": 38.55,
+        "revenue_growth_pct": 22.54,
+        "pe_ratio_ttm": 18,
+        "debt_equity_ratio": 0.5,
+        "source": "stockanalysis.com, yfinance",
+        "fundamentals_as_of": "2026-09-30",
+        "financial_observations": {
+            "operating_margin_pct": {
+                "period_status": "SINGLE_SOURCE",
+                "values": {"stockanalysis.com": 38.55},
+                "non_comparable_values": {"yfinance": 44.356},
+            },
+            "revenue_growth_pct": {
+                "period_status": "SINGLE_SOURCE",
+                "values": {"stockanalysis.com": 22.54},
+                "non_comparable_values": {"yfinance": 55.2},
+            },
+        },
+    })
+
+    result = _eval_financial_data_quality({"financial_data_quality": quality})
+
+    assert quality["status"] == "good"
+    assert quality["conflicting_core_metrics"] == []
+    assert quality["unreconciled_core_metrics"] == []
+    assert result.passed
+
+
 def test_financial_quality_gate_blocks_missing_cutoff_and_passes_valid_partial_coverage():
     missing_cutoff = _financial_data_quality({
         "roic_pct": 25,

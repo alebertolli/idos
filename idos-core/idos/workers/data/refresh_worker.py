@@ -19,6 +19,7 @@ from idos.resilience.retry import RetryMechanism, RetryPolicy
 from idos.workers.base import BaseWorker
 from idos.workers.data.stockanalysis import StockAnalysisWorker
 from idos.workers.data.yahoo import YahooFinanceWorker
+from idos.workers.data.sec_edgar import SECEdgarWorker
 from idos.workers.data.cache import DataCache
 from idos.workers.data.validator import DataValidator
 from idos.market.liquidity import (
@@ -47,10 +48,16 @@ class DataRefreshWorker(BaseWorker):
         self.config_root = config.get("config_path", "idos-config")
         self.market_data_settings = MarketDataSettings.load(self.config_root)
         self.fx_provider = MonedApiFxProvider()
+        self.data_sources_config = self._load_data_sources_config()
+        configured_sources = self.data_sources_config.get("sources", {})
+        sec_config = configured_sources.get("sec_edgar", {}) if isinstance(configured_sources, dict) else {}
+        self.sec_data_config = sec_config if isinstance(sec_config, dict) else {}
         self.sources = {
             "stockanalysis": StockAnalysisWorker(config),
             "yfinance": YahooFinanceWorker(config),
         }
+        if self.sec_data_config.get("enabled") is True:
+            self.sources["sec_edgar"] = SECEdgarWorker(self.sec_data_config)
 
     def run(self, context: dict[str, Any]) -> dict[str, Any]:
         tickers = context.get("tickers") or self._load_tickers_from_universe()
@@ -134,6 +141,10 @@ class DataRefreshWorker(BaseWorker):
                             message=f"yfinance sin datos: {yf_msg}",
                         )
                         errors.append(f"{ticker}: yfinance no data ({yf_msg})")
+
+                sec_data = self._fetch_sec_fundamentals(ticker, asset_type)
+                if sec_data:
+                    source_data["sec_edgar"] = sec_data
 
                 if len(source_data) > 0:
                     if "stockanalysis.com" not in source_data and "yfinance" in source_data:
@@ -238,6 +249,51 @@ class DataRefreshWorker(BaseWorker):
             "errors": errors,
             "data": results,
         }
+
+    def _load_data_sources_config(self) -> dict[str, Any]:
+        path = Path(self.config.get("data_sources_path", Path(self.config_root) / "data_sources.yml"))
+        try:
+            document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        except (OSError, TypeError, yaml.YAMLError):
+            return {}
+        return document if isinstance(document, dict) else {}
+
+    def _fetch_sec_fundamentals(self, ticker: str, asset_type: str | None) -> dict[str, Any] | None:
+        """Fetch regulator-filed fundamentals only for supported public equities."""
+        worker = self.sources.get("sec_edgar")
+        if asset_type != "us_equity" or worker is None or not getattr(worker, "user_agent", None):
+            return None
+
+        cache_key = f"raw:sec_edgar:{ticker}"
+        cached = self.cache.get(cache_key)
+        if isinstance(cached, dict):
+            return cached
+
+        try:
+            result = self.retry.execute(
+                worker.execute,
+                {"ticker": ticker, "include_filings": False},
+            )
+        except Exception as exc:
+            self.error_manager.report(
+                category=CATEGORY_DATOS, severity=SEVERITY_LOW, ticker=ticker,
+                message=f"SEC fundamentals unavailable: {type(exc).__name__}",
+            )
+            return None
+        if not result or getattr(result, "status", "") != "success":
+            reason = getattr(result, "error", None) or "SEC CompanyFacts unavailable"
+            self.error_manager.report(
+                category=CATEGORY_DATOS, severity=SEVERITY_LOW, ticker=ticker,
+                message=f"SEC fundamentals unavailable: {reason}",
+            )
+            return None
+
+        data = result.output if isinstance(result.output, dict) else {}
+        if not any(data.get(field) is not None for field in ("revenue_growth_pct", "operating_margin_pct", "fcf")):
+            return None
+        ttl = self.sec_data_config.get("ttl_seconds", 86400)
+        self.cache.set(cache_key, data, source="sec_edgar", ttl_seconds=int(ttl))
+        return data
 
     @staticmethod
     def _extract_price_history(data: dict[str, Any]) -> dict[str, list] | None:
@@ -433,27 +489,89 @@ class DataRefreshWorker(BaseWorker):
 
     @staticmethod
     def _preserve_financial_observations(validated: dict, sources: dict) -> None:
-        """Do not average fundamentals from potentially different reporting periods."""
+        """Keep source-specific fundamentals and use only comparable values for gates."""
         merged = validated["merged_data"]
         observations = {}
+        conflicts = {
+            item.get("field") for item in validated.get("conflicts", [])
+            if isinstance(item, dict)
+        }
+        non_comparable = {
+            item.get("field"): item
+            for item in validated.get("non_comparable", [])
+            if isinstance(item, dict) and isinstance(item.get("field"), str)
+        }
         for field in ("operating_margin_pct", "revenue_growth_pct", "fcf"):
             values = {source: data[field] for source, data in sources.items()
                       if isinstance(data.get(field), (int, float))
                       and not isinstance(data[field], bool) and math.isfinite(data[field])}
             if not values:
                 continue
-            selected = "yfinance" if "yfinance" in values else next(iter(values))
+            exclusion = non_comparable.get(field, {})
+            excluded_sources = set(exclusion.get("excluded_sources", []))
+            comparable_values = {
+                source: value for source, value in values.items()
+                if source not in excluded_sources
+            }
+            if not comparable_values:
+                comparable_values = {
+                    source: value for source, value in values.items()
+                    if source == exclusion.get("selected_source")
+                }
+            candidate_values = comparable_values or values
+            selected = DataRefreshWorker._preferred_financial_source(candidate_values)
+            excluded_sources.discard(selected)
             merged[field] = values[selected]
             validated.setdefault("field_sources", {})[field] = [selected]
+            selected_metadata = (
+                sources[selected].get("financial_metric_metadata", {}).get(field, {})
+                if isinstance(sources[selected].get("financial_metric_metadata"), dict)
+                else {}
+            )
+            if field in conflicts:
+                period_status = "CONFLICT"
+            elif (
+                not selected_metadata.get("period_type")
+                or str(selected_metadata.get("period_type")).strip().upper()
+                in {"UNSPECIFIED", "PROVIDER_REPORTED_UNSPECIFIED"}
+                or not selected_metadata.get("period_end_date")
+            ):
+                period_status = "PERIOD_UNSPECIFIED"
+            elif len(comparable_values) > 1:
+                period_status = "RECONCILED"
+            else:
+                period_status = "SINGLE_SOURCE"
             observations[field] = {
-                "selected_source": selected, "values": values,
+                "selected_source": selected, "values": comparable_values,
                 "observed_at": sources[selected].get("financial_data_observed_at"),
                 "provider_period_end_timestamp": sources[selected].get("financial_period_end_timestamp"),
-                "unit": "provider_financial_currency" if field == "fcf" else "percentage_points",
-                "currency": sources[selected].get("financial_currency") if field == "fcf" else None,
-                "period_status": "PROVIDER_REPORTED_NOT_RECONCILED",
+                "period_type": selected_metadata.get("period_type"),
+                "period_end_date": selected_metadata.get("period_end_date"),
+                "unit": selected_metadata.get(
+                    "unit", "provider_financial_currency" if field == "fcf" else "percentage_points"
+                ),
+                "currency": selected_metadata.get("currency"),
+                "period_status": period_status,
+                "non_comparable_values": {
+                    source: value for source, value in values.items() if source in excluded_sources
+                },
+                "source_metadata": {
+                    source: data.get("financial_metric_metadata", {}).get(field, {})
+                    for source, data in sources.items()
+                    if isinstance(data.get("financial_metric_metadata"), dict)
+                    and field in data["financial_metric_metadata"]
+                },
+                "non_comparable_reason": exclusion.get("reason"),
             }
         merged["financial_observations"] = observations
+        merged.pop("financial_metric_metadata", None)
+
+    @staticmethod
+    def _preferred_financial_source(values: dict[str, Any]) -> str:
+        for source in ("stockanalysis.com", "yfinance", "finviz.com", "sec_edgar"):
+            if source in values:
+                return source
+        return next(iter(values))
 
     @staticmethod
     def _yahoo_market_source(yahoo_data: dict[str, Any], history: dict[str, list] | None) -> dict[str, Any]:
@@ -463,6 +581,7 @@ class DataRefreshWorker(BaseWorker):
             "price_history", "volume_history", "price_history_dates",
             "price_history_basis",
             "levered_fcf", "operating_margin_pct", "revenue_growth_pct",
+            "financial_metric_metadata",
             "financial_currency", "financial_data_observed_at", "financial_period_end_timestamp",
         )
         result = {key: yahoo_data[key] for key in keys if key in yahoo_data}

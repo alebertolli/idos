@@ -73,6 +73,26 @@ class StockAnalysisWorker(BaseWorker):
         data["ticker"] = ticker
         data["source"] = "stockanalysis.com"
         data["url"] = url
+        metric_metadata = {}
+        for field in ("operating_margin_pct", "fcf"):
+            if field in data and isinstance(data[field], (int, float)):
+                metric_metadata[field] = {
+                    "period_type": "TTM",
+                    "period_end_date": data.get("period_end_date"),
+                    "unit": "percentage_points" if field.endswith("_pct") else "provider_financial_currency",
+                    "currency": data.get("financial_currency"),
+                    "source_url": url,
+                }
+        if "revenue_growth_pct" in data:
+            metric_metadata["revenue_growth_pct"] = {
+                "period_type": data.get("financial_period_type"),
+                "period_end_date": data.get("period_end_date"),
+                "unit": "percentage_points",
+                "currency": None,
+                "source_url": financials_url,
+            }
+        if metric_metadata:
+            data["financial_metric_metadata"] = metric_metadata
         field_sources = {
             key: ["stockanalysis.com"]
             for key in data
@@ -84,7 +104,7 @@ class StockAnalysisWorker(BaseWorker):
         field_sources["financial_data_observed_at"] = ["stockanalysis.com"]
         financial_fields = {
             "revenue_growth_pct", "period_end_date", "financial_period_type",
-            "financials_data_updated_date",
+            "financials_data_updated_date", "financial_metric_metadata",
         }
         field_urls = {
             key: financials_url if key in financial_fields else url

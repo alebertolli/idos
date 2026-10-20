@@ -215,6 +215,13 @@ def test_run_merges_statistics_and_financials_with_field_source_urls(monkeypatch
     assert provenance["field_urls"]["operating_margin_pct"].endswith("/statistics/")
     assert provenance["field_urls"]["revenue_growth_pct"].endswith("/financials/")
     assert provenance["field_urls"]["period_end_date"].endswith("/financials/")
+    assert result["financial_metric_metadata"]["operating_margin_pct"] == {
+        "period_type": "TTM", "period_end_date": "2026-09-30",
+        "unit": "percentage_points", "currency": None,
+        "source_url": "https://stockanalysis.com/stocks/ASML/statistics/",
+    }
+    assert result["financial_metric_metadata"]["revenue_growth_pct"]["period_type"] == "TTM"
+    assert result["financial_metric_metadata"]["revenue_growth_pct"]["period_end_date"] == "2026-09-30"
 
 
 

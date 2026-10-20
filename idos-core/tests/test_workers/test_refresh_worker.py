@@ -1,10 +1,12 @@
 import tempfile
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from types import SimpleNamespace
 
 from idos.market.liquidity import FxObservation
 from idos.market.liquidity import expected_us_market_sessions
 from idos.workers.data.refresh_worker import DataRefreshWorker
+from idos.workers.data.validator import DataValidator
 
 
 SAMPLE_UNIVERSE = """| TICKER | Name |
@@ -36,6 +38,43 @@ def test_refresh_worker_empty_context():
     w = DataRefreshWorker()
     result = w.run({"tickers": []})
     assert result["tickers_processed"] == 0
+
+
+def test_refresh_worker_fetches_sec_fundamentals_only_for_equities():
+    config = Path(__file__).parents[3] / "idos-config"
+    worker = DataRefreshWorker({"config_path": str(config)})
+    calls = []
+    cached = {}
+
+    class Cache:
+        def get(self, _key):
+            return None
+
+        def set(self, key, value, *, source, ttl_seconds):
+            cached.update(key=key, value=value, source=source, ttl_seconds=ttl_seconds)
+
+    class SecWorker:
+        user_agent = "IDOS tests contact@example.org"
+
+        def execute(self, context):
+            calls.append(context)
+            return SimpleNamespace(
+                status="success",
+                output={"revenue_growth_pct": 12.5, "source": "sec_edgar"},
+            )
+
+    worker.cache = Cache()
+    worker.sources["sec_edgar"] = SecWorker()
+
+    assert worker._fetch_sec_fundamentals("AAPL", "etf") is None
+    assert calls == []
+
+    result = worker._fetch_sec_fundamentals("AAPL", "us_equity")
+
+    assert result["revenue_growth_pct"] == 12.5
+    assert calls == [{"ticker": "AAPL", "include_filings": False}]
+    assert cached["source"] == "sec_edgar"
+    assert cached["ttl_seconds"] == 86400
 
 
 def test_refresh_worker_reuses_aligned_yahoo_history():
@@ -89,7 +128,7 @@ def test_refresh_worker_cache_payload_keeps_flat_metrics_and_field_provenance():
     assert payload["data_provenance"]["field_sources"]["roic_pct"] == ["stockanalysis.com"]
 
 
-def test_refresh_worker_keeps_levered_fcf_separate_from_unlevered_fcf():
+def test_refresh_worker_keeps_levered_fcf_separate_and_prefers_stockanalysis_fundamentals():
     validated = {"merged_data": {"fcf": 4, "operating_margin_pct": 8}, "field_sources": {}}
     DataRefreshWorker._preserve_financial_observations(validated, {
         "stockanalysis.com": {"fcf": 4, "operating_margin_pct": 8},
@@ -97,21 +136,58 @@ def test_refresh_worker_keeps_levered_fcf_separate_from_unlevered_fcf():
                      "financial_currency": "USD", "financial_data_observed_at": "2026-10-18T00:00:00+00:00"},
     })
     assert validated["merged_data"]["fcf"] == 4
-    assert validated["merged_data"]["operating_margin_pct"] == 0.08
+    assert validated["merged_data"]["operating_margin_pct"] == 8
     assert validated["field_sources"]["fcf"] == ["stockanalysis.com"]
     assert validated["merged_data"]["financial_observations"]["fcf"]["values"] == {
         "stockanalysis.com": 4,
     }
 
 
+def test_refresh_worker_keeps_unspecified_growth_period_non_comparable():
+    sources = {
+        "stockanalysis.com": {
+            "revenue_growth_pct": 22.54,
+            "financial_data_observed_at": "2026-10-20T00:00:00+00:00",
+            "financial_metric_metadata": {
+                "revenue_growth_pct": {
+                    "period_type": "TTM", "period_end_date": "2026-09-30",
+                    "unit": "percentage_points", "currency": None,
+                },
+            },
+        },
+        "yfinance": {
+            "revenue_growth_pct": 55.2,
+            "financial_data_observed_at": "2026-10-20T00:00:01+00:00",
+            "financial_metric_metadata": {
+                "revenue_growth_pct": {
+                    "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "period_end_date": "2026-09-27",
+                    "unit": "percentage_points", "currency": None,
+                },
+            },
+        },
+    }
+    validated = DataValidator().cross_validate(sources)
+    DataRefreshWorker._preserve_financial_observations(validated, sources)
+
+    observation = validated["merged_data"]["financial_observations"]["revenue_growth_pct"]
+    assert validated["merged_data"]["revenue_growth_pct"] == 22.54
+    assert validated["conflicts"] == []
+    assert observation["period_status"] == "SINGLE_SOURCE"
+    assert observation["values"] == {"stockanalysis.com": 22.54}
+    assert observation["non_comparable_values"] == {"yfinance": 55.2}
+    assert observation["non_comparable_reason"] == "missing_period_unit_or_cutoff"
+
+
 def test_refresh_worker_preserves_yahoo_levered_fcf_provenance():
     source = DataRefreshWorker._yahoo_market_source({
         "ticker": "ASML", "source": "yahoo_finance", "fcf": 99,
         "levered_fcf": 10_374_124_544, "financial_currency": "EUR",
+        "financial_metric_metadata": {"levered_fcf": {"period_type": "TTM"}},
     }, None)
 
     assert source["levered_fcf"] == 10_374_124_544
     assert source["financial_currency"] == "EUR"
+    assert source["financial_metric_metadata"]["levered_fcf"]["period_type"] == "TTM"
     assert "fcf" not in source
 
 
