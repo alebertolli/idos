@@ -979,6 +979,29 @@ class TestResearchWorker:
 
 
 
+
+def test_hypothesis_generation_retries_once_with_validation_feedback(monkeypatch):
+    from unittest.mock import MagicMock
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    first = {"hipotesis": [{"id": "H1", "fecha_objetivo": "2025-01-01"}]}
+    corrected = {"hipotesis": [{"id": "H1", "fecha_objetivo": "2027-01-01"}]}
+    worker = object.__new__(ResearchWorker)
+    worker._run_prompt = MagicMock(side_effect=[first, corrected])
+    validator = MagicMock(side_effect=[["H1: prediction or trigger references an expired year"], []])
+    monkeypatch.setattr(ResearchWorker, "_validate_hypothesis_contract", staticmethod(validator))
+
+    result = worker._run_hypothesis_prompt_with_repair("ALAB", {
+        "ticker": "ALAB",
+        "as_of_date": "2026-10-20",
+        "validation_feedback": "",
+    })
+
+    assert result is corrected
+    assert worker._run_prompt.call_count == 2
+    assert "expired year" in worker._run_prompt.call_args_list[1].args[2]["validation_feedback"]
+
+
 def test_financial_evidence_context_preserves_observations_and_source_metadata():
     from idos.workers.ai.research_worker import ResearchWorker
 
