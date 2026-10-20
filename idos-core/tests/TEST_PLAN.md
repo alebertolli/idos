@@ -660,3 +660,8 @@ desplegó el SHA `9c0eb15` con el estado operativo de producción vacío.
 5. Revisar el dashboard para confirmar que el paquete está completo y que las
    alertas/gates están explicados como pendientes de Decision Board sin
    solicitar acciones previas.
+
+
+### Decision Review en producción
+
+Tras integrar el workflow, comprobar que el enlace de Decision Board abre la acción manual desde `main`. Verificar con una propuesta real que los inputs autenticados pasan las validaciones, que un rechazo sólo registra la resolución y que una aprobación válida agrega Buy List sin crear posiciones u órdenes. No ejecutar decisiones sintéticas en `main`; probar casos negativos con fixtures locales o en una rama de prueba.
