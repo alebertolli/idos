@@ -1,3 +1,4 @@
+import calendar
 import re
 import time
 from datetime import datetime, timezone
@@ -14,6 +15,7 @@ USER_AGENTS = [
 ]
 
 BASE_URL = "https://stockanalysis.com/stocks/{ticker}/statistics/"
+FINANCIALS_URL = "https://stockanalysis.com/stocks/{ticker}/financials/"
 FORECAST_URL = "https://stockanalysis.com/stocks/{ticker}/forecast/"
 
 
@@ -41,27 +43,57 @@ class StockAnalysisWorker(BaseWorker):
         resp = requests.get(url, headers=headers, timeout=self.timeout)
         resp.raise_for_status()
 
-        time.sleep(self.delay)
-
         soup = BeautifulSoup(resp.text, "lxml")
         data = self._parse_statistics(soup, ticker)
         data["financial_data_observed_at"] = datetime.now(timezone.utc).isoformat()
         provider_updated_date = self._parse_provider_updated_date(soup)
         if provider_updated_date:
             data["provider_data_updated_date"] = provider_updated_date
+
+        financials_url = FINANCIALS_URL.format(ticker=ticker.lower())
+        try:
+            time.sleep(self.delay)
+            financials_response = requests.get(
+                financials_url, headers=headers, timeout=self.timeout
+            )
+            financials_response.raise_for_status()
+            financials_soup = BeautifulSoup(financials_response.text, "lxml")
+            financials_data = self._parse_financials(financials_soup)
+            data.update(financials_data)
+            financials_updated_date = self._parse_provider_updated_date(financials_soup)
+            if financials_updated_date:
+                data["financials_data_updated_date"] = financials_updated_date
+        except requests.RequestException:
+            # Preserve statistics data; missing financial metrics remain subject
+            # to the existing fail-closed Scout/Assessment quality gates.
+            data["data_quality_warnings"] = ["stockanalysis_financials_page_unavailable"]
+
         data["ticker"] = ticker
         data["source"] = "stockanalysis.com"
         data["url"] = url
         field_sources = {
             key: ["stockanalysis.com"]
             for key in data
-            if key not in {"ticker", "source", "url", "financial_data_observed_at"}
+            if key not in {
+                "ticker", "source", "url", "financial_data_observed_at",
+                "data_quality_warnings",
+            }
         }
         field_sources["financial_data_observed_at"] = ["stockanalysis.com"]
+        financial_fields = {
+            "revenue_growth_pct", "period_end_date", "financial_period_type",
+            "financials_data_updated_date",
+        }
+        field_urls = {
+            key: financials_url if key in financial_fields else url
+            for key in field_sources
+        }
         data["data_provenance"] = {
             "source_count": 1,
             "sources_used": ["stockanalysis.com"],
+            "source_urls": [url, financials_url],
             "field_sources": field_sources,
+            "field_urls": field_urls,
             "conflicts": [],
         }
 
@@ -80,6 +112,53 @@ class StockAnalysisWorker(BaseWorker):
         for date_format in ("%b %d, %Y", "%B %d, %Y"):
             try:
                 return datetime.strptime(match.group(1), date_format).date().isoformat()
+            except ValueError:
+                continue
+        return None
+
+    @staticmethod
+    def _parse_financials(soup: BeautifulSoup) -> dict[str, Any]:
+        """Extract TTM revenue growth and its accounting period from financials."""
+        revenue_growth: float | None = None
+        period_end_date: str | None = None
+
+        for table in soup.find_all("table"):
+            for row in table.find_all("tr"):
+                cells = row.find_all(["td", "th"])
+                values = [cell.get_text(" ", strip=True) for cell in cells]
+                if len(values) < 2:
+                    continue
+
+                label = re.sub(r"\\s+", " ", values[0]).strip().lower()
+                if label == "revenue growth":
+                    parsed = StockAnalysisWorker()._parse_value(values[1])
+                    if isinstance(parsed, (float, int)):
+                        revenue_growth = float(parsed)
+                elif label == "period ending":
+                    period_end_date = StockAnalysisWorker._parse_period_end(values[1])
+
+        result: dict[str, Any] = {}
+        if revenue_growth is not None:
+            result["revenue_growth_pct"] = revenue_growth
+        if period_end_date:
+            result["period_end_date"] = period_end_date
+            result["financial_period_type"] = "TTM"
+        return result
+
+    @staticmethod
+    def _parse_period_end(value: str) -> str | None:
+        match = re.search(r"\\b([A-Za-z]{3,9})\\s+['’]?(\\d{2,4})\\b", value.strip())
+        if not match:
+            return None
+        for month_format in ("%b", "%B"):
+            try:
+                month = datetime.strptime(match.group(1), month_format).month
+                year_text = match.group(2)
+                year = int(year_text)
+                if len(year_text) == 2:
+                    year += 2000 if year < 70 else 1900
+                day = calendar.monthrange(year, month)[1]
+                return datetime(year, month, day).date().isoformat()
             except ValueError:
                 continue
         return None
