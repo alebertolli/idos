@@ -245,15 +245,24 @@ jobs:
             exit 1
           fi
 
+      - name: Collect current DDD decision package
+        if: github.event.inputs.preview_only != 'true'
+        env:
+          DDD_RUN_STARTED_AT: ${{ github.run_started_at }}
+        run: |
+          args=(--base-path . --tickers "$TICKER" --started-at "$DDD_RUN_STARTED_AT" --output-dir cache/ddd-artifact)
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -n "$TICKER" ]; then
+            args+=(--require-output)
+          fi
+          python scripts/collect_ddd_artifacts.py "${args[@]}"
+
       - name: Upload artifact
         if: github.event.inputs.preview_only != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: ddd-results-${{ github.run_id }}
-          path: |
-            cache/ddd_results.json
-            cache/ddd_preview.json
-            cache/weekly_digest.md
+          path: cache/ddd-artifact/
+          if-no-files-found: error
 
       - name: Upload candidate preview
         if: github.event.inputs.preview_only == 'true'

@@ -665,3 +665,19 @@ desplegó el SHA `9c0eb15` con el estado operativo de producción vacío.
 ### Decision Review en producción
 
 Tras integrar el workflow, comprobar que el enlace de Decision Board abre la acción manual desde `main`. Verificar con una propuesta real que los inputs autenticados pasan las validaciones, que un rechazo sólo registra la resolución y que una aprobación válida agrega Buy List sin crear posiciones u órdenes. No ejecutar decisiones sintéticas en `main`; probar casos negativos con fixtures locales o en una rama de prueba.
+
+
+
+### Coherencia financiera de Research y artifact DDD
+
+- Ejecutar una prueba con FCF observado y procedencia; comprobar que el prompt
+  recibe valor, unidad/moneda, período, corte y fuente, y que no sustituye
+  datos ausentes por cero ni etiqueta FCF reportado como ajustado.
+- Ejecutar Research y Assessment para un ticker seleccionado en rama de prueba;
+  inspeccionar que el expediente llegue a Decision Board y conserve su estado
+  pendiente sin aprobación automática.
+- Confirmar que el artifact DDD contiene únicamente reportes y decisiones de
+  las oportunidades creadas/actualizadas durante ese run y que nunca incluye
+  posiciones ni datos privados de Portfolio.
+- Ejecutar Pages build en la misma rama y comprobar tesis, escenarios,
+  procedencia, alertas de quality y estado pendiente de Decision Board.

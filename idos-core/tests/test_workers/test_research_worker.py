@@ -224,7 +224,7 @@ def test_ddd_prompt_renders_the_scenario_evidence_contract():
         "ticker": "VIST", "name": "Vista", "existing_wiki": "", "prior_catalysts": "[]",
         "sector": "Energy", "business_model": "", "products": "", "geography": "",
         "moat_description": "", "revenue": 1, "revenue_growth": 2, "operating_margin": 3,
-        "roic": 4, "excess_return_roic_wacc": 0, "fcf_adjusted": 5, "debt_to_equity": 0.1,
+        "roic": 4, "excess_return_roic_wacc": 0, "fcf_adjusted": None, "debt_to_equity": 0.1,
         "debt_maturity_profile": "N/A", "interest_coverage_ratio": 4, "ceo_tenure": 1,
         "insider_ownership": 0, "capital_allocation": "N/A", "recent_events": "",
         "analysis_as_of_date": "2026-10-19", "current_price": 100,
@@ -977,3 +977,53 @@ class TestResearchWorker:
         stored = tmp_sqlite.conn.execute("SELECT probability, confidence FROM hypotheses WHERE opportunity_id=?", (opp_id,)).fetchone()
         assert stored["probability"] is None and stored["confidence"] is None
 
+
+
+def test_financial_evidence_context_preserves_observations_and_source_metadata():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    observations = {
+        "fcf": {
+            "selected_source": "stockanalysis.com",
+            "values": {"stockanalysis.com": 276680000.0},
+            "period_type": "TTM",
+            "period_end_date": "2026-06-30",
+            "unit": "provider_financial_currency",
+            "currency": None,
+            "source_metadata": {
+                "stockanalysis.com": {
+                    "period_type": "TTM",
+                    "period_end_date": "2026-06-30",
+                    "unit": "provider_financial_currency",
+                    "source_url": "https://stockanalysis.com/stocks/alab/statistics/",
+                }
+            },
+        }
+    }
+
+    context = ResearchWorker._financial_evidence_context({
+        "financial_observations": observations,
+        "data_provenance": {
+            "sources_used": ["stockanalysis.com"],
+            "field_sources": {"fcf": ["stockanalysis.com"]},
+            "conflicts": [],
+        },
+    })
+
+    assert context["observations"]["fcf"]["values"]["stockanalysis.com"] == 276680000.0
+    assert context["observations"]["fcf"]["period_end_date"] == "2026-06-30"
+    assert context["observations"]["fcf"]["source_metadata"]["stockanalysis.com"]["source_url"].startswith("https://")
+    assert context["currency"] is None
+
+
+def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():
+    from idos.ai.prompts import PromptRegistry
+
+    repo_root = Path(__file__).resolve().parents[3]
+    registry = PromptRegistry(repo_root / "idos-config" / "prompts")
+    prompt = registry.load("ddd", category="research").user_prompt
+
+    assert "No se rellenan métricas ausentes con cero" in prompt
+    assert "Un dato ausente no significa cero" in prompt
+    assert "No llames ajustado al flujo de caja libre reportado" in prompt
+    assert "FCF Ajustado: {fcf_adjusted" not in prompt
