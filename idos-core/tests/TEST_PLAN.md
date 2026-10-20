@@ -699,3 +699,29 @@ Tras integrar el workflow, comprobar que el enlace de Decision Board abre la acc
   #12292412140, Pages preview #39483933896 y Daily Refresh #39484102319.
   Ejecuciones de prueba en ramas; no equivalen a publicación ni a aceptación
   del gestor. Portfolio privado queda fuera de alcance hasta conectar su fuente.
+
+
+### Regresión E2E multi estrategia hasta Decision Board — 2026-10-20
+
+- En una rama desde el commit de PR #149, iniciar Monthly Universe con
+  `allow_production_e2e=false` y selección manual acotada ALAB/XLF.
+  Comprobar COMPOUNDER para ALAB y MOMENTUM_ETF para XLF desde
+  `operable.yml`.
+- Ejecutar DDD para ambos: Research y Assessment deben completar sin pedir
+  datos, confirmaciones o aprobaciones al gestor. Verificar que RULE-008 y las
+  fuentes/fechas se validan automáticamente cuando aplica; para XLF no generar
+  escenarios fundamentales.
+- Confirmar que toda propuesta anterior al Board permanece
+  `PENDING_HUMAN_REVIEW`; ninguna ejecución crea aprobación, Buy List,
+  posición, orden ni autorización implícita. La prueba no debe invocar
+  `Decision Review` ni `Board Review` con una identidad sintética.
+- Ejecutar Daily Refresh con portfolio simulation y research event dispatch
+  desactivados. Comprobar alcance de dos tickers, `no_errors` y
+  `PORTFOLIO-GATE effective=false`.
+- Construir Pages preview en la misma rama y verificar render y JSON:
+  oportunidad/tesis/asimetría/procedencia, Buy List vacía, sin posiciones,
+  ledger ni portfolio privado. Deploy debe omitirse para la rama.
+- Evidencia real: Monthly #39487153167; DDD #39487290912, artifact
+  #12293942535; Daily #39487847775; Pages preview #39488012941, artifact
+  #12294786477. El render local confirmó contadores, señal y alertas. Ninguna
+  corrida escribió en `main` ni publicó a Pages.
