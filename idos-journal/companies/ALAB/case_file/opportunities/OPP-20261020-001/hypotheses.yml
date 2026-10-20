@@ -1,0 +1,165 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Informe trimestral Q2‑2027 muestra una capacidad operativa ≤ 1.10×
+      la de Q3‑2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Cancelación pública de al menos una de las inversiones anunciadas antes
+      de 2027‑06‑30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Informe trimestral Q2‑2027 muestra una capacidad operativa ≤ 1.10× la de Q3‑2026.
+  - Cancelación pública de al menos una de las inversiones anunciadas antes de 2027‑06‑30.
+  horizon: corto
+  id: H1-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 30.0
+    met: null
+    metric: incremento_capacidad_produccion
+    prediction: Capacidad operativa total (en unidades de chips por mes) será ≥ 1.30×
+      la capacidad reportada en el informe Q3‑2026.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: La empresa ha anunciado inversiones de $250 M en una nueva línea de ensamblaje
+    en Taiwán y la expansión de su planta de prueba en EE.UU., y ha firmado acuerdos
+    de suministro con fabricantes de empaquetado avanzado que reducen los cuellos
+    de botella de la cadena.
+  review_trigger: Si antes del 2027‑04‑01 la empresa comunica retrasos críticos en
+    la construcción de la línea taiwanesa que impidan alcanzar el 20% de incremento.
+  secondary_hypotheses: []
+  statement: Astera Labs incrementará su capacidad de producción combinada en Taiwán
+    y EE.UU. en al menos un 30% respecto al nivel de Q3‑2026.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF / Ingresos FY2027 < 0.08 según el reporte anual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Reclasificación de gastos de capital que reduzca el FCF en más del
+      50 % respecto a la proyección.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF / Ingresos FY2027 < 0.08 según el reporte anual.
+  - Reclasificación de gastos de capital que reduzca el FCF en más del 50 % respecto
+    a la proyección.
+  horizon: medio
+  id: H2-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 15.0
+    met: null
+    metric: ratio_fcf_ingresos
+    prediction: FCF / Ingresos FY2027 ≥ 0.15.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: Los márgenes operativos positivos y la mejora en la gestión del capital
+    de trabajo, combinados con la reducción de CAPEX relativo tras la puesta en marcha
+    de la nueva capacidad, deberían traducirse en una mayor generación de efectivo.
+  review_trigger: Si en el reporte Q3‑2027 la empresa anuncia una revisión a la baja
+    de su guía de margen operativo por debajo del 5 %.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  statement: El flujo de caja libre (FCF) de Astera Labs representará al menos el
+    15 % de sus ingresos anuales en el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Crecimiento interanual de ingresos CXL ≤ 5 % en Q1‑2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Anuncio de un cliente clave que pospone su hoja de ruta CXL más de
+      12 meses.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Crecimiento interanual de ingresos CXL ≤ 5 % en Q1‑2028.
+  - Anuncio de un cliente clave que pospone su hoja de ruta CXL más de 12 meses.
+  horizon: medio
+  id: H3-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-04-30'
+    expected: 20.0
+    met: null
+    metric: crecimiento_ingresos_cxl_q1_2028
+    prediction: Ingresos CXL Q1‑2028 = 1.20 × ingresos CXL Q1‑2027.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: Los principales proveedores de servidores y plataformas AI están adoptando
+    CXL como estándar de interconexión; Astera Labs ya tiene varios clientes estratégicos
+    que han anunciado planes de despliegue para 2027‑2028.
+  review_trigger: Si antes del 2028‑02‑01 la empresa reduce su guía de ingresos CXL
+    para FY2028 en más del 10 %.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  statement: Los ingresos provenientes de productos basados en la especificación CXL
+    crecerán un 20 % interanual en el trimestre Q1‑2028.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Precio de cierre el 2028‑12‑31 < 35 USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Revisión a la baja del consenso de objetivo de precio a ≤ 30 USD antes
+      de 2028‑12‑01.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Precio de cierre el 2028‑12‑31 < 35 USD.
+  - Revisión a la baja del consenso de objetivo de precio a ≤ 30 USD antes de 2028‑12‑01.
+  horizon: largo
+  id: H4-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 45.0
+    met: null
+    metric: precio_accion
+    prediction: Precio de cierre de ALAB el 2028‑12‑31 ≥ 45 USD.
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: Si se cumplen H1‑H3, la empresa mostrará crecimiento de ingresos, márgenes
+    y adopción de CXL, lo que debería impulsar la revaluación del múltiplo EV/Revenue
+    y generar un impulso de precios por parte de inversores de crecimiento.
+  review_trigger: Si antes del 2028‑06‑01 la empresa reporta una caída de ingresos
+    anual superior al 15 % respecto a FY2026.
+  secondary_hypotheses:
+  - H2-OPP-20261020-001
+  - H3-OPP-20261020-001
+  statement: El precio de la acción de ALAB cotizará al menos 1.5 veces el consenso
+    de objetivo de precio de los analistas (USD 30) antes del 31‑12‑2028.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
