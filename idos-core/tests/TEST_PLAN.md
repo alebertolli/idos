@@ -402,10 +402,12 @@ en el fixture.
    posteriores.
 3. Ejecutar Research sólo si existe oportunidad elegible; inspeccionar tesis,
    hipótesis, fechas futuras, falsaciones, evidencia y errores estructurados.
-4. Revisar Assessment determinista y RULE-008; exigir Bear/Base/Bull vigente,
-   fuentes, horizonte, moneda y hash antes de decidir.
-5. Registrar revisión real de escenarios y Decision en rama; verificar actor,
-   justificación, hash, gates y Buy List sin generar posiciones.
+4. Verificar que agentes completen automáticamente Assessment, RULE-008 y
+   la preparación del paquete Bear/Base/Bull, con fuentes, horizonte, moneda,
+   hash y bloqueos explícitos; no pedir confirmación previa al gestor.
+5. Registrar una sola revisión humana en Decision Board, incluyendo decisión,
+   confirmación de fuentes/fechas y justificación; verificar actor, hash, gates
+   y Buy List sin generar posiciones.
 6. Ejecutar Daily Refresh con simulación desactivada; revisar gate, calendario,
    Buy List, allowlist de artefactos y ausencia de datos privados.
 7. Generar dashboard; inspeccionar JSON, HTML y vista renderizada para tesis,
