@@ -1398,9 +1398,18 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 input,select{background:#12151b;border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:6px}
 .alert{background:#2a1d10;border:1px solid #4a3510;border-radius:8px;padding:8px 12px;margin:6px 0}
 .alert.high{background:#2a1010;border-color:#4a1414}
+.scenario-mobile-list{display:none}
+.scenario-mobile-card{background:#12151b;border:1px solid var(--border);border-radius:8px;padding:12px}
+.scenario-mobile-card h4{font-size:14px;margin-bottom:8px}
+.scenario-mobile-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 10px}
+.scenario-mobile-facts dt{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.scenario-mobile-facts dd{font-weight:600;overflow-wrap:anywhere}
+.scenario-mobile-card p,.scenario-mobile-card ul{margin:6px 0}
+.scenario-mobile-card ul{padding-left:20px}
+.scenario-mobile-card .scenario-sources a{display:inline-block;margin:2px 8px 2px 0}
 .back{color:var(--muted);font-size:13px}
 .yaml{white-space:pre-wrap}
-@media(max-width:720px){.wrap{padding:12px}.tabs{flex-direction:column}}
+@media(max-width:720px){.wrap{padding:12px}.tabs{flex-direction:column}.scenario-desktop-table{display:none}.scenario-mobile-list{display:grid;gap:8px}}
 """
 
 APP_JS = r"""// IDOS static UI
@@ -1775,7 +1784,12 @@ function showCase(oppId){
       const rationale=s.rationale?`<p>${esc(s.rationale)}</p>`:'';
       return `<tr><td>${esc(s.id)}</td><td>${pct(s.probability_pct)}</td><td>${esc(sa.currency)} ${money(s.target_price)}</td><td>${rationale}${assumptions?`<ul>${assumptions}</ul>`:''}</td><td>${sources}</td></tr>`;
     }).join('');
-    html += `<h3>Asimetría · escenarios Bear / Base / Bull</h3><div class="card"><b>${d.scenario_review?.status==='manager_approved'?'Escenarios aprobados por el gestor':'Propuesta pendiente de aprobación del gestor'}</b><p class="muted">Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table><thead><tr><th>Escenario</th><th>Probabilidad</th><th>Precio objetivo</th><th>Lectura y supuestos</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><p class="muted">Antes de aprobar, abre cada fuente y verifica que exista, respalde el supuesto y tenga la fecha indicada. La propuesta de Research no habilita una compra; RULE-008 sólo puede pasar con una revisión atribuida al gestor y una confirmación explícita de fuentes verificadas.</p>${d.scenario_review?.scenario_hash?`<details><summary>Hash del conjunto para revisión</summary><code>${esc(d.scenario_review.scenario_hash)}</code><p class="muted">En GitHub Actions, ejecuta Scenario Review, verifica las fuentes, marca la confirmación y copia este hash.</p></details>`:''}</div>`;
+    const scenarioCards=sa.scenarios.map(s=>{
+      const sources=(s.sources||[]).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.name)}</a> · ${dt(x.as_of_date)}`).join('<br>');
+      const assumptions=(s.key_assumptions||[]).map(x=>`<li>${esc(x)}</li>`).join('');
+      return `<article class="scenario-mobile-card" aria-label="Escenario ${esc(s.id)}"><h4>${esc(s.id)}</h4><dl class="scenario-mobile-facts"><div><dt>Probabilidad</dt><dd>${pct(s.probability_pct)}</dd></div><div><dt>Precio objetivo</dt><dd>${esc(sa.currency||'—')} ${money(s.target_price)}</dd></div></dl>${s.rationale?`<p>${esc(s.rationale)}</p>`:''}${assumptions?`<ul>${assumptions}</ul>`:''}<div class="scenario-sources"><b>Fuentes</b><br>${sources||'Sin fuente registrada'}</div></article>`;
+    }).join('');
+    html += `<h3>Asimetría · escenarios Bear / Base / Bull</h3><div class="card"><b>${d.scenario_review?.status==='manager_approved'?'Escenarios aprobados por el gestor':'Propuesta pendiente de aprobación del gestor'}</b><p class="muted">Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table class="scenario-desktop-table"><thead><tr><th>Escenario</th><th>Probabilidad</th><th>Precio objetivo</th><th>Lectura y supuestos</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><div class="scenario-mobile-list">${scenarioCards}</div><p class="muted">Antes de aprobar, abre cada fuente y verifica que exista, respalde el supuesto y tenga la fecha indicada. La propuesta de Research no habilita una compra; RULE-008 sólo puede pasar con una revisión atribuida al gestor y una confirmación explícita de fuentes verificadas.</p>${d.scenario_review?.scenario_hash?`<details><summary>Hash del conjunto para revisión</summary><code>${esc(d.scenario_review.scenario_hash)}</code><p class="muted">En GitHub Actions, ejecuta Scenario Review, verifica las fuentes, marca la confirmación y copia este hash.</p></details>`:''}</div>`;
   } else if(d.scenario_validation?.errors?.length){
     html += `<h3>Escenarios Bear / Base / Bull</h3><div class="card"><b class="neg">Propuesta incompleta o inválida; RULE-008 permanece bloqueada.</b><ul>${d.scenario_validation.errors.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
   }
