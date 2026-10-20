@@ -399,6 +399,23 @@ El sistema gestiona simultáneamente múltiples estrategias de inversión bajo u
 1a. THE Monthly_Universe_Pipeline SHALL usar `idos-config/universe/operable.yml` como registro común de elegibilidad de activos, incluidos activos que no sean CEDEARs; cada estrategia SHALL intersectarlo con su universo propio configurado cuando exista, antes de consultar datos o generar Opportunities.
 1b. WHEN un Strategy_Profile declara `supported_asset_types`, THE Monthly_Universe_Pipeline SHALL excluir otros tipos antes del fetch; las ejecuciones manuales SHALL poder limitar candidatos a un máximo de cinco instrumentos de `operable.yml` sin cambiar el universo de las ejecuciones programadas.
 2. THE DDD_Research_Pipeline SHALL ejecutarse el día 2 del mes (modo NORMAL), cada 30 días (modo FORCE), y SHALL admitir `workflow_dispatch` con input `ticker` y `force`, y `repository_dispatch` para `quarterly-results`; WHEN el día 2 y el ciclo FORCE de 30 días coinciden para el mismo ticker, THE DDD_Research_Pipeline SHALL ejecutar ambos modos en la misma ejecución procesando FORCE primero.
+2a. THE IDOS SHALL ejecutar Discovery, Research y Assessment mediante
+agentes/workers configurados, de forma autónoma y sin solicitar ni requerir
+aprobación, confirmación o datos ingresados por el gestor. Los errores, gates
+fallidos y evidencia insuficiente SHALL quedar registrados con estado explícito
+para completar el expediente y presentarlo en Decision Board.
+
+2b. THE Decision_Board SHALL ser el primer y único checkpoint del flujo de
+oportunidades que requiera una acción humana autenticada. SHALL reunir en una
+misma revisión la decisión, justificación, identidad y confirmación de fuentes
+y fechas contra el paquete vigente. La ausencia de acción humana SHALL mantener
+la propuesta pendiente; ningún agente SHALL inferir aprobación.
+
+2c. La finalización autónoma de las etapas previas SHALL NOT crear por sí sola
+una aprobación, entrada a Buy_List, posición, orden ni autorización de
+operación. Sólo una decisión válida registrada en Decision_Board puede habilitar
+la transición posterior definida por la política de entrada.
+
 3. THE Daily_Data_Refresh_Pipeline SHALL ejecutarse de lunes a viernes a las 8:00 UTC y SHALL ejecutar en orden: (1) refresh de datos financieros y benchmark SPY, (2) refresh de Buy_List, (3) Entry_Monitor, (4) Paper_Trader, (5) Risk_Monitor, (6) reporte de errores de datos.
 4. THE CI_Pipeline SHALL ejecutar en todo commit a `main`: linting (ruff), tests unitarios (pytest), verificación de tipos (mypy) y validación de schemas YAML de `idos-config/` incluyendo Strategy_Profiles.
 5. THE IDOS SHALL usar scripts versionados en `scripts/` en lugar de bloques `python -c` embebidos en los workflows YAML, para garantizar que el mismo código se ejecuta en local y en GitHub Actions.
