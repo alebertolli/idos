@@ -1,0 +1,164 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Entrega total inferior a 20 unidades para la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Anuncio oficial de retraso superior a 6 meses en la producción de ópticas
+      Zeiss.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Entrega total inferior a 20 unidades para la fecha objetivo.
+  - Anuncio oficial de retraso superior a 6 meses en la producción de ópticas Zeiss.
+  horizon: corto
+  id: H1-OPP-20260725-028
+  opportunity_id: OPP-20260725-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 30.0
+    met: null
+    metric: unidades entregadas
+    prediction: Entrega de ≥30 unidades High‑NA EUV a clientes finales.
+    unit: unidades
+  priority: critical
+  probability: 0.5
+  rationale: El roadmap interno de ASML indica que la capacidad de producción de ópticas
+    Zeiss y la demanda de fabless para IA impulsarán la adopción rápida; los pedidos
+    preliminares de TSMC y Samsung ya están firmados.
+  review_trigger: Si ASML publica un informe de producción en Q3‑2027 mostrando menos
+    de 15 unidades entregadas.
+  secondary_hypotheses: []
+  statement: ASML completará el ramp‑up de la plataforma High‑NA EUV y entregará al
+    menos 30 sistemas antes de fin de 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EBITDA margin FY2028 ≤ 42 %.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Incremento de costos de materiales > 5 % sin compensación de ingresos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EBITDA margin FY2028 ≤ 42 %.
+  - Incremento de costos de materiales > 5 % sin compensación de ingresos.
+  horizon: medio
+  id: H2-OPP-20260725-028
+  opportunity_id: OPP-20260725-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 45.0
+    met: null
+    metric: EBITDA margin
+    prediction: EBITDA margin FY2028 > 45 %.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: El aumento de la participación de High‑NA (más rentable) y la reducción
+    de costos fijos por economías de escala deberían elevar el margen; historicamente,
+    cada 10 unidades High‑NA entregadas incrementan el EBITDA margin en ~1 p.p.
+  review_trigger: Si el informe financiero Q2‑2028 muestra un EBITDA margin de 41 %
+    o menos.
+  secondary_hypotheses:
+  - H1-OPP-20260725-028
+  statement: El margen EBITDA de ASML superará el 45 % en el FY2028 gracias al mayor
+    mix de productos High‑NA y a la mejora de la eficiencia operativa.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EV/EBITDA ≤ 22× en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Caída del precio de la acción >15 % respecto al nivel de 2026‑10‑20
+      sin cambios fundamentales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EV/EBITDA ≤ 22× en la fecha objetivo.
+  - Caída del precio de la acción >15 % respecto al nivel de 2026‑10‑20 sin cambios
+    fundamentales.
+  horizon: medio
+  id: H3-OPP-20260725-028
+  opportunity_id: OPP-20260725-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 25.0
+    met: null
+    metric: EV/EBITDA
+    prediction: EV/EBITDA = 25×.
+    unit: veces
+  priority: important
+  probability: 0.5
+  rationale: Los analistas ajustarán sus modelos al observar entregas exitosas de
+    High‑NA, reduciendo el riesgo percibido y alineando el múltiplo con peers de equipos
+    de litografía avanzados.
+  review_trigger: Si el consenso de analistas mantiene un múltiplo promedio ≤ 22×
+    al cierre del Q2‑2028.
+  secondary_hypotheses:
+  - H1-OPP-20260725-028
+  statement: El múltiplo EV/EBITDA de ASML alcanzará 25× en el mercado antes del 30‑jun‑2028,
+    reflejando una revaluación al alza tras la confirmación del ramp‑up High‑NA.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Publicación de una orden oficial que prohíba la venta de cualquier
+      sistema EUV a clientes chinos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Anuncio de ASML indicando la cancelación de pedidos pendientes a China
+      por motivos regulatorios.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Publicación de una orden oficial que prohíba la venta de cualquier sistema EUV
+    a clientes chinos.
+  - Anuncio de ASML indicando la cancelación de pedidos pendientes a China por motivos
+    regulatorios.
+  horizon: largo
+  id: H4-OPP-20260725-028
+  opportunity_id: OPP-20260725-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.0
+    met: null
+    metric: restricciones de exportación
+    prediction: Ausencia de nuevas sanciones de exportación a China en el periodo
+      especificado.
+    unit: nuevas restricciones
+  priority: informational
+  probability: 0.5
+  rationale: Las negociaciones diplomáticas entre UE y EE.UU. están enfocadas en limitar
+    chips, no equipos de litografía; además, la dependencia de China en la cadena
+    de suministro de semiconductores hace que los reguladores eviten medidas drásticas.
+  review_trigger: Si el Departamento de Comercio de EE.UU. o la Comisión Europea publican
+    una restricción antes del 31‑mar‑2028.
+  secondary_hypotheses: []
+  statement: No se impondrán nuevas restricciones de exportación de equipos EUV a
+    China antes del 31‑mar‑2028, permitiendo que ASML mantenga su base de clientes
+    actual sin interrupciones.
+  status: ACTIVE
+  ticker: ASML
+  version: 1

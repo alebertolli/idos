@@ -1,0 +1,25 @@
+events:
+- data:
+    event_type: manual
+    invalidated_at: '2026-10-20T00:05:05.612915-03:00'
+    opp_id: OPP-20260725-028
+    reason: new_research_version
+    ticker: ASML
+  event_type: decision:manager_approval_invalidated
+  source: research_worker
+  timestamp: '2026-10-20T03:05:05.690413'
+- data:
+    classification: compounder
+    ddd_empty: false
+    event_evidence: null
+    event_type: manual
+    hypotheses: 4
+    input_snapshot_sha256: ddcf1428cb82edb8eff94e92442a6c7b20c954618e512dfbafea47263f21654b
+    opp_id: OPP-20260725-028
+    original_status: APPROVED
+    score: 86
+    strategy_version: legacy-compatible
+    ticker: ASML
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-20T03:06:20.927722'

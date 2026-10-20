@@ -1,0 +1,1 @@
+Mantener posición larga en ASML, aprovechando el descuento actual respecto a los objetivos de precio, respaldado por su monopolio tecnológico, alta rentabilidad y crecimiento estructural derivado de la demanda de IA y políticas de subsidios a la fabricación de semiconductores.
