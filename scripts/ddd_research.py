@@ -103,6 +103,15 @@ def _load_portfolio_tickers():
     return tickers
 
 
+def write_preview_output(has_candidates: bool, output_path: str | Path | None = None) -> None:
+    """Expose the deterministic Research selector result to a caller workflow."""
+    target = output_path or os.environ.get("GITHUB_OUTPUT")
+    if not target:
+        return
+    with Path(target).open("a", encoding="utf-8") as output_file:
+        output_file.write(f"has_research_candidates={'true' if has_candidates else 'false'}\n")
+
+
 def _canonical_event_type(event_type: str) -> str | None:
     canonical = str(event_type or "").strip().lower().replace("-", "_")
     if canonical in {"", "manual", "monthly", "re_research_30d"}:
@@ -366,6 +375,7 @@ def preview():
         "fresh": [{"ticker": t, "opp_id": oid, "score": sc, "days": days} for t, oid, sc, days in fresh],
         "excluded_count": len(excluded),
     }, indent=2), encoding="utf-8")
+    write_preview_output(bool(selected))
     if event_requested and not selected:
         print("[DDD] Material event preview has no candidate with valid evidence")
         return 2

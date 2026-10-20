@@ -126,4 +126,3 @@ class SECEdgarWorker(BaseWorker):
             return filings
         except Exception:
             return []
-
