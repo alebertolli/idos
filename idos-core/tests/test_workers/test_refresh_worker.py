@@ -1,6 +1,7 @@
 import tempfile
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from types import SimpleNamespace
 
 from idos.market.liquidity import FxObservation
 from idos.market.liquidity import expected_us_market_sessions
@@ -37,6 +38,43 @@ def test_refresh_worker_empty_context():
     w = DataRefreshWorker()
     result = w.run({"tickers": []})
     assert result["tickers_processed"] == 0
+
+
+def test_refresh_worker_fetches_sec_fundamentals_only_for_equities():
+    config = Path(__file__).parents[3] / "idos-config"
+    worker = DataRefreshWorker({"config_path": str(config)})
+    calls = []
+    cached = {}
+
+    class Cache:
+        def get(self, _key):
+            return None
+
+        def set(self, key, value, *, source, ttl_seconds):
+            cached.update(key=key, value=value, source=source, ttl_seconds=ttl_seconds)
+
+    class SecWorker:
+        user_agent = "IDOS tests contact@example.org"
+
+        def execute(self, context):
+            calls.append(context)
+            return SimpleNamespace(
+                status="success",
+                output={"revenue_growth_pct": 12.5, "source": "sec_edgar"},
+            )
+
+    worker.cache = Cache()
+    worker.sources["sec_edgar"] = SecWorker()
+
+    assert worker._fetch_sec_fundamentals("AAPL", "etf") is None
+    assert calls == []
+
+    result = worker._fetch_sec_fundamentals("AAPL", "us_equity")
+
+    assert result["revenue_growth_pct"] == 12.5
+    assert calls == [{"ticker": "AAPL", "include_filings": False}]
+    assert cached["source"] == "sec_edgar"
+    assert cached["ttl_seconds"] == 86400
 
 
 def test_refresh_worker_reuses_aligned_yahoo_history():

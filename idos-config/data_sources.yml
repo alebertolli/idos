@@ -32,7 +32,7 @@ sources:
     delay: 0.5
     timeout: 30
     ttl_seconds: 86400  # 24h
-    user_agent: "IDOS FamilyOffice research@familyoffice.com"
+    user_agent_env: IDOS_SEC_USER_AGENT
 
 cache:
   enabled: true
