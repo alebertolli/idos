@@ -43,8 +43,13 @@ class MonthlyStrategyWorker(BaseWorker):
         profile = catalog.require(self.strategy_id)
         if not profile.enabled:
             return {"status": "skipped", "reason": "strategy_disabled", "strategy_id": self.strategy_id}
-        if self.strategy_id != "MOMENTUM_ETF":
-            return {"status": "skipped", "reason": "runner_not_implemented", "strategy_id": self.strategy_id}
+        if profile.discovery_profile != "momentum_monthly":
+            return {
+                "status": "skipped",
+                "reason": "runner_not_implemented",
+                "strategy_id": self.strategy_id,
+                "discovery_profile": profile.discovery_profile,
+            }
 
         params = profile.parameters
         configured_universe = [str(t).upper() for t in params.get("universe", [])]
@@ -215,7 +220,12 @@ class MonthlyStrategyWorker(BaseWorker):
         cycle_date = datetime.strptime(output["as_of_date"], "%Y-%m-%d").replace(day=1)
         for row in output["selected"]:
             ticker = row["ticker"]
-            opp_id = f"OPP-{cycle_date:%Y%m%d}-MOM-{ticker}"
+            strategy_code = (
+                "MOM"
+                if profile.strategy_id == "MOMENTUM_ETF"
+                else profile.strategy_id.replace("_", "-")
+            )
+            opp_id = f"OPP-{cycle_date:%Y%m%d}-{strategy_code}-{ticker}"
             if sqlite.get_opportunity(opp_id) or journal.load_opportunity(ticker, opp_id):
                 continue  # A repeated monthly run must not reset a reviewed decision.
             opp = {
