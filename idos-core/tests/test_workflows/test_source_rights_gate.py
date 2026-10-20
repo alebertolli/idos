@@ -13,7 +13,7 @@ WORKFLOW_JOBS = {
 
 
 def test_data_and_publication_jobs_require_explicit_source_rights_confirmation():
-    repository_root = Path(__file__).resolve().parents[2]
+    repository_root = Path(__file__).resolve().parents[3]
 
     for relative_path, job_name in WORKFLOW_JOBS.items():
         workflow = yaml.load(
@@ -25,7 +25,7 @@ def test_data_and_publication_jobs_require_explicit_source_rights_confirmation()
 
 
 def test_source_rights_guard_does_not_disable_workflow_definitions():
-    repository_root = Path(__file__).resolve().parents[2]
+    repository_root = Path(__file__).resolve().parents[3]
 
     for relative_path in WORKFLOW_JOBS:
         workflow = yaml.load(
