@@ -1,0 +1,364 @@
+calidad_evidencia:
+  hechos_verificados:
+  - Precio actual USD 287.64 (yfinance, 2026-10-20)
+  - Objetivo medio de analistas USD 390.06 (stockanalysis.com y yfinance, 2026-10-20)
+  - Crecimiento de ingresos TTM 98.48% (stockanalysis.com, 2026-10-20)
+  - Margen operativo TTM 22.75% (stockanalysis.com, 2026-10-20)
+  - Flujo de caja libre TTM $276.68M (stockanalysis.com, 2026-10-20)
+  inferencias_llm:
+  - El moat proviene de la combinación de hardware y software (COSMOS)
+  - La exposición a Taiwán implica riesgo geopolítico moderado
+  - La alta adopción de CXL/PCIe 6.0 impulsará la demanda de productos
+  preguntas_abiertas:
+  - Nivel exacto de deuda y apalancamiento financiero
+  - Participación de mercado actual frente a competidores principales
+  - Detalles de la hoja de ruta de productos para 2027‑2028
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: compounder,compounder_castigado,turnaround,deep_value,ciclica,special_situation,distressed,hype,value_trap
+  justificacion: Astera Labs muestra un crecimiento de ingresos del 98,5% YoY, márgenes
+    operativos del 22,8% y generación de flujo de caja libre de $276,7M, indicadores
+    típicos de un negocio de alta calidad. La valoración actual (USD 287,6) está por
+    debajo del consenso medio (USD 390) pero por encima del rango bajo, lo que sugiere
+    que el precio no está extremadamente barato ni sobrevalorado. No presenta los
+    rasgos de hype (crecimiento sin earnings) ni de deep value (PER/EV bajo). Por
+    tanto encaja mejor en la categoría 'Quality at Fair Price'.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Astera Labs cuenta con una propuesta de valor diferenciada al combinar
+    hardware de alta velocidad con una suite de software de gestión, lo que crea barreras
+    de entrada técnicas y de integración para competidores. Su enfoque en estándares
+    emergentes (CXL, PCIe 6.0) le otorga un moat tecnológico, aunque la dependencia
+    de la adopción de dichos estándares por parte de los clientes es un factor de
+    riesgo.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Contrato multi‑anual con un hyperscaler para suministro de retimers
+    CXL y módulos de cable inteligente
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 30
+- descripcion: Lanzamiento de la segunda generación de la suite COSMOS con capacidades
+    de IA para optimización de red
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 25
+- descripcion: Expansión de capacidad de fabricación en Taiwán mediante joint venture
+    con foundry local
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 20
+dominio_esg_supply_chain:
+  analisis: No se identifican controversias ESG públicas. La fabricación en Taiwán
+    implica exposición geopolítica, pero la empresa mantiene múltiples proveedores
+    y una estrategia de diversificación de la cadena de suministro que mitiga riesgos
+    críticos.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: Los datos disponibles muestran un crecimiento de ingresos del 98,5% TTM,
+    margen operativo del 22,8% y flujo de caja libre de $276,7M. No se dispone de
+    información de deuda, pero la generación de caja sugiere una posición de liquidez
+    adecuada para financiar la expansión sin necesidad de apalancamiento significativo.
+  rating: fuerte
+dominio_growth:
+  analisis: El crecimiento de ingresos casi duplica el año anterior y la adopción
+    de estándares CXL y PCIe 6.0 está en fase de aceleración en centros de datos.
+    La expansión de la base de clientes (hyperscalers y OEM) y la posible ampliación
+    de la fabricación en Taiwán respaldan una visión de crecimiento sostenido a mediano
+    plazo.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo fundador proviene de empresas líderes de semiconductores, lo
+    que aporta experiencia técnica y de mercado. Hasta la fecha, la compañía ha lanzado
+    varios productos clave (retimers, módulos de cable, controladores CXL) y ha establecido
+    relaciones con hyperscalers, indicando una asignación de capital orientada al
+    crecimiento y una alineación con los intereses de los accionistas.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Competencia de grandes jugadores de semiconductores (Intel, Broadcom) en
+    soluciones de interconexión
+- impacto: medio
+  probabilidad: media
+  riesgo: Retrasos en la adopción de CXL/PCIe 6.0 por parte de los centros de datos
+- impacto: alto
+  probabilidad: baja
+  riesgo: Tensiones geopolíticas en la región de Taiwán que afecten la producción
+error_mercado:
+  catalizador_cambio:
+    descripcion: Firma de un contrato multi‑anual con un hyperscaler líder para suministro
+      de retimers CXL y módulos de cable inteligente.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: Los analistas promedian un objetivo de USD 390, con un rango de
+    190‑500, lo que indica que el mercado está descontando aproximadamente un 25%
+    del potencial de crecimiento y margen de la compañía.
+  hipotesis_contraria: El consenso podría subestimar la velocidad de adopción de CXL
+    y PCIe 6.0 en centros de datos, así como la capacidad de Astera Labs para capturar
+    cuota de mercado frente a competidores tradicionales de interconexión. Además,
+    el impacto de la expansión de fabricación en Taiwán y la integración de la suite
+    de software COSMOS podrían mejorar los márgenes y el flujo de caja más de lo esperado.
+  razonamiento: El precio actual está por debajo del objetivo medio, pero la alta
+    dispersión del consenso (190‑500) refleja incertidumbre significativa. Dada la
+    evidencia de fuerte crecimiento y generación de caja, existe una posibilidad razonable
+    de que el mercado esté subvalorando la empresa, aunque riesgos de ejecución y
+    competencia mantienen la incertidumbre.
+generated_at: '2026-10-20T16:27:33.271788-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261020-001
+prompt_inputs:
+  business_model: Astera Labs, Inc. designs, manufactures, and sells semiconductor-based
+    connectivity solutions for cloud and AI infrastructure in Taiwan and the United
+    States. It offers an intelligent connectivity platform, comprised of semiconductor-based,
+    high-speed, mixed-signal connectivity products that integrate a matrix of microcontrollers
+    and sensors, and COSMOS. The company provides COSMOS software suite, a connectivity
+    system management and optimization software that enables management and optimization
+    of resources for large fleets at cloud-scale via link, fleet, and RAS management
+    capabilities. In addition, it offers PCIe/CXL smart DSP retimers and cable modules;
+    ethernet smart cable modules for cloud and AI infrastructure; CXL memory connectivity
+    controllers; and smart fabric switches. The company serves hyperscalers and system
+    original equipment manufacturers. Astera Labs, Inc. was incorporated in 2017 and
+    is based in San Jose, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.03
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Astera Labs, Inc.
+  operating_margin: 22.75
+  pe_ratio: 140.72
+  products: ''
+  revenue: 1200000000.0
+  revenue_growth: 98.48
+  roic: 62.97
+  sector: Technology
+  ticker: ALAB
+research_input_snapshot:
+  analysis_as_of_date: '2026-10-20'
+  business_model: Astera Labs, Inc. designs, manufactures, and sells semiconductor-based
+    connectivity solutions for cloud and AI infrastructure in Taiwan and the United
+    States. It offers an intelligent connectivity platform, comprised of semiconductor-based,
+    high-speed, mixed-signal connectivity products that integrate a matrix of microcontrollers
+    and sensors, and COSMOS. The company provides COSMOS software suite, a connectivity
+    system management and optimization software that enables management and optimization
+    of resources for large fleets at cloud-scale via link, fleet, and RAS management
+    capabilities. In addition, it offers PCIe/CXL smart DSP retimers and cable modules;
+    ethernet smart cable modules for cloud and AI infrastructure; CXL memory connectivity
+    controllers; and smart fabric switches. The company serves hyperscalers and system
+    original equipment manufacturers. Astera Labs, Inc. was incorporated in 2017 and
+    is based in San Jose, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 287.6400146484375
+  current_price_as_of_date: '2026-10-20'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.03
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd": ["yfinance"],
+    "beta_5y": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"], "data_provenance":
+    ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio":
+    ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"],
+    "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"],
+    "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "exchange": ["yfinance"], "fcf": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_observed_at":
+    ["stockanalysis.com", "yfinance"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_pct":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "operating_margin_pct": ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com",
+    "yfinance"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-20T19:07:56.358062+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ALAB/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 276680000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 22.744}, "observed_at": "2026-10-20T19:07:56.358062+00:00", "period_end_date":
+    "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ALAB/statistics/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-06-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 22.75}}, "revenue_growth_pct": {"currency": null,
+    "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 104.5}, "observed_at": "2026-10-20T19:07:56.358062+00:00", "period_end_date":
+    "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/alab/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-06-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 98.48}}}, "observed_at": "2026-10-20T19:26:19.933081+00:00",
+    "period_end": null, "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: 0
+  moat_description: ''
+  name: Astera Labs, Inc.
+  operating_margin: 22.75
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Astera Labs, Inc. designs, manufactures, and sells semiconductor-based
+    connectivity solutions for cloud and AI infrastructure in Taiwan and the United
+    States. It offers an intelligent connectivity platform, comprised of semiconductor-based,
+    high-speed, mixed-signal connectivity products that integrate a matrix of microcontrollers
+    and sensors, and COSMOS. The company provides COSMOS software suite, a connectivity
+    system management and optimization software that enables management and optimization
+  revenue: 1200000000.0
+  revenue_growth: 98.48
+  roic: 62.97
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    500.0, "low": 190.0, "mean": 390.06, "median": 390.06, "observed_at": "2026-10-20T16:26:23.400054-03:00",
+    "sources": [{"as_of_date": "2026-10-20", "name": "stockanalysis", "observed_at":
+    "2026-10-20T16:26:23.400054-03:00", "observed_date": "2026-10-20", "target_price":
+    391.77, "url": "https://stockanalysis.com/stocks/alab/forecast/"}, {"as_of_date":
+    "2026-10-20", "name": "yfinance", "observed_at": "2026-10-20T16:26:23.400054-03:00",
+    "observed_date": "2026-10-20", "target_price": 388.35962, "url": "https://finance.yahoo.com/quote/ALAB/"}]},
+    "current_quote": {"as_of_date": "2026-10-20", "currency": "USD", "price": 287.6400146484375,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ALAB/"}]}}'
+  sector: Technology
+  ticker: ALAB
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 9d45603a3a3ededd9334431e2b837aa100050dce98e86b998f6a6d3cc20661a1
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: manual
+  triggered_at: '2026-10-20T16:27:33.271788-03:00'
+resumen_ejecutivo: Astera Labs es un proveedor de soluciones de conectividad de semiconductores
+  para infraestructuras cloud y AI, con una plataforma que combina hardware de alta
+  velocidad y software de gestión (COSMOS). Presenta un crecimiento de ingresos cercano
+  al 100% YoY, márgenes operativos sólidos y flujo de caja libre positivo. La valoración
+  actual está por debajo del consenso medio, lo que sugiere una posible oportunidad
+  de inversión si la empresa logra consolidar su posición en el mercado de CXL/PCIe
+  y captar contratos con hyperscalers.
+scenario_analysis:
+  as_of_date: '2026-10-20'
+  currency: USD
+  horizon_date: '2028-10-20'
+  scenarios:
+  - id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos < 30% YoY
+    - Margen operativo se comprime bajo 15%
+    - No se materializan contratos con hyperscalers
+    probability_pct: 30
+    rationale: El mercado subestima riesgos de competencia y posibles retrasos en
+      la adopción de CXL, lo que limitaría el crecimiento de ingresos y presionaría
+      los múltiplos a la baja.
+    sources:
+    - as_of_date: '2026-10-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/alab/forecast
+    target_price: 190
+  - id: BASE
+    key_assumptions:
+    - Crecimiento de ingresos ~ 95% YoY
+    - Margen operativo estable en 22‑23%
+    - Flujo de caja libre positivo y reinversión eficiente
+    probability_pct: 50
+    rationale: Se confirma la tendencia de crecimiento del 90‑100% YoY, los márgenes
+      operativos se mantienen alrededor del 22‑23% y la empresa asegura al menos un
+      contrato importante con un hyperscaler, alineando el precio con el consenso
+      medio.
+    sources:
+    - as_of_date: '2026-10-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/alab/forecast
+    - as_of_date: '2026-10-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ALAB/
+    target_price: 390
+  - id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos > 150% YoY
+    - Margen operativo mejora a > 30% por economías de escala
+    - Ingresos de software COSMOS representan > 20% del total
+    probability_pct: 20
+    rationale: La empresa captura una cuota de mercado significativa en CXL y PCIe
+      6.0, firma varios contratos multi‑anuales con los principales hyperscalers y
+      lanza mejoras de COSMOS que generan ingresos recurrentes de software, elevando
+      los múltiplos a niveles de alto crecimiento.
+    sources:
+    - as_of_date: '2026-10-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/alab/forecast
+    target_price: 500
+  schema_version: bear_base_bull_v1
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-10-20T16:26:23.400054-03:00'
+  fuentes:
+    stockanalysis: 391.77
+    yfinance: 388.35962
+  mediana: 390.06
+  n_fuentes: 2
+  promedio: 390.06
+  source_references:
+  - as_of_date: '2026-10-20'
+    name: stockanalysis
+    observed_at: '2026-10-20T16:26:23.400054-03:00'
+    observed_date: '2026-10-20'
+    target_price: 391.77
+    url: https://stockanalysis.com/stocks/alab/forecast/
+  - as_of_date: '2026-10-20'
+    name: yfinance
+    observed_at: '2026-10-20T16:26:23.400054-03:00'
+    observed_date: '2026-10-20'
+    target_price: 388.35962
+    url: https://finance.yahoo.com/quote/ALAB/
+  target_high: 500.0
+  target_low: 190.0
+tesis_inversion: Astera Labs combina una tecnología de conectividad de alta velocidad
+  con software de gestión que crea un moat técnico y de datos. Su fuerte crecimiento
+  de ingresos, márgenes operativos saludables y generación de caja libre respaldan
+  una valoración que, a precio actual, está por debajo del consenso medio. La materialización
+  de contratos con hyperscalers y la adopción acelerada de CXL/PCIe 6.0 pueden impulsar
+  significativamente el múltiplo de valoración.
+ticker: ALAB
+version: '3.0'

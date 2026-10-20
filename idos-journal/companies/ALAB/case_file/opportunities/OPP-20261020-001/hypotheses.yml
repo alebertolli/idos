@@ -1,0 +1,173 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: No se publica ningún anuncio de contrato con hyperscalers entre la
+      fecha de corte y el 2027-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los comunicados de prensa de la compañía indican que los negociaciones
+      con hyperscalers se han pospuesto o cancelado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - No se publica ningún anuncio de contrato con hyperscalers entre la fecha de corte
+    y el 2027-06-30.
+  - Los comunicados de prensa de la compañía indican que los negociaciones con hyperscalers
+    se han pospuesto o cancelado.
+  horizon: corto
+  id: H1-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 3.0
+    met: null
+    metric: numero_contratos
+    prediction: Se anunciarán públicamente tres acuerdos firmados con hyperscalers
+      (por ejemplo, Amazon, Microsoft, Google) que incluyan la entrega de productos
+      de interconexión CXL/PCIe 6.0.
+    unit: contratos
+  priority: critical
+  probability: 0.5
+  rationale: El crecimiento acelerado de la adopción de CXL/PCIe 6.0 en centros de
+    datos y la ventaja competitiva de la combinación de hardware de alta velocidad
+    y software COSMOS posicionan a Astera como proveedor preferido para los principales
+    hyperscalers que buscan escalar sus infraestructuras.
+  review_trigger: Si al 2027-06-30 no existe evidencia pública de al menos un contrato
+    firmado con un hyperscaler para CXL/PCIe 6.0.
+  secondary_hypotheses: []
+  statement: Astera Labs firmará al menos 3 contratos nuevos con hyperscalers para
+    soluciones basadas en CXL y PCIe 6.0.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El reporte de FY2027 indica un FCF negativo o inferior a 100 MM USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ajustes contables o gastos de capital inesperados reducen el FCF
+      por debajo de 150 MM USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El reporte de FY2027 indica un FCF negativo o inferior a 100 MM USD.
+  - Los ajustes contables o gastos de capital inesperados reducen el FCF por debajo
+    de 150 MM USD.
+  horizon: medio
+  id: H2-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 200.0
+    met: null
+    metric: flujo_caja_libre
+    prediction: El reporte financiero de FY2027 mostrará un FCF de al menos 200 MM USD.
+    unit: USD millones
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento de ingresos impulsado por la adopción de CXL/PCIe 6.0,
+    junto con la mejora de márgenes operativos gracias a la integración del software
+    COSMOS y la expansión de capacidad de fabricación en Taiwán, generará suficiente
+    generación de efectivo para alcanzar un FCF robusto.
+  review_trigger: Si el informe financiero de FY2027 publicado antes del 2028-02-28
+    muestra un FCF menor a 150 MM USD.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  statement: El flujo de caja libre (FCF) de Astera Labs será positivo y superará
+    los 200 millones de dólares en el año fiscal 2027.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EV/Revenue calculado al 2028-03-31 es inferior a 10×.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción cae más del 30 % respecto al nivel de octubre
+      2026 sin una justificación de deterioro fundamental.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EV/Revenue calculado al 2028-03-31 es inferior a 10×.
+  - El precio de la acción cae más del 30 % respecto al nivel de octubre 2026 sin
+    una justificación de deterioro fundamental.
+  horizon: largo
+  id: H3-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 12.0
+    met: null
+    metric: EV/Revenue
+    prediction: Al 2028-03-31, el cálculo de Enterprise Value dividido por los ingresos
+      trailing twelve months (TTM) será ≥12.
+    unit: veces
+  priority: important
+  probability: 0.5
+  rationale: La materialización de los contratos con hyperscalers y la rápida adopción
+    de CXL/PCIe 6.0 aumentarán los ingresos proyectados, mientras que la valoración
+    de mercado reconocerá el moat técnico y de datos, impulsando el múltiplo de valoración.
+  review_trigger: Si al 2028-04-30 el EV/Revenue sigue por debajo de 10× pese a los
+    ingresos reportados.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  - H2-OPP-20261020-001
+  statement: El múltiplo EV/Revenue de Astera Labs alcanzará al menos 12× para el
+    31 de marzo de 2028.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto reportado para FY2027 es inferior al 50 %.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los costos de producción aumentan inesperadamente, manteniendo el margen
+      bruto por debajo del 52 %.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto reportado para FY2027 es inferior al 50 %.
+  - Los costos de producción aumentan inesperadamente, manteniendo el margen bruto
+    por debajo del 52 %.
+  horizon: medio
+  id: H4-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 55.0
+    met: null
+    metric: margen_bruto
+    prediction: El reporte financiero de FY2027 mostrará un margen bruto ≥55 %.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La integración completa de la suite de software COSMOS permite una mayor
+    eficiencia en la gestión de la interconexión, reduciendo costos de componentes
+    y aumentando el valor añadido, mientras que la expansión de la capacidad de fabricación
+    en Taiwán reduce el costo unitario de los productos.
+  review_trigger: Si el informe financiero de FY2027 publicado antes del 2028-02-28
+    indica un margen bruto menor a 52 %.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  statement: El margen bruto de Astera Labs mejorará a al menos 55 % para el cierre
+    del año fiscal 2027.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
