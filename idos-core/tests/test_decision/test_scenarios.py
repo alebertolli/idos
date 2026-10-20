@@ -71,6 +71,40 @@ def test_scenario_sources_must_be_present_in_structured_market_evidence():
     assert not any("BASE.sources[0]" in error for error in errors)
 
 
+
+def test_ticker_case_only_scenario_urls_canonicalize_to_supplied_evidence():
+    from idos.decision.scenarios import canonicalize_scenario_ticker_url_case
+
+    analysis = scenario_set()
+    trusted_url = "https://stockanalysis.com/stocks/alab/forecast"
+    for scenario in analysis["scenarios"]:
+        scenario["sources"][0]["url"] = "https://stockanalysis.com/stocks/ALAB/forecast/"
+    trusted = scenario_source_urls_from_evidence(json.dumps({
+        "analyst_target_consensus": {"sources": [{"url": trusted_url}]},
+    }))
+
+    corrected = canonicalize_scenario_ticker_url_case(
+        analysis, ticker="ALAB", trusted_source_urls=trusted
+    )
+
+    assert all(s["sources"][0]["url"] == trusted_url for s in corrected["scenarios"])
+    assert validate_scenario_analysis(corrected, today=TODAY, trusted_source_urls=trusted) == []
+    assert all(s["sources"][0]["url"].endswith("/ALAB/forecast/") for s in analysis["scenarios"])
+
+
+def test_scenario_url_canonicalization_rejects_unrelated_path_changes():
+    from idos.decision.scenarios import canonicalize_scenario_ticker_url_case
+
+    analysis = scenario_set()
+    analysis["scenarios"][0]["sources"][0]["url"] = "https://stockanalysis.com/stocks/ALAB/history/"
+    trusted = {"https://stockanalysis.com/stocks/alab/forecast"}
+
+    corrected = canonicalize_scenario_ticker_url_case(
+        analysis, ticker="ALAB", trusted_source_urls=trusted
+    )
+
+    assert corrected["scenarios"][0]["sources"][0]["url"].endswith("/ALAB/history/")
+
 def test_report_source_evidence_is_used_to_block_unverified_asymmetry():
     analysis = scenario_set()
     report = {
