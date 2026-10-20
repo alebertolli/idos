@@ -142,6 +142,8 @@ class StockAnalysisWorker(BaseWorker):
         "revenue (ttm)": "revenue_ttm",
         "revenue / share (ttm)": "revenue_per_share_ttm",
         "revenue growth": "revenue_growth_pct",
+        "revenue growth (ttm)": "revenue_growth_pct",
+        "revenue growth forecast (3y)": "revenue_growth_forecast_3y_pct",
         "gross profit (ttm)": "gross_profit_ttm",
         "ebitda": "ebitda",
         "ebitda margin": "ebitda_margin_pct",
@@ -168,6 +170,7 @@ class StockAnalysisWorker(BaseWorker):
         "eps growth (this year)": "eps_growth_this_year_pct",
         "eps growth (next year)": "eps_growth_next_year_pct",
         "eps growth (next 5 years)": "eps_growth_5y_pct",
+        "eps growth forecast (3y)": "eps_growth_forecast_3y_pct",
         "revenue growth (next year)": "revenue_growth_next_year_pct",
         "return on assets": "roa_pct",
         "return on assets (roa)": "roa_pct",
@@ -232,11 +235,6 @@ class StockAnalysisWorker(BaseWorker):
     def _set_metric(self, data: dict[str, Any], label: str, value: str):
         normalized = label.lower().strip()
         key = self._LABEL_MAP.get(normalized)
-        if key is None:
-            for pattern, mapped in self._LABEL_MAP.items():
-                if normalized.startswith(pattern) or normalized.endswith(pattern):
-                    key = mapped
-                    break
         if key is None:
             return
         data[key] = self._parse_value(value)
