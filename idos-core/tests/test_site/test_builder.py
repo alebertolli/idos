@@ -604,6 +604,14 @@ def test_public_site_shows_scenarios_with_sources_and_manager_review_hash(tmp_pa
             {"id": "BULL", "probability_pct": 25, "target_price": 150, "rationale": "Aceleración del negocio", "key_assumptions": ["Adopción superior"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": source_date}]},
         ],
     }
+    report["research_input_snapshot"] = {
+        "scenario_market_evidence": {
+            "current_quote": {"sources": [{"url": "https://example.com/bear"}]},
+            "analyst_target_consensus": {
+                "sources": [{"url": "https://example.com/base"}, {"url": "https://example.com/bull"}],
+            },
+        },
+    }
     report["scenario_validation"] = {"status": "valid_pending_manager_review", "errors": []}
     report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
 
@@ -623,6 +631,44 @@ def test_public_site_shows_scenarios_with_sources_and_manager_review_hash(tmp_pa
     assert "https://example.com/bear" in payload
     assert "Lectura y supuestos" in app
     assert "key_assumptions" in payload
+
+
+def test_public_site_hides_scenario_sources_not_present_in_research_evidence(tmp_path: Path):
+    import yaml
+    from datetime import datetime, timedelta
+    from idos.timezone import AR_TZ
+
+    today = datetime.now(AR_TZ).date()
+    source_date = (today - timedelta(days=1)).isoformat()
+    _write_ddd_case(tmp_path, review=None)
+    opp_dir = tmp_path / "idos-journal/companies/VIST/case_file/opportunities/OPP-1"
+    report_path = opp_dir / "ddd_report.yml"
+    report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+    report["scenario_analysis"] = {
+        "schema_version": "bear_base_bull_v1",
+        "as_of_date": today.isoformat(),
+        "horizon_date": (today + timedelta(days=365)).isoformat(),
+        "currency": "USD",
+        "scenarios": [
+            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": source_date}]},
+            {"id": "BASE", "probability_pct": 50, "target_price": 110, "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": source_date}]},
+            {"id": "BULL", "probability_pct": 25, "target_price": 150, "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": source_date}]},
+        ],
+    }
+    report["research_input_snapshot"] = {
+        "scenario_market_evidence": {
+            "current_quote": {"sources": [{"url": "https://example.com/bear"}]},
+            "analyst_target_consensus": {"sources": [{"url": "https://example.com/base"}]},
+        },
+    }
+    report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
+
+    data = SiteBuilder(tmp_path).build()
+    opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
+
+    assert opp["ddd"]["scenario_analysis"] is None
+    assert opp["ddd"]["scenario_review"]["status"] == "pending_manager_review"
+    assert any("BULL.sources[0]" in error for error in opp["ddd"]["scenario_validation"]["errors"])
 
 
 def test_public_site_does_not_present_automated_board_resolution_as_human_approval(tmp_path: Path):

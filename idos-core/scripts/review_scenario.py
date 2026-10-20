@@ -11,7 +11,11 @@ import sys
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from idos.decision.scenarios import scenario_fingerprint, validate_scenario_analysis  # noqa: E402
+from idos.decision.scenarios import (  # noqa: E402
+    scenario_fingerprint,
+    scenario_source_urls_from_report,
+    validate_scenario_analysis,
+)
 from idos.timezone import AR_TZ  # noqa: E402
 
 
@@ -50,7 +54,9 @@ def record_scenario_review(
         raise FileNotFoundError(f"DDD report not found: {report_path}")
     report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
     analysis = report.get("scenario_analysis") if isinstance(report, dict) else None
-    errors = validate_scenario_analysis(analysis)
+    errors = validate_scenario_analysis(
+        analysis, trusted_source_urls=scenario_source_urls_from_report(report),
+    )
     if errors:
         raise ValueError("Scenario contract is invalid: " + "; ".join(errors))
     actual_hash = scenario_fingerprint(analysis)

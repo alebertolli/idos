@@ -16,7 +16,61 @@ SCENARIO_IDS = ("BEAR", "BASE", "BULL")
 SCENARIO_SCHEMA_VERSION = "bear_base_bull_v1"
 
 
-def validate_scenario_analysis(value: Any, *, today: date | None = None) -> list[str]:
+def scenario_source_urls_from_evidence(value: Any) -> set[str]:
+    """Return source URLs supplied as structured research evidence."""
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except (TypeError, ValueError):
+            return set()
+    if not isinstance(value, dict):
+        return set()
+
+    urls: set[str] = set()
+    for key in ("current_quote", "analyst_target_consensus"):
+        evidence = value.get(key)
+        sources = evidence.get("sources") if isinstance(evidence, dict) else None
+        if isinstance(sources, list):
+            urls.update(
+                normalized for source in sources if isinstance(source, dict)
+                if (normalized := _normalize_source_url(source.get("url")))
+            )
+    return urls
+
+
+def scenario_source_urls_from_report(report: Any) -> set[str]:
+    """Extract the exact source URLs a DDD scenario may cite."""
+    if not isinstance(report, dict):
+        return set()
+    snapshot = report.get("research_input_snapshot")
+    if isinstance(snapshot, dict):
+        urls = scenario_source_urls_from_evidence(snapshot.get("scenario_market_evidence"))
+        if urls:
+            return urls
+
+    consensus = report.get("target_consensus")
+    sources = consensus.get("source_references") if isinstance(consensus, dict) else None
+    if isinstance(sources, list):
+        return {
+            normalized for source in sources if isinstance(source, dict)
+            if (normalized := _normalize_source_url(source.get("url")))
+        }
+    return set()
+
+
+def _normalize_source_url(value: Any) -> str | None:
+    parsed = urlparse(str(value or ""))
+    if parsed.scheme.lower() != "https" or not parsed.netloc:
+        return None
+    return f"https://{parsed.netloc.lower()}{parsed.path.rstrip('/')}{'?' + parsed.query if parsed.query else ''}"
+
+
+def validate_scenario_analysis(
+    value: Any,
+    *,
+    today: date | None = None,
+    trusted_source_urls: set[str] | None = None,
+) -> list[str]:
     """Return contract errors without coercing or repairing model output."""
     if not isinstance(value, dict):
         return ["scenario_analysis debe ser un objeto"]
@@ -87,6 +141,10 @@ def validate_scenario_analysis(value: Any, *, today: date | None = None) -> list
                 errors.append(f"{prefix}: url debe ser HTTPS")
             elif re.search(r"0{6,}", f"{parsed_url.netloc}{parsed_url.path}"):
                 errors.append(f"{prefix}: url contiene un identificador de relleno")
+            elif trusted_source_urls is not None:
+                normalized = _normalize_source_url(source.get("url"))
+                if not normalized or normalized not in trusted_source_urls:
+                    errors.append(f"{prefix}: URL no está respaldada por evidencia de entrada verificable")
             source_date = _parse_date(source.get("as_of_date"))
             if source_date is None:
                 errors.append(f"{prefix}: as_of_date debe ser una fecha ISO válida")
@@ -122,8 +180,11 @@ def validate_scenario_review(
     review: Any,
     *,
     today: date | None = None,
+    trusted_source_urls: set[str] | None = None,
 ) -> tuple[bool, str]:
-    errors = validate_scenario_analysis(analysis, today=today)
+    errors = validate_scenario_analysis(
+        analysis, today=today, trusted_source_urls=trusted_source_urls,
+    )
     if errors:
         return False, "; ".join(errors)
     if not isinstance(review, dict):
@@ -154,9 +215,10 @@ def calculate_scenario_asymmetry(
     *,
     current_price: Any,
     quote_currency: str | None,
+    trusted_source_urls: set[str] | None = None,
 ) -> dict[str, Any]:
     """Calculate weighted upside/downside only for a validated scenario set."""
-    errors = validate_scenario_analysis(analysis)
+    errors = validate_scenario_analysis(analysis, trusted_source_urls=trusted_source_urls)
     if errors:
         return _blocked_asymmetry("; ".join(errors))
     if not _finite_number(current_price) or current_price <= 0:
