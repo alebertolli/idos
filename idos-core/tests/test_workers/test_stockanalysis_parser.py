@@ -217,6 +217,35 @@ def test_run_merges_statistics_and_financials_with_field_source_urls(monkeypatch
     assert provenance["field_urls"]["period_end_date"].endswith("/financials/")
 
 
+
+def test_run_keeps_statistics_when_financials_page_is_unavailable(monkeypatch):
+    from types import SimpleNamespace
+
+    import requests
+
+    import idos.workers.data.stockanalysis as stockanalysis_module
+
+    def fake_get(url, **_kwargs):
+        if "/financials/" in url:
+            raise requests.Timeout("financials timeout")
+        return SimpleNamespace(
+            text="<table><tr><td>Operating Margin</td><td>20%</td></tr></table>",
+            raise_for_status=lambda: None,
+        )
+
+    monkeypatch.setattr(stockanalysis_module.requests, "get", fake_get)
+    monkeypatch.setattr(stockanalysis_module.time, "sleep", lambda _delay: None)
+
+    result = StockAnalysisWorker().run({"ticker": "ASML"})
+
+    assert result["operating_margin_pct"] == 20
+    assert "revenue_growth_pct" not in result
+    assert result["data_quality_warnings"] == ["stockanalysis_financials_page_unavailable"]
+    assert result["data_provenance"]["source_urls"] == [
+        "https://stockanalysis.com/stocks/asml/statistics/"
+    ]
+
+
 def test_worker_requires_ticker():
     worker = StockAnalysisWorker()
     import pytest
