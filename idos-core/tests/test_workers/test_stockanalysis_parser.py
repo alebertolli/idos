@@ -242,7 +242,7 @@ def test_run_keeps_statistics_when_financials_page_is_unavailable(monkeypatch):
     assert "revenue_growth_pct" not in result
     assert result["data_quality_warnings"] == ["stockanalysis_financials_page_unavailable"]
     assert result["data_provenance"]["source_urls"] == [
-        "https://stockanalysis.com/stocks/asml/statistics/"
+        "https://stockanalysis.com/stocks/ASML/statistics/"
     ]
 
 
