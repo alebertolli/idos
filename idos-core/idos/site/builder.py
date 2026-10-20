@@ -613,12 +613,21 @@ class SiteBuilder:
             "financial_data_quality": dp.get("financial_data_quality") or {},
             "scenario_analysis": None,
             "scenario_review": {
-                "status": "manager_approved" if scenario_review_approved else "pending_manager_review",
-                "reason": scenario_review_reason,
+                "status": (
+                    "not_applicable" if systematic_report
+                    else "manager_approved" if scenario_review_approved
+                    else "pending_manager_review"
+                ),
+                "reason": (
+                    "La estrategia sistemática se evalúa mediante su señal y reglas de rebalanceo."
+                    if systematic_report else scenario_review_reason
+                ),
                 "scenario_hash": scenario_fingerprint(scenario_analysis) if scenario_valid else None,
             },
             "scenario_validation": (
-                {
+                {"status": "not_applicable", "errors": []}
+                if systematic_report
+                else {
                     "status": "valid_pending_manager_review" if scenario_valid else "invalid_pending_revision",
                     "errors": scenario_validation_errors,
                 }
@@ -1792,6 +1801,8 @@ function showCase(oppId){
     html += `<h3>Asimetría · escenarios Bear / Base / Bull</h3><div class="card"><b>${d.scenario_review?.status==='manager_approved'?'Escenarios aprobados por el gestor':'Propuesta pendiente de aprobación del gestor'}</b><p class="muted">Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table class="scenario-desktop-table"><thead><tr><th>Escenario</th><th>Probabilidad</th><th>Precio objetivo</th><th>Lectura y supuestos</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><div class="scenario-mobile-list">${scenarioCards}</div><p class="muted">Antes de aprobar, abre cada fuente y verifica que exista, respalde el supuesto y tenga la fecha indicada. La propuesta de Research no habilita una compra; RULE-008 sólo puede pasar con una revisión atribuida al gestor y una confirmación explícita de fuentes verificadas.</p>${d.scenario_review?.scenario_hash?`<details><summary>Hash del conjunto para revisión</summary><code>${esc(d.scenario_review.scenario_hash)}</code><p class="muted">En GitHub Actions, ejecuta Scenario Review, verifica las fuentes, marca la confirmación y copia este hash.</p></details>`:''}</div>`;
   } else if(d.scenario_validation?.errors?.length){
     html += `<h3>Escenarios Bear / Base / Bull</h3><div class="card"><b class="neg">Propuesta incompleta o inválida; RULE-008 permanece bloqueada.</b><ul>${d.scenario_validation.errors.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
+  } else if(d.scenario_validation?.status==='not_applicable'){
+    html += `<h3>Asimetría</h3><div class="card"><b>Bear / Base / Bull no aplica a esta estrategia sistemática.</b><p class="muted">La señal y las reglas de rebalanceo determinan su evaluación; no se presenta como valoración fundamental.</p></div>`;
   }
   if(d.clasificacion){
     const cl = d.clasificacion||{};
