@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.1.2](https://github.com/alebertolli/idos/compare/v0.1.1...v0.1.2) (2026-10-20)
+
+
+### Bug Fixes
+
+* distinguish levered and unlevered FCF ([a642af0](https://github.com/alebertolli/idos/commit/a642af01337e2b9c03b30c37c3d78b816c0bd343))
+* keep portfolio runtime disabled until private source validation ([2f44c88](https://github.com/alebertolli/idos/commit/2f44c88cedc2dba4c24171a7c8c0e2feaea490b2))
+* separate levered and unlevered FCF; document E2E ([68436ee](https://github.com/alebertolli/idos/commit/68436eedfe18ec1a63609d7dd620656fca525022))
+* separate revenue growth forecasts from actuals ([#109](https://github.com/alebertolli/idos/issues/109)) ([4974ca7](https://github.com/alebertolli/idos/commit/4974ca79def9332d9a0706cde5ab87d17754ce47))
+
+
+### Documentation
+
+* record bounded end-to-end validation ([54561ee](https://github.com/alebertolli/idos/commit/54561eec389c2411cca6dc6fae2613fa1d5b5966))
+* record disabled portfolio gate E2E ([835a72e](https://github.com/alebertolli/idos/commit/835a72e8766a6bc513c06e5f64d3d2b73542e256))
+* record StockAnalysis E2E validation ([#110](https://github.com/alebertolli/idos/issues/110)) ([4475918](https://github.com/alebertolli/idos/commit/44759189b53ae46418e0a2d696a2d7fce62a2651))
+
 ## [0.1.1](https://github.com/alebertolli/idos/compare/v0.1.0...v0.1.1) (2026-10-01)
 
 
