@@ -165,6 +165,7 @@ jobs:
 
       - name: Set run context
         run: |
+          echo "DDD_RUN_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
           TICKER="${{ inputs.candidate_tickers || inputs.ticker || github.event.inputs.ticker || github.event.client_payload.ticker || '' }}"
           echo "TICKER=$TICKER" >> $GITHUB_ENV
           if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
@@ -247,8 +248,6 @@ jobs:
 
       - name: Collect current DDD decision package
         if: github.event.inputs.preview_only != 'true'
-        env:
-          DDD_RUN_STARTED_AT: ${{ github.run_started_at }}
         run: |
           args=(--base-path . --tickers "$TICKER" --started-at "$DDD_RUN_STARTED_AT" --output-dir cache/ddd-artifact)
           if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -n "$TICKER" ]; then
