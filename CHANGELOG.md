@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.3](https://github.com/alebertolli/idos/compare/v0.1.2...v0.1.3) (2026-10-20)
+
+
+### Bug Fixes
+
+* preserve StockAnalysis financial cutoff provenance ([d7e671d](https://github.com/alebertolli/idos/commit/d7e671dd47cece9173b13ffa1e4bc9d2878ed628))
+* stash transient DDD outputs before rebase ([f6b343e](https://github.com/alebertolli/idos/commit/f6b343e4dd9d61a79295808094546649668a70cc))
+
 ## [0.1.2](https://github.com/alebertolli/idos/compare/v0.1.1...v0.1.2) (2026-10-20)
 
 
