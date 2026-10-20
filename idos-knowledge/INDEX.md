@@ -7,7 +7,10 @@ aliases:
 
 # IDOS Company Index
 
-Total: 1 companies tracked
+Total: 2 companies tracked
+
+## Other
+- ⏳ [[XLF|State Street Financial Select Sector SPDR ETF]]
 
 ## Technology
 - 📄 [[ALAB|Astera Labs, Inc.]]

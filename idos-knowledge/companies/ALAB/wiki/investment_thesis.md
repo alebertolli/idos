@@ -1,0 +1,1 @@
+Astera Labs posee un moat tecnológico y un modelo de negocio de alta rentabilidad, pero su valoración actual (PER >140x) es desproporcionada respecto a los flujos de caja generados. La inversión es atractiva solo si se materializan los catalizadores de contrato CXL y la expansión de COSMOS, lo que permitiría justificar múltiplos más altos.

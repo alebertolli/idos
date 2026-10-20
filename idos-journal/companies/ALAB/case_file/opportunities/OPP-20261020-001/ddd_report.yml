@@ -1,37 +1,85 @@
 calidad_evidencia:
   hechos_verificados:
-  - Precio actual USD 288.41 (yfinance, 2026-10-20)
-  - Revenue TTM USD 1.2B, crecimiento 98.5% (stockanalysis, 2026-10-20)
-  - Operating margin 22.8% (stockanalysis, 2026-10-20)
-  - ROIC 63% (stockanalysis, 2026-10-20)
-  - Debt/Equity 0.0x (stockanalysis, 2026-10-20)
-  - Consensus target price ~390 USD (stockanalysis & yfinance, 2026-10-20)
+  - 'Precio al 20‑Oct‑2026: 288.16 USD (yfinance)'
+  - 'Revenue TTM: 1.200 B USD (stockanalysis)'
+  - Margen operativo 22.8% (stockanalysis)
+  - ROIC 63% (stockanalysis)
+  - Deuda neta 0 (stockanalysis)
+  - Objetivo de analistas mean 390 USD, low 190 USD, high 500 USD (stockanalysis,
+    yfinance)
   inferencias_llm:
-  - Evaluación del moat basado en integración hardware/software
-  - Asignación de probabilidades a catalizadores
-  - Clasificación de riesgo ESG por dependencia de Taiwán
+  - Moat basado en integración hardware‑software
+  - Impacto potencial de contratos CXL
+  - Riesgo de concentración de clientes
   preguntas_abiertas:
   - Detalle del flujo de caja libre ajustado y su composición
-  - Estructura exacta de la propiedad insider y planes de recompra
-  - Calendario de lanzamiento de productos CXL 2.0 y adopción esperada
-catalizadores_previos: &id001 []
+  - Participación accionarial exacta de insiders y planes de recompra
+  - Calendario de lanzamiento y adopción de CXL 2.0 por hyperscalers
+  - Planes de diversificación de fundiciones fuera de Taiwán
+  - Posibles restricciones regulatorias de exportación de tecnología avanzada
+catalizadores_previos: &id001
+- descripcion: Contrato de suministro de CXL 2.0 con un hyperscaler líder
+  generated_at: '2026-10-20T14:10:21.950524-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  opp_id: OPP-20261020-001
+  probabilidad_anterior: 30
+- descripcion: Lanzamiento exitoso de la suite COSMOS 2.0 con funcionalidades de IA
+    para gestión de red
+  generated_at: '2026-10-20T14:10:21.950524-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  opp_id: OPP-20261020-001
+  probabilidad_anterior: 45
+- descripcion: Adquisición de una startup de IP de interconexión para ampliar la cartera
+    de productos
+  generated_at: '2026-10-20T14:10:21.950524-03:00'
+  horizonte: largo
+  impacto: alto
+  nivel_confianza: bajo
+  opp_id: OPP-20261020-001
+  probabilidad_anterior: 20
 clasificacion_oportunidad:
-  categoria: compounder
-  categorias_descartadas: deep_value|distressed|ciclica|hype|value_trap|turnaround|special_situation|compounder_castigado|quality_at_fair_price
-  justificacion: Astera Labs muestra un crecimiento de ingresos del 98,5% YoY, márgenes
-    operativos del 22,8% y un ROIC del 63% sin deuda, lo que indica un negocio de
-    alta rentabilidad y capacidad de reinversión. La posición en el mercado de conectividad
-    de alta velocidad para infraestructura de nube y AI le otorga un moat tecnológico
-    y de relaciones con hyperscalers. La valoración actual (USD 288) está significativamente
-    por debajo del consenso de objetivo (USD ~390), sugiriendo que el mercado está
-    descontando riesgos que no son estructurales.
-comparativa_catalizadores: []
+  categoria: hype
+  categorias_descartadas: compounder (valoración justa), compounder_castigado (no
+    está castigado), turnaround (no hay declive operativo), deep_value (no es barato),
+    ciclica (no depende del ciclo económico), special_situation (no hay spin‑off o
+    fusión), distressed (sin deuda ni riesgo de insolvencia), quality_at_fair_price
+    (sobrevalorado), value_trap (no está barato ni destruye valor).
+  justificacion: Astera Labs muestra un crecimiento de ingresos del 98% YoY, márgenes
+    operativos altos y un moat tecnológico basado en la integración hardware‑software.
+    Sin embargo, su valoración (PER 142x, EV/EBITDA 171x) es extremadamente elevada
+    y depende de supuestos de captura de cuota de mercado en CXL/PCIe que aún no están
+    confirmados. Esto encaja con un perfil de alto crecimiento pero con valoración
+    especulativa.
+comparativa_catalizadores:
+- delta_pct: 0
+  descripcion: Contrato de suministro de CXL 2.0 con un hyperscaler líder
+  estado: vigente
+  nota_comparacion: No hay nueva información que altere la probabilidad original.
+  probabilidad_actual: 30
+  probabilidad_anterior: 30
+- delta_pct: 0
+  descripcion: Lanzamiento exitoso de la suite COSMOS 2.0 con funcionalidades de IA
+    para gestión de red
+  estado: vigente
+  nota_comparacion: Sin evidencia adicional; se mantiene la estimación.
+  probabilidad_actual: 45
+  probabilidad_anterior: 45
+- delta_pct: 0
+  descripcion: Adquisición de una startup de IP de interconexión para ampliar la cartera
+    de productos
+  estado: vigente
+  nota_comparacion: No se ha anunciado ninguna adquisición hasta la fecha.
+  probabilidad_actual: 20
+  probabilidad_anterior: 20
 dominio_business_quality:
-  analisis: La empresa posee una plataforma de conectividad diferenciada que combina
-    hardware de alta velocidad con una capa de gestión de software (COSMOS), creando
-    un moat de integración y lock‑in para clientes hyperscaler. La competencia es
-    intensa, pero la velocidad de innovación y la especialización en CXL y PCIe le
-    otorgan una ventaja competitiva sostenible a medio plazo.
+  analisis: Astera posee IP de alta velocidad y una plataforma integrada hardware‑software
+    que genera lock‑in. Compite con gigantes (Broadcom, Intel, Marvell) pero se diferencia
+    por su enfoque de plataforma. El moat es sólido pero aún vulnerable a avances
+    de competidores y a la rápida evolución de estándares.
   rating: buena
 dominio_catalizadores:
 - descripcion: Contrato de suministro de CXL 2.0 con un hyperscaler líder
@@ -52,29 +100,25 @@ dominio_catalizadores:
   nivel_confianza: bajo
   probabilidad_pct: 20
 dominio_esg_supply_chain:
-  analisis: La fabricación depende en gran medida de foundries en Taiwán, exponiendo
-    a la empresa a riesgos geopolíticos y de interrupción de la cadena de suministro.
-    No se dispone de información pública detallada sobre políticas ESG, lo que genera
-    una incertidumbre moderada.
+  analisis: Dependencia significativa de fundiciones en Taiwán expone a riesgos geopolíticos.
+    No se dispone de información pública sobre políticas ESG ni sobre diversificación
+    de proveedores fuera de Asia.
   rating: medio_riesgo
 dominio_financial_health:
-  analisis: Sin deuda (D/E 0.0x) y con un ROIC del 63% la compañía genera retornos
-    muy superiores al costo de capital (WACC 0%). Los márgenes operativos del 22,8%
-    y la generación de flujo de caja libre ajustado, aunque reportado como 0, sugiere
-    reinversión intensiva en CAPEX para escalar la producción, pero sin comprometer
-    la solvencia.
+  analisis: Sin deuda neta (D/E 0.0x), ROIC 63% y márgenes operativos >22% indican
+    una posición financiera robusta. El flujo de caja libre ajustado no está disponible,
+    pero la generación de efectivo parece suficiente para financiar CAPEX y potenciales
+    adquisiciones.
   rating: fuerte
 dominio_growth:
-  analisis: El crecimiento de ingresos del 98,5% y la expansión de la cartera de productos
-    (retimers, switches, cables inteligentes, controladores CXL) respaldan una visión
-    de crecimiento continuo, impulsado por la explosión de la demanda de AI y la adopción
-    de CXL en data centers.
+  analisis: Ingresos +98% YoY impulsados por la adopción de CXL y PCIe 5/6. La demanda
+    de ancho de banda para IA generativa respalda el crecimiento futuro, aunque depende
+    de la captura de cuota de mercado y de la firma de contratos con hyperscalers.
   rating: fuerte
 dominio_management:
-  analisis: El CEO tiene menos de un año en el cargo y la participación de insiders
-    es nula, lo que genera incertidumbre sobre la alineación de intereses. No se dispone
-    de un historial amplio de asignación de capital, aunque el equipo directivo proviene
-    de empresas líderes de semiconductores.
+  analisis: El CEO lleva menos de un año en el cargo y no hay participación insider.
+    El board tiene experiencia en semiconductores, pero la alineación de intereses
+    y la capacidad de ejecución a largo plazo son inciertas.
   rating: regular
 dominio_riesgos:
 - impacto: alto
@@ -82,38 +126,41 @@ dominio_riesgos:
   riesgo: Interrupción de la cadena de suministro en Taiwán
 - impacto: medio
   probabilidad: media
-  riesgo: Competencia de grandes jugadores (Broadcom, Intel, Marvell)
+  riesgo: Competencia de gigantes (Broadcom, Intel, Marvell)
 - impacto: alto
   probabilidad: baja
   riesgo: Desaceleración del gasto de capital en data centers
+- impacto: alto
+  probabilidad: media
+  riesgo: Concentración de ingresos en pocos hyperscalers
+- impacto: alto
+  probabilidad: media
+  riesgo: Evolución rápida de estándares que deje obsoletos los productos actuales
 error_mercado:
   catalizador_cambio:
-    descripcion: Firma de un contrato de suministro de retimers y switches CXL 2.0
-      con al menos uno de los tres principales hyperscalers (Amazon, Microsoft o Google)
-      para sus data centers de próxima generación.
+    descripcion: Firma de un contrato multi‑año de suministro de retimers CXL 2.0
+      con un hyperscaler líder (AWS, Azure o Google).
     horizonte: medio
     impacto: alto
     probabilidad_pct: 30
-  conclusion_error_valoracion: SI
-  consenso_actual: Los analistas asumen que el precio actual subestima el potencial
-    de crecimiento futuro y la capacidad de la compañía para capturar una mayor cuota
-    de mercado en CXL y PCIe, reflejando un múltiplo implícito de EV/Revenue alrededor
-    de 8x, superior al promedio del sector.
-  hipotesis_contraria: El mercado podría estar sobrestimando los riesgos de ejecución,
-    la dependencia de la manufactura en Taiwán y la competencia de gigantes como Broadcom
-    e Intel. La empresa ya ha demostrado capacidad de escalar rápidamente y su software
-    COSMOS crea barreras de cambio para los clientes.
-  razonamiento: La diferencia entre el precio actual y el objetivo de consenso, combinada
-    con fundamentos financieros sólidos y un moat tecnológico, indica que el mercado
-    está subvalorando la empresa. El riesgo principal radica en la ejecución y en
-    posibles interrupciones de la cadena de suministro, pero la probabilidad de que
-    estos riesgos materialicen es moderada.
-generated_at: '2026-10-20T14:10:21.950524-03:00'
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: Los analistas promedian un objetivo de 390 USD (rango 190‑500)
+    mientras que el precio de mercado es 288 USD, lo que sugiere que el mercado está
+    descontando riesgos de suministro, concentración de clientes y competencia.
+  hipotesis_contraria: Los analistas podrían estar subestimando la exposición geopolítica
+    de la cadena de suministro en Taiwán, la dependencia de pocos hyperscalers y la
+    capacidad de competidores como Broadcom e Intel para lanzar productos sustitutos
+    a menor coste. Estos factores podrían limitar el crecimiento esperado y justificar
+    un precio más bajo.
+  razonamiento: El precio actual está por debajo del consenso, lo que indica una posible
+    subvaloración, pero los múltiplos extremadamente altos y los riesgos estructurales
+    hacen que la dirección del error sea ambigua.
+generated_at: '2026-10-20T14:48:33.612070-03:00'
 integridad_tesis:
   flags: []
   reason: ''
   thesis_active: true
-opinion_valoracion: infravalorado
+opinion_valoracion: sobrevalorado
 opp_id: OPP-20261020-001
 prompt_inputs:
   business_model: Astera Labs, Inc. designs, manufactures, and sells semiconductor-based
@@ -157,39 +204,168 @@ research_input_snapshot:
     is based in San Jose, California.
   capital_allocation: N/A
   ceo_tenure: 0
-  current_price: 288.409912109375
+  current_price: 288.1600036621094
   current_price_as_of_date: '2026-10-20'
   current_price_source: yfinance
   debt_maturity_profile: N/A
   debt_to_equity: 0.03
   excess_return_roic_wacc: 0
-  existing_wiki: ''
+  existing_wiki: "# Astera Labs, Inc. (ALAB)\n\n> **Ticker:** ALAB ‑ NASDAQ  \n> **Sector:**\
+    \ Semiconductores – Conectividad de alta velocidad  \n> **Fundación:** 2017 (San\
+    \ José, California)  \n> **Cotización (20‑Oct‑2026):** USD 288.41  \n\n---\n\n\
+    ## 1. Visión General de la Compañía  \nAstera Labs, Inc. diseña, fabrica y comercializa\
+    \ soluciones de conectividad basadas en semiconductores para infraestructuras\
+    \ de nube y de inteligencia artificial (IA). La compañía combina **hardware de\
+    \ alta velocidad** (retimers, switches, módulos de cable, controladores CXL) con\
+    \ una **capa de software de gestión de flotas (COSMOS)** que permite la monitorización\
+    \ y optimización a escala de centros de datos.  \n\n- **Geografía:** Operaciones\
+    \ de I+D en EE. UU. y fabricación externalizada (fabless) con fundiciones principalmente\
+    \ en Taiwán.  \n- **Mercado objetivo:** hyperscalers (Amazon Web Services, Microsoft Azure,\
+    \ Google Cloud), OEM de sistemas de IA y proveedores de infraestructura de centros\
+    \ de datos.  \n\n---\n\n## 2. Modelo de Negocio y Posición Competitiva  \n\n|\
+    \ Elemento | Detalle |\n|---|---|\n| **Fuentes de ingreso** | • Venta de productos\
+    \ (retimers, módulos de cable, switches, controladores CXL). <br>• Licencias y\
+    \ servicios asociados a la suite de software COSMOS (suscripción, soporte, actualizaciones).\
+    \ |\n| **Cadena de valor** | I+D de IP de conectividad → diseño de ASIC y módulos\
+    \ → fabricación con socios de fundición (fabless) → integración de COSMOS → ventas\
+    \ directas y a través de socios OEM → soporte post‑venta. |\n| **Drivers de revenue**\
+    \ | • Creciente demanda de ancho de banda y latencia ultra‑baja impulsada por\
+    \ IA generativa y computación en la nube. <br>• Adopción de los estándares **CXL**\
+    \ y **PCIe 5.0/6.0**. <br>• Expansión de la base de clientes hyperscaler y OEM.\
+    \ |\n| **Moat (ventaja competitiva)** | • Propiedad intelectual de alta velocidad\
+    \ y baja latencia. <br>• Integración única de hardware + software (COSMOS) que\
+    \ genera **lock‑in** y reduce el coste de cambio para los clientes. <br>• Relaciones\
+    \ estratégicas con hyperscalers que facilitan la adopción temprana de nuevas generaciones\
+    \ de CXL. |\n| **Dinámica competitiva** | Competidores principales: [[Broadcom]],\
+    \ [[Intel]], [[Marvell Technology Group]], [[Advanced Micro Devices|AMD]]. Astera\
+    \ se posiciona como **retador** con un moat **amplio** gracias a su enfoque de\
+    \ plataforma integrada. |\n\n> **Fuente:** Análisis interno (DDD) y descripción\
+    \ de modelo de negocio (AOIF).  \n\n---\n\n## 3. Perfil Financiero  \n\n### 3.1\
+    \ Métricas clave (TTM, 20‑Oct‑2026)\n\n| Métrica | Valor | Comentario |\n|---|---|---|\n\
+    | **Ingresos (Revenue)** | USD 1.20 B | Crecimiento YoY + 98.5 % (stockanalysis).\
+    \ |\n| **Margen operativo** | 22.8 % | Indicador de alta rentabilidad operativa.\
+    \ |\n| **ROIC** | 63 % | Retorno sobre capital invertido muy superior al costo\
+    \ de capital. |\n| **Deuda / Patrimonio** | 0.0 x | Empresa sin deuda neta. |\n\
+    | **PER** | 142.2× | Valoración alta respecto a ganancias. |\n| **EV/EBITDA**\
+    \ | 171.4× | Multiplicador de valoración muy superior al promedio sectorial. |\n\
+    | **Conversión a FCF** | 15.3 % (estimado) | Flujo de caja libre ajustado reinvertido\
+    \ en CAPEX. |\n| **Precio objetivo consenso** | USD ≈ 390 (stockanalysis) | + 35 %\
+    \ sobre precio actual. |\n\n### 3.2 Tendencias  \n\n- **Ingresos:** Crecimiento\
+    \ explosivo (≈ 100 % YoY) impulsado por la adopción de CXL y PCIe.  \n- **Márgenes:**\
+    \ Estables alrededor del 22 %; se espera ligera mejora con economías de escala.\
+    \  \n- **Capital:** Sin deuda, lo que permite reinversión sin presión de intereses.\
+    \  \n\n> **Citas verificadas:** Precio actual, ingresos, márgenes, ROIC, deuda\
+    \ y objetivo de consenso provienen de *yfinance* y *stockanalysis* (20‑Oct‑2026).\
+    \  \n\n---\n\n## 4. Management y Gobierno Corporativo  \n\n| Aspecto | Evaluación\
+    \ |\n|---|---|\n| **CEO** | < 1 año en el cargo (incertidumbre sobre experiencia\
+    \ operativa). |\n| **Insiders** | Participación accionarial nula (según AOIF).\
+    \ |\n| **Board** | Compuesto por ejecutivos con experiencia en semiconductores\
+    \ (ex‑Broadcom, ex‑Intel). |\n| **Política de recompra** | No se dispone de información\
+    \ pública. |\n| **Calificación** | **Regular** – Falta de historial de alineación\
+    \ de intereses, aunque el equipo proviene de empresas líderes. |\n\n---\n\n##\
+    \ 5. Tesis de Inversión  \n\n### 5.1 Caso Alcista (Bull)  \n\n| Supuesto | Evidencia\
+    \ | Impacto esperado |\n|---|---|---|\n| **Contrato multi‑año con al menos un\
+    \ hyperscaler** (AWS, Azure o Google) para suministro de retimers y switches CXL 2.0.\
+    \ | Catalizador descrito en DDD (prob. 30 %). | Incremento de ingresos > 30 %\
+    \ CAGR, mejora de márgenes por economías de escala. |\n| **Lanzamiento exitoso\
+    \ de COSMOS 2.0** con funcionalidades de IA para gestión de red. | Prob. 45 %\
+    \ (DDD). | Mayor retención de clientes y generación de ingresos recurrentes por\
+    \ licencias. |\n| **Adquisición de IP de interconexión** que amplíe la cartera\
+    \ de productos. | Prob. 20 % (DDD). | Expansión de mercado y barrera de entrada\
+    \ reforzada. |\n| **Valor objetivo Bull** | USD 520 (Goldman Sachs). | + 80 %\
+    \ sobre precio actual. |\n\n> **Razonamiento:** La combinación de alta rentabilidad,\
+    \ crecimiento de ingresos y un moat tecnológico sólido sugiere que la valoración\
+    \ actual subestima el potencial de captura de cuota de mercado en CXL y PCIe.\
+    \  \n\n### 5.2 Valoración rápida (DCF simplificado)  \n\n- **WACC:** 0 % (ROIC > costo\
+    \ de capital).  \n- **FCF estimado:** 15 % de ingresos → USD 180 M.  \n- **Crecimiento\
+    \ a 5 años:** 30 % CAGR (caso base).  \n- **Valor intrínseco estimado:** **USD ≈ 180**\
+    \ (AOIF).  \n\n> **Conclusión:** Con un precio de mercado de USD 288, la acción\
+    \ parece **sobrevalorada** bajo un DCF puro, pero el modelo no captura plenamente\
+    \ el valor del moat y los potenciales contratos de gran escala.  \n\n---\n\n##\
+    \ 6. Riesgos y Contra‑Tesis (Caso Bajista)  \n\n| Riesgo | Probabilidad | Impacto\
+    \ | Comentario |\n|---|---|---|---|\n| Interrupción de la cadena de suministro\
+    \ en Taiwán | Media | Alto | Dependencia de fundiciones taiwanesas; riesgos geopolíticos.\
+    \ |\n| Competencia de gigantes (Broadcom, Intel, Marvell) | Media | Medio | Poder\
+    \ de precios y capacidad de I+D superior. |\n| Desaceleración del gasto de capital\
+    \ en data centers | Baja | Alto | Reducción de la demanda de conectividad de alta\
+    \ velocidad. |\n| Dependencia de pocos clientes hyperscaler | Media | Alto | Concentración\
+    \ de ingresos. |\n| Evolución rápida de estándares (PCIe, CXL) que deje obsoletos\
+    \ productos actuales | Media | Alto | Necesidad de constante innovación. |\n\n\
+    **Contra‑tesis:** El mercado ya ha descontado estos riesgos, pero si se materializan\
+    \ (p.ej., una interrupción prolongada en Taiwán o la pérdida de un contrato clave)\
+    \ el precio podría caer a **USD ≈ 250** (escenario BEAR, Morgan Stanley).  \n\n\
+    ---\n\n## 7. Catalizadores y Timeline  \n\n| Catalizador | Probabilidad | Impacto\
+    \ | Horizonte | Fuente |\n|---|---|---|---|---|\n| Firma de contrato CXL 2.0 con\
+    \ un hyperscaler líder | 30 % | Alto | Medio (2027) | DDD |\n| Lanzamiento de\
+    \ COSMOS 2.0 con IA | 45 % | Medio | Corto (2026‑2027) | DDD |\n| Adquisición\
+    \ de startup de IP de interconexión | 20 % | Alto | Largo (2028‑2029) | DDD |\n\
+    | Expansión de capacidad de fundición en EE. UU. (p.ej., TSMC US fab) | 25 % |\
+    \ Medio | Medio | AOIF |\n| Cambios regulatorios en exportación de tecnología\
+    \ avanzada (EE. UU./Taiwán) | 10 % | Alto | Largo | AOIF |\n\n---\n\n## 8. Marco\
+    \ de Valoración  \n\n### 8.1 Metodología  \n1. **Valoración por múltiplos** – EV/Revenue\
+    \ implícito ≈ 8× (actual) vs. promedio sectorial ≈ 5×.  \n2. **DCF** – Flujo de\
+    \ caja libre estimado a 5 años con crecimiento 30 % CAGR (caso base).  \n3. **Análisis\
+    \ de sensibilidad** – Variación del crecimiento de ingresos (20‑40 %) y margen\
+    \ operativo (20‑25 %).  \n\n### 8.2 Resultados de sensibilidad (USD)  \n\n| Crecimiento\
+    \ ingresos | Margen operativo | Valor intrínseco (EV) |\n|---|---|---|\n| 20 %\
+    \ | 20 % | 150 |\n| 30 % | 22 % | 210 |\n| 40 % | 25 % | 280 |\n\n> **Interpretación:**\
+    \ Un crecimiento sostenido > 30 % y márgenes > 22 % llevarían la valoración a\
+    \ rangos cercanos al consenso (≈ 390).  \n\n### 8.3 Comparación con peers  \n\n\
+    | Compañía | EV/Revenue | ROIC | Comentario |\n|---|---|---|---|\n| [[Broadcom]]\
+    \ | 4.5× | 30 % | Mayor escala, menor crecimiento. |\n| [[Intel]] | 3.8× | 12 %\
+    \ | En proceso de re‑enfoque. |\n| [[Marvell Technology Group]] | 5.2× | 18 %\
+    \ | Enfocado en interconexión, pero con mayor deuda. |\n\nAstera Labs muestra\
+    \ múltiplos superiores, reflejando expectativas de crecimiento más altas pero\
+    \ también mayor incertidumbre.  \n\n---\n\n## 9. Preguntas Abiertas y Agenda de\
+    \ Investigación  \n\n| Área | Pregunta | Prioridad |\n|---|---|---|\n| **Flujo\
+    \ de caja** | Detalle del FCF libre ajustado y su composición (CAPEX vs. OPEX).\
+    \ | Alta |\n| **Propiedad insider** | Estructura exacta de la participación accionarial\
+    \ de insiders y planes de recompra. | Media |\n| **Roadmap de productos** | Calendario\
+    \ de lanzamiento de CXL 2.0 y adopción esperada por los hyperscalers. | Alta |\n\
+    | **Capacidad de fabricación** | Planes de diversificación de fundiciones fuera\
+    \ de Taiwán (EE. UU., Japón). | Media |\n| **Regulación** | Posibles restricciones\
+    \ de exportación de tecnología avanzada en EE. UU. y Taiwán. | Baja |\n| **Competencia**\
+    \ | Evaluación de la respuesta de [[Broadcom]] e [[Intel]] a la expansión de CXL.\
+    \ | Media |\n\n---  \n\n*Esta entrada wiki está basada en datos verificados (precio,\
+    \ ingresos, márgenes, ROIC, deuda, objetivo de consenso) y en inferencias de modelo\
+    \ LLM. Las hipótesis, probabilidades y escenarios de precios deben revisarse periódicamente\
+    \ a medida que se disponga de nueva información.*"
   fcf_adjusted: 0
-  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
-    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
-    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
-    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
-    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
-    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
-    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "fcf": ["stockanalysis.com"],
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "ev_ebit":
+    ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"],
+    "ev_sales": ["stockanalysis.com"], "exchange": ["yfinance"], "fcf": ["stockanalysis.com"],
     "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
-    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com"],
-    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
-    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
-    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_observed_at":
+    ["stockanalysis.com", "yfinance"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_pct":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
     "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
-    ["stockanalysis.com"], "operating_margin_pct": ["stockanalysis.com"], "p_fcf_ratio":
-    ["stockanalysis.com"], "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio":
-    ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"],
-    "period_end_date": ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"],
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "operating_margin_pct": ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
     "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
-    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct":
-    ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"], "revenue_ttm":
-    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
-    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
-    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
-    "volume_avg": ["stockanalysis.com"]}, "observed_at": "2026-10-20T17:10:07.729257+00:00",
-    "period_end": null, "sources_used": ["stockanalysis.com"]}'
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com",
+    "yfinance"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observed_at": "2026-10-20T17:12:41.093426+00:00",
+    "period_end": null, "sources_used": ["stockanalysis.com", "yfinance"]}'
   geography: ''
   insider_ownership: 0
   interest_coverage_ratio: 0
@@ -209,13 +385,13 @@ research_input_snapshot:
   revenue_growth: 98.48
   roic: 62.97
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    500.0, "low": 190.0, "mean": 390.06, "median": 390.06, "observed_at": "2026-10-20T14:10:11.418131-03:00",
+    500.0, "low": 190.0, "mean": 390.06, "median": 390.06, "observed_at": "2026-10-20T14:48:22.638736-03:00",
     "sources": [{"as_of_date": "2026-10-20", "name": "stockanalysis", "observed_at":
-    "2026-10-20T14:10:11.418131-03:00", "observed_date": "2026-10-20", "target_price":
+    "2026-10-20T14:48:22.638736-03:00", "observed_date": "2026-10-20", "target_price":
     391.77, "url": "https://stockanalysis.com/stocks/alab/forecast/"}, {"as_of_date":
-    "2026-10-20", "name": "yfinance", "observed_at": "2026-10-20T14:10:11.418131-03:00",
+    "2026-10-20", "name": "yfinance", "observed_at": "2026-10-20T14:48:22.638736-03:00",
     "observed_date": "2026-10-20", "target_price": 388.35962, "url": "https://finance.yahoo.com/quote/ALAB/"}]},
-    "current_quote": {"as_of_date": "2026-10-20", "currency": "USD", "price": 288.409912109375,
+    "current_quote": {"as_of_date": "2026-10-20", "currency": "USD", "price": 288.1600036621094,
     "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ALAB/"}]}}'
   sector: Technology
   ticker: ALAB
@@ -224,76 +400,83 @@ research_trigger:
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: aae50a542836daad752a76ed7e1e7f8e6e8cc977d0514f5d4945ddaa43ec513f
+    sha256: 75fd7feefa7f43129f5d8bc60cd24d7464a7929259f4f5200ceb9ac093e2cf8b
   strategy_id: COMPOUNDER
   strategy_version: positive_fundamentals_v1
   trigger_type: manual
-  triggered_at: '2026-10-20T14:10:21.950524-03:00'
-resumen_ejecutivo: Astera Labs es un proveedor de soluciones de conectividad de semiconductores
-  de alta velocidad para infraestructura de nube y AI, con un modelo de negocio basado
-  en hardware y software integrado (COSMOS). Presenta un crecimiento de ingresos casi
-  del 100% YoY, márgenes operativos superiores al 20% y un ROIC del 63% sin deuda.
-  El precio de mercado está 26% por debajo del objetivo promedio de los analistas,
-  lo que sugiere una oportunidad de inversión tipo compounder, aunque existen riesgos
-  de ejecución y geopolíticos.
+  triggered_at: '2026-10-20T14:48:33.612070-03:00'
+resumen_ejecutivo: Astera Labs es un proveedor de soluciones de conectividad de alta
+  velocidad para centros de datos, con un modelo de negocio que combina hardware y
+  software (COSMOS). Presenta un crecimiento de ingresos explosivo, márgenes operativos
+  sólidos y ROIC superior al costo de capital, pero su valoración es muy alta y está
+  expuesta a riesgos de cadena de suministro y concentración de clientes. La ausencia
+  de deuda y la fuerte rentabilidad son puntos positivos, mientras que la corta trayectoria
+  del CEO y la falta de participación insider generan incertidumbre de gobierno. Los
+  catalizadores clave son la obtención de contratos CXL, el lanzamiento de COSMOS 2.0
+  y posibles adquisiciones de IP. La valoración actual parece ligeramente sobrevalorada
+  frente a los fundamentos, aunque la alta expectativa de crecimiento mantiene una
+  brecha con el consenso.
 scenario_analysis:
   as_of_date: '2026-10-20'
   currency: USD
-  horizon_date: '2028-10-20'
+  horizon_date: '2027-12-31'
   scenarios:
   - id: BEAR
     key_assumptions:
-    - Crecimiento de ingresos anual <30%
-    - Márgenes operativos caen a 15%
-    - No se materializa contrato con hyperscaler
+    - Crecimiento de ingresos <15% CAGR durante los próximos 3 años
+    - Márgenes operativos se reducen a 18% por presión de precios
+    - No se materializa ningún contrato CXL significativo
     probability_pct: 30
-    rationale: Desaceleración del gasto de capital en data centers y retrasos en la
-      adopción de CXL reducen el crecimiento de ingresos, manteniendo márgenes bajo
-      presión.
-    sources:
-    - as_of_date: '2026-09-15'
-      name: Morgan Stanley Research Note
-      url: https://www.morganstanley.com/research/alab-bear-case.pdf
-    target_price: 250
-  - id: BASE
-    key_assumptions:
-    - Crecimiento de ingresos anual 80‑90%
-    - Márgenes operativos 20‑23%
-    - Contrato CXL con hyperscaler en 2027
-    probability_pct: 45
-    rationale: La empresa mantiene su ritmo de crecimiento del 90‑100% YoY, los márgenes
-      operativos se estabilizan alrededor del 22% y se firma al menos un contrato
-      importante con un hyperscaler.
+    rationale: El mercado mantiene riesgos de suministro en Taiwán y concentración
+      de clientes, y los analistas sobreestiman el crecimiento. Un retraso en la firma
+      del contrato CXL o una mayor competencia reduciría ingresos, llevando el precio
+      al límite inferior del rango de consenso.
     sources:
     - as_of_date: '2026-10-20'
-      name: StockAnalysis Consensus
+      name: stockanalysis.com
       url: https://stockanalysis.com/stocks/alab/forecast/
+    target_price: 190
+  - id: BASE
+    key_assumptions:
+    - Crecimiento de ingresos 30% CAGR
+    - Márgenes operativos estables en 22‑23%
+    - Diversificación de fundiciones sin interrupciones mayores
+    probability_pct: 50
+    rationale: Se confirma un contrato CXL 2.0 con un hyperscaler y el lanzamiento
+      de COSMOS 2.0, impulsando un crecimiento de ingresos del 30% CAGR y manteniendo
+      márgenes operativos alrededor del 22%. El precio se alinea con el objetivo medio
+      de los analistas.
+    sources:
+    - as_of_date: '2026-10-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/alab/forecast/
+    - as_of_date: '2026-10-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ALAB/
     target_price: 390
   - id: BULL
     key_assumptions:
-    - Crecimiento de ingresos anual >120%
-    - Márgenes operativos >25%
-    - Adopción rápida de CXL 2.0 en 2027‑2028
-    probability_pct: 25
-    rationale: Se asegura una cartera de contratos multi‑año con los tres principales
-      hyperscalers, se lanza COSMOS 2.0 con alta adopción y la empresa captura participación
-      de mercado significativa en CXL 2.0, impulsando márgenes superiores al 25% y
-      crecimiento de ingresos >120% anual.
+    - Crecimiento de ingresos >40% CAGR
+    - Márgenes operativos 25% o más
+    - Ingresos recurrentes de software representan >20% del total
+    probability_pct: 20
+    rationale: Se firma un contrato multi‑año con varios hyperscalers, se lanza COSMOS 2.0
+      con funcionalidades de IA que generan ingresos recurrentes de licencias, y la
+      empresa adquiere una startup de IP que amplía su cartera, permitiendo un crecimiento
+      de ingresos superior al 40% CAGR y márgenes operativos del 25%.
     sources:
-    - as_of_date: '2026-08-30'
-      name: Goldman Sachs Equity Research
-      url: https://www.goldmansachs.com/insights/pages/alab-bull-case.pdf
-    target_price: 520
+    - as_of_date: '2026-10-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/alab/forecast/
+    target_price: 500
   schema_version: bear_base_bull_v1
 scenario_validation:
-  errors:
-  - 'BEAR.sources[0]: URL no está respaldada por evidencia de entrada verificable'
-  - 'BULL.sources[0]: URL no está respaldada por evidencia de entrada verificable'
-  status: invalid_pending_revision
+  errors: []
+  status: valid_pending_manager_review
 score_general: 78
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-10-20T14:10:11.418131-03:00'
+  calculado_at: '2026-10-20T14:48:22.638736-03:00'
   fuentes:
     stockanalysis: 391.77
     yfinance: 388.35962
@@ -303,22 +486,22 @@ target_consensus:
   source_references:
   - as_of_date: '2026-10-20'
     name: stockanalysis
-    observed_at: '2026-10-20T14:10:11.418131-03:00'
+    observed_at: '2026-10-20T14:48:22.638736-03:00'
     observed_date: '2026-10-20'
     target_price: 391.77
     url: https://stockanalysis.com/stocks/alab/forecast/
   - as_of_date: '2026-10-20'
     name: yfinance
-    observed_at: '2026-10-20T14:10:11.418131-03:00'
+    observed_at: '2026-10-20T14:48:22.638736-03:00'
     observed_date: '2026-10-20'
     target_price: 388.35962
     url: https://finance.yahoo.com/quote/ALAB/
   target_high: 500.0
   target_low: 190.0
-tesis_inversion: Astera Labs combina una alta rentabilidad operativa con un crecimiento
-  explosivo en un mercado de infraestructura de nube y AI que está en fase de expansión.
-  Su moat tecnológico y la integración de hardware y software le permiten capturar
-  valor de clientes de gran escala, mientras que su balance sin deuda y ROIC superior
-  al costo de capital respaldan la capacidad de reinvertir y generar retornos sostenidos.
+tesis_inversion: Astera Labs posee un moat tecnológico y un modelo de negocio de alta
+  rentabilidad, pero su valoración actual (PER >140x) es desproporcionada respecto
+  a los flujos de caja generados. La inversión es atractiva solo si se materializan
+  los catalizadores de contrato CXL y la expansión de COSMOS, lo que permitiría justificar
+  múltiplos más altos.
 ticker: ALAB
 version: '3.0'

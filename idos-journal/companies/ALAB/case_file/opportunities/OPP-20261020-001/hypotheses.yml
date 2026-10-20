@@ -1,23 +1,103 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El porcentaje de ingresos recurrentes de COSMOS se mantiene por debajo
-      del 20% en el reporte financiero de FY2027.
+  - condition: No se publica ningún anuncio de contrato CXL con hyperscalers antes
+      de la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: La empresa elimina o reduce significativamente la oferta de licencias
-      de COSMOS antes de la fecha objetivo.
+  - condition: Los hyperscalers publican una lista de proveedores que excluye a Astera
+      Labs.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El porcentaje de ingresos recurrentes de COSMOS se mantiene por debajo del 20%
-    en el reporte financiero de FY2027.
-  - La empresa elimina o reduce significativamente la oferta de licencias de COSMOS
-    antes de la fecha objetivo.
+  - No se publica ningún anuncio de contrato CXL con hyperscalers antes de la fecha
+    objetivo.
+  - Los hyperscalers publican una lista de proveedores que excluye a Astera Labs.
   horizon: corto
   id: H1-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 2.0
+    met: null
+    metric: numero_de_contratos_cxl
+    prediction: Se anunciará públicamente la firma del contrato y la inclusión de
+      Astera Labs en la lista de proveedores aprobados de los hyperscalers.
+    unit: contratos
+  priority: critical
+  probability: 0.5
+  rationale: La empresa ha anunciado una hoja de ruta de productos CXL y ha recibido
+    cartas de intención de varios hyperscalers. La creciente adopción de CXL en centros
+    de datos impulsa la demanda de soluciones de interconexión de alta velocidad,
+    donde Astera tiene una ventaja tecnológica.
+  review_trigger: Si a 2027-06-30 no existe ningún comunicado oficial ni evidencia
+    de contrato firmado, la hipótesis se considerará refutada.
+  secondary_hypotheses: []
+  statement: Astera Labs cerrará un contrato de suministro de tecnología CXL con al
+    menos dos de los cinco principales hyperscalers antes del 2027-06-30.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EPS reportado en 2028 es inferior a 1.00 USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa reporta una pérdida neta en 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EPS reportado en 2028 es inferior a 1.00 USD.
+  - La empresa reporta una pérdida neta en 2028.
+  horizon: largo
+  id: H2-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 1.2
+    met: null
+    metric: EPS
+    prediction: El reporte financiero de 2028 mostrará un EPS de al menos 1.20 USD.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: Con la materialización de los contratos CXL y la expansión de la plataforma
+    COSMOS, se espera un crecimiento de ingresos del 45% YoY y una mejora del margen
+    operativo al 22%, lo que debería traducirse en un EPS superior a 1.0 USD, superando
+    la valoración actual.
+  review_trigger: Si el EPS al 31-12-2028 es menor a 1.00 USD, la hipótesis se descartará.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  statement: El EPS (earnings per share) de Astera Labs alcanzará 1.20 USD al cierre
+    del ejercicio fiscal 2028 (31-12-2028).
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EV/EBITDA calculado al 31-12-2027 es ≤30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción cae más del 20% respecto al nivel de 2026-10-20
+      sin que el EBITDA haya aumentado proporcionalmente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EV/EBITDA calculado al 31-12-2027 es ≤30.
+  - El precio de la acción cae más del 20% respecto al nivel de 2026-10-20 sin que
+    el EBITDA haya aumentado proporcionalmente.
+  horizon: medio
+  id: H3-OPP-20261020-001
   opportunity_id: OPP-20261020-001
   parent_id: ''
   predictions:
@@ -25,149 +105,65 @@ hypotheses:
     deadline: '2027-12-31'
     expected: 30.0
     met: null
-    metric: porcentaje_ingresos_recurrentes_COSMOS
-    prediction: El porcentaje de ingresos provenientes de licencias y suscripciones
-      de COSMOS alcanzará o superará el 30% del total de ingresos.
-    unit: porcentaje
-  priority: critical
-  probability: 0.5
-  rationale: COSMOS crea una capa de software que aumenta la dependencia del cliente
-    y reduce la fricción de cambio, lo que ha impulsado la adopción en los principales
-    proveedores de nube. Los contratos actuales muestran una tendencia creciente de
-    ARR (Annual Recurring Revenue).
-  review_trigger: Si en el reporte de resultados del Q4 FY2027 (2027-10-30) el ingreso
-    recurrente de COSMOS está por debajo del 20%.
-  secondary_hypotheses: []
-  statement: El software de gestión de interconexiones COSMOS generará al menos el
-    30% de los ingresos totales de Astera Labs como ingresos recurrentes de licencias
-    y suscripciones.
-  status: ACTIVE
-  ticker: ALAB
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: ROIC cae por debajo del 10% en cualquier trimestre entre Q1 FY2028
-      y Q4 FY2029.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El costo de capital supera al ROIC en dos trimestres consecutivos.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - ROIC cae por debajo del 10% en cualquier trimestre entre Q1 FY2028 y Q4 FY2029.
-  - El costo de capital supera al ROIC en dos trimestres consecutivos.
-  horizon: medio
-  id: H2-OPP-20261020-001
-  opportunity_id: OPP-20261020-001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2029-12-31'
-    expected: 12.0
-    met: null
-    metric: ROIC
-    prediction: El ROIC reportado en los estados financieros trimestrales será ≥12%
-      en cada trimestre desde Q1 FY2028 hasta Q4 FY2029.
-    unit: porcentaje
+    metric: EV/EBITDA
+    prediction: Al cierre del día 2027-12-31, el cálculo de EV/EBITDA basado en datos
+      de mercado mostrará un valor >30.
+    unit: x
   priority: important
   probability: 0.5
-  rationale: La empresa ha demostrado alta rentabilidad operativa y una estructura
-    de capital sin deuda, lo que le permite reinvertir eficientemente en capacidad
-    de producción y desarrollo de software.
-  review_trigger: Si el reporte de Q2 FY2028 (2028-06-30) muestra un ROIC inferior
-    al 10%.
+  rationale: Los analistas subestiman la capacidad de la empresa para escalar rápidamente
+    sus márgenes operativos y la demanda de soluciones CXL, lo que podría llevar a
+    una revaloración del múltiplo por parte del mercado.
+  review_trigger: Si el múltiplo permanece ≤30 al 31-12-2027, la hipótesis será considerada
+    falsificada.
   secondary_hypotheses:
   - H1-OPP-20261020-001
-  statement: Astera Labs mantendrá un ROIC (Return on Invested Capital) igual o superior
-    al 12% durante los próximos dos años, superando consistentemente su costo de capital
-    estimado del 8%.
+  statement: El múltiplo EV/EBITDA de Astera Labs superará 30x en el mercado de EE.UU.
+    antes del 2027-12-31.
   status: ACTIVE
   ticker: ALAB
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Los ingresos anuales reportados para FY2029 son inferiores a $1.2 mil
-      millones.
+  - condition: Broadcom no anuncia ningún producto sustituto de CXL antes de la fecha
+      objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El TAM estimado para 2029 se revisa a la baja por debajo de $400 mil
-      millones, reduciendo la cuota de mercado implícita.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - Los ingresos anuales reportados para FY2029 son inferiores a $1.2 mil millones.
-  - El TAM estimado para 2029 se revisa a la baja por debajo de $400 mil millones,
-    reduciendo la cuota de mercado implícita.
-  horizon: largo
-  id: H3-OPP-20261020-001
-  opportunity_id: OPP-20261020-001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2029-12-31'
-    expected: 1500.0
-    met: null
-    metric: ingresos_anuales
-    prediction: Los ingresos anuales de Astera Labs alcanzarán $1.5 mil millones,
-      lo que corresponde a ~2% del TAM estimado de $500 mil millones.
-    unit: millones USD
-  priority: important
-  probability: 0.5
-  rationale: El mercado de infraestructura de nube y AI está en expansión rápida,
-    con un TAM proyectado de $500 mil millones para 2029. La ventaja competitiva de
-    ALAB en hardware‑software integrado y su creciente base de clientes de gran escala
-    le permite ganar participación de mercado.
-  review_trigger: Si en el reporte de resultados FY2029 (2029-03-31) los ingresos
-    son < $1.2 mil millones.
-  secondary_hypotheses:
-  - H1-OPP-20261020-001
-  - H2-OPP-20261020-001
-  statement: Astera Labs capturará al menos el 2% del mercado total de interconexiones
-    de infraestructura de nube y AI, impulsando sus ingresos anuales a $1.5 mil millones.
-  status: ACTIVE
-  ticker: ALAB
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: El precio de cierre de la acción el 31‑12‑2028 es < $180.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El EV/EBITDA calculado al cierre del año es < 15x.
+  - condition: Los ingresos de Astera en el trimestre posterior al lanzamiento disminuyen
+      menos del 5% o crecen.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El precio de cierre de la acción el 31‑12‑2028 es < $180.
-  - El EV/EBITDA calculado al cierre del año es < 15x.
-  horizon: medio
+  - Broadcom no anuncia ningún producto sustituto de CXL antes de la fecha objetivo.
+  - Los ingresos de Astera en el trimestre posterior al lanzamiento disminuyen menos
+    del 5% o crecen.
+  horizon: corto
   id: H4-OPP-20261020-001
   opportunity_id: OPP-20261020-001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-12-31'
-    expected: 220.0
+    deadline: '2027-09-30'
+    expected: -10.0
     met: null
-    metric: precio_accion
-    prediction: El precio de la acción de ALAB será ≥ $220 y el EV/EBITDA ≥ 20x en
-      la fecha objetivo.
-    unit: USD
-  priority: informational
+    metric: variacion_ingresos_trimestrales
+    prediction: Los ingresos reportados por Astera Labs en el trimestre que sigue
+      a la fecha de lanzamiento de Broadcom disminuirán ≥10% respecto al trimestre
+      anterior.
+    unit: '%'
+  priority: critical
   probability: 0.5
-  rationale: El crecimiento de ingresos, la alta rentabilidad y la escasa deuda generan
-    expectativas de múltiplos premium en el sector de tecnología de infraestructura.
-    Los analistas comparables ya cotizan alrededor de 18‑22x EV/EBITDA para empresas
-    con perfiles similares.
-  review_trigger: Si el precio de cierre el 30‑12‑2028 está por debajo de $180.
-  secondary_hypotheses:
-  - H3-OPP-20261020-001
-  statement: El múltiplo EV/EBITDA de Astera Labs alcanzará al menos 20x, impulsando
-    su precio objetivo a $220 por acción antes del 31 de diciembre de 2028.
+  rationale: Broadcom tiene recursos de I+D superiores y una estrategia agresiva para
+    capturar mercado de interconexión. Un lanzamiento exitoso podría desplazar a clientes
+    de Astera, especialmente en regiones con alta sensibilidad al precio.
+  review_trigger: Si a 2027-09-30 no hay anuncio de producto sustituto por parte de
+    Broadcom, la hipótesis se descartará.
+  secondary_hypotheses: []
+  statement: Broadcom lanzará un producto sustituto de CXL a menor coste que el de
+    Astera Labs antes del 2027-09-30, reduciendo los ingresos trimestrales de Astera
+    en al menos un 10% en el siguiente trimestre.
   status: ACTIVE
   ticker: ALAB
   version: 1
