@@ -628,4 +628,11 @@ RULE-008 tras recibir URL de escenarios no incluidas en evidencia; XLF quedó
 no aplican a estrategias sistemáticas. Regresión cubierta por
 `test_public_site_keeps_deterministic_systematic_report_separate_from_fundamental_review`.
 Validación local: `pytest idos-core/tests/test_site/test_builder.py -q`
-resultó en 39 passed. CI y preview del cambio quedan pendientes.
+resultó en 39 passed; `node --check` y `git diff --check` pasaron. CI
+[#39465227681](https://github.com/alebertolli/idos/actions/runs/39465227681)
+pasó en Python 3.11/3.12. Pages preview
+[#39465318968](https://github.com/alebertolli/idos/actions/runs/39465318968)
+validó los datos reales de ALAB/XLF: XLF `not_applicable` y ALAB RULE-008
+bloqueada. El arreglo se integró como PR #146 y Pages
+[#39466121233](https://github.com/alebertolli/idos/actions/runs/39466121233)
+desplegó el SHA `9c0eb15` con el estado operativo de producción vacío.
