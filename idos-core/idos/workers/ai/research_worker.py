@@ -214,6 +214,8 @@ class ResearchWorker(BaseWorker):
             recent_events = f"{recent_events}\n\nEvento disparador validado para revisar: {event_context}"
         latest_discovery = opp.get("latest_discovery_evidence")
         initial_discovery = opp.get("discovery_evidence")
+        discovery_evidence = latest_discovery if isinstance(latest_discovery, dict) else initial_discovery
+        financial_data = self._merge_discovery_financial_evidence(financial_data, discovery_evidence)
         latest_quote = latest_discovery.get("market_quote") if isinstance(latest_discovery, dict) else None
         initial_quote = initial_discovery.get("market_quote") if isinstance(initial_discovery, dict) else None
         quote_evidence = {"market_quote": latest_quote or initial_quote}
@@ -961,6 +963,39 @@ class ResearchWorker(BaseWorker):
             "target_low": result.target_low,
             "target_high": result.target_high,
         }
+
+    @staticmethod
+    def _merge_discovery_financial_evidence(
+        financial_data: dict[str, Any],
+        discovery_evidence: dict[str, Any] | None,
+    ) -> dict[str, Any]:
+        """Carry sourced Discovery observations into Research without inventing values."""
+        merged = dict(financial_data)
+        if not isinstance(discovery_evidence, dict):
+            return merged
+
+        discovery_observations = discovery_evidence.get("financial_observations")
+        if isinstance(discovery_observations, dict):
+            cached_observations = merged.get("financial_observations")
+            cached_observations = cached_observations if isinstance(cached_observations, dict) else {}
+            merged["financial_observations"] = {**cached_observations, **discovery_observations}
+
+        discovery_provenance = discovery_evidence.get("data_provenance")
+        if isinstance(discovery_provenance, dict):
+            cached_provenance = merged.get("data_provenance")
+            cached_provenance = cached_provenance if isinstance(cached_provenance, dict) else {}
+            provenance = {**cached_provenance, **discovery_provenance}
+            field_sources = dict(cached_provenance.get("field_sources", {}))
+            field_sources.update(discovery_provenance.get("field_sources", {}))
+            if field_sources:
+                provenance["field_sources"] = field_sources
+            sources = set(cached_provenance.get("sources_used", []))
+            sources.update(discovery_provenance.get("sources_used", []))
+            if sources:
+                provenance["sources_used"] = sorted(str(source) for source in sources if source)
+            merged["data_provenance"] = provenance
+
+        return merged
 
     @staticmethod
     def _financial_evidence_context(data: dict[str, Any]) -> dict[str, Any]:

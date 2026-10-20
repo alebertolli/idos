@@ -1016,6 +1016,46 @@ def test_financial_evidence_context_preserves_observations_and_source_metadata()
     assert context["currency"] is None
 
 
+def test_discovery_financial_observations_are_merged_into_research_data():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    cache_data = {
+        "financial_observations": {"revenue": {"values": {"cache": 1.0}}},
+        "data_provenance": {"sources_used": ["cache-source"]},
+    }
+    discovery = {
+        "financial_observations": {
+            "fcf": {
+                "values": {"stockanalysis.com": 276680000.0},
+                "period_type": "TTM",
+                "period_end_date": "2026-06-30",
+                "unit": "provider_financial_currency",
+                "source_metadata": {
+                    "stockanalysis.com": {
+                        "source_url": "https://stockanalysis.com/stocks/alab/statistics/",
+                    }
+                },
+            }
+        },
+        "data_provenance": {
+            "sources_used": ["stockanalysis.com"],
+            "field_sources": {"fcf": ["stockanalysis.com"]},
+        },
+    }
+
+    merged = ResearchWorker._merge_discovery_financial_evidence(cache_data, discovery)
+
+    assert merged["financial_observations"]["revenue"] == {"values": {"cache": 1.0}}
+    fcf = merged["financial_observations"]["fcf"]
+    assert fcf["values"]["stockanalysis.com"] == 276680000.0
+    assert fcf["period_type"] == "TTM"
+    assert fcf["period_end_date"] == "2026-06-30"
+    assert fcf["unit"] == "provider_financial_currency"
+    assert fcf["source_metadata"]["stockanalysis.com"]["source_url"].startswith("https://")
+    assert merged["data_provenance"]["sources_used"] == ["cache-source", "stockanalysis.com"]
+    assert merged["data_provenance"]["field_sources"]["fcf"] == ["stockanalysis.com"]
+
+
 def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():
     from idos.ai.prompts import PromptRegistry
 
