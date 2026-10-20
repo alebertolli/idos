@@ -1,13 +1,13 @@
 {
   "status": "success",
   "output": {
-    "started_at": "2026-10-20T03:28:23.303291-03:00",
-    "finished_at": "2026-10-20T03:28:26.838095-03:00",
-    "duration_seconds": 3.5347986221313477,
+    "started_at": "2026-10-20T11:43:02.201613-03:00",
+    "finished_at": "2026-10-20T11:43:05.323393-03:00",
+    "duration_seconds": 3.1217737197875977,
     "candidate_source": "idos-config/universe/operable.yml",
     "candidate_count": 1,
     "candidate_tickers": [
-      "ARM"
+      "AAPL"
     ],
     "operable_count": 1,
     "operable_filtered": 0,
@@ -15,23 +15,13 @@
     "fetch_new": 1,
     "fetch_cached": 0,
     "fetch_errors": 0,
-    "scout_passed": 0,
-    "scout_rejected": 1,
-    "scout_data_quality_rejected": 1,
-    "scout_data_quality_details": [
-      {
-        "ticker": "ARM",
-        "missing_critical_metrics": [
-          "operating_margin_pct"
-        ],
-        "conflicting_critical_metrics": [
-          "operating_margin_pct"
-        ]
-      }
-    ],
-    "new_watchlist_count": 0,
-    "opportunities_eligible": 0,
-    "opportunities_existing": 0,
+    "scout_passed": 1,
+    "scout_rejected": 0,
+    "scout_data_quality_rejected": 0,
+    "scout_data_quality_details": [],
+    "new_watchlist_count": 1,
+    "opportunities_eligible": 1,
+    "opportunities_existing": 1,
     "opportunities_discovery_review": 0,
     "opportunities_created": 0,
     "downgraded_to_watchlist": 0,
@@ -39,6 +29,40 @@
     "errors": []
   },
   "error": null,
+  "strategies": {
+    "COMPOUNDER": {
+      "status": "success",
+      "output": {
+        "started_at": "2026-10-20T11:43:02.201613-03:00",
+        "finished_at": "2026-10-20T11:43:05.323393-03:00",
+        "duration_seconds": 3.1217737197875977,
+        "candidate_source": "idos-config/universe/operable.yml",
+        "candidate_count": 1,
+        "candidate_tickers": [
+          "AAPL"
+        ],
+        "operable_count": 1,
+        "operable_filtered": 0,
+        "pre_score_count": 1,
+        "fetch_new": 1,
+        "fetch_cached": 0,
+        "fetch_errors": 0,
+        "scout_passed": 1,
+        "scout_rejected": 0,
+        "scout_data_quality_rejected": 0,
+        "scout_data_quality_details": [],
+        "new_watchlist_count": 1,
+        "opportunities_eligible": 1,
+        "opportunities_existing": 1,
+        "opportunities_discovery_review": 0,
+        "opportunities_created": 0,
+        "downgraded_to_watchlist": 0,
+        "upgraded_to_screened": 0,
+        "errors": []
+      },
+      "error": null
+    }
+  },
   "multibaggers": {
     "status": "disabled"
   }
