@@ -623,11 +623,17 @@ def test_public_site_shows_scenarios_with_sources_and_manager_review_hash(tmp_pa
 
     output = write_site(tmp_path, tmp_path / "site-output")
     app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+    styles = (output / "assets" / "style.css").read_text(encoding="utf-8")
     payload = (output / "data.json").read_text(encoding="utf-8")
     assert "Escenarios Bear / Base / Bull" in app
     assert "aprobación del gestor" in app
     assert "abre cada fuente y verifica que exista" in app
     assert "confirmación explícita de fuentes verificadas" in app
+    assert 'class="scenario-mobile-list"' in app
+    assert 'aria-label="Escenario ${esc(s.id)}"' in app
+    assert "Probabilidad" in app and "Precio objetivo" in app
+    assert ".scenario-desktop-table{display:none}" in styles
+    assert ".scenario-mobile-list{display:grid;gap:8px}" in styles
     assert "https://example.com/bear" in payload
     assert "Lectura y supuestos" in app
     assert "key_assumptions" in payload

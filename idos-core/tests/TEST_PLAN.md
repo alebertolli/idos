@@ -577,17 +577,13 @@ Risk Audit sólo con fixture/contrato privado, probar Learning/replay, y validar
 MULTIBAGGERS cuando su adaptador/datos estén listos. La cartera real seguirá sin
 ser evaluada hasta conectar y validar la hoja privada.
 
-### 8.7 Reset operativo solicitado
+### 8.7 Reset operativo ejecutado — 2026-10-20
 
-Tras cerrar las correcciones y registrar la evidencia final, vaciar los datos
-operativos generados para reiniciar IDOS: oportunidades, tesis y reportes DDD,
-hipótesis, post-mortem/learning, eventos y decisiones de prueba, historiales de
-estrategia, Buy List/Watch List de prueba y caches/resultados de pipeline.
-Preservar código, configuración (incluido `operable.yml`), SDD, tests, fixtures,
-plantillas y schemas. Verificar después del reset que Pages no muestre registros
-anteriores y que las estructuras vacías sigan siendo válidas. El borrado del
-historial Git de `main`, solicitado por separado, no forma parte de este reset
-de datos y requiere confirmar el alcance exacto justo antes de reescribirlo.
+El reset se ejecutó mediante PR [#143](https://github.com/alebertolli/idos/pull/143). Se eliminaron 277 carpetas de oportunidades, tesis/assessments, eventos, decisiones, reportes, caches, simulaciones/ledger, claims y datos derivados. Buy List y Watch List quedaron vacías. Se conservaron código, configuración (`operable.yml` incluido), SDD, tests, fixtures, plantillas, schemas y archivos base `case_file.yml`.
+
+Pages [#39458682671](https://github.com/alebertolli/idos/actions/runs/39458682671) compiló y desplegó el SHA integrado. El artefacto confirmó cero oportunidades, Buy List, Watch List, posiciones, ledger, alertas y elementos del discovery pool; `portfolio={}`. CI [#39457663035](https://github.com/alebertolli/idos/actions/runs/39457663035) pasó en Python 3.11 y 3.12.
+
+Por solicitud expresa, `main` se reinició como raíz Git limpia: commit `45d5ec33669878808bda2d57b54444e017351945`, sin padres y con el mismo árbol de producción más las actualizaciones de SDD. Sólo se reescribió la referencia `main`; ramas y tags no se modificaron. CI de la raíz limpia [#39459588588](https://github.com/alebertolli/idos/actions/runs/39459588588) pasó en Python 3.11 y 3.12. Los 13 workflows registrados quedaron activos. El reset no equivale a aceptación funcional final: la revisión del gestor, Learning/replay, MULTIBAGGERS y Portfolio privado siguen pendientes.
 
 GitHub Actions: `alebertolli/idos` es un repositorio público y estos workflows
 usan runners GitHub-hosted estándar Linux; la documentación de GitHub indica que
@@ -596,3 +592,19 @@ proveedores LLM mantienen cuotas/rate limits independientes; los runners más
 grandes y el almacenamiento de artefactos tienen reglas aparte. Ver
 [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions)
 y [runner selection](https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job).
+
+### 8.8 Presentación móvil de asimetría — 2026-10-20
+
+La ficha conserva la tabla Bear/Base/Bull en escritorio y muestra tarjetas
+apiladas en pantallas de hasta 720 px. Cada tarjeta presenta escenario,
+probabilidad, precio objetivo, racionales, supuestos y enlaces con fecha de
+fuente, sin depender del desplazamiento horizontal de la tabla.
+
+Validación en la rama: suite `test_site/test_builder.py` (39 passed),
+`node --check` del JavaScript generado y `git diff --check` pasaron. CI
+[#39461594753](https://github.com/alebertolli/idos/actions/runs/39461594753)
+pasó en Python 3.11 y 3.12. Pages preview
+[#39461643195](https://github.com/alebertolli/idos/actions/runs/39461643195)
+compiló y subió el artefacto; deploy se omitió por ser una rama de prueba. El
+artefacto confirma el CSS/JS responsive y cero oportunidades. Después del
+deploy a producción, comprobar el render en un dispositivo móvil.
