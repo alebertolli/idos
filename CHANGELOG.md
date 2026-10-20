@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.4](https://github.com/alebertolli/idos/compare/v0.1.3...v0.1.4) (2026-10-20)
+
+
+### Features
+
+* **workflows:** allow bounded production E2E opt-in ([89aa63a](https://github.com/alebertolli/idos/commit/89aa63a21c3daffbe02af9c55e731855f49dbf32))
+
+
+### Documentation
+
+* clarify clean history candidate commit chain ([03c5066](https://github.com/alebertolli/idos/commit/03c506699ad8928bf656626fd88ce31f4bc81247))
+* **e2e:** record bounded production run results ([ff8efb6](https://github.com/alebertolli/idos/commit/ff8efb6a087ec4f0ce5e5d283d75d9026a83dabf))
+* keep baseline history description stable ([db8debf](https://github.com/alebertolli/idos/commit/db8debf2fbe0da931962f30d4b3debee71a0cb74))
+* record clean main reset and validation ([84b058d](https://github.com/alebertolli/idos/commit/84b058d711487283f9d5c0a72e73bbd5189c0e42))
+* record clean main reset preparation and safeguards ([ce91011](https://github.com/alebertolli/idos/commit/ce91011e635110391cda6772916105ab1e0ecffe))
+
 ## [0.1.3](https://github.com/alebertolli/idos/compare/v0.1.2...v0.1.3) (2026-10-20)
 
 
