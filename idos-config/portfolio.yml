@@ -1,0 +1,31 @@
+runtime_enabled: false # Habilitar solo cuando se valide la fuente privada de cartera.
+bankroll: 100000
+max_position_pct: 3.0
+margin_of_safety: 30
+stop_loss_asymmetry_divisor: 3
+fee_pct: 0.1
+indicator:
+  weights:
+    structure: 0.40
+    supply_demand: 0.30
+    relative_strength: 0.20
+    volatility: 0.10
+  bands:
+    demand: 65
+    absorption: 45
+    supply: 25
+entry:
+  min_score: 45
+  benchmark: SPY
+valuation:
+  sources: [yfinance, finviz, stockanalysis]
+  min_sources: 1
+  ttl_seconds: 43200
+exit:
+  enabled: true
+  valuation_overvaluation_pct: 25
+  exit_pct_on_valuation: 50
+  exit_pct_on_drawdown: 50
+  replacement_conviction_multiple: 1.3
+  min_asymmetry_ratio: 3
+  notify: true

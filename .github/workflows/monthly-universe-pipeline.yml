@@ -1,0 +1,87 @@
+name: Monthly Universe Pipeline
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"  # primer dia de cada mes a medianoche
+  workflow_dispatch:
+    inputs:
+      candidate_tickers:
+        description: "Required for manual runs: 1-5 comma-separated tickers from operable.yml"
+        required: true
+        type: string
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
+      IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate test branch for manual runs
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
+            echo "::error::Manual E2E runs must use a test branch; main is reserved for scheduled production runs."
+            exit 1
+          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+      - name: Validate bounded manual candidate scope
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+          IDOS_MANUAL_SELECTION_LIMIT: "5"
+        run: python scripts/validate_manual_candidate_scope.py
+      - name: Run pipeline
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+        run: python scripts/run_monthly_universe_pipeline.py
+      - name: Run enabled monthly strategies
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+        run: python scripts/run_monthly_strategy.py
+      - name: Save & commit results
+        if: always() && !cancelled()
+        run: |
+          TARGET_BRANCH="${GITHUB_REF_NAME}"
+          if [ -z "$TARGET_BRANCH" ]; then
+            echo "::error::No target branch resolved; refusing to publish pipeline results"
+            exit 1
+          fi
+          git config user.name 'idos-bot'
+          git config user.email 'bot@idos.local'
+          mkdir -p cache
+          touch cache/pipeline_results.json
+          git add idos-journal/portfolio/watchlist.yml 2>&1 || echo "add watchlist failed: $?"
+          git add idos-journal/reports/ 2>&1 || echo "add reports failed: $?"
+          git add idos-journal/companies/ 2>&1 || echo "add companies failed: $?"
+          git add idos-journal/strategies/ 2>&1 || echo "add strategy reports failed: $?"
+          git add cache/pipeline_results.json 2>&1 || echo "add cache failed: $?"
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git status --short -- idos-journal/ cache/
+            git commit -m "chore: monthly universe pipeline $(date +%Y-%m-%d)"
+            # Generated market caches are not committed by this workflow. Stash
+            # those local writes so they cannot block rebasing the report commit.
+            git stash push --include-untracked -m 'monthly pipeline transient outputs'
+            git fetch origin "$TARGET_BRANCH"
+            git rebase "origin/$TARGET_BRANCH"
+            git push origin "HEAD:$TARGET_BRANCH"
+          fi
+      - name: Notify
+        run: |
+          python scripts/notify_monthly_pipeline.py
+      - name: Notify on failure
+        if: failure()
+        run: python scripts/notify_monthly_failure.py
+      - name: 🐛 Report failure as GitHub Issue
+        if: failure() && github.ref_name == 'main'
+        run: python -m idos.workers.automation.gha_error_reporter

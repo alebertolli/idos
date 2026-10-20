@@ -1,0 +1,1 @@
+NVIDIA Corporation es una inversión atractiva debido a su posición dominante en el mercado de la tecnología de la información, su historial de crecimiento sostenido y su capacidad para innovar y expandirse a nuevos mercados.

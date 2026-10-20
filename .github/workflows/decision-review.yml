@@ -1,0 +1,81 @@
+name: Decision Review
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: Opportunity ticker
+        required: true
+        type: string
+      opp_id:
+        description: Opportunity id
+        required: true
+        type: string
+      proposal_hash:
+        description: SHA-256 shown with the current Assessment proposal
+        required: true
+        type: string
+      decision:
+        description: Manager decision
+        required: true
+        type: choice
+        options:
+          - approved
+          - rejected
+      note:
+        description: Short rationale for the decision
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: decision-review-${{ inputs.ticker }}-${{ inputs.opp_id }}
+  cancel-in-progress: false
+
+jobs:
+  record-manager-decision:
+    # Manager review runs on an isolated test branch; never mutate production/main.
+    if: github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          persist-credentials: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install decision-review dependency
+        run: python -m pip install PyYAML
+
+      - name: Validate and record manager decision
+        working-directory: idos-core
+        env:
+          REVIEW_TICKER: ${{ inputs.ticker }}
+          REVIEW_OPP_ID: ${{ inputs.opp_id }}
+          REVIEW_PROPOSAL_HASH: ${{ inputs.proposal_hash }}
+          REVIEW_DECISION: ${{ inputs.decision }}
+          REVIEW_NOTE: ${{ inputs.note }}
+          REVIEWER: ${{ github.actor }}
+        run: >-
+          python scripts/review_decision.py --base-path ..
+          --ticker "$REVIEW_TICKER"
+          --opp-id "$REVIEW_OPP_ID"
+          --proposal-hash "$REVIEW_PROPOSAL_HASH"
+          --decision "$REVIEW_DECISION"
+          --reviewer "$REVIEWER"
+          --note "$REVIEW_NOTE"
+
+      - name: Commit immutable decision record on selected branch
+        env:
+          REVIEW_TICKER: ${{ inputs.ticker }}
+          REVIEW_OPP_ID: ${{ inputs.opp_id }}
+        run: |
+          opportunity_path="idos-journal/companies/${REVIEW_TICKER^^}/case_file/opportunities/${REVIEW_OPP_ID}"
+          git add -- "$opportunity_path/decision_proposal.yml" "$opportunity_path/board_resolution.yml" "$opportunity_path/opportunity.yml" "$opportunity_path/decisions" "idos-journal/portfolio/buylist.yml"
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "Record manager decision for ${REVIEW_TICKER}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

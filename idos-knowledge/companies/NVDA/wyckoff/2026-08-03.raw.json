@@ -1,0 +1,39 @@
+{
+  "fase_wyckoff": "markup",
+  "eventos_wyckoff_detectados": [
+    {
+      "evento": "Ninguno",
+      "descripcion": "El precio cotiza en un rango lateral de 60 días sin eventos climáticos claros (SC, BC) ni de ruptura/confirmación (SOS, Spring) identificables con el volumen actual.",
+      "confianza": "baja"
+    }
+  ],
+  "pruebas_compra": {
+    "prueba_1_objetivo_caida": "N/A",
+    "prueba_2_actividad_alcista": "NoPasa",
+    "prueba_3_parada_critica": "N/A",
+    "prueba_4_fortaleza_relativa": "N/A",
+    "prueba_5_linea_suministro": "Pasa",
+    "prueba_6_soportes_crecientes": "NoPasa",
+    "prueba_7_maximos_crecientes": "NoPasa",
+    "prueba_8_base_construida": "Pasa",
+    "prueba_9_relacion_3_1": "Pasa",
+    "pruebas_pasan": 3,
+    "total_pruebas": 9
+  },
+  "punto_entrada": "ninguno",
+  "precio_objetivo_wyckoff": {
+    "estimado": 235.47,
+    "metodo": "causa_efecto",
+    "razonamiento": "Objetivo técnico basado en el retesteo del máximo de 52 semanas si se reanuda la fase de Markup."
+  },
+  "stop_loss_sugerido": {
+    "precio": 191.0,
+    "distancia_pct": 4.86,
+    "fundamento": "Ubicado justo por debajo de la media móvil de 200 días ($192.93) para proteger contra un cambio de tendencia principal."
+  },
+  "senal_entrada": "NEUTRAL",
+  "justificacion": "El activo se encuentra en una consolidación lateral de 60 días (-3%) cotizando por debajo de la MA50. El volumen relativo (0.9x) y la amplitud de spreads son promedio, sin mostrar absorción clara por parte de la demanda ni oferta dominante. Al no haber confirmación de eventos Wyckoff (como un Spring o SOS con volumen expansivo) y no superarse la mayoría de las 9 pruebas de compra, la prudencia dicta mantenerse al margen en posición NEUTRAL.",
+  "confianza": "media",
+  "datos_suficientes": true,
+  "limitaciones": "Ausencia de gráficos Punto y Figura para un conteo exacto de Causa y Efecto, y falta de datos detallados sobre la estructura de volumen barra a barra en los límites del rango."
+}

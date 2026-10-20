@@ -1,0 +1,1 @@
+# Garmin Ltd. (GRMN)

@@ -1,0 +1,75 @@
+adjusted_weight: 3.24
+analyzed_at: '2026-08-03T08:22:47.626939-03:00'
+confidence: alta
+entry_point: ninguno
+indicators:
+  algorithmic_phase: markup
+  bar_spread_description: 'spreads estables (promedio diario reciente: 2.7%)'
+  current_price: 1629.0
+  high_52w: 1986.87
+  low_52w: 685.12
+  ma_200d: 1387.81
+  ma_50d: 1749.02
+  pct_from_52w_high: -18.0
+  pct_from_52w_low: 137.8
+  pct_from_ma200: 17.4
+  pct_from_ma50: -6.9
+  recent_trend: tendencia de 60d alcista moderada (+6%). últimos 5d estables (-1%)
+  resistance_levels: 'resistencias identificadas: $1986.87, $1927.19, $1926.76, $1897.03,
+    $1890.22 (basado en máximos históricos)'
+  support_levels: 'soportes identificados: $685.12, $685.31, $686.44, $694.78, $708.45
+    (basado en mínimos históricos)'
+  ticker: ''
+  volume_description: volumen reciente en línea con histórico (1.2x el promedio)
+llm_response:
+  confianza: alta
+  datos_suficientes: true
+  eventos_wyckoff_detectados:
+  - confianza: media
+    descripcion: El precio se encuentra en un retroceso de corto plazo dentro de una
+      tendencia alcista estructural mayor. No hay señales claras de un clímax de venta
+      (SC) ni de una maniobra de engaño (Spring) en los niveles actuales.
+    evento: Ninguno
+  fase_wyckoff: markup
+  justificacion: A pesar de mantener una estructura macro en tendencia de avance (Markup)
+    por encima de la MA200 (+17.4%), el precio cotiza por debajo de la MA50 (-6.9%)
+    con un retroceso del 18% desde máximos. No se observa una acumulación secundaria
+    (causa) clara ni un evento de confirmación de entrada según las leyes de Wyckoff.
+    Siguiendo el principio de prudencia para Family Office, es preferible esperar
+    la consolidación de un rango de trading o un patrón de oferta agotada (LPS/Spring)
+    antes de arriesgar capital.
+  limitaciones: Falta de gráfico intradía/diario detallado para análisis de volumen
+    por barra y ausencia de gráfico de Punto y Figura para determinar el conteo exacto
+    de la causa.
+  precio_objetivo_wyckoff:
+    estimado: 1986.87
+    metodo: no_determinable
+    razonamiento: Sin una causa lateral (TR) bien definida mediante un conteo de Punto
+      y Figura, no es posible establecer un objetivo de precio exacto. Como referencia,
+      el máximo previo de 52 semanas en $1986.87 actúa como resistencia principal.
+  pruebas_compra:
+    prueba_1_objetivo_caida: NoPasa
+    prueba_2_actividad_alcista: NoPasa
+    prueba_3_parada_critica: NoPasa
+    prueba_4_fortaleza_relativa: N/A
+    prueba_5_linea_suministro: Pasa
+    prueba_6_soportes_crecientes: Pasa
+    prueba_7_maximos_crecientes: Pasa
+    prueba_8_base_construida: NoPasa
+    prueba_9_relacion_3_1: NoPasa
+    pruebas_pasan: 3
+    total_pruebas: 9
+  punto_entrada: ninguno
+  senal_entrada: NEUTRAL
+  stop_loss_sugerido:
+    distancia_pct: 14.8
+    fundamento: Nivel de la Media Móvil de 200 días (MA200), soporte dinámico estructural
+      de la tendencia alcista de largo plazo.
+    precio: 1387.81
+opp_id: OPP-20260725-028
+phase: markup
+price_target: 1986.87
+score: 23
+stop_loss: 1387.81
+ticker: ASML
+triggered_entry: false
