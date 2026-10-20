@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.1.5](https://github.com/alebertolli/idos/compare/v0.1.4...v0.1.5) (2026-10-20)
+
+
+### Features
+
+* **strategy:** route enabled monthly profiles ([dd1ae3c](https://github.com/alebertolli/idos/commit/dd1ae3c95d2c2ccef50067eab45761ed19635513))
+
+
+### Bug Fixes
+
+* **data:** reconcile financial observations by period ([#128](https://github.com/alebertolli/idos/issues/128)) ([b5c4871](https://github.com/alebertolli/idos/commit/b5c4871c0e17add9608d0267b6239b303bd5f68a))
+* preserve bounded ticker scope through DDD ([71274d4](https://github.com/alebertolli/idos/commit/71274d4e13f145dfb870e647c8a0a89de2dea002))
+* route ETF refresh directly to Yahoo ([#142](https://github.com/alebertolli/idos/issues/142)) ([026ced6](https://github.com/alebertolli/idos/commit/026ced6b7956b0b1b078c15b8a3e83f3f94435d1))
+* validate research scenarios against supplied evidence ([26d2cd6](https://github.com/alebertolli/idos/commit/26d2cd6d84e4a7f2011febb34ee5015ee0627588))
+
+
+### Documentation
+
+* record production multi-strategy E2E ([#141](https://github.com/alebertolli/idos/issues/141)) ([64c1b11](https://github.com/alebertolli/idos/commit/64c1b1195b086f8194bb0d54fc1f5b0d4bbd49cf))
+
 ## [0.1.4](https://github.com/alebertolli/idos/compare/v0.1.3...v0.1.4) (2026-10-20)
 
 
