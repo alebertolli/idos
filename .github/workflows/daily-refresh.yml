@@ -5,6 +5,11 @@ on:
     - cron: "0 8 * * 1-5"
   workflow_dispatch:
     inputs:
+      allow_production_e2e:
+        description: "Allow this bounded manual E2E to write results to main"
+        required: false
+        type: boolean
+        default: false
       run_portfolio_simulation:
         description: "Run paper portfolio monitoring and simulation steps"
         required: false
@@ -35,12 +40,11 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - name: Validate test branch for manual runs
+      - name: Validate manual production opt-in
+        env:
+          IDOS_ALLOW_PRODUCTION_E2E: ${{ inputs.allow_production_e2e }}
         run: |
-          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
-            echo "::error::Manual E2E runs must use a test branch; main is reserved for scheduled production runs."
-            exit 1
-          fi
+          python scripts/validate_production_dispatch.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
