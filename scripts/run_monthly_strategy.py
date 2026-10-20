@@ -4,6 +4,8 @@ import os
 import argparse
 from pathlib import Path
 
+from idos.strategy.catalog import StrategyCatalog
+from idos.strategy.routing import enabled_profiles_for_runner
 from idos.workers.data.strategy_pipeline import MonthlyStrategyWorker
 
 
@@ -19,20 +21,24 @@ def main() -> int:
         for ticker in os.environ.get("IDOS_CANDIDATE_TICKERS", "").split(",")
         if ticker.strip()
     ]
-    result = MonthlyStrategyWorker({"strategy_id": "MOMENTUM_ETF"}).execute(
-        {
-            "base_path": ".",
-            "dry_run": args.dry_run,
-            "persist": not args.no_persist,
-            "candidate_tickers": candidate_tickers,
-        }
-    )
-    print(f"Strategy status: {result.status}")
-    print(result.output)
-    if result.status == "failed":
-        print(result.error or "monthly strategy failed")
-        return 1
-    return 0
+    catalog = StrategyCatalog(Path("idos-config/strategies.yml"))
+    profiles = enabled_profiles_for_runner(catalog, "monthly_signal")
+    failed = False
+    for profile in profiles:
+        result = MonthlyStrategyWorker({"strategy_id": profile.strategy_id}).execute(
+            {
+                "base_path": ".",
+                "dry_run": args.dry_run,
+                "persist": not args.no_persist,
+                "candidate_tickers": candidate_tickers,
+            }
+        )
+        print(f"{profile.strategy_id} status: {result.status.value}")
+        print(result.output)
+        if result.status.value == "failed":
+            print(result.error or f"{profile.strategy_id} monthly strategy failed")
+            failed = True
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

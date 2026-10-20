@@ -52,6 +52,43 @@ def test_monthly_strategy_dry_run_does_not_persist(tmp_path: Path):
     assert not (tmp_path / "idos-journal").exists()
 
 
+def test_monthly_runner_uses_strategy_profile_not_a_fixed_strategy_id(tmp_path: Path):
+    config_dir = tmp_path / "config"
+    (config_dir / "universe").mkdir(parents=True)
+    (config_dir / "strategies.yml").write_text(
+        "strategies:\n"
+        "  CUSTOM_MOMENTUM:\n"
+        "    enabled: true\n"
+        "    core: CORE_3_GROWTH\n"
+        "    sleeve: SYSTEMATIC_RETURN\n"
+        "    thesis_type: SYSTEMATIC\n"
+        "    discovery_profile: momentum_monthly\n"
+        "    research_profile: systematic\n"
+        "    entry_policy: SIGNAL_REBALANCE\n"
+        "    parameters:\n"
+        "      universe: [QQQ]\n"
+        "      select_top: 1\n"
+        "      minimum_signal: 0.6\n"
+        "      maximum_signal: 2.7\n",
+        encoding="utf-8",
+    )
+    (config_dir / "universe" / "operable.yml").write_text(
+        "operable_tickers:\n  - ticker: QQQ\n    type: etf\n",
+        encoding="utf-8",
+    )
+    worker = MonthlyStrategyWorker({
+        "strategy_id": "CUSTOM_MOMENTUM",
+        "config_path": str(config_dir / "strategies.yml"),
+        "price_provider": FakePrices(),
+        "market_gate_worker": FakeMarketGate(),
+    })
+
+    output = worker.run({"base_path": str(tmp_path), "dry_run": True, "persist": False})
+
+    assert output["strategy_id"] == "CUSTOM_MOMENTUM"
+    assert output["candidate_tickers"] == ["QQQ"]
+
+
 def test_monthly_strategy_excludes_etfs_below_global_liquidity_gate():
     gate = FakeMarketGate(dollar_volume=99_999)
     prices = FakePrices()

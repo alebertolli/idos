@@ -6,6 +6,7 @@ from pathlib import Path
 
 from idos.workers.data.universe_pipeline import UniversePipeline
 from idos.strategy.catalog import StrategyCatalog
+from idos.strategy.routing import enabled_profiles_for_runner
 
 
 def main() -> int:
@@ -21,23 +22,30 @@ def main() -> int:
         for ticker in os.environ.get("IDOS_CANDIDATE_TICKERS", "").split(",")
         if ticker.strip()
     ]
-    result = UniversePipeline(config).execute({"candidate_tickers": requested_tickers})
-    multibaggers_result = None
-    strategy = StrategyCatalog(Path("idos-config/strategies.yml")).require("MULTIBAGGERS")
-    if strategy.enabled:
-        multibaggers_result = UniversePipeline({**config, "strategy_id": "MULTIBAGGERS"}).execute({})
-        print(f"MULTIBAGGERS status: {multibaggers_result.status}")
-        if multibaggers_result.status == "failed":
-            print(f"MULTIBAGGERS error: {multibaggers_result.error}")
-            return 1
-    else:
-        print("MULTIBAGGERS: disabled; monthly runner skipped")
+    catalog = StrategyCatalog(Path("idos-config/strategies.yml"))
+    profiles = enabled_profiles_for_runner(catalog, "universe")
+    strategy_results = {}
+    for profile in profiles:
+        result = UniversePipeline({**config, "strategy_id": profile.strategy_id}).execute(
+            {"candidate_tickers": requested_tickers}
+        )
+        strategy_results[profile.strategy_id] = {
+            "status": result.status.value,
+            "output": result.output,
+            "error": result.error,
+        }
+        print(f"{profile.strategy_id} status: {result.status.value}")
+        if result.status.value == "failed":
+            print(f"{profile.strategy_id} error: {result.error}")
+
+    primary = strategy_results.get("COMPOUNDER") or next(
+        iter(strategy_results.values()), {"status": "skipped", "output": {}, "error": None}
+    )
+    output = primary["output"]
+    failed = any(item["status"] == "failed" for item in strategy_results.values())
     print("=== PIPELINE COMPLETE ===")
-    print(f"Status: {result.status}")
-    output = result.output
-    if result.status == "failed":
-        print(f"Error: {result.error}")
-    else:
+    print(f"Status: {'failed' if failed else 'success'}")
+    if not failed:
         print(
             f"Candidate universe: {output.get('candidate_count', 0)} tickers "
             f"from {output.get('candidate_source', 'unknown source')}"
@@ -56,13 +64,16 @@ def main() -> int:
     Path("cache/pipeline_results.json").write_text(
         json.dumps(
             {
-                "status": str(result.status),
+                "status": "failed" if failed else "success",
                 "output": output,
-                "error": result.error,
-                "multibaggers": (
-                    {"status": str(multibaggers_result.status), "output": multibaggers_result.output,
-                     "error": multibaggers_result.error}
-                    if multibaggers_result else {"status": "disabled"}
+                "error": "; ".join(
+                    f"{strategy_id}: {item['error']}"
+                    for strategy_id, item in strategy_results.items()
+                    if item["error"]
+                ) or None,
+                "strategies": strategy_results,
+                "multibaggers": strategy_results.get(
+                    "MULTIBAGGERS", {"status": "disabled"}
                 ),
             },
             indent=2,
@@ -70,7 +81,7 @@ def main() -> int:
         ),
         encoding="utf-8",
     )
-    return 1 if result.status == "failed" else 0
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
