@@ -433,27 +433,89 @@ class DataRefreshWorker(BaseWorker):
 
     @staticmethod
     def _preserve_financial_observations(validated: dict, sources: dict) -> None:
-        """Do not average fundamentals from potentially different reporting periods."""
+        """Keep source-specific fundamentals and use only comparable values for gates."""
         merged = validated["merged_data"]
         observations = {}
+        conflicts = {
+            item.get("field") for item in validated.get("conflicts", [])
+            if isinstance(item, dict)
+        }
+        non_comparable = {
+            item.get("field"): item
+            for item in validated.get("non_comparable", [])
+            if isinstance(item, dict) and isinstance(item.get("field"), str)
+        }
         for field in ("operating_margin_pct", "revenue_growth_pct", "fcf"):
             values = {source: data[field] for source, data in sources.items()
                       if isinstance(data.get(field), (int, float))
                       and not isinstance(data[field], bool) and math.isfinite(data[field])}
             if not values:
                 continue
-            selected = "yfinance" if "yfinance" in values else next(iter(values))
+            exclusion = non_comparable.get(field, {})
+            excluded_sources = set(exclusion.get("excluded_sources", []))
+            comparable_values = {
+                source: value for source, value in values.items()
+                if source not in excluded_sources
+            }
+            if not comparable_values:
+                comparable_values = {
+                    source: value for source, value in values.items()
+                    if source == exclusion.get("selected_source")
+                }
+            candidate_values = comparable_values or values
+            selected = DataRefreshWorker._preferred_financial_source(candidate_values)
+            excluded_sources.discard(selected)
             merged[field] = values[selected]
             validated.setdefault("field_sources", {})[field] = [selected]
+            selected_metadata = (
+                sources[selected].get("financial_metric_metadata", {}).get(field, {})
+                if isinstance(sources[selected].get("financial_metric_metadata"), dict)
+                else {}
+            )
+            if field in conflicts:
+                period_status = "CONFLICT"
+            elif (
+                not selected_metadata.get("period_type")
+                or str(selected_metadata.get("period_type")).strip().upper()
+                in {"UNSPECIFIED", "PROVIDER_REPORTED_UNSPECIFIED"}
+                or not selected_metadata.get("period_end_date")
+            ):
+                period_status = "PERIOD_UNSPECIFIED"
+            elif len(comparable_values) > 1:
+                period_status = "RECONCILED"
+            else:
+                period_status = "SINGLE_SOURCE"
             observations[field] = {
-                "selected_source": selected, "values": values,
+                "selected_source": selected, "values": comparable_values,
                 "observed_at": sources[selected].get("financial_data_observed_at"),
                 "provider_period_end_timestamp": sources[selected].get("financial_period_end_timestamp"),
-                "unit": "provider_financial_currency" if field == "fcf" else "percentage_points",
-                "currency": sources[selected].get("financial_currency") if field == "fcf" else None,
-                "period_status": "PROVIDER_REPORTED_NOT_RECONCILED",
+                "period_type": selected_metadata.get("period_type"),
+                "period_end_date": selected_metadata.get("period_end_date"),
+                "unit": selected_metadata.get(
+                    "unit", "provider_financial_currency" if field == "fcf" else "percentage_points"
+                ),
+                "currency": selected_metadata.get("currency"),
+                "period_status": period_status,
+                "non_comparable_values": {
+                    source: value for source, value in values.items() if source in excluded_sources
+                },
+                "source_metadata": {
+                    source: data.get("financial_metric_metadata", {}).get(field, {})
+                    for source, data in sources.items()
+                    if isinstance(data.get("financial_metric_metadata"), dict)
+                    and field in data["financial_metric_metadata"]
+                },
+                "non_comparable_reason": exclusion.get("reason"),
             }
         merged["financial_observations"] = observations
+        merged.pop("financial_metric_metadata", None)
+
+    @staticmethod
+    def _preferred_financial_source(values: dict[str, Any]) -> str:
+        for source in ("stockanalysis.com", "yfinance", "finviz.com", "sec_edgar"):
+            if source in values:
+                return source
+        return next(iter(values))
 
     @staticmethod
     def _yahoo_market_source(yahoo_data: dict[str, Any], history: dict[str, list] | None) -> dict[str, Any]:
@@ -463,6 +525,7 @@ class DataRefreshWorker(BaseWorker):
             "price_history", "volume_history", "price_history_dates",
             "price_history_basis",
             "levered_fcf", "operating_margin_pct", "revenue_growth_pct",
+            "financial_metric_metadata",
             "financial_currency", "financial_data_observed_at", "financial_period_end_timestamp",
         )
         result = {key: yahoo_data[key] for key in keys if key in yahoo_data}

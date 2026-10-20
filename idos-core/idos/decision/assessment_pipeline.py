@@ -98,7 +98,9 @@ def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
         for metric, item in observations.items()
         if metric in core_source_fields
         and isinstance(item, dict)
-        and item.get("period_status") == "PROVIDER_REPORTED_NOT_RECONCILED"
+        and item.get("period_status") in {
+            "PROVIDER_REPORTED_NOT_RECONCILED", "CONFLICT", "PERIOD_UNSPECIFIED"
+        }
     )
 
     coverage = len(_CORE_FINANCIAL_FIELDS) - len(missing)

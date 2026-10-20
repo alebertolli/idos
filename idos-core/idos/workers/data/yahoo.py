@@ -114,6 +114,26 @@ class YahooFinanceWorker(BaseWorker):
             "next_earnings_date": info.get("earningsTimestamp"),
         }
 
+        period_end = self._period_end_date(info.get("mostRecentQuarter"))
+        metric_metadata = {}
+        for field in ("operating_margin_pct", "levered_fcf"):
+            if isinstance(data.get(field), (int, float)):
+                metric_metadata[field] = {
+                    "period_type": "PROVIDER_REPORTED_UNSPECIFIED" if field == "operating_margin_pct" else "TTM",
+                    "period_end_date": period_end,
+                    "unit": "percentage_points" if field == "operating_margin_pct" else "provider_financial_currency",
+                    "currency": data.get("financial_currency") if field == "levered_fcf" else None,
+                }
+        if isinstance(data.get("revenue_growth_pct"), (int, float)):
+            metric_metadata["revenue_growth_pct"] = {
+                "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+                "period_end_date": period_end,
+                "unit": "percentage_points",
+                "currency": None,
+            }
+        if metric_metadata:
+            data["financial_metric_metadata"] = metric_metadata
+
         if history is not None and not history.empty:
             prices = history["Close"].tolist()
             volumes = history["Volume"].tolist()
@@ -148,6 +168,18 @@ class YahooFinanceWorker(BaseWorker):
 
         data = {k: v for k, v in data.items() if v is not None}
         return data
+
+    @staticmethod
+    def _period_end_date(value: Any) -> str | None:
+        """Normalize Yahoo's most-recent-quarter epoch into a UTC date."""
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            return None
+        if not math.isfinite(value) or value <= 0:
+            return None
+        try:
+            return datetime.fromtimestamp(value, tz=timezone.utc).date().isoformat()
+        except (OverflowError, OSError, ValueError):
+            return None
 
     @staticmethod
     def _fast_info_value(fast_info: Any, key: str, errors: list[str]) -> Any:

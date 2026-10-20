@@ -56,11 +56,15 @@ class ConfiguredScoutEngine(ScoutEngine):
             key = rule["metric"]
             value = self.number(metrics.get(key))
             observed[key] = value
-            observations = (metrics.get("financial_observations") or {}).get(key, {}).get("values", {})
+            observation = (metrics.get("financial_observations") or {}).get(key, {})
+            observations = observation.get("values", {}) if isinstance(observation, dict) else {}
             outcomes = {v > rule["value"] for v in observations.values() if self.number(v) is not None}
-            if key in conflicted_fields or len(outcomes) > 1:
+            period_status = observation.get("period_status") if isinstance(observation, dict) else None
+            if key in conflicted_fields or len(outcomes) > 1 or period_status == "CONFLICT":
                 value = None  # Conflicting evidence cannot promote an opportunity.
                 conflicting.append(key)
+            elif period_status in {"PERIOD_UNSPECIFIED", "PROVIDER_REPORTED_NOT_RECONCILED"}:
+                value = None  # A financial filter needs a declared reporting period.
             details[key] = None if value is None else (100 if value > rule["value"] else 0)
             if value is None:
                 missing.append(key)

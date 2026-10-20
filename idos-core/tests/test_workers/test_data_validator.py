@@ -64,6 +64,50 @@ def test_cross_validate_conflict_uses_total_source_spread():
     assert set(result["conflicts"][0]["sources"]) == {"sa", "yf"}
 
 
+def test_cross_validate_does_not_compare_unverified_provider_period():
+    result = DataValidator(tolerance_pct=20).cross_validate({
+        "stockanalysis.com": {
+            "revenue_growth_pct": 22.54,
+            "financial_metric_metadata": {
+                "revenue_growth_pct": {
+                    "period_type": "TTM", "period_end_date": "2026-09-30",
+                    "unit": "percentage_points", "currency": None,
+                },
+            },
+        },
+        "yfinance": {
+            "revenue_growth_pct": 55.2,
+            "financial_metric_metadata": {
+                "revenue_growth_pct": {
+                    "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "period_end_date": "2026-09-27",
+                    "unit": "percentage_points", "currency": None,
+                },
+            },
+        },
+    })
+
+    assert result["merged_data"]["revenue_growth_pct"] == 22.54
+    assert result["conflicts"] == []
+    assert result["non_comparable"][0]["field"] == "revenue_growth_pct"
+    assert result["non_comparable"][0]["excluded_sources"] == ["yfinance"]
+
+
+def test_cross_validate_blocks_disagreement_on_same_financial_period():
+    metadata = {
+        "operating_margin_pct": {
+            "period_type": "TTM", "period_end_date": "2026-09-30",
+            "unit": "percentage_points", "currency": None,
+        },
+    }
+    result = DataValidator(tolerance_pct=20).cross_validate({
+        "stockanalysis.com": {"operating_margin_pct": 20, "financial_metric_metadata": metadata},
+        "yfinance": {"operating_margin_pct": 30, "financial_metric_metadata": metadata},
+    })
+
+    assert result["non_comparable"] == []
+    assert result["conflicts"][0]["field"] == "operating_margin_pct"
+
+
 def test_cross_validate_conflict_with_zero_mean_has_undefined_percentage():
     result = DataValidator(tolerance_pct=20).cross_validate({
         "a": {"roic_pct": -1.0},

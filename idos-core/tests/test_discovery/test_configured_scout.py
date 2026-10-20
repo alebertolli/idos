@@ -83,6 +83,44 @@ def test_material_source_conflict_blocks_promotion_even_when_both_values_pass_fi
     assert not result.passed
 
 
+def test_scout_uses_selected_value_and_ignores_non_comparable_peer():
+    engine = configured_scout(Path(__file__).parents[3] / "idos-config")
+    result = engine.scan_market_data("TEST", _market(
+        operating_margin_pct=18.3, fcf=10, revenue_growth_pct=22.54,
+        data_provenance={"conflicts": []},
+        financial_observations={
+            "revenue_growth_pct": {
+                "selected_source": "stockanalysis.com",
+                "values": {"stockanalysis.com": 22.54},
+                "non_comparable_values": {"yfinance": -55.2},
+                "period_status": "SINGLE_SOURCE",
+                "non_comparable_reason": "different_period_unit_currency_or_cutoff",
+            },
+        },
+    ))
+
+    assert result.passed
+    assert result.observed_metrics["revenue_growth_pct"] == 22.54
+
+
+def test_scout_blocks_financial_filter_when_selected_period_is_unspecified():
+    engine = configured_scout(Path(__file__).parents[3] / "idos-config")
+    result = engine.scan_market_data("TEST", _market(
+        operating_margin_pct=18.3, fcf=10, revenue_growth_pct=22.54,
+        data_provenance={"conflicts": []},
+        financial_observations={
+            "revenue_growth_pct": {
+                "selected_source": "yfinance",
+                "values": {"yfinance": 22.54},
+                "period_status": "PERIOD_UNSPECIFIED",
+            },
+        },
+    ))
+
+    assert not result.passed
+    assert "revenue_growth_pct" in result.missing_metrics
+
+
 def test_universe_pipeline_preserves_conflicting_metric_reason():
     from idos.workers.data.universe_pipeline import UniversePipeline
 
