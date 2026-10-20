@@ -8,6 +8,7 @@ from idos.decision.assessment_pipeline import (
     _eval_financial_data_quality,
     _financial_data_quality,
     _load_financial_data,
+    _normalize_decimal_pcts,
     _register_authorization_rules,
 )
 from idos.data.sqlite import SQLiteStore
@@ -207,6 +208,59 @@ def test_financial_quality_uses_provider_reported_unix_cutoff_and_its_source():
         assert not _eval_financial_data_quality({"financial_data_quality": invalid}).passed
 
 
+def test_financial_quality_uses_stockanalysis_provider_update_date_and_labels_basis():
+    quality = _financial_data_quality({
+        "roic_pct": 25,
+        "operating_margin_pct": 20,
+        "revenue_growth_pct": 5,
+        "pe_ratio_ttm": 18,
+        "debt_equity_ratio": 0.5,
+        "source": "stockanalysis.com",
+        "provider_data_updated_date": "2026-10-19",
+        "data_provenance": {
+            "sources_used": ["stockanalysis.com"],
+            "field_sources": {"provider_data_updated_date": ["stockanalysis.com"]},
+        },
+    })
+
+    assert quality["as_of_date"] == "2026-10-19"
+    assert quality["as_of_basis"] == "provider_data_updated_date"
+    assert quality["as_of_date_source"] == "stockanalysis.com"
+    assert _eval_financial_data_quality({"financial_data_quality": quality}).passed
+
+    unstamped = _financial_data_quality({
+        "operating_margin_pct": 20,
+        "source": "stockanalysis.com",
+        "provider_data_updated_date": "2026-10-19",
+    })
+    assert "as_of_date_source" in unstamped["missing_provenance"]
+    assert not _eval_financial_data_quality({"financial_data_quality": unstamped}).passed
+
+
+def test_percentage_normalization_uses_provider_units_instead_of_sparse_average():
+    stockanalysis = _normalize_decimal_pcts({
+        "source": "stockanalysis.com",
+        "operating_margin_pct": 17.3,
+        "revenue_growth_pct": 4.2,
+    })
+    yahoo = _normalize_decimal_pcts({
+        "source": "yfinance",
+        "gross_margin_pct": 0.45,
+        "operating_margin_pct": 18.0,
+        "data_provenance": {
+            "field_sources": {
+                "gross_margin_pct": ["yfinance"],
+                "operating_margin_pct": ["yfinance"],
+            },
+        },
+    })
+
+    assert stockanalysis["operating_margin_pct"] == 17.3
+    assert stockanalysis["revenue_growth_pct"] == 4.2
+    assert yahoo["gross_margin_pct"] == 45.0
+    assert yahoo["operating_margin_pct"] == 18.0
+
+
 def test_financial_loader_prefers_normalized_cache_with_cutoff_over_unstamped_event(tmp_path):
     sqlite = SQLiteStore(tmp_path / "idos.db")
     sqlite.log_event(
@@ -234,6 +288,32 @@ def test_financial_loader_prefers_normalized_cache_with_cutoff_over_unstamped_ev
     assert financial["financial_period_end_timestamp"] == 1782518400
     assert quality["as_of_date"] == "2026-06-27"
     assert quality["as_of_date_source"] == "yfinance"
+
+
+def test_financial_loader_refreshes_uncutoff_cache_from_stockanalysis(tmp_path, monkeypatch):
+    from idos.workers.data.stockanalysis import StockAnalysisWorker
+
+    monkeypatch.chdir(tmp_path)
+    sqlite = SQLiteStore(tmp_path / "idos.db")
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    (cache_dir / "ARM.json").write_text(json.dumps({
+        "ticker": "ARM", "source": "stockanalysis.com", "operating_margin_pct": 10,
+    }), encoding="utf-8")
+    live = {
+        "ticker": "ARM", "source": "stockanalysis.com", "operating_margin_pct": 17.3,
+        "provider_data_updated_date": "2026-10-19",
+        "data_provenance": {
+            "sources_used": ["stockanalysis.com"],
+            "field_sources": {"provider_data_updated_date": ["stockanalysis.com"]},
+        },
+    }
+    monkeypatch.setattr(StockAnalysisWorker, "run", lambda self, context: live)
+
+    financial = _load_financial_data("ARM", sqlite)
+
+    assert financial["operating_margin_pct"] == 17.3
+    assert financial["provider_data_updated_date"] == "2026-10-19"
 
 
 def test_financial_quality_rule_cannot_be_disabled_by_custom_authorization_config(tmp_path):
@@ -317,3 +397,4 @@ def test_reassessment_removes_only_the_stale_manager_approved_buylist_entry(tmp_
         {"ticker": "VIST", "opp_id": "OPP-OLD"},
         {"ticker": "AAPL", "opp_id": "OPP-AAPL"},
     ]
+

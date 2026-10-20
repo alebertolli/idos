@@ -5,6 +5,7 @@ import json
 import yaml
 
 from idos.data.sqlite import SQLiteStore
+from idos.data.financial_metrics import normalize_percentage_units
 from idos.data.knowledge import KnowledgeRepository
 from idos.data.journal import JournalRepository
 from idos.decision.orchestrator import DecisionOrchestrator, DecisionProposal
@@ -52,10 +53,11 @@ def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
     source = financial.get("source") or (", ".join(map(str, sources)) if sources else "")
     cutoff_fields = (
         "fundamentals_as_of",
-        "as_of_date",
         "period_end_date",
         "fiscal_period_end",
         "financial_period_end_timestamp",
+        "provider_data_updated_date",
+        "as_of_date",
     )
     cutoff_field = next((key for key in cutoff_fields if financial.get(key) is not None), None)
     raw_as_of_date = financial.get(cutoff_field) if cutoff_field else provenance.get("as_of_date")
@@ -65,12 +67,16 @@ def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
     raw_cutoff_sources = field_sources.get(cutoff_field, []) if cutoff_field else []
     if isinstance(raw_cutoff_sources, str):
         raw_cutoff_sources = [raw_cutoff_sources]
-    as_of_date_source = ", ".join(sorted({str(value) for value in raw_cutoff_sources if value})) or (source or None)
+    as_of_date_source = ", ".join(sorted({str(value) for value in raw_cutoff_sources if value}))
+    if not as_of_date_source and cutoff_field != "provider_data_updated_date":
+        as_of_date_source = source or ""
     missing_provenance = []
     if not source:
         missing_provenance.append("source")
     if not as_of_date:
         missing_provenance.append("as_of_date")
+    if as_of_date and not as_of_date_source:
+        missing_provenance.append("as_of_date_source")
 
     core_source_fields = {
         source_key
@@ -110,6 +116,7 @@ def _financial_data_quality(financial: dict[str, Any]) -> dict[str, Any]:
         "missing_core_metrics": missing,
         "source": source or None,
         "as_of_date": as_of_date.isoformat() if as_of_date else None,
+        "as_of_basis": cutoff_field if as_of_date else None,
         "as_of_date_source": as_of_date_source if as_of_date else None,
         "missing_provenance": missing_provenance,
         "conflicting_core_metrics": conflicting_metrics,
@@ -406,15 +413,7 @@ def _normalize_decimal_pcts(data: dict[str, Any]) -> dict[str, Any]:
     if isinstance(ac, str) and ac.lower() in _consensus_map:
         data["analyst_consensus"] = _consensus_map[ac.lower()]
     _coerce_numeric(data, _NUMERIC_KEYS)
-    _pct_keys = {"roic_pct", "roe_pct", "roa_pct", "revenue_growth_pct",
-                 "operating_margin_pct", "gross_margin_pct", "net_margin_pct",
-                 "fcf_yield_pct", "eps_growth", "fcf_growth"}
-    vals = [data[k] for k in _pct_keys if isinstance(data.get(k), (int, float))]
-    is_yahoo_format = (sum(abs(v) for v in vals) / len(vals)) < 5 if vals else True
-    for k in _pct_keys:
-        v = data.get(k)
-        if isinstance(v, (int, float)) and is_yahoo_format:
-            data[k] = v * 100
+    data = normalize_percentage_units(data)
     de = data.get("debt_equity_ratio")
     if isinstance(de, (int, float)):
         if de > 1:
@@ -451,6 +450,7 @@ def _warn_missing_metrics(ticker: str, data: dict[str, Any], source: str = "fina
 
 def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
     cache_data = None
+    event_data = None
     cache_dir = sqlite.db_path.parent / "cache"
     for cache_path in [cache_dir / f"{ticker}_financial.json", cache_dir / f"{ticker}.json"]:
         if not cache_path.exists():
@@ -485,14 +485,11 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
         ).fetchone()
         if row:
             try:
-                return json.loads(row[0])
+                event_data = json.loads(row[0])
             except (json.JSONDecodeError, TypeError):
                 pass
     except Exception:
         pass
-    if cache_data is not None:
-        _warn_missing_metrics(ticker, cache_data, "cache")
-        return cache_data
     try:
         from idos.workers.data.stockanalysis import StockAnalysisWorker
         sa = StockAnalysisWorker()
@@ -508,6 +505,12 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
             return result
     except Exception:
         pass
+    if cache_data is not None:
+        _warn_missing_metrics(ticker, cache_data, "cache")
+        return cache_data
+    if isinstance(event_data, dict) and event_data:
+        _warn_missing_metrics(ticker, event_data, "SQLite")
+        return event_data
     _warn_missing_metrics(ticker, {}, "ninguna")
     return {}
 
@@ -1064,3 +1067,4 @@ def send_notifications(summary: str, base_path: str | Path):
         })
     except Exception as e:
         print(f"[NOTIFY] Email error: {e}")
+

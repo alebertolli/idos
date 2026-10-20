@@ -4,7 +4,7 @@ import re
 import hashlib
 import json
 from urllib.parse import quote
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -14,6 +14,7 @@ from idos.ai.prompts import PromptRegistry
 from idos.data.journal import JournalRepository
 from idos.data.knowledge import KnowledgeRepository
 from idos.data.sqlite import SQLiteStore
+from idos.data.financial_metrics import normalize_percentage_units
 from idos.models.enums import OpportunityStatus, HypothesisStatus, HypothesisPriority
 from idos.models.knowledge import Hypothesis, Prediction, FalsificationCondition
 from idos.state.machine import OpportunityStateMachine
@@ -25,6 +26,47 @@ from idos.decision.scenarios import validate_scenario_analysis
 from idos.decision.manager_approval import invalidate_manager_approval_after_research
 from idos.research.thesis_schedule import interval_days_for
 from idos.research.events import canonical_event_type, normalize_event_evidence
+
+
+_FINANCIAL_CUTOFF_FIELDS = (
+    "fundamentals_as_of",
+    "period_end_date",
+    "fiscal_period_end",
+    "financial_period_end_timestamp",
+    "provider_data_updated_date",
+    "as_of_date",
+)
+
+
+def _has_sourced_financial_cutoff(data: dict[str, Any]) -> bool:
+    provenance = data.get("data_provenance")
+    provenance = provenance if isinstance(provenance, dict) else {}
+    sources = provenance.get("sources_used")
+    has_source = bool(data.get("source") or (isinstance(sources, list) and sources))
+    if not has_source:
+        return False
+    cutoff_field = next((key for key in _FINANCIAL_CUTOFF_FIELDS if data.get(key) is not None), None)
+    raw_date = data.get(cutoff_field) if cutoff_field else None
+    if cutoff_field == "provider_data_updated_date":
+        field_sources = provenance.get("field_sources")
+        if not isinstance(field_sources, dict) or not field_sources.get(cutoff_field):
+            return False
+    if isinstance(raw_date, (int, float)) and not isinstance(raw_date, bool):
+        if not 946684800 <= raw_date <= 4102444800:
+            return False
+        cutoff = datetime.fromtimestamp(raw_date, timezone.utc).date()
+    elif isinstance(raw_date, datetime):
+        cutoff = raw_date.date()
+    elif isinstance(raw_date, date):
+        cutoff = raw_date
+    elif isinstance(raw_date, str):
+        try:
+            cutoff = date.fromisoformat(raw_date[:10])
+        except ValueError:
+            return False
+    else:
+        return False
+    return cutoff <= datetime.now(AR_TZ).date()
 
 class ResearchWorker(BaseWorker):
     """Orchestrates the full research pipeline: DDD -> AOIF -> Hypothesis.
@@ -1113,23 +1155,23 @@ class ResearchWorker(BaseWorker):
             print(f"[KB] {ticker}: {registered} secciones wiki registradas en KnowledgeLifecycle")
 
     def _load_financial_data(self, ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
-        data: dict[str, Any] = {}
+        event_data: dict[str, Any] = {}
         try:
             for row in sqlite.conn.execute(
-                "SELECT data_json FROM events_log WHERE event_type LIKE ? AND data_json LIKE ? ORDER BY timestamp DESC LIMIT 1",
+                "SELECT data_json FROM events_log WHERE data_json LIKE ? OR correlation_id LIKE ? ORDER BY timestamp DESC LIMIT 1",
                 (f"%{ticker}%", f"%{ticker}%"),
             ):
                 import json
                 try:
-                    data = json.loads(row[0])
+                    candidate = json.loads(row[0])
+                    if isinstance(candidate, dict):
+                        event_data = candidate
                 except (json.JSONDecodeError, IndexError):
                     pass
         except Exception:
             pass
-        if data:
-            self._warn_missing_financial(ticker, data, "SQLite")
-            return data
         import json
+        cache_data: dict[str, Any] = {}
         for cache_path in [
             Path.cwd() / "cache" / f"{ticker}_financial.json",
             Path.cwd() / "cache" / f"{ticker}.json",
@@ -1142,8 +1184,13 @@ class ResearchWorker(BaseWorker):
                             raw = raw["merged_data"]
                         raw = self._normalize_decimal_pcts(raw)
                         raw = self._enrich_roic(raw)
-                        self._warn_missing_financial(ticker, raw, "cache")
-                        return raw
+                        if not isinstance(raw, dict):
+                            continue
+                        if not cache_data:
+                            cache_data = raw
+                        if _has_sourced_financial_cutoff(raw):
+                            self._warn_missing_financial(ticker, raw, "cache")
+                            return raw
                 except Exception:
                     pass
         try:
@@ -1162,8 +1209,14 @@ class ResearchWorker(BaseWorker):
                 return result
         except Exception:
             pass
+        if cache_data:
+            self._warn_missing_financial(ticker, cache_data, "cache without valid cutoff")
+            return cache_data
+        if event_data:
+            self._warn_missing_financial(ticker, event_data, "SQLite without valid cutoff")
+            return event_data
         self._warn_missing_financial(ticker, {}, "ninguna")
-        return data
+        return {}
 
     @staticmethod
     def _current_price_context(
@@ -1251,15 +1304,7 @@ class ResearchWorker(BaseWorker):
                 data[k] = 0
             elif not isinstance(v, (int, float)):
                 data[k] = 0
-        _pct_keys = {"roic_pct", "roe_pct", "roa_pct", "revenue_growth_pct",
-                     "operating_margin_pct", "gross_margin_pct", "net_margin_pct",
-                     "fcf_yield_pct", "eps_growth", "fcf_growth"}
-        vals = [data[k] for k in _pct_keys if isinstance(data.get(k), (int, float))]
-        is_yahoo_format = (sum(abs(v) for v in vals) / len(vals)) < 5 if vals else True
-        for k in _pct_keys:
-            v = data.get(k)
-            if isinstance(v, (int, float)) and is_yahoo_format:
-                data[k] = v * 100
+        data = normalize_percentage_units(data)
         de = data.get("debt_equity_ratio")
         if isinstance(de, (int, float)):
             if de > 1:
@@ -1414,3 +1459,4 @@ class ResearchWorker(BaseWorker):
             temperature=0.1,
         )
         return result
+
