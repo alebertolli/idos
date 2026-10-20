@@ -1,0 +1,180 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos trimestrales de servicios vinculados a Vision Pro serán
+      ≤ $1.5 bn en el trimestre que cierre el 30‑Jun‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Apple anunciará una reducción de precios o una pausa en la producción
+      de Vision Pro antes del 30‑Jun‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos trimestrales de servicios vinculados a Vision Pro serán ≤ $1.5 bn
+    en el trimestre que cierre el 30‑Jun‑2027.
+  - Apple anunciará una reducción de precios o una pausa en la producción de Vision
+    Pro antes del 30‑Jun‑2027.
+  horizon: corto
+  id: H1-OPP-20260813-073
+  opportunity_id: OPP-20260813-073
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 2.5
+    met: null
+    metric: Ingresos de servicios vinculados a Vision Pro
+    prediction: Los ingresos trimestrales de servicios vinculados a Vision Pro (incluyendo
+      suscripciones y contenido VR) superarán los $2.5 bn en el trimestre que cierre
+      el 30‑Jun‑2027.
+    unit: billones USD
+  priority: critical
+  probability: 0.5
+  rationale: El ecosistema cerrado de Apple permite monetizar hardware premium mediante
+    suscripciones (App Store, Apple Music, iCloud). Los últimos informes de analistas
+    subestiman la adopción masiva en sectores empresariales y de educación, y la reciente
+    expansión de la tienda de experiencias VR indica una demanda creciente.
+  review_trigger: Si Apple reduce el precio de lista del Vision Pro en más del 20 %
+    antes del 30‑Jun‑2027 o si la producción se suspende por falta de demanda.
+  secondary_hypotheses: []
+  statement: Apple Vision Pro superará las proyecciones de ventas del consenso, impulsando
+    un crecimiento acelerado de los ingresos de servicios vinculados.
+  status: ACTIVE
+  ticker: AAPL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de FCF será ≤ 25 % al 31‑Mar‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Apple reportará un aumento inesperado del gasto de capital (CapEx)
+      superior al 10 % de los ingresos totales en FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de FCF será ≤ 25 % al 31‑Mar‑2027.
+  - Apple reportará un aumento inesperado del gasto de capital (CapEx) superior al
+    10 % de los ingresos totales en FY2027.
+  horizon: medio
+  id: H2-OPP-20260813-073
+  opportunity_id: OPP-20260813-073
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-03-31'
+    expected: 30.0
+    met: null
+    metric: Margen de flujo de caja libre
+    prediction: El margen de FCF (FCF dividido por ingresos totales) será de al menos
+      30 % en los estados financieros de Apple al 31‑Mar‑2027.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: Los servicios de alto margen están creciendo a tasas superiores al 15 %
+    YoY, mientras que la cadena de suministro se está reubicando a costos más bajos
+    y la amortización de inversiones en IA y AR/VR se distribuirá en varios años,
+    reduciendo el gasto operativo relativo.
+  review_trigger: Si Apple anuncia una inversión de capital inesperada superior a
+    15 % de los ingresos totales antes del 31‑Mar‑2027, lo que reduciría el margen
+    de FCF por debajo del 28 %.
+  secondary_hypotheses:
+  - H1-OPP-20260813-073
+  statement: El margen de flujo de caja libre (FCF) de Apple superará el 30 % al cierre
+    del ejercicio fiscal 2027, reflejando la combinación de mayores ingresos de servicios
+    y eficiencias operativas.
+  status: ACTIVE
+  ticker: AAPL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El P/E será < 27 al 30‑Jun‑2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Apple reportará una caída del EPS anual superior al 10 % respecto a
+      FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El P/E será < 27 al 30‑Jun‑2028.
+  - Apple reportará una caída del EPS anual superior al 10 % respecto a FY2027.
+  horizon: largo
+  id: H3-OPP-20260813-073
+  opportunity_id: OPP-20260813-073
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 30.0
+    met: null
+    metric: Ratio P/E
+    prediction: El P/E de Apple será ≥ 30 al 30‑Jun‑2028.
+    unit: veces
+  priority: important
+  probability: 0.5
+  rationale: Los analistas actuales asignan un P/E promedio de 24×, subvalorando la
+    capacidad de Apple para generar flujos de caja de alto margen. La materialización
+    de Vision Pro y la integración de IA generativa deberían elevar las proyecciones
+    de EPS, mientras que la percepción de riesgo disminuye por la diversificación
+    de ingresos.
+  review_trigger: Si el EPS anual de Apple disminuye más del 10 % en FY2027 o si el
+    mercado penaliza a Apple con una caída sostenida del precio de la acción >15 %
+    durante los 6 meses posteriores al 30‑Jun‑2027.
+  secondary_hypotheses:
+  - H1-OPP-20260813-073
+  - H2-OPP-20260813-073
+  statement: El múltiplo precio‑beneficio (P/E) de Apple alcanzará 30× al cierre del
+    semestre 2028, reflejando una revaloración del mercado basada en expectativas
+    de crecimiento de servicios y plataformas AR/VR.
+  status: ACTIVE
+  ticker: AAPL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ARPU medio de los servicios será ≤ $12.0 en el trimestre que cierre
+      el 31‑Dec‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Apple pospone o elimina las funcionalidades de IA generativa de iOS
+      18.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ARPU medio de los servicios será ≤ $12.0 en el trimestre que cierre el 31‑Dec‑2027.
+  - Apple pospone o elimina las funcionalidades de IA generativa de iOS 18.
+  horizon: medio
+  id: H4-OPP-20260813-073
+  opportunity_id: OPP-20260813-073
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 12.6
+    met: null
+    metric: ARPU medio de servicios
+    prediction: El ARPU medio de los servicios (USD por usuario activo) será de al
+      menos $12.6 en el trimestre que cierre el 31‑Dec‑2027, comparado con $12.0 en
+      el mismo trimestre de 2026 (incremento ≥5 %).
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: Apple ha anunciado que su chip M3 incorporará aceleradores de IA y que
+    iOS 18 ofrecerá funciones de generación de contenido (texto, imágenes, audio)
+    como parte de suscripciones premium. Historicamente, nuevas funcionalidades de
+    software han impulsado aumentos de ARPU en 3‑4 % en ciclos anteriores.
+  review_trigger: Si Apple anuncia que la funcionalidad de IA generativa será lanzada
+    en una actualización posterior a iOS 19, retrasando su disponibilidad más de 12
+    meses después del 31‑Dec‑2027.
+  secondary_hypotheses: []
+  statement: La integración de IA generativa en iOS 18 aumentará el ARPU medio de
+    los servicios de Apple en un 5 % anual a partir de su lanzamiento.
+  status: ACTIVE
+  ticker: AAPL
+  version: 1

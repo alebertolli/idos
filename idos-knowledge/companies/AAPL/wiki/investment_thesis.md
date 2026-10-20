@@ -1,1 +1,1 @@
-To be formulated
+Apple combina un moat de ecosistema con generación de caja superior al costo de capital. El mercado subestima el potencial de crecimiento de servicios y de nuevas plataformas (AR/VR, IA), creando una oportunidad de compra a precio justo con upside significativo si los catalizadores se materializan.

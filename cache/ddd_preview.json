@@ -1,21 +1,11 @@
 {
   "selected": [
     {
-      "ticker": "ACN",
-      "opp_id": "OPP-20260813-001",
-      "reason": "configured event trigger: quarterly_results (status=UNDER_RESEARCH)",
+      "ticker": "AAPL",
+      "opp_id": "OPP-20260813-073",
+      "reason": "FORCE re-research UNDER_RESEARCH (score=62)",
       "force_reprocess": true,
-      "trigger_type": "quarterly_results",
-      "event_evidence": {
-        "event_type": "quarterly_results",
-        "ticker": "ACN",
-        "occurred_at": "2026-10-01",
-        "source_name": "Yahoo Finance earnings calendar via yfinance",
-        "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=ACN",
-        "summary": "El calendario de resultados indica la fecha 2026-10-01. La fecha no confirma por s\u00ed sola la publicaci\u00f3n del reporte; Research debe verificar el resultado en una fuente primaria.",
-        "observed_at": "2026-10-20T13:08:10.304536+00:00",
-        "event_id": "5bbc225f2cb4d89d9a4422ba51b8d9b1912a975a0dad4e391d01e5377eff0dd2"
-      }
+      "trigger_type": null
     }
   ],
   "skipped": [],
@@ -23,10 +13,10 @@
   "stale": [],
   "fresh": [
     {
-      "ticker": "ACN",
-      "opp_id": "OPP-20260813-001",
-      "score": 67,
-      "days": 11
+      "ticker": "AAPL",
+      "opp_id": "OPP-20260813-073",
+      "score": 62,
+      "days": 19
     }
   ],
   "excluded_count": 0

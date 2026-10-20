@@ -37,23 +37,24 @@ To be evaluated
 ## Financial Highlights
 - **ROIC**: 101.57
 - **Operating Margin**: 33.17
-- **Revenue Growth**: 10.97
+- **Revenue Growth**: 14.24
 - **FCF Yield**: 0
 - **Debt/Equity**: 0.78
-- **PER**: 36.28
-- **EV/EBITDA**: 27.11
+- **PER**: 39.34
+- **EV/EBITDA**: 29.43
 
 ---
 
 ## Catalysts
-
-To be identified
+- **Catalyst** (Impact: medium, Timeline: medium)
+- **Catalyst** (Impact: medium, Timeline: medium)
+- **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-To be formulated
+Apple combina un moat de ecosistema con generación de caja superior al costo de capital. El mercado subestima el potencial de crecimiento de servicios y de nuevas plataformas (AR/VR, IA), creando una oportunidad de compra a precio justo con upside significativo si los catalizadores se materializan.
 
 ---
 
