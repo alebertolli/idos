@@ -201,6 +201,8 @@ jobs:
             exit 0
           fi
           git commit -m "chore: ddd research $(date +%Y-%m-%d)"
+          # Research writes transient caches beyond the committed deliverables.
+          git stash push --include-untracked -m 'ddd transient outputs before results push'
           git fetch origin "$TARGET_BRANCH"
           if ! git rebase "origin/$TARGET_BRANCH"; then
             git rebase --abort
