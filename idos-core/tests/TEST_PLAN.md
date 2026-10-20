@@ -544,4 +544,7 @@ en el fixture.
    ETF operable, simulación y dispatch de eventos desactivados. Confirmar el
    proveedor consultado, estado del gate, ausencia del aviso falso de fallback,
    ausencia de procesamiento portfolio, modo dry-run del reporter y commit sólo
-   en la rama elegida.
+   en la rama elegida. Run de referencia XLF: #39454652158; status success,
+   Yahoo único proveedor, gate `complete`, `no_errors`, simulación y dispatch
+   omitidos. Los archivos operativos del run se retiraron de la rama después
+   de registrar la evidencia; el artefacto y los logs de Actions permanecen.
