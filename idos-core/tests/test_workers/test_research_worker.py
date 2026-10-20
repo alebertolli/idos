@@ -891,6 +891,7 @@ class TestResearchWorker:
         worker._run_prompt = MagicMock(side_effect=[
             {"tesis_inversion": "Tesis", "score_general": 75},
             {"hipotesis": [dict(expired_hypothesis) for _ in range(3)]},
+            {"hipotesis": [dict(expired_hypothesis) for _ in range(3)]},
         ])
         worker._load_financial_data = MagicMock(return_value={})
         worker._enrich_company_info = MagicMock(return_value={"name": "Test", "sector": "Technology"})

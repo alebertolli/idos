@@ -681,3 +681,21 @@ Tras integrar el workflow, comprobar que el enlace de Decision Board abre la acc
   posiciones ni datos privados de Portfolio.
 - Ejecutar Pages build en la misma rama y comprobar tesis, escenarios,
   procedencia, alertas de quality y estado pendiente de Decision Board.
+
+
+### E2E del checkpoint humano único
+
+- Confirmar en la misma oportunidad que Discovery, Research y Assessment se
+  completan sin interacción humana y producen el expediente de Decision Board.
+- Verificar que RULE-008 se valida automáticamente con evidencia de entrada
+  trazable; un paquete válido queda pendiente del gestor y no simula identidad,
+  aprobación ni confirmación humana.
+- Confirmar que antes de Decision Board no se crean Buy List aprobada,
+  posiciones, órdenes ni autorizaciones de operación.
+- Inspeccionar el dashboard de preview para ver tesis, asimetría, procedencia,
+  reglas/gates y estado pendiente de decisión; comprobar Buy List vacía y
+  ausencia de posiciones, ledger y portfolio privado.
+- Evidencia 2026-10-20: Monthly #39480735385, DDD #39483387219 / artifact
+  #12292412140, Pages preview #39483933896 y Daily Refresh #39484102319.
+  Ejecuciones de prueba en ramas; no equivalen a publicación ni a aceptación
+  del gestor. Portfolio privado queda fuera de alcance hasta conectar su fuente.
