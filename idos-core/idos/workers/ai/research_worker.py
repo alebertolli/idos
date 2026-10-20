@@ -423,15 +423,19 @@ class ResearchWorker(BaseWorker):
             }
         else:
             time.sleep(15)
-            hypothesis_result = self._run_prompt("hypothesis", ticker, {
-            "ticker": ticker,
-            "name": company.get("name", ticker),
-            "sector": company.get("sector", ""),
-            "as_of_date": datetime.now(AR_TZ).date().isoformat(),
-            "thesis_statement": thesis,
-            "key_drivers": market_error.get("hipotesis_contraria", ""),
-            "recent_events": financial_data.get("recent_events", ""),
-            })
+            hypothesis_prompt_inputs = {
+                "ticker": ticker,
+                "name": company.get("name", ticker),
+                "sector": company.get("sector", ""),
+                "as_of_date": datetime.now(AR_TZ).date().isoformat(),
+                "thesis_statement": thesis,
+                "key_drivers": market_error.get("hipotesis_contraria", ""),
+                "recent_events": financial_data.get("recent_events", ""),
+                "validation_feedback": "",
+            }
+            hypothesis_result = self._run_hypothesis_prompt_with_repair(
+                ticker, hypothesis_prompt_inputs
+            )
 
         hypotheses = hypothesis_result.get("hipotesis", []) if isinstance(hypothesis_result, dict) else []
         if not is_systematic:
@@ -838,6 +842,27 @@ class ResearchWorker(BaseWorker):
             print(f"[HYP] {ticker} ({opp_id}): persistida hipótesis '{statement[:60]}' id={hypothesis.id}")
         if raw:
             print(f"[HYP] {ticker} ({opp_id}): {len(raw)} hipótesis persistidas en hypotheses.yml + SQLite")
+
+    def _run_hypothesis_prompt_with_repair(
+        self, ticker: str, prompt_inputs: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Retry one invalid agent result with deterministic validation feedback."""
+        result = self._run_prompt("hypothesis", ticker, dict(prompt_inputs))
+        hypotheses = result.get("hipotesis", []) if isinstance(result, dict) else []
+        errors = self._validate_hypothesis_contract(hypotheses)
+        if not errors:
+            return result
+
+        retry_inputs = dict(prompt_inputs)
+        retry_inputs["validation_feedback"] = (
+            "La salida anterior fue rechazada por estos errores de validación: "
+            + "; ".join(errors)
+            + ". Corrige solo la estructura afectada, conserva la tesis y devuelve "
+            "3-5 hipótesis completas con fechas futuras respecto de as_of_date. "
+            "No inventes hechos para satisfacer el validador."
+        )
+        print(f"[HYPOTHESIS] Retrying once after deterministic validation: {'; '.join(errors)}")
+        return self._run_prompt("hypothesis", ticker, retry_inputs)
 
     @staticmethod
     def _validate_hypothesis_contract(raw: Any, as_of_date: date | None = None) -> list[str]:
