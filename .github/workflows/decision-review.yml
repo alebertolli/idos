@@ -26,6 +26,11 @@ on:
         description: Short rationale for the decision
         required: true
         type: string
+      sources_verified:
+        description: Confirm after reviewing the current scenario sources and dates in the Decision Board
+        required: true
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -60,6 +65,7 @@ jobs:
           REVIEW_PROPOSAL_HASH: ${{ inputs.proposal_hash }}
           REVIEW_DECISION: ${{ inputs.decision }}
           REVIEW_NOTE: ${{ inputs.note }}
+          REVIEW_SOURCES_VERIFIED: ${{ inputs.sources_verified }}
           REVIEWER: ${{ github.actor }}
         run: >-
           python scripts/review_decision.py --base-path ..
@@ -69,6 +75,7 @@ jobs:
           --decision "$REVIEW_DECISION"
           --reviewer "$REVIEWER"
           --note "$REVIEW_NOTE"
+          --sources-verified "$REVIEW_SOURCES_VERIFIED"
 
       - name: Commit immutable decision record on selected branch
         env:

@@ -175,28 +175,29 @@ def scenario_fingerprint(value: dict[str, Any]) -> str:
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
-def validate_scenario_review(
+def validate_board_scenario_confirmation(
     analysis: Any,
     review: Any,
     *,
     today: date | None = None,
     trusted_source_urls: set[str] | None = None,
 ) -> tuple[bool, str]:
+    """Validate the scenario confirmation captured as part of Decision Board review."""
     errors = validate_scenario_analysis(
         analysis, today=today, trusted_source_urls=trusted_source_urls,
     )
     if errors:
         return False, "; ".join(errors)
     if not isinstance(review, dict):
-        return False, "el gestor aún no revisó los escenarios"
+        return False, "Decision Board no confirmó escenarios y fuentes"
     if review.get("status") != "approved":
-        return False, "los escenarios no están aprobados por el gestor"
+        return False, "Decision Board no aprobó el conjunto de escenarios"
     if review.get("sources_verified") is not True:
-        return False, "el gestor no confirmó que verificó las fuentes y sus fechas"
+        return False, "Decision Board no confirmó las fuentes y sus fechas"
     if review.get("scenario_hash") != scenario_fingerprint(analysis):
-        return False, "la aprobación no corresponde a la versión actual de escenarios"
+        return False, "la confirmación no corresponde a la versión actual de escenarios"
     if not str(review.get("reviewed_by", "")).strip():
-        return False, "falta la identidad del gestor revisor"
+        return False, "falta la identidad autenticada del gestor"
     try:
         reviewed_timestamp = datetime.fromisoformat(str(review.get("reviewed_at", "")).replace("Z", "+00:00"))
     except ValueError:
@@ -204,10 +205,10 @@ def validate_scenario_review(
     reviewed_at = reviewed_timestamp.date() if reviewed_timestamp and reviewed_timestamp.tzinfo else None
     reference_date = today or datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date()
     if reviewed_at is None or reviewed_at > reference_date:
-        return False, "la fecha de revisión es inválida"
+        return False, "la fecha de confirmación es inválida"
     if len(str(review.get("note", "")).strip()) < 10:
-        return False, "la revisión requiere una justificación de al menos 10 caracteres"
-    return True, "escenarios vigentes aprobados por el gestor"
+        return False, "la decisión requiere una justificación de al menos 10 caracteres"
+    return True, "escenarios y fuentes confirmados en Decision Board"
 
 
 def calculate_scenario_asymmetry(
@@ -262,9 +263,8 @@ def calculate_scenario_asymmetry(
         "benefit_risk_ratio": ratio,
         "scenario_hash": scenario_fingerprint(analysis),
         "validation_status": "validated",
-        "authorization_eligible": False,
-        "validation_reason": "pendiente de aprobación del gestor",
-        "passes_threshold": False,
+        "board_review_eligible": True,
+        "validation_reason": "escenarios validados automáticamente; listos para el Decision Board",
     }
 
 
@@ -273,9 +273,8 @@ def _blocked_asymmetry(reason: str) -> dict[str, Any]:
         "rows": [],
         "benefit_risk_ratio": None,
         "validation_status": "invalid",
-        "authorization_eligible": False,
+        "board_review_eligible": False,
         "validation_reason": reason,
-        "passes_threshold": False,
     }
 
 

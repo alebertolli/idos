@@ -359,11 +359,11 @@ comportamiento fail-closed.
 2. Probar fecha ausente, formato inválido, fecha imposible y fecha futura: `RULE-010` debe fallar con motivo explícito y la decisión debe quedar bloqueada.
 3. Probar cobertura parcial 4/5 con fuente/corte válidos (80%): la regla de procedencia pasa sin convertir el campo faltante en cero; cobertura pobre, fuente ausente o fecha inválida bloquean.
 4. Revisar el Assessment y el Decision persistidos para confirmar el estado, el motivo de `RULE-010` y la procedencia; el dashboard debe exponer calidad parcial sin mostrar el caso como aprobado.
-5. Persistir y mostrar `rules_details` de la evaluación, incluyendo `RULE-008` cuando corresponda. Mostrar cálculos basados en probabilidades de catalizadores como provisionales y verificar que `RULE-008` bloquee autorización hasta existir escenarios Bear/Base/Bull mutuamente excluyentes validados con precios, horizonte común, moneda coincidente, fuentes fechadas y aprobación humana atribuible ligada al hash. Editar escenario/fuente, usar hash anterior, porcentaje que no suma 100%, precio no ordenado, URL no HTTPS, fecha inválida/futura o moneda distinta debe bloquear; un registro histórico sin detalle debe indicarlo explícitamente.
+5. Persistir y mostrar `rules_details` de la evaluación, incluyendo `RULE-008` cuando corresponda. Mostrar cálculos basados en probabilidades de catalizadores como provisionales. Los agentes deben validar automáticamente el contrato Bear/Base/Bull, procedencia, precios, horizonte y moneda; un set válido y con B/R suficiente debe quedar listo para Decision Board sin aprobación previa. Escenarios inválidos, fuente sin evidencia de entrada, porcentaje que no suma 100%, precio no ordenado, URL no HTTPS, fecha inválida/futura o moneda distinta deben bloquear RULE-008; un registro histórico sin detalle debe indicarlo explícitamente.
 6. Si `financial_period_end_timestamp` llega desde el proveedor, convertir segundos Unix a fecha UTC ISO y conservar la fuente del campo; rechazar milisegundos, valores fuera de rango y fechas futuras.
-7. La revisión de escenarios vía `Scenario Review` debe aceptar sólo contrato vigente y hash SHA-256 exacto, registrar `github.actor`, fecha y justificación, y conservar la última revisión si el input falla. Rechazar un escenario y cambiar su contenido deben impedir `RULE-008`.
-8. Assessment debe persistir `PENDING_HUMAN_REVIEW` y no crear `board_resolution.approved=true`, Buy List ni estado `APPROVED` a partir de una recomendación automática. El Board debe exigir decisión, revisor y justificación; no debe permitir aprobar propuestas con gates fallidos. Board Review debe clasificar cualquier recomendación sin resolución como pendiente/bloqueada, nunca `AUTO_APPROVED`.
-9. `Decision Review` debe validar hash de Assessment vigente, `recommendation=APPROVE`, gates y escenarios aprobados cuando RULE-008 aplique; una aprobación agrega únicamente a la Buy List pública con `approved_for_buylist=true`, mantiene la etapa de Research y no genera posiciones ni `ENTRY_PENDING`. Un hash viejo, gate fallido, segunda Opportunity del mismo ticker ya listada o precio/objetivo ausente bloquean la mutación. Al crear Research/Assessment nuevo, comprobar que se invalida la aprobación previa y se retira sólo su entrada de Buy List, con registro histórico conservado.
+7. No debe existir un workflow humano `Scenario Review` previo al Board. `Decision Review` debe validar dentro de la única acción de Decision Board el escenario actual, el hash vinculado al Assessment, la identidad autenticada, la fecha, la justificación y la confirmación explícita de fuentes y fechas. Los cambios de escenarios, una fuente sin evidencia de entrada, identidad vacía, hash obsoleto o confirmación ausente deben impedir aprobar y no escribir resolución ni Buy List.
+8. Assessment debe persistir `PENDING_HUMAN_REVIEW` y no crear `board_resolution.approved=true`, Buy List ni estado `APPROVED` a partir de una recomendación automática. El Board debe ser la primera interacción humana de la nueva Opportunity, exigir decisión, revisor y justificación, y no permitir aprobar propuestas con gates fallidos. Board Review debe clasificar cualquier recomendación sin resolución como pendiente/bloqueada, nunca `AUTO_APPROVED`.
+9. `Decision Review` debe validar hash de Assessment vigente, `recommendation=APPROVE`, gates y escenarios automáticamente validados cuando RULE-008 aplique; la aprobación en la misma acción confirma fuentes y fechas. Una aprobación agrega únicamente a la Buy List pública con `approved_for_buylist=true`, mantiene la etapa de Research y no genera posiciones ni `ENTRY_PENDING`. Un hash viejo, gate fallido, segunda Opportunity del mismo ticker ya listada, precio/objetivo ausente o escenario distinto del evaluado bloquean la mutación. Al crear Research/Assessment nuevo, comprobar que se invalida la aprobación previa y se retira sólo su entrada de Buy List, con registro histórico conservado.
 10. `BuyListRefreshWorker` debe conservar una Opportunity con `approved_for_buylist=true` aunque siga en Research/Assessment; `EntryMonitorWorker` no debe tratar ese flag como autorización de operación. Confirmar `positions/` y demás datos de portfolio vacíos en el build público.
 
 
@@ -383,9 +383,9 @@ después. En CI Linux la suite debe ejecutarse sin ese adaptador.
 La suite local no valida workflows GitHub, proveedores reales, Pages ni una
 decisión atribuida al gestor. Monthly Universe, Daily Refresh y DDD acotados a
 AAPL fueron revisados en §8.3.5–8.3.6 de
-`SDD/25.PLAN-E2E-EN-RAMA-DE-PRUEBA.md`; los workflows `Scenario Review` y
-`Decision Review` quedan pendientes de usarse con una oportunidad vigente y
-decisión real en una rama de prueba.
+`SDD/25.PLAN-E2E-EN-RAMA-DE-PRUEBA.md`. La revisión de escenarios se consolidó
+en la única acción `Decision Review`; queda pendiente ejecutarla con una
+propuesta vigente y una decisión real del gestor en una rama de prueba.
 
 `DecisionBoardWorker` se conserva como shim legado que siempre responde
 `SKIPPED`; no ejecuta LLM, no persiste evaluaciones y no cambia estados. Los
@@ -476,14 +476,17 @@ en el fixture.
    `research_input_snapshot.scenario_market_evidence`; si falta evidencia de
    entrada, no considerar verificables las fuentes. Mantener la aceptación de
    fuentes coincidentes y probar normalización sólo de host/ruta.
-4. Verificar que el ratio usa retornos ponderados contra el precio actual, y
-   que RULE-008 bloquea hasta una aprobación atribuible del gestor para el hash
-   vigente del conjunto. Un cambio de precio objetivo, probabilidad, fuente o
-   fecha debe invalidar la aprobación.
+4. Verificar que el ratio usa retornos ponderados contra el precio actual y que
+   RULE-008 se calcula automáticamente con el contrato y el hash vigente. Un
+   set válido y sobre el umbral debe llegar a Decision Board sin interacción
+   humana anterior; un cambio de precio objetivo, probabilidad, fuente o fecha
+   entre Assessment y Board debe bloquear la aprobación.
 5. Confirmar que el dashboard omite el conjunto de escenarios con fuentes no
    respaldadas por la evidencia de entrada, muestra el motivo de bloqueo y nunca
-   autoriza compra; los escenarios válidos siguen provisionales hasta la revisión
-   humana. Los históricos sin detalle deben declararse como no persistidos.
+   autoriza compra. Los escenarios válidos se muestran como propuesta de agentes
+   pendiente del Decision Board; la confirmación de fuentes y decisión del gestor
+   se registran juntas en `Decision Review`. Los históricos sin detalle deben
+   declararse como no persistidos.
 
 ### Alcance seguro de workflows manuales
 
@@ -636,3 +639,22 @@ validó los datos reales de ALAB/XLF: XLF `not_applicable` y ALAB RULE-008
 bloqueada. El arreglo se integró como PR #146 y Pages
 [#39466121233](https://github.com/alebertolli/idos/actions/runs/39466121233)
 desplegó el SHA `9c0eb15` con el estado operativo de producción vacío.
+
+### Gate de interacción humana única en Decision Board — 2026-10-20
+
+1. Ejecutar Discovery, Research y Assessment sin credenciales ni inputs de
+   gestor; comprobar que los workers completan la etapa y producen estados
+   explícitos aunque una regla deje el caso bloqueado.
+2. Verificar que ningún workflow, script o pantalla pida aprobación o
+   confirmación humana antes de Decision Board.
+3. En Decision Board, exigir una única acción autenticada que incluya la
+   decisión, justificación, confirmación de fuentes/fechas y hash vigente del
+   paquete evaluado. Cualquier cambio de escenarios entre Assessment y Board,
+   evidencia no trazable, falta de identidad o confirmación debe impedir
+   escritura.
+4. Verificar que la aprobación válida agrega únicamente a Buy List; no crea
+   posición, orden ni ENTRY_PENDING. Rechazo y falta de aprobación permanecen
+   auditables y no generan autorización implícita.
+5. Revisar el dashboard para confirmar que el paquete está completo y que las
+   alertas/gates están explicados como pendientes de Decision Board sin
+   solicitar acciones previas.

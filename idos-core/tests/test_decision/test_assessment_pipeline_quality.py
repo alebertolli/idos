@@ -31,7 +31,7 @@ def test_catalyst_probability_estimate_is_provisional_and_cannot_pass_rule_008()
     assert asymmetry is not None
     assert asymmetry["benefit_risk_ratio"] >= 3
     assert asymmetry["validation_status"] == "provisional"
-    assert asymmetry["authorization_eligible"] is False
+    assert asymmetry["board_review_eligible"] is False
     assert asymmetry["passes_threshold"] is False
 
     result = _eval_asymmetry({"asymmetry": asymmetry})

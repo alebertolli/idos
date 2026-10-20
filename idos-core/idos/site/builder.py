@@ -27,7 +27,6 @@ from idos.decision.scenarios import (
     scenario_fingerprint,
     scenario_source_urls_from_report,
     validate_scenario_analysis,
-    validate_scenario_review,
 )
 from idos.decision.proposal_review import decision_proposal_fingerprint
 from idos.research.thesis_schedule import schedule_for_opportunity
@@ -450,8 +449,6 @@ class SiteBuilder:
         )
         ddd = _load_yaml(opp_dir / "ddd_report.yml")
         ddd = ddd if isinstance(ddd, dict) else {}
-        scenario_review = _load_yaml(opp_dir / "scenario_review.yml")
-        scenario_review = scenario_review if isinstance(scenario_review, dict) else None
         hypotheses_doc = _load_yaml(opp_dir / "hypotheses.yml")
         hypotheses_doc = hypotheses_doc if isinstance(hypotheses_doc, dict) else {}
         raw_hypotheses = hypotheses_doc.get("hypotheses") or []
@@ -539,12 +536,12 @@ class SiteBuilder:
                 thesis_not_assessed_days = days
                 is_thesis_stale = thesis_review_status == "due"
 
-        # A DDD report is model output until the manager explicitly approves it.
-        # Do not serialize unreviewed claims into the public Pages data payload.
+        # Agent research is published as a provisional decision package. The
+        # first human interaction is the single Decision Board review.
         evidence_review = ddd.get("evidence_review") or {}
         if not isinstance(evidence_review, dict):
             evidence_review = {}
-        review_status = str(evidence_review.get("status") or "pending_manager_review").strip().lower()
+        review_status = str(evidence_review.get("status") or "pending_decision_board").strip().lower()
         reviewer = str(evidence_review.get("reviewed_by") or "").strip()
         reviewed_at = evidence_review.get("reviewed_at")
         review_approved = (
@@ -561,9 +558,6 @@ class SiteBuilder:
             if scenario_analysis is not None else []
         )
         scenario_valid = scenario_analysis is not None and not scenario_validation_errors
-        scenario_review_approved, scenario_review_reason = validate_scenario_review(
-            scenario_analysis, scenario_review, trusted_source_urls=trusted_scenario_sources,
-        )
         strategy_context = ddd.get("strategy_context") or {}
         opportunity_signal = opp.get("signal")
         systematic_report = (
@@ -576,8 +570,8 @@ class SiteBuilder:
             and strategy_context.get("signal") == opportunity_signal
         )
         current_systematic_report = systematic_report and strategy_context.get("report_method_version") == "systematic_signal_v2"
-        # Fundamental research is public through the Buy List by product
-        # decision; expose it as provisional until an attributable review.
+        # Fundamental research is visible for Board review as a provisional
+        # agent proposal; it does not itself approve a Buy List entry.
         # Legacy systematic reports remain hidden until regenerated.
         ddd_publishable = bool(ddd) and (not systematic_report or current_systematic_report)
         if systematic_report:
@@ -585,17 +579,18 @@ class SiteBuilder:
             intrinsic = None
             upside = None
 
-        # Fundamental DDD conclusions are published only after explicit review;
-        # deterministic strategy reports follow their own typed path.
+        # Publish the agent-generated case with an explicit pending Board state;
+        # only legacy systematic reports require refresh before display.
         ddd_summary = {
             "evidence_review": {
                 "status": (
                     "manager_approved" if review_approved
                     else "systematic_report" if current_systematic_report
                     else "systematic_report_refresh_required" if systematic_report
-                    else "pending_manager_review"
+                    else "board_approved" if decision_attributable and br.get("status") == "approved"
+                    else "pending_decision_board"
                 ),
-                "reviewed_at": reviewed_at if review_approved else None,
+                "reviewed_at": reviewed_at if review_approved else decision_resolved_at if decision_attributable else None,
             },
             "categoria": None,
             "clasificacion": {},
@@ -612,15 +607,14 @@ class SiteBuilder:
             "hipotesis": [],
             "financial_data_quality": dp.get("financial_data_quality") or {},
             "scenario_analysis": None,
-            "scenario_review": {
+            "board_review": {
                 "status": (
                     "not_applicable" if systematic_report
-                    else "manager_approved" if scenario_review_approved
-                    else "pending_manager_review"
+                    else "pending_decision_board"
                 ),
                 "reason": (
                     "La estrategia sistemática se evalúa mediante su señal y reglas de rebalanceo."
-                    if systematic_report else scenario_review_reason
+                    if systematic_report else "Research y Assessment completaron sus validaciones automáticas; la revisión humana ocurre una sola vez en Decision Board."
                 ),
                 "scenario_hash": scenario_fingerprint(scenario_analysis) if scenario_valid else None,
             },
@@ -628,7 +622,7 @@ class SiteBuilder:
                 {"status": "not_applicable", "errors": []}
                 if systematic_report
                 else {
-                    "status": "valid_pending_manager_review" if scenario_valid else "invalid_pending_revision",
+                    "status": "valid_pending_decision_board" if scenario_valid else "invalid_pending_revision",
                     "errors": scenario_validation_errors,
                 }
                 if scenario_analysis is not None
@@ -1671,7 +1665,7 @@ function renderOpp(){
   };
   let html = `<h2>Research (${rows.length})</h2>`;
   html += `<p class="muted">Oportunidades en <b>Research / UNDER_RESEARCH</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Clic en una columna para ordenar.</p>`;
-  html += `<p class="muted">Assessment prepara una propuesta determinista. El gestor revisa los escenarios y la propuesta vigente mediante <b>Scenario Review</b> y <b>Decision Review</b>; una aprobación válida agrega el caso a la <b>Buy List</b>, sin crear posiciones ni órdenes. Los casos rechazados o que no superan los gates permanecen sin aprobación.</p>`;
+  html += `<p class="muted">Los agentes completan Discovery, Research y Assessment y preparan un expediente con datos, tesis, escenarios, asimetría, riesgos y reglas. La primera intervención humana ocurre una sola vez en <b>Decision Board</b>: el gestor revisa el paquete completo y aprueba o rechaza. Una aprobación válida agrega el caso a la <b>Buy List</b>, sin crear posiciones ni órdenes.</p>`;
   html += detailsEntryRules();
   html += tableInput('opp','opp-search','Buscar ticker...');
   html += `<table id="tbl-opp"><thead>${sortHeadRows('opp')}</thead><tbody>${sortTbody('opp')}</tbody></table>`;
@@ -1764,20 +1758,20 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">${o.decision?.decision_type?'Decisión':'Propuesta'}</div><div style="font-size:18px">${esc(o.decision?.decision_type||o.proposal?.decision||'—')}</div><div class="muted">${esc(o.decision?.author||o.proposal?.status||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
   html += '</div>';
   if(o.proposal?.status==='PENDING_HUMAN_REVIEW' && o.proposal?.proposal_hash){
-    html += `<div class="card"><b>Revisión del gestor requerida</b><p>La recomendación del Assessment no agrega por sí sola una oportunidad a Buy List. Si corresponde, abre <a href="https://github.com/alebertolli/idos/actions/workflows/decision-review.yml" target="_blank" rel="noopener noreferrer">Decision Review en GitHub Actions</a>, verifica que el hash sea el del Assessment vigente y registra aprobar/rechazar con una justificación.</p><details><summary>Hash del Assessment</summary><code>${esc(o.proposal.proposal_hash)}</code></details></div>`;
+    html += `<div class="card"><b>Expediente listo para Decision Board</b><p>Discovery, Research y Assessment fueron procesados automáticamente. En Decision Board, revisa tesis, evidencia, escenarios Bear/Base/Bull, asimetría y reglas; registra aprobar o rechazar con una justificación. Aprobar sólo agrega a Buy List, nunca crea posiciones ni órdenes. <a href="https://github.com/alebertolli/idos/actions/workflows/decision-review.yml" target="_blank" rel="noopener noreferrer">Abrir Decision Review</a></p><details><summary>Hash de la propuesta completa</summary><code>${esc(o.proposal.proposal_hash)}</code></details></div>`;
   }
   const marketData=o.market_data||by?.market_data||{};
   const sourceNames=(marketData.sources_used||[]).map(esc).join(', ')||'No registrada';
   html += `<h2>Datos de mercado</h2><div class="card"><div>Precio al: ${dt(marketData.price_as_of||o.price_date)}</div><div>Fuentes del cache: ${marketData.source_count??'no disponible'} (${sourceNames})</div>${marketData.refreshed_at?`<div>Cache actualizado: ${dt(marketData.refreshed_at)}</div>`:''}${marketData.source_count===1?'<p class="neg">Fuente única; revisar la cobertura por campo antes de usar el dato.</p>':''}${marketData.conflict_count?`<p class="neg">Conflictos de datos: ${marketData.conflict_count}</p>`:''}<details><summary>Procedencia por campo</summary>${Object.keys(marketData.field_sources||{}).length?`<table><thead><tr><th>Campo</th><th>Fuentes</th></tr></thead><tbody>${Object.entries(marketData.field_sources).map(([field,sources])=>`<tr><td>${esc(field)}</td><td>${sources.map(esc).join(', ')}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">El cache no registra procedencia por campo.</p>'}</details></div>`;
 
   // Tesis e informe
-  const dddReviewed = d.evidence_review?.status==='manager_approved';
+  const dddReviewed = ['manager_approved','board_approved'].includes(d.evidence_review?.status);
   const dddSystematic = d.evidence_review?.status==='systematic_report';
   if(d.evidence_review?.status==='systematic_report_refresh_required'){
     html += `<h2>Reporte sistemático</h2><div class="card"><b>Requiere actualización.</b><p class="muted">Regenerar Research con la política vigente antes de interpretar sus métricas. La señal y su fecha siguen disponibles en la estrategia.</p></div>`;
   } else {
   const dddProvisional = !dddReviewed && !dddSystematic;
-  if(dddProvisional) html += `<h2>Análisis fundamental · provisional</h2><div class="card"><b>Informe pendiente de validación del gestor.</b><p class="muted">El DDD y las hipótesis se muestran para revisión, todavía no son una tesis aprobada. Convicción, valor intrínseco, upside y scores de assessment son provisionales; validar las fuentes y la fecha de corte antes de decidir o dimensionar. La decisión del sistema se muestra por separado y no sustituye la revisión humana.</p></div>`;
+  if(dddProvisional) html += `<h2>Análisis fundamental · propuesta de agentes</h2><div class="card"><b>Expediente generado automáticamente; pendiente del Decision Board.</b><p class="muted">Discovery, Research y Assessment completan el análisis y validan la estructura y procedencia disponible. Convicción, valor intrínseco, upside y scores son propuestas sujetas a la decisión del gestor. La revisión de fuentes y supuestos ocurre dentro del Decision Board.</p></div>`;
   if(dddSystematic) html += `<div class="card"><b>Reporte sistemático.</b><p class="muted">Señal y métricas generadas por reglas de estrategia; no representan una tesis fundamental ni una aprobación de compra.</p></div>`;
   const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;
   html += `<h2>${dddProvisional?'Tesis de inversión (provisional)':'Tesis de inversión'}</h2>`;
@@ -1798,7 +1792,7 @@ function showCase(oppId){
       const assumptions=(s.key_assumptions||[]).map(x=>`<li>${esc(x)}</li>`).join('');
       return `<article class="scenario-mobile-card" aria-label="Escenario ${esc(s.id)}"><h4>${esc(s.id)}</h4><dl class="scenario-mobile-facts"><div><dt>Probabilidad</dt><dd>${pct(s.probability_pct)}</dd></div><div><dt>Precio objetivo</dt><dd>${esc(sa.currency||'—')} ${money(s.target_price)}</dd></div></dl>${s.rationale?`<p>${esc(s.rationale)}</p>`:''}${assumptions?`<ul>${assumptions}</ul>`:''}<div class="scenario-sources"><b>Fuentes</b><br>${sources||'Sin fuente registrada'}</div></article>`;
     }).join('');
-    html += `<h3>Asimetría · escenarios Bear / Base / Bull</h3><div class="card"><b>${d.scenario_review?.status==='manager_approved'?'Escenarios aprobados por el gestor':'Propuesta pendiente de aprobación del gestor'}</b><p class="muted">Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table class="scenario-desktop-table"><thead><tr><th>Escenario</th><th>Probabilidad</th><th>Precio objetivo</th><th>Lectura y supuestos</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><div class="scenario-mobile-list">${scenarioCards}</div><p class="muted">Antes de aprobar, abre cada fuente y verifica que exista, respalde el supuesto y tenga la fecha indicada. La propuesta de Research no habilita una compra; RULE-008 sólo puede pasar con una revisión atribuida al gestor y una confirmación explícita de fuentes verificadas.</p>${d.scenario_review?.scenario_hash?`<details><summary>Hash del conjunto para revisión</summary><code>${esc(d.scenario_review.scenario_hash)}</code><p class="muted">En GitHub Actions, ejecuta Scenario Review, verifica las fuentes, marca la confirmación y copia este hash.</p></details>`:''}</div>`;
+    html += `<h3>Asimetría · escenarios Bear / Base / Bull</h3><div class="card"><b>${d.scenario_validation?.status==='valid_pending_decision_board'?'Validación automática completa · pendiente Decision Board':'Propuesta pendiente de evaluación'}</b><p class="muted">Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table class="scenario-desktop-table"><thead><tr><th>Escenario</th><th>Probabilidad</th><th>Precio objetivo</th><th>Lectura y supuestos</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><div class="scenario-mobile-list">${scenarioCards}</div><p class="muted">Los agentes validan la estructura, fechas y correspondencia de fuentes con la evidencia de entrada. En Decision Board, el gestor revisa estas fuentes y los supuestos junto con el expediente completo. RULE-008 calcula el gate de asimetría; no requiere una aprobación previa separada. Ningún escenario autoriza por sí solo una compra.</p>${d.board_review?.scenario_hash?`<details><summary>Hash de escenarios incluido en la propuesta</summary><code>${esc(d.board_review.scenario_hash)}</code></details>`:''}</div>`;
   } else if(d.scenario_validation?.errors?.length){
     html += `<h3>Escenarios Bear / Base / Bull</h3><div class="card"><b class="neg">Propuesta incompleta o inválida; RULE-008 permanece bloqueada.</b><ul>${d.scenario_validation.errors.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
   } else if(d.scenario_validation?.status==='not_applicable'){
