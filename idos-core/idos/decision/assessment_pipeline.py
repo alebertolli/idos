@@ -881,6 +881,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
     opp_dir.mkdir(parents=True, exist_ok=True)
 
+    asymmetry_data = context.get("asymmetry")
     proposal_data = {
         "type": proposal.type,
         "opportunity_id": proposal.opportunity_id,
@@ -891,7 +892,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "recommendation": proposal.recommendation,
         "reasoning": proposal.reasoning,
         "rules_details": proposal.rules_details,
-        "scenario_hash": (context.get("asymmetry") or {}).get("scenario_hash"),
+        "scenario_hash": asymmetry_data.get("scenario_hash") if isinstance(asymmetry_data, dict) else None,
         "financial_data_quality": context.get("financial_data_quality", {}),
         "status": "PENDING_HUMAN_REVIEW"
         if proposal.recommendation in {"APPROVE", "PENDING_REVIEW"}
