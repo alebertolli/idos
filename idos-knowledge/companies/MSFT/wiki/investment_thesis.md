@@ -1,1 +1,0 @@
-Microsoft Corporation es un compounder de larga data con un potencial de crecimiento significativo en el mercado de la nube y la inteligencia artificial, lo que la convierte en una oportunidad de inversión atractiva.
