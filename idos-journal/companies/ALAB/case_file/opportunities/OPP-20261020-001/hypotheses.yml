@@ -1,0 +1,173 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: No se anuncia ningún contrato nuevo con los principales OEM antes de
+      la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los comunicados de prensa de los OEM no mencionan a Astera Labs como
+      proveedor de interconexión.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - No se anuncia ningún contrato nuevo con los principales OEM antes de la fecha
+    objetivo.
+  - Los comunicados de prensa de los OEM no mencionan a Astera Labs como proveedor
+    de interconexión.
+  horizon: corto
+  id: H1-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 3.0
+    met: null
+    metric: numero_de_contratos_OEM
+    prediction: Al menos tres acuerdos firmados y anunciados públicamente con fabricantes
+      como Dell, HPE o Lenovo.
+    unit: contratos
+  priority: critical
+  probability: 0.5
+  rationale: La creciente demanda de ancho de banda para IA y cloud está impulsando
+    a los OEM de servidores a buscar soluciones de interconexión más rápidas y eficientes.
+    Astera Labs ha demostrado ventaja tecnológica con sus ASICs y tiene una hoja de
+    ruta de productos alineada con los requisitos de los principales fabricantes.
+  review_trigger: Si para el 2027-07-01 no existen comunicados oficiales o presentaciones
+    a inversores que confirmen al menos tres contratos con los principales OEM.
+  secondary_hypotheses: []
+  statement: Astera Labs cerrará contratos de suministro de sus soluciones de interconexión
+    de alta velocidad con al menos tres de los cinco principales fabricantes de servidores
+    antes del 2027-06-30.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El Form 10‑K muestra FCF negativo o inferior a 150 MM USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ajustes de efectivo operativo indican una caída de más del 20%
+      respecto al FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El Form 10‑K muestra FCF negativo o inferior a 150 MM USD.
+  - Los ajustes de efectivo operativo indican una caída de más del 20% respecto al
+    FY2026.
+  horizon: medio
+  id: H2-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 250.0
+    met: null
+    metric: flujo_de_caja_libre
+    prediction: FCF ≥ 250 MM USD reportado en el Form 10‑K del FY2027.
+    unit: millones USD
+  priority: critical
+  probability: 0.5
+  rationale: El crecimiento de ingresos superior al 90% YoY, combinado con márgenes
+    brutos de >70% y una gestión de CAPEX enfocada en la expansión de capacidad de
+    producción, debería traducirse en generación de efectivo sustancial una vez que
+    la inversión inicial en fabless se amortice.
+  review_trigger: Si el reporte financiero del FY2027 (publicado antes del 2028-02-28)
+    muestra FCF < 150 MM USD.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  statement: Astera Labs generará flujo de caja libre positivo de al menos 250 millones
+    de dólares en el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EV/EBITDA calculado es ≤ 25x en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción cae más del 30% respecto al nivel de octubre
+      2026 sin justificación de deterioro operativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EV/EBITDA calculado es ≤ 25x en la fecha objetivo.
+  - El precio de la acción cae más del 30% respecto al nivel de octubre 2026 sin justificación
+    de deterioro operativo.
+  horizon: largo
+  id: H3-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 30.0
+    met: null
+    metric: EV/EBITDA
+    prediction: EV/EBITDA ≥ 30x calculado a partir del precio de cierre de la acción
+      y los estados financieros publicados en el 1T 2028.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: Los inversores están dispuestos a pagar una prima por empresas con ventaja
+    tecnológica en la cadena de suministro de IA. Si la empresa mantiene su crecimiento
+    de ingresos y mejora su rentabilidad operativa, el mercado reflejará ese premium
+    mediante un EV/EBITDA elevado.
+  review_trigger: Si el 2028-04-01 el EV/EBITDA está por debajo de 25x y no hay señales
+    de mejora operativa.
+  secondary_hypotheses:
+  - H2-OPP-20261020-001
+  statement: El múltiplo EV/EBITDA de Astera Labs superará 30x en la valoración de
+    mercado antes del 2028-03-31.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El reporte FY2027 indica una caída de producción > 5% respecto al año
+      anterior.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Se publican noticias de interrupciones significativas en la cadena
+      de suministro de Taiwán que afecten a Astera Labs.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El reporte FY2027 indica una caída de producción > 5% respecto al año anterior.
+  - Se publican noticias de interrupciones significativas en la cadena de suministro
+    de Taiwán que afecten a Astera Labs.
+  horizon: corto
+  id: H4-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 5.0
+    met: null
+    metric: variacion_produccion_anual
+    prediction: La producción anual reportada en el 10‑K FY2027 mostrará una variación
+      ≤ 5% respecto al FY2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Aunque la mayor parte de la fabricación de semiconductores se ubica en
+    Taiwán, la empresa ha diversificado parcialmente su suministro mediante acuerdos
+    con foundries en Corea del Sur y Estados Unidos, mitigando riesgos geopolíticos.
+  review_trigger: Si antes del 2028-01-15 se confirma una reducción de producción
+    > 5% en los documentos regulatorios o comunicados de prensa.
+  secondary_hypotheses: []
+  statement: La concentración de la cadena de suministro en Taiwán no provocará interrupciones
+    que reduzcan la producción anual de Astera Labs en más del 5% antes del 2027-12-31.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1

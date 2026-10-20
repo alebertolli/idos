@@ -1,0 +1,161 @@
+calidad_evidencia:
+  hechos_verificados:
+  - 'Señal momentum mensual: 0.66'
+  - 'Fecha de señal: 2026-10-01'
+  inferencias_llm: []
+  preguntas_abiertas:
+  - ¿La señal persistirá hasta el próximo rebalanceo?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: systematic_momentum
+  categorias_descartadas:
+  - compounder
+  - deep_value
+  - growth_fundamental
+  justificacion: La oportunidad se evalúa por señal, ranking y rebalanceo mensual;
+    no por DDD corporativo.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: No es un criterio de una estrategia sistemática.
+  rating: no_aplica
+dominio_catalizadores:
+- descripcion: Persistencia del ranking relativo hasta el próximo rebalanceo
+  horizonte: corto
+  impacto: alto
+  probabilidad_pct: null
+dominio_esg_supply_chain:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_financial_health:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_growth:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_management:
+  analisis: No es un criterio de selección de la señal.
+  rating: no_aplica
+dominio_riesgos:
+- descripcion: La señal puede deteriorarse entre rebalanceos; aplicar límites de peso
+    y salida.
+  impacto: alto
+  probabilidad: no evaluada
+  riesgo: Reversión brusca del momentum
+error_mercado:
+  conclusion_error_valoracion: NO_APLICA
+  consenso_actual: No se utiliza consenso fundamental.
+  hipotesis_contraria: La persistencia del momentum puede romperse antes del próximo
+    rebalanceo.
+  razonamiento: La señal cuantitativa y sus límites son la evidencia primaria.
+generated_at: '2026-10-20T16:55:56.013706-03:00'
+integridad_tesis:
+  reason: Señal dentro del rango configurado.
+  thesis_active: true
+opinion_valoracion: 'No aplica: la entrada se decide por señal y rebalanceo.'
+opp_id: OPP-20261001-MOM-XLF
+prompt_inputs:
+  business_model: 'The fund generally invests substantially all, but at least 95%,
+    of its total assets in the securities comprising the index. The index includes
+    companies that have been identified as Financial companies by the Global Industry
+    Classification Standard, including securities of companies from the following
+    industries: financial services; insurance; banks; capital markets; mortgage real
+    estate investment trusts; and consumer finance. The fund is non-diversified.'
+  ceo_tenure: null
+  debt_to_equity: null
+  fcf_adjusted: null
+  insider_ownership: null
+  name: State Street Financial Select Sector SPDR ETF
+  operating_margin: null
+  pe_ratio: null
+  products: ''
+  revenue: null
+  revenue_growth: null
+  roic: null
+  sector: ''
+  ticker: XLF
+research_input_snapshot:
+  analysis_as_of_date: '2026-10-20'
+  business_model: 'The fund generally invests substantially all, but at least 95%,
+    of its total assets in the securities comprising the index. The index includes
+    companies that have been identified as Financial companies by the Global Industry
+    Classification Standard, including securities of companies from the following
+    industries: financial services; insurance; banks; capital markets; mortgage real
+    estate investment trusts; and consumer finance. The fund is non-diversified.'
+  capital_allocation: N/A
+  ceo_tenure: null
+  current_price: N/D
+  current_price_as_of_date: N/D
+  current_price_source: N/D
+  debt_maturity_profile: N/A
+  debt_to_equity: null
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {},
+    "observations": {}, "observed_at": null, "period_end": null, "sources_used": []}'
+  geography: ''
+  insider_ownership: null
+  interest_coverage_ratio: null
+  moat_description: ''
+  name: State Street Financial Select Sector SPDR ETF
+  operating_margin: null
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: N/D
+  recent_events: 'The fund generally invests substantially all, but at least 95%,
+    of its total assets in the securities comprising the index. The index includes
+    companies that have been identified as Financial companies by the Global Industry
+    Classification Standard, including securities of companies from the following
+    industries: financial services; insurance; banks; capital markets; mortgage real
+    estate investment trusts; and consumer finance. The fund is non-diversified.'
+  revenue: null
+  revenue_growth: null
+  roic: null
+  scenario_market_evidence: '{"analyst_target_consensus": null, "current_quote": {"as_of_date":
+    "N/D", "currency": "N/D", "price": "N/D", "sources": []}}'
+  sector: ''
+  ticker: XLF
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: f377bb13a8f52d9492e4d785a7b41b2a1c9d045c16cfbdf3cfd50a8b19474b33
+  strategy_id: MOMENTUM_ETF
+  strategy_version: '1.0'
+  trigger_type: manual
+  triggered_at: '2026-10-20T16:55:56.013706-03:00'
+resumen_ejecutivo: Momentum mensual 0.66; rango configurado 0.6–2.7; índice descriptivo
+  24/100. Riesgo y probabilidad no evaluados.
+scenario_analysis: null
+scenario_validation:
+  errors: []
+  status: not_applicable
+score_general: 24
+strategy_context:
+  probability_status: NOT_ASSESSED
+  report_method_version: systematic_signal_v2
+  risk_rating: NOT_ASSESSED
+  score_method: momentum_div_max_v1
+  signal: &id002
+    as_of_date: '2026-10-01'
+    momentum: 0.6565624784218933
+    ticker: XLF
+  signal_policy:
+    maximum_signal: 2.7
+    minimum_signal: 0.6
+  signal_snapshot:
+    generated_at: '2026-10-20T16:53:03.069581-03:00'
+    run_scope: bounded
+    signal: *id002
+    signal_policy:
+      maximum_signal: 2.7
+      minimum_signal: 0.6
+      select_top: 2
+    source: idos-journal/strategies/MOMENTUM_ETF/2026-10-20-165303069581-bounded.yml
+  strategy_id: MOMENTUM_ETF
+target_consensus: null
+tesis_inversion: 'XLF: exposición sistemática a momentum mensual; la señal actual
+  es 0.66.'
+ticker: XLF
+version: '3.0'
