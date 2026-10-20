@@ -600,8 +600,11 @@ apiladas en pantallas de hasta 720 px. Cada tarjeta presenta escenario,
 probabilidad, precio objetivo, racionales, supuestos y enlaces con fecha de
 fuente, sin depender del desplazamiento horizontal de la tabla.
 
-Validación en la rama: test del render de escenarios y suite completa
-`test_site/test_builder.py` (39 passed); `node --check` del JavaScript generado
-y `git diff --check` pasaron. CI y preview Pages de esta rama quedan como gate
-antes de integrar; verificar también una vista móvil renderizada después del
-deploy.
+Validación en la rama: suite `test_site/test_builder.py` (39 passed),
+`node --check` del JavaScript generado y `git diff --check` pasaron. CI
+[#39461594753](https://github.com/alebertolli/idos/actions/runs/39461594753)
+pasó en Python 3.11 y 3.12. Pages preview
+[#39461643195](https://github.com/alebertolli/idos/actions/runs/39461643195)
+compiló y subió el artefacto; deploy se omitió por ser una rama de prueba. El
+artefacto confirma el CSS/JS responsive y cero oportunidades. Después del
+deploy a producción, comprobar el render en un dispositivo móvil.
