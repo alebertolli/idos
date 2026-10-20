@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.5](https://github.com/alebertolli/idos/compare/v0.1.4...v0.1.5) (2026-10-20)
+
+
+### Bug Fixes
+
+* clarify systematic scenario status in dashboard ([#146](https://github.com/alebertolli/idos/issues/146)) ([9c0eb15](https://github.com/alebertolli/idos/commit/9c0eb15b0e24a6b688b561fd3de54158ef4d703e))
+* improve mobile scenario readability ([#144](https://github.com/alebertolli/idos/issues/144)) ([c9649ce](https://github.com/alebertolli/idos/commit/c9649ceb054f62de442f672fb9920c4aa0b4eed6))
+
+
+### Documentation
+
+* record completed multi-strategy E2E validation ([6a9bace](https://github.com/alebertolli/idos/commit/6a9bace31bf6d156ff0679c7a414793edb0bd6b8))
+
 ## [0.1.4](https://github.com/alebertolli/idos/compare/v0.1.3...v0.1.4) (2026-10-20)
 
 
