@@ -52,6 +52,20 @@ def test_parse_revenue_growth():
     assert data.get("revenue_growth_pct") == 18.5
 
 
+def test_parse_revenue_growth_forecast_separately_from_actual_growth():
+    worker = StockAnalysisWorker()
+    html = _make_table([
+        ("Revenue Growth Forecast (3Y)", "29.38%"),
+        ("EPS Growth Forecast (3Y)", "45.21%"),
+    ])
+    soup = BeautifulSoup(html, "lxml")
+    data = worker._parse_statistics(soup, "ASML")
+
+    assert data["revenue_growth_forecast_3y_pct"] == 29.38
+    assert data["eps_growth_forecast_3y_pct"] == 45.21
+    assert "revenue_growth_pct" not in data
+
+
 def test_parse_missing_value():
     worker = StockAnalysisWorker()
     html = _make_table([("Dividend (FWD)", "—")])
