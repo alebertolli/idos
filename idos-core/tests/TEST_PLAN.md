@@ -608,3 +608,24 @@ pasó en Python 3.11 y 3.12. Pages preview
 compiló y subió el artefacto; deploy se omitió por ser una rama de prueba. El
 artefacto confirma el CSS/JS responsive y cero oportunidades. Después del
 deploy a producción, comprobar el render en un dispositivo móvil.
+
+### 8.9 E2E multi estrategia y aclaración sistemática del dashboard — 2026-10-20
+
+En `codex/e2e-runtime-validation-20261020`, Monthly
+[#39463375893](https://github.com/alebertolli/idos/actions/runs/39463375893)
+procesó ALAB/COMPOUNDER y XLF/MOMENTUM_ETF desde `operable.yml`; DDD
+[#39463619515](https://github.com/alebertolli/idos/actions/runs/39463619515)
+completó ambas investigaciones y evaluaciones; Daily
+[#39464009200](https://github.com/alebertolli/idos/actions/runs/39464009200)
+refrescó ambos tickers con portfolio, simulación y eventos deshabilitados;
+Pages [#39464136795](https://github.com/alebertolli/idos/actions/runs/39464136795)
+compiló preview sin publicar la rama.
+
+El dataset incluyó 2 oportunidades, 0 decisiones, Buy List vacía, Watch List
+con ALAB y ninguna posición, ledger o cartera. ALAB quedó bloqueado por
+RULE-008 tras recibir URL de escenarios no incluidas en evidencia; XLF quedó
+`WAIT` sin escenarios fundamentales. El dashboard ahora explica que Bear/Base/Bull
+no aplican a estrategias sistemáticas. Regresión cubierta por
+`test_public_site_keeps_deterministic_systematic_report_separate_from_fundamental_review`.
+Validación local: `pytest idos-core/tests/test_site/test_builder.py -q`
+resultó en 39 passed. CI y preview del cambio quedan pendientes.
