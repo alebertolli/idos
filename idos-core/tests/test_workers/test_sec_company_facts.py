@@ -161,4 +161,3 @@ def test_worker_propagates_sec_lookup_network_failure(monkeypatch):
 
     with pytest.raises(sec_edgar.requests.ConnectionError, match="SEC unavailable"):
         worker.run({"ticker": "AAPL"})
-

@@ -68,7 +68,6 @@ def normalize_company_facts(ticker: str, cik: str, payload: dict[str, Any]) -> d
         "financial_metric_metadata": {},
         "data_quality_warnings": [],
     }
-
     evidence = [current]
     if previous is not None and previous["val"] > 0 and current["val"] >= 0:
         revenue_growth = (current["val"] / previous["val"] - 1.0) * 100.0
@@ -235,4 +234,3 @@ def _empty_result(ticker: str, cik: str, reason: str) -> dict[str, Any]:
             "field_sources": {}, "field_urls": {}, "conflicts": [],
         },
     }
-
