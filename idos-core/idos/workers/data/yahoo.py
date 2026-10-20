@@ -92,7 +92,10 @@ class YahooFinanceWorker(BaseWorker):
             "beta_5y": info.get("beta"),
             "shares_outstanding": info.get("sharesOutstanding"),
             "float_shares": info.get("floatShares"),
-            "fcf": info.get("freeCashflow"),
+            # Yahoo labels this field "Levered Free Cash Flow (ttm)". Keep it
+            # separate from unlevered FCF reported by StockAnalysis so the
+            # reconciliation layer does not compare different definitions.
+            "levered_fcf": info.get("freeCashflow"),
             "financial_currency": info.get("financialCurrency"),
             "financial_data_observed_at": datetime.now(timezone.utc).isoformat(),
             "financial_period_end_timestamp": info.get("mostRecentQuarter"),

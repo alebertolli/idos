@@ -89,19 +89,30 @@ def test_refresh_worker_cache_payload_keeps_flat_metrics_and_field_provenance():
     assert payload["data_provenance"]["field_sources"]["roic_pct"] == ["stockanalysis.com"]
 
 
-def test_refresh_worker_preserves_financial_source_values_without_averaging_periods():
+def test_refresh_worker_keeps_levered_fcf_separate_from_unlevered_fcf():
     validated = {"merged_data": {"fcf": 4, "operating_margin_pct": 8}, "field_sources": {}}
     DataRefreshWorker._preserve_financial_observations(validated, {
         "stockanalysis.com": {"fcf": 4, "operating_margin_pct": 8},
-        "yfinance": {"fcf": -2, "operating_margin_pct": 0.08,
+        "yfinance": {"levered_fcf": -2, "operating_margin_pct": 0.08,
                      "financial_currency": "USD", "financial_data_observed_at": "2026-10-18T00:00:00+00:00"},
     })
-    assert validated["merged_data"]["fcf"] == -2
+    assert validated["merged_data"]["fcf"] == 4
     assert validated["merged_data"]["operating_margin_pct"] == 0.08
-    assert validated["field_sources"]["fcf"] == ["yfinance"]
+    assert validated["field_sources"]["fcf"] == ["stockanalysis.com"]
     assert validated["merged_data"]["financial_observations"]["fcf"]["values"] == {
-        "stockanalysis.com": 4, "yfinance": -2,
+        "stockanalysis.com": 4,
     }
+
+
+def test_refresh_worker_preserves_yahoo_levered_fcf_provenance():
+    source = DataRefreshWorker._yahoo_market_source({
+        "ticker": "ASML", "source": "yahoo_finance", "fcf": 99,
+        "levered_fcf": 10_374_124_544, "financial_currency": "EUR",
+    }, None)
+
+    assert source["levered_fcf"] == 10_374_124_544
+    assert source["financial_currency"] == "EUR"
+    assert "fcf" not in source
 
 
 def test_refresh_worker_normalizes_yahoo_underlying_metrics_with_exchange_sessions(monkeypatch):
