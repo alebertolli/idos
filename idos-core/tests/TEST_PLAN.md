@@ -548,3 +548,51 @@ en el fixture.
    Yahoo único proveedor, gate `complete`, `no_errors`, simulación y dispatch
    omitidos. Los archivos operativos del run se retiraron de la rama después
    de registrar la evidencia; el artefacto y los logs de Actions permanecen.
+
+### 8.6 Registro E2E de producción — 2026-10-20
+
+La corrida acotada se ejecutó en `main` después de integrar PR #139. Usó
+`ALAB,XLF` desde `operable.yml`, mantuvo `run_portfolio_simulation=false` y
+`dispatch_research_events=false`, y no consumió ni publicó datos privados.
+
+| Control | Evidencia | Resultado |
+| --- | --- | --- |
+| Monthly Universe #73 | [Run 39450970531](https://github.com/alebertolli/idos/actions/runs/39450970531), commit `72e27ee` | COMPOUNDER evaluó y creó ALAB; MOMENTUM_ETF seleccionó XLF con señal 0,702. La lista de tickers acotada llegó al DDD reusable. |
+| Research y Assessment | Job DDD del mismo run, commit `3d445ce` | ALAB: DDD 84, escenarios Bear/Base/Bull 30/50/20, horizonte 2028; convicción 68 y bloqueado por RULE-008. XLF: señal sistemática válida, `WAIT`, sin fundamentos/escenarios corporativos inventados. |
+| Daily Refresh #160 | [Run 39451792827](https://github.com/alebertolli/idos/actions/runs/39451792827), commit `70d24cc` | Refrescó ALAB/XLF, benchmark y calendario; Buy List con 18 elementos. Simulación, riesgo y operaciones se omitieron. XLF usó fallback de yfinance y quedó issue [#140](https://github.com/alebertolli/idos/issues/140). |
+| Pages #241 | [Run 39451924369](https://github.com/alebertolli/idos/actions/runs/39451924369) | Deploy del SHA `70d24cc`; artefacto `data.json`: 274 oportunidades, 18 Buy List, `positions=[]`, `ledger=[]`, `portfolio={}`. La ficha ALAB expone tesis y escenarios provisionales, fuentes y el gate humano; XLF queda identificado como sistemático. |
+
+El job funcional pasó, pero la salida de Research muestra indisponibilidad
+intermitente de proveedores para tareas auxiliares: timeout/503 de Gemini,
+payload 413 de Groq para Wiki y 429/402 de OpenRouter. El DDD principal sí
+respondió por Groq; la generación Wiki dejó una contradicción registrada. En
+consecuencia, revisar las afirmaciones y fuentes de la ficha antes de usarla.
+La captura móvil evidencia que la tabla de escenarios requiere desplazamiento
+horizontal.
+
+Quedan pendientes antes del cierre funcional: revisión atribuida del gestor
+(RULE-008 y Decision Review), investigar/cerrar el fallback XLF, validar las
+fuentes de hipótesis, revisar ergonomía móvil, ejecutar las pruebas privadas de
+Risk Audit sólo con fixture/contrato privado, probar Learning/replay, y validar
+MULTIBAGGERS cuando su adaptador/datos estén listos. La cartera real seguirá sin
+ser evaluada hasta conectar y validar la hoja privada.
+
+### 8.7 Reset operativo solicitado
+
+Tras cerrar las correcciones y registrar la evidencia final, vaciar los datos
+operativos generados para reiniciar IDOS: oportunidades, tesis y reportes DDD,
+hipótesis, post-mortem/learning, eventos y decisiones de prueba, historiales de
+estrategia, Buy List/Watch List de prueba y caches/resultados de pipeline.
+Preservar código, configuración (incluido `operable.yml`), SDD, tests, fixtures,
+plantillas y schemas. Verificar después del reset que Pages no muestre registros
+anteriores y que las estructuras vacías sigan siendo válidas. El borrado del
+historial Git de `main`, solicitado por separado, no forma parte de este reset
+de datos y requiere confirmar el alcance exacto justo antes de reescribirlo.
+
+GitHub Actions: `alebertolli/idos` es un repositorio público y estos workflows
+usan runners GitHub-hosted estándar Linux; la documentación de GitHub indica que
+esas ejecuciones en repositorios públicos son gratuitas e ilimitadas. Los
+proveedores LLM mantienen cuotas/rate limits independientes; los runners más
+grandes y el almacenamiento de artefactos tienen reglas aparte. Ver
+[GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions)
+y [runner selection](https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job).
