@@ -29,22 +29,10 @@ user_prompt: >
   - Presencia Geográfica: {geography}
   - Moat: {moat_description}
 
-  Resumen Financiero (TTM):
+  Resumen financiero:
   - Último cierre disponible: {current_price} {quote_currency}, corte {current_price_as_of_date}, fuente {current_price_source}
-  - Revenue: ${revenue:,.0f}M
-  - Crecimiento Revenue: {revenue_growth:+.1f}%
-  - Margen Operativo: {operating_margin:.1f}%
-  - ROIC: {roic:.1f}%
-  - Excess Return ROIC - WACC: {excess_return_roic_wacc:+.1f}%
-  - FCF Ajustado: {fcf_adjusted:,.0f}M
-  - D/E: {debt_to_equity:.1f}x
-  - Perfil Vencimiento Deuda: {debt_maturity_profile}
-  - Interest Coverage: {interest_coverage_ratio:.1f}x
-
-  Management:
-  - Antigüedad CEO: {ceo_tenure} años
-  - Insider Ownership: {insider_ownership:.1f}%
-  - Track Record Asignación Capital: {capital_allocation}
+  - No se rellenan métricas ausentes con cero ni se infieren moneda, unidad o período.
+  - Usa la evidencia financiera estructurada y su procedencia que aparece abajo.
 
   Desarrollos Recientes:
   {recent_events}
@@ -68,8 +56,9 @@ user_prompt: >
     escenario, devuelve scenario_analysis como null y deja la insuficiencia en
     preguntas_abiertas. No rellenes el análisis con supuestos presentados como
     hechos.
-  Evidencia financiera y procedencia (JSON):
+  Evidencia financiera y procedencia (JSON; observations contiene los valores reportados, unidad/moneda, período, fecha de corte y fuente cuando están disponibles):
   {financial_data_evidence}
+  Usa solo esas observaciones para afirmar hechos financieros. Un dato ausente no significa cero. No llames ajustado al flujo de caja libre reportado si la evidencia no documenta ese ajuste.
 
   Instrucciones - Sigue estas 3 fases en orden obligatorio:
 

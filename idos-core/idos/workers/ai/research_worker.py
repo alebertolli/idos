@@ -239,17 +239,17 @@ class ResearchWorker(BaseWorker):
             "products": company.get("products", ""),
             "geography": company.get("geography", ""),
             "moat_description": company.get("moat_description", ""),
-            "revenue": financial_data.get("revenue_ttm", 0),
-            "revenue_growth": financial_data.get("revenue_growth_pct", 0),
-            "operating_margin": financial_data.get("operating_margin_pct", 0),
-            "roic": financial_data.get("roic_pct", 0),
-            "excess_return_roic_wacc": financial_data.get("excess_return_roic_wacc", 0),
-            "fcf_adjusted": financial_data.get("fcf_adjusted", 0),
-            "debt_to_equity": financial_data.get("debt_equity_ratio", 0),
+            "revenue": financial_data.get("revenue_ttm"),
+            "revenue_growth": financial_data.get("revenue_growth_pct"),
+            "operating_margin": financial_data.get("operating_margin_pct"),
+            "roic": financial_data.get("roic_pct"),
+            "excess_return_roic_wacc": financial_data.get("excess_return_roic_wacc"),
+            "fcf_adjusted": financial_data.get("fcf_adjusted"),
+            "debt_to_equity": financial_data.get("debt_equity_ratio"),
             "debt_maturity_profile": financial_data.get("debt_maturity_profile", "N/A"),
-            "interest_coverage_ratio": financial_data.get("interest_coverage_ratio", 0),
-            "ceo_tenure": financial_data.get("ceo_tenure", 0),
-            "insider_ownership": financial_data.get("insider_ownership", 0),
+            "interest_coverage_ratio": financial_data.get("interest_coverage_ratio"),
+            "ceo_tenure": financial_data.get("ceo_tenure"),
+            "insider_ownership": financial_data.get("insider_ownership"),
             "capital_allocation": financial_data.get("capital_allocation", "N/A"),
             "recent_events": recent_events,
             "financial_data_evidence": json.dumps(
@@ -385,15 +385,15 @@ class ResearchWorker(BaseWorker):
                 "sector": company.get("sector", ""),
                 "business_model": company.get("business_model", ""),
                 "products": company.get("products", ""),
-                "revenue": financial_data.get("revenue_ttm", 0),
-                "revenue_growth": financial_data.get("revenue_growth_pct", 0),
-                "operating_margin": financial_data.get("operating_margin_pct", 0),
-                "roic": financial_data.get("roic_pct", 0),
-                "fcf_adjusted": financial_data.get("fcf_adjusted", 0),
-                "debt_to_equity": financial_data.get("debt_equity_ratio", 0),
-                "pe_ratio": financial_data.get("pe_ratio", 0),
-                "ceo_tenure": financial_data.get("ceo_tenure", 0),
-                "insider_ownership": financial_data.get("insider_ownership", 0),
+                "revenue": financial_data.get("revenue_ttm"),
+                "revenue_growth": financial_data.get("revenue_growth_pct"),
+                "operating_margin": financial_data.get("operating_margin_pct"),
+                "roic": financial_data.get("roic_pct"),
+                "fcf_adjusted": financial_data.get("fcf_adjusted"),
+                "debt_to_equity": financial_data.get("debt_equity_ratio"),
+                "pe_ratio": financial_data.get("pe_ratio"),
+                "ceo_tenure": financial_data.get("ceo_tenure"),
+                "insider_ownership": financial_data.get("insider_ownership"),
             },
         }
         if is_systematic:
@@ -488,10 +488,10 @@ class ResearchWorker(BaseWorker):
             "ticker": ticker,
             "name": company.get("name", ticker),
             "company_data": f"Sector: {company.get('sector', '')}\nBusiness: {company.get('business_model', '')}",
-            "roic": financial_data.get("roic_pct", 0),
-            "operating_margin": financial_data.get("operating_margin_pct", 0),
-            "revenue_growth": financial_data.get("revenue_growth_pct", 0),
-            "pe_ratio": financial_data.get("pe_ratio", 0),
+            "roic": financial_data.get("roic_pct"),
+            "operating_margin": financial_data.get("operating_margin_pct"),
+            "revenue_growth": financial_data.get("revenue_growth_pct"),
+            "pe_ratio": financial_data.get("pe_ratio"),
             "ev_ebitda": financial_data.get("ev_ebitda", 0),
             "fcf_yield": financial_data.get("fcf_yield", 0),
             })
@@ -966,6 +966,8 @@ class ResearchWorker(BaseWorker):
     def _financial_evidence_context(data: dict[str, Any]) -> dict[str, Any]:
         provenance = data.get("data_provenance")
         provenance = provenance if isinstance(provenance, dict) else {}
+        observations = data.get("financial_observations")
+        observations = observations if isinstance(observations, dict) else {}
         return {
             "observed_at": data.get("financial_data_observed_at"),
             "period_end": data.get("financial_data_as_of_date")
@@ -974,6 +976,7 @@ class ResearchWorker(BaseWorker):
             "sources_used": provenance.get("sources_used", []),
             "field_sources": provenance.get("field_sources", {}),
             "conflicts": provenance.get("conflicts", []),
+            "observations": observations,
         }
 
     @staticmethod
@@ -1049,12 +1052,12 @@ class ResearchWorker(BaseWorker):
                 },
                 "dynamic": {
                     "metrics": {
-                        "roic": financial_data.get("roic_pct", 0),
-                        "operating_margin": financial_data.get("operating_margin_pct", 0),
-                        "revenue_growth": financial_data.get("revenue_growth_pct", 0),
+                        "roic": financial_data.get("roic_pct"),
+                        "operating_margin": financial_data.get("operating_margin_pct"),
+                        "revenue_growth": financial_data.get("revenue_growth_pct"),
                         "fcf_yield": financial_data.get("fcf_yield", 0),
-                        "debt_to_equity": financial_data.get("debt_equity_ratio", 0),
-                        "pe_ratio": financial_data.get("pe_ratio", 0),
+                        "debt_to_equity": financial_data.get("debt_equity_ratio"),
+                        "pe_ratio": financial_data.get("pe_ratio"),
                         "ev_ebitda": financial_data.get("ev_ebitda", 0),
                     }
                 }
