@@ -23,7 +23,12 @@ from typing import Any, Iterable
 
 import yaml
 
-from idos.decision.scenarios import scenario_fingerprint, validate_scenario_analysis, validate_scenario_review
+from idos.decision.scenarios import (
+    scenario_fingerprint,
+    scenario_source_urls_from_report,
+    validate_scenario_analysis,
+    validate_scenario_review,
+)
 from idos.decision.proposal_review import decision_proposal_fingerprint
 from idos.research.thesis_schedule import schedule_for_opportunity
 from idos.strategy.catalog import StrategyCatalog
@@ -548,8 +553,17 @@ class SiteBuilder:
             and _parse_dt(reviewed_at) is not None
         )
         scenario_analysis = ddd.get("scenario_analysis")
-        scenario_valid = not validate_scenario_analysis(scenario_analysis) if scenario_analysis is not None else False
-        scenario_review_approved, scenario_review_reason = validate_scenario_review(scenario_analysis, scenario_review)
+        trusted_scenario_sources = scenario_source_urls_from_report(ddd)
+        scenario_validation_errors = (
+            validate_scenario_analysis(
+                scenario_analysis, trusted_source_urls=trusted_scenario_sources,
+            )
+            if scenario_analysis is not None else []
+        )
+        scenario_valid = scenario_analysis is not None and not scenario_validation_errors
+        scenario_review_approved, scenario_review_reason = validate_scenario_review(
+            scenario_analysis, scenario_review, trusted_source_urls=trusted_scenario_sources,
+        )
         strategy_context = ddd.get("strategy_context") or {}
         opportunity_signal = opp.get("signal")
         systematic_report = (
@@ -603,7 +617,14 @@ class SiteBuilder:
                 "reason": scenario_review_reason,
                 "scenario_hash": scenario_fingerprint(scenario_analysis) if scenario_valid else None,
             },
-            "scenario_validation": ddd.get("scenario_validation") or {},
+            "scenario_validation": (
+                {
+                    "status": "valid_pending_manager_review" if scenario_valid else "invalid_pending_revision",
+                    "errors": scenario_validation_errors,
+                }
+                if scenario_analysis is not None
+                else ddd.get("scenario_validation") or {}
+            ),
         }
         if ddd and ddd_publishable:
             if scenario_valid:

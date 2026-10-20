@@ -472,13 +472,18 @@ en el fixture.
 2. Rechazar escenario duplicado/ausente, probabilidades inválidas, fuente
    posterior, fecha futura, moneda distinta y distribuciones sin retornos
    positivos y negativos.
-3. Verificar que el ratio usa retornos ponderados contra el precio actual, y
+3. Rechazar cada URL de escenario que no coincida con una URL provista en
+   `research_input_snapshot.scenario_market_evidence`; si falta evidencia de
+   entrada, no considerar verificables las fuentes. Mantener la aceptación de
+   fuentes coincidentes y probar normalización sólo de host/ruta.
+4. Verificar que el ratio usa retornos ponderados contra el precio actual, y
    que RULE-008 bloquea hasta una aprobación atribuible del gestor para el hash
    vigente del conjunto. Un cambio de precio objetivo, probabilidad, fuente o
    fecha debe invalidar la aprobación.
-4. Confirmar en dashboard que escenarios propuestos se muestran como pendientes
-   y no autorizan compra; los históricos sin detalle deben declararse como no
-   persistidos.
+5. Confirmar que el dashboard omite el conjunto de escenarios con fuentes no
+   respaldadas por la evidencia de entrada, muestra el motivo de bloqueo y nunca
+   autoriza compra; los escenarios válidos siguen provisionales hasta la revisión
+   humana. Los históricos sin detalle deben declararse como no persistidos.
 
 ### Alcance seguro de workflows manuales
 

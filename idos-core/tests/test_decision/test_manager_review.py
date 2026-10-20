@@ -57,7 +57,18 @@ def _seed_fundamental_case(base_path: Path, *, recommendation="APPROVE", rules_f
     review["scenario_hash"] = scenario_fingerprint(analysis)
     (opp_dir / "decision_proposal.yml").write_text(yaml.safe_dump(proposal, allow_unicode=True), encoding="utf-8")
     (opp_dir / "opportunity.yml").write_text(yaml.safe_dump(opportunity, allow_unicode=True), encoding="utf-8")
-    (opp_dir / "ddd_report.yml").write_text(yaml.safe_dump({"scenario_analysis": analysis}, allow_unicode=True), encoding="utf-8")
+    report = {
+        "scenario_analysis": analysis,
+        "research_input_snapshot": {
+            "scenario_market_evidence": {
+                "current_quote": {"sources": [{"url": "https://example.com/bear"}]},
+                "analyst_target_consensus": {
+                    "sources": [{"url": "https://example.com/base"}, {"url": "https://example.com/bull"}],
+                },
+            },
+        },
+    }
+    (opp_dir / "ddd_report.yml").write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
     (opp_dir / "scenario_review.yml").write_text(yaml.safe_dump(review, allow_unicode=True), encoding="utf-8")
     return opp_dir, proposal
 
@@ -106,6 +117,21 @@ def test_manager_approval_rejects_stale_hash_or_failed_gate(tmp_path):
     proposal["rules_failed"] = ["RULE-008"]
     (opp_dir / "decision_proposal.yml").write_text(yaml.safe_dump(proposal), encoding="utf-8")
     with pytest.raises(ValueError, match="every authorization rule"):
+        record_decision_review(
+            tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
+            "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.",
+        )
+    assert not (opp_dir / "board_resolution.yml").exists()
+
+
+def test_manager_approval_rejects_scenario_source_absent_from_research_evidence(tmp_path):
+    opp_dir, proposal = _seed_fundamental_case(tmp_path)
+    report_path = opp_dir / "ddd_report.yml"
+    report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+    report["research_input_snapshot"]["scenario_market_evidence"]["analyst_target_consensus"]["sources"].pop()
+    report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="scenario review is not current"):
         record_decision_review(
             tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
             "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.",

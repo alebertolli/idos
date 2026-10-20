@@ -11,6 +11,7 @@ from idos.data.journal import JournalRepository
 from idos.decision.orchestrator import DecisionOrchestrator, DecisionProposal
 from idos.decision.scenarios import (
     calculate_scenario_asymmetry,
+    scenario_source_urls_from_report,
     validate_scenario_review,
 )
 from idos.decision.conviction import ConvictionCalculator
@@ -615,12 +616,16 @@ def _calculate_report_asymmetry(
     analysis = report.get("scenario_analysis")
     if analysis is None:
         return _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
+    trusted_source_urls = scenario_source_urls_from_report(report)
     asymmetry = calculate_scenario_asymmetry(
         analysis,
         current_price=current_price,
         quote_currency=quote_currency,
+        trusted_source_urls=trusted_source_urls,
     )
-    review_approved, review_reason = validate_scenario_review(analysis, scenario_review)
+    review_approved, review_reason = validate_scenario_review(
+        analysis, scenario_review, trusted_source_urls=trusted_source_urls,
+    )
     asymmetry["authorization_eligible"] = review_approved and asymmetry.get("validation_status") == "validated"
     asymmetry["validation_reason"] = (
         asymmetry.get("validation_reason") if asymmetry.get("validation_status") != "validated"

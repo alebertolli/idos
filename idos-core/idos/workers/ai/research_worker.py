@@ -22,7 +22,10 @@ from idos.workers.base import BaseWorker
 from idos.timezone import AR_TZ
 from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
-from idos.decision.scenarios import validate_scenario_analysis
+from idos.decision.scenarios import (
+    scenario_source_urls_from_evidence,
+    validate_scenario_analysis,
+)
 from idos.decision.manager_approval import invalidate_manager_approval_after_research
 from idos.research.thesis_schedule import interval_days_for
 from idos.research.events import canonical_event_type, normalize_event_evidence
@@ -296,7 +299,12 @@ class ResearchWorker(BaseWorker):
         thesis = ddd_result.get("tesis_inversion", "")
         score = ddd_result.get("score_general", 50)
         scenario_analysis = None if is_systematic else ddd_result.get("scenario_analysis")
-        scenario_validation_errors = [] if is_systematic else validate_scenario_analysis(scenario_analysis)
+        scenario_validation_errors = [] if is_systematic else validate_scenario_analysis(
+            scenario_analysis,
+            trusted_source_urls=scenario_source_urls_from_evidence(
+                ddd_inputs.get("scenario_market_evidence")
+            ),
+        )
 
         ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
         if ddd_empty:

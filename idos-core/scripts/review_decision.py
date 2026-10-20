@@ -14,7 +14,10 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from idos.decision.proposal_review import decision_proposal_fingerprint  # noqa: E402
-from idos.decision.scenarios import validate_scenario_review  # noqa: E402
+from idos.decision.scenarios import (  # noqa: E402
+    scenario_source_urls_from_report,
+    validate_scenario_review,
+)
 from idos.timezone import AR_TZ  # noqa: E402
 
 
@@ -74,7 +77,10 @@ def record_decision_review(
             report = yaml.safe_load((opportunity_dir / "ddd_report.yml").read_text(encoding="utf-8"))
             scenario_review = yaml.safe_load((opportunity_dir / "scenario_review.yml").read_text(encoding="utf-8")) if (opportunity_dir / "scenario_review.yml").exists() else None
             analysis = report.get("scenario_analysis") if isinstance(report, dict) else None
-            reviewed, reason = validate_scenario_review(analysis, scenario_review)
+            reviewed, reason = validate_scenario_review(
+                analysis, scenario_review,
+                trusted_source_urls=scenario_source_urls_from_report(report),
+            )
             if not reviewed:
                 raise ValueError("RULE-008 scenario review is not current: " + reason)
 
