@@ -52,6 +52,22 @@ user_prompt: >
   Evidencia estructurada para escenarios (JSON; los conflictos se deben reconocer,
   no resolver por intuición):
   {scenario_market_evidence}
+  Reglas de procedencia para Bear/Base/Bull:
+  - Usa exclusivamente las URLs incluidas literalmente en
+    scenario_market_evidence.current_quote.sources o
+    scenario_market_evidence.analyst_target_consensus.sources. Copia name, url y
+    as_of_date exactamente como aparecen en la evidencia; no construyas URLs ni
+    cites informes que no estén en esos objetos. La validación bloquea fuentes
+    que no estén respaldadas por la entrada.
+  - Los valores low, mean/median y high del consenso son referencias observadas,
+    no una valoración independiente. Si son válidos y están en la misma moneda
+    de la cotización, úsalos como límites/anclas de la propuesta. No pongas
+    objetivos fuera del rango observado salvo que la entrada incluya una fuente
+    independiente que respalde el valor. Explica esta limitación en rationale.
+  - Si las fuentes, fechas o referencias de precio no permiten sustentar cada
+    escenario, devuelve scenario_analysis como null y deja la insuficiencia en
+    preguntas_abiertas. No rellenes el análisis con supuestos presentados como
+    hechos.
   Evidencia financiera y procedencia (JSON):
   {financial_data_evidence}
 
