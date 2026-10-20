@@ -99,6 +99,7 @@ env:
 
 jobs:
   ddd:
+    if: vars.IDOS_DATA_RIGHTS_CONFIRMED == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write
