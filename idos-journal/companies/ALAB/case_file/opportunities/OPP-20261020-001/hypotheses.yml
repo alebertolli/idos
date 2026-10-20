@@ -1,0 +1,172 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: No se publica ningún anuncio de contrato con hyperscaler de valor ≥
+      $500M antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa comunica la cancelación o postergación del proceso de negociación
+      con todos los hyperscalers.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - No se publica ningún anuncio de contrato con hyperscaler de valor ≥ $500M antes
+    de la fecha objetivo.
+  - La empresa comunica la cancelación o postergación del proceso de negociación con
+    todos los hyperscalers.
+  horizon: corto
+  id: H1-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 500.0
+    met: null
+    metric: valor_contrato
+    prediction: Se anunciará públicamente la firma del contrato y se reflejará en
+      el Form 8‑K de la SEC.
+    unit: millones USD
+  priority: critical
+  probability: 0.5
+  rationale: La plataforma COSMOS de Astera Labs ha demostrado capacidad de integración
+    de alta velocidad y baja latencia, atributos críticos para los centros de datos
+    de hyperscalers. Recientes conversaciones anunciadas en la conferencia de la industria
+    y la falta de competencia directa en el segmento de conectividad de chip‑to‑chip
+    sugieren una alta probabilidad de cierre de contrato.
+  review_trigger: Si antes del 2027-04-30 la empresa publica una guía de ingresos
+    que excluye cualquier ingreso adicional > $200M proveniente de nuevos contratos
+    de hyperscalers.
+  secondary_hypotheses: []
+  statement: Astera Labs firmará un contrato multimillonario con al menos un hyperscaler
+    (AWS, Azure o Google Cloud) por un valor mínimo de $500 millones antes del 2027-06-30.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos reportados para FY2027 son ≤ $1.200B.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa revisa su guía a la baja indicando un crecimiento < 5% YoY.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos reportados para FY2027 son ≤ $1.200B.
+  - La empresa revisa su guía a la baja indicando un crecimiento < 5% YoY.
+  horizon: medio
+  id: H2-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 1200.0
+    met: null
+    metric: ingresos_anuales
+    prediction: El reporte de resultados del Q4 FY2027 mostrará ingresos anuales consolidados
+      > $1.200B.
+    unit: millones USD
+  priority: important
+  probability: 0.5
+  rationale: El pipeline de ventas incluye varios proyectos de infraestructura de
+    datos que se espera cierren tras la firma del contrato H1, y la empresa ha reportado
+    márgenes operativos en expansión que facilitan la escalabilidad de la producción.
+  review_trigger: Si el 30 de junio de 2027 la empresa publica una guía de ingresos
+    FY2027 que indique menos de $1.150B.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  statement: Los ingresos de Astera Labs para el año fiscal 2027 superarán los $1.200
+    mil millones, representando un crecimiento interanual de al menos 10%.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ROIC reportado para FY2028 es < 20%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa incurre en deuda significativa que eleva el costo de capital
+      y reduce el ROIC.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ROIC reportado para FY2028 es < 20%.
+  - La empresa incurre en deuda significativa que eleva el costo de capital y reduce
+    el ROIC.
+  horizon: largo
+  id: H3-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 20.0
+    met: null
+    metric: ROIC
+    prediction: El cálculo de ROIC reportado en el Form 10‑K FY2028 será ≥ 20%.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: Con ingresos crecientes y márgenes operativos mejorados por economías
+    de escala, la empresa podrá generar mayores retornos sobre su capital invertido,
+    mientras mantiene una estructura de capital sin deuda que reduce el costo de capital.
+  review_trigger: Si antes del 30 de septiembre de 2028 la empresa anuncia una emisión
+    de deuda superior a $200M que impacta negativamente su estructura de capital.
+  secondary_hypotheses:
+  - H2-OPP-20261020-001
+  statement: El Return on Invested Capital (ROIC) de Astera Labs alcanzará al menos
+    el 20% al cierre del FY2028.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La capitalización de mercado permanece ≤ $15B al cierre del 2028‑12‑31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El múltiplo de ingresos cae por debajo de 10x durante el mismo periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La capitalización de mercado permanece ≤ $15B al cierre del 2028‑12‑31.
+  - El múltiplo de ingresos cae por debajo de 10x durante el mismo periodo.
+  horizon: largo
+  id: H4-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 15000.0
+    met: null
+    metric: capitalizacion_mercado
+    prediction: El precio de la acción cotizado en NYSE alcanzará un nivel que, multiplicado
+      por los ingresos FY2028, resulte en una valoración > $15B.
+    unit: millones USD
+  priority: critical
+  probability: 0.5
+  rationale: El cierre de contratos de hyperscalers (H1) y el crecimiento de ingresos
+    (H2) impulsarán expectativas de flujo de caja futuro, mientras que la ausencia
+    de deuda y el alto ROIC (H3) aumentarán la percepción de un moat defensivo, justificando
+    múltiplos premium.
+  review_trigger: Si el 31 de octubre de 2028 el precio de la acción está por debajo
+    de $70, lo que implica una valoración < $12B bajo los ingresos proyectados.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  - H2-OPP-20261020-001
+  - H3-OPP-20261020-001
+  statement: La capitalización de mercado de Astera Labs superará los $15.000 millones
+    antes del 2028-12-31, reflejando una valoración basada en múltiplos de ingresos
+    superiores al 12x.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
