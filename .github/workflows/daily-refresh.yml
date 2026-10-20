@@ -1,0 +1,451 @@
+name: Daily Data Refresh
+
+on:
+  schedule:
+    - cron: "0 8 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      allow_production_e2e:
+        description: "Allow this bounded manual E2E to write results to main"
+        required: false
+        type: boolean
+        default: false
+      run_portfolio_simulation:
+        description: "Run paper portfolio monitoring and simulation steps"
+        required: false
+        type: boolean
+        default: false
+      dispatch_research_events:
+        description: "Dispatch earnings research events to the default branch"
+        required: false
+        type: boolean
+        default: false
+      candidate_tickers:
+        description: "Required for manual runs: 1-5 comma-separated tickers from operable.yml"
+        required: true
+        type: string
+
+jobs:
+  refresh:
+    if: vars.IDOS_DATA_RIGHTS_CONFIRMED == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      actions: read
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate manual production opt-in
+        env:
+          IDOS_ALLOW_PRODUCTION_E2E: ${{ inputs.allow_production_e2e }}
+        run: |
+          python scripts/validate_production_dispatch.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+      - name: Resolve portfolio runtime gate
+        id: portfolio_gate
+        env:
+          IDOS_RUN_PORTFOLIO_REQUESTED: ${{ inputs.run_portfolio_simulation }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          import yaml
+
+          config = yaml.safe_load(Path('idos-config/portfolio.yml').read_text(encoding='utf-8')) or {}
+          configured = bool(config.get('runtime_enabled', False))
+          requested = os.environ.get('IDOS_RUN_PORTFOLIO_REQUESTED', 'false').lower() == 'true'
+          enabled = configured and requested
+          print(f'[PORTFOLIO-GATE] runtime_enabled={configured} requested={requested} effective={enabled}')
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write(f'enabled={str(enabled).lower()}\n')
+          PY
+      - name: Validate bounded manual candidate scope
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+          IDOS_MANUAL_SELECTION_LIMIT: "5"
+        run: python scripts/validate_manual_candidate_scope.py
+      - name: Refresh data
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+        run: |
+          python -c "
+          import sys; sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          from idos.workers.data.refresh_worker import DataRefreshWorker
+          from idos.workers.data.cache import DataCache
+          from idos.discovery.operability import OperabilityFilter
+          from pathlib import Path
+          import os, json, yaml
+          from datetime import datetime
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          wl_path = Path('idos-journal/portfolio/watchlist.yml')
+          if wl_path.exists():
+              wl_data = yaml.safe_load(wl_path.read_text(encoding='utf-8'))
+              tickers = [e['ticker'] for e in wl_data.get('entries', []) if e.get('ticker')]
+          else:
+              tickers = []
+          requested = [t.strip().upper() for t in os.environ.get('IDOS_CANDIDATE_TICKERS', '').split(',') if t.strip()]
+          if requested:
+              operable = OperabilityFilter('idos-config/universe/operable.yml')
+              tickers = operable.validate_selection(requested)
+          source = 'manual operable selection' if requested else 'watchlist.yml'
+          print(f'[REFRESH] Loading {len(tickers)} tickers from {source}')
+          refresher = DataRefreshWorker({'universe_path': ''})
+          r = refresher.execute({'tickers': tickers})
+          print(f'[REFRESH] Processed: {r.output.get(\"tickers_processed\", 0)} tickers')
+          errors = r.output.get('errors', [])
+          for ticker, item in (r.output.get('data') or {}).items():
+              merged = item.get('merged_data', item) if isinstance(item, dict) else {}
+              gate = merged.get('market_data_normalization', {}) if isinstance(merged, dict) else {}
+              provenance = merged.get('liquidity_provenance', {}) if isinstance(merged, dict) else {}
+              errors_for_ticker = gate.get('errors', []) if isinstance(gate, dict) else []
+              gate_summary = {
+                  'status': gate.get('status', 'unavailable'),
+                  'market_cap_usd': merged.get('market_cap_usd'),
+                  'avg_dollar_volume_usd': merged.get('avg_dollar_volume_usd'),
+                  'basis': provenance.get('basis', gate.get('liquidity_basis', 'unavailable')),
+                  'errors': errors_for_ticker,
+              }
+              print('[MARKET-GATE] ' + ticker + ': ' + json.dumps(gate_summary, sort_keys=True))
+          if errors:
+              for e in errors:
+                  print(f'[REFRESH] Error: {e}')
+          Path('cache').mkdir(parents=True, exist_ok=True)
+          summary = {'refreshed_at': str(datetime.now()), 'tickers': tickers, 'errors': errors}
+          with open('cache/last_refresh.json','w') as f: json.dump(summary, f, indent=2)
+          "
+      - name: Populate earnings calendar from yfinance cache
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.workers.data.earnings_calendar import populate_earnings
+          result = populate_earnings()
+          print(f'[EARNINGS-CALENDAR] {result[\"tickers_found\"]} tickers con earnings')
+          if result['added']:
+              print(f'[EARNINGS-CALENDAR] Nuevos: {\", \".join(result[\"added\"])}')
+          if result['updated']:
+              print(f'[EARNINGS-CALENDAR] Actualizados: {\", \".join(result[\"updated\"])}')
+          if not result['added'] and not result['updated'] and not result.get('metadata_updated'):
+              print('[EARNINGS-CALENDAR] Calendario actualizado, sin cambios')
+          "
+      - name: Check earnings dates
+        run: |
+          python -c "
+          import os, json, yaml
+          from pathlib import Path
+          from datetime import datetime, date, timedelta
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+
+          earnings_file = Path('idos-config/events/earnings.yml')
+          if not earnings_file.exists():
+              print('[EARNINGS] No earnings config found at idos-config/events/earnings.yml')
+              exit(0)
+
+          data = yaml.safe_load(earnings_file.read_text(encoding='utf-8')) or {}
+          tickers = data.get('tickers', {}) or {}
+          today = date.today()
+          target_date = today - timedelta(days=2)
+          triggered = []
+
+          for ticker, info in tickers.items():
+              earnings_date_str = info.get('earnings_date', '')
+              triggered_at = info.get('triggered_at', '')
+              if not earnings_date_str:
+                  continue
+              if info.get('alias_of'):
+                  print(f'[EARNINGS] {ticker}: alias of {info[\"alias_of\"]}, skip (primary will trigger)')
+                  continue
+              earnings_date = datetime.strptime(earnings_date_str, '%Y-%m-%d').date()
+              if triggered_at:
+                  print(f'[EARNINGS] {ticker}: already triggered on {triggered_at}')
+                  continue
+              if earnings_date > target_date:
+                  print(f'[EARNINGS] {ticker}: earnings on {earnings_date_str}, not yet 2d post')
+                  continue
+              if not info.get('source_name') or not info.get('source_url'):
+                  print(f'[EARNINGS] {ticker}: missing source metadata; leaving untriggered for retry')
+                  continue
+              print(f'[EARNINGS] {ticker}: ready to trigger (earnings_date={earnings_date_str}, 2d+ post-earnings)')
+              info['triggered_at'] = today.isoformat()
+              triggered.append(ticker)
+
+          if triggered:
+              earnings_file.write_text(yaml.dump(data, default_flow_style=False, allow_unicode=True), encoding='utf-8')
+              Path('cache/earnings_trigger.json').write_text(json.dumps({'triggered': triggered}), encoding='utf-8')
+              print('[EARNINGS] Marked as triggered: ' + ', '.join(triggered))
+          else:
+              print('[EARNINGS] No tickers to trigger today')
+          "
+
+      - name: Ensure benchmark data (SPY)
+        run: |
+          python -c "
+          import sys, os
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.data.sqlite import SQLiteStore
+          db = SQLiteStore(Path('idos.db'))
+          import yfinance as yf
+          try:
+              hist = yf.Ticker('SPY').history(period='1y')
+              if hist.empty:
+                  print('[BENCHMARK] SPY history vacio')
+                  raise SystemExit(0)
+              prices = hist['Close'].tolist()
+              volumes = hist['Volume'].tolist()
+              dates = [str(d.date()) for d in hist.index]
+              last_date = db.get_last_price_date('SPY')
+              new_rows = []
+              for i in range(len(prices)):
+                  d = dates[i]
+                  if last_date and d <= last_date:
+                      continue
+                  new_rows.append({'date': d, 'close': prices[i], 'volume': volumes[i] if i < len(volumes) else 0})
+              if new_rows:
+                  db.save_price_history('SPY', new_rows)
+                  print(f'[BENCHMARK] SPY: {len(new_rows)} nuevos registros')
+              else:
+                  print('[BENCHMARK] SPY ya actualizado')
+          except Exception as e:
+              print(f'[BENCHMARK] SPY error: {e}')
+              from idos.resilience.error_manager import ErrorManager, CATEGORY_DATOS, SEVERITY_HIGH
+              ErrorManager().report(category=CATEGORY_DATOS, severity=SEVERITY_HIGH, ticker='SPY', message=f'benchmark fetch fallo: {e}')
+          "
+      - name: Refresh Buy List
+        run: |
+          python -c "
+          import sys, os
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.workers.portfolio.buy_list_refresh_worker import BuyListRefreshWorker
+          w = BuyListRefreshWorker()
+          result = w.execute({'base_path': os.environ.get('GITHUB_WORKSPACE', '.')})
+          r = result.output if hasattr(result, 'output') else result
+          print(f'[BUYLIST] {r.get(\"status\")}: updated={r.get(\"updated\")} added={r.get(\"added\")} removed={r.get(\"removed\")} total={r.get(\"total_entries\")}')
+          "
+      - name: Entry Monitor - Check Buy List
+        if: steps.portfolio_gate.outputs.enabled == 'true'
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
+          buylist_path = bp / 'idos-journal' / 'portfolio' / 'buylist.yml'
+          entry_signals = []
+          if not buylist_path.exists():
+              print('[ENTRY] No Buy List found')
+              Path('cache/entry_signals.json').write_text(json.dumps({'signals': []}), encoding='utf-8')
+              exit(0)
+          import yaml
+          data = yaml.safe_load(buylist_path.read_text(encoding='utf-8')) or {}
+          entries = [e for e in data.get('entries', []) if e.get('monitoring', True)]
+          print(f'[ENTRY] Monitoreando {len(entries)} oportunidades en Buy List')
+          for e in entries:
+              ticker = e['ticker']
+              opp_id = e.get('opp_id', '')
+              if not opp_id:
+                  print(f'[ENTRY] {ticker}: sin opp_id, skip')
+                  continue
+              from idos.workers.portfolio.entry_monitor_worker import EntryMonitorWorker
+              from idos.workers.base import WorkerStatus
+              w = EntryMonitorWorker()
+              result = w.execute({'ticker': ticker, 'opp_id': opp_id, 'base_path': str(bp)})
+              if result.status == WorkerStatus.FAILED and result.error:
+                  print(f'[ENTRY] {ticker}: ERROR - {result.error}')
+                  continue
+              r = result.output if hasattr(result, 'output') else result
+              if r.get('entry_executed'):
+                  print(f'[ENTRY] {ticker}: CONDICIONES CUMPLIDAS')
+                  entry_signals.append({
+                      'ticker': r.get('ticker'),
+                      'opp_id': r.get('opp_id'),
+                      'current_price': r.get('current_price'),
+                      'target_price': r.get('target_price'),
+                      'margin_of_safety_pct': r.get('margin_of_safety_pct'),
+                      'wyckoff_phase': r.get('wyckoff_phase'),
+                      'wyckoff_score': r.get('wyckoff_score'),
+                      'wyckoff_confidence': r.get('wyckoff_confidence'),
+                      'wyckoff_stop_loss': r.get('wyckoff_stop_loss'),
+                      'wyckoff_price_target': r.get('wyckoff_price_target'),
+                      'adjusted_weight': r.get('adjusted_weight'),
+                      'reason': r.get('reason'),
+                  })
+              elif r.get('status') == 'skipped':
+                  print(f'[ENTRY] {ticker}: SKIP - {r.get(\"reason\", \"sin razón\")}')
+              else:
+                  reason = r.get('reason', 'esperando condiciones')
+                  print(f'[ENTRY] {ticker}: {reason}')
+                  pz = r.get('price_in_zone')
+                  ms = r.get('margin_of_safety_pct')
+                  tp = r.get('target_price')
+                  wc = r.get('wyckoff_confirmed')
+                  wp = r.get('wyckoff_phase')
+                  ta = r.get('thesis_active')
+                  pf = r.get('portfolio_fit')
+                  print(f'  price_zone={pz} margin={ms}% target={tp}')
+                  print(f'  wyckoff={wc} phase={wp}')
+                  print(f'  thesis={ta} portfolio_fit={pf}')
+          Path('cache').mkdir(parents=True, exist_ok=True)
+          Path('cache/entry_signals.json').write_text(json.dumps({'signals': entry_signals}), encoding='utf-8')
+          "
+      - name: "Report Data Errors"
+        if: always()
+        run: |
+          if [ "$GITHUB_REF_NAME" = "main" ]; then
+            python -m idos.workers.automation.data_error_reporter
+          else
+            python -m idos.workers.automation.data_error_reporter --dry-run
+          fi
+      - name: Paper Trader - Execute Entry
+        if: steps.portfolio_gate.outputs.enabled == 'true'
+        run: |
+          python -m idos.workers.portfolio.execute_entry_signals
+      - name: Risk Monitor - Daily risk assessment
+        if: steps.portfolio_gate.outputs.enabled == 'true'
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.workers.portfolio.rebalance_worker import RiskMonitorWorker
+          w = RiskMonitorWorker()
+          result = w.execute({'base_path': os.environ.get('GITHUB_WORKSPACE', '.')})
+          r = result.output if hasattr(result, 'output') else result
+          alerts = r.get('alerts', [])
+          if alerts:
+              print(f'[RISK] {len(alerts)} alertas generadas:')
+              for a in alerts:
+                  print(f'  [{a[\"severity\"]}] {a[\"ticker\"]}: {a[\"message\"]}')
+          else:
+              print(f'[RISK] {r.get(\"positions_checked\", 0)} posiciones revisadas, sin alertas')
+          "
+      - name: Exit Decision Engine
+        if: steps.portfolio_gate.outputs.enabled == 'true'
+        run: |
+          python -c "
+          import sys, os, json
+          from pathlib import Path
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.ai.service import LLMService
+          _mp = Path('idos-config/models.yml')
+          _llm_svc = LLMService(str(_mp)) if _mp.exists() else LLMService()
+          from idos.workers.portfolio.exit_monitor_worker import ExitMonitorWorker
+          w = ExitMonitorWorker({'llm_service': _llm_svc, 'prompts_path': 'idos-config/prompts'})
+          result = w.execute({'base_path': str(bp)})
+          r = result.output if hasattr(result, 'output') else result
+          print(f'[EXIT] positions_checked={r.get(\"positions_checked\", 0)} exits={r.get(\"exits_executed\", 0)} proposals={r.get(\"proposals_generated\", 0)}')
+          for ex in r.get('exits', []):
+              print(f'  [EXIT] {ex.get(\"ticker\")}: {ex.get(\"reason\")} pct={ex.get(\"exit_pct\", 0)*100:.0f}% -> {ex.get(\"new_status\", \"\")}')
+          for pr in r.get('proposals', []):
+              print(f'  [PROP] {pr.get(\"ticker\")}: sustitución propuesta (no liquidada)')
+          " |& tee /tmp/exit_monitor.log
+          if ! grep -q 'positions_checked' /tmp/exit_monitor.log; then
+            echo "::error::Exit Monitor failed to produce results"
+            exit 1
+          fi
+      - name: Monthly Portfolio Report
+        if: steps.portfolio_gate.outputs.enabled == 'true'
+        run: |
+          python -c "
+          import sys, os, json, calendar
+          from pathlib import Path
+          from datetime import date
+          sys.stdout.reconfigure(line_buffering=True) if hasattr(sys.stdout, 'reconfigure') else None
+          os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
+          today = date.today()
+          last_day = calendar.monthrange(today.year, today.month)[1]
+          days_left = last_day - today.day
+          if days_left > 2:
+              print(f'[REPORT] No es fin de mes ({today.day}/{last_day}, faltan {days_left} dias)')
+              exit(0)
+          bp = Path(os.environ.get('GITHUB_WORKSPACE', '.'))
+          from idos.data.journal import JournalRepository
+          from idos.config import load_config
+          journal = JournalRepository(bp / 'idos-journal')
+          cfg = load_config(bp / 'idos-config' / 'portfolio.yml') or {}
+          from idos.workers.portfolio.paper_trader_worker import PaperTraderWorker
+          pw = PaperTraderWorker(cfg)
+          from idos.timezone import AR_TZ
+          from datetime import datetime
+          now = datetime.now(AR_TZ)
+          pr = pw.execute({'action': 'report', 'report_date': now.isoformat(), 'base_path': str(bp)})
+          r = pr.output if hasattr(pr, 'output') else pr
+          print(f'[REPORT] Status: {r.get(\"status\")}, Path: {r.get(\"report_path\", \"\")}')
+          "
+      - name: Post-Mortem requires private persistent runner
+        run: echo 'Post-mortem deferred to private runner; public CI does not process closed positions.'
+      - name: Dispatch quarterly-results events
+        if: github.event_name != 'workflow_dispatch' || inputs.dispatch_research_events
+        run: |
+          if [ ! -f cache/earnings_trigger.json ]; then
+            echo "[DISPATCH] No earnings to dispatch"
+            exit 0
+          fi
+          TICKERS=$(python -c "import json; d=json.load(open('cache/earnings_trigger.json')); print(','.join(d['triggered']))")
+          if [ -z "$TICKERS" ]; then
+            echo "[DISPATCH] No tickers to dispatch"
+            exit 0
+          fi
+          echo "[DISPATCH] Dispatching quarterly-results for $TICKERS (batched)"
+          python scripts/build_earnings_dispatch_payload.py
+          curl --fail --show-error -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            --data-binary @cache/earnings_dispatch_payload.json
+          echo ""
+
+      - name: Commit cache
+        run: |
+          TARGET_BRANCH="${GITHUB_REF_NAME}"
+          if [ -z "$TARGET_BRANCH" ]; then
+            echo "::error::No target branch resolved; refusing to publish refresh results"
+            exit 1
+          fi
+          git config user.name "idos-bot"
+          git config user.email "bot@idos.local"
+          python -m idos.market.public_cache
+          git add cache/earnings_trigger.json 2>/dev/null || true
+          git add idos-config/events/earnings.yml 2>/dev/null || true
+          git add idos-journal/portfolio/buylist.yml 2>/dev/null || true
+          git add ":(glob)idos-journal/**/wyckoff/**" 2>/dev/null || true
+          git add ":(glob)idos-knowledge/**/wyckoff/**" 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: daily data refresh $(date +%Y-%m-%d)"
+            # Generated portfolio and signal files are transient on this runner.
+            git stash push --include-untracked -m 'daily refresh transient portfolio outputs'
+            git fetch origin "$TARGET_BRANCH"
+            git rebase "origin/$TARGET_BRANCH"
+            git push origin "HEAD:$TARGET_BRANCH"
+          fi
+      - name: 🐛 Report failure as GitHub Issue
+        if: failure() && github.ref_name == 'main'
+        run: python -m idos.workers.automation.gha_error_reporter
+
+      - name: Upload cache artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-refresh-${{ github.run_id }}
+          path: |
+            cache/last_refresh.json

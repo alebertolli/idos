@@ -1,0 +1,80 @@
+rules:
+  - id: RULE-001
+    description: "Minimum business quality score for entry"
+    priority: 100
+    condition: "assessments.business_quality >= 70"
+    action: "PASS"
+    stage: authorization
+    active: true
+
+  - id: RULE-002
+    description: "Price target margin > 20% vs current price"
+    priority: 90
+    condition: "price_margin > 20"
+    action: "PASS"
+    stage: execution
+    active: true
+
+  - id: RULE-003
+    description: "Minimum rerating probability score"
+    priority: 80
+    condition: "assessments.rerating.score >= 50"
+    action: "PASS"
+    stage: authorization
+    active: true
+
+  - id: RULE-004
+    description: "Maximum risk score allowed"
+    priority: 100
+    condition: "assessments.risk.score >= 50"
+    action: "PASS"
+    stage: authorization
+    active: true
+
+  - id: RULE-005
+    description: "Minimum overall conviction for entry"
+    priority: 95
+    condition: "conviction.overall >= 65"
+    action: "PASS"
+    stage: authorization
+    active: true
+
+  - id: RULE-006
+    description: "Maximum portfolio weight per position"
+    priority: 100
+    condition: "portfolio.position_weight + new_position_weight <= 3.0"
+    action: "BLOCK"
+    stage: execution
+    active: true
+
+  - id: RULE-007
+    description: "Maximum sector exposure"
+    priority: 90
+    condition: "portfolio.sector_exposure + new_sector_exposure <= 25.0"
+    action: "BLOCK"
+    stage: execution
+    active: true
+
+  - id: RULE-008
+    description: "Minimum asymmetry ratio 3:1"
+    priority: 100
+    condition: "opportunity.asymmetry_ratio >= 3.0"
+    action: "PASS"
+    stage: authorization
+    active: true
+
+  - id: RULE-009
+    description: "Capital competition - max active positions"
+    priority: 80
+    condition: "portfolio.num_positions < 10"
+    action: "BLOCK"
+    stage: execution
+    active: true
+
+  - id: RULE-010
+    description: "Financial inputs must include a source and valid cutoff date"
+    priority: 110
+    condition: "financial_data_quality has valid source and as_of_date"
+    action: "PASS"
+    stage: authorization
+    active: true

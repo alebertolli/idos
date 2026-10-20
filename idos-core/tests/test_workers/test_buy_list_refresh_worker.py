@@ -1,0 +1,167 @@
+from pathlib import Path
+
+import pytest
+import yaml
+
+from idos.data.journal import JournalRepository
+from idos.models.enums import OpportunityStatus
+from idos.workers.portfolio.buy_list_refresh_worker import BuyListRefreshWorker
+
+
+@pytest.fixture
+def buylist_env(tmp_path: Path):
+    sqlite_path = tmp_path / "idos.db"
+    from idos.data.sqlite import SQLiteStore
+    db = SQLiteStore(sqlite_path)
+    journal = JournalRepository(tmp_path / "idos-journal")
+
+    for i, ticker in enumerate(["AAPL", "MSFT"]):
+        opp_id = f"OPP-BL-{i}"
+        db.save_opportunity({
+            "id": opp_id,
+            "ticker": ticker,
+            "status": OpportunityStatus.APPROVED.value,
+            "conviction": {"overall": 80, "intrinsic_value": 220, "current_price": 150},
+            "intrinsic_value": 220,
+            "current_price": 150,
+            "horizon": "12-36 months",
+            "created_at": "2026-01-01T00:00:00",
+            "updated_at": "2026-01-01T00:00:00",
+        })
+        journal.save_opportunity(ticker, db.get_opportunity(opp_id))
+    return db, journal, tmp_path
+
+
+class TestBuyListRefreshWorker:
+    def test_writes_buylist_yml(self, buylist_env, tmp_path: Path):
+        db, journal, bp = buylist_env
+        w = BuyListRefreshWorker()
+        result = w.execute({"base_path": str(bp)})
+        assert result.status == "success"
+        r = result.output
+        assert r["status"] == "completed"
+        assert r["added"] == 2
+
+        buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
+        assert buylist_path.exists(), "buylist.yml should be written"
+        data = yaml.safe_load(buylist_path.read_text(encoding="utf-8"))
+        entries = {e["ticker"]: e for e in data["entries"]}
+        assert "AAPL" in entries and "MSFT" in entries
+        assert entries["AAPL"]["target_price"] == pytest.approx(220.0)
+        assert entries["AAPL"]["buy_zone_top"] == pytest.approx(169.23)  # 220 / (1 + 30/100)
+
+    def test_preserves_opp_id_and_monitoring(self, buylist_env, tmp_path: Path):
+        db, journal, bp = buylist_env
+        buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
+        buylist_path.parent.mkdir(parents=True, exist_ok=True)
+        buylist_path.write_text(yaml.dump({
+            "entries": [{
+                "ticker": "AAPL",
+                "opp_id": "OPP-BL-0",
+                "target_price": 0,
+                "buy_zone_top": 0,
+                "max_position_pct": 3.0,
+                "conviction_score": 80,
+                "horizon": "12-36 months",
+                "catalysts": [],
+                "kb_last_update": "",
+                "added_at": "",
+                "monitoring": True,
+            }]
+        }), encoding="utf-8")
+
+        w = BuyListRefreshWorker()
+        result = w.execute({"base_path": str(bp)})
+        r = result.output
+        assert r["status"] == "completed"
+        assert r["updated"] == 1
+        assert r["added"] == 1
+
+        data = yaml.safe_load(buylist_path.read_text(encoding="utf-8"))
+        entries = {e["ticker"]: e for e in data["entries"]}
+        assert entries["AAPL"]["opp_id"] == "OPP-BL-0"
+        assert entries["AAPL"]["monitoring"] is True
+        assert entries["MSFT"]["monitoring"] is True
+
+    def test_preserves_buylist_when_no_approved_opportunities(self, tmp_path: Path):
+        bp = tmp_path
+        journal = JournalRepository(bp / "idos-journal")
+        db = None
+        buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
+        buylist_path.parent.mkdir(parents=True, exist_ok=True)
+        buylist_path.write_text(yaml.dump({
+            "entries": [{
+                "ticker": "AAPL",
+                "opp_id": "OPP-BL-0",
+                "target_price": 220.0,
+                "buy_zone_top": 154.0,
+                "max_position_pct": 3.0,
+                "conviction_score": 80,
+                "horizon": "12-36 months",
+                "catalysts": [],
+                "kb_last_update": "",
+                "added_at": "",
+                "monitoring": True,
+            }]
+        }), encoding="utf-8")
+
+        w = BuyListRefreshWorker()
+        result = w.execute({"base_path": str(bp)})
+        r = result.output
+        assert r["status"] == "completed"
+        assert r["removed"] == 0
+        assert r["fail_safe"] is True
+
+        data = yaml.safe_load(buylist_path.read_text(encoding="utf-8"))
+        entries = {e["ticker"]: e for e in data["entries"]}
+        assert "AAPL" in entries, "buylist should be preserved when no approved opportunities"
+
+    def test_includes_manager_approved_candidate_without_entering_private_portfolio_flow(self, tmp_path: Path):
+        bp = tmp_path
+        journal = JournalRepository(bp / "idos-journal")
+        journal.save_opportunity("VIST", {
+            "id": "OPP-BL-REVIEWED",
+            "ticker": "VIST",
+            "status": OpportunityStatus.UNDER_DEEP_DD.value,
+            "approved_for_buylist": True,
+            "conviction": {"overall": 78, "intrinsic_value": 125, "current_price": 100},
+            "intrinsic_value": 125,
+            "current_price": 100,
+            "created_at": "2026-10-19T00:00:00-03:00",
+            "updated_at": "2026-10-19T00:00:00-03:00",
+        })
+
+        result = BuyListRefreshWorker().execute({"base_path": str(bp)})
+
+        assert result.status == "success"
+        assert result.output["added"] == 1
+        data = yaml.safe_load((bp / "idos-journal/portfolio/buylist.yml").read_text(encoding="utf-8"))
+        assert data["entries"][0]["ticker"] == "VIST"
+        assert not (bp / "idos-journal/portfolio/positions").exists()
+        assert journal.load_opportunity("VIST", "OPP-BL-REVIEWED")["status"] == OpportunityStatus.UNDER_DEEP_DD.value
+
+    def test_skips_approved_without_intrinsic(self, buylist_env, tmp_path: Path):
+        db, journal, bp = buylist_env
+        opp_id = "OPP-BL-NOINTR"
+        journal.save_opportunity("NVDA", {
+            "id": opp_id,
+            "ticker": "NVDA",
+            "status": OpportunityStatus.APPROVED.value,
+            "conviction": {"overall": 60},
+            "created_at": "2026-01-01T00:00:00",
+            "updated_at": "2026-01-01T00:00:00",
+        })
+
+        w = BuyListRefreshWorker()
+        result = w.execute({"base_path": str(bp)})
+        r = result.output
+        assert r["status"] == "completed"
+        assert r["added"] == 2  # AAPL y MSFT (NVDA sin intrinsic se salta)
+        assert r["updated"] == 0
+        assert r["removed"] == 0
+
+        buylist_path = bp / "idos-journal" / "portfolio" / "buylist.yml"
+        data = yaml.safe_load(buylist_path.read_text(encoding="utf-8"))
+        tickers = {e["ticker"] for e in data["entries"]}
+        assert "AAPL" in tickers and "MSFT" in tickers
+        assert "NVDA" not in tickers
