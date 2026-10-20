@@ -92,7 +92,7 @@ class TestMonthlyReassessment:
         _seed_price(sqlite, "AAA", 100)
         _seed_price(sqlite, "BBB", 100)
 
-        worker = _make_worker(bp)
+        worker = _make_worker(bp, portfolio={"runtime_enabled": True})
         seen = {}
         def record_scope(name):
             def record(opportunities, *args):
@@ -221,7 +221,7 @@ class TestMonthlyReassessment:
             "entries": [{"ticker": "FFF", "conviction_score": 90}],
         }, default_flow_style=False), encoding="utf-8")
 
-        w = _make_worker(bp)
+        w = _make_worker(bp, portfolio={"runtime_enabled": True})
         with patch.object(w, '_reassess_theses', return_value=[]), \
              patch.object(w, '_recalibrate_conviction', return_value=[]):
             r = w.execute({"base_path": str(bp)}).output
@@ -236,12 +236,26 @@ class TestMonthlyReassessment:
         _seed_full_position(sqlite, journal, bp, "GGG", price=100, intrinsic=200, conviction=80)
         _seed_price(sqlite, "GGG", 100)
 
-        w = _make_worker(bp)
+        w = _make_worker(bp, portfolio={"runtime_enabled": True})
         with patch.object(w, '_reassess_theses', return_value=[]), \
              patch.object(w, '_recalibrate_conviction', return_value=[]):
             r = w.execute({"base_path": str(bp)}).output
 
         assert len(r["proposals"]) == 0
+
+    def test_portfolio_review_is_disabled_by_default(self, tmp_path: Path):
+        bp = tmp_path
+        journal = JournalRepository(bp / "idos-journal")
+        sqlite = SQLiteStore(bp / "idos.db")
+        _seed_full_position(sqlite, journal, bp, "NO_PORTFOLIO")
+
+        worker = _make_worker(bp)
+        with patch.object(worker, "_review_portfolio") as review:
+            result = worker.execute({"base_path": str(bp)}).output
+
+        review.assert_not_called()
+        assert result["portfolio_reviewed"] == 0
+        assert result["portfolio_review_status"] == "disabled"
 
     def test_cache_written(self, tmp_path: Path):
         bp = tmp_path
