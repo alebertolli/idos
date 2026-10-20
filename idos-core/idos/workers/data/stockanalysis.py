@@ -45,18 +45,19 @@ class StockAnalysisWorker(BaseWorker):
 
         soup = BeautifulSoup(resp.text, "lxml")
         data = self._parse_statistics(soup, ticker)
-        data["financial_data_observed_at"] = datetime.now(timezone.utc).isoformat()
         provider_updated_date = self._parse_provider_updated_date(soup)
         if provider_updated_date:
             data["provider_data_updated_date"] = provider_updated_date
 
         financials_url = FINANCIALS_URL.format(ticker=ticker.lower())
+        source_urls = [url]
         try:
             time.sleep(self.delay)
             financials_response = requests.get(
                 financials_url, headers=headers, timeout=self.timeout
             )
             financials_response.raise_for_status()
+            source_urls.append(financials_url)
             financials_soup = BeautifulSoup(financials_response.text, "lxml")
             financials_data = self._parse_financials(financials_soup)
             data.update(financials_data)
@@ -68,6 +69,7 @@ class StockAnalysisWorker(BaseWorker):
             # to the existing fail-closed Scout/Assessment quality gates.
             data["data_quality_warnings"] = ["stockanalysis_financials_page_unavailable"]
 
+        data["financial_data_observed_at"] = datetime.now(timezone.utc).isoformat()
         data["ticker"] = ticker
         data["source"] = "stockanalysis.com"
         data["url"] = url
@@ -91,7 +93,7 @@ class StockAnalysisWorker(BaseWorker):
         data["data_provenance"] = {
             "source_count": 1,
             "sources_used": ["stockanalysis.com"],
-            "source_urls": [url, financials_url],
+            "source_urls": source_urls,
             "field_sources": field_sources,
             "field_urls": field_urls,
             "conflicts": [],
