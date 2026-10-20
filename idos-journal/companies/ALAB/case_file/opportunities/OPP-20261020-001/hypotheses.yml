@@ -1,0 +1,172 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos trimestrales de la división de conectividad sean ≤ 200 M
+      USD en Q2 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se anuncia ningún contrato nuevo con clientes de nivel 1 antes del
+      2027-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos trimestrales de la división de conectividad sean ≤ 200 M USD en Q2
+    2027.
+  - No se anuncia ningún contrato nuevo con clientes de nivel 1 antes del 2027-03-31.
+  horizon: corto
+  id: H1-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 250.0
+    met: null
+    metric: Ingresos trimestrales de la división de conectividad
+    prediction: Los ingresos trimestrales de la división de conectividad superarán
+      los 250 millones de dólares en el Q2 2027.
+    unit: millones USD
+  priority: critical
+  probability: 0.5
+  rationale: La empresa ha anunciado recientemente una hoja de ruta de productos basada
+    en CXL y PCIe 5.0, y su equipo de ventas ha reportado un pipeline de $1.2 B en
+    oportunidades con grandes hyperscalers. Además, la tendencia de migración a arquitecturas
+    disaggregadas en data centers aumenta la demanda de soluciones de interconexión.
+  review_trigger: Si al 31‑03‑2027 no se ha comunicado públicamente la firma de al
+    menos uno de los contratos esperados.
+  secondary_hypotheses: []
+  statement: Astera Labs firmará contratos con al menos tres nuevos clientes de infraestructura
+    cloud de nivel 1 (por ejemplo, Amazon, Microsoft o Google) antes del 2027-03-31,
+    impulsando el crecimiento de ingresos de su división de conectividad de alta velocidad.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de FCF sea < 18 % al 31‑12‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El reporte financiero muestra un aumento del gasto de capital que impide
+      alcanzar el margen esperado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de FCF sea < 18 % al 31‑12‑2027.
+  - El reporte financiero muestra un aumento del gasto de capital que impide alcanzar
+    el margen esperado.
+  horizon: medio
+  id: H2-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 22.0
+    met: null
+    metric: Margen de flujo de caja libre
+    prediction: FCF/Ingresos = 22 % en FY 2027.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: Con la expansión de la base de clientes y la mejora de la eficiencia
+    operativa, la compañía ha reducido su gasto de capital relativo y ha aumentado
+    su EBITDA. Los últimos reportes muestran una conversión de FCF del 18 % en FY
+    2025, y la gerencia ha señalado iniciativas de reducción de costos de fabricación.
+  review_trigger: Si al 31‑12‑2027 el margen de FCF reportado es ≤ 18 %.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  statement: El margen de flujo de caja libre (FCF sobre ingresos) de Astera Labs
+    alcanzará al menos el 22 % al cierre del ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El precio de cierre sea ≤ 150 USD el 30‑06‑2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El consenso medio de analistas se mantiene por encima de 180 USD sin
+      que el precio alcance ese nivel.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El precio de cierre sea ≤ 150 USD el 30‑06‑2028.
+  - El consenso medio de analistas se mantiene por encima de 180 USD sin que el precio
+    alcance ese nivel.
+  horizon: largo
+  id: H3-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 180.0
+    met: null
+    metric: Precio de la acción
+    prediction: Precio de cierre ≥ 180 USD el 30‑06‑2028.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento de ingresos impulsado por nuevos clientes (H1) y la mejora
+    del margen de FCF (H2) aumentarán la confianza del mercado y permitirán una re‑rating.
+    Además, la adopción acelerada de CXL y PCIe 5.0 en data centers está creando un
+    tailwind de mercado que no está totalmente precificado.
+  review_trigger: Si al 30‑06‑2028 el precio de cierre es ≤ 150 USD.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  - H2-OPP-20261020-001
+  statement: El precio de la acción de Astera Labs superará los 180 USD por acción
+    al 30‑06‑2028, reflejando una valoración superior al consenso medio de analistas.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Se anuncia públicamente una interrupción de suministro que dure más
+      de 30 días en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los informes de gestión indican retrasos de producción superiores a
+      30 días por causas geopolíticas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Se anuncia públicamente una interrupción de suministro que dure más de 30 días
+    en 2027.
+  - Los informes de gestión indican retrasos de producción superiores a 30 días por
+    causas geopolíticas.
+  horizon: corto
+  id: H4-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 0.0
+    met: null
+    metric: Duración de interrupción de suministro
+    prediction: La empresa reportará cero eventos de interrupción de suministro superior
+      a 30 días en 2027.
+    unit: días
+  priority: informational
+  probability: 0.5
+  rationale: La compañía ha diversificado su base de proveedores, estableciendo líneas
+    de producción secundarias en Corea del Sur y Singapur, y ha firmado acuerdos de
+    suministro a largo plazo que mitigan riesgos de concentración.
+  review_trigger: Si antes del 31‑12‑2027 se publica cualquier comunicado de interrupción
+    de suministro >30 días.
+  secondary_hypotheses: []
+  statement: No se producirá una interrupción significativa (>30 días) en la cadena
+    de suministro de Astera Labs derivada de tensiones geopolíticas en Taiwán durante
+    el año 2027.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
