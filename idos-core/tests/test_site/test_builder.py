@@ -721,10 +721,15 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     assert opp["ddd"]["resumen_ejecutivo"] == "Momentum mensual normalizado con score 71"
     assert opp["ddd"]["score_general"] == 81
     assert opp["ddd"]["tesis_inversion"] == ""
+    assert opp["ddd"]["scenario_review"]["status"] == "not_applicable"
+    assert opp["ddd"]["scenario_validation"] == {"status": "not_applicable", "errors": []}
     assert opp["intrinsic_value"] is None
     assert opp["upside_pct"] is None
     assert opp["valuation_status"] == "NOT_APPLICABLE"
     assert opp["conviction_overall"] is None
+    site = write_site(tmp_path, tmp_path / "site-output")
+    app_js = (site / "assets" / "app.js").read_text(encoding="utf-8")
+    assert "Bear / Base / Bull no aplica a esta estrategia sistemática." in app_js
     # Older generated reports can contain synthetic volatility/probabilities.
     # Preserve their journals but require regeneration before public display.
     del report["strategy_context"]["report_method_version"]
