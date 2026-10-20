@@ -86,19 +86,22 @@ class DataRefreshWorker(BaseWorker):
             db = self.db
             try:
                 source_data = {}
-                print(f"[REFRESH] {ticker}: fetching stockanalysis...", end=" ")
-                try:
-                    sa_data = self.retry.execute(
-                        self.sources["stockanalysis"].execute, {"ticker": ticker}
-                    )
-                except Exception as e:
-                    sa_data = None
-                    print(f"fail ({e})")
-                    self.error_manager.report(
-                        category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
-                        message=f"stockanalysis.com fallo: {e}",
-                    )
-                    errors.append(f"{ticker}: stockanalysis fail ({e})")
+                sa_data = None
+                if asset_type != "etf":
+                    print(f"[REFRESH] {ticker}: fetching stockanalysis...", end=" ")
+                    try:
+                        sa_data = self.retry.execute(
+                            self.sources["stockanalysis"].execute, {"ticker": ticker}
+                        )
+                    except Exception as e:
+                        print(f"fail ({e})")
+                        self.error_manager.report(
+                            category=CATEGORY_DATOS, severity=SEVERITY_MEDIUM, ticker=ticker,
+                            message=f"stockanalysis.com fallo: {e}",
+                        )
+                        errors.append(f"{ticker}: stockanalysis fail ({e})")
+                else:
+                    print(f"[REFRESH] {ticker}: StockAnalysis no aplica a ETF. ", end="")
 
                 if sa_data and getattr(sa_data, "status", "") == "success":
                     source_data["stockanalysis.com"] = sa_data.output
@@ -147,7 +150,11 @@ class DataRefreshWorker(BaseWorker):
                     source_data["sec_edgar"] = sec_data
 
                 if len(source_data) > 0:
-                    if "stockanalysis.com" not in source_data and "yfinance" in source_data:
+                    if (
+                        asset_type != "etf"
+                        and "stockanalysis.com" not in source_data
+                        and "yfinance" in source_data
+                    ):
                         self.error_manager.report(
                             category=CATEGORY_DATOS, severity=SEVERITY_LOW, ticker=ticker,
                             message="degradacion de fuente: fallback a yfinance",

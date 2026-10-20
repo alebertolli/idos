@@ -530,3 +530,18 @@ en el fixture.
    run exige Research y Assessment previos, reemplaza solo el Assessment del
    `(ticker, opp_id)` elegido, conserva los otros resultados, omite Research y
    Monthly Re-Assessment, y genera artifacts/commit sin invocar IA ni Pages.
+
+### Enrutamiento de fuentes por tipo de activo
+
+1. Para un ETF operable, verificar que `DataRefreshWorker` no invoque
+   StockAnalysis, obtenga cotización e historial desde Yahoo, complete el gate
+   de liquidez y no registre fallback de fuente por la ausencia de un proveedor
+   de fundamentales que no aplica a ETF.
+2. Para una acción, verificar que StockAnalysis siga siendo la fuente primaria;
+   si falla y Yahoo devuelve datos, mantener el registro de degradación de baja
+   severidad definido en SDD/16.
+3. En una rama de prueba de GitHub Actions, ejecutar Daily Refresh con un solo
+   ETF operable, simulación y dispatch de eventos desactivados. Confirmar el
+   proveedor consultado, estado del gate, ausencia del aviso falso de fallback,
+   ausencia de procesamiento portfolio, modo dry-run del reporter y commit sólo
+   en la rama elegida.

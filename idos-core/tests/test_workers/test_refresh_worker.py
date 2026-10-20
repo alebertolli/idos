@@ -40,6 +40,70 @@ def test_refresh_worker_empty_context():
     assert result["tickers_processed"] == 0
 
 
+def test_refresh_worker_routes_etfs_to_yahoo_without_reporting_fallback(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    worker = DataRefreshWorker()
+    worker._asset_type_for_ticker = lambda _ticker: "etf"
+    worker._fetch_sec_fundamentals = lambda _ticker, _asset_type: None
+    worker._normalize_market_gate_metrics = lambda *_args, **_kwargs: {
+        "asset_type": "etf",
+        "market_cap_usd": None,
+        "avg_dollar_volume_usd": 125_000_000,
+        "market_data_normalization": {"status": "complete", "errors": []},
+        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY"},
+    }
+    worker._save_company_info = lambda *_args, **_kwargs: None
+    worker._save_price_history = lambda *_args, **_kwargs: None
+
+    calls = []
+    errors_reported = []
+
+    class Provider:
+        def __init__(self, name, result):
+            self.name = name
+            self.result = result
+
+        def execute(self, context):
+            calls.append((self.name, context))
+            if self.name == "stockanalysis":
+                raise AssertionError("ETFs must not query StockAnalysis")
+            return self.result
+
+    class Cache:
+        def get(self, _key):
+            return None
+
+        def set(self, *_args, **_kwargs):
+            return None
+
+    class ErrorManager:
+        def report(self, **event):
+            errors_reported.append(event)
+
+    yahoo_output = {
+        "ticker": "XLF",
+        "quote_currency": "USD",
+        "exchange": "NMS",
+        "price_history": [40.0, 41.0],
+        "price_history_dates": ["2026-10-19", "2026-10-20"],
+        "volume_history": [1_000_000, 1_100_000],
+        "price_history_basis": "close_unadjusted",
+    }
+    worker.sources["stockanalysis"] = Provider("stockanalysis", None)
+    worker.sources["yfinance"] = Provider(
+        "yfinance", SimpleNamespace(status="success", output=yahoo_output)
+    )
+    worker.retry = SimpleNamespace(execute=lambda method, context: method(context))
+    worker.cache = Cache()
+    worker.error_manager = ErrorManager()
+
+    result = worker.run({"tickers": ["XLF"]})
+
+    assert result["tickers"] == ["XLF"]
+    assert calls == [("yfinance", {"ticker": "XLF"})]
+    assert not any("degradacion de fuente" in event["message"] for event in errors_reported)
+
+
 def test_refresh_worker_fetches_sec_fundamentals_only_for_equities():
     config = Path(__file__).parents[3] / "idos-config"
     worker = DataRefreshWorker({"config_path": str(config)})
