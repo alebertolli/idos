@@ -11,7 +11,6 @@ from idos.workers.data.refresh_worker import DataRefreshWorker
 from idos.workers.data.cache import DataCache
 from idos.workers.data.pipeline_report import PipelineMetrics, PipelineReportGenerator
 from idos.discovery.operability import OperabilityFilter
-from idos.discovery.screening import FinvizScreener
 from idos.discovery.scout import ScoutEngine
 from idos.discovery.watchlist import WatchlistManager
 from idos.discovery.ranking import RankingSystem
