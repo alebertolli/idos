@@ -41,8 +41,7 @@ concurrency:
 
 jobs:
   record-manager-decision:
-    # Manager review runs on an isolated test branch; never mutate production/main.
-    if: github.ref != 'refs/heads/main'
+    # Persist only an authenticated, explicitly submitted Board decision on the selected branch.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

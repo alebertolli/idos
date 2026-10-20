@@ -193,3 +193,11 @@ def test_manager_review_preserves_identity_and_path_validation(tmp_path):
         record_decision_review(tmp_path, "TEST", "OPP-1", proposal_hash, "approved", " ", note, True)
     with pytest.raises(ValueError, match="Opportunity id"):
         record_decision_review(tmp_path, "TEST", "../private", proposal_hash, "approved", "manager", note, True)
+
+
+def test_decision_review_workflow_can_record_the_board_decision_on_main():
+    workflow = Path(__file__).resolve().parents[3] / ".github" / "workflows" / "decision-review.yml"
+    source = workflow.read_text(encoding="utf-8")
+
+    assert "if: github.ref != 'refs/heads/main'" not in source
+    assert 'git push origin "HEAD:${GITHUB_REF_NAME}"' in source
