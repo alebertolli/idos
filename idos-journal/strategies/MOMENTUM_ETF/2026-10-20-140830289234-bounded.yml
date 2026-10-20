@@ -1,0 +1,47 @@
+action: REVIEW_ALLOCATION
+as_of_date: '2026-10-20'
+candidate_count: 1
+candidate_source: idos-config/universe/operable.yml
+candidate_tickers:
+- XLF
+configured_universe_count: 7
+coverage_complete: true
+eligible:
+- &id001
+  as_of_date: '2026-10-01'
+  momentum: 0.6477307844722802
+  ticker: XLF
+eligible_universe_count: 7
+excluded_manual_tickers:
+- ALAB
+excluded_not_operable: []
+excluded_unsupported_asset_types: []
+formula: 12*P0/P1 + 4*P0/P3 + 2*P0/P6 + P0/P12 - 19
+generated_at: '2026-10-20T14:08:30.289234-03:00'
+market_gate:
+  accepted_count: 1
+  avg_dollar_volume_min_usd: 100000.0
+  basis: UNDERLYING_USD_PROXY
+  blocked_count: 0
+  coverage_complete: true
+  evaluated_count: 1
+  expected_count: 1
+  market_cap_applies_to:
+  - us_equity
+  market_cap_min_usd: 2000000000.0
+  rejected: []
+  strategy_universe_eligible_count: 1
+missing_history: []
+ranking:
+- *id001
+requested_tickers:
+- ALAB
+- XLF
+run_scope: bounded
+selected:
+- *id001
+signal_policy:
+  maximum_signal: 2.7
+  minimum_signal: 0.6
+  select_top: 2
+strategy_id: MOMENTUM_ETF
