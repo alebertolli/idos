@@ -490,20 +490,24 @@ en el fixture.
 1. Probar que la selección manual vacía, no operable y por encima del límite
    falla antes de ejecutar workers o solicitar datos a proveedores. Confirmar
    normalización, deduplicación y registro de los tickers elegidos.
-2. Verificar en Monthly Universe y Daily Refresh el límite de cinco símbolos;
-   en DDD, exactamente uno. Los cron deben conservar su selección normal y no
-   quedar sujetos a la guardia manual.
-3. En GitHub Actions, ejecutar Monthly Universe con `AAPL,QQQ` desde la rama
-   de prueba; revisar que COMPOUNDER sólo procese el activo compatible y que
-   MOMENTUM_ETF sólo procese el ETF. Confirmar que `candidate_count` no exceda
-   dos, no haya solicitudes para el resto de `operable.yml`, y auditar
-   resultados, rate limits, artifacts y commits antes de lanzar DDD.
+2. Verificar en Monthly Universe, Daily Refresh y DDD el límite manual de
+   cinco símbolos operables. Monthly preview y el DDD reusable deben recibir la
+   misma lista, y ningún selector downstream puede ampliar el alcance. Los cron
+   conservan su selección normal y no quedan sujetos a la guardia manual. La
+   re-revisión explícita de Buy List sigue limitada a un ticker.
+3. En GitHub Actions, ejecutar Monthly Universe con un candidato COMPOUNDER y
+   un ETF MOMENTUM_ETF; revisar que cada estrategia procese sólo los activos
+   compatibles y que el mismo conjunto llegue a preview y DDD. Confirmar que
+   `candidate_count` no exceda la selección, no haya solicitudes para el resto
+   de `operable.yml`, y auditar resultados, rate limits, artifacts y commits.
+   Una corrida verde sin Research de ambas estrategias no satisface el E2E.
 4. Inducir un fallo controlado de reporting sin proveedor IA: verificar que el
    error reporter incluya workflow, ref, run y extracto de logs, cree una issue,
    y no importe ni invoque AutoFixAgent. El análisis de reparación sólo ocurre
    después del comando explícito de autorización.
 5. Para re-revisar Buy List, ejecutar DDD sólo en rama de prueba con
-   `review_buylist=true`, `force=true` y un único ticker operable. Confirmar
+   `review_buylist=true`, `force=true` y un único ticker operable, aun cuando
+   DDD admita hasta cinco tickers para la selección normal. Confirmar
    que se selecciona el `opp_id` exacto, se rechazan selección vacía/múltiple o
    posición paper, el nuevo Research invalida la aprobación anterior, retira
    sólo esa entrada y conserva `decisions/*.yml`. Probar que Decision Review
