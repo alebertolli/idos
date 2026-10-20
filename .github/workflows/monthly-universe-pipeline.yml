@@ -18,6 +18,8 @@ on:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
+    outputs:
+      has_eligible_opportunities: ${{ steps.ddd-preview.outputs.has_research_candidates }}
     permissions:
       contents: write
       issues: write
@@ -51,6 +53,13 @@ jobs:
         env:
           IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
         run: python scripts/run_monthly_strategy.py
+      - name: Preview DDD candidates
+        id: ddd-preview
+        if: github.ref == 'refs/heads/main'
+        env:
+          FORCE: "false"
+          EVENT_TYPE: monthly
+        run: python scripts/ddd_research.py --preview
       - name: Save & commit results
         if: always() && !cancelled()
         run: |
@@ -90,3 +99,18 @@ jobs:
       - name: 🐛 Report failure as GitHub Issue
         if: failure() && github.ref_name == 'main'
         run: python -m idos.workers.automation.gha_error_reporter
+
+  ddd-after-monthly:
+    needs: pipeline
+    if: github.ref == 'refs/heads/main' && needs.pipeline.outputs.has_eligible_opportunities == 'true'
+    uses: ./.github/workflows/ddd-pipeline.yml
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      actions: read
+    with:
+      allow_production_e2e: ${{ inputs.allow_production_e2e || false }}
+      skip_portfolio_reevaluation: true
+      trigger_type: monthly
+    secrets: inherit
