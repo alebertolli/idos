@@ -5,34 +5,34 @@ assessments:
     engine: BusinessAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'Exceptional ROIC: 27.09%'
+    - detail: 'Exceptional ROIC: 27.86%'
       type: POSITIVE
-    generated_at: '2026-10-08T12:13:10.759826-03:00'
-    id: BusinessAssessmentEngine-20261008121310
+    generated_at: '2026-10-20T10:10:26.977791-03:00'
+    id: BusinessAssessmentEngine-20261020101026
     recommendation: NEUTRAL
     risks: []
     score: 64
     status: COMPLETED
     version: '1.0'
   PortfolioAssessmentEngine:
-    confidence: HIGH
+    confidence: LOW
     dependencies: []
     engine: PortfolioAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: Portfolio has capacity for new position
-      type: POSITIVE
-    - detail: Sector Technology within diversification limits
-      type: POSITIVE
-    - detail: Only 0 positions, adding increases diversification
-      type: POSITIVE
-    generated_at: '2026-10-08T12:13:10.759894-03:00'
-    id: PortfolioAssessmentEngine-20261008121310
-    recommendation: EXCELLENT_FIT
-    risks: []
-    score: 90
+    - detail: Private family portfolio source is not connected; portfolio fit is not
+        assessed
+      type: PENDING
+    generated_at: '2026-10-20T10:10:26.977924-03:00'
+    id: PortfolioAssessmentEngine-20261020101026
+    recommendation: NOT_ASSESSED
+    risks:
+    - detail: Do not infer capacity, diversification, or position count from missing
+        or paper data
+      type: DATA_UNAVAILABLE
+    score: 50
     status: COMPLETED
-    version: '1.0'
+    version: '1.1'
   RecoveryAssessmentEngine:
     confidence: MEDIUM
     dependencies: []
@@ -52,8 +52,8 @@ assessments:
       score: 50
       type: DIMENSION
     - dimension: catalysts
-      level: LOW
-      score: 30
+      level: HIGH
+      score: 75
       type: DIMENSION
     - dimension: technical_confirmation
       level: MEDIUM
@@ -63,26 +63,24 @@ assessments:
       level: MEDIUM
       score: 60
       type: DIMENSION
-    generated_at: '2026-10-08T12:13:10.759876-03:00'
-    id: RecoveryAssessmentEngine-20261008121310
+    generated_at: '2026-10-20T10:10:26.977901-03:00'
+    id: RecoveryAssessmentEngine-20261020101026
     recommendation: MODERATE
     risks: []
-    score: 54
+    score: 62
     status: COMPLETED
     version: '1.0'
   RiskAssessmentEngine:
-    confidence: HIGH
+    confidence: MEDIUM
     dependencies: []
     engine: RiskAssessmentEngine
     evidence_ids: []
-    findings:
-    - detail: Low leverage
-      type: POSITIVE
-    generated_at: '2026-10-08T12:13:10.759884-03:00'
-    id: RiskAssessmentEngine-20261008121310
+    findings: []
+    generated_at: '2026-10-20T10:10:26.977914-03:00'
+    id: RiskAssessmentEngine-20261020101026
     recommendation: LOW_RISK
     risks: []
-    score: 80
+    score: 70
     status: COMPLETED
     version: '1.0'
   ValuationAssessmentEngine:
@@ -91,26 +89,49 @@ assessments:
     engine: ValuationAssessmentEngine
     evidence_ids: []
     findings:
-    - detail: 'FCF Yield: 11.6%'
+    - detail: 'FCF Yield: 8.3%'
       type: POSITIVE
-    generated_at: '2026-10-08T12:13:10.759845-03:00'
-    id: ValuationAssessmentEngine-20261008121310
+    generated_at: '2026-10-20T10:10:26.977847-03:00'
+    id: ValuationAssessmentEngine-20261020101026
     recommendation: FAIR
-    risks: []
-    score: 65
+    risks:
+    - detail: 'Price target below current: -4.9%'
+      type: VALUATION
+    score: 55
     status: COMPLETED
     version: '1.1'
-conviction_score: 67
-created_at: '2026-10-08T12:13:10.759965-03:00'
-generated_at: '2026-10-08T12:13:10.760982-03:00'
+conviction_score: 61
+created_at: '2026-10-20T10:10:26.978062-03:00'
+financial_data_quality:
+  as_of_basis: period_end_date
+  as_of_date: '2026-08-31'
+  as_of_date_source: stockanalysis.com
+  conflicting_core_metrics: []
+  core_metric_coverage: 5/5
+  missing_core_metrics: []
+  missing_provenance: []
+  source: stockanalysis.com
+  status: good
+  unreconciled_core_metrics: []
+generated_at: '2026-10-20T10:10:26.978204-03:00'
 opportunity_id: OPP-20260813-001
-reasoning: 'Rules blocked: RULE-001, RULE-008'
+reasoning: 'Rules blocked: RULE-001, RULE-005, RULE-008'
 recommendation: BLOCKED
+rules_details:
+  RULE-001: 'Business quality: 64/70'
+  RULE-003: 'Rerating: 62/50'
+  RULE-004: 'Risk: 70/50'
+  RULE-005: 'Conviction: 61/65'
+  RULE-008: 'Asimetría provisional; autorización bloqueada: el gestor aún no revisó
+    los escenarios'
+  RULE-010: Fuente y fecha de corte verificadas; cobertura 5/5
 rules_failed:
 - RULE-001
+- RULE-005
 - RULE-008
 rules_passed:
 - RULE-003
 - RULE-004
-- RULE-005
+- RULE-010
+status: BLOCKED
 type: opportunity:transitioned
