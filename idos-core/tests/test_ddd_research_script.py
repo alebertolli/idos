@@ -449,6 +449,58 @@ def test_buylist_re_review_is_opt_in_and_pages_workflow_run_is_main_only():
     assert pages_workflow["on"]["workflow_run"]["branches"] == ["main"]
 
 
+def test_monthly_pipeline_calls_ddd_only_when_eligible_candidates_exist():
+    repository_root = Path(__file__).resolve().parents[2]
+    ddd_workflow = yaml.load(
+        (repository_root / ".github/workflows/ddd-pipeline.yml").read_text(encoding="utf-8"),
+        Loader=yaml.BaseLoader,
+    )
+    monthly_workflow = yaml.load(
+        (repository_root / ".github/workflows/monthly-universe-pipeline.yml").read_text(encoding="utf-8"),
+        Loader=yaml.BaseLoader,
+    )
+
+    assert "workflow_call" in ddd_workflow["on"]
+    assert "workflow_run" not in ddd_workflow["on"]
+    caller = monthly_workflow["jobs"]["ddd-after-monthly"]
+    assert caller["needs"] == "pipeline"
+    assert caller["uses"] == "./.github/workflows/ddd-pipeline.yml"
+    assert "has_eligible_opportunities == 'true'" in caller["if"]
+    assert "allow_production_e2e" in ddd_workflow["on"]["workflow_call"]["inputs"]
+    assert "inputs.allow_production_e2e" in caller["with"]["allow_production_e2e"]
+    assert caller["with"]["skip_portfolio_reevaluation"] == "true"
+    assert caller["with"]["trigger_type"] == "monthly"
+    assert ddd_workflow["on"]["workflow_call"]["inputs"]["trigger_type"]["type"] == "string"
+    assert ddd_workflow["on"]["workflow_call"]["inputs"]["ticker"]["required"] == "false"
+
+
+def test_monthly_workflow_uses_the_ddd_selector_for_downstream_gate():
+    repository_root = Path(__file__).resolve().parents[2]
+    workflow = yaml.load(
+        (repository_root / ".github/workflows/monthly-universe-pipeline.yml").read_text(encoding="utf-8"),
+        Loader=yaml.BaseLoader,
+    )
+    job = workflow["jobs"]["pipeline"]
+    assert job["outputs"]["has_eligible_opportunities"] == (
+        "${{ steps.ddd-preview.outputs.has_research_candidates }}"
+    )
+    preview = next(step for step in job["steps"] if step.get("id") == "ddd-preview")
+    assert preview["if"] == "github.ref == 'refs/heads/main'"
+    assert preview["env"]["EVENT_TYPE"] == "monthly"
+    assert preview["run"] == "python scripts/ddd_research.py --preview"
+
+
+def test_ddd_preview_exports_whether_any_candidates_were_selected(tmp_path):
+    output_file = tmp_path / "github-output.txt"
+
+    ddd_research.write_preview_output(False, output_file)
+    ddd_research.write_preview_output(True, output_file)
+
+    assert output_file.read_text(encoding="utf-8") == (
+        "has_research_candidates=false\nhas_research_candidates=true\n"
+    )
+
+
 def test_assessment_only_workflow_runs_assessment_but_skips_research_and_monthly():
     repository_root = Path(__file__).resolve().parents[2]
     workflow = yaml.load(

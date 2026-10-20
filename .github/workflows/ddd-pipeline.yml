@@ -1,11 +1,28 @@
 name: DDD Research Pipeline
 
 on:
-  workflow_run:
-    workflows: ["Monthly Universe Pipeline"]
-    branches: [main]
-    types:
-      - completed
+  workflow_call:
+    inputs:
+      allow_production_e2e:
+        description: "Opt-in del workflow que llama para permitir una E2E acotada en main"
+        required: false
+        type: boolean
+        default: false
+      skip_portfolio_reevaluation:
+        description: "Omitir reevaluación privada de portfolio en llamadas de orquestación"
+        required: false
+        type: boolean
+        default: true
+      trigger_type:
+        description: "Contexto del workflow que llama"
+        required: false
+        type: string
+        default: manual
+      ticker:
+        description: "Símbolo opcional para limitar el análisis del workflow reusable"
+        required: false
+        type: string
+        default: ""
   workflow_dispatch:
     inputs:
       allow_production_e2e:
@@ -109,7 +126,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_branch || github.ref }}
+          ref: ${{ github.ref }}
       - name: Validate manual production opt-in and input combinations
         env:
           IDOS_ALLOW_PRODUCTION_E2E: ${{ inputs.allow_production_e2e }}
@@ -143,13 +160,17 @@ jobs:
 
       - name: Set run context
         run: |
-          TICKER="${{ github.event.inputs.ticker || github.event.client_payload.ticker || '' }}"
+          TICKER="${{ inputs.ticker || github.event.inputs.ticker || github.event.client_payload.ticker || '' }}"
           echo "TICKER=$TICKER" >> $GITHUB_ENV
           if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=${{ github.event.action }}" >> $GITHUB_ENV
-          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          elif [ "${{ inputs.trigger_type }}" = "monthly" ]; then
+            echo "FORCE=false" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
+            echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "workflow_call" ]; then
             echo "FORCE=${{ github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=${{ github.event.inputs.review_buylist || 'false' }}" >> $GITHUB_ENV
             echo "ASSESSMENT_ONLY=${{ github.event.inputs.assessment_only || 'false' }}" >> $GITHUB_ENV
@@ -181,7 +202,7 @@ jobs:
         run: python scripts/ddd_assessment.py
 
       - name: STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)
-        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true' && github.event.inputs.skip_portfolio_reevaluation != 'true'
+        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true' && inputs.skip_portfolio_reevaluation != true && github.event.inputs.skip_portfolio_reevaluation != 'true'
         run: python scripts/ddd_monthly.py
 
       - name: Generate Combined Digest
