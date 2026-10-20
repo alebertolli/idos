@@ -116,8 +116,7 @@ class StockAnalysisWorker(BaseWorker):
                 continue
         return None
 
-    @staticmethod
-    def _parse_financials(soup: BeautifulSoup) -> dict[str, Any]:
+    def _parse_financials(self, soup: BeautifulSoup) -> dict[str, Any]:
         """Extract TTM revenue growth and its accounting period from financials."""
         revenue_growth: float | None = None
         period_end_date: str | None = None
@@ -131,11 +130,11 @@ class StockAnalysisWorker(BaseWorker):
 
                 label = re.sub(r"\\s+", " ", values[0]).strip().lower()
                 if label == "revenue growth":
-                    parsed = StockAnalysisWorker()._parse_value(values[1])
+                    parsed = self._parse_value(values[1])
                     if isinstance(parsed, (float, int)):
                         revenue_growth = float(parsed)
                 elif label == "period ending":
-                    period_end_date = StockAnalysisWorker._parse_period_end(values[1])
+                    period_end_date = self._parse_period_end(values[1])
 
         result: dict[str, Any] = {}
         if revenue_growth is not None:
