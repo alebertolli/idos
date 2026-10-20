@@ -1,0 +1,26 @@
+events:
+- data:
+    classification: quality_at_fair_price
+    ddd_empty: false
+    event_evidence:
+      event_id: 5bbc225f2cb4d89d9a4422ba51b8d9b1912a975a0dad4e391d01e5377eff0dd2
+      event_type: quarterly_results
+      observed_at: '2026-10-20T13:08:10.304536+00:00'
+      occurred_at: '2026-10-01'
+      source_name: Yahoo Finance earnings calendar via yfinance
+      source_url: https://finance.yahoo.com/calendar/earnings/?symbol=ACN
+      summary: El calendario de resultados indica la fecha 2026-10-01. La fecha no
+        confirma por sí sola la publicación del reporte; Research debe verificar el
+        resultado en una fuente primaria.
+      ticker: ACN
+    event_type: quarterly-results
+    hypotheses: 4
+    input_snapshot_sha256: 69b7265f9ac1f7e5398d7e1f710bc3e7cdedfbdd93267cfacdd2a717ad8f02a2
+    opp_id: OPP-20260813-001
+    original_status: UNDER_RESEARCH
+    score: 84
+    strategy_version: legacy-compatible
+    ticker: ACN
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-20T13:10:25.607361'

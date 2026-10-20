@@ -33,6 +33,7 @@ concurrency:
 
 jobs:
   build:
+    if: vars.IDOS_DATA_RIGHTS_CONFIRMED == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

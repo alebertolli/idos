@@ -17,6 +17,7 @@ on:
 
 jobs:
   pipeline:
+    if: vars.IDOS_DATA_RIGHTS_CONFIRMED == 'true'
     runs-on: ubuntu-latest
     outputs:
       has_eligible_opportunities: ${{ steps.ddd-preview.outputs.has_research_candidates }}
