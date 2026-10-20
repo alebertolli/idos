@@ -24,7 +24,7 @@ El sistema gestiona simultáneamente múltiples estrategias de inversión bajo u
 - **Evidence**: Hecho o dato específico que respalda, debilita o refuta una Hypothesis.
 - **Decision**: Registro formal e inmutable de una decisión operativa o de inversión.
 - **Decision_Orchestrator**: Componente central que consolida los Assessments, aplica los Gates del IDE v2.0 y determina el resultado de cada decisión.
-- **Decision_Board**: Instancia de autorización estratégica (humana/IA) que aprueba o rechaza decisiones de inversión propuestas por el Decision_Orchestrator.
+- **Decision_Board**: Instancia humana de revisión y autorización de las propuestas preparadas por agentes y validadores deterministas. Es la primera interacción humana del flujo; una aprobación automática nunca sustituye la decisión atribuible del gestor.
 - **Gate**: Condición de validación estructurada del Decision Engine v2.0. Existen 8 Gates (GATE 0 a GATE 7). Los applicable_gates de cada estrategia determinan cuáles se evalúan.
 - **Conviction**: Objeto multidimensional que cuantifica el nivel de convicción sobre una Opportunity. Campos: `overall`, `scores` (pesos configurados por Strategy_Profile), `confidence`, `trend`.
 - **IAS**: Investment Attractiveness Score. Ranking relativo de atractivo de una oportunidad respecto al resto.
