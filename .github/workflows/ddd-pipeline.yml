@@ -45,6 +45,11 @@ on:
         required: false
         type: boolean
         default: false
+      skip_portfolio_reevaluation:
+        description: "Omitir la reevaluación mensual de cartera en una E2E sin cartera privada"
+        required: false
+        type: boolean
+        default: false
       event_date:
         description: "Fecha del evento material (YYYY-MM-DD); obligatoria si event_type no es manual"
         required: false
@@ -171,7 +176,7 @@ jobs:
         run: python scripts/ddd_assessment.py
 
       - name: STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)
-        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true'
+        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true' && github.event.inputs.skip_portfolio_reevaluation != 'true'
         run: python scripts/ddd_monthly.py
 
       - name: Generate Combined Digest
