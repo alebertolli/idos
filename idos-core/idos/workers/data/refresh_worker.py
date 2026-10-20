@@ -462,7 +462,7 @@ class DataRefreshWorker(BaseWorker):
             "exchange",
             "price_history", "volume_history", "price_history_dates",
             "price_history_basis",
-            "fcf", "operating_margin_pct", "revenue_growth_pct",
+            "levered_fcf", "operating_margin_pct", "revenue_growth_pct",
             "financial_currency", "financial_data_observed_at", "financial_period_end_timestamp",
         )
         result = {key: yahoo_data[key] for key in keys if key in yahoo_data}

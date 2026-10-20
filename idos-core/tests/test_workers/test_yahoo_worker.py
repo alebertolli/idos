@@ -54,3 +54,24 @@ def test_yahoo_worker_keeps_summary_when_history_endpoint_fails(monkeypatch):
     assert result["price"] == 20.0
     assert "price_history" not in result
     assert result["provider_errors"] == ["history: history endpoint unavailable"]
+
+
+def test_yahoo_free_cash_flow_is_labeled_as_levered(monkeypatch):
+    class Stock:
+        info = {
+            "currency": "USD",
+            "financialCurrency": "EUR",
+            "freeCashflow": 10_374_124_544,
+        }
+        fast_info = {}
+
+        def history(self, **kwargs):
+            return SimpleNamespace(empty=True)
+
+    monkeypatch.setattr(yahoo.yf, "Ticker", lambda ticker: Stock())
+
+    result = YahooFinanceWorker().run({"ticker": "ASML"})
+
+    assert result["levered_fcf"] == 10_374_124_544
+    assert result["financial_currency"] == "EUR"
+    assert "fcf" not in result

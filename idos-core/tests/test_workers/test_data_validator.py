@@ -32,6 +32,19 @@ def test_cross_validate_tracks_provenance_for_each_field():
     assert result["field_sources"]["roic_pct"] == ["stockanalysis.com"]
 
 
+def test_cross_validate_keeps_levered_and_unlevered_fcf_as_distinct_metrics():
+    result = DataValidator().cross_validate({
+        "stockanalysis.com": {"fcf": 23_730_000_000},
+        "yfinance": {"levered_fcf": 10_374_124_544},
+    })
+
+    assert result["merged_data"]["fcf"] == 23_730_000_000
+    assert result["merged_data"]["levered_fcf"] == 10_374_124_544
+    assert result["field_sources"]["fcf"] == ["stockanalysis.com"]
+    assert result["field_sources"]["levered_fcf"] == ["yfinance"]
+    assert result["conflicts"] == []
+
+
 def test_cross_validate_conflict():
     v = DataValidator(tolerance_pct=10)
     result = v.cross_validate({
