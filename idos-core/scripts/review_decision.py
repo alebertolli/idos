@@ -15,8 +15,10 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from idos.decision.proposal_review import decision_proposal_fingerprint  # noqa: E402
 from idos.decision.scenarios import (  # noqa: E402
+    scenario_fingerprint,
     scenario_source_urls_from_report,
-    validate_scenario_review,
+    validate_scenario_analysis,
+    validate_board_scenario_confirmation,
 )
 from idos.timezone import AR_TZ  # noqa: E402
 
@@ -29,6 +31,7 @@ def record_decision_review(
     decision: str,
     reviewer: str,
     note: str,
+    sources_verified: bool = False,
 ) -> tuple[Path, Path]:
     if not re.fullmatch(r"[A-Za-z0-9.^=_-]{1,24}", ticker) or ticker in {".", ".."}:
         raise ValueError("Ticker has invalid characters")
@@ -75,14 +78,33 @@ def record_decision_review(
             raise ValueError("Fundamental approval requires a passed RULE-008 scenario assessment")
         if "RULE-008" in rules_passed:
             report = yaml.safe_load((opportunity_dir / "ddd_report.yml").read_text(encoding="utf-8"))
-            scenario_review = yaml.safe_load((opportunity_dir / "scenario_review.yml").read_text(encoding="utf-8")) if (opportunity_dir / "scenario_review.yml").exists() else None
             analysis = report.get("scenario_analysis") if isinstance(report, dict) else None
-            reviewed, reason = validate_scenario_review(
-                analysis, scenario_review,
+            errors = validate_scenario_analysis(
+                analysis, trusted_source_urls=scenario_source_urls_from_report(report),
+            )
+            if errors:
+                raise ValueError("Current Bear/Base/Bull scenarios are invalid: " + "; ".join(errors))
+            current_scenario_hash = scenario_fingerprint(analysis)
+            if proposal.get("scenario_hash") != current_scenario_hash:
+                raise ValueError("Current scenario set does not match the assessed proposal; rerun Assessment")
+            board_review = {
+                "status": "approved",
+                "scenario_hash": current_scenario_hash,
+                "reviewed_by": reviewer.strip(),
+                "reviewed_at": datetime.now(AR_TZ).isoformat(),
+                "note": note.strip(),
+                "sources_verified": sources_verified,
+            }
+            reviewed, reason = validate_board_scenario_confirmation(
+                analysis, board_review,
                 trusted_source_urls=scenario_source_urls_from_report(report),
             )
             if not reviewed:
-                raise ValueError("RULE-008 scenario review is not current: " + reason)
+                raise ValueError("Decision Board scenario review is not current: " + reason)
+        else:
+            current_scenario_hash = None
+    else:
+        current_scenario_hash = proposal.get("scenario_hash")
 
     portfolio_path = base_path / "idos-config" / "portfolio.yml"
     portfolio_config = yaml.safe_load(portfolio_path.read_text(encoding="utf-8")) if portfolio_path.exists() else {}
@@ -137,6 +159,8 @@ def record_decision_review(
         "decision_type": "BUY" if is_approved else "HOLD",
         "opportunity_id": opp_id,
         "proposal_hash": actual_hash,
+        "scenario_hash": current_scenario_hash,
+        "sources_verified": bool(sources_verified),
         "justification": note.strip(),
         "author": reviewer.strip(),
         "resolved_at": now.isoformat(),
@@ -153,6 +177,7 @@ def record_decision_review(
         "decision": decision,
         "reviewed_by": reviewer.strip(),
         "reviewed_at": now.isoformat(),
+        "sources_verified": bool(sources_verified),
     }
     proposal_path.write_text(yaml.safe_dump(proposal, allow_unicode=True, sort_keys=False), encoding="utf-8")
     opportunity["approved_for_buylist"] = is_approved
@@ -172,10 +197,11 @@ def main() -> int:
     parser.add_argument("--decision", choices=("approved", "rejected"), required=True)
     parser.add_argument("--reviewer", required=True)
     parser.add_argument("--note", required=True)
+    parser.add_argument("--sources-verified", choices=("true", "false"), default="false")
     args = parser.parse_args()
     resolution, record = record_decision_review(
         args.base_path, args.ticker, args.opp_id, args.proposal_hash,
-        args.decision, args.reviewer, args.note,
+        args.decision, args.reviewer, args.note, args.sources_verified == "true",
     )
     print(f"Manager decision recorded: {resolution}; immutable record: {record}")
     return 0

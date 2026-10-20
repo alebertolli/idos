@@ -273,7 +273,7 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     data = SiteBuilder(tmp_path).build()
     opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
 
-    assert opp["ddd"]["evidence_review"]["status"] == "pending_manager_review"
+    assert opp["ddd"]["evidence_review"]["status"] == "pending_decision_board"
     assert opp["ddd"]["resumen_ejecutivo"] == "Tesis antigua sin validar"
     assert opp["ddd"]["tesis_inversion"] == "Afirmación que requiere revisión"
     assert data.positions == []
@@ -292,7 +292,7 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert "Afirmación que requiere revisión" in payload
     assert "El crecimiento de ingresos superará 8%." in payload
     assert "Ingresos crecerán 8% para FY2027." in payload
-    assert "Informe pendiente de validación del gestor" in app
+    assert "Expediente generado automáticamente; pendiente del Decision Board" in app
 
 
 def test_public_site_explains_provider_update_date_basis(tmp_path: Path):
@@ -576,11 +576,11 @@ def test_public_site_does_not_accept_approval_without_reviewer_and_date(tmp_path
     data = SiteBuilder(tmp_path).build()
     opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
 
-    assert opp["ddd"]["evidence_review"]["status"] == "pending_manager_review"
+    assert opp["ddd"]["evidence_review"]["status"] == "pending_decision_board"
     assert opp["ddd"]["resumen_ejecutivo"] == "Tesis antigua sin validar"
 
 
-def test_public_site_shows_scenarios_with_sources_and_manager_review_hash(tmp_path: Path):
+def test_public_site_shows_agent_scenarios_for_single_decision_board_review(tmp_path: Path):
     import yaml
     from datetime import datetime, timedelta
     from idos.timezone import AR_TZ
@@ -612,23 +612,24 @@ def test_public_site_shows_scenarios_with_sources_and_manager_review_hash(tmp_pa
             },
         },
     }
-    report["scenario_validation"] = {"status": "valid_pending_manager_review", "errors": []}
+    report["scenario_validation"] = {"status": "valid_pending_decision_board", "errors": []}
     report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
 
     data = SiteBuilder(tmp_path).build()
     opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
     assert opp["ddd"]["scenario_analysis"]["scenarios"][0]["id"] == "BEAR"
-    assert opp["ddd"]["scenario_review"]["status"] == "pending_manager_review"
-    assert opp["ddd"]["scenario_review"]["scenario_hash"] == scenario_fingerprint(report["scenario_analysis"])
+    assert opp["ddd"]["board_review"]["status"] == "pending_decision_board"
+    assert opp["ddd"]["board_review"]["scenario_hash"] == scenario_fingerprint(report["scenario_analysis"])
 
     output = write_site(tmp_path, tmp_path / "site-output")
     app = (output / "assets" / "app.js").read_text(encoding="utf-8")
     styles = (output / "assets" / "style.css").read_text(encoding="utf-8")
     payload = (output / "data.json").read_text(encoding="utf-8")
     assert "Escenarios Bear / Base / Bull" in app
-    assert "aprobación del gestor" in app
-    assert "abre cada fuente y verifica que exista" in app
-    assert "confirmación explícita de fuentes verificadas" in app
+    assert "Los agentes validan la estructura" in app
+    assert "Decision Board" in app
+    assert "no requiere una aprobación previa separada" in app
+    assert "Scenario Review" not in app
     assert 'class="scenario-mobile-list"' in app
     assert 'aria-label="Escenario ${esc(s.id)}"' in app
     assert "Probabilidad" in app and "Precio objetivo" in app
@@ -673,7 +674,7 @@ def test_public_site_hides_scenario_sources_not_present_in_research_evidence(tmp
     opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
 
     assert opp["ddd"]["scenario_analysis"] is None
-    assert opp["ddd"]["scenario_review"]["status"] == "pending_manager_review"
+    assert opp["ddd"]["board_review"]["status"] == "pending_decision_board"
     assert any("BULL.sources[0]" in error for error in opp["ddd"]["scenario_validation"]["errors"])
 
 
@@ -721,7 +722,7 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     assert opp["ddd"]["resumen_ejecutivo"] == "Momentum mensual normalizado con score 71"
     assert opp["ddd"]["score_general"] == 81
     assert opp["ddd"]["tesis_inversion"] == ""
-    assert opp["ddd"]["scenario_review"]["status"] == "not_applicable"
+    assert opp["ddd"]["board_review"]["status"] == "not_applicable"
     assert opp["ddd"]["scenario_validation"] == {"status": "not_applicable", "errors": []}
     assert opp["intrinsic_value"] is None
     assert opp["upside_pct"] is None
@@ -760,7 +761,7 @@ def test_public_site_does_not_treat_forged_fundamental_context_as_systematic(tmp
     data = SiteBuilder(tmp_path).build()
     opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
 
-    assert opp["ddd"]["evidence_review"]["status"] == "pending_manager_review"
+    assert opp["ddd"]["evidence_review"]["status"] == "pending_decision_board"
     assert opp["ddd"]["resumen_ejecutivo"] == "Tesis antigua sin validar"
     assert opp["ddd"]["tesis_inversion"] == "Afirmación que requiere revisión"
     assert opp["ddd"]["score_general"] == 81

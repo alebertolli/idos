@@ -2,19 +2,15 @@ from datetime import date, datetime, timedelta
 import json
 from zoneinfo import ZoneInfo
 
-import pytest
-import yaml
-
 from idos.decision.scenarios import (
     calculate_scenario_asymmetry,
     scenario_fingerprint,
     scenario_source_urls_from_evidence,
     scenario_source_urls_from_report,
     validate_scenario_analysis,
-    validate_scenario_review,
+    validate_board_scenario_confirmation,
 )
 from idos.decision.assessment_pipeline import _calculate_report_asymmetry, _eval_asymmetry
-from scripts.review_scenario import record_scenario_review
 
 
 AR_TZ = ZoneInfo("America/Argentina/Buenos_Aires")
@@ -43,7 +39,7 @@ def test_valid_bear_base_bull_contract_and_expected_asymmetry():
     assert validate_scenario_analysis(analysis, today=TODAY) == []
     asymmetry = calculate_scenario_asymmetry(analysis, current_price=100, quote_currency="USD")
     assert asymmetry["validation_status"] == "validated"
-    assert asymmetry["authorization_eligible"] is False
+    assert asymmetry["board_review_eligible"] is True
     assert asymmetry["upside_esperado_pct"] == 17.5
     assert asymmetry["downside_esperado_pct"] == -5
     assert asymmetry["benefit_risk_ratio"] == 3.5
@@ -88,12 +84,12 @@ def test_report_source_evidence_is_used_to_block_unverified_asymmetry():
     }
 
     trusted = scenario_source_urls_from_report(report)
-    asymmetry = _calculate_report_asymmetry(report, [], 100, None, None, None, "USD", None)
+    asymmetry = _calculate_report_asymmetry(report, [], 100, None, None, None, "USD")
 
     assert trusted == {"https://example.com/bear", "https://example.com/base"}
     assert asymmetry["validation_status"] == "invalid"
     assert "no está respaldada" in asymmetry["validation_reason"]
-    assert asymmetry["authorization_eligible"] is False
+    assert asymmetry["board_review_eligible"] is False
 
 
 def test_expired_horizon_and_placeholder_source_identifier_are_invalid():
@@ -122,7 +118,7 @@ def test_currency_mismatch_and_unsupported_one_sided_distribution_block_calculat
     assert "upside y downside" in result["validation_reason"]
 
 
-def test_scenario_review_is_bound_to_exact_content_and_requires_rationale():
+def test_decision_board_scenario_confirmation_is_bound_to_exact_content():
     analysis = scenario_set()
     review = {
         "status": "approved",
@@ -132,15 +128,15 @@ def test_scenario_review_is_bound_to_exact_content_and_requires_rationale():
         "note": "Reviewed source links, dates and valuation assumptions.",
         "sources_verified": True,
     }
-    assert validate_scenario_review(analysis, review, today=TODAY) == (True, "escenarios vigentes aprobados por el gestor")
+    assert validate_board_scenario_confirmation(analysis, review, today=TODAY) == (True, "escenarios y fuentes confirmados en Decision Board")
 
     analysis["scenarios"][2]["target_price"] = 155
-    approved, reason = validate_scenario_review(analysis, review, today=TODAY)
+    approved, reason = validate_board_scenario_confirmation(analysis, review, today=TODAY)
     assert not approved
     assert "no corresponde" in reason
 
 
-def test_rule_008_requires_manager_review_for_explicit_scenario_contract():
+def test_rule_008_automatically_validates_scenarios_for_decision_board():
     analysis = scenario_set()
     report = {
         "scenario_analysis": analysis,
@@ -153,22 +149,11 @@ def test_rule_008_requires_manager_review_for_explicit_scenario_contract():
             },
         },
     }
-    pending = _calculate_report_asymmetry(report, [], 100, None, None, None, "USD", None)
-    assert pending["validation_status"] == "validated"
-    assert pending["authorization_eligible"] is False
-    assert not _eval_asymmetry({"asymmetry": pending}).passed
-
-    review = {
-        "status": "approved",
-        "scenario_hash": scenario_fingerprint(analysis),
-        "reviewed_by": "manager",
-        "reviewed_at": REVIEWED_AT,
-        "note": "Reviewed source links, dates and valuation assumptions.",
-        "sources_verified": True,
-    }
-    approved = _calculate_report_asymmetry(report, [], 100, None, None, None, "USD", review)
-    assert approved["authorization_eligible"] is True
-    assert _eval_asymmetry({"asymmetry": approved}).passed == (approved["benefit_risk_ratio"] >= 3)
+    ready = _calculate_report_asymmetry(report, [], 100, None, None, None, "USD")
+    assert ready["validation_status"] == "validated"
+    assert ready["board_review_eligible"] is True
+    assert ready["scenario_hash"] == scenario_fingerprint(analysis)
+    assert _eval_asymmetry({"asymmetry": ready}).passed == (ready["benefit_risk_ratio"] >= 3)
 
 
 def test_rejected_or_unattributed_review_cannot_authorize():
@@ -181,72 +166,17 @@ def test_rejected_or_unattributed_review_cannot_authorize():
         "note": "Reviewed source links, dates and valuation assumptions.",
         "sources_verified": True,
     }
-    approved, reason = validate_scenario_review(analysis, review, today=TODAY)
+    approved, reason = validate_board_scenario_confirmation(analysis, review, today=TODAY)
     assert not approved
-    assert "identidad" in reason
+    assert "identidad autenticada" in reason
     review["reviewed_by"] = "manager"
     review["sources_verified"] = False
-    approved, reason = validate_scenario_review(analysis, review, today=TODAY)
+    approved, reason = validate_board_scenario_confirmation(analysis, review, today=TODAY)
     assert not approved
     assert "no confirmó" in reason
     review["status"] = "rejected"
     review["reviewed_by"] = "manager"
-    approved, _ = validate_scenario_review(analysis, review, today=TODAY)
+    approved, _ = validate_board_scenario_confirmation(analysis, review, today=TODAY)
     assert not approved
 
 
-def test_review_command_records_authenticated_identity_for_current_hash(tmp_path):
-    analysis = scenario_set()
-    opp_dir = tmp_path / "idos-journal/companies/ACME/case_file/opportunities/OPP-1"
-    opp_dir.mkdir(parents=True)
-    report = {
-        "scenario_analysis": analysis,
-        "research_input_snapshot": {
-            "scenario_market_evidence": {
-                "current_quote": {"sources": [{"url": "https://example.com/bear"}]},
-                "analyst_target_consensus": {
-                    "sources": [{"url": "https://example.com/base"}, {"url": "https://example.com/bull"}],
-                },
-            },
-        },
-    }
-    (opp_dir / "ddd_report.yml").write_text(yaml.safe_dump(report), encoding="utf-8")
-
-    path = record_scenario_review(
-        tmp_path, "ACME", "OPP-1", scenario_fingerprint(analysis), "approved",
-        "github-manager", "Checked source links, source dates and target assumptions.", True,
-    )
-    review = yaml.safe_load(path.read_text(encoding="utf-8"))
-    assert review["status"] == "approved"
-    assert review["reviewed_by"] == "github-manager"
-    assert review["scenario_hash"] == scenario_fingerprint(analysis)
-    assert review["sources_verified"] is True
-    with pytest.raises(ValueError, match="source and source-date verification"):
-        record_scenario_review(
-            tmp_path, "ACME", "OPP-1", scenario_fingerprint(analysis), "approved",
-            "github-manager", "Approved without verifying sources.",
-        )
-
-
-def test_review_command_rejects_stale_hash_and_path_traversal(tmp_path):
-    analysis = scenario_set()
-    opp_dir = tmp_path / "idos-journal/companies/ACME/case_file/opportunities/OPP-1"
-    opp_dir.mkdir(parents=True)
-    report = {
-        "scenario_analysis": analysis,
-        "research_input_snapshot": {
-            "scenario_market_evidence": {
-                "current_quote": {"sources": [{"url": "https://example.com/bear"}]},
-                "analyst_target_consensus": {
-                    "sources": [{"url": "https://example.com/base"}, {"url": "https://example.com/bull"}],
-                },
-            },
-        },
-    }
-    (opp_dir / "ddd_report.yml").write_text(yaml.safe_dump(report), encoding="utf-8")
-
-    args = (tmp_path, "ACME", "OPP-1")
-    with pytest.raises(ValueError, match="stale"):
-        record_scenario_review(*args, "0" * 64, "approved", "github-manager", "Checked scenario sources.", True)
-    with pytest.raises(ValueError, match="Opportunity id"):
-        record_scenario_review(tmp_path, "ACME", "../private", scenario_fingerprint(analysis), "approved", "github-manager", "Checked scenario sources.", True)

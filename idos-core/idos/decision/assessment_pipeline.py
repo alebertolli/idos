@@ -12,7 +12,6 @@ from idos.decision.orchestrator import DecisionOrchestrator, DecisionProposal
 from idos.decision.scenarios import (
     calculate_scenario_asymmetry,
     scenario_source_urls_from_report,
-    validate_scenario_review,
 )
 from idos.decision.conviction import ConvictionCalculator
 from idos.decision.engines.business import BusinessAssessmentEngine
@@ -335,18 +334,11 @@ def build_context(
     target_consensus = report.get("target_consensus") or {}
     consensus_target = target_consensus.get("promedio", 0) or 0
 
-    scenario_review = None
-    scenario_review_path = opp_dir / "scenario_review.yml"
-    if scenario_review_path.exists():
-        try:
-            scenario_review = yaml.safe_load(scenario_review_path.read_text(encoding="utf-8"))
-        except (OSError, yaml.YAMLError):
-            scenario_review = None
     # Catalyst-derived estimates may coexist and remain visible for context,
     # but only an approved, version-matched Bear/Base/Bull set can authorize.
     asymmetry = _calculate_report_asymmetry(
         report, raw_catalysts, current_price, target_low, target_mean, target_high,
-        quote_currency, scenario_review,
+        quote_currency,
     )
 
     return {
@@ -591,7 +583,7 @@ def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, ta
         # mutually exclusive price scenarios. Keep this estimate visible for
         # human review, but never use it to authorize an Opportunity.
         "validation_status": "provisional",
-        "authorization_eligible": False,
+        "board_review_eligible": False,
         "validation_reason": (
             "Las probabilidades de catalizadores no son escenarios financieros "
             "mutuamente excluyentes validados."
@@ -609,9 +601,8 @@ def _calculate_report_asymmetry(
     target_mean: Any,
     target_high: Any,
     quote_currency: str | None,
-    scenario_review: Any,
 ) -> dict[str, Any] | None:
-    """Prefer an approved explicit scenario contract; retain catalyst math only as provisional context."""
+    """Use only an automatically validated scenario contract for RULE-008."""
     report = report if isinstance(report, dict) else {}
     analysis = report.get("scenario_analysis")
     if analysis is None:
@@ -622,14 +613,6 @@ def _calculate_report_asymmetry(
         current_price=current_price,
         quote_currency=quote_currency,
         trusted_source_urls=trusted_source_urls,
-    )
-    review_approved, review_reason = validate_scenario_review(
-        analysis, scenario_review, trusted_source_urls=trusted_source_urls,
-    )
-    asymmetry["authorization_eligible"] = review_approved and asymmetry.get("validation_status") == "validated"
-    asymmetry["validation_reason"] = (
-        asymmetry.get("validation_reason") if asymmetry.get("validation_status") != "validated"
-        else review_reason
     )
     return asymmetry
 
@@ -687,7 +670,7 @@ def _eval_asymmetry(ctx):
     asym = ctx.get("asymmetry")
     if not asym:
         return RuleResult("RULE-008", False, "No hay datos de DDD para calcular asimetria")
-    if asym.get("validation_status") != "validated" or asym.get("authorization_eligible") is not True:
+    if asym.get("validation_status") != "validated" or asym.get("board_review_eligible") is not True:
         reason = asym.get(
             "validation_reason",
             "Falta un contrato validado de escenarios financieros mutuamente excluyentes.",
@@ -908,6 +891,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "recommendation": proposal.recommendation,
         "reasoning": proposal.reasoning,
         "rules_details": proposal.rules_details,
+        "scenario_hash": (context.get("asymmetry") or {}).get("scenario_hash"),
         "financial_data_quality": context.get("financial_data_quality", {}),
         "status": "PENDING_HUMAN_REVIEW"
         if proposal.recommendation in {"APPROVE", "PENDING_REVIEW"}

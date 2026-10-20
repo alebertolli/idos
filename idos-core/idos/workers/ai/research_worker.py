@@ -375,7 +375,7 @@ class ResearchWorker(BaseWorker):
             "comparativa_catalizadores": ddd_result.get("comparativa_catalizadores", []),
             "scenario_analysis": scenario_analysis,
             "scenario_validation": {
-                "status": "not_applicable" if is_systematic else "valid_pending_manager_review"
+                "status": "not_applicable" if is_systematic else "valid_pending_decision_board"
                 if not scenario_validation_errors else "invalid_pending_revision",
                 "errors": scenario_validation_errors,
             },

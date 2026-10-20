@@ -23,6 +23,7 @@ def _seed_fundamental_case(base_path: Path, *, recommendation="APPROVE", rules_f
         "recommendation": recommendation,
         "rules_passed": ["RULE-008", "RULE-010"],
         "rules_failed": rules_failed or [],
+        "scenario_hash": None,
         "conviction_score": 82,
         "generated_at": REVIEWED_AT,
         "status": "PENDING_HUMAN_REVIEW",
@@ -55,6 +56,7 @@ def _seed_fundamental_case(base_path: Path, *, recommendation="APPROVE", rules_f
     }
     from idos.decision.scenarios import scenario_fingerprint
     review["scenario_hash"] = scenario_fingerprint(analysis)
+    proposal["scenario_hash"] = review["scenario_hash"]
     (opp_dir / "decision_proposal.yml").write_text(yaml.safe_dump(proposal, allow_unicode=True), encoding="utf-8")
     (opp_dir / "opportunity.yml").write_text(yaml.safe_dump(opportunity, allow_unicode=True), encoding="utf-8")
     report = {
@@ -69,7 +71,6 @@ def _seed_fundamental_case(base_path: Path, *, recommendation="APPROVE", rules_f
         },
     }
     (opp_dir / "ddd_report.yml").write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
-    (opp_dir / "scenario_review.yml").write_text(yaml.safe_dump(review, allow_unicode=True), encoding="utf-8")
     return opp_dir, proposal
 
 
@@ -81,7 +82,7 @@ def test_manager_approval_requires_current_assessment_and_scenario_and_writes_au
 
     resolution_path, decision_path = record_decision_review(
         tmp_path, "TEST", "OPP-1", current_hash, "approved", "github-manager",
-        "Reviewed thesis, sources, downside and allocation boundary.",
+        "Reviewed thesis, sources, downside and allocation boundary.", True,
     )
 
     resolution = yaml.safe_load(resolution_path.read_text(encoding="utf-8"))
@@ -90,6 +91,8 @@ def test_manager_approval_requires_current_assessment_and_scenario_and_writes_au
     assert resolution["approved"] is True
     assert resolution["proposal_hash"] == current_hash
     assert resolution["author"] == "github-manager"
+    assert resolution["scenario_hash"] == proposal["scenario_hash"]
+    assert resolution["sources_verified"] is True
     assert decision_path.is_file()
     assert saved_proposal["status"] == "MANAGER_APPROVED"
     assert decision_proposal_fingerprint(saved_proposal) == current_hash
@@ -102,7 +105,7 @@ def test_manager_approval_requires_current_assessment_and_scenario_and_writes_au
     with pytest.raises(ValueError, match="already has a manager decision"):
         record_decision_review(
             tmp_path, "TEST", "OPP-1", current_hash, "approved", "github-manager",
-            "Reviewed thesis, sources, downside and allocation boundary.",
+            "Reviewed thesis, sources, downside and allocation boundary.", True,
         )
 
 
@@ -111,7 +114,7 @@ def test_manager_approval_rejects_stale_hash_or_failed_gate(tmp_path):
     with pytest.raises(ValueError, match="stale"):
         record_decision_review(
             tmp_path, "TEST", "OPP-1", "0" * 64, "approved", "github-manager",
-            "Reviewed thesis, sources, downside and allocation boundary.",
+            "Reviewed thesis, sources, downside and allocation boundary.", True,
         )
 
     proposal["rules_failed"] = ["RULE-008"]
@@ -119,7 +122,7 @@ def test_manager_approval_rejects_stale_hash_or_failed_gate(tmp_path):
     with pytest.raises(ValueError, match="every authorization rule"):
         record_decision_review(
             tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
-            "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.",
+            "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.", True,
         )
     assert not (opp_dir / "board_resolution.yml").exists()
 
@@ -131,10 +134,10 @@ def test_manager_approval_rejects_scenario_source_absent_from_research_evidence(
     report["research_input_snapshot"]["scenario_market_evidence"]["analyst_target_consensus"]["sources"].pop()
     report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
 
-    with pytest.raises(ValueError, match="scenario review is not current"):
+    with pytest.raises(ValueError, match="Current Bear/Base/Bull scenarios are invalid"):
         record_decision_review(
             tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
-            "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.",
+            "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.", True,
         )
     assert not (opp_dir / "board_resolution.yml").exists()
 
@@ -148,5 +151,45 @@ def test_manager_cannot_approve_proposal_invalidated_by_new_research(tmp_path):
     with pytest.raises(ValueError, match="invalidated by newer Research"):
         record_decision_review(
             tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
-            "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.",
+            "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.", True,
         )
+
+
+def test_manager_approval_confirms_sources_inside_board_review(tmp_path):
+    opp_dir, proposal = _seed_fundamental_case(tmp_path)
+    proposal_hash = decision_proposal_fingerprint(proposal)
+
+    with pytest.raises(ValueError, match="fuentes y sus fechas"):
+        record_decision_review(
+            tmp_path, "TEST", "OPP-1", proposal_hash, "approved", "github-manager",
+            "Reviewed thesis, sources, downside and allocation boundary.", False,
+        )
+
+    assert not (opp_dir / "board_resolution.yml").exists()
+    assert not (tmp_path / "idos-journal/portfolio/buylist.yml").exists()
+
+
+def test_manager_approval_rejects_scenario_hash_changed_after_assessment(tmp_path):
+    opp_dir, proposal = _seed_fundamental_case(tmp_path)
+    report_path = opp_dir / "ddd_report.yml"
+    report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+    report["scenario_analysis"]["scenarios"][2]["target_price"] = 151
+    report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="does not match the assessed proposal"):
+        record_decision_review(
+            tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
+            "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.", True,
+        )
+    assert not (opp_dir / "board_resolution.yml").exists()
+
+
+def test_manager_review_preserves_identity_and_path_validation(tmp_path):
+    _, proposal = _seed_fundamental_case(tmp_path)
+    proposal_hash = decision_proposal_fingerprint(proposal)
+    note = "Reviewed thesis, sources, downside and allocation boundary."
+
+    with pytest.raises(ValueError, match="Authenticated reviewer identity"):
+        record_decision_review(tmp_path, "TEST", "OPP-1", proposal_hash, "approved", " ", note, True)
+    with pytest.raises(ValueError, match="Opportunity id"):
+        record_decision_review(tmp_path, "TEST", "../private", proposal_hash, "approved", "manager", note, True)
