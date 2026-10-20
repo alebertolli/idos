@@ -118,17 +118,16 @@ class StockAnalysisWorker(BaseWorker):
 
     def _parse_financials(self, soup: BeautifulSoup) -> dict[str, Any]:
         """Extract TTM revenue growth and its accounting period from financials."""
-        revenue_growth: float | None = None
-        period_end_date: str | None = None
-
         for table in soup.find_all("table"):
+            revenue_growth: float | None = None
+            period_end_date: str | None = None
             for row in table.find_all("tr"):
                 cells = row.find_all(["td", "th"])
                 values = [cell.get_text(" ", strip=True) for cell in cells]
                 if len(values) < 2:
                     continue
 
-                label = re.sub(r"\\s+", " ", values[0]).strip().lower()
+                label = re.sub(r"\s+", " ", values[0]).strip().lower()
                 if label == "revenue growth":
                     parsed = self._parse_value(values[1])
                     if isinstance(parsed, (float, int)):
@@ -136,17 +135,18 @@ class StockAnalysisWorker(BaseWorker):
                 elif label == "period ending":
                     period_end_date = self._parse_period_end(values[1])
 
-        result: dict[str, Any] = {}
-        if revenue_growth is not None:
-            result["revenue_growth_pct"] = revenue_growth
-        if period_end_date:
-            result["period_end_date"] = period_end_date
-            result["financial_period_type"] = "TTM"
-        return result
+            # Pair the period with revenue growth from the same statement table.
+            if revenue_growth is not None:
+                result: dict[str, Any] = {"revenue_growth_pct": revenue_growth}
+                if period_end_date:
+                    result["period_end_date"] = period_end_date
+                    result["financial_period_type"] = "TTM"
+                return result
+        return {}
 
     @staticmethod
     def _parse_period_end(value: str) -> str | None:
-        match = re.search(r"\\b([A-Za-z]{3,9})\\s+['’]?(\\d{2,4})\\b", value.strip())
+        match = re.search(r"\b([A-Za-z]{3,9})\s+['’]?(\d{2,4})\b", value.strip())
         if not match:
             return None
         for month_format in ("%b", "%B"):
