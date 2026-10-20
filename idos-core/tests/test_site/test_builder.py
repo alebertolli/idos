@@ -293,6 +293,29 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert "El crecimiento de ingresos superará 8%." in payload
     assert "Ingresos crecerán 8% para FY2027." in payload
     assert "Informe pendiente de validación del gestor" in app
+
+
+def test_public_site_explains_provider_update_date_basis(tmp_path: Path):
+    import yaml
+
+    _write_ddd_case(tmp_path, review=None)
+    decision_path = (
+        tmp_path / "idos-journal" / "companies" / "VIST" / "case_file"
+        / "opportunities" / "OPP-1" / "decision_proposal.yml"
+    )
+    proposal = yaml.safe_load(decision_path.read_text(encoding="utf-8"))
+    proposal["financial_data_quality"].update({
+        "as_of_date": "2026-10-19",
+        "as_of_basis": "provider_data_updated_date",
+        "as_of_date_source": "stockanalysis.com",
+    })
+    decision_path.write_text(yaml.safe_dump(proposal, allow_unicode=True), encoding="utf-8")
+
+    output = write_site(tmp_path, tmp_path / "site-output")
+    app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+
+    assert "Base de fecha" in app
+    assert "última actualización publicada por la fuente" in app
     assert "Tesis de inversión (provisional)" in app
     assert "Calidad de datos financieros" in app
     assert "Fecha de corte" in app
@@ -851,3 +874,4 @@ def test_buylist_surfaces_failed_latest_scout_without_revoking_manager_approval(
     assert "Scout: datos requieren revisión" in app
     assert any(alert["type"] == "discovery_data_review" for alert in site.dashboard["alerts"])
     assert "antes de usar esta oportunidad" in app
+

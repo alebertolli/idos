@@ -1,5 +1,6 @@
 import re
 import time
+from datetime import datetime, timezone
 from typing import Any, Optional
 
 import requests
@@ -44,11 +45,44 @@ class StockAnalysisWorker(BaseWorker):
 
         soup = BeautifulSoup(resp.text, "lxml")
         data = self._parse_statistics(soup, ticker)
+        data["financial_data_observed_at"] = datetime.now(timezone.utc).isoformat()
+        provider_updated_date = self._parse_provider_updated_date(soup)
+        if provider_updated_date:
+            data["provider_data_updated_date"] = provider_updated_date
         data["ticker"] = ticker
         data["source"] = "stockanalysis.com"
         data["url"] = url
+        field_sources = {
+            key: ["stockanalysis.com"]
+            for key in data
+            if key not in {"ticker", "source", "url", "financial_data_observed_at"}
+        }
+        field_sources["financial_data_observed_at"] = ["stockanalysis.com"]
+        data["data_provenance"] = {
+            "source_count": 1,
+            "sources_used": ["stockanalysis.com"],
+            "field_sources": field_sources,
+            "conflicts": [],
+        }
 
         return data
+
+    @staticmethod
+    def _parse_provider_updated_date(soup: BeautifulSoup) -> str | None:
+        """Return StockAnalysis's displayed data-update date, never retrieval time."""
+        match = re.search(
+            r"last updated\s*:\s*([A-Za-z]{3,9}\s+\d{1,2},\s+\d{4})",
+            soup.get_text(" ", strip=True),
+            re.IGNORECASE,
+        )
+        if not match:
+            return None
+        for date_format in ("%b %d, %Y", "%B %d, %Y"):
+            try:
+                return datetime.strptime(match.group(1), date_format).date().isoformat()
+            except ValueError:
+                continue
+        return None
 
     def _parse_statistics(self, soup: BeautifulSoup, ticker: str) -> dict[str, Any]:
         data: dict[str, Any] = {}
@@ -263,3 +297,4 @@ class StockAnalysisWorker(BaseWorker):
             return float(cleaned)
         except ValueError:
             return cleaned
+

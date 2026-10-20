@@ -115,8 +115,50 @@ def test_parse_ticker():
     # ticker is injected by run(), not parser; but parser should not crash
 
 
+def test_parse_provider_data_update_date_as_source_metadata():
+    worker = StockAnalysisWorker()
+    soup = BeautifulSoup(
+        "<main>Data Source: S&amp;P Global. Last updated: Oct 19, 2026</main>",
+        "lxml",
+    )
+
+    assert worker._parse_provider_updated_date(soup) == "2026-10-19"
+
+
+def test_parse_provider_data_update_date_rejects_unrecognized_or_missing_date():
+    worker = StockAnalysisWorker()
+
+    assert worker._parse_provider_updated_date(BeautifulSoup("Last updated: N/A", "lxml")) is None
+    assert worker._parse_provider_updated_date(BeautifulSoup("No update metadata", "lxml")) is None
+
+
+def test_run_persists_provider_date_separately_from_retrieval_timestamp(monkeypatch):
+    from types import SimpleNamespace
+
+    import idos.workers.data.stockanalysis as stockanalysis_module
+
+    html = """
+    <table><tr><td>Operating Margin</td><td>20%</td></tr></table>
+    <footer>Data Source: S&amp;P Global Market Intelligence. Last updated: Oct 19, 2026</footer>
+    """
+    monkeypatch.setattr(
+        stockanalysis_module.requests,
+        "get",
+        lambda *args, **kwargs: SimpleNamespace(text=html, raise_for_status=lambda: None),
+    )
+    monkeypatch.setattr(stockanalysis_module.time, "sleep", lambda _delay: None)
+
+    result = StockAnalysisWorker().run({"ticker": "ASML"})
+
+    assert result["provider_data_updated_date"] == "2026-10-19"
+    assert result["financial_data_observed_at"]
+    assert result["provider_data_updated_date"] != result["financial_data_observed_at"]
+    assert result["data_provenance"]["field_sources"]["provider_data_updated_date"] == ["stockanalysis.com"]
+
+
 def test_worker_requires_ticker():
     worker = StockAnalysisWorker()
     import pytest
     with pytest.raises(ValueError, match="No ticker provided"):
         worker.run({})
+

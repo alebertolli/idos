@@ -7,7 +7,7 @@ from unittest.mock import MagicMock
 import pytest
 
 from idos.models.enums import OpportunityStatus
-from idos.workers.ai.research_worker import ResearchWorker
+from idos.workers.ai.research_worker import ResearchWorker, _has_sourced_financial_cutoff
 from idos.workers.base import WorkerStatus
 from idos.knowledge.wiki import AtomicWiki
 from idos.research.wiki import WikiBuilder
@@ -81,6 +81,48 @@ def test_current_price_context_uses_latest_aligned_close_with_provenance():
         "as_of_date": "2026-10-19",
         "source": "yfinance",
     }
+
+
+def test_financial_cutoff_requires_provider_date_and_source_not_retrieval_timestamp():
+    assert _has_sourced_financial_cutoff({
+        "source": "stockanalysis.com",
+        "provider_data_updated_date": "2026-10-19",
+        "data_provenance": {
+            "field_sources": {"provider_data_updated_date": ["stockanalysis.com"]},
+        },
+    })
+    assert not _has_sourced_financial_cutoff({
+        "source": "stockanalysis.com",
+        "financial_data_observed_at": "2026-10-19T12:00:00+00:00",
+    })
+
+
+def test_research_loader_refreshes_uncutoff_cache_from_stockanalysis(
+    tmp_path, monkeypatch, tmp_sqlite
+):
+    from idos.workers.data.stockanalysis import StockAnalysisWorker
+
+    monkeypatch.chdir(tmp_path)
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    (cache_dir / "TEST.json").write_text(json.dumps({
+        "ticker": "TEST", "source": "stockanalysis.com", "operating_margin_pct": 10,
+    }), encoding="utf-8")
+    live = {
+        "ticker": "TEST", "source": "stockanalysis.com", "operating_margin_pct": 17.3,
+        "provider_data_updated_date": "2026-10-19",
+        "data_provenance": {
+            "sources_used": ["stockanalysis.com"],
+            "field_sources": {"provider_data_updated_date": ["stockanalysis.com"]},
+        },
+    }
+    monkeypatch.setattr(StockAnalysisWorker, "run", lambda self, context: live)
+    worker = ResearchWorker({"llm_service": MagicMock()})
+
+    financial = worker._load_financial_data("TEST", tmp_sqlite)
+
+    assert financial["operating_margin_pct"] == 17.3
+    assert financial["provider_data_updated_date"] == "2026-10-19"
 
 
 def test_current_price_context_does_not_infer_from_unaligned_history():
@@ -934,3 +976,4 @@ class TestResearchWorker:
         assert len(hypotheses[0]["falsification_conditions"]) == 2
         stored = tmp_sqlite.conn.execute("SELECT probability, confidence FROM hypotheses WHERE opportunity_id=?", (opp_id,)).fetchone()
         assert stored["probability"] is None and stored["confidence"] is None
+
