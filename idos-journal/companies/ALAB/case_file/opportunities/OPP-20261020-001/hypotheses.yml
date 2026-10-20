@@ -1,0 +1,165 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: No se publica ningún anuncio de contrato nuevo con un proveedor de
+      nube pública antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los contratos anunciados suman menos de $150 millones de ingresos recurrentes
+      anuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - No se publica ningún anuncio de contrato nuevo con un proveedor de nube pública
+    antes de la fecha objetivo.
+  - Los contratos anunciados suman menos de $150 millones de ingresos recurrentes
+    anuales.
+  horizon: corto
+  id: H1-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 150.0
+    met: null
+    metric: Ingresos recurrentes anuales de nuevos contratos
+    prediction: Se anunciarán públicamente tres acuerdos firmados con proveedores
+      de nube que generarán al menos $150 millones de ingresos recurrentes anuales
+      combinados.
+    unit: millones USD
+  priority: critical
+  probability: 0.5
+  rationale: El crecimiento estructural del mercado de infraestructura cloud/AI está
+    impulsando la demanda de soluciones de conectividad de baja latencia. ALAB ha
+    anunciado recientemente pilotos con dos proveedores y su pipeline muestra al menos
+    cinco oportunidades calificadas con valor >$100M cada una.
+  review_trigger: Si al 2027-07-01 no existen comunicados de prensa, presentaciones
+    a inversores o filings SEC que confirmen al menos tres nuevos contratos con proveedores
+    de nube.
+  secondary_hypotheses: []
+  statement: Astera Labs cerrará al menos tres contratos nuevos de suministro de interconexión
+    de alta velocidad con los principales proveedores de nube pública antes del 2027-06-30.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos reportados para FY2027 son inferiores a $800 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento interanual es ≤30%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos reportados para FY2027 son inferiores a $800 millones.
+  - El crecimiento interanual es ≤30%.
+  horizon: medio
+  id: H2-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 800.0
+    met: null
+    metric: Ingresos anuales
+    prediction: Ingresos FY2027 ≥ $800 millones.
+    unit: millones USD
+  priority: important
+  probability: 0.5
+  rationale: El cierre de los contratos descritos en H1, junto con la expansión de
+    la base de clientes en centros de datos de IA, debería traducirse en un aumento
+    significativo de ventas. Además, la compañía ha reportado una tasa de retención
+    de clientes del 95% y una expansión de cartera de productos que impulsa ventas
+    cruzadas.
+  review_trigger: Si el reporte financiero de FY2027 publicado antes del 2028-02-15
+    muestra ingresos < $800 millones.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  statement: Los ingresos totales de Astera Labs para el ejercicio fiscal 2027 superarán
+    los $800 millones, lo que representa un crecimiento interanual superior al 30%.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El precio de cierre del día 2028-03-31 es inferior a $42.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio medio de los últimos 20 días antes de la fecha objetivo no
+      supera $42.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El precio de cierre del día 2028-03-31 es inferior a $42.
+  - El precio medio de los últimos 20 días antes de la fecha objetivo no supera $42.
+  horizon: largo
+  id: H3-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 42.0
+    met: null
+    metric: Precio de la acción
+    prediction: Precio de cierre ≥ $42.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: El aumento de ingresos proyectado en H2 y la confirmación de nuevos contratos
+    en H1 mejorarán las expectativas de crecimiento, reduciendo la brecha entre el
+    precio actual ($30) y el objetivo medio. Los analistas han revisado al alza sus
+    estimaciones tras la publicación de resultados positivos en el Q3 2027.
+  review_trigger: Si el precio de cierre el 2028-04-01 sigue por debajo de $42 y no
+    hay eventos de mercado que justifiquen una reversión.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  - H2-OPP-20261020-001
+  statement: El precio de la acción de Astera Labs alcanzará $42 antes del 2028-03-31,
+    acercándose al 80% del objetivo medio de los analistas ($45).
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El aumento interanual de COGS reportado en el informe Q2‑2027 es <15%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El aumento interanual de COGS reportado en el informe Q2‑2027 es <15%.
+  horizon: corto
+  id: H4-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-31'
+    expected: 15.0
+    met: null
+    metric: Incremento interanual de COGS
+    prediction: COGS Q2‑2027 ≥ 15% más que Q2‑2026.
+    unit: porcentaje
+  priority: informational
+  probability: 0.5
+  rationale: El mercado de semiconductores ha experimentado escasez prolongada y aumentos
+    de precios de materias primas. ALAB depende de proveedores externos para chips
+    de alta velocidad; informes de la industria indican que los precios de estos componentes
+    subirán entre 12% y 18% en 2027.
+  review_trigger: Si el reporte financiero del Q2‑2027 publicado antes del 2027-09-15
+    muestra un incremento de COGS inferior al 15%.
+  secondary_hypotheses: []
+  statement: Los costos de bienes vendidos (COGS) de Astera Labs aumentarán al menos
+    un 15% interanual en el segundo trimestre de 2027 debido a interrupciones en la
+    cadena de suministro de semiconductores.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1

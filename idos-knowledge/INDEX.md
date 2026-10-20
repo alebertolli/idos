@@ -7,6 +7,10 @@ aliases:
 
 # IDOS Company Index
 
-Total: 0 companies tracked
+Total: 1 companies tracked
 
-The knowledge index will be regenerated as new research is created.
+## Technology
+- 📄 [[ALAB|Astera Labs, Inc.]]
+
+---
+*Generated: auto-updated on each research run*
