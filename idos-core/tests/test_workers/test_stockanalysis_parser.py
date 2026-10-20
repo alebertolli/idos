@@ -156,6 +156,67 @@ def test_run_persists_provider_date_separately_from_retrieval_timestamp(monkeypa
     assert result["data_provenance"]["field_sources"]["provider_data_updated_date"] == ["stockanalysis.com"]
 
 
+
+def test_parse_financials_captures_ttm_growth_and_period_end():
+    worker = StockAnalysisWorker()
+    html = _make_table([
+        ("Fiscal Year", "TTM"),
+        ("Period Ending", "Sep '26"),
+        ("Revenue Growth", "22.54%"),
+    ])
+
+    result = worker._parse_financials(BeautifulSoup(html, "lxml"))
+
+    assert result == {
+        "revenue_growth_pct": 22.54,
+        "period_end_date": "2026-09-30",
+        "financial_period_type": "TTM",
+    }
+
+
+def test_parse_period_end_supports_full_month_and_invalid_input():
+    assert StockAnalysisWorker._parse_period_end("September 2026") == "2026-09-30"
+    assert StockAnalysisWorker._parse_period_end("not available") is None
+
+
+def test_run_merges_statistics_and_financials_with_field_source_urls(monkeypatch):
+    from types import SimpleNamespace
+
+    import idos.workers.data.stockanalysis as stockanalysis_module
+
+    statistics_html = """
+    <table><tr><td>Operating Margin</td><td>38.55%</td></tr></table>
+    <footer>Last updated: Oct 19, 2026</footer>
+    """
+    financials_html = """
+    <table>
+      <tr><td>Fiscal Year</td><td>TTM</td><td>2025</td></tr>
+      <tr><td>Period Ending</td><td>Sep '26</td><td>Dec '25</td></tr>
+      <tr><td>Revenue Growth</td><td>22.54%</td><td>18.2%</td></tr>
+    </table>
+    <footer>Last updated: Oct 14, 2026</footer>
+    """
+
+    def fake_get(url, **_kwargs):
+        body = financials_html if "/financials/" in url else statistics_html
+        return SimpleNamespace(text=body, raise_for_status=lambda: None)
+
+    monkeypatch.setattr(stockanalysis_module.requests, "get", fake_get)
+    monkeypatch.setattr(stockanalysis_module.time, "sleep", lambda _delay: None)
+
+    result = StockAnalysisWorker().run({"ticker": "ASML"})
+    provenance = result["data_provenance"]
+
+    assert result["operating_margin_pct"] == 38.55
+    assert result["revenue_growth_pct"] == 22.54
+    assert result["period_end_date"] == "2026-09-30"
+    assert result["provider_data_updated_date"] == "2026-10-19"
+    assert result["financials_data_updated_date"] == "2026-10-14"
+    assert provenance["field_urls"]["operating_margin_pct"].endswith("/statistics/")
+    assert provenance["field_urls"]["revenue_growth_pct"].endswith("/financials/")
+    assert provenance["field_urls"]["period_end_date"].endswith("/financials/")
+
+
 def test_worker_requires_ticker():
     worker = StockAnalysisWorker()
     import pytest
