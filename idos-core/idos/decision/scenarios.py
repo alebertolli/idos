@@ -65,6 +65,62 @@ def _normalize_source_url(value: Any) -> str | None:
     return f"https://{parsed.netloc.lower()}{parsed.path.rstrip('/')}{'?' + parsed.query if parsed.query else ''}"
 
 
+
+def canonicalize_scenario_ticker_url_case(
+    value: Any,
+    *,
+    ticker: str,
+    trusted_source_urls: set[str],
+) -> Any:
+    """Repair only ticker path casing to the exact URL supplied as evidence."""
+    if not isinstance(value, dict):
+        return value
+
+    import copy
+    from urllib.parse import unquote
+
+    result = copy.deepcopy(value)
+    ticker_key = unquote(str(ticker)).casefold()
+    scenarios = result.get("scenarios")
+    if not isinstance(scenarios, list):
+        return result
+
+    trusted = sorted(url for url in trusted_source_urls if isinstance(url, str))
+    for scenario in scenarios:
+        sources = scenario.get("sources") if isinstance(scenario, dict) else None
+        if not isinstance(sources, list):
+            continue
+        for source in sources:
+            if not isinstance(source, dict):
+                continue
+            candidate = urlparse(str(source.get("url", "")))
+            candidate_path = [unquote(part) for part in candidate.path.rstrip("/").split("/")]
+            for trusted_url in trusted:
+                supplied = urlparse(trusted_url)
+                supplied_path = [unquote(part) for part in supplied.path.rstrip("/").split("/")]
+                if (
+                    candidate.scheme.lower() != "https"
+                    or supplied.scheme.lower() != "https"
+                    or candidate.netloc.lower() != supplied.netloc.lower()
+                    or candidate.query != supplied.query
+                    or candidate.fragment != supplied.fragment
+                    or len(candidate_path) != len(supplied_path)
+                ):
+                    continue
+                mismatches = [
+                    index for index, (left, right) in enumerate(zip(candidate_path, supplied_path))
+                    if left != right
+                ]
+                if (
+                    len(mismatches) == 1
+                    and candidate_path[mismatches[0]].casefold() == ticker_key
+                    and supplied_path[mismatches[0]].casefold() == ticker_key
+                ):
+                    source["url"] = trusted_url
+                    break
+    return result
+
+
 def validate_scenario_analysis(
     value: Any,
     *,

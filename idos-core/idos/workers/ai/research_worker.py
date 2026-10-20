@@ -24,6 +24,7 @@ from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.decision.scenarios import (
     scenario_source_urls_from_evidence,
+    canonicalize_scenario_ticker_url_case,
     validate_scenario_analysis,
 )
 from idos.decision.manager_approval import invalidate_manager_approval_after_research
@@ -301,11 +302,20 @@ class ResearchWorker(BaseWorker):
         thesis = ddd_result.get("tesis_inversion", "")
         score = ddd_result.get("score_general", 50)
         scenario_analysis = None if is_systematic else ddd_result.get("scenario_analysis")
+        trusted_scenario_urls = scenario_source_urls_from_evidence(
+            ddd_inputs.get("scenario_market_evidence")
+        )
+        if not is_systematic:
+            scenario_analysis = canonicalize_scenario_ticker_url_case(
+                scenario_analysis,
+                ticker=ticker,
+                trusted_source_urls=trusted_scenario_urls,
+            )
+            if scenario_analysis is not None:
+                ddd_result["scenario_analysis"] = scenario_analysis
         scenario_validation_errors = [] if is_systematic else validate_scenario_analysis(
             scenario_analysis,
-            trusted_source_urls=scenario_source_urls_from_evidence(
-                ddd_inputs.get("scenario_market_evidence")
-            ),
+            trusted_source_urls=trusted_scenario_urls,
         )
 
         ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
