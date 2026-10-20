@@ -1,4 +1,4 @@
-﻿name: Daily Data Refresh
+name: Daily Data Refresh
 
 on:
   schedule:
@@ -46,6 +46,24 @@ jobs:
           python-version: "3.12"
       - name: Install
         run: pip install -e idos-core
+      - name: Resolve portfolio runtime gate
+        id: portfolio_gate
+        env:
+          IDOS_RUN_PORTFOLIO_REQUESTED: ${{ inputs.run_portfolio_simulation }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          import yaml
+
+          config = yaml.safe_load(Path('idos-config/portfolio.yml').read_text(encoding='utf-8')) or {}
+          configured = bool(config.get('runtime_enabled', False))
+          requested = os.environ.get('IDOS_RUN_PORTFOLIO_REQUESTED', 'false').lower() == 'true'
+          enabled = configured and requested
+          print(f'[PORTFOLIO-GATE] runtime_enabled={configured} requested={requested} effective={enabled}')
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write(f'enabled={str(enabled).lower()}\n')
+          PY
       - name: Validate bounded manual candidate scope
         if: github.event_name == 'workflow_dispatch'
         env:
@@ -215,7 +233,7 @@ jobs:
           print(f'[BUYLIST] {r.get(\"status\")}: updated={r.get(\"updated\")} added={r.get(\"added\")} removed={r.get(\"removed\")} total={r.get(\"total_entries\")}')
           "
       - name: Entry Monitor - Check Buy List
-        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
+        if: steps.portfolio_gate.outputs.enabled == 'true'
         run: |
           python -c "
           import sys, os, json
@@ -290,11 +308,11 @@ jobs:
             python -m idos.workers.automation.data_error_reporter --dry-run
           fi
       - name: Paper Trader - Execute Entry
-        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
+        if: steps.portfolio_gate.outputs.enabled == 'true'
         run: |
           python -m idos.workers.portfolio.execute_entry_signals
       - name: Risk Monitor - Daily risk assessment
-        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
+        if: steps.portfolio_gate.outputs.enabled == 'true'
         run: |
           python -c "
           import sys, os, json
@@ -314,7 +332,7 @@ jobs:
               print(f'[RISK] {r.get(\"positions_checked\", 0)} posiciones revisadas, sin alertas')
           "
       - name: Exit Decision Engine
-        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
+        if: steps.portfolio_gate.outputs.enabled == 'true'
         run: |
           python -c "
           import sys, os, json
@@ -340,7 +358,7 @@ jobs:
             exit 1
           fi
       - name: Monthly Portfolio Report
-        if: github.event_name == 'workflow_dispatch' && inputs.run_portfolio_simulation
+        if: steps.portfolio_gate.outputs.enabled == 'true'
         run: |
           python -c "
           import sys, os, json, calendar
