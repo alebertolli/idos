@@ -60,6 +60,7 @@ jobs:
         env:
           FORCE: "false"
           EVENT_TYPE: monthly
+          TICKER: ${{ inputs.candidate_tickers }}
         run: python scripts/ddd_research.py --preview
       - name: Save & commit results
         if: always() && !cancelled()
@@ -114,4 +115,5 @@ jobs:
       allow_production_e2e: ${{ inputs.allow_production_e2e || false }}
       skip_portfolio_reevaluation: true
       trigger_type: monthly
+      candidate_tickers: ${{ inputs.candidate_tickers || '' }}
     secrets: inherit

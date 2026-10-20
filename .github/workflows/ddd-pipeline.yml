@@ -19,7 +19,12 @@ on:
         type: string
         default: manual
       ticker:
-        description: "Símbolo opcional para limitar el análisis del workflow reusable"
+        description: "Símbolo(s) opcional(es) para limitar el análisis del workflow reusable"
+        required: false
+        type: string
+        default: ""
+      candidate_tickers:
+        description: "Alcance opcional de 1-5 tickers operables para orquestación"
         required: false
         type: string
         default: ""
@@ -31,7 +36,7 @@ on:
         type: boolean
         default: false
       ticker:
-        description: "Required for manual runs: one operable ticker, e.g. AAPL"
+        description: "Required for manual runs: 1-5 comma-separated operable tickers, e.g. AAPL,MSFT,QQQ"
         required: true
         type: string
       force:
@@ -154,13 +159,13 @@ jobs:
       - name: Validate bounded manual candidate scope
         if: github.event_name == 'workflow_dispatch'
         env:
-          IDOS_CANDIDATE_TICKERS: ${{ inputs.ticker }}
-          IDOS_MANUAL_SELECTION_LIMIT: "1"
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers || inputs.ticker || github.event.inputs.ticker || '' }}
+          IDOS_MANUAL_SELECTION_LIMIT: "5"
         run: python scripts/validate_manual_candidate_scope.py
 
       - name: Set run context
         run: |
-          TICKER="${{ inputs.ticker || github.event.inputs.ticker || github.event.client_payload.ticker || '' }}"
+          TICKER="${{ inputs.candidate_tickers || inputs.ticker || github.event.inputs.ticker || github.event.client_payload.ticker || '' }}"
           echo "TICKER=$TICKER" >> $GITHUB_ENV
           if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
