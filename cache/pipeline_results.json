@@ -1,13 +1,13 @@
 {
   "status": "success",
   "output": {
-    "started_at": "2026-10-19T23:24:44.599821-03:00",
-    "finished_at": "2026-10-19T23:24:48.066445-03:00",
-    "duration_seconds": 3.466616153717041,
+    "started_at": "2026-10-19T23:27:19.938801-03:00",
+    "finished_at": "2026-10-19T23:27:23.555641-03:00",
+    "duration_seconds": 3.616832971572876,
     "candidate_source": "idos-config/universe/operable.yml",
     "candidate_count": 1,
     "candidate_tickers": [
-      "ASML"
+      "ARM"
     ],
     "operable_count": 1,
     "operable_filtered": 0,
@@ -15,13 +15,23 @@
     "fetch_new": 1,
     "fetch_cached": 0,
     "fetch_errors": 0,
-    "scout_passed": 1,
-    "scout_rejected": 0,
-    "scout_data_quality_rejected": 0,
-    "scout_data_quality_details": [],
-    "new_watchlist_count": 1,
-    "opportunities_eligible": 1,
-    "opportunities_existing": 1,
+    "scout_passed": 0,
+    "scout_rejected": 1,
+    "scout_data_quality_rejected": 1,
+    "scout_data_quality_details": [
+      {
+        "ticker": "ARM",
+        "missing_critical_metrics": [
+          "operating_margin_pct"
+        ],
+        "conflicting_critical_metrics": [
+          "operating_margin_pct"
+        ]
+      }
+    ],
+    "new_watchlist_count": 0,
+    "opportunities_eligible": 0,
+    "opportunities_existing": 0,
     "opportunities_discovery_review": 0,
     "opportunities_created": 0,
     "downgraded_to_watchlist": 0,
