@@ -6,7 +6,6 @@ from idos.discovery.scout import ScoutEngine, ScoutResult
 from idos.discovery.watchlist import WatchlistManager
 from idos.discovery.ranking import RankingSystem
 from idos.discovery.operability import OperabilityFilter
-from idos.discovery.screening import FinvizScreener
 from idos.workers.base import BaseWorker
 from idos.workers.data.refresh_worker import DataRefreshWorker
 from idos.workers.data.cache import DataCache
@@ -28,9 +27,6 @@ class ScoutWorker(BaseWorker):
         self.watchlist = WatchlistManager(max_entries=config.get("max_watchlist", 50))
         self.ranking = RankingSystem()
         self.data_refresher = DataRefreshWorker(config)
-        self.screener = FinvizScreener(
-            resolve_config_directory(config.get("screeners_dir", "idos-config/screeners"))
-        )
         self.journal_path = config.get("journal_path", "")
 
     def _save_watchlist(self):
@@ -67,14 +63,7 @@ class ScoutWorker(BaseWorker):
                 print(f"[SCOUT] Data fetched for {fetched} tickers")
 
         # ──────────────────────────────────────────────────────────
-        # STEP 1: FinvizScreener (0 LLM, reglas programaticas)
-        # ──────────────────────────────────────────────────────────
-        # The profile is the single financial preselection policy.
-        screener_passed = list(tickers)
-        screener_skipped = 0
-
-        # ──────────────────────────────────────────────────────────
-        # STEP 2: OperabilityFilter (solo activos operables)
+        # STEP 1: OperabilityFilter (solo activos operables)
         # ──────────────────────────────────────────────────────────
         operable = OperabilityFilter(
             self.config.get("operable_path", "idos-config/universe/operable.yml")
@@ -86,14 +75,13 @@ class ScoutWorker(BaseWorker):
         if not tickers:
             print("[SCOUT] No tickers after operability filter")
             return {"tickers_screened": total_input, "passed_count": 0,
-                    "screener_passed": len(screener_passed), "screener_filtered": screener_skipped,
                     "operable_passed": 0, "results": [], "watchlist_size": 0}
         operable_passed = len(tickers)
 
         # ──────────────────────────────────────────────────────────
-        # STEP 3: ScoutEngine (score detallado)
+        # STEP 2: Strategy-specific ScoutEngine (deterministic eligibility)
         # ──────────────────────────────────────────────────────────
-        print(f"\n[SCOUT] === STEP 3: ScoutEngine ({len(tickers)} tickers) ===")
+        print(f"\n[SCOUT] === STEP 2: ScoutEngine ({len(tickers)} tickers) ===")
         screened: list[dict[str, Any]] = []
         for i, ticker in enumerate(tickers, 1):
             financial_data = self._get_cached_data(ticker)
@@ -120,18 +108,18 @@ class ScoutWorker(BaseWorker):
         passed_entries = [e for e in screened if e["passed"]]
         passed_ranked = [r for r in ranked if any(e["ticker"] == r.ticker and e["passed"] for e in screened)]
         print(f"\n[SCOUT] === RESULTS ===")
-        print(f"[SCOUT] Input: {total_input} | Screener: {len(screener_passed)} | Operable: {operable_passed} | Scored: {len(screened)} | Passed: {len(passed_entries)}")
+        print(f"[SCOUT] Input: {total_input} | Operable: {operable_passed} | Scored: {len(screened)} | Passed: {len(passed_entries)}")
         if passed_ranked:
             print("[SCOUT] Top scored:")
             for r in passed_ranked[:10]:
                 print(f"  {r.ticker}: score={r.scout_score} rank={r.rank}")
 
         # ──────────────────────────────────────────────────────────
-        # STEP 4: Data Refresh (solo para watchlisted)
+        # STEP 3: Data Refresh (solo para watchlisted)
         # ──────────────────────────────────────────────────────────
         watchlisted = [e["ticker"] for e in screened if e["passed"]]
         if watchlisted and (force_refresh or context.get("refresh_data", False)):
-            print(f"\n[SCOUT] === STEP 4: Data Refresh ({len(watchlisted)} tickers) ===")
+            print(f"\n[SCOUT] === STEP 3: Data Refresh ({len(watchlisted)} tickers) ===")
             refresh_ctx = {
                 "tickers": watchlisted,
                 "max_tickers": context.get("max_tickers", 0),
@@ -147,8 +135,6 @@ class ScoutWorker(BaseWorker):
         return {
             "tickers_screened": total_input,
             "passed_count": len(passed_entries),
-            "screener_passed": len(screener_passed),
-            "screener_filtered": screener_skipped,
             "operable_passed": operable_passed,
             "results": [{"ticker": r.ticker, "scout_score": r.scout_score, "score": r.scout_score,
                          "conviction_score": r.conviction_score,
