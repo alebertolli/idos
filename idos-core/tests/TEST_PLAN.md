@@ -725,3 +725,14 @@ Tras integrar el workflow, comprobar que el enlace de Decision Board abre la acc
   #12293942535; Daily #39487847775; Pages preview #39488012941, artifact
   #12294786477. El render local confirmó contadores, señal y alertas. Ninguna
   corrida escribió en `main` ni publicó a Pages.
+
+
+### Línea base vacía para reinicio del ciclo
+
+Antes de la primera corrida productiva tras el reinicio:
+
+1. Verificar que `idos-journal` no contiene expedientes ni referencias a oportunidades, tesis, decisiones, post-mortems o posiciones históricas.
+2. Conservar `idos-config/universe/operable.yml`, perfiles, reglas y los archivos vacíos de Buy List/Watch List.
+3. Ejecutar una corrida Monthly acotada y verificar que Discovery crea únicamente los expedientes nuevos seleccionados desde el universo operable.
+4. Confirmar que Dashboard refleja el estado nuevo y no publica datos de portfolio privado.
+5. Verificar que la versión final de `main` inicia con un único commit raíz.
