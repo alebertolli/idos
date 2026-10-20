@@ -1,10 +1,18 @@
+from datetime import datetime, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import pytest
 import yaml
 
 from idos.decision.proposal_review import decision_proposal_fingerprint
 from scripts.review_decision import record_decision_review
+
+
+AR_TZ = ZoneInfo("America/Argentina/Buenos_Aires")
+TODAY = datetime.now(AR_TZ).date()
+SOURCE_DATE = (TODAY - timedelta(days=1)).isoformat()
+REVIEWED_AT = datetime.combine(TODAY, datetime.min.time(), tzinfo=AR_TZ).replace(hour=12).isoformat()
 
 
 def _seed_fundamental_case(base_path: Path, *, recommendation="APPROVE", rules_failed=None):
@@ -16,7 +24,7 @@ def _seed_fundamental_case(base_path: Path, *, recommendation="APPROVE", rules_f
         "rules_passed": ["RULE-008", "RULE-010"],
         "rules_failed": rules_failed or [],
         "conviction_score": 82,
-        "generated_at": "2026-10-19T12:00:00-03:00",
+        "generated_at": REVIEWED_AT,
         "status": "PENDING_HUMAN_REVIEW",
     }
     opportunity = {
@@ -28,20 +36,20 @@ def _seed_fundamental_case(base_path: Path, *, recommendation="APPROVE", rules_f
     }
     analysis = {
         "schema_version": "bear_base_bull_v1",
-        "as_of_date": "2026-10-19",
-        "horizon_date": "2027-10-19",
+        "as_of_date": TODAY.isoformat(),
+        "horizon_date": (TODAY + timedelta(days=365)).isoformat(),
         "currency": "USD",
         "scenarios": [
-            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": "2026-10-18"}]},
-            {"id": "BASE", "probability_pct": 50, "target_price": 110, "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": "2026-10-18"}]},
-            {"id": "BULL", "probability_pct": 25, "target_price": 150, "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": "2026-10-18"}]},
+            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": SOURCE_DATE}]},
+            {"id": "BASE", "probability_pct": 50, "target_price": 110, "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": SOURCE_DATE}]},
+            {"id": "BULL", "probability_pct": 25, "target_price": 150, "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": SOURCE_DATE}]},
         ],
     }
     review = {
         "status": "approved",
         "scenario_hash": "",
         "reviewed_by": "github-manager",
-        "reviewed_at": "2026-10-19T12:00:00-03:00",
+        "reviewed_at": REVIEWED_AT,
         "note": "Reviewed source links, dates and valuation assumptions.",
         "sources_verified": True,
     }
