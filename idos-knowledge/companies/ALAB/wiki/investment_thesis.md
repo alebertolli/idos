@@ -1,0 +1,1 @@
+Mantener posición larga en ALAB, anticipando que la combinación de crecimiento explosivo del mercado cloud/AI, márgenes operativos robustos y la falta de deuda permitirá una revaluación del múltiplo de mercado a medida que se materialicen contratos clave y la adopción de estándares CXL.

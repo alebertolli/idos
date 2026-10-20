@@ -1,0 +1,178 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Ningún anuncio de contrato nuevo con un proveedor Tier‑1 en los comunicados
+      de prensa o presentaciones a inversores antes del 2027-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los resultados de la llamada de resultados Q2‑2027 indican que el número
+      total de contratos Tier‑1 sigue siendo ≤1.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ningún anuncio de contrato nuevo con un proveedor Tier‑1 en los comunicados de
+    prensa o presentaciones a inversores antes del 2027-06-30.
+  - Los resultados de la llamada de resultados Q2‑2027 indican que el número total
+    de contratos Tier‑1 sigue siendo ≤1.
+  horizon: corto
+  id: H1-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 3.0
+    met: null
+    metric: numero_contratos_tier1
+    prediction: Al menos tres contratos firmados y anunciados públicamente, cada uno
+      con un valor mínimo de $30 millones de ingresos anuales recurrentes.
+    unit: contratos
+  priority: critical
+  probability: 0.5
+  rationale: El crecimiento explosivo del mercado de IA y la escasez de soluciones
+    de interconexión de alta velocidad hacen que los grandes proveedores de nube busquen
+    socios con IP diferenciada. ALAB ya ha anunciado pruebas piloto con dos de estos
+    proveedores y su software COSMOS crea una barrera de cambio que facilita la decisión
+    de compra.
+  review_trigger: Si al 2027-07-01 no se ha publicado ningún comunicado oficial de
+    ALAB confirmando al menos un contrato nuevo con un proveedor de nube Tier‑1, la
+    hipótesis se descartará.
+  secondary_hypotheses: []
+  statement: ALAB firmará al menos tres contratos nuevos con proveedores de nube de
+    nivel Tier‑1 para suministrar soluciones de interconexión CXL/PCIe antes del 2027-06-30.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto GAAP reportado en el 10‑K FY2028 es <52 %.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los comentarios de la gerencia indican que los costos de materiales
+      y de fabricación han aumentado significativamente sin compensación de software.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto GAAP reportado en el 10‑K FY2028 es <52 %.
+  - Los comentarios de la gerencia indican que los costos de materiales y de fabricación
+    han aumentado significativamente sin compensación de software.
+  horizon: medio
+  id: H2-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 55.0
+    met: null
+    metric: margen_bruto_gaap
+    prediction: Reporte financiero FY2028 mostrará un margen bruto GAAP de ≥55 %.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: El software COSMOS, que se licencia junto con el hardware, tiene costos
+    marginales muy bajos y está escalando rápidamente, lo que permite que una mayor
+    proporción de los ingresos provenga de software de alto margen. Además, la ausencia
+    de deuda permite reinvertir eficientemente en capacidad de producción sin presión
+    de intereses.
+  review_trigger: Si el 10‑K de FY2027 (fecha de publicación antes del 2028-03-31)
+    muestra un margen bruto GAAP ≤50 %, la hipótesis se considerará falsificada.
+  secondary_hypotheses:
+  - H4-OPP-20261020-001
+  statement: El margen bruto GAAP de ALAB alcanzará al menos el 55 % al cierre del
+    ejercicio fiscal 2028 (2028-12-31).
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EV/EBITDA reportado por Bloomberg al 2028‑12‑31 es <22×.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los analistas revisan la calificación a ‘underweight’ y citan riesgos
+      de mercado que reducen la valoración múltiple.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EV/EBITDA reportado por Bloomberg al 2028‑12‑31 es <22×.
+  - Los analistas revisan la calificación a ‘underweight’ y citan riesgos de mercado
+    que reducen la valoración múltiple.
+  horizon: largo
+  id: H3-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 25.0
+    met: null
+    metric: ev_ebitda
+    prediction: Al cierre del 2028‑12‑31, Bloomberg/FactSet mostrará un EV/EBITDA
+      de ALAB ≥25×.
+    unit: veces
+  priority: informational
+  probability: 0.5
+  rationale: Los contratos Tier‑1 y el aumento del margen bruto crearán expectativas
+    de crecimiento sostenido, lo que impulsará la valoración múltiple. Los analistas
+    del sector están subestimando la velocidad de adopción del estándar CXL, y la
+    evidencia de adopción temprana generará una re‑rating de los múltiplos de valoración.
+  review_trigger: Si al 2028‑06‑30 el EV/EBITDA se mantiene ≤18× sin señales de expansión
+    de múltiplo, la hipótesis será descartada.
+  secondary_hypotheses:
+  - H1-OPP-20261020-001
+  - H2-OPP-20261020-001
+  statement: El múltiplo EV/EBITDA de mercado de ALAB se expandirá de aproximadamente
+    15× a al menos 25× para el 31‑12‑2028.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El reporte de ingresos Q4‑2027 indica que <70 % de los ingresos de
+      hardware están asociados a COSMOS.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los clientes clave publican declaraciones de que siguen usando versiones
+      de hardware sin COSMOS.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El reporte de ingresos Q4‑2027 indica que <70 % de los ingresos de hardware están
+    asociados a COSMOS.
+  - Los clientes clave publican declaraciones de que siguen usando versiones de hardware
+    sin COSMOS.
+  horizon: corto
+  id: H4-OPP-20261020-001
+  opportunity_id: OPP-20261020-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 80.0
+    met: null
+    metric: penetracion_cosmos
+    prediction: El reporte de ingresos segmentado de ALAB mostrará que el 80 % o más
+      de los ingresos de hardware provienen de unidades con COSMOS habilitado.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: COSMOS es el diferenciador clave que permite a los clientes gestionar
+    la complejidad de CXL/PCIe y crear barreras de cambio. ALAB ha implementado un
+    modelo de licencia obligatoria para nuevas versiones de hardware y ha anunciado
+    incentivos de adopción que deberían impulsar la penetración rápidamente.
+  review_trigger: Si al 2028‑01‑15 la empresa no ha actualizado su reporte de ingresos
+    para reflejar ≥75 % de adopción de COSMOS, la hipótesis será rechazada.
+  secondary_hypotheses: []
+  statement: Al menos el 80 % de las unidades de hardware vendidas por ALAB estarán
+    ejecutando el software COSMOS antes del 2027‑12‑31.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1

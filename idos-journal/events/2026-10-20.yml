@@ -39,3 +39,29 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-10-20T14:47:52.844529'
+- data:
+    classification: compounder
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 194683ddd2515a5407ab831f4180141469ace5ed8d4f44a623cbf33399967dce
+    opp_id: OPP-20261020-001
+    score: 84
+    strategy_version: positive_fundamentals_v1
+    ticker: ALAB
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-10-20T15:47:07.521633'
+- data:
+    classification: systematic_momentum
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 1
+    input_snapshot_sha256: 75a99988bcd1def57359e6903a51d139dd7296c168877ac63d2e5037ac705809
+    opp_id: OPP-20261001-MOM-XLF
+    score: 26
+    strategy_version: '1.0'
+    ticker: XLF
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-10-20T15:47:08.118987'

@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 133 companies tracked
+Total: 134 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -126,6 +126,7 @@ Total: 133 companies tracked
 - 📄 [[ADBE|Adobe Inc.]]
 - 📄 [[ADI|ADI]]
 - 📄 [[ADP|Automatic Data Processing, Inc.]]
+- 📄 [[ALAB|Astera Labs, Inc.]]
 - 📄 [[AMAT|Applied Materials, Inc.]]
 - 📄 [[AMD|AMD]]
 - 📄 [[ASML|ASML Holding N.V.]]
