@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.1.5](https://github.com/alebertolli/idos/compare/v0.1.4...v0.1.5) (2026-10-20)
+
+
+### Features
+
+* **board:** enable authenticated decisions on production main ([36e9b44](https://github.com/alebertolli/idos/commit/36e9b447b4a3e3a6620d58f98a474aa12e10b11b))
+* **decision:** make Decision Board the first human checkpoint ([3fc0296](https://github.com/alebertolli/idos/commit/3fc02963bfd2dec8016432a88088fb8b1f8a55ff))
+
+
+### Bug Fixes
+
+* **decision:** handle scalar asymmetry in assessment context ([6bd97d4](https://github.com/alebertolli/idos/commit/6bd97d4cb3296484e898c9f3575729403c0ececc))
+* **research:** canonicalize ticker casing for trusted sources ([80abefe](https://github.com/alebertolli/idos/commit/80abefe9cf9841be16f8e242b8c0379cf995d3d7))
+* **research:** include Discovery financial observations ([560d7e6](https://github.com/alebertolli/idos/commit/560d7e6c359fe3b444fa5fe7eead36f07b93a42a))
+* **research:** preserve financial evidence and DDD artifacts ([df0e057](https://github.com/alebertolli/idos/commit/df0e057342ceee5f4668976c9e0d667bb7ec4e8f))
+* **research:** retry invalid hypothesis output once ([3852c8e](https://github.com/alebertolli/idos/commit/3852c8e650f259f010c70ebc167835a70a6ee1c8))
+* **workflow:** capture DDD start time at runtime ([543a0a0](https://github.com/alebertolli/idos/commit/543a0a0b13addcf83c11a58bce0c5db8ee496dd2))
+
+
+### Documentation
+
+* align deployment test plan with single Board review ([c1126e9](https://github.com/alebertolli/idos/commit/c1126e93cc21764b93ace03370678500e0589a93))
+* define Decision Board as first human checkpoint ([13cd208](https://github.com/alebertolli/idos/commit/13cd208e114d6adb45b75c77f7af44e39860476f))
+* record final E2E and CI evidence ([de6fc48](https://github.com/alebertolli/idos/commit/de6fc4858f716d50e0f367f20f8d7a806ae9a57b))
+* record two-strategy E2E to Decision Board ([aa525e2](https://github.com/alebertolli/idos/commit/aa525e2db2c76e874e16320422abdf850c455a1d))
+* specify autonomous stages before Decision Board ([060e501](https://github.com/alebertolli/idos/commit/060e501b4cd7d0b7dc1d2761fc8d3a1344b7618f))
+
 ## [0.1.4](https://github.com/alebertolli/idos/compare/v0.1.3...v0.1.4) (2026-10-20)
 
 
