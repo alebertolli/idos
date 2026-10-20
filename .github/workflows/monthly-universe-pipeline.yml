@@ -5,6 +5,11 @@ on:
     - cron: "0 0 1 * *"  # primer dia de cada mes a medianoche
   workflow_dispatch:
     inputs:
+      allow_production_e2e:
+        description: "Allow this bounded manual E2E to write results to main"
+        required: false
+        type: boolean
+        default: false
       candidate_tickers:
         description: "Required for manual runs: 1-5 comma-separated tickers from operable.yml"
         required: true
@@ -22,12 +27,11 @@ jobs:
       IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
     steps:
       - uses: actions/checkout@v4
-      - name: Validate test branch for manual runs
+      - name: Validate manual production opt-in
+        env:
+          IDOS_ALLOW_PRODUCTION_E2E: ${{ inputs.allow_production_e2e }}
         run: |
-          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
-            echo "::error::Manual E2E runs must use a test branch; main is reserved for scheduled production runs."
-            exit 1
-          fi
+          python scripts/validate_production_dispatch.py
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -77,10 +81,11 @@ jobs:
             git push origin "HEAD:$TARGET_BRANCH"
           fi
       - name: Notify
+        if: github.event_name != 'workflow_dispatch'
         run: |
           python scripts/notify_monthly_pipeline.py
       - name: Notify on failure
-        if: failure()
+        if: failure() && github.event_name != 'workflow_dispatch'
         run: python scripts/notify_monthly_failure.py
       - name: 🐛 Report failure as GitHub Issue
         if: failure() && github.ref_name == 'main'
