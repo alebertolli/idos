@@ -109,6 +109,47 @@ def test_manager_approval_requires_current_assessment_and_scenario_and_writes_au
         )
 
 
+def test_manager_cannot_approve_any_strategy_without_rule_008(tmp_path):
+    opp_dir, proposal = _seed_fundamental_case(tmp_path)
+    proposal["rules_passed"] = ["RULE-010"]
+    proposal["rules_failed"] = []
+    proposal_path = opp_dir / "decision_proposal.yml"
+    proposal_path.write_text(yaml.safe_dump(proposal), encoding="utf-8")
+    opportunity_path = opp_dir / "opportunity.yml"
+    opportunity = yaml.safe_load(opportunity_path.read_text(encoding="utf-8"))
+    opportunity["research_profile"] = "systematic"
+    opportunity_path.write_text(yaml.safe_dump(opportunity), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="every strategy"):
+        record_decision_review(
+            tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
+            "approved", "github-manager", "Reviewed thesis, sources and risk.", True,
+        )
+    assert not (opp_dir / "board_resolution.yml").exists()
+
+
+def test_manager_cannot_approve_qualitative_scenarios_under_rule_008(tmp_path):
+    opp_dir, proposal = _seed_fundamental_case(tmp_path)
+    report_path = opp_dir / "ddd_report.yml"
+    report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+    analysis = report["scenario_analysis"]
+    analysis["quantification_status"] = "not_calibrated"
+    for scenario in analysis["scenarios"]:
+        scenario["target_price"] = None
+    from idos.decision.scenarios import scenario_fingerprint
+    proposal["scenario_hash"] = scenario_fingerprint(analysis)
+    proposal_path = opp_dir / "decision_proposal.yml"
+    proposal_path.write_text(yaml.safe_dump(proposal), encoding="utf-8")
+    report_path.write_text(yaml.safe_dump(report), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="quantitative Bear/Bull ranges"):
+        record_decision_review(
+            tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
+            "approved", "github-manager", "Reviewed thesis, sources and risk.", True,
+        )
+    assert not (opp_dir / "board_resolution.yml").exists()
+
+
 def test_manager_approval_rejects_stale_hash_or_failed_gate(tmp_path):
     opp_dir, proposal = _seed_fundamental_case(tmp_path)
     with pytest.raises(ValueError, match="stale"):
