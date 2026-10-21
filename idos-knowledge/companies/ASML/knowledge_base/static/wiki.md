@@ -49,10 +49,9 @@ To be evaluated
 - **Catalyst** (Impact: medium, Timeline: medium)
 - **Catalyst** (Impact: medium, Timeline: medium)
 - **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-ASML muestra fuerte impulso de precios y margen sólido, pero falta información clave para validar crecimiento sostenido.
+ASML mantiene liderazgo en sistemas EUV, con fuerte reinversión y margen bruto alto, lo que sustenta crecimiento futuro.

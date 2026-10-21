@@ -1,57 +1,62 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Entregas totales de High‑NA EUV menores a 150 unidades antes de la
-      fecha objetivo.
+  - condition: El porcentaje de capacidad High‑NA se mantiene por debajo del 15% a
+      la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Anuncio oficial de retraso técnico que posponga la primera entrega
-      a 2028.
+  - condition: Los principales clientes retrasan o cancelan sus planes de compra de
+      High‑NA EUV.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Entregas totales de High‑NA EUV menores a 150 unidades antes de la fecha objetivo.
-  - Anuncio oficial de retraso técnico que posponga la primera entrega a 2028.
-  horizon: medio
+  - El porcentaje de capacidad High‑NA se mantiene por debajo del 15% a la fecha objetivo.
+  - Los principales clientes retrasan o cancelan sus planes de compra de High‑NA EUV.
+  horizon: corto
   id: H1-OPP-20261021-001
   opportunity_id: OPP-20261021-001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-31'
-    expected: 150.0
+    deadline: '2027-06-30'
+    expected: 30.0
     met: null
-    metric: sistemas entregados
-    prediction: Entrega acumulada de sistemas High‑NA EUV ≥ 150 unidades para 2027-12-31.
-    unit: unidades
+    metric: porcentaje_capacidad_high_na
+    prediction: El porcentaje de capacidad total de EUV que corresponde a sistemas
+      High‑NA será ≥30% a nivel global.
+    unit: '%'
   priority: critical
   probability: 0.5
-  rationale: El desarrollo de la generación High‑NA EUV está avanzado; los clientes
-    clave (TSMC, Samsung, Intel) han confirmado pedidos y los plazos de producción
-    se alinean con la hoja de ruta anunciada en 2025. La capacidad de fabricación
-    de ASML y la demanda estructural de nodos <3 nm respaldan la entrega masiva.
-  review_trigger: Si a 2027-06-30 las entregas acumuladas son inferiores a 100 unidades.
+  rationale: Los clientes clave (TSMC, Samsung, Intel) han anunciado planes de expansión
+    de capacidad que dependen de la mayor resolución del High‑NA EUV. Además, los
+    últimos resultados de pruebas de rendimiento superaron los objetivos de productividad,
+    reduciendo el costo por wafer y haciendo la tecnología atractiva para nodos de
+    3 nm y menores.
+  review_trigger: Si al 2027-04-30 la capacidad High‑NA representa menos del 15% del
+    total de EUV instalado, reconsideraremos la hipótesis.
   secondary_hypotheses: []
-  statement: ASML entregará al menos 150 sistemas High‑NA EUV antes del 2027-12-31.
+  statement: ASML logrará una adopción acelerada del sistema High‑NA EUV, alcanzando
+    al menos 30% de la capacidad total de EUV instalada en los principales fabricantes
+    de semiconductores para finales de 2027.
   status: ACTIVE
   ticker: ASML
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: EPS diluido reportado < €14,0.
+  - condition: Los ingresos de servicios crecen menos del 10% anual.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Revisión a la baja de la guía de EPS antes del Q3 2027 por debajo de
-      €14,0.
+  - condition: El total de ingresos de servicios al 31‑12‑2027 es inferior a 1.050
+      millones USD.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - EPS diluido reportado < €14,0.
-  - Revisión a la baja de la guía de EPS antes del Q3 2027 por debajo de €14,0.
+  - Los ingresos de servicios crecen menos del 10% anual.
+  - El total de ingresos de servicios al 31‑12‑2027 es inferior a 1.050 millones USD.
   horizon: medio
   id: H2-OPP-20261021-001
   opportunity_id: OPP-20261021-001
@@ -59,108 +64,110 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2027-12-31'
-    expected: 15.5
+    expected: 1200.0
     met: null
-    metric: EPS diluido
-    prediction: EPS diluido FY2027 ≥ €15,5.
-    unit: €/acción
+    metric: ingresos_servicios_2027
+    prediction: Los ingresos de servicios (Service & Upgrades) alcanzarán 1.200 millones
+      USD al cierre del año fiscal 2027.
+    unit: millones USD
   priority: important
   probability: 0.5
-  rationale: Un mayor número de entregas High‑NA EUV (ver H1) incrementará los ingresos
-    y los márgenes operativos, mientras que la estructura de costos fijos se mantiene
-    estable. Además, la mejora en la mezcla de productos EUV de alta gama eleva la
-    rentabilidad.
-  review_trigger: Si en la presentación de resultados del Q3 2027 la guía de EPS se
-    reduce a menos de €14,0.
+  rationale: El ciclo de vida de los sistemas EUV supera los 10 años y la complejidad
+    de sus subsistemas genera demanda continua de mantenimiento especializado. ASML
+    ha ampliado su oferta de contratos de servicio y ha reportado aumentos en la tasa
+    de retención de clientes.
+  review_trigger: Si al 2027-09-30 los ingresos de servicios representan menos del
+    8% del total de ingresos de ASML, la hipótesis será revisada.
   secondary_hypotheses:
   - H1-OPP-20261021-001
-  statement: El EPS diluido de ASML para el ejercicio fiscal 2027 será de al menos
-    €15,5, superando el consenso de €14,0 en más del 10 %.
+  statement: Los ingresos recurrentes por servicios de actualización y soporte de
+    ASML crecerán al menos un 18% anual durante 2027, impulsados por la necesidad
+    de mantener operativas las máquinas EUV de alta complejidad.
   status: ACTIVE
   ticker: ASML
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: EV/EBITDA superior a 14x en la fecha objetivo.
+  - condition: El precio de cierre permanece por debajo de 1.900 USD al 31‑03‑2028.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Caída del precio de la acción que mantenga el múltiplo por encima de
-      14x pese a crecimiento del EBITDA.
+  - condition: El múltiplo EV/EBITDA se mantiene por debajo de 15x al cierre del periodo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - EV/EBITDA superior a 14x en la fecha objetivo.
-  - Caída del precio de la acción que mantenga el múltiplo por encima de 14x pese
-    a crecimiento del EBITDA.
+  - El precio de cierre permanece por debajo de 1.900 USD al 31‑03‑2028.
+  - El múltiplo EV/EBITDA se mantiene por debajo de 15x al cierre del periodo.
   horizon: largo
   id: H3-OPP-20261021-001
   opportunity_id: OPP-20261021-001
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-06-30'
-    expected: 12.0
+    deadline: '2028-03-31'
+    expected: 2149.0
     met: null
-    metric: EV/EBITDA
-    prediction: EV/EBITDA ≤ 12x al 2028-06-30.
-    unit: x
-  priority: informational
+    metric: precio_accion
+    prediction: El precio de cierre de la acción ASML será ≥2.149 USD.
+    unit: USD
+  priority: critical
   probability: 0.5
-  rationale: El aumento de EPS (H2) y la expectativa de crecimiento sostenido de los
-    márgenes impulsarán la capitalización de mercado, mientras que el EBITDA crecerá
-    a ritmo superior al de la valoración histórica, reduciendo el múltiplo. Además,
-    la presión de analistas para ajustar la valoración a la ventaja competitiva de
-    ASML contribuirá al ajuste.
-  review_trigger: Si a 2028-03-31 el EV/EBITDA sigue por encima de 14x y no hay señales
-    de mejora en la capitalización.
+  rationale: Los múltiplos de valoración (EV/EBITDA) de empresas de equipos de semiconductores
+    están subvaluados respecto a sus perspectivas de crecimiento. La combinación de
+    mayor cuota de mercado High‑NA y mayores ingresos de servicios debería impulsar
+    el múltiplo a 20x, lo que corresponde a un precio objetivo de ~2.150 USD bajo
+    la capitalización actual.
+  review_trigger: Si al 2027-12-31 el precio de la acción está bajo 1.800 USD y el
+    EV/EBITDA bajo 15x, reconsideraremos la valoración.
   secondary_hypotheses:
+  - H1-OPP-20261021-001
   - H2-OPP-20261021-001
-  statement: El múltiplo EV/EBITDA de ASML caerá a 12x o menos para el 2028-06-30,
-    reflejando una revaluación favorable del negocio.
+  statement: El precio de la acción de ASML superará los 2.149 USD antes del 31‑03‑2028,
+    reflejando la revaluación del mercado ante la adopción de High‑NA EUV y el crecimiento
+    de ingresos recurrentes.
   status: ACTIVE
   ticker: ASML
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Reducción de pedidos menor al 10 % o estabilidad de los pedidos chinos.
+  - condition: TSMC no anuncia pedidos de nuevas máquinas EUV en 2027.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Anuncio de exención o levantamiento de restricciones antes de la fecha
-      objetivo.
+  - condition: Los pedidos confirmados son menores a 3 unidades.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Reducción de pedidos menor al 10 % o estabilidad de los pedidos chinos.
-  - Anuncio de exención o levantamiento de restricciones antes de la fecha objetivo.
-  horizon: medio
+  - TSMC no anuncia pedidos de nuevas máquinas EUV en 2027.
+  - Los pedidos confirmados son menores a 3 unidades.
+  horizon: corto
   id: H4-OPP-20261021-001
   opportunity_id: OPP-20261021-001
   parent_id: ''
   predictions:
   - actual: null
     deadline: '2027-09-30'
-    expected: 20.0
+    expected: 5.0
     met: null
-    metric: reducción de pedidos
-    prediction: Reducción de pedidos de EUV de clientes chinos ≥ 20 % para 2027-09-30.
-    unit: '%'
+    metric: numero_pedidos_euv_tsmc_2027
+    prediction: TSMC emitirá pedidos confirmados por un mínimo de 5 sistemas EUV (incluyendo
+      High‑NA) durante 2027.
+    unit: unidades
   priority: important
   probability: 0.5
-  rationale: Las políticas de control de tecnología de EE.UU. están intensificándose;
-    si se aplican a equipos de litografía, los fabricantes chinos (SMIC, YMTC) verán
-    limitada su capacidad de adquirir EUV, lo que se traducirá en una caída de pedidos
-    a ASML. Historias previas de sanciones a Huawei y a la industria de semiconductores
-    respaldan este mecanismo.
-  review_trigger: Si el 2027-03-01 el gobierno EE.UU. anuncia la eliminación de las
-    restricciones de exportación a equipos EUV.
-  secondary_hypotheses: []
-  statement: Las restricciones de exportación EE.UU.-China reducirán los pedidos de
-    sistemas EUV de clientes chinos en al menos un 20 % respecto a los niveles de
-    2025, antes del 2027-09-30.
+  rationale: TSMC ha anunciado una expansión de sus fabs de 3 nm y 2 nm que requieren
+    EUV. La tendencia histórica muestra que cada 10% de aumento de capacidad implica
+    la compra de una nueva herramienta EUV. Además, la disponibilidad de High‑NA EUV
+    reduce el número de máquinas necesarias por wafer, incentivando compras adicionales.
+  review_trigger: Si al 2027-07-31 no se ha publicado ningún comunicado de pedido
+    de EUV por parte de TSMC, la hipótesis será descartada.
+  secondary_hypotheses:
+  - H1-OPP-20261021-001
+  statement: TSMC incrementará su capacidad de producción basada en EUV en al menos
+    25% durante 2027, lo que generará pedidos adicionales de al menos 5 máquinas EUV
+    de ASML.
   status: ACTIVE
   ticker: ASML
   version: 1

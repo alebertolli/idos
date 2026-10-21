@@ -25,3 +25,33 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-10-21T14:00:04.399847'
+- data:
+    classification: quality_at_fair_price
+    ddd_empty: false
+    event_evidence: null
+    event_type: manual
+    hypotheses: 4
+    input_snapshot_sha256: fa49534df89c51ba1d6877b6401efd245de56fbddefb3ae229b1bafdba7cdf5f
+    opp_id: OPP-20261021-001
+    original_status: UNDER_RESEARCH
+    score: 80
+    strategy_version: positive_fundamentals_v1
+    ticker: ASML
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-21T15:18:23.110617'
+- data:
+    classification: Multibagger
+    ddd_empty: false
+    event_evidence: null
+    event_type: manual
+    hypotheses: 4
+    input_snapshot_sha256: 268f3ce1533bd5de7cdc5f9c3195321e7058c5c44b79d99530eae31d33b82346
+    opp_id: OPP-MB-ASML
+    original_status: UNDER_RESEARCH
+    score: 70
+    strategy_version: '1.5'
+    ticker: ASML
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-21T15:19:46.221111'
