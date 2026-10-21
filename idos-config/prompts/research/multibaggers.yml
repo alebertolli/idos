@@ -35,7 +35,9 @@ user_prompt: >
   y máximo 2 frases breves por elemento; no repitas el mismo hecho entre secciones.
   Mantén exactamente los tres escenarios y una entrada por cada ratio configurado.
   En cada ratio completa todos los campos obligatorios de forma concisa; no reproduzcas
-  tablas ni el paquete fuente.   Cada elemento de `sources` debe ser un objeto `{{name, url}}` con URL HTTPS.
+  tablas ni el paquete fuente. Usa exactamente la unidad configurada para cada métrica
+  en `research_requirements.ratio_units` (por ejemplo, `x` para ratios adimensionales
+  y `months` para runway); no infieras una unidad distinta. Cada elemento de `sources` debe ser un objeto `{{name, url}}` con URL HTTPS.
   `period_end` es la fecha del período financiero reportado, no la fecha de
   descarga; `inputs` debe referenciar nombres de campos del contexto financiero.
   Devuelve JSON con estos tipos y nombres exactos (no uses alias):

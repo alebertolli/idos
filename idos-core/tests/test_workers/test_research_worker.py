@@ -1221,6 +1221,8 @@ def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     assert "ni valores derivados" in rendered
     assert "ratios_investigados" in rendered
     assert "ratio_input_fields" in rendered
+    assert "ratio_units" in rendered
+    assert "unit" in rendered
     assert "scenario_analysis" in rendered
     assert "calidad_evidencia" in rendered
     assert '"categoria": string' in rendered
@@ -1307,6 +1309,30 @@ def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects
         available_input_fields={"fcf"},
     )
     assert any("inputs absent from research evidence" in error for error in errors)
+
+
+
+
+def test_multibaggers_ratio_units_are_normalized_from_strategy_config():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    url = "https://finance.yahoo.com/quote/ASML/balance-sheet/"
+    ratio = [{
+        "metric": "current_ratio", "status": "reported", "value": 1.4,
+        "period_end": "2026-09-30", "sources": [{"name": "Yahoo Finance", "url": url}],
+    }]
+    configured_units = {"current_ratio": "x"}
+    ResearchWorker._normalize_multibaggers_ratio_units(ratio, configured_units)
+    assert ratio[0]["unit"] == "x"
+    assert ResearchWorker._validate_multibaggers_ratio_review(
+        ratio, ["current_ratio"], trusted_source_urls={url}, expected_units=configured_units
+    ) == []
+
+    ratio[0]["unit"] = "percent"
+    errors = ResearchWorker._validate_multibaggers_ratio_review(
+        ratio, ["current_ratio"], trusted_source_urls={url}, expected_units=configured_units
+    )
+    assert "ratio unit conflicts with configured unit for current_ratio: expected x" in errors
 
 
 def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():

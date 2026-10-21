@@ -68,6 +68,10 @@ def test_multibaggers_policy_is_disabled_and_configured():
         "fundamental_ratio_review", "bear_base_bull_scenarios",
         "source_cited_expectation_gap", "validated_asymmetry",
     ]
+    assert profile.parameters["research"]["ratio_units"]["current_ratio"] == "x"
+    assert set(profile.parameters["research"]["ratios_to_review"]) == set(
+        profile.parameters["research"]["ratio_units"]
+    )
 
     assert "universe_path" not in profile.parameters
 
