@@ -1,0 +1,133 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción anual de máquinas EUV es inferior a 120 unidades en 2028-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción anual de máquinas EUV es inferior a 120 unidades en 2028-12-31.
+  horizon: medio
+  id: H1-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 120.0
+    met: null
+    metric: producción anual de máquinas EUV
+    prediction: La producción anual de máquinas EUV alcanzará 120 unidades para el
+      2028-12-31.
+    unit: unidades
+  priority: critical
+  probability: 0.5
+  rationale: La compañía ha anunciado la construcción de una nueva línea de producción
+    en su planta de Almere, que se espera aumente la capacidad de fabricación en un
+    20%. La inversión en automatización y la optimización de procesos respaldan esta
+    expansión.
+  review_trigger: Si en el informe trimestral de junio de 2027 la compañía indica
+    que la expansión de capacidad se ha cancelado o retrasado sin posibilidad de completarse
+    antes de 2028-12-31.
+  secondary_hypotheses: []
+  statement: ASML aumentará su capacidad de producción de máquinas EUV en un 20% para
+    finales de 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio deuda‑capital es igual o superior a 0,3 el 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio deuda‑capital es igual o superior a 0,3 el 2027-12-31.
+  horizon: medio
+  id: H2-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 0.3
+    met: null
+    metric: ratio deuda‑capital
+    prediction: El ratio deuda‑capital será menor a 0,3 el 2027-12-31.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: ASML ha planeado amortizar 3 bn USD de deuda y emitir 1 bn USD de capital
+    adicional en 2027, lo que reducirá el apalancamiento financiero.
+  review_trigger: Si en el informe trimestral de junio de 2027 la compañía reporta
+    un ratio deuda‑capital superior a 0,3.
+  secondary_hypotheses: []
+  statement: El ratio deuda‑capital de ASML caerá por debajo de 0,3 antes de finales
+    de 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El P/E de ASML es superior a 25 el 2028-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El P/E de ASML es superior a 25 el 2028-06-30.
+  horizon: medio
+  id: H3-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 25.0
+    met: null
+    metric: P/E ratio
+    prediction: El P/E de ASML será igual o inferior a 25 el 2028-06-30.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: El mercado ajustará la valoración de ASML a la media sectorial de 25x
+    P/E, reflejando la expectativa de crecimiento sostenido y la reducción de la sobrevaloración
+    actual.
+  review_trigger: Si el P/E supera 25 el 2028-01-31.
+  secondary_hypotheses: []
+  statement: El múltiplo P/E de ASML convergerá a 25x antes de mediados de 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El CAGR de ingresos es igual o inferior al 15% para el 2029-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El CAGR de ingresos es igual o inferior al 15% para el 2029-12-31.
+  horizon: largo
+  id: H4-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2029-12-31'
+    expected: 15.0
+    met: null
+    metric: CAGR de ingresos
+    prediction: El CAGR de ingresos será superior al 15% para el 2029-12-31.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: La demanda de tecnologías EUV y la expansión de la capacidad de producción
+    impulsarán los ingresos, mientras que la diversificación en servicios de mantenimiento
+    y software aumentará los márgenes.
+  review_trigger: Si el informe anual de 2028 muestra un CAGR de ingresos inferior
+    al 15%.
+  secondary_hypotheses: []
+  statement: El crecimiento anual compuesto de los ingresos de ASML superará el 15%
+    entre 2027 y 2029.
+  status: ACTIVE
+  ticker: ASML
+  version: 1

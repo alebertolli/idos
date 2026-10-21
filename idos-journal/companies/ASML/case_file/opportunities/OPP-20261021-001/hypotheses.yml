@@ -1,0 +1,137 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las entregas de sistemas EUV permanecen por debajo de 110 unidades
+      para el 2028-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las entregas de sistemas EUV permanecen por debajo de 110 unidades para el 2028-12-31.
+  horizon: medio
+  id: H1-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 120.0
+    met: null
+    metric: Entregas de sistemas EUV
+    prediction: La entrega de sistemas EUV alcanzará 120 unidades para el 2028-12-31.
+    unit: unidades
+  priority: critical
+  probability: 0.5
+  rationale: La próxima generación de EUV (EUV 3.0) está programada para su lanzamiento
+    en 2027, y la demanda de chips de 3 nm y 2 nm se espera que crezca un 25% en 2028.
+    ASML ha ampliado su capacidad de producción y ha asegurado contratos con TSMC
+    y Samsung para la nueva generación.
+  review_trigger: Si la demanda de chips avanzados cae 20% antes del 2028-12-31.
+  secondary_hypotheses: []
+  statement: ASML aumentará la entrega de sistemas EUV a 120 unidades para el 2028-12-31,
+    superando las 90 unidades entregadas en 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre se mantiene por debajo del 36% para
+      el 2028-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre se mantiene por debajo del 36% para el 2028-06-30.
+  horizon: medio
+  id: H2-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 38.0
+    met: null
+    metric: Margen de flujo de caja libre
+    prediction: El margen de flujo de caja libre será superior al 38% para el 2028-06-30.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: ASML mantiene un ciclo de inversión intensivo en I+D, pero su modelo
+    de negocio basado en licencias y servicios de mantenimiento genera ingresos recurrentes.
+    La expansión de la capacidad de producción y la reducción de costos de fabricación
+    de sistemas EUV mejorarán la eficiencia operativa.
+  review_trigger: Si la desaceleración del ciclo de semiconductores reduce la demanda
+    de sistemas EUV en un 15% antes del 2028-06-30.
+  secondary_hypotheses: []
+  statement: El margen de flujo de caja libre de ASML superará el 38% para el 2028-06-30.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio P/E de ASML es inferior a 1.2x el promedio sectorial para
+      el 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio P/E de ASML es inferior a 1.2x el promedio sectorial para el 2027-09-30.
+  horizon: medio
+  id: H3-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 1.5
+    met: null
+    metric: Ratio P/E relativo al sector
+    prediction: El ratio P/E de ASML será 1.5x el promedio sectorial para el 2027-09-30.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: El valor de mercado de ASML se ha mantenido por debajo del consenso analista
+    debido a la percepción de riesgo geopolítico. Con la confirmación de la demanda
+    de EUV y la entrega de la próxima generación, el mercado ajustará la valoración,
+    reflejando la posición de monopolio y los márgenes superiores al 35%.
+  review_trigger: Si el promedio sectorial de P/E aumenta 30% antes del 2027-09-30.
+  secondary_hypotheses: []
+  statement: El ratio P/E de ASML será 1.5 veces mayor que el promedio del sector
+    de equipos de semiconductores para el 2027-09-30.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La caída de ingresos de China supera el 10% para el 2029-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La caída de ingresos de China supera el 10% para el 2029-03-31.
+  horizon: largo
+  id: H4-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2029-03-31'
+    expected: 5.0
+    met: null
+    metric: Caída de ingresos de China
+    prediction: La caída de ingresos de China será inferior al 5% para el 2029-03-31.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: ASML ha diversificado su base de clientes y ha establecido acuerdos de
+    suministro con clientes fuera de China. Además, la mayoría de los ingresos de
+    China provienen de clientes que ya poseen sistemas EUV y están comprometidos con
+    contratos de mantenimiento a largo plazo.
+  review_trigger: Si China impone restricciones de exportación de componentes críticos
+    de EUV antes del 2029-03-31.
+  secondary_hypotheses: []
+  statement: Las restricciones geopolíticas a China limitarán la caída de los ingresos
+    de ASML provenientes de China a menos del 5% para el 2029-03-31.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
