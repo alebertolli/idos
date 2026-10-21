@@ -1206,7 +1206,7 @@ class SiteBuilder:
             if o.get("proposal", {}).get("status") == "PENDING_HUMAN_REVIEW":
                 add_alert(
                     "decision_pending", o.get("ticker", ""), "warn",
-                    "Propuesta pendiente de revisión en Decision Board",
+                    "Propuesta pendiente de revisión humana en Decision Board",
                     str(o.get("opp_id") or ""),
                 )
             if o.get("trend") == "DETERIORATING":
