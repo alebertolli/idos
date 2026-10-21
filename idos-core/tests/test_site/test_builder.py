@@ -155,7 +155,7 @@ def test_pending_review_alert_points_to_decision_board_for_any_strategy():
         "proposal": {"status": "PENDING_HUMAN_REVIEW"},
     }], [], [], [], [])
     alert = next(a for a in result["alerts"] if a["type"] == "decision_pending")
-    assert alert["message"] == "Propuesta pendiente de revisión en Decision Board"
+    assert alert["message"] == "Propuesta pendiente de revisión humana en Decision Board"
 
 
 def test_research_does_not_count_watchlist():
