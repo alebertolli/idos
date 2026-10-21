@@ -6,6 +6,8 @@ from idos.decision.scenarios import (
     calculate_scenario_asymmetry,
     scenario_fingerprint,
     scenario_source_urls_from_evidence,
+    scenario_source_urls_from_research_financial_evidence,
+    scenario_financial_evidence_snapshot,
     scenario_source_urls_from_report,
     validate_scenario_analysis,
     validate_board_scenario_confirmation,
@@ -70,6 +72,69 @@ def test_scenario_sources_must_be_present_in_structured_market_evidence():
     assert not any("BEAR.sources[0]" in error for error in errors)
     assert not any("BASE.sources[0]" in error for error in errors)
 
+
+
+def test_scenario_sources_accept_exact_research_financial_urls_and_ignore_invalid_urls():
+    evidence = {
+        "source_observations": {
+            "revenue_history": {"source_url": "https://stockanalysis.com/stocks/asml/financials/"},
+            "bad": {"source_url": "http://example.com/data"},
+        },
+        "validated_metric_observations": {
+            "fcf_history": [
+                {"source_url": "https://finance.yahoo.com/quote/ASML/cash-flow/"},
+                {"source_url": "javascript:alert(1)"},
+            ],
+        },
+        "unscoped_url_list": ["https://not-admitted.example/data"],
+    }
+
+    trusted = scenario_source_urls_from_research_financial_evidence(evidence)
+
+    assert trusted == {
+        "https://stockanalysis.com/stocks/asml/financials",
+        "https://finance.yahoo.com/quote/ASML/cash-flow",
+    }
+
+
+def test_report_scenario_source_allowlist_combines_market_and_financial_evidence():
+    report = {
+        "research_input_snapshot": {
+            "scenario_market_evidence": {
+                "current_quote": {"sources": [{"url": "https://finance.yahoo.com/quote/ASML/"}]},
+            },
+            "scenario_financial_evidence": {
+                "source_observations": {
+                    "revenue_history": {"source_url": "https://stockanalysis.com/stocks/asml/financials/"},
+                },
+            },
+        },
+    }
+
+    assert scenario_source_urls_from_report(report) == {
+        "https://finance.yahoo.com/quote/ASML",
+        "https://stockanalysis.com/stocks/asml/financials",
+    }
+
+
+def test_scenario_financial_snapshot_keeps_source_metadata_without_values():
+    snapshot = scenario_financial_evidence_snapshot({
+        "source_observations": {
+            "revenue_history": {
+                "value": [100, 120],
+                "source_url": "https://stockanalysis.com/stocks/asml/financials/",
+                "period_end": "2025-12-31",
+                "sources": ["stockanalysis"],
+            },
+        },
+    })
+
+    assert snapshot["source_observations"]["revenue_history"] == {
+        "source_url": "https://stockanalysis.com/stocks/asml/financials",
+        "period_end": "2025-12-31",
+        "sources": ["stockanalysis"],
+    }
+    assert "value" not in snapshot["source_observations"]["revenue_history"]
 
 
 def test_ticker_case_only_scenario_urls_canonicalize_to_supplied_evidence():
