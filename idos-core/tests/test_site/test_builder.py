@@ -397,7 +397,7 @@ def test_public_site_explains_provider_update_date_basis(tmp_path: Path):
     assert "Periodos sin reconciliar" in app
     assert "Cuándo abandonarla" in app
     assert "Asimetría del modelo (RULE-008" in app
-    assert "Métrica provisional del motor" in app
+    assert "B/R compara el upside Bull con el downside Bear" in app
     assert "Detalles de reglas" in app
 
 
@@ -667,14 +667,14 @@ def test_public_site_shows_agent_scenarios_for_single_decision_board_review(tmp_
     report_path = opp_dir / "ddd_report.yml"
     report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
     report["scenario_analysis"] = {
-        "schema_version": "bear_base_bull_v1",
+        "schema_version": "bear_bull_v2",
         "as_of_date": today.isoformat(),
         "horizon_date": (today + timedelta(days=365)).isoformat(),
         "currency": "USD",
         "scenarios": [
-            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "rationale": "Demanda inferior", "key_assumptions": ["Ingresos caen"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": source_date}]},
-            {"id": "BASE", "probability_pct": 50, "target_price": 110, "rationale": "Crecimiento moderado", "key_assumptions": ["Márgenes estables"], "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": source_date}]},
-            {"id": "BULL", "probability_pct": 25, "target_price": 150, "rationale": "Aceleración del negocio", "key_assumptions": ["Adopción superior"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": source_date}]},
+            {"id": "BEAR", "target_price": 80, "rationale": "Demanda inferior", "key_assumptions": ["Ingresos caen"], "falsifiers": ["Pedidos crecen"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": source_date}]},
+            {"id": "BASE", "target_price": 110, "rationale": "Crecimiento moderado", "key_assumptions": ["Márgenes estables"], "falsifiers": ["Márgenes se contraen"], "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": source_date}]},
+            {"id": "BULL", "target_price": 150, "rationale": "Aceleración del negocio", "key_assumptions": ["Adopción superior"], "falsifiers": ["Adopción cae"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": source_date}]},
         ],
     }
     report["research_input_snapshot"] = {
@@ -698,18 +698,20 @@ def test_public_site_shows_agent_scenarios_for_single_decision_board_review(tmp_
     app = (output / "assets" / "app.js").read_text(encoding="utf-8")
     styles = (output / "assets" / "style.css").read_text(encoding="utf-8")
     payload = (output / "data.json").read_text(encoding="utf-8")
-    assert "Escenarios Bear / Base / Bull" in app
+    assert "Asimetría · casos Bear/Bull" in app
     assert "Los agentes validan la estructura" in app
     assert "Decision Board" in app
-    assert "no requiere una aprobación previa separada" in app
+    assert "No se calcula retorno esperado" in app
     assert "Scenario Review" not in app
     assert 'class="scenario-mobile-list"' in app
-    assert 'aria-label="Escenario ${esc(s.id)}"' in app
-    assert "Probabilidad" in app and "Precio objetivo" in app
+    assert 'aria-label="Caso ${esc(s.id)}"' in app
+    assert "Precio objetivo" in app
+    assert "Probabilidad" not in app
+    assert "falsifiers" in payload
     assert ".scenario-desktop-table{display:none}" in styles
     assert ".scenario-mobile-list{display:grid;gap:8px}" in styles
     assert "https://example.com/bear" in payload
-    assert "Lectura y supuestos" in app
+    assert "Lectura, supuestos y falsadores" in app
     assert "key_assumptions" in payload
 
 
@@ -725,14 +727,14 @@ def test_public_site_hides_scenario_sources_not_present_in_research_evidence(tmp
     report_path = opp_dir / "ddd_report.yml"
     report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
     report["scenario_analysis"] = {
-        "schema_version": "bear_base_bull_v1",
+        "schema_version": "bear_bull_v2",
         "as_of_date": today.isoformat(),
         "horizon_date": (today + timedelta(days=365)).isoformat(),
         "currency": "USD",
         "scenarios": [
-            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": source_date}]},
-            {"id": "BASE", "probability_pct": 50, "target_price": 110, "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": source_date}]},
-            {"id": "BULL", "probability_pct": 25, "target_price": 150, "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": source_date}]},
+            {"id": "BEAR", "target_price": 80, "rationale": "Demanda cae", "key_assumptions": ["Ingresos inferiores"], "falsifiers": ["Pedidos estables"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": source_date}]},
+            {"id": "BASE", "target_price": 110, "rationale": "Crecimiento central", "key_assumptions": ["Márgenes estables"], "falsifiers": ["Margen cae"], "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": source_date}]},
+            {"id": "BULL", "target_price": 150, "rationale": "Adopción acelera", "key_assumptions": ["Demanda aumenta"], "falsifiers": ["Cancelaciones suben"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": source_date}]},
         ],
     }
     report["research_input_snapshot"] = {
@@ -803,7 +805,7 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     assert opp["conviction_overall"] is None
     site = write_site(tmp_path, tmp_path / "site-output")
     app_js = (site / "assets" / "app.js").read_text(encoding="utf-8")
-    assert "Bear / Base / Bull no aplica a esta estrategia sistemática." in app_js
+    assert "Los casos Bear/Bull no aplican a esta estrategia sistemática." in app_js
     # Older generated reports can contain synthetic volatility/probabilities.
     # Preserve their journals but require regeneration before public display.
     del report["strategy_context"]["report_method_version"]

@@ -83,7 +83,7 @@ def record_decision_review(
                 analysis, trusted_source_urls=scenario_source_urls_from_report(report),
             )
             if errors:
-                raise ValueError("Current Bear/Base/Bull scenarios are invalid: " + "; ".join(errors))
+                raise ValueError("Current Bear/Bull scenarios are invalid: " + "; ".join(errors))
             current_scenario_hash = scenario_fingerprint(analysis)
             if proposal.get("scenario_hash") != current_scenario_hash:
                 raise ValueError("Current scenario set does not match the assessed proposal; rerun Assessment")

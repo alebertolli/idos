@@ -23,28 +23,60 @@ REVIEWED_AT = datetime.combine(TODAY, datetime.min.time(), tzinfo=AR_TZ).replace
 
 def scenario_set():
     return {
-        "schema_version": "bear_base_bull_v1",
+        "schema_version": "bear_bull_v2",
         "as_of_date": TODAY.isoformat(),
         "horizon_date": (TODAY + timedelta(days=365)).isoformat(),
         "currency": "USD",
         "scenarios": [
-            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": SOURCE_DATE}]},
-            {"id": "BASE", "probability_pct": 50, "target_price": 110, "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": SOURCE_DATE}]},
-            {"id": "BULL", "probability_pct": 25, "target_price": 150, "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": SOURCE_DATE}]},
+            {"id": "BEAR", "target_price": 80, "rationale": "El crecimiento cae con una contracción de márgenes.", "key_assumptions": ["Menor demanda"], "falsifiers": ["Pedidos y márgenes se mantienen"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": SOURCE_DATE}]},
+            {"id": "BASE", "target_price": 110, "rationale": "El negocio sigue su tendencia central.", "key_assumptions": ["Crecimiento moderado"], "falsifiers": ["Desvío material de crecimiento"], "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": SOURCE_DATE}]},
+            {"id": "BULL", "target_price": 150, "rationale": "La adopción acelera y sostiene márgenes.", "key_assumptions": ["Demanda superior"], "falsifiers": ["Cancelaciones y menor utilización"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": SOURCE_DATE}]},
         ],
     }
 
 
-def test_valid_bear_base_bull_contract_and_expected_asymmetry():
+def test_valid_bear_bull_contract_calculates_unweighted_extreme_asymmetry():
     analysis = scenario_set()
 
     assert validate_scenario_analysis(analysis, today=TODAY) == []
     asymmetry = calculate_scenario_asymmetry(analysis, current_price=100, quote_currency="USD")
     assert asymmetry["validation_status"] == "validated"
     assert asymmetry["board_review_eligible"] is True
-    assert asymmetry["upside_esperado_pct"] == 17.5
-    assert asymmetry["downside_esperado_pct"] == -5
-    assert asymmetry["benefit_risk_ratio"] == 3.5
+    assert asymmetry["upside_pct"] == 50
+    assert asymmetry["downside_pct"] == -20
+    assert asymmetry["benefit_risk_ratio"] == 2.5
+    assert "retorno_esperado_pct" not in asymmetry
+
+
+def test_base_is_optional_and_probabilities_are_rejected_without_calibration():
+    analysis = scenario_set()
+    analysis["scenarios"] = [s for s in analysis["scenarios"] if s["id"] != "BASE"]
+    assert validate_scenario_analysis(analysis, today=TODAY) == []
+    assert calculate_scenario_asymmetry(
+        analysis, current_price=100, quote_currency="USD"
+    )["benefit_risk_ratio"] == 2.5
+
+    analysis["scenarios"][0]["probability_pct"] = 30
+    assert any(
+        "sin una calibración validada" in error
+        for error in validate_scenario_analysis(analysis, today=TODAY)
+    )
+
+
+def test_optional_base_must_stay_between_bear_and_bull():
+    analysis = scenario_set()
+    analysis["scenarios"][1]["target_price"] = 160
+    assert any(
+        "Base debe quedar entre Bear y Bull" in error
+        for error in validate_scenario_analysis(analysis, today=TODAY)
+    )
+
+
+def test_scenario_requires_thesis_assumptions_and_falsifiers():
+    analysis = scenario_set()
+    analysis["scenarios"][0]["falsifiers"] = []
+    errors = validate_scenario_analysis(analysis, today=TODAY)
+    assert any("BEAR: falsifiers debe contener texto no vacío" in error for error in errors)
 
 
 def test_invalid_scenario_contract_fails_closed():
@@ -53,7 +85,7 @@ def test_invalid_scenario_contract_fails_closed():
     analysis["scenarios"][1]["sources"][0]["url"] = "http://example.com/base"
 
     errors = validate_scenario_analysis(analysis, today=TODAY)
-    assert any("sumar exactamente 100%" in error for error in errors)
+    assert any("probability_pct no está permitido" in error for error in errors)
     assert any("debe ser HTTPS" in error for error in errors)
     assert calculate_scenario_asymmetry(analysis, current_price=100, quote_currency="USD")["validation_status"] == "invalid"
 
@@ -220,7 +252,7 @@ def test_currency_mismatch_and_unsupported_one_sided_distribution_block_calculat
         scenario["target_price"] = 110
     result = calculate_scenario_asymmetry(analysis, current_price=100, quote_currency="USD")
     assert result["validation_status"] == "invalid"
-    assert "upside y downside" in result["validation_reason"]
+    assert "Bear debe mostrar downside y Bull upside" in result["validation_reason"]
 
 
 def test_decision_board_scenario_confirmation_is_bound_to_exact_content():
@@ -239,6 +271,24 @@ def test_decision_board_scenario_confirmation_is_bound_to_exact_content():
     approved, reason = validate_board_scenario_confirmation(analysis, review, today=TODAY)
     assert not approved
     assert "no corresponde" in reason
+
+
+def test_decision_board_can_confirm_bear_bull_without_optional_base():
+    analysis = scenario_set()
+    analysis["scenarios"] = [scenario for scenario in analysis["scenarios"] if scenario["id"] != "BASE"]
+    review = {
+        "status": "approved",
+        "scenario_hash": scenario_fingerprint(analysis),
+        "reviewed_by": "manager",
+        "reviewed_at": REVIEWED_AT,
+        "note": "Validated evidence and scenario assumptions.",
+        "sources_verified": True,
+    }
+
+    assert validate_board_scenario_confirmation(analysis, review, today=TODAY) == (
+        True,
+        "escenarios y fuentes confirmados en Decision Board",
+    )
 
 
 def test_rule_008_automatically_validates_scenarios_for_decision_board():

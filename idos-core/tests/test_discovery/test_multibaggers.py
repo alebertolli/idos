@@ -77,7 +77,7 @@ def parameters():
                 {"metric": "volatility_90d_pct", "min": 0, "max": 80, "direction": "lower"}]}}},
         "data_quality": {"critical_metrics": list(CRITICAL_METRICS), "critical_coverage_min": .8, "critical_sources_min": 1, "conflict_tolerance_pct": 20, "stale_after_days": 120},
         "research": {
-            "required_analysis": ["fundamental_ratio_review", "bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"],
+            "required_analysis": ["fundamental_ratio_review", "bear_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"],
             "ratios_to_review": ["revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct", "net_debt_ebitda", "dilution_yoy_pct", "share_count_cagr_3y_pct", "current_ratio", "interest_coverage", "fcf_runway_months", "gross_margin_pct"],
             "ratio_definitions": {"fcf_conversion_pct": "FCF / net_income * 100"},
             "ratio_units": {"current_ratio": "x"},
@@ -164,7 +164,7 @@ def test_research_intake_routes_fundamental_analysis_to_llm_stage():
     assert "fundamental_ratio_review" in intake["research_requirements"]["required_analysis"]
     assert "net_debt_ebitda" in intake["research_requirements"]["ratios_to_review"]
     assert intake["research_requirements"]["ratio_units"]["current_ratio"] == "x"
-    assert intake["research_requirements"]["scenario_schema_version"] == "bear_base_bull_v1"
+    assert intake["research_requirements"]["scenario_schema_version"] == "bear_bull_v2"
 
 
 def test_shared_market_gate_fails_closed_and_does_not_require_etf_aum():

@@ -335,7 +335,7 @@ def build_context(
     consensus_target = target_consensus.get("promedio", 0) or 0
 
     # Catalyst-derived estimates may coexist and remain visible for context,
-    # but only an approved, version-matched Bear/Base/Bull set can authorize.
+    # but only an automatically validated, version-matched scenario set can pass.
     asymmetry = _calculate_report_asymmetry(
         report, raw_catalysts, current_price, target_low, target_mean, target_high,
         quote_currency,
@@ -677,15 +677,15 @@ def _eval_asymmetry(ctx):
         )
         return RuleResult("RULE-008", False, f"Asimetría provisional; autorización bloqueada: {reason}")
     br = asym.get("benefit_risk_ratio", 0)
-    upside = asym.get("upside_esperado_pct", 0)
-    downside = asym.get("downside_esperado_pct", 0)
+    upside = asym.get("upside_pct", 0)
+    downside = asym.get("downside_pct", 0)
     t = ctx.get("_settings")
     limit = t.rule_min_ratio("RULE-008", 3.0) if t else 3.0
     passes = br >= limit
     if passes:
-        detail = f"B/R {br:.1f}:1 ✅ (upside {upside:.1f}% / downside {abs(downside):.1f}%)"
+        detail = f"B/R {br:.1f}:1 ✅ (Bull +{upside:.1f}% / Bear {downside:.1f}%)"
     else:
-        detail = f"B/R {br:.1f}:1 ❌ (upside {upside:.1f}% / downside {abs(downside):.1f}%)"
+        detail = f"B/R {br:.1f}:1 ❌ (Bull +{upside:.1f}% / Bear {downside:.1f}%)"
     return RuleResult("RULE-008", passes, detail)
 
 
