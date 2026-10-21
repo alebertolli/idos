@@ -473,13 +473,14 @@ class TestResearchWorker:
         worker.registry.get.return_value = "Research prompt for {ticker}"
         worker.registry.get_system.return_value = "System contract"
 
-        result = worker._run_prompt("ddd", "VIST", {"ticker": "VIST"})
+        result = worker._run_prompt("ddd", "VIST", {"ticker": "VIST"}, max_tokens=8192)
 
         assert result == {"ok": True}
         service.generate_structured.assert_called_once_with(
             prompt="Research prompt for VIST",
             system_prompt="System contract",
             temperature=0.1,
+            max_tokens=8192,
         )
 
     def test_systematic_ddd_is_signal_specific(self):
