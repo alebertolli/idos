@@ -132,6 +132,8 @@ class MultibaggersDiscoveryEngine:
         if not isinstance(merged, dict):
             return {}
         raw_prices, raw_dates = merged.get("price_history"), merged.get("price_history_dates")
+        if merged.get("price_history_basis") != "close_unadjusted":
+            return {}
         if not isinstance(raw_prices, list) or not isinstance(raw_dates, list):
             return {}
         series: list[tuple[date, float]] = []

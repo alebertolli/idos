@@ -223,6 +223,12 @@ def test_missing_or_short_market_history_fails_closed():
     assert short_result.discovery_type == "BLOCKED_DATA"
     assert short_result.metrics_snapshot["price_momentum_12m_pct"]["status"] == "missing"
 
+    unsupported = valid_payload()
+    unsupported["merged_data"]["price_history_basis"] = "adjusted_close"
+    unsupported_result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", unsupported)
+    assert unsupported_result.discovery_type == "BLOCKED_DATA"
+    assert unsupported_result.metrics_snapshot["price_momentum_12m_pct"]["status"] == "missing"
+
 
 def test_research_ratios_do_not_gate_discovery():
     payload = valid_payload()
