@@ -74,8 +74,8 @@ def record_decision_review(
     if decision == "approved":
         if proposal.get("recommendation") != "APPROVE" or rules_failed:
             raise ValueError("Only an APPROVE proposal with every authorization rule passed can be approved")
-        if opportunity.get("research_profile") != "systematic" and "RULE-008" not in rules_passed:
-            raise ValueError("Fundamental approval requires a passed RULE-008 scenario assessment")
+        if "RULE-008" not in rules_passed:
+            raise ValueError("Approval requires a passed RULE-008 scenario assessment for every strategy")
         if "RULE-008" in rules_passed:
             report = yaml.safe_load((opportunity_dir / "ddd_report.yml").read_text(encoding="utf-8"))
             analysis = report.get("scenario_analysis") if isinstance(report, dict) else None
@@ -84,6 +84,8 @@ def record_decision_review(
             )
             if errors:
                 raise ValueError("Current Bear/Bull scenarios are invalid: " + "; ".join(errors))
+            if analysis.get("quantification_status", "validated") != "validated":
+                raise ValueError("RULE-008 approval requires quantitative Bear/Bull ranges")
             current_scenario_hash = scenario_fingerprint(analysis)
             if proposal.get("scenario_hash") != current_scenario_hash:
                 raise ValueError("Current scenario set does not match the assessed proposal; rerun Assessment")
