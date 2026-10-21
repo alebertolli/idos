@@ -344,7 +344,7 @@ El sistema gestiona simultáneamente múltiples estrategias de inversión bajo u
 
 1. THE LLM_Service SHALL operar como singleton con configuración cargada desde `idos-config/models.yml` una única vez.
 2. THE LLM_Service SHALL soportar los tipos de tarea de Research: `reasoning` y `analysis` (DDD/AOIF y síntesis de hipótesis) y `classification` (categorización de documentos de Research).
-3. THE LLM_Service SHALL gestionar automáticamente: selección de proveedor por `task_type`, rate limiting (RPM y RPD por proveedor), circuit breaker (CLOSED/OPEN/HALF_OPEN) y fallback intra-proveedor al `fallback_model` ante errores 429/404.
+3. THE LLM_Service SHALL gestionar automáticamente: selección de proveedor por `task_type`, rate limiting (RPM y RPD por proveedor), circuit breaker (CLOSED/OPEN/HALF_OPEN) y fallback intra-proveedor de un solo intento al `fallback_model` ante 404, 408, 429 o errores transitorios 5xx; errores de cliente no reintentables no activan el fallback.
 4. WHEN un proveedor LLM falla N veces consecutivas (configurable, default 3), THE LLM_Service SHALL activar el circuit breaker y SHALL saltar dicho proveedor por `recovery_timeout` segundos (default 60).
 5. THE LLM_Service SHALL implementar retry con exponential backoff: espera inicial 4s, máximo 16s, máximo 5 intentos; IF `Retry-After > 120s`, THEN THE LLM_Service SHALL fallar inmediatamente para forzar failover.
 6. THE LLM_Service SHALL registrar telemetría por cada llamada: provider, model, tokens_in, tokens_out, latency_ms, status.
