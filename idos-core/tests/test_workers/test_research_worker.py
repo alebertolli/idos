@@ -1140,6 +1140,12 @@ def test_multibaggers_research_evidence_excludes_unlisted_fields_and_preserves_s
         "source": "stockanalysis.com",
         "url": "https://stockanalysis.com/stocks/test/statistics/",
         "data_provenance": {
+            "sources_used": ["stockanalysis.com"],
+            "source_urls": [
+                "https://stockanalysis.com/stocks/test/statistics/",
+                "https://stockanalysis.com/stocks/test/financials/",
+                "http://untrusted.test/metrics",
+            ],
             "field_sources": {"current_ratio": ["stockanalysis.com"]},
             "field_urls": {"current_ratio": "https://stockanalysis.com/stocks/test/statistics/"},
         },
@@ -1167,6 +1173,10 @@ def test_multibaggers_research_evidence_excludes_unlisted_fields_and_preserves_s
         },
     })
 
+    assert context["trusted_source_urls"] == [
+        "https://stockanalysis.com/stocks/test/financials/",
+        "https://stockanalysis.com/stocks/test/statistics/",
+    ]
     evidence = context["source_observations"]["current_ratio"]
     assert evidence["value"] == 1.2
     assert evidence["period_end"] == "2026-09-30"
