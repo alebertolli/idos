@@ -11,7 +11,9 @@ from idos.data.journal import JournalRepository
 from idos.decision.orchestrator import DecisionOrchestrator, DecisionProposal
 from idos.decision.scenarios import (
     calculate_scenario_asymmetry,
+    scenario_fingerprint,
     scenario_source_urls_from_report,
+    validate_scenario_analysis,
 )
 from idos.decision.conviction import ConvictionCalculator
 from idos.decision.engines.business import BusinessAssessmentEngine
@@ -806,6 +808,23 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     except SignalEvidenceError as exc:
         snapshot_error = str(exc)
     report_context = report.get("strategy_context", {}) if isinstance(report, dict) else {}
+    scenario_analysis = report.get("scenario_analysis") if isinstance(report, dict) else None
+    trusted_scenario_urls = scenario_source_urls_from_report(report)
+    scenario_errors = validate_scenario_analysis(
+        scenario_analysis, trusted_source_urls=trusted_scenario_urls,
+    ) if scenario_analysis is not None else ["scenario_analysis ausente"]
+    report_inputs = report.get("research_input_snapshot", {}) if isinstance(report, dict) else {}
+    scenario_asymmetry = calculate_scenario_asymmetry(
+        scenario_analysis,
+        current_price=report_inputs.get("current_price"),
+        quote_currency=report_inputs.get("quote_currency"),
+        trusted_source_urls=trusted_scenario_urls,
+    ) if not scenario_errors else {"validation_status": "invalid", "validation_reason": "; ".join(scenario_errors)}
+    rule_008_passed = (
+        not scenario_errors
+        and scenario_asymmetry.get("validation_status") == "validated"
+        and scenario_asymmetry.get("board_review_eligible") is True
+    )
     checks = {
         "research_evidence": isinstance(report, dict) and report.get("opp_id") == opp_id and report.get("ticker") == ticker,
         "research_matches_signal": isinstance(report_context, dict) and report_context.get("strategy_id") == strategy_id
@@ -815,6 +834,7 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
         "signal_evidence": signal.get("ticker") == ticker and bool(signal.get("as_of_date")),
         "signal_within_policy": isinstance(value, (int, float)) and isinstance(minimum, (int, float))
         and isinstance(maximum, (int, float)) and minimum <= value <= maximum,
+        "scenario_pair_valid": not scenario_errors,
     }
     passed = all(checks.values())
     blocked_reason = {
@@ -826,10 +846,27 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     proposal = {
         "opportunity_id": opp_id, "strategy_id": strategy_id,
         "stage": "DECISION", "decision": "WAIT", "status": "PENDING_HUMAN_REVIEW" if passed else "BLOCKED",
+        "rules_passed": ["RULE-008"] if rule_008_passed else [],
+        "rules_failed": [] if rule_008_passed else ["RULE-008"],
         "checks": checks, "signal": signal,
-        "reason": "Presupuesto de riesgo y contexto de cartera requieren revisión privada." if passed else blocked_reason,
+        "reason": (
+            "Casos Bear/Bull en Decision Board; RULE-008 bloquea autorización cuantitativa: "
+            + str(scenario_asymmetry.get("validation_reason", "asimetría no validada"))
+            if passed and not rule_008_passed
+            else "Presupuesto de riesgo y contexto de cartera requieren revisión privada."
+            if passed else blocked_reason
+        ),
         "reason_code": None if passed else snapshot_error or "systematic_evidence_superseded",
         "signal_snapshot": snapshot,
+        "scenario_hash": scenario_fingerprint(scenario_analysis) if not scenario_errors else None,
+        "scenario_analysis": scenario_analysis if not scenario_errors else None,
+        "authorization_gates": {
+            "RULE-008": {
+                "passed": rule_008_passed,
+                "reason": scenario_asymmetry.get("validation_reason")
+                if not rule_008_passed else "asimetría validada",
+            },
+        },
         "generated_at": datetime.now(AR_TZ).isoformat(),
     }
     case_dir.mkdir(parents=True, exist_ok=True)
@@ -838,7 +875,9 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     )
     return {"ticker": ticker, "opp_id": opp_id,
             "status": "decision_pending" if passed else "blocked", "recommendation": "WAIT",
-            "checks": checks, "board_approved": False}
+            "checks": checks, "board_approved": False,
+            "scenario_status": "valid_pending_decision_board" if not scenario_errors else "invalid",
+            "rule_008_passed": rule_008_passed}
 
 
 def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_reprocess: bool = False) -> dict[str, Any]:
