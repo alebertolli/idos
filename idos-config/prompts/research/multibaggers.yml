@@ -31,7 +31,11 @@ user_prompt: >
   inventes cifras, URLs, períodos ni valores derivados. Incluye en `risk_flags`
   los umbrales configurados en `research_requirements.risk_review_thresholds`
   como observaciones para Assessment; no los conviertas en decisión de compra.
-  Cada elemento de `sources` debe ser un objeto `{{name, url}}` con URL HTTPS.
+  Limita la salida para conservar JSON completo: máximo 4 elementos en cada lista narrativa
+  y máximo 2 frases breves por elemento; no repitas el mismo hecho entre secciones.
+  Mantén exactamente los tres escenarios y una entrada por cada ratio configurado.
+  En cada ratio completa todos los campos obligatorios de forma concisa; no reproduzcas
+  tablas ni el paquete fuente.   Cada elemento de `sources` debe ser un objeto `{{name, url}}` con URL HTTPS.
   `period_end` es la fecha del período financiero reportado, no la fecha de
   descarga; `inputs` debe referenciar nombres de campos del contexto financiero.
   Devuelve las claves

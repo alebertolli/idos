@@ -1223,6 +1223,32 @@ def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     assert "ratio_input_fields" in rendered
 
 
+def test_multibaggers_prompt_can_raise_output_budget_for_complete_ratio_json():
+    class Registry:
+        def get(self, _name, category=None):
+            return "Valid JSON for {ticker}"
+
+        def get_system(self, _name, category=None):
+            return "Only JSON"
+
+    class LLM:
+        def __init__(self):
+            self.kwargs = None
+
+        def generate_structured(self, **kwargs):
+            self.kwargs = kwargs
+            return {"ok": True}
+
+    worker = object.__new__(ResearchWorker)
+    worker.registry = Registry()
+    worker.llm = LLM()
+
+    result = worker._run_prompt("multibaggers", "TEST", {"ticker": "TEST"}, max_tokens=8192)
+
+    assert result == {"ok": True}
+    assert worker.llm.kwargs["max_tokens"] == 8192
+
+
 def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects_uncited_values():
     from idos.workers.ai.research_worker import ResearchWorker
 

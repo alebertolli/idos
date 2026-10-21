@@ -313,7 +313,7 @@ class ResearchWorker(BaseWorker):
                     sort_keys=True,
                     default=str,
                 ),
-            })
+            }, max_tokens=8192)
         else:
             ddd_result = self._run_prompt("ddd", ticker, ddd_inputs)
 
@@ -1812,7 +1812,14 @@ class ResearchWorker(BaseWorker):
         data = raw.get("merged_data", raw)
         return data if isinstance(data, dict) else {}
 
-    def _run_prompt(self, prompt_name: str, ticker: str, kwargs: dict[str, Any]) -> dict[str, Any]:
+    def _run_prompt(
+        self,
+        prompt_name: str,
+        ticker: str,
+        kwargs: dict[str, Any],
+        *,
+        max_tokens: int = 4096,
+    ) -> dict[str, Any]:
         template = self.registry.get(prompt_name, category="research")
         if not template:
             return {}
@@ -1822,6 +1829,7 @@ class ResearchWorker(BaseWorker):
             prompt=formatted,
             system_prompt=system,
             temperature=0.1,
+            max_tokens=max_tokens,
         )
         return result
 
