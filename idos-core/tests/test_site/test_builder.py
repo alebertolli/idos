@@ -1,3 +1,4 @@
+from datetime import date, timedelta
 from pathlib import Path
 
 import pytest
@@ -788,6 +789,30 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     report["tesis_inversion"] = ""
     report["dominio_business_quality"] = {"rating": "no_aplica", "analisis": "No es criterio de la señal"}
     report["strategy_context"] = {"strategy_id": "MOMENTUM_ETF", "signal": {"score": 71}, "report_method_version": "systematic_signal_v2"}
+    scenario_date = date.today()
+    next_month = scenario_date.replace(day=28) + timedelta(days=4)
+    source = {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/quote/VIST/", "as_of_date": scenario_date.isoformat()}
+    report["research_input_snapshot"] = {
+        "scenario_market_evidence": {
+            "current_quote": {
+                "price": 100.0,
+                "currency": "USD",
+                "as_of_date": scenario_date.isoformat(),
+                "sources": [{"name": source["name"], "url": source["url"]}],
+            }
+        }
+    }
+    report["scenario_analysis"] = {
+        "schema_version": "bear_bull_v2",
+        "quantification_status": "not_calibrated",
+        "as_of_date": scenario_date.isoformat(),
+        "horizon_date": next_month.replace(day=1).isoformat(),
+        "currency": "USD",
+        "scenarios": [
+            {"id": "BEAR", "target_price": None, "rationale": "La señal cae bajo el umbral.", "key_assumptions": ["Se mantiene el rebalanceo mensual."], "falsifiers": ["La señal se mantiene dentro del rango."], "sources": [source]},
+            {"id": "BULL", "target_price": None, "rationale": "La señal persiste en el rango elegible.", "key_assumptions": ["Se mantiene el rebalanceo mensual."], "falsifiers": ["La señal cae bajo el umbral."], "sources": [source]},
+        ],
+    }
     report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
 
     data = SiteBuilder(tmp_path).build()
@@ -797,15 +822,15 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     assert opp["ddd"]["resumen_ejecutivo"] == "Momentum mensual normalizado con score 71"
     assert opp["ddd"]["score_general"] == 81
     assert opp["ddd"]["tesis_inversion"] == ""
-    assert opp["ddd"]["board_review"]["status"] == "not_applicable"
-    assert opp["ddd"]["scenario_validation"] == {"status": "not_applicable", "errors": []}
+    assert opp["ddd"]["board_review"]["status"] == "pending_decision_board"
+    assert opp["ddd"]["scenario_validation"] == {"status": "valid_pending_decision_board", "errors": []}
     assert opp["intrinsic_value"] is None
     assert opp["upside_pct"] is None
     assert opp["valuation_status"] == "NOT_APPLICABLE"
     assert opp["conviction_overall"] is None
     site = write_site(tmp_path, tmp_path / "site-output")
     app_js = (site / "assets" / "app.js").read_text(encoding="utf-8")
-    assert "Los casos Bear/Bull no aplican a esta estrategia sistemática." in app_js
+    assert "Casos cualitativos validados · RULE-008 bloqueada" in app_js
     # Older generated reports can contain synthetic volatility/probabilities.
     # Preserve their journals but require regeneration before public display.
     del report["strategy_context"]["report_method_version"]
