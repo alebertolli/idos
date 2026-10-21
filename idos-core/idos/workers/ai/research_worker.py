@@ -390,6 +390,9 @@ class ResearchWorker(BaseWorker):
             self._normalize_multibaggers_ratio_units(
                 ddd_result.get("ratios_investigados"), expected_ratio_units
             )
+            self._bind_multibaggers_ratio_sources(
+                ddd_result.get("ratios_investigados"), research_financial_evidence
+            )
         ratio_validation_errors = (
             self._validate_multibaggers_ratio_review(
                 ddd_result.get("ratios_investigados"),
@@ -1364,6 +1367,61 @@ class ResearchWorker(BaseWorker):
         return errors
 
     @staticmethod
+    @staticmethod
+    def _bind_multibaggers_ratio_sources(
+        raw_ratios: Any,
+        financial_evidence: dict[str, Any],
+    ) -> None:
+        """Bind each ratio citation to source metadata for its declared input fields."""
+        if not isinstance(raw_ratios, list) or not isinstance(financial_evidence, dict):
+            return
+        source_observations = financial_evidence.get("source_observations")
+        source_observations = source_observations if isinstance(source_observations, dict) else {}
+        validated_observations = financial_evidence.get("validated_metric_observations")
+        validated_observations = validated_observations if isinstance(validated_observations, dict) else {}
+
+        for ratio in raw_ratios:
+            if not isinstance(ratio, dict) or ratio.get("status") not in {"reported", "calculated"}:
+                continue
+            input_fields = ratio.get("inputs")
+            if not isinstance(input_fields, list) or not input_fields:
+                continue
+            citations: list[dict[str, str]] = []
+            seen: set[tuple[str, str]] = set()
+            for field in input_fields:
+                if not isinstance(field, str):
+                    continue
+                observation = source_observations.get(field)
+                if isinstance(observation, dict):
+                    sources = observation.get("sources")
+                    source_url = observation.get("source_url")
+                    if (
+                        isinstance(sources, list)
+                        and isinstance(source_url, str)
+                        and source_url.startswith("https://")
+                    ):
+                        for source in sources:
+                            if isinstance(source, str) and source.strip():
+                                key = (source.strip(), source_url)
+                                if key not in seen:
+                                    seen.add(key)
+                                    citations.append({"name": key[0], "url": key[1]})
+                for item in validated_observations.get(field, []):
+                    if not isinstance(item, dict):
+                        continue
+                    source = item.get("source_id")
+                    source_url = item.get("source_url")
+                    if (
+                        isinstance(source, str) and source.strip()
+                        and isinstance(source_url, str) and source_url.startswith("https://")
+                    ):
+                        key = (source.strip(), source_url)
+                        if key not in seen:
+                            seen.add(key)
+                            citations.append({"name": key[0], "url": key[1]})
+            if citations:
+                ratio["sources"] = citations
+
     @staticmethod
     def _normalize_multibaggers_ratio_units(
         raw_ratios: Any,
