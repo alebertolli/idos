@@ -75,7 +75,7 @@ def test_qualitative_signal_scenarios_are_visible_but_not_quantifiable():
     )
     assert asymmetry["validation_status"] == "blocked"
     assert "no tienen rangos de precio calibrados" in asymmetry["validation_reason"]
-    assert "benefit_risk_ratio" not in asymmetry
+    assert asymmetry["benefit_risk_ratio"] is None
 
 
 def test_optional_base_must_stay_between_bear_and_bull():
