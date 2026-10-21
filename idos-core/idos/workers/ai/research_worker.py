@@ -1193,7 +1193,12 @@ class ResearchWorker(BaseWorker):
             "revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct",
             "dilution_yoy_pct", "share_count_cagr_3y_pct", "fcf_runway_months",
             "shares_outstanding", "shares_outstanding_history", "diluted_shares",
-            "diluted_shares_history", "fcf_history",
+            "diluted_shares_history", "fcf_history", "revenue_growth_history",
+            "gross_profit_history", "operating_income_history", "net_income_history",
+            "eps_history", "cash_and_investments_history", "total_debt_history",
+            "net_cash_history", "operating_cash_flow_history", "capex_history",
+            "fcf_growth_history", "gross_margin_history", "operating_margin_history",
+            "fcf_margin_history",
         )
         if allowed_input_fields is not None:
             requested = set(allowed_input_fields)

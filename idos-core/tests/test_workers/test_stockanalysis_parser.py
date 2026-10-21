@@ -167,11 +167,11 @@ def test_parse_financials_captures_ttm_growth_and_period_end():
 
     result = worker._parse_financials(BeautifulSoup(html, "lxml"))
 
-    assert result == {
-        "revenue_growth_pct": 22.54,
-        "period_end_date": "2026-09-30",
-        "financial_period_type": "TTM",
-    }
+    assert result["revenue_growth_pct"] == 22.54
+    assert result["period_end_date"] == "2026-09-30"
+    assert result["financial_data_as_of_date"] == "2026-09-30"
+    assert result["financial_period_type"] == "TTM"
+    assert result["revenue_growth_history"][0]["unit"] == "percent"
 
 
 def test_parse_period_end_supports_full_month_and_invalid_input():
@@ -259,3 +259,32 @@ def test_worker_requires_ticker():
     with pytest.raises(ValueError, match="No ticker provided"):
         worker.run({})
 
+
+
+def test_parse_financial_statement_histories_with_reported_periods():
+    worker = StockAnalysisWorker()
+    html = """
+    <table>
+      <tr><th>Fiscal Year</th><th>TTM</th><th>FY 2025</th><th>FY 2024</th><th>FY 2023</th></tr>
+      <tr><td>Period Ending</td><td>Sep '26 Sep 27, 2026</td><td>Dec '25 Dec 31, 2025</td><td>Dec '24 Dec 31, 2024</td><td>Dec '23 Dec 31, 2023</td></tr>
+      <tr><td>Revenue Revenue Growth</td><td>39,474</td><td>32,667</td><td>28,263</td><td>27,559</td></tr>
+      <tr><td>Revenue Growth</td><td>22.54%</td><td>15.58%</td><td>2.56%</td><td>30.16%</td></tr>
+      <tr><td>Net Income Net Income Growth</td><td>13,474</td><td>9,609</td><td>7,572</td><td>7,839</td></tr>
+    </table>
+    <table>
+      <tr><th>Fiscal Year</th><th>TTM</th><th>FY 2025</th><th>FY 2024</th></tr>
+      <tr><td>Period Ending</td><td>Sep '26 Sep 27, 2026</td><td>Dec '25 Dec 31, 2025</td><td>Dec '24 Dec 31, 2024</td></tr>
+      <tr><td>Free Cash Flow Free Cash Flow Growth</td><td>21,162</td><td>11,085</td><td>9,099</td></tr>
+      <tr><td>Free Cash Flow Growth</td><td>136.10%</td><td>21.82%</td><td>176.75%</td></tr>
+      <tr><td>Gross Margin</td><td>54.34%</td><td>52.83%</td><td>51.28%</td></tr>
+    </table>
+    """
+    result = worker._parse_financials(BeautifulSoup(html, "lxml"))
+    assert result["revenue_history"][0] == {
+        "value": 39474.0, "period": "TTM", "period_end": "2026-09-27", "unit": "source_reported_amount",
+    }
+    assert result["fcf_history"][0]["value"] == 21162.0
+    assert result["fcf_growth_history"][0]["value"] == 136.1
+    assert result["gross_margin_history"][0]["value"] == 54.34
+    assert result["net_income_history"][0]["value"] == 13474.0
+    assert result["financial_data_as_of_date"] == "2026-09-27"

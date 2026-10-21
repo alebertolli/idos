@@ -1375,3 +1375,24 @@ def test_ddd_verified_facts_discards_malformed_llm_claims():
     assert ResearchWorker._verified_facts({"calidad_evidencia": {
         "hechos_verificados": ["  dato con fuente  ", 4, None, ""]
     }}) == ["dato con fuente"]
+
+
+def test_multibaggers_research_evidence_exposes_configured_statement_history():
+    evidence = ResearchWorker._research_financial_evidence(
+        {
+            "revenue_history": [{
+                "value": 39474.0, "unit": "source_reported_amount",
+                "period": "TTM", "period_end": "2026-09-27",
+            }],
+            "data_provenance": {
+                "field_sources": {"revenue_history": ["stockanalysis.com"]},
+                "field_urls": {"revenue_history": "https://stockanalysis.com/stocks/asml/financials/"},
+            },
+            "financial_data_observed_at": "2026-10-21T12:00:00+00:00",
+        },
+        allowed_input_fields={"revenue_history"},
+    )
+    row = evidence["source_observations"]["revenue_history"]
+    assert row["value"][0]["period_end"] == "2026-09-27"
+    assert row["sources"] == ["stockanalysis.com"]
+    assert row["source_url"] == "https://stockanalysis.com/stocks/asml/financials/"
