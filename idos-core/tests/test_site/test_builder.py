@@ -135,15 +135,27 @@ def test_pipeline_results_use_generic_candidate_metrics_and_keep_legacy_read_com
     assert builder._load_universe_stats()["candidate_count"] == 5
 
 
-def test_research_shows_under_research_count_from_opps():
+def test_research_counts_current_and_legacy_deep_due_diligence_statuses():
     universe_stats = {
         "operable_count": 267,
         "scout_passed": 57,
     }
     opps = [{"ticker": f"T{i}", "status": "UNDER_RESEARCH"} for i in range(57)]
+    opps.append({"ticker": "LEGACY", "status": "UNDER_DEEP_DD"})
     sections = _sections(opps, [], universe_stats)
     research = next(s for s in sections if s["key"] == "research")
-    assert research["count"] == 57
+    assert research["count"] == 58
+    assert research["statuses"] == ["UNDER_DEEP_DD", "UNDER_RESEARCH"]
+
+
+def test_pending_review_alert_points_to_decision_board_for_any_strategy():
+    result = _builder()._build_dashboard([{
+        "ticker": "ALAB", "opp_id": "OPP-1", "status": "UNDER_DEEP_DD",
+        "strategy_id": "COMPOUNDER",
+        "proposal": {"status": "PENDING_HUMAN_REVIEW"},
+    }], [], [], [], [])
+    alert = next(a for a in result["alerts"] if a["type"] == "decision_pending")
+    assert alert["message"] == "Propuesta pendiente de revisión en Decision Board"
 
 
 def test_research_does_not_count_watchlist():
