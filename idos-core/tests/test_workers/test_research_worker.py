@@ -1239,6 +1239,64 @@ def test_multibaggers_research_evidence_honors_configured_ratio_inputs():
     assert set(context["reconciled_observations"]) == {"current_assets"}
 
 
+def test_multibaggers_intake_prompt_context_keeps_contract_and_compacts_repeated_market_data():
+    import json
+
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    package = {
+        "ticker": "ASML",
+        "strategy_id": "MULTIBAGGERS",
+        "strategy_version": "1.5",
+        "as_of": "2026-10-21T21:05:30Z",
+        "config_hash": "config-hash",
+        "snapshot_hash": "snapshot-hash",
+        "discovery_score": 72.4,
+        "metrics_snapshot": {
+            "price_momentum_12m_pct": {
+                "value": 65.7,
+                "unit": "percent",
+                "period": "2025-10-22/2026-10-21",
+                "source_values": {"yfinance": 65.7},
+                "source_evidence": [{
+                    "source_id": "yfinance",
+                    "status": "observed",
+                    "value": 65.7,
+                    "unit": "percent",
+                    "period": "2025-10-22/2026-10-21",
+                    "source_url": "https://finance.yahoo.com/quote/ASML/history/",
+                }],
+            }
+        },
+        "global_market_eligibility": {
+            "passed": True,
+            "avg_dollar_volume_usd": 2_500_000_000,
+            "liquidity_provenance": {
+                "coverage": 1.0,
+                "valid_observations": 20,
+                "expected_observations": 20,
+                "valid_price_dates": [f"2026-09-{day:02}" for day in range(1, 21)],
+            },
+        },
+        "research_requirements": {
+            "ratios_to_review": ["revenue_cagr_3y_pct"],
+            "ratio_definitions": {"revenue_cagr_3y_pct": "formula"},
+            "ratio_input_fields": {"revenue_cagr_3y_pct": ["revenue_history"]},
+            "ratio_units": {"revenue_cagr_3y_pct": "percent"},
+        },
+    }
+
+    compact = ResearchWorker._multibaggers_intake_prompt_context(package)
+
+    assert compact["snapshot_hash"] == "snapshot-hash"
+    assert compact["research_requirements"] == package["research_requirements"]
+    assert compact["metrics_snapshot"]["price_momentum_12m_pct"]["source_evidence"][0]["source_url"]
+    assert "source_values" not in compact["metrics_snapshot"]["price_momentum_12m_pct"]
+    assert compact["global_market_eligibility"]["liquidity_provenance"]["valid_observations"] == 20
+    assert "valid_price_dates" not in compact["global_market_eligibility"]["liquidity_provenance"]
+    assert len(json.dumps(compact, ensure_ascii=False)) < len(json.dumps(package, ensure_ascii=False))
+
+
 def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     from idos.ai.prompts import PromptRegistry
 
