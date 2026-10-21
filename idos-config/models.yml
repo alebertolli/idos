@@ -1,0 +1,39 @@
+llm:
+  default_provider: gemini
+  providers:
+    gemini:
+      model: gemini-3.8-flash
+      fallback: gemini-3.7-flash
+      rpm: 60
+      rpd: 1500
+      task_types:
+        - reasoning
+        - analysis
+        - classification
+    groq:
+      model: openai/gpt-oss-120b
+      fallback: openai/gpt-oss-20b
+      rpm: 30
+      rpd: 1000
+      task_types:
+        - reasoning
+        - analysis
+    openrouter:
+      model: google/gemma-4-31b-it:free
+      rpm: 20
+      rpd: 50
+      task_types:
+        - reasoning
+        - analysis
+        - classification
+  fallback_order:
+    - provider: groq
+      model: openai/gpt-oss-120b
+      fallback_model: openai/gpt-oss-20b
+    - provider: openrouter
+      model: google/gemma-4-31b-it:free
+  circuit_breaker:
+    failure_threshold: 3
+    recovery_timeout: 60
+  max_tokens_per_worker: 100000
+  max_daily_tokens: 1000000

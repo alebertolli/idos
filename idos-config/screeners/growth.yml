@@ -1,0 +1,23 @@
+name: "Growth"
+description: "Empresas con crecimiento de revenue y rentabilidad"
+finviz_ref: "https://finviz.com/screener.ashx?v=131&f=fa_eps_quarterly_yoy_plus,fa_sales_quarterly_yoy_plus"
+expected_pass_rate: 0.12
+mode: all
+
+rules:
+  - field: revenue_growth_pct
+    operator: gt
+    value: 10
+    weight: 3
+  - field: roe_pct
+    operator: gt
+    value: 12
+    weight: 2
+  - field: roic_pct
+    operator: gt
+    value: 8
+    weight: 2
+  - field: operating_margin_pct
+    operator: gt
+    value: 10
+    weight: 2

@@ -1,0 +1,23 @@
+name: "Value"
+description: "Empresas con multiples bajos vs sector e historico"
+finviz_ref: "https://finviz.com/screener.ashx?v=121&f=fa_pe_low,fa_pb_low"
+expected_pass_rate: 0.15
+mode: all
+
+rules:
+  - field: pe_ratio
+    operator: lt
+    value: 20
+    weight: 3
+  - field: pb_ratio
+    operator: lt
+    value: 3
+    weight: 2
+  - field: ev_ebitda
+    operator: lt
+    value: 15
+    weight: 2
+  - field: fcf_yield_pct
+    operator: gt
+    value: 3
+    weight: 2

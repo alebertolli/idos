@@ -1,0 +1,271 @@
+name: DDD Research Pipeline
+
+on:
+  workflow_call:
+    inputs:
+      allow_production_e2e:
+        description: "Opt-in del workflow que llama para permitir una E2E acotada en main"
+        required: false
+        type: boolean
+        default: false
+      skip_portfolio_reevaluation:
+        description: "Omitir reevaluación privada de portfolio en llamadas de orquestación"
+        required: false
+        type: boolean
+        default: true
+      trigger_type:
+        description: "Contexto del workflow que llama"
+        required: false
+        type: string
+        default: manual
+      ticker:
+        description: "Símbolo(s) opcional(es) para limitar el análisis del workflow reusable"
+        required: false
+        type: string
+        default: ""
+      candidate_tickers:
+        description: "Alcance opcional de 1-5 tickers operables para orquestación"
+        required: false
+        type: string
+        default: ""
+  workflow_dispatch:
+    inputs:
+      allow_production_e2e:
+        description: "Allow this bounded manual E2E to write results to main"
+        required: false
+        type: boolean
+        default: false
+      ticker:
+        description: "Required for manual runs: 1-5 comma-separated operable tickers, e.g. AAPL,MSFT,QQQ"
+        required: true
+        type: string
+      force:
+        description: "Reprocesar cualquier estado (ignora can_transition)"
+        required: false
+        type: boolean
+        default: false
+      review_buylist:
+        description: "Re-investigar la oportunidad exacta de Buy List seleccionada (requiere force=true)"
+        required: false
+        type: boolean
+        default: false
+      assessment_only:
+        description: "Re-evaluar Assessment determinista de un Research existente, sin volver a investigar"
+        required: false
+        type: boolean
+        default: false
+      event_type:
+        description: "Evento para re-research configurado por estrategia (usa manual para flujo normal)"
+        required: false
+        type: choice
+        options:
+          - manual
+          - quarterly_results
+          - guidance_change
+          - material_restatement
+          - red_flag_change
+          - material_financial_deterioration
+          - thesis_change
+        default: manual
+      preview_only:
+        description: "Solo mostrar candidatos elegibles; no llamar IA, assessment ni persistir cambios"
+        required: false
+        type: boolean
+        default: false
+      skip_portfolio_reevaluation:
+        description: "Omitir la reevaluación mensual de cartera en una E2E sin cartera privada"
+        required: false
+        type: boolean
+        default: false
+      event_date:
+        description: "Fecha del evento material (YYYY-MM-DD); obligatoria si event_type no es manual"
+        required: false
+        type: string
+      event_source_name:
+        description: "Nombre de la fuente de evidencia del evento"
+        required: false
+        type: string
+      event_source_url:
+        description: "URL HTTPS de la evidencia del evento"
+        required: false
+        type: string
+      event_summary:
+        description: "Resumen verificable del evento; Research debe contrastarlo con fuentes primarias"
+        required: false
+        type: string
+  repository_dispatch:
+    types:
+      - quarterly-results
+      - guidance-change
+      - material-restatement
+      - red-flag-change
+      - material-financial-deterioration
+      - thesis-change
+  schedule:
+    - cron: "0 0 2 * *"  # 2do día de cada mes (NORMAL: procesa SCREENED)
+    - cron: "0 6 */30 * *"  # Cada 30 días a las 6am (FORCE: re-research UNDER_RESEARCH)
+
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+  OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+  GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+  IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
+  IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
+  IDOS_SMTP_HOST: ${{ secrets.IDOS_SMTP_HOST }}
+  IDOS_SMTP_PORT: ${{ secrets.IDOS_SMTP_PORT }}
+  IDOS_SMTP_USER: ${{ secrets.IDOS_SMTP_USER }}
+  IDOS_SMTP_PASS: ${{ secrets.IDOS_SMTP_PASS }}
+  IDOS_FROM_ADDR: ${{ secrets.IDOS_FROM_ADDR }}
+  IDOS_TO_ADDR: ${{ secrets.IDOS_TO_ADDR }}
+
+jobs:
+  ddd:
+    if: vars.IDOS_DATA_RIGHTS_CONFIRMED == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - name: Validate manual production opt-in and input combinations
+        env:
+          IDOS_ALLOW_PRODUCTION_E2E: ${{ inputs.allow_production_e2e }}
+        run: |
+          python scripts/validate_production_dispatch.py
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "${{ inputs.assessment_only }}" = "true" ]; then
+            if [ "${{ inputs.force }}" = "true" ] || [ "${{ inputs.review_buylist }}" = "true" ]; then
+              echo "::error::assessment_only cannot be combined with force or review_buylist."
+              exit 1
+            fi
+            if [ "${{ inputs.event_type || 'manual' }}" != "manual" ]; then
+              echo "::error::assessment_only cannot be combined with a material event trigger."
+              exit 1
+            fi
+          fi
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "${{ inputs.preview_only }}" = "true" ] && [ "${{ inputs.assessment_only }}" = "true" ]; then
+            echo "::error::preview_only and assessment_only are mutually exclusive."
+            exit 1
+          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+      - name: Validate bounded manual candidate scope
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers || inputs.ticker || github.event.inputs.ticker || '' }}
+          IDOS_MANUAL_SELECTION_LIMIT: "5"
+        run: python scripts/validate_manual_candidate_scope.py
+
+      - name: Set run context
+        run: |
+          echo "DDD_RUN_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
+          TICKER="${{ inputs.candidate_tickers || inputs.ticker || github.event.inputs.ticker || github.event.client_payload.ticker || '' }}"
+          echo "TICKER=$TICKER" >> $GITHUB_ENV
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo "FORCE=true" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
+            echo "EVENT_TYPE=${{ github.event.action }}" >> $GITHUB_ENV
+          elif [ "${{ inputs.trigger_type }}" = "monthly" ]; then
+            echo "FORCE=false" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
+            echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "workflow_call" ]; then
+            echo "FORCE=${{ github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=${{ github.event.inputs.review_buylist || 'false' }}" >> $GITHUB_ENV
+            echo "ASSESSMENT_ONLY=${{ github.event.inputs.assessment_only || 'false' }}" >> $GITHUB_ENV
+            echo "PREVIEW_ONLY=${{ github.event.inputs.preview_only || 'false' }}" >> $GITHUB_ENV
+            echo "EVENT_TYPE=${{ github.event.inputs.event_type || 'manual' }}" >> $GITHUB_ENV
+          elif [ "${{ github.event.schedule }}" = "0 6 */30 * *" ]; then
+            echo "FORCE=true" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
+            echo "EVENT_TYPE=re-research-30d" >> $GITHUB_ENV
+          else
+            echo "FORCE=false" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
+            echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
+          fi
+          echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER force=$FORCE assessment_only=${{ github.event.inputs.assessment_only || 'false' }} preview_only=${{ github.event.inputs.preview_only || 'false' }} event=$EVENT_TYPE"
+
+      - name: Preview candidates
+        if: github.event.inputs.assessment_only != 'true'
+        run: python scripts/ddd_research.py --preview
+
+      - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
+        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true'
+        run: python scripts/ddd_research.py
+
+      - name: STEP 3-7 - Assessment Engines + Conviction + Rules + Board + Entry
+        if: github.event.inputs.preview_only != 'true'
+        env:
+          REASSESS_EXISTING: ${{ inputs.assessment_only || false }}
+        run: python scripts/ddd_assessment.py
+
+      - name: STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)
+        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true' && inputs.skip_portfolio_reevaluation != true && github.event.inputs.skip_portfolio_reevaluation != 'true'
+        run: python scripts/ddd_monthly.py
+
+      - name: Generate Combined Digest
+        if: github.event.inputs.preview_only != 'true'
+        run: python scripts/ddd_digest.py
+
+      - name: Commit results
+        if: github.event.inputs.preview_only != 'true'
+        run: |
+          TARGET_BRANCH="${GITHUB_REF_NAME}"
+          if [ -z "$TARGET_BRANCH" ]; then
+            echo "::error::No target branch resolved; refusing to publish DDD results"
+            exit 1
+          fi
+          git config user.name "idos-bot"
+          git config user.email "bot@idos.local"
+          git add cache/ddd_results.json cache/ddd_preview.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
+          git add idos-journal/ 2>/dev/null || true
+          git add idos-knowledge/ 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: ddd research $(date +%Y-%m-%d)"
+          # Research writes transient caches beyond the committed deliverables.
+          git stash push --include-untracked -m 'ddd transient outputs before results push'
+          git fetch origin "$TARGET_BRANCH"
+          if ! git rebase "origin/$TARGET_BRANCH"; then
+            git rebase --abort
+            echo "[ERROR] DDD could not rebase onto origin/$TARGET_BRANCH. Refusing to publish results."
+            exit 1
+          fi
+          if ! git push origin "HEAD:$TARGET_BRANCH"; then
+            echo "[ERROR] Push to origin/$TARGET_BRANCH failed. DDD results were not published."
+            exit 1
+          fi
+
+      - name: Collect current DDD decision package
+        if: github.event.inputs.preview_only != 'true'
+        run: |
+          args=(--base-path . --tickers "$TICKER" --started-at "$DDD_RUN_STARTED_AT" --output-dir cache/ddd-artifact)
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -n "$TICKER" ]; then
+            args+=(--require-output)
+          fi
+          python scripts/collect_ddd_artifacts.py "${args[@]}"
+
+      - name: Upload artifact
+        if: github.event.inputs.preview_only != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ddd-results-${{ github.run_id }}
+          path: cache/ddd-artifact/
+          if-no-files-found: error
+
+      - name: Upload candidate preview
+        if: github.event.inputs.preview_only == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ddd-preview-${{ github.run_id }}
+          path: cache/ddd_preview.json

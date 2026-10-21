@@ -1,0 +1,119 @@
+name: Monthly Universe Pipeline
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"  # primer dia de cada mes a medianoche
+  workflow_dispatch:
+    inputs:
+      allow_production_e2e:
+        description: "Allow this bounded manual E2E to write results to main"
+        required: false
+        type: boolean
+        default: false
+      candidate_tickers:
+        description: "Required for manual runs: 1-5 comma-separated tickers from operable.yml"
+        required: true
+        type: string
+
+jobs:
+  pipeline:
+    if: vars.IDOS_DATA_RIGHTS_CONFIRMED == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      has_eligible_opportunities: ${{ steps.ddd-preview.outputs.has_research_candidates }}
+    permissions:
+      contents: write
+      issues: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      IDOS_TELEGRAM_BOT_TOKEN: ${{ secrets.IDOS_TELEGRAM_BOT_TOKEN }}
+      IDOS_TELEGRAM_CHAT_ID: ${{ secrets.IDOS_TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate manual production opt-in
+        env:
+          IDOS_ALLOW_PRODUCTION_E2E: ${{ inputs.allow_production_e2e }}
+        run: |
+          python scripts/validate_production_dispatch.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e idos-core
+      - name: Validate bounded manual candidate scope
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+          IDOS_MANUAL_SELECTION_LIMIT: "5"
+        run: python scripts/validate_manual_candidate_scope.py
+      - name: Run pipeline
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+        run: python scripts/run_monthly_universe_pipeline.py
+      - name: Run enabled monthly strategies
+        env:
+          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
+        run: python scripts/run_monthly_strategy.py
+      - name: Preview DDD candidates
+        id: ddd-preview
+        if: github.ref == 'refs/heads/main'
+        env:
+          FORCE: "false"
+          EVENT_TYPE: monthly
+          TICKER: ${{ inputs.candidate_tickers }}
+        run: python scripts/ddd_research.py --preview
+      - name: Save & commit results
+        if: always() && !cancelled()
+        run: |
+          TARGET_BRANCH="${GITHUB_REF_NAME}"
+          if [ -z "$TARGET_BRANCH" ]; then
+            echo "::error::No target branch resolved; refusing to publish pipeline results"
+            exit 1
+          fi
+          git config user.name 'idos-bot'
+          git config user.email 'bot@idos.local'
+          mkdir -p cache
+          touch cache/pipeline_results.json
+          git add idos-journal/portfolio/watchlist.yml 2>&1 || echo "add watchlist failed: $?"
+          git add idos-journal/reports/ 2>&1 || echo "add reports failed: $?"
+          git add idos-journal/companies/ 2>&1 || echo "add companies failed: $?"
+          git add idos-journal/strategies/ 2>&1 || echo "add strategy reports failed: $?"
+          git add cache/pipeline_results.json 2>&1 || echo "add cache failed: $?"
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git status --short -- idos-journal/ cache/
+            git commit -m "chore: monthly universe pipeline $(date +%Y-%m-%d)"
+            # Generated market caches are not committed by this workflow. Stash
+            # those local writes so they cannot block rebasing the report commit.
+            git stash push --include-untracked -m 'monthly pipeline transient outputs'
+            git fetch origin "$TARGET_BRANCH"
+            git rebase "origin/$TARGET_BRANCH"
+            git push origin "HEAD:$TARGET_BRANCH"
+          fi
+      - name: Notify
+        if: github.event_name != 'workflow_dispatch'
+        run: |
+          python scripts/notify_monthly_pipeline.py
+      - name: Notify on failure
+        if: failure() && github.event_name != 'workflow_dispatch'
+        run: python scripts/notify_monthly_failure.py
+      - name: 🐛 Report failure as GitHub Issue
+        if: failure() && github.ref_name == 'main'
+        run: python -m idos.workers.automation.gha_error_reporter
+
+  ddd-after-monthly:
+    needs: pipeline
+    if: github.ref == 'refs/heads/main' && needs.pipeline.outputs.has_eligible_opportunities == 'true'
+    uses: ./.github/workflows/ddd-pipeline.yml
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      actions: read
+    with:
+      allow_production_e2e: ${{ inputs.allow_production_e2e || false }}
+      skip_portfolio_reevaluation: true
+      trigger_type: monthly
+      candidate_tickers: ${{ inputs.candidate_tickers || '' }}
+    secrets: inherit

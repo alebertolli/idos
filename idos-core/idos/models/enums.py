@@ -1,0 +1,93 @@
+from enum import StrEnum
+
+
+class OpportunityStatus(StrEnum):
+    DISCOVERED = "DISCOVERED"
+    SCREENED = "SCREENED"
+    WATCHLIST = "WATCHLIST"
+    UNDER_RESEARCH = "UNDER_RESEARCH"
+    UNDER_DEEP_DD = "UNDER_DEEP_DD"
+    APPROVED = "APPROVED"
+    ENTRY_PENDING = "ENTRY_PENDING"
+    ACCUMULATING = "ACCUMULATING"
+    FULL_POSITION = "FULL_POSITION"
+    MONITORING = "MONITORING"
+    REDUCING = "REDUCING"
+    EXITED = "EXITED"
+    POST_MORTEM = "POST_MORTEM"
+    ARCHIVED = "ARCHIVED"
+
+
+class HypothesisStatus(StrEnum):
+    DRAFT = "DRAFT"
+    ACTIVE = "ACTIVE"
+    STRENGTHENING = "STRENGTHENING"
+    CONFIRMED = "CONFIRMED"
+    WEAKENING = "WEAKENING"
+    AT_RISK = "AT_RISK"
+    INVALIDATED = "INVALIDATED"
+    CLOSED = "CLOSED"
+
+
+class HypothesisPriority(StrEnum):
+    CRITICAL = "critical"
+    IMPORTANT = "important"
+    INFORMATIONAL = "informational"
+
+
+class EvidenceCategory(StrEnum):
+    FACT = "FACT"
+    INFERENCE = "INFERENCE"
+    HYPOTHESIS = "HYPOTHESIS"
+
+
+class AssessmentStatus(StrEnum):
+    PENDING = "PENDING"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+
+class DecisionType(StrEnum):
+    BUY = "BUY"
+    SELL = "SELL"
+    HOLD = "HOLD"
+    ARCHIVE = "ARCHIVE"
+    INCREASE = "INCREASE"
+    REDUCE = "REDUCE"
+    REPLACE = "REPLACE"
+
+
+class ReviewType(StrEnum):
+    OPPORTUNITY_REVIEW = "OPPORTUNITY_REVIEW"
+    THESIS_UPDATE = "THESIS_UPDATE"
+    POST_MORTEM = "POST_MORTEM"
+
+
+class EvidenceType(StrEnum):
+    FINANCIAL = "FINANCIAL"
+    QUALITATIVE = "QUALITATIVE"
+    MACRO = "MACRO"
+    REGULATORY = "REGULATORY"
+    TECHNICAL = "TECHNICAL"
+    COMPETITIVE = "COMPETITIVE"
+    MANAGEMENT = "MANAGEMENT"
+    OTHER = "OTHER"
+
+
+class ConfidenceLevel(StrEnum):
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
+
+
+class ConvictionTrend(StrEnum):
+    IMPROVING = "IMPROVING"
+    STABLE = "STABLE"
+    DETERIORATING = "DETERIORATING"
+
+
+class KnowledgeCategory(StrEnum):
+    STATIC = "STATIC"
+    DYNAMIC = "DYNAMIC"
+    GENERATED = "GENERATED"

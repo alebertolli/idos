@@ -1,0 +1,33 @@
+scoring:
+  business:
+    thresholds:
+      excellent: 85
+      fair: 50
+      good: 70
+      poor: 30
+    weight: 0.3
+  min_opportunity_score: 60
+  portfolio_fit:
+    thresholds:
+      excellent: 80
+      good: 60
+      poor: 40
+    weight: 0.1
+  rerating:
+    thresholds:
+      high_probability: 80
+      low: 40
+      moderate: 60
+    weight: 0.2
+  risk:
+    thresholds:
+      high_risk: 40
+      low_risk: 80
+      moderate_risk: 60
+    weight: 0.15
+  valuation:
+    thresholds:
+      attractive: 80
+      expensive: 40
+      fair: 60
+    weight: 0.25
