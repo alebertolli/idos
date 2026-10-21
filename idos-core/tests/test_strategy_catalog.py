@@ -56,7 +56,7 @@ def test_multibaggers_policy_is_disabled_and_configured():
     assert profile.strategy_version == "1.5"
     assert "fcf_conversion_pct" in profile.parameters["research"]["ratios_to_review"]
     assert profile.parameters["research"]["ratio_input_fields"]["current_ratio"] == [
-        "current_assets", "current_liabilities",
+        "current_ratio", "current_assets", "current_liabilities",
     ]
     assert profile.parameters["supported_asset_types"] == ["us_equity"]
     assert "avg_dollar_volume_min_usd" not in profile.parameters

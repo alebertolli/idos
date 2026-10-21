@@ -1158,9 +1158,9 @@ class ResearchWorker(BaseWorker):
             "current_ratio", "interest_coverage", "interest_coverage_ratio",
             "net_debt_ebitda", "gross_profit_ttm", "gross_margin_pct",
             "revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct",
-            "dilution_yoy_pct", "share_count_cagr_3y_pct", "shares_outstanding",
-            "shares_outstanding_history", "diluted_shares", "diluted_shares_history",
-            "fcf_history",
+            "dilution_yoy_pct", "share_count_cagr_3y_pct", "fcf_runway_months",
+            "shares_outstanding", "shares_outstanding_history", "diluted_shares",
+            "diluted_shares_history", "fcf_history",
         )
         if allowed_input_fields is not None:
             requested = set(allowed_input_fields)
