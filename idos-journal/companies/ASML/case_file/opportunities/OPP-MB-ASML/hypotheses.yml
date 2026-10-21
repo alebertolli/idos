@@ -1,0 +1,166 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los envíos totales de EUV en 2027 son ≤ 120 unidades.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ASML anuncia una reducción significativa de la capacidad de producción
+      antes de fin de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los envíos totales de EUV en 2027 son ≤ 120 unidades.
+  - ASML anuncia una reducción significativa de la capacidad de producción antes de
+    fin de 2027.
+  horizon: corto
+  id: H1-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 120.0
+    met: null
+    metric: unidades_enviadas_EUV
+    prediction: El número total de sistemas EUV entregados en 2027 será superior a
+      120 unidades.
+    unit: unidades
+  priority: critical
+  probability: 0.5
+  rationale: La demanda de chips avanzados para IA y 5G está creciendo rápidamente,
+    y los principales fabricantes de semiconductores han anunciado planes de expansión
+    que requieren más herramientas EUV. Además, ASML ha ampliado su capacidad de producción
+    en Veldhoven y ha reducido los tiempos de entrega.
+  review_trigger: Si a 30 de junio de 2027 los envíos acumulados son ≤ 80 unidades,
+    la hipótesis se considerará refutada.
+  secondary_hypotheses: []
+  statement: ASML incrementará sus envíos de sistemas de litografía EUV a más de 120
+    unidades en el año calendario 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto reportado para FY2027 es < 53%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Un aumento significativo de costos de materiales o de I+D que reduzca
+      el margen por debajo del 53%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto reportado para FY2027 es < 53%.
+  - Un aumento significativo de costos de materiales o de I+D que reduzca el margen
+    por debajo del 53%.
+  horizon: medio
+  id: H2-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 53.0
+    met: null
+    metric: margen_bruto
+    prediction: El margen bruto reportado para FY2027 será ≥ 53%.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: Los precios de los sistemas EUV se han mantenido altos y la mezcla de
+    productos se está desplazando hacia los sistemas de alta gama, lo que mejora la
+    rentabilidad. Además, la empresa ha implementado mejoras de eficiencia en la cadena
+    de suministro.
+  review_trigger: Si el reporte intermedio de Q3 FY2027 muestra un margen bruto ≤
+    51%, la hipótesis se considerará falsificada.
+  secondary_hypotheses:
+  - H1-OPP-MB-ASML
+  statement: El margen bruto de ASML alcanzará al menos el 53% en su ejercicio fiscal
+    2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La capitalización bursátil es ≤ €400 bn en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una caída del P/E de ASML por debajo del 30% del nivel actual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La capitalización bursátil es ≤ €400 bn en la fecha objetivo.
+  - Una caída del P/E de ASML por debajo del 30% del nivel actual.
+  horizon: largo
+  id: H3-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 400000000000.0
+    met: null
+    metric: capitalizacion_bursatil
+    prediction: El valor de mercado de ASML será > €400 bn a la fecha objetivo.
+    unit: euros
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento sostenido de los ingresos y márgenes, junto con la escasez
+    de competidores en el segmento EUV, impulsará la valoración de mercado. Los múltiplos
+    P/E del sector tecnológico se mantendrán estables o subirán ligeramente.
+  review_trigger: Si el 31 de diciembre de 2027 la capitalización es ≤ €350 bn, la
+    hipótesis se considerará refutada.
+  secondary_hypotheses:
+  - H2-OPP-MB-ASML
+  statement: La capitalización bursátil de ASML superará los €400 000 000 000 antes
+    del 30 de junio de 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Ningún pedido para la segunda generación High-NA EUV es anunciado antes
+      de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ASML anuncia un retraso de más de 12 meses en el lanzamiento del producto.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ningún pedido para la segunda generación High-NA EUV es anunciado antes de la
+    fecha objetivo.
+  - ASML anuncia un retraso de más de 12 meses en el lanzamiento del producto.
+  horizon: medio
+  id: H4-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: pedidos_high_na_euv
+    prediction: Al menos 5 contratos firmados para la nueva generación High-NA EUV
+      estarán confirmados antes del 31‑03‑2028.
+    unit: contratos
+  priority: critical
+  probability: 0.5
+  rationale: El roadmap tecnológico de ASML incluye una versión mejorada de High-NA
+    EUV con mayor productividad, y los principales fabricantes de chips han expresado
+    interés en acelerar su adopción para nodos de 2 nm y menores.
+  review_trigger: Si a 30 de septiembre de 2027 no se ha comunicado ningún cliente
+    comprometido con la segunda generación, la hipótesis se considerará refutada.
+  secondary_hypotheses:
+  - H1-OPP-MB-ASML
+  statement: ASML lanzará la segunda generación del sistema High-NA EUV y asegurará
+    al menos 5 pedidos firmes antes del 31 de marzo de 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
