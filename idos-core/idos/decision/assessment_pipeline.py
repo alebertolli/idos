@@ -846,6 +846,8 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     proposal = {
         "opportunity_id": opp_id, "strategy_id": strategy_id,
         "stage": "DECISION", "decision": "WAIT", "status": "PENDING_HUMAN_REVIEW" if passed else "BLOCKED",
+        "rules_passed": ["RULE-008"] if rule_008_passed else [],
+        "rules_failed": [] if rule_008_passed else ["RULE-008"],
         "checks": checks, "signal": signal,
         "reason": (
             "Casos Bear/Bull en Decision Board; RULE-008 bloquea autorización cuantitativa: "
