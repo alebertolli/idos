@@ -641,7 +641,7 @@ class SiteBuilder:
             "evidence_review": {
                 "status": (
                     "manager_approved" if review_approved
-                    else "pending_decision_board" if current_systematic_report
+                    else "systematic_report" if current_systematic_report
                     else "systematic_report_refresh_required" if systematic_report
                     else "board_approved" if decision_attributable and br.get("status") == "approved"
                     else "pending_decision_board"
