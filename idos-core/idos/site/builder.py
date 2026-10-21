@@ -641,7 +641,7 @@ class SiteBuilder:
             "evidence_review": {
                 "status": (
                     "manager_approved" if review_approved
-                    else "systematic_report" if current_systematic_report
+                    else "pending_decision_board" if current_systematic_report
                     else "systematic_report_refresh_required" if systematic_report
                     else "board_approved" if decision_attributable and br.get("status") == "approved"
                     else "pending_decision_board"
@@ -666,19 +666,15 @@ class SiteBuilder:
             "scenario_analysis": None,
             "board_review": {
                 "status": (
-                    "not_applicable" if systematic_report
-                    else "pending_decision_board"
+                    "pending_decision_board"
                 ),
                 "reason": (
-                    "La estrategia sistemática se evalúa mediante su señal y reglas de rebalanceo."
-                    if systematic_report else "Research y Assessment completaron sus validaciones automáticas; la revisión humana ocurre una sola vez en Decision Board."
+                    "Research y Assessment completaron las validaciones automáticas; la revisión humana ocurre una sola vez en Decision Board."
                 ),
                 "scenario_hash": scenario_fingerprint(scenario_analysis) if scenario_valid else None,
             },
             "scenario_validation": (
-                {"status": "not_applicable", "errors": []}
-                if systematic_report
-                else {
+                {
                     "status": "valid_pending_decision_board" if scenario_valid else "invalid_pending_revision",
                     "errors": scenario_validation_errors,
                 }
