@@ -1455,6 +1455,16 @@ class ResearchWorker(BaseWorker):
             } if consensus else None,
         }
 
+    @staticmethod
+    def _verified_facts(ddd_result: dict[str, Any]) -> list[str]:
+        quality = ddd_result.get("calidad_evidencia")
+        raw_facts = quality.get("hechos_verificados") if isinstance(quality, dict) else None
+        if not isinstance(raw_facts, list):
+            if raw_facts is not None:
+                print("[KB] Ignoring malformed hechos_verificados from Research output")
+            return []
+        return [fact.strip() for fact in raw_facts if isinstance(fact, str) and fact.strip()]
+
     def _build_knowledge_base(
         self,
         ticker: str,
@@ -1573,7 +1583,7 @@ class ResearchWorker(BaseWorker):
             lifecycle.verify(obj.object_id)
             lifecycle.publish(obj.object_id)
 
-        dd_claims = ddd_result.get("calidad_evidencia", {}).get("hechos_verificados", [])
+        dd_claims = self._verified_facts(ddd_result)
         for i, fact in enumerate(dd_claims):
             claim = Claim(
                 claim_id=f"CLAIM-{ticker}-DDD-{i+1}",
