@@ -108,6 +108,29 @@ class TestMonthlyReassessment:
         assert result["total_active"] == 1
         assert seen == {"thesis": ["AAA"], "conviction": ["AAA"], "portfolio": ["AAA"]}
 
+    def test_skip_portfolio_review_preserves_thesis_and_conviction_reassessment(self, tmp_path: Path):
+        bp = tmp_path
+        journal = JournalRepository(bp / "idos-journal")
+        sqlite = SQLiteStore(bp / "idos.db")
+        _seed_full_position(sqlite, journal, bp, "AAA")
+        worker = _make_worker(bp, portfolio={"runtime_enabled": True})
+
+        with patch.object(worker, "_reassess_theses", return_value=[{"status": "completed"}]) as thesis, \
+             patch.object(worker, "_recalibrate_conviction", return_value=[{"ticker": "AAA"}]) as conviction, \
+             patch.object(worker, "_review_portfolio") as portfolio:
+            result = worker.execute({
+                "base_path": str(bp),
+                "skip_portfolio_review": True,
+            }).output
+
+        thesis.assert_called_once()
+        conviction.assert_called_once()
+        portfolio.assert_not_called()
+        assert result["thesis_reassessed"] == 1
+        assert result["conviction_recalibrated"] == 1
+        assert result["portfolio_reviewed"] == 0
+        assert result["portfolio_review_status"] == "skipped_for_run"
+
     def test_invalidated_thesis_creates_sell_proposal_without_exiting(self, tmp_path: Path):
         bp = tmp_path
         journal = JournalRepository(bp / "idos-journal")
