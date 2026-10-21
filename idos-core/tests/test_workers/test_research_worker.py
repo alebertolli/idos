@@ -1221,6 +1221,9 @@ def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     assert "ni valores derivados" in rendered
     assert "ratios_investigados" in rendered
     assert "ratio_input_fields" in rendered
+    assert "scenario_analysis" in rendered
+    assert "calidad_evidencia" in rendered
+    assert '"categoria": string' in rendered
 
 
 def test_multibaggers_prompt_can_raise_output_budget_for_complete_ratio_json():
@@ -1247,6 +1250,28 @@ def test_multibaggers_prompt_can_raise_output_budget_for_complete_ratio_json():
 
     assert result == {"ok": True}
     assert worker.llm.kwargs["max_tokens"] == 8192
+
+
+def test_multibaggers_research_shape_requires_downstream_types():
+    valid = {
+        "clasificacion_oportunidad": {"categoria": "multibaggers"},
+        "error_mercado": {},
+        "tesis_inversion": "Tesis",
+        "score_general": 70,
+        "dominio_riesgos": [],
+        "dominio_catalizadores": [],
+        "dominio_business_quality": {},
+        "calidad_evidencia": {},
+        "ratios_investigados": [],
+        "risk_flags": [],
+        "scenario_analysis": None,
+    }
+    assert ResearchWorker._validate_multibaggers_research_shape(valid) == []
+
+    invalid = {**valid, "clasificacion_oportunidad": ["mal tipo"], "score_general": "alto"}
+    errors = ResearchWorker._validate_multibaggers_research_shape(invalid)
+    assert "clasificacion_oportunidad must be dict" in errors
+    assert "score_general must be a finite number from 0 to 100" in errors
 
 
 def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects_uncited_values():

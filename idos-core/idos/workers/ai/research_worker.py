@@ -366,6 +366,24 @@ class ResearchWorker(BaseWorker):
                 "ddd_empty": True,
             }
 
+        shape_validation_errors = (
+            self._validate_multibaggers_research_shape(ddd_result)
+            if is_multibaggers else []
+        )
+        if shape_validation_errors:
+            failure_reason = "MULTIBAGGERS research output shape failed: " + "; ".join(shape_validation_errors)
+            print(f"[RESEARCH] {ticker}: {failure_reason}")
+            event_data = {"opp_id": opp_id, "ticker": ticker, "errors": shape_validation_errors}
+            sqlite.log_event("research:output_shape_validation_failed", event_data)
+            journal.log_event("research:output_shape_validation_failed", event_data, source="research_worker")
+            return {
+                "ticker": ticker,
+                "opp_id": opp_id,
+                "status": "ddd_failed",
+                "error": failure_reason,
+                "shape_validation_errors": shape_validation_errors,
+            }
+
         ratio_validation_errors = (
             self._validate_multibaggers_ratio_review(
                 ddd_result.get("ratios_investigados"),
@@ -389,6 +407,7 @@ class ResearchWorker(BaseWorker):
         )
         if ratio_validation_errors:
             failure_reason = "MULTIBAGGERS ratio review contract failed: " + "; ".join(ratio_validation_errors)
+            print(f"[RESEARCH] {ticker}: {failure_reason}")
             event_data = {"opp_id": opp_id, "ticker": ticker, "errors": ratio_validation_errors}
             sqlite.log_event("research:ratio_review_validation_failed", event_data)
             journal.log_event("research:ratio_review_validation_failed", event_data, source="research_worker")
@@ -1257,6 +1276,34 @@ class ResearchWorker(BaseWorker):
             "metric_observation_exclusions": metric_observation_exclusions,
             "conflicts": provenance.get("conflicts", []),
         }
+
+    @staticmethod
+    def _validate_multibaggers_research_shape(result: Any) -> list[str]:
+        """Reject structurally incomplete Research output before persistence."""
+        if not isinstance(result, dict):
+            return ["response must be a JSON object"]
+        required_types = {
+            "clasificacion_oportunidad": dict,
+            "error_mercado": dict,
+            "tesis_inversion": str,
+            "dominio_riesgos": list,
+            "dominio_catalizadores": list,
+            "dominio_business_quality": dict,
+            "calidad_evidencia": dict,
+            "ratios_investigados": list,
+            "risk_flags": list,
+        }
+        errors = [
+            f"{field} must be {expected.__name__}"
+            for field, expected in required_types.items()
+            if not isinstance(result.get(field), expected)
+        ]
+        score = result.get("score_general")
+        if isinstance(score, bool) or not isinstance(score, (int, float)) or not math.isfinite(score) or not 0 <= score <= 100:
+            errors.append("score_general must be a finite number from 0 to 100")
+        if result.get("scenario_analysis") is not None and not isinstance(result.get("scenario_analysis"), dict):
+            errors.append("scenario_analysis must be an object or null")
+        return errors
 
     @staticmethod
     def _validate_multibaggers_ratio_review(

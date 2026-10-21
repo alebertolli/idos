@@ -38,10 +38,23 @@ user_prompt: >
   tablas ni el paquete fuente.   Cada elemento de `sources` debe ser un objeto `{{name, url}}` con URL HTTPS.
   `period_end` es la fecha del período financiero reportado, no la fecha de
   descarga; `inputs` debe referenciar nombres de campos del contexto financiero.
-  Devuelve las claves
-  clasificacion_oportunidad, error_mercado, tesis_inversion, score_general,
-  dominio_riesgos, dominio_catalizadores, dominio_business_quality, escenarios,
-  falsadores, evidencia_y_preguntas, ratios_investigados, risk_flags. El score general es calidad de evidencia, no
-  probabilidad ni conviction. No propongas APPROVED ni órdenes.
+  Devuelve JSON con estos tipos y nombres exactos (no uses alias):
+  `clasificacion_oportunidad` objeto {{"categoria": string, "justificacion": string}};
+  `error_mercado` objeto con `consenso_actual`, `hipotesis_contraria`,
+  `catalizador_cambio`, `conclusion_error_valoracion` y `razonamiento`;
+  `tesis_inversion` string; `score_general` número 0-100;
+  `dominio_riesgos` y `dominio_catalizadores` listas de objetos;
+  `dominio_business_quality` objeto {{"rating": string, "analisis": string}};
+  `scenario_analysis` objeto con `schema_version: bear_base_bull_v1`, `as_of_date`,
+  `horizon_date`, `currency` y `scenarios`, o null si no hay evidencia suficiente;
+  `falsadores` lista de strings; `calidad_evidencia` objeto con
+  `hechos_verificados`, `inferencias_llm`, `preguntas_abiertas`;
+  `ratios_investigados` lista exacta de ratios configurados; `risk_flags` lista.
+  Cada escenario es un objeto con `id`, `probability_pct`, `target_price`,
+  `rationale`, `key_assumptions` y `sources`; cada fuente incluye `name`,
+  `url` y `as_of_date`. Incluye exactamente BEAR, BASE y BULL, sus
+  probabilidades suman 100 y cada precio objetivo tiene fuente HTTPS y fecha;
+  si no puedes verificar esos datos, usa null. El score general mide calidad de
+  evidencia, no probabilidad ni conviction. No propongas APPROVED ni órdenes.
 category: research
 version: "1.1"
