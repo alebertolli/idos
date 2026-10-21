@@ -9,6 +9,38 @@ from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.routing import enabled_profiles_for_runner
 
 
+def format_strategy_summary(strategy_id: str, status: str, output: dict) -> str:
+    """Format only metrics produced by a strategy; avoid false zeroes across profiles."""
+    fields = []
+    candidate_source = output.get("candidate_source")
+    if candidate_source:
+        fields.append(f"candidate_source={candidate_source}")
+    metric_keys = (
+        "candidate_count",
+        "operable_count",
+        "fetch_new",
+        "fetch_cached",
+        "scout_passed",
+        "scout_rejected",
+        "opportunities_created",
+        "opportunities_eligible",
+        "opportunities_existing",
+        "processed",
+        "passed",
+        "blocked",
+        "created",
+        "existing",
+        "duration_seconds",
+    )
+    fields.extend(
+        f"{key}={output[key]}"
+        for key in metric_keys
+        if key in output and output[key] is not None
+    )
+    summary = f"{strategy_id}: status={status}"
+    return f"{summary}; " + ", ".join(fields) if fields else summary
+
+
 def main() -> int:
     root = Path(os.environ.get("GITHUB_WORKSPACE", ".")).resolve()
     os.chdir(root)
@@ -38,28 +70,19 @@ def main() -> int:
         if result.status.value == "failed":
             print(f"{profile.strategy_id} error: {result.error}")
 
-    primary = strategy_results.get("COMPOUNDER") or next(
-        iter(strategy_results.values()), {"status": "skipped", "output": {}, "error": None}
-    )
-    output = primary["output"]
     failed = any(item["status"] == "failed" for item in strategy_results.values())
     print("=== PIPELINE COMPLETE ===")
     print(f"Status: {'failed' if failed else 'success'}")
-    if not failed:
-        print(
-            f"Candidate universe: {output.get('candidate_count', 0)} tickers "
-            f"from {output.get('candidate_source', 'unknown source')}"
-        )
-        print(f"Operable: {output.get('operable_count', 0)} tickers")
-        print(f"Fetched: {output.get('fetch_new', 0)} new, {output.get('fetch_cached', 0)} cached")
-        print(f"Scout: {output.get('scout_passed', 0)} passed, {output.get('scout_rejected', 0)} rejected")
-        print(
-            "Opportunities: "
-            f"{output.get('opportunities_created', 0)} created, "
-            f"{output.get('opportunities_eligible', 0)} eligible, "
-            f"{output.get('opportunities_existing', 0)} existing"
-        )
-        print(f"Duration: {output.get('duration_seconds', 0):.0f}s")
+    for strategy_id, item in strategy_results.items():
+        output = item["output"] if isinstance(item["output"], dict) else {}
+        print(format_strategy_summary(strategy_id, item["status"], output))
+        if item["error"]:
+            print(f"{strategy_id} error: {item['error']}")
+
+    primary = strategy_results.get("COMPOUNDER") or next(
+        iter(strategy_results.values()), {"output": {}}
+    )
+    output = primary["output"]
     Path("cache").mkdir(exist_ok=True)
     Path("cache/pipeline_results.json").write_text(
         json.dumps(
