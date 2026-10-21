@@ -119,7 +119,7 @@ class LLMClient:
                     resp = self._call_generic(prompt, system_prompt, temperature, max_tokens, akey, modl)
             except requests.HTTPError as e:
                 fbk = entry.get("fallback_model", "")
-                if fbk and e.response is not None and e.response.status_code in (429, 404):
+                if fbk and e.response is not None and e.response.status_code in (404, 408, 429, 500, 502, 503, 504):
                     print(f"[LLM] {e.response.status_code} en {modl}, fallback a {fbk}...")
                     try:
                         if prov == "gemini":
