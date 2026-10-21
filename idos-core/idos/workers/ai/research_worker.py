@@ -287,6 +287,13 @@ class ResearchWorker(BaseWorker):
         # fundamental rules that do not apply to this strategy.
         if is_systematic:
             ddd_result = self._build_systematic_ddd(ticker, opp, systematic_params)
+            ddd_result["scenario_analysis"] = self._build_systematic_scenario_analysis(
+                signal=opp.get("signal") or {},
+                parameters=systematic_params,
+                analysis_as_of_date=ddd_inputs["analysis_as_of_date"],
+                quote_currency=ddd_inputs["quote_currency"],
+                scenario_market_evidence=ddd_inputs["scenario_market_evidence"],
+            )
         elif is_multibaggers:
             requirements = (research_intake or {}).get("research_requirements", {})
             ratio_inputs = requirements.get("ratio_input_fields", {})
@@ -329,7 +336,7 @@ class ResearchWorker(BaseWorker):
         market_error = ddd_result.get("error_mercado", {})
         thesis = ddd_result.get("tesis_inversion", "")
         score = ddd_result.get("score_general", 50)
-        scenario_analysis = None if is_systematic else ddd_result.get("scenario_analysis")
+        scenario_analysis = ddd_result.get("scenario_analysis")
         trusted_scenario_urls = scenario_source_urls_from_evidence(
             ddd_inputs.get("scenario_market_evidence")
         )
@@ -339,18 +346,17 @@ class ResearchWorker(BaseWorker):
                     research_financial_evidence
                 )
             )
-        if not is_systematic:
-            scenario_analysis = canonicalize_scenario_ticker_url_case(
-                scenario_analysis,
-                ticker=ticker,
-                trusted_source_urls=trusted_scenario_urls,
-            )
-            if scenario_analysis is not None:
-                ddd_result["scenario_analysis"] = scenario_analysis
-        scenario_validation_errors = [] if is_systematic else validate_scenario_analysis(
+        scenario_analysis = canonicalize_scenario_ticker_url_case(
             scenario_analysis,
+            ticker=ticker,
             trusted_source_urls=trusted_scenario_urls,
         )
+        if scenario_analysis is not None:
+            ddd_result["scenario_analysis"] = scenario_analysis
+        scenario_validation_errors = validate_scenario_analysis(
+            scenario_analysis,
+            trusted_source_urls=trusted_scenario_urls,
+        ) if scenario_analysis is not None else ["scenario_analysis ausente"]
 
         ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
         if ddd_empty:
@@ -508,7 +514,7 @@ class ResearchWorker(BaseWorker):
             "comparativa_catalizadores": ddd_result.get("comparativa_catalizadores", []),
             "scenario_analysis": scenario_analysis,
             "scenario_validation": {
-                "status": "not_applicable" if is_systematic else "valid_pending_decision_board"
+                "status": "valid_pending_decision_board"
                 if not scenario_validation_errors else "invalid_pending_revision",
                 "errors": scenario_validation_errors,
             },
@@ -774,6 +780,103 @@ class ResearchWorker(BaseWorker):
                 }
                 prior.append(item)
         return prior
+
+    @staticmethod
+    def _build_systematic_scenario_analysis(
+        *,
+        signal: dict[str, Any],
+        parameters: dict[str, Any],
+        analysis_as_of_date: str,
+        quote_currency: str,
+        scenario_market_evidence: str | dict[str, Any],
+    ) -> dict[str, Any]:
+        """Build sourced qualitative signal cases without inventing price targets."""
+        try:
+            as_of = date.fromisoformat(str(analysis_as_of_date))
+        except ValueError as exc:
+            raise ValueError("Systematic scenarios require an ISO analysis date") from exc
+        if as_of.isoformat() != str(analysis_as_of_date):
+            raise ValueError("Systematic scenarios require a canonical ISO analysis date")
+        if isinstance(scenario_market_evidence, str):
+            try:
+                market_evidence = json.loads(scenario_market_evidence)
+            except (TypeError, ValueError):
+                market_evidence = {}
+        else:
+            market_evidence = scenario_market_evidence
+        market_evidence = market_evidence if isinstance(market_evidence, dict) else {}
+        quote = market_evidence.get("current_quote")
+        quote = quote if isinstance(quote, dict) else {}
+        quote_date = quote.get("as_of_date")
+        sources = quote.get("sources")
+        scenario_sources = [
+            {
+                "name": item.get("name"),
+                "url": item.get("url"),
+                "as_of_date": quote_date,
+            }
+            for item in sources
+            if isinstance(item, dict) and item.get("name") and item.get("url")
+        ] if isinstance(sources, list) and quote_date else []
+
+        next_month = 1 if as_of.month == 12 else as_of.month + 1
+        next_year = as_of.year + 1 if as_of.month == 12 else as_of.year
+        horizon = date(next_year, next_month, 1).isoformat()
+        minimum = parameters.get("minimum_signal")
+        maximum = parameters.get("maximum_signal")
+        momentum = signal.get("momentum")
+        if any(
+            isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value)
+            for value in (minimum, maximum, momentum)
+        ):
+            raise ValueError("Systematic scenarios require the current signal and configured bounds")
+        if not isinstance(quote_currency, str) or not re.fullmatch(r"[A-Z]{3}", quote_currency):
+            raise ValueError("Systematic scenarios require an ISO quote currency")
+
+        source_list = [dict(source) for source in scenario_sources]
+        return {
+            "schema_version": "bear_bull_v2",
+            "quantification_status": "not_calibrated",
+            "as_of_date": as_of.isoformat(),
+            "horizon_date": horizon,
+            "currency": quote_currency,
+            "scenarios": [
+                {
+                    "id": "BEAR",
+                    "target_price": None,
+                    "rationale": (
+                        f"La señal momentum ({momentum:.2f}) cae por debajo del mínimo "
+                        f"configurado ({minimum:g}) antes de la próxima revisión mensual. "
+                        "Es un caso de deterioro de señal, no un pronóstico de precio."
+                    ),
+                    "key_assumptions": [
+                        "Se conserva la regla de rebalanceo mensual configurada.",
+                        f"El umbral mínimo vigente es {minimum:g}.",
+                    ],
+                    "falsifiers": [
+                        "La señal permanece dentro del rango configurado al próximo rebalanceo."
+                    ],
+                    "sources": source_list,
+                },
+                {
+                    "id": "BULL",
+                    "target_price": None,
+                    "rationale": (
+                        f"La señal momentum ({momentum:.2f}) persiste y mejora hacia el máximo "
+                        f"configurado ({maximum:g}) antes de la próxima revisión mensual. "
+                        "Es un caso de persistencia de señal, no un pronóstico de precio."
+                    ),
+                    "key_assumptions": [
+                        "Se conserva la regla de rebalanceo mensual configurada.",
+                        f"El máximo descriptivo vigente es {maximum:g}.",
+                    ],
+                    "falsifiers": [
+                        f"La señal cae por debajo del mínimo configurado ({minimum:g})."
+                    ],
+                    "sources": [dict(source) for source in source_list],
+                },
+            ],
+        }
 
     @staticmethod
     def _build_systematic_ddd(ticker: str, opportunity: dict[str, Any], parameters: dict[str, Any]) -> dict[str, Any]:
