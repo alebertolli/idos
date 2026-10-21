@@ -2,23 +2,19 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 import hashlib
 import json
-from math import isclose, isfinite
+from math import isclose, isfinite, sqrt
 from typing import Any
 
 from idos.discovery.financial_evidence import reconcile_metric_observations
 
 
-CRITICAL_METRICS = (
-    "revenue_growth_pct", "eps_growth_pct", "roic_pct",
-    "operating_margin_pct", "relative_strength_12m_pct",
-)
-# Discovery only scores the configured fundamental and market-confirmation inputs.
-# Financial quality/leverage/dilution ratios belong to Research, where the LLM
-# evaluates them against source-backed financial evidence.
-DISCOVERY_METRICS = CRITICAL_METRICS + ("drawdown_pct", "volatility_90d_pct")
+CRITICAL_METRICS = ("price_momentum_12m_pct", "drawdown_pct", "volatility_90d_pct")
+# Discovery uses source-backed market evidence only. Financial fundamentals and
+# ratios are gathered and evaluated during Research.
+DISCOVERY_METRICS = CRITICAL_METRICS
 
 
 @dataclass(frozen=True)
@@ -61,6 +57,8 @@ class MultibaggersDiscoveryEngine:
             )
         if not isinstance(metric_observations, dict):
             metric_observations = {}
+        metric_observations = dict(metric_observations)
+        metric_observations.update(self._market_confirmation_observations(payload, ticker, now))
         snapshot = self._metric_snapshot(metric_observations, now)
         quality = self._quality(snapshot)
         critical_metrics = self._critical_metrics()
@@ -103,34 +101,14 @@ class MultibaggersDiscoveryEngine:
         passed = not reasons and score is not None and score >= threshold
         if score is not None and score < threshold:
             reasons.append("DISCOVERY_SCORE_BELOW_THRESHOLD")
-        classification = self.parameters.get("classification")
-        classification_keys = {
-            "fundamental_transition_min", "fundamental_quality_min",
-            "fundamental_reinvestment_min", "early_transition_min",
-            "early_market_confirmation_max", "market_confirmed_transition_min",
-            "market_confirmed_min",
-        }
-        if not isinstance(classification, dict) or not classification_keys.issubset(classification):
-            raise ValueError("MULTIBAGGERS classification thresholds must be configured")
-        classification = {key: float(classification[key]) for key in classification_keys}
-        if any(not isfinite(value) or not 0 <= value <= 100 for value in classification.values()):
-            raise ValueError("MULTIBAGGERS classification thresholds must be between 0 and 100")
-        transition = components.get("economic_transition")
-        quality_score = components.get("quality")
-        reinvestment = components.get("reinvestment")
-        market = components.get("market_confirmation")
         if quality["critical_coverage"] == 0:
             kind = "BLOCKED_DATA"
         elif flags or quality["critical_conflicts"] or quality["critical_stale"] or quality["critical_source_failures"]:
             kind = "BLOCKED_DATA"
-        elif all(value is not None for value in (transition, quality_score, reinvestment)) and transition >= classification["fundamental_transition_min"] and quality_score >= classification["fundamental_quality_min"] and reinvestment >= classification["fundamental_reinvestment_min"]:
-            kind = "FUNDAMENTAL_COMPOUNDING"
-        elif transition is not None and market is not None and transition >= classification["early_transition_min"] and market < classification["early_market_confirmation_max"]:
-            kind = "EARLY_TRANSITION"
-        elif transition is not None and market is not None and transition >= classification["market_confirmed_transition_min"] and market >= classification["market_confirmed_min"]:
-            kind = "MARKET_CONFIRMED_GROWTH"
-        else:
+        elif passed:
             kind = "RESEARCH_REQUIRED"
+        else:
+            kind = "WATCH"
         priority = (
             round(score * quality["coverage_factor"] * quality["freshness_factor"], 2)
             if score is not None
@@ -144,6 +122,50 @@ class MultibaggersDiscoveryEngine:
         }
         digest = hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":"), default=str).encode()).hexdigest()
         return DiscoveryResult(**body, snapshot_hash=digest)
+
+    @staticmethod
+    def _market_confirmation_observations(
+        payload: dict[str, Any], ticker: str, observed_at: str,
+    ) -> dict[str, list[dict[str, Any]]]:
+        """Derive auditable technical inputs from Yahoo daily price history."""
+        merged = payload.get("merged_data") if isinstance(payload.get("merged_data"), dict) else payload
+        if not isinstance(merged, dict):
+            return {}
+        raw_prices, raw_dates = merged.get("price_history"), merged.get("price_history_dates")
+        if not isinstance(raw_prices, list) or not isinstance(raw_dates, list):
+            return {}
+        series: list[tuple[date, float]] = []
+        for day, price in zip(raw_dates, raw_prices):
+            if isinstance(price, bool):
+                continue
+            try:
+                parsed_day, numeric_price = date.fromisoformat(str(day)[:10]), float(price)
+            except (TypeError, ValueError):
+                continue
+            if isfinite(numeric_price) and numeric_price > 0:
+                series.append((parsed_day, numeric_price))
+        series.sort(key=lambda item: item[0])
+        if len(series) < 91:
+            return {}
+        latest_day, latest_price = series[-1]
+        derived: dict[str, float] = {}
+        if len(series) >= 220 and (latest_day - series[0][0]).days >= 330:
+            derived["price_momentum_12m_pct"] = (latest_price / series[0][1] - 1.0) * 100.0
+        period_prices = [price for _, price in series[-252:]]
+        peak = max(period_prices)
+        derived["drawdown_pct"] = (peak - latest_price) / peak * 100.0
+        returns = [current / prior - 1.0 for prior, current in zip(period_prices[-91:-1], period_prices[-90:])]
+        if len(returns) == 90:
+            mean_return = sum(returns) / len(returns)
+            variance = sum((value - mean_return) ** 2 for value in returns) / len(returns)
+            derived["volatility_90d_pct"] = sqrt(variance) * sqrt(252.0) * 100.0
+        report_date = latest_day.isoformat()
+        source_url = f"https://finance.yahoo.com/quote/{ticker.upper()}/history/"
+        return {metric: [{
+            "source_id": "yfinance", "value": value, "unit": "percent", "currency": None,
+            "period": f"{metric}:{series[0][0].isoformat()}/{report_date}",
+            "reported_at": report_date, "observed_at": observed_at, "source_url": source_url,
+        }] for metric, value in derived.items()}
 
     def blocked_by_global_market_gate(
         self, ticker: str, eligibility: dict[str, Any], as_of: str | None = None,

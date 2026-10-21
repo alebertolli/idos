@@ -19,7 +19,7 @@ strategies:
     thesis_type: STRATEGIC
     discovery_profile: multibaggers
     research_profile: multibaggers
-    strategy_version: "1.4"
+    strategy_version: "1.5"
     entry_policy: MANUAL_REVIEW
     parameters:
       thesis_review_interval_days: 30
@@ -27,19 +27,8 @@ strategies:
       small_caps_enabled: false
       discovery_threshold: 65
       position_limit_pct: 1.0
-      classification:
-        fundamental_transition_min: 65
-        fundamental_quality_min: 65
-        fundamental_reinvestment_min: 60
-        early_transition_min: 60
-        early_market_confirmation_max: 50
-        market_confirmed_transition_min: 60
-        market_confirmed_min: 60
       weights:
-        economic_transition: 0.326923076923
-        quality: 0.261538461538
-        reinvestment: 0.261538461538
-        market_confirmation: 0.15
+        market_confirmation: 1.0
       scoring:
         method: absolute_linear_clamped
         version: absolute-ranges-v1
@@ -47,28 +36,15 @@ strategies:
         non_applicable_policy: block_component_and_candidate
         sector_normalization: false
         components:
-          economic_transition:
-            inputs:
-              - {metric: revenue_growth_pct, min: 0, max: 40, direction: higher}
-              - {metric: eps_growth_pct, min: 0, max: 40, direction: higher}
-              - {metric: operating_margin_pct, min: 0, max: 25, direction: higher}
-          quality:
-            inputs:
-              - {metric: roic_pct, min: 0, max: 25, direction: higher}
-              - {metric: operating_margin_pct, min: 0, max: 30, direction: higher}
-          reinvestment:
-            inputs:
-              - {metric: revenue_growth_pct, min: 0, max: 40, direction: higher}
-              - {metric: roic_pct, min: 0, max: 25, direction: higher}
           market_confirmation:
             inputs:
-              - {metric: relative_strength_12m_pct, min: -50, max: 50, direction: higher}
+              - {metric: price_momentum_12m_pct, min: -50, max: 50, direction: higher}
               - {metric: drawdown_pct, min: 0, max: 60, direction: lower}
               - {metric: volatility_90d_pct, min: 0, max: 80, direction: lower}
       data_quality:
-        critical_metrics: [revenue_growth_pct, eps_growth_pct, roic_pct, operating_margin_pct, relative_strength_12m_pct]
+        critical_metrics: [price_momentum_12m_pct, drawdown_pct, volatility_90d_pct]
         critical_coverage_min: 0.80
-        critical_sources_min: 2
+        critical_sources_min: 1
         conflict_tolerance_pct: 20
         stale_after_days: 120
         stale_critical_blocks: true
