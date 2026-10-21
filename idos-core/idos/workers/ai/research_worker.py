@@ -412,6 +412,7 @@ class ResearchWorker(BaseWorker):
                 available_input_fields=(
                     set(research_financial_evidence["source_observations"])
                     | set(research_financial_evidence["validated_metric_observations"])
+                    | set(ResearchWorker._multibaggers_financial_input_aliases(research_financial_evidence))
                 ),
                 expected_units=expected_ratio_units,
             )
@@ -1393,6 +1394,57 @@ class ResearchWorker(BaseWorker):
 
     @staticmethod
     @staticmethod
+    @staticmethod
+    @staticmethod
+    def _multibaggers_financial_input_aliases(
+        financial_evidence: dict[str, Any],
+    ) -> dict[str, str]:
+        """Map period-specific Research references to verified history fields."""
+        source_observations = financial_evidence.get("source_observations")
+        source_observations = source_observations if isinstance(source_observations, dict) else {}
+        aliases: dict[str, str] = {}
+        for field, observation in source_observations.items():
+            if (
+                not isinstance(field, str)
+                or not field.endswith("_history")
+                or not isinstance(observation, dict)
+            ):
+                continue
+            sources = observation.get("sources")
+            source_url = observation.get("source_url")
+            points = observation.get("value")
+            if (
+                not isinstance(sources, list) or not any(isinstance(source, str) and source.strip() for source in sources)
+                or not isinstance(source_url, str) or not source_url.startswith("https://")
+                or not isinstance(points, list)
+            ):
+                continue
+            stem = field[:-len("_history")]
+            for point in points:
+                if not isinstance(point, dict):
+                    continue
+                period = point.get("period")
+                period_end = point.get("period_end")
+                value = point.get("value")
+                if (
+                    not isinstance(period, str)
+                    or not isinstance(period_end, str)
+                    or isinstance(value, bool)
+                    or not isinstance(value, (int, float))
+                    or not math.isfinite(value)
+                ):
+                    continue
+                try:
+                    parsed_period_end = date.fromisoformat(period_end[:10])
+                except ValueError:
+                    continue
+                if parsed_period_end.isoformat() != period_end[:10]:
+                    continue
+                match = re.search(r"FY[\s:_-]*(\d{4})", period, re.IGNORECASE)
+                if match:
+                    aliases[f"{stem}_FY_{match.group(1)}"] = field
+        return aliases
+
     def _bind_multibaggers_ratio_sources(
         raw_ratios: Any,
         financial_evidence: dict[str, Any],
@@ -1413,10 +1465,12 @@ class ResearchWorker(BaseWorker):
                 continue
             citations: list[dict[str, str]] = []
             seen: set[tuple[str, str]] = set()
+            period_aliases = ResearchWorker._multibaggers_financial_input_aliases(financial_evidence)
             for field in input_fields:
                 if not isinstance(field, str):
                     continue
-                observation = source_observations.get(field)
+                source_field = period_aliases.get(field, field)
+                observation = source_observations.get(source_field)
                 if isinstance(observation, dict):
                     sources = observation.get("sources")
                     source_url = observation.get("source_url")
@@ -1431,7 +1485,7 @@ class ResearchWorker(BaseWorker):
                                 if key not in seen:
                                     seen.add(key)
                                     citations.append({"name": key[0], "url": key[1]})
-                for item in validated_observations.get(field, []):
+                for item in validated_observations.get(source_field, []):
                     if not isinstance(item, dict):
                         continue
                     source = item.get("source_id")
