@@ -541,4 +541,3 @@ def test_engine_reads_metric_observations_from_merged_cache_payload():
     assert result.passed is True
     assert result.discovery_score is not None
 
-

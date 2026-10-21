@@ -352,4 +352,3 @@ def build_research_intake(result: dict[str, Any], config: dict[str, Any]) -> dic
         "constraints": ["Do not invent missing facts.", "Cite each material claim to a source.", "Separate verified facts, inference, and unknowns.", "Research cannot approve an investment or set a position size."],
         "snapshot_hash": result["snapshot_hash"],
     }
-

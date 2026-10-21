@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 12954)
-Total output lines: 1176
-
 from datetime import date
 import hashlib
 import json
@@ -589,7 +586,95 @@ class TestResearchWorker:
         seeded_opportunity: tuple[str, str],
         tmp_sqlite,
         tmp_journal,
-        mock_llm_c…954 tokens truncated… "id": opp_id,
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_path: Path,
+    ):
+        import yaml
+
+        ticker, opp_id = seeded_opportunity
+        opportunity = tmp_sqlite.get_opportunity(opp_id)
+        opportunity.update({
+            "status": OpportunityStatus.UNDER_DEEP_DD.value,
+            "approved_for_buylist": True,
+        })
+        tmp_sqlite.save_opportunity(opportunity)
+        tmp_journal.save_opportunity(ticker, opportunity)
+
+        opportunity_dir = tmp_journal.opportunity_path(ticker, opp_id)
+        (opportunity_dir / "decision_proposal.yml").write_text(yaml.safe_dump({
+            "opportunity_id": opp_id, "status": "MANAGER_APPROVED",
+        }), encoding="utf-8")
+        (opportunity_dir / "board_resolution.yml").write_text(yaml.safe_dump({
+            "approved": True, "status": "approved", "decision_id": "DEC-OLD",
+        }), encoding="utf-8")
+        decisions_dir = opportunity_dir / "decisions"
+        decisions_dir.mkdir()
+        decision_path = decisions_dir / "DEC-OLD.yml"
+        prior_decision = "approved: true\nstatus: approved\ndecision_id: DEC-OLD\n"
+        decision_path.write_text(prior_decision, encoding="utf-8")
+        buylist_path = Path(base_path) / "idos-journal/portfolio/buylist.yml"
+        buylist_path.parent.mkdir(parents=True, exist_ok=True)
+        buylist_path.write_text(yaml.safe_dump({"entries": [
+            {"ticker": ticker, "opp_id": opp_id},
+            {"ticker": "AAPL", "opp_id": "OPP-AAPL"},
+        ]}), encoding="utf-8")
+
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+        result = worker.execute({
+            "ticker": ticker,
+            "opp_id": opp_id,
+            "base_path": base_path,
+            "force_reprocess": True,
+            "event_type": "thesis_reassessment",
+        })
+
+        assert result.status == WorkerStatus.SUCCESS
+        assert result.output["approval_invalidated"] is True
+        assert tmp_journal.load_opportunity(ticker, opp_id)["approved_for_buylist"] is False
+        proposal = yaml.safe_load((opportunity_dir / "decision_proposal.yml").read_text(encoding="utf-8"))
+        assert proposal["status"] == "INVALIDATED_BY_NEW_RESEARCH"
+        resolution = yaml.safe_load((opportunity_dir / "board_resolution.yml").read_text(encoding="utf-8"))
+        assert resolution["status"] == "invalidated_by_new_research"
+        assert yaml.safe_load(buylist_path.read_text(encoding="utf-8"))["entries"] == [
+            {"ticker": "AAPL", "opp_id": "OPP-AAPL"},
+        ]
+        assert decision_path.read_text(encoding="utf-8") == prior_decision
+
+    def test_research_saves_assessment(
+        self,
+        seeded_opportunity: tuple[str, str],
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_journal,
+        tmp_path: Path,
+    ):
+        ticker, opp_id = seeded_opportunity
+        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
+        worker.llm = mock_llm_client
+        worker.registry = _mock_research_registry()
+
+        result = worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
+        assert result.status == WorkerStatus.SUCCESS
+
+        ass_path = tmp_journal.opportunity_path(ticker, opp_id) / "assessments"
+        assert ass_path.exists()
+        yml_files = list(ass_path.glob("*.yml"))
+        assert len(yml_files) >= 1
+
+    def test_research_rejects_invalid_state(
+        self,
+        tmp_sqlite,
+        mock_llm_client: MagicMock,
+        base_path: str,
+        tmp_path: Path,
+    ):
+        ticker = "TEST"
+        opp_id = "OPP-INVALID"
+        opp = {
+            "id": opp_id,
             "ticker": ticker,
             "status": OpportunityStatus.APPROVED.value,
             "created_at": "2026-01-01T00:00:00",
@@ -1087,5 +1172,4 @@ def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():
     assert "No se rellenan métricas ausentes con cero" in prompt
     assert "Un dato ausente no significa cero" in prompt
     assert "No llames ajustado al flujo de caja libre reportado" in prompt
-    assert "FCF Ajustado: {fcf_adjusted" not in prompt
-
+    assert "FCF Ajustado: {fcf_adjusted" no
