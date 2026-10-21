@@ -394,7 +394,9 @@ class ResearchWorker(BaseWorker):
             self._validate_multibaggers_ratio_review(
                 ddd_result.get("ratios_investigados"),
                 ratio_requirements.get("ratios_to_review", []),
-                trusted_source_urls={
+                trusted_source_urls=set(
+                    research_financial_evidence.get("trusted_source_urls", [])
+                ) | {
                     str(item.get("source_url"))
                     for item in research_financial_evidence["source_observations"].values()
                     if isinstance(item, dict) and item.get("source_url")
@@ -1229,6 +1231,13 @@ class ResearchWorker(BaseWorker):
         field_sources = field_sources if isinstance(field_sources, dict) else {}
         field_urls = provenance.get("field_urls")
         field_urls = field_urls if isinstance(field_urls, dict) else {}
+        raw_source_urls = provenance.get("source_urls")
+        raw_source_urls = raw_source_urls if isinstance(raw_source_urls, list) else []
+        trusted_source_urls = sorted({
+            str(source_url)
+            for source_url in [*raw_source_urls, *field_urls.values()]
+            if isinstance(source_url, str) and source_url.startswith("https://")
+        })
         metric_metadata = data.get("financial_metric_metadata")
         metric_metadata = metric_metadata if isinstance(metric_metadata, dict) else {}
 
@@ -1310,6 +1319,7 @@ class ResearchWorker(BaseWorker):
             "reporting_period_end": data.get("financial_data_as_of_date")
             or data.get("financial_period_end") or data.get("period_end_date"),
             "currency": data.get("financial_currency") or data.get("currency"),
+            "trusted_source_urls": trusted_source_urls,
             "source_observations": evidence,
             "reconciled_observations": {
                 metric: (
