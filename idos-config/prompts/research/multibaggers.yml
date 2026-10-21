@@ -40,6 +40,9 @@ user_prompt: >
   y `months` para runway); no infieras una unidad distinta. Cada elemento de `sources` debe ser un objeto `{{name, url}}` con URL HTTPS.
   `period_end` es la fecha del período financiero reportado, no la fecha de
   descarga; `inputs` debe referenciar nombres de campos del contexto financiero.
+  Para citar un ratio usa una URL copiada exactamente de `trusted_source_urls`
+  en el contexto; no infieras rutas equivalentes ni otras páginas del proveedor.
+  Si ninguna URL disponible respalda el ratio, usa `unavailable` y explica la limitación.
   Devuelve JSON con estos tipos y nombres exactos (no uses alias):
   `clasificacion_oportunidad` objeto {{"categoria": string, "justificacion": string}};
   `error_mercado` objeto con `consenso_actual`, `hipotesis_contraria`,
