@@ -205,6 +205,11 @@ class MultibaggersPipeline:
         field_sources = provenance.get("field_sources", {}) if isinstance(provenance, dict) else {}
         sources = field_sources.get("price_history", []) if isinstance(field_sources, dict) else []
         if not sources and isinstance(payload, dict):
+            payload_provenance = payload.get("data_provenance")
+            payload_provenance = payload_provenance if isinstance(payload_provenance, dict) else {}
+            field_sources = payload_provenance.get("field_sources", payload.get("field_sources", {}))
+            sources = field_sources.get("price_history", []) if isinstance(field_sources, dict) else []
+        if not sources and isinstance(payload, dict):
             metric_sources = payload.get("metric_sources", {})
             sources = metric_sources.get("price_history", []) if isinstance(metric_sources, dict) else []
         source = (
