@@ -1825,11 +1825,12 @@ class ResearchWorker(BaseWorker):
             return {}
         system = self.registry.get_system(prompt_name, category="research") or ""
         formatted = template.format(**kwargs) if isinstance(template, str) else template
-        result = self.llm.generate_structured(
-            prompt=formatted,
-            system_prompt=system,
-            temperature=0.1,
-            max_tokens=max_tokens,
-        )
-        return result
+        request = {
+            "prompt": formatted,
+            "system_prompt": system,
+            "temperature": 0.1,
+        }
+        if max_tokens != 4096:
+            request["max_tokens"] = max_tokens
+        return self.llm.generate_structured(**request)
 
