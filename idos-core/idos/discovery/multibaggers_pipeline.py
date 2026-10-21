@@ -200,4 +200,3 @@ class MultibaggersPipeline:
             "GLOBAL_MARKET_CAP_EVIDENCE_INCOMPLETE",
         }
         return bool(incomplete_evidence.intersection(reasons))
-

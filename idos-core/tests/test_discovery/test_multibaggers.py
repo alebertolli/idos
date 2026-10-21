@@ -500,4 +500,3 @@ def test_manual_review_stops_assessment_before_buy_list(tmp_path, monkeypatch):
     resolution = yaml.safe_load((journal / "board_resolution.yml").read_text(encoding="utf-8"))
     assert proposal["status"] == "PENDING_HUMAN_REVIEW"
     assert resolution["approved"] is False
-

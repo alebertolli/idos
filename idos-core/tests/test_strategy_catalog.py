@@ -80,4 +80,3 @@ def test_strategy_metadata_round_trips_through_sqlite(tmp_path: Path):
     assert persisted["strategy_id"] == "MOMENTUM_ETF"
     assert persisted["entry_policy"] == "SIGNAL_REBALANCE"
     assert persisted["origin"] == "monthly_strategy_pipeline"
-
