@@ -712,7 +712,12 @@ class SiteBuilder:
                 if isinstance(val, dict) and "rating" in val and dom.startswith("dominio_") and dom != "dominio_riesgos"
             ]
             ddd_summary["riesgos"] = [
-                {"riesgo": r.get("riesgo"), "probabilidad": r.get("probabilidad"), "impacto": r.get("impacto")}
+                {
+                    "riesgo": r.get("riesgo") or r.get("nombre") or r.get("descripcion"),
+                    "descripcion": r.get("descripcion"),
+                    "probabilidad": r.get("probabilidad"),
+                    "impacto": r.get("impacto"),
+                }
                 for r in (ddd.get("dominio_riesgos") or []) if isinstance(r, dict)
             ]
             ddd_summary["resumen_ejecutivo"] = ddd.get("resumen_ejecutivo")
@@ -770,15 +775,31 @@ class SiteBuilder:
                 for h in raw_hypotheses if isinstance(h, dict)
             ]
 
+        latest_discovery = opp.get("latest_discovery_evidence") or opp.get("discovery_evidence") or {}
+        if not isinstance(latest_discovery, dict):
+            latest_discovery = {}
+
         return {
             "opp_id": opp.get("id") or opp_dir.name,
             "ticker": ticker,
             "status": opp.get("status", "UNKNOWN"),
             "strategy_id": opp.get("strategy_id", "COMPOUNDER"),
             "strategy_version": opp.get("strategy_version", "legacy-compatible"),
-            "discovery_score": opp.get("discovery_score"),
-            "research_priority": opp.get("research_priority"),
-            "discovery_type": opp.get("discovery_type"),
+            "discovery_score": (
+                opp.get("discovery_score")
+                if opp.get("discovery_score") is not None
+                else latest_discovery.get("discovery_score")
+            ),
+            "research_priority": (
+                opp.get("research_priority")
+                if opp.get("research_priority") is not None
+                else latest_discovery.get("research_priority")
+            ),
+            "discovery_type": (
+                opp.get("discovery_type")
+                if opp.get("discovery_type") is not None
+                else latest_discovery.get("discovery_type")
+            ),
             "position_limit_pct": opp.get("position_limit_pct"),
             "core": opp.get("core"),
             "sleeve": opp.get("sleeve"),
@@ -1906,7 +1927,20 @@ function showCase(oppId){
   if(em.hipotesis_contraria || em.consenso_actual || em.razonamiento){
     html += `<h2>Error de mercado</h2>`;
     if(em.conclusion_error_valoracion) html += `<p><b>Conclusión:</b> <span class="${esc(em.conclusion_error_valoracion)?'':'neg'}">${esc(em.conclusion_error_valoracion)}</span></p>`;
-    if(em.consenso_actual) html += `<div class="card"><div class="muted">Consenso del mercado</div><p>${esc(em.consenso_actual)}</p></div>`;
+    if(em.consenso_actual) {
+      const consensus=em.consenso_actual;
+      let consensusHtml=esc(consensus);
+      if(typeof consensus==='object' && !Array.isArray(consensus)){
+        const values=[['Media',consensus.mean],['Mediana',consensus.median],['Mínimo',consensus.low],['Máximo',consensus.high]]
+          .filter(([,value])=>value!=null && Number.isFinite(Number(value)))
+          .map(([label,value])=>`${esc(label)}: ${money(value)} ${esc(consensus.currency||'')}`);
+        const sources=Array.isArray(consensus.sources)?consensus.sources.map(source=>
+          source?.url?`<a href="${escAttr(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.name||'Fuente')}</a>${source.as_of_date?` · ${dt(source.as_of_date)}`:''}`:esc(source?.name||'Fuente')
+        ).join('<br>'):'';
+        consensusHtml=`${values.length?`<p>${values.join(' · ')}</p>`:'<p>Consenso estructurado disponible.</p>'}${sources?`<p class="muted">Fuentes:<br>${sources}</p>`:''}`;
+      }
+      html += `<div class="card"><div class="muted">Consenso del mercado</div>${consensusHtml}</div>`;
+    }
     if(em.hipotesis_contraria) html += `<div class="card"><div class="muted">Hipótesis contraria</div><p>${esc(em.hipotesis_contraria)}</p></div>`;
     if(em.razonamiento) html += `<div class="card"><div class="muted">Razonamiento</div><p>${esc(em.razonamiento)}</p></div>`;
     if(em.catalizador_cambio?.descripcion) html += `<p><b>Catalizador de cambio:</b> ${esc(em.catalizador_cambio.descripcion)} <span class="muted">(${esc(em.catalizador_cambio.horizonte||'')} · impacto ${esc(em.catalizador_cambio.impacto||'')}${em.catalizador_cambio.probabilidad_pct!=null?' · '+pct(em.catalizador_cambio.probabilidad_pct):''})</span></p>`;
