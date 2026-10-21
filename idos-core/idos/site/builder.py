@@ -1097,7 +1097,7 @@ class SiteBuilder:
             ("discovery", "Discovery", "screening",
              {"DISCOVERED", "WATCHLIST", "SCREENED"}),
             ("research", "Research", "opp",
-             {"UNDER_RESEARCH"}),
+             {"UNDER_RESEARCH", "UNDER_DEEP_DD"}),
             ("buylist", "Buy List", "buylist",
              {"APPROVED", "ENTRY_PENDING"}),
         ]
@@ -1107,7 +1107,7 @@ class SiteBuilder:
             if key == "discovery":
                 count = len(discovery_pool) if discovery_pool else (universe_stats.get("operable_count", 0) if universe_stats else 0)
             if key == "research":
-                count = sum(1 for o in opps if o.get("status") == "UNDER_RESEARCH")
+                count = sum(1 for o in opps if o.get("status") in {"UNDER_RESEARCH", "UNDER_DEEP_DD"})
             sections.append({
                 "key": key, "label": label, "tab": tab,
                 "count": count,
@@ -1206,7 +1206,7 @@ class SiteBuilder:
             if o.get("proposal", {}).get("status") == "PENDING_HUMAN_REVIEW":
                 add_alert(
                     "decision_pending", o.get("ticker", ""), "warn",
-                    "Decisión sistemática pendiente de revisión humana",
+                    "Propuesta pendiente de revisión en Decision Board",
                     str(o.get("opp_id") or ""),
                 )
             if o.get("trend") == "DETERIORATING":
@@ -1642,7 +1642,7 @@ function rulesBadge(failed){
   return failed.map(id=>`<span class="badge" title="${esc(map[id]||id)}" style="background:#2a1516;color:#f87171">${esc(id)}</span>`).join(' ');
 }
 function renderOpp(){
-  const rows = DATA.opportunities.filter(o=>o.status==='UNDER_RESEARCH');
+  const rows = DATA.opportunities.filter(o=>['UNDER_RESEARCH','UNDER_DEEP_DD'].includes(o.status));
   TABLES['opp'] = {
     rows,
     cols: [
@@ -1664,7 +1664,7 @@ function renderOpp(){
     q:'',
   };
   let html = `<h2>Research (${rows.length})</h2>`;
-  html += `<p class="muted">Oportunidades en <b>Research / UNDER_RESEARCH</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Clic en una columna para ordenar.</p>`;
+  html += `<p class="muted">Oportunidades en <b>Research / UNDER_RESEARCH o UNDER_DEEP_DD</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Clic en una columna para ordenar.</p>`;
   html += `<p class="muted">Los agentes completan Discovery, Research y Assessment y preparan un expediente con datos, tesis, escenarios, asimetría, riesgos y reglas. La primera intervención humana ocurre una sola vez en <b>Decision Board</b>: el gestor revisa el paquete completo y aprueba o rechaza. Una aprobación válida agrega el caso a la <b>Buy List</b>, sin crear posiciones ni órdenes.</p>`;
   html += detailsEntryRules();
   html += tableInput('opp','opp-search','Buscar ticker...');
