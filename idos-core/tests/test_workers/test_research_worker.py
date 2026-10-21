@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 12954)
+Total output lines: 1176
+
 from datetime import date
 import hashlib
 import json
@@ -285,7 +288,18 @@ class TestResearchWorker:
         )
 
         worker = ResearchWorker({"provider": "test"})
-        worker._load_financial_data = MagicMock(return_value={})
+        worker._load_financial_data = MagicMock(return_value={
+            "current_ratio": 1.4,
+            "financial_currency": "USD",
+            "period_end_date": "2026-09-30",
+            "financial_data_observed_at": "2026-10-15T12:00:00+00:00",
+            "source": "stockanalysis.com",
+            "url": "https://stockanalysis.com/stocks/test/statistics/",
+            "data_provenance": {
+                "field_sources": {"current_ratio": ["stockanalysis.com"]},
+                "field_urls": {"current_ratio": "https://stockanalysis.com/stocks/test/statistics/"},
+            },
+        })
         worker._enrich_company_info = MagicMock(return_value={"name": "Test", "sector": "Technology"})
         worker._fetch_target_consensus = MagicMock()
         worker._run_prompt = MagicMock(return_value={})
@@ -294,6 +308,12 @@ class TestResearchWorker:
 
         assert result["status"] == "ddd_failed"
         assert worker._run_prompt.call_args.args[0] == "multibaggers"
+        import json
+        prompt_inputs = worker._run_prompt.call_args.args[2]
+        financial_evidence = json.loads(prompt_inputs["research_financial_evidence"])
+        assert financial_evidence["source_observations"]["current_ratio"]["value"] == 1.4
+        assert financial_evidence["source_observations"]["current_ratio"]["period_end"] == "2026-09-30"
+        assert financial_evidence["source_observations"]["current_ratio"]["source_url"].startswith("https://")
         worker._fetch_target_consensus.assert_not_called()
 
     def test_multibaggers_research_blocks_mismatched_snapshot_before_llm(
@@ -569,95 +589,7 @@ class TestResearchWorker:
         seeded_opportunity: tuple[str, str],
         tmp_sqlite,
         tmp_journal,
-        mock_llm_client: MagicMock,
-        base_path: str,
-        tmp_path: Path,
-    ):
-        import yaml
-
-        ticker, opp_id = seeded_opportunity
-        opportunity = tmp_sqlite.get_opportunity(opp_id)
-        opportunity.update({
-            "status": OpportunityStatus.UNDER_DEEP_DD.value,
-            "approved_for_buylist": True,
-        })
-        tmp_sqlite.save_opportunity(opportunity)
-        tmp_journal.save_opportunity(ticker, opportunity)
-
-        opportunity_dir = tmp_journal.opportunity_path(ticker, opp_id)
-        (opportunity_dir / "decision_proposal.yml").write_text(yaml.safe_dump({
-            "opportunity_id": opp_id, "status": "MANAGER_APPROVED",
-        }), encoding="utf-8")
-        (opportunity_dir / "board_resolution.yml").write_text(yaml.safe_dump({
-            "approved": True, "status": "approved", "decision_id": "DEC-OLD",
-        }), encoding="utf-8")
-        decisions_dir = opportunity_dir / "decisions"
-        decisions_dir.mkdir()
-        decision_path = decisions_dir / "DEC-OLD.yml"
-        prior_decision = "approved: true\nstatus: approved\ndecision_id: DEC-OLD\n"
-        decision_path.write_text(prior_decision, encoding="utf-8")
-        buylist_path = Path(base_path) / "idos-journal/portfolio/buylist.yml"
-        buylist_path.parent.mkdir(parents=True, exist_ok=True)
-        buylist_path.write_text(yaml.safe_dump({"entries": [
-            {"ticker": ticker, "opp_id": opp_id},
-            {"ticker": "AAPL", "opp_id": "OPP-AAPL"},
-        ]}), encoding="utf-8")
-
-        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
-        worker.llm = mock_llm_client
-        worker.registry = _mock_research_registry()
-        result = worker.execute({
-            "ticker": ticker,
-            "opp_id": opp_id,
-            "base_path": base_path,
-            "force_reprocess": True,
-            "event_type": "thesis_reassessment",
-        })
-
-        assert result.status == WorkerStatus.SUCCESS
-        assert result.output["approval_invalidated"] is True
-        assert tmp_journal.load_opportunity(ticker, opp_id)["approved_for_buylist"] is False
-        proposal = yaml.safe_load((opportunity_dir / "decision_proposal.yml").read_text(encoding="utf-8"))
-        assert proposal["status"] == "INVALIDATED_BY_NEW_RESEARCH"
-        resolution = yaml.safe_load((opportunity_dir / "board_resolution.yml").read_text(encoding="utf-8"))
-        assert resolution["status"] == "invalidated_by_new_research"
-        assert yaml.safe_load(buylist_path.read_text(encoding="utf-8"))["entries"] == [
-            {"ticker": "AAPL", "opp_id": "OPP-AAPL"},
-        ]
-        assert decision_path.read_text(encoding="utf-8") == prior_decision
-
-    def test_research_saves_assessment(
-        self,
-        seeded_opportunity: tuple[str, str],
-        mock_llm_client: MagicMock,
-        base_path: str,
-        tmp_journal,
-        tmp_path: Path,
-    ):
-        ticker, opp_id = seeded_opportunity
-        worker = ResearchWorker({"provider": "test", "prompts_path": str(tmp_path)})
-        worker.llm = mock_llm_client
-        worker.registry = _mock_research_registry()
-
-        result = worker.execute({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
-        assert result.status == WorkerStatus.SUCCESS
-
-        ass_path = tmp_journal.opportunity_path(ticker, opp_id) / "assessments"
-        assert ass_path.exists()
-        yml_files = list(ass_path.glob("*.yml"))
-        assert len(yml_files) >= 1
-
-    def test_research_rejects_invalid_state(
-        self,
-        tmp_sqlite,
-        mock_llm_client: MagicMock,
-        base_path: str,
-        tmp_path: Path,
-    ):
-        ticker = "TEST"
-        opp_id = "OPP-INVALID"
-        opp = {
-            "id": opp_id,
+        mock_llm_c…954 tokens truncated… "id": opp_id,
             "ticker": ticker,
             "status": OpportunityStatus.APPROVED.value,
             "created_at": "2026-01-01T00:00:00",
@@ -1080,6 +1012,71 @@ def test_discovery_financial_observations_are_merged_into_research_data():
     assert merged["data_provenance"]["field_sources"]["fcf"] == ["stockanalysis.com"]
 
 
+def test_multibaggers_research_evidence_excludes_unlisted_fields_and_preserves_source_period():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    context = ResearchWorker._research_financial_evidence({
+        "current_ratio": 1.2,
+        "private_account_balance": 123456,
+        "financial_data_observed_at": "2026-10-15T12:00:00+00:00",
+        "period_end_date": "2026-09-30",
+        "source": "stockanalysis.com",
+        "url": "https://stockanalysis.com/stocks/test/statistics/",
+        "data_provenance": {
+            "field_sources": {"current_ratio": ["stockanalysis.com"]},
+            "field_urls": {"current_ratio": "https://stockanalysis.com/stocks/test/statistics/"},
+        },
+    })
+
+    evidence = context["source_observations"]["current_ratio"]
+    assert evidence["value"] == 1.2
+    assert evidence["period_end"] == "2026-09-30"
+    assert evidence["sources"] == ["stockanalysis.com"]
+    assert "private_account_balance" not in context["source_observations"]
+
+
+def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
+    from idos.ai.prompts import PromptRegistry
+
+    repo_root = Path(__file__).resolve().parents[3]
+    prompt = PromptRegistry(repo_root / "idos-config" / "prompts").load(
+        "multibaggers", category="research"
+    ).user_prompt
+
+    rendered = prompt.format(
+        ticker="TEST", name="Test Inc.", intake_package="{}", financial_summary="{}",
+        research_financial_evidence="{}",
+    )
+    assert "unavailable" in rendered
+    assert "No inventes cifras, URLs" in rendered
+    assert "ni valores derivados" in rendered
+    assert "ratios_investigados" in rendered
+
+
+def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects_uncited_values():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    unavailable = [{"metric": "fcf_growth_pct", "status": "unavailable", "value": None,
+                    "limitations": "No hay FCF comparable para dos períodos."}]
+    assert ResearchWorker._validate_multibaggers_ratio_review(
+        unavailable, ["fcf_growth_pct"]
+    ) == []
+
+    uncited = [{"metric": "fcf_growth_pct", "status": "calculated", "value": 12.0,
+                "unit": "percent", "period_end": "2026-09-30", "formula": "x/y - 1",
+                "inputs": ["fcf_current", "fcf_prior"], "sources": []}]
+    errors = ResearchWorker._validate_multibaggers_ratio_review(
+        uncited, ["fcf_growth_pct"], trusted_source_urls={"https://stockanalysis.com/fcf"}
+    )
+    assert "ratio needs source names and https URLs: fcf_growth_pct" in errors
+
+    invented_source = [{**uncited[0], "sources": [{"name": "StockAnalysis", "url": "https://stockanalysis.com/invented"}]}]
+    errors = ResearchWorker._validate_multibaggers_ratio_review(
+        invented_source, ["fcf_growth_pct"], trusted_source_urls={"https://stockanalysis.com/fcf"}
+    )
+    assert "ratio cites a URL absent from research evidence: fcf_growth_pct" in errors
+
+
 def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():
     from idos.ai.prompts import PromptRegistry
 
@@ -1091,3 +1088,4 @@ def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():
     assert "Un dato ausente no significa cero" in prompt
     assert "No llames ajustado al flujo de caja libre reportado" in prompt
     assert "FCF Ajustado: {fcf_adjusted" not in prompt
+

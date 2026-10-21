@@ -15,12 +15,10 @@ CRITICAL_METRICS = (
     "revenue_growth_pct", "eps_growth_pct", "roic_pct",
     "operating_margin_pct", "relative_strength_12m_pct",
 )
-DISCOVERY_METRICS = CRITICAL_METRICS + (
-    "current_ratio", "interest_coverage", "fcf_runway_months", "share_count_cagr_3y_pct",
-    "gross_margin_pct", "revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct",
-    "net_debt_ebitda", "dilution_yoy_pct", "market_cap_usd", "avg_dollar_volume_usd",
-    "rd_to_revenue_pct", "capex_to_revenue_pct", "drawdown_pct", "volatility_90d_pct",
-)
+# Discovery only scores the configured fundamental and market-confirmation inputs.
+# Financial quality/leverage/dilution ratios belong to Research, where the LLM
+# evaluates them against source-backed financial evidence.
+DISCOVERY_METRICS = CRITICAL_METRICS + ("drawdown_pct", "volatility_90d_pct")
 
 
 @dataclass(frozen=True)
@@ -259,9 +257,6 @@ class MultibaggersDiscoveryEngine:
     def _hard_flags(
         self, snapshot: dict[str, dict[str, Any]], critical_metrics: tuple[str, ...] | None = None,
     ) -> list[dict[str, Any]]:
-        def val(key: str) -> float | None:
-            return snapshot.get(key, {}).get("value")
-        cfg = self.parameters.get("hard_flags", {})
         flags: list[dict[str, Any]] = []
         def add(code: str, metric: str, message: str, evidence: Any):
             flags.append({"code": code, "severity": "hard", "metric": metric, "message": message, "evidence": evidence})
@@ -284,18 +279,6 @@ class MultibaggersDiscoveryEngine:
             if item["coverage"] < int(self.parameters["data_quality"]["critical_sources_min"]):
                 code = "SINGLE_SOURCE_CRITICAL_METRIC" if item["coverage"] == 1 else "INSUFFICIENT_CRITICAL_SOURCES"
                 add(code, name, "Critical metric lacks independent source coverage", item["source"])
-        checks = [
-            ("current_ratio", "current_ratio_below", lambda v, t: v < t, "LOW_CURRENT_RATIO"),
-            ("interest_coverage", "interest_coverage_below", lambda v, t: v < t, "LOW_INTEREST_COVERAGE"),
-            ("net_debt_ebitda", "net_debt_ebitda_above", lambda v, t: v > t, "HIGH_NET_DEBT_EBITDA"),
-            ("fcf_runway_months", "negative_fcf_runway_months_below", lambda v, t: v < t, "LOW_FCF_RUNWAY"),
-            ("dilution_yoy_pct", "dilution_yoy_above_pct", lambda v, t: v > t, "HIGH_DILUTION"),
-            ("share_count_cagr_3y_pct", "share_count_cagr_3y_above_pct", lambda v, t: v > t, "HIGH_SHARE_COUNT_GROWTH"),
-        ]
-        for metric, key, predicate, code in checks:
-            value, threshold = val(metric), cfg.get(key)
-            if value is not None and threshold is not None and predicate(value, float(threshold)):
-                add(code, metric, f"{metric} breached configured hard threshold", value)
         return flags
 
     def _components(self, snapshot: dict[str, dict[str, Any]]) -> dict[str, float | None]:
@@ -356,6 +339,9 @@ def build_research_intake(result: dict[str, Any], config: dict[str, Any]) -> dic
         "red_flags": flags, "data_quality": result["data_quality"],
         "research_requirements": {
             "required_analysis": list(research_parameters.get("required_analysis", [])),
+            "ratios_to_review": list(research_parameters.get("ratios_to_review", [])),
+            "ratio_definitions": dict(research_parameters.get("ratio_definitions", {})),
+            "risk_review_thresholds": dict(research_parameters.get("risk_review_thresholds", {})),
             "scenario_schema_version": "bear_base_bull_v1",
         },
         "historical_windows": {name: item.get("period") for name, item in result["metrics_snapshot"].items()},
@@ -366,3 +352,4 @@ def build_research_intake(result: dict[str, Any], config: dict[str, Any]) -> dic
         "constraints": ["Do not invent missing facts.", "Cite each material claim to a source.", "Separate verified facts, inference, and unknowns.", "Research cannot approve an investment or set a position size."],
         "snapshot_hash": result["snapshot_hash"],
     }
+

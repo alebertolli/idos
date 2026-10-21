@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 21956)
+Total output lines: 1697
+
 import time
 import math
 import re
@@ -291,6 +294,12 @@ class ResearchWorker(BaseWorker):
                 "name": company.get("name", ticker),
                 "intake_package": json.dumps(research_intake, ensure_ascii=False, sort_keys=True),
                 "financial_summary": json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str),
+                "research_financial_evidence": json.dumps(
+                    self._research_financial_evidence(financial_data),
+                    ensure_ascii=False,
+                    sort_keys=True,
+                    default=str,
+                ),
             })
         else:
             ddd_result = self._run_prompt("ddd", ticker, ddd_inputs)
@@ -344,6 +353,31 @@ class ResearchWorker(BaseWorker):
                 "ddd_empty": True,
             }
 
+        ratio_validation_errors = (
+            self._validate_multibaggers_ratio_review(
+                ddd_result.get("ratios_investigados"),
+                (research_intake or {}).get("research_requirements", {}).get("ratios_to_review", []),
+                trusted_source_urls={
+                    str(item.get("source_url"))
+                    for item in self._research_financial_evidence(financial_data)["source_observations"].values()
+                    if isinstance(item, dict) and item.get("source_url")
+                },
+            )
+            if is_multibaggers else []
+        )
+        if ratio_validation_errors:
+            failure_reason = "MULTIBAGGERS ratio review contract failed: " + "; ".join(ratio_validation_errors)
+            event_data = {"opp_id": opp_id, "ticker": ticker, "errors": ratio_validation_errors}
+            sqlite.log_event("research:ratio_review_validation_failed", event_data)
+            journal.log_event("research:ratio_review_validation_failed", event_data, source="research_worker")
+            return {
+                "ticker": ticker,
+                "opp_id": opp_id,
+                "status": "ddd_failed",
+                "error": failure_reason,
+                "ratio_validation_errors": ratio_validation_errors,
+            }
+
         generated_at = datetime.now(AR_TZ).isoformat()
         input_snapshot_hash = hashlib.sha256(
             json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str).encode("utf-8")
@@ -374,6 +408,8 @@ class ResearchWorker(BaseWorker):
             "dominio_riesgos": ddd_result.get("dominio_riesgos", []),
             "dominio_catalizadores": ddd_result.get("dominio_catalizadores", []),
             "dominio_business_quality": ddd_result.get("dominio_business_quality", {}),
+            "ratios_investigados": ddd_result.get("ratios_investigados", []),
+            "risk_flags": ddd_result.get("risk_flags", []),
             "dominio_financial_health": ddd_result.get("dominio_financial_health", {}),
             "dominio_management": ddd_result.get("dominio_management", {}),
             "dominio_growth": ddd_result.get("dominio_growth", {}),
@@ -416,638 +452,17 @@ class ResearchWorker(BaseWorker):
                     "probabilidad": None,
                     "confianza": None,
                     "condiciones_falsacion": [
-                        {"condicion": "Señal por debajo del mínimo configurado", "metrica": "momentum_signal", "umbral": systematic_params["minimum_signal"]},
-                        {"condicion": "Señal por encima del máximo configurado", "metrica": "momentum_signal", "umbral": systematic_params["maximum_signal"]},
-                    ],
-                }]
-            }
-        else:
-            time.sleep(15)
-            hypothesis_prompt_inputs = {
-                "ticker": ticker,
-                "name": company.get("name", ticker),
-                "sector": company.get("sector", ""),
-                "as_of_date": datetime.now(AR_TZ).date().isoformat(),
-                "thesis_statement": thesis,
-                "key_drivers": market_error.get("hipotesis_contraria", ""),
-                "recent_events": financial_data.get("recent_events", ""),
-                "validation_feedback": "",
-            }
-            hypothesis_result = self._run_hypothesis_prompt_with_repair(
-                ticker, hypothesis_prompt_inputs
-            )
-
-        hypotheses = hypothesis_result.get("hipotesis", []) if isinstance(hypothesis_result, dict) else []
-        if not is_systematic:
-            hypothesis_errors = self._validate_hypothesis_contract(hypotheses)
-            if hypothesis_errors:
-                print("[HYPOTHESIS] Contract validation failed: " + "; ".join(hypothesis_errors))
-                event_data = {
-                    "opp_id": opp_id,
-                    "ticker": ticker,
-                    "errors": hypothesis_errors,
-                    "event_type": event_type,
-                    "event_evidence": event_evidence,
-                }
-                sqlite.log_event("research:hypothesis_validation_failed", event_data)
-                journal.log_event("research:hypothesis_validation_failed", event_data, source="research_worker")
-                return {
-                    "ticker": ticker,
-                    "opp_id": opp_id,
-                    "status": "hypothesis_validation_failed",
-                    "errors": hypothesis_errors,
-                }
-
-        # Persist a complete report only after its hypothesis contract passes.
-        # Otherwise a failed re-research would replace the last usable report.
-        report_path = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id / "ddd_report.yml"
-        report_path.parent.mkdir(parents=True, exist_ok=True)
-        import yaml as yaml_lib
-        with open(report_path, "w", encoding="utf-8") as f:
-            yaml_lib.dump(ddd_report, f, default_flow_style=False, allow_unicode=True)
-
-        approval_invalidated = False
-        if force_reprocess:
-            invalidated_at = datetime.now(AR_TZ).isoformat()
-            approval_invalidated = invalidate_manager_approval_after_research(
-                bp, ticker, opp_id, invalidated_at=invalidated_at,
-            )
-            if approval_invalidated:
-                opp["approved_for_buylist"] = False
-                opp["manager_approval_invalidated_at"] = invalidated_at
-                opp["manager_approval_invalidation_reason"] = "new_research_version"
-                sqlite.save_opportunity(opp)
-                journal.save_opportunity(ticker, opp)
-                invalidation_event = {
-                    "opp_id": opp_id,
-                    "ticker": ticker,
-                    "event_type": event_type,
-                    "reason": "new_research_version",
-                    "invalidated_at": invalidated_at,
-                }
-                sqlite.log_event("decision:manager_approval_invalidated", invalidation_event)
-                journal.log_event(
-                    "decision:manager_approval_invalidated",
-                    invalidation_event,
-                    source="research_worker",
-                )
-
-        if is_systematic:
-            aoif_result = {
-                "tipo_analisis": "systematic_momentum",
-                "conclusion": "La decisión depende del ranking mensual y de la disciplina de rebalanceo; no se aplica valoración fundamental.",
-                "riesgos": ddd_result.get("dominio_riesgos", []),
-            }
-        else:
-            time.sleep(15)
-            aoif_result = self._run_prompt("aoif", ticker, {
-            "ticker": ticker,
-            "name": company.get("name", ticker),
-            "company_data": f"Sector: {company.get('sector', '')}\nBusiness: {company.get('business_model', '')}",
-            "roic": financial_data.get("roic_pct"),
-            "operating_margin": financial_data.get("operating_margin_pct"),
-            "revenue_growth": financial_data.get("revenue_growth_pct"),
-            "pe_ratio": financial_data.get("pe_ratio"),
-            "ev_ebitda": financial_data.get("ev_ebitda", 0),
-            "fcf_yield": financial_data.get("fcf_yield", 0),
-            })
-
-        if not is_systematic:
-            self._build_knowledge_base(ticker, opp_id, company, financial_data, ddd_result, aoif_result, thesis, knowledge, ddd_empty)
-
-        assessment_id = f"ass-{uuid4().hex[:8]}"
-        assessment = {
-            "id": assessment_id,
-            "engine": "ResearchWorker",
-            "version": "3.0",
-            "status": "COMPLETED",
-            "score": score,
-            "confidence": "NOT_ASSESSED" if is_systematic else "HIGH" if score >= 75 else "MEDIUM" if score >= 50 else "LOW",
-            "findings": [
-                f"Classification: {classification.get('categoria', 'unknown')}",
-                f"Market error: {market_error.get('conclusion_error_valoracion', 'N/A')}",
-                f"Thesis: {thesis[:200]}",
-            ],
-            "risks": ddd_result.get("dominio_riesgos", []),
-            "recommendation": "REVIEW",
-            "generated_at": datetime.now(AR_TZ).isoformat(),
-        }
-        journal.save_assessment(ticker, opp_id, assessment)
-
-        self._persist_hypotheses(ticker, opp_id, thesis, hypotheses, journal, sqlite)
-
-        case_file = journal.load_case_file(ticker) or {
-            "ticker": ticker,
-            "company_name": company.get("name", ticker),
-            "created_at": datetime.now(AR_TZ).isoformat(),
-            "opportunities": [],
-        }
-        case_file.setdefault("opportunities", [])
-        if opp_id not in case_file["opportunities"]:
-            case_file["opportunities"].append(opp_id)
-        case_file["last_updated"] = datetime.now(AR_TZ).isoformat()
-        journal.save_case_file(ticker, case_file)
-
-        opp["updated_at"] = datetime.now(AR_TZ).isoformat()
-        integridad = ddd_result.get("integridad_tesis", {}) or {}
-        if "thesis_active" in integridad and integridad["thesis_active"] is not None:
-            opp["thesis_active"] = bool(integridad["thesis_active"])
-            if not opp["thesis_active"]:
-                opp["thesis_invalidated_reason"] = integridad.get("reason", "Tesis invalidada en DDD")
-        sqlite.save_opportunity(opp)
-
-        # A forced run is a re-research of an existing opportunity. It must not
-        # move a live portfolio lifecycle back to the discovery/research lane.
-        # Initial research still promotes the candidate to UNDER_RESEARCH.
-        final_status = current_status if force_reprocess else OpportunityStatus.UNDER_RESEARCH
-        opp["status"] = final_status.value
-        research_completed_at = datetime.now(AR_TZ)
-        opp["last_research_at"] = research_completed_at.isoformat()
-        next_review = self._next_thesis_review_at(opp, bp, research_completed_at)
-        if next_review:
-            opp["next_thesis_review_at"] = next_review
-        sqlite.save_opportunity(opp)
-        journal.save_opportunity(ticker, opp)
-        if final_status != current_status:
-            sqlite.record_transition(opp_id, current_status.value, final_status.value,
-                                     cause="research_completed", worker="research_worker")
-        event_data = {
-            "opp_id": opp_id, "ticker": ticker,
-            "score": score, "hypotheses": len(hypotheses),
-            "classification": classification.get("categoria"),
-            "event_type": event_type,
-            "event_evidence": event_evidence,
-            "strategy_version": opp.get("strategy_version", ""),
-            "input_snapshot_sha256": input_snapshot_hash,
-        }
-        event_type_name = "research:completed"
-        if force_reprocess:
-            event_data.update({
-                "event_type": event_type,
-                "event_evidence": event_evidence,
-                "original_status": current_status.value,
-                "ddd_empty": ddd_empty,
-            })
-            event_type_name = "research:force_reprocess"
-        sqlite.log_event(event_type_name, event_data)
-        journal.log_event(event_type_name, event_data, source="research_worker")
-        return {
-            "ticker": ticker,
-            "opp_id": opp_id,
-            "status": "completed",
-            "opportunity_status": final_status.value,
-            "score": score,
-            "classification": classification.get("categoria"),
-            "market_error_conclusion": market_error.get("conclusion_error_valoracion"),
-            "hypotheses_count": len(hypotheses),
-            "assessment_id": assessment_id,
-            "ddd_empty": False,
-            "approval_invalidated": approval_invalidated,
-            "target_consensus": consensus,
-        }
-
-    @staticmethod
-    def _next_thesis_review_at(opp: dict[str, Any], base_path: Path, anchor: datetime) -> str | None:
-        if str(opp.get("research_profile", "")).lower() == "systematic":
-            return None
-        catalog = StrategyCatalog(base_path / "idos-config" / "strategies.yml")
-        profile = catalog.get(opp.get("strategy_id") or "COMPOUNDER")
-        interval = interval_days_for(profile)
-        return (anchor + timedelta(days=interval)).isoformat() if interval is not None else None
-
-    @staticmethod
-    def _load_prior_catalysts(ticker: str, journal: Any) -> list[dict]:
-        """Recolecta los catalizadores de ddd_report previos del ticker (histórico OPP)."""
-        import yaml as yaml_lib
-        ticker = ticker.upper()
-        opp_dir = journal.case_file_path(ticker) / "opportunities"
-        prior: list[dict] = []
-        if not opp_dir.exists():
-            return prior
-        for opp in sorted(opp_dir.iterdir()):
-            if not opp.is_dir():
-                continue
-            ddd_file = opp / "ddd_report.yml"
-            if not ddd_file.exists():
-                continue
-            try:
-                with open(ddd_file, "r", encoding="utf-8") as f:
-                    report = yaml_lib.safe_load(f)
-            except Exception:
-                continue
-            if not report:
-                continue
-            generated_at = report.get("generated_at", "")
-            catalysts = report.get("dominio_catalizadores", []) or []
-            for cat in catalysts:
-                if not isinstance(cat, dict):
-                    continue
-                item = {
-                    "opp_id": opp.name,
-                    "generated_at": generated_at,
-                    "descripcion": cat.get("descripcion", ""),
-                    "probabilidad_anterior": cat.get("probabilidad_pct"),
-                    "impacto": cat.get("impacto", ""),
-                    "horizonte": cat.get("horizonte", ""),
-                    "nivel_confianza": cat.get("nivel_confianza", ""),
-                }
-                prior.append(item)
-        return prior
-
-    @staticmethod
-    def _build_systematic_ddd(ticker: str, opportunity: dict[str, Any], parameters: dict[str, Any]) -> dict[str, Any]:
-        """Build an auditable DDD-shaped report for a signal-driven strategy."""
-        signal = opportunity.get("signal") or {}
-        momentum = signal.get("momentum")
-        minimum = parameters.get("minimum_signal")
-        maximum = parameters.get("maximum_signal")
-        if any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v)
-               for v in (momentum, minimum, maximum)) or not minimum < maximum or maximum <= 0:
-            raise ValueError("Systematic research requires a finite signal and configured signal range")
-        # Preserve the existing descriptive normalization, using the configured
-        # maximum. This is neither conviction nor a calibrated probability.
-        signal_score = max(0, min(100, round(momentum / maximum * 100)))
-        within_policy = minimum <= momentum <= maximum
-        thesis = f"{ticker}: exposición sistemática a momentum mensual; la señal actual es {momentum:.2f}."
-        return {
-            "clasificacion_oportunidad": {
-                "categoria": "systematic_momentum",
-                "categorias_descartadas": ["compounder", "deep_value", "growth_fundamental"],
-                "justificacion": "La oportunidad se evalúa por señal, ranking y rebalanceo mensual; no por DDD corporativo.",
-            },
-            "error_mercado": {
-                "conclusion_error_valoracion": "NO_APLICA",
-                "hipotesis_contraria": "La persistencia del momentum puede romperse antes del próximo rebalanceo.",
-                "consenso_actual": "No se utiliza consenso fundamental.",
-                "razonamiento": "La señal cuantitativa y sus límites son la evidencia primaria.",
-            },
-            "tesis_inversion": thesis,
-            "score_general": signal_score,
-            "dominio_riesgos": [{
-                "riesgo": "Reversión brusca del momentum",
-                "probabilidad": "no evaluada",
-                "impacto": "alto",
-                "descripcion": "La señal puede deteriorarse entre rebalanceos; aplicar límites de peso y salida.",
-            }],
-            "dominio_catalizadores": [{
-                "descripcion": "Persistencia del ranking relativo hasta el próximo rebalanceo",
-                "horizonte": "corto",
-                "impacto": "alto",
-                "probabilidad_pct": None,
-            }],
-            "dominio_business_quality": {"rating": "no_aplica", "analisis": "No es un criterio de una estrategia sistemática."},
-            "dominio_financial_health": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
-            "dominio_management": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
-            "dominio_growth": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
-            "dominio_esg_supply_chain": {"rating": "no_aplica", "analisis": "No es un criterio de selección de la señal."},
-            "opinion_valoracion": "No aplica: la entrada se decide por señal y rebalanceo.",
-            "resumen_ejecutivo": f"Momentum mensual {momentum:.2f}; rango configurado {minimum:g}–{maximum:g}; índice descriptivo {signal_score}/100. Riesgo y probabilidad no evaluados.",
-            "calidad_evidencia": {
-                "hechos_verificados": [f"Señal momentum mensual: {momentum:.2f}", f"Fecha de señal: {signal.get('as_of_date', 'N/A')}"],
-                "inferencias_llm": [],
-                "preguntas_abiertas": ["¿La señal persistirá hasta el próximo rebalanceo?"] ,
-            },
-            "integridad_tesis": {"thesis_active": within_policy, "reason": "Señal dentro del rango configurado." if within_policy else "Señal fuera del rango configurado."},
-            "strategy_context": {
-                "strategy_id": opportunity.get("strategy_id"), "signal": signal,
-                "risk_rating": "NOT_ASSESSED",
-                "signal_policy": {"minimum_signal": minimum, "maximum_signal": maximum},
-                "score_method": "momentum_div_max_v1",
-                "probability_status": "NOT_ASSESSED",
-                "report_method_version": "systematic_signal_v2",
-            },
-        }
-
-    def _persist_hypotheses(self, ticker: str, opp_id: str, thesis: str,
-                            raw: list[Any], journal: Any, sqlite: Any):
-        from datetime import datetime
-        now = datetime.now(AR_TZ).isoformat()
-        for idx, item in enumerate(raw):
-            if isinstance(item, str):
-                hyp_data: Any = {"statement": item}
-            elif isinstance(item, dict):
-                hyp_data = item.get("hipotesis", item)
-                if isinstance(hyp_data, str):
-                    hyp_data = {"statement": hyp_data}
-            else:
-                continue
-            statement = hyp_data.get("hipotesis") or hyp_data.get("statement") or hyp_data.get("enunciado") or ""
-            if not statement:
-                statement = hyp_data.get("statement_provisional", "")
-            raw_id = hyp_data.get("id")
-            base_id = raw_id or f"HYP-{idx+1}"
-            hyp_id = f"{base_id}-{opp_id}"
-            parent_raw = hyp_data.get("parent_id", "")
-            parent_id = f"{parent_raw}-{opp_id}" if parent_raw else ""
-            raw_dependencies = hyp_data.get("depende_de") or hyp_data.get("depends_on") or []
-            if isinstance(raw_dependencies, str):
-                raw_dependencies = [raw_dependencies]
-            dependencies = [
-                item if str(item).endswith(f"-{opp_id}") else f"{item}-{opp_id}"
-                for item in raw_dependencies
-                if item
-            ]
-            predictions = []
-            raw_predictions = (
-                hyp_data.get("predicciones")
-                or hyp_data.get("predictions")
-                or hyp_data.get("prediccion")
-                or hyp_data.get("prediction")
-                or []
-            )
-            if isinstance(raw_predictions, (str, dict)):
-                raw_predictions = [raw_predictions]
-            magnitude = hyp_data.get("magnitud") or hyp_data.get("magnitude") or {}
-            if isinstance(magnitude, dict) and not raw_predictions and magnitude.get("metrica", magnitude.get("metric")):
-                raw_predictions = [magnitude]
-            for p in raw_predictions:
-                if isinstance(p, str):
-                    p = {
-                        **(magnitude if isinstance(magnitude, dict) else {}),
-                        "notes": p,
-                    }
-                if isinstance(p, dict):
-                    expected = p.get("valor_esperado", p.get("expected_value", 0)) or 0
-                    if isinstance(expected, str):
-                        try:
-                            expected = float(expected.replace(",", "."))
-                        except ValueError:
-                            expected = 0
-                    predictions.append(Prediction(
-                        metric=p.get("metrica") or p.get("metric", ""),
-                        expected_value=expected,
-                        unit=p.get("unidad", p.get("unit", "")),
-                        deadline=(
-                            p.get("fecha_objetivo") or p.get("target_date") or p.get("deadline")
-                            or hyp_data.get("fecha_objetivo") or hyp_data.get("target_date")
-                            or p.get("plazo") or hyp_data.get("plazo", "")
-                        ),
-                        notes=p.get("notes") or p.get("prediccion") or p.get("prediction", ""),
-                    ))
-            falsification = []
-            raw_falsification = (
-                hyp_data.get("condiciones_falsacion")
-                or hyp_data.get("criterios_falsacion")
-                or hyp_data.get("falsification_conditions")
-                or hyp_data.get("falsification")
-                or []
-            )
-            if isinstance(raw_falsification, (str, dict)):
-                raw_falsification = [raw_falsification]
-            for f in raw_falsification:
-                if isinstance(f, str) and f.strip():
-                    falsification.append(FalsificationCondition(condition=f.strip()))
-                if isinstance(f, dict):
-                    condition = f.get("condicion") or f.get("condition", "")
-                    if condition:
-                        falsification.append(FalsificationCondition(
-                            condition=condition,
-                            metric=f.get("metrica") or f.get("metric", ""),
-                            threshold=f.get("umbral", f.get("threshold", 0)) or 0,
-                        ))
-            priority_raw = hyp_data.get("prioridad", "important")
-            hypothesis = Hypothesis(
-                id=hyp_id,
-                opportunity_id=opp_id,
-                ticker=ticker.upper(),
-                statement=statement,
-                status=HypothesisStatus.ACTIVE,
-                priority=HypothesisPriority(priority_raw)
-                if priority_raw in ("critical", "important", "informational")
-                else HypothesisPriority.IMPORTANT,
-                probability=(
-                    None if "probabilidad" in hyp_data and hyp_data["probabilidad"] is None
-                    else float(hyp_data["probabilidad"]) if isinstance(hyp_data.get("probabilidad"), (int, float))
-                    else 0.5
-                ),
-                confidence=(
-                    None if "confianza" in hyp_data and hyp_data["confianza"] is None
-                    else float(hyp_data["confianza"]) if isinstance(hyp_data.get("confianza"), (int, float))
-                    else 0.0
-                ),
-                parent_id=parent_id,
-                rationale=hyp_data.get("por_que") or hyp_data.get("rationale") or hyp_data.get("why", ""),
-                review_trigger=(
-                    hyp_data.get("cuando_dejar_de_creerla")
-                    or hyp_data.get("review_trigger")
-                    or hyp_data.get("when_to_stop_believing", "")
-                ),
-                predictions=predictions,
-                falsification=falsification,
-                horizon=hyp_data.get("plazo") or hyp_data.get("horizon") or "24 months",
-                secondary_hypotheses=dependencies,
-            )
-            journal.save_hypothesis(ticker.upper(), opp_id, hypothesis.to_dict())
-            sqlite.save_hypothesis(hypothesis.to_dict())
-            print(f"[HYP] {ticker} ({opp_id}): persistida hipótesis '{statement[:60]}' id={hypothesis.id}")
-        if raw:
-            print(f"[HYP] {ticker} ({opp_id}): {len(raw)} hipótesis persistidas en hypotheses.yml + SQLite")
-
-    def _run_hypothesis_prompt_with_repair(
-        self, ticker: str, prompt_inputs: dict[str, Any]
-    ) -> dict[str, Any]:
-        """Retry one invalid agent result with deterministic validation feedback."""
-        result = self._run_prompt("hypothesis", ticker, dict(prompt_inputs))
-        hypotheses = result.get("hipotesis", []) if isinstance(result, dict) else []
-        errors = self._validate_hypothesis_contract(hypotheses)
-        if not errors:
-            return result
-
-        retry_inputs = dict(prompt_inputs)
-        retry_inputs["validation_feedback"] = (
-            "La salida anterior fue rechazada por estos errores de validación: "
-            + "; ".join(errors)
-            + ". Corrige solo la estructura afectada, conserva la tesis y devuelve "
-            "3-5 hipótesis completas con fechas futuras respecto de as_of_date. "
-            "No inventes hechos para satisfacer el validador."
-        )
-        print(f"[HYPOTHESIS] Retrying once after deterministic validation: {'; '.join(errors)}")
-        return self._run_prompt("hypothesis", ticker, retry_inputs)
-
-    @staticmethod
-    def _validate_hypothesis_contract(raw: Any, as_of_date: date | None = None) -> list[str]:
-        """Validate the five HMF answers before a FULL_DDD result can advance."""
-        if not isinstance(raw, list) or not raw:
-            return ["hypotheses must be a non-empty list"]
-
-        errors: list[str] = []
-        today = as_of_date or datetime.now(AR_TZ).date()
-        if not 3 <= len(raw) <= 5:
-            errors.append("FULL_DDD requires 3 to 5 hypotheses")
-        for index, item in enumerate(raw, start=1):
-            if not isinstance(item, dict):
-                errors.append(f"H{index}: hypothesis must be an object")
-                continue
-            statement = item.get("enunciado") or item.get("statement") or item.get("hipotesis")
-            rationale = item.get("por_que") or item.get("rationale") or item.get("why")
-            prediction = item.get("prediccion") or item.get("prediction")
-            target_date = item.get("fecha_objetivo") or item.get("target_date") or item.get("deadline")
-            magnitude = item.get("magnitud") or item.get("magnitude") or {}
-            metric = magnitude.get("metrica") or magnitude.get("metric") if isinstance(magnitude, dict) else None
-            expected = magnitude.get("valor_esperado", magnitude.get("expected_value")) if isinstance(magnitude, dict) else None
-            falsification = (
-                item.get("criterios_falsacion")
-                or item.get("condiciones_falsacion")
-                or item.get("falsification_conditions")
-            )
-            stop_condition = (
-                item.get("cuando_dejar_de_creerla")
-                or item.get("review_trigger")
-                or item.get("when_to_stop_believing")
-            )
-            prefix = f"H{index}"
-            if not isinstance(statement, str) or not statement.strip():
-                errors.append(f"{prefix}: missing belief statement")
-            if not isinstance(rationale, str) or not rationale.strip():
-                errors.append(f"{prefix}: missing rationale (why)")
-            if (
-                not isinstance(prediction, str)
-                or not prediction.strip()
-                or not isinstance(metric, str)
-                or not metric.strip()
-                or isinstance(expected, bool)
-                or not isinstance(expected, (int, float))
-                or not math.isfinite(expected)
-            ):
-                errors.append(f"{prefix}: missing observable quantitative prediction")
-            temporal_text = [value for value in (prediction, stop_condition) if isinstance(value, str)]
-            if isinstance(falsification, str):
-                temporal_text.append(falsification)
-            elif isinstance(falsification, list):
-                temporal_text.extend(
-                    value if isinstance(value, str) else str(value.get("condicion") or value.get("condition") or "")
-                    for value in falsification if isinstance(value, (str, dict))
-                )
-            year_tokens = re.findall(
-                r"\b(?:FY\s*)?(20\d{2})\b", " ".join(temporal_text), flags=re.IGNORECASE
-            )
-            referenced_years = [int(year) for year in year_tokens]
-            if any(year < today.year for year in referenced_years):
-                errors.append(f"{prefix}: prediction or trigger references an expired year")
-            try:
-                valid_iso_shape = (
-                    isinstance(target_date, str)
-                    and len(target_date) == 10
-                    and target_date[4] == "-"
-                    and target_date[7] == "-"
-                )
-                if not valid_iso_shape:
-                    raise ValueError("expected YYYY-MM-DD")
-                parsed_target_date = date.fromisoformat(target_date)
-                if parsed_target_date.isoformat() != target_date:
-                    raise ValueError("expected canonical YYYY-MM-DD")
-                if parsed_target_date <= today:
-                    errors.append(f"{prefix}: target date must be after the as-of date ({today.isoformat()})")
-            except ValueError:
-                errors.append(f"{prefix}: missing valid ISO target date (YYYY-MM-DD)")
-            has_falsification = (
-                isinstance(falsification, str) and bool(falsification.strip())
-            ) or (
-                isinstance(falsification, list)
-                and any(
-                    isinstance(value, str) and value.strip()
-                    or isinstance(value, dict) and bool(value.get("condicion") or value.get("condition"))
-                    for value in falsification
-                )
-            )
-            if not has_falsification:
-                errors.append(f"{prefix}: missing falsification criteria")
-            if not isinstance(stop_condition, str) or not stop_condition.strip():
-                errors.append(f"{prefix}: missing stop-belief condition")
+                        {"condicion": "Señal por debajo del mínimo configurado", "metrica": "momentum_signal", "umbral": systematic_params["minimum_signal"]},…9956 tokens truncated…ource["url"] not in trusted_source_urls for source in sources):
+                errors.append(f"ratio cites a URL absent from research evidence: {metric}")
+            if status == "calculated":
+                if not isinstance(item.get("formula"), str) or not item["formula"].strip():
+                    errors.append(f"calculated ratio needs a formula: {metric}")
+                if not isinstance(item.get("inputs"), list) or not item["inputs"]:
+                    errors.append(f"calculated ratio needs input references: {metric}")
+        unexpected = sorted(set(by_metric) - set(required_metrics))
+        if unexpected:
+            errors.append("unexpected ratio entries: " + ", ".join(unexpected))
         return errors
-
-    def _fetch_target_consensus(self, ticker: str, bp: Any) -> dict[str, Any] | None:
-        try:
-            from idos.valuation.target_consensus import fetch_target_consensus
-            result = fetch_target_consensus(ticker, base_path=bp)
-        except Exception as e:
-            print(f"[WARN] {ticker}: no se pudo calcular target consensus: {e}")
-            return None
-        if result is None:
-            print(f"[WARN] {ticker}: sin target consensus (ninguna fuente disponible)")
-            return None
-        print(f"[DDD] {ticker}: target consensus = ${result.promedio:.2f} "
-              f"(median ${result.mediana:.2f}) de {result.n_fuentes} fuentes: "
-              f"{', '.join(f'{k}=${v:.2f}' for k, v in result.fuentes.items())}")
-        calculated_at = result.calculado_at
-        observed_date = calculated_at[:10] if isinstance(calculated_at, str) else ""
-        source_urls = {
-            "yfinance": f"https://finance.yahoo.com/quote/{quote(ticker, safe='.-^')}/",
-            "finviz": f"https://finviz.com/quote.ashx?t={quote(ticker, safe='.-^')}",
-            "stockanalysis": f"https://stockanalysis.com/stocks/{quote(ticker.lower(), safe='.-')}/forecast/",
-        }
-        source_references = [
-            {
-                "name": source,
-                "url": source_urls[source],
-                "observed_at": calculated_at,
-                "observed_date": observed_date,
-                "as_of_date": observed_date,
-                "target_price": value,
-            }
-            for source, value in sorted(result.fuentes.items())
-            if source in source_urls and observed_date
-        ]
-        return {
-            "promedio": result.promedio,
-            "mediana": result.mediana,
-            "fuentes": result.fuentes,
-            "source_references": source_references,
-            "n_fuentes": result.n_fuentes,
-            "calculado_at": result.calculado_at,
-            "target_low": result.target_low,
-            "target_high": result.target_high,
-        }
-
-    @staticmethod
-    def _merge_discovery_financial_evidence(
-        financial_data: dict[str, Any],
-        discovery_evidence: dict[str, Any] | None,
-    ) -> dict[str, Any]:
-        """Carry sourced Discovery observations into Research without inventing values."""
-        merged = dict(financial_data)
-        if not isinstance(discovery_evidence, dict):
-            return merged
-
-        discovery_observations = discovery_evidence.get("financial_observations")
-        if isinstance(discovery_observations, dict):
-            cached_observations = merged.get("financial_observations")
-            cached_observations = cached_observations if isinstance(cached_observations, dict) else {}
-            merged["financial_observations"] = {**cached_observations, **discovery_observations}
-
-        discovery_provenance = discovery_evidence.get("data_provenance")
-        if isinstance(discovery_provenance, dict):
-            cached_provenance = merged.get("data_provenance")
-            cached_provenance = cached_provenance if isinstance(cached_provenance, dict) else {}
-            provenance = {**cached_provenance, **discovery_provenance}
-            field_sources = dict(cached_provenance.get("field_sources", {}))
-            field_sources.update(discovery_provenance.get("field_sources", {}))
-            if field_sources:
-                provenance["field_sources"] = field_sources
-            sources = set(cached_provenance.get("sources_used", []))
-            sources.update(discovery_provenance.get("sources_used", []))
-            if sources:
-                provenance["sources_used"] = sorted(str(source) for source in sources if source)
-            merged["data_provenance"] = provenance
-
-        return merged
-
-    @staticmethod
-    def _financial_evidence_context(data: dict[str, Any]) -> dict[str, Any]:
-        provenance = data.get("data_provenance")
-        provenance = provenance if isinstance(provenance, dict) else {}
-        observations = data.get("financial_observations")
-        observations = observations if isinstance(observations, dict) else {}
-        return {
-            "observed_at": data.get("financial_data_observed_at"),
-            "period_end": data.get("financial_data_as_of_date")
-            or data.get("financial_period_end"),
-            "currency": data.get("financial_currency") or data.get("currency"),
-            "sources_used": provenance.get("sources_used", []),
-            "field_sources": provenance.get("field_sources", {}),
-            "conflicts": provenance.get("conflicts", []),
-            "observations": observations,
-        }
 
     @staticmethod
     def _scenario_market_evidence(
@@ -1540,4 +955,5 @@ class ResearchWorker(BaseWorker):
             temperature=0.1,
         )
         return result
+
 

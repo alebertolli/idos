@@ -53,7 +53,8 @@ def test_multibaggers_policy_is_disabled_and_configured():
     assert profile.parameters["position_limit_pct"] == 1.0
     assert profile.parameters["thesis_review_interval_days"] == 30
     assert profile.parameters["small_caps_enabled"] is False
-    assert profile.strategy_version == "1.3"
+    assert profile.strategy_version == "1.4"
+    assert "fcf_conversion_pct" in profile.parameters["research"]["ratios_to_review"]
     assert profile.parameters["supported_asset_types"] == ["us_equity"]
     assert "avg_dollar_volume_min_usd" not in profile.parameters
     assert profile.parameters["weights"] == {
@@ -67,7 +68,8 @@ def test_multibaggers_policy_is_disabled_and_configured():
         "operating_margin_pct", "relative_strength_12m_pct",
     ]
     assert profile.parameters["research"]["required_analysis"] == [
-        "bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry",
+        "fundamental_ratio_review", "bear_base_bull_scenarios",
+        "source_cited_expectation_gap", "validated_asymmetry",
     ]
 
     assert "universe_path" not in profile.parameters
@@ -86,3 +88,4 @@ def test_strategy_metadata_round_trips_through_sqlite(tmp_path: Path):
     assert persisted["strategy_id"] == "MOMENTUM_ETF"
     assert persisted["entry_policy"] == "SIGNAL_REBALANCE"
     assert persisted["origin"] == "monthly_strategy_pipeline"
+

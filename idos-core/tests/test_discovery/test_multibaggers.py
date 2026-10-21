@@ -78,7 +78,12 @@ def parameters():
                 {"metric": "volatility_90d_pct", "min": 0, "max": 80, "direction": "lower"}]}}},
         "data_quality": {"critical_metrics": list(CRITICAL_METRICS), "critical_coverage_min": .8, "critical_sources_min": 2, "conflict_tolerance_pct": 20, "stale_after_days": 120},
         "research": {"required_analysis": ["bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"]},
-        "hard_flags": {"current_ratio_below": .5, "interest_coverage_below": 2.0, "net_debt_ebitda_above": 4.0, "negative_fcf_runway_months_below": 12, "dilution_yoy_above_pct": 10, "share_count_cagr_3y_above_pct": 5},
+        "research": {
+            "required_analysis": ["fundamental_ratio_review", "bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"],
+            "ratios_to_review": ["revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct", "net_debt_ebitda", "dilution_yoy_pct", "share_count_cagr_3y_pct", "current_ratio", "interest_coverage", "fcf_runway_months", "gross_margin_pct"],
+            "ratio_definitions": {"fcf_conversion_pct": "FCF / net_income * 100"},
+            "risk_review_thresholds": {"current_ratio_below": .5, "interest_coverage_below": 2.0},
+        },
         "position_limit_pct": 1.0}
 
 
@@ -109,7 +114,7 @@ def test_discovery_score_does_not_depend_on_research_stage_or_optional_metrics()
     assert simplified.passed is True
 
 
-def test_optional_dilution_metric_still_triggers_configured_hard_flag_with_one_source():
+def test_financial_ratios_do_not_enter_discovery_snapshot_or_flags():
     payload = valid_payload()
     payload["metric_observations"]["dilution_yoy_pct"] = [
         payload["metric_observations"]["dilution_yoy_pct"][0]
@@ -118,9 +123,9 @@ def test_optional_dilution_metric_still_triggers_configured_hard_flag_with_one_s
 
     result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
 
-    assert result.metrics_snapshot["dilution_yoy_pct"]["status"] == "observed"
-    assert "HIGH_DILUTION" in {flag["code"] for flag in result.red_flags}
-    assert result.passed is False
+    assert "dilution_yoy_pct" not in result.metrics_snapshot
+    assert "HIGH_DILUTION" not in {flag["code"] for flag in result.red_flags}
+    assert result.passed is True
 
 
 def test_absolute_scoring_configuration_rejects_invalid_ranges():
@@ -158,7 +163,7 @@ def test_repository_profile_uses_shared_market_policy_and_versioned_ranges():
 
     assert config["default_strategy"] == "COMPOUNDER"
     assert profile["enabled"] is False
-    assert profile["strategy_version"] == "1.3"
+    assert profile["strategy_version"] == "1.4"
     assert policy["supported_asset_types"] == ["us_equity"]
     assert "universe_path" not in policy
     market_data = yaml.safe_load((repository_root / "idos-config" / "market_data.yml").read_text(encoding="utf-8"))
@@ -175,12 +180,15 @@ def test_repository_profile_uses_shared_market_policy_and_versioned_ranges():
 
 
 def test_research_intake_moves_scenario_asymmetry_out_of_discovery():
-    result = MultibaggersDiscoveryEngine(parameters(), "1.3").evaluate("TEST", valid_payload())
+    result = MultibaggersDiscoveryEngine(parameters(), "1.4").evaluate("TEST", valid_payload())
     intake = build_research_intake(result.to_dict(), {"parameters": parameters()})
 
     assert "expectation_gap_pct" not in intake["metrics_snapshot"]
     assert intake["research_requirements"] == {
-        "required_analysis": ["bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"],
+        "required_analysis": ["fundamental_ratio_review", "bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"],
+        "ratios_to_review": ["revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct", "net_debt_ebitda", "dilution_yoy_pct", "share_count_cagr_3y_pct", "current_ratio", "interest_coverage", "fcf_runway_months", "gross_margin_pct"],
+        "ratio_definitions": {"fcf_conversion_pct": "FCF / net_income * 100"},
+        "risk_review_thresholds": {"current_ratio_below": .5, "interest_coverage_below": 2.0},
         "scenario_schema_version": "bear_base_bull_v1",
     }
 
@@ -265,15 +273,16 @@ def test_duplicate_source_labels_do_not_satisfy_independent_source_gate():
     assert result.passed is False
 
 
-def test_hard_flags_and_metric_units_are_auditable():
+def test_research_only_ratio_does_not_create_a_discovery_flag():
     payload = valid_payload()
     for observation in payload["metric_observations"]["current_ratio"]:
         observation["value"] = .3
     result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
-    assert "LOW_CURRENT_RATIO" in {flag["code"] for flag in result.red_flags}
-    assert result.metrics_snapshot["market_cap_usd"]["unit"] == "USD"
+    assert "LOW_CURRENT_RATIO" not in {flag["code"] for flag in result.red_flags}
+    assert "current_ratio" not in result.metrics_snapshot
+    assert "market_cap_usd" not in result.metrics_snapshot
     assert result.metrics_snapshot["roic_pct"]["unit"] == "percent"
-    assert result.passed is False
+    assert result.passed is True
 
 
 def test_source_observations_normalize_units_and_reject_incompatible_periods():
@@ -531,4 +540,5 @@ def test_engine_reads_metric_observations_from_merged_cache_payload():
 
     assert result.passed is True
     assert result.discovery_score is not None
+
 
