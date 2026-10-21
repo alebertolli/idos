@@ -3,27 +3,27 @@ strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 discovery_profile: multibaggers
 research_profile: multibaggers
-as_of: '2026-10-21T13:39:38.974603+00:00'
-config_hash: 58e79c521436a040883bad02ff77857f9b24796727c1d4078179657f498c1cde
+as_of: '2026-10-21T14:41:55.713367+00:00'
+config_hash: 70438a8433fa66beff4e781c42263bff55ac6ff0f889e402fd3bb58be03d69b0
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 62.8817
+    value: 62.4651
     unit: percent
     currency: null
     period: price_momentum_12m_pct:2025-10-21/2026-10-21
     source:
     - yfinance
     source_values:
-      yfinance: 62.88169152565142
+      yfinance: 62.46512429968736
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 62.88169152565142
+      value: 62.46512429968736
       unit: percent
       currency: null
       period: price_momentum_12m_pct:2025-10-21/2026-10-21
       reported_at: '2026-10-21T00:00:00+00:00'
-      observed_at: '2026-10-21T13:39:38.974603+00:00'
+      observed_at: '2026-10-21T14:41:55.713367+00:00'
       source_url: https://finance.yahoo.com/quote/ASML/history/
     coverage: 1
     status: observed
@@ -31,23 +31,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-21T00:00:00+00:00'
   drawdown_pct:
-    value: 16.0784
+    value: 16.293
     unit: percent
     currency: null
     period: drawdown_pct:2025-10-21/2026-10-21
     source:
     - yfinance
     source_values:
-      yfinance: 16.078394148007558
+      yfinance: 16.293022263793716
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 16.078394148007558
+      value: 16.293022263793716
       unit: percent
       currency: null
       period: drawdown_pct:2025-10-21/2026-10-21
       reported_at: '2026-10-21T00:00:00+00:00'
-      observed_at: '2026-10-21T13:39:38.974603+00:00'
+      observed_at: '2026-10-21T14:41:55.713367+00:00'
       source_url: https://finance.yahoo.com/quote/ASML/history/
     coverage: 1
     status: observed
@@ -55,23 +55,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-21T00:00:00+00:00'
   volatility_90d_pct:
-    value: 45.1595
+    value: 45.1217
     unit: percent
     currency: null
     period: volatility_90d_pct:2025-10-21/2026-10-21
     source:
     - yfinance
     source_values:
-      yfinance: 45.15950761098922
+      yfinance: 45.121721907447295
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 45.15950761098922
+      value: 45.121721907447295
       unit: percent
       currency: null
       period: volatility_90d_pct:2025-10-21/2026-10-21
       reported_at: '2026-10-21T00:00:00+00:00'
-      observed_at: '2026-10-21T13:39:38.974603+00:00'
+      observed_at: '2026-10-21T14:41:55.713367+00:00'
       source_url: https://finance.yahoo.com/quote/ASML/history/
     coverage: 1
     status: observed
@@ -79,9 +79,9 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-21T00:00:00+00:00'
 component_scores:
-  market_confirmation: 72.25
-discovery_score: 72.25
-research_priority: 72.25
+  market_confirmation: 72.15
+discovery_score: 72.15
+research_priority: 72.15
 discovery_type: RESEARCH_REQUIRED
 reason_codes: []
 red_flags: []
@@ -125,6 +125,17 @@ research_requirements:
     fcf_runway_months: cash_and_equivalents / abs(monthly_FCF_burn); sólo si FCF es
       negativo
     gross_margin_pct: gross_profit / revenue * 100
+  ratio_units:
+    revenue_cagr_3y_pct: percent
+    fcf_growth_pct: percent
+    fcf_conversion_pct: percent
+    net_debt_ebitda: x
+    dilution_yoy_pct: percent
+    share_count_cagr_3y_pct: percent
+    current_ratio: x
+    interest_coverage: x
+    fcf_runway_months: months
+    gross_margin_pct: percent
   ratio_input_fields:
     revenue_cagr_3y_pct:
     - revenue_cagr_3y_pct
@@ -215,4 +226,4 @@ constraints:
 - Cite each material claim to a source.
 - Separate verified facts, inference, and unknowns.
 - Research cannot approve an investment or set a position size.
-snapshot_hash: 2208f2eeb92b3dcaf987407ae62a985ef7a4737d0ec2fcfc3377ae8cdcd56e65
+snapshot_hash: f7c4795959df1b052b3e761d71a570bc9583a0ebd20a38647b4ed984507cb7f6
