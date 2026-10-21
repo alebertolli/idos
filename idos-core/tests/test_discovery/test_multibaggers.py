@@ -1,10 +1,9 @@
-from math import isclose
 from datetime import date, timedelta
 from math import isclose
 from pathlib import Path
 import yaml
 
-from idos.discovery.multibaggers import CRITICAL_METRICS, MultibaggersDiscoveryEngine, build_research_intake, build_research_intake
+from idos.discovery.multibaggers import CRITICAL_METRICS, MultibaggersDiscoveryEngine, build_research_intake
 from idos.discovery.financial_evidence import reconcile_metric_observations
 from idos.discovery.multibaggers_pipeline import MultibaggersPipeline
 from idos.discovery.multibaggers_store import MultibaggersStore
