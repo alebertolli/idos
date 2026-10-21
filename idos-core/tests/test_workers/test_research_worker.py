@@ -1013,6 +1013,14 @@ class TestResearchWorker:
             "research_profile": "systematic",
             "entry_policy": "SIGNAL_REBALANCE",
             "signal": signal,
+            "latest_discovery_evidence": {
+                "market_quote": {
+                    "price": 100.0,
+                    "currency": "USD",
+                    "as_of_date": date.today().isoformat(),
+                    "source": "yfinance",
+                }
+            },
         })
         tmp_sqlite.save_opportunity(opportunity)
         tmp_journal.save_opportunity(ticker, opportunity)
