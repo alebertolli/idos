@@ -278,6 +278,8 @@ estas pruebas.
 
 ### 8.3 Research y calidad de decisión
 
+8. La pestaña Research incluye oportunidades `UNDER_RESEARCH` y el estado legado `UNDER_DEEP_DD`, con el contador alineado a ambas; las alertas de propuesta pendiente identifican Decision Board sin asumir estrategia sistemática.
+
 1. Seleccionar un candidato operable que pase cobertura, frescura, procedencia
    por campo y hard flags; registrar proveedor/modelo, costo esperado y alcance
    antes de una llamada LLM real.
