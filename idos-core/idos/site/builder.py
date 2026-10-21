@@ -1975,7 +1975,7 @@ function showCase(oppId){
   html += detailsEntryThresholds();
 
   // Riesgos + evidencia
-  if(d.riesgos?.length){ html += `<h2>Riesgos (DDD)</h2><ul>`; d.riesgos.forEach(r=>html+=`<li>${esc(r.riesgo)} <span class="muted">(${esc(r.probabilidad)} · ${esc(r.impacto)})</span></li>`); html += '</ul>'; }
+  if(d.riesgos?.length){ html += `<h2>Riesgos (DDD)</h2><ul>`; d.riesgos.forEach(r=>{const details=[r.probabilidad,r.impacto].filter(Boolean).map(esc).join(' · ');const description=r.descripcion&&r.descripcion!==r.riesgo?` <span class="muted">${esc(r.descripcion)}</span>`:'';html+=`<li><b>${esc(r.riesgo||'Riesgo')}</b>${description}${details?` <span class="muted">(${details})</span>`:''}</li>`;}); html += '</ul>'; }
   if(d.evidencia?.hechos_verificados?.length){ html += `<h3>Hechos verificados</h3><ul>`; d.evidencia.hechos_verificados.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
   if(d.evidencia?.inferencias_llm?.length){ html += `<h3>Inferencias LLM</h3><ul>`; d.evidencia.inferencias_llm.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
   if(d.evidencia?.preguntas_abiertas?.length){ html += `<h3>Preguntas abiertas</h3><ul>`; d.evidencia.preguntas_abiertas.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
