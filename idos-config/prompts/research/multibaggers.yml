@@ -39,7 +39,9 @@ user_prompt: >
   en `research_requirements.ratio_units` (por ejemplo, `x` para ratios adimensionales
   y `months` para runway); no infieras una unidad distinta. Cada elemento de `sources` debe ser un objeto `{{name, url}}` con URL HTTPS.
   `period_end` es la fecha del período financiero reportado, no la fecha de
-  descarga; `inputs` debe referenciar nombres de campos del contexto financiero.
+  descarga; en `inputs` usa claves de campo presentes en `configured_ratio_inputs`. Para
+  una fila histórica puede usarse `revenue_FY_2023` sólo si existe una fila de ese año
+  en `revenue_history`; nunca inventes alias ni períodos.
   Para citar un ratio usa una URL copiada exactamente de `trusted_source_urls`
   en el contexto; no infieras rutas equivalentes ni otras páginas del proveedor.
   Si ninguna URL disponible respalda el ratio, usa `unavailable` y explica la limitación.
