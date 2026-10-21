@@ -19,12 +19,11 @@ strategies:
     thesis_type: STRATEGIC
     discovery_profile: multibaggers
     research_profile: multibaggers
-    strategy_version: "1.1"
+    strategy_version: "1.4"
     entry_policy: MANUAL_REVIEW
     parameters:
       thesis_review_interval_days: 30
-      universe: curated
-      universe_path: idos-config/universe/multibaggers.yml
+      supported_asset_types: [us_equity]
       small_caps_enabled: false
       discovery_threshold: 65
       position_limit_pct: 1.0
@@ -37,10 +36,9 @@ strategies:
         market_confirmed_transition_min: 60
         market_confirmed_min: 60
       weights:
-        economic_transition: 0.25
-        quality: 0.20
-        reinvestment: 0.20
-        expectation_gap: 0.20
+        economic_transition: 0.326923076923
+        quality: 0.261538461538
+        reinvestment: 0.261538461538
         market_confirmation: 0.15
       scoring:
         method: absolute_linear_clamped
@@ -51,31 +49,24 @@ strategies:
         components:
           economic_transition:
             inputs:
-              - {metric: revenue_cagr_3y_pct, min: 0, max: 40, direction: higher}
-              - {metric: eps_growth_pct, min: 0, max: 40, direction: higher}
               - {metric: revenue_growth_pct, min: 0, max: 40, direction: higher}
+              - {metric: eps_growth_pct, min: 0, max: 40, direction: higher}
               - {metric: operating_margin_pct, min: 0, max: 25, direction: higher}
           quality:
             inputs:
               - {metric: roic_pct, min: 0, max: 25, direction: higher}
-              - {metric: gross_margin_pct, min: 0, max: 70, direction: higher}
               - {metric: operating_margin_pct, min: 0, max: 30, direction: higher}
-              - {metric: fcf_conversion_pct, min: 0, max: 100, direction: higher}
           reinvestment:
             inputs:
               - {metric: revenue_growth_pct, min: 0, max: 40, direction: higher}
               - {metric: roic_pct, min: 0, max: 25, direction: higher}
-              - {metric: fcf_growth_pct, min: 0, max: 40, direction: higher}
-              - {metric: fcf_conversion_pct, min: 0, max: 100, direction: higher}
-          expectation_gap:
-            inputs:
-              - {metric: expectation_gap_pct, min: -50, max: 50, direction: higher}
           market_confirmation:
             inputs:
               - {metric: relative_strength_12m_pct, min: -50, max: 50, direction: higher}
               - {metric: drawdown_pct, min: 0, max: 60, direction: lower}
               - {metric: volatility_90d_pct, min: 0, max: 80, direction: lower}
       data_quality:
+        critical_metrics: [revenue_growth_pct, eps_growth_pct, roic_pct, operating_margin_pct, relative_strength_12m_pct]
         critical_coverage_min: 0.80
         critical_sources_min: 2
         conflict_tolerance_pct: 20
@@ -83,11 +74,34 @@ strategies:
         stale_critical_blocks: true
       research:
         force_interval_days: 30
+        required_analysis: [fundamental_ratio_review, bear_base_bull_scenarios, source_cited_expectation_gap, validated_asymmetry]
+        ratios_to_review:
+          - revenue_cagr_3y_pct
+          - fcf_growth_pct
+          - fcf_conversion_pct
+          - net_debt_ebitda
+          - dilution_yoy_pct
+          - share_count_cagr_3y_pct
+          - current_ratio
+          - interest_coverage
+          - fcf_runway_months
+          - gross_margin_pct
+        ratio_definitions:
+          revenue_cagr_3y_pct: "(revenue_t / revenue_t-3)^(1/3) - 1"
+          fcf_growth_pct: "(FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos"
+          fcf_conversion_pct: "FCF / net_income * 100; informar no significativo si net_income <= 0"
+          net_debt_ebitda: "(total_debt - cash_and_equivalents) / EBITDA"
+          dilution_yoy_pct: "(diluted_shares_t / diluted_shares_t-1) - 1"
+          share_count_cagr_3y_pct: "(shares_t / shares_t-3)^(1/3) - 1"
+          current_ratio: "current_assets / current_liabilities"
+          interest_coverage: "EBIT / interest_expense; no sustituir EBIT por EBITDA"
+          fcf_runway_months: "cash_and_equivalents / abs(monthly_FCF_burn); sólo si FCF es negativo"
+          gross_margin_pct: "gross_profit / revenue * 100"
+        risk_review_thresholds:
+          current_ratio_below: 0.5
+          interest_coverage_below: 2.0
+          net_debt_ebitda_above: 4.0
+          negative_fcf_runway_months_below: 12
+          dilution_yoy_above_pct: 10
+          share_count_cagr_3y_above_pct: 5
         event_triggers: [quarterly_results, guidance_change, material_restatement, red_flag_change, material_financial_deterioration, thesis_change]
-      hard_flags:
-        current_ratio_below: 0.5
-        interest_coverage_below: 2.0
-        net_debt_ebitda_above: 4.0
-        negative_fcf_runway_months_below: 12
-        dilution_yoy_above_pct: 10
-        share_count_cagr_3y_above_pct: 5

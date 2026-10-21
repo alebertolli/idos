@@ -12,16 +12,13 @@ from idos.discovery.financial_evidence import reconcile_metric_observations
 
 
 CRITICAL_METRICS = (
-    "revenue_cagr_3y_pct", "eps_growth_pct", "fcf_growth_pct", "roic_pct",
-    "operating_margin_pct", "fcf_conversion_pct", "net_debt_ebitda",
-    "dilution_yoy_pct", "market_cap_usd", "avg_dollar_volume_usd",
-    "relative_strength_12m_pct", "expectation_gap_pct",
+    "revenue_growth_pct", "eps_growth_pct", "roic_pct",
+    "operating_margin_pct", "relative_strength_12m_pct",
 )
-DISCOVERY_METRICS = CRITICAL_METRICS + (
-    "current_ratio", "interest_coverage", "fcf_runway_months", "share_count_cagr_3y_pct",
-    "gross_margin_pct", "revenue_growth_pct", "rd_to_revenue_pct", "capex_to_revenue_pct",
-    "drawdown_pct", "volatility_90d_pct",
-)
+# Discovery only scores the configured fundamental and market-confirmation inputs.
+# Financial quality/leverage/dilution ratios belong to Research, where the LLM
+# evaluates them against source-backed financial evidence.
+DISCOVERY_METRICS = CRITICAL_METRICS + ("drawdown_pct", "volatility_90d_pct")
 
 
 @dataclass(frozen=True)
@@ -54,12 +51,20 @@ class MultibaggersDiscoveryEngine:
 
     def evaluate(self, ticker: str, payload: dict[str, Any], as_of: str | None = None) -> DiscoveryResult:
         now = as_of or payload.get("as_of") or datetime.now(timezone.utc).isoformat()
-        metric_observations = payload.get("metric_observations", {}) or {}
+        metric_observations = payload.get("metric_observations")
+        if not isinstance(metric_observations, dict):
+            merged_payload = payload.get("merged_data")
+            metric_observations = (
+                merged_payload.get("metric_observations", {})
+                if isinstance(merged_payload, dict)
+                else {}
+            )
         if not isinstance(metric_observations, dict):
             metric_observations = {}
         snapshot = self._metric_snapshot(metric_observations, now)
         quality = self._quality(snapshot)
-        flags = self._hard_flags(snapshot)
+        critical_metrics = self._critical_metrics()
+        flags = self._hard_flags(snapshot, critical_metrics)
         minimum_coverage = float(self.parameters["data_quality"]["critical_coverage_min"])
         if quality["critical_coverage"] < minimum_coverage:
             flags.append({"code": "CRITICAL_COVERAGE_BELOW_MINIMUM", "severity": "hard", "metric": "critical_coverage", "message": "Critical metric coverage is below policy", "evidence": quality["critical_coverage"]})
@@ -124,8 +129,6 @@ class MultibaggersDiscoveryEngine:
             kind = "EARLY_TRANSITION"
         elif transition is not None and market is not None and transition >= classification["market_confirmed_transition_min"] and market >= classification["market_confirmed_min"]:
             kind = "MARKET_CONFIRMED_GROWTH"
-        elif snapshot.get("expectation_gap_pct", {}).get("value") is not None:
-            kind = "EXPECTATION_GAP"
         else:
             kind = "RESEARCH_REQUIRED"
         priority = (
@@ -142,9 +145,58 @@ class MultibaggersDiscoveryEngine:
         digest = hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":"), default=str).encode()).hexdigest()
         return DiscoveryResult(**body, snapshot_hash=digest)
 
+    def blocked_by_global_market_gate(
+        self, ticker: str, eligibility: dict[str, Any], as_of: str | None = None,
+    ) -> DiscoveryResult:
+        """Stop before strategy scoring when shared market eligibility fails."""
+        reasons = sorted({str(code) for code in eligibility.get("reason_codes", []) if code})
+        flags = [
+            {
+                "code": code,
+                "severity": "hard",
+                "metric": "global_market_eligibility",
+                "message": code.replace("_", " ").lower(),
+                "evidence": eligibility,
+            }
+            for code in reasons
+        ]
+        now = as_of or datetime.now(timezone.utc).isoformat()
+        quality = {
+            "status": "not_evaluated",
+            "critical_metric_count": len(self._critical_metrics()),
+            "critical_metrics_covered": 0,
+            "critical_coverage": 0.0,
+            "critical_source_failures": [],
+            "critical_conflicts": [],
+            "critical_stale": [],
+            "coverage_factor": 0.0,
+            "freshness_factor": 0.0,
+            "global_market_eligibility": eligibility,
+        }
+        body = {
+            "ticker": ticker.upper(),
+            "strategy_id": "MULTIBAGGERS",
+            "strategy_version": self.strategy_version,
+            "passed": False,
+            "discovery_score": None,
+            "research_priority": None,
+            "discovery_type": "BLOCKED_DATA",
+            "component_scores": {},
+            "metrics_snapshot": {},
+            "red_flags": flags,
+            "data_quality": quality,
+            "reason_codes": reasons,
+            "as_of": now,
+        }
+        digest = hashlib.sha256(
+            json.dumps(body, sort_keys=True, separators=(",", ":"), default=str).encode()
+        ).hexdigest()
+        return DiscoveryResult(**body, snapshot_hash=digest)
+
     def _metric_snapshot(self, metric_observations: dict[str, Any], now: str) -> dict[str, dict[str, Any]]:
         quality_cfg = self.parameters.get("data_quality", {})
         stale_after = int(quality_cfg["stale_after_days"])
+        critical_metrics = set(self._critical_metrics())
         result: dict[str, dict[str, Any]] = {}
         for name in DISCOVERY_METRICS:
             expected_unit = "USD" if name.endswith("_usd") else "percent" if name.endswith("_pct") else "months" if name.endswith("_months") else "ratio"
@@ -152,7 +204,10 @@ class MultibaggersDiscoveryEngine:
                 metric_observations.get(name),
                 expected_unit=expected_unit,
                 expected_currency="USD" if expected_unit == "USD" else None,
-                minimum_sources=int(quality_cfg.get("critical_sources_min", 2)),
+                minimum_sources=(
+                    int(quality_cfg.get("critical_sources_min", 2))
+                    if name in critical_metrics else 1
+                ),
                 conflict_tolerance_pct=float(quality_cfg["conflict_tolerance_pct"]),
                 stale_after_days=stale_after,
                 now=now,
@@ -173,12 +228,13 @@ class MultibaggersDiscoveryEngine:
         return result
 
     def _quality(self, snapshot: dict[str, dict[str, Any]]) -> dict[str, Any]:
-        critical = [snapshot[name] for name in CRITICAL_METRICS]
+        critical_metrics = self._critical_metrics()
+        critical = [snapshot[name] for name in critical_metrics]
         covered = sum(item["status"] in {"observed", "derived"} for item in critical)
         min_sources = int(self.parameters["data_quality"]["critical_sources_min"])
         source_failures = sum(item["coverage"] < min_sources for item in critical)
         stale = sum(item["status"] == "stale" for item in critical)
-        critical_conflicts = sorted(name for name in CRITICAL_METRICS if snapshot[name]["status"] == "conflicted")
+        critical_conflicts = sorted(name for name in critical_metrics if snapshot[name]["status"] == "conflicted")
         coverage = covered / len(critical)
         return {
             "critical_metric_count": len(critical), "critical_metrics_covered": covered,
@@ -187,14 +243,24 @@ class MultibaggersDiscoveryEngine:
             "coverage_factor": round(coverage, 4), "freshness_factor": round(1 - stale / len(critical), 4),
         }
 
-    def _hard_flags(self, snapshot: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
-        def val(key: str) -> float | None:
-            return snapshot.get(key, {}).get("value")
-        cfg = self.parameters.get("hard_flags", {})
+    def _critical_metrics(self) -> tuple[str, ...]:
+        configured = self.parameters.get("data_quality", {}).get("critical_metrics", CRITICAL_METRICS)
+        if (
+            not isinstance(configured, (list, tuple))
+            or not configured
+            or any(not isinstance(name, str) or name not in DISCOVERY_METRICS for name in configured)
+            or len(set(configured)) != len(configured)
+        ):
+            raise ValueError("MULTIBAGGERS critical_metrics must be unique configured discovery metrics")
+        return tuple(configured)
+
+    def _hard_flags(
+        self, snapshot: dict[str, dict[str, Any]], critical_metrics: tuple[str, ...] | None = None,
+    ) -> list[dict[str, Any]]:
         flags: list[dict[str, Any]] = []
         def add(code: str, metric: str, message: str, evidence: Any):
             flags.append({"code": code, "severity": "hard", "metric": metric, "message": message, "evidence": evidence})
-        for name in CRITICAL_METRICS:
+        for name in critical_metrics or self._critical_metrics():
             item = snapshot[name]
             if item["status"] == "missing":
                 add("MISSING_CRITICAL_METRIC", name, "Critical metric is missing", None)
@@ -213,18 +279,6 @@ class MultibaggersDiscoveryEngine:
             if item["coverage"] < int(self.parameters["data_quality"]["critical_sources_min"]):
                 code = "SINGLE_SOURCE_CRITICAL_METRIC" if item["coverage"] == 1 else "INSUFFICIENT_CRITICAL_SOURCES"
                 add(code, name, "Critical metric lacks independent source coverage", item["source"])
-        checks = [
-            ("current_ratio", "current_ratio_below", lambda v, t: v < t, "LOW_CURRENT_RATIO"),
-            ("interest_coverage", "interest_coverage_below", lambda v, t: v < t, "LOW_INTEREST_COVERAGE"),
-            ("net_debt_ebitda", "net_debt_ebitda_above", lambda v, t: v > t, "HIGH_NET_DEBT_EBITDA"),
-            ("fcf_runway_months", "negative_fcf_runway_months_below", lambda v, t: v < t, "LOW_FCF_RUNWAY"),
-            ("dilution_yoy_pct", "dilution_yoy_above_pct", lambda v, t: v > t, "HIGH_DILUTION"),
-            ("share_count_cagr_3y_pct", "share_count_cagr_3y_above_pct", lambda v, t: v > t, "HIGH_SHARE_COUNT_GROWTH"),
-        ]
-        for metric, key, predicate, code in checks:
-            value, threshold = val(metric), cfg.get(key)
-            if value is not None and threshold is not None and predicate(value, float(threshold)):
-                add(code, metric, f"{metric} breached configured hard threshold", value)
         return flags
 
     def _components(self, snapshot: dict[str, dict[str, Any]]) -> dict[str, float | None]:
@@ -270,6 +324,8 @@ class MultibaggersDiscoveryEngine:
 def build_research_intake(result: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
     """Build a deterministic, versioned handoff from Discovery to Research."""
     config_json = json.dumps(config, sort_keys=True, separators=(",", ":"), default=str)
+    profile_parameters = config.get("parameters", {})
+    research_parameters = profile_parameters.get("research", {}) if isinstance(profile_parameters, dict) else {}
     missing = [name for name, metric in result["metrics_snapshot"].items() if metric["status"] not in {"observed", "derived"}]
     flags = result["red_flags"]
     return {
@@ -281,6 +337,13 @@ def build_research_intake(result: dict[str, Any], config: dict[str, Any]) -> dic
         "discovery_score": result["discovery_score"], "research_priority": result["research_priority"],
         "discovery_type": result["discovery_type"], "reason_codes": result["reason_codes"],
         "red_flags": flags, "data_quality": result["data_quality"],
+        "research_requirements": {
+            "required_analysis": list(research_parameters.get("required_analysis", [])),
+            "ratios_to_review": list(research_parameters.get("ratios_to_review", [])),
+            "ratio_definitions": dict(research_parameters.get("ratio_definitions", {})),
+            "risk_review_thresholds": dict(research_parameters.get("risk_review_thresholds", {})),
+            "scenario_schema_version": "bear_base_bull_v1",
+        },
         "historical_windows": {name: item.get("period") for name, item in result["metrics_snapshot"].items()},
         "initial_hypotheses": [f"Assess whether evidence for {name} supports durable reinvestment and growth." for name in ("economic_transition", "quality", "reinvestment")],
         "research_questions": ["What observable mechanism can sustain growth?", "How does reinvestment translate into returns on capital?", "What expectations are embedded in the current valuation?", "Which evidence would falsify the thesis?", "What risks could impair solvency or dilute owners?"],
