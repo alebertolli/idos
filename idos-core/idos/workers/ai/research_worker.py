@@ -23,7 +23,9 @@ from idos.timezone import AR_TZ
 from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.decision.scenarios import (
+    scenario_financial_evidence_snapshot,
     scenario_source_urls_from_evidence,
+    scenario_source_urls_from_research_financial_evidence,
     canonicalize_scenario_ticker_url_case,
     validate_scenario_analysis,
 )
@@ -327,6 +329,12 @@ class ResearchWorker(BaseWorker):
         trusted_scenario_urls = scenario_source_urls_from_evidence(
             ddd_inputs.get("scenario_market_evidence")
         )
+        if is_multibaggers:
+            trusted_scenario_urls.update(
+                scenario_source_urls_from_research_financial_evidence(
+                    research_financial_evidence
+                )
+            )
         if not is_systematic:
             scenario_analysis = canonicalize_scenario_ticker_url_case(
                 scenario_analysis,
@@ -431,6 +439,10 @@ class ResearchWorker(BaseWorker):
                 "ratio_validation_errors": ratio_validation_errors,
             }
 
+        if is_multibaggers:
+            ddd_inputs["scenario_financial_evidence"] = scenario_financial_evidence_snapshot(
+                research_financial_evidence
+            )
         generated_at = datetime.now(AR_TZ).isoformat()
         input_snapshot_hash = hashlib.sha256(
             json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str).encode("utf-8")
