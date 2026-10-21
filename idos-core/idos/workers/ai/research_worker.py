@@ -387,6 +387,21 @@ class ResearchWorker(BaseWorker):
         ratio_requirements = (research_intake or {}).get("research_requirements", {})
         expected_ratio_units = ratio_requirements.get("ratio_units", {})
         if is_multibaggers:
+            discarded_ratio_calculations = self._discard_calculated_ratios_without_inputs(
+                ddd_result.get("ratios_investigados")
+            )
+            if discarded_ratio_calculations:
+                event_data = {
+                    "opp_id": opp_id,
+                    "ticker": ticker,
+                    "metrics": discarded_ratio_calculations,
+                }
+                sqlite.log_event("research:ratio_calculation_discarded", event_data)
+                journal.log_event(
+                    "research:ratio_calculation_discarded",
+                    event_data,
+                    source="research_worker",
+                )
             self._normalize_multibaggers_ratio_units(
                 ddd_result.get("ratios_investigados"), expected_ratio_units
             )
@@ -1498,6 +1513,33 @@ class ResearchWorker(BaseWorker):
                             citations.append({"name": key[0], "url": key[1]})
             if citations:
                 ratio["sources"] = citations
+
+    @staticmethod
+    def _discard_calculated_ratios_without_inputs(raw_ratios: Any) -> list[str]:
+        """Fail closed when the model labels a ratio calculated but omits its inputs."""
+        if not isinstance(raw_ratios, list):
+            return []
+        discarded: list[str] = []
+        for item in raw_ratios:
+            if not isinstance(item, dict) or item.get("status") != "calculated":
+                continue
+            inputs = item.get("inputs")
+            if isinstance(inputs, list) and inputs and all(
+                isinstance(field, str) and field.strip() for field in inputs
+            ):
+                continue
+            metric = item.get("metric")
+            metric_name = metric if isinstance(metric, str) and metric.strip() else "unknown_metric"
+            item["status"] = "unavailable"
+            item["value"] = None
+            item["limitations"] = (
+                "Se descartó el cálculo porque Research no identificó referencias explícitas "
+                "a sus inputs de evidencia."
+            )
+            item.pop("formula", None)
+            item.pop("inputs", None)
+            discarded.append(metric_name)
+        return discarded
 
     @staticmethod
     def _normalize_multibaggers_ratio_units(
