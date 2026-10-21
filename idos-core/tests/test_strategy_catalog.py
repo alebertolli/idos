@@ -53,24 +53,25 @@ def test_multibaggers_policy_is_disabled_and_configured():
     assert profile.parameters["position_limit_pct"] == 1.0
     assert profile.parameters["thesis_review_interval_days"] == 30
     assert profile.parameters["small_caps_enabled"] is False
-    assert profile.strategy_version == "1.4"
+    assert profile.strategy_version == "1.5"
     assert "fcf_conversion_pct" in profile.parameters["research"]["ratios_to_review"]
+    assert profile.parameters["research"]["ratio_input_fields"]["current_ratio"] == [
+        "current_ratio", "current_assets", "current_liabilities",
+    ]
     assert profile.parameters["supported_asset_types"] == ["us_equity"]
     assert "avg_dollar_volume_min_usd" not in profile.parameters
-    assert profile.parameters["weights"] == {
-        "economic_transition": 0.326923076923,
-        "quality": 0.261538461538,
-        "reinvestment": 0.261538461538,
-        "market_confirmation": 0.15,
-    }
+    assert profile.parameters["weights"] == {"market_confirmation": 1.0}
     assert profile.parameters["data_quality"]["critical_metrics"] == [
-        "revenue_growth_pct", "eps_growth_pct", "roic_pct",
-        "operating_margin_pct", "relative_strength_12m_pct",
+        "price_momentum_12m_pct", "drawdown_pct", "volatility_90d_pct",
     ]
     assert profile.parameters["research"]["required_analysis"] == [
         "fundamental_ratio_review", "bear_base_bull_scenarios",
         "source_cited_expectation_gap", "validated_asymmetry",
     ]
+    assert profile.parameters["research"]["ratio_units"]["current_ratio"] == "x"
+    assert set(profile.parameters["research"]["ratios_to_review"]) == set(
+        profile.parameters["research"]["ratio_units"]
+    )
 
     assert "universe_path" not in profile.parameters
 

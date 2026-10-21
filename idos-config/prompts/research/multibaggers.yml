@@ -22,8 +22,8 @@ user_prompt: >
   de capital; expectativas implícitas frente a evidencia; catalizadores e hitos;
   escenarios base/upside/downside; riesgos y falsadores. Calcula o recopila en
   Research los ratios definidos en `research_requirements.ratios_to_review`, usando
-  sólo los inputs con fuente de la evidencia y las definiciones acordadas en el
-  Research Intake Package. Para cada ratio devuelve en
+  sólo los campos enumerados para cada ratio en `research_requirements.ratio_input_fields`,
+  junto con inputs con fuente y definiciones compatibles del Research Intake Package. Para cada ratio devuelve en
   `ratios_investigados`: `metric`, `status` (`reported`, `calculated` o
   `unavailable`), `value`, `unit`, `formula`, `inputs`, `period_end`, `sources`
   y `limitations`. Si falta cualquier input, incompatibilidad de período/moneda
@@ -31,13 +31,32 @@ user_prompt: >
   inventes cifras, URLs, períodos ni valores derivados. Incluye en `risk_flags`
   los umbrales configurados en `research_requirements.risk_review_thresholds`
   como observaciones para Assessment; no los conviertas en decisión de compra.
-  Cada elemento de `sources` debe ser un objeto `{{name, url}}` con URL HTTPS.
+  Limita la salida para conservar JSON completo: máximo 4 elementos en cada lista narrativa
+  y máximo 2 frases breves por elemento; no repitas el mismo hecho entre secciones.
+  Mantén exactamente los tres escenarios y una entrada por cada ratio configurado.
+  En cada ratio completa todos los campos obligatorios de forma concisa; no reproduzcas
+  tablas ni el paquete fuente. Usa exactamente la unidad configurada para cada métrica
+  en `research_requirements.ratio_units` (por ejemplo, `x` para ratios adimensionales
+  y `months` para runway); no infieras una unidad distinta. Cada elemento de `sources` debe ser un objeto `{{name, url}}` con URL HTTPS.
   `period_end` es la fecha del período financiero reportado, no la fecha de
   descarga; `inputs` debe referenciar nombres de campos del contexto financiero.
-  Devuelve las claves
-  clasificacion_oportunidad, error_mercado, tesis_inversion, score_general,
-  dominio_riesgos, dominio_catalizadores, dominio_business_quality, escenarios,
-  falsadores, evidencia_y_preguntas, ratios_investigados, risk_flags. El score general es calidad de evidencia, no
-  probabilidad ni conviction. No propongas APPROVED ni órdenes.
+  Devuelve JSON con estos tipos y nombres exactos (no uses alias):
+  `clasificacion_oportunidad` objeto {{"categoria": string, "justificacion": string}};
+  `error_mercado` objeto con `consenso_actual`, `hipotesis_contraria`,
+  `catalizador_cambio`, `conclusion_error_valoracion` y `razonamiento`;
+  `tesis_inversion` string; `score_general` número 0-100;
+  `dominio_riesgos` y `dominio_catalizadores` listas de objetos;
+  `dominio_business_quality` objeto {{"rating": string, "analisis": string}};
+  `scenario_analysis` objeto con `schema_version: bear_base_bull_v1`, `as_of_date`,
+  `horizon_date`, `currency` y `scenarios`, o null si no hay evidencia suficiente;
+  `falsadores` lista de strings; `calidad_evidencia` objeto con
+  `hechos_verificados`, `inferencias_llm`, `preguntas_abiertas`;
+  `ratios_investigados` lista exacta de ratios configurados; `risk_flags` lista.
+  Cada escenario es un objeto con `id`, `probability_pct`, `target_price`,
+  `rationale`, `key_assumptions` y `sources`; cada fuente incluye `name`,
+  `url` y `as_of_date`. Incluye exactamente BEAR, BASE y BULL, sus
+  probabilidades suman 100 y cada precio objetivo tiene fuente HTTPS y fecha;
+  si no puedes verificar esos datos, usa null. El score general mide calidad de
+  evidencia, no probabilidad ni conviction. No propongas APPROVED ni órdenes.
 category: research
 version: "1.1"

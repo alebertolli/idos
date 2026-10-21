@@ -310,7 +310,20 @@ class TestResearchWorker:
             },
         })
         worker._enrich_company_info = MagicMock(return_value={"name": "Test", "sector": "Technology"})
-        worker._fetch_target_consensus = MagicMock()
+        worker._fetch_target_consensus = MagicMock(return_value={
+            "promedio": 520.0,
+            "mediana": 515.0,
+            "fuentes": {"stockanalysis": 520.0},
+            "source_references": [{
+                "name": "stockanalysis",
+                "url": "https://stockanalysis.com/stocks/test/forecast/",
+                "as_of_date": "2026-10-20",
+            }],
+            "n_fuentes": 1,
+            "calculado_at": "2026-10-20T12:00:00-03:00",
+            "target_low": 450.0,
+            "target_high": 600.0,
+        })
         worker._run_prompt = MagicMock(return_value={})
 
         result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
@@ -320,11 +333,16 @@ class TestResearchWorker:
         import json
         prompt_inputs = worker._run_prompt.call_args.args[2]
         financial_evidence = json.loads(prompt_inputs["research_financial_evidence"])
+        scenario_evidence = json.loads(prompt_inputs["financial_summary"])["scenario_market_evidence"]
         assert financial_evidence["source_observations"]["current_ratio"]["value"] == 1.4
         assert financial_evidence["source_observations"]["current_ratio"]["period_end"] == "2026-09-30"
         assert financial_evidence["source_observations"]["current_ratio"]["source_url"].startswith("https://")
         assert financial_evidence["validated_metric_observations"]["revenue_growth_pct"][0]["value"] == 18.5
-        worker._fetch_target_consensus.assert_not_called()
+        assert scenario_evidence["analyst_target_consensus"]["mean"] == 520.0
+        assert scenario_evidence["analyst_target_consensus"]["low"] == 450.0
+        assert scenario_evidence["analyst_target_consensus"]["high"] == 600.0
+        assert scenario_evidence["analyst_target_consensus"]["sources"][0]["url"].endswith("/forecast/")
+        worker._fetch_target_consensus.assert_called_once()
 
     def test_multibaggers_research_blocks_mismatched_snapshot_before_llm(
         self, seeded_opportunity, tmp_sqlite, tmp_journal, base_path: str
@@ -473,13 +491,14 @@ class TestResearchWorker:
         worker.registry.get.return_value = "Research prompt for {ticker}"
         worker.registry.get_system.return_value = "System contract"
 
-        result = worker._run_prompt("ddd", "VIST", {"ticker": "VIST"})
+        result = worker._run_prompt("ddd", "VIST", {"ticker": "VIST"}, max_tokens=8192)
 
         assert result == {"ok": True}
         service.generate_structured.assert_called_once_with(
             prompt="Research prompt for VIST",
             system_prompt="System contract",
             temperature=0.1,
+            max_tokens=8192,
         )
 
     def test_systematic_ddd_is_signal_specific(self):
@@ -1163,6 +1182,47 @@ def test_multibaggers_research_evidence_excludes_unlisted_fields_and_preserves_s
     assert "private_account_balance" not in context["reconciled_observations"]
 
 
+
+def test_multibaggers_prompt_context_is_bounded_and_omits_duplicate_blobs():
+    import json
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    context = ResearchWorker._multibaggers_prompt_context({
+        "ticker": "TEST",
+        "business_model": "business " * 2000,
+        "existing_wiki": "wiki " * 10000,
+        "financial_data_evidence": "duplicate " * 10000,
+        "recent_events": [{"date": "2026-10-21", "title": "title " * 1000, "summary": "summary " * 1000, "url": "https://example.com"}] * 9,
+        "scenario_market_evidence": {"source": "https://example.com/quote", "price": 10},
+    })
+
+    assert len(json.dumps(context, ensure_ascii=False)) < 10_000
+    assert "existing_wiki" not in context
+    assert "financial_data_evidence" not in context
+    assert len(context["recent_events"]) == 5
+    assert len(context["recent_events"][0]["summary"]) == 500
+
+
+def test_multibaggers_research_evidence_honors_configured_ratio_inputs():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    context = ResearchWorker._research_financial_evidence(
+        {
+            "current_assets": 100,
+            "current_liabilities": 50,
+            "interest_expense": 12,
+            "financial_observations": {
+                "current_assets": {"status": "observed", "value": 100},
+                "interest_expense": {"status": "observed", "value": 12},
+            },
+        },
+        allowed_input_fields={"current_assets", "current_liabilities"},
+    )
+
+    assert set(context["source_observations"]) == {"current_assets", "current_liabilities"}
+    assert set(context["reconciled_observations"]) == {"current_assets"}
+
+
 def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     from idos.ai.prompts import PromptRegistry
 
@@ -1179,6 +1239,60 @@ def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     assert "No inventes cifras, URLs" in rendered
     assert "ni valores derivados" in rendered
     assert "ratios_investigados" in rendered
+    assert "ratio_input_fields" in rendered
+    assert "ratio_units" in rendered
+    assert "unit" in rendered
+    assert "scenario_analysis" in rendered
+    assert "calidad_evidencia" in rendered
+    assert '"categoria": string' in rendered
+
+
+def test_multibaggers_prompt_can_raise_output_budget_for_complete_ratio_json():
+    class Registry:
+        def get(self, _name, category=None):
+            return "Valid JSON for {ticker}"
+
+        def get_system(self, _name, category=None):
+            return "Only JSON"
+
+    class LLM:
+        def __init__(self):
+            self.kwargs = None
+
+        def generate_structured(self, **kwargs):
+            self.kwargs = kwargs
+            return {"ok": True}
+
+    worker = object.__new__(ResearchWorker)
+    worker.registry = Registry()
+    worker.llm = LLM()
+
+    result = worker._run_prompt("multibaggers", "TEST", {"ticker": "TEST"}, max_tokens=8192)
+
+    assert result == {"ok": True}
+    assert worker.llm.kwargs["max_tokens"] == 8192
+
+
+def test_multibaggers_research_shape_requires_downstream_types():
+    valid = {
+        "clasificacion_oportunidad": {"categoria": "multibaggers"},
+        "error_mercado": {},
+        "tesis_inversion": "Tesis",
+        "score_general": 70,
+        "dominio_riesgos": [],
+        "dominio_catalizadores": [],
+        "dominio_business_quality": {},
+        "calidad_evidencia": {},
+        "ratios_investigados": [],
+        "risk_flags": [],
+        "scenario_analysis": None,
+    }
+    assert ResearchWorker._validate_multibaggers_research_shape(valid) == []
+
+    invalid = {**valid, "clasificacion_oportunidad": ["mal tipo"], "score_general": "alto"}
+    errors = ResearchWorker._validate_multibaggers_research_shape(invalid)
+    assert "clasificacion_oportunidad must be dict" in errors
+    assert "score_general must be a finite number from 0 to 100" in errors
 
 
 def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects_uncited_values():
@@ -1216,6 +1330,30 @@ def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects
     assert any("inputs absent from research evidence" in error for error in errors)
 
 
+
+
+def test_multibaggers_ratio_units_are_normalized_from_strategy_config():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    url = "https://finance.yahoo.com/quote/ASML/balance-sheet/"
+    ratio = [{
+        "metric": "current_ratio", "status": "reported", "value": 1.4,
+        "period_end": "2026-09-30", "sources": [{"name": "Yahoo Finance", "url": url}],
+    }]
+    configured_units = {"current_ratio": "x"}
+    ResearchWorker._normalize_multibaggers_ratio_units(ratio, configured_units)
+    assert ratio[0]["unit"] == "x"
+    assert ResearchWorker._validate_multibaggers_ratio_review(
+        ratio, ["current_ratio"], trusted_source_urls={url}, expected_units=configured_units
+    ) == []
+
+    ratio[0]["unit"] = "percent"
+    errors = ResearchWorker._validate_multibaggers_ratio_review(
+        ratio, ["current_ratio"], trusted_source_urls={url}, expected_units=configured_units
+    )
+    assert "ratio unit conflicts with configured unit for current_ratio: expected x" in errors
+
+
 def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():
     from idos.ai.prompts import PromptRegistry
 
@@ -1227,3 +1365,13 @@ def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():
     assert "Un dato ausente no significa cero" in prompt
     assert "No llames ajustado al flujo de caja libre reportado" in prompt
     assert "FCF Ajustado: {fcf_adjusted" not in prompt
+
+
+def test_ddd_verified_facts_discards_malformed_llm_claims():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    assert ResearchWorker._verified_facts({"calidad_evidencia": {"hechos_verificados": 7}}) == []
+    assert ResearchWorker._verified_facts({"calidad_evidencia": 7}) == []
+    assert ResearchWorker._verified_facts({"calidad_evidencia": {
+        "hechos_verificados": ["  dato con fuente  ", 4, None, ""]
+    }}) == ["dato con fuente"]

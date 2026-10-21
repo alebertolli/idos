@@ -204,7 +204,7 @@ class ResearchWorker(BaseWorker):
         if not company.get("sector"):
             company = self._enrich_company_info(ticker, company, knowledge)
 
-        consensus = None if is_systematic or is_multibaggers else self._fetch_target_consensus(ticker, bp)
+        consensus = None if is_systematic else self._fetch_target_consensus(ticker, bp)
 
         previous_wiki = knowledge.get_wiki_text(ticker)
         prior_catalysts = self._load_prior_catalysts(ticker, journal)
@@ -286,21 +286,36 @@ class ResearchWorker(BaseWorker):
         if is_systematic:
             ddd_result = self._build_systematic_ddd(ticker, opp, systematic_params)
         elif is_multibaggers:
-            research_financial_evidence = self._research_financial_evidence(financial_data)
+            requirements = (research_intake or {}).get("research_requirements", {})
+            ratio_inputs = requirements.get("ratio_input_fields", {})
+            allowed_input_fields = {
+                field
+                for metric in requirements.get("ratios_to_review", [])
+                for field in ratio_inputs.get(metric, [])
+            } if isinstance(ratio_inputs, dict) else None
+            research_financial_evidence = self._research_financial_evidence(
+                financial_data,
+                allowed_input_fields=allowed_input_fields or None,
+            )
             ddd_result = self._run_prompt("multibaggers", ticker, {
                 "ticker": ticker,
                 "name": company.get("name", ticker),
                 "intake_package": json.dumps(research_intake, ensure_ascii=False, sort_keys=True),
-                "financial_summary": json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str),
+                "financial_summary": json.dumps(
+                    self._multibaggers_prompt_context(ddd_inputs),
+                    ensure_ascii=False,
+                    sort_keys=True,
+                    default=str,
+                ),
                 "research_financial_evidence": json.dumps(
                     research_financial_evidence,
                     ensure_ascii=False,
                     sort_keys=True,
                     default=str,
                 ),
-            })
+            }, max_tokens=8192)
         else:
-            ddd_result = self._run_prompt("ddd", ticker, ddd_inputs)
+            ddd_result = self._run_prompt("ddd", ticker, ddd_inputs, max_tokens=8192)
 
         classification = ddd_result.get("clasificacion_oportunidad", {})
         if signal_snapshot is not None:
@@ -351,10 +366,34 @@ class ResearchWorker(BaseWorker):
                 "ddd_empty": True,
             }
 
+        shape_validation_errors = (
+            self._validate_multibaggers_research_shape(ddd_result)
+            if is_multibaggers else []
+        )
+        if shape_validation_errors:
+            failure_reason = "MULTIBAGGERS research output shape failed: " + "; ".join(shape_validation_errors)
+            print(f"[RESEARCH] {ticker}: {failure_reason}")
+            event_data = {"opp_id": opp_id, "ticker": ticker, "errors": shape_validation_errors}
+            sqlite.log_event("research:output_shape_validation_failed", event_data)
+            journal.log_event("research:output_shape_validation_failed", event_data, source="research_worker")
+            return {
+                "ticker": ticker,
+                "opp_id": opp_id,
+                "status": "ddd_failed",
+                "error": failure_reason,
+                "shape_validation_errors": shape_validation_errors,
+            }
+
+        ratio_requirements = (research_intake or {}).get("research_requirements", {})
+        expected_ratio_units = ratio_requirements.get("ratio_units", {})
+        if is_multibaggers:
+            self._normalize_multibaggers_ratio_units(
+                ddd_result.get("ratios_investigados"), expected_ratio_units
+            )
         ratio_validation_errors = (
             self._validate_multibaggers_ratio_review(
                 ddd_result.get("ratios_investigados"),
-                (research_intake or {}).get("research_requirements", {}).get("ratios_to_review", []),
+                ratio_requirements.get("ratios_to_review", []),
                 trusted_source_urls={
                     str(item.get("source_url"))
                     for item in research_financial_evidence["source_observations"].values()
@@ -369,11 +408,13 @@ class ResearchWorker(BaseWorker):
                     set(research_financial_evidence["source_observations"])
                     | set(research_financial_evidence["validated_metric_observations"])
                 ),
+                expected_units=expected_ratio_units,
             )
             if is_multibaggers else []
         )
         if ratio_validation_errors:
             failure_reason = "MULTIBAGGERS ratio review contract failed: " + "; ".join(ratio_validation_errors)
+            print(f"[RESEARCH] {ticker}: {failure_reason}")
             event_data = {"opp_id": opp_id, "ticker": ticker, "errors": ratio_validation_errors}
             sqlite.log_event("research:ratio_review_validation_failed", event_data)
             journal.log_event("research:ratio_review_validation_failed", event_data, source="research_worker")
@@ -1093,8 +1134,53 @@ class ResearchWorker(BaseWorker):
         }
 
     @staticmethod
-    def _research_financial_evidence(data: dict[str, Any]) -> dict[str, Any]:
-        """Expose a narrow, source-aware input set for MULTIBAGGERS ratio analysis."""
+    def _multibaggers_prompt_context(data: dict[str, Any]) -> dict[str, Any]:
+        """Keep Research context relevant and bounded while retaining sourced market context."""
+        fields = (
+            "analysis_as_of_date", "ticker", "name", "current_price",
+            "current_price_as_of_date", "current_price_source", "quote_currency",
+            "sector", "business_model", "products", "geography", "moat_description",
+        )
+        context: dict[str, Any] = {}
+        for field in fields:
+            value = data.get(field)
+            if isinstance(value, str):
+                value = value[:500]
+            if value is not None:
+                context[field] = value
+        scenario_evidence = data.get("scenario_market_evidence")
+        if isinstance(scenario_evidence, str):
+            try:
+                parsed_scenario_evidence = json.loads(scenario_evidence)
+            except (TypeError, ValueError):
+                parsed_scenario_evidence = None
+            if isinstance(parsed_scenario_evidence, (dict, list)):
+                scenario_evidence = parsed_scenario_evidence
+        if isinstance(scenario_evidence, (dict, list)):
+            encoded = json.dumps(scenario_evidence, ensure_ascii=False, sort_keys=True, default=str)
+            if len(encoded) <= 5000:
+                context["scenario_market_evidence"] = scenario_evidence
+        elif isinstance(scenario_evidence, str) and len(scenario_evidence) <= 5000:
+            context["scenario_market_evidence"] = scenario_evidence
+        events = data.get("recent_events")
+        if isinstance(events, list):
+            context["recent_events"] = [
+                {
+                    key: item[key][:500] if isinstance(item.get(key), str) else item[key]
+                    for key in ("date", "title", "summary", "url")
+                    if key in item
+                }
+                for item in events[:5]
+                if isinstance(item, dict)
+            ]
+        return context
+
+    @staticmethod
+    def _research_financial_evidence(
+        data: dict[str, Any],
+        allowed_input_fields: set[str] | None = None,
+    ) -> dict[str, Any]:
+        """Expose configured, source-aware inputs for MULTIBAGGERS ratio analysis."""
         allowed_fields = (
             "revenue_ttm", "revenue", "revenue_growth_pct", "revenue_history",
             "eps_growth_pct", "roic_pct", "operating_margin_pct",
@@ -1105,10 +1191,13 @@ class ResearchWorker(BaseWorker):
             "current_ratio", "interest_coverage", "interest_coverage_ratio",
             "net_debt_ebitda", "gross_profit_ttm", "gross_margin_pct",
             "revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct",
-            "dilution_yoy_pct", "share_count_cagr_3y_pct", "shares_outstanding",
-            "shares_outstanding_history", "diluted_shares", "diluted_shares_history",
-            "fcf_history",
+            "dilution_yoy_pct", "share_count_cagr_3y_pct", "fcf_runway_months",
+            "shares_outstanding", "shares_outstanding_history", "diluted_shares",
+            "diluted_shares_history", "fcf_history",
         )
+        if allowed_input_fields is not None:
+            requested = set(allowed_input_fields)
+            allowed_fields = tuple(field for field in allowed_fields if field in requested)
         provenance = data.get("data_provenance")
         provenance = provenance if isinstance(provenance, dict) else {}
         field_sources = provenance.get("field_sources")
@@ -1203,16 +1292,67 @@ class ResearchWorker(BaseWorker):
         }
 
     @staticmethod
+    def _validate_multibaggers_research_shape(result: Any) -> list[str]:
+        """Reject structurally incomplete Research output before persistence."""
+        if not isinstance(result, dict):
+            return ["response must be a JSON object"]
+        required_types = {
+            "clasificacion_oportunidad": dict,
+            "error_mercado": dict,
+            "tesis_inversion": str,
+            "dominio_riesgos": list,
+            "dominio_catalizadores": list,
+            "dominio_business_quality": dict,
+            "calidad_evidencia": dict,
+            "ratios_investigados": list,
+            "risk_flags": list,
+        }
+        errors = [
+            f"{field} must be {expected.__name__}"
+            for field, expected in required_types.items()
+            if not isinstance(result.get(field), expected)
+        ]
+        score = result.get("score_general")
+        if isinstance(score, bool) or not isinstance(score, (int, float)) or not math.isfinite(score) or not 0 <= score <= 100:
+            errors.append("score_general must be a finite number from 0 to 100")
+        if result.get("scenario_analysis") is not None and not isinstance(result.get("scenario_analysis"), dict):
+            errors.append("scenario_analysis must be an object or null")
+        return errors
+
+    @staticmethod
+    @staticmethod
+    def _normalize_multibaggers_ratio_units(
+        raw_ratios: Any,
+        configured_units: dict[str, str],
+    ) -> None:
+        """Fill an omitted unit label from strategy metadata without changing values."""
+        if not isinstance(raw_ratios, list) or not isinstance(configured_units, dict):
+            return
+        for item in raw_ratios:
+            if not isinstance(item, dict) or item.get("status") not in {"reported", "calculated"}:
+                continue
+            metric = item.get("metric")
+            expected_unit = configured_units.get(metric)
+            current_unit = item.get("unit")
+            if (
+                isinstance(expected_unit, str) and expected_unit.strip()
+                and (not isinstance(current_unit, str) or not current_unit.strip())
+            ):
+                item["unit"] = expected_unit
+
+    @staticmethod
     def _validate_multibaggers_ratio_review(
         raw_ratios: Any,
         required_metrics: list[str],
         trusted_source_urls: set[str] | None = None,
         available_input_fields: set[str] | None = None,
+        expected_units: dict[str, str] | None = None,
     ) -> list[str]:
         """Require one auditable Research disposition per configured ratio."""
         if not isinstance(required_metrics, list) or not required_metrics:
             return ["research intake has no configured ratios_to_review"]
         trusted_source_urls = trusted_source_urls or set()
+        expected_units = expected_units or {}
         if not isinstance(raw_ratios, list):
             return ["ratios_investigados must be a list"]
         by_metric: dict[str, dict[str, Any]] = {}
@@ -1243,8 +1383,12 @@ class ResearchWorker(BaseWorker):
             value = item.get("value")
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
                 errors.append(f"reported/calculated ratio needs a finite numeric value: {metric}")
-            if not isinstance(item.get("unit"), str) or not item["unit"].strip():
+            unit = item.get("unit")
+            expected_unit = expected_units.get(metric)
+            if not isinstance(unit, str) or not unit.strip():
                 errors.append(f"ratio needs a unit: {metric}")
+            elif expected_unit and unit != expected_unit:
+                errors.append(f"ratio unit conflicts with configured unit for {metric}: expected {expected_unit}")
             if not isinstance(item.get("period_end"), str) or not item["period_end"].strip():
                 errors.append(f"ratio needs a reporting period: {metric}")
             sources = item.get("sources")
@@ -1317,6 +1461,16 @@ class ResearchWorker(BaseWorker):
                 "sources": consensus.get("source_references", []),
             } if consensus else None,
         }
+
+    @staticmethod
+    def _verified_facts(ddd_result: dict[str, Any]) -> list[str]:
+        quality = ddd_result.get("calidad_evidencia")
+        raw_facts = quality.get("hechos_verificados") if isinstance(quality, dict) else None
+        if not isinstance(raw_facts, list):
+            if raw_facts is not None:
+                print("[KB] Ignoring malformed hechos_verificados from Research output")
+            return []
+        return [fact.strip() for fact in raw_facts if isinstance(fact, str) and fact.strip()]
 
     def _build_knowledge_base(
         self,
@@ -1436,7 +1590,7 @@ class ResearchWorker(BaseWorker):
             lifecycle.verify(obj.object_id)
             lifecycle.publish(obj.object_id)
 
-        dd_claims = ddd_result.get("calidad_evidencia", {}).get("hechos_verificados", [])
+        dd_claims = self._verified_facts(ddd_result)
         for i, fact in enumerate(dd_claims):
             claim = Claim(
                 claim_id=f"CLAIM-{ticker}-DDD-{i+1}",
@@ -1756,16 +1910,25 @@ class ResearchWorker(BaseWorker):
         data = raw.get("merged_data", raw)
         return data if isinstance(data, dict) else {}
 
-    def _run_prompt(self, prompt_name: str, ticker: str, kwargs: dict[str, Any]) -> dict[str, Any]:
+    def _run_prompt(
+        self,
+        prompt_name: str,
+        ticker: str,
+        kwargs: dict[str, Any],
+        *,
+        max_tokens: int = 4096,
+    ) -> dict[str, Any]:
         template = self.registry.get(prompt_name, category="research")
         if not template:
             return {}
         system = self.registry.get_system(prompt_name, category="research") or ""
         formatted = template.format(**kwargs) if isinstance(template, str) else template
-        result = self.llm.generate_structured(
-            prompt=formatted,
-            system_prompt=system,
-            temperature=0.1,
-        )
-        return result
+        request = {
+            "prompt": formatted,
+            "system_prompt": system,
+            "temperature": 0.1,
+        }
+        if max_tokens != 4096:
+            request["max_tokens"] = max_tokens
+        return self.llm.generate_structured(**request)
 

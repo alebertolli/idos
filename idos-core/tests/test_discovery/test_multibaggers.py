@@ -1,3 +1,4 @@
+from datetime import date, timedelta
 from math import isclose
 from pathlib import Path
 import yaml
@@ -51,44 +52,43 @@ def valid_payload():
         "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY", "window_sessions": 20, "coverage": 0.8},
         "market_data_normalization": {"status": "complete", "liquidity_basis": "UNDERLYING_USD_PROXY"},
     }
+    price_dates = []
+    cursor = date(2025, 10, 15)
+    while cursor <= date(2026, 10, 15):
+        if cursor.weekday() < 5:
+            price_dates.append(cursor.isoformat())
+        cursor += timedelta(days=1)
+    merged_data.update({
+        "price_history": [100 + 45 * i / (len(price_dates) - 1) for i in range(len(price_dates))],
+        "price_history_dates": price_dates,
+        "price_history_basis": "close_unadjusted",
+    })
     return {"merged_data": merged_data, "metric_sources": sources, "metric_values": {key: {"stockanalysis.com": value, "yfinance": value} for key, value in metrics.items()}, "metric_observations": observations, "conflicts": [], "as_of": "2026-10-15T12:00:00+00:00"}
 
 
 def parameters():
-    return {"discovery_threshold": 65,
-        "weights": {"economic_transition": .326923076923, "quality": .261538461538, "reinvestment": .261538461538, "market_confirmation": .15},
-        "classification": {"fundamental_transition_min": 65, "fundamental_quality_min": 65,
-            "fundamental_reinvestment_min": 60, "early_transition_min": 60,
-            "early_market_confirmation_max": 50, "market_confirmed_transition_min": 60,
-            "market_confirmed_min": 60},
+    return {
+        "discovery_threshold": 65,
+        "weights": {"market_confirmation": 1.0},
         "scoring": {"method": "absolute_linear_clamped", "version": "absolute-ranges-v1", "components": {
-            "economic_transition": {"inputs": [
-                {"metric": "revenue_growth_pct", "min": 0, "max": 40, "direction": "higher"},
-                {"metric": "eps_growth_pct", "min": 0, "max": 40, "direction": "higher"},
-                {"metric": "operating_margin_pct", "min": 0, "max": 25, "direction": "higher"}]},
-            "quality": {"inputs": [
-                {"metric": "roic_pct", "min": 0, "max": 25, "direction": "higher"},
-                {"metric": "operating_margin_pct", "min": 0, "max": 30, "direction": "higher"}]},
-            "reinvestment": {"inputs": [
-                {"metric": "revenue_growth_pct", "min": 0, "max": 40, "direction": "higher"},
-                {"metric": "roic_pct", "min": 0, "max": 25, "direction": "higher"}]},
             "market_confirmation": {"inputs": [
-                {"metric": "relative_strength_12m_pct", "min": -50, "max": 50, "direction": "higher"},
+                {"metric": "price_momentum_12m_pct", "min": -50, "max": 50, "direction": "higher"},
                 {"metric": "drawdown_pct", "min": 0, "max": 60, "direction": "lower"},
                 {"metric": "volatility_90d_pct", "min": 0, "max": 80, "direction": "lower"}]}}},
-        "data_quality": {"critical_metrics": list(CRITICAL_METRICS), "critical_coverage_min": .8, "critical_sources_min": 2, "conflict_tolerance_pct": 20, "stale_after_days": 120},
-        "research": {"required_analysis": ["bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"]},
+        "data_quality": {"critical_metrics": list(CRITICAL_METRICS), "critical_coverage_min": .8, "critical_sources_min": 1, "conflict_tolerance_pct": 20, "stale_after_days": 120},
         "research": {
             "required_analysis": ["fundamental_ratio_review", "bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"],
             "ratios_to_review": ["revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct", "net_debt_ebitda", "dilution_yoy_pct", "share_count_cagr_3y_pct", "current_ratio", "interest_coverage", "fcf_runway_months", "gross_margin_pct"],
             "ratio_definitions": {"fcf_conversion_pct": "FCF / net_income * 100"},
+            "ratio_units": {"current_ratio": "x"},
             "risk_review_thresholds": {"current_ratio_below": .5, "interest_coverage_below": 2.0},
         },
-        "position_limit_pct": 1.0}
+        "position_limit_pct": 1.0,
+    }
 
 
-def test_discovery_is_deterministic_and_keeps_scores_separate_from_conviction():
-    engine = MultibaggersDiscoveryEngine(parameters(), "1.0")
+def test_discovery_is_deterministic_and_scores_only_market_confirmation():
+    engine = MultibaggersDiscoveryEngine(parameters(), "1.5")
     first = engine.evaluate("TEST", valid_payload())
     second = engine.evaluate("TEST", valid_payload())
     assert first.to_dict() == second.to_dict()
@@ -96,101 +96,75 @@ def test_discovery_is_deterministic_and_keeps_scores_separate_from_conviction():
     assert first.discovery_score >= 65
     assert first.strategy_id == "MULTIBAGGERS"
     assert first.data_quality["critical_coverage"] == 1
-    assert first.metrics_snapshot["roic_pct"]["coverage"] == 2
+    assert set(first.component_scores) == {"market_confirmation"}
+    assert set(first.metrics_snapshot) == set(CRITICAL_METRICS)
+    assert first.discovery_type == "RESEARCH_REQUIRED"
     assert "conviction" not in first.to_dict()
 
 
-def test_discovery_score_does_not_depend_on_research_stage_or_optional_metrics():
-    engine = MultibaggersDiscoveryEngine(parameters(), "1.0")
+def test_financial_metrics_are_deferred_to_research():
     payload = valid_payload()
-    result = engine.evaluate("TEST", payload)
-    assert result.component_scores["economic_transition"] == 75.0
-    assert "expectation_gap" not in result.component_scores
-    assert "expectation_gap_pct" not in result.metrics_snapshot
-    for metric in ("fcf_growth_pct", "fcf_conversion_pct", "net_debt_ebitda", "dilution_yoy_pct", "expectation_gap_pct"):
-        payload["metric_observations"].pop(metric, None)
-    simplified = engine.evaluate("TEST", payload)
-    assert simplified.discovery_score is not None
-    assert simplified.passed is True
-
-
-def test_financial_ratios_do_not_enter_discovery_snapshot_or_flags():
-    payload = valid_payload()
-    payload["metric_observations"]["dilution_yoy_pct"] = [
-        payload["metric_observations"]["dilution_yoy_pct"][0]
-    ]
-    payload["metric_observations"]["dilution_yoy_pct"][0]["value"] = 12
-
+    payload["metric_observations"].clear()
+    payload["merged_data"]["operating_margin_pct"] = -100
+    payload["merged_data"]["revenue_growth_pct"] = -100
     result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
-
-    assert "dilution_yoy_pct" not in result.metrics_snapshot
-    assert "HIGH_DILUTION" not in {flag["code"] for flag in result.red_flags}
     assert result.passed is True
+    assert "operating_margin_pct" not in result.metrics_snapshot
+    assert "revenue_growth_pct" not in result.metrics_snapshot
 
 
 def test_absolute_scoring_configuration_rejects_invalid_ranges():
     config = parameters()
-    config["scoring"]["components"]["quality"]["inputs"][0]["max"] = 0
+    config["scoring"]["components"]["market_confirmation"]["inputs"][0]["max"] = -50
     try:
         MultibaggersDiscoveryEngine(config).evaluate("TEST", valid_payload())
     except ValueError as exc:
         assert "Invalid absolute scoring range" in str(exc)
     else:
-        raise AssertionError("Invalid absolute scoring range was accepted")
+        raise AssertionError("Invalid scoring range was accepted")
 
 
-def test_lower_is_better_and_values_outside_ranges_are_clamped():
+def test_market_confirmation_scoring_clamps_inputs():
     payload = valid_payload()
-    values = {
-        "relative_strength_12m_pct": 100,
-        "drawdown_pct": 60,
-        "volatility_90d_pct": 80,
-    }
-    for metric, value in values.items():
-        for observation in payload["metric_observations"][metric]:
-            observation["value"] = value
-
+    payload["merged_data"].pop("price_history")
+    payload["merged_data"].pop("price_history_dates")
+    for metric, value in {"price_momentum_12m_pct": 100, "drawdown_pct": 60, "volatility_90d_pct": 80}.items():
+        payload["metric_observations"][metric] = [{
+            "source_id": "yfinance", "value": value, "unit": "percent", "currency": None,
+            "period": "range", "reported_at": "2026-10-15", "observed_at": "2026-10-15",
+            "source_url": "https://finance.yahoo.com/quote/TEST/history/",
+        }]
     result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
-
     assert result.component_scores["market_confirmation"] == 33.33
 
 
-def test_repository_profile_uses_shared_market_policy_and_versioned_ranges():
+def test_repository_profile_uses_market_only_discovery_and_stays_disabled():
     repository_root = Path(__file__).resolve().parents[3]
     config = yaml.safe_load((repository_root / "idos-config" / "strategies.yml").read_text(encoding="utf-8"))
     profile = config["strategies"]["MULTIBAGGERS"]
     policy = profile["parameters"]
-
     assert config["default_strategy"] == "COMPOUNDER"
     assert profile["enabled"] is False
-    assert profile["strategy_version"] == "1.4"
+    assert profile["strategy_version"] == "1.5"
     assert policy["supported_asset_types"] == ["us_equity"]
     assert "universe_path" not in policy
     market_data = yaml.safe_load((repository_root / "idos-config" / "market_data.yml").read_text(encoding="utf-8"))
     assert market_data["eligibility"]["market_cap_min_usd"] == 2_000_000_000
     assert market_data["eligibility"]["avg_dollar_volume_min_usd"] == 100_000
-    assert policy["scoring"]["method"] == "absolute_linear_clamped"
-    assert policy["scoring"]["sector_normalization"] is False
-    assert policy["scoring"]["missing_input_policy"] == "block_component_and_candidate"
     assert set(policy["data_quality"]["critical_metrics"]) == set(CRITICAL_METRICS)
-    assert "expectation_gap_pct" not in CRITICAL_METRICS
-    assert policy["classification"]["fundamental_transition_min"] == 65
-    assert set(policy["scoring"]["components"]) == set(policy["weights"])
+    assert set(policy["scoring"]["components"]) == {"market_confirmation"}
+    assert policy["data_quality"]["critical_sources_min"] == 1
     assert isclose(sum(policy["weights"].values()), 1.0, abs_tol=1e-9)
 
 
-def test_research_intake_moves_scenario_asymmetry_out_of_discovery():
-    result = MultibaggersDiscoveryEngine(parameters(), "1.4").evaluate("TEST", valid_payload())
+def test_research_intake_routes_fundamental_analysis_to_llm_stage():
+    result = MultibaggersDiscoveryEngine(parameters(), "1.5").evaluate("TEST", valid_payload())
     intake = build_research_intake(result.to_dict(), {"parameters": parameters()})
-
     assert "expectation_gap_pct" not in intake["metrics_snapshot"]
-    assert intake["research_requirements"] == {
-        "required_analysis": ["fundamental_ratio_review", "bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"],
-        "ratios_to_review": ["revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct", "net_debt_ebitda", "dilution_yoy_pct", "share_count_cagr_3y_pct", "current_ratio", "interest_coverage", "fcf_runway_months", "gross_margin_pct"],
-        "ratio_definitions": {"fcf_conversion_pct": "FCF / net_income * 100"},
-        "risk_review_thresholds": {"current_ratio_below": .5, "interest_coverage_below": 2.0},
-        "scenario_schema_version": "bear_base_bull_v1",
-    }
+    assert "fundamental_ratio_review" in intake["research_requirements"]["required_analysis"]
+    assert "net_debt_ebitda" in intake["research_requirements"]["ratios_to_review"]
+    assert intake["research_requirements"]["ratio_units"]["current_ratio"] == "x"
+    assert intake["research_requirements"]["scenario_schema_version"] == "bear_base_bull_v1"
 
 
 def test_shared_market_gate_fails_closed_and_does_not_require_etf_aum():
@@ -220,68 +194,50 @@ def test_multibaggers_engine_does_not_duplicate_global_market_thresholds():
     assert "DOLLAR_VOLUME_BELOW_MINIMUM" not in {flag["code"] for flag in result.red_flags}
 
 
-def test_missing_single_source_conflicted_and_stale_critical_data_fail_closed():
-    engine = MultibaggersDiscoveryEngine(parameters())
-    missing = valid_payload()
-    for name in ("revenue_growth_pct", "roic_pct"):
-        del missing["merged_data"][name]
-        missing["metric_sources"].pop(name)
-        missing["metric_observations"].pop(name)
-    assert engine.evaluate("TEST", missing).discovery_type == "BLOCKED_DATA"
-    single = valid_payload()
-    single["metric_sources"]["roic_pct"] = ["stockanalysis.com"]
-    single["metric_observations"]["roic_pct"] = single["metric_observations"]["roic_pct"][:1]
-    assert "SINGLE_SOURCE_CRITICAL_METRIC" in {f["code"] for f in engine.evaluate("TEST", single).red_flags}
-    conflict = valid_payload()
-    conflict["metric_observations"]["roic_pct"][1]["value"] = .10
-    result = engine.evaluate("TEST", conflict)
-    assert result.metrics_snapshot["roic_pct"]["status"] == "conflicted"
-    stale = valid_payload()
-    for observation in stale["metric_observations"]["roic_pct"]:
-        observation["reported_at"] = "2025-01-01T00:00:00+00:00"
-    result = engine.evaluate("TEST", stale)
-    assert result.metrics_snapshot["roic_pct"]["status"] == "stale"
-
-
-def test_missing_critical_metric_fails_source_gate_even_when_total_coverage_exceeds_minimum():
+def test_market_history_derivations_override_legacy_metric_observations():
     payload = valid_payload()
-    del payload["merged_data"]["roic_pct"]
-    payload["metric_sources"].pop("roic_pct")
-    payload["metric_observations"].pop("roic_pct")
-
+    payload["metric_observations"]["price_momentum_12m_pct"] = [{
+        "source_id": "yfinance", "value": -99, "unit": "percent", "currency": None,
+        "period": "wrong", "reported_at": "2026-10-15", "observed_at": "2026-10-15",
+        "source_url": "https://finance.yahoo.com/quote/TEST/history/",
+    }]
     result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
-
-    assert result.data_quality["critical_coverage"] == .8
-    assert result.data_quality["critical_source_failures"] == 1
-    assert result.passed is False
-    assert "CRITICAL_METRIC_SOURCE_COVERAGE_FAILED" in result.reason_codes
-    assert "MISSING_CRITICAL_METRIC" in {flag["code"] for flag in result.red_flags}
+    assert result.metrics_snapshot["price_momentum_12m_pct"]["value"] > 40
+    assert result.metrics_snapshot["price_momentum_12m_pct"]["source"] == ["yfinance"]
+    assert result.metrics_snapshot["price_momentum_12m_pct"]["status"] == "observed"
 
 
-def test_duplicate_source_labels_do_not_satisfy_independent_source_gate():
+def test_missing_or_short_market_history_fails_closed():
     payload = valid_payload()
-    payload["metric_sources"]["roic_pct"] = ["yfinance", " YFINANCE "]
-    duplicate = payload["metric_observations"]["roic_pct"][1].copy()
-    duplicate["source_id"] = " YAHOO_FINANCE "
-    payload["metric_observations"]["roic_pct"] = [payload["metric_observations"]["roic_pct"][1], duplicate]
+    payload["merged_data"].pop("price_history")
+    payload["merged_data"].pop("price_history_dates")
+    for metric in CRITICAL_METRICS:
+        payload["metric_observations"].pop(metric, None)
+    missing = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
+    assert missing.discovery_type == "BLOCKED_DATA"
+    assert missing.data_quality["critical_coverage"] == 0
+    assert "MISSING_CRITICAL_METRIC" in {flag["code"] for flag in missing.red_flags}
 
-    result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
+    short = valid_payload()
+    short["merged_data"]["price_history"] = short["merged_data"]["price_history"][-60:]
+    short["merged_data"]["price_history_dates"] = short["merged_data"]["price_history_dates"][-60:]
+    short_result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", short)
+    assert short_result.discovery_type == "BLOCKED_DATA"
+    assert short_result.metrics_snapshot["price_momentum_12m_pct"]["status"] == "missing"
 
-    assert result.metrics_snapshot["roic_pct"]["source"] == ["yfinance"]
-    assert result.metrics_snapshot["roic_pct"]["coverage"] == 1
-    assert "SINGLE_SOURCE_CRITICAL_METRIC" in {flag["code"] for flag in result.red_flags}
-    assert result.passed is False
+    unsupported = valid_payload()
+    unsupported["merged_data"]["price_history_basis"] = "adjusted_close"
+    unsupported_result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", unsupported)
+    assert unsupported_result.discovery_type == "BLOCKED_DATA"
+    assert unsupported_result.metrics_snapshot["price_momentum_12m_pct"]["status"] == "missing"
 
 
-def test_research_only_ratio_does_not_create_a_discovery_flag():
+def test_research_ratios_do_not_gate_discovery():
     payload = valid_payload()
-    for observation in payload["metric_observations"]["current_ratio"]:
-        observation["value"] = .3
+    payload["metric_observations"]["current_ratio"] = []
+    payload["merged_data"]["current_ratio"] = .1
     result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
-    assert "LOW_CURRENT_RATIO" not in {flag["code"] for flag in result.red_flags}
     assert "current_ratio" not in result.metrics_snapshot
-    assert "market_cap_usd" not in result.metrics_snapshot
-    assert result.metrics_snapshot["roic_pct"]["unit"] == "percent"
     assert result.passed is True
 
 
@@ -317,53 +273,22 @@ def test_source_observations_normalize_units_and_reject_incompatible_periods():
     assert bad_date_order["status"] == "incomplete"
 
 
-def test_legacy_merged_metrics_cannot_pass_without_source_evidence():
+def test_financial_source_evidence_is_not_required_until_research():
     payload = valid_payload()
     payload.pop("metric_observations")
-
     result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
-
-    assert result.passed is False
-    assert result.data_quality["critical_coverage"] == 0
-    assert "MISSING_CRITICAL_METRIC" in {flag["code"] for flag in result.red_flags}
-
-
-def test_legacy_raw_conflict_does_not_override_reconciled_source_evidence():
-    payload = valid_payload()
-    payload["conflicts"] = [{"field": "roic_pct", "deviation_pct": 190, "sources": {"yfinance": .2, "stockanalysis.com": 20}}]
-
-    result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
-
     assert result.passed is True
-    assert result.metrics_snapshot["roic_pct"]["value"] == 20
-    assert "roic_pct" not in result.data_quality["critical_conflicts"]
+    assert set(result.metrics_snapshot) == set(CRITICAL_METRICS)
 
 
-def test_missing_report_date_blocks_otherwise_complete_source_evidence():
+def test_missing_market_history_blocks_even_with_financial_ratios():
     payload = valid_payload()
-    payload["metric_observations"]["roic_pct"][0]["reported_at"] = None
-
+    payload["merged_data"].pop("price_history")
+    payload["merged_data"].pop("price_history_dates")
     result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
-
-    assert result.metrics_snapshot["roic_pct"]["status"] == "incomplete"
-    assert result.metrics_snapshot["roic_pct"]["value"] is None
-    assert result.metrics_snapshot["roic_pct"]["source_evidence"][0]["raw_value"] == 20
-    assert result.metrics_snapshot["roic_pct"]["source_evidence"][0]["reason_code"] == "REQUIRED_EVIDENCE_FIELD_MISSING"
     assert result.passed is False
-
-
-def test_incomplete_evidence_is_preserved_without_crashing_as_of_selection():
-    payload = valid_payload()
-    observations = payload["metric_observations"]["roic_pct"]
-    observations[0]["reported_at"] = None
-
-    result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
-
-    snapshot = result.metrics_snapshot["roic_pct"]
-    assert snapshot["status"] == "incomplete"
-    assert snapshot["as_of"] == "2026-09-30T00:00:00+00:00"
-    assert [item["status"] for item in snapshot["source_evidence"]] == ["incomplete", "observed"]
-    assert snapshot["source_evidence"][0]["raw_value"] == 20
+    assert result.data_quality["critical_coverage"] < .8
+    assert "MISSING_CRITICAL_METRIC" in {flag["code"] for flag in result.red_flags}
 
 
 def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Path):
@@ -382,14 +307,28 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     cache = FakeCache()
     config = {"base_path": str(tmp_path), "config_path": str(config_dir), "journal_path": str(tmp_path / "idos-journal"), "data_cache": cache, "refresh_missing": False}
     legacy_payload = valid_payload()
-    legacy_payload.pop("metric_observations")
+    legacy_payload["merged_data"].pop("price_history")
+    legacy_payload["merged_data"].pop("price_history_dates")
     cache.payload = legacy_payload
     blocked = MultibaggersPipeline(config).run()
     assert blocked["blocked"] == 1
     assert blocked["created"] == 0
     assert not (tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MB-TEST").exists()
     cache.payload = valid_payload()
+    cache.payload["merged_data"]["quote_currency"] = "USD"
+    cache.payload["field_sources"] = {"price_history": ["yfinance"]}
     first = MultibaggersPipeline(config).run()
+    first_opp_path = tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MB-TEST" / "opportunity.yml"
+    first_opp = yaml.safe_load(first_opp_path.read_text(encoding="utf-8"))
+    expected_quote = {
+        "price": 145.0,
+        "as_of_date": "2026-10-15",
+        "currency": "USD",
+        "source": "yfinance",
+        "url": "https://finance.yahoo.com/quote/TEST/history/",
+    }
+    assert first_opp["discovery_evidence"]["market_quote"] == expected_quote
+    assert first_opp["latest_discovery_evidence"]["market_quote"] == expected_quote
     second = UniversePipeline({**config, "strategy_id": "MULTIBAGGERS"}).execute({})
     assert first["created"] == 1
     assert second.status.value == "success"
@@ -408,6 +347,16 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     public_opp = next(item for item in site.opportunities if item["strategy_id"] == "MULTIBAGGERS")
     assert public_opp["discovery_score"] >= 65
     assert public_opp["research_priority"] is not None
+
+    cache.payload = valid_payload()
+    cache.payload["merged_data"]["quote_currency"] = "USD"
+    cache.payload["field_sources"] = {"price_history": ["yfinance"]}
+    cache.payload["merged_data"]["price_history"][-1] = 200.0
+    rerun = MultibaggersPipeline(config).run()
+    assert rerun["existing"] == 1
+    updated_opp = yaml.safe_load(first_opp_path.read_text(encoding="utf-8"))
+    assert updated_opp["discovery_evidence"]["market_quote"] == expected_quote
+    assert updated_opp["latest_discovery_evidence"]["market_quote"]["price"] == 200.0
 
 
 def test_multibaggers_pipeline_blocks_market_ineligible_tickers_before_strategy_scoring(tmp_path: Path, monkeypatch):
