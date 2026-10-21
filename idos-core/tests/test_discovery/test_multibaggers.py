@@ -1,7 +1,8 @@
+from math import isclose
 from pathlib import Path
 import yaml
 
-from idos.discovery.multibaggers import CRITICAL_METRICS, MultibaggersDiscoveryEngine
+from idos.discovery.multibaggers import CRITICAL_METRICS, MultibaggersDiscoveryEngine, build_research_intake
 from idos.discovery.financial_evidence import reconcile_metric_observations
 from idos.discovery.multibaggers_pipeline import MultibaggersPipeline
 from idos.discovery.multibaggers_store import MultibaggersStore
@@ -55,34 +56,28 @@ def valid_payload():
 
 def parameters():
     return {"discovery_threshold": 65,
-        "weights": {"economic_transition": .25, "quality": .20, "reinvestment": .20, "expectation_gap": .20, "market_confirmation": .15},
+        "weights": {"economic_transition": .326923076923, "quality": .261538461538, "reinvestment": .261538461538, "market_confirmation": .15},
         "classification": {"fundamental_transition_min": 65, "fundamental_quality_min": 65,
             "fundamental_reinvestment_min": 60, "early_transition_min": 60,
             "early_market_confirmation_max": 50, "market_confirmed_transition_min": 60,
             "market_confirmed_min": 60},
         "scoring": {"method": "absolute_linear_clamped", "version": "absolute-ranges-v1", "components": {
             "economic_transition": {"inputs": [
-                {"metric": "revenue_cagr_3y_pct", "min": 0, "max": 40, "direction": "higher"},
-                {"metric": "eps_growth_pct", "min": 0, "max": 40, "direction": "higher"},
                 {"metric": "revenue_growth_pct", "min": 0, "max": 40, "direction": "higher"},
+                {"metric": "eps_growth_pct", "min": 0, "max": 40, "direction": "higher"},
                 {"metric": "operating_margin_pct", "min": 0, "max": 25, "direction": "higher"}]},
             "quality": {"inputs": [
                 {"metric": "roic_pct", "min": 0, "max": 25, "direction": "higher"},
-                {"metric": "gross_margin_pct", "min": 0, "max": 70, "direction": "higher"},
-                {"metric": "operating_margin_pct", "min": 0, "max": 30, "direction": "higher"},
-                {"metric": "fcf_conversion_pct", "min": 0, "max": 100, "direction": "higher"}]},
+                {"metric": "operating_margin_pct", "min": 0, "max": 30, "direction": "higher"}]},
             "reinvestment": {"inputs": [
                 {"metric": "revenue_growth_pct", "min": 0, "max": 40, "direction": "higher"},
-                {"metric": "roic_pct", "min": 0, "max": 25, "direction": "higher"},
-                {"metric": "fcf_growth_pct", "min": 0, "max": 40, "direction": "higher"},
-                {"metric": "fcf_conversion_pct", "min": 0, "max": 100, "direction": "higher"}]},
-            "expectation_gap": {"inputs": [
-                {"metric": "expectation_gap_pct", "min": -50, "max": 50, "direction": "higher"}]},
+                {"metric": "roic_pct", "min": 0, "max": 25, "direction": "higher"}]},
             "market_confirmation": {"inputs": [
                 {"metric": "relative_strength_12m_pct", "min": -50, "max": 50, "direction": "higher"},
                 {"metric": "drawdown_pct", "min": 0, "max": 60, "direction": "lower"},
                 {"metric": "volatility_90d_pct", "min": 0, "max": 80, "direction": "lower"}]}}},
-        "data_quality": {"critical_coverage_min": .8, "critical_sources_min": 2, "conflict_tolerance_pct": 20, "stale_after_days": 120},
+        "data_quality": {"critical_metrics": list(CRITICAL_METRICS), "critical_coverage_min": .8, "critical_sources_min": 2, "conflict_tolerance_pct": 20, "stale_after_days": 120},
+        "research": {"required_analysis": ["bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"]},
         "hard_flags": {"current_ratio_below": .5, "interest_coverage_below": 2.0, "net_debt_ebitda_above": 4.0, "negative_fcf_runway_months_below": 12, "dilution_yoy_above_pct": 10, "share_count_cagr_3y_above_pct": 5},
         "position_limit_pct": 1.0}
 
@@ -100,21 +95,32 @@ def test_discovery_is_deterministic_and_keeps_scores_separate_from_conviction():
     assert "conviction" not in first.to_dict()
 
 
-def test_absolute_ranges_are_configured_clamped_and_fail_closed_for_missing_inputs():
+def test_discovery_score_does_not_depend_on_research_stage_or_optional_metrics():
     engine = MultibaggersDiscoveryEngine(parameters(), "1.0")
     payload = valid_payload()
     result = engine.evaluate("TEST", payload)
     assert result.component_scores["economic_transition"] == 75.0
-    assert result.component_scores["expectation_gap"] == 55.0
+    assert "expectation_gap" not in result.component_scores
+    assert "expectation_gap_pct" not in result.metrics_snapshot
+    for metric in ("fcf_growth_pct", "fcf_conversion_pct", "net_debt_ebitda", "dilution_yoy_pct", "expectation_gap_pct"):
+        payload["metric_observations"].pop(metric, None)
+    simplified = engine.evaluate("TEST", payload)
+    assert simplified.discovery_score is not None
+    assert simplified.passed is True
 
-    for observation in payload["metric_observations"]["expectation_gap_pct"]:
-        observation["value"] = None
-    missing = engine.evaluate("TEST", payload)
-    assert missing.component_scores["expectation_gap"] is None
-    assert missing.discovery_score is None
-    assert missing.research_priority is None
-    assert "SCORING_INPUT_MISSING" in missing.reason_codes
-    assert missing.passed is False
+
+def test_optional_dilution_metric_still_triggers_configured_hard_flag_with_one_source():
+    payload = valid_payload()
+    payload["metric_observations"]["dilution_yoy_pct"] = [
+        payload["metric_observations"]["dilution_yoy_pct"][0]
+    ]
+    payload["metric_observations"]["dilution_yoy_pct"][0]["value"] = 12
+
+    result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
+
+    assert result.metrics_snapshot["dilution_yoy_pct"]["status"] == "observed"
+    assert "HIGH_DILUTION" in {flag["code"] for flag in result.red_flags}
+    assert result.passed is False
 
 
 def test_absolute_scoring_configuration_rejects_invalid_ranges():
@@ -152,7 +158,7 @@ def test_repository_profile_uses_shared_market_policy_and_versioned_ranges():
 
     assert config["default_strategy"] == "COMPOUNDER"
     assert profile["enabled"] is False
-    assert profile["strategy_version"] == "1.2"
+    assert profile["strategy_version"] == "1.3"
     assert policy["supported_asset_types"] == ["us_equity"]
     assert "universe_path" not in policy
     market_data = yaml.safe_load((repository_root / "idos-config" / "market_data.yml").read_text(encoding="utf-8"))
@@ -161,9 +167,22 @@ def test_repository_profile_uses_shared_market_policy_and_versioned_ranges():
     assert policy["scoring"]["method"] == "absolute_linear_clamped"
     assert policy["scoring"]["sector_normalization"] is False
     assert policy["scoring"]["missing_input_policy"] == "block_component_and_candidate"
+    assert set(policy["data_quality"]["critical_metrics"]) == set(CRITICAL_METRICS)
+    assert "expectation_gap_pct" not in CRITICAL_METRICS
     assert policy["classification"]["fundamental_transition_min"] == 65
     assert set(policy["scoring"]["components"]) == set(policy["weights"])
-    assert sum(policy["weights"].values()) == 1
+    assert isclose(sum(policy["weights"].values()), 1.0, abs_tol=1e-9)
+
+
+def test_research_intake_moves_scenario_asymmetry_out_of_discovery():
+    result = MultibaggersDiscoveryEngine(parameters(), "1.3").evaluate("TEST", valid_payload())
+    intake = build_research_intake(result.to_dict(), {"parameters": parameters()})
+
+    assert "expectation_gap_pct" not in intake["metrics_snapshot"]
+    assert intake["research_requirements"] == {
+        "required_analysis": ["bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"],
+        "scenario_schema_version": "bear_base_bull_v1",
+    }
 
 
 def test_shared_market_gate_fails_closed_and_does_not_require_etf_aum():
@@ -196,7 +215,7 @@ def test_multibaggers_engine_does_not_duplicate_global_market_thresholds():
 def test_missing_single_source_conflicted_and_stale_critical_data_fail_closed():
     engine = MultibaggersDiscoveryEngine(parameters())
     missing = valid_payload()
-    for name in ("fcf_growth_pct", "revenue_cagr_3y_pct", "expectation_gap_pct"):
+    for name in ("revenue_growth_pct", "roic_pct"):
         del missing["merged_data"][name]
         missing["metric_sources"].pop(name)
         missing["metric_observations"].pop(name)
@@ -218,13 +237,13 @@ def test_missing_single_source_conflicted_and_stale_critical_data_fail_closed():
 
 def test_missing_critical_metric_fails_source_gate_even_when_total_coverage_exceeds_minimum():
     payload = valid_payload()
-    del payload["merged_data"]["expectation_gap_pct"]
-    payload["metric_sources"].pop("expectation_gap_pct")
-    payload["metric_observations"].pop("expectation_gap_pct")
+    del payload["merged_data"]["roic_pct"]
+    payload["metric_sources"].pop("roic_pct")
+    payload["metric_observations"].pop("roic_pct")
 
     result = MultibaggersDiscoveryEngine(parameters()).evaluate("TEST", payload)
 
-    assert result.data_quality["critical_coverage"] >= .8
+    assert result.data_quality["critical_coverage"] == .8
     assert result.data_quality["critical_source_failures"] == 1
     assert result.passed is False
     assert "CRITICAL_METRIC_SOURCE_COVERAGE_FAILED" in result.reason_codes
