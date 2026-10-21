@@ -1393,9 +1393,6 @@ class ResearchWorker(BaseWorker):
         return errors
 
     @staticmethod
-    @staticmethod
-    @staticmethod
-    @staticmethod
     def _multibaggers_financial_input_aliases(
         financial_evidence: dict[str, Any],
     ) -> dict[str, str]:
@@ -1445,6 +1442,7 @@ class ResearchWorker(BaseWorker):
                     aliases[f"{stem}_FY_{match.group(1)}"] = field
         return aliases
 
+    @staticmethod
     def _bind_multibaggers_ratio_sources(
         raw_ratios: Any,
         financial_evidence: dict[str, Any],
