@@ -1129,7 +1129,11 @@ class ResearchWorker(BaseWorker):
             "currency": data.get("financial_currency") or data.get("currency"),
             "sources_used": provenance.get("sources_used", []),
             "field_sources": provenance.get("field_sources", {}),
-            "conflicts": provenance.get("conflicts", []),
+            "conflicts": (
+                provenance.get("conflicts", [])[:10]
+                if isinstance(provenance.get("conflicts"), list)
+                else provenance.get("conflicts", [])
+            ),
             "observations": observations,
         }
 
@@ -1176,6 +1180,22 @@ class ResearchWorker(BaseWorker):
         return context
 
     @staticmethod
+    def _compact_research_financial_series(value: Any, limit: int = 5) -> tuple[list[Any], int]:
+        """Keep the latest dated observations in the LLM context; source records stay intact."""
+        if not isinstance(value, list):
+            return [], 0
+        indexed = list(enumerate(value))
+        if any(isinstance(item, dict) and (item.get("period_end") or item.get("reported_at")) for item in value):
+            indexed.sort(
+                key=lambda pair: str(
+                    pair[1].get("period_end") or pair[1].get("reported_at") or ""
+                ) if isinstance(pair[1], dict) else "",
+                reverse=True,
+            )
+        selected = [item for _, item in indexed[:limit]]
+        return selected, max(0, len(value) - len(selected))
+
+    @staticmethod
     def _research_financial_evidence(
         data: dict[str, Any],
         allowed_input_fields: set[str] | None = None,
@@ -1215,6 +1235,9 @@ class ResearchWorker(BaseWorker):
         evidence: dict[str, Any] = {}
         for field in allowed_fields:
             value = data.get(field)
+            omitted_points = 0
+            if isinstance(value, list):
+                value, omitted_points = ResearchWorker._compact_research_financial_series(value)
             if value is None or isinstance(value, bool):
                 continue
             if not isinstance(value, (int, float, str, list, dict)):
@@ -1237,6 +1260,7 @@ class ResearchWorker(BaseWorker):
                 "sources": sorted({str(source) for source in sources if source}),
                 "source_url": source_url,
                 "observed_at": data.get("financial_data_observed_at"),
+                "omitted_points": omitted_points,
             }
         raw_metric_observations = data.get("metric_observations")
         raw_metric_observations = raw_metric_observations if isinstance(raw_metric_observations, dict) else {}
@@ -1265,7 +1289,8 @@ class ResearchWorker(BaseWorker):
                     "reported_at", "observed_at", "source_url",
                 )})
             if safe_observations:
-                validated_metric_observations[metric] = safe_observations
+                safe_observations.sort(key=lambda item: item["reported_at"], reverse=True)
+                validated_metric_observations[metric] = safe_observations[:5]
         raw_exclusions = data.get("metric_observation_exclusions")
         raw_exclusions = raw_exclusions if isinstance(raw_exclusions, dict) else {}
         metric_observation_exclusions: dict[str, list[dict[str, Any]]] = {}
@@ -1278,7 +1303,7 @@ class ResearchWorker(BaseWorker):
                 if isinstance(item, dict)
             ]
             if safe_exclusions:
-                metric_observation_exclusions[metric] = safe_exclusions
+                metric_observation_exclusions[metric] = safe_exclusions[:5]
         raw_financial_observations = data.get("financial_observations")
         raw_financial_observations = raw_financial_observations if isinstance(raw_financial_observations, dict) else {}
         return {
@@ -1287,7 +1312,11 @@ class ResearchWorker(BaseWorker):
             "currency": data.get("financial_currency") or data.get("currency"),
             "source_observations": evidence,
             "reconciled_observations": {
-                metric: raw_financial_observations[metric]
+                metric: (
+                    ResearchWorker._compact_research_financial_series(raw_financial_observations[metric])[0]
+                    if isinstance(raw_financial_observations[metric], list)
+                    else raw_financial_observations[metric]
+                )
                 for metric in allowed_fields
                 if metric in raw_financial_observations
             },

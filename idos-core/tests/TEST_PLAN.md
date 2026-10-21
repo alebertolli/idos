@@ -746,3 +746,4 @@ Antes de la primera corrida productiva tras el reinicio:
 3. Confirmar que importes sin moneda/escala explícita se etiqueten como unidad reportada desconocida y que LLM marque unavailable cálculos que requieran comparabilidad no demostrada.
 4. En la próxima E2E en rama aislada, inspeccionar ratios reported, calculated y unavailable, referencias a inputs existentes y fechas; Assessment debe conservar RULE-008 cuando la asimetría no alcance el umbral, sin crear Buy List ni posiciones.
 5. Mantener MULTIBAGGERS deshabilitada hasta que el run remoto confirme esta ruta sin datos sintéticos.
+6. Incluir como máximo las cinco observaciones fechadas más recientes por serie en el contexto LLM, informar omitted_points y preservar los registros completos en la fuente auditable; probar una serie larga y verificar que el contexto resultante queda acotado.

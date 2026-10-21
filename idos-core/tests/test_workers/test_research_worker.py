@@ -1396,3 +1396,28 @@ def test_multibaggers_research_evidence_exposes_configured_statement_history():
     assert row["value"][0]["period_end"] == "2026-09-27"
     assert row["sources"] == ["stockanalysis.com"]
     assert row["source_url"] == "https://stockanalysis.com/stocks/asml/financials/"
+
+
+def test_multibaggers_research_evidence_bounds_financial_history():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    history = [
+        {
+            "value": float(year),
+            "unit": "source_reported_amount",
+            "period": f"FY {year}",
+            "period_end": f"{year}-12-31",
+        }
+        for year in range(2014, 2027)
+    ]
+    evidence = ResearchWorker._research_financial_evidence(
+        {"revenue_history": history},
+        allowed_input_fields={"revenue_history"},
+    )
+
+    row = evidence["source_observations"]["revenue_history"]
+    assert [point["period_end"] for point in row["value"]] == [
+        "2026-12-31", "2025-12-31", "2024-12-31", "2023-12-31", "2022-12-31",
+    ]
+    assert row["omitted_points"] == 8
+    assert len(history) == 13
