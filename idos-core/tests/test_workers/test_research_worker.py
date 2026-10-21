@@ -1492,3 +1492,60 @@ def test_multibaggers_ratio_sources_do_not_accept_unmapped_inputs():
     assert ratio["sources"] == [
         {"name": "stockanalysis.com", "url": "https://example.com/unverified"},
     ]
+
+
+
+def test_multibaggers_ratio_accepts_only_verified_fiscal_year_history_aliases():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    url = "https://stockanalysis.com/stocks/asml/financials/"
+    evidence = {
+        "source_observations": {
+            "revenue_history": {
+                "value": [
+                    {"value": 100.0, "period": "FY 2023", "period_end": "2023-12-31"},
+                    {"value": 80.0, "period": "FY 2022", "period_end": "2022-12-31"},
+                ],
+                "sources": ["stockanalysis.com"],
+                "source_url": url,
+            },
+        },
+        "validated_metric_observations": {},
+    }
+    aliases = ResearchWorker._multibaggers_financial_input_aliases(evidence)
+    assert aliases == {
+        "revenue_FY_2023": "revenue_history",
+        "revenue_FY_2022": "revenue_history",
+    }
+
+    ratio = [{
+        "metric": "revenue_cagr_3y_pct",
+        "status": "calculated",
+        "value": 25.0,
+        "unit": "percent",
+        "period_end": "2023-12-31",
+        "formula": "(revenue_FY_2023 / revenue_FY_2022) - 1",
+        "inputs": ["revenue_FY_2023", "revenue_FY_2022"],
+        "sources": [{"name": "stockanalysis.com", "url": url}],
+    }]
+    available = set(evidence["source_observations"]) | set(aliases)
+    assert ResearchWorker._validate_multibaggers_ratio_review(
+        ratio,
+        ["revenue_cagr_3y_pct"],
+        trusted_source_urls={url},
+        available_input_fields=available,
+        expected_units={"revenue_cagr_3y_pct": "percent"},
+    ) == []
+
+    ResearchWorker._bind_multibaggers_ratio_sources(ratio, evidence)
+    assert ratio[0]["sources"] == [{"name": "stockanalysis.com", "url": url}]
+
+    ratio[0]["inputs"] = ["revenue_FY_2021"]
+    errors = ResearchWorker._validate_multibaggers_ratio_review(
+        ratio,
+        ["revenue_cagr_3y_pct"],
+        trusted_source_urls={url},
+        available_input_fields=available,
+        expected_units={"revenue_cagr_3y_pct": "percent"},
+    )
+    assert any("inputs absent from research evidence" in error for error in errors)
