@@ -1149,12 +1149,19 @@ class ResearchWorker(BaseWorker):
             if value is not None:
                 context[field] = value
         scenario_evidence = data.get("scenario_market_evidence")
-        if isinstance(scenario_evidence, str) and len(scenario_evidence) <= 5000:
-            context["scenario_market_evidence"] = scenario_evidence
-        elif isinstance(scenario_evidence, (dict, list)):
+        if isinstance(scenario_evidence, str):
+            try:
+                parsed_scenario_evidence = json.loads(scenario_evidence)
+            except (TypeError, ValueError):
+                parsed_scenario_evidence = None
+            if isinstance(parsed_scenario_evidence, (dict, list)):
+                scenario_evidence = parsed_scenario_evidence
+        if isinstance(scenario_evidence, (dict, list)):
             encoded = json.dumps(scenario_evidence, ensure_ascii=False, sort_keys=True, default=str)
             if len(encoded) <= 5000:
                 context["scenario_market_evidence"] = scenario_evidence
+        elif isinstance(scenario_evidence, str) and len(scenario_evidence) <= 5000:
+            context["scenario_market_evidence"] = scenario_evidence
         events = data.get("recent_events")
         if isinstance(events, list):
             context["recent_events"] = [
