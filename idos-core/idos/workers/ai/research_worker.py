@@ -286,13 +286,14 @@ class ResearchWorker(BaseWorker):
         if is_systematic:
             ddd_result = self._build_systematic_ddd(ticker, opp, systematic_params)
         elif is_multibaggers:
+            research_financial_evidence = self._research_financial_evidence(financial_data)
             ddd_result = self._run_prompt("multibaggers", ticker, {
                 "ticker": ticker,
                 "name": company.get("name", ticker),
                 "intake_package": json.dumps(research_intake, ensure_ascii=False, sort_keys=True),
                 "financial_summary": json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str),
                 "research_financial_evidence": json.dumps(
-                    self._research_financial_evidence(financial_data),
+                    research_financial_evidence,
                     ensure_ascii=False,
                     sort_keys=True,
                     default=str,
@@ -356,9 +357,18 @@ class ResearchWorker(BaseWorker):
                 (research_intake or {}).get("research_requirements", {}).get("ratios_to_review", []),
                 trusted_source_urls={
                     str(item.get("source_url"))
-                    for item in self._research_financial_evidence(financial_data)["source_observations"].values()
+                    for item in research_financial_evidence["source_observations"].values()
+                    if isinstance(item, dict) and item.get("source_url")
+                } | {
+                    str(item.get("source_url"))
+                    for observations in research_financial_evidence["validated_metric_observations"].values()
+                    for item in observations
                     if isinstance(item, dict) and item.get("source_url")
                 },
+                available_input_fields=(
+                    set(research_financial_evidence["source_observations"])
+                    | set(research_financial_evidence["validated_metric_observations"])
+                ),
             )
             if is_multibaggers else []
         )
@@ -1086,7 +1096,9 @@ class ResearchWorker(BaseWorker):
     def _research_financial_evidence(data: dict[str, Any]) -> dict[str, Any]:
         """Expose a narrow, source-aware input set for MULTIBAGGERS ratio analysis."""
         allowed_fields = (
-            "revenue_ttm", "revenue", "net_income_ttm", "net_income", "ebitda",
+            "revenue_ttm", "revenue", "revenue_growth_pct", "revenue_history",
+            "eps_growth_pct", "roic_pct", "operating_margin_pct",
+            "net_income_ttm", "net_income", "ebit", "ebitda", "interest_expense",
             "operating_cf", "operating_cash_flow", "capex", "capital_expenditures",
             "fcf", "free_cash_flow", "levered_fcf", "total_debt", "net_debt",
             "cash", "cash_and_equivalents", "current_assets", "current_liabilities",
@@ -1094,7 +1106,8 @@ class ResearchWorker(BaseWorker):
             "net_debt_ebitda", "gross_profit_ttm", "gross_margin_pct",
             "revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct",
             "dilution_yoy_pct", "share_count_cagr_3y_pct", "shares_outstanding",
-            "shares_outstanding_history",
+            "shares_outstanding_history", "diluted_shares", "diluted_shares_history",
+            "fcf_history",
         )
         provenance = data.get("data_provenance")
         provenance = provenance if isinstance(provenance, dict) else {}
@@ -1131,18 +1144,70 @@ class ResearchWorker(BaseWorker):
                 "source_url": source_url,
                 "observed_at": data.get("financial_data_observed_at"),
             }
+        raw_metric_observations = data.get("metric_observations")
+        raw_metric_observations = raw_metric_observations if isinstance(raw_metric_observations, dict) else {}
+        validated_metric_observations: dict[str, list[dict[str, Any]]] = {}
+        for metric, observations in raw_metric_observations.items():
+            if metric not in allowed_fields or not isinstance(observations, list):
+                continue
+            safe_observations = []
+            for observation in observations:
+                if not isinstance(observation, dict):
+                    continue
+                value = observation.get("value")
+                source_url = observation.get("source_url")
+                required_text = ("source_id", "unit", "period", "reported_at", "observed_at")
+                if (
+                    isinstance(value, bool)
+                    or not isinstance(value, (int, float))
+                    or not math.isfinite(value)
+                    or any(not isinstance(observation.get(key), str) or not observation[key].strip() for key in required_text)
+                    or not isinstance(source_url, str)
+                    or not source_url.startswith("https://")
+                ):
+                    continue
+                safe_observations.append({key: observation.get(key) for key in (
+                    "source_id", "value", "unit", "currency", "period",
+                    "reported_at", "observed_at", "source_url",
+                )})
+            if safe_observations:
+                validated_metric_observations[metric] = safe_observations
+        raw_exclusions = data.get("metric_observation_exclusions")
+        raw_exclusions = raw_exclusions if isinstance(raw_exclusions, dict) else {}
+        metric_observation_exclusions: dict[str, list[dict[str, Any]]] = {}
+        for metric, exclusions in raw_exclusions.items():
+            if metric not in allowed_fields or not isinstance(exclusions, list):
+                continue
+            safe_exclusions = [
+                {key: item[key] for key in ("source_id", "reason_code", "missing_fields") if key in item}
+                for item in exclusions
+                if isinstance(item, dict)
+            ]
+            if safe_exclusions:
+                metric_observation_exclusions[metric] = safe_exclusions
+        raw_financial_observations = data.get("financial_observations")
+        raw_financial_observations = raw_financial_observations if isinstance(raw_financial_observations, dict) else {}
         return {
             "reporting_period_end": data.get("financial_data_as_of_date")
             or data.get("financial_period_end") or data.get("period_end_date"),
             "currency": data.get("financial_currency") or data.get("currency"),
             "source_observations": evidence,
-            "reconciled_observations": data.get("financial_observations", {}),
+            "reconciled_observations": {
+                metric: raw_financial_observations[metric]
+                for metric in allowed_fields
+                if metric in raw_financial_observations
+            },
+            "validated_metric_observations": validated_metric_observations,
+            "metric_observation_exclusions": metric_observation_exclusions,
             "conflicts": provenance.get("conflicts", []),
         }
 
     @staticmethod
     def _validate_multibaggers_ratio_review(
-        raw_ratios: Any, required_metrics: list[str], trusted_source_urls: set[str] | None = None
+        raw_ratios: Any,
+        required_metrics: list[str],
+        trusted_source_urls: set[str] | None = None,
+        available_input_fields: set[str] | None = None,
     ) -> list[str]:
         """Require one auditable Research disposition per configured ratio."""
         if not isinstance(required_metrics, list) or not required_metrics:
@@ -1195,8 +1260,18 @@ class ResearchWorker(BaseWorker):
             if status == "calculated":
                 if not isinstance(item.get("formula"), str) or not item["formula"].strip():
                     errors.append(f"calculated ratio needs a formula: {metric}")
-                if not isinstance(item.get("inputs"), list) or not item["inputs"]:
+                inputs = item.get("inputs")
+                if not isinstance(inputs, list) or not inputs or any(
+                    not isinstance(field, str) or not field.strip() for field in inputs
+                ):
                     errors.append(f"calculated ratio needs input references: {metric}")
+                elif available_input_fields is not None:
+                    unavailable_inputs = sorted(set(inputs) - available_input_fields)
+                    if unavailable_inputs:
+                        errors.append(
+                            f"calculated ratio cites inputs absent from research evidence: {metric} "
+                            f"({', '.join(unavailable_inputs)})"
+                        )
         unexpected = sorted(set(by_metric) - set(required_metrics))
         if unexpected:
             errors.append("unexpected ratio entries: " + ", ".join(unexpected))

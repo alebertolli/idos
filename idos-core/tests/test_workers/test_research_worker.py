@@ -296,6 +296,18 @@ class TestResearchWorker:
                 "field_sources": {"current_ratio": ["stockanalysis.com"]},
                 "field_urls": {"current_ratio": "https://stockanalysis.com/stocks/test/statistics/"},
             },
+            "metric_observations": {
+                "revenue_growth_pct": [{
+                    "source_id": "sec_edgar",
+                    "value": 18.5,
+                    "unit": "percent",
+                    "currency": "USD",
+                    "period": "FY:2025-01-01/2025-12-31",
+                    "reported_at": "2026-02-15",
+                    "observed_at": "2026-10-15T12:00:00+00:00",
+                    "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000000001.json",
+                }],
+            },
         })
         worker._enrich_company_info = MagicMock(return_value={"name": "Test", "sector": "Technology"})
         worker._fetch_target_consensus = MagicMock()
@@ -311,6 +323,7 @@ class TestResearchWorker:
         assert financial_evidence["source_observations"]["current_ratio"]["value"] == 1.4
         assert financial_evidence["source_observations"]["current_ratio"]["period_end"] == "2026-09-30"
         assert financial_evidence["source_observations"]["current_ratio"]["source_url"].startswith("https://")
+        assert financial_evidence["validated_metric_observations"]["revenue_growth_pct"][0]["value"] == 18.5
         worker._fetch_target_consensus.assert_not_called()
 
     def test_multibaggers_research_blocks_mismatched_snapshot_before_llm(
@@ -1111,6 +1124,28 @@ def test_multibaggers_research_evidence_excludes_unlisted_fields_and_preserves_s
             "field_sources": {"current_ratio": ["stockanalysis.com"]},
             "field_urls": {"current_ratio": "https://stockanalysis.com/stocks/test/statistics/"},
         },
+        "metric_observations": {
+            "revenue_growth_pct": [{
+                "source_id": "sec_edgar",
+                "value": 18.5,
+                "unit": "percent",
+                "currency": "USD",
+                "period": "FY:2025-01-01/2025-12-31",
+                "reported_at": "2026-02-15",
+                "observed_at": "2026-10-15T12:00:00+00:00",
+                "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000000001.json",
+                "internal_private_field": "must not reach the prompt",
+            }],
+            "private_account_balance": [{"value": 123456}],
+        },
+        "metric_observation_exclusions": {
+            "revenue_growth_pct": [{"source_id": "yfinance", "reason_code": "MISSING_REPORT_DATE"}],
+            "private_account_balance": [{"reason_code": "PRIVATE"}],
+        },
+        "financial_observations": {
+            "current_ratio": {"status": "observed", "value": 1.2},
+            "private_account_balance": {"status": "observed", "value": 123456},
+        },
     })
 
     evidence = context["source_observations"]["current_ratio"]
@@ -1118,6 +1153,14 @@ def test_multibaggers_research_evidence_excludes_unlisted_fields_and_preserves_s
     assert evidence["period_end"] == "2026-09-30"
     assert evidence["sources"] == ["stockanalysis.com"]
     assert "private_account_balance" not in context["source_observations"]
+    metric_observation = context["validated_metric_observations"]["revenue_growth_pct"][0]
+    assert metric_observation["value"] == 18.5
+    assert metric_observation["source_url"].startswith("https://data.sec.gov/")
+    assert "internal_private_field" not in metric_observation
+    assert "private_account_balance" not in context["validated_metric_observations"]
+    assert context["metric_observation_exclusions"]["revenue_growth_pct"][0]["reason_code"] == "MISSING_REPORT_DATE"
+    assert "private_account_balance" not in context["metric_observation_exclusions"]
+    assert "private_account_balance" not in context["reconciled_observations"]
 
 
 def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
@@ -1160,6 +1203,17 @@ def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects
         invented_source, ["fcf_growth_pct"], trusted_source_urls={"https://stockanalysis.com/fcf"}
     )
     assert "ratio cites a URL absent from research evidence: fcf_growth_pct" in errors
+
+    sourced_but_unavailable_input = [{**invented_source[0], "sources": [
+        {"name": "StockAnalysis", "url": "https://stockanalysis.com/fcf"}
+    ]}]
+    errors = ResearchWorker._validate_multibaggers_ratio_review(
+        sourced_but_unavailable_input,
+        ["fcf_growth_pct"],
+        trusted_source_urls={"https://stockanalysis.com/fcf"},
+        available_input_fields={"fcf"},
+    )
+    assert any("inputs absent from research evidence" in error for error in errors)
 
 
 def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():
