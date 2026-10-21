@@ -1259,6 +1259,10 @@ def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     assert "ratio_units" in rendered
     assert "unit" in rendered
     assert "scenario_analysis" in rendered
+    assert "mutuamente excluyentes" in rendered
+    assert "estimación analítica" in rendered
+    assert "propuestas preliminares" in rendered
+    assert "fuentes citadas deben respaldar esos inputs" in rendered
     assert "calidad_evidencia" in rendered
     assert '"categoria": string' in rendered
 
