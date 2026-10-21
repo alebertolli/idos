@@ -1347,3 +1347,13 @@ def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():
     assert "Un dato ausente no significa cero" in prompt
     assert "No llames ajustado al flujo de caja libre reportado" in prompt
     assert "FCF Ajustado: {fcf_adjusted" not in prompt
+
+
+def test_ddd_verified_facts_discards_malformed_llm_claims():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    assert ResearchWorker._verified_facts({"calidad_evidencia": {"hechos_verificados": 7}}) == []
+    assert ResearchWorker._verified_facts({"calidad_evidencia": 7}) == []
+    assert ResearchWorker._verified_facts({"calidad_evidencia": {
+        "hechos_verificados": ["  dato con fuente  ", 4, None, ""]
+    }}) == ["dato con fuente"]
