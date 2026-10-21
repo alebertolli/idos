@@ -1,0 +1,242 @@
+{
+  "status": "success",
+  "output": {
+    "started_at": "2026-10-21T10:27:28.579029-03:00",
+    "finished_at": "2026-10-21T10:27:31.418746-03:00",
+    "duration_seconds": 2.8397111892700195,
+    "candidate_source": "idos-config/universe/operable.yml",
+    "candidate_count": 1,
+    "candidate_tickers": [
+      "ASML"
+    ],
+    "operable_count": 1,
+    "operable_filtered": 0,
+    "pre_score_count": 1,
+    "fetch_new": 1,
+    "fetch_cached": 0,
+    "fetch_errors": 0,
+    "scout_passed": 1,
+    "scout_rejected": 0,
+    "scout_data_quality_rejected": 0,
+    "scout_data_quality_details": [],
+    "new_watchlist_count": 1,
+    "opportunities_eligible": 1,
+    "opportunities_existing": 0,
+    "opportunities_discovery_review": 0,
+    "opportunities_created": 1,
+    "downgraded_to_watchlist": 0,
+    "upgraded_to_screened": 0,
+    "errors": []
+  },
+  "error": null,
+  "strategies": {
+    "COMPOUNDER": {
+      "status": "success",
+      "output": {
+        "started_at": "2026-10-21T10:27:28.579029-03:00",
+        "finished_at": "2026-10-21T10:27:31.418746-03:00",
+        "duration_seconds": 2.8397111892700195,
+        "candidate_source": "idos-config/universe/operable.yml",
+        "candidate_count": 1,
+        "candidate_tickers": [
+          "ASML"
+        ],
+        "operable_count": 1,
+        "operable_filtered": 0,
+        "pre_score_count": 1,
+        "fetch_new": 1,
+        "fetch_cached": 0,
+        "fetch_errors": 0,
+        "scout_passed": 1,
+        "scout_rejected": 0,
+        "scout_data_quality_rejected": 0,
+        "scout_data_quality_details": [],
+        "new_watchlist_count": 1,
+        "opportunities_eligible": 1,
+        "opportunities_existing": 0,
+        "opportunities_discovery_review": 0,
+        "opportunities_created": 1,
+        "downgraded_to_watchlist": 0,
+        "upgraded_to_screened": 0,
+        "errors": []
+      },
+      "error": null
+    },
+    "MULTIBAGGERS": {
+      "status": "success",
+      "output": {
+        "status": "completed",
+        "strategy_id": "MULTIBAGGERS",
+        "processed": 1,
+        "passed": 1,
+        "blocked": 0,
+        "created": 1,
+        "existing": 0,
+        "candidate_source": "idos-config/universe/operable.yml",
+        "excluded_tickers": [],
+        "results": [
+          {
+            "ticker": "ASML",
+            "passed": true,
+            "score": 71.21,
+            "priority": 71.21,
+            "discovery_type": "RESEARCH_REQUIRED",
+            "reason_codes": [],
+            "snapshot_hash": "14d65fbd1b25a43dd2b1e8166f9586832becb24530877a13774cf4d069cb8bbd",
+            "global_market_eligibility": {
+              "passed": true,
+              "asset_type": "us_equity",
+              "size_metric_usd": 628554661888.0,
+              "market_cap_min_usd": 2000000000.0,
+              "avg_dollar_volume_usd": 2567372717.564087,
+              "avg_dollar_volume_min_usd": 100000.0,
+              "liquidity_basis": "UNDERLYING_USD_PROXY",
+              "reason_codes": [],
+              "normalization": {
+                "status": "complete",
+                "size_metric": "market_cap_usd",
+                "errors": [],
+                "liquidity_basis": "UNDERLYING_USD_PROXY",
+                "exchange_calendar": "NMS"
+              },
+              "size_provenance": {
+                "source": "yfinance",
+                "as_of": "2026-10-20",
+                "source_currency": "USD",
+                "fx": null
+              },
+              "liquidity_provenance": {
+                "quote_currency": "USD",
+                "fx_reference": null,
+                "fx_side": null,
+                "window_sessions": 20,
+                "expected_observations": 20,
+                "valid_observations": 20,
+                "coverage": 1.0,
+                "minimum_coverage": 0.8,
+                "first_price_date": "2026-09-23",
+                "last_price_date": "2026-10-20",
+                "price_source": "yfinance",
+                "fx_source": null,
+                "fx_observations": [],
+                "valid_price_dates": [
+                  "2026-09-23",
+                  "2026-09-24",
+                  "2026-09-25",
+                  "2026-09-28",
+                  "2026-09-29",
+                  "2026-09-30",
+                  "2026-10-01",
+                  "2026-10-02",
+                  "2026-10-05",
+                  "2026-10-06",
+                  "2026-10-07",
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-19",
+                  "2026-10-20"
+                ],
+                "missing_market_dates": [],
+                "basis": "UNDERLYING_USD_PROXY"
+              }
+            }
+          }
+        ]
+      },
+      "error": null
+    }
+  },
+  "multibaggers": {
+    "status": "success",
+    "output": {
+      "status": "completed",
+      "strategy_id": "MULTIBAGGERS",
+      "processed": 1,
+      "passed": 1,
+      "blocked": 0,
+      "created": 1,
+      "existing": 0,
+      "candidate_source": "idos-config/universe/operable.yml",
+      "excluded_tickers": [],
+      "results": [
+        {
+          "ticker": "ASML",
+          "passed": true,
+          "score": 71.21,
+          "priority": 71.21,
+          "discovery_type": "RESEARCH_REQUIRED",
+          "reason_codes": [],
+          "snapshot_hash": "14d65fbd1b25a43dd2b1e8166f9586832becb24530877a13774cf4d069cb8bbd",
+          "global_market_eligibility": {
+            "passed": true,
+            "asset_type": "us_equity",
+            "size_metric_usd": 628554661888.0,
+            "market_cap_min_usd": 2000000000.0,
+            "avg_dollar_volume_usd": 2567372717.564087,
+            "avg_dollar_volume_min_usd": 100000.0,
+            "liquidity_basis": "UNDERLYING_USD_PROXY",
+            "reason_codes": [],
+            "normalization": {
+              "status": "complete",
+              "size_metric": "market_cap_usd",
+              "errors": [],
+              "liquidity_basis": "UNDERLYING_USD_PROXY",
+              "exchange_calendar": "NMS"
+            },
+            "size_provenance": {
+              "source": "yfinance",
+              "as_of": "2026-10-20",
+              "source_currency": "USD",
+              "fx": null
+            },
+            "liquidity_provenance": {
+              "quote_currency": "USD",
+              "fx_reference": null,
+              "fx_side": null,
+              "window_sessions": 20,
+              "expected_observations": 20,
+              "valid_observations": 20,
+              "coverage": 1.0,
+              "minimum_coverage": 0.8,
+              "first_price_date": "2026-09-23",
+              "last_price_date": "2026-10-20",
+              "price_source": "yfinance",
+              "fx_source": null,
+              "fx_observations": [],
+              "valid_price_dates": [
+                "2026-09-23",
+                "2026-09-24",
+                "2026-09-25",
+                "2026-09-28",
+                "2026-09-29",
+                "2026-09-30",
+                "2026-10-01",
+                "2026-10-02",
+                "2026-10-05",
+                "2026-10-06",
+                "2026-10-07",
+                "2026-10-08",
+                "2026-10-09",
+                "2026-10-12",
+                "2026-10-13",
+                "2026-10-14",
+                "2026-10-15",
+                "2026-10-16",
+                "2026-10-19",
+                "2026-10-20"
+              ],
+              "missing_market_dates": [],
+              "basis": "UNDERLYING_USD_PROXY"
+            }
+          }
+        }
+      ]
+    },
+    "error": null
+  }
+}
