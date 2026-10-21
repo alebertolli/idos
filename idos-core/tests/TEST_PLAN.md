@@ -303,6 +303,8 @@ estas pruebas.
    cuando no quedan candidatos y ausencia de consultas corporativas/portfolio
    en el Assessment sistemático.
 
+8. La pestaña Research incluye oportunidades `UNDER_RESEARCH` y el estado legado `UNDER_DEEP_DD`, con el contador alineado a ambas; las alertas de propuesta pendiente identifican Decision Board sin asumir estrategia sistemática.
+
 ### 8.4 Frontera privada de portfolio y Risk Audit
 
 El motor Risk Audit v2.1 tiene cobertura local de fixture sintético en
