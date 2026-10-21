@@ -1200,13 +1200,19 @@ def test_multibaggers_prompt_context_is_bounded_and_omits_duplicate_blobs():
     context = ResearchWorker._multibaggers_prompt_context({
         "ticker": "TEST",
         "business_model": "business " * 2000,
+        "products": [{"name": "product " * 1000, "details": "detail " * 1000} for _ in range(20)],
+        "geography": {"regions": ["region " * 1000 for _ in range(20)]},
         "existing_wiki": "wiki " * 10000,
         "financial_data_evidence": "duplicate " * 10000,
         "recent_events": [{"date": "2026-10-21", "title": "title " * 1000, "summary": "summary " * 1000, "url": "https://example.com"}] * 9,
         "scenario_market_evidence": {"source": "https://example.com/quote", "price": 10},
     })
 
-    assert len(json.dumps(context, ensure_ascii=False)) < 10_000
+    assert len(json.dumps(context, ensure_ascii=False)) < 15_000
+    assert len(context["products"]) == 5
+    assert len(context["products"][0]["name"]) == 500
+    assert len(context["geography"]["regions"]) == 5
+    assert len(context["geography"]["regions"][0]) == 500
     assert "existing_wiki" not in context
     assert "financial_data_evidence" not in context
     assert len(context["recent_events"]) == 5
