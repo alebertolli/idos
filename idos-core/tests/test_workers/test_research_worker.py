@@ -515,6 +515,41 @@ class TestResearchWorker:
         assert report["dominio_catalizadores"][0]["probabilidad_pct"] is None
         assert "volatilidad" not in report["resumen_ejecutivo"].lower()
 
+    def test_systematic_scenarios_are_sourced_but_do_not_invent_price_ranges(self):
+        from idos.decision.scenarios import (
+            scenario_source_urls_from_evidence,
+            validate_scenario_analysis,
+        )
+
+        today = date.today()
+        evidence = {
+            "current_quote": {
+                "price": 100.0,
+                "currency": "USD",
+                "as_of_date": today.isoformat(),
+                "sources": [{
+                    "name": "yfinance",
+                    "url": "https://finance.yahoo.com/quote/XLE/",
+                }],
+            },
+        }
+        analysis = ResearchWorker._build_systematic_scenario_analysis(
+            signal={"ticker": "XLE", "momentum": 1.8, "as_of_date": today.isoformat()},
+            parameters={"minimum_signal": 0.6, "maximum_signal": 2.7},
+            analysis_as_of_date=today.isoformat(),
+            quote_currency="USD",
+            scenario_market_evidence=json.dumps(evidence),
+        )
+
+        assert [item["id"] for item in analysis["scenarios"]] == ["BEAR", "BULL"]
+        assert analysis["quantification_status"] == "not_calibrated"
+        assert all(item["target_price"] is None for item in analysis["scenarios"])
+        assert all("probability_pct" not in item for item in analysis["scenarios"])
+        trusted = scenario_source_urls_from_evidence(evidence)
+        assert validate_scenario_analysis(
+            analysis, today=today, trusted_source_urls=trusted
+        ) == []
+
     def test_systematic_report_uses_configured_range_and_invalidates_outside_signal(self):
         report = ResearchWorker._build_systematic_ddd(
             "XLF", {"signal": {"momentum": 1.8}},
