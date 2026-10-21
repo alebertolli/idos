@@ -665,6 +665,10 @@ class SiteBuilder:
             err = ddd.get("error_mercado") or {}
             if isinstance(err, dict):
                 cc = err.get("catalizador_cambio") or {}
+                if isinstance(cc, str):
+                    cc = {"descripcion": cc}
+                elif not isinstance(cc, dict):
+                    cc = {}
                 ddd_summary["error_mercado"] = {
                     "conclusion_error_valoracion": err.get("conclusion_error_valoracion"),
                     "hipotesis_contraria": err.get("hipotesis_contraria"),
