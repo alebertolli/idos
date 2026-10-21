@@ -73,6 +73,17 @@ strategies:
           interest_coverage: "EBIT / interest_expense; no sustituir EBIT por EBITDA"
           fcf_runway_months: "cash_and_equivalents / abs(monthly_FCF_burn); sólo si FCF es negativo"
           gross_margin_pct: "gross_profit / revenue * 100"
+        ratio_units:
+          revenue_cagr_3y_pct: percent
+          fcf_growth_pct: percent
+          fcf_conversion_pct: percent
+          net_debt_ebitda: x
+          dilution_yoy_pct: percent
+          share_count_cagr_3y_pct: percent
+          current_ratio: x
+          interest_coverage: x
+          fcf_runway_months: months
+          gross_margin_pct: percent
         ratio_input_fields:
           revenue_cagr_3y_pct: [revenue_cagr_3y_pct, revenue_history, revenue_ttm, revenue]
           fcf_growth_pct: [fcf_growth_pct, fcf_history, fcf, free_cash_flow]

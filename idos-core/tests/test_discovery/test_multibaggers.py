@@ -80,6 +80,7 @@ def parameters():
             "required_analysis": ["fundamental_ratio_review", "bear_base_bull_scenarios", "source_cited_expectation_gap", "validated_asymmetry"],
             "ratios_to_review": ["revenue_cagr_3y_pct", "fcf_growth_pct", "fcf_conversion_pct", "net_debt_ebitda", "dilution_yoy_pct", "share_count_cagr_3y_pct", "current_ratio", "interest_coverage", "fcf_runway_months", "gross_margin_pct"],
             "ratio_definitions": {"fcf_conversion_pct": "FCF / net_income * 100"},
+            "ratio_units": {"current_ratio": "x"},
             "risk_review_thresholds": {"current_ratio_below": .5, "interest_coverage_below": 2.0},
         },
         "position_limit_pct": 1.0,
@@ -162,6 +163,7 @@ def test_research_intake_routes_fundamental_analysis_to_llm_stage():
     assert "expectation_gap_pct" not in intake["metrics_snapshot"]
     assert "fundamental_ratio_review" in intake["research_requirements"]["required_analysis"]
     assert "net_debt_ebitda" in intake["research_requirements"]["ratios_to_review"]
+    assert intake["research_requirements"]["ratio_units"]["current_ratio"] == "x"
     assert intake["research_requirements"]["scenario_schema_version"] == "bear_base_bull_v1"
 
 

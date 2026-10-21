@@ -384,10 +384,16 @@ class ResearchWorker(BaseWorker):
                 "shape_validation_errors": shape_validation_errors,
             }
 
+        ratio_requirements = (research_intake or {}).get("research_requirements", {})
+        expected_ratio_units = ratio_requirements.get("ratio_units", {})
+        if is_multibaggers:
+            self._normalize_multibaggers_ratio_units(
+                ddd_result.get("ratios_investigados"), expected_ratio_units
+            )
         ratio_validation_errors = (
             self._validate_multibaggers_ratio_review(
                 ddd_result.get("ratios_investigados"),
-                (research_intake or {}).get("research_requirements", {}).get("ratios_to_review", []),
+                ratio_requirements.get("ratios_to_review", []),
                 trusted_source_urls={
                     str(item.get("source_url"))
                     for item in research_financial_evidence["source_observations"].values()
@@ -402,6 +408,7 @@ class ResearchWorker(BaseWorker):
                     set(research_financial_evidence["source_observations"])
                     | set(research_financial_evidence["validated_metric_observations"])
                 ),
+                expected_units=expected_ratio_units,
             )
             if is_multibaggers else []
         )
@@ -1306,16 +1313,39 @@ class ResearchWorker(BaseWorker):
         return errors
 
     @staticmethod
+    @staticmethod
+    def _normalize_multibaggers_ratio_units(
+        raw_ratios: Any,
+        configured_units: dict[str, str],
+    ) -> None:
+        """Fill an omitted unit label from strategy metadata without changing values."""
+        if not isinstance(raw_ratios, list) or not isinstance(configured_units, dict):
+            return
+        for item in raw_ratios:
+            if not isinstance(item, dict) or item.get("status") not in {"reported", "calculated"}:
+                continue
+            metric = item.get("metric")
+            expected_unit = configured_units.get(metric)
+            current_unit = item.get("unit")
+            if (
+                isinstance(expected_unit, str) and expected_unit.strip()
+                and (not isinstance(current_unit, str) or not current_unit.strip())
+            ):
+                item["unit"] = expected_unit
+
+    @staticmethod
     def _validate_multibaggers_ratio_review(
         raw_ratios: Any,
         required_metrics: list[str],
         trusted_source_urls: set[str] | None = None,
         available_input_fields: set[str] | None = None,
+        expected_units: dict[str, str] | None = None,
     ) -> list[str]:
         """Require one auditable Research disposition per configured ratio."""
         if not isinstance(required_metrics, list) or not required_metrics:
             return ["research intake has no configured ratios_to_review"]
         trusted_source_urls = trusted_source_urls or set()
+        expected_units = expected_units or {}
         if not isinstance(raw_ratios, list):
             return ["ratios_investigados must be a list"]
         by_metric: dict[str, dict[str, Any]] = {}
@@ -1346,8 +1376,12 @@ class ResearchWorker(BaseWorker):
             value = item.get("value")
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
                 errors.append(f"reported/calculated ratio needs a finite numeric value: {metric}")
-            if not isinstance(item.get("unit"), str) or not item["unit"].strip():
+            unit = item.get("unit")
+            expected_unit = expected_units.get(metric)
+            if not isinstance(unit, str) or not unit.strip():
                 errors.append(f"ratio needs a unit: {metric}")
+            elif expected_unit and unit != expected_unit:
+                errors.append(f"ratio unit conflicts with configured unit for {metric}: expected {expected_unit}")
             if not isinstance(item.get("period_end"), str) or not item["period_end"].strip():
                 errors.append(f"ratio needs a reporting period: {metric}")
             sources = item.get("sources")
