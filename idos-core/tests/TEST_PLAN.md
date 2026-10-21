@@ -738,3 +738,11 @@ Antes de la primera corrida productiva tras el reinicio:
 3. Ejecutar una corrida Monthly acotada y verificar que Discovery crea únicamente los expedientes nuevos seleccionados desde el universo operable.
 4. Confirmar que Dashboard refleja el estado nuevo y no publica datos de portfolio privado.
 5. Verificar que la versión final de `main` inicia con un único commit raíz.
+
+## §15 Investigación de ratios MULTIBAGGERS desde series del proveedor
+
+1. Verificar con fixture de StockAnalysis que tablas TTM/anuales se conviertan en series con periodo, fecha de cierre exacta y unidad del valor; incluir fechas no calendarias.
+2. Confirmar que cada alias financiero permitido por ratio_input_fields se incluya en el Research Evidence Package con procedencia por campo; claves no configuradas y campos privados deben quedar fuera.
+3. Confirmar que importes sin moneda/escala explícita se etiqueten como unidad reportada desconocida y que LLM marque unavailable cálculos que requieran comparabilidad no demostrada.
+4. En la próxima E2E en rama aislada, inspeccionar ratios reported, calculated y unavailable, referencias a inputs existentes y fechas; Assessment debe conservar RULE-008 cuando la asimetría no alcance el umbral, sin crear Buy List ni posiciones.
+5. Mantener MULTIBAGGERS deshabilitada hasta que el run remoto confirme esta ruta sin datos sintéticos.

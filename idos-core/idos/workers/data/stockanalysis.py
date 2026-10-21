@@ -103,9 +103,11 @@ class StockAnalysisWorker(BaseWorker):
         }
         field_sources["financial_data_observed_at"] = ["stockanalysis.com"]
         financial_fields = {
-            "revenue_growth_pct", "period_end_date", "financial_period_type",
+            "revenue_growth_pct", "period_end_date", "financial_data_as_of_date",
+            "financial_period_type", "financial_history",
             "financials_data_updated_date", "financial_metric_metadata",
         }
+        financial_fields.update(key for key in field_sources if key.endswith("_history"))
         field_urls = {
             key: financials_url if key in financial_fields else url
             for key in field_sources
@@ -139,35 +141,109 @@ class StockAnalysisWorker(BaseWorker):
         return None
 
     def _parse_financials(self, soup: BeautifulSoup) -> dict[str, Any]:
-        """Extract TTM revenue growth and its accounting period from financials."""
+        """Extract dated statement histories without treating retrieval time as a report date."""
+        history_fields = {
+            "revenue": "revenue_history",
+            "revenue growth": "revenue_growth_history",
+            "gross profit": "gross_profit_history",
+            "operating income": "operating_income_history",
+            "net income": "net_income_history",
+            "earnings per share": "eps_history",
+            "cash & investments": "cash_and_investments_history",
+            "total debt": "total_debt_history",
+            "net cash (debt)": "net_cash_history",
+            "operating cash flow": "operating_cash_flow_history",
+            "capital expenditures": "capex_history",
+            "free cash flow": "fcf_history",
+            "free cash flow growth": "fcf_growth_history",
+            "gross margin": "gross_margin_history",
+            "operating margin": "operating_margin_history",
+            "fcf margin": "fcf_margin_history",
+        }
+        parsed_history: dict[str, list[dict[str, Any]]] = {}
         for table in soup.find_all("table"):
-            revenue_growth: float | None = None
-            period_end_date: str | None = None
-            for row in table.find_all("tr"):
-                cells = row.find_all(["td", "th"])
-                values = [cell.get_text(" ", strip=True) for cell in cells]
-                if len(values) < 2:
+            rows = [
+                [cell.get_text(" ", strip=True) for cell in row.find_all(["td", "th"])]
+                for row in table.find_all("tr")
+            ]
+            rows = [row for row in rows if len(row) >= 2]
+            if not rows:
+                continue
+            header = rows[0]
+            if header[0].strip().casefold() not in {"fiscal year", "period"}:
+                continue
+
+            periods = header[1:]
+            period_dates: list[str | None] = [None] * len(periods)
+            for row in rows[1:]:
+                if row[0].strip().casefold() == "period ending":
+                    period_dates = [self._parse_period_end(value) for value in row[1:]]
+                    break
+
+            for row in rows[1:]:
+                raw_label = re.sub(r"\s+", " ", row[0]).strip().casefold()
+                label = self._canonical_financial_row_label(raw_label, history_fields)
+                if not label:
                     continue
+                history_key = history_fields[label]
+                points = parsed_history.setdefault(history_key, [])
+                for index, raw_value in enumerate(row[1:]):
+                    value = self._parse_value(raw_value)
+                    period_label = periods[index] if index < len(periods) else None
+                    period_end = period_dates[index] if index < len(period_dates) else None
+                    if not isinstance(value, (int, float)) or not period_label or not period_end:
+                        continue
+                    point = {
+                        "value": float(value),
+                        "period": period_label,
+                        "period_end": period_end,
+                        "unit": "percent" if history_key in {
+                            "revenue_growth_history", "fcf_growth_history",
+                            "gross_margin_history", "operating_margin_history", "fcf_margin_history",
+                        } else "source_reported_amount",
+                    }
+                    if point not in points:
+                        points.append(point)
 
-                label = re.sub(r"\s+", " ", values[0]).strip().lower()
-                if label == "revenue growth":
-                    parsed = self._parse_value(values[1])
-                    if isinstance(parsed, (float, int)):
-                        revenue_growth = float(parsed)
-                elif label == "period ending":
-                    period_end_date = self._parse_period_end(values[1])
+        if not parsed_history:
+            return {}
+        for points in parsed_history.values():
+            points.sort(key=lambda point: point["period_end"], reverse=True)
 
-            # Pair the period with revenue growth from the same statement table.
-            if revenue_growth is not None:
-                result: dict[str, Any] = {"revenue_growth_pct": revenue_growth}
-                if period_end_date:
-                    result["period_end_date"] = period_end_date
-                    result["financial_period_type"] = "TTM"
-                return result
-        return {}
+        result: dict[str, Any] = {"financial_history": parsed_history, **parsed_history}
+        revenue_growth = next((point for point in parsed_history.get("revenue_growth_history", [])
+                               if point["period"] == "TTM"), None)
+        if revenue_growth:
+            result["revenue_growth_pct"] = revenue_growth["value"]
+            result["period_end_date"] = revenue_growth["period_end"]
+            result["financial_data_as_of_date"] = revenue_growth["period_end"]
+            result["financial_period_type"] = "TTM"
+        else:
+            latest = next((points[0] for points in parsed_history.values() if points), None)
+            if latest:
+                result["period_end_date"] = latest["period_end"]
+                result["financial_data_as_of_date"] = latest["period_end"]
+        return result
+
+    @staticmethod
+    def _canonical_financial_row_label(raw_label: str, fields: dict[str, str]) -> str | None:
+        if raw_label in fields:
+            return raw_label
+        # Some statement rows concatenate their line-item and secondary growth label.
+        for label in sorted(fields, key=len, reverse=True):
+            if raw_label.startswith(label + " ") and raw_label.endswith(" growth"):
+                return label
+        return None
 
     @staticmethod
     def _parse_period_end(value: str) -> str | None:
+        exact_date = re.search(r"\b[A-Za-z]{3,9}\s+\d{1,2},\s+\d{4}\b", value)
+        if exact_date:
+            for date_format in ("%b %d, %Y", "%B %d, %Y"):
+                try:
+                    return datetime.strptime(exact_date.group(0), date_format).date().isoformat()
+                except ValueError:
+                    continue
         match = re.search(r"\b([A-Za-z]{3,9})\s+['’]?(\d{2,4})\b", value.strip())
         if not match:
             return None
