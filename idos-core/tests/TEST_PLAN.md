@@ -748,3 +748,4 @@ Antes de la primera corrida productiva tras el reinicio:
 5. Mantener MULTIBAGGERS deshabilitada hasta que el run remoto confirme esta ruta sin datos sintéticos.
 6. Incluir como máximo las cinco observaciones fechadas más recientes por serie en el contexto LLM, informar omitted_points y preservar los registros completos en la fuente auditable; probar una serie larga y verificar que el contexto resultante queda acotado.
 7. Vincular en forma determinista las citas de cada ratio a las URLs HTTPS de sus inputs declarados; verificar que entradas ausentes/no permitidas no reescriban ni legitimen una URL no confiable.
+8. Probar que productos, geografías y demás campos anidados se limitan por profundidad, longitud y número de elementos; serializar el contexto final y mantenerlo bajo 15 KB.

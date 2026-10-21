@@ -1143,6 +1143,32 @@ class ResearchWorker(BaseWorker):
         }
 
     @staticmethod
+    def _bound_multibaggers_prompt_value(value: Any, depth: int = 0) -> Any:
+        """Bound nested company context before it is serialized into an LLM request."""
+        if isinstance(value, str):
+            return value[:500]
+        if value is None or isinstance(value, (bool, int, float)):
+            return value
+        if depth >= 2:
+            return None
+        if isinstance(value, list):
+            return [
+                ResearchWorker._bound_multibaggers_prompt_value(item, depth + 1)
+                for item in value[:5]
+                if isinstance(item, (str, bool, int, float, list, dict)) or item is None
+            ]
+        if isinstance(value, dict):
+            bounded = {}
+            for key, item in list(value.items())[:8]:
+                if not isinstance(key, str):
+                    continue
+                compact = ResearchWorker._bound_multibaggers_prompt_value(item, depth + 1)
+                if compact is not None:
+                    bounded[key[:100]] = compact
+            return bounded
+        return None
+
+    @staticmethod
     def _multibaggers_prompt_context(data: dict[str, Any]) -> dict[str, Any]:
         """Keep Research context relevant and bounded while retaining sourced market context."""
         fields = (
@@ -1153,8 +1179,7 @@ class ResearchWorker(BaseWorker):
         context: dict[str, Any] = {}
         for field in fields:
             value = data.get(field)
-            if isinstance(value, str):
-                value = value[:500]
+            value = ResearchWorker._bound_multibaggers_prompt_value(value)
             if value is not None:
                 context[field] = value
         scenario_evidence = data.get("scenario_market_evidence")
