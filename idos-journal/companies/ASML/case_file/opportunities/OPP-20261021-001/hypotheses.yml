@@ -1,0 +1,168 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El número total de unidades High‑NA entregadas en 2027 será ≤ 30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ASML anuncia una reducción de capacidad de producción High‑NA antes
+      de 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El número total de unidades High‑NA entregadas en 2027 será ≤ 30.
+  - ASML anuncia una reducción de capacidad de producción High‑NA antes de 2027-12-31.
+  horizon: medio
+  id: H1-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 30.0
+    met: null
+    metric: unidades High‑NA entregadas
+    prediction: En el año fiscal 2027, el número total de sistemas High‑NA entregados
+      será superior a 30 unidades.
+    unit: unidades/año
+  priority: critical
+  probability: 0.5
+  rationale: La demanda de nodos de proceso de 3 nm y menores está creciendo rápidamente,
+    y los principales clientes (TSMC, Samsung, Intel) han anunciado planes de expansión
+    que requieren High‑NA. ASML ha reportado una capacidad de producción ampliada
+    y una hoja de pedidos creciente en Q3‑2026.
+  review_trigger: Si a finales de Q2‑2027 (2027-06-30) los informes de producción
+    indican una capacidad inferior a 30 unidades anuales, la hipótesis se descartará.
+  secondary_hypotheses:
+  - H4-OPP-20261021-001
+  statement: ASML incrementará sus envíos anuales de sistemas EUV de alta numerical
+    aperture (High‑NA) a más de 30 unidades para finales de 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EPS GAAP declarado en el informe anual 2027 será < 12,5 €.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una caída significativa del margen bruto (>2 puntos porcentuales) que
+      reduzca el EPS por debajo del objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EPS GAAP declarado en el informe anual 2027 será < 12,5 €.
+  - Una caída significativa del margen bruto (>2 puntos porcentuales) que reduzca
+    el EPS por debajo del objetivo.
+  horizon: medio
+  id: H2-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 12.5
+    met: null
+    metric: EPS GAAP
+    prediction: El EPS GAAP reportado en el informe anual 2027 será ≥ 12,5 €.
+    unit: EUR
+  priority: important
+  probability: 0.5
+  rationale: El aumento de ingresos por High‑NA, junto con márgenes operativos estables
+    y una gestión eficaz del CAPEX, debería traducirse en un crecimiento del EPS superior
+    al 15 % YoY, partiendo de los 10,8 € reportados en 2026.
+  review_trigger: Si el informe preliminar de resultados Q3‑2027 (2027-09-30) muestra
+    un EPS proyectado por debajo de 12,0 €, la hipótesis se reconsiderará.
+  secondary_hypotheses:
+  - H1-OPP-20261021-001
+  statement: El beneficio por acción (EPS) GAAP de ASML alcanzará al menos 12,5 €
+    en el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La capitalización bursátil al 2028-06-30 será < 500 bn €.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El múltiplo P/E promedio del mercado se mantiene por debajo de 25×
+      durante 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La capitalización bursátil al 2028-06-30 será < 500 bn €.
+  - El múltiplo P/E promedio del mercado se mantiene por debajo de 25× durante 2028.
+  horizon: largo
+  id: H3-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 500.0
+    met: null
+    metric: Capitalización bursátil
+    prediction: El valor de mercado de ASML será ≥ 500 bn € al 2028-06-30.
+    unit: bn EUR
+  priority: important
+  probability: 0.5
+  rationale: Un EPS superior a 12,5 € y una revaloración del múltiplo P/E a alrededor
+    de 30×, impulsada por la mayor participación de mercado en High‑NA y la reducción
+    percibida del riesgo regulatorio, deberían elevar la valoración de la compañía.
+  review_trigger: Si a finales de Q1‑2028 (2028-03-31) la capitalización bursátil
+    está por debajo de 450 bn €, la hipótesis perderá validez.
+  secondary_hypotheses:
+  - H2-OPP-20261021-001
+  statement: La capitalización bursátil de ASML superará los 500 000 millones de euros
+    antes del 30 de junio de 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Publicación oficial de una restricción de exportación EUV dirigida
+      a China antes del 2028-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Anuncio de ASML indicando la imposibilidad de vender sistemas EUV a
+      clientes chinos a partir de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Publicación oficial de una restricción de exportación EUV dirigida a China antes
+    del 2028-03-31.
+  - Anuncio de ASML indicando la imposibilidad de vender sistemas EUV a clientes chinos
+    a partir de 2028.
+  horizon: corto
+  id: H4-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.0
+    met: null
+    metric: Restricciones de exportación EUV a China
+    prediction: Hasta el 2028-03-31 no se publicará ninguna legislación o medida ejecutiva
+      que limite la exportación de sistemas EUV a China.
+    unit: restricciones
+  priority: critical
+  probability: 0.5
+  rationale: Las negociaciones en curso entre EE. UU., la UE y los aliados tecnológicos
+    indican una tendencia a mantener el flujo de equipos críticos para evitar una
+    fragmentación del mercado de semiconductores, y ASML ha recibido garantías de
+    continuidad de suministro en sus últimos comunicados.
+  review_trigger: Si a mediados de 2027 (2027-07-01) se firma un acuerdo bilateral
+    que incluya limitaciones de exportación EUV, la hipótesis se descartará.
+  secondary_hypotheses: []
+  statement: No se impondrá ninguna nueva restricción de exportación de tecnología
+    EUV a China por parte de EE. UU. o la UE antes del 31 de marzo de 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
