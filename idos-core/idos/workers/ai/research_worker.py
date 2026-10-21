@@ -302,7 +302,11 @@ class ResearchWorker(BaseWorker):
             ddd_result = self._run_prompt("multibaggers", ticker, {
                 "ticker": ticker,
                 "name": company.get("name", ticker),
-                "intake_package": json.dumps(research_intake, ensure_ascii=False, sort_keys=True),
+                "intake_package": json.dumps(
+                    self._multibaggers_intake_prompt_context(research_intake),
+                    ensure_ascii=False,
+                    sort_keys=True,
+                ),
                 "financial_summary": json.dumps(
                     self._multibaggers_prompt_context(ddd_inputs),
                     ensure_ascii=False,
@@ -1252,6 +1256,82 @@ class ResearchWorker(BaseWorker):
             )
         selected = [item for _, item in indexed[:limit]]
         return selected, max(0, len(value) - len(selected))
+
+    @staticmethod
+    def _multibaggers_intake_prompt_context(package: dict[str, Any]) -> dict[str, Any]:
+        """Keep the audited Research contract while omitting duplicated market history."""
+        if not isinstance(package, dict):
+            return {}
+
+        context = {
+            key: package[key]
+            for key in (
+                "ticker", "strategy_id", "strategy_version", "discovery_profile",
+                "research_profile", "as_of", "config_hash", "snapshot_hash",
+                "discovery_score", "research_priority", "discovery_type",
+                "component_scores", "reason_codes", "red_flags", "data_quality",
+                "research_requirements", "market_quote",
+            )
+            if key in package
+        }
+
+        metrics = package.get("metrics_snapshot")
+        if isinstance(metrics, dict):
+            compact_metrics = {}
+            for metric, raw in metrics.items():
+                if not isinstance(raw, dict):
+                    continue
+                compact = {
+                    key: raw[key]
+                    for key in (
+                        "value", "unit", "currency", "period", "status",
+                        "reason_code", "as_of",
+                    )
+                    if key in raw
+                }
+                sources = raw.get("source_evidence")
+                if isinstance(sources, list):
+                    compact["source_evidence"] = [
+                        {
+                            key: item[key]
+                            for key in (
+                                "source_id", "status", "value", "unit", "currency",
+                                "period", "reported_at", "observed_at", "source_url",
+                            )
+                            if key in item
+                        }
+                        for item in sources[:3]
+                        if isinstance(item, dict)
+                    ]
+                compact_metrics[metric] = compact
+            context["metrics_snapshot"] = compact_metrics
+
+        eligibility = package.get("global_market_eligibility")
+        if isinstance(eligibility, dict):
+            compact_eligibility = {
+                key: eligibility[key]
+                for key in (
+                    "passed", "asset_type", "size_metric_usd", "market_cap_min_usd",
+                    "avg_dollar_volume_usd", "avg_dollar_volume_min_usd",
+                    "liquidity_basis", "reason_codes", "normalization", "size_provenance",
+                )
+                if key in eligibility
+            }
+            liquidity = eligibility.get("liquidity_provenance")
+            if isinstance(liquidity, dict):
+                compact_eligibility["liquidity_provenance"] = {
+                    key: liquidity[key]
+                    for key in (
+                        "basis", "coverage", "expected_observations", "valid_observations",
+                        "minimum_coverage", "window_sessions", "first_price_date",
+                        "last_price_date", "price_source", "fx_reference", "fx_side",
+                        "fx_source",
+                    )
+                    if key in liquidity
+                }
+            context["global_market_eligibility"] = compact_eligibility
+
+        return context
 
     @staticmethod
     def _research_financial_evidence(
