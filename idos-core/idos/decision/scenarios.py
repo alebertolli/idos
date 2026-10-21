@@ -38,6 +38,83 @@ def scenario_source_urls_from_evidence(value: Any) -> set[str]:
     return urls
 
 
+def scenario_source_urls_from_research_financial_evidence(value: Any) -> set[str]:
+    """Return URLs attached to financial inputs admitted to Research."""
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except (TypeError, ValueError):
+            return set()
+    if not isinstance(value, dict):
+        return set()
+
+    urls: set[str] = set()
+    observations = value.get("source_observations")
+    if isinstance(observations, dict):
+        for observation in observations.values():
+            if isinstance(observation, dict):
+                normalized = _normalize_source_url(observation.get("source_url"))
+                if normalized:
+                    urls.add(normalized)
+
+    validated = value.get("validated_metric_observations")
+    if isinstance(validated, dict):
+        for metric_observations in validated.values():
+            if not isinstance(metric_observations, list):
+                continue
+            for observation in metric_observations:
+                if isinstance(observation, dict):
+                    normalized = _normalize_source_url(observation.get("source_url"))
+                    if normalized:
+                        urls.add(normalized)
+    return urls
+
+
+def scenario_financial_evidence_snapshot(value: Any) -> dict[str, Any]:
+    """Persist only source metadata needed to revalidate scenario citations."""
+    if not isinstance(value, dict):
+        return {}
+    snapshot: dict[str, Any] = {
+        "source_observations": {},
+        "validated_metric_observations": {},
+    }
+    observations = value.get("source_observations")
+    if isinstance(observations, dict):
+        for metric, observation in observations.items():
+            if not isinstance(observation, dict):
+                continue
+            source_url = _normalize_source_url(observation.get("source_url"))
+            if not source_url:
+                continue
+            snapshot["source_observations"][str(metric)] = {
+                "source_url": source_url,
+                "period_end": observation.get("period_end"),
+                "sources": observation.get("sources", []),
+            }
+    validated = value.get("validated_metric_observations")
+    if isinstance(validated, dict):
+        for metric, metric_observations in validated.items():
+            if not isinstance(metric_observations, list):
+                continue
+            rows = []
+            for observation in metric_observations:
+                if not isinstance(observation, dict):
+                    continue
+                source_url = _normalize_source_url(observation.get("source_url"))
+                if not source_url:
+                    continue
+                rows.append({
+                    "source_id": observation.get("source_id"),
+                    "source_url": source_url,
+                    "period": observation.get("period"),
+                    "reported_at": observation.get("reported_at"),
+                    "observed_at": observation.get("observed_at"),
+                })
+            if rows:
+                snapshot["validated_metric_observations"][str(metric)] = rows
+    return snapshot
+
+
 def scenario_source_urls_from_report(report: Any) -> set[str]:
     """Extract the exact source URLs a DDD scenario may cite."""
     if not isinstance(report, dict):
@@ -45,6 +122,9 @@ def scenario_source_urls_from_report(report: Any) -> set[str]:
     snapshot = report.get("research_input_snapshot")
     if isinstance(snapshot, dict):
         urls = scenario_source_urls_from_evidence(snapshot.get("scenario_market_evidence"))
+        urls.update(scenario_source_urls_from_research_financial_evidence(
+            snapshot.get("scenario_financial_evidence")
+        ))
         if urls:
             return urls
 
