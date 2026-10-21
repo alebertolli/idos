@@ -177,11 +177,11 @@ jobs:
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "workflow_call" ]; then
-            echo "FORCE=${{ github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
-            echo "REVIEW_BUYLIST=${{ github.event.inputs.review_buylist || 'false' }}" >> $GITHUB_ENV
-            echo "ASSESSMENT_ONLY=${{ github.event.inputs.assessment_only || 'false' }}" >> $GITHUB_ENV
-            echo "PREVIEW_ONLY=${{ github.event.inputs.preview_only || 'false' }}" >> $GITHUB_ENV
-            echo "EVENT_TYPE=${{ github.event.inputs.event_type || 'manual' }}" >> $GITHUB_ENV
+            echo "FORCE=${{ inputs.force || github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=${{ inputs.review_buylist || github.event.inputs.review_buylist || 'false' }}" >> $GITHUB_ENV
+            echo "ASSESSMENT_ONLY=${{ inputs.assessment_only || github.event.inputs.assessment_only || 'false' }}" >> $GITHUB_ENV
+            echo "PREVIEW_ONLY=${{ inputs.preview_only || github.event.inputs.preview_only || 'false' }}" >> $GITHUB_ENV
+            echo "EVENT_TYPE=${{ inputs.event_type || github.event.inputs.event_type || 'manual' }}" >> $GITHUB_ENV
           elif [ "${{ github.event.schedule }}" = "0 6 */30 * *" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
