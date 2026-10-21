@@ -244,6 +244,7 @@ def _write_ddd_case(tmp_path: Path, review: dict | None) -> None:
         "resumen_ejecutivo": "Tesis antigua sin validar",
         "tesis_inversion": "Afirmación que requiere revisión",
         "score_general": 81,
+        "error_mercado": {"catalizador_cambio": "Revisión a la baja de la demanda de chips."},
         "dominio_business_quality": {"rating": "fuerte", "analisis": "Afirmación sin fuente"},
         "evidence_review": review or {},
     }
@@ -291,6 +292,9 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert data.positions == []
     assert data.portfolio == {}
     assert opp["ddd"]["score_general"] == 81
+    assert opp["ddd"]["error_mercado"]["catalizador_cambio"]["descripcion"] == (
+        "Revisión a la baja de la demanda de chips."
+    )
     assert opp["ddd"]["dominios"][0]["analisis"] == "Afirmación sin fuente"
     assert opp["ddd"]["hipotesis"][0]["predictions"][0]["expected"] == 8
     assert opp["ddd"]["hipotesis"][0]["predictions"][0]["prediction"] == "Ingresos crecerán 8% para FY2027."
