@@ -315,7 +315,7 @@ class ResearchWorker(BaseWorker):
                 ),
             }, max_tokens=8192)
         else:
-            ddd_result = self._run_prompt("ddd", ticker, ddd_inputs)
+            ddd_result = self._run_prompt("ddd", ticker, ddd_inputs, max_tokens=8192)
 
         classification = ddd_result.get("clasificacion_oportunidad", {})
         if signal_snapshot is not None:
