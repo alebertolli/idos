@@ -1011,3 +1011,59 @@ def test_buylist_surfaces_failed_latest_scout_without_revoking_manager_approval(
     assert any(alert["type"] == "discovery_data_review" for alert in site.dashboard["alerts"])
     assert "antes de usar esta oportunidad" in app
 
+
+def test_multibaggers_dashboard_uses_discovery_snapshot_and_structured_market_evidence(tmp_path: Path):
+    import json
+    import yaml
+
+    _write_ddd_case(tmp_path, review=None)
+    opp_dir = tmp_path / "idos-journal/companies/VIST/case_file/opportunities/OPP-1"
+    opportunity_path = opp_dir / "opportunity.yml"
+    opportunity = yaml.safe_load(opportunity_path.read_text(encoding="utf-8"))
+    opportunity.update({
+        "strategy_id": "MULTIBAGGERS",
+        "latest_discovery_evidence": {
+            "discovery_score": 72.5,
+            "research_priority": 68.0,
+            "discovery_type": "RESEARCH_REQUIRED",
+        },
+    })
+    opportunity_path.write_text(yaml.safe_dump(opportunity, allow_unicode=True), encoding="utf-8")
+
+    report_path = opp_dir / "ddd_report.yml"
+    report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+    report["error_mercado"] = {
+        "consenso_actual": {
+            "mean": 120.0,
+            "currency": "USD",
+            "sources": [{
+                "name": "Market source",
+                "url": "https://example.com/consensus",
+                "as_of_date": "2026-10-20",
+            }],
+        },
+    }
+    report["dominio_riesgos"] = [{
+        "nombre": "Cobertura de intereses",
+        "descripcion": "Revisar el ratio reportado antes del Board.",
+    }]
+    report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
+
+    data = SiteBuilder(tmp_path).build()
+    opp = next(item for item in data.opportunities if item["strategy_id"] == "MULTIBAGGERS")
+    assert opp["discovery_score"] == 72.5
+    assert opp["research_priority"] == 68.0
+    assert opp["discovery_type"] == "RESEARCH_REQUIRED"
+    assert opp["ddd"]["riesgos"][0]["riesgo"] == "Cobertura de intereses"
+    assert opp["ddd"]["riesgos"][0]["descripcion"] == "Revisar el ratio reportado antes del Board."
+    assert opp["ddd"]["error_mercado"]["consenso_actual"]["mean"] == 120.0
+
+    output = write_site(tmp_path, tmp_path / "site-output")
+    app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+    payload = json.loads((output / "data.json").read_text(encoding="utf-8"))
+    public_opp = next(item for item in payload["opportunities"] if item["strategy_id"] == "MULTIBAGGERS")
+    assert public_opp["discovery_score"] == 72.5
+    assert public_opp["ddd"]["error_mercado"]["consenso_actual"]["sources"][0]["url"] == "https://example.com/consensus"
+    assert "Number.isFinite(Number(value))" in app
+    assert "consensus.sources.map" in app
+    assert "${esc(em.consenso_actual)}</p>" not in app
