@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/alebertolli/idos/compare/v0.1.5...v0.1.6) (2026-10-21)
+
+
+### Bug Fixes
+
+* **dashboard:** show deep due diligence in Research ([#161](https://github.com/alebertolli/idos/issues/161)) ([731ab09](https://github.com/alebertolli/idos/commit/731ab09b1203dacb0b96800d5db96da640d640c7))
+
 ## [0.1.5](https://github.com/alebertolli/idos/compare/v0.1.4...v0.1.5) (2026-10-20)
 
 
