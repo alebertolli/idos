@@ -55,11 +55,23 @@ user_prompt: >
   `falsadores` lista de strings; `calidad_evidencia` objeto con
   `hechos_verificados`, `inferencias_llm`, `preguntas_abiertas`;
   `ratios_investigados` lista exacta de ratios configurados; `risk_flags` lista.
-  Cada escenario es un objeto con `id`, `probability_pct`, `target_price`,
-  `rationale`, `key_assumptions` y `sources`; cada fuente incluye `name`,
-  `url` y `as_of_date`. Incluye exactamente BEAR, BASE y BULL, sus
-  probabilidades suman 100 y cada precio objetivo tiene fuente HTTPS y fecha;
-  si no puedes verificar esos datos, usa null. El score general mide calidad de
-  evidencia, no probabilidad ni conviction. No propongas APPROVED ni órdenes.
+  Bear, Base y Bull son tres escenarios mutuamente excluyentes de una misma tesis:
+  BEAR es el peor resultado plausible respaldado por evidencia, BASE es el caso
+  central y BULL es el mejor resultado plausible; no los presentes como tres tesis
+  independientes. Cada escenario es un objeto con `id`, `probability_pct`,
+  `target_price`, `rationale`, `key_assumptions` y `sources`; cada fuente
+  incluye `name`, `url` y `as_of_date`.
+  `target_price` es una estimación analítica para el horizonte, no una cotización
+  observada. Derívala de supuestos explícitos y coherentes con datos financieros
+  o de mercado del paquete; explica método y supuestos en `rationale` y
+  `key_assumptions`. Las fuentes citadas deben respaldar esos inputs, no fingir
+  que publicaron el precio objetivo. No uses porcentajes arbitrarios ni inventes
+  cifras, fuentes o métodos. Si la evidencia no permite una estimación defendible,
+  usa null; Assessment la bloqueará para revisión, nunca la completes por intuición.
+  Incluye exactamente BEAR, BASE y BULL. Sus probabilidades expresan la posibilidad
+  relativa de cada escenario, no la probabilidad de un retorno; son propuestas
+  preliminares del Research y deben sumar 100. El gestor las valida en Decision
+  Board antes de una decisión. El score general mide calidad de evidencia, no
+  probabilidad ni conviction. No propongas APPROVED ni órdenes.
 category: research
 version: "1.1"
