@@ -19,12 +19,11 @@ strategies:
     thesis_type: STRATEGIC
     discovery_profile: multibaggers
     research_profile: multibaggers
-    strategy_version: "1.1"
+    strategy_version: "1.2"
     entry_policy: MANUAL_REVIEW
     parameters:
       thesis_review_interval_days: 30
-      universe: curated
-      universe_path: idos-config/universe/multibaggers.yml
+      supported_asset_types: [us_equity]
       small_caps_enabled: false
       discovery_threshold: 65
       position_limit_pct: 1.0
@@ -91,3 +90,4 @@ strategies:
         negative_fcf_runway_months_below: 12
         dilution_yoy_above_pct: 10
         share_count_cagr_3y_above_pct: 5
+

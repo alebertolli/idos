@@ -1,4 +1,4 @@
-"""Strategy-scoped runner for the curated MULTIBAGGERS universe."""
+"""Strategy-scoped runner over the shared operable universe."""
 from __future__ import annotations
 
 import hashlib
@@ -19,7 +19,7 @@ from idos.strategy.catalog import StrategyCatalog
 
 
 class MultibaggersPipeline:
-    """Runs Discovery only when both the strategy and curated universe are enabled."""
+    """Runs MULTIBAGGERS over operable symbols supported by its profile."""
 
     def __init__(self, config: dict[str, Any] | None = None):
         self.config = config or {}
@@ -30,10 +30,6 @@ class MultibaggersPipeline:
         self.profile = StrategyCatalog(config_dir / "strategies.yml").require("MULTIBAGGERS")
         if not self.profile.enabled:
             raise ValueError("Strategy is disabled: MULTIBAGGERS")
-        universe_path = Path(self.profile.parameters.get("universe_path", config_dir / "universe/multibaggers.yml"))
-        if not universe_path.is_absolute():
-            universe_path = self.root / universe_path
-        self.universe_path = universe_path
         operable_path = Path(self.config.get("operable_path", config_dir / "universe/operable.yml"))
         if not operable_path.is_absolute():
             operable_path = self.root / operable_path
@@ -43,18 +39,33 @@ class MultibaggersPipeline:
         if not self.journal_root.is_absolute():
             self.journal_root = self.root / self.journal_root
         self.db_path = self.root / "idos.db"
+        self.candidate_source = "idos-config/universe/operable.yml"
 
     def run(self, context: dict[str, Any] | None = None) -> dict[str, Any]:
-        universe = yaml.safe_load(self.universe_path.read_text(encoding="utf-8")) or {}
-        if universe.get("strategy_id") != "MULTIBAGGERS":
-            raise ValueError("Curated universe strategy_id must be MULTIBAGGERS")
-        if not universe.get("enabled", False):
-            raise ValueError("Curated MULTIBAGGERS universe is disabled")
-        curated_tickers = sorted({str(t).strip().upper() for t in universe.get("tickers", []) if str(t).strip()})
-        tickers, excluded_tickers = self.operability.filter_tickers(curated_tickers)
+        context = context or {}
+        requested = context.get("candidate_tickers")
+        tickers = (
+            self.operability.validate_selection(requested)
+            if requested is not None
+            else sorted(self.operability.tickers)
+        )
+        entries = {entry["ticker"]: entry for entry in self.operability.list()}
+        supported_types = {
+            str(value).strip().lower()
+            for value in self.profile.parameters.get("supported_asset_types", ["us_equity"])
+            if str(value).strip()
+        }
+        excluded_tickers = sorted(
+            ticker for ticker in tickers
+            if str(entries.get(ticker, {}).get("type", "us_equity")).strip().lower() not in supported_types
+        )
+        excluded_set = set(excluded_tickers)
+        tickers = [ticker for ticker in tickers if ticker not in excluded_set]
         if not tickers:
             return {"status": "no_eligible_tickers", "strategy_id": "MULTIBAGGERS", "processed": 0, "created": 0,
-                    "excluded_tickers": excluded_tickers, "message": "No curated tickers are present in the operable allowlist"}
+                    "candidate_source": self.candidate_source,
+                    "excluded_tickers": excluded_tickers,
+                    "message": "No operable symbols match the MULTIBAGGERS asset-type policy"}
 
         from idos.workers.data.cache import DataCache
         cache = self.config.get("data_cache") or DataCache(str(self.db_path))
@@ -62,7 +73,9 @@ class MultibaggersPipeline:
         discovery_store = MultibaggersStore(self.db_path)
         sqlite = SQLiteStore(self.db_path)
         output = {"status": "completed", "strategy_id": "MULTIBAGGERS", "processed": 0, "passed": 0, "blocked": 0,
-                  "created": 0, "existing": 0, "excluded_tickers": excluded_tickers, "results": []}
+                  "created": 0, "existing": 0, "candidate_source": self.candidate_source,
+                  "excluded_tickers": excluded_tickers, "results": []}
+        universe_hash = hashlib.sha256(self.operability.path.read_bytes()).hexdigest()
         for ticker in tickers:
             payload = cache.get(f"merged:{ticker}")
             needs_refresh = payload is None or self._market_data_needs_refresh(ticker, payload)
@@ -84,35 +97,25 @@ class MultibaggersPipeline:
                 asset_type=self._asset_type(ticker),
                 settings=self.market_data_settings,
             )
-            result = engine.evaluate(
-                ticker,
-                payload,
-                payload.get("as_of") if isinstance(payload, dict) else None,
+            as_of = payload.get("as_of") if isinstance(payload, dict) else None
+            result = (
+                engine.evaluate(ticker, payload, as_of)
+                if market_eligibility["passed"]
+                else engine.blocked_by_global_market_gate(ticker, market_eligibility, as_of)
             )
             result_data = result.to_dict()
             result_data["global_market_eligibility"] = market_eligibility
-            if not market_eligibility["passed"]:
-                result_data["passed"] = False
-                result_data["reason_codes"] = sorted(
-                    set(result_data["reason_codes"] + market_eligibility["reason_codes"])
-                )
-                result_data["red_flags"] = result_data["red_flags"] + [
-                    {
-                        "code": code,
-                        "severity": "hard",
-                        "metric": "global_market_eligibility",
-                        "message": code.replace("_", " ").lower(),
-                        "evidence": market_eligibility,
-                    }
-                    for code in market_eligibility["reason_codes"]
-                ]
-                result_data["discovery_type"] = "BLOCKED_DATA"
             hash_body = {key: value for key, value in result_data.items() if key != "snapshot_hash"}
             result_data["snapshot_hash"] = hashlib.sha256(
                 json.dumps(hash_body, sort_keys=True, separators=(",", ":"), default=str).encode("utf-8")
             ).hexdigest()
             if result_data["passed"]:
-                intake = build_research_intake(result_data, {"parameters": self.profile.parameters, "universe": universe})
+                intake = build_research_intake(result_data, {
+                    "parameters": self.profile.parameters,
+                    "candidate_source": self.candidate_source,
+                    "candidate_universe_sha256": universe_hash,
+                    "candidate_count": len(tickers),
+                })
             else:
                 intake = {}
             discovery_store.save(result_data, intake)
@@ -197,3 +200,4 @@ class MultibaggersPipeline:
             "GLOBAL_MARKET_CAP_EVIDENCE_INCOMPLETE",
         }
         return bool(incomplete_evidence.intersection(reasons))
+

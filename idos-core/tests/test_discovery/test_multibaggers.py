@@ -152,9 +152,9 @@ def test_repository_profile_uses_shared_market_policy_and_versioned_ranges():
 
     assert config["default_strategy"] == "COMPOUNDER"
     assert profile["enabled"] is False
-    assert profile["strategy_version"] == "1.1"
-    universe = yaml.safe_load((repository_root / "idos-config" / "universe" / "multibaggers.yml").read_text(encoding="utf-8"))
-    assert universe["version"] == "1.1"
+    assert profile["strategy_version"] == "1.2"
+    assert policy["supported_asset_types"] == ["us_equity"]
+    assert "universe_path" not in policy
     market_data = yaml.safe_load((repository_root / "idos-config" / "market_data.yml").read_text(encoding="utf-8"))
     assert market_data["eligibility"]["market_cap_min_usd"] == 2_000_000_000
     assert market_data["eligibility"]["avg_dollar_volume_min_usd"] == 100_000
@@ -340,14 +340,12 @@ def test_incomplete_evidence_is_preserved_without_crashing_as_of_selection():
 
 def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Path):
     config_dir = tmp_path / "idos-config"
-    universe_path = config_dir / "universe" / "multibaggers.yml"
-    universe_path.parent.mkdir(parents=True)
+    (config_dir / "universe").mkdir(parents=True)
     (config_dir / "universe" / "operable.yml").write_text(yaml.safe_dump({"operable_tickers": [{"ticker": "TEST", "type": "us_equity"}]}), encoding="utf-8")
     profile = {"enabled": True, "core": "CORE_4_ALPHA_ASYMMETRY", "sleeve": "ALPHA_ASYMMETRY", "thesis_type": "STRATEGIC",
         "discovery_profile": "multibaggers", "research_profile": "multibaggers", "entry_policy": "MANUAL_REVIEW", "strategy_version": "1.0",
-        "parameters": {**parameters(), "universe_path": str(universe_path)}}
+        "parameters": {**parameters(), "supported_asset_types": ["us_equity"]}}
     (config_dir / "strategies.yml").write_text(yaml.safe_dump({"default_strategy": "COMPOUNDER", "strategies": {"MULTIBAGGERS": profile}}), encoding="utf-8")
-    universe_path.write_text(yaml.safe_dump({"strategy_id": "MULTIBAGGERS", "enabled": True, "tickers": ["TEST"]}), encoding="utf-8")
     class FakeCache:
         payload = valid_payload()
 
@@ -384,16 +382,14 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     assert public_opp["research_priority"] is not None
 
 
-def test_multibaggers_pipeline_blocks_missing_or_below_threshold_global_market_evidence(tmp_path: Path):
+def test_multibaggers_pipeline_blocks_market_ineligible_tickers_before_strategy_scoring(tmp_path: Path, monkeypatch):
     config_dir = tmp_path / "idos-config"
-    universe_path = config_dir / "universe" / "multibaggers.yml"
-    universe_path.parent.mkdir(parents=True)
+    (config_dir / "universe").mkdir(parents=True)
     (config_dir / "universe" / "operable.yml").write_text(yaml.safe_dump({"operable_tickers": [{"ticker": "TEST", "type": "us_equity"}]}), encoding="utf-8")
     profile = {"enabled": True, "core": "CORE_4_ALPHA_ASYMMETRY", "sleeve": "ALPHA_ASYMMETRY", "thesis_type": "STRATEGIC",
         "discovery_profile": "multibaggers", "research_profile": "multibaggers", "entry_policy": "MANUAL_REVIEW", "strategy_version": "1.0",
-        "parameters": {**parameters(), "universe_path": str(universe_path)}}
+        "parameters": {**parameters(), "supported_asset_types": ["us_equity"]}}
     (config_dir / "strategies.yml").write_text(yaml.safe_dump({"default_strategy": "COMPOUNDER", "strategies": {"MULTIBAGGERS": profile}}), encoding="utf-8")
-    universe_path.write_text(yaml.safe_dump({"strategy_id": "MULTIBAGGERS", "enabled": True, "tickers": ["TEST"]}), encoding="utf-8")
 
     class FakeCache:
         payload = valid_payload()
@@ -402,32 +398,43 @@ def test_multibaggers_pipeline_blocks_missing_or_below_threshold_global_market_e
     cache = FakeCache()
     config = {"base_path": str(tmp_path), "config_path": str(config_dir), "journal_path": str(tmp_path / "idos-journal"), "data_cache": cache, "refresh_missing": False}
     cache.payload["merged_data"].pop("market_data_normalization")
-    result = MultibaggersPipeline(config).run()
+    with monkeypatch.context() as patch:
+        patch.setattr(
+            MultibaggersDiscoveryEngine,
+            "evaluate",
+            lambda *_args, **_kwargs: (_ for _ in ()).throw(
+                AssertionError("strategy scoring must wait for global market eligibility")
+            ),
+        )
+        result = MultibaggersPipeline(config).run()
     assert result["blocked"] == 1
     assert result["created"] == 0
     assert "MARKET_DATA_NORMALIZATION_INCOMPLETE" in result["results"][0]["reason_codes"]
 
     cache.payload = valid_payload()
     cache.payload["merged_data"]["avg_dollar_volume_usd"] = 99_999
-    config["refresh_worker_factory"] = lambda _config: (_ for _ in ()).throw(
-        AssertionError("below-threshold evidence must not trigger another market-data fetch")
-    )
-    result = MultibaggersPipeline(config).run()
+    with monkeypatch.context() as patch:
+        patch.setattr(
+            MultibaggersDiscoveryEngine,
+            "evaluate",
+            lambda *_args, **_kwargs: (_ for _ in ()).throw(
+                AssertionError("strategy scoring must wait for global market eligibility")
+            ),
+        )
+        result = MultibaggersPipeline(config).run()
     assert result["blocked"] == 1
     assert result["created"] == 0
     assert "GLOBAL_LIQUIDITY_BELOW_MINIMUM" in result["results"][0]["reason_codes"]
 
 
-def test_multibaggers_excludes_tickers_missing_from_shared_operable_allowlist(tmp_path: Path):
+def test_multibaggers_uses_shared_operable_universe_and_profile_asset_filter(tmp_path: Path):
     config_dir = tmp_path / "idos-config"
-    universe_path = config_dir / "universe" / "multibaggers.yml"
-    universe_path.parent.mkdir(parents=True)
+    (config_dir / "universe").mkdir(parents=True)
     profile = {"enabled": True, "core": "CORE_4_ALPHA_ASYMMETRY", "sleeve": "ALPHA_ASYMMETRY", "thesis_type": "STRATEGIC",
         "discovery_profile": "multibaggers", "research_profile": "multibaggers", "entry_policy": "MANUAL_REVIEW", "strategy_version": "1.0",
-        "parameters": {**parameters(), "universe_path": str(universe_path)}}
+        "parameters": {**parameters(), "supported_asset_types": ["us_equity"]}}
     (config_dir / "strategies.yml").write_text(yaml.safe_dump({"default_strategy": "COMPOUNDER", "strategies": {"MULTIBAGGERS": profile}}), encoding="utf-8")
-    universe_path.write_text(yaml.safe_dump({"strategy_id": "MULTIBAGGERS", "enabled": True, "tickers": ["OUT"]}), encoding="utf-8")
-    (config_dir / "universe" / "operable.yml").write_text(yaml.safe_dump({"operable_tickers": [{"ticker": "IN"}]}), encoding="utf-8")
+    (config_dir / "universe" / "operable.yml").write_text(yaml.safe_dump({"operable_tickers": [{"ticker": "QQQ", "type": "etf"}]}), encoding="utf-8")
 
     class CacheMustNotBeRead:
         def get(self, _key):
@@ -436,7 +443,8 @@ def test_multibaggers_excludes_tickers_missing_from_shared_operable_allowlist(tm
     result = MultibaggersPipeline({"base_path": str(tmp_path), "config_path": str(config_dir), "data_cache": CacheMustNotBeRead()}).run()
 
     assert result["status"] == "no_eligible_tickers"
-    assert result["excluded_tickers"] == ["OUT"]
+    assert result["candidate_source"].endswith("operable.yml")
+    assert result["excluded_tickers"] == ["QQQ"]
     assert result["processed"] == 0
     assert not (tmp_path / "idos.db").exists()
 
@@ -492,3 +500,4 @@ def test_manual_review_stops_assessment_before_buy_list(tmp_path, monkeypatch):
     resolution = yaml.safe_load((journal / "board_resolution.yml").read_text(encoding="utf-8"))
     assert proposal["status"] == "PENDING_HUMAN_REVIEW"
     assert resolution["approved"] is False
+

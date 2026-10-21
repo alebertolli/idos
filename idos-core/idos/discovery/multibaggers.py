@@ -142,6 +142,54 @@ class MultibaggersDiscoveryEngine:
         digest = hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":"), default=str).encode()).hexdigest()
         return DiscoveryResult(**body, snapshot_hash=digest)
 
+    def blocked_by_global_market_gate(
+        self, ticker: str, eligibility: dict[str, Any], as_of: str | None = None,
+    ) -> DiscoveryResult:
+        """Stop before strategy scoring when shared market eligibility fails."""
+        reasons = sorted({str(code) for code in eligibility.get("reason_codes", []) if code})
+        flags = [
+            {
+                "code": code,
+                "severity": "hard",
+                "metric": "global_market_eligibility",
+                "message": code.replace("_", " ").lower(),
+                "evidence": eligibility,
+            }
+            for code in reasons
+        ]
+        now = as_of or datetime.now(timezone.utc).isoformat()
+        quality = {
+            "status": "not_evaluated",
+            "critical_metric_count": len(CRITICAL_METRICS),
+            "critical_metrics_covered": 0,
+            "critical_coverage": 0.0,
+            "critical_source_failures": [],
+            "critical_conflicts": [],
+            "critical_stale": [],
+            "coverage_factor": 0.0,
+            "freshness_factor": 0.0,
+            "global_market_eligibility": eligibility,
+        }
+        body = {
+            "ticker": ticker.upper(),
+            "strategy_id": "MULTIBAGGERS",
+            "strategy_version": self.strategy_version,
+            "passed": False,
+            "discovery_score": None,
+            "research_priority": None,
+            "discovery_type": "BLOCKED_DATA",
+            "component_scores": {},
+            "metrics_snapshot": {},
+            "red_flags": flags,
+            "data_quality": quality,
+            "reason_codes": reasons,
+            "as_of": now,
+        }
+        digest = hashlib.sha256(
+            json.dumps(body, sort_keys=True, separators=(",", ":"), default=str).encode()
+        ).hexdigest()
+        return DiscoveryResult(**body, snapshot_hash=digest)
+
     def _metric_snapshot(self, metric_observations: dict[str, Any], now: str) -> dict[str, dict[str, Any]]:
         quality_cfg = self.parameters.get("data_quality", {})
         stale_after = int(quality_cfg["stale_after_days"])
@@ -289,3 +337,4 @@ def build_research_intake(result: dict[str, Any], config: dict[str, Any]) -> dic
         "constraints": ["Do not invent missing facts.", "Cite each material claim to a source.", "Separate verified facts, inference, and unknowns.", "Research cannot approve an investment or set a position size."],
         "snapshot_hash": result["snapshot_hash"],
     }
+
