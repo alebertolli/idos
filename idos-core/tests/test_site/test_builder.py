@@ -280,6 +280,63 @@ def _write_ddd_case(tmp_path: Path, review: dict | None) -> None:
     }, allow_unicode=True), encoding="utf-8")
 
 
+def test_public_site_exposes_research_ratios_with_provenance_and_limitations(tmp_path: Path):
+    import yaml
+
+    _write_ddd_case(tmp_path, review=None)
+    report_path = tmp_path / "idos-journal/companies/VIST/case_file/opportunities/OPP-1/ddd_report.yml"
+    report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+    report["ratios_investigados"] = [
+        {
+            "metric": "current_ratio",
+            "status": "reported",
+            "value": 1.49,
+            "unit": "x",
+            "period_end": "2026-09-30",
+            "formula": "current_assets / current_liabilities",
+            "sources": [
+                {"name": "StockAnalysis", "url": "https://stockanalysis.com/stocks/vist/statistics/", "as_of_date": "2026-09-30"},
+                {"name": "Injected quote", "url": "https://example.com/\" onmouseover=\"alert(1)"},
+            ],
+        },
+        {
+            "metric": "fcf_growth_pct",
+            "status": "unavailable",
+            "value": None,
+            "unit": "percent",
+            "limitations": "Falta historial de FCF.",
+            "sources": [{"name": "malicious", "url": "javascript:alert(1)"}],
+        },
+        {"metric": "invalid_metric", "status": "reported", "value": float("nan"), "unit": "x"},
+    ]
+    report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
+
+    data = SiteBuilder(tmp_path).build()
+    opp = next(o for o in data.opportunities if o["ticker"] == "VIST")
+    ratios = opp["ddd"]["ratios_investigados"]
+
+    assert ratios[0]["value"] == 1.49
+    assert ratios[0]["period_end"] == "2026-09-30"
+    assert all(source["url"].startswith("https://") for source in ratios[0]["sources"])
+    assert ratios[1]["status"] == "unavailable"
+    assert ratios[1]["limitations"] == "Falta historial de FCF."
+    assert ratios[1]["sources"] == []
+    assert ratios[2]["status"] == "needs_review"
+    assert ratios[2]["value"] is None
+
+    output = write_site(tmp_path, tmp_path / "site-output")
+    app = (output / "assets" / "app.js").read_text(encoding="utf-8")
+    styles = (output / "assets" / "style.css").read_text(encoding="utf-8")
+    payload = (output / "data.json").read_text(encoding="utf-8")
+    assert "Métricas financieras investigadas en Research" in app
+    assert 'function escAttr(s)' in app and 'href="${escAttr(s.url)}"' in app
+    assert "Los datos no disponibles permanecen explícitos y no se estiman." in app
+    assert "ratio-mobile-list" in app and ".ratio-mobile-list{display:grid" in styles
+    assert "Falta historial de FCF." in payload
+    assert "javascript:alert(1)" not in payload
+    assert '"value": null' in payload
+
+
 def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_path: Path):
     _write_ddd_case(tmp_path, review=None)
 

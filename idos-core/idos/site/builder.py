@@ -13,6 +13,7 @@ No server required: publish `site/` to GitHub Pages.
 from __future__ import annotations
 
 import json
+import math
 import re
 import sqlite3
 import sys
@@ -20,6 +21,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, date
 from pathlib import Path
 from typing import Any, Iterable
+from urllib.parse import urlsplit
 
 import yaml
 
@@ -191,6 +193,60 @@ def _parse_dt(value: Any) -> datetime | None:
             return datetime.strptime(str(value)[:10], "%Y-%m-%d")
         except Exception:
             return None
+
+
+def _public_research_ratios(value: Any) -> list[dict[str, Any]]:
+    """Return a bounded, display-safe summary of Research ratio evidence."""
+    if not isinstance(value, list):
+        return []
+
+    ratios: list[dict[str, Any]] = []
+    for item in value[:40]:
+        if not isinstance(item, dict):
+            continue
+        metric = str(item.get("metric") or "").strip()[:100]
+        if not metric:
+            continue
+
+        raw_status = str(item.get("status") or "unavailable").strip().lower()
+        raw_value = item.get("value")
+        valid_value = False
+        if isinstance(raw_value, (int, float)) and not isinstance(raw_value, bool):
+            try:
+                valid_value = math.isfinite(float(raw_value))
+            except (OverflowError, ValueError):
+                valid_value = False
+        status = raw_status if raw_status in {"reported", "unavailable"} else "needs_review"
+        if status == "reported" and not valid_value:
+            status = "needs_review"
+
+        sources: list[dict[str, str | None]] = []
+        raw_sources = item.get("sources")
+        if isinstance(raw_sources, list):
+            for source in raw_sources[:5]:
+                if not isinstance(source, dict):
+                    continue
+                url = str(source.get("url") or "").strip()
+                parsed_url = urlsplit(url)
+                if parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc:
+                    continue
+                sources.append({
+                    "name": str(source.get("name") or "Fuente")[:100],
+                    "url": url[:1000],
+                    "as_of_date": str(source.get("as_of_date") or "")[:30] or None,
+                })
+
+        ratios.append({
+            "metric": metric,
+            "status": status,
+            "value": raw_value if valid_value and status == "reported" else None,
+            "unit": str(item.get("unit") or "")[:40],
+            "period_end": str(item.get("period_end") or item.get("as_of_date") or "")[:30] or None,
+            "formula": str(item.get("formula") or "")[:300] or None,
+            "limitations": str(item.get("limitations") or "")[:1000] or None,
+            "sources": sources,
+        })
+    return ratios
 
 
 def _is_valid_ticker(name: str) -> bool:
@@ -606,6 +662,7 @@ class SiteBuilder:
             "evidencia": {},
             "hipotesis": [],
             "financial_data_quality": dp.get("financial_data_quality") or {},
+            "ratios_investigados": [],
             "scenario_analysis": None,
             "board_review": {
                 "status": (
@@ -660,6 +717,9 @@ class SiteBuilder:
             ]
             ddd_summary["resumen_ejecutivo"] = ddd.get("resumen_ejecutivo")
             ddd_summary["tesis_inversion"] = ddd.get("tesis_inversion")
+            ddd_summary["ratios_investigados"] = _public_research_ratios(
+                ddd.get("ratios_investigados")
+            )
             ddd_summary["opinion_valoracion"] = ddd.get("opinion_valoracion")
             ddd_summary["score_general"] = ddd.get("score_general")
             err = ddd.get("error_mercado") or {}
@@ -1406,7 +1466,11 @@ input,select{background:#12151b;border:1px solid var(--border);color:var(--text)
 .alert{background:#2a1d10;border:1px solid #4a3510;border-radius:8px;padding:8px 12px;margin:6px 0}
 .alert.high{background:#2a1010;border-color:#4a1414}
 .scenario-mobile-list{display:none}
+.ratio-mobile-list{display:none}
 .scenario-mobile-card{background:#12151b;border:1px solid var(--border);border-radius:8px;padding:12px}
+.ratio-mobile-card{background:#12151b;border:1px solid var(--border);border-radius:8px;padding:12px;overflow-wrap:anywhere}
+.ratio-mobile-card h4{font-size:14px;text-transform:capitalize;margin-bottom:8px}
+.ratio-mobile-card p{margin-top:8px}
 .scenario-mobile-card h4{font-size:14px;margin-bottom:8px}
 .scenario-mobile-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 10px}
 .scenario-mobile-facts dt{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
@@ -1416,7 +1480,7 @@ input,select{background:#12151b;border:1px solid var(--border);color:var(--text)
 .scenario-mobile-card .scenario-sources a{display:inline-block;margin:2px 8px 2px 0}
 .back{color:var(--muted);font-size:13px}
 .yaml{white-space:pre-wrap}
-@media(max-width:720px){.wrap{padding:12px}.tabs{flex-direction:column}.scenario-desktop-table{display:none}.scenario-mobile-list{display:grid;gap:8px}}
+@media(max-width:720px){.wrap{padding:12px}.tabs{flex-direction:column}.scenario-desktop-table{display:none}.ratio-desktop-table{display:none}.scenario-mobile-list{display:grid;gap:8px}.ratio-mobile-list{display:grid;gap:8px}}
 """
 
 APP_JS = r"""// IDOS static UI
@@ -1432,6 +1496,7 @@ async function boot(){
 }
 
 function esc(s){ if(s===null||s===undefined) return '—'; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escAttr(s){ return esc(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
 function fmt(n, d=2){ if(n===null||n===undefined||isNaN(n)) return '—'; return n.toLocaleString('es-AR',{minimumFractionDigits:d, maximumFractionDigits:d}); }
 function money(n){ if(n===null||n===undefined||isNaN(n)) return '—'; return '$'+fmt(n,2); }
 function pct(n, sign=false){ if(n===null||n===undefined||isNaN(n)) return '—'; return (sign&&n>0?'+':'')+fmt(n,1)+'%'; }
@@ -1783,6 +1848,19 @@ function showCase(oppId){
   if(d.tesis_inversion) html += `<div class="card"><div class="muted">Tesis</div><p>${esc(d.tesis_inversion)}</p></div>`;
   const dq = d.financial_data_quality||{};
   if(Object.keys(dq).length) html += `<div class="card"><b>Calidad de datos financieros:</b> ${esc(dq.status||'sin evaluar')} · <b>Métricas core:</b> ${esc(dq.core_metric_coverage||'—')} · <b>Fuente:</b> ${esc(dq.source||'—')} · <b>Fecha de corte:</b> ${dt(dq.as_of_date)}${dq.as_of_date_source?` (${esc(dq.as_of_date_source)})`:''}${dq.as_of_basis?` · <b>Base de fecha:</b> ${esc(dq.as_of_basis==='provider_data_updated_date'?'última actualización publicada por la fuente':dq.as_of_basis)}`:''}${(dq.missing_core_metrics||[]).length?`<p class="neg">Métricas faltantes: ${dq.missing_core_metrics.map(esc).join(', ')}</p>`:''}${(dq.missing_provenance||[]).length?`<p class="neg">Procedencia faltante: ${dq.missing_provenance.map(esc).join(', ')}</p>`:''}${(dq.conflicting_core_metrics||[]).length?`<p class="neg">Conflictos entre fuentes: ${dq.conflicting_core_metrics.map(esc).join(', ')}</p>`:''}${(dq.unreconciled_core_metrics||[]).length?`<p class="neg">Periodos sin reconciliar: ${dq.unreconciled_core_metrics.map(esc).join(', ')}</p>`:''}</div>`;
+  const ratios=d.ratios_investigados||[];
+  if(ratios.length){
+    const ratioDetails=r=>{
+      const value=r.value==null?'—':`${fmt(r.value,2)}${r.unit==='percent'?'%':r.unit==='x'?'x':r.unit?` ${esc(r.unit)}`:''}`;
+      const status=r.status==='reported'?'Informado':r.status==='unavailable'?'Sin dato':'Revisar';
+      const sources=(r.sources||[]).map(s=>`<a href="${escAttr(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)}</a>${s.as_of_date?` · ${dt(s.as_of_date)}`:''}`).join('<br>')||'Sin fuente registrada';
+      const note=r.status==='unavailable'?(r.limitations||'La fuente no entregó este dato.'):(r.formula?`Fórmula: ${esc(r.formula)}`:r.limitations||'');
+      return {value,status,sources,note};
+    };
+    const ratioRows=ratios.map(r=>{const x=ratioDetails(r);return `<tr><td>${esc(r.metric.replace(/_/g,' '))}</td><td>${esc(x.value)}</td><td>${esc(x.status)}</td><td>${dt(r.period_end)}</td><td>${x.sources}</td><td>${esc(x.note||'—')}</td></tr>`;}).join('');
+    const ratioCards=ratios.map(r=>{const x=ratioDetails(r);return `<article class="ratio-mobile-card"><h4>${esc(r.metric.replace(/_/g,' '))}</h4><dl class="scenario-mobile-facts"><div><dt>Resultado</dt><dd>${esc(x.value)}</dd></div><div><dt>Estado</dt><dd>${esc(x.status)}</dd></div><div><dt>Fecha de corte</dt><dd>${dt(r.period_end)}</dd></div></dl><div><b>Fuente</b><br>${x.sources}</div>${x.note?`<p class="muted">${esc(x.note)}</p>`:''}</article>`;}).join('');
+    html += `<h3>Métricas financieras investigadas en Research</h3><div class="card"><p class="muted">Los valores informados incluyen fecha y fuente. Los datos no disponibles permanecen explícitos y no se estiman.</p><table class="ratio-desktop-table"><thead><tr><th>Métrica</th><th>Resultado</th><th>Estado</th><th>Fecha de corte</th><th>Fuente</th><th>Fórmula o motivo</th></tr></thead><tbody>${ratioRows}</tbody></table><div class="ratio-mobile-list">${ratioCards}</div></div>`;
+  }
   const sa=d.scenario_analysis;
   if(sa?.scenarios?.length){
     const scenarioRows=sa.scenarios.map(s=>{
