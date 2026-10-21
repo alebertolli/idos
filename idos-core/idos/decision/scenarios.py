@@ -386,7 +386,10 @@ def calculate_scenario_asymmetry(
     if errors:
         return _blocked_asymmetry("; ".join(errors))
     if analysis.get("quantification_status", "validated") != "validated":
-        return _blocked_asymmetry("los escenarios cualitativos no tienen rangos de precio calibrados")
+        return _blocked_asymmetry(
+            "los escenarios cualitativos no tienen rangos de precio calibrados",
+            validation_status="blocked",
+        )
     if not _finite_number(current_price) or current_price <= 0:
         return _blocked_asymmetry("precio actual ausente o inválido")
     if not quote_currency or quote_currency != analysis.get("currency"):
@@ -424,11 +427,13 @@ def calculate_scenario_asymmetry(
     }
 
 
-def _blocked_asymmetry(reason: str) -> dict[str, Any]:
+def _blocked_asymmetry(
+    reason: str, *, validation_status: str = "invalid"
+) -> dict[str, Any]:
     return {
         "rows": [],
         "benefit_risk_ratio": None,
-        "validation_status": "invalid",
+        "validation_status": validation_status,
         "board_review_eligible": False,
         "validation_reason": reason,
     }
