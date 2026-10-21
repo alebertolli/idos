@@ -88,6 +88,9 @@ def scenario_financial_evidence_snapshot(value: Any) -> dict[str, Any]:
                 continue
             snapshot["source_observations"][str(metric)] = {
                 "source_url": source_url,
+                "unit": observation.get("unit"),
+                "currency": observation.get("currency"),
+                "period_type": observation.get("period_type"),
                 "period_end": observation.get("period_end"),
                 "sources": observation.get("sources", []),
             }
@@ -106,6 +109,8 @@ def scenario_financial_evidence_snapshot(value: Any) -> dict[str, Any]:
                 rows.append({
                     "source_id": observation.get("source_id"),
                     "source_url": source_url,
+                    "unit": observation.get("unit"),
+                    "currency": observation.get("currency"),
                     "period": observation.get("period"),
                     "reported_at": observation.get("reported_at"),
                     "observed_at": observation.get("observed_at"),
