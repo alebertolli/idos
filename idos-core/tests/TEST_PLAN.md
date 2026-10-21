@@ -278,8 +278,6 @@ estas pruebas.
 
 ### 8.3 Research y calidad de decisión
 
-8. La pestaña Research incluye oportunidades `UNDER_RESEARCH` y el estado legado `UNDER_DEEP_DD`, con el contador alineado a ambas; las alertas de propuesta pendiente identifican Decision Board sin asumir estrategia sistemática.
-
 1. Seleccionar un candidato operable que pase cobertura, frescura, procedencia
    por campo y hard flags; registrar proveedor/modelo, costo esperado y alcance
    antes de una llamada LLM real.
@@ -304,6 +302,8 @@ estas pruebas.
    Confirmar mismo selector en preview/ejecución, no-op sin llamadas a proveedores
    cuando no quedan candidatos y ausencia de consultas corporativas/portfolio
    en el Assessment sistemático.
+
+8. La pestaña Research incluye oportunidades `UNDER_RESEARCH` y el estado legado `UNDER_DEEP_DD`, con el contador alineado a ambas; las alertas de propuesta pendiente identifican Decision Board sin asumir estrategia sistemática.
 
 ### 8.4 Frontera privada de portfolio y Risk Audit
 
