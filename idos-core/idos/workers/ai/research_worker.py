@@ -204,7 +204,7 @@ class ResearchWorker(BaseWorker):
         if not company.get("sector"):
             company = self._enrich_company_info(ticker, company, knowledge)
 
-        consensus = None if is_systematic or is_multibaggers else self._fetch_target_consensus(ticker, bp)
+        consensus = None if is_systematic else self._fetch_target_consensus(ticker, bp)
 
         previous_wiki = knowledge.get_wiki_text(ticker)
         prior_catalysts = self._load_prior_catalysts(ticker, journal)

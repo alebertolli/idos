@@ -310,7 +310,20 @@ class TestResearchWorker:
             },
         })
         worker._enrich_company_info = MagicMock(return_value={"name": "Test", "sector": "Technology"})
-        worker._fetch_target_consensus = MagicMock()
+        worker._fetch_target_consensus = MagicMock(return_value={
+            "promedio": 520.0,
+            "mediana": 515.0,
+            "fuentes": {"stockanalysis": 520.0},
+            "source_references": [{
+                "name": "stockanalysis",
+                "url": "https://stockanalysis.com/stocks/test/forecast/",
+                "as_of_date": "2026-10-20",
+            }],
+            "n_fuentes": 1,
+            "calculado_at": "2026-10-20T12:00:00-03:00",
+            "target_low": 450.0,
+            "target_high": 600.0,
+        })
         worker._run_prompt = MagicMock(return_value={})
 
         result = worker.run({"ticker": ticker, "opp_id": opp_id, "base_path": base_path})
@@ -320,11 +333,16 @@ class TestResearchWorker:
         import json
         prompt_inputs = worker._run_prompt.call_args.args[2]
         financial_evidence = json.loads(prompt_inputs["research_financial_evidence"])
+        scenario_evidence = json.loads(prompt_inputs["financial_summary"])["scenario_market_evidence"]
         assert financial_evidence["source_observations"]["current_ratio"]["value"] == 1.4
         assert financial_evidence["source_observations"]["current_ratio"]["period_end"] == "2026-09-30"
         assert financial_evidence["source_observations"]["current_ratio"]["source_url"].startswith("https://")
         assert financial_evidence["validated_metric_observations"]["revenue_growth_pct"][0]["value"] == 18.5
-        worker._fetch_target_consensus.assert_not_called()
+        assert scenario_evidence["analyst_target_consensus"]["mean"] == 520.0
+        assert scenario_evidence["analyst_target_consensus"]["low"] == 450.0
+        assert scenario_evidence["analyst_target_consensus"]["high"] == 600.0
+        assert scenario_evidence["analyst_target_consensus"]["sources"][0]["url"].endswith("/forecast/")
+        worker._fetch_target_consensus.assert_called_once()
 
     def test_multibaggers_research_blocks_mismatched_snapshot_before_llm(
         self, seeded_opportunity, tmp_sqlite, tmp_journal, base_path: str
