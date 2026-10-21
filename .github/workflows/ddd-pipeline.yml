@@ -9,7 +9,7 @@ on:
         type: boolean
         default: false
       skip_portfolio_reevaluation:
-        description: "Omitir reevaluación privada de portfolio en llamadas de orquestación"
+        description: "Omitir sólo la revisión de cartera; mantener revalidación de tesis y convicción"
         required: false
         type: boolean
         default: true
@@ -73,7 +73,7 @@ on:
         type: boolean
         default: false
       skip_portfolio_reevaluation:
-        description: "Omitir la reevaluación mensual de cartera en una E2E sin cartera privada"
+        description: "Omitir sólo la revisión de cartera; mantener revalidación de tesis y convicción"
         required: false
         type: boolean
         default: false
@@ -208,7 +208,9 @@ jobs:
         run: python scripts/ddd_assessment.py
 
       - name: STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)
-        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true' && inputs.skip_portfolio_reevaluation != true && github.event.inputs.skip_portfolio_reevaluation != 'true'
+        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true'
+        env:
+          SKIP_PORTFOLIO_REVIEW: ${{ inputs.skip_portfolio_reevaluation || github.event.inputs.skip_portfolio_reevaluation || false }}
         run: python scripts/ddd_monthly.py
 
       - name: Generate Combined Digest

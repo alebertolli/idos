@@ -65,10 +65,17 @@ class MonthlyReassessmentWorker(BaseWorker):
         thesis_results = self._reassess_theses(opportunities, sqlite, journal, bp)
         completed_thesis_reviews = [r for r in thesis_results if r.get("status") == "completed"]
         conviction_results = self._recalibrate_conviction(opportunities, sqlite, journal)
-        portfolio_review_enabled = bool(self.portfolio_cfg.get("runtime_enabled", False))
+        skip_portfolio_review = context.get("skip_portfolio_review", False) is True
+        portfolio_runtime_enabled = bool(self.portfolio_cfg.get("runtime_enabled", False))
+        portfolio_review_enabled = portfolio_runtime_enabled and not skip_portfolio_review
         portfolio_results = (
             self._review_portfolio(opportunities, sqlite, journal, bp)
             if portfolio_review_enabled else []
+        )
+        portfolio_review_status = (
+            "skipped_for_run" if skip_portfolio_review
+            else "completed" if portfolio_runtime_enabled
+            else "disabled"
         )
 
         summary = {
@@ -80,7 +87,7 @@ class MonthlyReassessmentWorker(BaseWorker):
             "thesis_changed": sum(1 for r in completed_thesis_reviews if r.get("thesis_changed")),
             "conviction_recalibrated": len(conviction_results),
             "portfolio_reviewed": len(portfolio_results),
-            "portfolio_review_status": "completed" if portfolio_review_enabled else "disabled",
+            "portfolio_review_status": portfolio_review_status,
             "proposals": [r for r in portfolio_results if r.get("proposal")],
             "exit_proposals": [r["exit_proposal"] for r in thesis_results if r.get("exit_proposal")],
         }
