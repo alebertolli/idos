@@ -1690,4 +1690,7 @@ class ResearchWorker(BaseWorker):
         result = self.llm.generate_structured(
             prompt=formatted,
             system_prompt=system,
-     
+            temperature=0.1,
+        )
+        return result
+

@@ -1172,4 +1172,4 @@ def test_ddd_prompt_never_converts_missing_financial_metrics_to_zero():
     assert "No se rellenan métricas ausentes con cero" in prompt
     assert "Un dato ausente no significa cero" in prompt
     assert "No llames ajustado al flujo de caja libre reportado" in prompt
-    assert "FCF Ajustado: {fcf_adjusted" no
+    assert "FCF Ajustado: {fcf_adjusted" not in prompt
