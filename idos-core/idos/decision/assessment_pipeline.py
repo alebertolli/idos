@@ -864,7 +864,7 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
             "RULE-008": {
                 "passed": rule_008_passed,
                 "reason": scenario_asymmetry.get("validation_reason")
-                if not rule_008_passed else "asymetría validada",
+                if not rule_008_passed else "asimetría validada",
             },
         },
         "generated_at": datetime.now(AR_TZ).isoformat(),
