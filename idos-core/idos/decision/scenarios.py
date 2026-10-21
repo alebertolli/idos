@@ -239,6 +239,10 @@ def validate_scenario_analysis(
     if not isinstance(currency, str) or not re.fullmatch(r"[A-Z]{3}", currency):
         errors.append("currency debe ser un código ISO 4217 en mayúsculas")
 
+    quantification_status = value.get("quantification_status", "validated")
+    if quantification_status not in {"validated", "not_calibrated"}:
+        errors.append("quantification_status debe ser validated o not_calibrated")
+
     scenarios = value.get("scenarios")
     if not isinstance(scenarios, list) or len(scenarios) not in {2, 3}:
         return errors + ["scenarios debe contener Bear y Bull, con Base opcional"]
@@ -263,8 +267,11 @@ def validate_scenario_analysis(
             )
 
         target = scenario.get("target_price")
-        if not _finite_number(target) or target <= 0:
-            errors.append(f"{scenario_id}: target_price debe ser positivo y finito")
+        if quantification_status == "validated":
+            if not _finite_number(target) or target <= 0:
+                errors.append(f"{scenario_id}: target_price debe ser positivo y finito")
+        elif target is not None:
+            errors.append(f"{scenario_id}: target_price debe ser null cuando no está calibrado")
         if not isinstance(scenario.get("rationale"), str) or not scenario["rationale"].strip():
             errors.append(f"{scenario_id}: rationale es obligatorio")
         for field in ("key_assumptions", "falsifiers"):
@@ -303,7 +310,10 @@ def validate_scenario_analysis(
     scenario_ids = set(by_id)
     if not {"BEAR", "BULL"}.issubset(scenario_ids) or scenario_ids - set(SCENARIO_IDS):
         errors.append("debe existir exactamente un escenario BEAR y BULL, con BASE opcional")
-    if all(sid in by_id and _finite_number(by_id[sid].get("target_price")) for sid in ("BEAR", "BULL")):
+    if quantification_status == "validated" and all(
+        sid in by_id and _finite_number(by_id[sid].get("target_price"))
+        for sid in ("BEAR", "BULL")
+    ):
         bear_price = by_id["BEAR"]["target_price"]
         bull_price = by_id["BULL"]["target_price"]
         base_price = by_id.get("BASE", {}).get("target_price")
@@ -321,6 +331,7 @@ def scenario_fingerprint(value: dict[str, Any]) -> str:
         "as_of_date": value.get("as_of_date"),
         "horizon_date": value.get("horizon_date"),
         "currency": value.get("currency"),
+        "quantification_status": value.get("quantification_status", "validated"),
         "scenarios": sorted(value.get("scenarios", []), key=lambda item: str(item.get("id", ""))),
     }
     payload = json.dumps(canonical, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
@@ -374,6 +385,8 @@ def calculate_scenario_asymmetry(
     errors = validate_scenario_analysis(analysis, trusted_source_urls=trusted_source_urls)
     if errors:
         return _blocked_asymmetry("; ".join(errors))
+    if analysis.get("quantification_status", "validated") != "validated":
+        return _blocked_asymmetry("los escenarios cualitativos no tienen rangos de precio calibrados")
     if not _finite_number(current_price) or current_price <= 0:
         return _blocked_asymmetry("precio actual ausente o inválido")
     if not quote_currency or quote_currency != analysis.get("currency"):
