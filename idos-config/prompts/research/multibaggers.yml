@@ -22,8 +22,8 @@ user_prompt: >
   de capital; expectativas implícitas frente a evidencia; catalizadores e hitos;
   escenarios base/upside/downside; riesgos y falsadores. Calcula o recopila en
   Research los ratios definidos en `research_requirements.ratios_to_review`, usando
-  sólo los inputs con fuente de la evidencia y las definiciones acordadas en el
-  Research Intake Package. Para cada ratio devuelve en
+  sólo los campos enumerados para cada ratio en `research_requirements.ratio_input_fields`,
+  junto con inputs con fuente y definiciones compatibles del Research Intake Package. Para cada ratio devuelve en
   `ratios_investigados`: `metric`, `status` (`reported`, `calculated` o
   `unavailable`), `value`, `unit`, `formula`, `inputs`, `period_end`, `sources`
   y `limitations`. Si falta cualquier input, incompatibilidad de período/moneda

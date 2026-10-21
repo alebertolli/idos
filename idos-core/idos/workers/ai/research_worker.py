@@ -286,12 +286,27 @@ class ResearchWorker(BaseWorker):
         if is_systematic:
             ddd_result = self._build_systematic_ddd(ticker, opp, systematic_params)
         elif is_multibaggers:
-            research_financial_evidence = self._research_financial_evidence(financial_data)
+            requirements = (research_intake or {}).get("research_requirements", {})
+            ratio_inputs = requirements.get("ratio_input_fields", {})
+            allowed_input_fields = {
+                field
+                for metric in requirements.get("ratios_to_review", [])
+                for field in ratio_inputs.get(metric, [])
+            } if isinstance(ratio_inputs, dict) else None
+            research_financial_evidence = self._research_financial_evidence(
+                financial_data,
+                allowed_input_fields=allowed_input_fields or None,
+            )
             ddd_result = self._run_prompt("multibaggers", ticker, {
                 "ticker": ticker,
                 "name": company.get("name", ticker),
                 "intake_package": json.dumps(research_intake, ensure_ascii=False, sort_keys=True),
-                "financial_summary": json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str),
+                "financial_summary": json.dumps(
+                    self._multibaggers_prompt_context(ddd_inputs),
+                    ensure_ascii=False,
+                    sort_keys=True,
+                    default=str,
+                ),
                 "research_financial_evidence": json.dumps(
                     research_financial_evidence,
                     ensure_ascii=False,
@@ -1093,8 +1108,46 @@ class ResearchWorker(BaseWorker):
         }
 
     @staticmethod
-    def _research_financial_evidence(data: dict[str, Any]) -> dict[str, Any]:
-        """Expose a narrow, source-aware input set for MULTIBAGGERS ratio analysis."""
+    def _multibaggers_prompt_context(data: dict[str, Any]) -> dict[str, Any]:
+        """Keep Research context relevant and bounded while retaining sourced market context."""
+        fields = (
+            "analysis_as_of_date", "ticker", "name", "current_price",
+            "current_price_as_of_date", "current_price_source", "quote_currency",
+            "sector", "business_model", "products", "geography", "moat_description",
+        )
+        context: dict[str, Any] = {}
+        for field in fields:
+            value = data.get(field)
+            if isinstance(value, str):
+                value = value[:500]
+            if value is not None:
+                context[field] = value
+        scenario_evidence = data.get("scenario_market_evidence")
+        if isinstance(scenario_evidence, str) and len(scenario_evidence) <= 5000:
+            context["scenario_market_evidence"] = scenario_evidence
+        elif isinstance(scenario_evidence, (dict, list)):
+            encoded = json.dumps(scenario_evidence, ensure_ascii=False, sort_keys=True, default=str)
+            if len(encoded) <= 5000:
+                context["scenario_market_evidence"] = scenario_evidence
+        events = data.get("recent_events")
+        if isinstance(events, list):
+            context["recent_events"] = [
+                {
+                    key: item[key][:500] if isinstance(item.get(key), str) else item[key]
+                    for key in ("date", "title", "summary", "url")
+                    if key in item
+                }
+                for item in events[:5]
+                if isinstance(item, dict)
+            ]
+        return context
+
+    @staticmethod
+    def _research_financial_evidence(
+        data: dict[str, Any],
+        allowed_input_fields: set[str] | None = None,
+    ) -> dict[str, Any]:
+        """Expose configured, source-aware inputs for MULTIBAGGERS ratio analysis."""
         allowed_fields = (
             "revenue_ttm", "revenue", "revenue_growth_pct", "revenue_history",
             "eps_growth_pct", "roic_pct", "operating_margin_pct",
@@ -1109,6 +1162,9 @@ class ResearchWorker(BaseWorker):
             "shares_outstanding_history", "diluted_shares", "diluted_shares_history",
             "fcf_history",
         )
+        if allowed_input_fields is not None:
+            requested = set(allowed_input_fields)
+            allowed_fields = tuple(field for field in allowed_fields if field in requested)
         provenance = data.get("data_provenance")
         provenance = provenance if isinstance(provenance, dict) else {}
         field_sources = provenance.get("field_sources")

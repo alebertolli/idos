@@ -1163,6 +1163,47 @@ def test_multibaggers_research_evidence_excludes_unlisted_fields_and_preserves_s
     assert "private_account_balance" not in context["reconciled_observations"]
 
 
+
+def test_multibaggers_prompt_context_is_bounded_and_omits_duplicate_blobs():
+    import json
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    context = ResearchWorker._multibaggers_prompt_context({
+        "ticker": "TEST",
+        "business_model": "business " * 2000,
+        "existing_wiki": "wiki " * 10000,
+        "financial_data_evidence": "duplicate " * 10000,
+        "recent_events": [{"date": "2026-10-21", "title": "title " * 1000, "summary": "summary " * 1000, "url": "https://example.com"}] * 9,
+        "scenario_market_evidence": {"source": "https://example.com/quote", "price": 10},
+    })
+
+    assert len(json.dumps(context, ensure_ascii=False)) < 10_000
+    assert "existing_wiki" not in context
+    assert "financial_data_evidence" not in context
+    assert len(context["recent_events"]) == 5
+    assert len(context["recent_events"][0]["summary"]) == 500
+
+
+def test_multibaggers_research_evidence_honors_configured_ratio_inputs():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    context = ResearchWorker._research_financial_evidence(
+        {
+            "current_assets": 100,
+            "current_liabilities": 50,
+            "interest_expense": 12,
+            "financial_observations": {
+                "current_assets": {"status": "observed", "value": 100},
+                "interest_expense": {"status": "observed", "value": 12},
+            },
+        },
+        allowed_input_fields={"current_assets", "current_liabilities"},
+    )
+
+    assert set(context["source_observations"]) == {"current_assets", "current_liabilities"}
+    assert set(context["reconciled_observations"]) == {"current_assets"}
+
+
 def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     from idos.ai.prompts import PromptRegistry
 
@@ -1179,6 +1220,7 @@ def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     assert "No inventes cifras, URLs" in rendered
     assert "ni valores derivados" in rendered
     assert "ratios_investigados" in rendered
+    assert "ratio_input_fields" in rendered
 
 
 def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects_uncited_values():

@@ -73,6 +73,17 @@ strategies:
           interest_coverage: "EBIT / interest_expense; no sustituir EBIT por EBITDA"
           fcf_runway_months: "cash_and_equivalents / abs(monthly_FCF_burn); sólo si FCF es negativo"
           gross_margin_pct: "gross_profit / revenue * 100"
+        ratio_input_fields:
+          revenue_cagr_3y_pct: [revenue_history, revenue_ttm, revenue]
+          fcf_growth_pct: [fcf_history, fcf, free_cash_flow]
+          fcf_conversion_pct: [fcf, free_cash_flow, net_income_ttm, net_income]
+          net_debt_ebitda: [total_debt, net_debt, cash, cash_and_equivalents, ebitda]
+          dilution_yoy_pct: [diluted_shares_history, diluted_shares, shares_outstanding_history, shares_outstanding]
+          share_count_cagr_3y_pct: [shares_outstanding_history, shares_outstanding, diluted_shares_history, diluted_shares]
+          current_ratio: [current_assets, current_liabilities]
+          interest_coverage: [ebit, interest_expense]
+          fcf_runway_months: [cash, cash_and_equivalents, fcf_history, fcf, free_cash_flow]
+          gross_margin_pct: [gross_profit_ttm, revenue_ttm, revenue]
         risk_review_thresholds:
           current_ratio_below: 0.5
           interest_coverage_below: 2.0

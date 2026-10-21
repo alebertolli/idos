@@ -365,6 +365,7 @@ def build_research_intake(result: dict[str, Any], config: dict[str, Any]) -> dic
             "required_analysis": list(research_parameters.get("required_analysis", [])),
             "ratios_to_review": list(research_parameters.get("ratios_to_review", [])),
             "ratio_definitions": dict(research_parameters.get("ratio_definitions", {})),
+            "ratio_input_fields": dict(research_parameters.get("ratio_input_fields", {})),
             "risk_review_thresholds": dict(research_parameters.get("risk_review_thresholds", {})),
             "scenario_schema_version": "bear_base_bull_v1",
         },
