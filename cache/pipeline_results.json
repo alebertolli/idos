@@ -1,0 +1,266 @@
+{
+  "status": "success",
+  "output": {
+    "status": "completed",
+    "strategy_id": "MULTIBAGGERS",
+    "processed": 1,
+    "passed": 1,
+    "blocked": 0,
+    "created": 1,
+    "existing": 0,
+    "candidate_source": "idos-config/universe/operable.yml",
+    "excluded_tickers": [],
+    "results": [
+      {
+        "ticker": "ASML",
+        "passed": true,
+        "score": 72.34,
+        "priority": 72.34,
+        "discovery_type": "RESEARCH_REQUIRED",
+        "reason_codes": [],
+        "snapshot_hash": "2a61d48ff683e78d92bbe8184d82b863b9676bbf8c943b102042c9a7a9259112",
+        "global_market_eligibility": {
+          "passed": true,
+          "asset_type": "us_equity",
+          "size_metric_usd": 644875157504.0,
+          "market_cap_min_usd": 2000000000.0,
+          "avg_dollar_volume_usd": 2536589724.103467,
+          "avg_dollar_volume_min_usd": 100000.0,
+          "liquidity_basis": "UNDERLYING_USD_PROXY",
+          "reason_codes": [],
+          "normalization": {
+            "status": "complete",
+            "size_metric": "market_cap_usd",
+            "errors": [],
+            "liquidity_basis": "UNDERLYING_USD_PROXY",
+            "exchange_calendar": "NMS"
+          },
+          "size_provenance": {
+            "source": "yfinance",
+            "as_of": "2026-10-21",
+            "source_currency": "USD",
+            "fx": null
+          },
+          "liquidity_provenance": {
+            "quote_currency": "USD",
+            "fx_reference": null,
+            "fx_side": null,
+            "window_sessions": 20,
+            "expected_observations": 20,
+            "valid_observations": 20,
+            "coverage": 1.0,
+            "minimum_coverage": 0.8,
+            "first_price_date": "2026-09-24",
+            "last_price_date": "2026-10-21",
+            "price_source": "yfinance",
+            "fx_source": null,
+            "fx_observations": [],
+            "valid_price_dates": [
+              "2026-09-24",
+              "2026-09-25",
+              "2026-09-28",
+              "2026-09-29",
+              "2026-09-30",
+              "2026-10-01",
+              "2026-10-02",
+              "2026-10-05",
+              "2026-10-06",
+              "2026-10-07",
+              "2026-10-08",
+              "2026-10-09",
+              "2026-10-12",
+              "2026-10-13",
+              "2026-10-14",
+              "2026-10-15",
+              "2026-10-16",
+              "2026-10-19",
+              "2026-10-20",
+              "2026-10-21"
+            ],
+            "missing_market_dates": [],
+            "basis": "UNDERLYING_USD_PROXY"
+          }
+        }
+      }
+    ]
+  },
+  "error": null,
+  "strategies": {
+    "MULTIBAGGERS": {
+      "status": "success",
+      "output": {
+        "status": "completed",
+        "strategy_id": "MULTIBAGGERS",
+        "processed": 1,
+        "passed": 1,
+        "blocked": 0,
+        "created": 1,
+        "existing": 0,
+        "candidate_source": "idos-config/universe/operable.yml",
+        "excluded_tickers": [],
+        "results": [
+          {
+            "ticker": "ASML",
+            "passed": true,
+            "score": 72.34,
+            "priority": 72.34,
+            "discovery_type": "RESEARCH_REQUIRED",
+            "reason_codes": [],
+            "snapshot_hash": "2a61d48ff683e78d92bbe8184d82b863b9676bbf8c943b102042c9a7a9259112",
+            "global_market_eligibility": {
+              "passed": true,
+              "asset_type": "us_equity",
+              "size_metric_usd": 644875157504.0,
+              "market_cap_min_usd": 2000000000.0,
+              "avg_dollar_volume_usd": 2536589724.103467,
+              "avg_dollar_volume_min_usd": 100000.0,
+              "liquidity_basis": "UNDERLYING_USD_PROXY",
+              "reason_codes": [],
+              "normalization": {
+                "status": "complete",
+                "size_metric": "market_cap_usd",
+                "errors": [],
+                "liquidity_basis": "UNDERLYING_USD_PROXY",
+                "exchange_calendar": "NMS"
+              },
+              "size_provenance": {
+                "source": "yfinance",
+                "as_of": "2026-10-21",
+                "source_currency": "USD",
+                "fx": null
+              },
+              "liquidity_provenance": {
+                "quote_currency": "USD",
+                "fx_reference": null,
+                "fx_side": null,
+                "window_sessions": 20,
+                "expected_observations": 20,
+                "valid_observations": 20,
+                "coverage": 1.0,
+                "minimum_coverage": 0.8,
+                "first_price_date": "2026-09-24",
+                "last_price_date": "2026-10-21",
+                "price_source": "yfinance",
+                "fx_source": null,
+                "fx_observations": [],
+                "valid_price_dates": [
+                  "2026-09-24",
+                  "2026-09-25",
+                  "2026-09-28",
+                  "2026-09-29",
+                  "2026-09-30",
+                  "2026-10-01",
+                  "2026-10-02",
+                  "2026-10-05",
+                  "2026-10-06",
+                  "2026-10-07",
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21"
+                ],
+                "missing_market_dates": [],
+                "basis": "UNDERLYING_USD_PROXY"
+              }
+            }
+          }
+        ]
+      },
+      "error": null
+    }
+  },
+  "multibaggers": {
+    "status": "success",
+    "output": {
+      "status": "completed",
+      "strategy_id": "MULTIBAGGERS",
+      "processed": 1,
+      "passed": 1,
+      "blocked": 0,
+      "created": 1,
+      "existing": 0,
+      "candidate_source": "idos-config/universe/operable.yml",
+      "excluded_tickers": [],
+      "results": [
+        {
+          "ticker": "ASML",
+          "passed": true,
+          "score": 72.34,
+          "priority": 72.34,
+          "discovery_type": "RESEARCH_REQUIRED",
+          "reason_codes": [],
+          "snapshot_hash": "2a61d48ff683e78d92bbe8184d82b863b9676bbf8c943b102042c9a7a9259112",
+          "global_market_eligibility": {
+            "passed": true,
+            "asset_type": "us_equity",
+            "size_metric_usd": 644875157504.0,
+            "market_cap_min_usd": 2000000000.0,
+            "avg_dollar_volume_usd": 2536589724.103467,
+            "avg_dollar_volume_min_usd": 100000.0,
+            "liquidity_basis": "UNDERLYING_USD_PROXY",
+            "reason_codes": [],
+            "normalization": {
+              "status": "complete",
+              "size_metric": "market_cap_usd",
+              "errors": [],
+              "liquidity_basis": "UNDERLYING_USD_PROXY",
+              "exchange_calendar": "NMS"
+            },
+            "size_provenance": {
+              "source": "yfinance",
+              "as_of": "2026-10-21",
+              "source_currency": "USD",
+              "fx": null
+            },
+            "liquidity_provenance": {
+              "quote_currency": "USD",
+              "fx_reference": null,
+              "fx_side": null,
+              "window_sessions": 20,
+              "expected_observations": 20,
+              "valid_observations": 20,
+              "coverage": 1.0,
+              "minimum_coverage": 0.8,
+              "first_price_date": "2026-09-24",
+              "last_price_date": "2026-10-21",
+              "price_source": "yfinance",
+              "fx_source": null,
+              "fx_observations": [],
+              "valid_price_dates": [
+                "2026-09-24",
+                "2026-09-25",
+                "2026-09-28",
+                "2026-09-29",
+                "2026-09-30",
+                "2026-10-01",
+                "2026-10-02",
+                "2026-10-05",
+                "2026-10-06",
+                "2026-10-07",
+                "2026-10-08",
+                "2026-10-09",
+                "2026-10-12",
+                "2026-10-13",
+                "2026-10-14",
+                "2026-10-15",
+                "2026-10-16",
+                "2026-10-19",
+                "2026-10-20",
+                "2026-10-21"
+              ],
+              "missing_market_dates": [],
+              "basis": "UNDERLYING_USD_PROXY"
+            }
+          }
+        }
+      ]
+    },
+    "error": null
+  }
+}
