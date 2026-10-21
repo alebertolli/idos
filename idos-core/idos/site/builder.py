@@ -641,7 +641,7 @@ class SiteBuilder:
             "evidence_review": {
                 "status": (
                     "manager_approved" if review_approved
-                    else "systematic_report" if current_systematic_report
+                    else "pending_decision_board" if current_systematic_report
                     else "systematic_report_refresh_required" if systematic_report
                     else "board_approved" if decision_attributable and br.get("status") == "approved"
                     else "pending_decision_board"
@@ -666,19 +666,15 @@ class SiteBuilder:
             "scenario_analysis": None,
             "board_review": {
                 "status": (
-                    "not_applicable" if systematic_report
-                    else "pending_decision_board"
+                    "pending_decision_board"
                 ),
                 "reason": (
-                    "La estrategia sistemática se evalúa mediante su señal y reglas de rebalanceo."
-                    if systematic_report else "Research y Assessment completaron sus validaciones automáticas; la revisión humana ocurre una sola vez en Decision Board."
+                    "Research y Assessment completaron las validaciones automáticas; la revisión humana ocurre una sola vez en Decision Board."
                 ),
                 "scenario_hash": scenario_fingerprint(scenario_analysis) if scenario_valid else None,
             },
             "scenario_validation": (
-                {"status": "not_applicable", "errors": []}
-                if systematic_report
-                else {
+                {
                     "status": "valid_pending_decision_board" if scenario_valid else "invalid_pending_revision",
                     "errors": scenario_validation_errors,
                 }
@@ -1889,15 +1885,18 @@ function showCase(oppId){
       const assumptions=(s.key_assumptions||[]).map(x=>`<li>${esc(x)}</li>`).join('');
       const rationale=s.rationale?`<p>${esc(s.rationale)}</p>`:'';
       const falsifiers=(s.falsifiers||[]).map(x=>`<li>${esc(x)}</li>`).join('');
-      return `<tr><td>${esc(s.id)}</td><td>${esc(sa.currency)} ${money(s.target_price)}</td><td>${rationale}${assumptions?`<b>Supuestos</b><ul>${assumptions}</ul>`:''}${falsifiers?`<b>Falsadores</b><ul>${falsifiers}</ul>`:''}</td><td>${sources}</td></tr>`;
+      const target=sa.quantification_status==='not_calibrated'?'Sin rango calibrado':`${esc(sa.currency)} ${money(s.target_price)}`;
+      return `<tr><td>${esc(s.id)}</td><td>${target}</td><td>${rationale}${assumptions?`<b>Supuestos</b><ul>${assumptions}</ul>`:''}${falsifiers?`<b>Falsadores</b><ul>${falsifiers}</ul>`:''}</td><td>${sources}</td></tr>`;
     }).join('');
     const scenarioCards=sa.scenarios.map(s=>{
       const sources=(s.sources||[]).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.name)}</a> · ${dt(x.as_of_date)}`).join('<br>');
       const assumptions=(s.key_assumptions||[]).map(x=>`<li>${esc(x)}</li>`).join('');
       const falsifiers=(s.falsifiers||[]).map(x=>`<li>${esc(x)}</li>`).join('');
-      return `<article class="scenario-mobile-card" aria-label="Caso ${esc(s.id)}"><h4>${esc(s.id)}</h4><dl class="scenario-mobile-facts"><div><dt>Precio objetivo</dt><dd>${esc(sa.currency||'—')} ${money(s.target_price)}</dd></div></dl>${s.rationale?`<p>${esc(s.rationale)}</p>`:''}${assumptions?`<b>Supuestos</b><ul>${assumptions}</ul>`:''}${falsifiers?`<b>Falsadores</b><ul>${falsifiers}</ul>`:''}<div class="scenario-sources"><b>Fuentes</b><br>${sources||'Sin fuente registrada'}</div></article>`;
+      const target=sa.quantification_status==='not_calibrated'?'Sin rango calibrado':`${esc(sa.currency||'—')} ${money(s.target_price)}`;
+      return `<article class="scenario-mobile-card" aria-label="Caso ${esc(s.id)}"><h4>${esc(s.id)}</h4><dl class="scenario-mobile-facts"><div><dt>Precio objetivo</dt><dd>${target}</dd></div></dl>${s.rationale?`<p>${esc(s.rationale)}</p>`:''}${assumptions?`<b>Supuestos</b><ul>${assumptions}</ul>`:''}${falsifiers?`<b>Falsadores</b><ul>${falsifiers}</ul>`:''}<div class="scenario-sources"><b>Fuentes</b><br>${sources||'Sin fuente registrada'}</div></article>`;
     }).join('');
-    html += `<h3>Asimetría · casos Bear/Bull</h3><div class="card"><b>${d.scenario_validation?.status==='valid_pending_decision_board'?'Validación automática completa · pendiente Decision Board':'Propuesta pendiente de evaluación'}</b><p class="muted">Base es opcional. Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table class="scenario-desktop-table"><thead><tr><th>Caso</th><th>Precio objetivo</th><th>Lectura, supuestos y falsadores</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><div class="scenario-mobile-list">${scenarioCards}</div><p class="muted">Los agentes validan la estructura, fechas y correspondencia de fuentes con la evidencia de entrada. Assessment compara el upside del caso Bull con el downside del caso Bear sin ponderarlos por probabilidades. No se calcula retorno esperado. En Decision Board, el gestor revisa las fuentes y los supuestos junto con el expediente completo; ningún escenario autoriza por sí solo una compra.</p>${d.board_review?.scenario_hash?`<details><summary>Hash de escenarios incluido en la propuesta</summary><code>${esc(d.board_review.scenario_hash)}</code></details>`:''}</div>`;
+    const qualitative=sa.quantification_status==='not_calibrated';
+    html += `<h3>${qualitative?'Escenarios de señal Bear/Bull · sin rango calibrado':'Asimetría · casos Bear/Bull'}</h3><div class="card"><b>${qualitative?'Casos cualitativos validados · RULE-008 bloqueada':'Validación automática completa · pendiente Decision Board'}</b><p class="muted">Base es opcional. Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table class="scenario-desktop-table"><thead><tr><th>Caso</th><th>${qualitative?'Cuantificación':'Precio objetivo'}</th><th>Lectura, supuestos y falsadores</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><div class="scenario-mobile-list">${scenarioCards}</div><p class="muted">${qualitative?'Los casos describen deterioro y persistencia de la señal mensual con fuentes verificadas. Assessment mantiene RULE-008 bloqueada porque no existe un rango de precios calibrado; estos casos no generan retorno esperado ni autorizan una compra.':'Los agentes validan la estructura, fechas y correspondencia de fuentes con la evidencia de entrada. Assessment compara el upside del caso Bull con el downside del caso Bear sin ponderarlos por probabilidades. No se calcula retorno esperado. En Decision Board, el gestor revisa las fuentes y los supuestos junto con el expediente completo; ningún escenario autoriza por sí solo una compra.'}</p>${d.board_review?.scenario_hash?`<details><summary>Hash de escenarios incluido en la propuesta</summary><code>${esc(d.board_review.scenario_hash)}</code></details>`:''}</div>`;
   } else if(d.scenario_validation?.errors?.length){
     html += `<h3>Casos Bear / Bull (Base opcional)</h3><div class="card"><b class="neg">Propuesta incompleta o inválida; RULE-008 permanece bloqueada.</b><ul>${d.scenario_validation.errors.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
   } else if(d.scenario_validation?.status==='not_applicable'){
