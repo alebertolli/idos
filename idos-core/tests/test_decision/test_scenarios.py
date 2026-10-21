@@ -63,6 +63,21 @@ def test_base_is_optional_and_probabilities_are_rejected_without_calibration():
     )
 
 
+def test_qualitative_signal_scenarios_are_visible_but_not_quantifiable():
+    analysis = scenario_set()
+    analysis["quantification_status"] = "not_calibrated"
+    for scenario in analysis["scenarios"]:
+        scenario["target_price"] = None
+
+    assert validate_scenario_analysis(analysis, today=TODAY) == []
+    asymmetry = calculate_scenario_asymmetry(
+        analysis, current_price=100, quote_currency="USD"
+    )
+    assert asymmetry["validation_status"] == "blocked"
+    assert "no tienen rangos de precio calibrados" in asymmetry["validation_reason"]
+    assert "benefit_risk_ratio" not in asymmetry
+
+
 def test_optional_base_must_stay_between_bear_and_bull():
     analysis = scenario_set()
     analysis["scenarios"][1]["target_price"] = 160
