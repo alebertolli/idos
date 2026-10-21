@@ -316,7 +316,7 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     assert not (tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MB-TEST").exists()
     cache.payload = valid_payload()
     cache.payload["merged_data"]["quote_currency"] = "USD"
-    cache.payload["merged_data"]["data_provenance"] = {"field_sources": {"price_history": ["yfinance"]}}
+    cache.payload["field_sources"] = {"price_history": ["yfinance"]}
     first = MultibaggersPipeline(config).run()
     first_opp_path = tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MB-TEST" / "opportunity.yml"
     first_opp = yaml.safe_load(first_opp_path.read_text(encoding="utf-8"))
@@ -350,7 +350,7 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
 
     cache.payload = valid_payload()
     cache.payload["merged_data"]["quote_currency"] = "USD"
-    cache.payload["merged_data"]["data_provenance"] = {"field_sources": {"price_history": ["yfinance"]}}
+    cache.payload["field_sources"] = {"price_history": ["yfinance"]}
     cache.payload["merged_data"]["price_history"][-1] = 200.0
     rerun = MultibaggersPipeline(config).run()
     assert rerun["existing"] == 1
