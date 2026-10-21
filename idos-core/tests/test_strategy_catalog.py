@@ -65,7 +65,7 @@ def test_multibaggers_policy_is_disabled_and_configured():
         "price_momentum_12m_pct", "drawdown_pct", "volatility_90d_pct",
     ]
     assert profile.parameters["research"]["required_analysis"] == [
-        "fundamental_ratio_review", "bear_base_bull_scenarios",
+        "fundamental_ratio_review", "bear_bull_scenarios",
         "source_cited_expectation_gap", "validated_asymmetry",
     ]
     assert profile.parameters["research"]["ratio_units"]["current_ratio"] == "x"

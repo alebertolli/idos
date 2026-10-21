@@ -55,9 +55,10 @@ user_prompt: >
   `falsadores` lista de strings; `calidad_evidencia` objeto con
   `hechos_verificados`, `inferencias_llm`, `preguntas_abiertas`;
   `ratios_investigados` lista exacta de ratios configurados; `risk_flags` lista.
-  BEAR y BULL son dos casos de una misma tesis: BEAR es el peor resultado plausible
-  respaldado por evidencia y BULL es el mejor. BASE es opcional y sólo expresa un
-  caso central. No los presentes como tesis independientes. Cada caso incluye `id`,
+  BEAR y BULL son dos resultados alternativos mutuamente excluyentes de una misma
+  tesis: BEAR es el peor resultado plausible respaldado por evidencia y BULL es el
+  mejor. BASE es opcional y sólo expresa un caso central. No los presentes como
+  tesis independientes. Cada caso incluye `id`,
   `target_price`, `rationale`, `key_assumptions`, `falsifiers` y `sources`; cada
   fuente incluye `name`, `url` y `as_of_date`. No incluyas `probability_pct` ni
   retorno esperado: las probabilidades sólo se admitirán con un modelo calibrado.
