@@ -123,6 +123,9 @@ def test_scenario_financial_snapshot_keeps_source_metadata_without_values():
             "revenue_history": {
                 "value": [100, 120],
                 "source_url": "https://stockanalysis.com/stocks/asml/financials/",
+                "unit": "USD",
+                "currency": "USD",
+                "period_type": "annual",
                 "period_end": "2025-12-31",
                 "sources": ["stockanalysis"],
             },
@@ -131,6 +134,9 @@ def test_scenario_financial_snapshot_keeps_source_metadata_without_values():
 
     assert snapshot["source_observations"]["revenue_history"] == {
         "source_url": "https://stockanalysis.com/stocks/asml/financials",
+        "unit": "USD",
+        "currency": "USD",
+        "period_type": "annual",
         "period_end": "2025-12-31",
         "sources": ["stockanalysis"],
     }
