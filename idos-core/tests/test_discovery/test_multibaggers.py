@@ -315,7 +315,20 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     assert blocked["created"] == 0
     assert not (tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MB-TEST").exists()
     cache.payload = valid_payload()
+    cache.payload["merged_data"]["quote_currency"] = "USD"
+    cache.payload["merged_data"]["data_provenance"] = {"field_sources": {"price_history": ["yfinance"]}}
     first = MultibaggersPipeline(config).run()
+    first_opp_path = tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MB-TEST" / "opportunity.yml"
+    first_opp = yaml.safe_load(first_opp_path.read_text(encoding="utf-8"))
+    expected_quote = {
+        "price": 145.0,
+        "as_of_date": "2026-10-15",
+        "currency": "USD",
+        "source": "yfinance",
+        "url": "https://finance.yahoo.com/quote/TEST/history/",
+    }
+    assert first_opp["discovery_evidence"]["market_quote"] == expected_quote
+    assert first_opp["latest_discovery_evidence"]["market_quote"] == expected_quote
     second = UniversePipeline({**config, "strategy_id": "MULTIBAGGERS"}).execute({})
     assert first["created"] == 1
     assert second.status.value == "success"
@@ -334,6 +347,16 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     public_opp = next(item for item in site.opportunities if item["strategy_id"] == "MULTIBAGGERS")
     assert public_opp["discovery_score"] >= 65
     assert public_opp["research_priority"] is not None
+
+    cache.payload = valid_payload()
+    cache.payload["merged_data"]["quote_currency"] = "USD"
+    cache.payload["merged_data"]["data_provenance"] = {"field_sources": {"price_history": ["yfinance"]}}
+    cache.payload["merged_data"]["price_history"][-1] = 200.0
+    rerun = MultibaggersPipeline(config).run()
+    assert rerun["existing"] == 1
+    updated_opp = yaml.safe_load(first_opp_path.read_text(encoding="utf-8"))
+    assert updated_opp["discovery_evidence"]["market_quote"] == expected_quote
+    assert updated_opp["latest_discovery_evidence"]["market_quote"]["price"] == 200.0
 
 
 def test_multibaggers_pipeline_blocks_market_ineligible_tickers_before_strategy_scoring(tmp_path: Path, monkeypatch):
