@@ -7,6 +7,7 @@ import sys
 import yaml
 
 from idos.data.sqlite import SQLiteStore
+from idos.data.journal import JournalRepository
 from idos.decision.assessment_pipeline import run_full_pipeline
 from idos.site.builder import SiteBuilder
 from idos.workers.ai.research_worker import ResearchWorker
@@ -61,6 +62,15 @@ def test_momentum_discovery_research_assessment_wait(tmp_path: Path, monkeypatch
     opp = store.get_opportunity(opp_id)
     assert opp["status"] == "SCREENED"
     assert run_full_pipeline(opp_id, opp["ticker"], tmp_path)["status"] == "blocked"
+    opp["latest_discovery_evidence"] = {
+        "market_quote": {
+            "price": 100.0,
+            "currency": "USD",
+            "as_of_date": date.today().isoformat(),
+            "source": "yfinance",
+        }
+    }
+    JournalRepository(tmp_path / "idos-journal").save_opportunity(opp["ticker"], opp)
 
     worker = ResearchWorker({})
     monkeypatch.setattr(worker, "_load_financial_data", lambda *args: {})
