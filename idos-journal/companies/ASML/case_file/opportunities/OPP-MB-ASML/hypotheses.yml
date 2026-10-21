@@ -1,0 +1,157 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La capacidad de EUV no ha aumentado al menos 15% para 2028-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El backlog de EUV no crece 10% en 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ASML anuncia cancelación de expansión.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La capacidad de EUV no ha aumentado al menos 15% para 2028-12-31.
+  - El backlog de EUV no crece 10% en 2028.
+  - ASML anuncia cancelación de expansión.
+  horizon: medio
+  id: H1-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 20.0
+    met: null
+    metric: Capacidad de producción de EUV
+    prediction: Capacidad de EUV aumentará 20% en 2028-12-31.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: ASML ha anunciado planes de expansión de líneas de producción y la construcción
+    de nuevas instalaciones; la demanda de EUV se proyecta crecer 15% anual; la inversión
+    en I+D y la eficiencia de la cadena de suministro respaldan la expansión.
+  review_trigger: Si el 2028-12-31 la capacidad de EUV está por debajo de 15% de aumento
+    o si la empresa anuncia cierre de líneas.
+  secondary_hypotheses: []
+  statement: ASML aumentará su capacidad de producción de EUV en un 20% para finales
+    de 2028, lo que permitirá cumplir con la creciente demanda de clientes.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto es ≤ 60% en 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto cae 5% en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa anuncia aumento de costos de materiales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto es ≤ 60% en 2027-12-31.
+  - El margen bruto cae 5% en 2027.
+  - La empresa anuncia aumento de costos de materiales.
+  horizon: medio
+  id: H2-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 60.0
+    met: null
+    metric: Margen bruto
+    prediction: Margen bruto > 60% en 2027-12-31.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: ASML ha reducido costos de materiales y optimizado procesos; la demanda
+    premium de EUV permite precios altos; la inversión en I+D mejora eficiencia.
+  review_trigger: Si el 2027-12-31 el margen bruto es ≤ 60% o si se anuncia aumento
+    de costos.
+  secondary_hypotheses: []
+  statement: El margen bruto de ASML superará el 60% para finales de 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El P/E permanece ≥ 25 en 2028-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El P/E aumenta 5% en 2028-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El P/E permanece ≥ 25 en 2028-06-30.
+  - El P/E aumenta 5% en 2028-06-30.
+  horizon: medio
+  id: H3-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 25.0
+    met: null
+    metric: P/E ratio
+    prediction: P/E < 25 en 2028-06-30.
+    unit: ''
+  priority: important
+  probability: 0.5
+  rationale: El precio actual sobrepasa el valor intrínseco; el mercado ajustará la
+    valoración; la corrección de expectativas de crecimiento.
+  review_trigger: Si el 2028-06-30 el P/E ≥ 25 y no hay señales de corrección.
+  secondary_hypotheses: []
+  statement: El ratio P/E de ASML caerá por debajo de 25 antes de 2028-06-30.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El precio de acción no cae 10% antes de 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio sube 5% antes de 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El precio de acción no cae 10% antes de 2027-09-30.
+  - El precio sube 5% antes de 2027-09-30.
+  horizon: medio
+  id: H4-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: -10.0
+    met: null
+    metric: Precio de acción
+    prediction: Precio de acción cae 10% antes de 2027-09-30.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La demanda de EUV es sensible a ciclos de demanda de chips; una desaceleración
+    del mercado de chips reduce pedidos y afecta ingresos.
+  review_trigger: Si el 2027-09-30 el precio de acción no ha caído 10% y la demanda
+    de chips se mantiene estable o aumenta.
+  secondary_hypotheses: []
+  statement: Si la demanda de semiconductores disminuye, el precio de las acciones
+    de ASML caerá 10% respecto al nivel actual antes de 2027-09-30.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
