@@ -1431,3 +1431,53 @@ def test_multibaggers_research_evidence_bounds_financial_history():
     ]
     assert row["omitted_points"] == 8
     assert len(history) == 13
+
+
+def test_multibaggers_ratio_sources_bind_to_declared_input_provenance():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    ratio = {
+        "metric": "gross_margin_pct",
+        "status": "calculated",
+        "inputs": ["gross_profit_history", "revenue_history"],
+        "sources": [{"name": "stockanalysis.com", "url": "https://stockanalysis.com/stocks/asml/forecast/"}],
+    }
+    evidence = {
+        "source_observations": {
+            "gross_profit_history": {
+                "sources": ["stockanalysis.com"],
+                "source_url": "https://stockanalysis.com/stocks/asml/financials/",
+            },
+            "revenue_history": {
+                "sources": ["stockanalysis.com"],
+                "source_url": "https://stockanalysis.com/stocks/asml/financials/",
+            },
+        },
+        "validated_metric_observations": {},
+    }
+
+    ResearchWorker._bind_multibaggers_ratio_sources([ratio], evidence)
+
+    assert ratio["sources"] == [
+        {"name": "stockanalysis.com", "url": "https://stockanalysis.com/stocks/asml/financials/"},
+    ]
+
+
+def test_multibaggers_ratio_sources_do_not_accept_unmapped_inputs():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    ratio = {
+        "metric": "gross_margin_pct",
+        "status": "calculated",
+        "inputs": ["unlisted_private_field"],
+        "sources": [{"name": "stockanalysis.com", "url": "https://example.com/unverified"}],
+    }
+
+    ResearchWorker._bind_multibaggers_ratio_sources(
+        [ratio],
+        {"source_observations": {}, "validated_metric_observations": {}},
+    )
+
+    assert ratio["sources"] == [
+        {"name": "stockanalysis.com", "url": "https://example.com/unverified"},
+    ]

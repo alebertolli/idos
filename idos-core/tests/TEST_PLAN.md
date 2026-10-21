@@ -747,4 +747,4 @@ Antes de la primera corrida productiva tras el reinicio:
 4. En la próxima E2E en rama aislada, inspeccionar ratios reported, calculated y unavailable, referencias a inputs existentes y fechas; Assessment debe conservar RULE-008 cuando la asimetría no alcance el umbral, sin crear Buy List ni posiciones.
 5. Mantener MULTIBAGGERS deshabilitada hasta que el run remoto confirme esta ruta sin datos sintéticos.
 6. Incluir como máximo las cinco observaciones fechadas más recientes por serie en el contexto LLM, informar omitted_points y preservar los registros completos en la fuente auditable; probar una serie larga y verificar que el contexto resultante queda acotado.
-7. Exponer en Research sólo URLs HTTPS provenientes de data_provenance y exigir que ratios_investigados las copie literalmente; verificar que una URL no confiable siga bloqueando esa métrica.
+7. Vincular en forma determinista las citas de cada ratio a las URLs HTTPS de sus inputs declarados; verificar que entradas ausentes/no permitidas no reescriban ni legitimen una URL no confiable.
