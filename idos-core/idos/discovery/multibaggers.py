@@ -54,7 +54,14 @@ class MultibaggersDiscoveryEngine:
 
     def evaluate(self, ticker: str, payload: dict[str, Any], as_of: str | None = None) -> DiscoveryResult:
         now = as_of or payload.get("as_of") or datetime.now(timezone.utc).isoformat()
-        metric_observations = payload.get("metric_observations", {}) or {}
+        metric_observations = payload.get("metric_observations")
+        if not isinstance(metric_observations, dict):
+            merged_payload = payload.get("merged_data")
+            metric_observations = (
+                merged_payload.get("metric_observations", {})
+                if isinstance(merged_payload, dict)
+                else {}
+            )
         if not isinstance(metric_observations, dict):
             metric_observations = {}
         snapshot = self._metric_snapshot(metric_observations, now)

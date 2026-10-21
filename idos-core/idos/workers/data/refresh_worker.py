@@ -571,7 +571,59 @@ class DataRefreshWorker(BaseWorker):
                 "non_comparable_reason": exclusion.get("reason"),
             }
         merged["financial_observations"] = observations
+        metric_observations, exclusions = DataRefreshWorker._build_metric_observations(sources)
+        merged["metric_observations"] = metric_observations
+        merged["metric_observation_exclusions"] = exclusions
         merged.pop("financial_metric_metadata", None)
+
+    @staticmethod
+    def _build_metric_observations(sources: dict[str, dict[str, Any]]) -> tuple[dict[str, list[dict[str, Any]]], dict[str, list[dict[str, str]]]]:
+        """Build canonical financial evidence only from explicit provider filing dates."""
+        observations: dict[str, list[dict[str, Any]]] = {}
+        exclusions: dict[str, list[dict[str, str]]] = {}
+        for field in ("operating_margin_pct", "revenue_growth_pct"):
+            evidence: list[dict[str, Any]] = []
+            omitted: list[dict[str, str]] = []
+            for source, data in sources.items():
+                value = data.get(field)
+                if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                    continue
+                metadata_by_field = data.get("financial_metric_metadata")
+                metadata = metadata_by_field.get(field) if isinstance(metadata_by_field, dict) else None
+                metadata = metadata if isinstance(metadata, dict) else {}
+                unit = metadata.get("unit")
+                if unit in {"percentage_points", "%", "pct"}:
+                    unit = "percent"
+                period_type = str(metadata.get("period_type") or "").strip()
+                period_start = metadata.get("period_start_date")
+                period_end = metadata.get("period_end_date")
+                reported_at = metadata.get("filed_at")
+                observed_at = data.get("financial_data_observed_at")
+                source_url = metadata.get("source_url") or data.get("source_url")
+                fields = {
+                    "reported_at": reported_at, "observed_at": observed_at,
+                    "period_type": period_type, "period_start_date": period_start,
+                    "period_end_date": period_end, "unit": unit, "source_url": source_url,
+                }
+                missing = [name for name, item in fields.items() if not item]
+                if missing:
+                    omitted.append({"source_id": str(source), "reason_code": "REQUIRED_EVIDENCE_FIELD_MISSING", "missing_fields": ",".join(missing)})
+                    continue
+                if unit != "percent":
+                    omitted.append({"source_id": str(source), "reason_code": "UNSUPPORTED_METRIC_UNIT", "missing_fields": ""})
+                    continue
+                evidence.append({
+                    "source_id": str(source), "value": float(value), "unit": "percent",
+                    "currency": metadata.get("currency"),
+                    "period": f"{period_type}:{period_start}/{period_end}",
+                    "reported_at": str(reported_at), "observed_at": str(observed_at),
+                    "source_url": str(source_url),
+                })
+            if evidence:
+                observations[field] = evidence
+            if omitted:
+                exclusions[field] = omitted
+        return observations, exclusions
 
     @staticmethod
     def _preferred_financial_source(values: dict[str, Any]) -> str:

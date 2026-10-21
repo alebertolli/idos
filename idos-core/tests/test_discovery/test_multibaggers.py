@@ -500,3 +500,16 @@ def test_manual_review_stops_assessment_before_buy_list(tmp_path, monkeypatch):
     resolution = yaml.safe_load((journal / "board_resolution.yml").read_text(encoding="utf-8"))
     assert proposal["status"] == "PENDING_HUMAN_REVIEW"
     assert resolution["approved"] is False
+
+def test_engine_reads_metric_observations_from_merged_cache_payload():
+    payload = valid_payload()
+    observations = payload.pop("metric_observations")
+    payload["merged_data"]["metric_observations"] = observations
+
+    result = MultibaggersDiscoveryEngine(parameters(), "1.2").evaluate(
+        "TEST", payload, payload["as_of"]
+    )
+
+    assert result.passed is True
+    assert result.discovery_score is not None
+
