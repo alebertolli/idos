@@ -3,8 +3,12 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
+from datetime import date
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
+
 import yaml
 
 from idos.data.sqlite import SQLiteStore
@@ -105,6 +109,9 @@ class MultibaggersPipeline:
             )
             result_data = result.to_dict()
             result_data["global_market_eligibility"] = market_eligibility
+            market_quote = self._market_quote(ticker, merged_data, payload)
+            if market_quote:
+                result_data["market_quote"] = market_quote
             hash_body = {key: value for key, value in result_data.items() if key != "snapshot_hash"}
             result_data["snapshot_hash"] = hashlib.sha256(
                 json.dumps(hash_body, sort_keys=True, separators=(",", ":"), default=str).encode("utf-8")
@@ -140,6 +147,7 @@ class MultibaggersPipeline:
             existing = next((o for o in journal.list_all_opportunities() if o.get("ticker", "").upper() == ticker and o.get("strategy_id", "COMPOUNDER").upper() == "MULTIBAGGERS"), None)
             if existing:
                 opp_id = existing["id"]
+                opp_data = existing
                 output["existing"] += 1
             else:
                 opp_id = f"OPP-MB-{ticker}"
@@ -158,18 +166,21 @@ class MultibaggersPipeline:
                     conviction=Conviction(),
                 )
                 opp_data = opp.model_dump(mode="json")
-                position_limit = float(self.profile.parameters.get("position_limit_pct", 1.0))
-                opp_data.update({
-                    "discovery_score": result.discovery_score,
-                    "research_priority": result.research_priority,
-                    "discovery_type": result_data["discovery_type"],
-                    "snapshot_hash": result_data["snapshot_hash"],
-                    "position_limit_pct": position_limit,
-                    "risk_limits": {"max_position_pct": position_limit},
-                })
-                journal.save_opportunity(ticker, opp_data)
-                sqlite.save_opportunity(opp_data)
                 output["created"] += 1
+            position_limit = float(self.profile.parameters.get("position_limit_pct", 1.0))
+            opp_data.update({
+                "discovery_score": result.discovery_score,
+                "research_priority": result.research_priority,
+                "discovery_type": result_data["discovery_type"],
+                "snapshot_hash": result_data["snapshot_hash"],
+                "position_limit_pct": position_limit,
+                "risk_limits": {"max_position_pct": position_limit},
+            })
+            if not isinstance(opp_data.get("discovery_evidence"), dict):
+                opp_data["discovery_evidence"] = result_data
+            opp_data["latest_discovery_evidence"] = result_data
+            journal.save_opportunity(ticker, opp_data)
+            sqlite.save_opportunity(opp_data)
             opp_path = journal.opportunity_path(ticker, opp_id)
             opp_path.mkdir(parents=True, exist_ok=True)
             (opp_path / "discovery_snapshot.yml").write_text(
@@ -179,6 +190,56 @@ class MultibaggersPipeline:
                 yaml.safe_dump(intake, allow_unicode=True, sort_keys=False), encoding="utf-8"
             )
         return output
+
+    @staticmethod
+    def _market_quote(ticker: str, market_data: dict[str, Any], payload: Any) -> dict[str, Any] | None:
+        """Carry the latest sourced close into Research without changing Discovery eligibility."""
+        if market_data.get("price_history_basis") != "close_unadjusted":
+            return None
+        prices = market_data.get("price_history")
+        dates = market_data.get("price_history_dates")
+        if not isinstance(prices, list) or not isinstance(dates, list) or len(prices) != len(dates):
+            return None
+
+        provenance = market_data.get("data_provenance")
+        field_sources = provenance.get("field_sources", {}) if isinstance(provenance, dict) else {}
+        sources = field_sources.get("price_history", []) if isinstance(field_sources, dict) else []
+        if not sources and isinstance(payload, dict):
+            metric_sources = payload.get("metric_sources", {})
+            sources = metric_sources.get("price_history", []) if isinstance(metric_sources, dict) else []
+        source = (
+            next((str(value).strip() for value in sources if str(value).strip()), None)
+            if isinstance(sources, list)
+            else None
+        )
+        currency = market_data.get("quote_currency")
+        if (
+            not source
+            or not isinstance(currency, str)
+            or len(currency) != 3
+            or not currency.isalpha()
+            or currency != currency.upper()
+        ):
+            return None
+
+        for price, quote_date in reversed(list(zip(prices, dates))):
+            if isinstance(price, bool) or not isinstance(price, (int, float)) or not math.isfinite(price) or price <= 0:
+                continue
+            if not isinstance(quote_date, str):
+                continue
+            try:
+                if date.fromisoformat(quote_date).isoformat() != quote_date:
+                    continue
+            except ValueError:
+                continue
+            return {
+                "price": float(price),
+                "as_of_date": quote_date,
+                "currency": currency,
+                "source": source,
+                "url": f"https://finance.yahoo.com/quote/{quote(ticker, safe='.-^')}/history/",
+            }
+        return None
 
     def _asset_type(self, ticker: str) -> str | None:
         entry = self.operability.check(ticker)
