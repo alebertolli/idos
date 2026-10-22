@@ -9,6 +9,43 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import scripts.ddd_research as ddd_research
 
 
+
+
+def test_ddd_strategy_selector_is_optional_validated_and_case_insensitive(tmp_path, monkeypatch):
+    from idos.strategy.catalog import StrategyCatalog
+
+    config = tmp_path / "idos-config" / "strategies.yml"
+    config.parent.mkdir(parents=True)
+    common = {
+        "core": "CORE_3_GROWTH",
+        "sleeve": "HIGH_CONVICTION",
+        "thesis_type": "STRATEGIC",
+        "discovery_profile": "compounder",
+        "research_profile": "strategic",
+        "entry_policy": "VALUATION_ZONE",
+        "enabled": True,
+    }
+    config.write_text(yaml.safe_dump({"strategies": {
+        "COMPOUNDER": common,
+        "MULTIBAGGERS": {**common, "discovery_profile": "multibaggers", "research_profile": "multibaggers"},
+    }}), encoding="utf-8")
+    catalog = StrategyCatalog(config)
+
+    monkeypatch.setenv("STRATEGY_ID", "multibaggers")
+    selected = ddd_research._selected_strategy_id(catalog)
+    assert selected == "MULTIBAGGERS"
+    assert ddd_research._matches_strategy({"strategy_id": "MULTIBAGGERS"}, selected)
+    assert not ddd_research._matches_strategy({"strategy_id": "COMPOUNDER"}, selected)
+    assert not ddd_research._matches_strategy({}, selected)
+
+    monkeypatch.delenv("STRATEGY_ID")
+    assert ddd_research._selected_strategy_id(catalog) is None
+    assert ddd_research._matches_strategy({"strategy_id": "COMPOUNDER"}, None)
+
+    monkeypatch.setenv("STRATEGY_ID", "UNKNOWN")
+    with pytest.raises(ValueError, match="Unknown strategy_id"):
+        ddd_research._selected_strategy_id(catalog)
+
 def test_research_worker_failure_marks_run_failed_and_returns_nonzero(
     tmp_path: Path, monkeypatch
 ):
