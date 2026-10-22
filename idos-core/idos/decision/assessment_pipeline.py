@@ -11,7 +11,9 @@ from idos.data.journal import JournalRepository
 from idos.decision.orchestrator import DecisionOrchestrator, DecisionProposal
 from idos.decision.scenarios import (
     calculate_scenario_asymmetry,
+    scenario_fingerprint,
     scenario_source_urls_from_report,
+    validate_scenario_analysis,
 )
 from idos.decision.conviction import ConvictionCalculator
 from idos.decision.engines.business import BusinessAssessmentEngine
@@ -335,7 +337,7 @@ def build_context(
     consensus_target = target_consensus.get("promedio", 0) or 0
 
     # Catalyst-derived estimates may coexist and remain visible for context,
-    # but only an approved, version-matched Bear/Base/Bull set can authorize.
+    # but only an automatically validated, version-matched scenario set can pass.
     asymmetry = _calculate_report_asymmetry(
         report, raw_catalysts, current_price, target_low, target_mean, target_high,
         quote_currency,
@@ -510,103 +512,49 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
     return {}
 
 
-def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high):
-    if not raw_catalysts or not current_price:
-        return None
-    _horizon_years = {"corto": 0.5, "medio": 1.0, "largo": 2.0}
-    _scenario_map = {"alto": "Optimista", "medio": "Base", "bajo": "Fracaso"}
-    _price_map = {"Optimista": target_high, "Base": target_mean, "Fracaso": target_low}
-    scenarios = {"Fracaso": [], "Base": [], "Optimista": []}
-    for c in raw_catalysts:
-        if not isinstance(c, dict):
-            continue
-        impacto = c.get("impacto", "").lower()
-        scenario = _scenario_map.get(impacto)
-        if not scenario:
-            continue
-        prob = c.get("probabilidad_pct", 0)
-        if not isinstance(prob, (int, float)) or prob <= 0:
-            continue
-        horizon = _horizon_years.get(c.get("horizonte", "").lower(), 1.0)
-        scenarios[scenario].append({"prob": prob, "horizon": horizon, "desc": c.get("descripcion", "")})
-    total_prob = sum(sum(c["prob"] for c in sc_list) for sc_list in scenarios.values())
-    if total_prob <= 0:
-        return None
-    total_normalized = 0.0
-    rows = []
-    for scenario in ["Fracaso", "Base", "Optimista"]:
-        cat_list = scenarios[scenario]
-        prob_raw = sum(c["prob"] for c in cat_list)
-        prob_norm = (prob_raw / total_prob) * 100 if total_prob > 0 else 0
-        total_normalized += prob_norm
-        price = _price_map.get(scenario)
-        if price and current_price:
-            retorno = round((price / current_price - 1) * 100, 2)
-        else:
-            retorno = 0
-        contribucion = round(prob_norm / 100 * price, 2) if price and prob_norm > 0 else 0
-        horizon = round(sum(c["prob"] * c["horizon"] for c in cat_list) / prob_raw, 2) if prob_raw > 0 else 1.0
-        rows.append({
-            "escenario": scenario,
-            "probabilidad_pct": round(prob_norm, 1),
-            "precio_objetivo": price,
-            "retorno_pct": retorno,
-            "contribucion_ve": contribucion,
-            "horizonte_years": horizon,
-        })
-    diff = round(100.0 - total_normalized, 1)
-    if abs(diff) > 0.01 and rows:
-        rows.sort(key=lambda r: r["probabilidad_pct"], reverse=True)
-        rows[0]["probabilidad_pct"] = round(rows[0]["probabilidad_pct"] + diff, 1)
-    valor_esperado = round(sum(r["contribucion_ve"] for r in rows), 2)
-    retorno_esperado = round((valor_esperado / current_price - 1) * 100, 2) if current_price else 0
-    total_pct = sum(r["probabilidad_pct"] for r in rows)
-    horizon_avg = sum(r["probabilidad_pct"] * r["horizonte_years"] for r in rows) / total_pct if total_pct > 0 else 1.0
-    if current_price and valor_esperado > 0:
-        cagr = round((valor_esperado / current_price) ** (1 / horizon_avg) - 1, 4)
-        cagr_pct = round(cagr * 100, 2)
-    else:
-        cagr_pct = 0
-    upside = sum(r["probabilidad_pct"] * r["retorno_pct"] for r in rows if r["retorno_pct"] > 0) / 100
-    downside = sum(r["probabilidad_pct"] * r["retorno_pct"] for r in rows if r["retorno_pct"] < 0) / 100
-    abs_downside = abs(downside) if downside < 0 else 0
-    br = round(abs(upside) / abs_downside, 2) if abs_downside > 0 else (float('inf') if upside > 0 else 0)
-    return {
-        "rows": rows,
-        "valor_esperado": valor_esperado,
-        "retorno_esperado_pct": retorno_esperado,
-        "cagr_pct": cagr_pct,
-        "upside_esperado_pct": round(upside, 2),
-        "downside_esperado_pct": round(downside, 2),
-        "benefit_risk_ratio": br,
-        # Research catalysts can coexist, so their probabilities do not define
-        # mutually exclusive price scenarios. Keep this estimate visible for
-        # human review, but never use it to authorize an Opportunity.
-        "validation_status": "provisional",
-        "board_review_eligible": False,
-        "validation_reason": (
-            "Las probabilidades de catalizadores no son escenarios financieros "
-            "mutuamente excluyentes validados."
-        ),
-        "passes_threshold": False,
-        "horizonte_avg_years": round(horizon_avg, 2),
-    }
-
-
-def _calculate_report_asymmetry(
-    report: Any,
+def _compute_asymmetry(
     raw_catalysts: list,
     current_price: Any,
     target_low: Any,
     target_mean: Any,
     target_high: Any,
-    quote_currency: str | None,
-) -> dict[str, Any] | None:
+) -> dict[str, Any]:
+    """Keep the legacy helper fail-closed; catalysts are not exclusive scenarios."""
+    return {
+        "rows": [],
+        "benefit_risk_ratio": None,
+        "validation_status": "blocked",
+        "board_review_eligible": False,
+        "validation_reason": (
+            "No se infieren probabilidades ni retorno esperado desde catalizadores; "
+            "se requiere scenario_analysis validado"
+        ),
+    }
+
+
+def _calculate_report_asymmetry(
+    report: Any,
+    raw_catalysts: list | None = None,
+    current_price: Any = None,
+    target_low: Any = None,
+    target_mean: Any = None,
+    target_high: Any = None,
+    quote_currency: str | None = None,
+) -> dict[str, Any]:
     """Use only an automatically validated scenario contract for RULE-008."""
     report = report if isinstance(report, dict) else {}
     analysis = report.get("scenario_analysis")
     if analysis is None:
-        return _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
+        return {
+            "rows": [],
+            "benefit_risk_ratio": None,
+            "validation_status": "blocked",
+            "board_review_eligible": False,
+            "validation_reason": (
+                "scenario_analysis ausente; no se infieren probabilidades ni "
+                "retorno esperado desde catalizadores"
+            ),
+        }
     trusted_source_urls = scenario_source_urls_from_report(report)
     asymmetry = calculate_scenario_asymmetry(
         analysis,
@@ -677,15 +625,15 @@ def _eval_asymmetry(ctx):
         )
         return RuleResult("RULE-008", False, f"Asimetría provisional; autorización bloqueada: {reason}")
     br = asym.get("benefit_risk_ratio", 0)
-    upside = asym.get("upside_esperado_pct", 0)
-    downside = asym.get("downside_esperado_pct", 0)
+    upside = asym.get("upside_pct", 0)
+    downside = asym.get("downside_pct", 0)
     t = ctx.get("_settings")
     limit = t.rule_min_ratio("RULE-008", 3.0) if t else 3.0
     passes = br >= limit
     if passes:
-        detail = f"B/R {br:.1f}:1 ✅ (upside {upside:.1f}% / downside {abs(downside):.1f}%)"
+        detail = f"B/R {br:.1f}:1 ✅ (Bull +{upside:.1f}% / Bear {downside:.1f}%)"
     else:
-        detail = f"B/R {br:.1f}:1 ❌ (upside {upside:.1f}% / downside {abs(downside):.1f}%)"
+        detail = f"B/R {br:.1f}:1 ❌ (Bull +{upside:.1f}% / Bear {downside:.1f}%)"
     return RuleResult("RULE-008", passes, detail)
 
 
@@ -806,6 +754,23 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     except SignalEvidenceError as exc:
         snapshot_error = str(exc)
     report_context = report.get("strategy_context", {}) if isinstance(report, dict) else {}
+    scenario_analysis = report.get("scenario_analysis") if isinstance(report, dict) else None
+    trusted_scenario_urls = scenario_source_urls_from_report(report)
+    scenario_errors = validate_scenario_analysis(
+        scenario_analysis, trusted_source_urls=trusted_scenario_urls,
+    ) if scenario_analysis is not None else ["scenario_analysis ausente"]
+    report_inputs = report.get("research_input_snapshot", {}) if isinstance(report, dict) else {}
+    scenario_asymmetry = calculate_scenario_asymmetry(
+        scenario_analysis,
+        current_price=report_inputs.get("current_price"),
+        quote_currency=report_inputs.get("quote_currency"),
+        trusted_source_urls=trusted_scenario_urls,
+    ) if not scenario_errors else {"validation_status": "invalid", "validation_reason": "; ".join(scenario_errors)}
+    rule_008_passed = (
+        not scenario_errors
+        and scenario_asymmetry.get("validation_status") == "validated"
+        and scenario_asymmetry.get("board_review_eligible") is True
+    )
     checks = {
         "research_evidence": isinstance(report, dict) and report.get("opp_id") == opp_id and report.get("ticker") == ticker,
         "research_matches_signal": isinstance(report_context, dict) and report_context.get("strategy_id") == strategy_id
@@ -815,6 +780,7 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
         "signal_evidence": signal.get("ticker") == ticker and bool(signal.get("as_of_date")),
         "signal_within_policy": isinstance(value, (int, float)) and isinstance(minimum, (int, float))
         and isinstance(maximum, (int, float)) and minimum <= value <= maximum,
+        "scenario_pair_valid": not scenario_errors,
     }
     passed = all(checks.values())
     blocked_reason = {
@@ -826,10 +792,27 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     proposal = {
         "opportunity_id": opp_id, "strategy_id": strategy_id,
         "stage": "DECISION", "decision": "WAIT", "status": "PENDING_HUMAN_REVIEW" if passed else "BLOCKED",
+        "rules_passed": ["RULE-008"] if rule_008_passed else [],
+        "rules_failed": [] if rule_008_passed else ["RULE-008"],
         "checks": checks, "signal": signal,
-        "reason": "Presupuesto de riesgo y contexto de cartera requieren revisión privada." if passed else blocked_reason,
+        "reason": (
+            "Casos Bear/Bull en Decision Board; RULE-008 bloquea autorización cuantitativa: "
+            + str(scenario_asymmetry.get("validation_reason", "asimetría no validada"))
+            if passed and not rule_008_passed
+            else "Presupuesto de riesgo y contexto de cartera requieren revisión privada."
+            if passed else blocked_reason
+        ),
         "reason_code": None if passed else snapshot_error or "systematic_evidence_superseded",
         "signal_snapshot": snapshot,
+        "scenario_hash": scenario_fingerprint(scenario_analysis) if not scenario_errors else None,
+        "scenario_analysis": scenario_analysis if not scenario_errors else None,
+        "authorization_gates": {
+            "RULE-008": {
+                "passed": rule_008_passed,
+                "reason": scenario_asymmetry.get("validation_reason")
+                if not rule_008_passed else "asimetría validada",
+            },
+        },
         "generated_at": datetime.now(AR_TZ).isoformat(),
     }
     case_dir.mkdir(parents=True, exist_ok=True)
@@ -838,7 +821,9 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     )
     return {"ticker": ticker, "opp_id": opp_id,
             "status": "decision_pending" if passed else "blocked", "recommendation": "WAIT",
-            "checks": checks, "board_approved": False}
+            "checks": checks, "board_approved": False,
+            "scenario_status": "valid_pending_decision_board" if not scenario_errors else "invalid",
+            "rule_008_passed": rule_008_passed}
 
 
 def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_reprocess: bool = False) -> dict[str, Any]:

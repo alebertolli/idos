@@ -40,7 +40,7 @@ user_prompt: >
   Evidencia estructurada para escenarios (JSON; los conflictos se deben reconocer,
   no resolver por intuición):
   {scenario_market_evidence}
-  Reglas de procedencia para Bear/Base/Bull:
+  Reglas de procedencia para casos Bear/Bull (Base es opcional):
   - Usa exclusivamente las URLs incluidas literalmente en
     scenario_market_evidence.current_quote.sources o
     scenario_market_evidence.analyst_target_consensus.sources. Copia name, url y
@@ -59,6 +59,7 @@ user_prompt: >
   Evidencia financiera y procedencia (JSON; observations contiene los valores reportados, unidad/moneda, período, fecha de corte y fuente cuando están disponibles):
   {financial_data_evidence}
   Usa solo esas observaciones para afirmar hechos financieros. Un dato ausente no significa cero. No llames ajustado al flujo de caja libre reportado si la evidencia no documenta ese ajuste.
+  En `calidad_evidencia.hechos_verificados` incluye sólo afirmaciones trazables a una observación directa con campo, fuente y fecha presentes en la entrada. Como el contrato de salida no incluye referencias por afirmación, deja esa lista vacía cuando no puedas enlazarlas de forma explícita; clasifica el análisis derivado como `inferencias_llm`.
 
   Instrucciones - Sigue estas 3 fases en orden obligatorio:
 
@@ -102,31 +103,34 @@ user_prompt: >
      actuales: retén su probabilidad_anterior, marca el cambio y clasifica su estado
      (cumplido|vigente|desestimado|nuevo) en "comparativa_catalizadores".
 
-  ESCENARIOS FINANCIEROS PARA ASIMETRÍA (Bear/Base/Bull):
+  CASOS FINANCIEROS PARA ASIMETRÍA (Bear/Bull; Base opcional):
   Fecha del análisis: {analysis_as_of_date}. Usa esa fecha como as_of_date.
   Usa scenario_market_evidence como el conjunto de referencias de precio disponible.
   La cotización tiene fuente y fecha propias. Los targets de analistas son referencias
   observadas, no precios garantizados ni una valoración independiente. Si el rango
   bajo/alto y el consenso tienen la misma moneda, pueden servir como anclas para una
-  propuesta Bear/Base/Bull; explica qué supuestos de negocio justifican apartarte de
+  propuesta Bear/Bull; Base es opcional. Explica qué supuestos de negocio justifican apartarte de
   esas anclas. Las fechas de esos registros son fechas de observación del proveedor,
   no fechas de publicación de los analistas.
-  Para cada escenario agrega rationale (explicación breve del resultado) y
-  key_assumptions (supuestos concretos que lo hacen posible). Las probabilidades
-  son estimaciones de Research basadas en esos supuestos; nunca las derives ni
-  normalices desde probabilidades de catalizadores. La propuesta es provisional y
-  requiere revisión atribuible del gestor.
+  Para cada caso agrega rationale (explicación breve del resultado),
+  key_assumptions (supuestos concretos que lo hacen posible) y falsifiers
+  (condiciones observables que invalidarían el caso). No asignes probabilidades
+  ni retorno esperado; no existe una calibración validada. El gestor revisa una
+  sola vez el análisis junto con el expediente completo en Decision Board.
   horizon_date debe ser posterior a la fecha actual del análisis. No uses escenarios
   con horizontes ya vencidos ni identificadores ficticios en URLs (por ejemplo,
   CIKs compuestos por ceros). Si no puedes verificar los precios, fechas o fuentes,
   devuelve scenario_analysis como null.
-  Define tres resultados mutuamente excluyentes y exhaustivos para el mismo
-  horizonte. Las probabilidades deben sumar exactamente 100%; no normalices
-  probabilidades de catalizadores. Propón precios objetivo en la moneda de la
-  cotización, fundamenta cada precio con al menos una fuente HTTPS y su fecha de
-  corte. Bear <= Base <= Bull. Si no hay base suficiente para proponer alguno,
-  devuelve scenario_analysis como null; no inventes fuentes, precios ni fechas.
-  La propuesta queda pendiente de validación explícita del gestor.
+  Define dos casos de la misma tesis para el mismo horizonte: BEAR, el peor
+  resultado plausible respaldado, y BULL, el mejor resultado plausible respaldado.
+  BASE es opcional y sólo aporta un caso central, nunca una probabilidad implícita.
+  No incluyas probability_pct ni retorno esperado: el sistema no tiene un modelo
+  de probabilidades calibradas. Propón precios objetivo en la moneda de la
+  cotización, con rationale, supuestos clave, falsadores y fuentes HTTPS fechadas
+  que respalden los inputs. Bear <= Base <= Bull cuando exista BASE; si no, Bear
+  <= Bull. Si no hay base suficiente, devuelve scenario_analysis como null.
+  El gestor revisa escenarios y fuentes dentro de Decision Board; no solicites
+  aprobación humana antes de esa etapa.
 
   Calidad de Evidencia:
   - verified_facts: hechos confirmados por fuentes múltiples
@@ -170,14 +174,13 @@ user_prompt: >
     "calidad_evidencia": {{"hechos_verificados": [...], "inferencias_llm": [...], "preguntas_abiertas": [...]}},
     "comparativa_catalizadores": [{{"descripcion": "...", "probabilidad_anterior": N, "probabilidad_actual": N, "estado": "cumplido|vigente|desestimado|nuevo", "delta_pct": N, "nota_comparacion": "..."}}],
     "scenario_analysis": {{
-      "schema_version": "bear_base_bull_v1",
+      "schema_version": "bear_bull_v2",
       "as_of_date": "YYYY-MM-DD",
       "horizon_date": "YYYY-MM-DD",
       "currency": "USD",
       "scenarios": [
-        {{"id": "BEAR", "probability_pct": N, "target_price": N, "rationale": "...", "key_assumptions": ["..."], "sources": [{{"name": "...", "url": "https://...", "as_of_date": "YYYY-MM-DD"}}]}},
-        {{"id": "BASE", "probability_pct": N, "target_price": N, "rationale": "...", "key_assumptions": ["..."], "sources": [{{"name": "...", "url": "https://...", "as_of_date": "YYYY-MM-DD"}}]}},
-        {{"id": "BULL", "probability_pct": N, "target_price": N, "rationale": "...", "key_assumptions": ["..."], "sources": [{{"name": "...", "url": "https://...", "as_of_date": "YYYY-MM-DD"}}]}}
+        {{"id": "BEAR", "target_price": N, "rationale": "...", "key_assumptions": ["..."], "falsifiers": ["..."], "sources": [{{"name": "...", "url": "https://...", "as_of_date": "YYYY-MM-DD"}}]}},
+        {{"id": "BULL", "target_price": N, "rationale": "...", "key_assumptions": ["..."], "falsifiers": ["..."], "sources": [{{"name": "...", "url": "https://...", "as_of_date": "YYYY-MM-DD"}}]}}
       ]
     }},
     "score_general": 0-100

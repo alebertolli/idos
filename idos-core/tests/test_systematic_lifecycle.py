@@ -1,12 +1,14 @@
 """Monthly signal must pass the public research and decision gates."""
 
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 import sys
 
 import yaml
 
 from idos.data.sqlite import SQLiteStore
+from idos.data.journal import JournalRepository
 from idos.decision.assessment_pipeline import run_full_pipeline
 from idos.site.builder import SiteBuilder
 from idos.workers.ai.research_worker import ResearchWorker
@@ -27,8 +29,12 @@ class MarketGate:
     def execute(self, context):
         from types import SimpleNamespace
         return SimpleNamespace(output={"data": {
-            ticker: {"asset_type": "etf", "avg_dollar_volume_usd": 200_000,
+            ticker: {"asset_type": "etf", "quote_currency": "USD", "avg_dollar_volume_usd": 200_000,
                      "liquidity_provenance": {"price_source": "fixture"},
+                     "market_quote": {
+                         "price": 100.0, "currency": "USD", "as_of_date": datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date().isoformat(),
+                         "source": "yfinance",
+                     },
                      "market_data_normalization": {"status": "complete"}}
             for ticker in context["tickers"]
         }})
@@ -57,6 +63,15 @@ def test_momentum_discovery_research_assessment_wait(tmp_path: Path, monkeypatch
     opp = store.get_opportunity(opp_id)
     assert opp["status"] == "SCREENED"
     assert run_full_pipeline(opp_id, opp["ticker"], tmp_path)["status"] == "blocked"
+    opp["latest_discovery_evidence"] = {
+        "market_quote": {
+            "price": 100.0,
+            "currency": "USD",
+            "as_of_date": datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date().isoformat(),
+            "source": "yfinance",
+        }
+    }
+    JournalRepository(tmp_path / "idos-journal").save_opportunity(opp["ticker"], opp)
 
     worker = ResearchWorker({})
     monkeypatch.setattr(worker, "_load_financial_data", lambda *args: {})
@@ -74,11 +89,17 @@ def test_momentum_discovery_research_assessment_wait(tmp_path: Path, monkeypatch
     proposal = yaml.safe_load(proposal_file.read_text(encoding="utf-8"))
     assert proposal["status"] == "PENDING_HUMAN_REVIEW"
     assert all(proposal["checks"].values())
+    assert proposal["authorization_gates"]["RULE-008"]["passed"] is False
+    assert [item["id"] for item in proposal["scenario_analysis"]["scenarios"]] == ["BEAR", "BULL"]
+    assert all(item["target_price"] is None for item in proposal["scenario_analysis"]["scenarios"])
     assert store.get_opportunity(opp_id)["status"] == "UNDER_RESEARCH"
     assert not (tmp_path / "idos-journal" / "portfolio" / "buylist.yml").exists()
 
     public = SiteBuilder(tmp_path).build()
     assert any("revisión humana" in alert["message"] for alert in public.dashboard["alerts"])
+    row = next(item for item in public.opportunities if item["ticker"] == "XLF")
+    assert [item["id"] for item in row["ddd"]["scenario_analysis"]["scenarios"]] == ["BEAR", "BULL"]
+    assert row["ddd"]["board_review"]["status"] == "pending_decision_board"
     assert public.positions == []
 
     report_file = proposal_file.parent / "ddd_report.yml"

@@ -20,7 +20,7 @@ user_prompt: >
   Evalúa mecanismo de crecimiento, reinversión y retornos sobre capital; mercado
   direccionable y penetración; ventaja competitiva y erosión; management y asignación
   de capital; expectativas implícitas frente a evidencia; catalizadores e hitos;
-  escenarios base/upside/downside; riesgos y falsadores. Calcula o recopila en
+  escenarios BEAR/BULL con BASE opcional; riesgos y falsadores. Calcula o recopila en
   Research los ratios definidos en `research_requirements.ratios_to_review`, usando
   sólo los campos enumerados para cada ratio en `research_requirements.ratio_input_fields`,
   junto con inputs con fuente y definiciones compatibles del Research Intake Package. Para cada ratio devuelve en
@@ -33,13 +33,19 @@ user_prompt: >
   como observaciones para Assessment; no los conviertas en decisión de compra.
   Limita la salida para conservar JSON completo: máximo 4 elementos en cada lista narrativa
   y máximo 2 frases breves por elemento; no repitas el mismo hecho entre secciones.
-  Mantén exactamente los tres escenarios y una entrada por cada ratio configurado.
+  Incluye los dos casos BEAR y BULL de una misma tesis, con BASE opcional, y una
+  entrada por cada ratio configurado.
+  `ratios_investigados` es una lista de datos, no una lista narrativa: no le apliques
+  el límite de 4 elementos. Si no puedes validar un ratio, incluye su fila como
+  `unavailable`, con `value: null` y una limitación concreta; nunca omitas la fila.
   En cada ratio completa todos los campos obligatorios de forma concisa; no reproduzcas
   tablas ni el paquete fuente. Usa exactamente la unidad configurada para cada métrica
   en `research_requirements.ratio_units` (por ejemplo, `x` para ratios adimensionales
   y `months` para runway); no infieras una unidad distinta. Cada elemento de `sources` debe ser un objeto `{{name, url}}` con URL HTTPS.
   `period_end` es la fecha del período financiero reportado, no la fecha de
-  descarga; `inputs` debe referenciar nombres de campos del contexto financiero.
+  descarga; en `inputs` usa claves presentes en `configured_ratio_inputs`. Para
+  una fila histórica puedes usar `revenue_FY_2023` sólo si existe una fila fechada
+  de ese año en `revenue_history`; nunca inventes alias ni períodos.
   Para citar un ratio usa una URL copiada exactamente de `trusted_source_urls`
   en el contexto; no infieras rutas equivalentes ni otras páginas del proveedor.
   Si ninguna URL disponible respalda el ratio, usa `unavailable` y explica la limitación.
@@ -50,16 +56,34 @@ user_prompt: >
   `tesis_inversion` string; `score_general` número 0-100;
   `dominio_riesgos` y `dominio_catalizadores` listas de objetos;
   `dominio_business_quality` objeto {{"rating": string, "analisis": string}};
-  `scenario_analysis` objeto con `schema_version: bear_base_bull_v1`, `as_of_date`,
+  `scenario_analysis` objeto con `schema_version: bear_bull_v2`, `as_of_date`,
   `horizon_date`, `currency` y `scenarios`, o null si no hay evidencia suficiente;
   `falsadores` lista de strings; `calidad_evidencia` objeto con
   `hechos_verificados`, `inferencias_llm`, `preguntas_abiertas`;
   `ratios_investigados` lista exacta de ratios configurados; `risk_flags` lista.
-  Cada escenario es un objeto con `id`, `probability_pct`, `target_price`,
-  `rationale`, `key_assumptions` y `sources`; cada fuente incluye `name`,
-  `url` y `as_of_date`. Incluye exactamente BEAR, BASE y BULL, sus
-  probabilidades suman 100 y cada precio objetivo tiene fuente HTTPS y fecha;
-  si no puedes verificar esos datos, usa null. El score general mide calidad de
-  evidencia, no probabilidad ni conviction. No propongas APPROVED ni órdenes.
+  BEAR y BULL son dos resultados alternativos mutuamente excluyentes de una misma
+  tesis: BEAR es el peor resultado plausible respaldado por evidencia y BULL es el
+  mejor. BASE es opcional y sólo expresa un caso central. No los presentes como
+  tesis independientes. Cada caso incluye `id`,
+  `target_price`, `rationale`, `key_assumptions`, `falsifiers` y `sources`; cada
+  fuente incluye `name`, `url` y `as_of_date`. No incluyas `probability_pct` ni
+  retorno esperado: las probabilidades sólo se admitirán con un modelo calibrado.
+  `target_price` es un resultado de escenario para el horizonte, no la cotización
+  actual ni un resultado garantizado. Usa `scenario_market_evidence` dentro del
+  resumen financiero. Si el rango bajo/alto de analistas y la cotización están en
+  la misma moneda, sus extremos pueden servir como anclas observadas BEAR/BULL;
+  identifícalas como consenso observado, no como valoración intrínseca propia.
+  Explica con supuestos de negocio respaldados por la evidencia por qué cada extremo
+  representa el peor/mejor resultado plausible. Una desviación de esas anclas sólo
+  se admite si un método de valoración identificable y sus inputs fechados la
+  justifican. Las fuentes citadas deben respaldar el ancla o los inputs, no fingir
+  que publicaron la tesis del modelo. Copia cada URL exactamente desde las fuentes
+  del paquete; no reconstruyas rutas ni inventes cifras, fuentes, fechas o métodos.
+  Sin un rango comparable o un método y datos defendibles para ambos extremos,
+  devuelve null; Assessment mantendrá RULE-008 bloqueada.
+  Incluye BEAR y BULL, con BASE opcional. Cumple Bear <= Base <= Bull si BASE
+  existe, y Bear <= Bull en todos los casos. El gestor revisa escenarios y fuentes
+  en Decision Board antes de una decisión. El score general mide calidad de evidencia, no
+  probabilidad ni conviction. No propongas APPROVED ni órdenes.
 category: research
-version: "1.1"
+version: "1.2"

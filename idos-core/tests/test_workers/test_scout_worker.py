@@ -53,6 +53,7 @@ def test_scout_worker_screen_with_data():
     w = ScoutWorker({"universe_path": "", "min_score": 70})
     result = w._run_scout("MELI", {
         "asset_type": "us_equity",
+        "quote_currency": "USD",
         "size_metric_usd": 100_000_000_000,
         "size_metric_provenance": {"source": "yfinance", "as_of": "2026-10-16"},
         "market_cap_usd": 100_000_000_000,

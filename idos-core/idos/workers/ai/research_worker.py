@@ -23,7 +23,9 @@ from idos.timezone import AR_TZ
 from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.decision.scenarios import (
+    scenario_financial_evidence_snapshot,
     scenario_source_urls_from_evidence,
+    scenario_source_urls_from_research_financial_evidence,
     canonicalize_scenario_ticker_url_case,
     validate_scenario_analysis,
 )
@@ -221,6 +223,9 @@ class ResearchWorker(BaseWorker):
         initial_quote = initial_discovery.get("market_quote") if isinstance(initial_discovery, dict) else None
         quote_evidence = {"market_quote": latest_quote or initial_quote}
         price_context = self._current_price_context(financial_data, quote_evidence)
+        resolved_quote_currency = self._resolve_quote_currency(
+            financial_data, quote_evidence, signal_snapshot
+        )
 
         ddd_inputs = {
             "analysis_as_of_date": datetime.now(AR_TZ).date().isoformat(),
@@ -229,12 +234,7 @@ class ResearchWorker(BaseWorker):
             "current_price": price_context["price"],
             "current_price_as_of_date": price_context["as_of_date"],
             "current_price_source": price_context["source"],
-            "quote_currency": (
-                financial_data.get("quote_currency") or financial_data.get("currency")
-                or (quote_evidence.get("market_quote", {}).get("currency")
-                    if isinstance(quote_evidence.get("market_quote"), dict) else None)
-                or "N/D"
-            ),
+            "quote_currency": resolved_quote_currency,
             "existing_wiki": previous_wiki,
             "prior_catalysts": prior_catalysts,
             "sector": company.get("sector", ""),
@@ -250,7 +250,9 @@ class ResearchWorker(BaseWorker):
             "fcf_adjusted": financial_data.get("fcf_adjusted"),
             "debt_to_equity": financial_data.get("debt_equity_ratio"),
             "debt_maturity_profile": financial_data.get("debt_maturity_profile", "N/A"),
-            "interest_coverage_ratio": financial_data.get("interest_coverage_ratio"),
+            "interest_coverage_ratio": self._sourced_optional_metric_label(
+                financial_data, "interest_coverage_ratio", unit="x"
+            ),
             "ceo_tenure": financial_data.get("ceo_tenure"),
             "insider_ownership": financial_data.get("insider_ownership"),
             "capital_allocation": financial_data.get("capital_allocation", "N/A"),
@@ -265,13 +267,7 @@ class ResearchWorker(BaseWorker):
                 self._scenario_market_evidence(
                     ticker=ticker,
                     price_context=price_context,
-                    quote_currency=(
-                        financial_data.get("quote_currency")
-                        or financial_data.get("currency")
-                        or (quote_evidence.get("market_quote", {}).get("currency")
-                            if isinstance(quote_evidence.get("market_quote"), dict) else None)
-                        or "N/D"
-                    ),
+                    quote_currency=resolved_quote_currency,
                     target_consensus=consensus,
                 ),
                 ensure_ascii=False,
@@ -285,6 +281,13 @@ class ResearchWorker(BaseWorker):
         # fundamental rules that do not apply to this strategy.
         if is_systematic:
             ddd_result = self._build_systematic_ddd(ticker, opp, systematic_params)
+            ddd_result["scenario_analysis"] = self._build_systematic_scenario_analysis(
+                signal=opp.get("signal") or {},
+                parameters=systematic_params,
+                analysis_as_of_date=ddd_inputs["analysis_as_of_date"],
+                quote_currency=ddd_inputs["quote_currency"],
+                scenario_market_evidence=ddd_inputs["scenario_market_evidence"],
+            )
         elif is_multibaggers:
             requirements = (research_intake or {}).get("research_requirements", {})
             ratio_inputs = requirements.get("ratio_input_fields", {})
@@ -297,25 +300,52 @@ class ResearchWorker(BaseWorker):
                 financial_data,
                 allowed_input_fields=allowed_input_fields or None,
             )
-            ddd_result = self._run_prompt("multibaggers", ticker, {
+            prompt_context = self._bounded_ddd_prompt_context({
                 "ticker": ticker,
                 "name": company.get("name", ticker),
-                "intake_package": json.dumps(research_intake, ensure_ascii=False, sort_keys=True),
+                "intake_package": self._multibaggers_intake_prompt_context(research_intake),
+                "financial_summary": self._multibaggers_prompt_context(ddd_inputs),
+                "research_financial_evidence": self._multibaggers_research_prompt_evidence(
+                    research_financial_evidence
+                ),
+            }, max_chars=40000)
+            prompt_context_bytes = len(json.dumps(
+                prompt_context, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str
+            ).encode("utf-8"))
+            print(f"[RESEARCH] {ticker}: MULTIBAGGERS bounded prompt context={prompt_context_bytes} bytes")
+            prompt_kwargs = {
+                "ticker": prompt_context["ticker"],
+                "name": prompt_context["name"],
+                "intake_package": json.dumps(
+                    prompt_context["intake_package"], ensure_ascii=False, sort_keys=True,
+                    separators=(",", ":"), default=str,
+                ),
                 "financial_summary": json.dumps(
-                    self._multibaggers_prompt_context(ddd_inputs),
-                    ensure_ascii=False,
-                    sort_keys=True,
-                    default=str,
+                    prompt_context["financial_summary"], ensure_ascii=False, sort_keys=True,
+                    separators=(",", ":"), default=str,
                 ),
                 "research_financial_evidence": json.dumps(
-                    research_financial_evidence,
-                    ensure_ascii=False,
-                    sort_keys=True,
-                    default=str,
+                    prompt_context["research_financial_evidence"],
+                    ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str,
                 ),
-            }, max_tokens=8192)
+            }
+            template = self.registry.get("multibaggers", category="research") or ""
+            system_prompt = self.registry.get_system("multibaggers", category="research") or ""
+            rendered_prompt = template.format(**prompt_kwargs) if isinstance(template, str) else str(template)
+            request_prompt_bytes = len(
+                (system_prompt + "\n" + rendered_prompt).encode("utf-8")
+            )
+            print(f"[RESEARCH] {ticker}: MULTIBAGGERS rendered prompt={request_prompt_bytes} bytes")
+            ddd_result = self._run_prompt(
+                "multibaggers", ticker, prompt_kwargs, max_tokens=8192
+            )
         else:
-            ddd_result = self._run_prompt("ddd", ticker, ddd_inputs, max_tokens=8192)
+            ddd_result = self._run_prompt(
+                "ddd", ticker, self._bounded_ddd_prompt_context(ddd_inputs), max_tokens=8192
+            )
+
+        if not is_systematic:
+            self._demote_unreferenced_research_facts(ddd_result)
 
         classification = ddd_result.get("clasificacion_oportunidad", {})
         if signal_snapshot is not None:
@@ -323,22 +353,27 @@ class ResearchWorker(BaseWorker):
         market_error = ddd_result.get("error_mercado", {})
         thesis = ddd_result.get("tesis_inversion", "")
         score = ddd_result.get("score_general", 50)
-        scenario_analysis = None if is_systematic else ddd_result.get("scenario_analysis")
+        scenario_analysis = ddd_result.get("scenario_analysis")
         trusted_scenario_urls = scenario_source_urls_from_evidence(
             ddd_inputs.get("scenario_market_evidence")
         )
-        if not is_systematic:
-            scenario_analysis = canonicalize_scenario_ticker_url_case(
-                scenario_analysis,
-                ticker=ticker,
-                trusted_source_urls=trusted_scenario_urls,
+        if is_multibaggers:
+            trusted_scenario_urls.update(
+                scenario_source_urls_from_research_financial_evidence(
+                    research_financial_evidence
+                )
             )
-            if scenario_analysis is not None:
-                ddd_result["scenario_analysis"] = scenario_analysis
-        scenario_validation_errors = [] if is_systematic else validate_scenario_analysis(
+        scenario_analysis = canonicalize_scenario_ticker_url_case(
             scenario_analysis,
+            ticker=ticker,
             trusted_source_urls=trusted_scenario_urls,
         )
+        if scenario_analysis is not None:
+            ddd_result["scenario_analysis"] = scenario_analysis
+        scenario_validation_errors = validate_scenario_analysis(
+            scenario_analysis,
+            trusted_source_urls=trusted_scenario_urls,
+        ) if scenario_analysis is not None else ["scenario_analysis ausente"]
 
         ddd_empty = not any(ddd_result.get(k) for k in ["clasificacion_oportunidad", "tesis_inversion", "dominio_riesgos", "dominio_business_quality"])
         if ddd_empty:
@@ -387,12 +422,44 @@ class ResearchWorker(BaseWorker):
         ratio_requirements = (research_intake or {}).get("research_requirements", {})
         expected_ratio_units = ratio_requirements.get("ratio_units", {})
         if is_multibaggers:
+            discarded_ratio_calculations = self._discard_calculated_ratios_without_inputs(
+                ddd_result.get("ratios_investigados")
+            )
+            if discarded_ratio_calculations:
+                event_data = {
+                    "opp_id": opp_id,
+                    "ticker": ticker,
+                    "metrics": discarded_ratio_calculations,
+                }
+                sqlite.log_event("research:ratio_calculation_discarded", event_data)
+                journal.log_event(
+                    "research:ratio_calculation_discarded",
+                    event_data,
+                    source="research_worker",
+                )
             self._normalize_multibaggers_ratio_units(
                 ddd_result.get("ratios_investigados"), expected_ratio_units
             )
             self._bind_multibaggers_ratio_sources(
                 ddd_result.get("ratios_investigados"), research_financial_evidence
             )
+            missing_ratio_dispositions = self._complete_missing_multibaggers_ratio_dispositions(
+                ddd_result.get("ratios_investigados"),
+                ratio_requirements.get("ratios_to_review", []),
+                ratio_requirements.get("ratio_units", {}),
+            )
+            if missing_ratio_dispositions:
+                event_data = {
+                    "opp_id": opp_id,
+                    "ticker": ticker,
+                    "metrics": missing_ratio_dispositions,
+                }
+                sqlite.log_event("research:ratio_disposition_omitted", event_data)
+                journal.log_event(
+                    "research:ratio_disposition_omitted",
+                    event_data,
+                    source="research_worker",
+                )
         ratio_validation_errors = (
             self._validate_multibaggers_ratio_review(
                 ddd_result.get("ratios_investigados"),
@@ -412,6 +479,7 @@ class ResearchWorker(BaseWorker):
                 available_input_fields=(
                     set(research_financial_evidence["source_observations"])
                     | set(research_financial_evidence["validated_metric_observations"])
+                    | set(self._multibaggers_financial_input_aliases(research_financial_evidence))
                 ),
                 expected_units=expected_ratio_units,
             )
@@ -431,6 +499,10 @@ class ResearchWorker(BaseWorker):
                 "ratio_validation_errors": ratio_validation_errors,
             }
 
+        if is_multibaggers:
+            ddd_inputs["scenario_financial_evidence"] = scenario_financial_evidence_snapshot(
+                research_financial_evidence
+            )
         generated_at = datetime.now(AR_TZ).isoformat()
         input_snapshot_hash = hashlib.sha256(
             json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str).encode("utf-8")
@@ -476,7 +548,7 @@ class ResearchWorker(BaseWorker):
             "comparativa_catalizadores": ddd_result.get("comparativa_catalizadores", []),
             "scenario_analysis": scenario_analysis,
             "scenario_validation": {
-                "status": "not_applicable" if is_systematic else "valid_pending_decision_board"
+                "status": "valid_pending_decision_board"
                 if not scenario_validation_errors else "invalid_pending_revision",
                 "errors": scenario_validation_errors,
             },
@@ -593,6 +665,9 @@ class ResearchWorker(BaseWorker):
             "ticker": ticker,
             "name": company.get("name", ticker),
             "company_data": f"Sector: {company.get('sector', '')}\nBusiness: {company.get('business_model', '')}",
+            "scenario_analysis": json.dumps(
+                ddd_result.get("scenario_analysis"), ensure_ascii=False, sort_keys=True, default=str,
+            ),
             "roic": financial_data.get("roic_pct"),
             "operating_margin": financial_data.get("operating_margin_pct"),
             "revenue_growth": financial_data.get("revenue_growth_pct"),
@@ -742,6 +817,103 @@ class ResearchWorker(BaseWorker):
                 }
                 prior.append(item)
         return prior
+
+    @staticmethod
+    def _build_systematic_scenario_analysis(
+        *,
+        signal: dict[str, Any],
+        parameters: dict[str, Any],
+        analysis_as_of_date: str,
+        quote_currency: str,
+        scenario_market_evidence: str | dict[str, Any],
+    ) -> dict[str, Any]:
+        """Build sourced qualitative signal cases without inventing price targets."""
+        try:
+            as_of = date.fromisoformat(str(analysis_as_of_date))
+        except ValueError as exc:
+            raise ValueError("Systematic scenarios require an ISO analysis date") from exc
+        if as_of.isoformat() != str(analysis_as_of_date):
+            raise ValueError("Systematic scenarios require a canonical ISO analysis date")
+        if isinstance(scenario_market_evidence, str):
+            try:
+                market_evidence = json.loads(scenario_market_evidence)
+            except (TypeError, ValueError):
+                market_evidence = {}
+        else:
+            market_evidence = scenario_market_evidence
+        market_evidence = market_evidence if isinstance(market_evidence, dict) else {}
+        quote = market_evidence.get("current_quote")
+        quote = quote if isinstance(quote, dict) else {}
+        quote_date = quote.get("as_of_date")
+        sources = quote.get("sources")
+        scenario_sources = [
+            {
+                "name": item.get("name"),
+                "url": item.get("url"),
+                "as_of_date": quote_date,
+            }
+            for item in sources
+            if isinstance(item, dict) and item.get("name") and item.get("url")
+        ] if isinstance(sources, list) and quote_date else []
+
+        next_month = 1 if as_of.month == 12 else as_of.month + 1
+        next_year = as_of.year + 1 if as_of.month == 12 else as_of.year
+        horizon = date(next_year, next_month, 1).isoformat()
+        minimum = parameters.get("minimum_signal")
+        maximum = parameters.get("maximum_signal")
+        momentum = signal.get("momentum")
+        if any(
+            isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value)
+            for value in (minimum, maximum, momentum)
+        ):
+            raise ValueError("Systematic scenarios require the current signal and configured bounds")
+        if not isinstance(quote_currency, str) or not re.fullmatch(r"[A-Z]{3}", quote_currency):
+            raise ValueError("Systematic scenarios require an ISO quote currency")
+
+        source_list = [dict(source) for source in scenario_sources]
+        return {
+            "schema_version": "bear_bull_v2",
+            "quantification_status": "not_calibrated",
+            "as_of_date": as_of.isoformat(),
+            "horizon_date": horizon,
+            "currency": quote_currency,
+            "scenarios": [
+                {
+                    "id": "BEAR",
+                    "target_price": None,
+                    "rationale": (
+                        f"La señal momentum ({momentum:.2f}) cae por debajo del mínimo "
+                        f"configurado ({minimum:g}) antes de la próxima revisión mensual. "
+                        "Es un caso de deterioro de señal, no un pronóstico de precio."
+                    ),
+                    "key_assumptions": [
+                        "Se conserva la regla de rebalanceo mensual configurada.",
+                        f"El umbral mínimo vigente es {minimum:g}.",
+                    ],
+                    "falsifiers": [
+                        "La señal permanece dentro del rango configurado al próximo rebalanceo."
+                    ],
+                    "sources": source_list,
+                },
+                {
+                    "id": "BULL",
+                    "target_price": None,
+                    "rationale": (
+                        f"La señal momentum ({momentum:.2f}) persiste y mejora hacia el máximo "
+                        f"configurado ({maximum:g}) antes de la próxima revisión mensual. "
+                        "Es un caso de persistencia de señal, no un pronóstico de precio."
+                    ),
+                    "key_assumptions": [
+                        "Se conserva la regla de rebalanceo mensual configurada.",
+                        f"El máximo descriptivo vigente es {maximum:g}.",
+                    ],
+                    "falsifiers": [
+                        f"La señal cae por debajo del mínimo configurado ({minimum:g})."
+                    ],
+                    "sources": [dict(source) for source in source_list],
+                },
+            ],
+        }
 
     @staticmethod
     def _build_systematic_ddd(ticker: str, opportunity: dict[str, Any], parameters: dict[str, Any]) -> dict[str, Any]:
@@ -1122,6 +1294,62 @@ class ResearchWorker(BaseWorker):
         return merged
 
     @staticmethod
+    def _sourced_optional_metric_label(
+        data: dict[str, Any], field: str, *, unit: str
+    ) -> str:
+        """Render a prompt metric only when that field has dated source provenance."""
+        value = data.get(field)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            return "N/D (sin dato verificado)"
+        provenance = data.get("data_provenance")
+        provenance = provenance if isinstance(provenance, dict) else {}
+        field_sources = provenance.get("field_sources")
+        sources = field_sources.get(field) if isinstance(field_sources, dict) else None
+        has_source = isinstance(sources, list) and any(
+            isinstance(source, str) and source.strip() for source in sources
+        )
+        metric_metadata = data.get("financial_metric_metadata")
+        metadata = metric_metadata.get(field) if isinstance(metric_metadata, dict) else None
+        period_end = data.get("financial_data_as_of_date")
+        if not period_end and isinstance(metadata, dict):
+            period_end = metadata.get("period_end")
+        try:
+            period_text = str(period_end)[:10]
+            parsed_period_end = date.fromisoformat(period_text)
+            has_period = parsed_period_end.isoformat() == period_text
+        except ValueError:
+            has_period = False
+        if not has_source or not has_period:
+            return "N/D (sin dato verificado)"
+        return f"{value:g}{unit}"
+
+    @staticmethod
+    def _demote_unreferenced_research_facts(ddd_result: dict[str, Any]) -> None:
+        """Do not persist free-text LLM claims as verified facts without evidence refs."""
+        quality = ddd_result.get("calidad_evidencia")
+        if not isinstance(quality, dict):
+            return
+        facts = quality.get("hechos_verificados")
+        if not isinstance(facts, list) or not facts:
+            return
+        unreferenced = [
+            fact.strip() for fact in facts
+            if isinstance(fact, str) and fact.strip()
+        ]
+        quality["hechos_verificados"] = []
+        if any(not isinstance(fact, str) for fact in facts):
+            print("[RESEARCH] Ignoring unsupported structured hechos_verificados")
+        existing = quality.get("inferencias_llm")
+        inferences = [
+            item.strip() for item in existing
+            if isinstance(item, str) and item.strip()
+        ] if isinstance(existing, list) else []
+        for fact in unreferenced:
+            if fact not in inferences:
+                inferences.append(fact)
+        quality["inferencias_llm"] = inferences
+
+    @staticmethod
     def _financial_evidence_context(data: dict[str, Any]) -> dict[str, Any]:
         provenance = data.get("data_provenance")
         provenance = provenance if isinstance(provenance, dict) else {}
@@ -1143,26 +1371,112 @@ class ResearchWorker(BaseWorker):
         }
 
     @staticmethod
-    def _bound_multibaggers_prompt_value(value: Any, depth: int = 0) -> Any:
-        """Bound nested company context before it is serialized into an LLM request."""
+    def _resolve_quote_currency(
+        financial_data: dict[str, Any],
+        quote_evidence: dict[str, Any],
+        signal_snapshot: dict[str, Any] | None = None,
+    ) -> str:
+        """Resolve an ISO quote currency from sourced market or strategy evidence."""
+        signal = signal_snapshot.get("signal") if isinstance(signal_snapshot, dict) else {}
+        signal = signal if isinstance(signal, dict) else {}
+        quote = quote_evidence.get("market_quote") if isinstance(quote_evidence, dict) else {}
+        quote = quote if isinstance(quote, dict) else {}
+        for candidate in (
+            financial_data.get("quote_currency"),
+            financial_data.get("currency"),
+            quote.get("currency"),
+            signal.get("quote_currency"),
+        ):
+            if isinstance(candidate, str):
+                normalized = candidate.strip().upper()
+                if re.fullmatch(r"[A-Z]{3}", normalized):
+                    return normalized
+        return "N/D"
+
+    @staticmethod
+    def _bounded_ddd_prompt_context(data: dict[str, Any], *, max_chars: int = 16000) -> dict[str, Any]:
+        """Bound LLM-only input while full evidence remains in the audit snapshot."""
+        json_fields = {"financial_data_evidence", "scenario_market_evidence"}
+
+        def build(*, depth: int, items: int, keys: int, chars: int) -> dict[str, Any]:
+            context: dict[str, Any] = {}
+            for field, raw in data.items():
+                value = raw
+                field_items = 5 if field in {"research_financial_evidence", "financial_data_evidence"} else items
+                if field in json_fields and isinstance(raw, str):
+                    try:
+                        value = json.loads(raw)
+                    except (TypeError, ValueError):
+                        value = None
+                    if value is None:
+                        continue
+                compact = ResearchWorker._bound_multibaggers_prompt_value(
+                    value, max_depth=depth, max_items=field_items,
+                    max_keys=keys, max_string_chars=chars,
+                )
+                if compact is None:
+                    continue
+                if field in json_fields and isinstance(compact, (dict, list)):
+                    context[field] = json.dumps(
+                        compact, ensure_ascii=False, sort_keys=True, default=str
+                    )
+                else:
+                    context[field] = compact
+            return context
+
+        for limits in (
+            {"depth": 5, "items": 5, "keys": 64, "chars": 500},
+            {"depth": 5, "items": 3, "keys": 64, "chars": 300},
+            {"depth": 5, "items": 2, "keys": 64, "chars": 180},
+        ):
+            context = build(**limits)
+            if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= max_chars:
+                return context
+        for optional in ("existing_wiki", "prior_catalysts", "recent_events", "products", "geography"):
+            context.pop(optional, None)
+            if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= max_chars:
+                return context
+        if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) > max_chars:
+            raise ValueError(
+                f"Research prompt context exceeds {max_chars} characters after compaction"
+            )
+        return context
+
+    @staticmethod
+    def _bound_multibaggers_prompt_value(
+        value: Any,
+        depth: int = 0,
+        *,
+        max_depth: int = 2,
+        max_items: int = 5,
+        max_keys: int = 8,
+        max_string_chars: int = 500,
+    ) -> Any:
+        """Bound nested context before it is serialized into an LLM request."""
         if isinstance(value, str):
-            return value[:500]
+            return value[:max_string_chars]
         if value is None or isinstance(value, (bool, int, float)):
             return value
-        if depth >= 2:
+        if depth >= max_depth:
             return None
         if isinstance(value, list):
             return [
-                ResearchWorker._bound_multibaggers_prompt_value(item, depth + 1)
-                for item in value[:5]
+                ResearchWorker._bound_multibaggers_prompt_value(
+                    item, depth + 1, max_depth=max_depth, max_items=max_items,
+                    max_keys=max_keys, max_string_chars=max_string_chars,
+                )
+                for item in value[:max_items]
                 if isinstance(item, (str, bool, int, float, list, dict)) or item is None
             ]
         if isinstance(value, dict):
             bounded = {}
-            for key, item in list(value.items())[:8]:
+            for key, item in list(value.items())[:max_keys]:
                 if not isinstance(key, str):
                     continue
-                compact = ResearchWorker._bound_multibaggers_prompt_value(item, depth + 1)
+                compact = ResearchWorker._bound_multibaggers_prompt_value(
+                    item, depth + 1, max_depth=max_depth, max_items=max_items,
+                    max_keys=max_keys, max_string_chars=max_string_chars,
+                )
                 if compact is not None:
                     bounded[key[:100]] = compact
             return bounded
@@ -1224,6 +1538,82 @@ class ResearchWorker(BaseWorker):
             )
         selected = [item for _, item in indexed[:limit]]
         return selected, max(0, len(value) - len(selected))
+
+    @staticmethod
+    def _multibaggers_intake_prompt_context(package: dict[str, Any]) -> dict[str, Any]:
+        """Keep the audited Research contract while omitting duplicated market history."""
+        if not isinstance(package, dict):
+            return {}
+
+        context = {
+            key: package[key]
+            for key in (
+                "ticker", "strategy_id", "strategy_version", "discovery_profile",
+                "research_profile", "as_of", "config_hash", "snapshot_hash",
+                "discovery_score", "research_priority", "discovery_type",
+                "component_scores", "reason_codes", "red_flags", "data_quality",
+                "research_requirements", "market_quote",
+            )
+            if key in package
+        }
+
+        metrics = package.get("metrics_snapshot")
+        if isinstance(metrics, dict):
+            compact_metrics = {}
+            for metric, raw in metrics.items():
+                if not isinstance(raw, dict):
+                    continue
+                compact = {
+                    key: raw[key]
+                    for key in (
+                        "value", "unit", "currency", "period", "status",
+                        "reason_code", "as_of",
+                    )
+                    if key in raw
+                }
+                sources = raw.get("source_evidence")
+                if isinstance(sources, list):
+                    compact["source_evidence"] = [
+                        {
+                            key: item[key]
+                            for key in (
+                                "source_id", "status", "value", "unit", "currency",
+                                "period", "reported_at", "observed_at", "source_url",
+                            )
+                            if key in item
+                        }
+                        for item in sources[:2]
+                        if isinstance(item, dict)
+                    ]
+                compact_metrics[metric] = compact
+            context["metrics_snapshot"] = compact_metrics
+
+        eligibility = package.get("global_market_eligibility")
+        if isinstance(eligibility, dict):
+            compact_eligibility = {
+                key: eligibility[key]
+                for key in (
+                    "passed", "asset_type", "size_metric_usd", "market_cap_min_usd",
+                    "avg_dollar_volume_usd", "avg_dollar_volume_min_usd",
+                    "liquidity_basis", "reason_codes", "normalization", "size_provenance",
+                )
+                if key in eligibility
+            }
+            liquidity = eligibility.get("liquidity_provenance")
+            if isinstance(liquidity, dict):
+                compact_eligibility["liquidity_provenance"] = {
+                    key: liquidity[key]
+                    for key in (
+                        "basis", "coverage", "expected_observations", "valid_observations",
+                        "minimum_coverage", "window_sessions", "first_price_date",
+                        "last_price_date", "price_source", "fx_reference", "fx_side",
+                        "fx_source",
+                    )
+                    if key in liquidity
+                }
+            context["global_market_eligibility"] = compact_eligibility
+
+        return context
 
     @staticmethod
     def _research_financial_evidence(
@@ -1364,6 +1754,106 @@ class ResearchWorker(BaseWorker):
         }
 
     @staticmethod
+    def _multibaggers_research_prompt_evidence(evidence: dict[str, Any]) -> dict[str, Any]:
+        """Remove duplicated financial payloads while retaining every configured input field."""
+        if not isinstance(evidence, dict):
+            return {}
+        compact: dict[str, Any] = {
+            key: evidence[key]
+            for key in ("reporting_period_end", "currency")
+            if key in evidence
+        }
+        urls = evidence.get("trusted_source_urls")
+        if isinstance(urls, list):
+            compact["trusted_source_urls"] = urls[:20]
+
+        source_observations = evidence.get("source_observations")
+        source_observations = source_observations if isinstance(source_observations, dict) else {}
+        compact_sources: dict[str, Any] = {}
+        for field, raw in source_observations.items():
+            if not isinstance(raw, dict):
+                continue
+            value = raw.get("value")
+            if isinstance(value, list):
+                value = [
+                    {
+                        key: point[key]
+                        for key in ("value", "unit", "currency", "period", "period_end", "reported_at")
+                        if key in point
+                    }
+                    for point in value[:5]
+                    if isinstance(point, dict)
+                ]
+            elif isinstance(value, dict):
+                value = ResearchWorker._bound_multibaggers_prompt_value(
+                    value, max_depth=2, max_items=3, max_keys=6, max_string_chars=180
+                )
+            compact_sources[str(field)] = {
+                key: raw[key]
+                for key in ("unit", "currency", "period_type", "period_end", "sources",
+                            "source_url", "omitted_points")
+                if key in raw
+            }
+            compact_sources[str(field)]["value"] = value
+            if isinstance(compact_sources[str(field)].get("sources"), list):
+                compact_sources[str(field)]["sources"] = compact_sources[str(field)]["sources"][:2]
+        observed_at = next((
+            raw.get("observed_at")
+            for raw in source_observations.values()
+            if isinstance(raw, dict) and isinstance(raw.get("observed_at"), str)
+        ), None)
+        if observed_at:
+            compact["observed_at"] = observed_at
+        compact["source_observations"] = compact_sources
+
+        reconciled = evidence.get("reconciled_observations")
+        if isinstance(reconciled, dict):
+            compact_reconciled = {}
+            for field, raw in reconciled.items():
+                if not isinstance(raw, dict):
+                    continue
+                compact_reconciled[str(field)] = {
+                    key: ResearchWorker._bound_multibaggers_prompt_value(
+                        raw[key], max_depth=2, max_items=3, max_keys=5, max_string_chars=160
+                    )
+                    for key in (
+                        "selected_source", "period_status", "non_comparable_reason",
+                    )
+                    if key in raw
+                }
+            compact["reconciled_observations"] = compact_reconciled
+
+        for field in ("validated_metric_observations", "metric_observation_exclusions"):
+            observations = evidence.get(field)
+            if not isinstance(observations, dict):
+                continue
+            compact[field] = {
+                str(metric): [
+                    ResearchWorker._bound_multibaggers_prompt_value(
+                        {key: value for key, value in item.items() if key != "observed_at"},
+                        max_depth=2, max_items=3, max_keys=8, max_string_chars=200
+                    )
+                    for item in rows[:1]
+                    if isinstance(item, dict)
+                ]
+                for metric, rows in observations.items()
+                if isinstance(rows, list)
+            }
+
+        conflicts = evidence.get("conflicts")
+        if isinstance(conflicts, list):
+            compact["conflicts"] = [
+                {
+                    key: item[key]
+                    for key in ("field", "deviation_pct", "reason", "sources")
+                    if key in item
+                }
+                for item in conflicts[:10]
+                if isinstance(item, dict)
+            ]
+        return compact
+
+    @staticmethod
     def _validate_multibaggers_research_shape(result: Any) -> list[str]:
         """Reject structurally incomplete Research output before persistence."""
         if not isinstance(result, dict):
@@ -1392,6 +1882,57 @@ class ResearchWorker(BaseWorker):
         return errors
 
     @staticmethod
+    def _multibaggers_financial_input_aliases(
+        financial_evidence: dict[str, Any],
+    ) -> dict[str, str]:
+        """Map period-specific Research references to verified history fields."""
+        source_observations = financial_evidence.get("source_observations")
+        source_observations = source_observations if isinstance(source_observations, dict) else {}
+        aliases: dict[str, str] = {}
+        for field, observation in source_observations.items():
+            if (
+                not isinstance(field, str)
+                or not field.endswith("_history")
+                or not isinstance(observation, dict)
+            ):
+                continue
+            sources = observation.get("sources")
+            source_url = observation.get("source_url")
+            points = observation.get("value")
+            if (
+                not isinstance(sources, list)
+                or not any(isinstance(source, str) and source.strip() for source in sources)
+                or not isinstance(source_url, str)
+                or not source_url.startswith("https://")
+                or not isinstance(points, list)
+            ):
+                continue
+            stem = field[:-len("_history")]
+            for point in points:
+                if not isinstance(point, dict):
+                    continue
+                period = point.get("period")
+                period_end = point.get("period_end")
+                value = point.get("value")
+                if (
+                    not isinstance(period, str)
+                    or not isinstance(period_end, str)
+                    or isinstance(value, bool)
+                    or not isinstance(value, (int, float))
+                    or not math.isfinite(value)
+                ):
+                    continue
+                try:
+                    parsed_period_end = date.fromisoformat(period_end[:10])
+                except ValueError:
+                    continue
+                if parsed_period_end.isoformat() != period_end[:10]:
+                    continue
+                match = re.search(r"FY[\s:_-]*(\d{4})", period, re.IGNORECASE)
+                if match:
+                    aliases[f"{stem}_FY_{match.group(1)}"] = field
+        return aliases
+
     @staticmethod
     def _bind_multibaggers_ratio_sources(
         raw_ratios: Any,
@@ -1413,10 +1954,12 @@ class ResearchWorker(BaseWorker):
                 continue
             citations: list[dict[str, str]] = []
             seen: set[tuple[str, str]] = set()
+            period_aliases = ResearchWorker._multibaggers_financial_input_aliases(financial_evidence)
             for field in input_fields:
                 if not isinstance(field, str):
                     continue
-                observation = source_observations.get(field)
+                source_field = period_aliases.get(field, field)
+                observation = source_observations.get(source_field)
                 if isinstance(observation, dict):
                     sources = observation.get("sources")
                     source_url = observation.get("source_url")
@@ -1431,7 +1974,7 @@ class ResearchWorker(BaseWorker):
                                 if key not in seen:
                                     seen.add(key)
                                     citations.append({"name": key[0], "url": key[1]})
-                for item in validated_observations.get(field, []):
+                for item in validated_observations.get(source_field, []):
                     if not isinstance(item, dict):
                         continue
                     source = item.get("source_id")
@@ -1446,6 +1989,33 @@ class ResearchWorker(BaseWorker):
                             citations.append({"name": key[0], "url": key[1]})
             if citations:
                 ratio["sources"] = citations
+
+    @staticmethod
+    def _discard_calculated_ratios_without_inputs(raw_ratios: Any) -> list[str]:
+        """Fail closed when the model labels a ratio calculated but omits its inputs."""
+        if not isinstance(raw_ratios, list):
+            return []
+        discarded: list[str] = []
+        for item in raw_ratios:
+            if not isinstance(item, dict) or item.get("status") != "calculated":
+                continue
+            inputs = item.get("inputs")
+            if isinstance(inputs, list) and inputs and all(
+                isinstance(field, str) and field.strip() for field in inputs
+            ):
+                continue
+            metric = item.get("metric")
+            metric_name = metric if isinstance(metric, str) and metric.strip() else "unknown_metric"
+            item["status"] = "unavailable"
+            item["value"] = None
+            item["limitations"] = (
+                "Se descartó el cálculo porque Research no identificó referencias explícitas "
+                "a sus inputs de evidencia."
+            )
+            item.pop("formula", None)
+            item.pop("inputs", None)
+            discarded.append(metric_name)
+        return discarded
 
     @staticmethod
     def _normalize_multibaggers_ratio_units(
@@ -1466,6 +2036,39 @@ class ResearchWorker(BaseWorker):
                 and (not isinstance(current_unit, str) or not current_unit.strip())
             ):
                 item["unit"] = expected_unit
+
+    @staticmethod
+    def _complete_missing_multibaggers_ratio_dispositions(
+        raw_ratios: Any,
+        required_metrics: list[str],
+        expected_units: dict[str, str] | None = None,
+    ) -> list[str]:
+        """Record omitted LLM ratio rows with their configured unit, never as estimates."""
+        if not isinstance(raw_ratios, list) or not isinstance(required_metrics, list):
+            return []
+        expected_units = expected_units if isinstance(expected_units, dict) else {}
+        present = {
+            item.get("metric")
+            for item in raw_ratios
+            if isinstance(item, dict) and isinstance(item.get("metric"), str)
+        }
+        missing = [
+            metric
+            for metric in dict.fromkeys(required_metrics)
+            if isinstance(metric, str) and metric.strip() and metric not in present
+        ]
+        for metric in missing:
+            raw_ratios.append({
+                "metric": metric,
+                "status": "unavailable",
+                "value": None,
+                "unit": expected_units.get(metric),
+                "limitations": (
+                    "El modelo de Research omitió este ratio; no se infiere un valor "
+                    "y queda pendiente de evidencia verificable."
+                ),
+            })
+        return missing
 
     @staticmethod
     def _validate_multibaggers_ratio_review(
@@ -1506,6 +2109,14 @@ class ResearchWorker(BaseWorker):
                     errors.append(f"unavailable ratio needs a limitation: {metric}")
                 if item.get("value") is not None:
                     errors.append(f"unavailable ratio cannot have a value: {metric}")
+                unit = item.get("unit")
+                expected_unit = expected_units.get(metric)
+                if not isinstance(unit, str) or not unit.strip():
+                    errors.append(f"ratio needs a unit: {metric}")
+                elif expected_unit and unit != expected_unit:
+                    errors.append(
+                        f"ratio unit conflicts with configured unit for {metric}: expected {expected_unit}"
+                    )
                 continue
             value = item.get("value")
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):

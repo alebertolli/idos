@@ -69,6 +69,52 @@ def _mock_research_registry() -> MagicMock:
     return registry
 
 
+def test_quote_currency_can_be_resolved_from_systematic_signal_snapshot():
+    assert ResearchWorker._resolve_quote_currency(
+        {}, {}, {"signal": {"quote_currency": " usd "}}
+    ) == "USD"
+    assert ResearchWorker._resolve_quote_currency(
+        {}, {}, {"signal": {"quote_currency": "not-a-currency"}}
+    ) == "N/D"
+
+
+def test_ddd_prompt_context_is_bounded_and_preserves_sourced_market_evidence():
+    financial = {
+        "currency": "USD",
+        "sources_used": ["stockanalysis.com"],
+        "observations": {
+            "revenue_ttm": {
+                "value": 1234,
+                "unit": "USD",
+                "source_url": "https://stockanalysis.com/stocks/asml/financials/",
+                "history": [{"period_end": f"202{year}-12-31", "value": year * 100} for year in range(7)],
+            }
+        },
+    }
+    scenario = {
+        "current_quote": {
+            "price": 900.0,
+            "currency": "USD",
+            "as_of_date": "2026-10-21",
+            "sources": [{"name": "Yahoo Finance", "url": "https://finance.yahoo.com/quote/ASML/"}],
+        },
+        "recent_events": [{"title": "event " + ("x" * 1000), "source": "yahoo"} for _ in range(20)],
+    }
+    bounded = ResearchWorker._bounded_ddd_prompt_context({
+        "ticker": "ASML",
+        "existing_wiki": "wiki " + ("x" * 5000),
+        "financial_data_evidence": json.dumps(financial),
+        "scenario_market_evidence": json.dumps(scenario),
+        "recent_events": [{"title": "event " + ("x" * 1000)} for _ in range(20)],
+    })
+
+    assert len(json.dumps(bounded, ensure_ascii=False, sort_keys=True)) <= 16000
+    assert len(bounded["existing_wiki"]) <= 500
+    assert json.loads(bounded["scenario_market_evidence"])["current_quote"]["currency"] == "USD"
+    assert "finance.yahoo.com/quote/ASML" in json.dumps(bounded["scenario_market_evidence"])
+    assert json.loads(bounded["financial_data_evidence"])["currency"] == "USD"
+
+
 def test_current_price_context_uses_latest_aligned_close_with_provenance():
     context = ResearchWorker._current_price_context({
         "price_history": [100.0, None, 125.5],
@@ -241,6 +287,36 @@ def test_ddd_prompt_renders_the_scenario_evidence_contract():
     assert '"rationale"' in prompt
     assert '"key_assumptions"' in prompt
 
+
+
+def test_aoif_reuses_ddd_scenario_contract_without_probabilities_or_trade_recommendation():
+    from idos.ai.prompts import PromptRegistry
+
+    repo_root = Path(__file__).resolve().parents[3]
+    registry = PromptRegistry(repo_root / "idos-config" / "prompts")
+    scenario_json = json.dumps({
+        "schema_version": "bear_bull_v2",
+        "as_of_date": "2026-10-21",
+        "horizon_date": "2027-10-21",
+        "currency": "USD",
+        "scenarios": [
+            {"id": "BEAR", "target_price": 80, "rationale": "Caso adverso", "key_assumptions": ["menor demanda"], "falsifiers": ["demanda estable"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": "2026-10-20"}]},
+            {"id": "BULL", "target_price": 140, "rationale": "Caso favorable", "key_assumptions": ["mayor demanda"], "falsifiers": ["demanda cae"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": "2026-10-20"}]},
+        ],
+    }, ensure_ascii=False, sort_keys=True)
+    prompt = registry.load("aoif", category="research").user_prompt.format(
+        ticker="VIST", name="Vista", company_data="Energy",
+        roic=10, operating_margin=20, revenue_growth=15, pe_ratio=12,
+        ev_ebitda=8, fcf_yield=5, scenario_analysis=scenario_json,
+    )
+    step7 = prompt.split("Paso 7 - Escenarios financieros:", 1)[1].split("Paso 8 - Síntesis", 1)[0]
+
+    assert scenario_json in prompt
+    assert "\"probability_pct\"" not in step7
+    assert "\"expected_return_pct\"" not in step7
+    assert "retorno esperado" in step7
+    assert "PENDIENTE_DECISION_BOARD" in prompt
+    assert "comprar, mantener" in prompt
 
 def test_current_price_context_rejects_invalid_discovery_quote():
     context = ResearchWorker._current_price_context(
@@ -515,6 +591,41 @@ class TestResearchWorker:
         assert report["dominio_catalizadores"][0]["probabilidad_pct"] is None
         assert "volatilidad" not in report["resumen_ejecutivo"].lower()
 
+    def test_systematic_scenarios_are_sourced_but_do_not_invent_price_ranges(self):
+        from idos.decision.scenarios import (
+            scenario_source_urls_from_evidence,
+            validate_scenario_analysis,
+        )
+
+        today = date.today()
+        evidence = {
+            "current_quote": {
+                "price": 100.0,
+                "currency": "USD",
+                "as_of_date": today.isoformat(),
+                "sources": [{
+                    "name": "yfinance",
+                    "url": "https://finance.yahoo.com/quote/XLE/",
+                }],
+            },
+        }
+        analysis = ResearchWorker._build_systematic_scenario_analysis(
+            signal={"ticker": "XLE", "momentum": 1.8, "as_of_date": today.isoformat()},
+            parameters={"minimum_signal": 0.6, "maximum_signal": 2.7},
+            analysis_as_of_date=today.isoformat(),
+            quote_currency="USD",
+            scenario_market_evidence=json.dumps(evidence),
+        )
+
+        assert [item["id"] for item in analysis["scenarios"]] == ["BEAR", "BULL"]
+        assert analysis["quantification_status"] == "not_calibrated"
+        assert all(item["target_price"] is None for item in analysis["scenarios"])
+        assert all("probability_pct" not in item for item in analysis["scenarios"])
+        trusted = scenario_source_urls_from_evidence(evidence)
+        assert validate_scenario_analysis(
+            analysis, today=today, trusted_source_urls=trusted
+        ) == []
+
     def test_systematic_report_uses_configured_range_and_invalidates_outside_signal(self):
         report = ResearchWorker._build_systematic_ddd(
             "XLF", {"signal": {"momentum": 1.8}},
@@ -765,7 +876,7 @@ class TestResearchWorker:
         assert "## Financial Highlights" in content
         assert "## Catalysts" in content
 
-    def test_research_creates_claims_and_lifecycle(
+    def test_research_does_not_promote_unreferenced_facts_to_claims(
         self,
         seeded_opportunity: tuple[str, str],
         tmp_sqlite,
@@ -787,13 +898,12 @@ class TestResearchWorker:
         claims_dir = bp / "idos-knowledge" / ".claims"
         assert claims_dir.exists(), ".claims directory no creado"
         claim_files = list(claims_dir.glob("CLAIM-TEST-DDD-*.json"))
-        assert len(claim_files) >= 1, "No se crearon claims desde DDD"
+        assert claim_files == [], "Los hechos LLM sin referencias no deben persistirse como claims verificados"
 
         from idos.knowledge.claims import ClaimStore as CS
         store = CS(str(bp / "idos-knowledge"))
         claims = store.search(tag=ticker)
-        assert len(claims) >= 1
-        assert any("ROIC" in c.statement for c in claims), "Claim de ROIC no encontrado"
+        assert claims == []
 
     def test_research_requires_ticker_and_opp(
         self,
@@ -978,6 +1088,14 @@ class TestResearchWorker:
             "research_profile": "systematic",
             "entry_policy": "SIGNAL_REBALANCE",
             "signal": signal,
+            "latest_discovery_evidence": {
+                "market_quote": {
+                    "price": 100.0,
+                    "currency": "USD",
+                    "as_of_date": date.today().isoformat(),
+                    "source": "yfinance",
+                }
+            },
         })
         tmp_sqlite.save_opportunity(opportunity)
         tmp_journal.save_opportunity(ticker, opportunity)
@@ -1239,6 +1357,151 @@ def test_multibaggers_research_evidence_honors_configured_ratio_inputs():
     assert set(context["reconciled_observations"]) == {"current_assets"}
 
 
+def test_multibaggers_research_prompt_evidence_and_combined_context_are_bounded():
+    evidence = {
+        "reporting_period_end": "2026-09-30",
+        "currency": "USD",
+        "trusted_source_urls": [f"https://example.com/source/{i}" for i in range(30)],
+        "source_observations": {
+            f"revenue_history_{i}": {
+                "value": [
+                    {"value": year * 1000, "unit": "USD", "period": f"FY {year}",
+                     "period_end": f"{year}-12-31", "reported_at": f"{year}-12-31",
+                     "unused_detail": "x" * 400}
+                    for year in range(2022, 2027)
+                ],
+                "unit": "USD", "currency": "USD", "period_type": "annual",
+                "period_end": "2026-12-31", "sources": ["stockanalysis.com", "yfinance"],
+                "source_url": "https://stockanalysis.com/stocks/test/financials/",
+                "observed_at": "2026-10-21T00:00:00Z", "omitted_points": 2,
+            }
+            for i in range(18)
+        },
+        "reconciled_observations": {
+            f"metric_{i}": {
+                "selected_source": "stockanalysis.com", "period_status": "COMPARABLE",
+                "non_comparable_reason": "different period",
+                "values": {f"source_{j}": j for j in range(10)},
+                "non_comparable_values": {f"other_{j}": j for j in range(10)},
+                "unused_detail": "x" * 3000,
+            }
+            for i in range(18)
+        },
+        "validated_metric_observations": {
+            f"metric_{i}": [
+                {"source_id": f"source_{j}", "value": j, "unit": "percent",
+                 "period": "FY2026", "reported_at": "2026-09-30",
+                 "observed_at": "2026-10-20T00:00:00Z",
+                 "source_url": f"https://example.com/{i}/{j}", "extra": "x" * 500}
+                for j in range(5)
+            ]
+            for i in range(18)
+        },
+        "metric_observation_exclusions": {},
+        "conflicts": [{"field": f"metric_{i}", "deviation_pct": i, "detail": "x" * 300} for i in range(20)],
+    }
+    compact_evidence = ResearchWorker._multibaggers_research_prompt_evidence(evidence)
+    package = {
+        "ticker": "TEST",
+        "strategy_id": "MULTIBAGGERS",
+        "strategy_version": "1.5",
+        "snapshot_hash": "hash",
+        "metrics_snapshot": {
+            f"metric_{i}": {
+                "value": i, "unit": "percent", "source_evidence": [
+                    {"source_id": f"source_{j}", "source_url": f"https://example.com/{i}/{j}"}
+                    for j in range(3)
+                ],
+            }
+            for i in range(18)
+        },
+        "research_requirements": {
+            "ratios_to_review": [f"metric_{i}" for i in range(18)],
+            "ratio_definitions": {f"metric_{i}": "configured formula" for i in range(18)},
+        },
+    }
+    combined = ResearchWorker._bounded_ddd_prompt_context({
+        "ticker": "TEST",
+        "name": "Test Company",
+        "intake_package": ResearchWorker._multibaggers_intake_prompt_context(package),
+        "financial_summary": {"scenario_market_evidence": {
+            "current_quote": {"price": 100, "currency": "USD", "sources": [
+                {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/quote/TEST/"}
+            ]},
+        }},
+        "research_financial_evidence": compact_evidence,
+    }, max_chars=40000)
+
+    assert len(json.dumps(combined, ensure_ascii=False, sort_keys=True)) <= 40000
+    assert set(compact_evidence["source_observations"]) == set(evidence["source_observations"])
+    assert len(compact_evidence["source_observations"]["revenue_history_0"]["value"]) == 5
+    assert compact_evidence["source_observations"]["revenue_history_0"]["source_url"].endswith("/financials/")
+    assert compact_evidence["observed_at"] == "2026-10-21T00:00:00Z"
+    assert "observed_at" not in compact_evidence["validated_metric_observations"]["metric_0"][0]
+    assert len(compact_evidence["validated_metric_observations"]["metric_0"]) == 1
+    assert "values" not in compact_evidence["reconciled_observations"]["metric_0"]
+    assert "non_comparable_values" not in compact_evidence["reconciled_observations"]["metric_0"]
+    assert "unused_detail" not in json.dumps(compact_evidence)
+
+
+def test_multibaggers_intake_prompt_context_keeps_contract_and_compacts_repeated_market_data():
+    import json
+
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    package = {
+        "ticker": "ASML",
+        "strategy_id": "MULTIBAGGERS",
+        "strategy_version": "1.5",
+        "as_of": "2026-10-21T21:05:30Z",
+        "config_hash": "config-hash",
+        "snapshot_hash": "snapshot-hash",
+        "discovery_score": 72.4,
+        "metrics_snapshot": {
+            "price_momentum_12m_pct": {
+                "value": 65.7,
+                "unit": "percent",
+                "period": "2025-10-22/2026-10-21",
+                "source_values": {"yfinance": 65.7},
+                "source_evidence": [{
+                    "source_id": "yfinance",
+                    "status": "observed",
+                    "value": 65.7,
+                    "unit": "percent",
+                    "period": "2025-10-22/2026-10-21",
+                    "source_url": "https://finance.yahoo.com/quote/ASML/history/",
+                }],
+            }
+        },
+        "global_market_eligibility": {
+            "passed": True,
+            "avg_dollar_volume_usd": 2_500_000_000,
+            "liquidity_provenance": {
+                "coverage": 1.0,
+                "valid_observations": 20,
+                "expected_observations": 20,
+                "valid_price_dates": [f"2026-09-{day:02}" for day in range(1, 21)],
+            },
+        },
+        "research_requirements": {
+            "ratios_to_review": ["revenue_cagr_3y_pct"],
+            "ratio_definitions": {"revenue_cagr_3y_pct": "formula"},
+            "ratio_input_fields": {"revenue_cagr_3y_pct": ["revenue_history"]},
+            "ratio_units": {"revenue_cagr_3y_pct": "percent"},
+        },
+    }
+
+    compact = ResearchWorker._multibaggers_intake_prompt_context(package)
+
+    assert compact["snapshot_hash"] == "snapshot-hash"
+    assert compact["research_requirements"] == package["research_requirements"]
+    assert compact["metrics_snapshot"]["price_momentum_12m_pct"]["source_evidence"][0]["source_url"]
+    assert "source_values" not in compact["metrics_snapshot"]["price_momentum_12m_pct"]
+    assert compact["global_market_eligibility"]["liquidity_provenance"]["valid_observations"] == 20
+    assert "valid_price_dates" not in compact["global_market_eligibility"]["liquidity_provenance"]
+    assert len(json.dumps(compact, ensure_ascii=False)) < len(json.dumps(package, ensure_ascii=False))
+
+
 def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     from idos.ai.prompts import PromptRegistry
 
@@ -1255,10 +1518,20 @@ def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     assert "No inventes cifras, URLs" in rendered
     assert "ni valores derivados" in rendered
     assert "ratios_investigados" in rendered
+    assert "no una lista narrativa" in rendered
     assert "ratio_input_fields" in rendered
     assert "ratio_units" in rendered
     assert "unit" in rendered
     assert "scenario_analysis" in rendered
+    assert "mutuamente excluyentes" in rendered
+    assert "`scenario_market_evidence`" in rendered
+    assert "anclas observadas BEAR/BULL" in rendered
+    assert "no como valoración intrínseca propia" in rendered
+    assert "peor/mejor resultado plausible" in rendered
+    assert "RULE-008 bloqueada" in rendered
+    assert "No incluyas `probability_pct` ni retorno esperado" in rendered
+    assert "fuentes citadas deben respaldar el ancla o los inputs" in rendered
+    assert "Copia cada URL exactamente" in rendered
     assert "calidad_evidencia" in rendered
     assert '"categoria": string' in rendered
 
@@ -1311,13 +1584,66 @@ def test_multibaggers_research_shape_requires_downstream_types():
     assert "score_general must be a finite number from 0 to 100" in errors
 
 
+def test_multibaggers_omitted_ratio_dispositions_are_explicitly_unavailable():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    source_url = "https://finance.yahoo.com/quote/TEST/financials/"
+    ratios = [{
+        "metric": "revenue_cagr_3y_pct",
+        "status": "reported",
+        "value": 12.5,
+        "unit": "percent",
+        "period_end": "2026-09-30",
+        "sources": [{"name": "Yahoo Finance", "url": source_url}],
+    }]
+    ratio_units = {
+        "revenue_cagr_3y_pct": "percent",
+        "current_ratio": "x",
+        "gross_margin_pct": "percent",
+    }
+    missing = ResearchWorker._complete_missing_multibaggers_ratio_dispositions(
+        ratios,
+        ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"],
+        ratio_units,
+    )
+
+    assert missing == ["current_ratio", "gross_margin_pct"]
+    assert ratios[0]["value"] == 12.5
+    omitted = {item["metric"]: item for item in ratios[1:]}
+    assert set(omitted) == set(missing)
+    assert all(item["status"] == "unavailable" for item in omitted.values())
+    assert all(item["value"] is None for item in omitted.values())
+    assert all(item["limitations"] for item in omitted.values())
+    assert {metric: omitted[metric]["unit"] for metric in missing} == {
+        "current_ratio": "x",
+        "gross_margin_pct": "percent",
+    }
+    assert ResearchWorker._validate_multibaggers_ratio_review(
+        ratios,
+        ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"],
+        trusted_source_urls={source_url},
+        expected_units=ratio_units,
+    ) == []
+
+    omitted["current_ratio"]["unit"] = "percent"
+    errors = ResearchWorker._validate_multibaggers_ratio_review(
+        ratios,
+        ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"],
+        trusted_source_urls={source_url},
+        expected_units=ratio_units,
+    )
+    assert "ratio unit conflicts with configured unit for current_ratio: expected x" in errors
+
 def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects_uncited_values():
     from idos.workers.ai.research_worker import ResearchWorker
 
     unavailable = [{"metric": "fcf_growth_pct", "status": "unavailable", "value": None,
+                    "unit": "percent",
                     "limitations": "No hay FCF comparable para dos períodos."}]
     assert ResearchWorker._validate_multibaggers_ratio_review(
-        unavailable, ["fcf_growth_pct"]
+        unavailable,
+        ["fcf_growth_pct"],
+        expected_units={"fcf_growth_pct": "percent"},
     ) == []
 
     uncited = [{"metric": "fcf_growth_pct", "status": "calculated", "value": 12.0,
@@ -1487,3 +1813,139 @@ def test_multibaggers_ratio_sources_do_not_accept_unmapped_inputs():
     assert ratio["sources"] == [
         {"name": "stockanalysis.com", "url": "https://example.com/unverified"},
     ]
+
+
+def test_multibaggers_ratio_accepts_only_verified_fiscal_year_history_aliases():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    url = "https://stockanalysis.com/stocks/asml/financials/"
+    evidence = {
+        "source_observations": {
+            "revenue_history": {
+                "value": [
+                    {"value": 100.0, "period": "FY 2023", "period_end": "2023-12-31"},
+                    {"value": 80.0, "period": "FY 2022", "period_end": "2022-12-31"},
+                ],
+                "sources": ["stockanalysis.com"],
+                "source_url": url,
+            },
+        },
+        "validated_metric_observations": {},
+    }
+    aliases = ResearchWorker._multibaggers_financial_input_aliases(evidence)
+    assert aliases == {
+        "revenue_FY_2023": "revenue_history",
+        "revenue_FY_2022": "revenue_history",
+    }
+
+    ratio = [{
+        "metric": "revenue_cagr_3y_pct",
+        "status": "calculated",
+        "value": 25.0,
+        "unit": "percent",
+        "period_end": "2023-12-31",
+        "formula": "(revenue_FY_2023 / revenue_FY_2022) - 1",
+        "inputs": ["revenue_FY_2023", "revenue_FY_2022"],
+        "sources": [{"name": "stockanalysis.com", "url": url}],
+    }]
+    available = set(evidence["source_observations"]) | set(aliases)
+    assert ResearchWorker._validate_multibaggers_ratio_review(
+        ratio,
+        ["revenue_cagr_3y_pct"],
+        trusted_source_urls={url},
+        available_input_fields=available,
+        expected_units={"revenue_cagr_3y_pct": "percent"},
+    ) == []
+
+    ResearchWorker._bind_multibaggers_ratio_sources(ratio, evidence)
+    assert ratio[0]["sources"] == [{"name": "stockanalysis.com", "url": url}]
+
+    ratio[0]["inputs"] = ["revenue_FY_2021"]
+    errors = ResearchWorker._validate_multibaggers_ratio_review(
+        ratio,
+        ["revenue_cagr_3y_pct"],
+        trusted_source_urls={url},
+        available_input_fields=available,
+        expected_units={"revenue_cagr_3y_pct": "percent"},
+    )
+    assert any("inputs absent from research evidence" in error for error in errors)
+
+
+def test_multibaggers_calculated_ratio_without_input_references_is_discarded():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    ratios = [
+        {
+            "metric": "fcf_growth_pct",
+            "status": "calculated",
+            "value": 18.2,
+            "unit": "percent",
+            "period_end": "2026-09-30",
+            "formula": "FCF_t / FCF_t-1 - 1",
+            "inputs": [],
+        },
+        {
+            "metric": "fcf_conversion_pct",
+            "status": "calculated",
+            "value": 72.0,
+            "unit": "percent",
+            "period_end": "2026-09-30",
+            "formula": "FCF / net income * 100",
+        },
+        {
+            "metric": "current_ratio",
+            "status": "calculated",
+            "value": 1.4,
+            "unit": "x",
+            "period_end": "2026-09-30",
+            "formula": "current_assets / current_liabilities",
+            "inputs": ["current_assets", "current_liabilities"],
+        },
+    ]
+
+    warnings = ResearchWorker._discard_calculated_ratios_without_inputs(ratios)
+
+    assert warnings == ["fcf_growth_pct", "fcf_conversion_pct"]
+    assert ratios[0]["status"] == "unavailable"
+    assert ratios[0]["value"] is None
+    assert "no identificó referencias explícitas" in ratios[0]["limitations"]
+    assert "formula" not in ratios[0]
+    assert "inputs" not in ratios[0]
+    assert ratios[1]["status"] == "unavailable"
+    assert ratios[2]["status"] == "calculated"
+
+def test_research_free_text_facts_are_downgraded_to_inferences_without_refs():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    result = {"calidad_evidencia": {
+        "hechos_verificados": ["Interest coverage ratio 0"],
+        "inferencias_llm": ["FCF growth requires validation"],
+    }}
+    ResearchWorker._demote_unreferenced_research_facts(result)
+    assert result["calidad_evidencia"]["hechos_verificados"] == []
+    assert result["calidad_evidencia"]["inferencias_llm"] == [
+        "FCF growth requires validation",
+        "Interest coverage ratio 0",
+    ]
+
+
+def test_optional_research_metric_requires_field_source_and_period():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    assert ResearchWorker._sourced_optional_metric_label(
+        {"interest_coverage_ratio": 0}, "interest_coverage_ratio", unit="x"
+    ) == "N/D (sin dato verificado)"
+    sourced = {
+        "interest_coverage_ratio": 4.25,
+        "financial_data_as_of_date": "2026-09-27",
+        "data_provenance": {
+            "field_sources": {"interest_coverage_ratio": ["stockanalysis.com"]},
+        },
+    }
+    assert ResearchWorker._sourced_optional_metric_label(
+        sourced, "interest_coverage_ratio", unit="x"
+    ) == "4.25x"
+    sourced["financial_data_as_of_date"] = "N/A"
+    assert ResearchWorker._sourced_optional_metric_label(
+        sourced, "interest_coverage_ratio", unit="x"
+    ) == "N/D (sin dato verificado)"

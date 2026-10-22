@@ -1,3 +1,5 @@
+from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 import pytest
@@ -397,7 +399,7 @@ def test_public_site_explains_provider_update_date_basis(tmp_path: Path):
     assert "Periodos sin reconciliar" in app
     assert "Cuándo abandonarla" in app
     assert "Asimetría del modelo (RULE-008" in app
-    assert "Métrica provisional del motor" in app
+    assert "B/R compara el upside Bull con el downside Bear" in app
     assert "Detalles de reglas" in app
 
 
@@ -667,14 +669,14 @@ def test_public_site_shows_agent_scenarios_for_single_decision_board_review(tmp_
     report_path = opp_dir / "ddd_report.yml"
     report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
     report["scenario_analysis"] = {
-        "schema_version": "bear_base_bull_v1",
+        "schema_version": "bear_bull_v2",
         "as_of_date": today.isoformat(),
         "horizon_date": (today + timedelta(days=365)).isoformat(),
         "currency": "USD",
         "scenarios": [
-            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "rationale": "Demanda inferior", "key_assumptions": ["Ingresos caen"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": source_date}]},
-            {"id": "BASE", "probability_pct": 50, "target_price": 110, "rationale": "Crecimiento moderado", "key_assumptions": ["Márgenes estables"], "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": source_date}]},
-            {"id": "BULL", "probability_pct": 25, "target_price": 150, "rationale": "Aceleración del negocio", "key_assumptions": ["Adopción superior"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": source_date}]},
+            {"id": "BEAR", "target_price": 80, "rationale": "Demanda inferior", "key_assumptions": ["Ingresos caen"], "falsifiers": ["Pedidos crecen"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": source_date}]},
+            {"id": "BASE", "target_price": 110, "rationale": "Crecimiento moderado", "key_assumptions": ["Márgenes estables"], "falsifiers": ["Márgenes se contraen"], "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": source_date}]},
+            {"id": "BULL", "target_price": 150, "rationale": "Aceleración del negocio", "key_assumptions": ["Adopción superior"], "falsifiers": ["Adopción cae"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": source_date}]},
         ],
     }
     report["research_input_snapshot"] = {
@@ -698,18 +700,20 @@ def test_public_site_shows_agent_scenarios_for_single_decision_board_review(tmp_
     app = (output / "assets" / "app.js").read_text(encoding="utf-8")
     styles = (output / "assets" / "style.css").read_text(encoding="utf-8")
     payload = (output / "data.json").read_text(encoding="utf-8")
-    assert "Escenarios Bear / Base / Bull" in app
+    assert "Asimetría · casos Bear/Bull" in app
     assert "Los agentes validan la estructura" in app
     assert "Decision Board" in app
-    assert "no requiere una aprobación previa separada" in app
+    assert "No se calcula retorno esperado" in app
     assert "Scenario Review" not in app
     assert 'class="scenario-mobile-list"' in app
-    assert 'aria-label="Escenario ${esc(s.id)}"' in app
-    assert "Probabilidad" in app and "Precio objetivo" in app
+    assert 'aria-label="Caso ${esc(s.id)}"' in app
+    assert "Precio objetivo" in app
+    assert "Probabilidad" not in app
+    assert "falsifiers" in payload
     assert ".scenario-desktop-table{display:none}" in styles
     assert ".scenario-mobile-list{display:grid;gap:8px}" in styles
     assert "https://example.com/bear" in payload
-    assert "Lectura y supuestos" in app
+    assert "Lectura, supuestos y falsadores" in app
     assert "key_assumptions" in payload
 
 
@@ -725,14 +729,14 @@ def test_public_site_hides_scenario_sources_not_present_in_research_evidence(tmp
     report_path = opp_dir / "ddd_report.yml"
     report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
     report["scenario_analysis"] = {
-        "schema_version": "bear_base_bull_v1",
+        "schema_version": "bear_bull_v2",
         "as_of_date": today.isoformat(),
         "horizon_date": (today + timedelta(days=365)).isoformat(),
         "currency": "USD",
         "scenarios": [
-            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": source_date}]},
-            {"id": "BASE", "probability_pct": 50, "target_price": 110, "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": source_date}]},
-            {"id": "BULL", "probability_pct": 25, "target_price": 150, "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": source_date}]},
+            {"id": "BEAR", "target_price": 80, "rationale": "Demanda cae", "key_assumptions": ["Ingresos inferiores"], "falsifiers": ["Pedidos estables"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": source_date}]},
+            {"id": "BASE", "target_price": 110, "rationale": "Crecimiento central", "key_assumptions": ["Márgenes estables"], "falsifiers": ["Margen cae"], "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": source_date}]},
+            {"id": "BULL", "target_price": 150, "rationale": "Adopción acelera", "key_assumptions": ["Demanda aumenta"], "falsifiers": ["Cancelaciones suben"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": source_date}]},
         ],
     }
     report["research_input_snapshot"] = {
@@ -786,6 +790,30 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     report["tesis_inversion"] = ""
     report["dominio_business_quality"] = {"rating": "no_aplica", "analisis": "No es criterio de la señal"}
     report["strategy_context"] = {"strategy_id": "MOMENTUM_ETF", "signal": {"score": 71}, "report_method_version": "systematic_signal_v2"}
+    scenario_date = datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date()
+    next_month = scenario_date.replace(day=28) + timedelta(days=4)
+    source = {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/quote/VIST/", "as_of_date": scenario_date.isoformat()}
+    report["research_input_snapshot"] = {
+        "scenario_market_evidence": {
+            "current_quote": {
+                "price": 100.0,
+                "currency": "USD",
+                "as_of_date": scenario_date.isoformat(),
+                "sources": [{"name": source["name"], "url": source["url"]}],
+            }
+        }
+    }
+    report["scenario_analysis"] = {
+        "schema_version": "bear_bull_v2",
+        "quantification_status": "not_calibrated",
+        "as_of_date": scenario_date.isoformat(),
+        "horizon_date": next_month.replace(day=1).isoformat(),
+        "currency": "USD",
+        "scenarios": [
+            {"id": "BEAR", "target_price": None, "rationale": "La señal cae bajo el umbral.", "key_assumptions": ["Se mantiene el rebalanceo mensual."], "falsifiers": ["La señal se mantiene dentro del rango."], "sources": [source]},
+            {"id": "BULL", "target_price": None, "rationale": "La señal persiste en el rango elegible.", "key_assumptions": ["Se mantiene el rebalanceo mensual."], "falsifiers": ["La señal cae bajo el umbral."], "sources": [source]},
+        ],
+    }
     report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
 
     data = SiteBuilder(tmp_path).build()
@@ -795,15 +823,15 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     assert opp["ddd"]["resumen_ejecutivo"] == "Momentum mensual normalizado con score 71"
     assert opp["ddd"]["score_general"] == 81
     assert opp["ddd"]["tesis_inversion"] == ""
-    assert opp["ddd"]["board_review"]["status"] == "not_applicable"
-    assert opp["ddd"]["scenario_validation"] == {"status": "not_applicable", "errors": []}
+    assert opp["ddd"]["board_review"]["status"] == "pending_decision_board"
+    assert opp["ddd"]["scenario_validation"] == {"status": "valid_pending_decision_board", "errors": []}
     assert opp["intrinsic_value"] is None
     assert opp["upside_pct"] is None
     assert opp["valuation_status"] == "NOT_APPLICABLE"
     assert opp["conviction_overall"] is None
     site = write_site(tmp_path, tmp_path / "site-output")
     app_js = (site / "assets" / "app.js").read_text(encoding="utf-8")
-    assert "Bear / Base / Bull no aplica a esta estrategia sistemática." in app_js
+    assert "Casos cualitativos validados · RULE-008 bloqueada" in app_js
     # Older generated reports can contain synthetic volatility/probabilities.
     # Preserve their journals but require regeneration before public display.
     del report["strategy_context"]["report_method_version"]

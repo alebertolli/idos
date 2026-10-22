@@ -1,4 +1,4 @@
-"""Validated Bear/Base/Bull scenario contracts used by financial authorization."""
+"""Validated Bear/Bull scenario contracts used by financial authorization."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from zoneinfo import ZoneInfo
 
 
 SCENARIO_IDS = ("BEAR", "BASE", "BULL")
-SCENARIO_SCHEMA_VERSION = "bear_base_bull_v1"
+SCENARIO_SCHEMA_VERSION = "bear_bull_v2"
 
 
 def scenario_source_urls_from_evidence(value: Any) -> set[str]:
@@ -38,6 +38,88 @@ def scenario_source_urls_from_evidence(value: Any) -> set[str]:
     return urls
 
 
+def scenario_source_urls_from_research_financial_evidence(value: Any) -> set[str]:
+    """Return URLs attached to financial inputs admitted to Research."""
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except (TypeError, ValueError):
+            return set()
+    if not isinstance(value, dict):
+        return set()
+
+    urls: set[str] = set()
+    observations = value.get("source_observations")
+    if isinstance(observations, dict):
+        for observation in observations.values():
+            if isinstance(observation, dict):
+                normalized = _normalize_source_url(observation.get("source_url"))
+                if normalized:
+                    urls.add(normalized)
+
+    validated = value.get("validated_metric_observations")
+    if isinstance(validated, dict):
+        for metric_observations in validated.values():
+            if not isinstance(metric_observations, list):
+                continue
+            for observation in metric_observations:
+                if isinstance(observation, dict):
+                    normalized = _normalize_source_url(observation.get("source_url"))
+                    if normalized:
+                        urls.add(normalized)
+    return urls
+
+
+def scenario_financial_evidence_snapshot(value: Any) -> dict[str, Any]:
+    """Persist only source metadata needed to revalidate scenario citations."""
+    if not isinstance(value, dict):
+        return {}
+    snapshot: dict[str, Any] = {
+        "source_observations": {},
+        "validated_metric_observations": {},
+    }
+    observations = value.get("source_observations")
+    if isinstance(observations, dict):
+        for metric, observation in observations.items():
+            if not isinstance(observation, dict):
+                continue
+            source_url = _normalize_source_url(observation.get("source_url"))
+            if not source_url:
+                continue
+            snapshot["source_observations"][str(metric)] = {
+                "source_url": source_url,
+                "unit": observation.get("unit"),
+                "currency": observation.get("currency"),
+                "period_type": observation.get("period_type"),
+                "period_end": observation.get("period_end"),
+                "sources": observation.get("sources", []),
+            }
+    validated = value.get("validated_metric_observations")
+    if isinstance(validated, dict):
+        for metric, metric_observations in validated.items():
+            if not isinstance(metric_observations, list):
+                continue
+            rows = []
+            for observation in metric_observations:
+                if not isinstance(observation, dict):
+                    continue
+                source_url = _normalize_source_url(observation.get("source_url"))
+                if not source_url:
+                    continue
+                rows.append({
+                    "source_id": observation.get("source_id"),
+                    "source_url": source_url,
+                    "unit": observation.get("unit"),
+                    "currency": observation.get("currency"),
+                    "period": observation.get("period"),
+                    "reported_at": observation.get("reported_at"),
+                    "observed_at": observation.get("observed_at"),
+                })
+            if rows:
+                snapshot["validated_metric_observations"][str(metric)] = rows
+    return snapshot
+
+
 def scenario_source_urls_from_report(report: Any) -> set[str]:
     """Extract the exact source URLs a DDD scenario may cite."""
     if not isinstance(report, dict):
@@ -45,6 +127,9 @@ def scenario_source_urls_from_report(report: Any) -> set[str]:
     snapshot = report.get("research_input_snapshot")
     if isinstance(snapshot, dict):
         urls = scenario_source_urls_from_evidence(snapshot.get("scenario_market_evidence"))
+        urls.update(scenario_source_urls_from_research_financial_evidence(
+            snapshot.get("scenario_financial_evidence")
+        ))
         if urls:
             return urls
 
@@ -154,12 +239,15 @@ def validate_scenario_analysis(
     if not isinstance(currency, str) or not re.fullmatch(r"[A-Z]{3}", currency):
         errors.append("currency debe ser un código ISO 4217 en mayúsculas")
 
+    quantification_status = value.get("quantification_status", "validated")
+    if quantification_status not in {"validated", "not_calibrated"}:
+        errors.append("quantification_status debe ser validated o not_calibrated")
+
     scenarios = value.get("scenarios")
-    if not isinstance(scenarios, list) or len(scenarios) != 3:
-        return errors + ["scenarios debe contener exactamente Bear, Base y Bull"]
+    if not isinstance(scenarios, list) or len(scenarios) not in {2, 3}:
+        return errors + ["scenarios debe contener Bear y Bull, con Base opcional"]
 
     by_id: dict[str, dict[str, Any]] = {}
-    probabilities: list[float] = []
     for index, scenario in enumerate(scenarios):
         if not isinstance(scenario, dict):
             errors.append(f"scenarios[{index}] debe ser un objeto")
@@ -173,15 +261,27 @@ def validate_scenario_analysis(
             continue
         by_id[scenario_id] = scenario
 
-        probability = scenario.get("probability_pct")
-        if not _finite_number(probability) or not 0 <= probability <= 100:
-            errors.append(f"{scenario_id}: probability_pct debe estar entre 0 y 100")
-        else:
-            probabilities.append(float(probability))
+        if "probability_pct" in scenario:
+            errors.append(
+                f"{scenario_id}: probability_pct no está permitido sin una calibración validada"
+            )
 
         target = scenario.get("target_price")
-        if not _finite_number(target) or target <= 0:
-            errors.append(f"{scenario_id}: target_price debe ser positivo y finito")
+        if quantification_status == "validated":
+            if not _finite_number(target) or target <= 0:
+                errors.append(f"{scenario_id}: target_price debe ser positivo y finito")
+        elif target is not None:
+            errors.append(f"{scenario_id}: target_price debe ser null cuando no está calibrado")
+        if not isinstance(scenario.get("rationale"), str) or not scenario["rationale"].strip():
+            errors.append(f"{scenario_id}: rationale es obligatorio")
+        for field in ("key_assumptions", "falsifiers"):
+            values = scenario.get(field)
+            if (
+                not isinstance(values, list)
+                or not values
+                or any(not isinstance(item, str) or not item.strip() for item in values)
+            ):
+                errors.append(f"{scenario_id}: {field} debe contener texto no vacío")
 
         sources = scenario.get("sources")
         if not isinstance(sources, list) or not sources:
@@ -207,14 +307,20 @@ def validate_scenario_analysis(
             elif as_of and source_date > as_of:
                 errors.append(f"{prefix}: la fecha de fuente no puede superar as_of_date")
 
-    if set(by_id) != set(SCENARIO_IDS):
-        errors.append("debe existir exactamente un escenario BEAR, BASE y BULL")
-    if len(probabilities) == 3 and not math.isclose(sum(probabilities), 100.0, abs_tol=1e-6):
-        errors.append("las probabilidades deben sumar exactamente 100%")
-    if all(sid in by_id and _finite_number(by_id[sid].get("target_price")) for sid in SCENARIO_IDS):
-        prices = [by_id[sid]["target_price"] for sid in SCENARIO_IDS]
-        if prices != sorted(prices):
-            errors.append("los precios objetivo deben cumplir Bear <= Base <= Bull")
+    scenario_ids = set(by_id)
+    if not {"BEAR", "BULL"}.issubset(scenario_ids) or scenario_ids - set(SCENARIO_IDS):
+        errors.append("debe existir exactamente un escenario BEAR y BULL, con BASE opcional")
+    if quantification_status == "validated" and all(
+        sid in by_id and _finite_number(by_id[sid].get("target_price"))
+        for sid in ("BEAR", "BULL")
+    ):
+        bear_price = by_id["BEAR"]["target_price"]
+        bull_price = by_id["BULL"]["target_price"]
+        base_price = by_id.get("BASE", {}).get("target_price")
+        if bear_price > bull_price:
+            errors.append("el precio objetivo Bear debe ser menor o igual al precio Bull")
+        if base_price is not None and _finite_number(base_price) and not bear_price <= base_price <= bull_price:
+            errors.append("el precio objetivo Base debe quedar entre Bear y Bull")
     return errors
 
 
@@ -225,6 +331,7 @@ def scenario_fingerprint(value: dict[str, Any]) -> str:
         "as_of_date": value.get("as_of_date"),
         "horizon_date": value.get("horizon_date"),
         "currency": value.get("currency"),
+        "quantification_status": value.get("quantification_status", "validated"),
         "scenarios": sorted(value.get("scenarios", []), key=lambda item: str(item.get("id", ""))),
     }
     payload = json.dumps(canonical, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
@@ -274,61 +381,59 @@ def calculate_scenario_asymmetry(
     quote_currency: str | None,
     trusted_source_urls: set[str] | None = None,
 ) -> dict[str, Any]:
-    """Calculate weighted upside/downside only for a validated scenario set."""
+    """Calculate unweighted Bear downside and Bull upside for RULE-008."""
     errors = validate_scenario_analysis(analysis, trusted_source_urls=trusted_source_urls)
     if errors:
         return _blocked_asymmetry("; ".join(errors))
+    if analysis.get("quantification_status", "validated") != "validated":
+        return _blocked_asymmetry(
+            "los escenarios cualitativos no tienen rangos de precio calibrados",
+            validation_status="blocked",
+        )
     if not _finite_number(current_price) or current_price <= 0:
         return _blocked_asymmetry("precio actual ausente o inválido")
     if not quote_currency or quote_currency != analysis.get("currency"):
         return _blocked_asymmetry("la moneda del escenario no coincide con la cotización actual")
 
     rows = []
-    upside = 0.0
-    downside = 0.0
+    returns: dict[str, float] = {}
     for scenario in analysis["scenarios"]:
-        probability = float(scenario["probability_pct"]) / 100
         target = float(scenario["target_price"])
         return_pct = (target / float(current_price) - 1) * 100
-        contribution = probability * return_pct
-        if not math.isfinite(return_pct) or not math.isfinite(contribution):
+        if not math.isfinite(return_pct):
             return _blocked_asymmetry("los retornos calculados exceden el rango numérico")
-        if return_pct > 0:
-            upside += contribution
-        elif return_pct < 0:
-            downside += contribution
+        returns[scenario["id"]] = return_pct
         rows.append({
             "scenario": scenario["id"],
-            "probability_pct": float(scenario["probability_pct"]),
             "target_price": target,
             "return_pct": round(return_pct, 2),
-            "weighted_return_pct": round(contribution, 2),
             "sources": scenario["sources"],
         })
 
-    if upside <= 0 or downside >= 0:
-        return _blocked_asymmetry("se requieren resultados con upside y downside para calcular B/R")
-    ratio = round(upside / abs(downside), 2)
-    expected_return = round(sum(row["weighted_return_pct"] for row in rows), 2)
+    bear_return = returns["BEAR"]
+    bull_return = returns["BULL"]
+    if bull_return <= 0 or bear_return >= 0:
+        return _blocked_asymmetry("Bear debe mostrar downside y Bull upside frente al precio actual")
+    ratio = round(bull_return / abs(bear_return), 2)
     return {
         "rows": rows,
-        "valor_esperado": round(float(current_price) * (1 + expected_return / 100), 4),
-        "retorno_esperado_pct": expected_return,
-        "upside_esperado_pct": round(upside, 2),
-        "downside_esperado_pct": round(downside, 2),
+        "upside_pct": round(bull_return, 2),
+        "downside_pct": round(bear_return, 2),
         "benefit_risk_ratio": ratio,
         "scenario_hash": scenario_fingerprint(analysis),
         "validation_status": "validated",
         "board_review_eligible": True,
-        "validation_reason": "escenarios validados automáticamente; listos para el Decision Board",
+        "validation_reason": "casos Bear/Bull validados automáticamente; listos para Decision Board",
     }
 
 
-def _blocked_asymmetry(reason: str) -> dict[str, Any]:
+def _blocked_asymmetry(
+    reason: str, *, validation_status: str = "invalid"
+) -> dict[str, Any]:
     return {
         "rows": [],
         "benefit_risk_ratio": None,
-        "validation_status": "invalid",
+        "validation_status": validation_status,
         "board_review_eligible": False,
         "validation_reason": reason,
     }

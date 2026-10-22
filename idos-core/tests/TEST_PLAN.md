@@ -361,7 +361,7 @@ comportamiento fail-closed.
 2. Probar fecha ausente, formato inválido, fecha imposible y fecha futura: `RULE-010` debe fallar con motivo explícito y la decisión debe quedar bloqueada.
 3. Probar cobertura parcial 4/5 con fuente/corte válidos (80%): la regla de procedencia pasa sin convertir el campo faltante en cero; cobertura pobre, fuente ausente o fecha inválida bloquean.
 4. Revisar el Assessment y el Decision persistidos para confirmar el estado, el motivo de `RULE-010` y la procedencia; el dashboard debe exponer calidad parcial sin mostrar el caso como aprobado.
-5. Persistir y mostrar `rules_details` de la evaluación, incluyendo `RULE-008` cuando corresponda. Mostrar cálculos basados en probabilidades de catalizadores como provisionales. Los agentes deben validar automáticamente el contrato Bear/Base/Bull, procedencia, precios, horizonte y moneda; un set válido y con B/R suficiente debe quedar listo para Decision Board sin aprobación previa. Escenarios inválidos, fuente sin evidencia de entrada, porcentaje que no suma 100%, precio no ordenado, URL no HTTPS, fecha inválida/futura o moneda distinta deben bloquear RULE-008; un registro histórico sin detalle debe indicarlo explícitamente.
+5. Persistir y mostrar `rules_details` de la evaluación, incluyendo `RULE-008` cuando corresponda. Mostrar cálculos basados en probabilidades de catalizadores como provisionales. Los agentes deben validar automáticamente el contrato Bear/Bull (Base opcional), procedencia, precios, horizonte y moneda; un set válido y con B/R suficiente debe quedar listo para Decision Board sin aprobación previa. Escenarios incompletos, `probability_pct` sin calibración, fuente sin evidencia de entrada, precio no ordenado, URL no HTTPS, fecha inválida/futura o moneda distinta deben bloquear RULE-008; un registro histórico sin detalle debe indicarlo explícitamente.
 6. Si `financial_period_end_timestamp` llega desde el proveedor, convertir segundos Unix a fecha UTC ISO y conservar la fuente del campo; rechazar milisegundos, valores fuera de rango y fechas futuras.
 7. No debe existir un workflow humano `Scenario Review` previo al Board. `Decision Review` debe validar dentro de la única acción de Decision Board el escenario actual, el hash vinculado al Assessment, la identidad autenticada, la fecha, la justificación y la confirmación explícita de fuentes y fechas. Los cambios de escenarios, una fuente sin evidencia de entrada, identidad vacía, hash obsoleto o confirmación ausente deben impedir aprobar y no escribir resolución ni Buy List.
 8. Assessment debe persistir `PENDING_HUMAN_REVIEW` y no crear `board_resolution.approved=true`, Buy List ni estado `APPROVED` a partir de una recomendación automática. El Board debe ser la primera interacción humana de la nueva Opportunity, exigir decisión, revisor y justificación, y no permitir aprobar propuestas con gates fallidos. Board Review debe clasificar cualquier recomendación sin resolución como pendiente/bloqueada, nunca `AUTO_APPROVED`.
@@ -468,23 +468,24 @@ en el fixture.
    que prompt, snapshot, journal y auditoría conservan la misma evidencia y que
    el Research previo no se reemplaza ante respuesta inválida.
 
-### Asimetría Bear/Base/Bull y RULE-008
+### Asimetría Bear/Bull y RULE-008
 
-1. Aceptar exactamente un escenario BEAR, BASE y BULL con probabilidades que
-   sumen 100%, precios ordenados, horizonte posterior a la fecha de análisis,
-   moneda igual a la cotización y fuentes HTTPS fechadas.
-2. Rechazar escenario duplicado/ausente, probabilidades inválidas, fuente
-   posterior, fecha futura, moneda distinta y distribuciones sin retornos
-   positivos y negativos.
+1. Aceptar exactamente un escenario BEAR y BULL, con BASE opcional; validar
+   rationale, supuestos, falsadores, precios ordenados, horizonte posterior a la
+   fecha de análisis, moneda igual a la cotización y fuentes HTTPS fechadas.
+2. Rechazar escenario duplicado/ausente, `probability_pct` sin calibración,
+   fuente posterior, fecha futura, moneda distinta, BEAR sin retorno negativo o
+   BULL sin retorno positivo.
 3. Rechazar cada URL de escenario que no coincida con una URL provista en
    `research_input_snapshot.scenario_market_evidence`; si falta evidencia de
    entrada, no considerar verificables las fuentes. Mantener la aceptación de
    fuentes coincidentes y probar normalización sólo de host/ruta.
-4. Verificar que el ratio usa retornos ponderados contra el precio actual y que
-   RULE-008 se calcula automáticamente con el contrato y el hash vigente. Un
-   set válido y sobre el umbral debe llegar a Decision Board sin interacción
-   humana anterior; un cambio de precio objetivo, probabilidad, fuente o fecha
-   entre Assessment y Board debe bloquear la aprobación.
+4. Verificar que el ratio compara retornos Bear/Bull contra el precio actual sin
+   ponderación probabilística y que no se emite retorno esperado. RULE-008 se
+   calcula automáticamente con el contrato y el hash vigente. Un set válido y
+   sobre el umbral debe llegar a Decision Board sin interacción humana anterior;
+   un cambio de precio objetivo, fuente, supuesto o fecha entre Assessment y
+   Board debe bloquear la aprobación.
 5. Confirmar que el dashboard omite el conjunto de escenarios con fuentes no
    respaldadas por la evidencia de entrada, muestra el motivo de bloqueo y nunca
    autoriza compra. Los escenarios válidos se muestran como propuesta de agentes

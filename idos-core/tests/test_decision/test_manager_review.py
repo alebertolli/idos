@@ -36,14 +36,14 @@ def _seed_fundamental_case(base_path: Path, *, recommendation="APPROVE", rules_f
         "conviction": {"overall": 82, "current_price": 100, "intrinsic_value": 125},
     }
     analysis = {
-        "schema_version": "bear_base_bull_v1",
+        "schema_version": "bear_bull_v2",
         "as_of_date": TODAY.isoformat(),
         "horizon_date": (TODAY + timedelta(days=365)).isoformat(),
         "currency": "USD",
         "scenarios": [
-            {"id": "BEAR", "probability_pct": 25, "target_price": 80, "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": SOURCE_DATE}]},
-            {"id": "BASE", "probability_pct": 50, "target_price": 110, "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": SOURCE_DATE}]},
-            {"id": "BULL", "probability_pct": 25, "target_price": 150, "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": SOURCE_DATE}]},
+            {"id": "BEAR", "target_price": 80, "rationale": "Demanda y márgenes caen.", "key_assumptions": ["Demanda inferior"], "falsifiers": ["Pedidos estables"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": SOURCE_DATE}]},
+            {"id": "BASE", "target_price": 110, "rationale": "Crecimiento moderado.", "key_assumptions": ["Márgenes estables"], "falsifiers": ["Margen fuera de rango"], "sources": [{"name": "Filing", "url": "https://example.com/base", "as_of_date": SOURCE_DATE}]},
+            {"id": "BULL", "target_price": 150, "rationale": "La adopción acelera.", "key_assumptions": ["Demanda superior"], "falsifiers": ["Menor utilización"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": SOURCE_DATE}]},
         ],
     }
     review = {
@@ -109,6 +109,47 @@ def test_manager_approval_requires_current_assessment_and_scenario_and_writes_au
         )
 
 
+def test_manager_cannot_approve_any_strategy_without_rule_008(tmp_path):
+    opp_dir, proposal = _seed_fundamental_case(tmp_path)
+    proposal["rules_passed"] = ["RULE-010"]
+    proposal["rules_failed"] = []
+    proposal_path = opp_dir / "decision_proposal.yml"
+    proposal_path.write_text(yaml.safe_dump(proposal), encoding="utf-8")
+    opportunity_path = opp_dir / "opportunity.yml"
+    opportunity = yaml.safe_load(opportunity_path.read_text(encoding="utf-8"))
+    opportunity["research_profile"] = "systematic"
+    opportunity_path.write_text(yaml.safe_dump(opportunity), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="every strategy"):
+        record_decision_review(
+            tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
+            "approved", "github-manager", "Reviewed thesis, sources and risk.", True,
+        )
+    assert not (opp_dir / "board_resolution.yml").exists()
+
+
+def test_manager_cannot_approve_qualitative_scenarios_under_rule_008(tmp_path):
+    opp_dir, proposal = _seed_fundamental_case(tmp_path)
+    report_path = opp_dir / "ddd_report.yml"
+    report = yaml.safe_load(report_path.read_text(encoding="utf-8"))
+    analysis = report["scenario_analysis"]
+    analysis["quantification_status"] = "not_calibrated"
+    for scenario in analysis["scenarios"]:
+        scenario["target_price"] = None
+    from idos.decision.scenarios import scenario_fingerprint
+    proposal["scenario_hash"] = scenario_fingerprint(analysis)
+    proposal_path = opp_dir / "decision_proposal.yml"
+    proposal_path.write_text(yaml.safe_dump(proposal), encoding="utf-8")
+    report_path.write_text(yaml.safe_dump(report), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="quantitative Bear/Bull ranges"):
+        record_decision_review(
+            tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
+            "approved", "github-manager", "Reviewed thesis, sources and risk.", True,
+        )
+    assert not (opp_dir / "board_resolution.yml").exists()
+
+
 def test_manager_approval_rejects_stale_hash_or_failed_gate(tmp_path):
     opp_dir, proposal = _seed_fundamental_case(tmp_path)
     with pytest.raises(ValueError, match="stale"):
@@ -134,7 +175,7 @@ def test_manager_approval_rejects_scenario_source_absent_from_research_evidence(
     report["research_input_snapshot"]["scenario_market_evidence"]["analyst_target_consensus"]["sources"].pop()
     report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
 
-    with pytest.raises(ValueError, match="Current Bear/Base/Bull scenarios are invalid"):
+    with pytest.raises(ValueError, match="Current Bear/Bull scenarios are invalid"):
         record_decision_review(
             tmp_path, "TEST", "OPP-1", decision_proposal_fingerprint(proposal),
             "approved", "github-manager", "Reviewed thesis, sources, downside and allocation boundary.", True,

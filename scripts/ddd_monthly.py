@@ -15,6 +15,7 @@ def main():
     tickers_env = os.environ.get('TICKER', '')
     tickers = [t.strip().upper() for t in tickers_env.split(',') if t.strip()] if tickers_env else []
     event_type = os.environ.get('EVENT_TYPE', 'monthly')
+    skip_portfolio_review = os.environ.get('SKIP_PORTFOLIO_REVIEW', 'false').lower() == 'true'
 
     workspace = os.environ.get('GITHUB_WORKSPACE', '.')
     os.chdir(workspace)
@@ -38,16 +39,21 @@ def main():
 
     w = MonthlyReassessmentWorker({'llm_service': _llm_svc, 'prompts_path': prompts_path})
 
-    result = w.execute({'base_path': workspace, 'tickers': tickers})
+    result = w.execute({
+        'base_path': workspace,
+        'tickers': tickers,
+        'skip_portfolio_review': skip_portfolio_review,
+    })
     r = result.output if hasattr(result, 'output') else result
 
     # Print summary
-    print('[MONTHLY] active={} thesis_reassessed={} changed={} conviction={} proposals={} exits={}'
+    print('[MONTHLY] active={} thesis_reassessed={} changed={} conviction={} portfolio_review={} proposals={} exits={}'
           .format(
               r.get('total_active', 0),
               r.get('thesis_reassessed', 0),
               r.get('thesis_changed', 0),
               r.get('conviction_recalibrated', 0),
+              r.get('portfolio_review_status', 'unreported'),
               len(r.get('proposals', [])),
               len(r.get('exits_triggered', []))
           ))
@@ -60,6 +66,7 @@ def main():
         'conviction_recalibrated': r.get('conviction_recalibrated', 0),
         'proposals': len(r.get('proposals', [])),
         'exits_triggered': len(r.get('exits_triggered', [])),
+        'portfolio_review_status': r.get('portfolio_review_status', 'unreported'),
         'event_type': event_type,
         'force': force,
         'timestamp': datetime.now(AR_TZ).isoformat()

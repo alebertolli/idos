@@ -45,6 +45,33 @@ def test_generate_structured_parse_json():
     assert result["error"] != ""
 
 
+def test_generate_falls_back_to_provider_model_on_503(monkeypatch):
+    import requests
+    from idos.ai.llm import LLMClient as LC, LLMResponse
+
+    client = LC(
+        provider="gemini", api_key="key", model="gemini-primary",
+        fallback_model="gemini-fallback",
+    )
+    calls = []
+
+    def fake_call(prompt, system_prompt, temperature, max_tokens, api_key, model, response_format=None):
+        calls.append(model)
+        if model == "gemini-primary":
+            response = requests.Response()
+            response.status_code = 503
+            raise requests.HTTPError("temporary provider outage", response=response)
+        return LLMResponse(content="valid response", model=model, success=True)
+
+    monkeypatch.setattr(client, "_call_gemini", fake_call)
+
+    result = client.generate("prompt")
+
+    assert result.success
+    assert result.content == "valid response"
+    assert calls == ["gemini-primary", "gemini-fallback"]
+
+
 def test_generate_falls_back_on_empty_content(monkeypatch):
     from idos.ai.llm import LLMClient as LC, LLMResponse
 

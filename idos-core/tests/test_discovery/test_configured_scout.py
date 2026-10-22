@@ -7,7 +7,7 @@ from idos.market.liquidity import MarketDataSettings
 
 def _market(**values):
     return {
-        "asset_type": "us_equity", "size_metric_usd": 3_000_000_000, "market_cap_usd": 3_000_000_000,
+        "asset_type": "us_equity", "quote_currency": "USD", "size_metric_usd": 3_000_000_000, "market_cap_usd": 3_000_000_000,
         "avg_dollar_volume_usd": 100_000,
         "market_data_normalization": {"status": "complete"},
         "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY"},

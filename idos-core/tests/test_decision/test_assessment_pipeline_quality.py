@@ -3,6 +3,7 @@ import json
 from idos.decision.assessment_pipeline import (
     _remove_buylist_entry,
     _authorization_rule_ids,
+    _calculate_report_asymmetry,
     _compute_asymmetry,
     _eval_asymmetry,
     _eval_financial_data_quality,
@@ -16,28 +17,29 @@ from idos.decision.orchestrator import DecisionOrchestrator
 from idos.rules.engine import RulesEngine
 
 
-def test_catalyst_probability_estimate_is_provisional_and_cannot_pass_rule_008():
-    asymmetry = _compute_asymmetry(
-        [
-            {"descripcion": "Crecimiento acelerado", "impacto": "alto", "probabilidad_pct": 70},
-            {"descripcion": "Compresión de múltiplo", "impacto": "bajo", "probabilidad_pct": 30},
-        ],
+def test_missing_scenario_contract_does_not_estimate_catalyst_probabilities():
+    asymmetry = _calculate_report_asymmetry(
+        {
+            "dominio_catalizadores": [
+                {"descripcion": "Crecimiento acelerado", "impacto": "alto", "probabilidad_pct": 70},
+                {"descripcion": "Compresión de múltiplo", "impacto": "bajo", "probabilidad_pct": 30},
+            ],
+        },
         current_price=100,
-        target_low=70,
-        target_mean=120,
-        target_high=160,
+        quote_currency="USD",
     )
 
-    assert asymmetry is not None
-    assert asymmetry["benefit_risk_ratio"] >= 3
-    assert asymmetry["validation_status"] == "provisional"
+    assert asymmetry["validation_status"] == "blocked"
     assert asymmetry["board_review_eligible"] is False
-    assert asymmetry["passes_threshold"] is False
+    assert asymmetry["benefit_risk_ratio"] is None
+    assert asymmetry["rows"] == []
+    assert "no se infieren probabilidades ni retorno esperado" in asymmetry["validation_reason"]
+    assert "retorno_esperado_pct" not in asymmetry
+    assert "valor_esperado" not in asymmetry
 
     result = _eval_asymmetry({"asymmetry": asymmetry})
     assert not result.passed
     assert "autorización bloqueada" in result.details
-
 
 def test_financial_data_quality_accepts_zero_as_a_valid_numeric_value():
     quality = _financial_data_quality({

@@ -13,12 +13,11 @@ def test_enabled_profiles_route_to_their_monthly_runner():
     catalog = StrategyCatalog(CONFIG_PATH)
 
     assert [p.strategy_id for p in enabled_profiles_for_runner(catalog, "universe")] == [
-        "COMPOUNDER"
+        "COMPOUNDER", "MULTIBAGGERS"
     ]
     assert [p.strategy_id for p in enabled_profiles_for_runner(catalog, "monthly_signal")] == [
         "MOMENTUM_ETF"
     ]
-    assert catalog.require("MULTIBAGGERS").enabled is False
 
 
 def test_new_strategy_with_supported_profile_uses_configured_runner(tmp_path: Path):

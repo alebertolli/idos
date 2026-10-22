@@ -368,7 +368,7 @@ def build_research_intake(result: dict[str, Any], config: dict[str, Any]) -> dic
             "ratio_units": dict(research_parameters.get("ratio_units", {})),
             "ratio_input_fields": dict(research_parameters.get("ratio_input_fields", {})),
             "risk_review_thresholds": dict(research_parameters.get("risk_review_thresholds", {})),
-            "scenario_schema_version": "bear_base_bull_v1",
+            "scenario_schema_version": "bear_bull_v2",
         },
         "historical_windows": {name: item.get("period") for name, item in result["metrics_snapshot"].items()},
         "initial_hypotheses": [f"Assess whether evidence for {name} supports durable reinvestment and growth." for name in ("economic_transition", "quality", "reinvestment")],

@@ -39,11 +39,11 @@ def test_strategy_core_mapping():
     assert catalog.require("DEEP_VALUE").core == "CORE_4_ALPHA_ASYMMETRY"
 
 
-def test_multibaggers_policy_is_disabled_and_configured():
+def test_multibaggers_policy_is_enabled_and_configured():
     catalog = StrategyCatalog(Path(__file__).parents[1].parent / "idos-config" / "strategies.yml")
     profile = catalog.require("MULTIBAGGERS")
 
-    assert profile.enabled is False
+    assert profile.enabled is True
     assert profile.core == "CORE_4_ALPHA_ASYMMETRY"
     assert profile.sleeve == "ALPHA_ASYMMETRY"
     assert profile.entry_policy == "MANUAL_REVIEW"
@@ -65,7 +65,7 @@ def test_multibaggers_policy_is_disabled_and_configured():
         "price_momentum_12m_pct", "drawdown_pct", "volatility_90d_pct",
     ]
     assert profile.parameters["research"]["required_analysis"] == [
-        "fundamental_ratio_review", "bear_base_bull_scenarios",
+        "fundamental_ratio_review", "bear_bull_scenarios",
         "source_cited_expectation_gap", "validated_asymmetry",
     ]
     assert profile.parameters["research"]["ratio_units"]["current_ratio"] == "x"

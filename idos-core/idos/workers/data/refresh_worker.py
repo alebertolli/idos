@@ -328,8 +328,14 @@ class DataRefreshWorker(BaseWorker):
         dollar_volume = merged.get("avg_dollar_volume_usd")
         normalization = merged.get("market_data_normalization")
         asset_type = merged.get("asset_type")
+        quote_currency = merged.get("quote_currency")
+        valid_quote_currency = (
+            isinstance(quote_currency, str)
+            and re.fullmatch(r"[A-Z]{3}", quote_currency.strip()) is not None
+        )
         common_gates_complete = (
             asset_type in {"etf", "us_equity"}
+            and valid_quote_currency
             and isinstance(dollar_volume, (int, float)) and not isinstance(dollar_volume, bool)
             and math.isfinite(dollar_volume) and dollar_volume > 0
             and isinstance(merged.get("liquidity_provenance"), dict)
@@ -367,6 +373,12 @@ class DataRefreshWorker(BaseWorker):
     ) -> dict[str, Any]:
         result: dict[str, Any] = {
             "asset_type": asset_type,
+            "quote_currency": (
+                yahoo_data.get("quote_currency").strip().upper()
+                if isinstance(yahoo_data.get("quote_currency"), str)
+                and re.fullmatch(r"[A-Za-z]{3}", yahoo_data["quote_currency"].strip())
+                else None
+            ),
             "market_data_normalization": {"status": "blocked", "errors": []}
         }
         errors = result["market_data_normalization"]["errors"]
