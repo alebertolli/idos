@@ -310,23 +310,35 @@ class ResearchWorker(BaseWorker):
                 ),
             }, max_chars=40000)
             prompt_context_bytes = len(json.dumps(
-                prompt_context, ensure_ascii=False, sort_keys=True, default=str
+                prompt_context, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str
             ).encode("utf-8"))
             print(f"[RESEARCH] {ticker}: MULTIBAGGERS bounded prompt context={prompt_context_bytes} bytes")
-            ddd_result = self._run_prompt("multibaggers", ticker, {
+            prompt_kwargs = {
                 "ticker": prompt_context["ticker"],
                 "name": prompt_context["name"],
                 "intake_package": json.dumps(
-                    prompt_context["intake_package"], ensure_ascii=False, sort_keys=True, default=str
+                    prompt_context["intake_package"], ensure_ascii=False, sort_keys=True,
+                    separators=(",", ":"), default=str,
                 ),
                 "financial_summary": json.dumps(
-                    prompt_context["financial_summary"], ensure_ascii=False, sort_keys=True, default=str
+                    prompt_context["financial_summary"], ensure_ascii=False, sort_keys=True,
+                    separators=(",", ":"), default=str,
                 ),
                 "research_financial_evidence": json.dumps(
                     prompt_context["research_financial_evidence"],
-                    ensure_ascii=False, sort_keys=True, default=str,
+                    ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str,
                 ),
-            }, max_tokens=8192)
+            }
+            template = self.registry.get("multibaggers", category="research") or ""
+            system_prompt = self.registry.get_system("multibaggers", category="research") or ""
+            rendered_prompt = template.format(**prompt_kwargs) if isinstance(template, str) else str(template)
+            request_prompt_bytes = len(
+                (system_prompt + "\n" + rendered_prompt).encode("utf-8")
+            )
+            print(f"[RESEARCH] {ticker}: MULTIBAGGERS rendered prompt={request_prompt_bytes} bytes")
+            ddd_result = self._run_prompt(
+                "multibaggers", ticker, prompt_kwargs, max_tokens=8192
+            )
         else:
             ddd_result = self._run_prompt(
                 "ddd", ticker, self._bounded_ddd_prompt_context(ddd_inputs), max_tokens=8192
@@ -1762,12 +1774,19 @@ class ResearchWorker(BaseWorker):
             compact_sources[str(field)] = {
                 key: raw[key]
                 for key in ("unit", "currency", "period_type", "period_end", "sources",
-                            "source_url", "observed_at", "omitted_points")
+                            "source_url", "omitted_points")
                 if key in raw
             }
             compact_sources[str(field)]["value"] = value
             if isinstance(compact_sources[str(field)].get("sources"), list):
                 compact_sources[str(field)]["sources"] = compact_sources[str(field)]["sources"][:2]
+        observed_at = next((
+            raw.get("observed_at")
+            for raw in source_observations.values()
+            if isinstance(raw, dict) and isinstance(raw.get("observed_at"), str)
+        ), None)
+        if observed_at:
+            compact["observed_at"] = observed_at
         compact["source_observations"] = compact_sources
 
         reconciled = evidence.get("reconciled_observations")
@@ -1794,9 +1813,10 @@ class ResearchWorker(BaseWorker):
             compact[field] = {
                 str(metric): [
                     ResearchWorker._bound_multibaggers_prompt_value(
-                        item, max_depth=2, max_items=3, max_keys=8, max_string_chars=200
+                        {key: value for key, value in item.items() if key != "observed_at"},
+                        max_depth=2, max_items=3, max_keys=8, max_string_chars=200
                     )
-                    for item in rows[:2]
+                    for item in rows[:1]
                     if isinstance(item, dict)
                 ]
                 for metric, rows in observations.items()
