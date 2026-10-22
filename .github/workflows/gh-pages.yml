@@ -33,7 +33,9 @@ concurrency:
 
 jobs:
   build:
-    if: vars.IDOS_DATA_RIGHTS_CONFIRMED == 'true'
+    if: >-
+      vars.IDOS_DATA_RIGHTS_CONFIRMED == 'true' &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
