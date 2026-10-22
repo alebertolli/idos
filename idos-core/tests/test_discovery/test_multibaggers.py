@@ -138,13 +138,13 @@ def test_market_confirmation_scoring_clamps_inputs():
     assert result.component_scores["market_confirmation"] == 33.33
 
 
-def test_repository_profile_uses_market_only_discovery_and_stays_disabled():
+def test_repository_profile_uses_market_only_discovery_and_is_enabled():
     repository_root = Path(__file__).resolve().parents[3]
     config = yaml.safe_load((repository_root / "idos-config" / "strategies.yml").read_text(encoding="utf-8"))
     profile = config["strategies"]["MULTIBAGGERS"]
     policy = profile["parameters"]
     assert config["default_strategy"] == "COMPOUNDER"
-    assert profile["enabled"] is False
+    assert profile["enabled"] is True
     assert profile["strategy_version"] == "1.5"
     assert policy["supported_asset_types"] == ["us_equity"]
     assert "universe_path" not in policy
