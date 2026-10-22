@@ -512,9 +512,33 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
     return {}
 
 
+def _compute_asymmetry(
+    raw_catalysts: list,
+    current_price: Any,
+    target_low: Any,
+    target_mean: Any,
+    target_high: Any,
+) -> dict[str, Any]:
+    """Keep the legacy helper fail-closed; catalysts are not exclusive scenarios."""
+    return {
+        "rows": [],
+        "benefit_risk_ratio": None,
+        "validation_status": "blocked",
+        "board_review_eligible": False,
+        "validation_reason": (
+            "No se infieren probabilidades ni retorno esperado desde catalizadores; "
+            "se requiere scenario_analysis validado"
+        ),
+    }
+
+
 def _calculate_report_asymmetry(
     report: Any,
+    raw_catalysts: list,
     current_price: Any,
+    target_low: Any,
+    target_mean: Any,
+    target_high: Any,
     quote_currency: str | None,
 ) -> dict[str, Any]:
     """Use only an automatically validated scenario contract for RULE-008."""
