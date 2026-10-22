@@ -50,7 +50,7 @@ on:
         type: string
         default: ""
       force:
-        description: "Reprocesar cualquier estado (ignora can_transition)"
+        description: "Reinvestigar solo oportunidades UNDER_RESEARCH; para nuevas SCREENED usar force=false"
         required: false
         type: boolean
         default: false
