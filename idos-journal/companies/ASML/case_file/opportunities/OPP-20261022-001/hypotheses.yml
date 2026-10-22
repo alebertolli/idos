@@ -1,0 +1,174 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los envíos totales de EUV High-NA en 2027 serán ≤ 24 unidades.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ASML anuncia retraso de la disponibilidad comercial de High-NA más
+      allá de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los envíos totales de EUV High-NA en 2027 serán ≤ 24 unidades.
+  - ASML anuncia retraso de la disponibilidad comercial de High-NA más allá de 2028.
+  horizon: corto
+  id: H1-OPP-20261022-001
+  opportunity_id: OPP-20261022-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 30.0
+    met: null
+    metric: unidades enviadas EUV High-NA
+    prediction: Los envíos de sistemas EUV de alta NA superarán los 30 unidades en
+      2027, frente a 24 unidades en 2026.
+    unit: unidades
+  priority: critical
+  probability: 0.5
+  rationale: Los principales clientes (TSMC, Samsung, Intel) han anunciado planes
+    de producción en 3 nm y 2 nm que requieren herramientas EUV de alta NA. Además,
+    la hoja de ruta de ASML indica disponibilidad comercial de la generación High-NA
+    a partir de mediados de 2027, y la capacidad de producción interna está preparada
+    para escalar.
+  review_trigger: Si ASML publica un informe de retraso de High-NA antes del 2027-06-30,
+    la hipótesis se descarta.
+  secondary_hypotheses: []
+  statement: ASML incrementará sus envíos de sistemas EUV de alta NA (numerical aperture)
+    en al menos un 25% respecto al año fiscal 2026, impulsado por la adopción de nodos
+    de 3 nm y 2 nm en los principales fabricantes de chips.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen EBITDA reportado para FY 2028 será ≤ 45%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ASML anuncia un aumento significativo de costos de materiales que reduzca
+      el margen en al menos 2 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen EBITDA reportado para FY 2028 será ≤ 45%.
+  - ASML anuncia un aumento significativo de costos de materiales que reduzca el margen
+    en al menos 2 puntos porcentuales.
+  horizon: largo
+  id: H2-OPP-20261022-001
+  opportunity_id: OPP-20261022-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 48.0
+    met: null
+    metric: margen EBITDA
+    prediction: El margen EBITDA alcanzará un 48% en FY 2028.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: El aumento de la proporción de ventas de sistemas High-NA, que tienen
+    márgenes superiores al 45%, junto con la optimización de la cadena de suministro
+    y la reducción de costos de componentes críticos, debería elevar el margen global.
+  review_trigger: Si en el informe intermedio de Q2 FY 2028 (fecha estimada 2028-03-31)
+    el margen EBITDA está por debajo del 44%, la hipótesis se invalida.
+  secondary_hypotheses:
+  - H1-OPP-20261022-001
+  statement: El margen EBITDA de ASML mejorará al menos 3 puntos porcentuales para
+    el ejercicio fiscal 2028, reflejando economías de escala y mayor mix de productos
+    de alta rentabilidad.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El P/E al 30/06/2027 será ≤ 30x.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción cae más del 15% respecto al nivel de 2026-10-22
+      sin recuperación sustancial.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El P/E al 30/06/2027 será ≤ 30x.
+  - El precio de la acción cae más del 15% respecto al nivel de 2026-10-22 sin recuperación
+    sustancial.
+  horizon: medio
+  id: H3-OPP-20261022-001
+  opportunity_id: OPP-20261022-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 36.0
+    met: null
+    metric: P/E ratio
+    prediction: El P/E de ASML alcanzará 36x o superior al cierre del mercado el 30
+      de junio de 2027.
+    unit: veces
+  priority: important
+  probability: 0.5
+  rationale: Los analistas están subvaluando la empresa debido a incertidumbres sobre
+    la demanda de EUV y riesgos regulatorios. La materialización de los envíos High-NA
+    y la mejora de márgenes deberían disipar esas dudas, impulsando la revaloración
+    del múltiplo.
+  review_trigger: Si el P/E permanece bajo 30x al 30/09/2027, la hipótesis se descarta.
+  secondary_hypotheses:
+  - H1-OPP-20261022-001
+  - H2-OPP-20261022-001
+  statement: El múltiplo precio/beneficio (P/E) de ASML se revalorizará al menos un
+    20% respecto al nivel actual (aprox. 30x) para finales de 2027, al alinearse la
+    valoración con la expectativa de crecimiento de ingresos sostenido.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos reportados para 2027 serán ≤ 19.000 millones de euros.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ASML anuncia la cancelación de pedidos de clientes chinos por restricciones
+      regulatorias superiores al 10% del total de pedidos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos reportados para 2027 serán ≤ 19.000 millones de euros.
+  - ASML anuncia la cancelación de pedidos de clientes chinos por restricciones regulatorias
+    superiores al 10% del total de pedidos.
+  horizon: medio
+  id: H4-OPP-20261022-001
+  opportunity_id: OPP-20261022-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 20000.0
+    met: null
+    metric: ingresos consolidados
+    prediction: Los ingresos consolidados de ASML en 2027 serán al menos 20.000 millones
+      de euros, lo que representa una caída máxima del 5% respecto a 2026.
+    unit: millones de euros
+  priority: informational
+  probability: 0.5
+  rationale: El 70% de los ingresos de ASML provienen de TSMC, Samsung e Intel, que
+    no están sujetos a esas restricciones. Además, ASML ha anunciado iniciativas para
+    captar a fabricantes emergentes en Europa y Japón, mitigando el impacto de la
+    pérdida de mercado chino.
+  review_trigger: Si el Departamento de Comercio de EE.UU. publica nuevas sanciones
+    que incluyan a los principales clientes de ASML antes del 2027-03-31, la hipótesis
+    se invalida.
+  secondary_hypotheses: []
+  statement: Las restricciones de exportación de EE.UU. a China no reducirán los ingresos
+    de ASML en más del 5% en 2027, porque la mayor parte de la demanda proviene de
+    clientes fuera de China y la empresa diversificará rápidamente su base de clientes.
+  status: ACTIVE
+  ticker: ASML
+  version: 1

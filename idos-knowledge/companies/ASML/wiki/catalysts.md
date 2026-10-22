@@ -1,0 +1,3 @@
+- **La expansión de EUV en la fabricación de nodos avanzados impulsará ingresos.** (Impact: medium, Timeline: medium)
+- **Innovaciones en sistemas de litografía aumentarán la cuota de mercado.** (Impact: medium, Timeline: medium)
+- **Crecimiento en mercados emergentes y nuevas aplicaciones.** (Impact: medium, Timeline: medium)

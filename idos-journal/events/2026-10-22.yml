@@ -1,0 +1,58 @@
+events:
+- data:
+    classification: compounder
+    event_evidence: null
+    event_type: manual
+    hypotheses: 4
+    input_snapshot_sha256: 838e621732ad2bf5ea29474cb76648c7b24f3cc86e3e98c87a88671e400b0a77
+    opp_id: OPP-20261022-001
+    score: 88
+    strategy_version: positive_fundamentals_v1
+    ticker: ASML
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-10-22T23:06:30.225038'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ASML
+    ticker: ASML
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-10-22T23:06:36.995442'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ASML
+    ticker: ASML
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-10-22T23:06:36.998203'
+- data:
+    metrics:
+    - dilution_yoy_pct
+    opp_id: OPP-MB-ASML
+    ticker: ASML
+  event_type: research:ratio_limitation_omitted
+  source: research_worker
+  timestamp: '2026-10-22T23:06:37.001444'
+- data:
+    classification: Neutral
+    event_evidence: null
+    event_type: manual
+    hypotheses: 4
+    input_snapshot_sha256: d50d43da08c105cba3a27b224bb13ec9254e152ddd2e93c2c4eef30df00998bb
+    opp_id: OPP-MB-ASML
+    score: 80
+    strategy_version: '1.5'
+    ticker: ASML
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-10-22T23:08:18.860033'

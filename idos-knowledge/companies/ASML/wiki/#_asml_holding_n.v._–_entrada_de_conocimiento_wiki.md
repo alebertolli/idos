@@ -1,0 +1,1 @@
+> **Nota:** Toda la información proviene exclusivamente de los documentos de investigación internos **DDD** y **AOIF** (fecha de corte 22‑Oct‑2026). Las secciones marcadas como *Hechos verificados* corresponden a datos explícitos en los archivos; las marcadas como *Inferencias* son conclusiones derivadas por el modelo de lenguaje a partir de esos datos.

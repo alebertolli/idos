@@ -1,0 +1,144 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La capacidad de producción de máquinas EUV no aumenta en un 20% para
+      el 31/12/2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ASML no anuncia nuevas líneas de producción o mejoras de automatización
+      antes de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La capacidad de producción de máquinas EUV no aumenta en un 20% para el 31/12/2028.
+  - ASML no anuncia nuevas líneas de producción o mejoras de automatización antes
+    de 2028.
+  horizon: medio
+  id: H1-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 20.0
+    met: null
+    metric: Capacidad de producción de máquinas EUV
+    prediction: La capacidad de producción de máquinas EUV aumentará en un 20% para
+      el 31/12/2028.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La compañía ha anunciado la expansión de sus líneas de producción en
+    Eindhoven y el uso de nuevas tecnologías de automatización, lo que reduce el tiempo
+    de fabricación y mejora la eficiencia. La demanda proyectada de semiconductores
+    de alta gama requiere más equipos EUV.
+  review_trigger: Si la demanda de semiconductores cae más del 5% anual a partir de
+    2027, lo que reduce la necesidad de nuevas máquinas EUV.
+  secondary_hypotheses: []
+  statement: ASML aumentará su capacidad de producción de máquinas EUV en un 20% para
+    el 31 de diciembre de 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto anual de ASML cae por debajo del 55% para el 31/12/2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto anual de ASML cae por debajo del 55% para el 31/12/2027.
+  horizon: corto
+  id: H2-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 55.0
+    met: null
+    metric: Margen bruto
+    prediction: El margen bruto anual de ASML será superior al 55% para el 31/12/2027.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: ASML ha implementado eficiencias de costos en la cadena de suministro
+    y mantiene precios premium debido a su posición de liderazgo. Los costos de producción
+    se han estabilizado y la demanda sigue siendo fuerte.
+  review_trigger: Si la inflación de costos de componentes críticos supera el 10%
+    anual a partir de 2026.
+  secondary_hypotheses: []
+  statement: El margen bruto de ASML se mantendrá por encima del 55% hasta el 31 de
+    diciembre de 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio P/E de ASML permanece por encima de 30 el 30/06/2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio P/E de ASML permanece por encima de 30 el 30/06/2028.
+  horizon: medio
+  id: H3-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 30.0
+    met: null
+    metric: P/E ratio
+    prediction: El ratio P/E de ASML será inferior a 30 el 30/06/2028.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: La valoración actual está sobrevalorada respecto al crecimiento sostenido.
+    Un ajuste de mercado basado en la corrección de la demanda de semiconductores
+    y la percepción de riesgo macro llevará el P/E a niveles más consistentes con
+    el sector.
+  review_trigger: Si la demanda de semiconductores se recupera de manera sostenida
+    y la percepción de riesgo disminuye antes de 2028.
+  secondary_hypotheses: []
+  statement: El ratio P/E de ASML caerá por debajo de 30 antes del 30 de junio de
+    2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio EV/EBITDA de ASML permanece por encima de 15 el 31/03/2029.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio EV/EBITDA de ASML permanece por encima de 15 el 31/03/2029.
+  horizon: largo
+  id: H4-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2029-03-31'
+    expected: 15.0
+    met: null
+    metric: EV/EBITDA
+    prediction: El ratio EV/EBITDA de ASML será inferior a 15 el 31/03/2029.
+    unit: ratio
+  priority: informational
+  probability: 0.5
+  rationale: Un posible ajuste de mercado y la presión de la demanda de semiconductores
+    harán que los inversores valoren la empresa con un múltiplo más bajo. La empresa
+    mantiene márgenes altos, pero la valoración se ajustará a la realidad macroeconómica.
+  review_trigger: Si la demanda de semiconductores se recupera antes de 2029 y la
+    percepción de riesgo disminuye, manteniendo el múltiplo alto.
+  secondary_hypotheses: []
+  statement: El ratio EV/EBITDA de ASML se reducirá a menos de 15 antes del 31 de
+    marzo de 2029.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
