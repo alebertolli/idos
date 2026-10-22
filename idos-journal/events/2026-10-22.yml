@@ -1,0 +1,41 @@
+events:
+- data:
+    classification: compounder
+    ddd_empty: false
+    event_evidence: null
+    event_type: manual
+    hypotheses: 3
+    input_snapshot_sha256: 41ba78aa1fbb45a9c5cb52dae45210736594e6ce61b8e3c2da0a7761802ec2bf
+    opp_id: OPP-20261021-001
+    original_status: UNDER_RESEARCH
+    score: 88
+    strategy_version: positive_fundamentals_v1
+    ticker: ASML
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-22T01:22:08.477842'
+- data:
+    metrics:
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ASML
+    ticker: ASML
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-10-22T01:22:14.656862'
+- data:
+    classification: Multibaggers
+    ddd_empty: false
+    event_evidence: null
+    event_type: manual
+    hypotheses: 4
+    input_snapshot_sha256: 21241fac7f898176b55b34345303a2df2998bf25b4ea8cf9c794cb01bbed9c64
+    opp_id: OPP-MB-ASML
+    original_status: UNDER_RESEARCH
+    score: 78
+    strategy_version: '1.5'
+    ticker: ASML
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-22T01:24:13.208297'

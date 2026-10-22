@@ -1,65 +1,58 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: La capacidad de EUV no ha aumentado al menos 15% para 2028-12-31.
+  - condition: La utilización de la capacidad de producción de EUV permanece por debajo
+      del 85% en el periodo 2027
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El backlog de EUV no crece 10% en 2028.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: ASML anuncia cancelación de expansión.
+  - condition: ASML anuncia reducción de la producción de EUV por falta de demanda
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - La capacidad de EUV no ha aumentado al menos 15% para 2028-12-31.
-  - El backlog de EUV no crece 10% en 2028.
-  - ASML anuncia cancelación de expansión.
+  - La utilización de la capacidad de producción de EUV permanece por debajo del 85%
+    en el periodo 2027
+  - ASML anuncia reducción de la producción de EUV por falta de demanda
   horizon: medio
   id: H1-OPP-MB-ASML
   opportunity_id: OPP-MB-ASML
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2028-12-31'
-    expected: 20.0
+    deadline: '2027-12-31'
+    expected: 90.0
     met: null
-    metric: Capacidad de producción de EUV
-    prediction: Capacidad de EUV aumentará 20% en 2028-12-31.
+    metric: utilización de capacidad EUV
+    prediction: La utilización de la capacidad de producción de EUV alcanzará el 90%
+      en el periodo 2027.
     unit: '%'
   priority: critical
   probability: 0.5
-  rationale: ASML ha anunciado planes de expansión de líneas de producción y la construcción
-    de nuevas instalaciones; la demanda de EUV se proyecta crecer 15% anual; la inversión
-    en I+D y la eficiencia de la cadena de suministro respaldan la expansión.
-  review_trigger: Si el 2028-12-31 la capacidad de EUV está por debajo de 15% de aumento
-    o si la empresa anuncia cierre de líneas.
+  rationale: La demanda de chips de alta gama sigue creciendo y ASML ha anunciado
+    la expansión de su planta de producción en Almere, lo que permite aumentar la
+    producción sin incrementar costos fijos significativos.
+  review_trigger: Si el 31 de diciembre de 2027 la utilización de la capacidad de
+    producción de EUV es inferior al 85%
   secondary_hypotheses: []
-  statement: ASML aumentará su capacidad de producción de EUV en un 20% para finales
-    de 2028, lo que permitirá cumplir con la creciente demanda de clientes.
+  statement: ASML aumentará la utilización de su capacidad de producción de máquinas
+    EUV al 90% antes del 31 de diciembre de 2027.
   status: ACTIVE
   ticker: ASML
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El margen bruto es ≤ 60% en 2027-12-31.
+  - condition: El FCF por acción disminuye o crece menos del 5% en FY 2027
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El margen bruto cae 5% en 2027.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: La empresa anuncia aumento de costos de materiales.
+  - condition: El FCF por acción cae por debajo de 10 USD
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El margen bruto es ≤ 60% en 2027-12-31.
-  - El margen bruto cae 5% en 2027.
-  - La empresa anuncia aumento de costos de materiales.
+  - El FCF por acción disminuye o crece menos del 5% en FY 2027
+  - El FCF por acción cae por debajo de 10 USD
   horizon: medio
   id: H2-OPP-MB-ASML
   opportunity_id: OPP-MB-ASML
@@ -67,91 +60,95 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2027-12-31'
-    expected: 60.0
+    expected: 15.0
     met: null
-    metric: Margen bruto
-    prediction: Margen bruto > 60% en 2027-12-31.
+    metric: FCF por acción
+    prediction: El FCF por acción aumentará 15% en FY 2027.
     unit: '%'
-  priority: critical
+  priority: important
   probability: 0.5
-  rationale: ASML ha reducido costos de materiales y optimizado procesos; la demanda
-    premium de EUV permite precios altos; la inversión en I+D mejora eficiencia.
-  review_trigger: Si el 2027-12-31 el margen bruto es ≤ 60% o si se anuncia aumento
-    de costos.
+  rationale: ASML mantiene márgenes de beneficio altos y la inversión en I+D se mantiene
+    estable, lo que permite generar más efectivo por acción.
+  review_trigger: Si el 31 de diciembre de 2027 el FCF por acción es inferior al 5%
+    de crecimiento respecto a 2026
   secondary_hypotheses: []
-  statement: El margen bruto de ASML superará el 60% para finales de 2027.
+  statement: El flujo de caja libre por acción de ASML crecerá un 15% en el año fiscal
+    2027 respecto al 2026.
   status: ACTIVE
   ticker: ASML
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El P/E permanece ≥ 25 en 2028-06-30.
+  - condition: El P/E de ASML permanece por debajo de 25x el 30 de junio de 2028
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El P/E aumenta 5% en 2028-06-30.
+  - condition: El P/E cae a 20x o menos
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El P/E permanece ≥ 25 en 2028-06-30.
-  - El P/E aumenta 5% en 2028-06-30.
-  horizon: medio
+  - El P/E de ASML permanece por debajo de 25x el 30 de junio de 2028
+  - El P/E cae a 20x o menos
+  horizon: largo
   id: H3-OPP-MB-ASML
   opportunity_id: OPP-MB-ASML
   parent_id: ''
   predictions:
   - actual: null
     deadline: '2028-06-30'
-    expected: 25.0
+    expected: 30.0
     met: null
     metric: P/E ratio
-    prediction: P/E < 25 en 2028-06-30.
-    unit: ''
+    prediction: El P/E de ASML será superior a 30x en el 30 de junio de 2028.
+    unit: x
   priority: important
   probability: 0.5
-  rationale: El precio actual sobrepasa el valor intrínseco; el mercado ajustará la
-    valoración; la corrección de expectativas de crecimiento.
-  review_trigger: Si el 2028-06-30 el P/E ≥ 25 y no hay señales de corrección.
+  rationale: Los analistas ajustan sus expectativas de crecimiento y la percepción
+    de riesgo disminuye, lo que lleva a una mayor valoración.
+  review_trigger: Si el 30 de junio de 2028 el P/E es inferior a 25x
   secondary_hypotheses: []
-  statement: El ratio P/E de ASML caerá por debajo de 25 antes de 2028-06-30.
+  statement: El ratio P/E de ASML superará los 30x antes del 30 de junio de 2028.
   status: ACTIVE
   ticker: ASML
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: El precio de acción no cae 10% antes de 2027-09-30.
+  - condition: ASML no recibe pedidos de los tres clientes antes del 31 de marzo de
+      2028
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: El precio sube 5% antes de 2027-09-30.
+  - condition: Los ingresos no aumentan en al menos 5% YoY
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - El precio de acción no cae 10% antes de 2027-09-30.
-  - El precio sube 5% antes de 2027-09-30.
+  - ASML no recibe pedidos de los tres clientes antes del 31 de marzo de 2028
+  - Los ingresos no aumentan en al menos 5% YoY
   horizon: medio
   id: H4-OPP-MB-ASML
   opportunity_id: OPP-MB-ASML
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-09-30'
-    expected: -10.0
+    deadline: '2028-03-31'
+    expected: 5.0
     met: null
-    metric: Precio de acción
-    prediction: Precio de acción cae 10% antes de 2027-09-30.
+    metric: crecimiento de ingresos
+    prediction: ASML obtendrá al menos tres pedidos de TSMC, Samsung e Intel que generen
+      un incremento de ingresos del 5% en 2028.
     unit: '%'
-  priority: important
+  priority: informational
   probability: 0.5
-  rationale: La demanda de EUV es sensible a ciclos de demanda de chips; una desaceleración
-    del mercado de chips reduce pedidos y afecta ingresos.
-  review_trigger: Si el 2027-09-30 el precio de acción no ha caído 10% y la demanda
-    de chips se mantiene estable o aumenta.
+  rationale: La creciente demanda de chips de próxima generación y la reputación de
+    ASML como proveedor de EUV impulsan la adquisición de nuevos contratos.
+  review_trigger: Si el 31 de marzo de 2028 no se han firmado los tres pedidos o los
+    ingresos no crecen 5%
   secondary_hypotheses: []
-  statement: Si la demanda de semiconductores disminuye, el precio de las acciones
-    de ASML caerá 10% respecto al nivel actual antes de 2027-09-30.
+  statement: ASML recibirá al menos tres nuevos pedidos de clientes estratégicos (TSMC,
+    Samsung, Intel) que aumenten los ingresos en un 5% YoY antes del 31 de marzo de
+    2028.
   status: ACTIVE
   ticker: ASML
   version: 1

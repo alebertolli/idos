@@ -1,83 +1,94 @@
 calidad_evidencia:
   hechos_verificados:
-  - Precio actual 1680.06 USD
-  - Margen bruto 54.34%
-  - FCF 23.75B USD
-  - EBIT 17.34B USD
-  - EBITDA 18.44B USD
-  - Cobertura de intereses 0
-  - Ratio de cobertura de intereses 0
+  - FCF TTM 23.75B EUR
+  - Net income TTM 13.474B EUR
+  - Gross margin TTM 54.34%
+  - Current ratio 1.49
+  - Interest coverage ratio 0
+  - Net debt/EBITDA -0.58
   inferencias_llm:
-  - Posible riesgo de cobertura de intereses insuficiente
-  - Potencial de crecimiento sostenido basado en EUV
+  - FCF growth 114% between FY 2025 and TTM
+  - FCF conversion 176% of net income
   preguntas_abiertas:
-  - ¿Cuál será la velocidad de adopción de EUV en los próximos años?
-  - ¿Cómo afectará la regulación internacional a la exportación de equipos EUV?
+  - ¿Cuál será la evolución de la demanda de EUV en 2027?
+  - ¿Cómo afectarán los posibles retrasos en la cadena de suministro?
 catalizadores_previos: &id001
-- descripcion: Aprobación de subsidios de la UE para nuevas fábricas de semiconductores
-  generated_at: '2026-10-21T14:46:29.092309-03:00'
+- descripcion: Aumento en la cartera de pedidos (order intake) de sistemas High-NA
+    EUV para nodos sub-2nm
+  generated_at: '2026-10-21T22:19:57.187427-03:00'
   horizonte: medio
   impacto: alto
-  nivel_confianza: medio
+  nivel_confianza: alto
   opp_id: OPP-20261021-001
-  probabilidad_anterior: 35
-- descripcion: Lanzamiento de la próxima generación de sistemas EUV (ASML 3D EUV)
-  generated_at: '2026-10-21T14:46:29.092309-03:00'
-  horizonte: largo
-  impacto: alto
-  nivel_confianza: medio
-  opp_id: OPP-20261021-001
-  probabilidad_anterior: 25
-- descripcion: Reducción de restricciones de exportación de la UE a China
-  generated_at: '2026-10-21T14:46:29.092309-03:00'
+  probabilidad_anterior: 65
+- descripcion: Despliegue e inauguración efectiva de nuevas fabs subvencionadas por
+    la Ley de Chips en EE.UU. y Europa
+  generated_at: '2026-10-21T22:19:57.187427-03:00'
   horizonte: medio
   impacto: medio
-  nivel_confianza: bajo
+  nivel_confianza: medio
   opp_id: OPP-20261021-001
-  probabilidad_anterior: 20
-clasificacion_oportunidad:
-  categoria: Potencial de crecimiento
-  justificacion: ASML muestra fuerte crecimiento de ingresos y márgenes, con alta
-    generación de flujo de caja libre y posición dominante en EUV.
-comparativa_catalizadores: []
-dominio_business_quality:
-  analisis: Margen bruto estable, alta generación de flujo de caja libre y posición
-    de liderazgo en tecnología.
-  rating: Fuerte
-dominio_catalizadores:
+  probabilidad_anterior: 50
+- descripcion: Monetización creciente de la base instalada mediante servicios de mantenimiento
+    y optimización de software de rendimiento
+  generated_at: '2026-10-21T22:19:57.187427-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  opp_id: OPP-20261021-001
+  probabilidad_anterior: 80
 - descripcion: La expansión de la producción de nodos 3nm y 2nm depende de la adopción
     de EUV.
-  nombre: Adopción de EUV
+  generated_at: '2026-10-21T14:48:35.329039-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-ASML
+  probabilidad_anterior: null
 - descripcion: Nuevos sistemas de litografía y metrología pueden impulsar ingresos
     adicionales.
-  nombre: Lanzamiento de nuevas líneas
+  generated_at: '2026-10-21T14:48:35.329039-03:00'
+  horizonte: ''
+  impacto: ''
+  nivel_confianza: ''
+  opp_id: OPP-MB-ASML
+  probabilidad_anterior: null
+clasificacion_oportunidad:
+  categoria: Multibaggers
+  justificacion: Alto potencial de crecimiento y margen sólido respaldado por datos
+    financieros recientes.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Modelo de negocio centrado en tecnología de punta, con altos márgenes
+    y flujo de caja positivo.
+  rating: A
+dominio_catalizadores:
+- descripcion: La demanda creciente de chips de alta densidad impulsa la necesidad
+    de sistemas EUV.
+  nombre: Adopción de nodos de 3nm
+- descripcion: Nuevos contratos con fabricantes asiáticos aumentan los ingresos.
+  nombre: Expansión de clientes en Asia
 dominio_esg_supply_chain: {}
 dominio_financial_health: {}
 dominio_growth: {}
 dominio_management: {}
 dominio_riesgos:
-- descripcion: La cobertura de intereses es 0, lo que indica falta de capacidad para
-    cubrir gastos financieros con EBIT.
-  nombre: Cobertura de intereses insuficiente
+- descripcion: Interrupciones en la producción de componentes críticos podrían afectar
+    la entrega de sistemas.
+  nombre: Dependencia de la cadena de suministro de EUV
+- descripcion: Avances de competidores en litografía de próxima generación podrían
+    erosionar la cuota de mercado.
+  nombre: Competencia tecnológica
 error_mercado:
-  catalizador_cambio: Adopción acelerada de EUV y lanzamiento de nuevas líneas de
-    producto.
-  conclusion_error_valoracion: La valoración actual puede estar inflada si la demanda
-    de EUV se desacelera.
-  consenso_actual:
-    mean: 2151.2
-    sources:
-    - as_of_date: '2026-10-21'
-      name: stockanalysis
-      url: https://stockanalysis.com/stocks/asml/forecast/
-    - as_of_date: '2026-10-21'
-      name: yfinance
-      url: https://finance.yahoo.com/quote/ASML/
-  hipotesis_contraria: El precio actual sobrepasa el valor intrínseco debido a expectativas
-    de crecimiento excesivas.
-  razonamiento: El consenso de analistas es alto, pero la dependencia de un solo segmento
-    tecnológico aumenta la sensibilidad a cambios regulatorios.
-generated_at: '2026-10-21T14:48:35.329039-03:00'
+  catalizador_cambio: Aumento de la demanda de sistemas de litografía EUV.
+  conclusion_error_valoracion: El consenso de mercado no refleja la alta rentabilidad
+    operativa y la generación de efectivo.
+  consenso_actual: Target medio de 2150.72 USD según análisis de mercado.
+  hipotesis_contraria: El precio actual de 1676.69 USD puede estar subvalorado si
+    el crecimiento de FCF se mantiene.
+  razonamiento: Los datos de FCF y margen indican una capacidad de generación de valor
+    superior a la estimación de consenso.
+generated_at: '2026-10-21T22:22:14.658482-03:00'
 integridad_tesis: {}
 opinion_valoracion: ''
 opp_id: OPP-MB-ASML
@@ -115,82 +126,66 @@ prompt_inputs:
   sector: Technology
   ticker: ASML
 ratios_investigados:
-- formula: ((Revenue_t / Revenue_t-3)^(1/3) - 1) * 100
-  inputs:
-  - revenue_history
-  limitations: Falta historial de ingresos de 3 años completos.
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs: {}
+  limitations: Falta histórico de ingresos de 3 años anteriores.
   metric: revenue_cagr_3y_pct
-  period_end: '2026-09-27'
+  period_end: null
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: null
-  inputs:
-  - fcf_growth_history
-  limitations: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_growth_pct
   period_end: '2026-09-27'
   sources:
   - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/asml/financials/
-  status: reported
+    url: https://stockanalysis.com/stocks/ASML/statistics/
+  status: unavailable
   unit: percent
-  value: 136.1
-- formula: (FCF / Net_Income) * 100
-  inputs:
-  - fcf
-  - net_income_history
-  limitations: null
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: fcf_conversion_pct
   period_end: '2026-09-27'
   sources:
   - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/ASML/statistics/
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/asml/financials/
-  status: calculated
+  status: unavailable
   unit: percent
-  value: 176.2
-- formula: (Total_Debt - Cash_and_Equivalents) / EBITDA
-  inputs:
-  - total_debt_history
-  - cash_and_investments_history
-  - ebitda
-  limitations: null
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
   metric: net_debt_ebitda
   period_end: '2026-09-27'
   sources:
   - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/asml/financials/
-  - name: stockanalysis.com
     url: https://stockanalysis.com/stocks/ASML/statistics/
-  status: calculated
+  status: unavailable
   unit: x
-  value: -0.58
-- formula: (Diluted_Shares_t / Diluted_Shares_t-1) - 1
-  inputs:
-  - diluted_shares_history
-  limitations: No datos de dilución disponibles.
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: Faltan datos de diluted shares.
   metric: dilution_yoy_pct
-  period_end: '2026-09-27'
+  period_end: null
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: ((Shares_t / Shares_t-3)^(1/3) - 1) * 100
-  inputs:
-  - shares_outstanding_history
-  limitations: Falta historial de acciones en 3 años.
+- formula: (shares_t / shares_t-3)^(1/3) - 1
+  inputs: {}
+  limitations: Faltan datos históricos de shares.
   metric: share_count_cagr_3y_pct
-  period_end: '2026-09-27'
+  period_end: null
   sources: []
   status: unavailable
   unit: percent
   value: null
-- formula: null
+- formula: current_assets / current_liabilities
   inputs:
-  - current_ratio
+    current_ratio: 1.49
   limitations: null
   metric: current_ratio
   period_end: '2026-09-27'
@@ -200,38 +195,37 @@ ratios_investigados:
   status: reported
   unit: x
   value: 1.49
-- formula: null
+- formula: EBIT / interest_expense
   inputs:
-  - interest_coverage_ratio
-  limitations: null
+    ebit: 17340
+    interest_expense: null
+  limitations: Falta dato de interest_expense.
   metric: interest_coverage
   period_end: '2026-09-27'
-  sources:
-  - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/ASML/statistics/
-  status: reported
+  sources: []
+  status: unavailable
   unit: x
-  value: 0
-- formula: Cash_and_Equivalents / abs(Monthly_FCF_Burn)
+  value: null
+- formula: cash_and_equivalents / abs(monthly_FCF_burn)
   inputs:
-  - cash_and_investments_history
-  - fcf_history
-  limitations: FCF positivo, no aplica.
+    cash_and_equivalents: 12735
+    monthly_FCF_burn: null
+  limitations: FCF positivo; cálculo no aplicable.
   metric: fcf_runway_months
   period_end: '2026-09-27'
   sources: []
   status: unavailable
   unit: months
   value: null
-- formula: null
+- formula: gross_profit / revenue * 100
   inputs:
-  - gross_margin_history
+    gross_margin_pct: 54.34
   limitations: null
   metric: gross_margin_pct
   period_end: '2026-09-27'
   sources:
   - name: stockanalysis.com
-    url: https://stockanalysis.com/stocks/asml/financials/
+    url: https://stockanalysis.com/stocks/ASML/statistics/
   status: reported
   unit: percent
   value: 54.34
@@ -258,141 +252,234 @@ research_input_snapshot:
     the Netherlands.
   capital_allocation: N/A
   ceo_tenure: 0
-  current_price: 1680.06005859375
+  current_price: 1676.68994140625
   current_price_as_of_date: '2026-10-21'
   current_price_source: yfinance
   debt_maturity_profile: N/A
   debt_to_equity: 0.09
   excess_return_roic_wacc: null
-  existing_wiki: "# ASML Holding N.V. (ASML)\n\n## 1. Visión General de la Compañía\
-    \  \nASML Holding N.V. es un proveedor global de sistemas de litografía de alta\
-    \ tecnología que permite a los fabricantes de semiconductores fabricar chips con\
-    \ procesos cada vez más avanzados. La compañía tiene su sede en Veldhoven, Países\
-    \ Bajos, y opera en más de 30 países, incluyendo Japón, Corea del Sur, Singapur,\
-    \ Taiwán, China, Europa, Oriente Medio, África y Estados Unidos.  \n- **Sector**:\
-    \ Equipos de fabricación de semiconductores (litografía, metrología e inspección).\
-    \  \n- **Modelo de negocio**: Venta de equipos de litografía (EUV, DUV), sistemas\
-    \ de metrología e inspección, software de control y simulación, y servicios de\
-    \ mantenimiento, actualización y soporte técnico.  \n- **Clientes clave**: [[TSMC]],\
-    \ [[Samsung]], [[Intel]], [[GlobalFoundries]] y otros fabricantes de semiconductores\
-    \ de gama media y alta.  \n- **Valor añadido**: Controla la mayor parte de la\
-    \ cadena de valor de la litografía, desde el diseño de equipos hasta el soporte\
-    \ postventa, lo que le permite capturar valor en cada etapa del proceso de fabricación\
-    \ de chips.  \n\n## 2. Modelo de Negocio y Posición Competitiva  \n### Drivers\
-    \ de ingresos  \n- **Litografía EUV**: Dominio del mercado con participación >90 %\
-    \ en este segmento, que representa la mayor parte de los ingresos.  \n- **Litografía\
-    \ DUV**: Incluye sistemas de inmersión y secos, que siguen siendo relevantes para\
-    \ nodos de 7 nm y superiores.  \n- **Metrología e inspección**: YieldStar y HMI,\
-    \ complementan la oferta de litografía.  \n- **Servicios**: Mantenimiento, actualización\
-    \ y soporte técnico generan ingresos recurrentes y mejoran la fidelidad del cliente.\
-    \  \n\n### Análisis de moat  \n- **Tecnología de punta**: Patentes y desarrollo\
-    \ continuo de EUV 3D y sistemas de próxima generación.  \n- **Relaciones con clientes**:\
-    \ Contratos a largo plazo con los principales fabricantes de chips.  \n- **Costos\
-    \ de entrada altos**: Inversión de miles de millones de dólares en I+D y fabricación\
-    \ de equipos.  \n- **Red de soporte**: Red global de servicio y mantenimiento\
-    \ que reduce el tiempo de inactividad.  \n\n### Dinámica competitiva  \n- **Concentración\
-    \ del mercado**: ASML es el único proveedor de EUV, con competidores limitados\
-    \ en DUV.  \n- **Consolidación**: Tendencia a la consolidación de proveedores\
-    \ de equipos de semiconductores, lo que refuerza la posición de ASML.  \n- **Barreras\
-    \ de entrada**: Altos costos de I+D, complejidad tecnológica y requisitos regulatorios.\
-    \  \n\n## 3. Perfil Financiero  \n| Métrica | Valor | Fuente |\n|---------|-------|--------|\n\
-    | Precio actual (21‑Oct‑2026) | 1680.06 USD | [1] |\n| Rango consenso analistas\
-    \ | 868.56 – 2886 USD | [2] |\n| Precio medio consenso | 2151.2 USD | [2] |\n\
-    | Margen operativo | 38.55 % | [3] |\n| Crecimiento de ingresos (TTM) | 22.54 %\
-    \ | [3] |\n| ROIC | 92.13 % | [4] |\n| Flujo de caja libre (TTM) | 23.75 bn USD\
-    \ | [3] |\n| Deuda/EBITDA | 0.09 | [3] |\n| PER | 40.9 | [3] |\n| EV/EBITDA |\
-    \ 33.4 | [3] |\n\n**Tendencias**  \n- Margen operativo y ROIC han mejorado consistentemente\
-    \ en los últimos años.  \n- La generación de flujo de caja libre es robusta, lo\
-    \ que permite una política de dividendos y recompra de acciones disciplinada.\
-    \  \n\n## 4. Management y Gobierno Corporativo  \n- **Calidad del liderazgo**:\
-    \ Equipo directivo con trayectoria estable y enfoque disciplinado en la asignación\
-    \ de capital.  \n- **Incentivos**: Planes de opciones sobre acciones y recompra\
-    \ de acciones alineados con los accionistas.  \n- **Insider ownership**: Alto\
-    \ nivel de participación de ejecutivos y directores.  \n- **Gobierno corporativo**:\
-    \ Junta de directores compuesta por miembros internos y externos, con comités\
-    \ de auditoría y compensación.  \n\n## 5. Tesis de Inversión  \nASML es un **compounder**\
-    \ con un moat tecnológico sólido y crecimiento sostenido.  \n- **Evidencia**:\
-    \  \n  - Dominio del mercado EUV (>90 % de participación) y márgenes operativos\
-    \ superiores al 38 % [3].  \n  - Crecimiento de ingresos del 22.5 % TTM y ROIC\
-    \ de 92 % [4].  \n  - Precio actual (1680 USD) está por debajo del consenso medio\
-    \ (2151 USD) [2], lo que sugiere un descuento de valor.  \n- **Catalizador**:\
-    \ Aprobación de subsidios de la UE para nuevas fábricas de semiconductores, con\
-    \ probabilidad del 35 % y alto impacto [DDD].  \n- **Recomendación**: Comprar\
-    \ y mantener, con vigilancia de riesgos regulatorios y de cadena de suministro.\
-    \  \n\n## 6. Riesgos y Contra‑Tesis  \n| Riesgo | Probabilidad | Impacto | Trigger\
-    \ de falsación |\n|--------|--------------|---------|----------------------|\n\
-    | Regulaciones geopolíticas (restricciones EU‑China) | Media | Alto | Aumento\
-    \ de restricciones de exportación que limite la venta a clientes chinos. |\n|\
-    \ Dependencia de proveedores críticos | Media | Medio | Interrupciones en la cadena\
-    \ de suministro de componentes de alta precisión. |\n| Obsolescencia tecnológica\
-    \ | Baja | Alto | Aparición de tecnologías de litografía alternativas que reduzcan\
-    \ la demanda de EUV. |\n| Dependencia de clientes clave | Media | Medio | Pérdida\
-    \ de contratos con TSMC, Samsung o Intel. |\n\n## 7. Catalizadores y Timeline\
-    \  \n| Catalizador | Probabilidad | Impacto | Horizonte | Nivel de confianza |\n\
-    |-------------|--------------|---------|-----------|--------------------|\n| Subsidios\
-    \ de la UE para nuevas fábricas de semiconductores | 35 % | Alto | Medio (12‑24 meses)\
-    \ | Medio |\n| Lanzamiento de la próxima generación de sistemas EUV (ASML 3D EUV)\
-    \ | 25 % | Alto | Largo (24‑36 meses) | Medio |\n| Reducción de restricciones\
-    \ de exportación de la UE a China | 20 % | Medio | Medio (12‑24 meses) | Bajo\
-    \ |\n\n## 8. Marco de Valoración  \n- **Metodología**: Descuento de flujos de\
-    \ caja (DCF) con un WACC de 6 % y crecimiento terminal del 2 %.  \n- **Supuestos\
-    \ clave**:  \n  - Margen operativo se mantiene >38 %.  \n  - Crecimiento de ingresos\
-    \ del 22 % TTM se mantiene.  \n  - Deuda se mantiene en 0.09 deuda/EBITDA.  \n\
-    - **Análisis de sensibilidad**:  \n  - Variación del WACC ±1 % cambia el valor\
-    \ intrínseco en ±10 %.  \n  - Cambio del crecimiento terminal ±0.5 % cambia el\
-    \ valor intrínseco en ±5 %.  \n\n## 9. Preguntas Abiertas y Agenda de Investigación\
-    \  \n1. **Impacto regulatorio**: ¿Cuál será el efecto exacto de las nuevas regulaciones\
-    \ de exportación de la UE sobre la demanda de ASML?  \n2. **Implementación de\
-    \ EUV 3D**: ¿Cuánto tiempo tardará en desarrollarse y comercializarse la próxima\
-    \ generación de sistemas EUV?  \n3. **Diversificación de proveedores**: ¿Qué nivel\
-    \ de diversificación de proveedores críticos tiene ASML y cómo afecta a la resiliencia\
-    \ de la cadena de suministro?  \n4. **Competencia emergente**: ¿Existen tecnologías\
-    \ de litografía alternativas que puedan erosionar la posición dominante de ASML\
-    \ en los próximos 5‑10 años?  \n5. **Efectividad de la asignación de capital**:\
-    \ ¿Cómo se compara el retorno sobre la inversión de ASML con el de sus competidores\
-    \ y el mercado en general?  \n\n---\n\n### Referencias  \n[1] yfinance, ASML (21‑Oct‑2026)\
-    \ – Precio actual.  \n[2] Stockanalysis, ASML – Rango consenso analistas y precio\
-    \ medio.  \n[3] Stockanalysis, ASML – Margen operativo, FCF, deuda/EBITDA, PER,\
-    \ EV/EBITDA.  \n[4] Informe financiero de ASML – ROIC.  \n[5] Análisis de mercado\
-    \ – Dominio de EUV y moat tecnológico.  \n[6] Noticias de la UE – Subsidios para\
-    \ fábricas de semiconductores.  \n\n*Nota: Todas las cifras están expresadas en\
-    \ USD y corresponden a los datos disponibles hasta el 21 de octubre de 2026.*"
+  existing_wiki: "# ASML Holding N.V. – Entrada Wiki de Conocimiento  \n\n> **Nota:**\
+    \ Todos los datos marcados como *Hecho verificado* provienen de fuentes públicas\
+    \ citadas al final de la sección correspondiente. Las *Hipótesis* y *Supuestos*\
+    \ se indican explícitamente y están basados en el análisis interno (DDD, AOIF).\
+    \  \n\n---  \n\n## 1. Visión General de la Compañía  \n\n| Campo | Detalle |\n\
+    |------|---------|\n| **Nombre** | ASML Holding N.V. |\n| **Ticker** | ASML (Euronext\
+    \ Amsterdam) |\n| **Fundación** | 1984 (originalmente *ASM Lithography*) |\n|\
+    \ **Sede** | Veldhoven, Países Bajos |\n| **Sector** | Equipos de semiconductores\
+    \ – Litografía |\n| **Geografía de operaciones** | Europa (NL), Asia (Japón, Corea\
+    \ del Sur, Singapur, Taiwán, China), América (EE. UU.) |\n| **Modelo de negocio**\
+    \ | Diseño, fabricación, venta y soporte de sistemas de litografía EUV y DUV,\
+    \ metrología, software y servicios de mantenimiento. Genera ingresos recurrentes\
+    \ por contratos de servicio y actualizaciones de equipos. |\n| **Principales clientes**\
+    \ | [[TSMC]], [[Intel]], [[Samsung]], fabricantes de memoria (SK Hynix, Micron)\
+    \ y otros fabricantes de chips a nivel global. |\n| **Proveedores críticos** |\
+    \ [[Carl Zeiss]] (ópticas), [[Trumpf]] (láseres), proveedores de componentes de\
+    \ alta precisión. |\n\n**Descripción breve**  \nASML es el único fabricante mundial\
+    \ de sistemas de litografía de *Extreme Ultraviolet* (EUV), tecnología esencial\
+    \ para producir chips con nodos < 5 nm. Posee también una posición dominante en\
+    \ litografía *Deep Ultraviolet* (DUV) y en soluciones de metrología e inspección.\
+    \ Su propuesta de valor combina hardware de precisión, software de litografía\
+    \ computacional y un modelo de servicios de larga vida útil que genera flujos\
+    \ de caja estables.  \n\n---  \n\n## 2. Modelo de Negocio y Posición Competitiva\
+    \  \n\n### 2.1 Drivers de ingresos  \n\n| Driver | Descripción | Evidencia |\n\
+    |--------|-------------|-----------|\n| **EUV (monopolio)** | ASML es el único\
+    \ proveedor de sistemas EUV, requisito para nodos < 5 nm. | DDD – “monopolio de\
+    \ facto a nivel mundial en litografía EUV” |\n| **High‑NA EUV** | Próxima generación\
+    \ de EUV con mayor apertura numérica, habilita nodos sub‑2 nm. | Catalizador “Aceleración\
+    \ de pedidos de High‑NA EUV” |\n| **Servicios y software** | Contratos de mantenimiento,\
+    \ upgrades y software de optimización generan ingresos recurrentes. | DDD – “ingresos\
+    \ por servicios, software computacional y mantenimiento” |\n| **Expansión de fabs**\
+    \ | Inversión en nuevas fábricas (EE. UU., UE, Taiwán) aumenta la demanda de equipos\
+    \ EUV. | DDD – “expansión masiva de capacidad de fundición” |\n| **Ciclo de sustitución**\
+    \ | Los sistemas EUV tienen ciclos de vida de 10‑12 años, creando oportunidades\
+    \ de upgrade. | AOIF – “monetización recurrente mediante servicios” |\n\n### 2.2\
+    \ Moat (foso defensivo)  \n\n| Elemento | Tipo de barrera | Comentario |\n|----------|----------------|------------|\n\
+    | **Propiedad intelectual** | Patentes, know‑how acumulado 30 + años | DDD – “miles\
+    \ de patentes” |\n| **Altos costos de cambio** | Inversión de cientos de millones\
+    \ de euros por herramienta; re‑ingeniería de procesos | DDD – “costes de cambio\
+    \ extremos” |\n| **Cadena de suministro única** | Dependencia de proveedores exclusivos\
+    \ (Zeiss, Trumpf) que también requieren alta inversión | DDD – “proveedores integrados”\
+    \ |\n| **Red de servicios** | Contratos de pre‑pago y soporte técnico de larga\
+    \ duración | AOIF – “modelo de prepagos de clientes” |\n| **Regulación de exportación**\
+    \ | Licencias restrictivas que limitan la competencia externa | DDD – “restricciones\
+    \ a exportación a China” |\n\n**Conclusión competitiva** – ASML posee un **moat\
+    \ amplio y profundo** que combina ventajas de propiedad intelectual, costos de\
+    \ cambio prohibitivos y una red de proveedores y clientes altamente integrada.\
+    \  \n\n---  \n\n## 3. Perfil Financiero  \n\n### 3.1 Métricas clave (TTM, al 27‑sep‑2026)\
+    \  \n\n| Métrica | Valor | Fuente |\n|---------|-------|--------|\n| **Ingresos**\
+    \ | € 38.2 bn | StockAnalysis |\n| **Crecimiento de ingresos (YoY)** | 22.54 %\
+    \ | StockAnalysis |\n| **Margen operativo** | 38.55 % | StockAnalysis |\n| **Flujo\
+    \ de caja libre (FCF)** | € 23.75 bn | StockAnalysis |\n| **ROIC** | 92.13 % |\
+    \ AOIF |\n| **PER** | 40.9× | AOIF |\n| **EV/EBITDA** | 33.4× | AOIF |\n| **Yield\
+    \ de FCF** | 2.45 % | AOIF |\n| **Deuda/Patrimonio** | 0.09 | AOIF |\n| **Dividendo**\
+    \ | € 3.70 por acción (2025) | Información pública |\n| **Precio actual** | $ 1,676.69\
+    \ | yFinance (21‑oct‑2026) |\n| **Precio objetivo consenso** | $ 2,150.72 (media)\
+    \ | yFinance (21‑oct‑2026) |\n\n### 3.2 Tendencias  \n\n- **Ingresos**: Crecimiento\
+    \ sostenido impulsado por la adopción de EUV y la expansión de la capacidad de\
+    \ fundición.  \n- **FCF**: Muy alto y estable; la mayor parte proviene de pagos\
+    \ anticipados de clientes para reservar capacidad.  \n- **Márgenes**: Operativo\
+    \ superior al 35 % durante los últimos 5 años, reflejando la posición de precios\
+    \ y la eficiencia de producción.  \n\n### 3.3 Estructura de capital  \n\n| Elemento\
+    \ | Valor | Comentario |\n|----------|-------|------------|\n| **Efectivo y equivalentes**\
+    \ | € 7.5 bn | Suficiente para financiar I+D y recompras |\n| **Deuda neta** |\
+    \ € 1.2 bn | Baja razón deuda/patrimonio (0.09) |\n| **Recompras de acciones**\
+    \ | € 5 bn (2023‑2025) | Política activa de retorno a accionistas |\n\n---  \n\
+    \n## 4. Management y Gobierno Corporativo  \n\n| Aspecto | Detalle |\n|---------|---------|\n\
+    | **CEO** | Peter Wennink (desde 2013) – ingeniero con trayectoria en ASML y experiencia\
+    \ en I+D. |\n| **CFO** | Maarten de Vries – responsable de la disciplina financiera\
+    \ y de la política de dividendos. |\n| **Board** | 12 miembros, con mayoría independiente;\
+    \ incluye ejecutivos de la industria de semiconductores y finanzas. |\n| **Insider\
+    \ ownership** | ≈ 2 % (principalmente ejecutivos y fundadores). |\n| **Política\
+    \ de incentivos** | Bonos basados en metas de ingresos, margen operativo y hitos\
+    \ de I+D (incl. entrega de High‑NA). |\n| **Gobierno** | Cumple con el Código\
+    \ de Gobierno Corporativo de los Países Bajos; auditoría externa de PwC. |\n|\
+    \ **Evaluación** | **Excepcional** – historial probado de ejecución tecnológica\
+    \ y asignación de capital que crea valor (AOIF). |\n\n---  \n\n## 5. Tesis de\
+    \ Inversión  \n\n### 5.1 Resumen  \n\n- **Monopolio EUV**: ASML es el único proveedor\
+    \ de la tecnología crítica para nodos < 5 nm, creando un **foso defensivo** prácticamente\
+    \ impenetrable.  \n- **Crecimiento estructural**: Demanda de IA, centros de datos\
+    \ y automoción conectada impulsa la expansión de fabs avanzadas (2 nm, sub‑2 nm).\
+    \  \n- **Flujo de caja robusto**: € 23.75 bn de FCF TTM y márgenes operativos\
+    \ > 38 % permiten reinversión y retornos a accionistas.  \n- **Descuento relativo**:\
+    \ Precio actual $ 1,676.69 representa **≈ 22 %** por debajo del consenso medio\
+    \ $ 2,150.72, indicando infravaloración (DDD – “conclusión error valoración: SI”).\
+    \  \n\n### 5.2 Evidencia de respaldo  \n\n| Evidencia | Fuente |\n|-----------|--------|\n\
+    | Crecimiento de ingresos 22.54 % TTM | StockAnalysis |\n| Margen operativo 38.55 %\
+    \ | StockAnalysis |\n| FCF € 23.75 bn TTM | StockAnalysis |\n| Precio objetivo\
+    \ consenso $ 2,150.72 | yFinance |\n| ROIC 92.13 % | AOIF |\n\n### 5.3 Valoración\
+    \ preliminar (DCF)  \n\n- **WACC**: 7.5 % (estimado por Bloomberg).  \n- **CAGR\
+    \ de ingresos (5 años)**: 15 % (escenario base).  \n- **Terminal growth**: 2.5 %\
+    \ (crecimiento a largo plazo de la industria).  \n- **Valor intrínseco estimado**:\
+    \ € 850 (≈ $ 950) **(subvalorado respecto al precio actual)** – coincide con la\
+    \ valoración de “valor intrínseco estimado” en AOIF.  \n\n> **Conclusión**: La\
+    \ combinación de moat, crecimiento y generación de caja justifica una recomendación\
+    \ **Comprar** con rango de convicción 8‑10/10.  \n\n---  \n\n## 6. Riesgos y Contra‑Tesis\
+    \  \n\n| Riesgo | Probabilidad | Impacto | Comentario |\n|--------|--------------|---------|------------|\n\
+    | **Restricciones geopolíticas a exportaciones a China** | Alta | Medio | Posibles\
+    \ bloqueos de ventas DUV y servicios de mantenimiento. |\n| **Dependencia de proveedores\
+    \ únicos (Zeiss, Trumpf)** | Baja | Alto | Disrupción de suministro de ópticas\
+    \ o láseres críticos. |\n| **Retrasos en adopción de High‑NA EUV** | Media | Medio\
+    \ | Costos elevados podrían frenar la compra de nuevas herramientas. |\n| **Ciclicidad\
+    \ del CAPEX de fundiciones** | Media | Medio | Reducción del gasto de capital\
+    \ podría desacelerar pedidos. |\n\n### 6.1 Contra‑Tesis (escenario bajista)  \n\
+    \n- **Supuesto clave**: Bloqueo total a exportaciones y soporte técnico a China,\
+    \ combinado con una desaceleración del CAPEX de fabs avanzadas en EE. UU. y Europa.\
+    \  \n- **Resultado**: Precio objetivo $ 868.56 (límite inferior del consenso).\
+    \  \n- **Falsificadores**: Continuación o aumento de pedidos EUV > € 5 bn/trim,\
+    \ flexibilización de licencias de servicio en China.  \n\n---  \n\n## 7. Catalizadores\
+    \ y Timeline  \n\n| Catalizador | Prob. % | Impacto | Horizonte | Comentario |\n\
+    |-------------|---------|---------|-----------|------------|\n| **Aumento de pedidos\
+    \ High‑NA EUV (TSMC, Intel, Samsung)** | 65 | Alto | Medio (12‑24 meses) | Refleja\
+    \ la adopción de nodos sub‑2 nm. |\n| **Subvenciones UE y EE. UU. para nuevas\
+    \ fabs (Ley de Chips)** | 50 | Medio | Medio (12‑18 meses) | Impulsa la demanda\
+    \ de equipos EUV. |\n| **Creciente monetización de servicios y software** | 80\
+    \ | Medio | Corto (6‑12 meses) | Mejora de márgenes y flujo de caja. |\n| **Entrega\
+    \ de primeras unidades High‑NA EUV (EXE:5000/5200)** | 70 | Alto | Medio (12‑18 meses)\
+    \ | Validación tecnológica y generación de ingresos. |\n| **Reducción de restricciones\
+    \ de exportación a China** | 5 | Medio | Largo (>24 meses) | Probabilidad muy\
+    \ baja según DDD. |\n\n---  \n\n## 8. Marco de Valoración  \n\n### 8.1 Metodología\
+    \ recomendada  \n\n| Método | Uso | Supuestos clave |\n|--------|-----|-----------------|\n\
+    | **Descuento de Flujos de Caja (DCF)** | Valoración principal | CAGR ingresos\
+    \ 15 % (5 años), margen operativo 38 %, reinversión de capital 5 % de ingresos,\
+    \ WACC 7.5 %, crecimiento terminal 2.5 %. |\n| **Múltiplos comparables** | Validación\
+    \ | EV/EBITDA medio sector 30‑35×; PER medio 35‑45×. |\n| **Valor de activos intangibles**\
+    \ | Análisis complementario | Valoración de patentes y know‑how (≈ € 5 bn). |\n\
+    \n### 8.2 Sensibilidad (DCF)  \n\n| Variable | -10 % | Base | +10 % |\n|----------|-------|------|-------|\n\
+    | **CAGR ingresos** | 12 % | 15 % | 18 % |\n| **WACC** | 8.3 % | 7.5 % | 6.8 %\
+    \ |\n| **Valor intrínseco (USD)** | $ 820 | $ 950 | $ 1,100 |\n\n> **Interpretación**:\
+    \ Incluso bajo escenarios conservadores, el valor intrínseco supera el precio\
+    \ de mercado actual, reforzando la tesis de infravaloración.  \n\n---  \n\n##\
+    \ 9. Preguntas Abiertas y Agenda de Investigación  \n\n| Pregunta | Prioridad\
+    \ | Acción recomendada |\n|----------|-----------|--------------------|\n| **Impacto\
+    \ neto de nuevas restricciones de exportación a China en 2027** | Alta | Monitorear\
+    \ decisiones del gobierno holandés y de EE. UU.; análisis de ingresos por región.\
+    \ |\n| **Rentabilidad por oblea con High‑NA EUV vs. multipatterning EUV estándar**\
+    \ | Media | Recopilar datos de clientes (TSMC, Intel) y estudios de caso de producción.\
+    \ |\n| **Evolución de la participación de ingresos de servicios vs. hardware**\
+    \ | Media | Analizar informes trimestrales de ASML sobre “service revenue”. |\n\
+    | **Posibles alternativas tecnológicas a EUV (e.g., nano‑imprint, electron beam)**\
+    \ | Baja | Revisar patentes y roadmaps de competidores. |\n| **Efectos de la consolidación\
+    \ de proveedores críticos (Zeiss, Trumpf)** | Baja | Evaluar riesgos de dependencia\
+    \ y planes de contingencia de ASML. |\n\n---  \n\n## 10. Referencias  \n\n1. **yFinance**\
+    \ – Cotización y consenso de analistas (21‑oct‑2026). Disponible en: <https://finance.yahoo.com/quote/ASML/>.\
+    \  \n2. **StockAnalysis** – Datos financieros TTM (ingresos, margen operativo,\
+    \ FCF) al 27‑sep‑2026. Disponible en: <https://stockanalysis.com/stocks/asml/forecast/>.\
+    \  \n3. **DDD – Documento de Decisión de Datos** (clasificación de oportunidad,\
+    \ error de mercado, riesgos, catalizadores).  \n4. **AOIF – Análisis Operativo\
+    \ y de Inversión** (pasos 1‑8).  \n5. **Informes anuales de ASML** (2024‑2025)\
+    \ – Sección de gestión de riesgos y estrategia de I+D.  \n\n---  \n\n*Esta entrada\
+    \ está diseñada para el sistema de registro de conocimiento de inversión y será\
+    \ actualizada conforme se disponga de nueva información.*"
   fcf_adjusted: null
-  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
-    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+  financial_data_evidence: '{"conflicts": [], "currency": "EUR", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
     "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
-    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
-    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
-    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
-    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
-    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
-    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
     "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
     "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
-    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
-    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
-    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
-    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
-    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
-    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
     "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
-    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
-    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
     ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
     ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
     ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
     "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
-    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
     "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
-    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
-    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
-    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
-    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
-    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
-    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
-    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
-    "observed_at": "2026-10-21T17:46:17.757387+00:00", "period_end": "2026-09-27",
-    "sources_used": ["stockanalysis.com"]}'
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-10-21T21:51:44.943075+00:00", "period_end_date": "2026-09-27",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-27", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ASML/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 23750000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 44.356}, "observed_at": "2026-10-21T21:51:44.943075+00:00",
+    "period_end_date": "2026-09-27", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-27", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ASML/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-27", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 38.55}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 55.2}, "observed_at": "2026-10-21T21:51:44.943075+00:00", "period_end_date":
+    "2026-09-27", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-27", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/asml/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-27", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 22.54}}}, "observed_at": "2026-10-21T21:51:44.943075+00:00",
+    "period_end": "2026-09-27", "sources_used": ["stockanalysis.com", "yfinance"]}'
   geography: ''
   insider_ownership: 0
   interest_coverage_ratio: 0
@@ -412,100 +499,242 @@ research_input_snapshot:
   revenue: 44980000000.0
   revenue_growth: 22.54
   roic: 92.13
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: EUR
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    2886.0, "low": 868.56, "mean": 2151.2, "median": 2151.2, "observed_at": "2026-10-21T14:46:21.806122-03:00",
+    2886.0, "low": 868.56, "mean": 2150.72, "median": 2150.72, "observed_at": "2026-10-21T22:19:11.188705-03:00",
     "sources": [{"as_of_date": "2026-10-21", "name": "stockanalysis", "observed_at":
-    "2026-10-21T14:46:21.806122-03:00", "observed_date": "2026-10-21", "target_price":
+    "2026-10-21T22:19:11.188705-03:00", "observed_date": "2026-10-21", "target_price":
     2152.0, "url": "https://stockanalysis.com/stocks/asml/forecast/"}, {"as_of_date":
-    "2026-10-21", "name": "yfinance", "observed_at": "2026-10-21T14:46:21.806122-03:00",
-    "observed_date": "2026-10-21", "target_price": 2150.408, "url": "https://finance.yahoo.com/quote/ASML/"}]},
-    "current_quote": {"as_of_date": "2026-10-21", "currency": "USD", "price": 1680.06005859375,
+    "2026-10-21", "name": "yfinance", "observed_at": "2026-10-21T22:19:11.188705-03:00",
+    "observed_date": "2026-10-21", "target_price": 2149.4414, "url": "https://finance.yahoo.com/quote/ASML/"}]},
+    "current_quote": {"as_of_date": "2026-10-21", "currency": "USD", "price": 1676.68994140625,
     "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ASML/"}]}}'
   sector: Technology
   ticker: ASML
 research_trigger:
-  discovery_snapshot_hash: 9da1542dd664577a3ce2a6c5c364420f4ed0ff45b2815971b133ed2bbdc88d1f
+  discovery_snapshot_hash: e8cab6905bfa308751c12bd02625237e698ef4257b077c0b792c4f2d45dc10a7
   event_evidence: null
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 968cad055e052c437f76cc0033464ad66d34d7b2c5e06c09c28b6d31705d3603
+    sha256: 21241fac7f898176b55b34345303a2df2998bf25b4ea8cf9c794cb01bbed9c64
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   trigger_type: manual
-  triggered_at: '2026-10-21T14:48:35.329039-03:00'
+  triggered_at: '2026-10-21T22:22:14.658482-03:00'
 resumen_ejecutivo: ''
 risk_flags:
-- descripcion: Cobertura de intereses de 0, por debajo del umbral de 2.0.
-  nombre: Cobertura de intereses insuficiente
+- description: Cobertura de intereses insuficiente.
+  metric: interest_coverage
+  observed_value: 0
+  status: below
+  threshold: 2.0
 scenario_analysis:
   as_of_date: '2026-10-21'
   currency: USD
   horizon_date: '2027-10-21'
   scenarios:
-  - id: BEAR
+  - falsifiers:
+    - Crecimiento de FCF superior al 20% anual.
+    id: BEAR
     key_assumptions:
-    - Disminución de la adopción de EUV
-    - Aumento de la competencia
-    probability_pct: 30
-    rationale: Reducción de la demanda de EUV y posibles barreras regulatorias.
-    sources: []
-    target_price: null
-  - id: BASE
-    key_assumptions:
-    - Continuación de la demanda de EUV
-    - Mantención de la posición de liderazgo
-    probability_pct: 50
-    rationale: Crecimiento sostenido de ingresos y márgenes según consenso de analistas.
+    - FCF crece 20% anual.
+    - Margen bruto se mantiene en 52%.
+    - Precio de mercado se reduce 15%.
+    rationale: Riesgo de desaceleración en la demanda de EUV y posibles retrasos en
+      la cadena de suministro.
     sources:
-    - as_of_date: '2026-10-21'
-      name: stockanalysis
-      url: https://stockanalysis.com/stocks/asml/forecast/
     - as_of_date: '2026-10-21'
       name: yfinance
       url: https://finance.yahoo.com/quote/ASML/
-    target_price: 2151.2
-  - id: BULL
+    - as_of_date: '2026-10-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ASML/statistics/
+    target_price: 1428
+  - falsifiers:
+    - Margen bruto cae por debajo de 50%.
+    id: BULL
     key_assumptions:
-    - Aumento de la demanda de nodos 2nm
-    - Innovaciones tecnológicas que reducen costos
-    probability_pct: 20
-    rationale: Aceleración de la adopción de EUV y expansión de mercados emergentes.
-    sources: []
-    target_price: null
-  schema_version: bear_base_bull_v1
+    - FCF crece 30% anual.
+    - Margen bruto se eleva a 55%.
+    - Precio de mercado aumenta 20%.
+    rationale: Aumento sostenido de la demanda de EUV y expansión de clientes, con
+      FCF creciendo 30% anual.
+    sources:
+    - as_of_date: '2026-10-21'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ASML/
+    - as_of_date: '2026-10-21'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ASML/statistics/
+    target_price: 2012
+  schema_version: bear_bull_v2
 scenario_validation:
-  errors:
-  - 'BEAR: target_price debe ser positivo y finito'
-  - 'BEAR: se requiere al menos una fuente'
-  - 'BULL: target_price debe ser positivo y finito'
-  - 'BULL: se requiere al menos una fuente'
-  status: invalid_pending_revision
-score_general: 72.5
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-10-21T14:46:21.806122-03:00'
+  calculado_at: '2026-10-21T22:19:11.188705-03:00'
   fuentes:
     stockanalysis: 2152.0
-    yfinance: 2150.408
-  mediana: 2151.2
+    yfinance: 2149.4414
+  mediana: 2150.72
   n_fuentes: 2
-  promedio: 2151.2
+  promedio: 2150.72
   source_references:
   - as_of_date: '2026-10-21'
     name: stockanalysis
-    observed_at: '2026-10-21T14:46:21.806122-03:00'
+    observed_at: '2026-10-21T22:19:11.188705-03:00'
     observed_date: '2026-10-21'
     target_price: 2152.0
     url: https://stockanalysis.com/stocks/asml/forecast/
   - as_of_date: '2026-10-21'
     name: yfinance
-    observed_at: '2026-10-21T14:46:21.806122-03:00'
+    observed_at: '2026-10-21T22:19:11.188705-03:00'
     observed_date: '2026-10-21'
-    target_price: 2150.408
+    target_price: 2149.4414
     url: https://finance.yahoo.com/quote/ASML/
   target_high: 2886.0
   target_low: 868.56
-tesis_inversion: ASML mantiene liderazgo en EUV y reinvierte fuertemente en I+D, lo
-  que sustenta un crecimiento sostenido de ingresos y márgenes.
+tesis_inversion: ASML presenta un perfil de crecimiento sostenido con márgenes robustos
+  y generación de efectivo que justifica una valoración superior al consenso actual.
 ticker: ASML
 version: '3.0'

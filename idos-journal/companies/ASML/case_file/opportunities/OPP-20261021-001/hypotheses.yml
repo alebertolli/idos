@@ -1,129 +1,6 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: El número total de unidades High‑NA entregadas en 2027 será ≤ 30.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: ASML anuncia una reducción de capacidad de producción High‑NA antes
-      de 2027-12-31.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El número total de unidades High‑NA entregadas en 2027 será ≤ 30.
-  - ASML anuncia una reducción de capacidad de producción High‑NA antes de 2027-12-31.
-  horizon: medio
-  id: H1-OPP-20261021-001
-  opportunity_id: OPP-20261021-001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-12-31'
-    expected: 30.0
-    met: null
-    metric: unidades High‑NA entregadas
-    prediction: En el año fiscal 2027, el número total de sistemas High‑NA entregados
-      será superior a 30 unidades.
-    unit: unidades/año
-  priority: critical
-  probability: 0.5
-  rationale: La demanda de nodos de proceso de 3 nm y menores está creciendo rápidamente,
-    y los principales clientes (TSMC, Samsung, Intel) han anunciado planes de expansión
-    que requieren High‑NA. ASML ha reportado una capacidad de producción ampliada
-    y una hoja de pedidos creciente en Q3‑2026.
-  review_trigger: Si a finales de Q2‑2027 (2027-06-30) los informes de producción
-    indican una capacidad inferior a 30 unidades anuales, la hipótesis se descartará.
-  secondary_hypotheses:
-  - H4-OPP-20261021-001
-  statement: ASML incrementará sus envíos anuales de sistemas EUV de alta numerical
-    aperture (High‑NA) a más de 30 unidades para finales de 2027.
-  status: ACTIVE
-  ticker: ASML
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: El EPS GAAP declarado en el informe anual 2027 será < 12,5 €.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: Una caída significativa del margen bruto (>2 puntos porcentuales) que
-      reduzca el EPS por debajo del objetivo.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - El EPS GAAP declarado en el informe anual 2027 será < 12,5 €.
-  - Una caída significativa del margen bruto (>2 puntos porcentuales) que reduzca
-    el EPS por debajo del objetivo.
-  horizon: medio
-  id: H2-OPP-20261021-001
-  opportunity_id: OPP-20261021-001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2027-12-31'
-    expected: 12.5
-    met: null
-    metric: EPS GAAP
-    prediction: El EPS GAAP reportado en el informe anual 2027 será ≥ 12,5 €.
-    unit: EUR
-  priority: important
-  probability: 0.5
-  rationale: El aumento de ingresos por High‑NA, junto con márgenes operativos estables
-    y una gestión eficaz del CAPEX, debería traducirse en un crecimiento del EPS superior
-    al 15 % YoY, partiendo de los 10,8 € reportados en 2026.
-  review_trigger: Si el informe preliminar de resultados Q3‑2027 (2027-09-30) muestra
-    un EPS proyectado por debajo de 12,0 €, la hipótesis se reconsiderará.
-  secondary_hypotheses:
-  - H1-OPP-20261021-001
-  statement: El beneficio por acción (EPS) GAAP de ASML alcanzará al menos 12,5 €
-    en el ejercicio fiscal 2027.
-  status: ACTIVE
-  ticker: ASML
-  version: 1
-- confidence: 0.0
-  falsification:
-  - condition: La capitalización bursátil al 2028-06-30 será < 500 bn €.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  - condition: El múltiplo P/E promedio del mercado se mantiene por debajo de 25×
-      durante 2028.
-    metric: ''
-    threshold: 0.0
-    triggered: false
-  falsification_conditions:
-  - La capitalización bursátil al 2028-06-30 será < 500 bn €.
-  - El múltiplo P/E promedio del mercado se mantiene por debajo de 25× durante 2028.
-  horizon: largo
-  id: H3-OPP-20261021-001
-  opportunity_id: OPP-20261021-001
-  parent_id: ''
-  predictions:
-  - actual: null
-    deadline: '2028-06-30'
-    expected: 500.0
-    met: null
-    metric: Capitalización bursátil
-    prediction: El valor de mercado de ASML será ≥ 500 bn € al 2028-06-30.
-    unit: bn EUR
-  priority: important
-  probability: 0.5
-  rationale: Un EPS superior a 12,5 € y una revaloración del múltiplo P/E a alrededor
-    de 30×, impulsada por la mayor participación de mercado en High‑NA y la reducción
-    percibida del riesgo regulatorio, deberían elevar la valoración de la compañía.
-  review_trigger: Si a finales de Q1‑2028 (2028-03-31) la capitalización bursátil
-    está por debajo de 450 bn €, la hipótesis perderá validez.
-  secondary_hypotheses:
-  - H2-OPP-20261021-001
-  statement: La capitalización bursátil de ASML superará los 500 000 millones de euros
-    antes del 30 de junio de 2028.
-  status: ACTIVE
-  ticker: ASML
-  version: 1
-- confidence: 0.0
-  falsification:
   - condition: Publicación oficial de una restricción de exportación EUV dirigida
       a China antes del 2028-03-31.
     metric: ''
@@ -163,6 +40,170 @@ hypotheses:
   secondary_hypotheses: []
   statement: No se impondrá ninguna nueva restricción de exportación de tecnología
     EUV a China por parte de EE. UU. o la UE antes del 31 de marzo de 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El backlog total de EUV reportado al cierre de 2027 cae por debajo
+      de 35.000 millones de euros.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Se registran cancelaciones netas de pedidos de sistemas High-NA por
+      parte de más de un cliente de primer nivel (Tier-1).
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos procedentes de fuera de China no crecen al menos un 15%
+      interanual durante 2027 para compensar la caída asiática.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El backlog total de EUV reportado al cierre de 2027 cae por debajo de 35.000 millones
+    de euros.
+  - Se registran cancelaciones netas de pedidos de sistemas High-NA por parte de más
+    de un cliente de primer nivel (Tier-1).
+  - Los ingresos procedentes de fuera de China no crecen al menos un 15% interanual
+    durante 2027 para compensar la caída asiática.
+  horizon: medio
+  id: H1-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 42000.0
+    met: null
+    metric: Backlog acumulado EUV
+    prediction: El backlog total de pedidos de sistemas litográficos EUV (estándar
+      y High-NA) alcanzará o superará los 42.000 millones de euros en el reporte de
+      cierre del ejercicio fiscal 2027.
+    unit: EUR millones
+  priority: critical
+  probability: 0.5
+  rationale: La carrera en arquitecturas de transistores para nodos sub-2nm (GAA,
+    nanosheets) por parte de TSMC, Intel y Samsung requiere de forma indispensable
+    la inserción productiva de herramientas High-NA (serie EXE). La demanda estructural
+    no satisfecha en mercados fuera de China absorbe los slots de fabricación liberados,
+    sosteniendo un libro de órdenes récord.
+  review_trigger: Si en dos trimestres consecutivos previos a octubre de 2027 las
+    órdenes netas (net bookings) de sistemas EUV se ubican por debajo de 1.500 millones
+    de euros trimestrales sin un retraso explícito pactado de entregas.
+  secondary_hypotheses: []
+  statement: La aceleración en la adopción industrial de litografía High-NA EUV y
+    la expansión de capacidad de fundición avanzada en EE.UU., Taiwán y Europa neutralizarán
+    el impacto de las restricciones comerciales impuestas a China.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto consolidado de FY2027 se sitúa por debajo del 54.0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos por Installed Base Management en FY2027 resultan inferiores
+      a 8.200 millones de euros.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de contribución de la división de servicios experimenta una
+      compresión interanual mayor a 200 puntos básicos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto consolidado de FY2027 se sitúa por debajo del 54.0%.
+  - Los ingresos por Installed Base Management en FY2027 resultan inferiores a 8.200
+    millones de euros.
+  - El margen de contribución de la división de servicios experimenta una compresión
+    interanual mayor a 200 puntos básicos.
+  horizon: medio
+  id: H2-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 56.5
+    met: null
+    metric: Margen Bruto Consolidado FY2027
+    prediction: ASML registrará un margen bruto consolidado de al menos 56.5% para
+      el año fiscal 2027 completo, con ingresos por gestión de base instalada (Installed
+      Base Management) superiores a 9.200 millones de euros.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La base acumulada de escáneres EUV en operación comercial continúa expandiéndose,
+    generando flujos de caja recurrentes vía contratos de mantenimiento y upgrades
+    de productividad. Este flujo de servicios amortigua la volatilidad cíclica de
+    entrega de nuevas máquinas y diluye los costes iniciales de fabricación de los
+    primeros sistemas High-NA.
+  review_trigger: Si en la presentación de resultados del primer semestre de 2027
+    el margen bruto consolidado interino cae por debajo del 53.0% y la dirección reduce
+    el guidance de margen para el año completo.
+  secondary_hypotheses:
+  - H1-OPP-20261021-001
+  statement: El crecimiento de los ingresos de alto margen provenientes de la base
+    instalada (servicios y software de litografía computacional) expandirá el margen
+    bruto consolidado a niveles récord pese a los costes de rampa de High-NA.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La cotización del ADR permanece por debajo de 1.500 USD al 30 de junio
+      de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El múltiplo NTM P/E se mantiene por debajo de 24x de forma continuada
+      durante el primer semestre de 2028 a pesar de cumplir estimaciones de EPS.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El consenso de analistas recorta su precio objetivo medio a 12 meses
+      por debajo de 1.700 USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La cotización del ADR permanece por debajo de 1.500 USD al 30 de junio de 2028.
+  - El múltiplo NTM P/E se mantiene por debajo de 24x de forma continuada durante
+    el primer semestre de 2028 a pesar de cumplir estimaciones de EPS.
+  - El consenso de analistas recorta su precio objetivo medio a 12 meses por debajo
+    de 1.700 USD.
+  horizon: largo
+  id: H3-OPP-20261021-001
+  opportunity_id: OPP-20261021-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 2150.0
+    met: null
+    metric: Precio por acción ADR
+    prediction: La acción ordinaria/ADR de ASML cotizada en el NASDAQ cotizará en
+      o por encima de 2.150 USD por acción en términos de cierre diario antes del
+      30 de junio de 2028.
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: La compresión de múltiplos por el temor a las sanciones comerciales de
+    China habrá quedado desmentida por la ejecución financiera y el crecimiento operativo
+    sostenido superior al 20%, provocando un re-rating del múltiplo NTM P/E hacia
+    el rango de 32x-35x coherente con su carácter de compounder indispensable.
+  review_trigger: Si para el 31 de diciembre de 2027 el precio del ADR no ha superado
+    los 1.650 USD tras la publicación de resultados del tercer trimestre de 2027.
+  secondary_hypotheses:
+  - H1-OPP-20261021-001
+  - H2-OPP-20261021-001
+  statement: La reevaluación del mercado sobre el poder monopólico de fijación de
+    precios y la resiliencia del flujo de caja impulsarán una expansión de múltiplos
+    que llevará al ADR de ASML a converger hacia su precio objetivo de consenso de
+    2.150 USD.
   status: ACTIVE
   ticker: ASML
   version: 1

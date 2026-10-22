@@ -1,0 +1,1 @@
+> **Nota:** Todos los datos marcados como *Hecho verificado* provienen de fuentes públicas citadas al final de la sección correspondiente. Las *Hipótesis* y *Supuestos* se indican explícitamente y están basados en el análisis interno (DDD, AOIF).
