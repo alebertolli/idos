@@ -446,6 +446,7 @@ class ResearchWorker(BaseWorker):
             missing_ratio_dispositions = self._complete_missing_multibaggers_ratio_dispositions(
                 ddd_result.get("ratios_investigados"),
                 ratio_requirements.get("ratios_to_review", []),
+                ratio_requirements.get("ratio_units", {}),
             )
             if missing_ratio_dispositions:
                 event_data = {
@@ -2040,10 +2041,12 @@ class ResearchWorker(BaseWorker):
     def _complete_missing_multibaggers_ratio_dispositions(
         raw_ratios: Any,
         required_metrics: list[str],
+        expected_units: dict[str, str] | None = None,
     ) -> list[str]:
-        """Record omitted LLM ratio rows as explicit unavailable values, never as estimates."""
+        """Record omitted LLM ratio rows with their configured unit, never as estimates."""
         if not isinstance(raw_ratios, list) or not isinstance(required_metrics, list):
             return []
+        expected_units = expected_units if isinstance(expected_units, dict) else {}
         present = {
             item.get("metric")
             for item in raw_ratios
@@ -2059,6 +2062,7 @@ class ResearchWorker(BaseWorker):
                 "metric": metric,
                 "status": "unavailable",
                 "value": None,
+                "unit": expected_units.get(metric),
                 "limitations": (
                     "El modelo de Research omitió este ratio; no se infiere un valor "
                     "y queda pendiente de evidencia verificable."
@@ -2105,6 +2109,14 @@ class ResearchWorker(BaseWorker):
                     errors.append(f"unavailable ratio needs a limitation: {metric}")
                 if item.get("value") is not None:
                     errors.append(f"unavailable ratio cannot have a value: {metric}")
+                unit = item.get("unit")
+                expected_unit = expected_units.get(metric)
+                if not isinstance(unit, str) or not unit.strip():
+                    errors.append(f"ratio needs a unit: {metric}")
+                elif expected_unit and unit != expected_unit:
+                    errors.append(
+                        f"ratio unit conflicts with configured unit for {metric}: expected {expected_unit}"
+                    )
                 continue
             value = item.get("value")
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
