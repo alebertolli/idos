@@ -443,6 +443,22 @@ class ResearchWorker(BaseWorker):
             self._bind_multibaggers_ratio_sources(
                 ddd_result.get("ratios_investigados"), research_financial_evidence
             )
+            missing_ratio_dispositions = self._complete_missing_multibaggers_ratio_dispositions(
+                ddd_result.get("ratios_investigados"),
+                ratio_requirements.get("ratios_to_review", []),
+            )
+            if missing_ratio_dispositions:
+                event_data = {
+                    "opp_id": opp_id,
+                    "ticker": ticker,
+                    "metrics": missing_ratio_dispositions,
+                }
+                sqlite.log_event("research:ratio_disposition_omitted", event_data)
+                journal.log_event(
+                    "research:ratio_disposition_omitted",
+                    event_data,
+                    source="research_worker",
+                )
         ratio_validation_errors = (
             self._validate_multibaggers_ratio_review(
                 ddd_result.get("ratios_investigados"),
@@ -2019,6 +2035,36 @@ class ResearchWorker(BaseWorker):
                 and (not isinstance(current_unit, str) or not current_unit.strip())
             ):
                 item["unit"] = expected_unit
+
+    @staticmethod
+    def _complete_missing_multibaggers_ratio_dispositions(
+        raw_ratios: Any,
+        required_metrics: list[str],
+    ) -> list[str]:
+        """Record omitted LLM ratio rows as explicit unavailable values, never as estimates."""
+        if not isinstance(raw_ratios, list) or not isinstance(required_metrics, list):
+            return []
+        present = {
+            item.get("metric")
+            for item in raw_ratios
+            if isinstance(item, dict) and isinstance(item.get("metric"), str)
+        }
+        missing = [
+            metric
+            for metric in dict.fromkeys(required_metrics)
+            if isinstance(metric, str) and metric.strip() and metric not in present
+        ]
+        for metric in missing:
+            raw_ratios.append({
+                "metric": metric,
+                "status": "unavailable",
+                "value": None,
+                "limitations": (
+                    "El modelo de Research omitió este ratio; no se infiere un valor "
+                    "y queda pendiente de evidencia verificable."
+                ),
+            })
+        return missing
 
     @staticmethod
     def _validate_multibaggers_ratio_review(

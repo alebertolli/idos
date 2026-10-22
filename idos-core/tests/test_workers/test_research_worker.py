@@ -1518,6 +1518,7 @@ def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     assert "No inventes cifras, URLs" in rendered
     assert "ni valores derivados" in rendered
     assert "ratios_investigados" in rendered
+    assert "no es una lista narrativa" in rendered
     assert "ratio_input_fields" in rendered
     assert "ratio_units" in rendered
     assert "unit" in rendered
@@ -1582,6 +1583,30 @@ def test_multibaggers_research_shape_requires_downstream_types():
     assert "clasificacion_oportunidad must be dict" in errors
     assert "score_general must be a finite number from 0 to 100" in errors
 
+
+def test_multibaggers_omitted_ratio_dispositions_are_explicitly_unavailable():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    ratios = [{
+        "metric": "revenue_cagr_3y_pct",
+        "status": "reported",
+        "value": 12.5,
+        "unit": "percent",
+    }]
+    missing = ResearchWorker._complete_missing_multibaggers_ratio_dispositions(
+        ratios, ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"]
+    )
+
+    assert missing == ["current_ratio", "gross_margin_pct"]
+    assert ratios[0]["value"] == 12.5
+    omitted = {item["metric"]: item for item in ratios[1:]}
+    assert set(omitted) == set(missing)
+    assert all(item["status"] == "unavailable" for item in omitted.values())
+    assert all(item["value"] is None for item in omitted.values())
+    assert all(item["limitations"] for item in omitted.values())
+    assert ResearchWorker._validate_multibaggers_ratio_review(
+        ratios, ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"]
+    ) == []
 
 def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects_uncited_values():
     from idos.workers.ai.research_worker import ResearchWorker
