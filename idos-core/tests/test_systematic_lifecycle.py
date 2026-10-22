@@ -2,6 +2,7 @@
 
 from pathlib import Path
 from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 import sys
 
 import yaml
@@ -31,7 +32,7 @@ class MarketGate:
             ticker: {"asset_type": "etf", "avg_dollar_volume_usd": 200_000,
                      "liquidity_provenance": {"price_source": "fixture"},
                      "market_quote": {
-                         "price": 100.0, "currency": "USD", "as_of_date": date.today().isoformat(),
+                         "price": 100.0, "currency": "USD", "as_of_date": datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date().isoformat(),
                          "source": "yfinance",
                      },
                      "market_data_normalization": {"status": "complete"}}
@@ -66,7 +67,7 @@ def test_momentum_discovery_research_assessment_wait(tmp_path: Path, monkeypatch
         "market_quote": {
             "price": 100.0,
             "currency": "USD",
-            "as_of_date": date.today().isoformat(),
+            "as_of_date": datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date().isoformat(),
             "source": "yfinance",
         }
     }
