@@ -1949,3 +1949,31 @@ def test_optional_research_metric_requires_field_source_and_period():
     assert ResearchWorker._sourced_optional_metric_label(
         sourced, "interest_coverage_ratio", unit="x"
     ) == "N/D (sin dato verificado)"
+
+
+
+def test_multibaggers_unavailable_ratio_without_limitation_gets_neutral_audit_text():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    ratios = [
+        {"metric": "dilution_yoy_pct", "status": "unavailable", "value": None, "unit": "percent"},
+        {
+            "metric": "current_ratio",
+            "status": "unavailable",
+            "value": None,
+            "unit": "x",
+            "limitations": "No hay estados financieros recientes.",
+        },
+    ]
+
+    completed = ResearchWorker._complete_unavailable_multibaggers_ratio_limitations(ratios)
+
+    assert completed == ["dilution_yoy_pct"]
+    assert "no indicó una limitación específica" in ratios[0]["limitations"]
+    assert ratios[0]["value"] is None
+    assert ratios[1]["limitations"] == "No hay estados financieros recientes."
+    assert ResearchWorker._validate_multibaggers_ratio_review(
+        ratios,
+        ["dilution_yoy_pct", "current_ratio"],
+        expected_units={"dilution_yoy_pct": "percent", "current_ratio": "x"},
+    ) == []

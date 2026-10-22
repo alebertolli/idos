@@ -460,6 +460,21 @@ class ResearchWorker(BaseWorker):
                     event_data,
                     source="research_worker",
                 )
+            missing_ratio_limitations = self._complete_unavailable_multibaggers_ratio_limitations(
+                ddd_result.get("ratios_investigados")
+            )
+            if missing_ratio_limitations:
+                event_data = {
+                    "opp_id": opp_id,
+                    "ticker": ticker,
+                    "metrics": missing_ratio_limitations,
+                }
+                sqlite.log_event("research:ratio_limitation_omitted", event_data)
+                journal.log_event(
+                    "research:ratio_limitation_omitted",
+                    event_data,
+                    source="research_worker",
+                )
         ratio_validation_errors = (
             self._validate_multibaggers_ratio_review(
                 ddd_result.get("ratios_investigados"),
@@ -2069,6 +2084,27 @@ class ResearchWorker(BaseWorker):
                 ),
             })
         return missing
+
+    @staticmethod
+    def _complete_unavailable_multibaggers_ratio_limitations(raw_ratios: Any) -> list[str]:
+        """Add an auditable neutral explanation when Research omits one for unavailable data."""
+        if not isinstance(raw_ratios, list):
+            return []
+        completed: list[str] = []
+        for item in raw_ratios:
+            if not isinstance(item, dict) or item.get("status") != "unavailable":
+                continue
+            limitation = item.get("limitations")
+            if isinstance(limitation, str) and limitation.strip():
+                continue
+            item["limitations"] = (
+                "Research no indicó una limitación específica; no se infiere un valor y "
+                "queda pendiente de evidencia financiera verificable."
+            )
+            metric = item.get("metric")
+            if isinstance(metric, str) and metric.strip():
+                completed.append(metric)
+        return completed
 
     @staticmethod
     def _validate_multibaggers_ratio_review(
