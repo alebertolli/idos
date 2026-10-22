@@ -800,7 +800,7 @@ class TestResearchWorker:
         assert "## Financial Highlights" in content
         assert "## Catalysts" in content
 
-    def test_research_creates_claims_and_lifecycle(
+    def test_research_does_not_promote_unreferenced_facts_to_claims(
         self,
         seeded_opportunity: tuple[str, str],
         tmp_sqlite,
@@ -822,13 +822,12 @@ class TestResearchWorker:
         claims_dir = bp / "idos-knowledge" / ".claims"
         assert claims_dir.exists(), ".claims directory no creado"
         claim_files = list(claims_dir.glob("CLAIM-TEST-DDD-*.json"))
-        assert len(claim_files) >= 1, "No se crearon claims desde DDD"
+        assert claim_files == [], "Los hechos LLM sin referencias no deben persistirse como claims verificados"
 
         from idos.knowledge.claims import ClaimStore as CS
         store = CS(str(bp / "idos-knowledge"))
         claims = store.search(tag=ticker)
-        assert len(claims) >= 1
-        assert any("ROIC" in c.statement for c in claims), "Claim de ROIC no encontrado"
+        assert claims == []
 
     def test_research_requires_ticker_and_opp(
         self,
@@ -1693,3 +1692,39 @@ def test_multibaggers_calculated_ratio_without_input_references_is_discarded():
     assert "inputs" not in ratios[0]
     assert ratios[1]["status"] == "unavailable"
     assert ratios[2]["status"] == "calculated"
+
+def test_research_free_text_facts_are_downgraded_to_inferences_without_refs():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    result = {"calidad_evidencia": {
+        "hechos_verificados": ["Interest coverage ratio 0"],
+        "inferencias_llm": ["FCF growth requires validation"],
+    }}
+    ResearchWorker._demote_unreferenced_research_facts(result)
+    assert result["calidad_evidencia"]["hechos_verificados"] == []
+    assert result["calidad_evidencia"]["inferencias_llm"] == [
+        "FCF growth requires validation",
+        "Interest coverage ratio 0",
+    ]
+
+
+def test_optional_research_metric_requires_field_source_and_period():
+    from idos.workers.ai.research_worker import ResearchWorker
+
+    assert ResearchWorker._sourced_optional_metric_label(
+        {"interest_coverage_ratio": 0}, "interest_coverage_ratio", unit="x"
+    ) == "N/D (sin dato verificado)"
+    sourced = {
+        "interest_coverage_ratio": 4.25,
+        "financial_data_as_of_date": "2026-09-27",
+        "data_provenance": {
+            "field_sources": {"interest_coverage_ratio": ["stockanalysis.com"]},
+        },
+    }
+    assert ResearchWorker._sourced_optional_metric_label(
+        sourced, "interest_coverage_ratio", unit="x"
+    ) == "4.25x"
+    sourced["financial_data_as_of_date"] = "N/A"
+    assert ResearchWorker._sourced_optional_metric_label(
+        sourced, "interest_coverage_ratio", unit="x"
+    ) == "N/D (sin dato verificado)"

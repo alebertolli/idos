@@ -59,6 +59,7 @@ user_prompt: >
   Evidencia financiera y procedencia (JSON; observations contiene los valores reportados, unidad/moneda, período, fecha de corte y fuente cuando están disponibles):
   {financial_data_evidence}
   Usa solo esas observaciones para afirmar hechos financieros. Un dato ausente no significa cero. No llames ajustado al flujo de caja libre reportado si la evidencia no documenta ese ajuste.
+  En `calidad_evidencia.hechos_verificados` incluye sólo afirmaciones trazables a una observación directa con campo, fuente y fecha presentes en la entrada. Como el contrato de salida no incluye referencias por afirmación, deja esa lista vacía cuando no puedas enlazarlas de forma explícita; clasifica el análisis derivado como `inferencias_llm`.
 
   Instrucciones - Sigue estas 3 fases en orden obligatorio:
 
