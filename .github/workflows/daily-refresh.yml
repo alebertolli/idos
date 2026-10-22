@@ -141,6 +141,7 @@ jobs:
               print('[EARNINGS-CALENDAR] Calendario actualizado, sin cambios')
           "
       - name: Check earnings dates
+        if: github.event_name != 'workflow_dispatch' || inputs.dispatch_research_events
         run: |
           python -c "
           import os, json, yaml
