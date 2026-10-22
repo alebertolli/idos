@@ -1,4 +1,5 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 import pytest
@@ -789,7 +790,7 @@ def test_public_site_keeps_deterministic_systematic_report_separate_from_fundame
     report["tesis_inversion"] = ""
     report["dominio_business_quality"] = {"rating": "no_aplica", "analisis": "No es criterio de la señal"}
     report["strategy_context"] = {"strategy_id": "MOMENTUM_ETF", "signal": {"score": 71}, "report_method_version": "systematic_signal_v2"}
-    scenario_date = date.today()
+    scenario_date = datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date()
     next_month = scenario_date.replace(day=28) + timedelta(days=4)
     source = {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/quote/VIST/", "as_of_date": scenario_date.isoformat()}
     report["research_input_snapshot"] = {
