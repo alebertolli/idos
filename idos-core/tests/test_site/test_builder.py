@@ -309,6 +309,15 @@ def test_public_site_exposes_research_ratios_with_provenance_and_limitations(tmp
             "limitations": "Falta historial de FCF.",
             "sources": [{"name": "malicious", "url": "javascript:alert(1)"}],
         },
+        {
+            "metric": "dilution_yoy_pct",
+            "status": "calculated",
+            "value": 4.2,
+            "unit": "percent",
+            "period_end": "2026-09-30",
+            "formula": "(diluted_shares_t / diluted_shares_t-1) - 1",
+            "sources": [{"name": "StockAnalysis", "url": "https://stockanalysis.com/stocks/vist/financials/", "as_of_date": "2026-09-30"}],
+        },
         {"metric": "invalid_metric", "status": "reported", "value": float("nan"), "unit": "x"},
     ]
     report_path.write_text(yaml.safe_dump(report, allow_unicode=True), encoding="utf-8")
@@ -323,8 +332,10 @@ def test_public_site_exposes_research_ratios_with_provenance_and_limitations(tmp
     assert ratios[1]["status"] == "unavailable"
     assert ratios[1]["limitations"] == "Falta historial de FCF."
     assert ratios[1]["sources"] == []
-    assert ratios[2]["status"] == "needs_review"
-    assert ratios[2]["value"] is None
+    assert ratios[2]["status"] == "calculated"
+    assert ratios[2]["value"] == 4.2
+    assert ratios[3]["status"] == "needs_review"
+    assert ratios[3]["value"] is None
 
     output = write_site(tmp_path, tmp_path / "site-output")
     app = (output / "assets" / "app.js").read_text(encoding="utf-8")
@@ -335,6 +346,8 @@ def test_public_site_exposes_research_ratios_with_provenance_and_limitations(tmp
     assert "Los datos no disponibles permanecen explícitos y no se estiman." in app
     assert "ratio-mobile-list" in app and ".ratio-mobile-list{display:grid" in styles
     assert "Falta historial de FCF." in payload
+    assert '"status": "calculated"' in payload
+    assert '"value": 4.2' in payload
     assert "javascript:alert(1)" not in payload
     assert '"value": null' in payload
 
@@ -368,6 +381,9 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert "El crecimiento de ingresos superará 8%." in payload
     assert "Ingresos crecerán 8% para FY2027." in payload
     assert "Expediente generado automáticamente; pendiente del Decision Board" in app
+    assert "label:'Estrategia'" in app
+    assert "Research no registró catalizadores estructurados." in app
+    assert "Research no registró riesgos estructurados." in app
 
 
 def test_public_site_explains_provider_update_date_basis(tmp_path: Path):

@@ -216,8 +216,8 @@ def _public_research_ratios(value: Any) -> list[dict[str, Any]]:
                 valid_value = math.isfinite(float(raw_value))
             except (OverflowError, ValueError):
                 valid_value = False
-        status = raw_status if raw_status in {"reported", "unavailable"} else "needs_review"
-        if status == "reported" and not valid_value:
+        status = raw_status if raw_status in {"reported", "calculated", "unavailable"} else "needs_review"
+        if status in {"reported", "calculated"} and not valid_value:
             status = "needs_review"
 
         sources: list[dict[str, str | None]] = []
@@ -228,7 +228,7 @@ def _public_research_ratios(value: Any) -> list[dict[str, Any]]:
                     continue
                 url = str(source.get("url") or "").strip()
                 parsed_url = urlsplit(url)
-                if parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc:
+                if parsed_url.scheme != "https" or not parsed_url.netloc:
                     continue
                 sources.append({
                     "name": str(source.get("name") or "Fuente")[:100],
@@ -239,7 +239,7 @@ def _public_research_ratios(value: Any) -> list[dict[str, Any]]:
         ratios.append({
             "metric": metric,
             "status": status,
-            "value": raw_value if valid_value and status == "reported" else None,
+            "value": raw_value if valid_value and status in {"reported", "calculated"} else None,
             "unit": str(item.get("unit") or "")[:40],
             "period_end": str(item.get("period_end") or item.get("as_of_date") or "")[:30] or None,
             "formula": str(item.get("formula") or "")[:300] or None,
@@ -1733,6 +1733,7 @@ function renderOpp(){
     rows,
     cols: [
       {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
+      {key:'strategy', label:'Estrategia', value:r=>r.strategy_id||'COMPOUNDER', cell:r=>`<td><b>${esc(r.strategy_id||'COMPOUNDER')}</b><div class="muted">${esc(r.entry_policy||'')}</div></td>`},
       {key:'conviction', label:'Conv.', value:r=>r.conviction_overall??null, cell:r=>`<td>${r.conviction_overall??'—'}</td>`},
       {key:'business', label:'Business', value:r=>r.scores?.BusinessAssessmentEngine??null, cell:r=>`<td>${r.scores?.BusinessAssessmentEngine??'—'}</td>`},
       {key:'valuation', label:'Valuation', value:r=>r.scores?.ValuationAssessmentEngine??null, cell:r=>`<td>${r.scores?.ValuationAssessmentEngine??'—'}</td>`},
@@ -1831,7 +1832,7 @@ function showCase(oppId){
   const d = o.ddd||{};
   const discovery = o.latest_discovery_evidence||{};
   let html = `<button class="tab" onclick="renderAll()">← Volver</button>`;
-  html += `<h1>${esc(o.ticker)} <span class="tick">${esc(o.opp_id)}</span> ${badge(o.status)}</h1>`;
+  html += `<h1>${esc(o.ticker)} <span class="tick">${esc(o.opp_id)}</span> <span class="badge" title="Estrategia que originó la oportunidad">${esc(o.strategy_id||'COMPOUNDER')}</span> ${badge(o.status)}</h1>`;
   if(['PENDING_DATA','REJECTED'].includes(String(discovery.eligibility_status||'').toUpperCase())){
     html += `<div class="card" style="border-color:#5a2424"><b class="neg">Último Scout: ${esc(discovery.eligibility_status)}</b><p>${esc(discovery.reason||'Revisar la evidencia de Discovery antes de usar esta oportunidad.')}</p><p class="muted">Datos faltantes: ${esc((discovery.missing_metrics||[]).join(', ')||'ninguno')} · Conflictos: ${esc((discovery.conflicting_metrics||[]).join(', ')||'ninguno')}</p></div>`;
   }
@@ -1869,7 +1870,7 @@ function showCase(oppId){
   if(ratios.length){
     const ratioDetails=r=>{
       const value=r.value==null?'—':`${fmt(r.value,2)}${r.unit==='percent'?'%':r.unit==='x'?'x':r.unit?` ${esc(r.unit)}`:''}`;
-      const status=r.status==='reported'?'Informado':r.status==='unavailable'?'Sin dato':'Revisar';
+      const status=r.status==='reported'?'Informado':r.status==='calculated'?'Calculado':r.status==='unavailable'?'Sin dato':'Revisar';
       const sources=(r.sources||[]).map(s=>`<a href="${escAttr(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)}</a>${s.as_of_date?` · ${dt(s.as_of_date)}`:''}`).join('<br>')||'Sin fuente registrada';
       const note=r.status==='unavailable'?(r.limitations||'La fuente no entregó este dato.'):(r.formula?`Fórmula: ${esc(r.formula)}`:r.limitations||'');
       return {value,status,sources,note};
@@ -1921,7 +1922,7 @@ function showCase(oppId){
     html += `<h3>Catalizadores</h3><table><thead><tr><th>Catalizador</th><th>Horizonte</th><th>Impacto</th><th>Prob.</th></tr></thead><tbody>`;
     d.catalizadores.forEach(c=>html+=`<tr><td>${esc(c.descripcion)}</td><td>${esc(c.horizonte)}</td><td>${esc(c.impacto)}</td><td>${c.probabilidad_pct!=null?pct(c.probabilidad_pct):'—'}</td></tr>`);
     html += '</tbody></table>';
-  }
+  } else if(dddProvisional) html += `<h3>Catalizadores</h3><div class="card"><b>Research no registró catalizadores estructurados.</b><p class="muted">Confirmar en Decision Board si no aplican o si la evidencia está incompleta.</p></div>`;
 
   // Error de mercado
   const em = d.error_mercado||{};
@@ -1977,6 +1978,7 @@ function showCase(oppId){
 
   // Riesgos + evidencia
   if(d.riesgos?.length){ html += `<h2>Riesgos (DDD)</h2><ul>`; d.riesgos.forEach(r=>{const details=[r.probabilidad,r.impacto].filter(Boolean).map(esc).join(' · ');const description=r.descripcion&&r.descripcion!==r.riesgo?` <span class="muted">${esc(r.descripcion)}</span>`:'';html+=`<li><b>${esc(r.riesgo||'Riesgo')}</b>${description}${details?` <span class="muted">(${details})</span>`:''}</li>`;}); html += '</ul>'; }
+  else if(dddProvisional) html += `<h2>Riesgos (DDD)</h2><div class="card"><b>Research no registró riesgos estructurados.</b><p class="muted">La ausencia de riesgos listados no significa riesgo cero; verificar cobertura y evidencia en Decision Board.</p></div>`;
   if(d.evidencia?.hechos_verificados?.length){ html += `<h3>Hechos verificados</h3><ul>`; d.evidencia.hechos_verificados.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
   if(d.evidencia?.inferencias_llm?.length){ html += `<h3>Inferencias LLM</h3><ul>`; d.evidencia.inferencias_llm.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
   if(d.evidencia?.preguntas_abiertas?.length){ html += `<h3>Preguntas abiertas</h3><ul>`; d.evidencia.preguntas_abiertas.forEach(x=>html+=`<li>${esc(x)}</li>`); html += '</ul>'; }
