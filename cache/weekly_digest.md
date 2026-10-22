@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-10-22 14:21 AR _
+_Generado: 2026-10-22 14:51 AR _
 
 ## Resumen
 
@@ -12,7 +12,7 @@ _Generado: 2026-10-22 14:21 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **ASML** (OPP-MB-ASML): score=70, class=?
+- ✅ **ASML** (OPP-MB-ASML): score=68, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
@@ -21,7 +21,7 @@ _Generado: 2026-10-22 14:21 AR _
   - Conviction: 69/100 | Rec: BLOCKED
   - Scores: Business: 76 | Valuation: 70 | Recovery: 58 | Risk: 80 | Portfolio: 50
   - Rules BLOCKED:
-    - 🚫 RULE-008: B/R 1.8:1 ❌ (Bull +82.7% / Bear -45.0%)
+    - 🚫 RULE-008: B/R 1.8:1 ❌ (Bull +82.8% / Bear -45.0%)
 
 ---
 

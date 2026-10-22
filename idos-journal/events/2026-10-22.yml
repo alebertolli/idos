@@ -34,3 +34,41 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-10-22T17:21:01.107550'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ASML
+    ticker: ASML
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-10-22T17:50:42.934132'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ASML
+    ticker: ASML
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-10-22T17:50:42.939474'
+- data:
+    classification: Neutral
+    ddd_empty: false
+    event_evidence: null
+    event_type: manual
+    hypotheses: 4
+    input_snapshot_sha256: b77ae8cc5a17347546c871bc57ef7cbabce85fd8b80fe19ed9e1a2a6a5bdaee3
+    opp_id: OPP-MB-ASML
+    original_status: UNDER_RESEARCH
+    score: 68
+    strategy_version: '1.5'
+    ticker: ASML
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-22T17:51:46.815874'

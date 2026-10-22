@@ -1,59 +1,60 @@
 hypotheses:
 - confidence: 0.0
   falsification:
-  - condition: Entregas totales de EUV en Q2 2027 ≤ 27 unidades.
+  - condition: Entregas totales de EUV menores a 110 unidades para la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Reducción del backlog de pedidos de EUV en más del 10% respecto al
-      Q2 2026.
+  - condition: Anuncio oficial de ASML indicando una reducción de la producción de
+      EUV por problemas de suministro.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Entregas totales de EUV en Q2 2027 ≤ 27 unidades.
-  - Reducción del backlog de pedidos de EUV en más del 10% respecto al Q2 2026.
+  - Entregas totales de EUV menores a 110 unidades para la fecha objetivo.
+  - Anuncio oficial de ASML indicando una reducción de la producción de EUV por problemas
+    de suministro.
   horizon: corto
   id: H1-OPP-MB-ASML
   opportunity_id: OPP-MB-ASML
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-07-31'
-    expected: 30.0
+    deadline: '2027-12-31'
+    expected: 120.0
     met: null
-    metric: unidades entregadas EUV Q2
-    prediction: El número de sistemas EUV entregados en el Q2 2027 será de 30 unidades
-      o más, frente a 26 unidades entregadas en el Q2 2026.
+    metric: unidades enviadas EUV
+    prediction: El número total de sistemas EUV entregados a clientes será de 120
+      unidades antes del 31 de diciembre de 2027.
     unit: unidades
   priority: critical
   probability: 0.5
-  rationale: La demanda de nodos de 3nm y 2nm está creciendo rápidamente, los principales
-    clientes (TSMC, Samsung) han anunciado planes de expansión y ASML ha ampliado
-    su capacidad de producción con la línea High NA prevista para 2027, lo que debería
-    traducirse en más unidades entregadas.
-  review_trigger: Si al 30 de junio de 2027 el número de unidades entregadas es ≤
-    27, la hipótesis se considerará refutada.
+  rationale: La adopción acelerada de nodos de proceso de 3 nm y 2 nm por parte de
+    los principales fabricantes de semiconductores (TSMC, Samsung, Intel) requiere
+    mayor capacidad EUV. Además, la reciente ampliación de la capacidad de producción
+    de ASML y la ausencia de competidores capaces de ofrecer EUV a escala garantizan
+    la disponibilidad de unidades.
+  review_trigger: Si ASML publica un informe de entregas trimestrales antes del 30
+    de junio de 2027 con un total acumulado inferior a 80 unidades.
   secondary_hypotheses: []
-  statement: ASML incrementará su volumen de entregas de sistemas EUV en al menos
-    un 15% interanual en el segundo trimestre de 2027.
+  statement: ASML incrementará sus envíos de sistemas de litografía EUV a 120 unidades
+    en el año calendario 2027.
   status: ACTIVE
   ticker: ASML
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: EBIT margin FY2027 < 50%.
+  - condition: EPS GAAP reportado inferior a 11,5 €.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Incremento de costos de materiales superior al 8% YoY sin compensación
-      de precios.
+  - condition: Crecimiento interanual del EPS menor al 10 %.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - EBIT margin FY2027 < 50%.
-  - Incremento de costos de materiales superior al 8% YoY sin compensación de precios.
+  - EPS GAAP reportado inferior a 11,5 €.
+  - Crecimiento interanual del EPS menor al 10 %.
   horizon: medio
   id: H2-OPP-MB-ASML
   opportunity_id: OPP-MB-ASML
@@ -61,40 +62,40 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2027-12-31'
-    expected: 52.0
+    expected: 12.5
     met: null
-    metric: EBIT margin FY2027
-    prediction: EBIT margin FY2027 ≥ 52%.
-    unit: '%'
+    metric: EPS GAAP
+    prediction: El EPS GAAP reportado en el informe anual de 2027 será ≥ 12,5 €.
+    unit: €
   priority: important
   probability: 0.5
-  rationale: Los márgenes históricos de ASML en litografía EUV han rondado el 55%,
-    y la mayor participación de EUV en los ingresos totales (≈80%) reduce la exposición
-    a productos de menor margen. Además, la mejora de la eficiencia operativa y la
-    reducción de costos de materiales esperada con la nueva generación High NA impulsarán
-    el EBIT.
-  review_trigger: Si al cierre del FY2027 (31 de diciembre de 2027) el margen EBIT
-    reportado es inferior al 50%, la hipótesis se descartará.
+  rationale: El aumento proyectado de envíos EUV (ver H1) y la mejora de los márgenes
+    operativos gracias a la mayor adopción de la tecnología high‑NA impulsarán los
+    ingresos y la rentabilidad. Además, la gestión de costos de materiales y la amortización
+    de inversiones en I+D se mantendrán bajo control.
+  review_trigger: Si el informe preliminar de resultados del Q3 2027 (publicado antes
+    del 30 de septiembre de 2027) muestra un EPS acumulado del año inferior a 10 €.
   secondary_hypotheses:
   - H1-OPP-MB-ASML
-  statement: El margen EBIT (excluyendo amortización) de ASML superará el 52% en el
-    ejercicio fiscal 2027.
+  statement: El beneficio por acción (EPS) GAAP de ASML para el ejercicio fiscal 2027
+    superará el 15 % de crecimiento interanual, alcanzando al menos €12,5 por acción.
   status: ACTIVE
   ticker: ASML
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Precio de cierre máximo antes del 30‑06‑2028 < 2.000 EUR.
+  - condition: Capitalización de mercado inferior a €350 bn en la fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Múltiplo EV/EBITDA se mantiene por debajo de 14x durante todo el periodo.
+  - condition: P/E sostenido por debajo de 25 durante los tres meses previos a la
+      fecha objetivo.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Precio de cierre máximo antes del 30‑06‑2028 < 2.000 EUR.
-  - Múltiplo EV/EBITDA se mantiene por debajo de 14x durante todo el periodo.
+  - Capitalización de mercado inferior a €350 bn en la fecha objetivo.
+  - P/E sostenido por debajo de 25 durante los tres meses previos a la fecha objetivo.
   horizon: largo
   id: H3-OPP-MB-ASML
   opportunity_id: OPP-MB-ASML
@@ -102,65 +103,69 @@ hypotheses:
   predictions:
   - actual: null
     deadline: '2028-06-30'
-    expected: 2200.0
+    expected: 400000000000.0
     met: null
-    metric: precio de la acción
-    prediction: Precio de cierre de la acción ≥ 2.200 EUR en cualquier día antes del
-      2028-06-30.
-    unit: EUR
+    metric: capitalización bursátil
+    prediction: El valor de mercado registrado en la bolsa de valores será ≥ €400 bn
+      al 30‑06‑2028.
+    unit: €
   priority: important
   probability: 0.5
-  rationale: El mercado está subvalorando la capacidad de ASML para capturar la demanda
-    de EUV, como indica el múltiplo EV/EBITDA actual (~15x) por debajo del promedio
-    del sector (≈20x). Un crecimiento sostenido de ingresos del 12.7% anual y márgenes
-    superiores al 50% deberían impulsar una revaloración, especialmente si se confirma
-    la entrega de la plataforma High NA en 2027.
-  review_trigger: Si al 30 de junio de 2028 el precio máximo alcanzado es inferior
-    a 2.000 EUR, la hipótesis se considerará falsificada.
+  rationale: El crecimiento sostenido de ingresos y EPS (ver H2) junto con la expectativa
+    de liderazgo continuo en litografía EUV y la escasez de sustitutos impulsarán
+    la valoración de mercado. Los múltiplos de precio‑beneficio (P/E) se mantendrán
+    alrededor de 30‑35, reflejando la prima de crecimiento.
+  review_trigger: Si el precio de la acción cae por debajo de €600 y la capitalización
+    de mercado se sitúa bajo €350 bn antes del 31 de diciembre de 2027.
   secondary_hypotheses:
   - H1-OPP-MB-ASML
   - H2-OPP-MB-ASML
-  statement: El precio de la acción de ASML superará los 2.200 EUR antes del 30 de
-    junio de 2028.
+  statement: La capitalización bursátil de ASML superará los €400 000 000 000 antes
+    del 30 de junio de 2028.
   status: ACTIVE
   ticker: ASML
   version: 1
 - confidence: 0.0
   falsification:
-  - condition: Aumento del número de acciones > 2.5% al cierre de FY2027.
+  - condition: Anuncio oficial de disponibilidad comercial del high‑NA EUV antes del
+      30‑06‑2028.
     metric: ''
     threshold: 0.0
     triggered: false
-  - condition: Emisión de nuevas acciones ordinarias superior a 5 bn EUR.
+  - condition: Crecimiento de ingresos 2028 ≥ 12 % YoY.
     metric: ''
     threshold: 0.0
     triggered: false
   falsification_conditions:
-  - Aumento del número de acciones > 2.5% al cierre de FY2027.
-  - Emisión de nuevas acciones ordinarias superior a 5 bn EUR.
-  horizon: medio
+  - Anuncio oficial de disponibilidad comercial del high‑NA EUV antes del 30‑06‑2028.
+  - Crecimiento de ingresos 2028 ≥ 12 % YoY.
+  horizon: largo
   id: H4-OPP-MB-ASML
   opportunity_id: OPP-MB-ASML
   parent_id: ''
   predictions:
   - actual: null
-    deadline: '2027-12-31'
-    expected: 1.5
+    deadline: '2028-06-30'
+    expected: 8.0
     met: null
-    metric: variación % acciones en circulación FY2027
-    prediction: Incremento del número de acciones en circulación ≤ 1.5% al 31‑12‑2027.
+    metric: crecimiento ingresos 2028 YoY
+    prediction: ASML no anunciará la disponibilidad comercial del high‑NA EUV antes
+      del 30‑06‑2028 y los ingresos de 2028 crecerán a una tasa anual compuesta (CAGR)
+      ≤ 8 % en lugar del 12 % esperado.
     unit: '%'
   priority: informational
   probability: 0.5
-  rationale: ASML ha anunciado un programa de recompra de acciones de 10 bn EUR y
-    no ha comunicado nuevas emisiones significativas de capital. La falta de necesidad
-    de financiamiento externo, dada su posición de caja y cobertura de deuda negativa,
-    sugiere que la dilución será mínima.
-  review_trigger: Si al 31 de diciembre de 2027 el número de acciones en circulación
-    ha crecido más del 2.5% respecto a 2026‑10‑22, la hipótesis será rechazada.
-  secondary_hypotheses: []
-  statement: El número de acciones en circulación de ASML aumentará menos del 1.5%
-    al cierre del ejercicio fiscal 2027.
+  rationale: Problemas técnicos persistentes en la óptica de alta NA y la necesidad
+    de certificación de los clientes clave han generado retrasos en la hoja de ruta.
+    La complejidad del ensamblaje y la escasez de materiales críticos (por ejemplo,
+    lentes de calcio fluoruro) aumentan la probabilidad de postergación.
+  review_trigger: Si ASML publica un comunicado de lanzamiento del high‑NA EUV antes
+    del 01‑04‑2028.
+  secondary_hypotheses:
+  - H1-OPP-MB-ASML
+  statement: El lanzamiento comercial del sistema EUV de alta NA (high‑NA) se retrasará
+    más allá del segundo trimestre de 2028, afectando negativamente el crecimiento
+    de ingresos de 2028.
   status: ACTIVE
   ticker: ASML
   version: 1
