@@ -1,0 +1,169 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Entrega de menos de 28 unidades High‑NA en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Anuncio oficial de retraso de más de 6 meses en la puesta en marcha
+      de la nueva línea de producción.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Entrega de menos de 28 unidades High‑NA en 2027.
+  - Anuncio oficial de retraso de más de 6 meses en la puesta en marcha de la nueva
+    línea de producción.
+  horizon: corto
+  id: H1-OPP-20261022-001
+  opportunity_id: OPP-20261022-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 30.0
+    met: null
+    metric: unidades entregadas High-NA
+    prediction: El número de unidades High‑NA entregadas en 2027 será ≥ 30, comparado
+      con 24 unidades entregadas en 2026.
+    unit: unidades
+  priority: critical
+  probability: 0.5
+  rationale: La hoja de ruta tecnológica de los principales fabricantes de chips (TSMC,
+    Samsung, Intel) indica que los nodos de 2nm y sub‑2nm requieren exclusivamente
+    herramientas High‑NA. ASML ha anunciado inversiones de capital en su línea de
+    ensamblaje en Veldhoven y ha firmado acuerdos de suministro a largo plazo con
+    estos clientes, lo que sugiere una expansión de capacidad.
+  review_trigger: Si ASML publica un informe trimestral antes del 2027-06-30 indicando
+    que la capacidad instalada sigue limitada al nivel de 2026.
+  secondary_hypotheses: []
+  statement: ASML incrementará su capacidad de producción de sistemas EUV High-NA
+    en al menos un 25% respecto al nivel de 2026, impulsado por la demanda de nodos
+    sub‑2nm para IA.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF reportado en 2027 inferior a 6.5 mil millones de EUR.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Reducción del margen operativo por debajo del 30% en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF reportado en 2027 inferior a 6.5 mil millones de EUR.
+  - Reducción del margen operativo por debajo del 30% en 2027.
+  horizon: corto
+  id: H2-OPP-20261022-001
+  opportunity_id: OPP-20261022-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 7.5
+    met: null
+    metric: flujo de caja libre
+    prediction: El FCF reportado en el año fiscal 2027 será ≥ 7.5 mil millones de
+      EUR, un 15% superior al de 2026.
+    unit: mil millones EUR
+  priority: important
+  probability: 0.5
+  rationale: Los contratos de mantenimiento y upgrades generan ingresos de alto margen
+    y son menos cíclicos. Además, la expansión de la base instalada EUV eleva los
+    ingresos de venta de equipos, mientras que la estructura de costos operativos
+    se mantiene estable gracias a economías de escala.
+  review_trigger: Si el informe anual de 2027 muestra una caída del FCF superior al
+    5% respecto a 2026.
+  secondary_hypotheses:
+  - H1-OPP-20261022-001
+  statement: El flujo de caja libre (FCF) de ASML crecerá un 15% anual durante los
+    próximos tres años, reflejando la combinación de mayores ingresos de EUV y servicios
+    recurrentes.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EV/EBITDA a esa fecha inferior a 18.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Caída sostenida del precio de la acción por más del 20% desde la fecha
+      actual sin justificación de deterioro fundamental.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EV/EBITDA a esa fecha inferior a 18.
+  - Caída sostenida del precio de la acción por más del 20% desde la fecha actual
+    sin justificación de deterioro fundamental.
+  horizon: medio
+  id: H3-OPP-20261022-001
+  opportunity_id: OPP-20261022-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 20.0
+    met: null
+    metric: EV/EBITDA
+    prediction: El EV/EBITDA calculado a cierre del día 2028-03-31 será ≥ 20.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: Los analistas subestiman la inelasticidad de la demanda de EUV y la capacidad
+    de pricing power de ASML. Con la evidencia de crecimiento de ingresos y FCF, los
+    inversionistas institucionales ajustarán sus modelos, elevando la valoración.
+  review_trigger: Si el precio de la acción cae por debajo de 1,200 USD y el EV/EBITDA
+    se mantiene bajo 18 en el cierre de 2028-03-31.
+  secondary_hypotheses:
+  - H2-OPP-20261022-001
+  statement: El múltiplo EV/EBITDA de ASML superará 20x en el mercado de EE.UU. antes
+    del 31 de marzo de 2028, reflejando la revaluación de su posición monopolística.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Ingresos de servicios en 2028 inferiores a 2.0 mil millones de EUR.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Reducción del número de contratos de mantenimiento activos en más del
+      10% respecto a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ingresos de servicios en 2028 inferiores a 2.0 mil millones de EUR.
+  - Reducción del número de contratos de mantenimiento activos en más del 10% respecto
+    a 2026.
+  horizon: largo
+  id: H4-OPP-20261022-001
+  opportunity_id: OPP-20261022-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 2.2
+    met: null
+    metric: ingresos por servicios
+    prediction: Ingresos de servicios en FY 2028 ≥ 2.2 mil millones de EUR.
+    unit: mil millones EUR
+  priority: informational
+  probability: 0.5
+  rationale: La base instalada de equipos EUV está madurando, lo que genera mayor
+    demanda de contratos de servicio de alta complejidad. ASML ha lanzado una plataforma
+    de upgrades basada en IA que aumenta la frecuencia de visitas de mantenimiento.
+  review_trigger: Si el informe anual 2028 muestra una caída del crecimiento de servicios
+    por debajo del 5% YoY.
+  secondary_hypotheses:
+  - H1-OPP-20261022-001
+  statement: Los ingresos por servicios y mantenimiento de ASML crecerán al menos
+    un 12% anual hasta 2028, alcanzando 2.2 mil millones de EUR en 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1

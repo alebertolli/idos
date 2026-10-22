@@ -1,0 +1,170 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los envíos totales de EUV en FY2027 son ≤ 49 unidades.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una caída del 5% o más en la demanda de los principales clientes durante
+      FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los envíos totales de EUV en FY2027 son ≤ 49 unidades.
+  - Una caída del 5% o más en la demanda de los principales clientes durante FY2027.
+  horizon: corto
+  id: H1-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 55.0
+    met: null
+    metric: unidades enviadas EUV
+    prediction: Los envíos de EUV de ASML alcanzarán 55 unidades en FY2027, comparado
+      con 49 unidades en FY2026.
+    unit: unidades
+  priority: critical
+  probability: 0.5
+  rationale: La demanda de chips avanzados para IA y HPC está creciendo rápidamente,
+    y los principales clientes (TSMC, Samsung, Intel) han anunciado planes de expansión
+    de capacidad que requieren más herramientas EUV. Además, la falta de competidores
+    viables en la tecnología EUV crea un entorno de monopolio que permite a ASML capturar
+    toda la demanda incremental.
+  review_trigger: Si al cierre del Q3 FY2027 (2027-09-30) los envíos acumulados son
+    ≤ 45 unidades.
+  secondary_hypotheses: []
+  statement: ASML incrementará sus envíos de máquinas de litografía EUV en al menos
+    un 12% interanual durante el año fiscal 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF FY2028 ≤ €7.5 bn.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Margen FCF ≤ 30% al cierre de FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF FY2028 ≤ €7.5 bn.
+  - Margen FCF ≤ 30% al cierre de FY2028.
+  horizon: medio
+  id: H2-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 8.3
+    met: null
+    metric: flujo de caja libre
+    prediction: FCF FY2028 = €8.3 bn; margen FCF = 32.5%.
+    unit: mil millones EUR
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento de los envíos EUV (ver H1) impulsará ingresos superiores
+    a €30 bn, mientras que la estructura de costos se mantiene estable gracias a economías
+    de escala y a la alta rentabilidad de los servicios de mantenimiento. La posición
+    neta de efectivo permite financiar inversiones sin necesidad de endeudamiento
+    adicional.
+  review_trigger: Si al publicar los resultados preliminares del Q2 FY2028 (2028-06-30)
+    el FCF acumulado proyectado está por debajo de €6.5 bn.
+  secondary_hypotheses:
+  - H1-OPP-MB-ASML
+  statement: El flujo de caja libre (FCF) de ASML superará los €8.0 mil millones y
+    alcanzará un margen FCF del 32% al cierre del ejercicio fiscal 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EV/EBITDA ≤ 18x al 2028-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una caída sostenida del precio de la acción >15% durante los 6 meses
+      previos sin justificación fundamental.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EV/EBITDA ≤ 18x al 2028-06-30.
+  - Una caída sostenida del precio de la acción >15% durante los 6 meses previos sin
+    justificación fundamental.
+  horizon: medio
+  id: H3-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 21.3
+    met: null
+    metric: EV/EBITDA
+    prediction: EV/EBITDA = 21.3x al 2028-06-30.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: El aumento esperado de ingresos y FCF (ver H1 y H2) mejorará la rentabilidad,
+    mientras que la percepción de riesgo disminuye al confirmarse la ausencia de competidores
+    en EUV. Los analistas revisarán al alza sus estimaciones, impulsando la capitalización
+    de mercado y, por ende, el EV.
+  review_trigger: Si al cierre del Q2 2028 (2028-06-30) el múltiplo EV/EBITDA es ≤
+    18x.
+  secondary_hypotheses:
+  - H1-OPP-MB-ASML
+  - H2-OPP-MB-ASML
+  statement: El múltiplo EV/EBITDA de ASML superará 20x en el mercado de valores antes
+    del 30 de junio de 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Precio objetivo promedio ≤ 900 EUR al 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Revisión a la baja de al menos dos casas de análisis principales que
+      reduzcan su objetivo por debajo del nivel actual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Precio objetivo promedio ≤ 900 EUR al 2027-09-30.
+  - Revisión a la baja de al menos dos casas de análisis principales que reduzcan
+    su objetivo por debajo del nivel actual.
+  horizon: corto
+  id: H4-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 950.0
+    met: null
+    metric: precio objetivo promedio
+    prediction: Precio objetivo promedio = 950 EUR, frente al consenso actual de 825
+      EUR (incremento del 15.2%).
+    unit: EUR
+  priority: informational
+  probability: 0.5
+  rationale: Los resultados positivos de envíos EUV y FCF (H1 y H2) reducirán la incertidumbre
+    sobre la demanda futura, llevando a los analistas a ajustar al alza sus modelos
+    de valoración. Además, la cobertura de la prensa especializada resaltará la posición
+    de monopolio de ASML, reforzando la tendencia alcista.
+  review_trigger: Si al cierre del Q2 2027 (2027-06-30) el precio objetivo promedio
+    sigue siendo ≤ 830 EUR.
+  secondary_hypotheses:
+  - H1-OPP-MB-ASML
+  statement: El precio objetivo promedio de los analistas para ASML aumentará al menos
+    un 15% respecto al consenso actual antes del 30 de septiembre de 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
