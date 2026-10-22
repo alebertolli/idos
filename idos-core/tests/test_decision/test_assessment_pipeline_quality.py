@@ -4,6 +4,7 @@ from idos.decision.assessment_pipeline import (
     _remove_buylist_entry,
     _authorization_rule_ids,
     _calculate_report_asymmetry,
+    _compute_asymmetry,
     _eval_asymmetry,
     _eval_financial_data_quality,
     _financial_data_quality,

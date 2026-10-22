@@ -338,7 +338,10 @@ def build_context(
 
     # Catalyst-derived estimates may coexist and remain visible for context,
     # but only an automatically validated, version-matched scenario set can pass.
-    asymmetry = _calculate_report_asymmetry(report, current_price, quote_currency)
+    asymmetry = _calculate_report_asymmetry(
+        report, raw_catalysts, current_price, target_low, target_mean, target_high,
+        quote_currency,
+    )
 
     return {
         "knowledge_base": {"dynamic": {"metrics": metrics}, "static": static},
