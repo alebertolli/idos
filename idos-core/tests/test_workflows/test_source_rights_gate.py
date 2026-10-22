@@ -4,6 +4,10 @@ import yaml
 
 
 RIGHTS_GATE = "vars.IDOS_DATA_RIGHTS_CONFIRMED == 'true'"
+PAGES_SUCCESS_GATE = (
+    "github.event_name != 'workflow_run' || "
+    "github.event.workflow_run.conclusion == 'success'"
+)
 WORKFLOW_JOBS = {
     ".github/workflows/monthly-universe-pipeline.yml": "pipeline",
     ".github/workflows/daily-refresh.yml": "refresh",
@@ -21,7 +25,12 @@ def test_data_and_publication_jobs_require_explicit_source_rights_confirmation()
             Loader=yaml.BaseLoader,
         )
 
-        assert workflow["jobs"][job_name]["if"] == RIGHTS_GATE
+        job_condition = workflow["jobs"][job_name]["if"]
+        assert RIGHTS_GATE in job_condition
+        if relative_path == ".github/workflows/gh-pages.yml":
+            assert PAGES_SUCCESS_GATE in job_condition
+        else:
+            assert job_condition == RIGHTS_GATE
 
 
 def test_source_rights_guard_does_not_disable_workflow_definitions():
