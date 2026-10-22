@@ -1638,9 +1638,12 @@ def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects
     from idos.workers.ai.research_worker import ResearchWorker
 
     unavailable = [{"metric": "fcf_growth_pct", "status": "unavailable", "value": None,
+                    "unit": "percent",
                     "limitations": "No hay FCF comparable para dos períodos."}]
     assert ResearchWorker._validate_multibaggers_ratio_review(
-        unavailable, ["fcf_growth_pct"]
+        unavailable,
+        ["fcf_growth_pct"],
+        expected_units={"fcf_growth_pct": "percent"},
     ) == []
 
     uncited = [{"metric": "fcf_growth_pct", "status": "calculated", "value": 12.0,
