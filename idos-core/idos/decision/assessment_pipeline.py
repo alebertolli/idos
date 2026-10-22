@@ -534,12 +534,12 @@ def _compute_asymmetry(
 
 def _calculate_report_asymmetry(
     report: Any,
-    raw_catalysts: list,
-    current_price: Any,
-    target_low: Any,
-    target_mean: Any,
-    target_high: Any,
-    quote_currency: str | None,
+    raw_catalysts: list | None = None,
+    current_price: Any = None,
+    target_low: Any = None,
+    target_mean: Any = None,
+    target_high: Any = None,
+    quote_currency: str | None = None,
 ) -> dict[str, Any]:
     """Use only an automatically validated scenario contract for RULE-008."""
     report = report if isinstance(report, dict) else {}
