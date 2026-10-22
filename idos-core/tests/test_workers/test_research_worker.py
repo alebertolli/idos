@@ -1430,9 +1430,9 @@ def test_multibaggers_research_prompt_evidence_and_combined_context_are_bounded(
             ]},
         }},
         "research_financial_evidence": compact_evidence,
-    }, max_chars=30000)
+    }, max_chars=40000)
 
-    assert len(json.dumps(combined, ensure_ascii=False, sort_keys=True)) <= 30000
+    assert len(json.dumps(combined, ensure_ascii=False, sort_keys=True)) <= 40000
     assert set(compact_evidence["source_observations"]) == set(evidence["source_observations"])
     assert len(compact_evidence["source_observations"]["revenue_history_0"]["value"]) == 5
     assert compact_evidence["source_observations"]["revenue_history_0"]["source_url"].endswith("/financials/")

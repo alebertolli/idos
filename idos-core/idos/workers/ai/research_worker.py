@@ -308,7 +308,7 @@ class ResearchWorker(BaseWorker):
                 "research_financial_evidence": self._multibaggers_research_prompt_evidence(
                     research_financial_evidence
                 ),
-            }, max_chars=30000)
+            }, max_chars=40000)
             prompt_context_bytes = len(json.dumps(
                 prompt_context, ensure_ascii=False, sort_keys=True, default=str
             ).encode("utf-8"))
