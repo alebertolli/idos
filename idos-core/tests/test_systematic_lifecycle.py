@@ -29,7 +29,7 @@ class MarketGate:
     def execute(self, context):
         from types import SimpleNamespace
         return SimpleNamespace(output={"data": {
-            ticker: {"asset_type": "etf", "avg_dollar_volume_usd": 200_000,
+            ticker: {"asset_type": "etf", "quote_currency": "USD", "avg_dollar_volume_usd": 200_000,
                      "liquidity_provenance": {"price_source": "fixture"},
                      "market_quote": {
                          "price": 100.0, "currency": "USD", "as_of_date": datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date().isoformat(),

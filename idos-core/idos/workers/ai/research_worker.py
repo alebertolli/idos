@@ -1389,9 +1389,9 @@ class ResearchWorker(BaseWorker):
             return context
 
         for limits in (
-            {"depth": 4, "items": 5, "keys": 64, "chars": 500},
-            {"depth": 4, "items": 3, "keys": 64, "chars": 300},
-            {"depth": 3, "items": 2, "keys": 64, "chars": 180},
+            {"depth": 5, "items": 5, "keys": 64, "chars": 500},
+            {"depth": 5, "items": 3, "keys": 64, "chars": 300},
+            {"depth": 5, "items": 2, "keys": 64, "chars": 180},
         ):
             context = build(**limits)
             if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= 16000:
