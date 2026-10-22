@@ -1,0 +1,166 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Entregas totales de EUV en Q2 2027 ≤ 27 unidades.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Reducción del backlog de pedidos de EUV en más del 10% respecto al
+      Q2 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Entregas totales de EUV en Q2 2027 ≤ 27 unidades.
+  - Reducción del backlog de pedidos de EUV en más del 10% respecto al Q2 2026.
+  horizon: corto
+  id: H1-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-07-31'
+    expected: 30.0
+    met: null
+    metric: unidades entregadas EUV Q2
+    prediction: El número de sistemas EUV entregados en el Q2 2027 será de 30 unidades
+      o más, frente a 26 unidades entregadas en el Q2 2026.
+    unit: unidades
+  priority: critical
+  probability: 0.5
+  rationale: La demanda de nodos de 3nm y 2nm está creciendo rápidamente, los principales
+    clientes (TSMC, Samsung) han anunciado planes de expansión y ASML ha ampliado
+    su capacidad de producción con la línea High NA prevista para 2027, lo que debería
+    traducirse en más unidades entregadas.
+  review_trigger: Si al 30 de junio de 2027 el número de unidades entregadas es ≤
+    27, la hipótesis se considerará refutada.
+  secondary_hypotheses: []
+  statement: ASML incrementará su volumen de entregas de sistemas EUV en al menos
+    un 15% interanual en el segundo trimestre de 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EBIT margin FY2027 < 50%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Incremento de costos de materiales superior al 8% YoY sin compensación
+      de precios.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EBIT margin FY2027 < 50%.
+  - Incremento de costos de materiales superior al 8% YoY sin compensación de precios.
+  horizon: medio
+  id: H2-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 52.0
+    met: null
+    metric: EBIT margin FY2027
+    prediction: EBIT margin FY2027 ≥ 52%.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Los márgenes históricos de ASML en litografía EUV han rondado el 55%,
+    y la mayor participación de EUV en los ingresos totales (≈80%) reduce la exposición
+    a productos de menor margen. Además, la mejora de la eficiencia operativa y la
+    reducción de costos de materiales esperada con la nueva generación High NA impulsarán
+    el EBIT.
+  review_trigger: Si al cierre del FY2027 (31 de diciembre de 2027) el margen EBIT
+    reportado es inferior al 50%, la hipótesis se descartará.
+  secondary_hypotheses:
+  - H1-OPP-MB-ASML
+  statement: El margen EBIT (excluyendo amortización) de ASML superará el 52% en el
+    ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Precio de cierre máximo antes del 30‑06‑2028 < 2.000 EUR.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Múltiplo EV/EBITDA se mantiene por debajo de 14x durante todo el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Precio de cierre máximo antes del 30‑06‑2028 < 2.000 EUR.
+  - Múltiplo EV/EBITDA se mantiene por debajo de 14x durante todo el periodo.
+  horizon: largo
+  id: H3-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 2200.0
+    met: null
+    metric: precio de la acción
+    prediction: Precio de cierre de la acción ≥ 2.200 EUR en cualquier día antes del
+      2028-06-30.
+    unit: EUR
+  priority: important
+  probability: 0.5
+  rationale: El mercado está subvalorando la capacidad de ASML para capturar la demanda
+    de EUV, como indica el múltiplo EV/EBITDA actual (~15x) por debajo del promedio
+    del sector (≈20x). Un crecimiento sostenido de ingresos del 12.7% anual y márgenes
+    superiores al 50% deberían impulsar una revaloración, especialmente si se confirma
+    la entrega de la plataforma High NA en 2027.
+  review_trigger: Si al 30 de junio de 2028 el precio máximo alcanzado es inferior
+    a 2.000 EUR, la hipótesis se considerará falsificada.
+  secondary_hypotheses:
+  - H1-OPP-MB-ASML
+  - H2-OPP-MB-ASML
+  statement: El precio de la acción de ASML superará los 2.200 EUR antes del 30 de
+    junio de 2028.
+  status: ACTIVE
+  ticker: ASML
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Aumento del número de acciones > 2.5% al cierre de FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Emisión de nuevas acciones ordinarias superior a 5 bn EUR.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Aumento del número de acciones > 2.5% al cierre de FY2027.
+  - Emisión de nuevas acciones ordinarias superior a 5 bn EUR.
+  horizon: medio
+  id: H4-OPP-MB-ASML
+  opportunity_id: OPP-MB-ASML
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 1.5
+    met: null
+    metric: variación % acciones en circulación FY2027
+    prediction: Incremento del número de acciones en circulación ≤ 1.5% al 31‑12‑2027.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: ASML ha anunciado un programa de recompra de acciones de 10 bn EUR y
+    no ha comunicado nuevas emisiones significativas de capital. La falta de necesidad
+    de financiamiento externo, dada su posición de caja y cobertura de deuda negativa,
+    sugiere que la dilución será mínima.
+  review_trigger: Si al 31 de diciembre de 2027 el número de acciones en circulación
+    ha crecido más del 2.5% respecto a 2026‑10‑22, la hipótesis será rechazada.
+  secondary_hypotheses: []
+  statement: El número de acciones en circulación de ASML aumentará menos del 1.5%
+    al cierre del ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: ASML
+  version: 1

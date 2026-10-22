@@ -1,0 +1,36 @@
+events:
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ASML
+    ticker: ASML
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-10-22T17:19:33.653252'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ASML
+    ticker: ASML
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-10-22T17:19:33.654943'
+- data:
+    classification: Cautela
+    event_evidence: null
+    event_type: manual
+    hypotheses: 4
+    input_snapshot_sha256: 3a9a05a14f82671bd57de7949a331c5a3b59980d0c22ca64b10a95fa2b97e149
+    opp_id: OPP-MB-ASML
+    score: 70
+    strategy_version: '1.5'
+    ticker: ASML
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-10-22T17:21:01.107550'

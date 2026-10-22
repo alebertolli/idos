@@ -1,0 +1,486 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - ASML mantiene una posición dominante en el mercado de litografía.
+  - La falta de datos sobre dilución genera incertidumbre.
+  preguntas_abiertas:
+  - ¿Cuál será el impacto de la competencia emergente en EUV?
+  - ¿Cómo afectará la regulación geopolítica a la cadena de suministro?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Cautela
+  justificacion: ASML muestra sólidos márgenes y crecimiento, pero enfrenta riesgos
+    cíclicos y falta de datos sobre dilución.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: ASML posee márgenes de 54% y un crecimiento de ingresos sostenido, con
+    una fuerte posición de mercado y tecnología de punta.
+  rating: Alta
+dominio_catalizadores:
+- descripcion: La creciente demanda de nodos avanzados impulsa la venta de sistemas
+    EUV.
+  nombre: Adopción de EUV 7nm+
+- descripcion: Nuevos contratos con fabricantes asiáticos aumentan ingresos.
+  nombre: Expansión de clientes en Asia
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: La demanda de chips es cíclica y puede afectar ingresos y márgenes.
+  nombre: Ciclo de demanda de semiconductores
+- descripcion: Competidores emergentes podrían reducir la cuota de mercado de ASML.
+  nombre: Competencia en EUV
+- descripcion: Restricciones de exportación pueden limitar la venta a ciertos mercados.
+  nombre: Regulación geopolítica
+error_mercado:
+  catalizador_cambio: Adopción acelerada de EUV y expansión de clientes en Asia.
+  conclusion_error_valoracion: El consenso de analistas puede estar sobrevalorando
+    el crecimiento futuro, ya que no refleja la volatilidad del mercado de semiconductores.
+  consenso_actual: 2150.48
+  hipotesis_contraria: El precio actual de 1587.57 sugiere que el mercado subestima
+    la capacidad de ASML para capitalizar la demanda de EUV.
+  razonamiento: El rango de precios de analistas (868.56–2886) indica incertidumbre;
+    la alta volatilidad histórica y la falta de datos de dilución aumentan el riesgo.
+generated_at: '2026-10-22T14:19:33.655901-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-ASML
+prompt_inputs:
+  business_model: ASML Holding N.V. provides lithography solutions for the development,
+    production, marketing, sales, upgrading, and servicing of advanced semiconductor
+    equipment systems. The company offers lithography, metrology, and inspection systems.
+    It also provides extreme ultraviolet lithography systems; and deep ultraviolet
+    lithography systems comprising immersion and dry lithography systems solutions
+    to manufacture various range of semiconductor nodes and technologies. In addition,
+    the company offers metrology and inspection systems, including YieldStar optical
+    metrology systems, a diffraction-based wafer metrology platform to assess the
+    quality of patterns on the wafers; and HMI electron beam solutions to locate and
+    analyze individual chip defects. Further, it provides computational lithography
+    solutions, and lithography systems and control software solutions; and refurbishes
+    and upgrades lithography systems, as well as offers customer support and related
+    services. Additionally, the company offers hardware, software, and services to
+    chipmakers to produce the patterns of integrated circuits. It operates in Japan,
+    South Korea, Singapore, Taiwan, China, rest of Asia, the Netherlands, rest of
+    Europe, the Middle East, Africa, and the United States. The company was formerly
+    known as ASM Lithography Holding N.V. and changed its name to ASML Holding N.V.
+    in 2001. ASML Holding N.V. was founded in 1984 and is headquartered in Veldhoven,
+    the Netherlands.
+  ceo_tenure: 0
+  debt_to_equity: 0.09
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: ASML Holding N.V.
+  operating_margin: 38.55
+  pe_ratio: 40.15
+  products: ''
+  revenue: 44980000000.0
+  revenue_growth: 22.54
+  roic: 92.13
+  sector: Technology
+  ticker: ASML
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-27'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/asml/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF_TTM growth relative to prior period
+  inputs:
+    fcf_growth_history_TTM: 136.1
+  limitations: ''
+  metric: fcf_growth_pct
+  period_end: '2026-09-27'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/asml/financials/
+  status: reported
+  unit: percent
+  value: 136.1
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-27'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/asml/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-27'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/asml/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: No datos de diluted_shares disponibles en el paquete.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-27'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-10-22'
+  business_model: ASML Holding N.V. provides lithography solutions for the development,
+    production, marketing, sales, upgrading, and servicing of advanced semiconductor
+    equipment systems. The company offers lithography, metrology, and inspection systems.
+    It also provides extreme ultraviolet lithography systems; and deep ultraviolet
+    lithography systems comprising immersion and dry lithography systems solutions
+    to manufacture various range of semiconductor nodes and technologies. In addition,
+    the company offers metrology and inspection systems, including YieldStar optical
+    metrology systems, a diffraction-based wafer metrology platform to assess the
+    quality of patterns on the wafers; and HMI electron beam solutions to locate and
+    analyze individual chip defects. Further, it provides computational lithography
+    solutions, and lithography systems and control software solutions; and refurbishes
+    and upgrades lithography systems, as well as offers customer support and related
+    services. Additionally, the company offers hardware, software, and services to
+    chipmakers to produce the patterns of integrated circuits. It operates in Japan,
+    South Korea, Singapore, Taiwan, China, rest of Asia, the Netherlands, rest of
+    Europe, the Middle East, Africa, and the United States. The company was formerly
+    known as ASM Lithography Holding N.V. and changed its name to ASML Holding N.V.
+    in 2001. ASML Holding N.V. was founded in 1984 and is headquartered in Veldhoven,
+    the Netherlands.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 1587.5699462890625
+  current_price_as_of_date: '2026-10-22'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.09
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-10-22T17:18:55.503028+00:00", "period_end": "2026-09-27",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: ASML Holding N.V.
+  operating_margin: 38.55
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: ASML Holding N.V. provides lithography solutions for the development,
+    production, marketing, sales, upgrading, and servicing of advanced semiconductor
+    equipment systems. The company offers lithography, metrology, and inspection systems.
+    It also provides extreme ultraviolet lithography systems; and deep ultraviolet
+    lithography systems comprising immersion and dry lithography systems solutions
+    to manufacture various range of semiconductor nodes and technologies. In addition,
+    the company offers met
+  revenue: 44980000000.0
+  revenue_growth: 22.54
+  roic: 92.13
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/asml/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/asml/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/asml/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/asml/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/asml/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/asml/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/asml/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/asml/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ASML/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/asml/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    2886.0, "low": 868.56, "mean": 2150.48, "median": 2150.48, "observed_at": "2026-10-22T14:18:59.366498-03:00",
+    "sources": [{"as_of_date": "2026-10-22", "name": "stockanalysis", "observed_at":
+    "2026-10-22T14:18:59.366498-03:00", "observed_date": "2026-10-22", "target_price":
+    2152.0, "url": "https://stockanalysis.com/stocks/asml/forecast/"}, {"as_of_date":
+    "2026-10-22", "name": "yfinance", "observed_at": "2026-10-22T14:18:59.366498-03:00",
+    "observed_date": "2026-10-22", "target_price": 2148.9583, "url": "https://finance.yahoo.com/quote/ASML/"}]},
+    "current_quote": {"as_of_date": "2026-10-22", "currency": "USD", "price": 1587.5699462890625,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ASML/"}]}}'
+  sector: Technology
+  ticker: ASML
+research_trigger:
+  discovery_snapshot_hash: ebf045cd6cc0c8999c40758f8ac5786f2474f99a2679b6963689d61c2fc6dc1f
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 3a9a05a14f82671bd57de7949a331c5a3b59980d0c22ca64b10a95fa2b97e149
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: manual
+  triggered_at: '2026-10-22T14:19:33.655901-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- description: El ratio de cobertura de intereses es 0, lo que indica falta de cobertura
+    de intereses.
+  metric: interest_coverage_ratio
+  status: below
+  threshold: 2.0
+  value: 0
+scenario_analysis:
+  as_of_date: '2026-10-22'
+  currency: USD
+  horizon_date: '2027-10-22'
+  scenarios:
+  - falsifiers:
+    - Aumento sostenido de la demanda de chips
+    - Innovaciones que mantengan la ventaja tecnológica de ASML
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos anual < 5%
+    - Márgenes de 48%
+    - Reducción de la adopción de EUV
+    rationale: Una desaceleración en la demanda de chips y una mayor competencia podrían
+      limitar el crecimiento de ingresos.
+    sources:
+    - as_of_date: '2026-10-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/asml/forecast/
+    - as_of_date: '2026-10-22'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ASML/
+    target_price: 868.56
+  - falsifiers:
+    - Caída drástica de la demanda de chips
+    - Regulaciones restrictivas que limiten la exportación de equipos
+    id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos anual > 15%
+    - Márgenes de 56%
+    - Aumento de la cuota de mercado en EUV
+    rationale: La adopción continua de EUV y la expansión de clientes en mercados
+      emergentes impulsan ingresos y márgenes.
+    sources:
+    - as_of_date: '2026-10-22'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/asml/forecast/
+    - as_of_date: '2026-10-22'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ASML/
+    target_price: 2886.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 70
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-10-22T14:18:59.366498-03:00'
+  fuentes:
+    stockanalysis: 2152.0
+    yfinance: 2148.9583
+  mediana: 2150.48
+  n_fuentes: 2
+  promedio: 2150.48
+  source_references:
+  - as_of_date: '2026-10-22'
+    name: stockanalysis
+    observed_at: '2026-10-22T14:18:59.366498-03:00'
+    observed_date: '2026-10-22'
+    target_price: 2152.0
+    url: https://stockanalysis.com/stocks/asml/forecast/
+  - as_of_date: '2026-10-22'
+    name: yfinance
+    observed_at: '2026-10-22T14:18:59.366498-03:00'
+    observed_date: '2026-10-22'
+    target_price: 2148.9583
+    url: https://finance.yahoo.com/quote/ASML/
+  target_high: 2886.0
+  target_low: 868.56
+tesis_inversion: ASML mantiene una posición dominante en litografía, con márgenes
+  superiores al 50% y crecimiento de ingresos del 12.7% anual, pero la falta de datos
+  sobre dilución y la cobertura de deuda negativa generan cautela.
+ticker: ASML
+version: '3.0'
