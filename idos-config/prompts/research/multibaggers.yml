@@ -35,6 +35,9 @@ user_prompt: >
   y máximo 2 frases breves por elemento; no repitas el mismo hecho entre secciones.
   Incluye los dos casos BEAR y BULL de una misma tesis, con BASE opcional, y una
   entrada por cada ratio configurado.
+  `ratios_investigados` es una lista de datos, no una lista narrativa: no le apliques
+  el límite de 4 elementos. Si no puedes validar un ratio, incluye su fila como
+  `unavailable`, con `value: null` y una limitación concreta; nunca omitas la fila.
   En cada ratio completa todos los campos obligatorios de forma concisa; no reproduzcas
   tablas ni el paquete fuente. Usa exactamente la unidad configurada para cada métrica
   en `research_requirements.ratio_units` (por ejemplo, `x` para ratios adimensionales
