@@ -223,6 +223,9 @@ class ResearchWorker(BaseWorker):
         initial_quote = initial_discovery.get("market_quote") if isinstance(initial_discovery, dict) else None
         quote_evidence = {"market_quote": latest_quote or initial_quote}
         price_context = self._current_price_context(financial_data, quote_evidence)
+        resolved_quote_currency = self._resolve_quote_currency(
+            financial_data, quote_evidence, signal_snapshot
+        )
 
         ddd_inputs = {
             "analysis_as_of_date": datetime.now(AR_TZ).date().isoformat(),
@@ -231,12 +234,7 @@ class ResearchWorker(BaseWorker):
             "current_price": price_context["price"],
             "current_price_as_of_date": price_context["as_of_date"],
             "current_price_source": price_context["source"],
-            "quote_currency": (
-                financial_data.get("quote_currency") or financial_data.get("currency")
-                or (quote_evidence.get("market_quote", {}).get("currency")
-                    if isinstance(quote_evidence.get("market_quote"), dict) else None)
-                or "N/D"
-            ),
+            "quote_currency": resolved_quote_currency,
             "existing_wiki": previous_wiki,
             "prior_catalysts": prior_catalysts,
             "sector": company.get("sector", ""),
@@ -269,13 +267,7 @@ class ResearchWorker(BaseWorker):
                 self._scenario_market_evidence(
                     ticker=ticker,
                     price_context=price_context,
-                    quote_currency=(
-                        financial_data.get("quote_currency")
-                        or financial_data.get("currency")
-                        or (quote_evidence.get("market_quote", {}).get("currency")
-                            if isinstance(quote_evidence.get("market_quote"), dict) else None)
-                        or "N/D"
-                    ),
+                    quote_currency=resolved_quote_currency,
                     target_consensus=consensus,
                 ),
                 ensure_ascii=False,
@@ -308,29 +300,31 @@ class ResearchWorker(BaseWorker):
                 financial_data,
                 allowed_input_fields=allowed_input_fields or None,
             )
-            ddd_result = self._run_prompt("multibaggers", ticker, {
+            prompt_context = self._bounded_ddd_prompt_context({
                 "ticker": ticker,
                 "name": company.get("name", ticker),
+                "intake_package": self._multibaggers_intake_prompt_context(research_intake),
+                "financial_summary": self._multibaggers_prompt_context(ddd_inputs),
+                "research_financial_evidence": research_financial_evidence,
+            })
+            ddd_result = self._run_prompt("multibaggers", ticker, {
+                "ticker": prompt_context["ticker"],
+                "name": prompt_context["name"],
                 "intake_package": json.dumps(
-                    self._multibaggers_intake_prompt_context(research_intake),
-                    ensure_ascii=False,
-                    sort_keys=True,
+                    prompt_context["intake_package"], ensure_ascii=False, sort_keys=True, default=str
                 ),
                 "financial_summary": json.dumps(
-                    self._multibaggers_prompt_context(ddd_inputs),
-                    ensure_ascii=False,
-                    sort_keys=True,
-                    default=str,
+                    prompt_context["financial_summary"], ensure_ascii=False, sort_keys=True, default=str
                 ),
                 "research_financial_evidence": json.dumps(
-                    research_financial_evidence,
-                    ensure_ascii=False,
-                    sort_keys=True,
-                    default=str,
+                    prompt_context["research_financial_evidence"],
+                    ensure_ascii=False, sort_keys=True, default=str,
                 ),
             }, max_tokens=8192)
         else:
-            ddd_result = self._run_prompt("ddd", ticker, ddd_inputs, max_tokens=8192)
+            ddd_result = self._run_prompt(
+                "ddd", ticker, self._bounded_ddd_prompt_context(ddd_inputs), max_tokens=8192
+            )
 
         if not is_systematic:
             self._demote_unreferenced_research_facts(ddd_result)
@@ -1342,26 +1336,107 @@ class ResearchWorker(BaseWorker):
         }
 
     @staticmethod
-    def _bound_multibaggers_prompt_value(value: Any, depth: int = 0) -> Any:
-        """Bound nested company context before it is serialized into an LLM request."""
+    def _resolve_quote_currency(
+        financial_data: dict[str, Any],
+        quote_evidence: dict[str, Any],
+        signal_snapshot: dict[str, Any] | None = None,
+    ) -> str:
+        """Resolve an ISO quote currency from sourced market or strategy evidence."""
+        signal = signal_snapshot.get("signal") if isinstance(signal_snapshot, dict) else {}
+        signal = signal if isinstance(signal, dict) else {}
+        quote = quote_evidence.get("market_quote") if isinstance(quote_evidence, dict) else {}
+        quote = quote if isinstance(quote, dict) else {}
+        for candidate in (
+            financial_data.get("quote_currency"),
+            financial_data.get("currency"),
+            quote.get("currency"),
+            signal.get("quote_currency"),
+        ):
+            if isinstance(candidate, str):
+                normalized = candidate.strip().upper()
+                if re.fullmatch(r"[A-Z]{3}", normalized):
+                    return normalized
+        return "N/D"
+
+    @staticmethod
+    def _bounded_ddd_prompt_context(data: dict[str, Any]) -> dict[str, Any]:
+        """Bound LLM-only input while full evidence remains in the audit snapshot."""
+        json_fields = {"financial_data_evidence", "scenario_market_evidence"}
+
+        def build(*, depth: int, items: int, keys: int, chars: int) -> dict[str, Any]:
+            context: dict[str, Any] = {}
+            for field, raw in data.items():
+                value = raw
+                if field in json_fields and isinstance(raw, str):
+                    try:
+                        value = json.loads(raw)
+                    except (TypeError, ValueError):
+                        value = None
+                    if value is None:
+                        continue
+                compact = ResearchWorker._bound_multibaggers_prompt_value(
+                    value, max_depth=depth, max_items=items,
+                    max_keys=keys, max_string_chars=chars,
+                )
+                if compact is None:
+                    continue
+                if field in json_fields and isinstance(compact, (dict, list)):
+                    context[field] = json.dumps(
+                        compact, ensure_ascii=False, sort_keys=True, default=str
+                    )
+                else:
+                    context[field] = compact
+            return context
+
+        for limits in (
+            {"depth": 4, "items": 5, "keys": 64, "chars": 500},
+            {"depth": 4, "items": 3, "keys": 64, "chars": 300},
+            {"depth": 3, "items": 2, "keys": 64, "chars": 180},
+        ):
+            context = build(**limits)
+            if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= 16000:
+                return context
+        for optional in ("existing_wiki", "prior_catalysts", "recent_events", "products", "geography"):
+            context.pop(optional, None)
+            if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= 16000:
+                return context
+        return context
+
+    @staticmethod
+    def _bound_multibaggers_prompt_value(
+        value: Any,
+        depth: int = 0,
+        *,
+        max_depth: int = 2,
+        max_items: int = 5,
+        max_keys: int = 8,
+        max_string_chars: int = 500,
+    ) -> Any:
+        """Bound nested context before it is serialized into an LLM request."""
         if isinstance(value, str):
-            return value[:500]
+            return value[:max_string_chars]
         if value is None or isinstance(value, (bool, int, float)):
             return value
-        if depth >= 2:
+        if depth >= max_depth:
             return None
         if isinstance(value, list):
             return [
-                ResearchWorker._bound_multibaggers_prompt_value(item, depth + 1)
-                for item in value[:5]
+                ResearchWorker._bound_multibaggers_prompt_value(
+                    item, depth + 1, max_depth=max_depth, max_items=max_items,
+                    max_keys=max_keys, max_string_chars=max_string_chars,
+                )
+                for item in value[:max_items]
                 if isinstance(item, (str, bool, int, float, list, dict)) or item is None
             ]
         if isinstance(value, dict):
             bounded = {}
-            for key, item in list(value.items())[:8]:
+            for key, item in list(value.items())[:max_keys]:
                 if not isinstance(key, str):
                     continue
-                compact = ResearchWorker._bound_multibaggers_prompt_value(item, depth + 1)
+                compact = ResearchWorker._bound_multibaggers_prompt_value(
+                    item, depth + 1, max_depth=max_depth, max_items=max_items,
+                    max_keys=max_keys, max_string_chars=max_string_chars,
+                )
                 if compact is not None:
                     bounded[key[:100]] = compact
             return bounded

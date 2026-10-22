@@ -27,6 +27,7 @@ class FakeMarketGate:
             output={"data": {
                 ticker: {"merged_data": {
                     "asset_type": "etf",
+                    "quote_currency": "USD",
                     "avg_dollar_volume_usd": self.dollar_volume,
                     "liquidity_provenance": {"price_source": "yfinance"},
                     "market_data_normalization": {"status": "complete"},
@@ -122,6 +123,7 @@ def test_monthly_strategy_persists_signal_in_sqlite(tmp_path: Path):
     assert rows
     opp = store.get_opportunity(rows[0][0])
     assert opp["signal"]["momentum"] is not None
+    assert opp["signal"]["quote_currency"] == "USD"
     assert opp["status"] == "SCREENED"
 
 

@@ -278,6 +278,7 @@ def test_refresh_worker_normalizes_yahoo_underlying_metrics_with_exchange_sessio
         asset_type="us_equity",
     )
 
+    assert result["quote_currency"] == "USD"
     assert result["market_cap_usd"] == 3_000_000_000
     assert result["avg_dollar_volume_usd"] == 200_000
     assert result["liquidity_provenance"]["valid_observations"] == 20
@@ -301,6 +302,7 @@ def test_refresh_worker_reuses_only_complete_provenance_bearing_market_gates():
     complete = {
         "merged_data": {
             "asset_type": "us_equity",
+            "quote_currency": "USD",
             "size_metric_usd": 3_000_000_000,
             "size_metric_provenance": {"source": "yfinance", "as_of": "2026-10-16"},
             "market_cap_usd": 3_000_000_000,
@@ -314,6 +316,10 @@ def test_refresh_worker_reuses_only_complete_provenance_bearing_market_gates():
     blocked = {"merged_data": {**complete["merged_data"], "market_data_normalization": {"status": "blocked"}}}
 
     assert DataRefreshWorker._has_normalized_market_gates(complete)
+    without_currency = {"merged_data": {
+        key: value for key, value in complete["merged_data"].items() if key != "quote_currency"
+    }}
+    assert not DataRefreshWorker._has_normalized_market_gates(without_currency)
     assert not DataRefreshWorker._has_normalized_market_gates(legacy)
     assert not DataRefreshWorker._has_normalized_market_gates(blocked)
 

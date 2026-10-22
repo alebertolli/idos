@@ -69,6 +69,52 @@ def _mock_research_registry() -> MagicMock:
     return registry
 
 
+def test_quote_currency_can_be_resolved_from_systematic_signal_snapshot():
+    assert ResearchWorker._resolve_quote_currency(
+        {}, {}, {"signal": {"quote_currency": " usd "}}
+    ) == "USD"
+    assert ResearchWorker._resolve_quote_currency(
+        {}, {}, {"signal": {"quote_currency": "not-a-currency"}}
+    ) == "N/D"
+
+
+def test_ddd_prompt_context_is_bounded_and_preserves_sourced_market_evidence():
+    financial = {
+        "currency": "USD",
+        "sources_used": ["stockanalysis.com"],
+        "observations": {
+            "revenue_ttm": {
+                "value": 1234,
+                "unit": "USD",
+                "source_url": "https://stockanalysis.com/stocks/asml/financials/",
+                "history": [{"period_end": f"202{year}-12-31", "value": year * 100} for year in range(7)],
+            }
+        },
+    }
+    scenario = {
+        "current_quote": {
+            "price": 900.0,
+            "currency": "USD",
+            "as_of_date": "2026-10-21",
+            "sources": [{"name": "Yahoo Finance", "url": "https://finance.yahoo.com/quote/ASML/"}],
+        },
+        "recent_events": [{"title": "event " + ("x" * 1000), "source": "yahoo"} for _ in range(20)],
+    }
+    bounded = ResearchWorker._bounded_ddd_prompt_context({
+        "ticker": "ASML",
+        "existing_wiki": "wiki " + ("x" * 5000),
+        "financial_data_evidence": json.dumps(financial),
+        "scenario_market_evidence": json.dumps(scenario),
+        "recent_events": [{"title": "event " + ("x" * 1000)} for _ in range(20)],
+    })
+
+    assert len(json.dumps(bounded, ensure_ascii=False, sort_keys=True)) <= 16000
+    assert len(bounded["existing_wiki"]) <= 500
+    assert json.loads(bounded["scenario_market_evidence"])["current_quote"]["currency"] == "USD"
+    assert "finance.yahoo.com/quote/ASML" in json.dumps(bounded["scenario_market_evidence"])
+    assert json.loads(bounded["financial_data_evidence"])["currency"] == "USD"
+
+
 def test_current_price_context_uses_latest_aligned_close_with_provenance():
     context = ResearchWorker._current_price_context({
         "price_history": [100.0, None, 125.5],

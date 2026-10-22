@@ -3,6 +3,7 @@
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+import re
 
 import yaml
 
@@ -152,7 +153,17 @@ class MonthlyStrategyWorker(BaseWorker):
             if len(closes) < 13:
                 missing.append(ticker)
                 continue
-            rows.append({"ticker": ticker, "momentum": momentum_score(closes), "as_of_date": history[-1]["date"][:10]})
+            market_item = refreshed.get(ticker, {}) if isinstance(refreshed, dict) else {}
+            market_data = market_item.get("merged_data", market_item) if isinstance(market_item, dict) else {}
+            signal_row = {
+                "ticker": ticker,
+                "momentum": momentum_score(closes),
+                "as_of_date": history[-1]["date"][:10],
+            }
+            quote_currency = market_data.get("quote_currency") if isinstance(market_data, dict) else None
+            if isinstance(quote_currency, str) and re.fullmatch(r"[A-Za-z]{3}", quote_currency.strip()):
+                signal_row["quote_currency"] = quote_currency.strip().upper()
+            rows.append(signal_row)
 
         eligible = [r for r in rows if params["minimum_signal"] <= r["momentum"] <= params["maximum_signal"]]
         ranking = sorted(rows, key=lambda r: r["momentum"], reverse=True)
