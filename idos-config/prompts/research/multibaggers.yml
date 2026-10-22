@@ -20,7 +20,7 @@ user_prompt: >
   Evalúa mecanismo de crecimiento, reinversión y retornos sobre capital; mercado
   direccionable y penetración; ventaja competitiva y erosión; management y asignación
   de capital; expectativas implícitas frente a evidencia; catalizadores e hitos;
-  escenarios base/upside/downside; riesgos y falsadores. Calcula o recopila en
+  escenarios BEAR/BULL con BASE opcional; riesgos y falsadores. Calcula o recopila en
   Research los ratios definidos en `research_requirements.ratios_to_review`, usando
   sólo los campos enumerados para cada ratio en `research_requirements.ratio_input_fields`,
   junto con inputs con fuente y definiciones compatibles del Research Intake Package. Para cada ratio devuelve en
@@ -65,17 +65,22 @@ user_prompt: >
   `target_price`, `rationale`, `key_assumptions`, `falsifiers` y `sources`; cada
   fuente incluye `name`, `url` y `as_of_date`. No incluyas `probability_pct` ni
   retorno esperado: las probabilidades sólo se admitirán con un modelo calibrado.
-  `target_price` es una estimación analítica para el horizonte, no una cotización
-  observada. Derívala de supuestos explícitos y coherentes con datos financieros
-  o de mercado del paquete; explica método y supuestos en `rationale` y
-  `key_assumptions`. Las fuentes citadas deben respaldar esos inputs, no fingir
-  que publicaron el precio objetivo. Copia cada URL exactamente desde las fuentes
-  del paquete; no infieras ni reconstruyas rutas de proveedores. No uses porcentajes arbitrarios ni inventes
-  cifras, fuentes o métodos. Si la evidencia no permite una estimación defendible,
-  usa null; Assessment la bloqueará para revisión, nunca la completes por intuición.
+  `target_price` es un resultado de escenario para el horizonte, no la cotización
+  actual ni un resultado garantizado. Usa `scenario_market_evidence` dentro del
+  resumen financiero. Si el rango bajo/alto de analistas y la cotización están en
+  la misma moneda, sus extremos pueden servir como anclas observadas BEAR/BULL;
+  identifícalas como consenso observado, no como valoración intrínseca propia.
+  Explica con supuestos de negocio respaldados por la evidencia por qué cada extremo
+  representa el peor/mejor resultado plausible. Una desviación de esas anclas sólo
+  se admite si un método de valoración identificable y sus inputs fechados la
+  justifican. Las fuentes citadas deben respaldar el ancla o los inputs, no fingir
+  que publicaron la tesis del modelo. Copia cada URL exactamente desde las fuentes
+  del paquete; no reconstruyas rutas ni inventes cifras, fuentes, fechas o métodos.
+  Sin un rango comparable o un método y datos defendibles para ambos extremos,
+  devuelve null; Assessment mantendrá RULE-008 bloqueada.
   Incluye BEAR y BULL, con BASE opcional. Cumple Bear <= Base <= Bull si BASE
   existe, y Bear <= Bull en todos los casos. El gestor revisa escenarios y fuentes
   en Decision Board antes de una decisión. El score general mide calidad de evidencia, no
   probabilidad ni conviction. No propongas APPROVED ni órdenes.
 category: research
-version: "1.1"
+version: "1.2"
