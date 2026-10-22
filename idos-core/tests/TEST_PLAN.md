@@ -749,3 +749,19 @@ Antes de la primera corrida productiva tras el reinicio:
 6. Incluir como máximo las cinco observaciones fechadas más recientes por serie en el contexto LLM, informar omitted_points y preservar los registros completos en la fuente auditable; probar una serie larga y verificar que el contexto resultante queda acotado.
 7. Vincular en forma determinista las citas de cada ratio a las URLs HTTPS de sus inputs declarados; verificar que entradas ausentes/no permitidas no reescriban ni legitimen una URL no confiable.
 8. Probar que productos, geografías y demás campos anidados se limitan por profundidad, longitud y número de elementos; serializar el contexto final y mantenerlo bajo 15 KB.
+
+## §16 Límite y trazabilidad del contexto histórico de Research
+
+1. Con una wiki extensa, verificar que DDD priorice tesis, riesgos, moat,
+   catalizadores, finanzas y negocio, y acote el contexto enviado sin modificar
+   la fuente original.
+2. Confirmar que se envíen sólo los 12 catalizadores más recientes, con
+   descripciones acotadas, y que el snapshot identifique por hash y tamaño los
+   registros completos preservados.
+3. Para eventos extensos, verificar el recorte explícito y que
+   `input_snapshot_ref.sha256` corresponda al snapshot realmente enviado.
+4. Ante fallo de proveedor o JSON inválido, confirmar que no se guarden DDD,
+   Assessment, estado avanzado ni artefactos parciales.
+5. Después de CI, ejecutar una sola DDD con una oportunidad por estrategia y
+   revisar tamaños del prompt, snapshot, transiciones y persistencia. No repetir
+   si los proveedores devuelven 429/402; esperar cuota disponible.

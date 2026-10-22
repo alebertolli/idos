@@ -1219,6 +1219,41 @@ def test_multibaggers_prompt_context_is_bounded_and_omits_duplicate_blobs():
     assert len(context["recent_events"][0]["summary"]) == 500
 
 
+def test_ddd_prompt_bounds_historical_context_and_records_source_hashes():
+    wiki = "\n\n".join(
+        f"## {section}\n" + (section + " detail. " * 300)
+        for section in (
+            "Business", "Investment Thesis", "Risks", "Moat", "Catalysts",
+            "Financial Highlights", "Management", "Valuation", "Competition",
+        )
+    )
+    catalysts = [
+        {"generated_at": f"2026-10-{day:02d}", "descripcion": f"catalyst-{day}"}
+        for day in range(1, 16)
+    ]
+    events = "event detail " * 600
+    original = {"existing_wiki": wiki, "prior_catalysts": catalysts, "recent_events": events}
+
+    bounded, metadata = ResearchWorker._bounded_ddd_prompt_inputs(original)
+
+    assert len(bounded["existing_wiki"]) <= 12_100
+    assert "Investment Thesis" in bounded["existing_wiki"]
+    assert "Risks" in bounded["existing_wiki"]
+    assert [item["descripcion"] for item in bounded["prior_catalysts"]][0] == "catalyst-15"
+    assert len(bounded["prior_catalysts"]) == 12
+    assert len(bounded["recent_events"]) < 5_100
+    assert metadata["fields_compacted"] == ["existing_wiki", "prior_catalysts", "recent_events"]
+    assert metadata["existing_wiki_source_sha256"] == hashlib.sha256(wiki.encode("utf-8")).hexdigest()
+    assert metadata["prior_catalysts_source_count"] == len(catalysts)
+    assert metadata["prior_catalysts_source_sha256"] == hashlib.sha256(
+        json.dumps(catalysts, ensure_ascii=False, sort_keys=True, default=str).encode("utf-8")
+    ).hexdigest()
+    assert metadata["recent_events_source_sha256"] == hashlib.sha256(events.encode("utf-8")).hexdigest()
+    assert original["existing_wiki"] == wiki
+    assert original["prior_catalysts"] == catalysts
+    assert original["recent_events"] == events
+
+
 def test_multibaggers_research_evidence_honors_configured_ratio_inputs():
     from idos.workers.ai.research_worker import ResearchWorker
 

@@ -283,6 +283,8 @@ class ResearchWorker(BaseWorker):
         # thesis. Running them through the generic DDD prompt produced the same
         # boilerplate report for every ETF and left the lifecycle dependent on
         # fundamental rules that do not apply to this strategy.
+        research_snapshot_inputs = ddd_inputs
+        research_context_compaction: dict[str, Any] = {"fields_compacted": []}
         if is_systematic:
             ddd_result = self._build_systematic_ddd(ticker, opp, systematic_params)
         elif is_multibaggers:
@@ -315,7 +317,12 @@ class ResearchWorker(BaseWorker):
                 ),
             }, max_tokens=8192)
         else:
-            ddd_result = self._run_prompt("ddd", ticker, ddd_inputs, max_tokens=8192)
+            prompt_inputs, context_compaction = self._bounded_ddd_prompt_inputs(ddd_inputs)
+            research_snapshot_inputs = prompt_inputs
+            research_context_compaction = context_compaction
+            if context_compaction.get("fields_compacted"):
+                print(f"[RESEARCH] {ticker}: bounded historical prompt context {context_compaction}")
+            ddd_result = self._run_prompt("ddd", ticker, prompt_inputs, max_tokens=8192)
 
         classification = ddd_result.get("clasificacion_oportunidad", {})
         if signal_snapshot is not None:
@@ -433,7 +440,7 @@ class ResearchWorker(BaseWorker):
 
         generated_at = datetime.now(AR_TZ).isoformat()
         input_snapshot_hash = hashlib.sha256(
-            json.dumps(ddd_inputs, ensure_ascii=False, sort_keys=True, default=str).encode("utf-8")
+            json.dumps(research_snapshot_inputs, ensure_ascii=False, sort_keys=True, default=str).encode("utf-8")
         ).hexdigest()
         ddd_report = {
             "ticker": ticker,
@@ -452,7 +459,8 @@ class ResearchWorker(BaseWorker):
                     "sha256": input_snapshot_hash,
                 },
             },
-            "research_input_snapshot": ddd_inputs,
+            "research_input_snapshot": research_snapshot_inputs,
+            "research_context_compaction": research_context_compaction,
             "clasificacion_oportunidad": classification,
             "error_mercado": market_error,
             "tesis_inversion": thesis,
@@ -1120,6 +1128,91 @@ class ResearchWorker(BaseWorker):
             merged["data_provenance"] = provenance
 
         return merged
+
+    @staticmethod
+    def _bounded_ddd_prompt_inputs(inputs: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+        """Bound historical context sent to Research without mutating source records."""
+        bounded = dict(inputs)
+        metadata: dict[str, Any] = {"fields_compacted": []}
+
+        wiki = inputs.get("existing_wiki")
+        if isinstance(wiki, str) and len(wiki) > 12_000:
+            headings = list(re.finditer(r"(?m)^#{1,3}\s+(.+?)\s*$", wiki))
+            if headings:
+                sections: dict[str, str] = {}
+                for index, match in enumerate(headings):
+                    end = headings[index + 1].start() if index + 1 < len(headings) else len(wiki)
+                    sections[match.group(1).strip().lower().replace("_", " ")] = wiki[match.start():end].strip()
+                priority = (
+                    "investment thesis", "risks", "moat", "catalysts",
+                    "financial highlights", "business", "management",
+                    "valuation", "competition", "products", "timeline",
+                    "open questions",
+                )
+                selected: list[str] = []
+                remaining = 12_000
+                for section_name in priority:
+                    section = next((
+                        value for name, value in sections.items()
+                        if name == section_name or section_name in name
+                    ), None)
+                    if not section or remaining <= 0:
+                        continue
+                    limit = min(1_500, remaining)
+                    excerpt = section[:limit]
+                    if len(section) > limit:
+                        marker = "\n[Sección resumida para contexto; registro completo preservado.]"
+                        excerpt = excerpt[:max(0, limit - len(marker))] + marker
+                    selected.append(excerpt)
+                    remaining -= len(excerpt)
+                compact_wiki = "\n\n---\n\n".join(selected)
+                if not compact_wiki:
+                    compact_wiki = wiki[:10_000] + "\n[Contexto histórico omitido; registro completo preservado.]"
+            else:
+                compact_wiki = wiki[:10_000] + "\n[Contexto histórico omitido; registro completo preservado.]"
+            bounded["existing_wiki"] = compact_wiki
+            metadata["fields_compacted"].append("existing_wiki")
+            metadata["existing_wiki_source_chars"] = len(wiki)
+            metadata["existing_wiki_source_sha256"] = hashlib.sha256(wiki.encode("utf-8")).hexdigest()
+
+        catalysts = inputs.get("prior_catalysts")
+        if isinstance(catalysts, list):
+            ordered = list(enumerate(catalysts))
+            if len(ordered) > 12:
+                ordered.sort(
+                    key=lambda pair: (str(pair[1].get("generated_at", "")) if isinstance(pair[1], dict) else "", pair[0]),
+                    reverse=True,
+                )
+            catalyst_compacted = len(ordered) > 12 or any(
+                isinstance(item, dict)
+                and isinstance(item.get("descripcion"), str)
+                and len(item["descripcion"]) > 320
+                for item in catalysts
+            )
+            recent = []
+            for _, item in ordered[:12]:
+                if not isinstance(item, dict):
+                    continue
+                compact = dict(item)
+                if isinstance(compact.get("descripcion"), str):
+                    compact["descripcion"] = compact["descripcion"][:320]
+                recent.append(compact)
+            if catalyst_compacted:
+                bounded["prior_catalysts"] = recent
+                metadata["fields_compacted"].append("prior_catalysts")
+                metadata["prior_catalysts_source_count"] = len(catalysts)
+                metadata["prior_catalysts_source_sha256"] = hashlib.sha256(
+                    json.dumps(catalysts, ensure_ascii=False, sort_keys=True, default=str).encode("utf-8")
+                ).hexdigest()
+
+        events = inputs.get("recent_events")
+        if isinstance(events, str) and len(events) > 5_000:
+            bounded["recent_events"] = events[:5_000] + "\n[Eventos anteriores omitidos; evidencia de origen preservada.]"
+            metadata["fields_compacted"].append("recent_events")
+            metadata["recent_events_source_chars"] = len(events)
+            metadata["recent_events_source_sha256"] = hashlib.sha256(events.encode("utf-8")).hexdigest()
+
+        return bounded, metadata
 
     @staticmethod
     def _financial_evidence_context(data: dict[str, Any]) -> dict[str, Any]:
