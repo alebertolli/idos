@@ -2246,6 +2246,43 @@ class ResearchWorker(BaseWorker):
             return []
         return [fact.strip() for fact in raw_facts if isinstance(fact, str) and fact.strip()]
 
+    @staticmethod
+    def _bounded_wiki_prompt_context(
+        ddd_result: dict[str, Any],
+        aoif_result: dict[str, Any],
+        existing_wiki: str,
+        related_tickers: str,
+        *,
+        max_chars: int = 10000,
+    ) -> dict[str, str]:
+        """Bound the wiki LLM payload; full reports remain the audit source."""
+        context = ResearchWorker._bounded_ddd_prompt_context(
+            {
+                "ddd_output": ddd_result,
+                "aoif_output": aoif_result,
+                "evidence_chain": (
+                    "Usa las fuentes y fechas incluidas en los contextos DDD y AOIF; "
+                    "no agregues datos externos."
+                ),
+                "existing_wiki": existing_wiki,
+                "related_tickers": related_tickers,
+            },
+            max_chars=max_chars,
+        )
+        return {
+            "ddd_output": json.dumps(
+                context.get("ddd_output", {}), ensure_ascii=False,
+                sort_keys=True, separators=(",", ":"), default=str,
+            ),
+            "aoif_output": json.dumps(
+                context.get("aoif_output", {}), ensure_ascii=False,
+                sort_keys=True, separators=(",", ":"), default=str,
+            ),
+            "evidence_chain": str(context.get("evidence_chain", "")),
+            "existing_wiki": str(context.get("existing_wiki", "")),
+            "related_tickers": str(context.get("related_tickers", "Ninguna")),
+        }
+
     def _build_knowledge_base(
         self,
         ticker: str,
@@ -2300,9 +2337,6 @@ class ResearchWorker(BaseWorker):
         wiki_template = self.registry.get("wiki", category="research")
         if wiki_template and ddd_ok:
             existing = knowledge.get_wiki_text(ticker) or wiki_md
-            import json
-            ddd_json = json.dumps(ddd_result, indent=2, ensure_ascii=False)
-            aoif_json = json.dumps(aoif_result, indent=2, ensure_ascii=False)
             from idos.knowledge.linker import CrossCompanyLinker
             linker = CrossCompanyLinker(knowledge.base)
             related = linker.find_related(ticker)
@@ -2311,14 +2345,16 @@ class ResearchWorker(BaseWorker):
                 for t in tickers:
                     related_strs.append(f"[[{t}]]")
             related_tickers = ", ".join(related_strs) if related_strs else "Ninguna"
+            wiki_context = self._bounded_wiki_prompt_context(
+                ddd_result,
+                aoif_result,
+                existing,
+                related_tickers,
+            )
             formatted = wiki_template.format(
                 ticker=ticker,
                 name=company.get("name", ticker),
-                ddd_output=ddd_json,
-                aoif_output=aoif_json,
-                evidence_chain=f"DDD:\n{ddd_json[:1500]}\n\nAOIF:\n{aoif_json[:1500]}",
-                existing_wiki=existing,
-                related_tickers=related_tickers,
+                **wiki_context,
             )
             wiki_system = self.registry.get_system("wiki", category="research") or ""
             llm_resp = self.llm.generate(
