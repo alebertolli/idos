@@ -1390,9 +1390,13 @@ def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     assert "unit" in rendered
     assert "scenario_analysis" in rendered
     assert "mutuamente excluyentes" in rendered
-    assert "estimación analítica" in rendered
+    assert "`scenario_market_evidence`" in rendered
+    assert "anclas observadas BEAR/BULL" in rendered
+    assert "no como valoración intrínseca propia" in rendered
+    assert "peor/mejor resultado plausible" in rendered
+    assert "RULE-008 bloqueada" in rendered
     assert "No incluyas `probability_pct` ni retorno esperado" in rendered
-    assert "fuentes citadas deben respaldar esos inputs" in rendered
+    assert "fuentes citadas deben respaldar el ancla o los inputs" in rendered
     assert "Copia cada URL exactamente" in rendered
     assert "calidad_evidencia" in rendered
     assert '"categoria": string' in rendered
