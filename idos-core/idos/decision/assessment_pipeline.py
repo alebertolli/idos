@@ -338,10 +338,7 @@ def build_context(
 
     # Catalyst-derived estimates may coexist and remain visible for context,
     # but only an automatically validated, version-matched scenario set can pass.
-    asymmetry = _calculate_report_asymmetry(
-        report, raw_catalysts, current_price, target_low, target_mean, target_high,
-        quote_currency,
-    )
+    asymmetry = _calculate_report_asymmetry(report, current_price, quote_currency)
 
     return {
         "knowledge_base": {"dynamic": {"metrics": metrics}, "static": static},
@@ -512,103 +509,25 @@ def _load_financial_data(ticker: str, sqlite: SQLiteStore) -> dict[str, Any]:
     return {}
 
 
-def _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high):
-    if not raw_catalysts or not current_price:
-        return None
-    _horizon_years = {"corto": 0.5, "medio": 1.0, "largo": 2.0}
-    _scenario_map = {"alto": "Optimista", "medio": "Base", "bajo": "Fracaso"}
-    _price_map = {"Optimista": target_high, "Base": target_mean, "Fracaso": target_low}
-    scenarios = {"Fracaso": [], "Base": [], "Optimista": []}
-    for c in raw_catalysts:
-        if not isinstance(c, dict):
-            continue
-        impacto = c.get("impacto", "").lower()
-        scenario = _scenario_map.get(impacto)
-        if not scenario:
-            continue
-        prob = c.get("probabilidad_pct", 0)
-        if not isinstance(prob, (int, float)) or prob <= 0:
-            continue
-        horizon = _horizon_years.get(c.get("horizonte", "").lower(), 1.0)
-        scenarios[scenario].append({"prob": prob, "horizon": horizon, "desc": c.get("descripcion", "")})
-    total_prob = sum(sum(c["prob"] for c in sc_list) for sc_list in scenarios.values())
-    if total_prob <= 0:
-        return None
-    total_normalized = 0.0
-    rows = []
-    for scenario in ["Fracaso", "Base", "Optimista"]:
-        cat_list = scenarios[scenario]
-        prob_raw = sum(c["prob"] for c in cat_list)
-        prob_norm = (prob_raw / total_prob) * 100 if total_prob > 0 else 0
-        total_normalized += prob_norm
-        price = _price_map.get(scenario)
-        if price and current_price:
-            retorno = round((price / current_price - 1) * 100, 2)
-        else:
-            retorno = 0
-        contribucion = round(prob_norm / 100 * price, 2) if price and prob_norm > 0 else 0
-        horizon = round(sum(c["prob"] * c["horizon"] for c in cat_list) / prob_raw, 2) if prob_raw > 0 else 1.0
-        rows.append({
-            "escenario": scenario,
-            "probabilidad_pct": round(prob_norm, 1),
-            "precio_objetivo": price,
-            "retorno_pct": retorno,
-            "contribucion_ve": contribucion,
-            "horizonte_years": horizon,
-        })
-    diff = round(100.0 - total_normalized, 1)
-    if abs(diff) > 0.01 and rows:
-        rows.sort(key=lambda r: r["probabilidad_pct"], reverse=True)
-        rows[0]["probabilidad_pct"] = round(rows[0]["probabilidad_pct"] + diff, 1)
-    valor_esperado = round(sum(r["contribucion_ve"] for r in rows), 2)
-    retorno_esperado = round((valor_esperado / current_price - 1) * 100, 2) if current_price else 0
-    total_pct = sum(r["probabilidad_pct"] for r in rows)
-    horizon_avg = sum(r["probabilidad_pct"] * r["horizonte_years"] for r in rows) / total_pct if total_pct > 0 else 1.0
-    if current_price and valor_esperado > 0:
-        cagr = round((valor_esperado / current_price) ** (1 / horizon_avg) - 1, 4)
-        cagr_pct = round(cagr * 100, 2)
-    else:
-        cagr_pct = 0
-    upside = sum(r["probabilidad_pct"] * r["retorno_pct"] for r in rows if r["retorno_pct"] > 0) / 100
-    downside = sum(r["probabilidad_pct"] * r["retorno_pct"] for r in rows if r["retorno_pct"] < 0) / 100
-    abs_downside = abs(downside) if downside < 0 else 0
-    br = round(abs(upside) / abs_downside, 2) if abs_downside > 0 else (float('inf') if upside > 0 else 0)
-    return {
-        "rows": rows,
-        "valor_esperado": valor_esperado,
-        "retorno_esperado_pct": retorno_esperado,
-        "cagr_pct": cagr_pct,
-        "upside_esperado_pct": round(upside, 2),
-        "downside_esperado_pct": round(downside, 2),
-        "benefit_risk_ratio": br,
-        # Research catalysts can coexist, so their probabilities do not define
-        # mutually exclusive price scenarios. Keep this estimate visible for
-        # human review, but never use it to authorize an Opportunity.
-        "validation_status": "provisional",
-        "board_review_eligible": False,
-        "validation_reason": (
-            "Las probabilidades de catalizadores no son escenarios financieros "
-            "mutuamente excluyentes validados."
-        ),
-        "passes_threshold": False,
-        "horizonte_avg_years": round(horizon_avg, 2),
-    }
-
-
 def _calculate_report_asymmetry(
     report: Any,
-    raw_catalysts: list,
     current_price: Any,
-    target_low: Any,
-    target_mean: Any,
-    target_high: Any,
     quote_currency: str | None,
-) -> dict[str, Any] | None:
+) -> dict[str, Any]:
     """Use only an automatically validated scenario contract for RULE-008."""
     report = report if isinstance(report, dict) else {}
     analysis = report.get("scenario_analysis")
     if analysis is None:
-        return _compute_asymmetry(raw_catalysts, current_price, target_low, target_mean, target_high)
+        return {
+            "rows": [],
+            "benefit_risk_ratio": None,
+            "validation_status": "blocked",
+            "board_review_eligible": False,
+            "validation_reason": (
+                "scenario_analysis ausente; no se infieren probabilidades ni "
+                "retorno esperado desde catalizadores"
+            ),
+        }
     trusted_source_urls = scenario_source_urls_from_report(report)
     asymmetry = calculate_scenario_asymmetry(
         analysis,
