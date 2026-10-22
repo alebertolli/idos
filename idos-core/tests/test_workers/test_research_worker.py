@@ -266,7 +266,8 @@ def test_aoif_reuses_ddd_scenario_contract_without_probabilities_or_trade_recomm
     step7 = prompt.split("Paso 7 - Escenarios financieros:", 1)[1].split("Paso 8 - Síntesis", 1)[0]
 
     assert scenario_json in prompt
-    assert "probabilidades" not in step7
+    assert "\"probability_pct\"" not in step7
+    assert "\"expected_return_pct\"" not in step7
     assert "retorno esperado" in step7
     assert "PENDIENTE_DECISION_BOARD" in prompt
     assert "comprar, mantener" in prompt
