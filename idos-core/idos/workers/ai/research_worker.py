@@ -308,7 +308,7 @@ class ResearchWorker(BaseWorker):
                 "research_financial_evidence": self._multibaggers_research_prompt_evidence(
                     research_financial_evidence
                 ),
-            }, max_chars=20000)
+            }, max_chars=30000)
             prompt_context_bytes = len(json.dumps(
                 prompt_context, ensure_ascii=False, sort_keys=True, default=str
             ).encode("utf-8"))
@@ -1405,7 +1405,7 @@ class ResearchWorker(BaseWorker):
                 return context
         for optional in ("existing_wiki", "prior_catalysts", "recent_events", "products", "geography"):
             context.pop(optional, None)
-            if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= 16000:
+            if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= max_chars:
                 return context
         if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) > max_chars:
             raise ValueError(
