@@ -1518,7 +1518,7 @@ def test_multibaggers_prompt_requires_source_backed_ratio_statuses():
     assert "No inventes cifras, URLs" in rendered
     assert "ni valores derivados" in rendered
     assert "ratios_investigados" in rendered
-    assert "no es una lista narrativa" in rendered
+    assert "no una lista narrativa" in rendered
     assert "ratio_input_fields" in rendered
     assert "ratio_units" in rendered
     assert "unit" in rendered
