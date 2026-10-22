@@ -1587,11 +1587,14 @@ def test_multibaggers_research_shape_requires_downstream_types():
 def test_multibaggers_omitted_ratio_dispositions_are_explicitly_unavailable():
     from idos.workers.ai.research_worker import ResearchWorker
 
+    source_url = "https://finance.yahoo.com/quote/TEST/financials/"
     ratios = [{
         "metric": "revenue_cagr_3y_pct",
         "status": "reported",
         "value": 12.5,
         "unit": "percent",
+        "period_end": "2026-09-30",
+        "sources": [{"name": "Yahoo Finance", "url": source_url}],
     }]
     missing = ResearchWorker._complete_missing_multibaggers_ratio_dispositions(
         ratios, ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"]
@@ -1605,7 +1608,10 @@ def test_multibaggers_omitted_ratio_dispositions_are_explicitly_unavailable():
     assert all(item["value"] is None for item in omitted.values())
     assert all(item["limitations"] for item in omitted.values())
     assert ResearchWorker._validate_multibaggers_ratio_review(
-        ratios, ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"]
+        ratios,
+        ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"],
+        trusted_source_urls={source_url},
+        expected_units={"revenue_cagr_3y_pct": "percent"},
     ) == []
 
 def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects_uncited_values():
