@@ -28,6 +28,11 @@ on:
         required: false
         type: string
         default: ""
+      strategy_id:
+        description: "Limitar Research a una estrategia habilitada"
+        required: false
+        type: string
+        default: ""
   workflow_dispatch:
     inputs:
       allow_production_e2e:
@@ -39,6 +44,11 @@ on:
         description: "Required for manual runs: 1-5 comma-separated operable tickers, e.g. AAPL,MSFT,QQQ"
         required: true
         type: string
+      strategy_id:
+        description: "Optional enabled strategy filter, e.g. MULTIBAGGERS"
+        required: false
+        type: string
+        default: ""
       force:
         description: "Reprocesar cualquier estado (ignora can_transition)"
         required: false
@@ -168,6 +178,7 @@ jobs:
           echo "DDD_RUN_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
           TICKER="${{ inputs.candidate_tickers || inputs.ticker || github.event.inputs.ticker || github.event.client_payload.ticker || '' }}"
           echo "TICKER=$TICKER" >> $GITHUB_ENV
+          echo "STRATEGY_ID=${{ inputs.strategy_id || github.event.inputs.strategy_id || '' }}" >> $GITHUB_ENV
           if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV

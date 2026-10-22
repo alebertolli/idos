@@ -103,6 +103,24 @@ def _load_portfolio_tickers():
     return tickers
 
 
+def _selected_strategy_id(strategy_catalog) -> str | None:
+    """Resolve an optional single-strategy selector for bounded DDD runs."""
+    requested = os.environ.get("STRATEGY_ID", "").strip()
+    if not requested:
+        return None
+    profile = strategy_catalog.require(requested)
+    if not profile.enabled:
+        raise ValueError(f"STRATEGY_ID must refer to an enabled strategy: {profile.strategy_id}")
+    return profile.strategy_id
+
+
+def _matches_strategy(opportunity: dict, selected_strategy_id: str | None) -> bool:
+    if selected_strategy_id is None:
+        return True
+    strategy_id = str(opportunity.get("strategy_id") or "COMPOUNDER").strip().upper()
+    return strategy_id == selected_strategy_id
+
+
 def write_preview_output(has_candidates: bool, output_path: str | Path | None = None) -> None:
     """Expose the deterministic Research selector result to a caller workflow."""
     target = output_path or os.environ.get("GITHUB_OUTPUT")
@@ -256,6 +274,7 @@ def preview():
     event_requested = _canonical_event_type(event_type)
     from idos.strategy.catalog import StrategyCatalog
     strategy_catalog = StrategyCatalog(Path("idos-config/strategies.yml"))
+    selected_strategy_id = _selected_strategy_id(strategy_catalog)
     requested = {t.strip().upper() for t in os.environ.get("TICKER", "").split(",") if t.strip()}
     review_buylist = os.environ.get("REVIEW_BUYLIST", "false").lower() == "true"
     if review_buylist and (not force or len(requested) != 1):
@@ -290,6 +309,8 @@ def preview():
             try:
                 data = yaml.safe_load(yf.read_text(encoding="utf-8"))
                 if not data:
+                    continue
+                if not _matches_strategy(data, selected_strategy_id):
                     continue
                 event_trigger = _configured_event_trigger(data, event_type, strategy_catalog)
                 event_evidence, evidence_error = _event_evidence_for_ticker(event_type, ticker)
@@ -376,6 +397,9 @@ def preview():
         "excluded_count": len(excluded),
     }, indent=2), encoding="utf-8")
     write_preview_output(bool(selected))
+    if selected_strategy_id and not selected:
+        print(f"[DDD] No eligible opportunities for strategy {selected_strategy_id}")
+        return 2
     if event_requested and not selected:
         print("[DDD] Material event preview has no candidate with valid evidence")
         return 2
@@ -397,6 +421,7 @@ def main():
     os.chdir(os.environ.get('GITHUB_WORKSPACE', '.'))
     from idos.strategy.catalog import StrategyCatalog
     strategy_catalog = StrategyCatalog(Path("idos-config/strategies.yml"))
+    selected_strategy_id = _selected_strategy_id(strategy_catalog)
     global SKIP_TICKERS
     SKIP_TICKERS = _load_skip_tickers()
     buylist_opportunities = _load_buylist_opportunities()
@@ -435,6 +460,8 @@ def main():
                 try:
                     data = yaml.safe_load(yf.read_text(encoding='utf-8'))
                     if not data:
+                        continue
+                    if not _matches_strategy(data, selected_strategy_id):
                         continue
                     event_trigger = _configured_event_trigger(data, event_type, strategy_catalog)
                     event_evidence, evidence_error = _event_evidence_for_ticker(event_type, ticker)
@@ -493,6 +520,9 @@ def main():
 
     if not opportunities:
         print('[DDD] No eligible opportunities to process')
+        if selected_strategy_id:
+            print(f"[DDD] No eligible opportunities for strategy {selected_strategy_id}")
+            return 2
         if review_buylist:
             print('[DDD] Requested Buy List re-review was not eligible; refusing a successful no-op')
             return 2
