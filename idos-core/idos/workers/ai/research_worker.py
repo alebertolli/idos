@@ -305,8 +305,14 @@ class ResearchWorker(BaseWorker):
                 "name": company.get("name", ticker),
                 "intake_package": self._multibaggers_intake_prompt_context(research_intake),
                 "financial_summary": self._multibaggers_prompt_context(ddd_inputs),
-                "research_financial_evidence": research_financial_evidence,
-            })
+                "research_financial_evidence": self._multibaggers_research_prompt_evidence(
+                    research_financial_evidence
+                ),
+            }, max_chars=40000)
+            prompt_context_bytes = len(json.dumps(
+                prompt_context, ensure_ascii=False, sort_keys=True, default=str
+            ).encode("utf-8"))
+            print(f"[RESEARCH] {ticker}: MULTIBAGGERS bounded prompt context={prompt_context_bytes} bytes")
             ddd_result = self._run_prompt("multibaggers", ticker, {
                 "ticker": prompt_context["ticker"],
                 "name": prompt_context["name"],
@@ -1359,7 +1365,7 @@ class ResearchWorker(BaseWorker):
         return "N/D"
 
     @staticmethod
-    def _bounded_ddd_prompt_context(data: dict[str, Any]) -> dict[str, Any]:
+    def _bounded_ddd_prompt_context(data: dict[str, Any], *, max_chars: int = 16000) -> dict[str, Any]:
         """Bound LLM-only input while full evidence remains in the audit snapshot."""
         json_fields = {"financial_data_evidence", "scenario_market_evidence"}
 
@@ -1367,6 +1373,7 @@ class ResearchWorker(BaseWorker):
             context: dict[str, Any] = {}
             for field, raw in data.items():
                 value = raw
+                field_items = 5 if field in {"research_financial_evidence", "financial_data_evidence"} else items
                 if field in json_fields and isinstance(raw, str):
                     try:
                         value = json.loads(raw)
@@ -1375,7 +1382,7 @@ class ResearchWorker(BaseWorker):
                     if value is None:
                         continue
                 compact = ResearchWorker._bound_multibaggers_prompt_value(
-                    value, max_depth=depth, max_items=items,
+                    value, max_depth=depth, max_items=field_items,
                     max_keys=keys, max_string_chars=chars,
                 )
                 if compact is None:
@@ -1394,12 +1401,16 @@ class ResearchWorker(BaseWorker):
             {"depth": 5, "items": 2, "keys": 64, "chars": 180},
         ):
             context = build(**limits)
-            if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= 16000:
+            if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= max_chars:
                 return context
         for optional in ("existing_wiki", "prior_catalysts", "recent_events", "products", "geography"):
             context.pop(optional, None)
-            if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= 16000:
+            if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= max_chars:
                 return context
+        if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) > max_chars:
+            raise ValueError(
+                f"Research prompt context exceeds {max_chars} characters after compaction"
+            )
         return context
 
     @staticmethod
@@ -1542,7 +1553,7 @@ class ResearchWorker(BaseWorker):
                             )
                             if key in item
                         }
-                        for item in sources[:3]
+                        for item in sources[:2]
                         if isinstance(item, dict)
                     ]
                 compact_metrics[metric] = compact
@@ -1712,6 +1723,98 @@ class ResearchWorker(BaseWorker):
             "metric_observation_exclusions": metric_observation_exclusions,
             "conflicts": provenance.get("conflicts", []),
         }
+
+    @staticmethod
+    def _multibaggers_research_prompt_evidence(evidence: dict[str, Any]) -> dict[str, Any]:
+        """Remove duplicated financial payloads while retaining every configured input field."""
+        if not isinstance(evidence, dict):
+            return {}
+        compact: dict[str, Any] = {
+            key: evidence[key]
+            for key in ("reporting_period_end", "currency")
+            if key in evidence
+        }
+        urls = evidence.get("trusted_source_urls")
+        if isinstance(urls, list):
+            compact["trusted_source_urls"] = urls[:20]
+
+        source_observations = evidence.get("source_observations")
+        source_observations = source_observations if isinstance(source_observations, dict) else {}
+        compact_sources: dict[str, Any] = {}
+        for field, raw in source_observations.items():
+            if not isinstance(raw, dict):
+                continue
+            value = raw.get("value")
+            if isinstance(value, list):
+                value = [
+                    {
+                        key: point[key]
+                        for key in ("value", "unit", "currency", "period", "period_end", "reported_at")
+                        if key in point
+                    }
+                    for point in value[:5]
+                    if isinstance(point, dict)
+                ]
+            elif isinstance(value, dict):
+                value = ResearchWorker._bound_multibaggers_prompt_value(
+                    value, max_depth=2, max_items=3, max_keys=6, max_string_chars=180
+                )
+            compact_sources[str(field)] = {
+                key: raw[key]
+                for key in ("unit", "currency", "period_type", "period_end", "sources",
+                            "source_url", "observed_at", "omitted_points")
+                if key in raw
+            }
+            compact_sources[str(field)]["value"] = value
+            if isinstance(compact_sources[str(field)].get("sources"), list):
+                compact_sources[str(field)]["sources"] = compact_sources[str(field)]["sources"][:2]
+        compact["source_observations"] = compact_sources
+
+        reconciled = evidence.get("reconciled_observations")
+        if isinstance(reconciled, dict):
+            compact_reconciled = {}
+            for field, raw in reconciled.items():
+                if not isinstance(raw, dict):
+                    continue
+                compact_reconciled[str(field)] = {
+                    key: ResearchWorker._bound_multibaggers_prompt_value(
+                        raw[key], max_depth=2, max_items=3, max_keys=5, max_string_chars=160
+                    )
+                    for key in (
+                        "selected_source", "period_status", "non_comparable_reason",
+                    )
+                    if key in raw
+                }
+            compact["reconciled_observations"] = compact_reconciled
+
+        for field in ("validated_metric_observations", "metric_observation_exclusions"):
+            observations = evidence.get(field)
+            if not isinstance(observations, dict):
+                continue
+            compact[field] = {
+                str(metric): [
+                    ResearchWorker._bound_multibaggers_prompt_value(
+                        item, max_depth=2, max_items=3, max_keys=8, max_string_chars=200
+                    )
+                    for item in rows[:2]
+                    if isinstance(item, dict)
+                ]
+                for metric, rows in observations.items()
+                if isinstance(rows, list)
+            }
+
+        conflicts = evidence.get("conflicts")
+        if isinstance(conflicts, list):
+            compact["conflicts"] = [
+                {
+                    key: item[key]
+                    for key in ("field", "deviation_pct", "reason", "sources")
+                    if key in item
+                }
+                for item in conflicts[:10]
+                if isinstance(item, dict)
+            ]
+        return compact
 
     @staticmethod
     def _validate_multibaggers_research_shape(result: Any) -> list[str]:
