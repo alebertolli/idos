@@ -1436,7 +1436,9 @@ def test_multibaggers_research_prompt_evidence_and_combined_context_are_bounded(
     assert set(compact_evidence["source_observations"]) == set(evidence["source_observations"])
     assert len(compact_evidence["source_observations"]["revenue_history_0"]["value"]) == 5
     assert compact_evidence["source_observations"]["revenue_history_0"]["source_url"].endswith("/financials/")
-    assert len(compact_evidence["validated_metric_observations"]["metric_0"]) == 2
+    assert compact_evidence["observed_at"] == "2026-10-21T00:00:00Z"
+    assert "observed_at" not in compact_evidence["validated_metric_observations"]["metric_0"][0]
+    assert len(compact_evidence["validated_metric_observations"]["metric_0"]) == 1
     assert "values" not in compact_evidence["reconciled_observations"]["metric_0"]
     assert "non_comparable_values" not in compact_evidence["reconciled_observations"]["metric_0"]
     assert "unused_detail" not in json.dumps(compact_evidence)
