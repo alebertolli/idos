@@ -252,7 +252,9 @@ class ResearchWorker(BaseWorker):
             "fcf_adjusted": financial_data.get("fcf_adjusted"),
             "debt_to_equity": financial_data.get("debt_equity_ratio"),
             "debt_maturity_profile": financial_data.get("debt_maturity_profile", "N/A"),
-            "interest_coverage_ratio": financial_data.get("interest_coverage_ratio"),
+            "interest_coverage_ratio": self._sourced_optional_metric_label(
+                financial_data, "interest_coverage_ratio", unit="x"
+            ),
             "ceo_tenure": financial_data.get("ceo_tenure"),
             "insider_ownership": financial_data.get("insider_ownership"),
             "capital_allocation": financial_data.get("capital_allocation", "N/A"),
@@ -329,6 +331,9 @@ class ResearchWorker(BaseWorker):
             }, max_tokens=8192)
         else:
             ddd_result = self._run_prompt("ddd", ticker, ddd_inputs, max_tokens=8192)
+
+        if not is_systematic:
+            self._demote_unreferenced_research_facts(ddd_result)
 
         classification = ddd_result.get("clasificacion_oportunidad", {})
         if signal_snapshot is not None:
@@ -1276,6 +1281,61 @@ class ResearchWorker(BaseWorker):
             ),
             "observations": observations,
         }
+
+    @staticmethod
+    def _sourced_optional_metric_label(
+        data: dict[str, Any], field: str, *, unit: str
+    ) -> str:
+        """Render a prompt metric only when that field has dated source provenance."""
+        value = data.get(field)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+            return "N/D (sin dato verificado)"
+        provenance = data.get("data_provenance")
+        provenance = provenance if isinstance(provenance, dict) else {}
+        field_sources = provenance.get("field_sources")
+        sources = field_sources.get(field) if isinstance(field_sources, dict) else None
+        has_source = isinstance(sources, list) and any(
+            isinstance(source, str) and source.strip() for source in sources
+        )
+        metric_metadata = data.get("financial_metric_metadata")
+        metadata = metric_metadata.get(field) if isinstance(metric_metadata, dict) else None
+        period_end = data.get("financial_data_as_of_date")
+        if not period_end and isinstance(metadata, dict):
+            period_end = metadata.get("period_end")
+        try:
+            parsed_period_end = date.fromisoformat(str(period_end)[:10])
+            has_period = parsed_period_end.isoformat() == str(period_end)[:10]
+        except ValueError:
+            has_period = False
+        if not has_source or not has_period:
+            return "N/D (sin dato verificado)"
+        return f"{value:g}{unit}"
+
+    @staticmethod
+    def _demote_unreferenced_research_facts(ddd_result: dict[str, Any]) -> None:
+        """Do not persist free-text LLM claims as verified facts without evidence refs."""
+        quality = ddd_result.get("calidad_evidencia")
+        if not isinstance(quality, dict):
+            return
+        facts = quality.get("hechos_verificados")
+        if not isinstance(facts, list):
+            return
+        if not facts:
+            return
+        unreferenced = [
+            fact.strip() for fact in facts
+            if isinstance(fact, str) and fact.strip()
+        ]
+        quality["hechos_verificados"] = []
+        if any(not isinstance(fact, str) for fact in facts):
+            print("[RESEARCH] Ignoring unsupported structured hechos_verificados")
+        existing = quality.get("inferencias_llm")
+        inferences = [item.strip() for item in existing if isinstance(item, str) and item.strip()] \
+            if isinstance(existing, list) else []
+        for fact in unreferenced:
+            if fact not in inferences:
+                inferences.append(fact)
+        quality["inferencias_llm"] = inferences
 
     @staticmethod
     def _bound_multibaggers_prompt_value(value: Any, depth: int = 0) -> Any:
