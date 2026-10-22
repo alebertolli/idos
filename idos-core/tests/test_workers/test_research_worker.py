@@ -1596,8 +1596,15 @@ def test_multibaggers_omitted_ratio_dispositions_are_explicitly_unavailable():
         "period_end": "2026-09-30",
         "sources": [{"name": "Yahoo Finance", "url": source_url}],
     }]
+    ratio_units = {
+        "revenue_cagr_3y_pct": "percent",
+        "current_ratio": "x",
+        "gross_margin_pct": "percent",
+    }
     missing = ResearchWorker._complete_missing_multibaggers_ratio_dispositions(
-        ratios, ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"]
+        ratios,
+        ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"],
+        ratio_units,
     )
 
     assert missing == ["current_ratio", "gross_margin_pct"]
@@ -1607,12 +1614,25 @@ def test_multibaggers_omitted_ratio_dispositions_are_explicitly_unavailable():
     assert all(item["status"] == "unavailable" for item in omitted.values())
     assert all(item["value"] is None for item in omitted.values())
     assert all(item["limitations"] for item in omitted.values())
+    assert {metric: omitted[metric]["unit"] for metric in missing} == {
+        "current_ratio": "x",
+        "gross_margin_pct": "percent",
+    }
     assert ResearchWorker._validate_multibaggers_ratio_review(
         ratios,
         ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"],
         trusted_source_urls={source_url},
-        expected_units={"revenue_cagr_3y_pct": "percent"},
+        expected_units=ratio_units,
     ) == []
+
+    omitted["current_ratio"]["unit"] = "percent"
+    errors = ResearchWorker._validate_multibaggers_ratio_review(
+        ratios,
+        ["revenue_cagr_3y_pct", "current_ratio", "gross_margin_pct"],
+        trusted_source_urls={source_url},
+        expected_units=ratio_units,
+    )
+    assert "ratio unit conflicts with configured unit for current_ratio: expected x" in errors
 
 def test_multibaggers_ratio_contract_accepts_unavailable_with_reason_and_rejects_uncited_values():
     from idos.workers.ai.research_worker import ResearchWorker
