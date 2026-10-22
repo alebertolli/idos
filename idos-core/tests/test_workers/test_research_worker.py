@@ -1357,6 +1357,91 @@ def test_multibaggers_research_evidence_honors_configured_ratio_inputs():
     assert set(context["reconciled_observations"]) == {"current_assets"}
 
 
+def test_multibaggers_research_prompt_evidence_and_combined_context_are_bounded():
+    evidence = {
+        "reporting_period_end": "2026-09-30",
+        "currency": "USD",
+        "trusted_source_urls": [f"https://example.com/source/{i}" for i in range(30)],
+        "source_observations": {
+            f"revenue_history_{i}": {
+                "value": [
+                    {"value": year * 1000, "unit": "USD", "period": f"FY {year}",
+                     "period_end": f"{year}-12-31", "reported_at": f"{year}-12-31",
+                     "unused_detail": "x" * 400}
+                    for year in range(2022, 2027)
+                ],
+                "unit": "USD", "currency": "USD", "period_type": "annual",
+                "period_end": "2026-12-31", "sources": ["stockanalysis.com", "yfinance"],
+                "source_url": "https://stockanalysis.com/stocks/test/financials/",
+                "observed_at": "2026-10-21T00:00:00Z", "omitted_points": 2,
+            }
+            for i in range(18)
+        },
+        "reconciled_observations": {
+            f"metric_{i}": {
+                "selected_source": "stockanalysis.com", "period_status": "COMPARABLE",
+                "non_comparable_reason": "different period",
+                "values": {f"source_{j}": j for j in range(10)},
+                "non_comparable_values": {f"other_{j}": j for j in range(10)},
+                "unused_detail": "x" * 3000,
+            }
+            for i in range(18)
+        },
+        "validated_metric_observations": {
+            f"metric_{i}": [
+                {"source_id": f"source_{j}", "value": j, "unit": "percent",
+                 "period": "FY2026", "reported_at": "2026-09-30",
+                 "observed_at": "2026-10-20T00:00:00Z",
+                 "source_url": f"https://example.com/{i}/{j}", "extra": "x" * 500}
+                for j in range(5)
+            ]
+            for i in range(18)
+        },
+        "metric_observation_exclusions": {},
+        "conflicts": [{"field": f"metric_{i}", "deviation_pct": i, "detail": "x" * 300} for i in range(20)],
+    }
+    compact_evidence = ResearchWorker._multibaggers_research_prompt_evidence(evidence)
+    package = {
+        "ticker": "TEST",
+        "strategy_id": "MULTIBAGGERS",
+        "strategy_version": "1.5",
+        "snapshot_hash": "hash",
+        "metrics_snapshot": {
+            f"metric_{i}": {
+                "value": i, "unit": "percent", "source_evidence": [
+                    {"source_id": f"source_{j}", "source_url": f"https://example.com/{i}/{j}"}
+                    for j in range(3)
+                ],
+            }
+            for i in range(18)
+        },
+        "research_requirements": {
+            "ratios_to_review": [f"metric_{i}" for i in range(18)],
+            "ratio_definitions": {f"metric_{i}": "configured formula" for i in range(18)},
+        },
+    }
+    combined = ResearchWorker._bounded_ddd_prompt_context({
+        "ticker": "TEST",
+        "name": "Test Company",
+        "intake_package": ResearchWorker._multibaggers_intake_prompt_context(package),
+        "financial_summary": {"scenario_market_evidence": {
+            "current_quote": {"price": 100, "currency": "USD", "sources": [
+                {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/quote/TEST/"}
+            ]},
+        }},
+        "research_financial_evidence": compact_evidence,
+    }, max_chars=20000)
+
+    assert len(json.dumps(combined, ensure_ascii=False, sort_keys=True)) <= 20000
+    assert set(compact_evidence["source_observations"]) == set(evidence["source_observations"])
+    assert len(compact_evidence["source_observations"]["revenue_history_0"]["value"]) == 5
+    assert compact_evidence["source_observations"]["revenue_history_0"]["source_url"].endswith("/financials/")
+    assert len(compact_evidence["validated_metric_observations"]["metric_0"]) == 2
+    assert "values" not in compact_evidence["reconciled_observations"]["metric_0"]
+    assert "non_comparable_values" not in compact_evidence["reconciled_observations"]["metric_0"]
+    assert "unused_detail" not in json.dumps(compact_evidence)
+
+
 def test_multibaggers_intake_prompt_context_keeps_contract_and_compacts_repeated_market_data():
     import json
 
