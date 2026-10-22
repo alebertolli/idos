@@ -242,6 +242,35 @@ def test_ddd_prompt_renders_the_scenario_evidence_contract():
     assert '"key_assumptions"' in prompt
 
 
+
+def test_aoif_reuses_ddd_scenario_contract_without_probabilities_or_trade_recommendation():
+    from idos.ai.prompts import PromptRegistry
+
+    repo_root = Path(__file__).resolve().parents[3]
+    registry = PromptRegistry(repo_root / "idos-config" / "prompts")
+    scenario_json = json.dumps({
+        "schema_version": "bear_bull_v2",
+        "as_of_date": "2026-10-21",
+        "horizon_date": "2027-10-21",
+        "currency": "USD",
+        "scenarios": [
+            {"id": "BEAR", "target_price": 80, "rationale": "Caso adverso", "key_assumptions": ["menor demanda"], "falsifiers": ["demanda estable"], "sources": [{"name": "Filing", "url": "https://example.com/bear", "as_of_date": "2026-10-20"}]},
+            {"id": "BULL", "target_price": 140, "rationale": "Caso favorable", "key_assumptions": ["mayor demanda"], "falsifiers": ["demanda cae"], "sources": [{"name": "Filing", "url": "https://example.com/bull", "as_of_date": "2026-10-20"}]},
+        ],
+    }, ensure_ascii=False, sort_keys=True)
+    prompt = registry.load("aoif", category="research").user_prompt.format(
+        ticker="VIST", name="Vista", company_data="Energy",
+        roic=10, operating_margin=20, revenue_growth=15, pe_ratio=12,
+        ev_ebitda=8, fcf_yield=5, scenario_analysis=scenario_json,
+    )
+    step7 = prompt.split("Paso 7 - Escenarios financieros:", 1)[1].split("Paso 8 - Síntesis", 1)[0]
+
+    assert scenario_json in prompt
+    assert "probabilidades" not in step7
+    assert "retorno esperado" in step7
+    assert "PENDIENTE_DECISION_BOARD" in prompt
+    assert "comprar, mantener" in prompt
+
 def test_current_price_context_rejects_invalid_discovery_quote():
     context = ResearchWorker._current_price_context(
         {}, {"market_quote": {"price": 125.5, "as_of_date": "2024-01-01", "source": ""}},

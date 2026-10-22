@@ -636,6 +636,9 @@ class ResearchWorker(BaseWorker):
             "ticker": ticker,
             "name": company.get("name", ticker),
             "company_data": f"Sector: {company.get('sector', '')}\nBusiness: {company.get('business_model', '')}",
+            "scenario_analysis": json.dumps(
+                ddd_result.get("scenario_analysis"), ensure_ascii=False, sort_keys=True, default=str,
+            ),
             "roic": financial_data.get("roic_pct"),
             "operating_margin": financial_data.get("operating_margin_pct"),
             "revenue_growth": financial_data.get("revenue_growth_pct"),

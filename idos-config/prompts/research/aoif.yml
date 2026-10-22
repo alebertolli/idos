@@ -45,21 +45,26 @@ user_prompt: >
     "fcf_yield": {fcf_yield}, "valor_intrinseco_estimado": "...",
     "margen_seguridad": "adecuado|insuficiente", "status": "completado"}}
 
-  Paso 7 - Análisis de Escenarios:
-  Define casos base, alcista y bajista con probabilidades.
-  {{"caso_base": {{"probabilidad": 0.60, "descripcion": "...", "precio_objetivo": N}},
-    "caso_alcista": {{"probabilidad": 0.20, "descripcion": "...", "precio_objetivo": N}},
-    "caso_bajista": {{"probabilidad": 0.20, "descripcion": "...", "precio_objetivo": N}},
-    "valor_esperado": N, "status": "completado"}}
+  Paso 7 - Escenarios financieros:
+  Usa como única fuente de escenarios el scenario_analysis de DDD que sigue.
+  No lo recalcules, edites ni amplíes. Si es null o inválido, conserva null y
+  explica la carencia en puntos_monitoreo_clave. No asignes probabilidades ni
+  retorno esperado sin calibración histórica validada.
+  scenario_analysis de DDD:
+  {scenario_analysis}
+  Devuelve ese valor sin alteraciones como scenario_analysis:
+  {{"scenario_analysis": {scenario_analysis}, "status": "completado"}}
 
-  Paso 8 - Formulación de Tesis:
-  Produce la tesis de inversión final y recomendación.
-  {{"tesis": "...", "recomendacion": "comprar|mantener|vender|pasar",
-    "rango_conviccion": [min, max], "puntos_monitoreo_clave": [...],
+  Paso 8 - Síntesis para Decision Board:
+  Resume la tesis y evidencia de Research, sin recomendar comprar, mantener,
+  vender o pasar y sin sugerir tamaño de posición. La resolución humana ocurre
+  sólo en Decision Board.
+  {{"tesis": "...", "recomendacion": "PENDIENTE_DECISION_BOARD",
+    "rango_conviccion": null, "puntos_monitoreo_clave": [...],
     "status": "completado"}}
 
 category: research
 metadata:
-  version: "2.0"
+  version: "2.1"
   author: "FO Senior Analyst"
   description: "AOIF 8-step protocol en español con salida JSON"
