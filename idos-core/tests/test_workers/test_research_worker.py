@@ -115,6 +115,42 @@ def test_ddd_prompt_context_is_bounded_and_preserves_sourced_market_evidence():
     assert json.loads(bounded["financial_data_evidence"])["currency"] == "USD"
 
 
+def test_wiki_prompt_context_is_bounded_and_keeps_research_evidence():
+    ddd = {
+        "resumen_ejecutivo": "ASML mantiene ventajas competitivas verificables.",
+        "tesis_inversion": "La demanda de litografía avanzada puede sostener el crecimiento.",
+        "scenario_analysis": {
+            "scenarios": [
+                {"id": "BEAR", "target_price": 900, "source_url": "https://example.com/bear"},
+                {"id": "BULL", "target_price": 1800, "source_url": "https://example.com/bull"},
+            ]
+        },
+        "evidencia": [{"url": "https://example.com/filing", "text": "e" * 2000} for _ in range(30)],
+    }
+    aoif = {"conclusion": "La empresa conserva una posición competitiva fuerte.", "detail": "a" * 20000}
+    existing_wiki = "## Tesis previa\n" + ("texto histórico " * 2000)
+
+    context = ResearchWorker._bounded_wiki_prompt_context(
+        ddd,
+        aoif,
+        existing_wiki,
+        "[[ASML]]",
+        max_chars=8000,
+    )
+
+    encoded = json.dumps(context, ensure_ascii=False, sort_keys=True)
+    compact_ddd = json.loads(context["ddd_output"])
+    bear = compact_ddd["scenario_analysis"]["scenarios"][0]
+    assert len(encoded) <= 8000
+    assert compact_ddd["tesis_inversion"] == ddd["tesis_inversion"]
+    assert bear["source_url"] == "https://example.com/bear"
+    assert len(context["existing_wiki"]) <= 500
+    assert context["related_tickers"] == "[[ASML]]"
+    assert len(ddd["evidencia"]) == 30
+    assert len(aoif["detail"]) == 20000
+    assert len(existing_wiki) > 8000
+
+
 def test_current_price_context_uses_latest_aligned_close_with_provenance():
     context = ResearchWorker._current_price_context({
         "price_history": [100.0, None, 125.5],
