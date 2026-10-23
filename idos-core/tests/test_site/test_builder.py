@@ -197,7 +197,7 @@ def test_board_review_alert_covers_pending_and_blocked_proposals(proposal_status
     assert alert["message"] == expected_message
 
 
-def test_research_does_not_count_watchlist():def test_research_does_not_count_watchlist():
+def test_research_does_not_count_watchlist():
     universe_stats = {
         "operable_count": 267,
         "scout_passed": 57,
