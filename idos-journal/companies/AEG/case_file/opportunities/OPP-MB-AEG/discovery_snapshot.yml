@@ -2,30 +2,30 @@ ticker: AEG
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 70.86
-research_priority: 70.86
+discovery_score: 70.46
+research_priority: 70.46
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 70.86
+  market_confirmation: 70.46
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 9.6491
+    value: 9.1768
     unit: percent
     currency: null
     period: price_momentum_12m_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 9.649125064929652
+      yfinance: 9.17679243155809
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 9.649125064929652
+      value: 9.17679243155809
       unit: percent
       currency: null
       period: price_momentum_12m_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:06:01.957331+00:00'
+      observed_at: '2026-10-23T16:52:28.331289+00:00'
       source_url: https://finance.yahoo.com/quote/AEG/history/
     coverage: 1
     status: observed
@@ -33,23 +33,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   drawdown_pct:
-    value: 14.7429
+    value: 15.1102
     unit: percent
     currency: null
     period: drawdown_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 14.742914714994972
+      yfinance: 15.110174404321294
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 14.742914714994972
+      value: 15.110174404321294
       unit: percent
       currency: null
       period: drawdown_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:06:01.957331+00:00'
+      observed_at: '2026-10-23T16:52:28.331289+00:00'
       source_url: https://finance.yahoo.com/quote/AEG/history/
     coverage: 1
     status: observed
@@ -57,23 +57,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   volatility_90d_pct:
-    value: 18.008
+    value: 18.0862
     unit: percent
     currency: null
     period: volatility_90d_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 18.007973708490237
+      yfinance: 18.086217460437158
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 18.007973708490237
+      value: 18.086217460437158
       unit: percent
       currency: null
       period: volatility_90d_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:06:01.957331+00:00'
+      observed_at: '2026-10-23T16:52:28.331289+00:00'
       source_url: https://finance.yahoo.com/quote/AEG/history/
     coverage: 1
     status: observed
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-23T16:06:01.957331+00:00'
-snapshot_hash: 7b7b4641e8a54de31679b4c19c3f116af69b626f85b06cb6047331d8965112b0
+as_of: '2026-10-23T16:52:28.331289+00:00'
+snapshot_hash: 202fae43f6057f042213ea21b04acf7b067e339448e91f0deb290adae56e78d6
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 12024924160.0
+  size_metric_usd: 11973125120.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 58941235.14268112
+  avg_dollar_volume_usd: 59162550.05326748
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -151,7 +151,7 @@ global_market_eligibility:
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
 market_quote:
-  price: 8.125
+  price: 8.09000015258789
   as_of_date: '2026-10-23'
   currency: USD
   source: yfinance

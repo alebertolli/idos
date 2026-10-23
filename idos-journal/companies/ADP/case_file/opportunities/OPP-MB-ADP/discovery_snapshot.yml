@@ -2,30 +2,30 @@ ticker: ADP
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 73.8
-research_priority: 73.8
+discovery_score: 73.87
+research_priority: 73.87
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 73.8
+  market_confirmation: 73.87
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 8.3697
+    value: 8.455
     unit: percent
     currency: null
     period: price_momentum_12m_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 8.369740175138718
+      yfinance: 8.454989957543123
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 8.369740175138718
+      value: 8.454989957543123
       unit: percent
       currency: null
       period: price_momentum_12m_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:05:59.200377+00:00'
+      observed_at: '2026-10-23T16:52:23.030152+00:00'
       source_url: https://finance.yahoo.com/quote/ADP/history/
     coverage: 1
     status: observed
@@ -33,23 +33,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   drawdown_pct:
-    value: 0.9174
+    value: 0.8394
     unit: percent
     currency: null
     period: drawdown_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 0.9173904606852055
+      yfinance: 0.8394464618379641
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 0.9173904606852055
+      value: 0.8394464618379641
       unit: percent
       currency: null
       period: drawdown_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:05:59.200377+00:00'
+      observed_at: '2026-10-23T16:52:23.030152+00:00'
       source_url: https://finance.yahoo.com/quote/ADP/history/
     coverage: 1
     status: observed
@@ -57,23 +57,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   volatility_90d_pct:
-    value: 28.354
+    value: 28.3444
     unit: percent
     currency: null
     period: volatility_90d_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 28.35401483243482
+      yfinance: 28.344402143759144
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 28.35401483243482
+      value: 28.344402143759144
       unit: percent
       currency: null
       period: volatility_90d_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:05:59.200377+00:00'
+      observed_at: '2026-10-23T16:52:23.030152+00:00'
       source_url: https://finance.yahoo.com/quote/ADP/history/
     coverage: 1
     status: observed
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-23T16:05:59.200377+00:00'
-snapshot_hash: 7253d19f50e982102db5043e4b5359993d1b30f1856789038303a0e4dc7bfd71
+as_of: '2026-10-23T16:52:23.030152+00:00'
+snapshot_hash: 849074b92775aee174d3ea81d813e23a72d8586c65e7596dfdf7d1a33c46f392
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 120902287360.0
+  size_metric_usd: 120997396480.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 504691833.1367432
+  avg_dollar_volume_usd: 506028866.60533905
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -151,7 +151,7 @@ global_market_eligibility:
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
 market_quote:
-  price: 305.114990234375
+  price: 305.3550109863281
   as_of_date: '2026-10-23'
   currency: USD
   source: yfinance

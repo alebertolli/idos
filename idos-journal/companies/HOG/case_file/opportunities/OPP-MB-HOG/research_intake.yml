@@ -3,27 +3,27 @@ strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 discovery_profile: multibaggers
 research_profile: multibaggers
-as_of: '2026-10-23T16:07:55.972193+00:00'
+as_of: '2026-10-23T16:56:17.963633+00:00'
 config_hash: fc759a2d3695b9436cb4d35eb89366d9fff9ddd56b32ce26fd7d0a5897213ecd
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 4.0898
+    value: 4.0355
     unit: percent
     currency: null
     period: price_momentum_12m_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 4.089761499956124
+      yfinance: 4.035474890821034
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 4.089761499956124
+      value: 4.035474890821034
       unit: percent
       currency: null
       period: price_momentum_12m_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:07:55.972193+00:00'
+      observed_at: '2026-10-23T16:56:17.963633+00:00'
       source_url: https://finance.yahoo.com/quote/HOG/history/
     coverage: 1
     status: observed
@@ -31,23 +31,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   drawdown_pct:
-    value: 1.2023
+    value: 1.2539
     unit: percent
     currency: null
     period: drawdown_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 1.2023372522543536
+      yfinance: 1.2538638387673875
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 1.2023372522543536
+      value: 1.2538638387673875
       unit: percent
       currency: null
       period: drawdown_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:07:55.972193+00:00'
+      observed_at: '2026-10-23T16:56:17.963633+00:00'
       source_url: https://finance.yahoo.com/quote/HOG/history/
     coverage: 1
     status: observed
@@ -55,23 +55,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   volatility_90d_pct:
-    value: 38.0705
+    value: 38.0758
     unit: percent
     currency: null
     period: volatility_90d_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 38.07050977361291
+      yfinance: 38.07575741506214
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 38.07050977361291
+      value: 38.07575741506214
       unit: percent
       currency: null
       period: volatility_90d_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:07:55.972193+00:00'
+      observed_at: '2026-10-23T16:56:17.963633+00:00'
       source_url: https://finance.yahoo.com/quote/HOG/history/
     coverage: 1
     status: observed
@@ -79,9 +79,9 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
 component_scores:
-  market_confirmation: 68.17
-discovery_score: 68.17
-research_priority: 68.17
+  market_confirmation: 68.12
+discovery_score: 68.12
+research_priority: 68.12
 discovery_type: RESEARCH_REQUIRED
 reason_codes: []
 red_flags: []
@@ -235,4 +235,4 @@ constraints:
 - Cite each material claim to a source.
 - Separate verified facts, inference, and unknowns.
 - Research cannot approve an investment or set a position size.
-snapshot_hash: 92bd2e6380f5477cf2ec9b5c594d524c2b1449fbcfa6bdf20439dc87d0e060af
+snapshot_hash: 44445482c395d588e20e33e2fdd722c5e709a76b3399469dea373af0d989a26e

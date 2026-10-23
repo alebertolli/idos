@@ -12,7 +12,7 @@ conviction:
 core: CORE_4_ALPHA_ASYMMETRY
 created_at: '2026-10-23T13:06:07.727721-03:00'
 decision_ids: []
-discovery_evidence: &id001
+discovery_evidence:
   as_of: '2026-10-23T16:06:07.025346+00:00'
   component_scores:
     market_confirmation: 68.53
@@ -171,21 +171,179 @@ discovery_evidence: &id001
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: ANF
-discovery_score: 68.53
+discovery_score: 68.19
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-ANF
-latest_discovery_evidence: *id001
+latest_discovery_evidence:
+  as_of: '2026-10-23T16:52:44.727456+00:00'
+  component_scores:
+    market_confirmation: 68.19
+  data_quality:
+    coverage_factor: 1.0
+    critical_conflicts: []
+    critical_coverage: 1.0
+    critical_metric_count: 3
+    critical_metrics_covered: 3
+    critical_source_failures: 0
+    critical_stale: 0
+    freshness_factor: 1.0
+  discovery_score: 68.19
+  discovery_type: RESEARCH_REQUIRED
+  global_market_eligibility:
+    asset_type: us_equity
+    avg_dollar_volume_min_usd: 100000.0
+    avg_dollar_volume_usd: 174958263.05049744
+    liquidity_basis: UNDERLYING_USD_PROXY
+    liquidity_provenance:
+      basis: UNDERLYING_USD_PROXY
+      coverage: 1.0
+      expected_observations: 20
+      first_price_date: '2026-09-28'
+      fx_observations: []
+      fx_reference: null
+      fx_side: null
+      fx_source: null
+      last_price_date: '2026-10-23'
+      minimum_coverage: 0.8
+      missing_market_dates: []
+      price_source: yfinance
+      quote_currency: USD
+      valid_observations: 20
+      valid_price_dates:
+      - '2026-09-28'
+      - '2026-09-29'
+      - '2026-09-30'
+      - '2026-10-01'
+      - '2026-10-02'
+      - '2026-10-05'
+      - '2026-10-06'
+      - '2026-10-07'
+      - '2026-10-08'
+      - '2026-10-09'
+      - '2026-10-12'
+      - '2026-10-13'
+      - '2026-10-14'
+      - '2026-10-15'
+      - '2026-10-16'
+      - '2026-10-19'
+      - '2026-10-20'
+      - '2026-10-21'
+      - '2026-10-22'
+      - '2026-10-23'
+      window_sessions: 20
+    market_cap_min_usd: 2000000000.0
+    normalization:
+      errors: []
+      exchange_calendar: NYQ
+      liquidity_basis: UNDERLYING_USD_PROXY
+      size_metric: market_cap_usd
+      status: complete
+    passed: true
+    reason_codes: []
+    size_metric_usd: 6755128320.0
+    size_provenance:
+      as_of: '2026-10-23'
+      fx: null
+      source: yfinance
+      source_currency: USD
+  market_quote:
+    as_of_date: '2026-10-23'
+    currency: USD
+    price: 159.19000244140625
+    source: yfinance
+    url: https://finance.yahoo.com/quote/ANF/history/
+  metrics_snapshot:
+    drawdown_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: drawdown_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:52:44.727456+00:00'
+        period: drawdown_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/ANF/history/
+        status: observed
+        unit: percent
+        value: 1.740628455678825
+      source_values:
+        yfinance: 1.740628455678825
+      status: observed
+      unit: percent
+      value: 1.7406
+    price_momentum_12m_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:52:44.727456+00:00'
+        period: price_momentum_12m_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/ANF/history/
+        status: observed
+        unit: percent
+        value: 128.68840834018528
+      source_values:
+        yfinance: 128.68840834018528
+      status: observed
+      unit: percent
+      value: 128.6884
+    volatility_90d_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: volatility_90d_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:52:44.727456+00:00'
+        period: volatility_90d_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/ANF/history/
+        status: observed
+        unit: percent
+        value: 74.01871554571856
+      source_values:
+        yfinance: 74.01871554571856
+      status: observed
+      unit: percent
+      value: 74.0187
+  passed: true
+  reason_codes: []
+  red_flags: []
+  research_priority: 68.19
+  snapshot_hash: d9b7e73ae2fa63082328a801a127ce8410c1a67011d2fdd66b82eb43039378d1
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  ticker: ANF
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 68.53
+research_priority: 68.19
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: b20b0453601b416ba5fcfae72b1bb5e1188fd57cda2eb367ce0edc981d00ad3e
+snapshot_hash: d9b7e73ae2fa63082328a801a127ce8410c1a67011d2fdd66b82eb43039378d1
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

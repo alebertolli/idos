@@ -12,7 +12,7 @@ conviction:
 core: CORE_4_ALPHA_ASYMMETRY
 created_at: '2026-10-23T13:05:55.961876-03:00'
 decision_ids: []
-discovery_evidence: &id001
+discovery_evidence:
   as_of: '2026-10-23T16:05:55.310493+00:00'
   component_scores:
     market_confirmation: 72.16
@@ -171,21 +171,179 @@ discovery_evidence: &id001
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: ABNB
-discovery_score: 72.16
+discovery_score: 72.26
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-ABNB
-latest_discovery_evidence: *id001
+latest_discovery_evidence:
+  as_of: '2026-10-23T16:52:13.914013+00:00'
+  component_scores:
+    market_confirmation: 72.26
+  data_quality:
+    coverage_factor: 1.0
+    critical_conflicts: []
+    critical_coverage: 1.0
+    critical_metric_count: 3
+    critical_metrics_covered: 3
+    critical_source_failures: 0
+    critical_stale: 0
+    freshness_factor: 1.0
+  discovery_score: 72.26
+  discovery_type: RESEARCH_REQUIRED
+  global_market_eligibility:
+    asset_type: us_equity
+    avg_dollar_volume_min_usd: 100000.0
+    avg_dollar_volume_usd: 581422979.6124344
+    liquidity_basis: UNDERLYING_USD_PROXY
+    liquidity_provenance:
+      basis: UNDERLYING_USD_PROXY
+      coverage: 1.0
+      expected_observations: 20
+      first_price_date: '2026-09-28'
+      fx_observations: []
+      fx_reference: null
+      fx_side: null
+      fx_source: null
+      last_price_date: '2026-10-23'
+      minimum_coverage: 0.8
+      missing_market_dates: []
+      price_source: yfinance
+      quote_currency: USD
+      valid_observations: 20
+      valid_price_dates:
+      - '2026-09-28'
+      - '2026-09-29'
+      - '2026-09-30'
+      - '2026-10-01'
+      - '2026-10-02'
+      - '2026-10-05'
+      - '2026-10-06'
+      - '2026-10-07'
+      - '2026-10-08'
+      - '2026-10-09'
+      - '2026-10-12'
+      - '2026-10-13'
+      - '2026-10-14'
+      - '2026-10-15'
+      - '2026-10-16'
+      - '2026-10-19'
+      - '2026-10-20'
+      - '2026-10-21'
+      - '2026-10-22'
+      - '2026-10-23'
+      window_sessions: 20
+    market_cap_min_usd: 2000000000.0
+    normalization:
+      errors: []
+      exchange_calendar: NMS
+      liquidity_basis: UNDERLYING_USD_PROXY
+      size_metric: market_cap_usd
+      status: complete
+    passed: true
+    reason_codes: []
+    size_metric_usd: 103883325440.0
+    size_provenance:
+      as_of: '2026-10-23'
+      fx: null
+      source: yfinance
+      source_currency: USD
+  market_quote:
+    as_of_date: '2026-10-23'
+    currency: USD
+    price: 173.49000549316406
+    source: yfinance
+    url: https://finance.yahoo.com/quote/ABNB/history/
+  metrics_snapshot:
+    drawdown_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: drawdown_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:52:13.914013+00:00'
+        period: drawdown_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/ABNB/history/
+        status: observed
+        unit: percent
+        value: 8.929130974717028
+      source_values:
+        yfinance: 8.929130974717028
+      status: observed
+      unit: percent
+      value: 8.9291
+    price_momentum_12m_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:52:13.914013+00:00'
+        period: price_momentum_12m_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/ABNB/history/
+        status: observed
+        unit: percent
+        value: 36.23086578082615
+      source_values:
+        yfinance: 36.23086578082615
+      status: observed
+      unit: percent
+      value: 36.2309
+    volatility_90d_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: volatility_90d_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:52:13.914013+00:00'
+        period: volatility_90d_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/ABNB/history/
+        status: observed
+        unit: percent
+        value: 43.650400034403035
+      source_values:
+        yfinance: 43.650400034403035
+      status: observed
+      unit: percent
+      value: 43.6504
+  passed: true
+  reason_codes: []
+  red_flags: []
+  research_priority: 72.26
+  snapshot_hash: be34158eced811edbe8997e1213939233f4fcfec9a1b54e0a43f137859987ac5
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  ticker: ABNB
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 72.16
+research_priority: 72.26
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 3ad86be9c288462714f686a6f52802a2cac27f3e332eb4637f0332afb659c72b
+snapshot_hash: be34158eced811edbe8997e1213939233f4fcfec9a1b54e0a43f137859987ac5
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

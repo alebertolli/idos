@@ -12,7 +12,7 @@ conviction:
 core: CORE_4_ALPHA_ASYMMETRY
 created_at: '2026-10-23T13:09:55.755594-03:00'
 decision_ids: []
-discovery_evidence: &id001
+discovery_evidence:
   as_of: '2026-10-23T16:09:54.355887+00:00'
   component_scores:
     market_confirmation: 66.39
@@ -171,21 +171,179 @@ discovery_evidence: &id001
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: RTX
-discovery_score: 66.39
+discovery_score: 67.02
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-RTX
-latest_discovery_evidence: *id001
+latest_discovery_evidence:
+  as_of: '2026-10-23T17:00:20.540029+00:00'
+  component_scores:
+    market_confirmation: 67.02
+  data_quality:
+    coverage_factor: 1.0
+    critical_conflicts: []
+    critical_coverage: 1.0
+    critical_metric_count: 3
+    critical_metrics_covered: 3
+    critical_source_failures: 0
+    critical_stale: 0
+    freshness_factor: 1.0
+  discovery_score: 67.02
+  discovery_type: RESEARCH_REQUIRED
+  global_market_eligibility:
+    asset_type: us_equity
+    avg_dollar_volume_min_usd: 100000.0
+    avg_dollar_volume_usd: 892694188.0026245
+    liquidity_basis: UNDERLYING_USD_PROXY
+    liquidity_provenance:
+      basis: UNDERLYING_USD_PROXY
+      coverage: 1.0
+      expected_observations: 20
+      first_price_date: '2026-09-28'
+      fx_observations: []
+      fx_reference: null
+      fx_side: null
+      fx_source: null
+      last_price_date: '2026-10-23'
+      minimum_coverage: 0.8
+      missing_market_dates: []
+      price_source: yfinance
+      quote_currency: USD
+      valid_observations: 20
+      valid_price_dates:
+      - '2026-09-28'
+      - '2026-09-29'
+      - '2026-09-30'
+      - '2026-10-01'
+      - '2026-10-02'
+      - '2026-10-05'
+      - '2026-10-06'
+      - '2026-10-07'
+      - '2026-10-08'
+      - '2026-10-09'
+      - '2026-10-12'
+      - '2026-10-13'
+      - '2026-10-14'
+      - '2026-10-15'
+      - '2026-10-16'
+      - '2026-10-19'
+      - '2026-10-20'
+      - '2026-10-21'
+      - '2026-10-22'
+      - '2026-10-23'
+      window_sessions: 20
+    market_cap_min_usd: 2000000000.0
+    normalization:
+      errors: []
+      exchange_calendar: NYQ
+      liquidity_basis: UNDERLYING_USD_PROXY
+      size_metric: market_cap_usd
+      status: complete
+    passed: true
+    reason_codes: []
+    size_metric_usd: 259591864320.0
+    size_provenance:
+      as_of: '2026-10-23'
+      fx: null
+      source: yfinance
+      source_currency: USD
+  market_quote:
+    as_of_date: '2026-10-23'
+    currency: USD
+    price: 192.3699951171875
+    source: yfinance
+    url: https://finance.yahoo.com/quote/RTX/history/
+  metrics_snapshot:
+    drawdown_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: drawdown_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T17:00:20.540029+00:00'
+        period: drawdown_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/RTX/history/
+        status: observed
+        unit: percent
+        value: 14.688017015894136
+      source_values:
+        yfinance: 14.688017015894136
+      status: observed
+      unit: percent
+      value: 14.688
+    price_momentum_12m_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T17:00:20.540029+00:00'
+        period: price_momentum_12m_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/RTX/history/
+        status: observed
+        unit: percent
+        value: 7.205747046288291
+      source_values:
+        yfinance: 7.205747046288291
+      status: observed
+      unit: percent
+      value: 7.2057
+    volatility_90d_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: volatility_90d_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T17:00:20.540029+00:00'
+        period: volatility_90d_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/RTX/history/
+        status: observed
+        unit: percent
+        value: 25.326948918016036
+      source_values:
+        yfinance: 25.326948918016036
+      status: observed
+      unit: percent
+      value: 25.3269
+  passed: true
+  reason_codes: []
+  red_flags: []
+  research_priority: 67.02
+  snapshot_hash: 698634809eb85974dc76c97a79693afda570ac4a666ecc6676be97b73067cef7
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  ticker: RTX
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 66.39
+research_priority: 67.02
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: e863d45f5798710aada06b42ea902cb9c63162bcee64066b0d9c148c2f62b511
+snapshot_hash: 698634809eb85974dc76c97a79693afda570ac4a666ecc6676be97b73067cef7
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

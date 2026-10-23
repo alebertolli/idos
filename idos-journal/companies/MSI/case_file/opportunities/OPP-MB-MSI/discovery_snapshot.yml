@@ -2,30 +2,30 @@ ticker: MSI
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 74.37
-research_priority: 74.37
+discovery_score: 74.51
+research_priority: 74.51
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 74.37
+  market_confirmation: 74.51
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 7.5107
+    value: 7.6737
     unit: percent
     currency: null
     period: price_momentum_12m_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 7.510735487856257
+      yfinance: 7.673720476593715
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 7.510735487856257
+      value: 7.673720476593715
       unit: percent
       currency: null
       period: price_momentum_12m_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:08:51.705145+00:00'
+      observed_at: '2026-10-23T16:58:18.113365+00:00'
       source_url: https://finance.yahoo.com/quote/MSI/history/
     coverage: 1
     status: observed
@@ -33,23 +33,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   drawdown_pct:
-    value: 2.6464
+    value: 2.4988
     unit: percent
     currency: null
     period: drawdown_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 2.646364355189728
+      yfinance: 2.49877740829444
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 2.646364355189728
+      value: 2.49877740829444
       unit: percent
       currency: null
       period: drawdown_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:08:51.705145+00:00'
+      observed_at: '2026-10-23T16:58:18.113365+00:00'
       source_url: https://finance.yahoo.com/quote/MSI/history/
     coverage: 1
     status: observed
@@ -57,23 +57,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   volatility_90d_pct:
-    value: 23.9872
+    value: 23.9867
     unit: percent
     currency: null
     period: volatility_90d_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 23.987249878429836
+      yfinance: 23.986696539926555
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 23.987249878429836
+      value: 23.986696539926555
       unit: percent
       currency: null
       period: volatility_90d_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:08:51.705145+00:00'
+      observed_at: '2026-10-23T16:58:18.113365+00:00'
       source_url: https://finance.yahoo.com/quote/MSI/history/
     coverage: 1
     status: observed
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-23T16:08:51.705145+00:00'
-snapshot_hash: f8c2ce9fe23d4e9f224776966c713d11ffb95b580f38cabfd2d3d04dced5d06f
+as_of: '2026-10-23T16:58:18.113365+00:00'
+snapshot_hash: 79de0cf4c1486b04447bd92c71bc631b7c164fe676412087e3584c4ae0a7756b
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 79145746432.0
+  size_metric_usd: 79265734656.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 353255005.7079895
+  avg_dollar_volume_usd: 354888358.96785736
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -151,7 +151,7 @@ global_market_eligibility:
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
 market_quote:
-  price: 478.239990234375
+  price: 478.9649963378906
   as_of_date: '2026-10-23'
   currency: USD
   source: yfinance

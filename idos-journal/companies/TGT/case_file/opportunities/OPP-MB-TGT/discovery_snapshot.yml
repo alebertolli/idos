@@ -2,30 +2,30 @@ ticker: TGT
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 81.65
-research_priority: 81.65
+discovery_score: 81.73
+research_priority: 81.73
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 81.65
+  market_confirmation: 81.73
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 62.8912
+    value: 63.0981
     unit: percent
     currency: null
     period: price_momentum_12m_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 62.89124020847148
+      yfinance: 63.09814453125
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 62.89124020847148
+      value: 63.09814453125
       unit: percent
       currency: null
       period: price_momentum_12m_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:10:28.054900+00:00'
+      observed_at: '2026-10-23T17:01:16.881083+00:00'
       source_url: https://finance.yahoo.com/quote/TGT/history/
     coverage: 1
     status: observed
@@ -33,23 +33,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   drawdown_pct:
-    value: 9.6327
+    value: 9.5179
     unit: percent
     currency: null
     period: drawdown_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 9.632706782010382
+      yfinance: 9.517922318581494
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 9.632706782010382
+      value: 9.517922318581494
       unit: percent
       currency: null
       period: drawdown_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:10:28.054900+00:00'
+      observed_at: '2026-10-23T17:01:16.881083+00:00'
       source_url: https://finance.yahoo.com/quote/TGT/history/
     coverage: 1
     status: observed
@@ -57,23 +57,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   volatility_90d_pct:
-    value: 31.1959
+    value: 31.1625
     unit: percent
     currency: null
     period: volatility_90d_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 31.195884840570816
+      yfinance: 31.162497329245436
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 31.195884840570816
+      value: 31.162497329245436
       unit: percent
       currency: null
       period: volatility_90d_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:10:28.054900+00:00'
+      observed_at: '2026-10-23T17:01:16.881083+00:00'
       source_url: https://finance.yahoo.com/quote/TGT/history/
     coverage: 1
     status: observed
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-23T16:10:28.054900+00:00'
-snapshot_hash: 3516ee30ec635123adde6cdbdbad8906e2a0a83d7b1068dd45afae71f4477243
+as_of: '2026-10-23T17:01:16.881083+00:00'
+snapshot_hash: 95ea284f239c6660e98458f4feaebc658078eb7af4273ee8dac804e92a1dd950
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 69745090560.0
+  size_metric_usd: 69834498048.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 595353088.2590545
+  avg_dollar_volume_usd: 596641278.2428513
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -151,7 +151,7 @@ global_market_eligibility:
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
 market_quote:
-  price: 153.52499389648438
+  price: 153.72000122070312
   as_of_date: '2026-10-23'
   currency: USD
   source: yfinance

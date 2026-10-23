@@ -3,27 +3,27 @@ strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 discovery_profile: multibaggers
 research_profile: multibaggers
-as_of: '2026-10-23T16:07:45.649692+00:00'
+as_of: '2026-10-23T16:56:00.981097+00:00'
 config_hash: fc759a2d3695b9436cb4d35eb89366d9fff9ddd56b32ce26fd7d0a5897213ecd
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 11.177
+    value: 11.2319
     unit: percent
     currency: null
     period: price_momentum_12m_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 11.176987374307235
+      yfinance: 11.231879141279322
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 11.176987374307235
+      value: 11.231879141279322
       unit: percent
       currency: null
       period: price_momentum_12m_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:07:45.649692+00:00'
+      observed_at: '2026-10-23T16:56:00.981097+00:00'
       source_url: https://finance.yahoo.com/quote/GSK/history/
     coverage: 1
     status: observed
@@ -31,23 +31,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   drawdown_pct:
-    value: 17.2442
+    value: 17.2033
     unit: percent
     currency: null
     period: drawdown_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 17.244196117089633
+      yfinance: 17.20333683128226
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 17.244196117089633
+      value: 17.20333683128226
       unit: percent
       currency: null
       period: drawdown_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:07:45.649692+00:00'
+      observed_at: '2026-10-23T16:56:00.981097+00:00'
       source_url: https://finance.yahoo.com/quote/GSK/history/
     coverage: 1
     status: observed
@@ -55,23 +55,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   volatility_90d_pct:
-    value: 26.0833
+    value: 26.0776
     unit: percent
     currency: null
     period: volatility_90d_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 26.08333837405758
+      yfinance: 26.077638932982726
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 26.08333837405758
+      value: 26.077638932982726
       unit: percent
       currency: null
       period: volatility_90d_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:07:45.649692+00:00'
+      observed_at: '2026-10-23T16:56:00.981097+00:00'
       source_url: https://finance.yahoo.com/quote/GSK/history/
     coverage: 1
     status: observed
@@ -79,9 +79,9 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
 component_scores:
-  market_confirmation: 66.61
-discovery_score: 66.61
-research_priority: 66.61
+  market_confirmation: 66.65
+discovery_score: 66.65
+research_priority: 66.65
 discovery_type: RESEARCH_REQUIRED
 reason_codes: []
 red_flags: []
@@ -235,4 +235,4 @@ constraints:
 - Cite each material claim to a source.
 - Separate verified facts, inference, and unknowns.
 - Research cannot approve an investment or set a position size.
-snapshot_hash: 1735bcc2b6491bb79f7818a878b700a71a2c4b08b710c714e815c81c28ef9a71
+snapshot_hash: 61abccc8c23a5c66472f75a027e9ee044d518293f2fa283488e1026077d7c6c2

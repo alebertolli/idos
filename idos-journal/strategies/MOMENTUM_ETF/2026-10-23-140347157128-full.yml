@@ -1,0 +1,75 @@
+action: REVIEW_ALLOCATION
+as_of_date: '2026-10-23'
+candidate_count: 7
+candidate_source: idos-config/universe/operable.yml
+candidate_tickers:
+- QQQ
+- XLE
+- XLF
+- XLI
+- EFA
+- EEM
+- GLD
+configured_universe_count: 7
+coverage_complete: true
+eligible:
+- &id001
+  as_of_date: '2026-10-01'
+  momentum: 0.7537052521984471
+  quote_currency: USD
+  ticker: XLF
+eligible_universe_count: 7
+excluded_manual_tickers: []
+excluded_not_operable: []
+excluded_unsupported_asset_types: []
+formula: 12*P0/P1 + 4*P0/P3 + 2*P0/P6 + P0/P12 - 19
+generated_at: '2026-10-23T14:03:47.157128-03:00'
+market_gate:
+  accepted_count: 7
+  avg_dollar_volume_min_usd: 100000.0
+  basis: UNDERLYING_USD_PROXY
+  blocked_count: 0
+  coverage_complete: true
+  evaluated_count: 7
+  expected_count: 7
+  market_cap_applies_to:
+  - us_equity
+  market_cap_min_usd: 2000000000.0
+  rejected: []
+  strategy_universe_eligible_count: 7
+missing_history: []
+ranking:
+- as_of_date: '2026-10-01'
+  momentum: 3.2162718036156264
+  quote_currency: USD
+  ticker: XLE
+- *id001
+- as_of_date: '2026-10-01'
+  momentum: -0.10906455669780613
+  quote_currency: USD
+  ticker: EFA
+- as_of_date: '2026-10-01'
+  momentum: -0.18465441573973607
+  quote_currency: USD
+  ticker: QQQ
+- as_of_date: '2026-10-01'
+  momentum: -0.48848215941650963
+  quote_currency: USD
+  ticker: XLI
+- as_of_date: '2026-10-01'
+  momentum: -0.7686619554896232
+  quote_currency: USD
+  ticker: GLD
+- as_of_date: '2026-10-01'
+  momentum: -0.9292547953904489
+  quote_currency: USD
+  ticker: EEM
+requested_tickers: []
+run_scope: full
+selected:
+- *id001
+signal_policy:
+  maximum_signal: 2.7
+  minimum_signal: 0.6
+  select_top: 2
+strategy_id: MOMENTUM_ETF

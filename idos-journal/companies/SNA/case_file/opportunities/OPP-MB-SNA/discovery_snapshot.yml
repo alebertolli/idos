@@ -2,30 +2,30 @@ ticker: SNA
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 67.56
-research_priority: 67.56
+discovery_score: 67.58
+research_priority: 67.58
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 67.56
+  market_confirmation: 67.58
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 1.5231
+    value: 1.5375
     unit: percent
     currency: null
     period: price_momentum_12m_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 1.5230618671313367
+      yfinance: 1.5374812835886376
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 1.5230618671313367
+      value: 1.5374812835886376
       unit: percent
       currency: null
       period: price_momentum_12m_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:10:14.893645+00:00'
+      observed_at: '2026-10-23T17:00:59.286302+00:00'
       source_url: https://finance.yahoo.com/quote/SNA/history/
     coverage: 1
     status: observed
@@ -33,23 +33,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   drawdown_pct:
-    value: 16.0645
+    value: 16.0526
     unit: percent
     currency: null
     period: drawdown_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 16.064483495209224
+      yfinance: 16.05256205444707
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 16.064483495209224
+      value: 16.05256205444707
       unit: percent
       currency: null
       period: drawdown_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:10:14.893645+00:00'
+      observed_at: '2026-10-23T17:00:59.286302+00:00'
       source_url: https://finance.yahoo.com/quote/SNA/history/
     coverage: 1
     status: observed
@@ -57,23 +57,23 @@ metrics_snapshot:
     deviation_pct: 0.0
     as_of: '2026-10-23T00:00:00+00:00'
   volatility_90d_pct:
-    value: 17.6493
+    value: 17.6467
     unit: percent
     currency: null
     period: volatility_90d_pct:2025-10-23/2026-10-23
     source:
     - yfinance
     source_values:
-      yfinance: 17.64925808112707
+      yfinance: 17.646694523944888
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 17.64925808112707
+      value: 17.646694523944888
       unit: percent
       currency: null
       period: volatility_90d_pct:2025-10-23/2026-10-23
       reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:10:14.893645+00:00'
+      observed_at: '2026-10-23T17:00:59.286302+00:00'
       source_url: https://finance.yahoo.com/quote/SNA/history/
     coverage: 1
     status: observed
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-23T16:10:14.893645+00:00'
-snapshot_hash: a14b9256028ca4b04d77504efcb7a82c8d6242612fa5cc3824754e77b1e37fa0
+as_of: '2026-10-23T17:00:59.286302+00:00'
+snapshot_hash: 1badad38ce79e8ed133813a565b57ef5d4765c189e500506aab64ac6337a11c8
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 18205362176.0
+  size_metric_usd: 18207946752.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 121894895.97408447
+  avg_dollar_volume_usd: 123640226.51358032
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -151,7 +151,7 @@ global_market_eligibility:
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
 market_quote:
-  price: 351.95001220703125
+  price: 352.0
   as_of_date: '2026-10-23'
   currency: USD
   source: yfinance
