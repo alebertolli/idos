@@ -1314,7 +1314,7 @@ class SiteBuilder:
                     message,
                     str(o.get("opp_id") or ""),
                 )
-            if o.get("trend") == "DETERIORATING":            if o.get("trend") == "DETERIORATING":
+            if o.get("trend") == "DETERIORATING":
                 add_alert(
                     "conviction_deteriorating", o.get("ticker", ""), "warn",
                     "Convicción deteriorándose",
@@ -1877,7 +1877,7 @@ function showCase(oppId){
       : 'En Decision Board, revisa tesis, evidencia, casos Bear/Bull (Base opcional), asimetría y reglas; registra aprobar o rechazar con una justificación. Aprobar sólo agrega a Buy List, nunca crea posiciones ni órdenes.';
     html += `<div class="card"><b>${title}</b><p>Discovery, Research y Assessment fueron procesados automáticamente. ${guidance} <a href="https://github.com/alebertolli/idos/actions/workflows/decision-review.yml" target="_blank" rel="noopener noreferrer">Abrir Decision Review</a></p><details><summary>Hash de la propuesta completa</summary><code>${esc(o.proposal.proposal_hash)}</code></details></div>`;
   }
-  const marketData=o.market_data||by?.market_data||{};  const marketData=o.market_data||by?.market_data||{};
+  const marketData=o.market_data||by?.market_data||{};
   const sourceNames=(marketData.sources_used||[]).map(esc).join(', ')||'No registrada';
   html += `<h2>Datos de mercado</h2><div class="card"><div>Precio al: ${dt(marketData.price_as_of||o.price_date)}</div><div>Fuentes del cache: ${marketData.source_count??'no disponible'} (${sourceNames})</div>${marketData.refreshed_at?`<div>Cache actualizado: ${dt(marketData.refreshed_at)}</div>`:''}${marketData.source_count===1?'<p class="neg">Fuente única; revisar la cobertura por campo antes de usar el dato.</p>':''}${marketData.conflict_count?`<p class="neg">Conflictos de datos: ${marketData.conflict_count}</p>`:''}<details><summary>Procedencia por campo</summary>${Object.keys(marketData.field_sources||{}).length?`<table><thead><tr><th>Campo</th><th>Fuentes</th></tr></thead><tbody>${Object.entries(marketData.field_sources).map(([field,sources])=>`<tr><td>${esc(field)}</td><td>${sources.map(esc).join(', ')}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">El cache no registra procedencia por campo.</p>'}</details></div>`;
 
