@@ -47,7 +47,7 @@ class MultibaggersPipeline:
 
     def run(self, context: dict[str, Any] | None = None) -> dict[str, Any]:
         context = context or {}
-        requested = context.get("candidate_tickers")
+        requested = context.get("candidate_tickers") or None
         tickers = (
             self.operability.validate_selection(requested)
             if requested is not None

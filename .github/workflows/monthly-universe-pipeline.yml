@@ -6,14 +6,10 @@ on:
   workflow_dispatch:
     inputs:
       allow_production_e2e:
-        description: "Allow this bounded manual E2E to write results to main"
+        description: "Allow this full Monthly Universe scan to write results to main"
         required: false
         type: boolean
         default: false
-      candidate_tickers:
-        description: "Required for manual runs: 1-5 comma-separated tickers from operable.yml"
-        required: true
-        type: string
 
 jobs:
   pipeline:
@@ -40,19 +36,9 @@ jobs:
           python-version: "3.12"
       - name: Install
         run: pip install -e idos-core
-      - name: Validate bounded manual candidate scope
-        if: github.event_name == 'workflow_dispatch'
-        env:
-          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
-          IDOS_MANUAL_SELECTION_LIMIT: "5"
-        run: python scripts/validate_manual_candidate_scope.py
       - name: Run pipeline
-        env:
-          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
         run: python scripts/run_monthly_universe_pipeline.py
       - name: Run enabled monthly strategies
-        env:
-          IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers }}
         run: python scripts/run_monthly_strategy.py
       - name: Preview DDD candidates
         id: ddd-preview
@@ -60,7 +46,6 @@ jobs:
         env:
           FORCE: "false"
           EVENT_TYPE: monthly
-          TICKER: ${{ inputs.candidate_tickers }}
         run: python scripts/ddd_research.py --preview
       - name: Save & commit results
         if: always() && !cancelled()
@@ -115,5 +100,4 @@ jobs:
       allow_production_e2e: ${{ inputs.allow_production_e2e || false }}
       skip_portfolio_reevaluation: true
       trigger_type: monthly
-      candidate_tickers: ${{ inputs.candidate_tickers || '' }}
     secrets: inherit
