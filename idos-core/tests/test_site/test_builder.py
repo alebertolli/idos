@@ -28,8 +28,15 @@ def _alerts(opps: list[dict], positions: list[dict]) -> list[dict]:
     return _builder()._build_dashboard(opps, positions, [], [], [])["alerts"]
 
 
-def _sections(opps: list[dict], watchlist: list[dict], universe_stats: dict = None) -> list[dict]:
-    return _builder()._build_dashboard(opps, [], [], watchlist, [], universe_stats)["sections"]
+def _sections(
+    opps: list[dict],
+    watchlist: list[dict],
+    universe_stats: dict = None,
+    discovery_pool: list[dict] = None,
+) -> list[dict]:
+    return _builder()._build_dashboard(
+        opps, [], [], watchlist, [], universe_stats, discovery_pool,
+    )["sections"]
 
 
 def test_no_alert_when_price_below_intrinsic():
@@ -101,17 +108,37 @@ def test_dashboard_alert_identity_is_stable_deduplicated_and_resolved_from_curre
     assert _alerts([resolved_opportunity], []) == []
 
 
-def test_discovery_shows_operable_count_from_universe_stats():
+def test_discovery_counts_strategy_opportunities_instead_of_operable_universe():
     universe_stats = {
-        "operable_count": 267,
-        "scout_passed": 57,
-        "scout_rejected": 210,
-        "finviz_count": 1874,
-        "opportunities_created": 0,
+        "operable_count": 431,
+        "scout_passed": 43,
     }
-    sections = _sections([], [], universe_stats)
+    opportunities = [
+        {"ticker": "AAA", "strategy_id": "COMPOUNDER", "status": "SCREENED"},
+        {"ticker": "BBB", "strategy_id": "COMPOUNDER", "status": "SCREENED"},
+        {"ticker": "AAA", "strategy_id": "MULTIBAGGERS", "status": "SCREENED"},
+    ]
+    # The operable-universe cache may be partial; Discovery must reflect the
+    # opportunity records that actually passed each strategy's Scout.
+    sections = _sections(opportunities, [], universe_stats, discovery_pool=[{"ticker": "ASML"}])
     discovery = next(s for s in sections if s["key"] == "discovery")
-    assert discovery["count"] == 267
+    assert discovery["count"] == 3
+
+
+def test_discovery_candidates_keep_strategy_specific_rows_and_exclude_later_stages():
+    opportunities = [
+        {"ticker": "AAA", "opp_id": "OPP-C", "strategy_id": "COMPOUNDER", "status": "SCREENED"},
+        {"ticker": "AAA", "opp_id": "OPP-M", "strategy_id": "MULTIBAGGERS", "status": "WATCHLIST"},
+        {"ticker": "BBB", "opp_id": "OPP-R", "strategy_id": "COMPOUNDER", "status": "UNDER_RESEARCH"},
+        {"ticker": "CCC", "opp_id": "OPP-B", "strategy_id": "MULTIBAGGERS", "status": "APPROVED"},
+    ]
+
+    candidates = SiteBuilder._build_discovery_candidates(opportunities)
+
+    assert [(row["ticker"], row["strategy_id"], row["opp_id"]) for row in candidates] == [
+        ("AAA", "COMPOUNDER", "OPP-C"),
+        ("AAA", "MULTIBAGGERS", "OPP-M"),
+    ]
 
 
 def test_pipeline_results_use_generic_candidate_metrics_and_keep_legacy_read_compatibility(tmp_path: Path):

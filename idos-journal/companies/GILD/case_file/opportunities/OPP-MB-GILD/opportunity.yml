@@ -1,0 +1,352 @@
+assessment_ids: []
+conviction:
+  confidence: LOW
+  overall: 0
+  scores:
+    business: 0
+    portfolio_fit: 0
+    rerating: 0
+    risk: 0
+    valuation: 0
+  trend: STABLE
+core: CORE_4_ALPHA_ASYMMETRY
+created_at: '2026-10-23T13:07:42.653178-03:00'
+decision_ids: []
+discovery_evidence:
+  as_of: '2026-10-23T16:07:41.689721+00:00'
+  component_scores:
+    market_confirmation: 81.69
+  data_quality:
+    coverage_factor: 1.0
+    critical_conflicts: []
+    critical_coverage: 1.0
+    critical_metric_count: 3
+    critical_metrics_covered: 3
+    critical_source_failures: 0
+    critical_stale: 0
+    freshness_factor: 1.0
+  discovery_score: 81.69
+  discovery_type: RESEARCH_REQUIRED
+  global_market_eligibility:
+    asset_type: us_equity
+    avg_dollar_volume_min_usd: 100000.0
+    avg_dollar_volume_usd: 837397935.7789886
+    liquidity_basis: UNDERLYING_USD_PROXY
+    liquidity_provenance:
+      basis: UNDERLYING_USD_PROXY
+      coverage: 1.0
+      expected_observations: 20
+      first_price_date: '2026-09-28'
+      fx_observations: []
+      fx_reference: null
+      fx_side: null
+      fx_source: null
+      last_price_date: '2026-10-23'
+      minimum_coverage: 0.8
+      missing_market_dates: []
+      price_source: yfinance
+      quote_currency: USD
+      valid_observations: 20
+      valid_price_dates:
+      - '2026-09-28'
+      - '2026-09-29'
+      - '2026-09-30'
+      - '2026-10-01'
+      - '2026-10-02'
+      - '2026-10-05'
+      - '2026-10-06'
+      - '2026-10-07'
+      - '2026-10-08'
+      - '2026-10-09'
+      - '2026-10-12'
+      - '2026-10-13'
+      - '2026-10-14'
+      - '2026-10-15'
+      - '2026-10-16'
+      - '2026-10-19'
+      - '2026-10-20'
+      - '2026-10-21'
+      - '2026-10-22'
+      - '2026-10-23'
+      window_sessions: 20
+    market_cap_min_usd: 2000000000.0
+    normalization:
+      errors: []
+      exchange_calendar: NMS
+      liquidity_basis: UNDERLYING_USD_PROXY
+      size_metric: market_cap_usd
+      status: complete
+    passed: true
+    reason_codes: []
+    size_metric_usd: 194511765504.0
+    size_provenance:
+      as_of: '2026-10-23'
+      fx: null
+      source: yfinance
+      source_currency: USD
+  market_quote:
+    as_of_date: '2026-10-23'
+    currency: USD
+    price: 156.8699951171875
+    source: yfinance
+    url: https://finance.yahoo.com/quote/GILD/history/
+  metrics_snapshot:
+    drawdown_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: drawdown_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:07:41.689721+00:00'
+        period: drawdown_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/GILD/history/
+        status: observed
+        unit: percent
+        value: 0.31772257451470903
+      source_values:
+        yfinance: 0.31772257451470903
+      status: observed
+      unit: percent
+      value: 0.3177
+    price_momentum_12m_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:07:41.689721+00:00'
+        period: price_momentum_12m_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/GILD/history/
+        status: observed
+        unit: percent
+        value: 29.92380146816245
+      source_values:
+        yfinance: 29.92380146816245
+      status: observed
+      unit: percent
+      value: 29.9238
+    volatility_90d_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: volatility_90d_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:07:41.689721+00:00'
+        period: volatility_90d_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/GILD/history/
+        status: observed
+        unit: percent
+        value: 27.463714816459095
+      source_values:
+        yfinance: 27.463714816459095
+      status: observed
+      unit: percent
+      value: 27.4637
+  passed: true
+  reason_codes: []
+  red_flags: []
+  research_priority: 81.69
+  snapshot_hash: 66262a496d067f20ecd1b06ea1b93488cf0822a0832d44cc7207a28ac4f71340
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  ticker: GILD
+discovery_score: 81.96
+discovery_type: RESEARCH_REQUIRED
+entry_policy: MANUAL_REVIEW
+hypothesis_ids: []
+id: OPP-MB-GILD
+latest_discovery_evidence:
+  as_of: '2026-10-23T16:55:42.627854+00:00'
+  component_scores:
+    market_confirmation: 81.96
+  data_quality:
+    coverage_factor: 1.0
+    critical_conflicts: []
+    critical_coverage: 1.0
+    critical_metric_count: 3
+    critical_metrics_covered: 3
+    critical_source_failures: 0
+    critical_stale: 0
+    freshness_factor: 1.0
+  discovery_score: 81.96
+  discovery_type: RESEARCH_REQUIRED
+  global_market_eligibility:
+    asset_type: us_equity
+    avg_dollar_volume_min_usd: 100000.0
+    avg_dollar_volume_usd: 839505878.144413
+    liquidity_basis: UNDERLYING_USD_PROXY
+    liquidity_provenance:
+      basis: UNDERLYING_USD_PROXY
+      coverage: 1.0
+      expected_observations: 20
+      first_price_date: '2026-09-28'
+      fx_observations: []
+      fx_reference: null
+      fx_side: null
+      fx_source: null
+      last_price_date: '2026-10-23'
+      minimum_coverage: 0.8
+      missing_market_dates: []
+      price_source: yfinance
+      quote_currency: USD
+      valid_observations: 20
+      valid_price_dates:
+      - '2026-09-28'
+      - '2026-09-29'
+      - '2026-09-30'
+      - '2026-10-01'
+      - '2026-10-02'
+      - '2026-10-05'
+      - '2026-10-06'
+      - '2026-10-07'
+      - '2026-10-08'
+      - '2026-10-09'
+      - '2026-10-12'
+      - '2026-10-13'
+      - '2026-10-14'
+      - '2026-10-15'
+      - '2026-10-16'
+      - '2026-10-19'
+      - '2026-10-20'
+      - '2026-10-21'
+      - '2026-10-22'
+      - '2026-10-23'
+      window_sessions: 20
+    market_cap_min_usd: 2000000000.0
+    normalization:
+      errors: []
+      exchange_calendar: NMS
+      liquidity_basis: UNDERLYING_USD_PROXY
+      size_metric: market_cap_usd
+      status: complete
+    passed: true
+    reason_codes: []
+    size_metric_usd: 195044950016.0
+    size_provenance:
+      as_of: '2026-10-23'
+      fx: null
+      source: yfinance
+      source_currency: USD
+  market_quote:
+    as_of_date: '2026-10-23'
+    currency: USD
+    price: 157.3000030517578
+    source: yfinance
+    url: https://finance.yahoo.com/quote/GILD/history/
+  metrics_snapshot:
+    drawdown_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: drawdown_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:55:42.627854+00:00'
+        period: drawdown_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/GILD/history/
+        status: observed
+        unit: percent
+        value: 0.04447611844784455
+      source_values:
+        yfinance: 0.04447611844784455
+      status: observed
+      unit: percent
+      value: 0.0445
+    price_momentum_12m_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:55:42.627854+00:00'
+        period: price_momentum_12m_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/GILD/history/
+        status: observed
+        unit: percent
+        value: 30.279945200296243
+      source_values:
+        yfinance: 30.279945200296243
+      status: observed
+      unit: percent
+      value: 30.2799
+    volatility_90d_pct:
+      as_of: '2026-10-23T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: volatility_90d_pct:2025-10-23/2026-10-23
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-23T16:55:42.627854+00:00'
+        period: volatility_90d_pct:2025-10-23/2026-10-23
+        reported_at: '2026-10-23T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/GILD/history/
+        status: observed
+        unit: percent
+        value: 27.454896286634373
+      source_values:
+        yfinance: 27.454896286634373
+      status: observed
+      unit: percent
+      value: 27.4549
+  passed: true
+  reason_codes: []
+  red_flags: []
+  research_priority: 81.96
+  snapshot_hash: ff7abbab871b9fadafc14d3e5f7dcae075627ececf421de2a0a1a4aa8221034c
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  ticker: GILD
+origin: multibaggers_discovery
+position_limit_pct: 1.0
+research_priority: 81.96
+research_profile: multibaggers
+review_ids: []
+risk_limits:
+  max_position_pct: 1.0
+sleeve: ALPHA_ASYMMETRY
+snapshot_hash: ff7abbab871b9fadafc14d3e5f7dcae075627ececf421de2a0a1a4aa8221034c
+status: SCREENED
+strategy_id: MULTIBAGGERS
+strategy_version: '1.5'
+thesis_type: STRATEGIC
+ticker: GILD
+updated_at: '2026-10-23T13:07:42.653182-03:00'

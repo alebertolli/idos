@@ -18,6 +18,7 @@ jobs:
     outputs:
       has_eligible_opportunities: ${{ steps.ddd-preview.outputs.has_research_candidates }}
     permissions:
+      actions: write
       contents: write
       issues: write
     env:
@@ -48,6 +49,7 @@ jobs:
           EVENT_TYPE: monthly
         run: python scripts/ddd_research.py --preview
       - name: Save & commit results
+        id: save-results
         if: always() && !cancelled()
         run: |
           TARGET_BRANCH="${GITHUB_REF_NAME}"
@@ -66,6 +68,7 @@ jobs:
           git add cache/pipeline_results.json 2>&1 || echo "add cache failed: $?"
           if git diff --cached --quiet; then
             echo 'No changes to commit'
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git status --short -- idos-journal/ cache/
             git commit -m "chore: monthly universe pipeline $(date +%Y-%m-%d)"
@@ -75,7 +78,11 @@ jobs:
             git fetch origin "$TARGET_BRANCH"
             git rebase "origin/$TARGET_BRANCH"
             git push origin "HEAD:$TARGET_BRANCH"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+      - name: Publish monthly Discovery updates
+        if: success() && steps.save-results.outputs.changed == 'true' && github.ref == 'refs/heads/main'
+        run: gh workflow run gh-pages.yml --ref main
       - name: Notify
         if: github.event_name != 'workflow_dispatch'
         run: |

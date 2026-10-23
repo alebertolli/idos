@@ -171,6 +171,7 @@ jobs:
         env:
           IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers || inputs.ticker || github.event.inputs.ticker || '' }}
           IDOS_MANUAL_SELECTION_LIMIT: "5"
+          IDOS_TRIGGER_TYPE: ${{ inputs.trigger_type || github.event.inputs.trigger_type || 'manual' }}
         run: python scripts/validate_manual_candidate_scope.py
 
       - name: Set run context

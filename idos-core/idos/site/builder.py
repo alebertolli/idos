@@ -275,6 +275,7 @@ class SiteData:
     entry_rules: list[dict] = field(default_factory=list)
     universe_stats: dict = field(default_factory=dict)
     discovery_pool: list[dict] = field(default_factory=list)
+    discovery_candidates: list[dict] = field(default_factory=list)
     scout_policy: dict = field(default_factory=dict)
 
 
@@ -875,6 +876,16 @@ class SiteBuilder:
         opps.sort(key=lambda o: (o.get("updated_at") or ""), reverse=True)
         return opps
 
+    @staticmethod
+    def _build_discovery_candidates(opps: list[dict]) -> list[dict]:
+        """Return strategy-specific opportunities awaiting or in Discovery."""
+        discovery_statuses = {"DISCOVERED", "WATCHLIST", "SCREENED"}
+        return [
+            opportunity
+            for opportunity in opps
+            if str(opportunity.get("status") or "").upper() in discovery_statuses
+        ]
+
     # -- buylist / watchlist --
     def _load_buylist(self) -> list[dict]:
         data = _load_yaml(self.journal / "portfolio" / "buylist.yml")
@@ -1169,7 +1180,8 @@ class SiteBuilder:
                          universe_stats: dict = None,
                          discovery_pool: list[dict] = None,
                          portfolio: dict | None = None,
-                         strategy_signals: dict | None = None) -> dict:
+                         strategy_signals: dict | None = None,
+                         discovery_candidates: list[dict] | None = None) -> dict:
         funnel: dict[str, int] = {}
         for o in opps:
             funnel[o["status"]] = funnel.get(o["status"], 0) + 1
@@ -1186,7 +1198,11 @@ class SiteBuilder:
         for key, label, tab, statuses in group_defs:
             count = sum(v for k, v in funnel.items() if k in statuses)
             if key == "discovery":
-                count = len(discovery_pool) if discovery_pool else (universe_stats.get("operable_count", 0) if universe_stats else 0)
+                count = (
+                    len(discovery_candidates)
+                    if discovery_candidates is not None
+                    else sum(1 for opportunity in opps if opportunity.get("status") in statuses)
+                )
             if key == "research":
                 count = sum(1 for o in opps if o.get("status") in {"UNDER_RESEARCH", "UNDER_DEEP_DD"})
             sections.append({
@@ -1405,10 +1421,12 @@ class SiteBuilder:
         portfolio: dict = {}
         universe_stats = self._load_universe_stats()
         discovery_pool = self._load_discovery_pool(universe_stats)
+        discovery_candidates = self._build_discovery_candidates(opps)
         strategy_signals = self._load_strategy_signals()
         dashboard = self._build_dashboard(
             opps, positions, buylist, watchlist, learning, universe_stats, discovery_pool,
             portfolio=portfolio, strategy_signals=strategy_signals,
+            discovery_candidates=discovery_candidates,
         )
 
         return SiteData(
@@ -1427,6 +1445,7 @@ class SiteBuilder:
             entry_rules=self.entry_rules,
             universe_stats=universe_stats,
             discovery_pool=discovery_pool,
+            discovery_candidates=discovery_candidates,
             scout_policy=scout_policy,
         )
 
@@ -1821,27 +1840,26 @@ function renderBuylist(){
 
 // ---------- Discovery ----------
 function renderScreening(){
-  const rows = (DATA.discovery_pool && DATA.discovery_pool.length) ? DATA.discovery_pool : DATA.watchlist;
-  const filters = DATA.scout_policy?.filters||[];
-  const mkeys = filters.map(f=>f.metric);
-  const mlabels = filters.map(f=>`${f.label||f.metric} > ${f.value}`);
+  const rows = Array.isArray(DATA.discovery_candidates) ? DATA.discovery_candidates : ((DATA.discovery_pool && DATA.discovery_pool.length) ? DATA.discovery_pool : DATA.watchlist);
   TABLES['screening'] = {
     rows,
     cols: [
       {key:'ticker', label:'Ticker', value:r=>r.ticker, cell:r=>`<td><b>${esc(r.ticker)}</b></td>`},
-      {key:'status', label:'Resultado actual', value:r=>r.status||'', cell:r=>`<td title="${esc(r.reason||'')}">${esc(r.status||'Histórico')}</td>`},
-      ...mkeys.map((k,i)=>({key:k, label:mlabels[i], value:r=>r.metrics?r.metrics[k]:null, cell:r=>{const v=r.metrics?r.metrics[k]:null; const passed=r.filter_results?.[k]===100; const obs=r.financial_observations?.[k]||{}; const currency=obs.currency; const suffix=k==='operating_margin_pct'||k==='revenue_growth_pct'?'%':k==='fcf'?(currency?` ${currency}`:' (moneda no informada)'):''; const shown=v==null?'Pendiente':`${Number(v).toLocaleString('es-AR',{maximumFractionDigits:2})}${suffix} · ${passed?'Cumple':'No cumple'}`; return `<td class="${passed?'pos':''}" title="${esc(JSON.stringify({observation:obs, data_provenance:r.data_provenance?.field_sources?.[k]||[]}))}">${shown}</td>`;}})),
-      {key:'added', label:'Agregado', value:r=>r.added_at||'', cell:r=>`<td>${dt(r.added_at)}</td>`},
+      {key:'strategy_id', label:'Estrategia', value:r=>r.strategy_id||'COMPOUNDER', cell:r=>`<td>${esc(r.strategy_id||'COMPOUNDER')}</td>`},
+      {key:'status', label:'Estado', value:r=>r.status||'', cell:r=>{const evidence=r.latest_discovery_evidence||{}; return `<td title="${esc(evidence.reason||'')}">${esc(r.status||'—')}</td>`;}},
+      {key:'discovery_score', label:'Puntaje Scout', value:r=>r.discovery_score??null, cell:r=>`<td>${r.discovery_score==null?'—':Number(r.discovery_score).toLocaleString('es-AR',{maximumFractionDigits:2})}</td>`},
+      {key:'discovery_type', label:'Siguiente paso', value:r=>r.discovery_type||'', cell:r=>`<td>${esc(r.discovery_type||'')}</td>`},
+      {key:'created_at', label:'Creada', value:r=>r.created_at||'', cell:r=>`<td>${dt(r.created_at)}</td>`},
     ],
     tr: r=>` style="cursor:pointer" onclick="showCaseFromOpp('${r.opp_id||''}','${r.ticker}')"`,
-    searchText: r=>`${r.ticker} ${r.opp_id||''}`,
-    sort: {key:'score', dir:'desc'},
+    searchText: r=>`${r.ticker} ${r.strategy_id||''} ${r.opp_id||''}`,
+    sort: {key:'discovery_score', dir:'desc'},
     q:'',
   };
   const total = rows.length;
-  const poolLabel = (DATA.discovery_pool && DATA.discovery_pool.length) ? 'Candidatos operables' : 'Watchlist';
   let html = `<h2>Discovery (${total})</h2>`;
-  html += `<p class="muted"><b>${poolLabel}.</b> COMPOUNDER aplica los filtros configurados de la tabla (${esc(DATA.scout_policy?.version||"sin política")}), además del gate común de operabilidad y liquidez y capitalización para acciones. Los datos ausentes quedan pendientes. Cumplir los filtros habilita screening y Research; no representa convicción ni una recomendación de compra. ROIC y moat se evalúan en Research.</p>`;
+  html += `<p class="muted">Una fila representa una oportunidad preseleccionada por estrategia; un mismo ticker puede aparecer en más de una estrategia. Cada Scout aplica su configuración después del gate común de operabilidad y liquidez. Pasar Discovery habilita Research y no representa una recomendación de compra.</p>`;
+  if(!rows.length) html += `<div class="card"><p class="muted">No hay oportunidades pendientes en Discovery.</p></div>`;
   html += tableInput('screening','screen-search','Buscar ticker...');
   html += `<table id="tbl-screening"><thead>${sortHeadRows('screening')}</thead><tbody>${sortTbody('screening')}</tbody></table>`;
   setView('screening', html);

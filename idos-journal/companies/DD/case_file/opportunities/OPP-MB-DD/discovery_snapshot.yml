@@ -1,0 +1,158 @@
+ticker: DD
+strategy_id: MULTIBAGGERS
+strategy_version: '1.5'
+passed: true
+discovery_score: 78.62
+research_priority: 78.62
+discovery_type: RESEARCH_REQUIRED
+component_scores:
+  market_confirmation: 78.62
+metrics_snapshot:
+  price_momentum_12m_pct:
+    value: 33.2204
+    unit: percent
+    currency: null
+    period: price_momentum_12m_pct:2025-10-23/2026-10-23
+    source:
+    - yfinance
+    source_values:
+      yfinance: 33.22042008990391
+    source_evidence:
+    - source_id: yfinance
+      status: observed
+      value: 33.22042008990391
+      unit: percent
+      currency: null
+      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      reported_at: '2026-10-23T00:00:00+00:00'
+      observed_at: '2026-10-23T16:54:27.203825+00:00'
+      source_url: https://finance.yahoo.com/quote/DD/history/
+    coverage: 1
+    status: observed
+    reason_code: null
+    deviation_pct: 0.0
+    as_of: '2026-10-23T00:00:00+00:00'
+  drawdown_pct:
+    value: 12.0674
+    unit: percent
+    currency: null
+    period: drawdown_pct:2025-10-23/2026-10-23
+    source:
+    - yfinance
+    source_values:
+      yfinance: 12.067403597398533
+    source_evidence:
+    - source_id: yfinance
+      status: observed
+      value: 12.067403597398533
+      unit: percent
+      currency: null
+      period: drawdown_pct:2025-10-23/2026-10-23
+      reported_at: '2026-10-23T00:00:00+00:00'
+      observed_at: '2026-10-23T16:54:27.203825+00:00'
+      source_url: https://finance.yahoo.com/quote/DD/history/
+    coverage: 1
+    status: observed
+    reason_code: null
+    deviation_pct: 0.0
+    as_of: '2026-10-23T00:00:00+00:00'
+  volatility_90d_pct:
+    value: 21.8099
+    unit: percent
+    currency: null
+    period: volatility_90d_pct:2025-10-23/2026-10-23
+    source:
+    - yfinance
+    source_values:
+      yfinance: 21.8099318940555
+    source_evidence:
+    - source_id: yfinance
+      status: observed
+      value: 21.8099318940555
+      unit: percent
+      currency: null
+      period: volatility_90d_pct:2025-10-23/2026-10-23
+      reported_at: '2026-10-23T00:00:00+00:00'
+      observed_at: '2026-10-23T16:54:27.203825+00:00'
+      source_url: https://finance.yahoo.com/quote/DD/history/
+    coverage: 1
+    status: observed
+    reason_code: null
+    deviation_pct: 0.0
+    as_of: '2026-10-23T00:00:00+00:00'
+red_flags: []
+data_quality:
+  critical_metric_count: 3
+  critical_metrics_covered: 3
+  critical_coverage: 1.0
+  critical_source_failures: 0
+  critical_conflicts: []
+  critical_stale: 0
+  coverage_factor: 1.0
+  freshness_factor: 1.0
+reason_codes: []
+as_of: '2026-10-23T16:54:27.203825+00:00'
+snapshot_hash: 00006d1b002e873edb6e26ca6dd9eeb353cd4d44f3a32a7936a891e14a687ef9
+global_market_eligibility:
+  passed: true
+  asset_type: us_equity
+  size_metric_usd: 18357065728.0
+  market_cap_min_usd: 2000000000.0
+  avg_dollar_volume_usd: 103540898.87111206
+  avg_dollar_volume_min_usd: 100000.0
+  liquidity_basis: UNDERLYING_USD_PROXY
+  reason_codes: []
+  normalization:
+    status: complete
+    size_metric: market_cap_usd
+    errors: []
+    liquidity_basis: UNDERLYING_USD_PROXY
+    exchange_calendar: NYQ
+  size_provenance:
+    source: yfinance
+    as_of: '2026-10-23'
+    source_currency: USD
+    fx: null
+  liquidity_provenance:
+    quote_currency: USD
+    fx_reference: null
+    fx_side: null
+    window_sessions: 20
+    expected_observations: 20
+    valid_observations: 20
+    coverage: 1.0
+    minimum_coverage: 0.8
+    first_price_date: '2026-09-28'
+    last_price_date: '2026-10-23'
+    price_source: yfinance
+    fx_source: null
+    fx_observations: []
+    valid_price_dates:
+    - '2026-09-28'
+    - '2026-09-29'
+    - '2026-09-30'
+    - '2026-10-01'
+    - '2026-10-02'
+    - '2026-10-05'
+    - '2026-10-06'
+    - '2026-10-07'
+    - '2026-10-08'
+    - '2026-10-09'
+    - '2026-10-12'
+    - '2026-10-13'
+    - '2026-10-14'
+    - '2026-10-15'
+    - '2026-10-16'
+    - '2026-10-19'
+    - '2026-10-20'
+    - '2026-10-21'
+    - '2026-10-22'
+    - '2026-10-23'
+    missing_market_dates: []
+    basis: UNDERLYING_USD_PROXY
+market_quote:
+  price: 135.93499755859375
+  as_of_date: '2026-10-23'
+  currency: USD
+  source: yfinance
+  url: https://finance.yahoo.com/quote/DD/history/

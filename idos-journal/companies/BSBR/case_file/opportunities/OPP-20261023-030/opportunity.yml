@@ -1,0 +1,710 @@
+assessment_ids: []
+conviction:
+  confidence: LOW
+  overall: 0
+  scores:
+    business: 0
+    portfolio_fit: 0
+    rerating: 0
+    risk: 0
+    valuation: 0
+  trend: STABLE
+core: CORE_3_GROWTH
+created_at: '2026-10-23T13:05:47.759243-03:00'
+decision_ids: []
+discovery_evidence:
+  conflicting_metrics: []
+  data_provenance:
+    conflicts: []
+    field_sources:
+      analyst_consensus:
+      - stockanalysis.com
+      asset_type:
+      - yfinance
+      avg_dollar_volume_usd:
+      - yfinance
+      beta_5y:
+      - stockanalysis.com
+      capex_history:
+      - stockanalysis.com
+      cash_and_investments_history:
+      - stockanalysis.com
+      current_ratio:
+      - stockanalysis.com
+      data_provenance:
+      - stockanalysis.com
+      debt_ebitda:
+      - stockanalysis.com
+      debt_equity_ratio:
+      - stockanalysis.com
+      ebit:
+      - stockanalysis.com
+      ebitda:
+      - stockanalysis.com
+      ebitda_margin_pct:
+      - stockanalysis.com
+      enterprise_value:
+      - stockanalysis.com
+      eps_growth_forecast_3y_pct:
+      - stockanalysis.com
+      eps_history:
+      - stockanalysis.com
+      ev_ebit:
+      - stockanalysis.com
+      ev_ebitda:
+      - stockanalysis.com
+      ev_fcf:
+      - stockanalysis.com
+      ev_sales:
+      - stockanalysis.com
+      exchange:
+      - yfinance
+      fcf:
+      - stockanalysis.com
+      fcf_growth_history:
+      - stockanalysis.com
+      fcf_history:
+      - stockanalysis.com
+      fcf_margin_history:
+      - stockanalysis.com
+      fcf_margin_pct:
+      - stockanalysis.com
+      fcf_per_share:
+      - stockanalysis.com
+      fcf_yield_pct:
+      - stockanalysis.com
+      financial_currency:
+      - yfinance
+      financial_data_as_of_date:
+      - stockanalysis.com
+      financial_data_observed_at:
+      - stockanalysis.com
+      - yfinance
+      financial_history:
+      - stockanalysis.com
+      financial_metric_metadata:
+      - stockanalysis.com
+      - yfinance
+      financial_period_end_timestamp:
+      - yfinance
+      financial_period_type:
+      - stockanalysis.com
+      financials_data_updated_date:
+      - stockanalysis.com
+      forward_pe:
+      - stockanalysis.com
+      forward_ps:
+      - stockanalysis.com
+      gross_margin_pct:
+      - stockanalysis.com
+      liquidity_provenance:
+      - yfinance
+      ma_200d:
+      - stockanalysis.com
+      ma_50d:
+      - stockanalysis.com
+      market_cap:
+      - stockanalysis.com
+      - yfinance
+      market_cap_currency:
+      - yfinance
+      market_cap_provenance:
+      - yfinance
+      market_cap_usd:
+      - yfinance
+      market_data_normalization:
+      - yfinance
+      net_cash_history:
+      - stockanalysis.com
+      net_income_history:
+      - stockanalysis.com
+      operating_cash_flow_history:
+      - stockanalysis.com
+      operating_margin_pct:
+      - stockanalysis.com
+      p_fcf_ratio:
+      - stockanalysis.com
+      payout_ratio_pct:
+      - stockanalysis.com
+      pb_ratio:
+      - stockanalysis.com
+      pe_ratio_ttm:
+      - stockanalysis.com
+      peg_ratio:
+      - stockanalysis.com
+      period_end_date:
+      - stockanalysis.com
+      pretax_margin_pct:
+      - stockanalysis.com
+      price_history:
+      - yfinance
+      price_history_basis:
+      - yfinance
+      price_history_dates:
+      - yfinance
+      price_target_avg:
+      - stockanalysis.com
+      provider_data_updated_date:
+      - stockanalysis.com
+      ps_ratio_ttm:
+      - stockanalysis.com
+      quick_ratio:
+      - stockanalysis.com
+      quote_currency:
+      - yfinance
+      revenue_growth_forecast_3y_pct:
+      - stockanalysis.com
+      revenue_growth_history:
+      - stockanalysis.com
+      revenue_growth_pct:
+      - stockanalysis.com
+      revenue_history:
+      - stockanalysis.com
+      revenue_ttm:
+      - stockanalysis.com
+      roa_pct:
+      - stockanalysis.com
+      roe_pct:
+      - stockanalysis.com
+      roic_pct:
+      - stockanalysis.com
+      shares_outstanding:
+      - stockanalysis.com
+      short_pct_of_float:
+      - stockanalysis.com
+      short_ratio:
+      - stockanalysis.com
+      size_metric_provenance:
+      - yfinance
+      size_metric_usd:
+      - yfinance
+      source:
+      - stockanalysis.com
+      - yfinance
+      ticker:
+      - stockanalysis.com
+      - yfinance
+      total_debt_history:
+      - stockanalysis.com
+      url:
+      - stockanalysis.com
+      volume_avg:
+      - stockanalysis.com
+      volume_history:
+      - yfinance
+    source_count: 2
+    sources_used:
+    - stockanalysis.com
+    - yfinance
+  eligibility_status: PASSED
+  evaluated_at: '2026-10-23T13:05:47.760329-03:00'
+  filter_results:
+    fcf: 100
+    investability: 100
+    operating_margin_pct: 100
+    revenue_growth_pct: 100
+  financial_observations:
+    fcf:
+      currency: null
+      non_comparable_reason: null
+      non_comparable_values: {}
+      observed_at: '2026-10-23T16:03:35.118957+00:00'
+      period_end_date: '2026-06-30'
+      period_status: SINGLE_SOURCE
+      period_type: TTM
+      provider_period_end_timestamp: null
+      selected_source: stockanalysis.com
+      source_metadata:
+        stockanalysis.com:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: TTM
+          source_url: https://stockanalysis.com/stocks/BSBR/statistics/
+          unit: provider_financial_currency
+      unit: provider_financial_currency
+      values:
+        stockanalysis.com: 7680000000.0
+    operating_margin_pct:
+      currency: null
+      non_comparable_reason: missing_period_unit_or_cutoff
+      non_comparable_values:
+        yfinance: 33.217999999999996
+      observed_at: '2026-10-23T16:03:35.118957+00:00'
+      period_end_date: '2026-06-30'
+      period_status: SINGLE_SOURCE
+      period_type: TTM
+      provider_period_end_timestamp: null
+      selected_source: stockanalysis.com
+      source_metadata:
+        stockanalysis.com:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: TTM
+          source_url: https://stockanalysis.com/stocks/BSBR/statistics/
+          unit: percentage_points
+        yfinance:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: PROVIDER_REPORTED_UNSPECIFIED
+          unit: percentage_points
+      unit: percentage_points
+      values:
+        stockanalysis.com: 41.95
+    revenue_growth_pct:
+      currency: null
+      non_comparable_reason: missing_period_unit_or_cutoff
+      non_comparable_values:
+        yfinance: 28.799999999999997
+      observed_at: '2026-10-23T16:03:35.118957+00:00'
+      period_end_date: '2026-06-30'
+      period_status: SINGLE_SOURCE
+      period_type: TTM
+      provider_period_end_timestamp: null
+      selected_source: stockanalysis.com
+      source_metadata:
+        stockanalysis.com:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: TTM
+          source_url: https://stockanalysis.com/stocks/bsbr/financials/
+          unit: percentage_points
+        yfinance:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: PROVIDER_REPORTED_UNSPECIFIED
+          unit: percentage_points
+      unit: percentage_points
+      values:
+        stockanalysis.com: 8.47
+  liquidity_provenance:
+    basis: UNDERLYING_USD_PROXY
+    coverage: 1.0
+    expected_observations: 20
+    first_price_date: '2026-09-28'
+    fx_observations: []
+    fx_reference: null
+    fx_side: null
+    fx_source: null
+    last_price_date: '2026-10-23'
+    minimum_coverage: 0.8
+    missing_market_dates: []
+    price_source: yfinance
+    quote_currency: USD
+    valid_observations: 20
+    valid_price_dates:
+    - '2026-09-28'
+    - '2026-09-29'
+    - '2026-09-30'
+    - '2026-10-01'
+    - '2026-10-02'
+    - '2026-10-05'
+    - '2026-10-06'
+    - '2026-10-07'
+    - '2026-10-08'
+    - '2026-10-09'
+    - '2026-10-12'
+    - '2026-10-13'
+    - '2026-10-14'
+    - '2026-10-15'
+    - '2026-10-16'
+    - '2026-10-19'
+    - '2026-10-20'
+    - '2026-10-21'
+    - '2026-10-22'
+    - '2026-10-23'
+    window_sessions: 20
+  market_cap_provenance:
+    as_of: '2026-10-23'
+    fx: null
+    source: yfinance
+    source_currency: USD
+  market_data_normalization:
+    errors: []
+    exchange_calendar: NYQ
+    liquidity_basis: UNDERLYING_USD_PROXY
+    size_metric: market_cap_usd
+    status: complete
+  market_quote:
+    as_of_date: '2026-10-23'
+    currency: USD
+    price: 5.449999809265137
+    source: yfinance
+  metrics:
+    fcf: 7680000000.0
+    operating_margin_pct: 41.95
+    revenue_growth_pct: 8.47
+  missing_metrics: []
+  policy:
+    filters:
+    - label: Margen operativo
+      metric: operating_margin_pct
+      operator: gt
+      unit: percentage_points
+      value: 0
+    - label: Flujo de caja libre
+      metric: fcf
+      operator: gt
+      unit: provider_currency
+      value: 0
+    - label: Crecimiento de ingresos
+      metric: revenue_growth_pct
+      operator: gt
+      unit: percentage_points
+      value: 0
+    version: positive_fundamentals_v1
+  reason: All configured filters passed; Research required
+discovery_last_evaluated_at: '2026-10-23T13:51:55.246097-03:00'
+entry_policy: VALUATION_ZONE
+hypothesis_ids: []
+id: OPP-20261023-030
+latest_discovery_evidence:
+  conflicting_metrics: []
+  data_provenance:
+    conflicts: []
+    field_sources:
+      analyst_consensus:
+      - stockanalysis.com
+      asset_type:
+      - yfinance
+      avg_dollar_volume_usd:
+      - yfinance
+      beta_5y:
+      - stockanalysis.com
+      capex_history:
+      - stockanalysis.com
+      cash_and_investments_history:
+      - stockanalysis.com
+      current_ratio:
+      - stockanalysis.com
+      data_provenance:
+      - stockanalysis.com
+      debt_ebitda:
+      - stockanalysis.com
+      debt_equity_ratio:
+      - stockanalysis.com
+      ebit:
+      - stockanalysis.com
+      ebitda:
+      - stockanalysis.com
+      ebitda_margin_pct:
+      - stockanalysis.com
+      enterprise_value:
+      - stockanalysis.com
+      eps_growth_forecast_3y_pct:
+      - stockanalysis.com
+      eps_history:
+      - stockanalysis.com
+      ev_ebit:
+      - stockanalysis.com
+      ev_ebitda:
+      - stockanalysis.com
+      ev_fcf:
+      - stockanalysis.com
+      ev_sales:
+      - stockanalysis.com
+      exchange:
+      - yfinance
+      fcf:
+      - stockanalysis.com
+      fcf_growth_history:
+      - stockanalysis.com
+      fcf_history:
+      - stockanalysis.com
+      fcf_margin_history:
+      - stockanalysis.com
+      fcf_margin_pct:
+      - stockanalysis.com
+      fcf_per_share:
+      - stockanalysis.com
+      fcf_yield_pct:
+      - stockanalysis.com
+      financial_currency:
+      - yfinance
+      financial_data_as_of_date:
+      - stockanalysis.com
+      financial_data_observed_at:
+      - stockanalysis.com
+      - yfinance
+      financial_history:
+      - stockanalysis.com
+      financial_metric_metadata:
+      - stockanalysis.com
+      - yfinance
+      financial_period_end_timestamp:
+      - yfinance
+      financial_period_type:
+      - stockanalysis.com
+      financials_data_updated_date:
+      - stockanalysis.com
+      forward_pe:
+      - stockanalysis.com
+      forward_ps:
+      - stockanalysis.com
+      gross_margin_pct:
+      - stockanalysis.com
+      liquidity_provenance:
+      - yfinance
+      ma_200d:
+      - stockanalysis.com
+      ma_50d:
+      - stockanalysis.com
+      market_cap:
+      - stockanalysis.com
+      - yfinance
+      market_cap_currency:
+      - yfinance
+      market_cap_provenance:
+      - yfinance
+      market_cap_usd:
+      - yfinance
+      market_data_normalization:
+      - yfinance
+      net_cash_history:
+      - stockanalysis.com
+      net_income_history:
+      - stockanalysis.com
+      operating_cash_flow_history:
+      - stockanalysis.com
+      operating_margin_pct:
+      - stockanalysis.com
+      p_fcf_ratio:
+      - stockanalysis.com
+      payout_ratio_pct:
+      - stockanalysis.com
+      pb_ratio:
+      - stockanalysis.com
+      pe_ratio_ttm:
+      - stockanalysis.com
+      peg_ratio:
+      - stockanalysis.com
+      period_end_date:
+      - stockanalysis.com
+      pretax_margin_pct:
+      - stockanalysis.com
+      price_history:
+      - yfinance
+      price_history_basis:
+      - yfinance
+      price_history_dates:
+      - yfinance
+      price_target_avg:
+      - stockanalysis.com
+      provider_data_updated_date:
+      - stockanalysis.com
+      ps_ratio_ttm:
+      - stockanalysis.com
+      quick_ratio:
+      - stockanalysis.com
+      quote_currency:
+      - yfinance
+      revenue_growth_forecast_3y_pct:
+      - stockanalysis.com
+      revenue_growth_history:
+      - stockanalysis.com
+      revenue_growth_pct:
+      - stockanalysis.com
+      revenue_history:
+      - stockanalysis.com
+      revenue_ttm:
+      - stockanalysis.com
+      roa_pct:
+      - stockanalysis.com
+      roe_pct:
+      - stockanalysis.com
+      roic_pct:
+      - stockanalysis.com
+      shares_outstanding:
+      - stockanalysis.com
+      short_pct_of_float:
+      - stockanalysis.com
+      short_ratio:
+      - stockanalysis.com
+      size_metric_provenance:
+      - yfinance
+      size_metric_usd:
+      - yfinance
+      source:
+      - stockanalysis.com
+      - yfinance
+      ticker:
+      - stockanalysis.com
+      - yfinance
+      total_debt_history:
+      - stockanalysis.com
+      url:
+      - stockanalysis.com
+      volume_avg:
+      - stockanalysis.com
+      volume_history:
+      - yfinance
+    source_count: 2
+    sources_used:
+    - stockanalysis.com
+    - yfinance
+  eligibility_status: PASSED
+  evaluated_at: '2026-10-23T13:51:55.246097-03:00'
+  filter_results:
+    fcf: 100
+    investability: 100
+    operating_margin_pct: 100
+    revenue_growth_pct: 100
+  financial_observations:
+    fcf:
+      currency: null
+      non_comparable_reason: null
+      non_comparable_values: {}
+      observed_at: '2026-10-23T16:48:57.784585+00:00'
+      period_end_date: '2026-06-30'
+      period_status: SINGLE_SOURCE
+      period_type: TTM
+      provider_period_end_timestamp: null
+      selected_source: stockanalysis.com
+      source_metadata:
+        stockanalysis.com:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: TTM
+          source_url: https://stockanalysis.com/stocks/BSBR/statistics/
+          unit: provider_financial_currency
+      unit: provider_financial_currency
+      values:
+        stockanalysis.com: 7680000000.0
+    operating_margin_pct:
+      currency: null
+      non_comparable_reason: missing_period_unit_or_cutoff
+      non_comparable_values:
+        yfinance: 33.217999999999996
+      observed_at: '2026-10-23T16:48:57.784585+00:00'
+      period_end_date: '2026-06-30'
+      period_status: SINGLE_SOURCE
+      period_type: TTM
+      provider_period_end_timestamp: null
+      selected_source: stockanalysis.com
+      source_metadata:
+        stockanalysis.com:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: TTM
+          source_url: https://stockanalysis.com/stocks/BSBR/statistics/
+          unit: percentage_points
+        yfinance:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: PROVIDER_REPORTED_UNSPECIFIED
+          unit: percentage_points
+      unit: percentage_points
+      values:
+        stockanalysis.com: 41.95
+    revenue_growth_pct:
+      currency: null
+      non_comparable_reason: missing_period_unit_or_cutoff
+      non_comparable_values:
+        yfinance: 28.799999999999997
+      observed_at: '2026-10-23T16:48:57.784585+00:00'
+      period_end_date: '2026-06-30'
+      period_status: SINGLE_SOURCE
+      period_type: TTM
+      provider_period_end_timestamp: null
+      selected_source: stockanalysis.com
+      source_metadata:
+        stockanalysis.com:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: TTM
+          source_url: https://stockanalysis.com/stocks/bsbr/financials/
+          unit: percentage_points
+        yfinance:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: PROVIDER_REPORTED_UNSPECIFIED
+          unit: percentage_points
+      unit: percentage_points
+      values:
+        stockanalysis.com: 8.47
+  liquidity_provenance:
+    basis: UNDERLYING_USD_PROXY
+    coverage: 1.0
+    expected_observations: 20
+    first_price_date: '2026-09-28'
+    fx_observations: []
+    fx_reference: null
+    fx_side: null
+    fx_source: null
+    last_price_date: '2026-10-23'
+    minimum_coverage: 0.8
+    missing_market_dates: []
+    price_source: yfinance
+    quote_currency: USD
+    valid_observations: 20
+    valid_price_dates:
+    - '2026-09-28'
+    - '2026-09-29'
+    - '2026-09-30'
+    - '2026-10-01'
+    - '2026-10-02'
+    - '2026-10-05'
+    - '2026-10-06'
+    - '2026-10-07'
+    - '2026-10-08'
+    - '2026-10-09'
+    - '2026-10-12'
+    - '2026-10-13'
+    - '2026-10-14'
+    - '2026-10-15'
+    - '2026-10-16'
+    - '2026-10-19'
+    - '2026-10-20'
+    - '2026-10-21'
+    - '2026-10-22'
+    - '2026-10-23'
+    window_sessions: 20
+  market_cap_provenance:
+    as_of: '2026-10-23'
+    fx: null
+    source: yfinance
+    source_currency: USD
+  market_data_normalization:
+    errors: []
+    exchange_calendar: NYQ
+    liquidity_basis: UNDERLYING_USD_PROXY
+    size_metric: market_cap_usd
+    status: complete
+  market_quote:
+    as_of_date: '2026-10-23'
+    currency: USD
+    price: 5.465000152587891
+    source: yfinance
+  metrics:
+    fcf: 7680000000.0
+    operating_margin_pct: 41.95
+    revenue_growth_pct: 8.47
+  missing_metrics: []
+  policy:
+    filters:
+    - label: Margen operativo
+      metric: operating_margin_pct
+      operator: gt
+      unit: percentage_points
+      value: 0
+    - label: Flujo de caja libre
+      metric: fcf
+      operator: gt
+      unit: provider_currency
+      value: 0
+    - label: Crecimiento de ingresos
+      metric: revenue_growth_pct
+      operator: gt
+      unit: percentage_points
+      value: 0
+    version: positive_fundamentals_v1
+  reason: All configured filters passed; Research required
+origin: automated
+research_profile: strategic
+review_ids: []
+sleeve: HIGH_CONVICTION
+status: SCREENED
+strategy_id: COMPOUNDER
+strategy_version: positive_fundamentals_v1
+thesis_type: STRATEGIC
+ticker: BSBR
+updated_at: '2026-10-23T13:05:47.759244-03:00'
