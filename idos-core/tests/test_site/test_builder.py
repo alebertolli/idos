@@ -180,17 +180,24 @@ def test_failed_decision_rule_does_not_alert_for_terminal_opportunity():
     assert _alerts([opportunity], []) == []
 
 
-def test_pending_review_alert_points_to_decision_board_for_any_strategy():
+@pytest.mark.parametrize(
+    ("proposal_status", "expected_message"),
+    [
+        ("PENDING_HUMAN_REVIEW", "Propuesta pendiente de revisión humana en Decision Board"),
+        ("BLOCKED", "Propuesta bloqueada por reglas; revisión del gestor pendiente en Decision Board"),
+    ],
+)
+def test_board_review_alert_covers_pending_and_blocked_proposals(proposal_status, expected_message):
     result = _builder()._build_dashboard([{
         "ticker": "ALAB", "opp_id": "OPP-1", "status": "UNDER_DEEP_DD",
         "strategy_id": "COMPOUNDER",
-        "proposal": {"status": "PENDING_HUMAN_REVIEW"},
+        "proposal": {"status": proposal_status},
     }], [], [], [], [])
     alert = next(a for a in result["alerts"] if a["type"] == "decision_pending")
-    assert alert["message"] == "Propuesta pendiente de revisión humana en Decision Board"
+    assert alert["message"] == expected_message
 
 
-def test_research_does_not_count_watchlist():
+def test_research_does_not_count_watchlist():def test_research_does_not_count_watchlist():
     universe_stats = {
         "operable_count": 267,
         "scout_passed": 57,
@@ -261,6 +268,8 @@ def test_public_build_omits_paper_positions(tmp_path: Path):
     script = (output / "assets" / "app.js").read_text(encoding="utf-8")
     assert "['portfolio','Portfolio']" not in script
     assert "Decisión pendiente de revisión humana" in script
+    assert "Propuesta bloqueada por reglas" in script
+    assert "El workflow no permite aprobar propuestas con reglas fallidas" in script
 
 
 def _write_ddd_case(tmp_path: Path, review: dict | None) -> None:
