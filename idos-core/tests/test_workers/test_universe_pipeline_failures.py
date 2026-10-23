@@ -218,6 +218,7 @@ def test_scout_requires_canonical_usd_liquidity_fields(tmp_path):
     project_root = Path(__file__).resolve().parents[3]
     pipeline = UniversePipeline({"config_path": str(project_root / "idos-config")})
     data = {
+        "asset_type": "equity",
         "market_cap": 10_000_000_000,
         "avg_volume": 5_000_000,
         "volume_avg": 5_000_000,
