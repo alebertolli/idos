@@ -310,7 +310,9 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     legacy_payload["merged_data"].pop("price_history")
     legacy_payload["merged_data"].pop("price_history_dates")
     cache.payload = legacy_payload
-    blocked = MultibaggersPipeline(config).run()
+    blocked = MultibaggersPipeline(config).run({"candidate_tickers": []})
+    assert blocked["processed"] == 1
+    assert blocked["results"][0]["ticker"] == "TEST"
     assert blocked["blocked"] == 1
     assert blocked["created"] == 0
     assert not (tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MB-TEST").exists()

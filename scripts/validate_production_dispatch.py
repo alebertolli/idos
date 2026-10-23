@@ -13,7 +13,7 @@ def production_dispatch_error(event_name: str, ref_name: str, allow_production_e
     if is_manual_production and not explicitly_allowed:
         return (
             "Manual execution on main requires allow_production_e2e=true; "
-            "keep candidate scope bounded and portfolio runtime disabled."
+            "the workflow may commit generated results to main."
         )
     return None
 

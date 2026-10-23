@@ -510,11 +510,10 @@ def test_monthly_pipeline_calls_ddd_only_when_eligible_candidates_exist():
     assert ddd_workflow["on"]["workflow_call"]["inputs"]["trigger_type"]["type"] == "string"
     assert ddd_workflow["on"]["workflow_call"]["inputs"]["ticker"]["required"] == "false"
     assert ddd_workflow["on"]["workflow_call"]["inputs"]["candidate_tickers"]["required"] == "false"
-    assert "candidate_tickers" in caller["with"]
-    assert "inputs.candidate_tickers" in caller["with"]["candidate_tickers"]
+    assert "candidate_tickers" not in caller["with"]
 
 
-def test_monthly_manual_preview_and_ddd_chain_share_candidate_scope():
+def test_monthly_manual_dispatch_scans_full_operable_universe():
     repository_root = Path(__file__).resolve().parents[2]
     ddd_workflow = yaml.load(
         (repository_root / ".github/workflows/ddd-pipeline.yml").read_text(encoding="utf-8"),
@@ -524,23 +523,19 @@ def test_monthly_manual_preview_and_ddd_chain_share_candidate_scope():
         (repository_root / ".github/workflows/monthly-universe-pipeline.yml").read_text(encoding="utf-8"),
         Loader=yaml.BaseLoader,
     )
-    preview = next(
-        step for step in monthly_workflow["jobs"]["pipeline"]["steps"]
-        if step.get("id") == "ddd-preview"
-    )
-    scope_check = next(
-        step for step in ddd_workflow["jobs"]["ddd"]["steps"]
-        if step.get("name") == "Validate bounded manual candidate scope"
-    )
-    context = next(
-        step for step in ddd_workflow["jobs"]["ddd"]["steps"]
-        if step.get("name") == "Set run context"
-    )
+    monthly_inputs = monthly_workflow["on"]["workflow_dispatch"]["inputs"]
+    monthly_steps = monthly_workflow["jobs"]["pipeline"]["steps"]
+    preview = next(step for step in monthly_steps if step.get("id") == "ddd-preview")
+    caller = monthly_workflow["jobs"]["ddd-after-monthly"]
+    ddd_inputs = ddd_workflow["on"]["workflow_call"]["inputs"]
 
-    assert preview["env"]["TICKER"] == "${{ inputs.candidate_tickers }}"
-    assert scope_check["env"]["IDOS_CANDIDATE_TICKERS"].startswith("${{ inputs.candidate_tickers || inputs.ticker")
-    assert scope_check["env"]["IDOS_MANUAL_SELECTION_LIMIT"] == "5"
-    assert "inputs.candidate_tickers || inputs.ticker" in context["run"]
+    assert "candidate_tickers" not in monthly_inputs
+    assert "allow_production_e2e" in monthly_inputs
+    assert all(step.get("name") != "Validate bounded manual candidate scope" for step in monthly_steps)
+    assert all("IDOS_CANDIDATE_TICKERS" not in step.get("env", {}) for step in monthly_steps)
+    assert "TICKER" not in preview.get("env", {})
+    assert "candidate_tickers" not in caller["with"]
+    assert ddd_inputs["candidate_tickers"]["required"] == "false"
 
 
 def test_monthly_workflow_uses_the_ddd_selector_for_downstream_gate():

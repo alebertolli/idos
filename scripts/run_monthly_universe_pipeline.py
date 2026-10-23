@@ -53,7 +53,7 @@ def main() -> int:
         ticker.strip().upper()
         for ticker in os.environ.get("IDOS_CANDIDATE_TICKERS", "").split(",")
         if ticker.strip()
-    ]
+    ] or None
     catalog = StrategyCatalog(Path("idos-config/strategies.yml"))
     profiles = enabled_profiles_for_runner(catalog, "universe")
     strategy_results = {}

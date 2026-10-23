@@ -270,11 +270,24 @@ estas pruebas.
    calendario, lado vendedor y referencia MEP/CCL explícita por activo ARS.
 3. Verificar que la selección, filtros propios y estado de cada estrategia se
    mantienen aislados y que los reportes identifican `bounded` vs. universo
-   completo. MULTIBAGGERS permanece deshabilitada hasta cerrar el gap de score.
+   completo. Confirmar el estado habilitado de cada perfil contra
+   `idos-config/strategies.yml`.
 4. Para acciones sin market cap verificable, confirmar `blocked` y ausencia de
    oportunidad/dispatch habilitante. Para ETFs sin AUM ni market cap, confirmar
    que la liquidez válida permite evaluar su señal mensual; volumen bajo o
    sin procedencia bloquea. Una reclasificación ETF → acción exige market cap.
+
+#### 8.2.1 Despacho manual de Monthly Universe
+
+1. Confirmar que el formulario manual no solicita tickers y que la ejecución
+   recorre todos los activos de `idos-config/universe/operable.yml`.
+2. Confirmar que cada estrategia aplica sus propios tipos de activo y filtros
+   configurados; un selector vacío se interpreta como universo completo tanto
+   en COMPOUNDER como en MULTIBAGGERS.
+3. Reservar alcances de 1–5 tickers para pruebas acotadas en ramas/fixtures; no
+   convertir esa herramienta de prueba en requisito del Monthly de producción.
+4. Validar DDD preview y workflow reusable sin selector explícito, incluyendo
+   que el costo/cuota de Research puede crecer con la cantidad de oportunidades.
 
 ### 8.3 Research y calidad de decisión
 
