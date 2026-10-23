@@ -1,6 +1,6 @@
 import math
 import re
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any, Optional
 
@@ -23,13 +23,9 @@ from idos.workers.data.sec_edgar import SECEdgarWorker
 from idos.workers.data.cache import DataCache
 from idos.workers.data.validator import DataValidator
 from idos.market.liquidity import (
-    FxObservation,
-    MarketDataNormalizationError,
     MarketDataSettings,
-    MonedApiFxProvider,
-    expected_us_market_sessions,
+    is_equity_asset_type,
     normalize_average_dollar_turnover,
-    normalize_market_cap_usd,
 )
 
 
@@ -47,7 +43,6 @@ class DataRefreshWorker(BaseWorker):
         self.universe_path = config.get("universe_path", "")
         self.config_root = config.get("config_path", "idos-config")
         self.market_data_settings = MarketDataSettings.load(self.config_root)
-        self.fx_provider = MonedApiFxProvider()
         self.data_sources_config = self._load_data_sources_config()
         configured_sources = self.data_sources_config.get("sources", {})
         sec_config = configured_sources.get("sec_edgar", {}) if isinstance(configured_sources, dict) else {}
@@ -268,7 +263,7 @@ class DataRefreshWorker(BaseWorker):
     def _fetch_sec_fundamentals(self, ticker: str, asset_type: str | None) -> dict[str, Any] | None:
         """Fetch regulator-filed fundamentals only for supported public equities."""
         worker = self.sources.get("sec_edgar")
-        if asset_type != "us_equity" or worker is None or not getattr(worker, "user_agent", None):
+        if not is_equity_asset_type(asset_type) or worker is None or not getattr(worker, "user_agent", None):
             return None
 
         cache_key = f"raw:sec_edgar:{ticker}"
@@ -328,17 +323,15 @@ class DataRefreshWorker(BaseWorker):
         dollar_volume = merged.get("avg_dollar_volume_usd")
         normalization = merged.get("market_data_normalization")
         asset_type = merged.get("asset_type")
-        quote_currency = merged.get("quote_currency")
-        valid_quote_currency = (
-            isinstance(quote_currency, str)
-            and re.fullmatch(r"[A-Z]{3}", quote_currency.strip()) is not None
-        )
+        is_equity = is_equity_asset_type(asset_type)
         common_gates_complete = (
-            asset_type in {"etf", "us_equity"}
-            and valid_quote_currency
+            (asset_type == "etf" or is_equity)
             and isinstance(dollar_volume, (int, float)) and not isinstance(dollar_volume, bool)
             and math.isfinite(dollar_volume) and dollar_volume > 0
             and isinstance(merged.get("liquidity_provenance"), dict)
+            and merged["liquidity_provenance"].get("currency") == "USD"
+            and bool(str(merged["liquidity_provenance"].get("source", "")).strip())
+            and bool(str(merged["liquidity_provenance"].get("as_of", "")).strip())
             and isinstance(normalization, dict) and normalization.get("status") == "complete"
         )
         if not common_gates_complete:
@@ -359,6 +352,7 @@ class DataRefreshWorker(BaseWorker):
             and bool(str(size_provenance.get("source", "")).strip())
             and provenance_date is not None
             and isinstance(metric_provenance, dict)
+            and metric_provenance.get("currency") == "USD"
             and metric_provenance.get("source") == size_provenance.get("source")
             and metric_provenance.get("as_of") == size_provenance.get("as_of")
         )
@@ -385,42 +379,29 @@ class DataRefreshWorker(BaseWorker):
         provider_errors = yahoo_data.get("provider_errors", []) if isinstance(yahoo_data, dict) else []
         if isinstance(provider_errors, list):
             errors.extend(f"Yahoo {error}" for error in provider_errors if error)
-        if asset_type not in {"etf", "us_equity"}:
-            errors.append("Explicit supported asset type missing from operable universe")
+        if asset_type != "etf" and not is_equity_asset_type(asset_type):
+            errors.append("Unsupported or missing operable asset class")
         if not yahoo_data:
             errors.append("Yahoo quote metadata unavailable")
             return result
         currency = yahoo_data.get("quote_currency")
-        if not isinstance(currency, str) or not currency.strip():
-            errors.append("Yahoo quote currency missing")
-        if not history:
-            errors.append("Aligned daily price and volume history unavailable")
-        elif history.get("price_basis") != "close_unadjusted":
-            errors.append("Price history does not declare unadjusted closing prices")
-
-        fx_reference = yahoo_data.get("fx_reference") or self._fx_reference_for_ticker(ticker)
-        fx_observations: list[FxObservation] = []
-        expected_dates: list[date] = []
         last_market_date = None
         if history and history.get("dates"):
             try:
                 last_market_date = date.fromisoformat(str(history["dates"][-1])[:10])
-                exchange = yahoo_data.get("exchange")
-                expected_dates = expected_us_market_sessions(
-                    last_market_date - timedelta(days=60), last_market_date, exchange
-                )[-self.market_data_settings.liquidity.window_sessions :]
-                if currency and currency.upper() == "ARS":
-                    if not fx_reference:
-                        raise MarketDataNormalizationError("ARS asset requires an explicit MEP or CCL reference")
-                    fx_from = (expected_dates[0] - timedelta(days=self.market_data_settings.liquidity.max_fx_staleness_days))
-                    fx_observations = self.fx_provider.history(
-                        fx_reference, fx_from, expected_dates[-1]
-                    )
-            except (ValueError, IndexError, MarketDataNormalizationError) as exc:
-                errors.append(str(exc))
+            except ValueError:
+                errors.append("Market history has an invalid observation date")
+        as_of = last_market_date or date.today()
 
-        rows = []
-        if history and history.get("price_basis") == "close_unadjusted":
+        direct_volume = yahoo_data.get("avg_dollar_volume_usd")
+        direct_volume_provenance = yahoo_data.get("liquidity_provenance")
+        if self._positive_finite(direct_volume) is not None:
+            result["avg_dollar_volume_usd"] = float(direct_volume)
+            result["liquidity_provenance"] = self._usd_metric_provenance(
+                direct_volume_provenance, source="yahoo", as_of=as_of,
+                basis="USD_PROVIDER_METRIC",
+            )
+        elif currency and currency.strip().upper() == "USD" and history and history.get("price_basis") == "close_unadjusted":
             rows = [
                 {
                     "date": market_date,
@@ -433,52 +414,82 @@ class DataRefreshWorker(BaseWorker):
                     history.get("dates", []), history.get("prices", []), history.get("volumes", [])
                 )
             ]
-            if currency and expected_dates:
+            observed_dates = []
+            for row in rows:
                 try:
-                    result.update(normalize_average_dollar_turnover(
-                        rows,
-                        expected_market_dates=expected_dates,
-                        quote_currency=currency,
-                        source="yfinance",
-                        fx_reference=fx_reference,
-                        fx_observations=fx_observations,
-                        policy=self.market_data_settings.liquidity,
-                    ))
-                except MarketDataNormalizationError as exc:
-                    errors.append(str(exc))
+                    observed_dates.append(date.fromisoformat(str(row["date"])[:10]))
+                except (TypeError, ValueError):
+                    continue
+            if observed_dates:
+                result.update(normalize_average_dollar_turnover(
+                    rows,
+                    expected_market_dates=observed_dates,
+                    quote_currency="USD",
+                    source="yfinance",
+                    policy=self.market_data_settings.liquidity,
+                ))
+                result["liquidity_provenance"].update({
+                    "basis": "UNDERLYING_USD_PROXY", "source": "yfinance",
+                    "currency": "USD", "as_of": observed_dates[-1].isoformat(),
+                })
+        elif not history and direct_volume is None:
+            errors.append("USD-denominated average dollar volume metric unavailable")
+        elif direct_volume is None:
+            errors.append("USD-denominated volume metric unavailable; local-currency FX conversion is not used")
+
         size_metric = None
         size_provenance = None
-        if asset_type == "us_equity":
-            cap_currency = yahoo_data.get("market_cap_currency")
-            market_cap = yahoo_data.get("market_cap")
-            if market_cap is not None and cap_currency and last_market_date:
-                try:
-                    result.update(normalize_market_cap_usd(
-                        market_cap, currency=cap_currency, as_of=last_market_date,
-                        source="yfinance", fx_reference=fx_reference,
-                        fx_observations=fx_observations,
-                        max_fx_staleness_days=self.market_data_settings.liquidity.max_fx_staleness_days,
-                    ))
-                    size_metric = result["market_cap_usd"]
-                    size_provenance = result["market_cap_provenance"]
-                except MarketDataNormalizationError as exc:
-                    errors.append(str(exc))
+        if is_equity_asset_type(asset_type):
+            direct_market_cap = yahoo_data.get("market_cap_usd")
+            if self._positive_finite(direct_market_cap) is not None:
+                size_metric = float(direct_market_cap)
+                size_provenance = self._usd_metric_provenance(
+                    yahoo_data.get("market_cap_provenance"), source="yahoo", as_of=as_of,
+                    basis="USD_PROVIDER_METRIC",
+                )
+                result["market_cap_usd"] = size_metric
+                result["market_cap_provenance"] = size_provenance
+            elif str(yahoo_data.get("market_cap_currency", "")).strip().upper() == "USD" and self._positive_finite(yahoo_data.get("market_cap")) is not None:
+                size_metric = float(yahoo_data["market_cap"])
+                size_provenance = self._usd_metric_provenance(
+                    yahoo_data.get("market_cap_provenance"), source="yfinance", as_of=as_of,
+                    basis="USD_PROVIDER_METRIC",
+                )
+                result["market_cap_usd"] = size_metric
+                result["market_cap_provenance"] = size_provenance
             else:
-                errors.append("Market cap value, explicit currency or market date missing")
+                errors.append("USD-denominated market capitalization metric unavailable")
         if size_metric is not None:
             result["size_metric_usd"] = size_metric
             result["size_metric_provenance"] = size_provenance
 
         result["market_data_normalization"] = {
-            "status": "complete" if not errors and (asset_type == "etf" or size_metric is not None) and result.get("avg_dollar_volume_usd") is not None else "blocked",
-            "size_metric": "market_cap_usd" if asset_type == "us_equity" else None,
+            "status": "complete" if (asset_type == "etf" or is_equity_asset_type(asset_type) and size_metric is not None) and result.get("avg_dollar_volume_usd") is not None else "blocked",
+            "size_metric": "market_cap_usd" if is_equity_asset_type(asset_type) else None,
             "errors": errors,
-            "liquidity_basis": "UNDERLYING_USD_PROXY",
-            "exchange_calendar": yahoo_data.get("exchange"),
+            "liquidity_basis": (result.get("liquidity_provenance") or {}).get("basis"),
+            "geography_filter": None,
+            "fx_conversion_used": False,
         }
-        if result.get("liquidity_provenance"):
-            result["liquidity_provenance"]["basis"] = "UNDERLYING_USD_PROXY"
         return result
+
+    @staticmethod
+    def _positive_finite(value: Any) -> float | None:
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            return None
+        parsed = float(value)
+        return parsed if math.isfinite(parsed) and parsed > 0 else None
+
+    @staticmethod
+    def _usd_metric_provenance(raw: Any, *, source: str, as_of: date, basis: str) -> dict[str, Any]:
+        raw = raw if isinstance(raw, dict) else {}
+        observed_source = str(raw.get("source") or source).strip()
+        observed_date = str(raw.get("as_of") or as_of.isoformat()).strip()
+        try:
+            date.fromisoformat(observed_date)
+        except ValueError:
+            observed_date = as_of.isoformat()
+        return {"source": observed_source, "as_of": observed_date, "currency": "USD", "basis": basis}
 
     def _asset_type_for_ticker(self, ticker: str) -> str | None:
         path = Path(self.config.get("operable_path", Path(self.config_root) / "universe" / "operable.yml"))
@@ -487,21 +498,6 @@ class DataRefreshWorker(BaseWorker):
             for entry in document.get("operable_tickers", []):
                 if str(entry.get("ticker", "")).upper() == ticker.upper():
                     return str(entry.get("type", "")).lower() or None
-        except (OSError, TypeError, yaml.YAMLError):
-            return None
-        return None
-
-    def _fx_reference_for_ticker(self, ticker: str) -> str | None:
-        universe_path = Path(self.config.get(
-            "operable_path", Path(self.config_root) / "universe" / "operable.yml"
-        ))
-        try:
-            import yaml
-            document = yaml.safe_load(universe_path.read_text(encoding="utf-8")) or {}
-            for entry in document.get("operable_tickers", []):
-                if str(entry.get("ticker", "")).upper() == ticker.upper():
-                    reference = entry.get("fx_reference")
-                    return str(reference).upper() if reference else None
         except (OSError, TypeError, yaml.YAMLError):
             return None
         return None

@@ -30,7 +30,10 @@ class MarketGate:
         from types import SimpleNamespace
         return SimpleNamespace(output={"data": {
             ticker: {"asset_type": "etf", "quote_currency": "USD", "avg_dollar_volume_usd": 200_000,
-                     "liquidity_provenance": {"price_source": "fixture"},
+                     "liquidity_provenance": {
+                         "source": "fixture", "as_of": "2026-10-22",
+                         "currency": "USD", "basis": "UNDERLYING_USD_PROXY",
+                     },
                      "market_quote": {
                          "price": 100.0, "currency": "USD", "as_of_date": datetime.now(ZoneInfo("America/Argentina/Buenos_Aires")).date().isoformat(),
                          "source": "yfinance",

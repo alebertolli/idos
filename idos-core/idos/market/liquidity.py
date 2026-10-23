@@ -18,6 +18,27 @@ class MarketDataNormalizationError(ValueError):
     """Raised when required market or FX evidence is unavailable or invalid."""
 
 
+EQUITY_ASSET_TYPES = frozenset({"equity", "us_equity"})
+
+
+def is_equity_asset_type(asset_type: str | None) -> bool:
+    """Return whether a registry type represents an individual equity share.
+
+    ``us_equity`` remains supported as a legacy registry value. ``equity`` is
+    the country-neutral canonical value for new and international listings.
+    """
+    return str(asset_type or "").strip().lower() in EQUITY_ASSET_TYPES
+
+
+def supports_asset_type(asset_type: str | None, supported_types: Iterable[str]) -> bool:
+    """Match canonical and legacy equity labels while keeping ETFs distinct."""
+    actual = str(asset_type or "").strip().lower()
+    supported = {str(value).strip().lower() for value in supported_types if value}
+    if is_equity_asset_type(actual):
+        return bool(supported & EQUITY_ASSET_TYPES)
+    return actual in supported
+
+
 @dataclass(frozen=True)
 class LiquidityPolicy:
     window_sessions: int = 20
@@ -81,9 +102,11 @@ def evaluate_global_market_eligibility(
     asset_type: str | None,
     settings: MarketDataSettings,
 ) -> dict[str, Any]:
-    """Apply the shared, fail-closed size and underlying-liquidity policy."""
+    """Apply USD-denominated size and liquidity thresholds, independent of domicile."""
     reasons: list[str] = []
-    if asset_type not in {"etf", "us_equity"}:
+    # Issuer country and listing country are deliberately not eligibility rules.
+    is_equity = is_equity_asset_type(asset_type)
+    if asset_type != "etf" and not is_equity:
         reasons.append("UNSUPPORTED_OR_MISSING_ASSET_TYPE")
 
     normalization = merged_data.get("market_data_normalization")
@@ -95,11 +118,10 @@ def evaluate_global_market_eligibility(
         and math.isfinite(float(liquidity))
         and float(liquidity) > 0
         and isinstance(liquidity_provenance, dict)
-        and liquidity_provenance.get("basis") == "UNDERLYING_USD_PROXY"
-        and liquidity_provenance.get("window_sessions") == settings.liquidity.window_sessions
-        and isinstance(liquidity_provenance.get("coverage"), (int, float))
-        and not isinstance(liquidity_provenance.get("coverage"), bool)
-        and float(liquidity_provenance["coverage"]) >= settings.liquidity.minimum_coverage
+        and liquidity_provenance.get("basis") in {"USD_PROVIDER_METRIC", "UNDERLYING_USD_PROXY"}
+        and bool(str(liquidity_provenance.get("source", "")).strip())
+        and liquidity_provenance.get("currency") == "USD"
+        and bool(str(liquidity_provenance.get("as_of", "")).strip())
     )
     if not isinstance(normalization, dict) or normalization.get("status") != "complete":
         reasons.append("MARKET_DATA_NORMALIZATION_INCOMPLETE")
@@ -110,7 +132,7 @@ def evaluate_global_market_eligibility(
 
     size = merged_data.get("size_metric_usd")
     size_provenance = merged_data.get("size_metric_provenance")
-    if asset_type == "us_equity":
+    if is_equity:
         market_cap_provenance = merged_data.get("market_cap_provenance")
         valid_size = (
             isinstance(size, (int, float))
@@ -121,6 +143,7 @@ def evaluate_global_market_eligibility(
             and size_provenance.get("source")
             and size_provenance.get("as_of")
             and isinstance(market_cap_provenance, dict)
+            and market_cap_provenance.get("currency") == "USD"
             and market_cap_provenance.get("source") == size_provenance.get("source")
             and market_cap_provenance.get("as_of") == size_provenance.get("as_of")
         )
@@ -132,8 +155,8 @@ def evaluate_global_market_eligibility(
     return {
         "passed": not reasons,
         "asset_type": asset_type,
-        "size_metric_usd": size if asset_type == "us_equity" else None,
-        "market_cap_min_usd": settings.market_cap_min_usd if asset_type == "us_equity" else None,
+        "size_metric_usd": size if is_equity else None,
+        "market_cap_min_usd": settings.market_cap_min_usd if is_equity else None,
         "avg_dollar_volume_usd": liquidity,
         "avg_dollar_volume_min_usd": settings.avg_dollar_volume_min_usd,
         "liquidity_basis": "UNDERLYING_USD_PROXY",
@@ -247,18 +270,18 @@ def normalize_average_dollar_turnover(
     fx_observations: Iterable[FxObservation] = (),
     policy: LiquidityPolicy = LiquidityPolicy(),
 ) -> dict[str, Any]:
-    """Return canonical USD average, or ``None`` when evidence coverage fails."""
+    """Return average USD turnover from available observations, without a coverage gate."""
     currency = quote_currency.strip().upper()
-    if currency not in {"USD", "ARS"}:
-        raise MarketDataNormalizationError(f"Unsupported quote currency: {quote_currency}")
-    if currency == "ARS" and (not fx_reference or fx_reference.upper() not in {"MEP", "CCL"}):
-        raise MarketDataNormalizationError("ARS quote requires an explicit MEP or CCL reference")
+    if currency != "USD":
+        raise MarketDataNormalizationError(
+            "USD-denominated volume metric is required; local-currency FX conversion is not an eligibility input"
+        )
 
     expected_dates = sorted(set(expected_market_dates))[-policy.window_sessions :]
-    if len(expected_dates) != policy.window_sessions:
+    if not expected_dates:
         return _turnover_result(
             None, currency, source, fx_reference, policy, 0,
-            policy.window_sessions, None, None, [],
+            0, None, None, [],
         )
     history = {}
     for row in rows:
@@ -266,58 +289,35 @@ def normalize_average_dollar_turnover(
         history[normalized[0]] = normalized
     window = [history.get(day, (day, None, None, None)) for day in expected_dates]
 
-    fx_by_date: dict[date, FxObservation] = {}
-    for observation in fx_observations:
-        if (
-            not isinstance(observation, FxObservation)
-            or observation.observed_at.tzinfo is None
-            or _positive_finite(observation.sell) is None
-        ):
-            raise MarketDataNormalizationError("FX observation is invalid")
-        day = observation.observed_at.date()
-        if day in fx_by_date and fx_by_date[day].observed_at >= observation.observed_at:
-            continue
-        fx_by_date[day] = observation
-    fx_dates = sorted(fx_by_date)
     valid: list[float] = []
-    fx_used: list[dict[str, Any]] = []
     source_dates: list[str] = []
     for day, close, volume, row_source in window:
         if close is None or volume is None or close <= 0 or volume < 0:
             continue
         turnover = close * volume
-        if currency == "ARS":
-            candidates = [fx_day for fx_day in fx_dates if fx_day <= day]
-            if not candidates:
-                continue
-            fx_day = candidates[-1]
-            fx = fx_by_date[fx_day]
-            age = (day - fx_day).days
-            if age > policy.max_fx_staleness_days:
-                continue
-            turnover /= fx.sell
-            fx_used.append({"date": fx_day.isoformat(), "sell": fx.sell, "staleness_days": age})
         if not math.isfinite(turnover) or turnover < 0:
             continue
         valid.append(turnover)
         source_dates.append(day.isoformat())
 
-    coverage = len(valid) / policy.window_sessions
-    average = sum(valid) / len(valid) if valid and coverage >= policy.minimum_coverage else None
+    coverage = len(valid) / len(expected_dates)
+    average = sum(valid) / len(valid) if valid else None
     metadata = {
         "quote_currency": currency,
-        "fx_reference": fx_reference.upper() if fx_reference else None,
-        "fx_side": policy.fx_side if currency == "ARS" else None,
+        "currency": "USD",
+        "fx_reference": None,
+        "fx_side": None,
         "window_sessions": policy.window_sessions,
-        "expected_observations": policy.window_sessions,
+        "expected_observations": len(expected_dates),
         "valid_observations": len(valid),
         "coverage": round(coverage, 6),
-        "minimum_coverage": policy.minimum_coverage,
+        "minimum_coverage": None,
         "first_price_date": expected_dates[0].isoformat(),
         "last_price_date": expected_dates[-1].isoformat(),
+        "as_of": expected_dates[-1].isoformat(),
         "price_source": source,
-        "fx_source": "monedapi.ar" if currency == "ARS" and fx_used else None,
-        "fx_observations": fx_used,
+        "fx_source": None,
+        "fx_observations": [],
         "valid_price_dates": source_dates,
         "missing_market_dates": [day.isoformat() for day in expected_dates if day not in history],
     }

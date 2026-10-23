@@ -140,6 +140,10 @@ def test_refresh_worker_fetches_sec_fundamentals_only_for_equities():
     assert cached["source"] == "sec_edgar"
     assert cached["ttl_seconds"] == 86400
 
+    result = worker._fetch_sec_fundamentals("AAPL", "equity")
+    assert result["revenue_growth_pct"] == 12.5
+    assert calls[-1] == {"ticker": "AAPL", "include_filings": False}
+
 
 def test_refresh_worker_reuses_aligned_yahoo_history():
     history = DataRefreshWorker._extract_price_history({
@@ -255,7 +259,7 @@ def test_refresh_worker_preserves_yahoo_levered_fcf_provenance():
     assert "fcf" not in source
 
 
-def test_refresh_worker_normalizes_yahoo_underlying_metrics_with_exchange_sessions(monkeypatch):
+def test_refresh_worker_normalizes_usd_metrics_without_country_calendar_gate(monkeypatch):
     worker = DataRefreshWorker()
     latest = date(2026, 10, 16)
     sessions = _stub_weekday_sessions(monkeypatch, latest)
@@ -272,7 +276,7 @@ def test_refresh_worker_normalizes_yahoo_underlying_metrics_with_exchange_sessio
             "quote_currency": "USD",
             "market_cap_currency": "USD",
             "market_cap": 3_000_000_000,
-            "exchange": "NMS",
+            "exchange": "LSE",
         },
         history,
         asset_type="us_equity",
@@ -282,8 +286,29 @@ def test_refresh_worker_normalizes_yahoo_underlying_metrics_with_exchange_sessio
     assert result["market_cap_usd"] == 3_000_000_000
     assert result["avg_dollar_volume_usd"] == 200_000
     assert result["liquidity_provenance"]["valid_observations"] == 20
+    assert result["liquidity_provenance"]["currency"] == "USD"
+    assert result["liquidity_provenance"]["as_of"] == sessions[-1].isoformat()
     assert result["market_data_normalization"]["status"] == "complete"
     assert result["liquidity_provenance"]["basis"] == "UNDERLYING_USD_PROXY"
+
+
+def test_refresh_worker_normalizes_country_neutral_equity_type():
+    worker = DataRefreshWorker()
+    result = worker._normalize_market_gate_metrics(
+        "ASML",
+        {
+            "quote_currency": "USD", "market_cap_currency": "USD",
+            "market_cap": 3_000_000_000,
+            "avg_dollar_volume_usd": 250_000,
+            "liquidity_provenance": {"source": "provider", "as_of": "2026-10-22"},
+        },
+        None,
+        asset_type="equity",
+    )
+
+    assert result["market_data_normalization"]["status"] == "complete"
+    assert result["market_cap_usd"] == 3_000_000_000
+    assert DataRefreshWorker._has_normalized_market_gates(result)
 
 
 def test_market_gate_retains_yahoo_endpoint_diagnostics():
@@ -295,7 +320,7 @@ def test_market_gate_retains_yahoo_endpoint_diagnostics():
     )
 
     assert "Yahoo info: summary endpoint unavailable" in result["market_data_normalization"]["errors"]
-    assert any("quote currency missing" in item for item in result["market_data_normalization"]["errors"])
+    assert any("USD-denominated" in item for item in result["market_data_normalization"]["errors"])
 
 
 def test_refresh_worker_reuses_only_complete_provenance_bearing_market_gates():
@@ -304,11 +329,11 @@ def test_refresh_worker_reuses_only_complete_provenance_bearing_market_gates():
             "asset_type": "us_equity",
             "quote_currency": "USD",
             "size_metric_usd": 3_000_000_000,
-            "size_metric_provenance": {"source": "yfinance", "as_of": "2026-10-16"},
+            "size_metric_provenance": {"source": "yfinance", "as_of": "2026-10-16", "currency": "USD"},
             "market_cap_usd": 3_000_000_000,
             "avg_dollar_volume_usd": 200_000,
-            "market_cap_provenance": {"source": "yfinance", "as_of": "2026-10-16"},
-            "liquidity_provenance": {"price_source": "yfinance"},
+            "market_cap_provenance": {"source": "yfinance", "as_of": "2026-10-16", "currency": "USD"},
+            "liquidity_provenance": {"source": "yfinance", "as_of": "2026-10-16", "currency": "USD", "basis": "UNDERLYING_USD_PROXY"},
             "market_data_normalization": {"status": "complete"},
         }
     }
@@ -319,53 +344,46 @@ def test_refresh_worker_reuses_only_complete_provenance_bearing_market_gates():
     without_currency = {"merged_data": {
         key: value for key, value in complete["merged_data"].items() if key != "quote_currency"
     }}
-    assert not DataRefreshWorker._has_normalized_market_gates(without_currency)
+    assert DataRefreshWorker._has_normalized_market_gates(without_currency)
     assert not DataRefreshWorker._has_normalized_market_gates(legacy)
     assert not DataRefreshWorker._has_normalized_market_gates(blocked)
 
 
-def test_refresh_worker_normalizes_ars_underlying_with_explicit_fx_reference(monkeypatch):
+def test_refresh_worker_uses_direct_usd_metrics_without_ars_conversion():
     worker = DataRefreshWorker()
-    latest = date(2026, 10, 16)
-    sessions = _stub_weekday_sessions(monkeypatch, latest)
-
-    class FxProvider:
-        def history(self, reference, date_from, date_to):
-            assert reference == "MEP"
-            assert date_from <= sessions[0]
-            assert date_to == sessions[-1]
-            return [
-                FxObservation(
-                    observed_at=datetime.combine(day, datetime.min.time(), timezone.utc),
-                    sell=1000,
-                )
-                for day in sessions
-            ]
-
-    worker.fx_provider = FxProvider()
-    history = {
-        "dates": [day.isoformat() for day in sessions],
-        "prices": [10_000.0] * len(sessions),
-        "volumes": [10_000] * len(sessions),
-        "price_basis": "close_unadjusted",
-    }
     result = worker._normalize_market_gate_metrics(
         "TEST",
         {
             "quote_currency": "ARS",
             "market_cap_currency": "ARS",
-            "market_cap": 2_000_000_000_000,
-            "exchange": "NMS",
-            "fx_reference": "MEP",
+            "market_cap_usd": 2_000_000_000,
+            "avg_dollar_volume_usd": 100_000,
+            "market_cap_provenance": {"source": "underlying", "as_of": "2026-10-16"},
+            "liquidity_provenance": {"source": "underlying", "as_of": "2026-10-16"},
         },
-        history,
+        None,
         asset_type="us_equity",
     )
 
     assert result["market_cap_usd"] == 2_000_000_000
     assert result["avg_dollar_volume_usd"] == 100_000
     assert result["market_data_normalization"]["status"] == "complete"
-    assert result["liquidity_provenance"]["fx_side"] == "sell"
+    assert result["market_data_normalization"]["fx_conversion_used"] is False
+    assert result["liquidity_provenance"]["currency"] == "USD"
+
+
+def test_refresh_worker_leaves_local_currency_values_pending_without_usd_metrics():
+    result = DataRefreshWorker()._normalize_market_gate_metrics(
+        "TEST",
+        {"quote_currency": "ARS", "market_cap_currency": "ARS", "market_cap": 2_000_000_000_000},
+        None,
+        asset_type="us_equity",
+    )
+
+    assert result["market_data_normalization"]["status"] == "blocked"
+    assert result.get("market_cap_usd") is None
+    assert result.get("avg_dollar_volume_usd") is None
+    assert any("USD-denominated" in error for error in result["market_data_normalization"]["errors"])
 
 
 def test_etf_gate_accepts_liquidity_without_any_size_metric(monkeypatch):
@@ -436,8 +454,4 @@ def _stub_weekday_sessions(monkeypatch, latest: date) -> list[date]:
             dates.append(cursor)
         cursor -= timedelta(days=1)
     result = sorted(dates)
-    monkeypatch.setattr(
-        "idos.workers.data.refresh_worker.expected_us_market_sessions",
-        lambda start, end, exchange: result,
-    )
     return result

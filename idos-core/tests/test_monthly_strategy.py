@@ -29,7 +29,10 @@ class FakeMarketGate:
                     "asset_type": "etf",
                     "quote_currency": "USD",
                     "avg_dollar_volume_usd": self.dollar_volume,
-                    "liquidity_provenance": {"price_source": "yfinance"},
+                    "liquidity_provenance": {
+                        "source": "yfinance", "as_of": "2026-10-16",
+                        "currency": "USD", "basis": "UNDERLYING_USD_PROXY",
+                    },
                     "market_data_normalization": {"status": "complete"},
                 }}
                 for ticker in context["tickers"]
@@ -109,7 +112,7 @@ def test_monthly_strategy_etfs_need_no_aum_or_market_cap():
     worker = MonthlyStrategyWorker({"price_provider": prices, "market_gate_worker": FakeMarketGate()})
     output = worker.run({"dry_run": True, "persist": False, "candidate_tickers": ["QQQ"]})
     assert output["market_gate"]["accepted_count"] == 1
-    assert output["market_gate"]["market_cap_applies_to"] == ["us_equity"]
+    assert output["market_gate"]["market_cap_applies_to"] == ["equity", "us_equity (legacy registry alias)"]
     assert "aum_min_usd" not in output["market_gate"]
     assert output["candidate_tickers"] == prices.tickers == ["QQQ"]
 
