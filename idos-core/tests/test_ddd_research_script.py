@@ -507,6 +507,13 @@ def test_monthly_pipeline_calls_ddd_only_when_eligible_candidates_exist():
     assert "inputs.allow_production_e2e" in caller["with"]["allow_production_e2e"]
     assert caller["with"]["skip_portfolio_reevaluation"] == "true"
     assert caller["with"]["trigger_type"] == "monthly"
+    manual_scope = next(
+        step for step in ddd_workflow["jobs"]["ddd"]["steps"]
+        if step.get("name") == "Validate bounded manual candidate scope"
+    )
+    assert manual_scope["env"]["IDOS_TRIGGER_TYPE"] == (
+        "${{ inputs.trigger_type || github.event.inputs.trigger_type || 'manual' }}"
+    )
     assert ddd_workflow["on"]["workflow_call"]["inputs"]["trigger_type"]["type"] == "string"
     assert ddd_workflow["on"]["workflow_call"]["inputs"]["ticker"]["required"] == "false"
     assert ddd_workflow["on"]["workflow_call"]["inputs"]["candidate_tickers"]["required"] == "false"
@@ -536,6 +543,28 @@ def test_monthly_manual_dispatch_scans_full_operable_universe():
     assert "TICKER" not in preview.get("env", {})
     assert "candidate_tickers" not in caller["with"]
     assert ddd_inputs["candidate_tickers"]["required"] == "false"
+
+
+def test_monthly_changes_dispatch_pages_before_downstream_ddd():
+    repository_root = Path(__file__).resolve().parents[2]
+    workflow = yaml.load(
+        (repository_root / ".github/workflows/monthly-universe-pipeline.yml").read_text(encoding="utf-8"),
+        Loader=yaml.BaseLoader,
+    )
+    job = workflow["jobs"]["pipeline"]
+    steps = job["steps"]
+    save = next(step for step in steps if step.get("name") == "Save & commit results")
+    publish = next(step for step in steps if step.get("name") == "Publish monthly Discovery updates")
+
+    assert save["id"] == "save-results"
+    assert 'echo "changed=true" >> "$GITHUB_OUTPUT"' in save["run"]
+    assert 'echo "changed=false" >> "$GITHUB_OUTPUT"' in save["run"]
+    assert publish["if"] == (
+        "success() && steps.save-results.outputs.changed == 'true' "
+        "&& github.ref == 'refs/heads/main'"
+    )
+    assert publish["run"] == "gh workflow run gh-pages.yml --ref main"
+    assert job["permissions"]["actions"] == "write"
 
 
 def test_monthly_workflow_uses_the_ddd_selector_for_downstream_gate():

@@ -6,8 +6,17 @@ from pathlib import Path
 from idos.discovery.operability import OperabilityFilter
 
 
+def requires_manual_selection(event_name: str, trigger_type: str) -> bool:
+    """Apply the ticker selector only to direct manual runs, not monthly orchestration."""
+    return event_name == "workflow_dispatch" and trigger_type.strip().lower() != "monthly"
+
+
 def main() -> int:
-    if os.environ.get("GITHUB_EVENT_NAME") != "workflow_dispatch":
+    event_name = os.environ.get("GITHUB_EVENT_NAME", "")
+    trigger_type = os.environ.get("IDOS_TRIGGER_TYPE", "manual")
+    if not requires_manual_selection(event_name, trigger_type):
+        if event_name == "workflow_dispatch" and trigger_type.strip().lower() == "monthly":
+            print("[SCOPE] Monthly orchestration uses the deterministic DDD selector.")
         return 0
 
     root = Path(os.environ.get("GITHUB_WORKSPACE", ".")).resolve()
