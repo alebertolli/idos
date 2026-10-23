@@ -15,7 +15,7 @@ from idos.data.sqlite import SQLiteStore
 from idos.discovery.multibaggers import MultibaggersDiscoveryEngine, build_research_intake
 from idos.discovery.multibaggers_store import MultibaggersStore
 from idos.discovery.operability import OperabilityFilter
-from idos.market.liquidity import MarketDataSettings, evaluate_global_market_eligibility
+from idos.market.liquidity import MarketDataSettings, evaluate_global_market_eligibility, supports_asset_type
 from idos.models.conviction import Conviction
 from idos.models.enums import OpportunityStatus
 from idos.models.journal import Opportunity
@@ -54,14 +54,10 @@ class MultibaggersPipeline:
             else sorted(self.operability.tickers)
         )
         entries = {entry["ticker"]: entry for entry in self.operability.list()}
-        supported_types = {
-            str(value).strip().lower()
-            for value in self.profile.parameters.get("supported_asset_types", ["us_equity"])
-            if str(value).strip()
-        }
+        supported_types = self.profile.parameters.get("supported_asset_types", ["us_equity"])
         excluded_tickers = sorted(
             ticker for ticker in tickers
-            if str(entries.get(ticker, {}).get("type", "us_equity")).strip().lower() not in supported_types
+            if not supports_asset_type(entries.get(ticker, {}).get("type", "us_equity"), supported_types)
         )
         excluded_set = set(excluded_tickers)
         tickers = [ticker for ticker in tickers if ticker not in excluded_set]

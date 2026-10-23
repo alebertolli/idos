@@ -10,7 +10,7 @@ import yaml
 from idos.data.journal import JournalRepository
 from idos.data.sqlite import SQLiteStore
 from idos.discovery.operability import OperabilityFilter
-from idos.market.liquidity import MarketDataSettings
+from idos.market.liquidity import MarketDataSettings, is_equity_asset_type, supports_asset_type
 from idos.market.prices import PriceProvider
 from idos.models.enums import OpportunityStatus
 from idos.strategy.catalog import StrategyCatalog
@@ -66,11 +66,11 @@ class MonthlyStrategyWorker(BaseWorker):
         supported_types = set(params.get("supported_asset_types", []))
         excluded_unsupported_asset_types = sorted(
             ticker for ticker in operable_universe
-            if supported_types and entries_by_ticker.get(ticker, {}).get("type") not in supported_types
+            if supported_types and not supports_asset_type(entries_by_ticker.get(ticker, {}).get("type"), supported_types)
         )
         strategy_universe = [
             ticker for ticker in operable_universe
-            if not supported_types or entries_by_ticker.get(ticker, {}).get("type") in supported_types
+            if not supported_types or supports_asset_type(entries_by_ticker.get(ticker, {}).get("type"), supported_types)
         ]
         eligible_universe_count = len(strategy_universe)
         requested_tickers = context.get("candidate_tickers") or []
@@ -133,7 +133,7 @@ class MonthlyStrategyWorker(BaseWorker):
                 })
                 continue
             dollar_volume = merged["avg_dollar_volume_usd"]
-            if merged["asset_type"] == "us_equity" and merged["market_cap_usd"] < market_settings.market_cap_min_usd:
+            if is_equity_asset_type(merged["asset_type"]) and merged["market_cap_usd"] < market_settings.market_cap_min_usd:
                 reason = f"market_cap_usd {merged['market_cap_usd']:g} below {market_settings.market_cap_min_usd:g}"
             elif dollar_volume < market_settings.avg_dollar_volume_min_usd:
                 reason = f"avg_dollar_volume_usd {dollar_volume:g} below {market_settings.avg_dollar_volume_min_usd:g}"
@@ -187,7 +187,7 @@ class MonthlyStrategyWorker(BaseWorker):
             "market_gate": {
                 "basis": "UNDERLYING_USD_PROXY",
                 "market_cap_min_usd": market_settings.market_cap_min_usd,
-                "market_cap_applies_to": ["us_equity"],
+                "market_cap_applies_to": ["equity", "us_equity (legacy registry alias)"],
                 "avg_dollar_volume_min_usd": market_settings.avg_dollar_volume_min_usd,
                 "expected_count": len(market_gate_expected_tickers),
                 "evaluated_count": len(market_gate_passed) + len(market_gate_rejected),

@@ -46,10 +46,10 @@ def valid_payload():
         **metrics,
         "asset_type": "us_equity",
         "size_metric_usd": metrics["market_cap_usd"],
-        "size_metric_provenance": {"source": "yfinance", "as_of": "2026-10-15"},
-        "market_cap_provenance": {"source": "yfinance", "as_of": "2026-10-15"},
+        "size_metric_provenance": {"source": "yfinance", "as_of": "2026-10-15", "currency": "USD"},
+        "market_cap_provenance": {"source": "yfinance", "as_of": "2026-10-15", "currency": "USD"},
         "avg_dollar_volume_usd": metrics["avg_dollar_volume_usd"],
-        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY", "window_sessions": 20, "coverage": 0.8},
+        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY", "source": "yfinance", "as_of": "2026-10-15", "currency": "USD"},
         "market_data_normalization": {"status": "complete", "liquidity_basis": "UNDERLYING_USD_PROXY"},
     }
     price_dates = []
@@ -174,7 +174,7 @@ def test_shared_market_gate_fails_closed_and_does_not_require_etf_aum():
     complete_etf = {
         "market_data_normalization": {"status": "complete"},
         "avg_dollar_volume_usd": 150_000,
-        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY", "window_sessions": 20, "coverage": 0.8},
+        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY", "source": "yfinance", "as_of": "2026-10-15", "currency": "USD"},
     }
     assert evaluate_global_market_eligibility(complete_etf, asset_type="etf", settings=settings)["passed"]
 

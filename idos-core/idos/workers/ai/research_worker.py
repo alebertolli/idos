@@ -1619,10 +1619,9 @@ class ResearchWorker(BaseWorker):
                 compact_eligibility["liquidity_provenance"] = {
                     key: liquidity[key]
                     for key in (
-                        "basis", "coverage", "expected_observations", "valid_observations",
-                        "minimum_coverage", "window_sessions", "first_price_date",
-                        "last_price_date", "price_source", "fx_reference", "fx_side",
-                        "fx_source",
+                        "basis", "source", "currency", "as_of", "coverage",
+                        "expected_observations", "valid_observations", "window_sessions",
+                        "first_price_date", "last_price_date", "price_source",
                     )
                     if key in liquidity
                 }

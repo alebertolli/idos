@@ -11,6 +11,7 @@ from idos.market.liquidity import (
     expected_us_market_sessions,
     normalize_average_dollar_turnover,
     normalize_market_cap_usd,
+    evaluate_global_market_eligibility,
 )
 
 
@@ -22,6 +23,26 @@ def _days(count=20):
             result.append(current)
         current += timedelta(days=1)
     return result
+
+
+def test_global_gates_apply_equity_cap_to_country_neutral_asset_type():
+    settings = MarketDataSettings()
+    data = {
+        "market_data_normalization": {"status": "complete"},
+        "avg_dollar_volume_usd": 200_000,
+        "liquidity_provenance": {
+            "basis": "UNDERLYING_USD_PROXY", "source": "provider",
+            "currency": "USD", "as_of": "2026-10-22",
+        },
+        "size_metric_usd": 3_000_000_000,
+        "size_metric_provenance": {"source": "provider", "as_of": "2026-10-22"},
+        "market_cap_provenance": {"source": "provider", "as_of": "2026-10-22", "currency": "USD"},
+    }
+
+    result = evaluate_global_market_eligibility(data, asset_type="equity", settings=settings)
+
+    assert result["passed"]
+    assert result["size_metric_usd"] == 3_000_000_000
 
 
 def test_usd_turnover_uses_close_times_same_day_volume_and_20_session_window():
@@ -57,7 +78,7 @@ def test_turnover_accepts_exactly_80_percent_valid_observations():
     assert result["liquidity_provenance"]["coverage"] == 0.8
 
 
-def test_turnover_fails_closed_below_80_percent_coverage():
+def test_turnover_uses_available_observations_without_coverage_gate():
     rows = [
         {"date": day.isoformat(), "close": 10 if index < 15 else None, "volume": 1000, "price_basis": "close_unadjusted"}
         for index, day in enumerate(_days())
@@ -65,10 +86,11 @@ def test_turnover_fails_closed_below_80_percent_coverage():
     result = normalize_average_dollar_turnover(
         rows, expected_market_dates=_days(), quote_currency="USD", source="vendor"
     )
-    assert result["avg_dollar_volume_usd"] is None
+    assert result["avg_dollar_volume_usd"] == 10_000
+    assert result["liquidity_provenance"]["coverage"] == 0.75
 
 
-def test_turnover_counts_missing_expected_market_sessions_as_invalid():
+def test_turnover_counts_missing_expected_sessions_without_rejecting_candidate():
     expected = _days()
     rows = [
         {"date": day.isoformat(), "close": 10, "volume": 1000, "price_basis": "close_unadjusted"}
@@ -77,57 +99,41 @@ def test_turnover_counts_missing_expected_market_sessions_as_invalid():
     result = normalize_average_dollar_turnover(
         rows, expected_market_dates=expected, quote_currency="USD", source="vendor"
     )
-    assert result["avg_dollar_volume_usd"] is None
+    assert result["avg_dollar_volume_usd"] == 10_000
     assert result["liquidity_provenance"]["valid_observations"] == 15
     assert len(result["liquidity_provenance"]["missing_market_dates"]) == 5
 
 
-def test_turnover_requires_complete_expected_session_calendar():
+def test_turnover_does_not_require_twenty_available_market_sessions():
     result = normalize_average_dollar_turnover(
         [], expected_market_dates=_days(19), quote_currency="USD", source="vendor"
     )
     assert result["avg_dollar_volume_usd"] is None
-    assert result["liquidity_provenance"]["expected_observations"] == 20
+    assert result["liquidity_provenance"]["expected_observations"] == 19
 
 
-def test_ars_turnover_converts_each_market_day_with_sell_rate_and_prior_fx():
-    fx = [
-        FxObservation(datetime.combine(day, datetime.min.time(), timezone.utc), sell=1000)
-        for day in _days()
-    ]
+def test_ars_turnover_requires_usd_metric_instead_of_fx_conversion():
     rows = [
         {"date": day.isoformat(), "close": 100_000, "volume": 10, "price_basis": "close_unadjusted"}
         for day in _days()
     ]
-    result = normalize_average_dollar_turnover(
-        rows,
-        expected_market_dates=_days(),
-        quote_currency="ARS",
-        source="local-market-feed",
-        fx_reference="MEP",
-        fx_observations=fx,
-    )
-    assert result["avg_dollar_volume_usd"] == 1000
-    assert result["liquidity_provenance"]["fx_side"] == "sell"
-    assert result["liquidity_provenance"]["fx_reference"] == "MEP"
+    with pytest.raises(MarketDataNormalizationError, match="USD-denominated"):
+        normalize_average_dollar_turnover(
+            rows, expected_market_dates=_days(), quote_currency="ARS",
+            source="local-market-feed",
+        )
 
 
-def test_ars_turnover_rejects_missing_fx_reference_and_stale_fx():
+def test_non_usd_turnover_is_not_converted_as_an_eligibility_input():
     row = [{"date": day.isoformat(), "close": 100, "volume": 10, "price_basis": "close_unadjusted"} for day in _days()]
-    with pytest.raises(MarketDataNormalizationError, match="explicit"):
+    with pytest.raises(MarketDataNormalizationError, match="USD-denominated"):
         normalize_average_dollar_turnover(
             row, expected_market_dates=_days(), quote_currency="ARS", source="vendor"
         )
-    stale = [FxObservation(datetime(2026, 8, 1, tzinfo=timezone.utc), sell=1000)]
-    result = normalize_average_dollar_turnover(
-        row, expected_market_dates=_days(), quote_currency="ARS", source="vendor",
-        fx_reference="CCL", fx_observations=stale
-    )
-    assert result["avg_dollar_volume_usd"] is None
 
 
-def test_unknown_currency_and_non_finite_values_do_not_normalize():
-    with pytest.raises(MarketDataNormalizationError, match="Unsupported quote currency"):
+def test_non_usd_currency_and_non_finite_values_do_not_normalize():
+    with pytest.raises(MarketDataNormalizationError, match="USD-denominated"):
         normalize_average_dollar_turnover(
             [], expected_market_dates=_days(), quote_currency="EUR", source="vendor"
         )

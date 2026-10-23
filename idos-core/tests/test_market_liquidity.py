@@ -25,7 +25,7 @@ def _rows(days, *, price=10, volume=100, currency="USD"):
     ]
 
 
-def test_usd_turnover_requires_configured_coverage_and_uses_unadjusted_close():
+def test_usd_turnover_uses_available_observations_and_unadjusted_close():
     days = [date(2026, 9, 1) + timedelta(days=index) for index in range(20)]
     result = normalize_average_dollar_turnover(
         _rows(days[:16]),
@@ -49,18 +49,16 @@ def test_usd_turnover_requires_configured_coverage_and_uses_unadjusted_close():
         )
 
 
-def test_ars_turnover_and_market_cap_use_fx_sell_observation():
+def test_ars_turnover_requires_usd_metric_while_legacy_cap_normalizer_remains_available():
     observed_at = datetime(2026, 9, 1, 18, tzinfo=timezone.utc)
     fx = [FxObservation(observed_at=observed_at, sell=1_000)]
-    result = normalize_average_dollar_turnover(
-        _rows([date(2026, 9, 1)], price=10, volume=100),
-        expected_market_dates=[date(2026, 9, 1)],
-        quote_currency="ARS",
-        source="fixture",
-        fx_reference="MEP",
-        fx_observations=fx,
-        policy=LiquidityPolicy(window_sessions=1, minimum_coverage=1),
-    )
+    with pytest.raises(MarketDataNormalizationError, match="USD-denominated"):
+        normalize_average_dollar_turnover(
+            _rows([date(2026, 9, 1)], price=10, volume=100),
+            expected_market_dates=[date(2026, 9, 1)],
+            quote_currency="ARS", source="fixture",
+            policy=LiquidityPolicy(window_sessions=1),
+        )
     cap = normalize_market_cap_usd(
         2_000_000_000_000,
         currency="ARS",
@@ -70,9 +68,6 @@ def test_ars_turnover_and_market_cap_use_fx_sell_observation():
         fx_observations=fx,
     )
 
-    assert result["avg_dollar_volume_usd"] == 1
-    assert result["liquidity_provenance"]["fx_side"] == "sell"
-    assert result["liquidity_provenance"]["fx_reference"] == "MEP"
     assert cap["market_cap_usd"] == 2_000_000_000
 
 
@@ -111,9 +106,9 @@ def test_fx_provider_surfaces_retry_after_without_hot_loop():
         provider.history("CCL", date(2026, 9, 1), date(2026, 9, 2))
 
 
-def test_unsupported_or_stale_fx_blocks_ars_normalization():
+def test_ars_turnover_does_not_attempt_fx_conversion():
     day = date(2026, 9, 10)
-    with pytest.raises(MarketDataNormalizationError, match="explicit MEP or CCL"):
+    with pytest.raises(MarketDataNormalizationError, match="USD-denominated"):
         normalize_average_dollar_turnover(
             _rows([day]), expected_market_dates=[day], quote_currency="ARS", source="fixture",
             policy=LiquidityPolicy(window_sessions=1, minimum_coverage=1),

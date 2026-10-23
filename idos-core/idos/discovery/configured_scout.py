@@ -3,7 +3,7 @@ from pathlib import Path
 import math
 
 from idos.discovery.scout import ScoutEngine, ScoutResult
-from idos.market.liquidity import MarketDataSettings
+from idos.market.liquidity import MarketDataSettings, is_equity_asset_type, supports_asset_type
 from idos.strategy.catalog import StrategyCatalog
 from idos.workers.data.refresh_worker import DataRefreshWorker
 
@@ -71,7 +71,7 @@ class ConfiguredScoutEngine(ScoutEngine):
             elif value <= rule["value"]:
                 failed.append(key)
         gates = {"avg_dollar_volume_usd": self.avg_dollar_volume_min_usd}
-        if asset_type != "etf":
+        if is_equity_asset_type(asset_type):
             gates["size_metric_usd"] = self.market_cap_min_usd
         for key, minimum in gates.items():
             value = self.number(metrics.get(key))
@@ -79,7 +79,7 @@ class ConfiguredScoutEngine(ScoutEngine):
                 missing.append(key)
             elif value < minimum:
                 failed.append(key)
-        supported = asset_type in self.supported_types
+        supported = supports_asset_type(asset_type, self.supported_types)
         details["investability"] = 100 if supported and not any(k in missing + failed for k in gates) else 0
         status = "PENDING_DATA" if missing else "PASSED" if not failed and supported else "REJECTED"
         labels = {rule["metric"]: rule.get("label", rule["metric"])

@@ -10,9 +10,9 @@ def _market(**values):
         "asset_type": "us_equity", "quote_currency": "USD", "size_metric_usd": 3_000_000_000, "market_cap_usd": 3_000_000_000,
         "avg_dollar_volume_usd": 100_000,
         "market_data_normalization": {"status": "complete"},
-        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY"},
-        "size_metric_provenance": {"source": "test", "as_of": "2026-10-16"},
-        "market_cap_provenance": {"source": "test", "as_of": "2026-10-16"},
+        "liquidity_provenance": {"basis": "UNDERLYING_USD_PROXY", "source": "test", "as_of": "2026-10-16", "currency": "USD"},
+        "size_metric_provenance": {"source": "test", "as_of": "2026-10-16", "currency": "USD"},
+        "market_cap_provenance": {"source": "test", "as_of": "2026-10-16", "currency": "USD"},
         **values,
     }
 
@@ -30,6 +30,62 @@ def test_compounder_uses_configured_positive_filters_and_neutral_screening_resul
         "operating_margin_pct": 100, "fcf": 100,
         "revenue_growth_pct": 100, "investability": 100,
     }
+
+
+def test_compounder_accepts_country_neutral_equity_type_and_keeps_market_cap_gate():
+    engine = configured_scout(Path(__file__).parents[3] / "idos-config")
+    result = engine.scan_market_data("ASML", _market(
+        asset_type="equity", operating_margin_pct=1, fcf=1, revenue_growth_pct=1,
+    ))
+
+    assert result.passed
+    assert result.details["investability"] == 100
+
+
+def test_compounder_rejects_etf_asset_class():
+    engine = configured_scout(Path(__file__).parents[3] / "idos-config")
+    result = engine.scan_market_data("ETF", _market(
+        asset_type="etf", operating_margin_pct=1, fcf=1, revenue_growth_pct=1,
+    ))
+
+    assert result.status == "REJECTED"
+    assert "Tipo de activo no habilitado" in result.reason
+
+
+def test_compounder_universe_accepts_canonical_and_legacy_equity_labels(tmp_path):
+    from idos.workers.data.pipeline_report import PipelineMetrics
+    from idos.workers.data.universe_pipeline import UniversePipeline
+
+    config = tmp_path / "config"
+    universe = config / "universe"
+    universe.mkdir(parents=True)
+    (config / "strategies.yml").write_text(
+        "strategies:\n"
+        "  COMPOUNDER:\n"
+        "    enabled: true\n"
+        "    core: CORE_3_GROWTH\n"
+        "    sleeve: HIGH_CONVICTION\n"
+        "    thesis_type: STRATEGIC\n"
+        "    discovery_profile: compounder\n"
+        "    research_profile: strategic\n"
+        "    entry_policy: VALUATION_ZONE\n"
+        "    parameters:\n"
+        "      supported_asset_types: [equity]\n",
+        encoding="utf-8",
+    )
+    (universe / "operable.yml").write_text(
+        "operable_tickers:\n"
+        "  - {ticker: ASML, type: equity}\n"
+        "  - {ticker: MELI, type: us_equity}\n"
+        "  - {ticker: QQQ, type: etf}\n",
+        encoding="utf-8",
+    )
+    pipeline = UniversePipeline({"config_path": str(config)})
+    metrics = PipelineMetrics()
+
+    pipeline._load_candidate_universe(metrics)
+
+    assert metrics.candidate_tickers == ["ASML", "MELI"]
 
 
 def test_missing_metric_is_pending_and_does_not_pass():

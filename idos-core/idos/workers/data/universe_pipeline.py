@@ -17,7 +17,7 @@ from idos.discovery.ranking import RankingSystem
 from idos.data.journal import JournalRepository
 from idos.timezone import AR_TZ
 from idos.strategy.catalog import StrategyCatalog
-from idos.market.liquidity import MarketDataSettings
+from idos.market.liquidity import MarketDataSettings, supports_asset_type
 
 class UniversePipeline(BaseWorker):
     name = "universe_pipeline"
@@ -122,7 +122,7 @@ class UniversePipeline(BaseWorker):
             entries_by_ticker = {entry["ticker"]: entry for entry in operable.list()}
             metrics.candidate_tickers = [
                 ticker for ticker in metrics.candidate_tickers
-                if entries_by_ticker.get(ticker, {}).get("type") in supported_types
+                if supports_asset_type(entries_by_ticker.get(ticker, {}).get("type"), supported_types)
             ]
         metrics.candidate_count = len(metrics.candidate_tickers)
         if not metrics.candidate_tickers and not requested_tickers:
