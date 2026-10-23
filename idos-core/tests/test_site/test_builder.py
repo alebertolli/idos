@@ -150,6 +150,36 @@ def test_research_counts_current_and_legacy_deep_due_diligence_statuses():
     assert research["statuses"] == ["UNDER_DEEP_DD", "UNDER_RESEARCH"]
 
 
+def test_failed_decision_rule_creates_blocking_dashboard_alert():
+    opportunity = {
+        "ticker": "ASML",
+        "opp_id": "OPP-1",
+        "strategy_id": "MULTIBAGGERS",
+        "status": "UNDER_RESEARCH",
+        "proposal": {"rules_failed": ["RULE-008"]},
+    }
+
+    alerts = _alerts([opportunity], [])
+
+    assert len(alerts) == 1
+    assert alerts[0]["id"] == "decision_rule_failed:ASML:OPP-1"
+    assert alerts[0]["type"] == "decision_rule_failed"
+    assert alerts[0]["severity"] == "high"
+    assert "RULE-008" in alerts[0]["message"]
+    assert "no habilita una entrada" in alerts[0]["message"]
+
+
+def test_failed_decision_rule_does_not_alert_for_terminal_opportunity():
+    opportunity = {
+        "ticker": "ASML",
+        "opp_id": "OPP-1",
+        "status": "REJECTED",
+        "proposal": {"rules_failed": ["RULE-008"]},
+    }
+
+    assert _alerts([opportunity], []) == []
+
+
 def test_pending_review_alert_points_to_decision_board_for_any_strategy():
     result = _builder()._build_dashboard([{
         "ticker": "ALAB", "opp_id": "OPP-1", "status": "UNDER_DEEP_DD",

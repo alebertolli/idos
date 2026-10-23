@@ -1283,6 +1283,23 @@ class SiteBuilder:
                     f"Precio {over:.1f}% sobre el valor intrínseco ({intrinsic:.2f})",
                     str(p.get("position_id") or p.get("opp_id") or ""),
                 )
+        for opportunity in opps:
+            proposal = opportunity.get("proposal")
+            failed_rules = proposal.get("rules_failed") if isinstance(proposal, dict) else None
+            if opportunity.get("status") in STATUS_ACTIVE and isinstance(failed_rules, list):
+                failed_rule_ids = list(dict.fromkeys(
+                    rule.strip()[:40]
+                    for rule in failed_rules[:10]
+                    if isinstance(rule, str) and rule.strip()
+                ))
+                if failed_rule_ids:
+                    add_alert(
+                        "decision_rule_failed", opportunity.get("ticker", ""), "high",
+                        f"Decisión bloqueada por reglas fallidas ({', '.join(failed_rule_ids)}). "
+                        "Revisar en Research; no habilita una entrada.",
+                        str(opportunity.get("opp_id") or ""),
+                    )
+
         for o in opps:
             if o.get("proposal", {}).get("status") == "PENDING_HUMAN_REVIEW":
                 add_alert(
