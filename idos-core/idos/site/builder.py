@@ -1301,13 +1301,20 @@ class SiteBuilder:
                     )
 
         for o in opps:
-            if o.get("proposal", {}).get("status") == "PENDING_HUMAN_REVIEW":
+            proposal_status = (o.get("proposal") or {}).get("status")
+            if proposal_status in {"PENDING_HUMAN_REVIEW", "BLOCKED"}:
+                blocked = proposal_status == "BLOCKED"
+                message = (
+                    "Propuesta bloqueada por reglas; revisión del gestor pendiente en Decision Board"
+                    if blocked else
+                    "Propuesta pendiente de revisión humana en Decision Board"
+                )
                 add_alert(
                     "decision_pending", o.get("ticker", ""), "warn",
-                    "Propuesta pendiente de revisión humana en Decision Board",
+                    message,
                     str(o.get("opp_id") or ""),
                 )
-            if o.get("trend") == "DETERIORATING":
+            if o.get("trend") == "DETERIORATING":            if o.get("trend") == "DETERIORATING":
                 add_alert(
                     "conviction_deteriorating", o.get("ticker", ""), "warn",
                     "Convicción deteriorándose",
@@ -1861,10 +1868,16 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">Evaluación / próxima revisión de tesis</div><div style="font-size:16px">${dt(o.last_thesis_assessment_at||o.last_research||o.updated_at)} / ${dt(o.next_thesis_review_at)||'Pendiente'}</div><div class="muted">Cadencia: ${o.thesis_review_interval_days?`${o.thesis_review_interval_days} días`:'No aplica'} · ${esc(o.thesis_review_status||'sin agenda')}</div>${thesisBadge(o)}</div>`;
   html += `<div class="card"><div class="muted">${o.decision?.decision_type?'Decisión':'Propuesta'}</div><div style="font-size:18px">${esc(o.decision?.decision_type||o.proposal?.decision||'—')}</div><div class="muted">${esc(o.decision?.author||o.proposal?.status||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
   html += '</div>';
-  if(o.proposal?.status==='PENDING_HUMAN_REVIEW' && o.proposal?.proposal_hash){
-    html += `<div class="card"><b>Expediente listo para Decision Board</b><p>Discovery, Research y Assessment fueron procesados automáticamente. En Decision Board, revisa tesis, evidencia, casos Bear/Bull (Base opcional), asimetría y reglas; registra aprobar o rechazar con una justificación. Aprobar sólo agrega a Buy List, nunca crea posiciones ni órdenes. <a href="https://github.com/alebertolli/idos/actions/workflows/decision-review.yml" target="_blank" rel="noopener noreferrer">Abrir Decision Review</a></p><details><summary>Hash de la propuesta completa</summary><code>${esc(o.proposal.proposal_hash)}</code></details></div>`;
+  const reviewStatus=o.proposal?.status;
+  if(['PENDING_HUMAN_REVIEW','BLOCKED'].includes(reviewStatus) && o.proposal?.proposal_hash){
+    const isBlocked=reviewStatus==='BLOCKED';
+    const title=isBlocked?'Propuesta bloqueada por reglas':'Expediente listo para Decision Board';
+    const guidance=isBlocked
+      ? 'Puedes registrar un rechazo con justificación en Decision Review. El workflow no permite aprobar propuestas con reglas fallidas; para revisarlas después se necesita nueva evaluación vigente.'
+      : 'En Decision Board, revisa tesis, evidencia, casos Bear/Bull (Base opcional), asimetría y reglas; registra aprobar o rechazar con una justificación. Aprobar sólo agrega a Buy List, nunca crea posiciones ni órdenes.';
+    html += `<div class="card"><b>${title}</b><p>Discovery, Research y Assessment fueron procesados automáticamente. ${guidance} <a href="https://github.com/alebertolli/idos/actions/workflows/decision-review.yml" target="_blank" rel="noopener noreferrer">Abrir Decision Review</a></p><details><summary>Hash de la propuesta completa</summary><code>${esc(o.proposal.proposal_hash)}</code></details></div>`;
   }
-  const marketData=o.market_data||by?.market_data||{};
+  const marketData=o.market_data||by?.market_data||{};  const marketData=o.market_data||by?.market_data||{};
   const sourceNames=(marketData.sources_used||[]).map(esc).join(', ')||'No registrada';
   html += `<h2>Datos de mercado</h2><div class="card"><div>Precio al: ${dt(marketData.price_as_of||o.price_date)}</div><div>Fuentes del cache: ${marketData.source_count??'no disponible'} (${sourceNames})</div>${marketData.refreshed_at?`<div>Cache actualizado: ${dt(marketData.refreshed_at)}</div>`:''}${marketData.source_count===1?'<p class="neg">Fuente única; revisar la cobertura por campo antes de usar el dato.</p>':''}${marketData.conflict_count?`<p class="neg">Conflictos de datos: ${marketData.conflict_count}</p>`:''}<details><summary>Procedencia por campo</summary>${Object.keys(marketData.field_sources||{}).length?`<table><thead><tr><th>Campo</th><th>Fuentes</th></tr></thead><tbody>${Object.entries(marketData.field_sources).map(([field,sources])=>`<tr><td>${esc(field)}</td><td>${sources.map(esc).join(', ')}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">El cache no registra procedencia por campo.</p>'}</details></div>`;
 
