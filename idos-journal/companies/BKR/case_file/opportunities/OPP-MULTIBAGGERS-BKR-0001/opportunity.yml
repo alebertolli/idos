@@ -1,0 +1,199 @@
+assessment_ids: []
+conviction:
+  confidence: LOW
+  overall: 0
+  scores:
+    business: 0
+    portfolio_fit: 0
+    rerating: 0
+    risk: 0
+    valuation: 0
+  trend: STABLE
+core: CORE_4_ALPHA_ASYMMETRY
+created_at: '2026-10-26T13:15:40.961216-03:00'
+decision_ids: []
+discovery_evidence: &id001
+  as_of: '2026-10-26T16:15:38.335514+00:00'
+  component_scores:
+    market_confirmation: 66.18
+  data_quality:
+    coverage_factor: 1.0
+    critical_conflicts: []
+    critical_coverage: 1.0
+    critical_metric_count: 3
+    critical_metrics_covered: 3
+    critical_source_failures: 0
+    critical_stale: 0
+    freshness_factor: 1.0
+  discovery_score: 66.18
+  discovery_type: RESEARCH_REQUIRED
+  global_market_eligibility:
+    asset_type: us_equity
+    avg_dollar_volume_min_usd: 100000.0
+    avg_dollar_volume_usd: 313449511.7507984
+    liquidity_basis: UNDERLYING_USD_PROXY
+    liquidity_provenance:
+      as_of: '2026-10-26'
+      basis: UNDERLYING_USD_PROXY
+      coverage: 1.0
+      currency: USD
+      expected_observations: 20
+      first_price_date: '2026-09-29'
+      fx_observations: []
+      fx_reference: null
+      fx_side: null
+      fx_source: null
+      last_price_date: '2026-10-26'
+      minimum_coverage: null
+      missing_market_dates: []
+      price_source: yfinance
+      quote_currency: USD
+      source: yfinance
+      valid_observations: 20
+      valid_price_dates:
+      - '2026-09-29'
+      - '2026-09-30'
+      - '2026-10-01'
+      - '2026-10-02'
+      - '2026-10-05'
+      - '2026-10-06'
+      - '2026-10-07'
+      - '2026-10-08'
+      - '2026-10-09'
+      - '2026-10-12'
+      - '2026-10-13'
+      - '2026-10-14'
+      - '2026-10-15'
+      - '2026-10-16'
+      - '2026-10-19'
+      - '2026-10-20'
+      - '2026-10-21'
+      - '2026-10-22'
+      - '2026-10-23'
+      - '2026-10-26'
+      window_sessions: 20
+    market_cap_min_usd: 2000000000.0
+    normalization:
+      errors: []
+      fx_conversion_used: false
+      geography_filter: null
+      liquidity_basis: UNDERLYING_USD_PROXY
+      size_metric: market_cap_usd
+      status: complete
+    passed: true
+    reason_codes: []
+    size_metric_usd: 55609602048.0
+    size_provenance:
+      as_of: '2026-10-26'
+      basis: USD_PROVIDER_METRIC
+      currency: USD
+      source: yfinance
+  market_quote:
+    as_of_date: '2026-10-26'
+    currency: USD
+    price: 56.02000045776367
+    source: yfinance
+    url: https://finance.yahoo.com/quote/BKR/history/
+  metrics_snapshot:
+    drawdown_pct:
+      as_of: '2026-10-26T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: drawdown_pct:2025-10-27/2026-10-26
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-26T16:15:38.335514+00:00'
+        period: drawdown_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/BKR/history/
+        status: observed
+        unit: percent
+        value: 19.59236123141738
+      source_values:
+        yfinance: 19.59236123141738
+      status: observed
+      unit: percent
+      value: 19.5924
+    price_momentum_12m_pct:
+      as_of: '2026-10-26T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-26T16:15:38.335514+00:00'
+        period: price_momentum_12m_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/BKR/history/
+        status: observed
+        unit: percent
+        value: 20.214597193332295
+      source_values:
+        yfinance: 20.214597193332295
+      status: observed
+      unit: percent
+      value: 20.2146
+    volatility_90d_pct:
+      as_of: '2026-10-26T00:00:00+00:00'
+      coverage: 1
+      currency: null
+      deviation_pct: 0.0
+      period: volatility_90d_pct:2025-10-27/2026-10-26
+      reason_code: null
+      source:
+      - yfinance
+      source_evidence:
+      - currency: null
+        observed_at: '2026-10-26T16:15:38.335514+00:00'
+        period: volatility_90d_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
+        source_id: yfinance
+        source_url: https://finance.yahoo.com/quote/BKR/history/
+        status: observed
+        unit: percent
+        value: 31.210247292059044
+      source_values:
+        yfinance: 31.210247292059044
+      status: observed
+      unit: percent
+      value: 31.2102
+  passed: true
+  reason_codes: []
+  red_flags: []
+  research_priority: 66.18
+  snapshot_hash: 0aa725f5ac8607a83fc8aba2a36d1ce74b72a00ba47bca9c800f780454668de0
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  ticker: BKR
+discovery_score: 66.18
+discovery_type: RESEARCH_REQUIRED
+entry_policy: MANUAL_REVIEW
+hypothesis_ids: []
+id: OPP-MULTIBAGGERS-BKR-0001
+latest_discovery_evidence: *id001
+opportunity_cycle: 1
+origin: multibaggers_discovery
+position_limit_pct: 1.0
+research_priority: 66.18
+research_profile: multibaggers
+review_ids: []
+risk_limits:
+  max_position_pct: 1.0
+sleeve: ALPHA_ASYMMETRY
+snapshot_hash: 0aa725f5ac8607a83fc8aba2a36d1ce74b72a00ba47bca9c800f780454668de0
+status: SCREENED
+strategy_id: MULTIBAGGERS
+strategy_version: '1.5'
+thesis_type: STRATEGIC
+ticker: BKR
+updated_at: '2026-10-26T13:15:40.961222-03:00'

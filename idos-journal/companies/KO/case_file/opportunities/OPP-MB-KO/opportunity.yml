@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: KO
-discovery_score: 84.25
+discovery_score: 83.56
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-KO
 latest_discovery_evidence:
-  as_of: '2026-10-23T16:57:14.141463+00:00'
+  as_of: '2026-10-26T16:18:41.550476+00:00'
   component_scores:
-    market_confirmation: 84.25
+    market_confirmation: 83.56
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,30 +189,32 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 84.25
+  discovery_score: 83.56
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 1431686274.3159287
+    avg_dollar_volume_usd: 1456963635.446141
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
+      as_of: '2026-10-26'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
+      currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-28'
+      first_price_date: '2026-09-29'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-23'
-      minimum_coverage: 0.8
+      last_price_date: '2026-10-26'
+      minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
       quote_currency: USD
+      source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-28'
       - '2026-09-29'
       - '2026-09-30'
       - '2026-10-01'
@@ -232,118 +234,120 @@ latest_discovery_evidence:
       - '2026-10-21'
       - '2026-10-22'
       - '2026-10-23'
+      - '2026-10-26'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
       errors: []
-      exchange_calendar: NYQ
+      fx_conversion_used: false
+      geography_filter: null
       liquidity_basis: UNDERLYING_USD_PROXY
       size_metric: market_cap_usd
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 400147808256.0
+    size_metric_usd: 397793034240.0
     size_provenance:
-      as_of: '2026-10-23'
-      fx: null
+      as_of: '2026-10-26'
+      basis: USD_PROVIDER_METRIC
+      currency: USD
       source: yfinance
-      source_currency: USD
   market_quote:
-    as_of_date: '2026-10-23'
+    as_of_date: '2026-10-26'
     currency: USD
-    price: 93.00250244140625
+    price: 92.4552001953125
     source: yfinance
     url: https://finance.yahoo.com/quote/KO/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-23/2026-10-23
+      period: drawdown_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:57:14.141463+00:00'
-        period: drawdown_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:18:41.550476+00:00'
+        period: drawdown_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/KO/history/
         status: observed
         unit: percent
-        value: 2.451745318093109
+        value: 3.025798461701462
       source_values:
-        yfinance: 2.451745318093109
+        yfinance: 3.025798461701462
       status: observed
       unit: percent
-      value: 2.4517
+      value: 3.0258
     price_momentum_12m_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:57:14.141463+00:00'
-        period: price_momentum_12m_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:18:41.550476+00:00'
+        period: price_momentum_12m_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/KO/history/
         status: observed
         unit: percent
-        value: 32.97469144259912
+        value: 31.965748525738704
       source_values:
-        yfinance: 32.97469144259912
+        yfinance: 31.965748525738704
       status: observed
       unit: percent
-      value: 32.9747
+      value: 31.9657
     volatility_90d_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-23/2026-10-23
+      period: volatility_90d_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:57:14.141463+00:00'
-        period: volatility_90d_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:18:41.550476+00:00'
+        period: volatility_90d_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/KO/history/
         status: observed
         unit: percent
-        value: 20.90509047516379
+        value: 21.00756426173921
       source_values:
-        yfinance: 20.90509047516379
+        yfinance: 21.00756426173921
       status: observed
       unit: percent
-      value: 20.9051
+      value: 21.0076
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 84.25
-  snapshot_hash: 702f4624ebe070ce9e073e37bd63138314fb6f881e05971a46a34ef914f94976
+  research_priority: 83.56
+  snapshot_hash: 0ffc8d990c4dbaa4d35e8058290b3d2fc82212105ac37bc77e84d67135e2370c
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: KO
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 84.25
+research_priority: 83.56
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 702f4624ebe070ce9e073e37bd63138314fb6f881e05971a46a34ef914f94976
+snapshot_hash: 0ffc8d990c4dbaa4d35e8058290b3d2fc82212105ac37bc77e84d67135e2370c
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

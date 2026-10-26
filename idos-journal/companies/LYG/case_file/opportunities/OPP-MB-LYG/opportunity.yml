@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: LYG
-discovery_score: 69.67
+discovery_score: 69.71
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-LYG
 latest_discovery_evidence:
-  as_of: '2026-10-23T16:57:35.480779+00:00'
+  as_of: '2026-10-26T16:19:00.062430+00:00'
   component_scores:
-    market_confirmation: 69.67
+    market_confirmation: 69.71
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,30 +189,32 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 69.67
+  discovery_score: 69.71
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 100008095.74995752
+    avg_dollar_volume_usd: 100272552.39232007
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
+      as_of: '2026-10-26'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
+      currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-28'
+      first_price_date: '2026-09-29'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-23'
-      minimum_coverage: 0.8
+      last_price_date: '2026-10-26'
+      minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
       quote_currency: USD
+      source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-28'
       - '2026-09-29'
       - '2026-09-30'
       - '2026-10-01'
@@ -232,118 +234,120 @@ latest_discovery_evidence:
       - '2026-10-21'
       - '2026-10-22'
       - '2026-10-23'
+      - '2026-10-26'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
       errors: []
-      exchange_calendar: NYQ
+      fx_conversion_used: false
+      geography_filter: null
       liquidity_basis: UNDERLYING_USD_PROXY
       size_metric: market_cap_usd
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 76327706624.0
+    size_metric_usd: 77617758208.0
     size_provenance:
-      as_of: '2026-10-23'
-      fx: null
+      as_of: '2026-10-26'
+      basis: USD_PROVIDER_METRIC
+      currency: USD
       source: yfinance
-      source_currency: USD
   market_quote:
-    as_of_date: '2026-10-23'
+    as_of_date: '2026-10-26'
     currency: USD
-    price: 5.324999809265137
+    price: 5.414999961853027
     source: yfinance
     url: https://finance.yahoo.com/quote/LYG/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-23/2026-10-23
+      period: drawdown_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:57:35.480779+00:00'
-        period: drawdown_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:19:00.062430+00:00'
+        period: drawdown_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/LYG/history/
         status: observed
         unit: percent
-        value: 15.20701223945273
+        value: 13.77388883848015
       source_values:
-        yfinance: 15.20701223945273
+        yfinance: 13.77388883848015
       status: observed
       unit: percent
-      value: 15.207
+      value: 13.7739
     price_momentum_12m_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:57:35.480779+00:00'
-        period: price_momentum_12m_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:19:00.062430+00:00'
+        period: price_momentum_12m_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/LYG/history/
         status: observed
         unit: percent
-        value: 17.290745682995713
+        value: 15.21276982136055
       source_values:
-        yfinance: 17.290745682995713
+        yfinance: 15.21276982136055
       status: observed
       unit: percent
-      value: 17.2907
+      value: 15.2128
     volatility_90d_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-23/2026-10-23
+      period: volatility_90d_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:57:35.480779+00:00'
-        period: volatility_90d_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:19:00.062430+00:00'
+        period: volatility_90d_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/LYG/history/
         status: observed
         unit: percent
-        value: 26.356782633636556
+        value: 26.484948016852815
       source_values:
-        yfinance: 26.356782633636556
+        yfinance: 26.484948016852815
       status: observed
       unit: percent
-      value: 26.3568
+      value: 26.4849
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 69.67
-  snapshot_hash: 8f9710347e77408c89bc5278ad725b72df60cce70353f6ceeb79a5d0fe21cfc1
+  research_priority: 69.71
+  snapshot_hash: d46081c1610c7aa1072329041e082a2112968b0c6f0b28e4e92e920806a5a654
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: LYG
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 69.67
+research_priority: 69.71
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 8f9710347e77408c89bc5278ad725b72df60cce70353f6ceeb79a5d0fe21cfc1
+snapshot_hash: d46081c1610c7aa1072329041e082a2112968b0c6f0b28e4e92e920806a5a654
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

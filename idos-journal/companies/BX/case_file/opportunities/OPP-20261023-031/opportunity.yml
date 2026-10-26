@@ -357,7 +357,7 @@ discovery_evidence:
       value: 0
     version: positive_fundamentals_v1
   reason: All configured filters passed; Research required
-discovery_last_evaluated_at: '2026-10-23T13:51:55.288519-03:00'
+discovery_last_evaluated_at: '2026-10-26T13:14:17.206139-03:00'
 entry_policy: VALUATION_ZONE
 hypothesis_ids: []
 id: OPP-20261023-031
@@ -550,7 +550,7 @@ latest_discovery_evidence:
     - stockanalysis.com
     - yfinance
   eligibility_status: PASSED
-  evaluated_at: '2026-10-23T13:51:55.288519-03:00'
+  evaluated_at: '2026-10-26T13:14:17.206139-03:00'
   filter_results:
     fcf: 100
     investability: 100
@@ -561,7 +561,7 @@ latest_discovery_evidence:
       currency: null
       non_comparable_reason: null
       non_comparable_values: {}
-      observed_at: '2026-10-23T16:48:58.980829+00:00'
+      observed_at: '2026-10-26T16:12:35.376200+00:00'
       period_end_date: '2026-09-30'
       period_status: SINGLE_SOURCE
       period_type: TTM
@@ -581,8 +581,8 @@ latest_discovery_evidence:
       currency: null
       non_comparable_reason: missing_period_unit_or_cutoff
       non_comparable_values:
-        yfinance: 49.065
-      observed_at: '2026-10-23T16:48:58.980829+00:00'
+        yfinance: 48.860002
+      observed_at: '2026-10-26T16:12:35.376200+00:00'
       period_end_date: '2026-09-30'
       period_status: SINGLE_SOURCE
       period_type: TTM
@@ -602,13 +602,13 @@ latest_discovery_evidence:
           unit: percentage_points
       unit: percentage_points
       values:
-        stockanalysis.com: 50.39
+        stockanalysis.com: 49.28
     revenue_growth_pct:
       currency: null
       non_comparable_reason: missing_period_unit_or_cutoff
       non_comparable_values:
-        yfinance: -0.1
-      observed_at: '2026-10-23T16:48:58.980829+00:00'
+        yfinance: -0.5
+      observed_at: '2026-10-26T16:12:35.376200+00:00'
       period_end_date: '2026-09-30'
       period_status: SINGLE_SOURCE
       period_type: TTM
@@ -628,24 +628,26 @@ latest_discovery_evidence:
           unit: percentage_points
       unit: percentage_points
       values:
-        stockanalysis.com: 23.62
+        stockanalysis.com: 20.93
   liquidity_provenance:
+    as_of: '2026-10-26'
     basis: UNDERLYING_USD_PROXY
     coverage: 1.0
+    currency: USD
     expected_observations: 20
-    first_price_date: '2026-09-28'
+    first_price_date: '2026-09-29'
     fx_observations: []
     fx_reference: null
     fx_side: null
     fx_source: null
-    last_price_date: '2026-10-23'
-    minimum_coverage: 0.8
+    last_price_date: '2026-10-26'
+    minimum_coverage: null
     missing_market_dates: []
     price_source: yfinance
     quote_currency: USD
+    source: yfinance
     valid_observations: 20
     valid_price_dates:
-    - '2026-09-28'
     - '2026-09-29'
     - '2026-09-30'
     - '2026-10-01'
@@ -665,27 +667,29 @@ latest_discovery_evidence:
     - '2026-10-21'
     - '2026-10-22'
     - '2026-10-23'
+    - '2026-10-26'
     window_sessions: 20
   market_cap_provenance:
-    as_of: '2026-10-23'
-    fx: null
+    as_of: '2026-10-26'
+    basis: USD_PROVIDER_METRIC
+    currency: USD
     source: yfinance
-    source_currency: USD
   market_data_normalization:
     errors: []
-    exchange_calendar: NYQ
+    fx_conversion_used: false
+    geography_filter: null
     liquidity_basis: UNDERLYING_USD_PROXY
     size_metric: market_cap_usd
     status: complete
   market_quote:
-    as_of_date: '2026-10-23'
+    as_of_date: '2026-10-26'
     currency: USD
-    price: 116.87000274658203
+    price: 118.25499725341797
     source: yfinance
   metrics:
     fcf: 5490000000.0
-    operating_margin_pct: 50.39
-    revenue_growth_pct: 23.62
+    operating_margin_pct: 49.28
+    revenue_growth_pct: 20.93
   missing_metrics: []
   policy:
     filters:

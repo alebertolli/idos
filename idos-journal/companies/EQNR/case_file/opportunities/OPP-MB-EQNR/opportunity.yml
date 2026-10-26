@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: EQNR
-discovery_score: 83.93
+discovery_score: 83.4
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-EQNR
 latest_discovery_evidence:
-  as_of: '2026-10-23T16:55:12.297935+00:00'
+  as_of: '2026-10-26T16:17:15.333107+00:00'
   component_scores:
-    market_confirmation: 83.93
+    market_confirmation: 83.4
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,30 +189,32 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 83.93
+  discovery_score: 83.4
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 185957913.68652534
+    avg_dollar_volume_usd: 187788275.74513912
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
+      as_of: '2026-10-26'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
+      currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-28'
+      first_price_date: '2026-09-29'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-23'
-      minimum_coverage: 0.8
+      last_price_date: '2026-10-26'
+      minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
       quote_currency: USD
+      source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-28'
       - '2026-09-29'
       - '2026-09-30'
       - '2026-10-01'
@@ -232,118 +234,120 @@ latest_discovery_evidence:
       - '2026-10-21'
       - '2026-10-22'
       - '2026-10-23'
+      - '2026-10-26'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
       errors: []
-      exchange_calendar: NYQ
+      fx_conversion_used: false
+      geography_filter: null
       liquidity_basis: UNDERLYING_USD_PROXY
       size_metric: market_cap_usd
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 115732676608.0
+    size_metric_usd: 114536620032.0
     size_provenance:
-      as_of: '2026-10-23'
-      fx: null
+      as_of: '2026-10-26'
+      basis: USD_PROVIDER_METRIC
+      currency: USD
       source: yfinance
-      source_currency: USD
   market_quote:
-    as_of_date: '2026-10-23'
+    as_of_date: '2026-10-26'
     currency: USD
-    price: 48.8650016784668
+    price: 48.3650016784668
     source: yfinance
     url: https://finance.yahoo.com/quote/EQNR/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-23/2026-10-23
+      period: drawdown_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:55:12.297935+00:00'
-        period: drawdown_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:17:15.333107+00:00'
+        period: drawdown_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/EQNR/history/
         status: observed
         unit: percent
-        value: 0.0
+        value: 0.9319910266317755
       source_values:
-        yfinance: 0.0
+        yfinance: 0.9319910266317755
       status: observed
       unit: percent
-      value: 0.0
+      value: 0.932
     price_momentum_12m_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:55:12.297935+00:00'
-        period: price_momentum_12m_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:17:15.333107+00:00'
+        period: price_momentum_12m_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/EQNR/history/
         status: observed
         unit: percent
-        value: 95.69484590387131
+        value: 98.54269485491936
       source_values:
-        yfinance: 95.69484590387131
+        yfinance: 98.54269485491936
       status: observed
       unit: percent
-      value: 95.6948
+      value: 98.5427
     volatility_90d_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-23/2026-10-23
+      period: volatility_90d_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:55:12.297935+00:00'
-        period: volatility_90d_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:17:15.333107+00:00'
+        period: volatility_90d_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/EQNR/history/
         status: observed
         unit: percent
-        value: 38.57144985266018
+        value: 38.589175160737824
       source_values:
-        yfinance: 38.57144985266018
+        yfinance: 38.589175160737824
       status: observed
       unit: percent
-      value: 38.5714
+      value: 38.5892
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 83.93
-  snapshot_hash: 49b8e42a546788b50437feef205a41d09be2f9d877ace727bff2496fa2e12755
+  research_priority: 83.4
+  snapshot_hash: 896170413429fcffc7dac90fb877bc5203692a241b1d550acd648ea9ce202c99
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: EQNR
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 83.93
+research_priority: 83.4
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 49b8e42a546788b50437feef205a41d09be2f9d877ace727bff2496fa2e12755
+snapshot_hash: 896170413429fcffc7dac90fb877bc5203692a241b1d550acd648ea9ce202c99
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

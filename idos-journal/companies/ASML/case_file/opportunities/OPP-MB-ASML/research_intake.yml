@@ -3,85 +3,85 @@ strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 discovery_profile: multibaggers
 research_profile: multibaggers
-as_of: '2026-10-23T16:52:50.841048+00:00'
+as_of: '2026-10-26T16:15:05.232476+00:00'
 config_hash: fc759a2d3695b9436cb4d35eb89366d9fff9ddd56b32ce26fd7d0a5897213ecd
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 52.1854
+    value: 51.3378
     unit: percent
     currency: null
-    period: price_momentum_12m_pct:2025-10-23/2026-10-23
+    period: price_momentum_12m_pct:2025-10-27/2026-10-26
     source:
     - yfinance
     source_values:
-      yfinance: 52.18542494108844
+      yfinance: 51.33776618164683
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 52.18542494108844
+      value: 51.33776618164683
       unit: percent
       currency: null
-      period: price_momentum_12m_pct:2025-10-23/2026-10-23
-      reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:52:50.841048+00:00'
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      reported_at: '2026-10-26T00:00:00+00:00'
+      observed_at: '2026-10-26T16:15:05.232476+00:00'
       source_url: https://finance.yahoo.com/quote/ASML/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-23T00:00:00+00:00'
+    as_of: '2026-10-26T00:00:00+00:00'
   drawdown_pct:
-    value: 20.7181
+    value: 19.3668
     unit: percent
     currency: null
-    period: drawdown_pct:2025-10-23/2026-10-23
+    period: drawdown_pct:2025-10-27/2026-10-26
     source:
     - yfinance
     source_values:
-      yfinance: 20.71813871729466
+      yfinance: 19.36675287215972
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 20.71813871729466
+      value: 19.36675287215972
       unit: percent
       currency: null
-      period: drawdown_pct:2025-10-23/2026-10-23
-      reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:52:50.841048+00:00'
+      period: drawdown_pct:2025-10-27/2026-10-26
+      reported_at: '2026-10-26T00:00:00+00:00'
+      observed_at: '2026-10-26T16:15:05.232476+00:00'
       source_url: https://finance.yahoo.com/quote/ASML/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-23T00:00:00+00:00'
+    as_of: '2026-10-26T00:00:00+00:00'
   volatility_90d_pct:
-    value: 45.9747
+    value: 45.688
     unit: percent
     currency: null
-    period: volatility_90d_pct:2025-10-23/2026-10-23
+    period: volatility_90d_pct:2025-10-27/2026-10-26
     source:
     - yfinance
     source_values:
-      yfinance: 45.97467317523793
+      yfinance: 45.68798001388014
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 45.97467317523793
+      value: 45.68798001388014
       unit: percent
       currency: null
-      period: volatility_90d_pct:2025-10-23/2026-10-23
-      reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:52:50.841048+00:00'
+      period: volatility_90d_pct:2025-10-27/2026-10-26
+      reported_at: '2026-10-26T00:00:00+00:00'
+      observed_at: '2026-10-26T16:15:05.232476+00:00'
       source_url: https://finance.yahoo.com/quote/ASML/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-23T00:00:00+00:00'
+    as_of: '2026-10-26T00:00:00+00:00'
 component_scores:
-  market_confirmation: 69.33
-discovery_score: 69.33
-research_priority: 69.33
+  market_confirmation: 70.2
+discovery_score: 70.2
+research_priority: 70.2
 discovery_type: RESEARCH_REQUIRED
 reason_codes: []
 red_flags: []
@@ -210,9 +210,9 @@ research_requirements:
     share_count_cagr_3y_above_pct: 5
   scenario_schema_version: bear_bull_v2
 historical_windows:
-  price_momentum_12m_pct: price_momentum_12m_pct:2025-10-23/2026-10-23
-  drawdown_pct: drawdown_pct:2025-10-23/2026-10-23
-  volatility_90d_pct: volatility_90d_pct:2025-10-23/2026-10-23
+  price_momentum_12m_pct: price_momentum_12m_pct:2025-10-27/2026-10-26
+  drawdown_pct: drawdown_pct:2025-10-27/2026-10-26
+  volatility_90d_pct: volatility_90d_pct:2025-10-27/2026-10-26
 initial_hypotheses:
 - Assess whether evidence for economic_transition supports durable reinvestment and
   growth.
@@ -235,4 +235,4 @@ constraints:
 - Cite each material claim to a source.
 - Separate verified facts, inference, and unknowns.
 - Research cannot approve an investment or set a position size.
-snapshot_hash: 52e391205c0c47f72978ff5fbc025abc4a551a639311c6413b1e473e5bd8bab1
+snapshot_hash: a461e7373c0d642442bd05fc5b96e12ab8950d47fbbb70ca77dcd2947047b156

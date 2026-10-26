@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: C
-discovery_score: 71.33
+discovery_score: 69.88
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-C
 latest_discovery_evidence:
-  as_of: '2026-10-23T16:53:40.121610+00:00'
+  as_of: '2026-10-26T16:15:58.025364+00:00'
   component_scores:
-    market_confirmation: 71.33
+    market_confirmation: 69.88
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,30 +189,32 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 71.33
+  discovery_score: 69.88
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 1158492704.32293
+    avg_dollar_volume_usd: 1139151965.8380876
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
+      as_of: '2026-10-26'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
+      currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-28'
+      first_price_date: '2026-09-29'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-23'
-      minimum_coverage: 0.8
+      last_price_date: '2026-10-26'
+      minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
       quote_currency: USD
+      source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-28'
       - '2026-09-29'
       - '2026-09-30'
       - '2026-10-01'
@@ -232,118 +234,120 @@ latest_discovery_evidence:
       - '2026-10-21'
       - '2026-10-22'
       - '2026-10-23'
+      - '2026-10-26'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
       errors: []
-      exchange_calendar: NYQ
+      fx_conversion_used: false
+      geography_filter: null
       liquidity_basis: UNDERLYING_USD_PROXY
       size_metric: market_cap_usd
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 203255021568.0
+    size_metric_usd: 201404743680.0
     size_provenance:
-      as_of: '2026-10-23'
-      fx: null
+      as_of: '2026-10-26'
+      basis: USD_PROVIDER_METRIC
+      currency: USD
       source: yfinance
-      source_currency: USD
   market_quote:
-    as_of_date: '2026-10-23'
+    as_of_date: '2026-10-26'
     currency: USD
-    price: 121.16999816894531
+    price: 121.68000030517578
     source: yfinance
     url: https://finance.yahoo.com/quote/C/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-23/2026-10-23
+      period: drawdown_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:53:40.121610+00:00'
-        period: drawdown_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:15:58.025364+00:00'
+        period: drawdown_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/C/history/
         status: observed
         unit: percent
-        value: 16.818837308960052
+        value: 16.468729433185263
       source_values:
-        yfinance: 16.818837308960052
+        yfinance: 16.468729433185263
       status: observed
       unit: percent
-      value: 16.8188
+      value: 16.4687
     price_momentum_12m_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:53:40.121610+00:00'
-        period: price_momentum_12m_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:15:58.025364+00:00'
+        period: price_momentum_12m_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/C/history/
         status: observed
         unit: percent
-        value: 25.318021625218012
+        value: 20.487179799049038
       source_values:
-        yfinance: 25.318021625218012
+        yfinance: 20.487179799049038
       status: observed
       unit: percent
-      value: 25.318
+      value: 20.4872
     volatility_90d_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-23/2026-10-23
+      period: volatility_90d_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:53:40.121610+00:00'
-        period: volatility_90d_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:15:58.025364+00:00'
+        period: volatility_90d_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/C/history/
         status: observed
         unit: percent
-        value: 26.640249276063095
+        value: 26.724667131900006
       source_values:
-        yfinance: 26.640249276063095
+        yfinance: 26.724667131900006
       status: observed
       unit: percent
-      value: 26.6402
+      value: 26.7247
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 71.33
-  snapshot_hash: 8e7770c7d8717d97cb3e3e25b4d2d9bef565cc9c3861f73954adea128a8841b2
+  research_priority: 69.88
+  snapshot_hash: 614ec021a46c97c991992f2fe4ea815a5fe8c0139ef75c6f2cdcc1eabe061456
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: C
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 71.33
+research_priority: 69.88
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 8e7770c7d8717d97cb3e3e25b4d2d9bef565cc9c3861f73954adea128a8841b2
+snapshot_hash: 614ec021a46c97c991992f2fe4ea815a5fe8c0139ef75c6f2cdcc1eabe061456
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

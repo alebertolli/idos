@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: AMX
-discovery_score: 69.99
+discovery_score: 67.93
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-AMX
 latest_discovery_evidence:
-  as_of: '2026-10-23T16:52:41.353166+00:00'
+  as_of: '2026-10-26T16:14:56.157971+00:00'
   component_scores:
-    market_confirmation: 69.99
+    market_confirmation: 67.93
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,30 +189,32 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 69.99
+  discovery_score: 67.93
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 72673775.73806229
+    avg_dollar_volume_usd: 74523508.88955136
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
+      as_of: '2026-10-26'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
+      currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-28'
+      first_price_date: '2026-09-29'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-23'
-      minimum_coverage: 0.8
+      last_price_date: '2026-10-26'
+      minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
       quote_currency: USD
+      source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-28'
       - '2026-09-29'
       - '2026-09-30'
       - '2026-10-01'
@@ -232,118 +234,120 @@ latest_discovery_evidence:
       - '2026-10-21'
       - '2026-10-22'
       - '2026-10-23'
+      - '2026-10-26'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
       errors: []
-      exchange_calendar: NYQ
+      fx_conversion_used: false
+      geography_filter: null
       liquidity_basis: UNDERLYING_USD_PROXY
       size_metric: market_cap_usd
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 73572376576.0
+    size_metric_usd: 71930142720.0
     size_provenance:
-      as_of: '2026-10-23'
-      fx: null
+      as_of: '2026-10-26'
+      basis: USD_PROVIDER_METRIC
+      currency: USD
       source: yfinance
-      source_currency: USD
   market_quote:
-    as_of_date: '2026-10-23'
+    as_of_date: '2026-10-26'
     currency: USD
-    price: 24.639999389648438
+    price: 24.09000015258789
     source: yfinance
     url: https://finance.yahoo.com/quote/AMX/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-23/2026-10-23
+      period: drawdown_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:52:41.353166+00:00'
-        period: drawdown_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:14:56.157971+00:00'
+        period: drawdown_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/AMX/history/
         status: observed
         unit: percent
-        value: 11.207209406672296
+        value: 13.189188639322916
       source_values:
-        yfinance: 11.207209406672296
+        yfinance: 13.189188639322916
       status: observed
       unit: percent
-      value: 11.2072
+      value: 13.1892
     price_momentum_12m_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:52:41.353166+00:00'
-        period: price_momentum_12m_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:14:56.157971+00:00'
+        period: price_momentum_12m_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/AMX/history/
         status: observed
         unit: percent
-        value: 8.355319426798946
+        value: 5.7042526758953604
       source_values:
-        yfinance: 8.355319426798946
+        yfinance: 5.7042526758953604
       status: observed
       unit: percent
-      value: 8.3553
+      value: 5.7043
     volatility_90d_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-23/2026-10-23
+      period: volatility_90d_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:52:41.353166+00:00'
-        period: volatility_90d_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:14:56.157971+00:00'
+        period: volatility_90d_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/AMX/history/
         status: observed
         unit: percent
-        value: 23.767652639344888
+        value: 23.941684481975607
       source_values:
-        yfinance: 23.767652639344888
+        yfinance: 23.941684481975607
       status: observed
       unit: percent
-      value: 23.7677
+      value: 23.9417
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 69.99
-  snapshot_hash: c240ba379c2c5f28a0bc308b9ebc3734d8ba982e74828605605fb00abb49fcea
+  research_priority: 67.93
+  snapshot_hash: 9c4e35fbb683531a3de920ab35a69568b7bd71da38492f8b5e8b70b9ebe53e8a
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: AMX
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 69.99
+research_priority: 67.93
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: c240ba379c2c5f28a0bc308b9ebc3734d8ba982e74828605605fb00abb49fcea
+snapshot_hash: 9c4e35fbb683531a3de920ab35a69568b7bd71da38492f8b5e8b70b9ebe53e8a
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

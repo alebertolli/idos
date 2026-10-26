@@ -2,84 +2,84 @@ ticker: DOCU
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 69.07
-research_priority: 69.07
+discovery_score: 68.1
+research_priority: 68.1
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 69.07
+  market_confirmation: 68.1
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 19.2881
+    value: 17.8194
     unit: percent
     currency: null
-    period: price_momentum_12m_pct:2025-10-23/2026-10-23
+    period: price_momentum_12m_pct:2025-10-27/2026-10-26
     source:
     - yfinance
     source_values:
-      yfinance: 19.288124270254016
+      yfinance: 17.819420012251452
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 19.288124270254016
+      value: 17.819420012251452
       unit: percent
       currency: null
-      period: price_momentum_12m_pct:2025-10-23/2026-10-23
-      reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:54:44.127552+00:00'
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      reported_at: '2026-10-26T00:00:00+00:00'
+      observed_at: '2026-10-26T16:16:50.260389+00:00'
       source_url: https://finance.yahoo.com/quote/DOCU/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-23T00:00:00+00:00'
+    as_of: '2026-10-26T00:00:00+00:00'
   drawdown_pct:
-    value: 0.0
+    value: 1.2898
     unit: percent
     currency: null
-    period: drawdown_pct:2025-10-23/2026-10-23
+    period: drawdown_pct:2025-10-27/2026-10-26
     source:
     - yfinance
     source_values:
-      yfinance: 0.0
+      yfinance: 1.2897855672106557
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 0.0
+      value: 1.2897855672106557
       unit: percent
       currency: null
-      period: drawdown_pct:2025-10-23/2026-10-23
-      reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:54:44.127552+00:00'
+      period: drawdown_pct:2025-10-27/2026-10-26
+      reported_at: '2026-10-26T00:00:00+00:00'
+      observed_at: '2026-10-26T16:16:50.260389+00:00'
       source_url: https://finance.yahoo.com/quote/DOCU/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-23T00:00:00+00:00'
+    as_of: '2026-10-26T00:00:00+00:00'
   volatility_90d_pct:
-    value: 49.6631
+    value: 49.0885
     unit: percent
     currency: null
-    period: volatility_90d_pct:2025-10-23/2026-10-23
+    period: volatility_90d_pct:2025-10-27/2026-10-26
     source:
     - yfinance
     source_values:
-      yfinance: 49.66309907823371
+      yfinance: 49.0885059194631
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 49.66309907823371
+      value: 49.0885059194631
       unit: percent
       currency: null
-      period: volatility_90d_pct:2025-10-23/2026-10-23
-      reported_at: '2026-10-23T00:00:00+00:00'
-      observed_at: '2026-10-23T16:54:44.127552+00:00'
+      period: volatility_90d_pct:2025-10-27/2026-10-26
+      reported_at: '2026-10-26T00:00:00+00:00'
+      observed_at: '2026-10-26T16:16:50.260389+00:00'
       source_url: https://finance.yahoo.com/quote/DOCU/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-23T00:00:00+00:00'
+    as_of: '2026-10-26T00:00:00+00:00'
 red_flags: []
 data_quality:
   critical_metric_count: 3
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-23T16:54:44.127552+00:00'
-snapshot_hash: 38e9b829e4eea7142bb3a97db4de6599a7ca173e252c9db9146bbbfa4611621d
+as_of: '2026-10-26T16:16:50.260389+00:00'
+snapshot_hash: fe529d2431f61868d2d99b6839e1bcbbc093acc14b4c86caa8ba64048841597f
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 15847458816.0
+  size_metric_usd: 15731615744.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 189619239.1148739
+  avg_dollar_volume_usd: 186397553.31214446
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -107,28 +107,30 @@ global_market_eligibility:
     size_metric: market_cap_usd
     errors: []
     liquidity_basis: UNDERLYING_USD_PROXY
-    exchange_calendar: NMS
+    geography_filter: null
+    fx_conversion_used: false
   size_provenance:
     source: yfinance
-    as_of: '2026-10-23'
-    source_currency: USD
-    fx: null
+    as_of: '2026-10-26'
+    currency: USD
+    basis: USD_PROVIDER_METRIC
   liquidity_provenance:
     quote_currency: USD
+    currency: USD
     fx_reference: null
     fx_side: null
     window_sessions: 20
     expected_observations: 20
     valid_observations: 20
     coverage: 1.0
-    minimum_coverage: 0.8
-    first_price_date: '2026-09-28'
-    last_price_date: '2026-10-23'
+    minimum_coverage: null
+    first_price_date: '2026-09-29'
+    last_price_date: '2026-10-26'
+    as_of: '2026-10-26'
     price_source: yfinance
     fx_source: null
     fx_observations: []
     valid_price_dates:
-    - '2026-09-28'
     - '2026-09-29'
     - '2026-09-30'
     - '2026-10-01'
@@ -148,11 +150,13 @@ global_market_eligibility:
     - '2026-10-21'
     - '2026-10-22'
     - '2026-10-23'
+    - '2026-10-26'
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
+    source: yfinance
 market_quote:
-  price: 84.79000091552734
-  as_of_date: '2026-10-23'
+  price: 84.17019653320312
+  as_of_date: '2026-10-26'
   currency: USD
   source: yfinance
   url: https://finance.yahoo.com/quote/DOCU/history/

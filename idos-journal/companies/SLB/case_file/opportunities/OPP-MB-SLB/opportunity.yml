@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: SLB
-discovery_score: 76.57
+discovery_score: 74.57
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-SLB
 latest_discovery_evidence:
-  as_of: '2026-10-23T17:00:51.649945+00:00'
+  as_of: '2026-10-26T16:21:28.572882+00:00'
   component_scores:
-    market_confirmation: 76.57
+    market_confirmation: 74.57
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,30 +189,32 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 76.57
+  discovery_score: 74.57
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 618616149.2400429
+    avg_dollar_volume_usd: 615506784.3743584
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
+      as_of: '2026-10-26'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
+      currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-28'
+      first_price_date: '2026-09-29'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-23'
-      minimum_coverage: 0.8
+      last_price_date: '2026-10-26'
+      minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
       quote_currency: USD
+      source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-28'
       - '2026-09-29'
       - '2026-09-30'
       - '2026-10-01'
@@ -232,118 +234,120 @@ latest_discovery_evidence:
       - '2026-10-21'
       - '2026-10-22'
       - '2026-10-23'
+      - '2026-10-26'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
       errors: []
-      exchange_calendar: NYQ
+      fx_conversion_used: false
+      geography_filter: null
       liquidity_basis: UNDERLYING_USD_PROXY
       size_metric: market_cap_usd
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 79067734016.0
+    size_metric_usd: 76840558592.0
     size_provenance:
-      as_of: '2026-10-23'
-      fx: null
+      as_of: '2026-10-26'
+      basis: USD_PROVIDER_METRIC
+      currency: USD
       source: yfinance
-      source_currency: USD
   market_quote:
-    as_of_date: '2026-10-23'
+    as_of_date: '2026-10-26'
     currency: USD
-    price: 53.279998779296875
+    price: 52.064998626708984
     source: yfinance
     url: https://finance.yahoo.com/quote/SLB/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-23/2026-10-23
+      period: drawdown_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T17:00:51.649945+00:00'
-        period: drawdown_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:21:28.572882+00:00'
+        period: drawdown_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/SLB/history/
         status: observed
         unit: percent
-        value: 11.347753524088512
+        value: 13.3693844449463
       source_values:
-        yfinance: 11.347753524088512
+        yfinance: 13.3693844449463
       status: observed
       unit: percent
-      value: 11.3478
+      value: 13.3694
     price_momentum_12m_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T17:00:51.649945+00:00'
-        period: price_momentum_12m_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:21:28.572882+00:00'
+        period: price_momentum_12m_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/SLB/history/
         status: observed
         unit: percent
-        value: 47.95890381210206
+        value: 43.98506318145121
       source_values:
-        yfinance: 47.95890381210206
+        yfinance: 43.98506318145121
       status: observed
       unit: percent
-      value: 47.9589
+      value: 43.9851
     volatility_90d_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-23/2026-10-23
+      period: volatility_90d_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T17:00:51.649945+00:00'
-        period: volatility_90d_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:21:28.572882+00:00'
+        period: volatility_90d_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/SLB/history/
         status: observed
         unit: percent
-        value: 39.47380134188359
+        value: 38.398162466815855
       source_values:
-        yfinance: 39.47380134188359
+        yfinance: 38.398162466815855
       status: observed
       unit: percent
-      value: 39.4738
+      value: 38.3982
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 76.57
-  snapshot_hash: 7e1db3d7bd1664533637704c7e00e49837f7fc74b87ce4dbcf0ec223e4d92edd
+  research_priority: 74.57
+  snapshot_hash: bebcdf11ca110882da45d1bcbe8e18da88e5a303d356fcecd506256eacf8d055
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: SLB
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 76.57
+research_priority: 74.57
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 7e1db3d7bd1664533637704c7e00e49837f7fc74b87ce4dbcf0ec223e4d92edd
+snapshot_hash: bebcdf11ca110882da45d1bcbe8e18da88e5a303d356fcecd506256eacf8d055
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

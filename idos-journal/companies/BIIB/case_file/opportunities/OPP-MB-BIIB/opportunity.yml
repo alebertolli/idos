@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: BIIB
-discovery_score: 84.42
+discovery_score: 84.39
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-BIIB
 latest_discovery_evidence:
-  as_of: '2026-10-23T16:53:17.141600+00:00'
+  as_of: '2026-10-26T16:15:33.047303+00:00'
   component_scores:
-    market_confirmation: 84.42
+    market_confirmation: 84.39
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,30 +189,32 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 84.42
+  discovery_score: 84.39
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 294053778.57854384
+    avg_dollar_volume_usd: 291164642.68905866
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
+      as_of: '2026-10-26'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
+      currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-28'
+      first_price_date: '2026-09-29'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-23'
-      minimum_coverage: 0.8
+      last_price_date: '2026-10-26'
+      minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
       quote_currency: USD
+      source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-28'
       - '2026-09-29'
       - '2026-09-30'
       - '2026-10-01'
@@ -232,118 +234,120 @@ latest_discovery_evidence:
       - '2026-10-21'
       - '2026-10-22'
       - '2026-10-23'
+      - '2026-10-26'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
       errors: []
-      exchange_calendar: NMS
+      fx_conversion_used: false
+      geography_filter: null
       liquidity_basis: UNDERLYING_USD_PROXY
       size_metric: market_cap_usd
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 37006467072.0
+    size_metric_usd: 36968050688.0
     size_provenance:
-      as_of: '2026-10-23'
-      fx: null
+      as_of: '2026-10-26'
+      basis: USD_PROVIDER_METRIC
+      currency: USD
       source: yfinance
-      source_currency: USD
   market_quote:
-    as_of_date: '2026-10-23'
+    as_of_date: '2026-10-26'
     currency: USD
-    price: 250.4600067138672
+    price: 250.1999969482422
     source: yfinance
     url: https://finance.yahoo.com/quote/BIIB/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-23/2026-10-23
+      period: drawdown_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:53:17.141600+00:00'
-        period: drawdown_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:15:33.047303+00:00'
+        period: drawdown_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/BIIB/history/
         status: observed
         unit: percent
-        value: 1.3315433630578364
+        value: 1.43397393718962
       source_values:
-        yfinance: 1.3315433630578364
+        yfinance: 1.43397393718962
       status: observed
       unit: percent
-      value: 1.3315
+      value: 1.434
     price_momentum_12m_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:53:17.141600+00:00'
-        period: price_momentum_12m_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:15:33.047303+00:00'
+        period: price_momentum_12m_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/BIIB/history/
         status: observed
         unit: percent
-        value: 66.88433079565822
+        value: 66.32321287649945
       source_values:
-        yfinance: 66.88433079565822
+        yfinance: 66.32321287649945
       status: observed
       unit: percent
-      value: 66.8843
+      value: 66.3232
     volatility_90d_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-23/2026-10-23
+      period: volatility_90d_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T16:53:17.141600+00:00'
-        period: volatility_90d_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:15:33.047303+00:00'
+        period: volatility_90d_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/BIIB/history/
         status: observed
         unit: percent
-        value: 35.61394310796713
+        value: 35.5481935939324
       source_values:
-        yfinance: 35.61394310796713
+        yfinance: 35.5481935939324
       status: observed
       unit: percent
-      value: 35.6139
+      value: 35.5482
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 84.42
-  snapshot_hash: f33759bb92b353ca457a31e27769501344a68e686261221c501bb4d136d792b0
+  research_priority: 84.39
+  snapshot_hash: 7e6727b7649ed2304e6c09ef00e92e81b85248643a14f23d58b0bea89bcdcda2
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: BIIB
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 84.42
+research_priority: 84.39
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: f33759bb92b353ca457a31e27769501344a68e686261221c501bb4d136d792b0
+snapshot_hash: 7e6727b7649ed2304e6c09ef00e92e81b85248643a14f23d58b0bea89bcdcda2
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

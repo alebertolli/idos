@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: VRTX
-discovery_score: 76.45
+discovery_score: 74.15
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-VRTX
 latest_discovery_evidence:
-  as_of: '2026-10-23T17:02:55.605355+00:00'
+  as_of: '2026-10-26T16:23:03.806576+00:00'
   component_scores:
-    market_confirmation: 76.45
+    market_confirmation: 74.15
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,30 +189,32 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 76.45
+  discovery_score: 74.15
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 613864888.1806396
+    avg_dollar_volume_usd: 618031129.8972839
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
+      as_of: '2026-10-26'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
+      currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-28'
+      first_price_date: '2026-09-29'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-23'
-      minimum_coverage: 0.8
+      last_price_date: '2026-10-26'
+      minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
       quote_currency: USD
+      source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-28'
       - '2026-09-29'
       - '2026-09-30'
       - '2026-10-01'
@@ -232,118 +234,120 @@ latest_discovery_evidence:
       - '2026-10-21'
       - '2026-10-22'
       - '2026-10-23'
+      - '2026-10-26'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
       errors: []
-      exchange_calendar: NMS
+      fx_conversion_used: false
+      geography_filter: null
       liquidity_basis: UNDERLYING_USD_PROXY
       size_metric: market_cap_usd
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 133472518144.0
+    size_metric_usd: 130031796224.0
     size_provenance:
-      as_of: '2026-10-23'
-      fx: null
+      as_of: '2026-10-26'
+      basis: USD_PROVIDER_METRIC
+      currency: USD
       source: yfinance
-      source_currency: USD
   market_quote:
-    as_of_date: '2026-10-23'
+    as_of_date: '2026-10-26'
     currency: USD
-    price: 526.5999755859375
+    price: 513.0250244140625
     source: yfinance
     url: https://finance.yahoo.com/quote/VRTX/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-23/2026-10-23
+      period: drawdown_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T17:02:55.605355+00:00'
-        period: drawdown_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:23:03.806576+00:00'
+        period: drawdown_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/VRTX/history/
         status: observed
         unit: percent
-        value: 5.620482678283284
+        value: 8.053443936668971
       source_values:
-        yfinance: 5.620482678283284
+        yfinance: 8.053443936668971
       status: observed
       unit: percent
-      value: 5.6205
+      value: 8.0534
     price_momentum_12m_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-23/2026-10-23
+      period: price_momentum_12m_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T17:02:55.605355+00:00'
-        period: price_momentum_12m_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:23:03.806576+00:00'
+        period: price_momentum_12m_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/VRTX/history/
         status: observed
         unit: percent
-        value: 24.600707356770357
+        value: 22.099390251298455
       source_values:
-        yfinance: 24.600707356770357
+        yfinance: 22.099390251298455
       status: observed
       unit: percent
-      value: 24.6007
+      value: 22.0994
     volatility_90d_pct:
-      as_of: '2026-10-23T00:00:00+00:00'
+      as_of: '2026-10-26T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-23/2026-10-23
+      period: volatility_90d_pct:2025-10-27/2026-10-26
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-23T17:02:55.605355+00:00'
-        period: volatility_90d_pct:2025-10-23/2026-10-23
-        reported_at: '2026-10-23T00:00:00+00:00'
+        observed_at: '2026-10-26T16:23:03.806576+00:00'
+        period: volatility_90d_pct:2025-10-27/2026-10-26
+        reported_at: '2026-10-26T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/VRTX/history/
         status: observed
         unit: percent
-        value: 28.708664353673395
+        value: 28.98915961950542
       source_values:
-        yfinance: 28.708664353673395
+        yfinance: 28.98915961950542
       status: observed
       unit: percent
-      value: 28.7087
+      value: 28.9892
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 76.45
-  snapshot_hash: 94829324ed0c225a5284b5f28e9d7333acd8f993f32083df7c23bb2c6454fbc6
+  research_priority: 74.15
+  snapshot_hash: dc74eb33033676f75918b1fbd27e9faa9b1bc974b3915d129d658e901c98e4cb
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: VRTX
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 76.45
+research_priority: 74.15
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 94829324ed0c225a5284b5f28e9d7333acd8f993f32083df7c23bb2c6454fbc6
+snapshot_hash: dc74eb33033676f75918b1fbd27e9faa9b1bc974b3915d129d658e901c98e4cb
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
