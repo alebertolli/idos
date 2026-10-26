@@ -2,7 +2,7 @@ name: Daily Data Refresh
 
 on:
   schedule:
-    - cron: "0 8 * * 1-5"
+    - cron: "0 11 * * 1-5"  # 08:00 Argentina (11:00 UTC)
   workflow_dispatch:
     inputs:
       allow_production_e2e:
@@ -24,6 +24,9 @@ on:
         description: "Required for manual runs: 1-5 comma-separated tickers from operable.yml"
         required: true
         type: string
+
+env:
+  TZ: America/Argentina/Buenos_Aires
 
 jobs:
   refresh:

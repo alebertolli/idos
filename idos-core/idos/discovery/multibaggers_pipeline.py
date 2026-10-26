@@ -140,13 +140,25 @@ class MultibaggersPipeline:
 
             from idos.data.journal import JournalRepository
             journal = JournalRepository(self.journal_root)
-            existing = next((o for o in journal.list_all_opportunities() if o.get("ticker", "").upper() == ticker and o.get("strategy_id", "COMPOUNDER").upper() == "MULTIBAGGERS"), None)
+            from idos.models.opportunity_identity import (
+                build_opportunity_id,
+                is_active_opportunity,
+                next_opportunity_cycle,
+            )
+            history = [
+                opportunity
+                for opportunity in journal.list_all_opportunities()
+                if opportunity.get("ticker", "").upper() == ticker
+                and opportunity.get("strategy_id", "COMPOUNDER").upper() == "MULTIBAGGERS"
+            ]
+            existing = next((o for o in history if is_active_opportunity(o)), None)
             if existing:
                 opp_id = existing["id"]
                 opp_data = existing
                 output["existing"] += 1
             else:
-                opp_id = f"OPP-MB-{ticker}"
+                cycle = next_opportunity_cycle(history, "MULTIBAGGERS", ticker)
+                opp_id = build_opportunity_id("MULTIBAGGERS", ticker, cycle)
                 opp = Opportunity(
                     id=opp_id,
                     ticker=ticker,
@@ -162,6 +174,7 @@ class MultibaggersPipeline:
                     conviction=Conviction(),
                 )
                 opp_data = opp.model_dump(mode="json")
+                opp_data["opportunity_cycle"] = cycle
                 output["created"] += 1
             position_limit = float(self.profile.parameters.get("position_limit_pct", 1.0))
             opp_data.update({

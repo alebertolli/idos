@@ -282,6 +282,8 @@ class UniversePipeline(BaseWorker):
         journal_base = Path(self.journal_path) if self.journal_path else Path("idos-journal")
         existing = set()
         existing_paths: dict[tuple[str, str], list[Path]] = {}
+        opportunity_history: dict[tuple[str, str], list[dict[str, Any]]] = {}
+        from idos.models.opportunity_identity import is_active_opportunity
         companies_dir = journal_base / "companies"
         if companies_dir.exists():
             for d in companies_dir.iterdir():
@@ -297,8 +299,10 @@ class UniversePipeline(BaseWorker):
                                         existing_ticker = str(raw.get("ticker", d.name)).upper()
                                         existing_strategy = str(raw.get("strategy_id", "COMPOUNDER")).upper()
                                         key = (existing_ticker, existing_strategy)
-                                        existing.add(key)
-                                        existing_paths.setdefault(key, []).append(opp_file)
+                                        opportunity_history.setdefault(key, []).append(raw)
+                                        if is_active_opportunity(raw):
+                                            existing.add(key)
+                                            existing_paths.setdefault(key, []).append(opp_file)
                                     except Exception:
                                         pass
 
@@ -333,9 +337,9 @@ class UniversePipeline(BaseWorker):
         from idos.models.journal import Opportunity
         from idos.models.conviction import Conviction
 
+        from idos.models.opportunity_identity import build_opportunity_id, next_opportunity_cycle
+
         created = 0
-        date_prefix = datetime.now(AR_TZ).strftime('%Y%m%d')
-        seq = 1
         for entry in eligible:
             ticker = entry["ticker"].upper()
             key = (ticker, self.strategy_id)
@@ -361,8 +365,10 @@ class UniversePipeline(BaseWorker):
                         })
                 continue
 
-            opp_id = f"OPP-{date_prefix}-{seq:03d}"
-            seq += 1
+            cycle = next_opportunity_cycle(
+                opportunity_history.get(key, []), self.strategy_id, ticker
+            )
+            opp_id = build_opportunity_id(self.strategy_id, ticker, cycle)
             opp = Opportunity(
                 id=opp_id,
                 ticker=ticker,
@@ -378,6 +384,7 @@ class UniversePipeline(BaseWorker):
                 conviction=Conviction(overall=0),
             )
             opp_data = opp.model_dump(mode="json")
+            opp_data["opportunity_cycle"] = cycle
             opp_data["discovery_evidence"] = self._build_discovery_evidence(
                 ticker, evaluations_by_ticker.get(ticker)
             )
@@ -387,6 +394,7 @@ class UniversePipeline(BaseWorker):
             with open(opp_file, "w", encoding="utf-8") as f:
                 yaml.dump(opp_data, f, default_flow_style=False, allow_unicode=True)
             existing.add((ticker, self.strategy_id))
+            opportunity_history.setdefault(key, []).append(opp_data)
             created += 1
 
         metrics.opportunities_created = created

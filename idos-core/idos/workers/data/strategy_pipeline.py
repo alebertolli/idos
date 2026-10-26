@@ -228,23 +228,32 @@ class MonthlyStrategyWorker(BaseWorker):
             report_path = signal_dir / f"{output['as_of_date']}-{timestamp}-{output['run_scope']}-{suffix}.yml"
             suffix += 1
         report_path.write_text(yaml.dump(output, allow_unicode=True), encoding="utf-8")
-        cycle_date = datetime.strptime(output["as_of_date"], "%Y-%m-%d").replace(day=1)
+        from idos.models.opportunity_identity import (
+            build_opportunity_id,
+            is_active_opportunity,
+            next_opportunity_cycle,
+        )
+        opportunity_history = journal.list_all_opportunities()
         for row in output["selected"]:
             ticker = row["ticker"]
-            strategy_code = (
-                "MOM"
-                if profile.strategy_id == "MOMENTUM_ETF"
-                else profile.strategy_id.replace("_", "-")
-            )
-            opp_id = f"OPP-{cycle_date:%Y%m%d}-{strategy_code}-{ticker}"
-            if sqlite.get_opportunity(opp_id) or journal.load_opportunity(ticker, opp_id):
+            matching = [
+                opportunity for opportunity in opportunity_history
+                if opportunity.get("ticker", "").upper() == ticker.upper()
+                and opportunity.get("strategy_id", "COMPOUNDER").upper() == profile.strategy_id.upper()
+            ]
+            if any(is_active_opportunity(opportunity) for opportunity in matching):
                 continue  # A repeated monthly run must not reset a reviewed decision.
+            cycle = next_opportunity_cycle(matching, profile.strategy_id, ticker)
+            opp_id = build_opportunity_id(profile.strategy_id, ticker, cycle)
+            if sqlite.get_opportunity(opp_id) or journal.load_opportunity(ticker, opp_id):
+                continue
             opp = {
                 "id": opp_id, "ticker": ticker, "status": OpportunityStatus.SCREENED.value,
                 "strategy_id": profile.strategy_id, "strategy_version": "1.0",
                 "core": profile.core, "sleeve": profile.sleeve, "thesis_type": profile.thesis_type,
                 "entry_policy": profile.entry_policy, "research_profile": profile.research_profile,
                 "origin": "monthly_strategy_pipeline", "signal": row,
+                "opportunity_cycle": cycle,
                 "conviction": {"overall": 0}, "created_at": datetime.now(AR_TZ).isoformat(),
                 "updated_at": datetime.now(AR_TZ).isoformat(),
             }

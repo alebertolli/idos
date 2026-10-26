@@ -315,12 +315,12 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     assert blocked["results"][0]["ticker"] == "TEST"
     assert blocked["blocked"] == 1
     assert blocked["created"] == 0
-    assert not (tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MB-TEST").exists()
+    assert not (tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MULTIBAGGERS-TEST-0001").exists()
     cache.payload = valid_payload()
     cache.payload["merged_data"]["quote_currency"] = "USD"
     cache.payload["field_sources"] = {"price_history": ["yfinance"]}
     first = MultibaggersPipeline(config).run()
-    first_opp_path = tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MB-TEST" / "opportunity.yml"
+    first_opp_path = tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MULTIBAGGERS-TEST-0001" / "opportunity.yml"
     first_opp = yaml.safe_load(first_opp_path.read_text(encoding="utf-8"))
     expected_quote = {
         "price": 145.0,
@@ -335,7 +335,7 @@ def test_multibaggers_pipeline_and_journal_are_idempotent_and_gated(tmp_path: Pa
     assert first["created"] == 1
     assert second.status.value == "success"
     assert second.output["existing"] == 1
-    opp_dir = tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MB-TEST"
+    opp_dir = tmp_path / "idos-journal" / "companies" / "TEST" / "case_file" / "opportunities" / "OPP-MULTIBAGGERS-TEST-0001"
     assert (opp_dir / "discovery_snapshot.yml").exists()
     intake = yaml.safe_load((opp_dir / "research_intake.yml").read_text(encoding="utf-8"))
     assert intake["research_profile"] == "multibaggers"

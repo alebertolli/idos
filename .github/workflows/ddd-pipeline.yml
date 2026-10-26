@@ -112,10 +112,11 @@ on:
       - material-financial-deterioration
       - thesis-change
   schedule:
-    - cron: "0 0 2 * *"  # 2do día de cada mes (NORMAL: procesa SCREENED)
-    - cron: "0 6 */30 * *"  # Cada 30 días a las 6am (FORCE: re-research UNDER_RESEARCH)
+    - cron: "0 3 2 * *"  # 00:00 Argentina del día 2 (03:00 UTC)
+    - cron: "0 9 */30 * *"  # Cada 30 días, 06:00 Argentina (09:00 UTC)
 
 env:
+  TZ: America/Argentina/Buenos_Aires
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
   OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}

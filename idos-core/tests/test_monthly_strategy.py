@@ -165,7 +165,7 @@ def test_monthly_rerun_within_same_cycle_does_not_create_another_opportunity(tmp
 
     store = SQLiteStore(tmp_path / "idos.db")
     rows = list(store.conn.execute("SELECT id FROM opportunities WHERE strategy_id = 'MOMENTUM_ETF'"))
-    assert [row[0] for row in rows] == ["OPP-20261001-MOM-QQQ"]
+    assert [row[0] for row in rows] == ["OPP-MOMENTUM-ETF-QQQ-0001"]
 
 
 def test_momentum_strategy_intersects_configured_universe_with_operable_registry(tmp_path: Path):

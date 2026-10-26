@@ -2,10 +2,11 @@ name: Board Review
 
 on:
   schedule:
-    - cron: "0 6 4 * *"  # dia 4 de cada mes (post universe+DDD+rebalance)
+    - cron: "0 9 4 * *"  # 06:00 Argentina del día 4 (09:00 UTC)
   workflow_dispatch:
 
 env:
+  TZ: America/Argentina/Buenos_Aires
   GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
   OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
   GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
