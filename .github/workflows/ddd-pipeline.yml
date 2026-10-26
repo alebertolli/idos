@@ -195,7 +195,7 @@ jobs:
             echo "ASSESSMENT_ONLY=${{ inputs.assessment_only || github.event.inputs.assessment_only || 'false' }}" >> $GITHUB_ENV
             echo "PREVIEW_ONLY=${{ inputs.preview_only || github.event.inputs.preview_only || 'false' }}" >> $GITHUB_ENV
             echo "EVENT_TYPE=${{ inputs.event_type || github.event.inputs.event_type || 'manual' }}" >> $GITHUB_ENV
-          elif [ "${{ github.event.schedule }}" = "0 6 */30 * *" ]; then
+          elif [ "${{ github.event.schedule }}" = "0 9 */30 * *" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=re-research-30d" >> $GITHUB_ENV
