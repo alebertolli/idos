@@ -2,8 +2,11 @@ name: Friday Weekly Digest
 
 on:
   schedule:
-    - cron: "0 21 * * 5"
+    - cron: "0 0 * * 6"  # Viernes 21:00 Argentina (sábado 00:00 UTC)
   workflow_dispatch:
+
+env:
+  TZ: America/Argentina/Buenos_Aires
 
 jobs:
   digest:

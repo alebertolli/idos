@@ -87,14 +87,38 @@ def company_show(ticker: str):
 def opp_create(ticker: str):
     ctx = _get_context()
     sqlite, knowledge, journal = _get_stores(ctx)
-    opp_id = f"OPP-{datetime.now(AR_TZ).strftime('%Y%m%d')}-{len(sqlite.list_opportunities()) + 1:03d}"
+    from idos.models.opportunity_identity import (
+        build_opportunity_id,
+        is_active_opportunity,
+        next_opportunity_cycle,
+    )
+
+    history = journal.list_all_opportunities()
+    known_ids = {opportunity.get("id") for opportunity in history}
+    history.extend(
+        opportunity
+        for opportunity in sqlite.list_opportunities()
+        if opportunity.get("id") not in known_ids
+    )
+    matching = [
+        opportunity for opportunity in history
+        if opportunity.get("ticker", "").upper() == ticker.upper()
+        and opportunity.get("strategy_id", "COMPOUNDER").upper() == "COMPOUNDER"
+    ]
+    if any(is_active_opportunity(opportunity) for opportunity in matching):
+        console.print(f"[yellow]An active COMPOUNDER opportunity already exists for {ticker.upper()}[/yellow]")
+        return
+    cycle = next_opportunity_cycle(matching, "COMPOUNDER", ticker)
+    opp_id = build_opportunity_id("COMPOUNDER", ticker, cycle)
     opp = Opportunity(
         id=opp_id,
         ticker=ticker.upper(),
         status=OpportunityStatus.DISCOVERED,
     )
-    sqlite.save_opportunity(opp.model_dump())
-    journal.save_opportunity(ticker.upper(), opp.model_dump())
+    opp_data = opp.model_dump()
+    opp_data["opportunity_cycle"] = cycle
+    sqlite.save_opportunity(opp_data)
+    journal.save_opportunity(ticker.upper(), opp_data)
     bus = get_event_bus()
     bus.publish_sync("opportunity:created", {"opp_id": opp_id, "ticker": ticker.upper()})
     console.print(f"[green]Opportunity {opp_id} created for {ticker.upper()}[/green]")

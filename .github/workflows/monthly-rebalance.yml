@@ -2,8 +2,11 @@ name: Monthly Rebalance
 
 on:
   schedule:
-    - cron: "0 6 3 * *"  # 3er dia de cada mes a las 06:00 (tras universe + DDD)
+    - cron: "0 9 3 * *"  # 06:00 Argentina del día 3 (09:00 UTC)
   workflow_dispatch:
+
+env:
+  TZ: America/Argentina/Buenos_Aires
 
 jobs:
   rebalance:

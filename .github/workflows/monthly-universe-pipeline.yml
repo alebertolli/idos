@@ -2,7 +2,7 @@ name: Monthly Universe Pipeline
 
 on:
   schedule:
-    - cron: "0 0 1 * *"  # primer dia de cada mes a medianoche
+    - cron: "0 3 1 * *"  # 00:00 Argentina (03:00 UTC)
   workflow_dispatch:
     inputs:
       allow_production_e2e:
@@ -10,6 +10,9 @@ on:
         required: false
         type: boolean
         default: false
+
+env:
+  TZ: America/Argentina/Buenos_Aires
 
 jobs:
   pipeline:

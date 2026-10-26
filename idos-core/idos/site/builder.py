@@ -2038,12 +2038,27 @@ function showCase(oppId){
   if((o.proposal?.rules_passed||[]).length) html += `<p>Reglas superadas: ${o.proposal.rules_passed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
   if((o.proposal?.rules_failed||[]).length) html += `<p class="neg">Reglas falladas: ${o.proposal.rules_failed.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</p>`;
   const ruleDetails=o.proposal?.rules_details||{};
+  const ruleFallbacks={
+    'RULE-001':'La calidad del negocio no alcanzó el mínimo configurado.',
+    'RULE-002':'El margen de valoración no alcanzó el mínimo configurado.',
+    'RULE-003':'El potencial de rerating no alcanzó el mínimo configurado.',
+    'RULE-004':'La evaluación de riesgo no alcanzó el mínimo configurado.',
+    'RULE-005':'La convicción no alcanzó el mínimo configurado.',
+    'RULE-006':'La posición propuesta excede el máximo permitido.',
+    'RULE-007':'La exposición sectorial propuesta excede el máximo permitido.',
+    'RULE-008':'La asimetría no alcanzó el mínimo requerido o sus escenarios no están validados.',
+    'RULE-010':'La evidencia financiera no cumple los requisitos de fuente, fecha o cobertura.',
+  };
+  const failedRules=o.proposal?.rules_failed||[];
+  if(failedRules.length){
+    html += `<div class="card"><b>Motivos de reglas fallidas</b><ul>${[...new Set(failedRules)].map(id=>`<li><b>${esc(id)}</b>: ${esc(ruleDetails[id]||ruleFallbacks[id]||'La evaluación no guardó un detalle específico para esta regla.')}</li>`).join('')}</ul></div>`;
+  }
   const asymmetryRuleState=(o.proposal?.rules_passed||[]).includes('RULE-008')?'superó':(o.proposal?.rules_failed||[]).includes('RULE-008')?'falló':null;
   if(asymmetryRuleState){
     html += `<div class="card"><b>Asimetría del modelo (RULE-008 · ${asymmetryRuleState})</b>${ruleDetails['RULE-008']?`<p>${esc(ruleDetails['RULE-008'])}</p>`:'<p class="muted">El detalle cuantitativo no fue persistido en esta evaluación.</p>'}<p class="muted">B/R compara el upside Bull con el downside Bear sin ponderación probabilística. Validar los casos, fuentes y fechas junto con la tesis; el ratio por sí solo no autoriza una compra.</p></div>`;
   }
-  const explainedRules=[...(o.proposal?.rules_passed||[]),...(o.proposal?.rules_failed||[])].filter(id=>ruleDetails[id]);
-  if(explainedRules.length) html += `<details><summary>Detalles de reglas</summary><ul>${[...new Set(explainedRules)].map(id=>`<li><b>${esc(id)}</b>: ${esc(ruleDetails[id])}</li>`).join('')}</ul></details>`;
+  const passedRules=(o.proposal?.rules_passed||[]).filter(id=>ruleDetails[id]);
+  if(passedRules.length) html += `<details><summary>Detalles de reglas superadas</summary><ul>${[...new Set(passedRules)].map(id=>`<li><b>${esc(id)}</b>: ${esc(ruleDetails[id])}</li>`).join('')}</ul></details>`;
   html += `<table><thead><tr><th>Engine</th><th>Score</th><th>Assessment</th><th>Findings</th></tr></thead><tbody>`;
   Object.entries(o.scores||{}).forEach(([k,v])=>html+=`<tr><td>${esc(k)}</td><td class="score">${v??'—'}</td><td>${esc(o.assessment_recommendations?.[k]||'Not recorded')}</td><td>${(o.findings?.[k]||[]).map(esc).join(' · ')||'—'}</td></tr>`);
   html += '</tbody></table>';
