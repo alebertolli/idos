@@ -1,0 +1,548 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Cálculo de net debt/EBITDA = 1.19x
+  - Cálculo de FCF conversion = 80.45%
+  - Current ratio 1.21 (TTM 2026-09-30) – stockanalysis.com
+  - EBIT 9.35B (TTM 2026-09-30) – stockanalysis.com
+  - EBITDA 16.65B (TTM 2026-09-30) – stockanalysis.com
+  - FCF 5.99B (TTM 2026-09-30) – stockanalysis.com
+  - Net income 7.448B (TTM 2026-09-30) – stockanalysis.com
+  - Interest coverage ratio 0 (TTM 2026-09-30) – stockanalysis.com
+  - Total debt 39,898M (Current) – stockanalysis.com
+  - Cash & investments 20,138M (Current) – stockanalysis.com
+  - Revenue TTM 110.47B (TTM 2026-09-30) – stockanalysis.com
+  - FCF growth TTM 20.53% – stockanalysis.com
+  preguntas_abiertas:
+  - ¿Cuál es la evolución de los ingresos en FY 2023 para calcular revenue CAGR?
+  - ¿Cuáles son los datos de diluted shares para evaluar dilution YoY?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Energy Integrated
+  justificacion: Eni combina upstream, downstream y renovables, ofreciendo exposición
+    diversificada al sector energético.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Modelo integrado y presencia global aportan estabilidad, pero la cobertura
+    de intereses nula y la alta deuda reducen la calidad financiera.
+  rating: Medium
+dominio_catalizadores:
+- catalizador: Recuperación del precio del petróleo
+  impacto: Mejora de márgenes y flujo de caja libre.
+- catalizador: Expansión de gas natural licuado (LNG)
+  impacto: Incremento de ingresos en el segmento Global Gas & LNG.
+- catalizador: Transición a renovables
+  impacto: Diversificación de fuentes y potencial de crecimiento a largo plazo.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: Interest coverage ratio es 0, indicando incapacidad de cubrir gastos
+    financieros con EBIT.
+  tipo: Cobertura de intereses
+- descripcion: Net debt/EBITDA es 1.19x, por debajo del umbral de riesgo pero la deuda
+    total sigue siendo alta.
+  tipo: Deuda neta
+- descripcion: Falta de datos de dilución impide evaluar riesgo de emisión de acciones.
+  tipo: Dilución potencial
+- descripcion: Alta volatilidad (≈30% 90d) puede afectar ingresos y márgenes.
+  tipo: Volatilidad del precio del crudo
+error_mercado:
+  catalizador_cambio: Una recuperación sostenida del precio del crudo podría cerrar
+    la brecha entre precio y consenso.
+  conclusion_error_valoracion: El mercado parece haber sobrevalorado a E en el corto
+    plazo.
+  consenso_actual:
+    currency: USD
+    high: 61.0
+    low: 49.3
+    mean: 55.76
+    median: 55.76
+    source:
+    - as_of_date: '2026-10-26'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/e/forecast/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/E/
+  hipotesis_contraria: El precio actual (61.88 USD) supera el rango alto del consenso,
+    indicando posible sobrevaloración.
+  razonamiento: El precio supera el máximo del consenso y la empresa muestra cobertura
+    de intereses nula, lo que sugiere que el mercado está subestimando riesgos.
+generated_at: '2026-10-26T11:44:43.913563-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-E
+prompt_inputs:
+  business_model: Eni S.p.A. operates as an integrated energy company in Italy, Other
+    European Union, Rest of Europe, the United States, Asia, Africa, and internationally.
+    The company engages in exploration, development, extracting, manufacturing, trading,
+    and marketing crude oil and natural gas, oil-based fuels, chemical products, and
+    gas-fired power, as well as energy products from renewable sources. The company
+    operates through Exploration & Production; Global Gas & LNG Portfolio and Power;
+    Refining and Chemicals; Enilive; Plenitude; and Corporate and Other Activities
+    segments. The company engages in research, development, and production of oil,
+    condensates, and natural gas. It is also involved in the supply and sale of wholesale
+    natural gas through pipelines; electricity; and international transport, and purchase
+    and marketing of liquefied natural gas. In addition, the company supplies bio-feedstock
+    and crude oil; and stores, produces, distributes, and markets biofuels, oil products,
+    biomethane, basic chemical and petrochemical products, intermediates, plastics
+    and elastomers, and other chemicals, as well as provides smart mobility solutions
+    and services. Further, the company engages in the retail marketing of gas, power,
+    and related services; production and wholesale sale of electricity from renewable
+    plants; and building and managing a network of charging points for electric vehicles.
+    Eni S.p.A. was founded in 1953 and is headquartered in Rome, Italy.
+  ceo_tenure: 0
+  debt_to_equity: 0.69
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Eni S.p.A.
+  operating_margin: 8.46
+  pe_ratio: 10.86
+  products: ''
+  revenue: 110470000000.0
+  revenue_growth: 20.29
+  roic: 7.33
+  sector: Energy
+  ticker: E
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_t: revenue_ttm
+    revenue_t-3: revenue_FY_2023
+  limitations: Falta el dato de revenue FY 2023 en el paquete.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF growth TTM reported
+  inputs:
+    fcf_growth_ttm: fcf_growth_history.TTM
+  limitations: null
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/e/financials/
+  status: reported
+  unit: percent
+  value: 20.53
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/E/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/e/financials/
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/E/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (Diluted_Shares_t / Diluted_Shares_t-1) - 1
+  inputs:
+    Diluted_Shares_t: diluted_shares_history.Current
+    Diluted_Shares_t-1: diluted_shares_history.Previous
+  limitations: No se dispone de datos de diluted shares en el paquete.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-10-26'
+  business_model: Eni S.p.A. operates as an integrated energy company in Italy, Other
+    European Union, Rest of Europe, the United States, Asia, Africa, and internationally.
+    The company engages in exploration, development, extracting, manufacturing, trading,
+    and marketing crude oil and natural gas, oil-based fuels, chemical products, and
+    gas-fired power, as well as energy products from renewable sources. The company
+    operates through Exploration & Production; Global Gas & LNG Portfolio and Power;
+    Refining and Chemicals; Enilive; Plenitude; and Corporate and Other Activities
+    segments. The company engages in research, development, and production of oil,
+    condensates, and natural gas. It is also involved in the supply and sale of wholesale
+    natural gas through pipelines; electricity; and international transport, and purchase
+    and marketing of liquefied natural gas. In addition, the company supplies bio-feedstock
+    and crude oil; and stores, produces, distributes, and markets biofuels, oil products,
+    biomethane, basic chemical and petrochemical products, intermediates, plastics
+    and elastomers, and other chemicals, as well as provides smart mobility solutions
+    and services. Further, the company engages in the retail marketing of gas, power,
+    and related services; production and wholesale sale of electricity from renewable
+    plants; and building and managing a network of charging points for electric vehicles.
+    Eni S.p.A. was founded in 1953 and is headquartered in Rome, Italy.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 61.880001068115234
+  current_price_as_of_date: '2026-10-23'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.69
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-10-26T14:43:37.019523+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Eni S.p.A.
+  operating_margin: 8.46
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Eni S.p.A. operates as an integrated energy company in Italy, Other
+    European Union, Rest of Europe, the United States, Asia, Africa, and internationally.
+    The company engages in exploration, development, extracting, manufacturing, trading,
+    and marketing crude oil and natural gas, oil-based fuels, chemical products, and
+    gas-fired power, as well as energy products from renewable sources. The company
+    operates through Exploration & Production; Global Gas & LNG Portfolio and Power;
+    Refining and Chemic
+
+
+    Evento disparador validado para revisar: {"event_id": "fc61162b30460d614cffee2afe687df119e8f4641604d6c3c72e6f44d519b6b8",
+    "event_type": "quarterly_results", "observed_at": "2026-10-26T14:41:14.468483+00:00",
+    "occurred_at": "2026-10-23", "source_name": "Yahoo Finance earnings calendar via
+    yfinance", "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=E",
+    "summary": "El calendario de resultados indica la fecha 2026-10-23. La fecha no
+    confirma por sí sola la publicación del reporte; Research debe verificar el resultado
+    en una fuente primaria.", "ticker": "E"}'
+  revenue: 110470000000.0
+  revenue_growth: 20.29
+  roic: 7.33
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/e/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/E/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/E/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/E/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/E/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/e/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/e/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/e/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/E/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/e/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/E/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/e/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/e/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/e/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/E/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/E/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/e/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    61.0, "low": 49.3, "mean": 55.76, "median": 55.76, "observed_at": "2026-10-26T11:43:40.267270-03:00",
+    "sources": [{"as_of_date": "2026-10-26", "name": "stockanalysis", "observed_at":
+    "2026-10-26T11:43:40.267270-03:00", "observed_date": "2026-10-26", "target_price":
+    56.26, "url": "https://stockanalysis.com/stocks/e/forecast/"}, {"as_of_date":
+    "2026-10-26", "name": "yfinance", "observed_at": "2026-10-26T11:43:40.267270-03:00",
+    "observed_date": "2026-10-26", "target_price": 55.26, "url": "https://finance.yahoo.com/quote/E/"}]},
+    "current_quote": {"as_of_date": "2026-10-23", "currency": "USD", "price": 61.880001068115234,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/E/"}]}}'
+  sector: Energy
+  ticker: E
+research_trigger:
+  discovery_snapshot_hash: 82d8fdf2cd1a860060fca8e44249cbe9ab955d16349eb77b4b59c8779645adcf
+  event_evidence:
+    event_id: fc61162b30460d614cffee2afe687df119e8f4641604d6c3c72e6f44d519b6b8
+    event_type: quarterly_results
+    observed_at: '2026-10-26T14:41:14.468483+00:00'
+    occurred_at: '2026-10-23'
+    source_name: Yahoo Finance earnings calendar via yfinance
+    source_url: https://finance.yahoo.com/calendar/earnings/?symbol=E
+    summary: El calendario de resultados indica la fecha 2026-10-23. La fecha no confirma
+      por sí sola la publicación del reporte; Research debe verificar el resultado
+      en una fuente primaria.
+    ticker: E
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: d3afccbb03817d228feeaf781b9b4ecd4f40e571310dcc081df471302b9bf8e5
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: quarterly-results
+  triggered_at: '2026-10-26T11:44:43.913563-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- comment: Cobertura de intereses insuficiente.
+  flag: interest_coverage_below
+  observed: 0
+  period_end: '2026-09-30'
+  source:
+    as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/E/statistics/
+  threshold: 2.0
+scenario_analysis:
+  as_of_date: '2026-10-26'
+  currency: USD
+  horizon_date: '2027-10-26'
+  scenarios:
+  - falsifiers:
+    - Recuperación sostenida del precio del crudo por encima de 80 USD/bbl
+    - Mejora significativa del EBIT
+    id: BEAR
+    key_assumptions:
+    - Precio del crudo < 60 USD/bbl
+    - EBIT no mejora
+    - Deuda neta se mantiene o aumenta
+    rationale: Precio bajo presión por precios de crudo débiles, cobertura de intereses
+      cero y posible deterioro de deuda.
+    sources:
+    - as_of_date: '2026-10-26'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/e/forecast/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/E/
+    target_price: 49.3
+  - falsifiers:
+    - Caída prolongada del precio del crudo bajo 60 USD/bbl
+    - Aumento de costos operativos
+    id: BULL
+    key_assumptions:
+    - Precio del crudo > 80 USD/bbl
+    - EBIT mejora > 10% YoY
+    - Deuda neta se reduce
+    rationale: Precio alineado con el extremo alto del consenso, impulsado por recuperación
+      de precios y mejora operativa.
+    sources:
+    - as_of_date: '2026-10-26'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/e/forecast/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/E/
+    target_price: 61.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 87
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-10-26T11:43:40.267270-03:00'
+  fuentes:
+    stockanalysis: 56.26
+    yfinance: 55.26
+  mediana: 55.76
+  n_fuentes: 2
+  promedio: 55.76
+  source_references:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    observed_at: '2026-10-26T11:43:40.267270-03:00'
+    observed_date: '2026-10-26'
+    target_price: 56.26
+    url: https://stockanalysis.com/stocks/e/forecast/
+  - as_of_date: '2026-10-26'
+    name: yfinance
+    observed_at: '2026-10-26T11:43:40.267270-03:00'
+    observed_date: '2026-10-26'
+    target_price: 55.26
+    url: https://finance.yahoo.com/quote/E/
+  target_high: 61.0
+  target_low: 49.3
+tesis_inversion: Eni posee una posición integrada que le permite capturar valor en
+  la cadena energética, pero enfrenta riesgos de cobertura de intereses y volatilidad
+  de precios de energía que pueden limitar su upside.
+ticker: E
+version: '3.0'

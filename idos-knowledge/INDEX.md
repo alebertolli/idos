@@ -7,7 +7,13 @@ aliases:
 
 # IDOS Company Index
 
-Total: 2 companies tracked
+Total: 4 companies tracked
+
+## Basic Materials
+- 📄 [[DOW|Dow Inc.]]
+
+## Energy
+- 📄 [[E|Eni S.p.A.]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]

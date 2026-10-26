@@ -47,3 +47,94 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-10-26T13:37:30.928814'
+- data:
+    metrics:
+    - net_debt_ebitda
+    opp_id: OPP-MB-DOW
+    ticker: DOW
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-10-26T14:42:07.734036'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DOW
+    ticker: DOW
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-10-26T14:42:07.739707'
+- data:
+    classification: multibagger
+    ddd_empty: false
+    event_evidence:
+      event_id: 3dc9b4dd8a7ed0858a1d08c7da0affe096189878df0e848117150bcf0727b435
+      event_type: quarterly_results
+      observed_at: '2026-10-26T14:41:14.468483+00:00'
+      occurred_at: '2026-10-22'
+      source_name: Yahoo Finance earnings calendar via yfinance
+      source_url: https://finance.yahoo.com/calendar/earnings/?symbol=DOW
+      summary: El calendario de resultados indica la fecha 2026-10-22. La fecha no
+        confirma por sí sola la publicación del reporte; Research debe verificar el
+        resultado en una fuente primaria.
+      ticker: DOW
+    event_type: quarterly-results
+    hypotheses: 4
+    input_snapshot_sha256: 180af63f40baae99e68892a6c3ff5d5dc9ca907640dc2316fce5c84ef7097665
+    opp_id: OPP-MB-DOW
+    original_status: SCREENED
+    score: 68
+    strategy_version: '1.5'
+    ticker: DOW
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-26T14:43:35.762645'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-E
+    ticker: E
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-10-26T14:44:43.902705'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-E
+    ticker: E
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-10-26T14:44:43.910372'
+- data:
+    classification: Energy Integrated
+    ddd_empty: false
+    event_evidence:
+      event_id: fc61162b30460d614cffee2afe687df119e8f4641604d6c3c72e6f44d519b6b8
+      event_type: quarterly_results
+      observed_at: '2026-10-26T14:41:14.468483+00:00'
+      occurred_at: '2026-10-23'
+      source_name: Yahoo Finance earnings calendar via yfinance
+      source_url: https://finance.yahoo.com/calendar/earnings/?symbol=E
+      summary: El calendario de resultados indica la fecha 2026-10-23. La fecha no
+        confirma por sí sola la publicación del reporte; Research debe verificar el
+        resultado en una fuente primaria.
+      ticker: E
+    event_type: quarterly-results
+    hypotheses: 4
+    input_snapshot_sha256: d3afccbb03817d228feeaf781b9b4ecd4f40e571310dcc081df471302b9bf8e5
+    opp_id: OPP-MB-E
+    original_status: SCREENED
+    score: 87
+    strategy_version: '1.5'
+    ticker: E
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-10-26T14:46:21.302843'

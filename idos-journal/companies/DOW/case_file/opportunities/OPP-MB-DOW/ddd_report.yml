@@ -1,0 +1,545 @@
+calidad_evidencia:
+  hechos_verificados: 22
+  inferencias_llm: 5
+  preguntas_abiertas: 3
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: multibagger
+  justificacion: El perfil de descubrimiento indica potencial de alta revalorización
+    y la evidencia muestra volatilidad y momentum positivos que pueden sustentar retornos
+    superiores.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La empresa posee una posición global diversificada y segmentos de negocio
+    estables, pero enfrenta presión de márgenes y una estructura de capital débil.
+  rating: Moderado
+dominio_catalizadores:
+- descripcion: Recuperación del margen bruto por encima del 12% histórico.
+  impacto: Positivo
+- descripcion: Reducción de deuda neta mediante venta de activos no estratégicos.
+  impacto: Positivo
+- descripcion: Incremento de precios de materias primas que beneficien los ingresos
+    de packaging.
+  impacto: Positivo
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: Cobertura de intereses insuficiente (0x) por debajo del umbral de 2.0x.
+  impacto: Alto
+- descripcion: Flujo de caja libre negativo en FY 2025 y FY 2024.
+  impacto: Alto
+- descripcion: Deuda neta elevada respecto a EBITDA (3.2x) cercana al límite de 4.0x.
+  impacto: Moderado
+error_mercado:
+  catalizador_cambio: Mejora sostenida del margen bruto y generación de flujo de caja
+    libre positivo podrían elevar el precio por encima del rango alto del consenso.
+  conclusion_error_valoracion: Existe una posible subvaloración si la empresa logra
+    revertir la pérdida neta y mejorar la cobertura de intereses.
+  consenso_actual:
+    currency: USD
+    high: 41.0
+    low: 30.0
+    mean: 34.76
+    source:
+    - as_of_date: '2026-10-26'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/dow/forecast/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DOW/
+  hipotesis_contraria: El precio actual de $32.60 sugiere que el mercado ya ha descontado
+    parte de los riesgos, pero podría estar subvalorando la recuperación de márgenes.
+  razonamiento: Los indicadores de margen y cobertura son débiles, pero la tendencia
+    de precios y la capacidad de generación de efectivo ofrecen margen para una revaluación
+    al alza.
+generated_at: '2026-10-26T11:42:07.741980-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-DOW
+prompt_inputs:
+  business_model: Dow Inc., through its subsidiaries, provides various materials science
+    solutions for packaging, infrastructure, mobility, and consumer applications in
+    the United States, Canada, Europe, the Middle East, Africa, India, the Asia Pacific,
+    and Latin America. The company operates through Packaging & Specialty Plastics,
+    Industrial Intermediates & Infrastructure, and Performance Materials & Coatings
+    segments. The Packaging & Specialty Plastics segment provides ethylene, propylene,
+    polyethylene, and aromatics products; and other ethylene derivatives, such as
+    polyolefin elastomers, ethylene vinyl acetate, and ethylene propylene diene monomer
+    rubber. The Industrial Intermediates & Infrastructure segment offers polyurethanes,
+    including propylene oxide, propylene glycol, and polyether polyols; aromatic isocyanates
+    and fully formulated polyurethane systems; and chlor-alkali and vinyl comprising
+    chlorine and caustic soda, ethylene dichloride, and vinyl chloride monomer; and
+    construction chemicals consisting of cellulose ethers, redispersible latex powders,
+    and acrylic emulsions, as well as coatings, adhesives, sealants, elastomers, and
+    composites. The Performance Materials & Coatings segment provides architectural
+    paints and coatings, and industrial coatings; and acrylics-based building blocks,
+    silicon metals, siloxanes, and intermediates. The company also engages in the
+    property and casualty insurance, as well as reinsurance business. The company
+    was founded in 1897 and is headquartered in Midland, Michigan.
+  ceo_tenure: 0
+  debt_to_equity: 0.0108
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Dow Inc.
+  operating_margin: 4.29
+  pe_ratio: 0
+  products: ''
+  revenue: 42610000000.0
+  revenue_growth: 4.15
+  roic: 5.65
+  sector: Basic Materials
+  ticker: DOW
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_t: revenue_ttm
+    revenue_t-3: revenue_history_FY_2023
+  limitations: Falta de dato de ingresos exacto hace 3 años con periodo compatible.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs:
+    FCF_t: fcf_TTM
+    FCF_t-1: fcf_FY_2025
+  limitations: FCF del periodo anterior es negativo, impide cálculo de crecimiento
+    positivo.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100
+  inputs:
+    FCF: fcf_TTM
+    net_income: net_income_TTM
+  limitations: Ingreso neto es negativo, ratio no significativo según definición.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/dow/financials/
+  - as_of_date: '2026-10-26'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/DOW/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares_t: diluted_shares_current
+    diluted_shares_t-1: diluted_shares_prior
+  limitations: Datos de acciones diluidas no proporcionados en el paquete.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-10-26'
+  business_model: Dow Inc., through its subsidiaries, provides various materials science
+    solutions for packaging, infrastructure, mobility, and consumer applications in
+    the United States, Canada, Europe, the Middle East, Africa, India, the Asia Pacific,
+    and Latin America. The company operates through Packaging & Specialty Plastics,
+    Industrial Intermediates & Infrastructure, and Performance Materials & Coatings
+    segments. The Packaging & Specialty Plastics segment provides ethylene, propylene,
+    polyethylene, and aromatics products; and other ethylene derivatives, such as
+    polyolefin elastomers, ethylene vinyl acetate, and ethylene propylene diene monomer
+    rubber. The Industrial Intermediates & Infrastructure segment offers polyurethanes,
+    including propylene oxide, propylene glycol, and polyether polyols; aromatic isocyanates
+    and fully formulated polyurethane systems; and chlor-alkali and vinyl comprising
+    chlorine and caustic soda, ethylene dichloride, and vinyl chloride monomer; and
+    construction chemicals consisting of cellulose ethers, redispersible latex powders,
+    and acrylic emulsions, as well as coatings, adhesives, sealants, elastomers, and
+    composites. The Performance Materials & Coatings segment provides architectural
+    paints and coatings, and industrial coatings; and acrylics-based building blocks,
+    silicon metals, siloxanes, and intermediates. The company also engages in the
+    property and casualty insurance, as well as reinsurance business. The company
+    was founded in 1897 and is headquartered in Midland, Michigan.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 32.60139846801758
+  current_price_as_of_date: '2026-10-23'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0108
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-10-26T14:41:46.095109+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Dow Inc.
+  operating_margin: 4.29
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Dow Inc., through its subsidiaries, provides various materials science
+    solutions for packaging, infrastructure, mobility, and consumer applications in
+    the United States, Canada, Europe, the Middle East, Africa, India, the Asia Pacific,
+    and Latin America. The company operates through Packaging & Specialty Plastics,
+    Industrial Intermediates & Infrastructure, and Performance Materials & Coatings
+    segments. The Packaging & Specialty Plastics segment provides ethylene, propylene,
+    polyethylene, and aro
+
+
+    Evento disparador validado para revisar: {"event_id": "3dc9b4dd8a7ed0858a1d08c7da0affe096189878df0e848117150bcf0727b435",
+    "event_type": "quarterly_results", "observed_at": "2026-10-26T14:41:14.468483+00:00",
+    "occurred_at": "2026-10-22", "source_name": "Yahoo Finance earnings calendar via
+    yfinance", "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=DOW",
+    "summary": "El calendario de resultados indica la fecha 2026-10-22. La fecha no
+    confirma por sí sola la publicación del reporte; Research debe verificar el resultado
+    en una fuente primaria.", "ticker": "DOW"}'
+  revenue: 42610000000.0
+  revenue_growth: 4.15
+  roic: 5.65
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/dow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/DOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/DOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/DOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/DOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/dow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/dow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/dow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/DOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/dow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/DOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/dow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/dow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/dow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/DOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/DOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/dow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    41.0, "low": 30.0, "mean": 34.76, "median": 34.76, "observed_at": "2026-10-26T11:41:49.439798-03:00",
+    "sources": [{"as_of_date": "2026-10-26", "name": "stockanalysis", "observed_at":
+    "2026-10-26T11:41:49.439798-03:00", "observed_date": "2026-10-26", "target_price":
+    34.76, "url": "https://stockanalysis.com/stocks/dow/forecast/"}, {"as_of_date":
+    "2026-10-26", "name": "yfinance", "observed_at": "2026-10-26T11:41:49.439798-03:00",
+    "observed_date": "2026-10-26", "target_price": 34.76471, "url": "https://finance.yahoo.com/quote/DOW/"}]},
+    "current_quote": {"as_of_date": "2026-10-23", "currency": "USD", "price": 32.60139846801758,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/DOW/"}]}}'
+  sector: Basic Materials
+  ticker: DOW
+research_trigger:
+  discovery_snapshot_hash: ef33d08e41080991707417c4706a907f0c9d3e57297304afa9c4d991013bfca1
+  event_evidence:
+    event_id: 3dc9b4dd8a7ed0858a1d08c7da0affe096189878df0e848117150bcf0727b435
+    event_type: quarterly_results
+    observed_at: '2026-10-26T14:41:14.468483+00:00'
+    occurred_at: '2026-10-22'
+    source_name: Yahoo Finance earnings calendar via yfinance
+    source_url: https://finance.yahoo.com/calendar/earnings/?symbol=DOW
+    summary: El calendario de resultados indica la fecha 2026-10-22. La fecha no confirma
+      por sí sola la publicación del reporte; Research debe verificar el resultado
+      en una fuente primaria.
+    ticker: DOW
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 180af63f40baae99e68892a6c3ff5d5dc9ca907640dc2316fce5c84ef7097665
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: quarterly-results
+  triggered_at: '2026-10-26T11:42:07.741980-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- interest_coverage below threshold (0 < 2.0)
+- net_debt_ebitda below threshold not triggered
+- current_ratio above threshold
+- dilution_yoy_pct unavailable
+scenario_analysis:
+  as_of_date: '2026-10-26'
+  currency: USD
+  horizon_date: '2027-10-23'
+  scenarios:
+  - falsifiers:
+    - Mejora del margen bruto por encima de 12%
+    - Reducción de deuda neta bajo 3x EBITDA
+    id: BEAR
+    key_assumptions:
+    - Margen bruto se mantiene bajo 10%
+    - EBITDA no supera 3.5B USD
+    - Deuda neta aumenta a 5x EBITDA
+    rationale: El precio bajo refleja presión continua en márgenes, cobertura de intereses
+      insuficiente y falta de generación de efectivo.
+    sources:
+    - as_of_date: '2026-10-26'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/dow/forecast/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DOW/
+    target_price: 30.0
+  - falsifiers:
+    - Márgenes vuelven a caer bajo 11%
+    - FCF vuelve a ser negativo
+    id: BULL
+    key_assumptions:
+    - Margen bruto supera 13%
+    - FCF positivo y creciente
+    - Net debt/EBITDA cae bajo 3x
+    rationale: El precio alto asume recuperación de márgenes, generación de FCF positivo
+      y reducción de deuda neta.
+    sources:
+    - as_of_date: '2026-10-26'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/dow/forecast/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DOW/
+    target_price: 41.0
+  - falsifiers:
+    - Desviación significativa de márgenes o cobertura de intereses
+    id: BASE
+    key_assumptions:
+    - Márgenes estables alrededor del 11%
+    - Cobertura de intereses mejora a 1x
+    - Deuda neta se mantiene alrededor de 3.2x EBITDA
+    rationale: Precio medio del consenso refleja expectativas actuales del mercado
+      sin cambios estructurales.
+    sources:
+    - as_of_date: '2026-10-26'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/dow/forecast/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DOW/
+    target_price: 34.76
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 68
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-10-26T11:41:49.439798-03:00'
+  fuentes:
+    stockanalysis: 34.76
+    yfinance: 34.76471
+  mediana: 34.76
+  n_fuentes: 2
+  promedio: 34.76
+  source_references:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    observed_at: '2026-10-26T11:41:49.439798-03:00'
+    observed_date: '2026-10-26'
+    target_price: 34.76
+    url: https://stockanalysis.com/stocks/dow/forecast/
+  - as_of_date: '2026-10-26'
+    name: yfinance
+    observed_at: '2026-10-26T11:41:49.439798-03:00'
+    observed_date: '2026-10-26'
+    target_price: 34.76471
+    url: https://finance.yahoo.com/quote/DOW/
+  target_high: 41.0
+  target_low: 30.0
+tesis_inversion: Dow Inc. presenta una oportunidad de revalorización si logra revertir
+  su pérdida neta, mejorar el margen bruto y reducir su deuda neta, mientras que los
+  riesgos de cobertura de intereses y flujo de caja negativo limitan el upside.
+ticker: DOW
+version: '3.0'

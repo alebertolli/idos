@@ -1,0 +1,140 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto reportado en el trimestre Q3‑2027 es inferior al 26 %.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto reportado en el trimestre Q3‑2027 es inferior al 26 %.
+  horizon: corto
+  id: H1-OPP-MB-DOW
+  opportunity_id: OPP-MB-DOW
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 28.0
+    met: null
+    metric: gross_margin
+    prediction: El margen bruto reportado en el trimestre que finaliza el 30‑09‑2027
+      será igual o superior al 28 %.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La compañía ha anunciado inversiones de $1.2 bn en capacidad de especialidades
+    y ha firmado acuerdos de suministro con clientes de la industria automotriz, lo
+    que históricamente eleva los márgenes. Además, la tendencia de recuperación de
+    precios de materias primas favorece un mejor spread.
+  review_trigger: Si el informe de resultados del 30‑09‑2027 muestra un margen bruto
+    <26 %, la hipótesis se descarta.
+  secondary_hypotheses: []
+  statement: Dow Inc. lanzará una nueva línea de productos químicos especializados
+    de alto valor agregado que incrementará su margen bruto.
+  status: ACTIVE
+  ticker: DOW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Deuda neta reportada al 31‑12‑2027 superior a 9.0 bn USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Deuda neta reportada al 31‑12‑2027 superior a 9.0 bn USD.
+  horizon: medio
+  id: H2-OPP-MB-DOW
+  opportunity_id: OPP-MB-DOW
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 8.5
+    met: null
+    metric: net_debt
+    prediction: La deuda neta al 31‑12‑2027 será ≤ 8.5 bn USD.
+    unit: USD billions
+  priority: important
+  probability: 0.5
+  rationale: Los últimos comunicados de la empresa indican un plan de desinversión
+    de activos de $2 bn y un objetivo de generación de flujo de caja libre superior
+    a $1.5 bn en 2027, lo que permite amortizar deuda.
+  review_trigger: Si el balance consolidado del 31‑12‑2027 muestra una deuda neta
+    >9.0 bn USD, la hipótesis se invalida.
+  secondary_hypotheses: []
+  statement: Dow reducirá su deuda neta en al menos un 15 % mediante generación de
+    flujo de caja y venta de activos no estratégicos.
+  status: ACTIVE
+  ticker: DOW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Precio de cierre el 30‑06‑2028 inferior a 35 USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Precio de cierre el 30‑06‑2028 inferior a 35 USD.
+  horizon: largo
+  id: H3-OPP-MB-DOW
+  opportunity_id: OPP-MB-DOW
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 38.0
+    met: null
+    metric: stock_price
+    prediction: El precio de cierre de la acción será ≥ 38 USD el 30‑06‑2028.
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: La combinación de un margen bruto superior al 28 % (H1) y una reducción
+    de deuda neta al 15 % (H2) mejora los múltiplos de valoración, mientras que el
+    mercado aún percibe riesgo de cobertura de intereses, creando una brecha de valoración.
+  review_trigger: Si el precio de la acción el 30‑06‑2028 está por debajo de 35 USD,
+    la hipótesis se descarta.
+  secondary_hypotheses:
+  - H1-OPP-MB-DOW
+  - H2-OPP-MB-DOW
+  statement: El precio de la acción de Dow Inc. superará los 38 USD, reflejando la
+    revalorización del negocio tras la mejora operativa y financiera.
+  status: ACTIVE
+  ticker: DOW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Interest coverage ratio < 2.5× en el reporte anual 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Interest coverage ratio < 2.5× en el reporte anual 2027.
+  horizon: medio
+  id: H4-OPP-MB-DOW
+  opportunity_id: OPP-MB-DOW
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 3.0
+    met: null
+    metric: interest_coverage
+    prediction: El interest coverage ratio reportado en el reporte anual 2027 será
+      ≥ 3.0×.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: La reducción de deuda neta (H2) y el aumento del EBITDA esperado por
+    la nueva línea de productos (H1) incrementarán la capacidad de cubrir intereses,
+    mientras que la empresa ha renegociado parte de su deuda a tasas más bajas.
+  review_trigger: Si el informe anual 2027 muestra un interest coverage ratio inferior
+    a 2.5×, la hipótesis se invalida.
+  secondary_hypotheses:
+  - H1-OPP-MB-DOW
+  - H2-OPP-MB-DOW
+  statement: Dow mejorará su ratio de cobertura de intereses a al menos 3.0×, reduciendo
+    el riesgo de default.
+  status: ACTIVE
+  ticker: DOW
+  version: 1

@@ -1,0 +1,169 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Producción promedio diaria reportada en el Q2‑2027 < 1.55 millones
+      boe/d.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Informe de operaciones que indique una caída sostenida de la producción
+      desde Q1‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Producción promedio diaria reportada en el Q2‑2027 < 1.55 millones boe/d.
+  - Informe de operaciones que indique una caída sostenida de la producción desde
+    Q1‑2027.
+  horizon: corto
+  id: H1-OPP-MB-E
+  opportunity_id: OPP-MB-E
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 1.65
+    met: null
+    metric: producción upstream promedio diaria
+    prediction: La producción promedio diaria de upstream será ≥ 1.65 millones boe/d.
+    unit: millones boe/d
+  priority: critical
+  probability: 0.5
+  rationale: La compañía ha anunciado inversiones de €3.5 bn en proyectos de exploración
+    en Gela (Italia) y en campos offshore de África Occidental, y ha implementado
+    un programa de reducción de costos operativos del 5% que históricamente ha mejorado
+    la producción neta.
+  review_trigger: Si al 30‑04‑2027 los datos de producción acumulada del año muestran
+    una tendencia negativa y no superan 1.55 millones boe/d.
+  secondary_hypotheses: []
+  statement: Eni incrementará su producción upstream en un 10% interanual, alcanzando
+    al menos 1.65 millones de barriles de petróleo equivalente por día (boe/d) gracias
+    a nuevos programas de perforación y mejoras de eficiencia operativa.
+  status: ACTIVE
+  ticker: E
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Ratio net debt/EBITDA reportado en el FY2027 ≥ 2.2x.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Deuda neta aumenta en lugar de disminuir respecto al FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ratio net debt/EBITDA reportado en el FY2027 ≥ 2.2x.
+  - Deuda neta aumenta en lugar de disminuir respecto al FY2026.
+  horizon: medio
+  id: H2-OPP-MB-E
+  opportunity_id: OPP-MB-E
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 1.9
+    met: null
+    metric: ratio net debt/EBITDA
+    prediction: Net debt/EBITDA = 1.9x o menos.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: El aumento proyectado de la producción (H1) y la mejora de márgenes operativos
+    deberían elevar el EBITDA, mientras que la compañía ha anunciado un plan de recompra
+    de deuda de €5 bn para 2027.
+  review_trigger: Si los resultados del tercer trimestre 2027 (Q3‑2027) muestran un
+    ratio > 2.2x.
+  secondary_hypotheses:
+  - H1-OPP-MB-E
+  statement: Eni reducirá su ratio net debt/EBITDA a menos de 2.0x al cierre del ejercicio
+    2027, impulsado por mayores flujos de caja y una política agresiva de amortización
+    de deuda.
+  status: ACTIVE
+  ticker: E
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Forward P/E reportado en fuentes de mercado (Bloomberg, Refinitiv)
+      ≥ 9.5x al 31‑03‑2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción se mantiene por debajo de $55 sin ajuste de
+      expectativas de ganancias.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Forward P/E reportado en fuentes de mercado (Bloomberg, Refinitiv) ≥ 9.5x al 31‑03‑2028.
+  - El precio de la acción se mantiene por debajo de $55 sin ajuste de expectativas
+    de ganancias.
+  horizon: largo
+  id: H3-OPP-MB-E
+  opportunity_id: OPP-MB-E
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 7.5
+    met: null
+    metric: forward P/E
+    prediction: Forward P/E = 7.5x (±0.3).
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: La reducción del ratio deuda/EBITDA (H2) y la estabilización de los precios
+    del crudo en torno a $80‑$85/barril deberían mejorar la percepción de riesgo y
+    permitir una valoración más atractiva.
+  review_trigger: Si al 28‑02‑2028 el forward P/E supera 9.5x en al menos dos proveedores
+    de datos independientes.
+  secondary_hypotheses:
+  - H2-OPP-MB-E
+  statement: El múltiplo forward P/E de Eni caerá por debajo de 8x al 31‑03‑2028,
+    reflejando una re‑valoración del mercado tras la corrección de precios y la mejora
+    de la salud financiera.
+  status: ACTIVE
+  ticker: E
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Participación del EBITDA de renovables reportada en FY2028 < 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Retraso significativo (>12 meses) en la puesta en marcha de al menos
+      dos proyectos clave anunciados para 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Participación del EBITDA de renovables reportada en FY2028 < 3%.
+  - Retraso significativo (>12 meses) en la puesta en marcha de al menos dos proyectos
+    clave anunciados para 2027.
+  horizon: largo
+  id: H4-OPP-MB-E
+  opportunity_id: OPP-MB-E
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 5.0
+    met: null
+    metric: participación del EBITDA de renovables
+    prediction: Participación del EBITDA de renovables ≥ 5%.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: Eni ha anunciado una hoja de ruta de €12 bn en inversiones verdes para
+    2028, incluyendo parques eólicos en el Mediterráneo y una planta de captura de
+    CO₂ en el norte de Italia, lo que debería traducirse en ingresos y EBITDA crecientes
+    del segmento.
+  review_trigger: Si al 30‑09‑2028 los informes de resultados interinos muestran una
+    contribución del segmento renovable inferior al 3% del EBITDA total.
+  secondary_hypotheses: []
+  statement: El segmento de energías renovables y captura de carbono de Eni representará
+    al menos el 5% del EBITDA total al 31‑12‑2028, impulsado por una aceleración del
+    CAPEX en renovables y proyectos de CCS.
+  status: ACTIVE
+  ticker: E
+  version: 1

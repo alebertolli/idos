@@ -1,30 +1,50 @@
 {
   "selected": [
     {
-      "ticker": "AAPL",
-      "opp_id": "OPP-20261023-002",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null
+      "ticker": "DOW",
+      "opp_id": "OPP-MB-DOW",
+      "reason": "configured event trigger: quarterly_results (status=SCREENED)",
+      "force_reprocess": true,
+      "trigger_type": "quarterly_results",
+      "event_evidence": {
+        "event_type": "quarterly_results",
+        "ticker": "DOW",
+        "occurred_at": "2026-10-22",
+        "source_name": "Yahoo Finance earnings calendar via yfinance",
+        "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=DOW",
+        "summary": "El calendario de resultados indica la fecha 2026-10-22. La fecha no confirma por s\u00ed sola la publicaci\u00f3n del reporte; Research debe verificar el resultado en una fuente primaria.",
+        "observed_at": "2026-10-26T14:41:14.468483+00:00",
+        "event_id": "3dc9b4dd8a7ed0858a1d08c7da0affe096189878df0e848117150bcf0727b435"
+      }
     },
     {
-      "ticker": "AAPL",
-      "opp_id": "OPP-MB-AAPL",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null
+      "ticker": "E",
+      "opp_id": "OPP-MB-E",
+      "reason": "configured event trigger: quarterly_results (status=SCREENED)",
+      "force_reprocess": true,
+      "trigger_type": "quarterly_results",
+      "event_evidence": {
+        "event_type": "quarterly_results",
+        "ticker": "E",
+        "occurred_at": "2026-10-23",
+        "source_name": "Yahoo Finance earnings calendar via yfinance",
+        "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=E",
+        "summary": "El calendario de resultados indica la fecha 2026-10-23. La fecha no confirma por s\u00ed sola la publicaci\u00f3n del reporte; Research debe verificar el resultado en una fuente primaria.",
+        "observed_at": "2026-10-26T14:41:14.468483+00:00",
+        "event_id": "fc61162b30460d614cffee2afe687df119e8f4641604d6c3c72e6f44d519b6b8"
+      }
     }
   ],
   "skipped": [],
   "screened": [
     {
-      "ticker": "AAPL",
-      "opp_id": "OPP-20261023-002",
+      "ticker": "DOW",
+      "opp_id": "OPP-MB-DOW",
       "score": 0
     },
     {
-      "ticker": "AAPL",
-      "opp_id": "OPP-MB-AAPL",
+      "ticker": "E",
+      "opp_id": "OPP-MB-E",
       "score": 0
     }
   ],
