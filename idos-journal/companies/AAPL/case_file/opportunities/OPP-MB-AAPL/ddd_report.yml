@@ -1,0 +1,650 @@
+calidad_evidencia:
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 2
+catalizadores_previos: &id001
+- descripcion: Adopción masiva de Apple Vision Pro y generación de ingresos recurrentes
+    por contenido y suscripciones de AR/VR.
+  generated_at: '2026-10-26T10:33:03.930214-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20261023-002
+  probabilidad_anterior: 30
+- descripcion: Crecimiento sostenido de servicios (iCloud, Apple Music, Apple TV+,
+    App Store) superando el 20% anual.
+  generated_at: '2026-10-26T10:33:03.930214-03:00'
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: alto
+  opp_id: OPP-20261023-002
+  probabilidad_anterior: 45
+- descripcion: Incremento de recompra de acciones y aumento del dividendo.
+  generated_at: '2026-10-26T10:33:03.930214-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  opp_id: OPP-20261023-002
+  probabilidad_anterior: 60
+clasificacion_oportunidad:
+  categoria: Multibagger
+  justificacion: Alta confirmación de mercado (82.96) y fuerte impulso de precio 12m
+    (+33.7%).
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Modelo de negocio diversificado, alta retención de clientes y generación
+    de efectivo robusta.
+  rating: A
+dominio_catalizadores:
+- catalizador: Lanzamiento de Apple Vision Pro
+  impacto: Podría impulsar ingresos de servicios y hardware premium.
+- catalizador: Expansión de servicios de suscripción
+  impacto: Mejora de margen y generación de flujo de caja recurrente.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- impacto: El ratio de cobertura de intereses es 0, muy por debajo del umbral 2.0.
+  riesgo: Cobertura de intereses insuficiente
+- impacto: No se puede evaluar el riesgo de emisión de acciones.
+  riesgo: Falta de datos de dilución
+error_mercado:
+  catalizador_cambio: Revisión de ingresos y márgenes en FY 2026 podría ajustar expectativas
+    a la baja.
+  conclusion_error_valoracion: El mercado parece sobrevaluar ligeramente a Apple respecto
+    al consenso.
+  consenso_actual:
+    currency: USD
+    high: 405.0
+    low: 240.0
+    mean: 329.25
+    source:
+    - as_of_date: '2026-10-26'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/aapl/forecast/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AAPL/
+  hipotesis_contraria: El precio actual (347.17 USD) supera el promedio del consenso
+    (329.25 USD), indicando posible sobrevaloración.
+  razonamiento: La diferencia entre precio y media del consenso sugiere que los participantes
+    pueden estar incorporando expectativas de crecimiento que aún no se materializan.
+generated_at: '2026-10-26T10:35:42.715911-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-AAPL
+prompt_inputs:
+  business_model: Apple Inc. designs, manufactures, and markets smartphones, personal
+    computers, tablets, wearables, and accessories worldwide. The company offers iPhone,
+    a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose
+    tablets; and wearables, home, and accessories comprising AirPods, Apple Vision
+    Pro, Apple TV, Apple Watch, Beats products, and HomePod, as well as Apple branded
+    and third-party accessories. It also provides AppleCare support and cloud services;
+    and operates various platforms, including the App Store that allows customers
+    to discover and download applications and digital content, such as books, music,
+    video, games, and podcasts, as well as advertising services include third-party
+    licensing arrangements and its own advertising platforms. In addition, the company
+    offers various subscription-based services, such as Apple Arcade, a game subscription
+    service; Apple Fitness+, a personalized fitness service; Apple Music, which offers
+    users a curated listening experience with on-demand radio stations; Apple News+,
+    a subscription news and magazine service; Apple TV, which offers original content
+    and live sports; Apple Card, a co-branded credit card; and Apple Pay, a cashless
+    payment service, as well as licenses its intellectual property. The company serves
+    consumers, and small and mid-sized businesses; and the education, enterprise,
+    and government markets. It distributes third-party applications for its products
+    through the App Store. The company also sells its products through its retail
+    and online stores, and direct sales force; and third-party cellular network carriers
+    and resellers. The company was formerly known as Apple Computer, Inc. and changed
+    its name to Apple Inc. in January 2007. Apple Inc. was founded in 1976 and is
+    headquartered in Cupertino, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.78
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Apple Inc.
+  operating_margin: 33.17
+  pe_ratio: 39.89
+  products: ''
+  revenue: 466820000000.0
+  revenue_growth: 14.24
+  roic: 101.57
+  sector: Technology
+  ticker: AAPL
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-06-27'
+  sources:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/AAPL/statistics/
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/aapl/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: null
+  inputs:
+    fcf_growth_TTM: 42.11
+  limitations: Valor reportado incluye ajuste de un punto omitido.
+  metric: fcf_growth_pct
+  period_end: '2026-06-27'
+  sources:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/aapl/financials/
+  status: reported
+  unit: percent
+  value: 42.11
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-06-27'
+  sources:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/AAPL/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-06-27'
+  sources:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/aapl/financials/
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/AAPL/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (Diluted_Shares_t / Diluted_Shares_t-1) - 1
+  inputs: {}
+  limitations: No se dispone de historial de acciones diluidas para comparar periodos.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-10-26'
+  business_model: Apple Inc. designs, manufactures, and markets smartphones, personal
+    computers, tablets, wearables, and accessories worldwide. The company offers iPhone,
+    a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose
+    tablets; and wearables, home, and accessories comprising AirPods, Apple Vision
+    Pro, Apple TV, Apple Watch, Beats products, and HomePod, as well as Apple branded
+    and third-party accessories. It also provides AppleCare support and cloud services;
+    and operates various platforms, including the App Store that allows customers
+    to discover and download applications and digital content, such as books, music,
+    video, games, and podcasts, as well as advertising services include third-party
+    licensing arrangements and its own advertising platforms. In addition, the company
+    offers various subscription-based services, such as Apple Arcade, a game subscription
+    service; Apple Fitness+, a personalized fitness service; Apple Music, which offers
+    users a curated listening experience with on-demand radio stations; Apple News+,
+    a subscription news and magazine service; Apple TV, which offers original content
+    and live sports; Apple Card, a co-branded credit card; and Apple Pay, a cashless
+    payment service, as well as licenses its intellectual property. The company serves
+    consumers, and small and mid-sized businesses; and the education, enterprise,
+    and government markets. It distributes third-party applications for its products
+    through the App Store. The company also sells its products through its retail
+    and online stores, and direct sales force; and third-party cellular network carriers
+    and resellers. The company was formerly known as Apple Computer, Inc. and changed
+    its name to Apple Inc. in January 2007. Apple Inc. was founded in 1976 and is
+    headquartered in Cupertino, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 347.1650085449219
+  current_price_as_of_date: '2026-10-23'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.78
+  excess_return_roic_wacc: null
+  existing_wiki: "## 1. Visión General de la Compañía  \n**Apple Inc. (AAPL)** es\
+    \ una empresa tecnológica global que diseña, fabrica y comercializa dispositivos\
+    \ de consumo premium (iPhone, iPad, Mac, Apple Watch, AirPods) y ofrece servicios\
+    \ de suscripción (App Store, iCloud, Apple Music, Apple TV+, Apple Care).  \n\
+    - **Sector:** Tecnología – Hardware y Software de consumo.  \n- **Geografía:**\
+    \ Operaciones y ventas en América, Europa, Asia‑Pacífico y resto del mundo; la\
+    \ mayor parte de la fabricación está externalizada a socios en Asia (principalmente\
+    \ China).  \n- **Modelo de negocio:** Ingresos combinados de **hardware** (ventas\
+    \ de dispositivos), **software propio** (sistemas operativos, chips) y **servicios\
+    \ recurrentes** que generan flujos de caja estables.  \n\n*Fuente:* AOIF – paso 1\
+    \ y DDD (clasificación de oportunidad)【1】.\n\n---\n\n## 2. Modelo de Negocio y\
+    \ Posición Competitiva  \n\n| Elemento | Detalle | Evidencia |\n|----------|---------|-----------|\n\
+    | **Drivers de revenue** | - Ventas de iPhone y otros dispositivos premium.<br>-\
+    \ Crecimiento de servicios (iCloud, Apple Music, Apple TV+, App Store).<br>- Futuro:\
+    \ adopción de Apple Vision Pro (AR/VR). | AOIF paso 1, paso 2; DDD dominio catalizadores\
+    \ (servicios > 20 % anual)【2】 |\n| **Moat (foso competitivo)** | - **Ecosistema\
+    \ integrado** (hardware + software + servicios).<br>- **Lealtad de marca** y alta\
+    \ retención de clientes.<br>- **Patentes y propiedad intelectual**.<br>- **Red\
+    \ de distribución propia** (Apple Stores, canal online). | Inferencia LLM (DDD)\
+    \ y AOIF paso 3 (amplitud moat)【3】 |\n| **Dinámica competitiva** | Mercado de\
+    \ smartphones maduro; presión de precios. Crecimiento acelerado de servicios y\
+    \ de plataformas AR/VR. Riesgo regulatorio creciente (App Store). | DDD dominio business_quality;\
+    \ AOIF paso 3【4】 |\n| **Competidores / sector relacionado** | - Fabricantes de\
+    \ smartphones premium: [[Samsung Electronics]], [[Huawei]].<br>- Proveedores de\
+    \ equipos de fabricación de chips: [[ASML]] (por su papel en la cadena de suministro\
+    \ de semiconductores). | Contexto sectorial implícito. |\n\n*Valoración de posición:*\
+    \ **Líder** con **moat amplio** (AOIF paso 3) y **rating excepcional** en gestión\
+    \ (DDD dominio management)【5】.\n\n---\n\n## 3. Perfil Financiero  \n\n### Métricas\
+    \ clave (TTM)  \n\n| Métrica | Valor | Comentario |\n|---------|-------|------------|\n\
+    | **Free Cash Flow (FCF)** | **136.68 B USD** | Generación de caja robusta (DDD\
+    \ dominio financial_health)【6】 |\n| **Margen operativo** | **33.17 %** | Indicador\
+    \ de alta rentabilidad (DDD dominio financial_health)【6】 |\n| **Crecimiento de\
+    \ ingresos (TTM)** | **14.24 %** | Señal de expansión pese a madurez del smartphone\
+    \ (DDD dominio growth)【7】 |\n| **ROIC** | **30.5 %** | Eficiencia de capital (AOIF\
+    \ paso 2)【8】 |\n| **PER (P/E)** | **39.89×** | Valoración actual (AOIF paso 6)【9】\
+    \ |\n| **EV/EBITDA** | **29.84×** | (AOIF paso 6)【9】 |\n| **FCF Yield** | **2 %**\
+    \ | (AOIF paso 6)【9】 |\n| **Valor intrínseco estimado** | **≈ 350 USD** | (AOIF\
+    \ paso 6)【9】 |\n\n### Estructura de capital (datos no disponibles)  \n- **Deuda\
+    \ neta y ratios de cobertura**: *Información pendiente* (DDD preguntas abiertas)【10】.\
+    \  \n- **CAPEX futuro**: *Detalle pendiente* (DDD preguntas abiertas)【10】.\n\n\
+    ---\n\n## 4. Management y Gobierno Corporativo  \n\n| Aspecto | Detalle | Evidencia\
+    \ |\n|---------|---------|-----------|\n| **CEO** | Tim Cook (desde 2011). | AOIF\
+    \ paso 5 (alineamiento insiders)【11】 |\n| **Calidad del liderazgo** | Disciplina\
+    \ en asignación de capital (recompras, dividendos) y visión clara hacia servicios\
+    \ y AR/VR. | AOIF paso 5; DDD dominio management (rating excepcional)【12】 |\n\
+    | **Insider ownership** | “Fuerte” alineamiento (AOIF paso 5). | AOIF paso 5【11】\
+    \ |\n| **Composición del board** | Miembros con experiencia tecnológica y financiera;\
+    \ enfoque en ESG y regulación. | Inferencia LLM (DDD)【13】 |\n| **Política de incentivos**\
+    \ | Enfoque en creación de valor a largo plazo (recompras, dividendos). | AOIF\
+    \ paso 5【11】 |\n\n---\n\n## 5. Tesis de Inversión  \n\n**Hipótesis alcista:**\
+    \  \n1. **Moat sólido** basado en ecosistema integrado y lealtad de marca (DDD\
+    \ inferencias).  \n2. **Crecimiento de servicios** superior al 20 % anual (catalizador\
+    \ de medio‑largo plazo, DDD dominio catalizadores).  \n3. **Adopción de Apple Vision Pro**\
+    \ generará nuevos flujos de ingresos recurrentes (catalizador medio, probabilidad\
+    \ 30 %).  \n4. **Generación de caja** robusta permite seguir recompensando a accionistas\
+    \ y financiar inversiones (FCF 136.68 B USD).  \n\n**Cita:** “Apple posee un moat\
+    \ basado en ecosistema integrado y lealtad de marca” (DDD inferencias)【14】.  \n\
+    \n**Valoración actual:** Precio de mercado **347.17 USD** ligeramente superior\
+    \ al target medio de analistas (**329.25 USD**) y al valor intrínseco estimado\
+    \ (**≈ 350 USD**), lo que sugiere una **valoración justa** con upside potencial\
+    \ si los catalizadores se materializan (DDD opinión valoración “justo”)【15】.\n\
+    \n---\n\n## 6. Riesgos y Contra‑Tesis  \n\n| Riesgo | Tipo | Impacto | Probabilidad\
+    \ | Triggers de falsación |\n|--------|------|---------|--------------|-----------------------|\n\
+    | **Regulación antimonopolio** (App Store, privacidad) | Regulatorio | Alto |\
+    \ Media | Sanciones que limiten comisiones o impongan cambios estructurales. |\n\
+    | **Concentración de suministro en Asia** (fabricación iPhone) | Operativo | Medio\
+    \ | Media | Disrupciones geopolíticas o de cadena de suministro. |\n| **Desaceleración\
+    \ de ventas de iPhone** | Negocio | Alto | Media | Crecimiento de ingresos < 8 %\
+    \ anual (escenario BEAR). |\n| **Adopción lenta de Vision Pro** | Producto | Alto\
+    \ | Media | Crecimiento de ingresos < 10 % anual, múltiplo P/E < 20×. |\n\n**Contra‑tesis:**\
+    \ El precio actual ya incorpora expectativas de crecimiento que podrían no materializarse;\
+    \ una caída del múltiplo P/E a ~15× y crecimiento de ingresos < 8 % llevaría el\
+    \ precio objetivo a **≈ 240 USD** (escenario BEAR, DDD error mercado)【16】.\n\n\
+    ---\n\n## 7. Catalizadores y Timeline  \n\n| Catalizador | Horizonte | Impacto\
+    \ esperado | Probabilidad | Comentario |\n|-------------|-----------|------------------|--------------|------------|\n\
+    | **Lanzamiento y adopción masiva de Apple Vision Pro** | Medio (2027‑2028) |\
+    \ Alto | 30 % | Generará ingresos de hardware y suscripciones AR/VR (DDD dominio catalizadores).\
+    \ |\n| **Crecimiento sostenido de servicios (iCloud, Apple Music, Apple TV+, App Store)**\
+    \ | Largo (2028‑2030) | Medio | 45 % | Superar 20 % anual (DDD dominio catalizadores).\
+    \ |\n| **Actualizaciones regulatorias de la App Store** | Medio‑largo | Alto/Negativo\
+    \ | Media | Puede afectar márgenes de servicios. |\n| **Expansión de CAPEX en\
+    \ fabricación propia de chips (Apple Silicon)** | Largo | Medio | Media | Aún\
+    \ sin datos detallados (DDD preguntas abiertas). |\n\n---\n\n## 8. Marco de Valoración\
+    \  \n\n**Metodología:** **Descuento de Flujos de Caja (DCF)** complementado con\
+    \ múltiplos de mercado (P/E, EV/EBITDA).  \n\n| Supuesto clave | Valor | Fuente\
+    \ |\n|----------------|-------|--------|\n| **FCF TTM** | 136.68 B USD | DDD dominio financial_health【6】\
+    \ |\n| **Crecimiento de ingresos** | 14.24 % (base) ; 10‑15 % (escenarios) | AOIF\
+    \ paso 2; DDD dominio growth【7】 |\n| **WACC** | 7.5 % (asumido) | Inferencia LLM\
+    \ (práctica estándar) |\n| **Tasa de crecimiento terminal** | 2.5 % | Inferencia\
+    \ LLM |\n| **Múltiplo P/E medio** | 39.89× (actual) | AOIF paso 6【9】 |\n| **Valor\
+    \ intrínseco estimado** | ≈ 350 USD | AOIF paso 6【9】 |\n\n**Análisis de sensibilidad:**\
+    \  \n\n| Crecimiento de ingresos (anual) | P/E resultante | Precio objetivo (USD)\
+    \ |\n|--------------------------------|----------------|-----------------------|\n\
+    | 8 % | 30× | 240 |\n| 12 % | 35× | 320 |\n| 15 %+ | 45× | 405 |\n\nLos rangos\
+    \ coinciden con los escenarios **BEAR** (240 USD) y **BULL** (405 USD) definidos\
+    \ en la investigación (DDD y AOIF)【17】.\n\n---\n\n## 9. Preguntas Abiertas y Agenda\
+    \ de Investigación  \n\n| Área | Pregunta | Prioridad |\n|------|----------|-----------|\n\
+    | **Deuda y cobertura** | ¿Cuál es el nivel exacto de deuda neta y los ratios\
+    \ de cobertura? | Alta |\n| **CAPEX futuro** | Detalle del gasto de capital proyectado\
+    \ y su impacto en flujo de caja. | Alta |\n| **Adopción Vision Pro** | ¿Cuál es\
+    \ la tasa real de adopción y el ARPU esperado? | Media |\n| **Regulación App Store**\
+    \ | Posibles escenarios regulatorios y su efecto en márgenes de servicios. | Media\
+    \ |\n| **Impacto ESG** | Evaluar riesgos de la cadena de suministro en Asia bajo\
+    \ nuevas normativas medioambientales. | Baja |\n\n*Estas preguntas guían la investigación\
+    \ adicional para validar o refutar los supuestos clave de la tesis.*  \n\n---\n\
+    \n### Referencias  \n\n1. DDD – clasificación de oportunidad y dominio business_quality.\
+    \  \n2. DDD – dominio catalizadores (servicios > 20 % anual).  \n3. DDD – inferencias\
+    \ LLM sobre moat; AOIF paso 3 (amplitud moat).  \n4. DDD – dominio business_quality\
+    \ y growth; AOIF paso 3 (dinámica industria).  \n5. DDD – dominio management (rating excepcional).\
+    \  \n6. DDD – dominio financial_health (FCF, margen operativo).  \n7. DDD – dominio growth\
+    \ (crecimiento ingresos 14.24 %).  \n8. AOIF – paso 2 (ROIC 30.5 %).  \n9. AOIF\
+    \ – paso 6 (PER 39.89×, EV/EBITDA 29.84×, valor intrínseco 350 USD).  \n10. DDD\
+    \ – preguntas abiertas (deuda, CAPEX).  \n11. AOIF – paso 5 (alineamiento insiders,\
+    \ gestión de capital).  \n12. DDD – dominio management (rating excepcional). \
+    \ \n13. Inferencia LLM (DD D) sobre gobierno corporativo.  \n14. DDD – inferencias\
+    \ LLM sobre moat.  \n15. DDD – opinión valoración “justo” y consenso de analistas.\
+    \  \n16. DDD – error mercado (escenario BEAR, target 240 USD).  \n17. DDD & AOIF\
+    \ – esquema de escenarios bear/bull (bear_bull_v2).\n\n---\n\n## Related Companies\n\
+    \n- **Same Sector**: [[ASML|ASML Holding N.V.]]"
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-10-26T13:31:49.058029+00:00", "period_end": "2026-06-27",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Apple Inc.
+  operating_margin: 33.17
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Apple Inc. designs, manufactures, and markets smartphones, personal
+    computers, tablets, wearables, and accessories worldwide. The company offers iPhone,
+    a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose
+    tablets; and wearables, home, and accessories comprising AirPods, Apple Vision
+    Pro, Apple TV, Apple Watch, Beats products, and HomePod, as well as Apple branded
+    and third-party accessories. It also provides AppleCare support and cloud services;
+    and operates v
+  revenue: 466820000000.0
+  revenue_growth: 14.24
+  roic: 101.57
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aapl/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AAPL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AAPL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AAPL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AAPL/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aapl/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aapl/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aapl/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AAPL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aapl/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AAPL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aapl/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aapl/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aapl/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AAPL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AAPL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-06-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aapl/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    405.0, "low": 240.0, "mean": 329.25, "median": 329.25, "observed_at": "2026-10-26T10:31:52.473497-03:00",
+    "sources": [{"as_of_date": "2026-10-26", "name": "stockanalysis", "observed_at":
+    "2026-10-26T10:31:52.473497-03:00", "observed_date": "2026-10-26", "target_price":
+    329.25, "url": "https://stockanalysis.com/stocks/aapl/forecast/"}, {"as_of_date":
+    "2026-10-26", "name": "yfinance", "observed_at": "2026-10-26T10:31:52.473497-03:00",
+    "observed_date": "2026-10-26", "target_price": 329.24768, "url": "https://finance.yahoo.com/quote/AAPL/"}]},
+    "current_quote": {"as_of_date": "2026-10-23", "currency": "USD", "price": 347.1650085449219,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/AAPL/"}]}}'
+  sector: Technology
+  ticker: AAPL
+research_trigger:
+  discovery_snapshot_hash: 5acfc28e599b04cdb129a3f400a347dc8b4aeed45c661b57a5c8f05555e534e8
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 43d3e51694e57f209599c295e287c11f0f21fc803145d2031d2376fc274f764e
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: manual
+  triggered_at: '2026-10-26T10:35:42.715911-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- Interest coverage ratio 0 below threshold 2.0
+scenario_analysis:
+  as_of_date: '2026-10-26'
+  currency: USD
+  horizon_date: '2027-10-26'
+  scenarios:
+  - falsifiers:
+    - Crecimiento de ingresos FY 2026 >5%
+    - Mantenimiento de margen bruto >46%
+    id: BEAR
+    key_assumptions:
+    - Revenue CAGR 3y cae a 2.5%
+    - Gross margin disminuye a 44%
+    - Dilución anual >10%
+    rationale: Ingresos crecen <3% CAGR, margen bruto se contrae y se intensifica
+      la competencia.
+    sources:
+    - as_of_date: '2026-10-26'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/aapl/forecast/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AAPL/
+    target_price: 240.0
+  - falsifiers:
+    - Revenue CAGR <4% en FY 2026
+    - Márgenes caen bajo 45%
+    id: BULL
+    key_assumptions:
+    - Revenue CAGR 3y mantiene 7%+
+    - Gross margin mejora a 50%
+    - FCF conversion >110%
+    rationale: Crecimiento de ingresos superior al 8% CAGR, margen bruto supera 50%
+      y sin dilución significativa.
+    sources:
+    - as_of_date: '2026-10-26'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/aapl/forecast/
+    - as_of_date: '2026-10-26'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AAPL/
+    target_price: 405.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 82.96
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-10-26T10:31:52.473497-03:00'
+  fuentes:
+    stockanalysis: 329.25
+    yfinance: 329.24768
+  mediana: 329.25
+  n_fuentes: 2
+  promedio: 329.25
+  source_references:
+  - as_of_date: '2026-10-26'
+    name: stockanalysis
+    observed_at: '2026-10-26T10:31:52.473497-03:00'
+    observed_date: '2026-10-26'
+    target_price: 329.25
+    url: https://stockanalysis.com/stocks/aapl/forecast/
+  - as_of_date: '2026-10-26'
+    name: yfinance
+    observed_at: '2026-10-26T10:31:52.473497-03:00'
+    observed_date: '2026-10-26'
+    target_price: 329.24768
+    url: https://finance.yahoo.com/quote/AAPL/
+  target_high: 405.0
+  target_low: 240.0
+tesis_inversion: Apple mantiene un sólido flujo de caja y margen bruto, pero la valoración
+  actual supera el consenso medio; la inversión depende de la capacidad de sostener
+  el crecimiento de ingresos y evitar dilución significativa.
+ticker: AAPL
+version: '3.0'

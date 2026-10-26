@@ -1,0 +1,137 @@
+assessments:
+  BusinessAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: BusinessAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: 'Exceptional ROIC: 101.57%'
+      type: POSITIVE
+    - detail: 'Excellent margins: 33.17%'
+      type: POSITIVE
+    generated_at: '2026-10-26T10:37:32.092359-03:00'
+    id: BusinessAssessmentEngine-20261026103732
+    recommendation: FAVORABLE
+    risks: []
+    score: 72
+    status: COMPLETED
+    version: '1.0'
+  PortfolioAssessmentEngine:
+    confidence: LOW
+    dependencies: []
+    engine: PortfolioAssessmentEngine
+    evidence_ids: []
+    findings:
+    - detail: Private family portfolio source is not connected; portfolio fit is not
+        assessed
+      type: PENDING
+    generated_at: '2026-10-26T10:37:32.092411-03:00'
+    id: PortfolioAssessmentEngine-20261026103732
+    recommendation: NOT_ASSESSED
+    risks:
+    - detail: Do not infer capacity, diversification, or position count from missing
+        or paper data
+      type: DATA_UNAVAILABLE
+    score: 50
+    status: COMPLETED
+    version: '1.1'
+  RecoveryAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RecoveryAssessmentEngine
+    evidence_ids: []
+    findings:
+    - dimension: business_momentum
+      level: MEDIUM
+      score: 60
+      type: DIMENSION
+    - dimension: valuation_gap
+      level: MEDIUM
+      score: 60
+      type: DIMENSION
+    - dimension: market_expectations
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: catalysts
+      level: MEDIUM
+      score: 40
+      type: DIMENSION
+    - dimension: technical_confirmation
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    - dimension: risk_compression
+      level: MEDIUM
+      score: 50
+      type: DIMENSION
+    generated_at: '2026-10-26T10:37:32.092400-03:00'
+    id: RecoveryAssessmentEngine-20261026103732
+    recommendation: MODERATE
+    risks: []
+    score: 52
+    status: COMPLETED
+    version: '1.0'
+  RiskAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: RiskAssessmentEngine
+    evidence_ids: []
+    findings: []
+    generated_at: '2026-10-26T10:37:32.092407-03:00'
+    id: RiskAssessmentEngine-20261026103732
+    recommendation: LOW_RISK
+    risks: []
+    score: 70
+    status: COMPLETED
+    version: '1.0'
+  ValuationAssessmentEngine:
+    confidence: MEDIUM
+    dependencies: []
+    engine: ValuationAssessmentEngine
+    evidence_ids: []
+    findings: []
+    generated_at: '2026-10-26T10:37:32.092375-03:00'
+    id: ValuationAssessmentEngine-20261026103732
+    recommendation: FAIR
+    risks:
+    - detail: 'Price target below current: -4.4%'
+      type: VALUATION
+    score: 45
+    status: COMPLETED
+    version: '1.1'
+conviction_score: 59
+created_at: '2026-10-26T10:37:32.092480-03:00'
+financial_data_quality:
+  as_of_basis: period_end_date
+  as_of_date: '2026-06-27'
+  as_of_date_source: stockanalysis.com
+  conflicting_core_metrics: []
+  core_metric_coverage: 5/5
+  missing_core_metrics: []
+  missing_provenance: []
+  source: stockanalysis.com
+  status: good
+  unreconciled_core_metrics: []
+generated_at: '2026-10-26T10:37:32.092572-03:00'
+opportunity_id: OPP-MB-AAPL
+reasoning: 'Rules blocked: RULE-005, RULE-008'
+recommendation: BLOCKED
+rules_details:
+  RULE-001: 'Business quality: 72/70'
+  RULE-003: 'Rerating: 52/50'
+  RULE-004: 'Risk: 70/50'
+  RULE-005: 'Conviction: 59/65'
+  RULE-008: B/R 0.6:1 ❌ (Bull +17.5% / Bear -30.3%)
+  RULE-010: Fuente y fecha de corte verificadas; cobertura 5/5
+rules_failed:
+- RULE-005
+- RULE-008
+rules_passed:
+- RULE-001
+- RULE-003
+- RULE-004
+- RULE-010
+scenario_hash: 1371a5829f4f780bff2fe05ce412f447642b549bf98b408f746e1988fe91b85a
+status: BLOCKED
+type: opportunity:transitioned

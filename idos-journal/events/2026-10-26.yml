@@ -1,0 +1,49 @@
+events:
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: manual
+    hypotheses: 4
+    input_snapshot_sha256: e29544b7151559fa0d089948b527f3ea7c96e21ba2765140cf9bcc3918225a80
+    opp_id: OPP-20261023-002
+    score: 84
+    strategy_version: positive_fundamentals_v1
+    ticker: AAPL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-10-26T13:34:48.309185'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-AAPL
+    ticker: AAPL
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-10-26T13:35:42.711770'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-AAPL
+    ticker: AAPL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-10-26T13:35:42.714438'
+- data:
+    classification: Multibagger
+    event_evidence: null
+    event_type: manual
+    hypotheses: 4
+    input_snapshot_sha256: 43d3e51694e57f209599c295e287c11f0f21fc803145d2031d2376fc274f764e
+    opp_id: OPP-MB-AAPL
+    score: 82.96
+    strategy_version: '1.5'
+    ticker: AAPL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-10-26T13:37:30.928814'

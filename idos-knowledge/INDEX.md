@@ -7,9 +7,10 @@ aliases:
 
 # IDOS Company Index
 
-Total: 1 companies tracked
+Total: 2 companies tracked
 
 ## Technology
+- 📄 [[AAPL|Apple Inc.]]
 - 📄 [[ASML|ASML Holding N.V.]]
 
 ---
