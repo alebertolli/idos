@@ -252,6 +252,7 @@ jobs:
         run: python scripts/ddd_digest.py
 
       - name: Commit results
+        id: publish-results
         if: github.event.inputs.preview_only != 'true'
         run: |
           TARGET_BRANCH="${GITHUB_REF_NAME}"
@@ -267,6 +268,7 @@ jobs:
           git add idos-knowledge/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to commit"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -m "chore: ddd research $(date +%Y-%m-%d)"
@@ -284,9 +286,10 @@ jobs:
             echo "[ERROR] Push to origin/$TARGET_BRANCH failed. DDD results were not published."
             exit 1
           fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Open or update scheduled results PR and enable auto-merge
-        if: github.event_name == 'schedule' && github.event.inputs.preview_only != 'true'
+        if: github.event_name == 'schedule' && github.event.inputs.preview_only != 'true' && steps.publish-results.outputs.changed == 'true'
         run: |
           gh pr view codex/ddd-research-results --json number >/dev/null 2>&1 || \
             gh pr create --base main --head codex/ddd-research-results --title "chore: publish scheduled DDD results" --body "Publishes queued Research results and resumable work from the scheduled DDD pipeline."
