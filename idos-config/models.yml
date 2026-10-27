@@ -10,6 +10,7 @@ llm:
         - reasoning
         - analysis
         - classification
+        - research
     groq:
       model: openai/gpt-oss-120b
       fallback: openai/gpt-oss-20b
@@ -18,6 +19,7 @@ llm:
       task_types:
         - reasoning
         - analysis
+        - research
     openrouter:
       model: google/gemma-4-31b-it:free
       rpm: 20
@@ -26,6 +28,8 @@ llm:
         - reasoning
         - analysis
         - classification
+      disabled_task_types:
+        - research
   fallback_order:
     - provider: groq
       model: openai/gpt-oss-120b

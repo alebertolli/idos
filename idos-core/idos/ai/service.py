@@ -52,6 +52,9 @@ class LLMService:
         self.circuit_breakers: dict[str, CircuitBreaker] = {}
         self.rate_limiters: dict[str, RateLimiter] = {}
         self.provider_limits: dict[str, dict] = {}
+        self.blocked_providers: dict[str, dict[str, Any]] = {}
+        self.capacity_exhausted = False
+        self.capacity_failure: dict[str, Any] | None = None
 
         cb_cfg = llm_cfg.get("circuit_breaker", {})
         cb_threshold = cb_cfg.get("failure_threshold", 3)
@@ -79,6 +82,7 @@ class LLMService:
                 "rpm": pcfg.get("rpm", 30),
                 "rpd": pcfg.get("rpd", 1000),
                 "task_types": pcfg.get("task_types", []),
+                "disabled_task_types": pcfg.get("disabled_task_types", []),
             }
 
         self.fallback_order = llm_cfg.get("fallback_order", [])
@@ -89,20 +93,38 @@ class LLMService:
 
     def _rank_providers(self, task_type: str = "analysis",
                         provider_hint: str | None = None) -> list[str]:
+        def supports_task(provider: str) -> bool:
+            limits = self.provider_limits.get(provider, {})
+            return task_type not in limits.get("disabled_task_types", [])
+
         ordered = []
-        if provider_hint and provider_hint in self.clients:
+        if provider_hint and provider_hint in self.clients and supports_task(provider_hint):
             ordered.append(provider_hint)
         best = self.router.select(task_type)
-        if best and best not in ordered:
+        if best and best not in ordered and supports_task(best):
             ordered.append(best)
         for entry in self.fallback_order:
             p = entry.get("provider")
-            if p in self.clients and p not in ordered:
+            if p in self.clients and p not in ordered and supports_task(p):
                 ordered.append(p)
         for p in self.clients:
-            if p not in ordered:
+            if p not in ordered and supports_task(p):
                 ordered.append(p)
         return ordered
+
+    def _block_provider_for_local_limit(self, provider: str, limit_name: str, limiter: RateLimiter) -> dict[str, Any]:
+        delay = limiter.retry_after_seconds(provider)
+        block = {
+            "status_code": 429,
+            "source": "local_rate_limit",
+            "limit": limit_name,
+            "retry_after_seconds": delay,
+            "rate_limit_reset_seconds": delay,
+        }
+        if not hasattr(self, "blocked_providers"):
+            self.blocked_providers = {}
+        self.blocked_providers[provider] = block
+        return {"provider": provider, **block}
 
     def generate(
         self,
@@ -116,6 +138,7 @@ class LLMService:
     ) -> LLMResponse:
         providers = self._rank_providers(task_type, provider_hint)
         first_error = ""
+        capacity_failures: list[dict[str, Any]] = []
         start = time.time()
 
         print(f"\n{'='*60}")
@@ -124,6 +147,9 @@ class LLMService:
         print(f"[LLM] PROMPT: {(prompt[:200] + '...') if len(prompt) > 200 else prompt}")
 
         for provider in providers:
+            if provider in getattr(self, "blocked_providers", {}):
+                print(f"[LLM] {provider}: cuota agotada en esta corrida, skipping")
+                continue
             cb = self.circuit_breakers.get(provider)
             if cb and not cb.is_available:
                 print(f"[LLM] {provider}: circuit OPEN, skipping")
@@ -133,11 +159,13 @@ class LLMService:
             rl_rpd = self.rate_limiters.get(f"{provider}:rpd")
             if rl_rpm and not rl_rpm.allow(provider):
                 remaining = rl_rpm.remaining(provider)
-                print(f"[LLM] {provider}: RPM limit reached ({remaining} remaining this min), skipping")
+                print(f"[LLM] {provider}: RPM limit reached ({remaining} remaining this min), deferring")
+                capacity_failures.append(self._block_provider_for_local_limit(provider, "rpm", rl_rpm))
                 continue
             if rl_rpd and not rl_rpd.allow(provider):
                 remaining = rl_rpd.remaining(provider)
-                print(f"[LLM] {provider}: RPD limit reached ({remaining} remaining today), skipping")
+                print(f"[LLM] {provider}: RPD limit reached ({remaining} remaining today), deferring")
+                capacity_failures.append(self._block_provider_for_local_limit(provider, "rpd", rl_rpd))
                 continue
 
             client = self.clients[provider]
@@ -171,18 +199,44 @@ class LLMService:
                 self.router.record_outcome(provider, False, resp.latency_ms)
                 if cb:
                     cb.record_failure()
+                if resp.status_code in (402, 429):
+                    block = {
+                        "status_code": resp.status_code,
+                        "retry_after_seconds": resp.retry_after_seconds,
+                        "rate_limit_remaining_tokens": resp.rate_limit_remaining_tokens,
+                        "rate_limit_reset_seconds": resp.rate_limit_reset_seconds,
+                    }
+                    self.blocked_providers.setdefault(provider, block)
+                    capacity_failures.append({"provider": provider, **block})
                 safe_error = redact_sensitive_text(resp.error)
                 if not first_error:
                     first_error = safe_error
                 print(f"[LLM] {provider}: FAILED - {safe_error[:150]}")
-                time.sleep(2)
+                if resp.status_code not in (402, 429):
+                    time.sleep(2)
                 continue
 
+        all_blocked = bool(providers) and all(
+            provider in getattr(self, "blocked_providers", {}) for provider in providers
+        )
+        self.capacity_exhausted = all_blocked
+        if all_blocked and capacity_failures:
+            self.capacity_failure = capacity_failures[-1]
+        elif all_blocked and not getattr(self, "capacity_failure", None):
+            self.capacity_failure = next(({'provider': provider, **self.blocked_providers[provider]} for provider in reversed(providers) if provider in getattr(self, "blocked_providers", {})), None)
+        elif not all_blocked:
+            self.capacity_failure = None
         print(f"{'='*60}\n")
+        failure = getattr(self, "capacity_failure", None) or {}
         return LLMResponse(
             content="", success=False,
             error=redact_sensitive_text(first_error or "All providers failed"),
             latency_ms=int((time.time() - start) * 1000),
+            provider=str(failure.get("provider", "")),
+            status_code=failure.get("status_code"),
+            retry_after_seconds=failure.get("retry_after_seconds"),
+            rate_limit_remaining_tokens=failure.get("rate_limit_remaining_tokens"),
+            rate_limit_reset_seconds=failure.get("rate_limit_reset_seconds"),
         )
 
     def generate_structured(

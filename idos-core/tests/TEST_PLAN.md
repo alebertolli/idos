@@ -763,3 +763,19 @@ Antes de la primera corrida productiva tras el reinicio:
 6. Incluir como máximo las cinco observaciones fechadas más recientes por serie en el contexto LLM, informar omitted_points y preservar los registros completos en la fuente auditable; probar una serie larga y verificar que el contexto resultante queda acotado.
 7. Vincular en forma determinista las citas de cada ratio a las URLs HTTPS de sus inputs declarados; verificar que entradas ausentes/no permitidas no reescriban ni legitimen una URL no confiable.
 8. Probar que productos, geografías y demás campos anidados se limitan por profundidad, longitud y número de elementos; serializar el contexto final y mantenerlo bajo 15 KB.
+
+
+## §16 Recuperación de cuota LLM en Research
+
+- Research automático limita cada ejecución a cinco oportunidades y persiste
+  la cola versionada en cache/ddd_research_resume.json.
+- La programación diaria reintenta únicamente pendientes vencidos; los errores
+  402/429 bloquean ese proveedor durante la corrida y evitan repetir sus llamadas.
+  Assessment consume sólo Research completado.
+- Los resultados programados se publican en codex/ddd-research-results mediante
+  PR; CI corre antes de solicitar auto-merge. La protección de main conserva
+  sus reglas de revisión.
+- Verificar sin credenciales: parseo de Retry-After, salto del fallback del
+  mismo proveedor con 429, persistencia atómica/validación de cola y exclusión
+  de estados diferidos de Assessment. La E2E con proveedor real queda pendiente
+  de capacidad disponible y autorización para consumir cuota.

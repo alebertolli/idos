@@ -35,7 +35,7 @@ def main():
         sys.exit(0)
 
     results = json.loads(open(results_file, encoding='utf-8').read())
-    processed = results.get('processed', [])
+    processed = [item for item in results.get('processed', []) if item.get('status') == 'completed']
     assessments = results.get('assessments', [])
     errors = results.get('errors', [])
     total = results.get('total', len(processed))
@@ -46,8 +46,12 @@ def main():
         if len(items) != 1:
             raise ValueError('REASSESS_EXISTING requires exactly one previously assessed opportunity for the selected ticker')
     else:
-        # Use assessment results if available, else use processed
-        items = assessments if assessments else processed
+        # Re-assess fresh Research even if an older assessment already exists.
+        processed_keys = {(item.get('ticker', '').upper(), item.get('opp_id')) for item in processed}
+        items = processed + [
+            item for item in assessments
+            if (item.get('ticker', '').upper(), item.get('opp_id')) not in processed_keys
+        ]
 
     if not items:
         print('[ASSESSMENT] No opportunities to assess')
@@ -84,7 +88,8 @@ def main():
             index for index, item in enumerate(assessments)
             if str(item.get('ticker') or '').upper() == ticker and item.get('opp_id') == opp_id
         ), None)
-        if existing_index is not None and not reassess_existing:
+        is_fresh_research = (ticker, opp_id) in processed_keys if not reassess_existing else False
+        if existing_index is not None and not reassess_existing and not is_fresh_research:
             print('[ASSESSMENT] Skipping already assessed: {} {}'.format(ticker, opp_id))
             continue
 
@@ -101,7 +106,7 @@ def main():
 
         try:
             result = run_full_pipeline(opp_id, ticker, workspace, force_reprocess=opp.get('force', False))
-            if reassess_existing and existing_index is not None:
+            if existing_index is not None:
                 assessments[existing_index] = result
             else:
                 assessments.append(result)

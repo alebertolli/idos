@@ -26,7 +26,28 @@ from pathlib import Path
 from idos.research.events import canonical_event_type, load_event_evidence
 
 STALE_DAYS = 30
+MAX_RESEARCH_CANDIDATES_PER_RUN = 5
+RESUME_QUEUE_PATH = Path("cache/ddd_research_resume.json")
 SKIP_TICKERS = set()
+
+def _save_resume_queue(items: list[dict]) -> None:
+    """Persist deferred monthly Research work atomically for the next scheduled run."""
+    RESUME_QUEUE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    temporary = RESUME_QUEUE_PATH.with_suffix(".json.tmp")
+    temporary.write_text(json.dumps({"schema_version": 1, "pending": items}, indent=2), encoding="utf-8")
+    temporary.replace(RESUME_QUEUE_PATH)
+
+
+def _load_resume_queue() -> list[dict]:
+    try:
+        payload = json.loads(RESUME_QUEUE_PATH.read_text(encoding="utf-8"))
+        if payload.get("schema_version") != 1 or not isinstance(payload.get("pending"), list):
+            return []
+        return [item for item in payload["pending"] if isinstance(item, dict) and item.get("ticker") and item.get("opp_id")]
+    except (OSError, ValueError, AttributeError):
+        return []
+
+
 EVENT_RESEARCHABLE_STATUSES = {
     "SCREENED",
     "UNDER_RESEARCH",
@@ -411,6 +432,7 @@ def main():
     tickers_env = os.environ.get('TICKER', '')
     tickers = [t.strip().upper() for t in tickers_env.split(',') if t.strip()] if tickers_env else []
     event_type = os.environ.get('EVENT_TYPE', 'monthly')
+    resume_pending = os.environ.get('RESUME_PENDING', 'false').lower() == 'true'
     event_requested = _canonical_event_type(event_type)
     review_buylist = os.environ.get("REVIEW_BUYLIST", "false").lower() == "true"
     if review_buylist and (not force or len(tickers) != 1 or event_type != "manual"):
@@ -439,7 +461,13 @@ def main():
     skipped_list = []
     companies_dir = journal / 'companies'
 
-    if companies_dir.exists():
+    if resume_pending:
+        today = datetime.now(timezone.utc).date().isoformat()
+        queue = _load_resume_queue()
+        opportunities = [item for item in queue if item.get('next_attempt_date', '') <= today][:MAX_RESEARCH_CANDIDATES_PER_RUN]
+        print(f"[DDD] Resume mode: {len(opportunities)} due of {len(queue)} queued opportunities")
+
+    if not resume_pending and companies_dir.exists():
         for d in sorted(companies_dir.iterdir()):
             if not d.is_dir():
                 continue
@@ -537,6 +565,20 @@ def main():
         }, indent=2), encoding='utf-8')
         return 0
 
+    queue = _load_resume_queue() if resume_pending else []
+    if not resume_pending and event_type in {'monthly', 're-research-30d'}:
+        known = {(item.get('ticker'), item.get('opp_id')) for item in queue}
+        for item in opportunities:
+            key = (item.get('ticker'), item.get('opp_id'))
+            if key not in known:
+                queue.append({**item, 'next_attempt_date': datetime.now(timezone.utc).date().isoformat()})
+                known.add(key)
+        _save_resume_queue(queue)
+    elif not resume_pending:
+        queue = []
+
+    if len(opportunities) > MAX_RESEARCH_CANDIDATES_PER_RUN:
+        opportunities = opportunities[:MAX_RESEARCH_CANDIDATES_PER_RUN]
     print('[DDD] To process: {}'.format(len(opportunities)))
     for o in opportunities:
         print('  - {} {} ({}) reason={}'.format(
@@ -564,7 +606,8 @@ def main():
     })
     rw_results = []
     rw_errors = []
-    for opp in opportunities:
+    deferred_for_capacity = False
+    for index, opp in enumerate(opportunities):
         ticker = opp['ticker']
         opp_id = opp['opp_id']
         opp_force = opp.get('force_reprocess', False)
@@ -591,6 +634,22 @@ def main():
                 'reason': opp.get('reason', ''),
                 'errors': validation_errors,
             })
+            if getattr(llm_service, 'capacity_exhausted', False):
+                deferred_for_capacity = True
+                rw_results[-1]['status'] = 'deferred_capacity'
+                queue = [item for item in queue if (item.get('ticker'), item.get('opp_id')) != (ticker, opp_id)]
+                queue.append({**opp, 'next_attempt_date': datetime.now(timezone.utc).date().isoformat()})
+                queue.extend({**item, 'next_attempt_date': datetime.now(timezone.utc).date().isoformat()} for item in opportunities[index + 1:])
+                unique = {}
+                for item in queue:
+                    unique[(item.get('ticker'), item.get('opp_id'))] = item
+                queue = list(unique.values())
+                _save_resume_queue(queue)
+                break
+            if status == 'completed':
+                queue = [item for item in queue if (item.get('ticker'), item.get('opp_id')) != (ticker, opp_id)]
+                if resume_pending or event_type in {'monthly', 're-research-30d'}:
+                    _save_resume_queue(queue)
             if status != 'completed':
                 rw_errors.append({
                     'ticker': ticker,
@@ -605,13 +664,20 @@ def main():
             print('  -> ERROR: {}'.format(e))
             rw_errors.append({'ticker': ticker, 'opp_id': opp_id, 'error': str(e)})
 
+    completed_keys = {(item.get('ticker'), item.get('opp_id')) for item in rw_results if item.get('status') == 'completed'}
+    remaining = [item for item in queue if (item.get('ticker'), item.get('opp_id')) not in completed_keys]
+    if queue and (resume_pending or event_type in {'monthly', 're-research-30d'}):
+        _save_resume_queue(remaining)
+
     results = {
         'total': len(opportunities),
         'processed': rw_results,
         'skipped': skipped_list,
         'assessments': [],
         'errors': rw_errors,
-        'status': 'failed' if rw_errors else 'research_completed',
+        'status': 'failed' if rw_errors and not deferred_for_capacity else ('partial_deferred' if remaining else 'research_completed'),
+        'deferred_count': len(remaining),
+        'capacity_failure': getattr(llm_service, 'capacity_failure', None),
         'event_type': event_type,
         'force': force,
         'stale_days_threshold': STALE_DAYS,
@@ -622,7 +688,7 @@ def main():
     )
     print('\n[DDD] Research {} for {}, errors in {}'.format(
         'failed' if rw_errors else 'completed', len(rw_results), len(rw_errors)))
-    return 1 if rw_errors else 0
+    return 1 if rw_errors and not deferred_for_capacity else 0
 
 
 if __name__ == '__main__':

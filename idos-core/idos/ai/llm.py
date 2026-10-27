@@ -2,7 +2,9 @@ import json
 import os
 import re
 import time
+from datetime import datetime, timezone
 from dataclasses import dataclass, field
+from email.utils import parsedate_to_datetime
 from typing import Any, Optional
 
 import requests
@@ -48,6 +50,53 @@ class LLMResponse:
     latency_ms: int = 0
     success: bool = True
     error: str = ""
+    provider: str = ""
+    status_code: int | None = None
+    retry_after_seconds: float | None = None
+    rate_limit_remaining_tokens: int | None = None
+    rate_limit_reset_seconds: float | None = None
+
+
+def _parse_retry_delay(value: str | None) -> float | None:
+    if not value:
+        return None
+    try:
+        return max(0.0, float(value))
+    except ValueError:
+        pass
+    try:
+        reset_at = parsedate_to_datetime(value)
+        if reset_at.tzinfo is None:
+            reset_at = reset_at.replace(tzinfo=timezone.utc)
+        return max(0.0, (reset_at - datetime.now(timezone.utc)).total_seconds())
+    except (TypeError, ValueError, OverflowError):
+        pass
+
+    # Groq reset headers use values such as "2m59.56s".
+    matches = re.findall(r"(\d+(?:\.\d+)?)(ms|s|m|h)", value.strip().lower())
+    if not matches:
+        return None
+    scales = {"ms": 0.001, "s": 1.0, "m": 60.0, "h": 3600.0}
+    return sum(float(amount) * scales[unit] for amount, unit in matches)
+
+
+def _rate_limit_metadata(response: requests.Response) -> dict[str, Any]:
+    headers = getattr(response, "headers", {}) or {}
+    retry_after = _parse_retry_delay(headers.get("Retry-After"))
+    reset_delay = (
+        _parse_retry_delay(headers.get("x-ratelimit-reset-tokens"))
+        or _parse_retry_delay(headers.get("x-ratelimit-reset-requests"))
+    )
+    remaining = headers.get("x-ratelimit-remaining-tokens")
+    try:
+        remaining_tokens = int(remaining) if remaining is not None else None
+    except (TypeError, ValueError):
+        remaining_tokens = None
+    return {
+        "retry_after_seconds": retry_after if retry_after is not None else reset_delay,
+        "rate_limit_remaining_tokens": remaining_tokens,
+        "rate_limit_reset_seconds": reset_delay,
+    }
 
 
 class LLMClient:
@@ -84,14 +133,19 @@ class LLMClient:
         max_tokens: int = 4096,
         label: str = "",
         response_format: str | None = None,
+        task_type: str = "analysis",
     ) -> LLMResponse:
         _call_chain = [{"provider": self.provider, "model": self.model, "api_key": self.api_key, "fallback_model": self.fallback_model}]
         _call_chain += self.fallback_providers
         _trunc = lambda s, n=200: (s[:n] + "...") if len(s) > n else s
         first_error = ""
+        last_failure: dict[str, Any] = {}
+        blocked_providers: set[str] = set()
         start = time.time()
         for idx, entry in enumerate(_call_chain):
             prov = entry["provider"]
+            if prov in blocked_providers:
+                continue
             modl = entry.get("model", self.model)
             akey = entry.get("api_key", self._resolve_api_key(prov))
             lbl = entry.get("label", f"{prov}/{modl}")
@@ -118,8 +172,22 @@ class LLMClient:
                 else:
                     resp = self._call_generic(prompt, system_prompt, temperature, max_tokens, akey, modl)
             except requests.HTTPError as e:
+                status_code = e.response.status_code if e.response is not None else None
+                if status_code in (402, 429):
+                    metadata = _rate_limit_metadata(e.response)
+                    last_failure = {
+                        "provider": prov,
+                        "status_code": status_code,
+                        **metadata,
+                    }
+                    blocked_providers.add(prov)
+                    safe_error = redact_sensitive_text(e, [akey])
+                    print(f"[LLM] {status_code} en {prov}; se suspende el proveedor para esta solicitud")
+                    if not first_error:
+                        first_error = safe_error
+                    continue
                 fbk = entry.get("fallback_model", "")
-                if fbk and e.response is not None and e.response.status_code in (404, 408, 429, 500, 502, 503, 504):
+                if fbk and e.response is not None and status_code in (404, 408, 500, 502, 503, 504):
                     print(f"[LLM] {e.response.status_code} en {modl}, fallback a {fbk}...")
                     try:
                         if prov == "gemini":
@@ -136,6 +204,15 @@ class LLMClient:
                         else:
                             resp = self._call_generic(prompt, system_prompt, temperature, max_tokens, akey, fbk)
                     except Exception as e2:
+                        response = getattr(e2, "response", None)
+                        status_code = response.status_code if response is not None else None
+                        if status_code in (402, 429):
+                            last_failure = {
+                                "provider": prov,
+                                "status_code": status_code,
+                                **_rate_limit_metadata(response),
+                            }
+                            blocked_providers.add(prov)
                         safe_error = redact_sensitive_text(e2, [akey])
                         print(f"[LLM] ERROR ({int((time.time()-start)*1000)}ms): {safe_error}")
                         if not first_error: first_error = safe_error
@@ -151,6 +228,7 @@ class LLMClient:
                 if not first_error: first_error = safe_error
                 continue
             if resp.success and resp.content:
+                resp.provider = prov
                 print(f"[LLM] RESPONSE ({resp.latency_ms}ms, {resp.tokens_in}→{resp.tokens_out} tok): {_trunc(resp.content, 500)}")
                 print(f"{'='*60}\n")
                 return resp
@@ -162,8 +240,10 @@ class LLMClient:
             print(f"{'='*60}\n")
             continue
         print(f"{'='*60}\n")
-        return LLMResponse(content="", success=False, error=first_error,
-                           latency_ms=int((time.time() - start) * 1000))
+        return LLMResponse(
+            content="", success=False, error=first_error,
+            latency_ms=int((time.time() - start) * 1000), **last_failure,
+        )
 
     def generate_structured(
         self,
@@ -171,6 +251,7 @@ class LLMClient:
         system_prompt: str = "",
         temperature: float = 0.1,
         max_tokens: int = 4096,
+        task_type: str = "analysis",
     ) -> dict[str, Any]:
         structured_prompt = (
             f"{prompt}\n\nIMPORTANTE: Responde ÚNICAMENTE con JSON válido. "
@@ -179,7 +260,7 @@ class LLMClient:
         )
         resp = self.generate(
             structured_prompt, system_prompt, temperature, max_tokens,
-            response_format="json",
+            response_format="json", task_type=task_type,
         )
         if not resp.success:
             return {"error": resp.error, "_raw": resp.content}
@@ -190,16 +271,10 @@ class LLMClient:
         max_retries = 3
         for attempt in range(max_retries):
             resp = requests.request(method, url, **kwargs)
-            if resp.status_code == 429 and attempt < max_retries - 1:
-                retry_after = resp.headers.get("Retry-After")
-                wait = int(retry_after) if retry_after else 2 ** (attempt + 2)
-                if retry_after and int(retry_after) > 120:
-                    print(f"[LLM] Rate limited (429), Retry-After={retry_after}s > 120s, failing immediately")
-                    resp.raise_for_status()
-                    return resp
-                print(f"[LLM] Rate limited (429), retrying in {wait}s (attempt {attempt + 1}/{max_retries})")
-                time.sleep(wait)
-                continue
+            if resp.status_code == 429:
+                # Let the provider router try another configured provider. Long waits
+                # would hold the Research worker and consume retries without progress.
+                resp.raise_for_status()
             resp.raise_for_status()
             return resp
         return resp
@@ -245,6 +320,7 @@ class LLMClient:
             tokens_out=usage.get("completion_tokens", 0),
             latency_ms=int((time.time() - start) * 1000),
             success=True,
+            **_rate_limit_metadata(resp),
         )
 
     def _call_openrouter(
@@ -289,6 +365,7 @@ class LLMClient:
             tokens_out=usage.get("completion_tokens", 0),
             latency_ms=int((time.time() - start) * 1000),
             success=True,
+            **_rate_limit_metadata(resp),
         )
 
     def _call_gemini(
@@ -349,6 +426,7 @@ class LLMClient:
             tokens_out=usage.get("candidatesTokenCount", 0),
             latency_ms=int((time.time() - start) * 1000),
             success=True,
+            **_rate_limit_metadata(resp),
         )
 
     def _call_groq(
@@ -392,6 +470,7 @@ class LLMClient:
             tokens_out=usage.get("completion_tokens", 0),
             latency_ms=int((time.time() - start) * 1000),
             success=True,
+            **_rate_limit_metadata(resp),
         )
 
     def _call_generic(
