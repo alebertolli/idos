@@ -651,3 +651,19 @@ def test_newly_completed_research_replaces_existing_assessment(tmp_path, monkeyp
     assert saved["assessments"] == [{
         "ticker": "AAPL", "opp_id": "OPP-AAPL", "status": "completed", "recommendation": "WAIT",
     }]
+
+
+def test_scheduled_results_pr_requires_a_published_commit():
+    repository_root = Path(__file__).parents[2]
+    workflow = yaml.load(
+        (repository_root / ".github/workflows/ddd-pipeline.yml").read_text(encoding="utf-8"),
+        Loader=yaml.BaseLoader,
+    )
+    steps = workflow["jobs"]["ddd"]["steps"]
+    publish = next(step for step in steps if step.get("name") == "Commit results")
+    publish_pr = next(step for step in steps if step.get("name") == "Open or update scheduled results PR and enable auto-merge")
+
+    assert publish["id"] == "publish-results"
+    assert 'echo "changed=false"' in publish["run"]
+    assert 'echo "changed=true"' in publish["run"]
+    assert "steps.publish-results.outputs.changed == 'true'" in publish_pr["if"]
