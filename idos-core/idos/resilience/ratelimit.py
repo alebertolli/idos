@@ -35,6 +35,14 @@ class RateLimiter:
         self._prune(key)
         return max(0, self.max_calls - len(self._calls.get(key, [])))
 
+    def retry_after_seconds(self, key: str) -> float:
+        """Seconds until the oldest call leaves the active rate window."""
+        self._prune(key)
+        calls = self._calls.get(key, [])
+        if len(calls) < self.max_calls or not calls:
+            return 0.0
+        return max(0.0, calls[0] + self.window - self._now())
+
     def reset(self, key: str | None = None):
         if key:
             self._calls.pop(key, None)

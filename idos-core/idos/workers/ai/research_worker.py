@@ -2361,6 +2361,7 @@ class ResearchWorker(BaseWorker):
                 system_prompt=wiki_system,
                 temperature=0.1,
                 max_tokens=4096,
+                task_type="research",
             )
             if llm_resp.success and len(llm_resp.content or "") > 100:
                 wiki_md = llm_resp.content
@@ -2736,6 +2737,7 @@ class ResearchWorker(BaseWorker):
             "prompt": formatted,
             "system_prompt": system,
             "temperature": 0.1,
+            "task_type": "research",
         }
         if max_tokens != 4096:
             request["max_tokens"] = max_tokens

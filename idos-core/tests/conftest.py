@@ -216,7 +216,7 @@ def mock_llm_client() -> MagicMock:
     """Mock LLMClient que responde con datos predecibles."""
     client = MagicMock()
 
-    def generate_structured(prompt="", system_prompt="", temperature=0.1, max_tokens=4096):
+    def generate_structured(prompt="", system_prompt="", temperature=0.1, max_tokens=4096, task_type="analysis"):
         if "clasificacion_oportunidad" in prompt or "FASE 0" in prompt:
             return dict(MOCK_DDD_RESPONSE)
         if "hipotesis" in prompt.lower() and "genera" in prompt.lower():
@@ -238,7 +238,7 @@ def mock_llm_reject_client() -> MagicMock:
     """Mock LLMClient que simula un DDD que no pasa las reglas."""
     client = MagicMock()
 
-    def generate_structured(prompt="", system_prompt="", temperature=0.1, max_tokens=4096):
+    def generate_structured(prompt="", system_prompt="", temperature=0.1, max_tokens=4096, task_type="analysis"):
         resp = dict(MOCK_DDD_RESPONSE)
         resp["score_general"] = 45
         if "Reglas de entrada" in prompt or "RULE" in prompt:

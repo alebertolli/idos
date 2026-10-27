@@ -611,6 +611,7 @@ class TestResearchWorker:
             system_prompt="System contract",
             temperature=0.1,
             max_tokens=8192,
+            task_type="research",
         )
 
     def test_systematic_ddd_is_signal_specific(self):

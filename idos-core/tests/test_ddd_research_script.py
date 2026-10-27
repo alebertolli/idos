@@ -612,3 +612,42 @@ def test_assessment_only_workflow_runs_assessment_but_skips_research_and_monthly
     assert "assessment_only != 'true'" in steps[
         "STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)"
     ]["if"]
+
+
+def test_research_resume_queue_is_atomic_versioned_and_validated(tmp_path, monkeypatch):
+    queue_path = tmp_path / "cache" / "ddd_research_resume.json"
+    monkeypatch.setattr(ddd_research, "RESUME_QUEUE_PATH", queue_path)
+    pending = [{"ticker": "AAPL", "opp_id": "OPP-AAPL", "next_attempt_date": "2026-10-27"}]
+
+    ddd_research._save_resume_queue(pending)
+
+    assert ddd_research._load_resume_queue() == pending
+    assert not queue_path.with_suffix(".json.tmp").exists()
+    queue_path.write_text('{"schema_version": 99, "pending": []}', encoding="utf-8")
+    assert ddd_research._load_resume_queue() == []
+
+
+def test_newly_completed_research_replaces_existing_assessment(tmp_path, monkeypatch):
+    from scripts import ddd_assessment
+
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    previous = {"ticker": "AAPL", "opp_id": "OPP-AAPL", "recommendation": "BLOCKED"}
+    (cache / "ddd_results.json").write_text(json.dumps({
+        "processed": [{"ticker": "AAPL", "opp_id": "OPP-AAPL", "status": "completed"}],
+        "assessments": [previous], "errors": [], "total": 1,
+    }), encoding="utf-8")
+    monkeypatch.setattr("idos.decision.assessment_pipeline.run_full_pipeline", lambda *args, **kwargs: {
+        "ticker": "AAPL", "opp_id": "OPP-AAPL", "status": "completed", "recommendation": "WAIT",
+    })
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("TICKER", "")
+    monkeypatch.setenv("REASSESS_EXISTING", "false")
+    monkeypatch.chdir(tmp_path)
+
+    ddd_assessment.main()
+
+    saved = json.loads((cache / "ddd_results.json").read_text(encoding="utf-8"))
+    assert saved["assessments"] == [{
+        "ticker": "AAPL", "opp_id": "OPP-AAPL", "status": "completed", "recommendation": "WAIT",
+    }]

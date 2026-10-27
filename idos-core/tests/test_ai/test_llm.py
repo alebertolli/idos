@@ -24,6 +24,7 @@ def test_provider_model_config_uses_pinned_models_and_no_random_router():
     assert providers["groq"]["model"] == "openai/gpt-oss-120b"
     assert providers["groq"]["fallback"] == "openai/gpt-oss-20b"
     assert providers["openrouter"]["model"] == "google/gemma-4-31b-it:free"
+    assert providers["openrouter"]["disabled_task_types"] == ["research"]
     assert "fallback" not in providers["openrouter"]
     assert all(
         entry.get("fallback_model") != "openrouter/free"
@@ -312,3 +313,66 @@ def test_llm_service_requests_json_mode_for_structured_research(monkeypatch):
 
     assert result == {"ok": True}
     assert captured["response_format"] == "json"
+
+
+def test_retry_after_parser_accepts_groq_durations_and_http_dates():
+    from idos.ai.llm import _parse_retry_delay
+
+    assert _parse_retry_delay("2m30s") == 150
+    assert _parse_retry_delay("0.5s") == 0.5
+    assert _parse_retry_delay("not-a-delay") is None
+
+
+def test_provider_quota_error_skips_model_fallback(monkeypatch):
+    import requests
+    from idos.ai.llm import LLMClient as LC
+
+    client = LC(provider="gemini", api_key="key", model="primary", fallback_model="secondary")
+    calls = []
+
+    def rate_limited(*args, **kwargs):
+        calls.append(args[5] if len(args) > 5 else kwargs.get("model"))
+        response = requests.Response()
+        response.status_code = 429
+        response.headers["Retry-After"] = "90"
+        raise requests.HTTPError("quota exhausted", response=response)
+
+    monkeypatch.setattr(client, "_call_gemini", rate_limited)
+    response = client.generate("prompt")
+
+    assert not response.success
+    assert calls == ["primary"]
+    assert response.status_code == 429
+    assert response.provider == "gemini"
+    assert response.retry_after_seconds == 90
+
+
+def test_service_marks_exhausted_local_rate_window_as_capacity_failure(monkeypatch):
+    from types import SimpleNamespace
+    from idos.ai.service import LLMService
+
+    class DeniedLimiter:
+        def allow(self, _key):
+            return False
+        def remaining(self, _key):
+            return 0
+        def retry_after_seconds(self, _key):
+            return 17.0
+
+    service = LLMService.__new__(LLMService)
+    service.clients = {"gemini": SimpleNamespace(model="test")}
+    service.circuit_breakers = {}
+    service.rate_limiters = {"gemini:rpm": DeniedLimiter()}
+    service.provider_limits = {}
+    service.blocked_providers = {}
+    service.capacity_failure = None
+    service.router = SimpleNamespace(record_outcome=lambda *args: None)
+    monkeypatch.setattr(service, "_rank_providers", lambda *args: ["gemini"])
+
+    result = service.generate("prompt", task_type="research")
+
+    assert not result.success
+    assert result.status_code == 429
+    assert service.capacity_exhausted is True
+    assert service.capacity_failure["source"] == "local_rate_limit"
+    assert service.capacity_failure["retry_after_seconds"] == 17.0
