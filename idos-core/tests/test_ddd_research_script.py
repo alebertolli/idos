@@ -66,6 +66,20 @@ def test_research_worker_failure_marks_run_failed_and_returns_nonzero(
         }),
         encoding="utf-8",
     )
+    second_opportunity = (
+        tmp_path / "idos-journal" / "companies" / "TWO" / "case_file"
+        / "opportunities" / "OPP-TWO-001"
+    )
+    second_opportunity.mkdir(parents=True)
+    (second_opportunity / "opportunity.yml").write_text(
+        yaml.safe_dump({
+            "id": "OPP-TWO-001",
+            "ticker": "TWO",
+            "status": "SCREENED",
+            "conviction": {"overall": 50},
+        }),
+        encoding="utf-8",
+    )
 
     service = object()
     captured_config = {}
@@ -93,6 +107,7 @@ def test_research_worker_failure_marks_run_failed_and_returns_nonzero(
     monkeypatch.setenv("FORCE", "false")
     monkeypatch.setenv("TICKER", "")
     monkeypatch.setenv("EVENT_TYPE", "monthly")
+    monkeypatch.setenv("DDD_HOURLY_RAMP", "true")
     monkeypatch.chdir(tmp_path)
 
     exit_code = ddd_research.main()
@@ -108,9 +123,57 @@ def test_research_worker_failure_marks_run_failed_and_returns_nonzero(
         "error": "Failed to parse JSON",
         "errors": [],
     }]
+    ramp_state = json.loads((tmp_path / "cache" / "ddd_research_capacity.json").read_text(encoding="utf-8"))
+    resume_queue = json.loads((tmp_path / "cache" / "ddd_research_resume.json").read_text(encoding="utf-8"))
+    assert ramp_state["paused"] is True
+    assert ramp_state["next_batch_size"] == 1
+    assert len(resume_queue["pending"]) == 2
+    assert results["total"] == 1
     assert captured_service_path["path"] == str(models_path.relative_to(tmp_path))
     assert captured_config["llm_service"] is service
     assert captured_config["prompts_path"] == "idos-config/prompts"
+
+
+def test_paused_hourly_ramp_queues_new_candidates_without_calling_llm(tmp_path, monkeypatch):
+    opportunity_dir = (
+        tmp_path / "idos-journal" / "companies" / "TEST" / "case_file"
+        / "opportunities" / "OPP-TEST-001"
+    )
+    opportunity_dir.mkdir(parents=True)
+    (opportunity_dir / "opportunity.yml").write_text(
+        yaml.safe_dump({
+            "id": "OPP-TEST-001",
+            "ticker": "TEST",
+            "status": "SCREENED",
+            "conviction": {"overall": 55},
+        }),
+        encoding="utf-8",
+    )
+    (tmp_path / "cache").mkdir()
+    (tmp_path / "cache" / "ddd_research_capacity.json").write_text(json.dumps({
+        "schema_version": 1,
+        "next_batch_size": 1,
+        "last_successful_batch_size": 0,
+        "paused": True,
+        "pause_reason": "provider failure",
+        "last_failure": None,
+        "updated_at": None,
+    }), encoding="utf-8")
+
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    monkeypatch.setenv("FORCE", "false")
+    monkeypatch.setenv("TICKER", "")
+    monkeypatch.setenv("EVENT_TYPE", "monthly")
+    monkeypatch.setenv("DDD_HOURLY_RAMP", "true")
+    monkeypatch.setattr("idos.ai.service.LLMService", lambda *_args, **_kwargs: pytest.fail("paused ramp must not call providers"))
+    monkeypatch.chdir(tmp_path)
+
+    assert ddd_research.main() == 0
+    result = json.loads((tmp_path / "cache" / "ddd_results.json").read_text(encoding="utf-8"))
+    queue = json.loads((tmp_path / "cache" / "ddd_research_resume.json").read_text(encoding="utf-8"))
+    assert result["status"] == "ramp_paused"
+    assert result["total"] == 0
+    assert queue["pending"][0]["opp_id"] == "OPP-TEST-001"
 
 
 def test_combined_ddd_digest_persists_results(tmp_path, monkeypatch):
@@ -667,3 +730,10 @@ def test_scheduled_results_pr_requires_a_published_commit():
     assert 'echo "changed=false"' in publish["run"]
     assert 'echo "changed=true"' in publish["run"]
     assert "steps.publish-results.outputs.changed == 'true'" in publish_pr["if"]
+    assert "always()" in publish["if"]
+    assert "cache/ddd_research_capacity.json" in publish["run"]
+    assert "0 * * * *" in workflow["on"]["schedule"][0]["cron"] or any(
+        item["cron"] == "0 * * * *" for item in workflow["on"]["schedule"]
+    )
+    assert any(step.get("name") == "Notify immediately on Research failure" for step in steps)
+    assert any(step.get("name") == "Notify on downstream pipeline failure" for step in steps)
