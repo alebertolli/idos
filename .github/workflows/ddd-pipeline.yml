@@ -45,9 +45,20 @@ on:
         type: boolean
         default: false
       ticker:
-        description: "Required for manual runs: 1-5 comma-separated operable tickers, e.g. AAPL,MSFT,QQQ"
-        required: true
+        description: "Required for a bounded manual run; leave empty only for the hourly ramp seed/resume actions"
+        required: false
         type: string
+        default: ""
+      seed_hourly_ramp:
+        description: "Seed the eligible Research queue and start the one-per-hour capacity ramp"
+        required: false
+        type: boolean
+        default: false
+      resume_hourly_ramp:
+        description: "Resume the paused hourly ramp from its last successful batch size"
+        required: false
+        type: boolean
+        default: false
       strategy_id:
         description: "Optional enabled strategy filter, e.g. MULTIBAGGERS"
         required: false
@@ -118,7 +129,7 @@ on:
   schedule:
     - cron: "0 3 2 * *"  # 00:00 Argentina del día 2 (03:00 UTC)
     - cron: "0 9 */30 * *"  # Cada 30 días, 06:00 Argentina (09:00 UTC)
-    - cron: "0 12 * * *"  # Reanuda Research diferido por límites (09:00 Argentina)
+    - cron: "0 * * * *"  # Reanuda Research pendiente y aumenta el lote de a 1 por hora hasta un fallo
 
 env:
   TZ: America/Argentina/Buenos_Aires
@@ -149,7 +160,7 @@ jobs:
         with:
           ref: ${{ github.ref }}
       - name: Resume scheduled results branch
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || github.event_name == 'repository_dispatch' || (github.event_name == 'workflow_call' && inputs.trigger_type == 'monthly') || inputs.trigger_type == 'monthly' || (github.event_name == 'workflow_dispatch' && (inputs.seed_hourly_ramp || inputs.resume_hourly_ramp))
         run: |
           BRANCH="codex/ddd-research-results"
           if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
@@ -184,7 +195,7 @@ jobs:
       - name: Install
         run: pip install -e idos-core
       - name: Validate bounded manual candidate scope
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && inputs.seed_hourly_ramp != true && inputs.resume_hourly_ramp != true
         env:
           IDOS_CANDIDATE_TICKERS: ${{ inputs.candidate_tickers || inputs.ticker || github.event.inputs.ticker || '' }}
           IDOS_MANUAL_SELECTION_LIMIT: "5"
@@ -192,46 +203,65 @@ jobs:
         run: python scripts/validate_manual_candidate_scope.py
 
       - name: Set run context
+        id: run-context
         run: |
           echo "DDD_RUN_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
           TICKER="${{ inputs.candidate_tickers || inputs.ticker || github.event.inputs.ticker || github.event.client_payload.ticker || '' }}"
           echo "TICKER=$TICKER" >> $GITHUB_ENV
           echo "STRATEGY_ID=${{ inputs.strategy_id || github.event.inputs.strategy_id || '' }}" >> $GITHUB_ENV
-          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.seed_hourly_ramp }}" = "true" ]; then
+            echo "FORCE=false" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
+            echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
+            echo "DDD_HOURLY_RAMP=true" >> $GITHUB_ENV
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.resume_hourly_ramp }}" = "true" ]; then
+            echo "FORCE=false" >> $GITHUB_ENV
+            echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
+            echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
+            echo "RESUME_PENDING=true" >> $GITHUB_ENV
+            echo "DDD_HOURLY_RAMP=true" >> $GITHUB_ENV
+            echo "RESET_DDD_HOURLY_RAMP=true" >> $GITHUB_ENV
+          elif [ "${{ github.event_name }}" = "repository_dispatch" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=${{ github.event.action }}" >> $GITHUB_ENV
+            echo "DDD_HOURLY_RAMP=true" >> $GITHUB_ENV
           elif [ "${{ inputs.trigger_type }}" = "monthly" ]; then
             echo "FORCE=false" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
+            echo "DDD_HOURLY_RAMP=true" >> $GITHUB_ENV
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "workflow_call" ]; then
             echo "FORCE=${{ inputs.force || github.event.inputs.force || 'false' }}" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=${{ inputs.review_buylist || github.event.inputs.review_buylist || 'false' }}" >> $GITHUB_ENV
             echo "ASSESSMENT_ONLY=${{ inputs.assessment_only || github.event.inputs.assessment_only || 'false' }}" >> $GITHUB_ENV
             echo "PREVIEW_ONLY=${{ inputs.preview_only || github.event.inputs.preview_only || 'false' }}" >> $GITHUB_ENV
             echo "EVENT_TYPE=${{ inputs.event_type || github.event.inputs.event_type || 'manual' }}" >> $GITHUB_ENV
-          elif [ "${{ github.event.schedule }}" = "0 12 * * *" ]; then
+          elif [ "${{ github.event.schedule }}" = "0 * * * *" ]; then
             echo "FORCE=false" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
             echo "RESUME_PENDING=true" >> $GITHUB_ENV
+            echo "DDD_HOURLY_RAMP=true" >> $GITHUB_ENV
           elif [ "${{ github.event.schedule }}" = "0 9 */30 * *" ]; then
             echo "FORCE=true" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=re-research-30d" >> $GITHUB_ENV
+            echo "DDD_HOURLY_RAMP=true" >> $GITHUB_ENV
           else
             echo "FORCE=false" >> $GITHUB_ENV
             echo "REVIEW_BUYLIST=false" >> $GITHUB_ENV
             echo "EVENT_TYPE=monthly" >> $GITHUB_ENV
+            if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then echo "DDD_HOURLY_RAMP=true" >> $GITHUB_ENV; fi
           fi
           echo "[CTX] trigger=${{ github.event_name }} ticker=$TICKER strategy=${{ inputs.strategy_id || github.event.inputs.strategy_id || 'all' }} force=$FORCE assessment_only=${{ github.event.inputs.assessment_only || 'false' }} preview_only=${{ github.event.inputs.preview_only || 'false' }} event=$EVENT_TYPE"
 
       - name: Preview candidates
-        if: github.event.inputs.assessment_only != 'true'
+        if: github.event.inputs.assessment_only != 'true' && github.event.schedule != '0 * * * *' && github.event.inputs.resume_hourly_ramp != 'true'
         run: python scripts/ddd_research.py --preview
 
       - name: STEP 2 - ResearchWorker (DDD + AOIF + Hypothesis)
+        id: research
         if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true'
         run: python scripts/ddd_research.py
 
@@ -242,7 +272,7 @@ jobs:
         run: python scripts/ddd_assessment.py
 
       - name: STEP 8 - Monthly Re-Assessment (Thesis + Conviction + Portfolio)
-        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true' && github.event.schedule != '0 12 * * *'
+        if: github.event.inputs.assessment_only != 'true' && github.event.inputs.preview_only != 'true' && github.event.schedule != '0 * * * *'
         env:
           SKIP_PORTFOLIO_REVIEW: ${{ inputs.skip_portfolio_reevaluation || github.event.inputs.skip_portfolio_reevaluation || false }}
         run: python scripts/ddd_monthly.py
@@ -253,17 +283,17 @@ jobs:
 
       - name: Commit results
         id: publish-results
-        if: github.event.inputs.preview_only != 'true'
+        if: always() && steps.run-context.outcome == 'success' && github.event.inputs.preview_only != 'true'
         run: |
           TARGET_BRANCH="${GITHUB_REF_NAME}"
-          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then TARGET_BRANCH="codex/ddd-research-results"; fi
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ] || [ "$GITHUB_EVENT_NAME" = "repository_dispatch" ] || [ "$GITHUB_EVENT_NAME" = "workflow_call" ] || [ "${{ inputs.trigger_type }}" = "monthly" ] || [ "${{ inputs.seed_hourly_ramp }}" = "true" ] || [ "${{ inputs.resume_hourly_ramp }}" = "true" ]; then TARGET_BRANCH="codex/ddd-research-results"; fi
           if [ -z "$TARGET_BRANCH" ]; then
             echo "::error::No target branch resolved; refusing to publish DDD results"
             exit 1
           fi
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add cache/ddd_results.json cache/ddd_preview.json cache/ddd_research_resume.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
+          git add cache/ddd_results.json cache/ddd_preview.json cache/ddd_research_resume.json cache/ddd_research_capacity.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
           git add idos-journal/ 2>/dev/null || true
           git add idos-knowledge/ 2>/dev/null || true
           if git diff --cached --quiet; then
@@ -288,8 +318,15 @@ jobs:
           fi
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
+      - name: Notify immediately on Research failure
+        if: failure() && steps.research.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python scripts/notify_ddd_failure.py
+
       - name: Open or update scheduled results PR and enable auto-merge
-        if: github.event_name == 'schedule' && github.event.inputs.preview_only != 'true' && steps.publish-results.outputs.changed == 'true'
+        if: always() && (github.event_name == 'schedule' || github.event_name == 'repository_dispatch' || (github.event_name == 'workflow_call' && inputs.trigger_type == 'monthly') || inputs.trigger_type == 'monthly' || (github.event_name == 'workflow_dispatch' && (inputs.seed_hourly_ramp || inputs.resume_hourly_ramp))) && github.event.inputs.preview_only != 'true' && steps.publish-results.outputs.changed == 'true'
         run: |
           gh pr view codex/ddd-research-results --json number >/dev/null 2>&1 || \
             gh pr create --base main --head codex/ddd-research-results --title "chore: publish scheduled DDD results" --body "Publishes queued Research results and resumable work from the scheduled DDD pipeline."
@@ -307,7 +344,8 @@ jobs:
           gh pr merge codex/ddd-research-results --auto --squash
 
       - name: Collect current DDD decision package
-        if: github.event.inputs.preview_only != 'true'
+        id: collect-artifact
+        if: always() && steps.run-context.outcome == 'success' && github.event.inputs.preview_only != 'true'
         run: |
           args=(--base-path . --tickers "$TICKER" --started-at "$DDD_RUN_STARTED_AT" --output-dir cache/ddd-artifact)
           if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -n "$TICKER" ]; then
@@ -316,12 +354,19 @@ jobs:
           python scripts/collect_ddd_artifacts.py "${args[@]}"
 
       - name: Upload artifact
-        if: github.event.inputs.preview_only != 'true'
+        if: always() && steps.collect-artifact.outcome == 'success' && github.event.inputs.preview_only != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: ddd-results-${{ github.run_id }}
           path: cache/ddd-artifact/
           if-no-files-found: error
+
+      - name: Notify on downstream pipeline failure
+        if: failure() && steps.research.outcome != 'failure' && steps.run-context.outcome == 'success'
+        continue-on-error: true
+        env:
+          GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python scripts/notify_ddd_failure.py
 
       - name: Upload candidate preview
         if: github.event.inputs.preview_only == 'true'

@@ -24,10 +24,19 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from idos.research.events import canonical_event_type, load_event_evidence
+from idos.research.hourly_ramp import (
+    initial_state as initial_hourly_ramp_state,
+    batch_limit as hourly_ramp_batch_limit,
+    load_state as load_hourly_ramp_state,
+    record_outcome as record_hourly_ramp_outcome,
+    resume_state as resume_hourly_ramp_state,
+    save_state as save_hourly_ramp_state,
+)
 
 STALE_DAYS = 30
 MAX_RESEARCH_CANDIDATES_PER_RUN = 5
 RESUME_QUEUE_PATH = Path("cache/ddd_research_resume.json")
+HOURLY_RAMP_STATE_PATH = Path("cache/ddd_research_capacity.json")
 SKIP_TICKERS = set()
 
 def _save_resume_queue(items: list[dict]) -> None:
@@ -433,6 +442,14 @@ def main():
     tickers = [t.strip().upper() for t in tickers_env.split(',') if t.strip()] if tickers_env else []
     event_type = os.environ.get('EVENT_TYPE', 'monthly')
     resume_pending = os.environ.get('RESUME_PENDING', 'false').lower() == 'true'
+    hourly_ramp = os.environ.get('DDD_HOURLY_RAMP', 'false').lower() == 'true'
+    hourly_ramp_state = load_hourly_ramp_state(HOURLY_RAMP_STATE_PATH)
+    if hourly_ramp and os.environ.get('RESET_DDD_HOURLY_RAMP', 'false').lower() == 'true':
+        hourly_ramp_state = resume_hourly_ramp_state(hourly_ramp_state)
+        save_hourly_ramp_state(HOURLY_RAMP_STATE_PATH, hourly_ramp_state)
+    if hourly_ramp and hourly_ramp_state.get('paused'):
+        print('[DDD] Hourly Research ramp is paused after a provider or quality failure; no LLM calls will be made')
+        print('[DDD] Last failure: {}'.format(hourly_ramp_state.get('pause_reason', 'unknown')))
     event_requested = _canonical_event_type(event_type)
     review_buylist = os.environ.get("REVIEW_BUYLIST", "false").lower() == "true"
     if review_buylist and (not force or len(tickers) != 1 or event_type != "manual"):
@@ -464,8 +481,10 @@ def main():
     if resume_pending:
         today = datetime.now(timezone.utc).date().isoformat()
         queue = _load_resume_queue()
-        opportunities = [item for item in queue if item.get('next_attempt_date', '') <= today][:MAX_RESEARCH_CANDIDATES_PER_RUN]
-        print(f"[DDD] Resume mode: {len(opportunities)} due of {len(queue)} queued opportunities")
+        due = [item for item in queue if item.get('next_attempt_date', '') <= today]
+        limit = hourly_ramp_batch_limit(hourly_ramp_state, len(due)) if hourly_ramp else MAX_RESEARCH_CANDIDATES_PER_RUN
+        opportunities = due[:limit]
+        print(f"[DDD] Resume mode: {len(opportunities)} due of {len(queue)} queued opportunities (batch limit={limit})")
 
     if not resume_pending and companies_dir.exists():
         for d in sorted(companies_dir.iterdir()):
@@ -566,7 +585,9 @@ def main():
         return 0
 
     queue = _load_resume_queue() if resume_pending else []
-    if not resume_pending and event_type in {'monthly', 're-research-30d'}:
+    if hourly_ramp and not resume_pending and not queue and opportunities and not hourly_ramp_state.get('paused'):
+        hourly_ramp_state = initial_hourly_ramp_state()
+    if not resume_pending and (hourly_ramp or event_type in {'monthly', 're-research-30d'}):
         known = {(item.get('ticker'), item.get('opp_id')) for item in queue}
         for item in opportunities:
             key = (item.get('ticker'), item.get('opp_id'))
@@ -577,8 +598,23 @@ def main():
     elif not resume_pending:
         queue = []
 
-    if len(opportunities) > MAX_RESEARCH_CANDIDATES_PER_RUN:
-        opportunities = opportunities[:MAX_RESEARCH_CANDIDATES_PER_RUN]
+    run_limit = (
+        hourly_ramp_batch_limit(hourly_ramp_state, len(opportunities))
+        if hourly_ramp else MAX_RESEARCH_CANDIDATES_PER_RUN
+    )
+    if len(opportunities) > run_limit:
+        opportunities = opportunities[:run_limit]
+    if hourly_ramp and hourly_ramp_state.get('paused'):
+        if queue:
+            _save_resume_queue(queue)
+        Path('cache').mkdir(parents=True, exist_ok=True)
+        Path('cache/ddd_results.json').write_text(json.dumps({
+            'processed': [], 'errors': [], 'total': 0,
+            'status': 'ramp_paused', 'event_type': event_type, 'force': force,
+            'deferred_count': len(queue), 'skipped': skipped_list,
+        }, indent=2), encoding='utf-8')
+        print('[DDD] Preserved {} queued opportunities; no LLM calls made'.format(len(queue)))
+        return 0
     print('[DDD] To process: {}'.format(len(opportunities)))
     for o in opportunities:
         print('  - {} {} ({}) reason={}'.format(
@@ -618,7 +654,7 @@ def main():
                 'opp_id': opp_id,
                 'base_path': str(base_path),
                 'force_reprocess': opp_force,
-                'event_type': event_type,
+                'event_type': opp.get('trigger_type') or event_type,
                 'event_evidence': opp.get('event_evidence'),
             }
             r = rw.run(ctx)
@@ -648,7 +684,7 @@ def main():
                 break
             if status == 'completed':
                 queue = [item for item in queue if (item.get('ticker'), item.get('opp_id')) != (ticker, opp_id)]
-                if resume_pending or event_type in {'monthly', 're-research-30d'}:
+                if resume_pending or hourly_ramp or event_type in {'monthly', 're-research-30d'}:
                     _save_resume_queue(queue)
             if status != 'completed':
                 rw_errors.append({
@@ -658,16 +694,52 @@ def main():
                     'error': r.get('error') or r.get('reason') or '; '.join(validation_errors) or f'Unexpected ResearchWorker status: {status}',
                     'errors': validation_errors,
                 })
+                if hourly_ramp:
+                    print('[DDD] Hourly ramp stops at the first incomplete opportunity')
+                    break
         except Exception as e:
             import traceback
             traceback.print_exc()
             print('  -> ERROR: {}'.format(e))
             rw_errors.append({'ticker': ticker, 'opp_id': opp_id, 'error': str(e)})
+            if hourly_ramp:
+                print('[DDD] Hourly ramp stops at the first ResearchWorker exception')
+                break
 
     completed_keys = {(item.get('ticker'), item.get('opp_id')) for item in rw_results if item.get('status') == 'completed'}
     remaining = [item for item in queue if (item.get('ticker'), item.get('opp_id')) not in completed_keys]
-    if queue and (resume_pending or event_type in {'monthly', 're-research-30d'}):
+    if queue and (resume_pending or hourly_ramp or event_type in {'monthly', 're-research-30d'}):
         _save_resume_queue(remaining)
+
+    if hourly_ramp and opportunities:
+        completed_count = len(completed_keys)
+        if rw_errors:
+            first_error = rw_errors[0]
+            failure_reason = '{} {}: {}'.format(
+                first_error.get('ticker', '?'),
+                first_error.get('opp_id', '?'),
+                first_error.get('error', 'Research failed'),
+            )
+        elif deferred_for_capacity:
+            failure_reason = 'Provider capacity exhausted: {}'.format(
+                getattr(llm_service, 'capacity_failure', None) or 'Research deferred'
+            )
+        elif completed_count != len(opportunities):
+            failure_reason = f'Only {completed_count} of {len(opportunities)} opportunities completed'
+        else:
+            failure_reason = ''
+        hourly_ramp_state = record_hourly_ramp_outcome(
+            hourly_ramp_state,
+            attempted=len(opportunities),
+            completed=completed_count,
+            failure_reason=failure_reason,
+        )
+        save_hourly_ramp_state(HOURLY_RAMP_STATE_PATH, hourly_ramp_state)
+        print('[DDD] Hourly ramp next batch={} paused={} last_successful={}'.format(
+            hourly_ramp_state['next_batch_size'],
+            hourly_ramp_state['paused'],
+            hourly_ramp_state['last_successful_batch_size'],
+        ))
 
     results = {
         'total': len(opportunities),
@@ -688,6 +760,8 @@ def main():
     )
     print('\n[DDD] Research {} for {}, errors in {}'.format(
         'failed' if rw_errors else 'completed', len(rw_results), len(rw_errors)))
+    if hourly_ramp and opportunities and hourly_ramp_state.get('paused'):
+        return 1
     return 1 if rw_errors and not deferred_for_capacity else 0
 
 
