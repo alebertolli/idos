@@ -32,7 +32,7 @@ class TelegramNotifier(BaseWorker):
             json={
                 "chat_id": self.chat_id,
                 "text": message,
-                "parse_mode": parse_mode,
+                **({"parse_mode": parse_mode} if parse_mode else {}),
                 "disable_web_page_preview": True,
             },
             timeout=15,
