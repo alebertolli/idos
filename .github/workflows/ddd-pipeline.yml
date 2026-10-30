@@ -173,7 +173,7 @@ jobs:
             git switch -c "$BRANCH"
           fi
           # The results branch may outlive code releases; execute the current main source with its persisted cache.
-          git merge --no-edit origin/main
+          git -c user.name="idos-bot" -c user.email="bot@idos.local" merge --no-edit origin/main
 
       - name: Validate manual production opt-in and input combinations
         env:
