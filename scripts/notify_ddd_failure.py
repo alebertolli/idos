@@ -51,6 +51,14 @@ def build_failure_message(
 def send_alert(message: str, env: dict[str, str] | None = None) -> list[str]:
     env = env or os.environ
     sent: list[str] = []
+
+    def delivery_result(result: Any) -> dict[str, Any]:
+        """BaseWorker.execute wraps the notifier payload in WorkerResult.output."""
+        if isinstance(result, dict):
+            return result
+        output = getattr(result, "output", None)
+        return output if isinstance(output, dict) else {}
+
     token = env.get("IDOS_TELEGRAM_BOT_TOKEN", "")
     chat = env.get("IDOS_TELEGRAM_CHAT_ID", "")
     if token and chat:
@@ -60,10 +68,13 @@ def send_alert(message: str, env: dict[str, str] | None = None) -> list[str]:
             result = TelegramNotifier({"bot_token": token, "chat_id": chat}).execute(
                 {"message": message, "parse_mode": None}
             )
-            if result.get("status") == "sent":
+            outcome = delivery_result(result)
+            if outcome.get("status") == "sent":
                 sent.append("telegram")
             else:
-                print("Telegram alert was not sent: {}".format(result.get("reason", "unknown")))
+                print("Telegram alert was not sent: {}".format(
+                    outcome.get("reason") or getattr(result, "error", None) or "unknown"
+                ))
         except Exception as exc:
             print("Telegram alert failed: {}".format(str(exc)[:250]))
 
@@ -84,10 +95,13 @@ def send_alert(message: str, env: dict[str, str] | None = None) -> list[str]:
                 "subject": "IDOS Research: rampa horaria pausada",
                 "body": message,
             })
-            if result.get("status") == "sent":
+            outcome = delivery_result(result)
+            if outcome.get("status") == "sent":
                 sent.append("email")
             else:
-                print("Email alert was not sent: {}".format(result.get("reason", result.get("error", "unknown"))))
+                print("Email alert was not sent: {}".format(
+                    outcome.get("reason") or outcome.get("error") or getattr(result, "error", None) or "unknown"
+                ))
         except Exception as exc:
             print("Email alert failed: {}".format(str(exc)[:250]))
     return sent
