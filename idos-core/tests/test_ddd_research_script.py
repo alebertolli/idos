@@ -738,6 +738,8 @@ def test_scheduled_results_pr_requires_a_published_commit():
     assert any(step.get("name") == "Notify immediately on Research failure" for step in steps)
     assert any(step.get("name") == "Notify on downstream pipeline failure" for step in steps)
     assert "secrets.IDOS_GITHUB_TOKEN || secrets.GITHUB_TOKEN" in workflow["env"]["GH_TOKEN"]
+    checkout = next(step for step in steps if step.get("uses") == "actions/checkout@v4")
+    assert str(checkout["with"]["fetch-depth"]) == "0"
     results_branch = next(step for step in steps if step.get("name") == "Resume scheduled results branch")
     assert "git fetch origin main" in results_branch["run"]
     assert "git merge --no-edit origin/main" in results_branch["run"]
