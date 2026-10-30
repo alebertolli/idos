@@ -742,4 +742,4 @@ def test_scheduled_results_pr_requires_a_published_commit():
     assert str(checkout["with"]["fetch-depth"]) == "0"
     results_branch = next(step for step in steps if step.get("name") == "Resume scheduled results branch")
     assert "git fetch origin main" in results_branch["run"]
-    assert "git merge --no-edit origin/main" in results_branch["run"]
+    assert 'git -c user.name="idos-bot" -c user.email="bot@idos.local" merge --no-edit origin/main' in results_branch["run"]
