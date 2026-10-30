@@ -737,3 +737,4 @@ def test_scheduled_results_pr_requires_a_published_commit():
     )
     assert any(step.get("name") == "Notify immediately on Research failure" for step in steps)
     assert any(step.get("name") == "Notify on downstream pipeline failure" for step in steps)
+    assert "secrets.IDOS_GITHUB_TOKEN || secrets.GITHUB_TOKEN" in workflow["env"]["GH_TOKEN"]
