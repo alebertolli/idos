@@ -1,125 +1,71 @@
 {
-  "total": 2,
+  "total": 1,
   "processed": [
     {
+      "opp_id": "OPP-20261023-001",
+      "ticker": "ABBV",
+      "status": "hypothesis_validation_failed",
+      "score": null,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "hypotheses must be a non-empty list"
+      ]
+    }
+  ],
+  "skipped": [
+    {
+      "opp_id": "OPP-20261023-002",
+      "ticker": "AAPL",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (4d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-MB-AAPL",
+      "ticker": "AAPL",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (4d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-20261022-001",
+      "ticker": "ASML",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (7d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-MB-ASML",
+      "ticker": "ASML",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (7d <= 30d)"
+    },
+    {
       "opp_id": "OPP-MB-DOW",
       "ticker": "DOW",
-      "status": "completed",
-      "score": 68,
-      "reason": "configured event trigger: quarterly_results (status=SCREENED)",
-      "errors": []
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (3d <= 30d)"
     },
     {
       "opp_id": "OPP-MB-E",
       "ticker": "E",
-      "status": "completed",
-      "score": 87,
-      "reason": "configured event trigger: quarterly_results (status=SCREENED)",
-      "errors": []
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (3d <= 30d)"
     }
   ],
-  "skipped": [],
-  "assessments": [
+  "assessments": [],
+  "errors": [
     {
-      "ticker": "DOW",
-      "opp_id": "OPP-MB-DOW",
-      "status": "completed",
-      "conviction_score": 56,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": null,
-      "decision_id": null,
-      "assessments": {
-        "BusinessAssessmentEngine": 42,
-        "ValuationAssessmentEngine": 65,
-        "RecoveryAssessmentEngine": 50,
-        "RiskAssessmentEngine": 80,
-        "PortfolioAssessmentEngine": 50
-      },
-      "rules_passed": [
-        "RULE-003",
-        "RULE-004",
-        "RULE-010"
-      ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-005",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 42/70",
-        "RULE-003": "Rerating: 50/50",
-        "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 56/65",
-        "RULE-008": "B/R 1.6:1 \u274c (Bull +19.5% / Bear -12.6%)",
-        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
-      },
-      "data_quality": "good",
-      "financial_data_quality": {
-        "status": "good",
-        "core_metric_coverage": "5/5",
-        "missing_core_metrics": [],
-        "source": "stockanalysis.com",
-        "as_of_date": "2026-09-30",
-        "as_of_basis": "period_end_date",
-        "as_of_date_source": "stockanalysis.com",
-        "missing_provenance": [],
-        "conflicting_core_metrics": [],
-        "unreconciled_core_metrics": []
-      }
-    },
-    {
-      "ticker": "E",
-      "opp_id": "OPP-MB-E",
-      "status": "completed",
-      "conviction_score": 58,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": null,
-      "decision_id": null,
-      "assessments": {
-        "BusinessAssessmentEngine": 58,
-        "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 56,
-        "RiskAssessmentEngine": 70,
-        "PortfolioAssessmentEngine": 50
-      },
-      "rules_passed": [
-        "RULE-003",
-        "RULE-004",
-        "RULE-010"
-      ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-005",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 58/70",
-        "RULE-003": "Rerating: 56/50",
-        "RULE-004": "Risk: 70/50",
-        "RULE-005": "Conviction: 58/65",
-        "RULE-008": "B/R 0.1:1 \u274c (Bull +1.4% / Bear -18.0%)",
-        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
-      },
-      "data_quality": "good",
-      "financial_data_quality": {
-        "status": "good",
-        "core_metric_coverage": "5/5",
-        "missing_core_metrics": [],
-        "source": "stockanalysis.com",
-        "as_of_date": "2026-09-30",
-        "as_of_basis": "period_end_date",
-        "as_of_date_source": "stockanalysis.com",
-        "missing_provenance": [],
-        "conflicting_core_metrics": [],
-        "unreconciled_core_metrics": []
-      }
+      "ticker": "ABBV",
+      "opp_id": "OPP-20261023-001",
+      "status": "hypothesis_validation_failed",
+      "error": "hypotheses must be a non-empty list",
+      "errors": [
+        "hypotheses must be a non-empty list"
+      ]
     }
   ],
-  "errors": [],
-  "status": "research_completed",
-  "event_type": "quarterly-results",
-  "force": true,
+  "status": "failed",
+  "deferred_count": 192,
+  "capacity_failure": null,
+  "event_type": "monthly",
+  "force": false,
   "stale_days_threshold": 30
 }
