@@ -1,4 +1,5 @@
 from scripts import notify_ddd_failure
+from idos.workers.base import WorkerResult, WorkerStatus
 
 
 def test_failure_message_reports_batch_state_and_run_link():
@@ -32,7 +33,11 @@ def test_failure_alert_uses_each_configured_private_channel(monkeypatch):
 
         def execute(self, context):
             sent.append(("telegram", context["message"], context["parse_mode"]))
-            return {"status": "sent"}
+            return WorkerResult(
+                status=WorkerStatus.SUCCESS,
+                worker="telegram",
+                output={"status": "sent", "message_id": 42},
+            )
 
     class FakeEmailNotifier:
         def __init__(self, config):
@@ -40,7 +45,11 @@ def test_failure_alert_uses_each_configured_private_channel(monkeypatch):
 
         def execute(self, context):
             sent.append(("email", context["subject"], context["body"]))
-            return {"status": "sent"}
+            return WorkerResult(
+                status=WorkerStatus.SUCCESS,
+                worker="email",
+                output={"status": "sent", "to": "owner@example.test"},
+            )
 
     monkeypatch.setattr("idos.workers.notifications.telegram.TelegramNotifier", FakeTelegramNotifier)
     monkeypatch.setattr("idos.workers.notifications.email_notifier.EmailNotifier", FakeEmailNotifier)
