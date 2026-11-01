@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: TSM
-discovery_score: 73.78
+discovery_score: 69.85
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-TSM
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:22:10.803662+00:00'
+  as_of: '2026-11-01T10:26:19.857661+00:00'
   component_scores:
-    market_confirmation: 73.78
+    market_confirmation: 69.85
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 73.78
+  discovery_score: 69.85
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 4930777631.857758
+    avg_dollar_volume_usd: 5189261912.855988
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 2205314711552.0
+    size_metric_usd: 2106382745600.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 425.239990234375
+    price: 406.1300048828125
     source: yfinance
     url: https://finance.yahoo.com/quote/TSM/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:10.803662+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:19.857661+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/TSM/history/
         status: observed
         unit: percent
-        value: 12.466035216205551
+        value: 16.399749878978763
       source_values:
-        yfinance: 12.466035216205551
+        yfinance: 16.399749878978763
       status: observed
       unit: percent
-      value: 12.466
+      value: 16.3997
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:10.803662+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:19.857661+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/TSM/history/
         status: observed
         unit: percent
-        value: 42.57837057313496
+        value: 35.182909424459766
       source_values:
-        yfinance: 42.57837057313496
+        yfinance: 35.182909424459766
       status: observed
       unit: percent
-      value: 42.5784
+      value: 35.1829
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:10.803662+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:19.857661+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/TSM/history/
         status: observed
         unit: percent
-        value: 40.360107773089496
+        value: 38.63111073876726
       source_values:
-        yfinance: 40.360107773089496
+        yfinance: 38.63111073876726
       status: observed
       unit: percent
-      value: 40.3601
+      value: 38.6311
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 73.78
-  snapshot_hash: afd8817d4ad64732e21b11faf64146cb0a2c7bd0c49e255a305af7f5003b9519
+  research_priority: 69.85
+  snapshot_hash: 2061a189f358c23ba9f05469632df798f4411cf8e504f8906d3a9603ccb97664
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: TSM
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 73.78
+research_priority: 69.85
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: afd8817d4ad64732e21b11faf64146cb0a2c7bd0c49e255a305af7f5003b9519
+snapshot_hash: 2061a189f358c23ba9f05469632df798f4411cf8e504f8906d3a9603ccb97664
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: CVS
-discovery_score: 67.42
+discovery_score: 67.47
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-CVS
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:16:28.710582+00:00'
+  as_of: '2026-11-01T10:20:37.168795+00:00'
   component_scores:
-    market_confirmation: 67.42
+    market_confirmation: 67.47
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 67.42
+  discovery_score: 67.47
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 750444075.6337639
+    avg_dollar_volume_usd: 752187224.7605896
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 118403874816.0
+    size_metric_usd: 115427074048.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 92.57749938964844
+    price: 90.25
     source: yfinance
     url: https://finance.yahoo.com/quote/CVS/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:16:28.710582+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:20:37.168795+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/CVS/history/
         status: observed
         unit: percent
-        value: 16.29520735363272
+        value: 18.39963721055812
       source_values:
-        yfinance: 16.29520735363272
+        yfinance: 18.39963721055812
       status: observed
       unit: percent
-      value: 16.2952
+      value: 18.3996
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:16:28.710582+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:20:37.168795+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/CVS/history/
         status: observed
         unit: percent
-        value: 12.283205356288573
+        value: 15.483043170657208
       source_values:
-        yfinance: 12.283205356288573
+        yfinance: 15.483043170657208
       status: observed
       unit: percent
-      value: 12.2832
+      value: 15.483
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:16:28.710582+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:20:37.168795+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/CVS/history/
         status: observed
         unit: percent
-        value: 26.28255959241055
+        value: 25.91894214121827
       source_values:
-        yfinance: 26.28255959241055
+        yfinance: 25.91894214121827
       status: observed
       unit: percent
-      value: 26.2826
+      value: 25.9189
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 67.42
-  snapshot_hash: 018ea3997ea2d47e3282871a309d6cfa3d55dd1c5321d75ed64adc4be88492d6
+  research_priority: 67.47
+  snapshot_hash: 823a398864fcb2943f606a40ac8e6b75cc8378806c23d15b42f1990b0de55ac5
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: CVS
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 67.42
+research_priority: 67.47
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 018ea3997ea2d47e3282871a309d6cfa3d55dd1c5321d75ed64adc4be88492d6
+snapshot_hash: 823a398864fcb2943f606a40ac8e6b75cc8378806c23d15b42f1990b0de55ac5
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

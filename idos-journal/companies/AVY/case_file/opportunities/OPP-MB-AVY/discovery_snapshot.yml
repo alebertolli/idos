@@ -2,84 +2,84 @@ ticker: AVY
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 69.55
-research_priority: 69.55
+discovery_score: 70.37
+research_priority: 70.37
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 69.55
+  market_confirmation: 70.37
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 1.5349
+    value: 4.1912
     unit: percent
     currency: null
-    period: price_momentum_12m_pct:2025-10-27/2026-10-26
+    period: price_momentum_12m_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 1.5348835007062522
+      yfinance: 4.191206962453986
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 1.5348835007062522
+      value: 4.191206962453986
       unit: percent
       currency: null
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:15:13.463331+00:00'
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:19:39.247073+00:00'
       source_url: https://finance.yahoo.com/quote/AVY/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
   drawdown_pct:
-    value: 7.1968
+    value: 7.7133
     unit: percent
     currency: null
-    period: drawdown_pct:2025-10-27/2026-10-26
+    period: drawdown_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 7.196754456675432
+      yfinance: 7.713343106068176
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 7.196754456675432
+      value: 7.713343106068176
       unit: percent
       currency: null
-      period: drawdown_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:15:13.463331+00:00'
+      period: drawdown_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:19:39.247073+00:00'
       source_url: https://finance.yahoo.com/quote/AVY/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
   volatility_90d_pct:
-    value: 24.7075
+    value: 24.1708
     unit: percent
     currency: null
-    period: volatility_90d_pct:2025-10-27/2026-10-26
+    period: volatility_90d_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 24.70745732281664
+      yfinance: 24.170765259369993
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 24.70745732281664
+      value: 24.170765259369993
       unit: percent
       currency: null
-      period: volatility_90d_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:15:13.463331+00:00'
+      period: volatility_90d_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:19:39.247073+00:00'
       source_url: https://finance.yahoo.com/quote/AVY/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
 red_flags: []
 data_quality:
   critical_metric_count: 3
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-26T16:15:13.463331+00:00'
-snapshot_hash: fb4500cbf09982378a6fd40b8fd5518639eacf3dd9658c0e33b27170c331bda3
+as_of: '2026-11-01T10:19:39.247073+00:00'
+snapshot_hash: 2173d152e5c36e9342a8fe8ab48c798fc920bd6c5f517e56caacdb09931341c7
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 13887420416.0
+  size_metric_usd: 13826162688.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 105287030.97455367
+  avg_dollar_volume_usd: 115309442.32673645
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -111,7 +111,7 @@ global_market_eligibility:
     fx_conversion_used: false
   size_provenance:
     source: yfinance
-    as_of: '2026-10-26'
+    as_of: '2026-10-30'
     currency: USD
     basis: USD_PROVIDER_METRIC
   liquidity_provenance:
@@ -124,17 +124,13 @@ global_market_eligibility:
     valid_observations: 20
     coverage: 1.0
     minimum_coverage: null
-    first_price_date: '2026-09-29'
-    last_price_date: '2026-10-26'
-    as_of: '2026-10-26'
+    first_price_date: '2026-10-05'
+    last_price_date: '2026-10-30'
+    as_of: '2026-10-30'
     price_source: yfinance
     fx_source: null
     fx_observations: []
     valid_price_dates:
-    - '2026-09-29'
-    - '2026-09-30'
-    - '2026-10-01'
-    - '2026-10-02'
     - '2026-10-05'
     - '2026-10-06'
     - '2026-10-07'
@@ -151,12 +147,16 @@ global_market_eligibility:
     - '2026-10-22'
     - '2026-10-23'
     - '2026-10-26'
+    - '2026-10-27'
+    - '2026-10-28'
+    - '2026-10-29'
+    - '2026-10-30'
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
     source: yfinance
 market_quote:
-  price: 183.24000549316406
-  as_of_date: '2026-10-26'
+  price: 182.22000122070312
+  as_of_date: '2026-10-30'
   currency: USD
   source: yfinance
   url: https://finance.yahoo.com/quote/AVY/history/

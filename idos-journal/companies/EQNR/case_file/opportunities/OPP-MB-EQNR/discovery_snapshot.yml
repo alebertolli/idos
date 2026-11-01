@@ -2,84 +2,84 @@ ticker: EQNR
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 83.4
-research_priority: 83.4
+discovery_score: 84.19
+research_priority: 84.19
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 83.4
+  market_confirmation: 84.19
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 98.5427
+    value: 103.4641
     unit: percent
     currency: null
-    period: price_momentum_12m_pct:2025-10-27/2026-10-26
+    period: price_momentum_12m_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 98.54269485491936
+      yfinance: 103.46411461923877
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 98.54269485491936
+      value: 103.46411461923877
       unit: percent
       currency: null
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:17:15.333107+00:00'
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:21:21.054346+00:00'
       source_url: https://finance.yahoo.com/quote/EQNR/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
   drawdown_pct:
-    value: 0.932
+    value: 0.1434
     unit: percent
     currency: null
-    period: drawdown_pct:2025-10-27/2026-10-26
+    period: drawdown_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 0.9319910266317755
+      yfinance: 0.14338323486642698
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 0.9319910266317755
+      value: 0.14338323486642698
       unit: percent
       currency: null
-      period: drawdown_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:17:15.333107+00:00'
+      period: drawdown_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:21:21.054346+00:00'
       source_url: https://finance.yahoo.com/quote/EQNR/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
   volatility_90d_pct:
-    value: 38.5892
+    value: 37.7459
     unit: percent
     currency: null
-    period: volatility_90d_pct:2025-10-27/2026-10-26
+    period: volatility_90d_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 38.589175160737824
+      yfinance: 37.745896247569696
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 38.589175160737824
+      value: 37.745896247569696
       unit: percent
       currency: null
-      period: volatility_90d_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:17:15.333107+00:00'
+      period: volatility_90d_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:21:21.054346+00:00'
       source_url: https://finance.yahoo.com/quote/EQNR/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
 red_flags: []
 data_quality:
   critical_metric_count: 3
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-26T16:17:15.333107+00:00'
-snapshot_hash: 896170413429fcffc7dac90fb877bc5203692a241b1d550acd648ea9ce202c99
+as_of: '2026-11-01T10:21:21.054346+00:00'
+snapshot_hash: 824e44df65ac8d53edaf49201a8a505a52b531b95706b67961654e2b36f4d16e
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 114536620032.0
+  size_metric_usd: 115398713344.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 187788275.74513912
+  avg_dollar_volume_usd: 202986093.8685608
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -111,7 +111,7 @@ global_market_eligibility:
     fx_conversion_used: false
   size_provenance:
     source: yfinance
-    as_of: '2026-10-26'
+    as_of: '2026-10-30'
     currency: USD
     basis: USD_PROVIDER_METRIC
   liquidity_provenance:
@@ -124,17 +124,13 @@ global_market_eligibility:
     valid_observations: 20
     coverage: 1.0
     minimum_coverage: null
-    first_price_date: '2026-09-29'
-    last_price_date: '2026-10-26'
-    as_of: '2026-10-26'
+    first_price_date: '2026-10-05'
+    last_price_date: '2026-10-30'
+    as_of: '2026-10-30'
     price_source: yfinance
     fx_source: null
     fx_observations: []
     valid_price_dates:
-    - '2026-09-29'
-    - '2026-09-30'
-    - '2026-10-01'
-    - '2026-10-02'
     - '2026-10-05'
     - '2026-10-06'
     - '2026-10-07'
@@ -151,12 +147,16 @@ global_market_eligibility:
     - '2026-10-22'
     - '2026-10-23'
     - '2026-10-26'
+    - '2026-10-27'
+    - '2026-10-28'
+    - '2026-10-29'
+    - '2026-10-30'
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
     source: yfinance
 market_quote:
-  price: 48.3650016784668
-  as_of_date: '2026-10-26'
+  price: 48.75
+  as_of_date: '2026-10-30'
   currency: USD
   source: yfinance
   url: https://finance.yahoo.com/quote/EQNR/history/

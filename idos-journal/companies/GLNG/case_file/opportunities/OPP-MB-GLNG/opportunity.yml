@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: GLNG
-discovery_score: 65.47
+discovery_score: 67.28
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-GLNG
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:17:41.141445+00:00'
+  as_of: '2026-11-01T10:21:51.046066+00:00'
   component_scores:
-    market_confirmation: 65.47
+    market_confirmation: 67.28
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 65.47
+  discovery_score: 67.28
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 72180413.34648438
+    avg_dollar_volume_usd: 70102998.81435394
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 4647966208.0
+    size_metric_usd: 4720965632.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 45.525001525878906
+    price: 46.2400016784668
     source: yfinance
     url: https://finance.yahoo.com/quote/GLNG/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:17:41.141445+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:21:51.046066+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/GLNG/history/
         status: observed
         unit: percent
-        value: 20.632843372628617
+        value: 19.386329870223147
       source_values:
-        yfinance: 20.632843372628617
+        yfinance: 19.386329870223147
       status: observed
       unit: percent
-      value: 20.6328
+      value: 19.3863
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:17:41.141445+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:21:51.046066+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/GLNG/history/
         status: observed
         unit: percent
-        value: 9.619559027229197
+        value: 12.643124330975963
       source_values:
-        yfinance: 9.619559027229197
+        yfinance: 12.643124330975963
       status: observed
       unit: percent
-      value: 9.6196
+      value: 12.6431
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:17:41.141445+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:21:51.046066+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/GLNG/history/
         status: observed
         unit: percent
-        value: 23.0586189217949
+        value: 22.790430979988294
       source_values:
-        yfinance: 23.0586189217949
+        yfinance: 22.790430979988294
       status: observed
       unit: percent
-      value: 23.0586
+      value: 22.7904
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 65.47
-  snapshot_hash: d22b5af0c520b285f5544df4dc581ed968557b430830970b569ed154bfd9eadf
+  research_priority: 67.28
+  snapshot_hash: 622962ee53e1897a4d6d942bb82f4eb993997d5536ddfd06c37285efc31e47b0
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: GLNG
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 65.47
+research_priority: 67.28
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: d22b5af0c520b285f5544df4dc581ed968557b430830970b569ed154bfd9eadf
+snapshot_hash: 622962ee53e1897a4d6d942bb82f4eb993997d5536ddfd06c37285efc31e47b0
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

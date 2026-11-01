@@ -363,7 +363,7 @@ discovery_evidence:
       value: 0
     version: positive_fundamentals_v1
   reason: All configured filters passed; Research required
-discovery_last_evaluated_at: '2026-10-26T13:14:16.060700-03:00'
+discovery_last_evaluated_at: '2026-11-01T07:18:48.044440-03:00'
 entry_policy: VALUATION_ZONE
 hypothesis_ids: []
 id: OPP-20261023-001
@@ -456,8 +456,6 @@ latest_discovery_evidence:
       - stockanalysis.com
       gross_profit_history:
       - stockanalysis.com
-      levered_fcf:
-      - yfinance
       liquidity_provenance:
       - yfinance
       ma_200d:
@@ -562,7 +560,7 @@ latest_discovery_evidence:
     - stockanalysis.com
     - yfinance
   eligibility_status: PASSED
-  evaluated_at: '2026-10-26T13:14:16.060700-03:00'
+  evaluated_at: '2026-11-01T07:18:48.044440-03:00'
   filter_results:
     fcf: 100
     investability: 100
@@ -573,8 +571,8 @@ latest_discovery_evidence:
       currency: null
       non_comparable_reason: null
       non_comparable_values: {}
-      observed_at: '2026-10-26T16:12:02.801711+00:00'
-      period_end_date: '2026-06-30'
+      observed_at: '2026-11-01T10:16:41.330481+00:00'
+      period_end_date: '2026-09-30'
       period_status: SINGLE_SOURCE
       period_type: TTM
       provider_period_end_timestamp: null
@@ -582,7 +580,7 @@ latest_discovery_evidence:
       source_metadata:
         stockanalysis.com:
           currency: null
-          period_end_date: '2026-06-30'
+          period_end_date: '2026-09-30'
           period_type: TTM
           source_url: https://stockanalysis.com/stocks/ABBV/statistics/
           unit: provider_financial_currency
@@ -593,9 +591,9 @@ latest_discovery_evidence:
       currency: null
       non_comparable_reason: missing_period_unit_or_cutoff
       non_comparable_values:
-        yfinance: 40.035
-      observed_at: '2026-10-26T16:12:02.801711+00:00'
-      period_end_date: '2026-06-30'
+        yfinance: 39.525002
+      observed_at: '2026-11-01T10:16:41.330481+00:00'
+      period_end_date: '2026-09-30'
       period_status: SINGLE_SOURCE
       period_type: TTM
       provider_period_end_timestamp: null
@@ -603,25 +601,25 @@ latest_discovery_evidence:
       source_metadata:
         stockanalysis.com:
           currency: null
-          period_end_date: '2026-06-30'
+          period_end_date: '2026-09-30'
           period_type: TTM
           source_url: https://stockanalysis.com/stocks/ABBV/statistics/
           unit: percentage_points
         yfinance:
           currency: null
-          period_end_date: '2026-06-30'
+          period_end_date: '2026-09-30'
           period_type: PROVIDER_REPORTED_UNSPECIFIED
           unit: percentage_points
       unit: percentage_points
       values:
-        stockanalysis.com: 35.56
+        stockanalysis.com: 36.46
     revenue_growth_pct:
       currency: null
       non_comparable_reason: missing_period_unit_or_cutoff
       non_comparable_values:
-        yfinance: 10.2
-      observed_at: '2026-10-26T16:12:02.801711+00:00'
-      period_end_date: '2026-06-30'
+        yfinance: 10.299999999999999
+      observed_at: '2026-11-01T10:16:41.330481+00:00'
+      period_end_date: '2026-09-30'
       period_status: SINGLE_SOURCE
       period_type: TTM
       provider_period_end_timestamp: null
@@ -629,30 +627,30 @@ latest_discovery_evidence:
       source_metadata:
         stockanalysis.com:
           currency: null
-          period_end_date: '2026-06-30'
+          period_end_date: '2026-09-30'
           period_type: TTM
           source_url: https://stockanalysis.com/stocks/abbv/financials/
           unit: percentage_points
         yfinance:
           currency: null
-          period_end_date: '2026-06-30'
+          period_end_date: '2026-09-30'
           period_type: PROVIDER_REPORTED_UNSPECIFIED
           unit: percentage_points
       unit: percentage_points
       values:
-        stockanalysis.com: 10.39
+        stockanalysis.com: 10.68
   liquidity_provenance:
-    as_of: '2026-10-26'
+    as_of: '2026-10-30'
     basis: UNDERLYING_USD_PROXY
     coverage: 1.0
     currency: USD
     expected_observations: 20
-    first_price_date: '2026-09-29'
+    first_price_date: '2026-10-05'
     fx_observations: []
     fx_reference: null
     fx_side: null
     fx_source: null
-    last_price_date: '2026-10-26'
+    last_price_date: '2026-10-30'
     minimum_coverage: null
     missing_market_dates: []
     price_source: yfinance
@@ -660,10 +658,6 @@ latest_discovery_evidence:
     source: yfinance
     valid_observations: 20
     valid_price_dates:
-    - '2026-09-29'
-    - '2026-09-30'
-    - '2026-10-01'
-    - '2026-10-02'
     - '2026-10-05'
     - '2026-10-06'
     - '2026-10-07'
@@ -680,9 +674,13 @@ latest_discovery_evidence:
     - '2026-10-22'
     - '2026-10-23'
     - '2026-10-26'
+    - '2026-10-27'
+    - '2026-10-28'
+    - '2026-10-29'
+    - '2026-10-30'
     window_sessions: 20
   market_cap_provenance:
-    as_of: '2026-10-26'
+    as_of: '2026-10-30'
     basis: USD_PROVIDER_METRIC
     currency: USD
     source: yfinance
@@ -694,14 +692,14 @@ latest_discovery_evidence:
     size_metric: market_cap_usd
     status: complete
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 286.7099914550781
+    price: 294.8900146484375
     source: yfinance
   metrics:
     fcf: 18210000000.0
-    operating_margin_pct: 35.56
-    revenue_growth_pct: 10.39
+    operating_margin_pct: 36.46
+    revenue_growth_pct: 10.68
   missing_metrics: []
   policy:
     filters:

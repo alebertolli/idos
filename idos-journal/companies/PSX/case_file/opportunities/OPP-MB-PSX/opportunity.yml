@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: PSX
-discovery_score: 86.06
+discovery_score: 83.75
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-PSX
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:20:50.751525+00:00'
+  as_of: '2026-11-01T10:25:00.794314+00:00'
   component_scores:
-    market_confirmation: 86.06
+    market_confirmation: 83.75
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 86.06
+  discovery_score: 83.75
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 611215043.6518189
+    avg_dollar_volume_usd: 689270600.0410461
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 115794034688.0
+    size_metric_usd: 110324154368.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 288.80999755859375
+    price: 282.8299865722656
     source: yfinance
     url: https://finance.yahoo.com/quote/PSX/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:20:50.751525+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:25:00.794314+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/PSX/history/
         status: observed
         unit: percent
-        value: 2.8524372641493456
+        value: 4.863944820557693
       source_values:
-        yfinance: 2.8524372641493456
+        yfinance: 4.863944820557693
       status: observed
       unit: percent
-      value: 2.8524
+      value: 4.8639
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:20:50.751525+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:25:00.794314+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/PSX/history/
         status: observed
         unit: percent
-        value: 113.26982828509888
+        value: 107.74936671093518
       source_values:
-        yfinance: 113.26982828509888
+        yfinance: 107.74936671093518
       status: observed
       unit: percent
-      value: 113.2698
+      value: 107.7494
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:20:50.751525+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:25:00.794314+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/PSX/history/
         status: observed
         unit: percent
-        value: 29.66745579424864
+        value: 32.521583924126865
       source_values:
-        yfinance: 29.66745579424864
+        yfinance: 32.521583924126865
       status: observed
       unit: percent
-      value: 29.6675
+      value: 32.5216
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 86.06
-  snapshot_hash: 92b89202f6274984c43b07b14b1239513dbc56991997071130fb9549d563038b
+  research_priority: 83.75
+  snapshot_hash: 30b42f180e09fa38ed7cb9091a0513fd7baf17d6ecdf4d7182fcf021445545e0
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: PSX
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 86.06
+research_priority: 83.75
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 92b89202f6274984c43b07b14b1239513dbc56991997071130fb9549d563038b
+snapshot_hash: 30b42f180e09fa38ed7cb9091a0513fd7baf17d6ecdf4d7182fcf021445545e0
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

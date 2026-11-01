@@ -171,7 +171,7 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: ASML
-discovery_score: 70.2
+discovery_score: 68.68
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 exit_reason: ''
@@ -180,9 +180,9 @@ intrinsic_value: 2149.76
 last_research_at: '2026-10-22T20:08:20.051204-03:00'
 last_thesis_assessment_at: ''
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:15:05.232476+00:00'
+  as_of: '2026-11-01T10:19:34.476776+00:00'
   component_scores:
-    market_confirmation: 70.2
+    market_confirmation: 68.68
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -192,25 +192,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 70.2
+  discovery_score: 68.68
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 2538359813.057471
+    avg_dollar_volume_usd: 2616329787.8063965
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -218,10 +218,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -238,6 +234,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -249,109 +249,109 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 618267869184.0
+    size_metric_usd: 603525611520.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 1604.1500244140625
+    price: 1565.9000244140625
     source: yfinance
     url: https://finance.yahoo.com/quote/ASML/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:15:05.232476+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:19:34.476776+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/ASML/history/
         status: observed
         unit: percent
-        value: 19.36675287215972
+        value: 21.28940452923677
       source_values:
-        yfinance: 19.36675287215972
+        yfinance: 21.28940452923677
       status: observed
       unit: percent
-      value: 19.3668
+      value: 21.2894
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:15:05.232476+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:19:34.476776+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/ASML/history/
         status: observed
         unit: percent
-        value: 51.33776618164683
+        value: 47.83380883168464
       source_values:
-        yfinance: 51.33776618164683
+        yfinance: 47.83380883168464
       status: observed
       unit: percent
-      value: 51.3378
+      value: 47.8338
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:15:05.232476+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:19:34.476776+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/ASML/history/
         status: observed
         unit: percent
-        value: 45.68798001388014
+        value: 45.04972187896038
       source_values:
-        yfinance: 45.68798001388014
+        yfinance: 45.04972187896038
       status: observed
       unit: percent
-      value: 45.688
+      value: 45.0497
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 70.2
-  snapshot_hash: a461e7373c0d642442bd05fc5b96e12ab8950d47fbbb70ca77dcd2947047b156
+  research_priority: 68.68
+  snapshot_hash: 92e6ed271a3aa15aa15f214890470d771d013bbe5237b7d638d7db6a2e654319
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: ASML
 next_thesis_review_at: '2026-11-21T20:08:18.840333-03:00'
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 70.2
+research_priority: 68.68
 research_profile: multibaggers
 risk_limits:
   max_position_pct: 1.0
 signal: {}
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: a461e7373c0d642442bd05fc5b96e12ab8950d47fbbb70ca77dcd2947047b156
+snapshot_hash: 92e6ed271a3aa15aa15f214890470d771d013bbe5237b7d638d7db6a2e654319
 status: UNDER_RESEARCH
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

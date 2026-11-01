@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: GILD
-discovery_score: 82.54
+discovery_score: 85.67
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-GILD
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:17:38.596914+00:00'
+  as_of: '2026-11-01T10:21:47.526452+00:00'
   component_scores:
-    market_confirmation: 82.54
+    market_confirmation: 85.67
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 82.54
+  discovery_score: 85.67
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 848856290.1953949
+    avg_dollar_volume_usd: 976229239.1204071
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,33 +246,33 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 197159075840.0
+    size_metric_usd: 211700973568.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 159.0050048828125
+    price: 170.67999267578125
     source: yfinance
     url: https://finance.yahoo.com/quote/GILD/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:17:38.596914+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:21:47.526452+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/GILD/history/
         status: observed
@@ -284,70 +284,70 @@ latest_discovery_evidence:
       unit: percent
       value: 0.0
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:17:38.596914+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:21:47.526452+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/GILD/history/
         status: observed
         unit: percent
-        value: 31.987219450187098
+        value: 42.482670816690415
       source_values:
-        yfinance: 31.987219450187098
+        yfinance: 42.482670816690415
       status: observed
       unit: percent
-      value: 31.9872
+      value: 42.4827
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:17:38.596914+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:21:47.526452+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/GILD/history/
         status: observed
         unit: percent
-        value: 27.498777450360556
+        value: 28.377015825686
       source_values:
-        yfinance: 27.498777450360556
+        yfinance: 28.377015825686
       status: observed
       unit: percent
-      value: 27.4988
+      value: 28.377
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 82.54
-  snapshot_hash: 5962bab8e02215a8c2382a7aa823b7041e7881d5ba48c464460eaaa1eb7a0d50
+  research_priority: 85.67
+  snapshot_hash: c0b9576ed628dc08af128fb20102ce03e64e17a16ad3cc6f14d3918c66ecb418
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: GILD
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 82.54
+research_priority: 85.67
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 5962bab8e02215a8c2382a7aa823b7041e7881d5ba48c464460eaaa1eb7a0d50
+snapshot_hash: c0b9576ed628dc08af128fb20102ce03e64e17a16ad3cc6f14d3918c66ecb418
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

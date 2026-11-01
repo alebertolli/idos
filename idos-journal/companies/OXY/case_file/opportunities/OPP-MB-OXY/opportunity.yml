@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: OXY
-discovery_score: 84.82
+discovery_score: 84.83
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-OXY
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:20:17.447230+00:00'
+  as_of: '2026-11-01T10:24:23.709969+00:00'
   component_scores:
-    market_confirmation: 84.82
+    market_confirmation: 84.83
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 84.82
+  discovery_score: 84.83
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 516454407.7548424
+    avg_dollar_volume_usd: 519251707.4174118
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 64081756160.0
+    size_metric_usd: 63976792064.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 64.1050033569336
+    price: 64.0
     source: yfinance
     url: https://finance.yahoo.com/quote/OXY/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:20:17.447230+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:24:23.709969+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/OXY/history/
         status: observed
         unit: percent
-        value: 3.2231198304486792
+        value: 3.381639396149068
       source_values:
-        yfinance: 3.2231198304486792
+        yfinance: 3.381639396149068
       status: observed
       unit: percent
-      value: 3.2231
+      value: 3.3816
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:20:17.447230+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:24:23.709969+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/OXY/history/
         status: observed
         unit: percent
-        value: 51.54847402637517
+        value: 55.339802948668336
       source_values:
-        yfinance: 51.54847402637517
+        yfinance: 55.339802948668336
       status: observed
       unit: percent
-      value: 51.5485
+      value: 55.3398
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:20:17.447230+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:24:23.709969+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/OXY/history/
         status: observed
         unit: percent
-        value: 32.12725906935288
+        value: 31.899711062691654
       source_values:
-        yfinance: 32.12725906935288
+        yfinance: 31.899711062691654
       status: observed
       unit: percent
-      value: 32.1273
+      value: 31.8997
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 84.82
-  snapshot_hash: dc713052394ffb2836a150415712f0d5542780a0732bcd81051f615f1f755e1f
+  research_priority: 84.83
+  snapshot_hash: 380576f2b0a5e554f25f7d5a6d16713774ec8d5b217992def46180cefa7b7091
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: OXY
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 84.82
+research_priority: 84.83
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: dc713052394ffb2836a150415712f0d5542780a0732bcd81051f615f1f755e1f
+snapshot_hash: 380576f2b0a5e554f25f7d5a6d16713774ec8d5b217992def46180cefa7b7091
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

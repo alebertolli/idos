@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: ADP
-discovery_score: 72.71
+discovery_score: 73.02
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-ADP
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:14:39.706874+00:00'
+  as_of: '2026-11-01T10:19:10.518200+00:00'
   component_scores:
-    market_confirmation: 72.71
+    market_confirmation: 73.02
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 72.71
+  discovery_score: 73.02
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 509217298.60791016
+    avg_dollar_volume_usd: 591678232.6367188
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 119267753984.0
+    size_metric_usd: 115996106752.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 300.989990234375
+    price: 293.8399963378906
     source: yfinance
     url: https://finance.yahoo.com/quote/ADP/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:14:39.706874+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:19:10.518200+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/ADP/history/
         status: observed
         unit: percent
-        value: 2.2569371149997552
+        value: 4.578816000431293
       source_values:
-        yfinance: 2.2569371149997552
+        yfinance: 4.578816000431293
       status: observed
       unit: percent
-      value: 2.2569
+      value: 4.5788
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:14:39.706874+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:19:10.518200+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/ADP/history/
         status: observed
         unit: percent
-        value: 7.293334596694856
+        value: 12.885136426359779
       source_values:
-        yfinance: 7.293334596694856
+        yfinance: 12.885136426359779
       status: observed
       unit: percent
-      value: 7.2933
+      value: 12.8851
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:14:39.706874+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:19:10.518200+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/ADP/history/
         status: observed
         unit: percent
-        value: 28.331392378154703
+        value: 28.951935355040415
       source_values:
-        yfinance: 28.331392378154703
+        yfinance: 28.951935355040415
       status: observed
       unit: percent
-      value: 28.3314
+      value: 28.9519
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 72.71
-  snapshot_hash: 9592f6eaa442fc8671ca0b4c43f18b643c2742a6b8177257303f0b9e626e8eb6
+  research_priority: 73.02
+  snapshot_hash: 5010df5ebc9e2e21707c7dbcdae40f265eba34f29f1c28c58422709af3879e67
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: ADP
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 72.71
+research_priority: 73.02
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 9592f6eaa442fc8671ca0b4c43f18b643c2742a6b8177257303f0b9e626e8eb6
+snapshot_hash: 5010df5ebc9e2e21707c7dbcdae40f265eba34f29f1c28c58422709af3879e67
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

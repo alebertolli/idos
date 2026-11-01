@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: UNP
-discovery_score: 83.48
+discovery_score: 86.08
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-UNP
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:22:32.235732+00:00'
+  as_of: '2026-11-01T10:26:46.678826+00:00'
   component_scores:
-    market_confirmation: 83.48
+    market_confirmation: 86.08
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 83.48
+  discovery_score: 86.08
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 671611956.8951095
+    avg_dollar_volume_usd: 690760668.1704712
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 175011676160.0
+    size_metric_usd: 180598964224.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 294.5950012207031
+    price: 304.0
     source: yfinance
     url: https://finance.yahoo.com/quote/UNP/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:32.235732+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:46.678826+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/UNP/history/
         status: observed
         unit: percent
-        value: 5.159034881331007
+        value: 2.1312198896564842
       source_values:
-        yfinance: 5.159034881331007
+        yfinance: 2.1312198896564842
       status: observed
       unit: percent
-      value: 5.159
+      value: 2.1312
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:32.235732+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:46.678826+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/UNP/history/
         status: observed
         unit: percent
-        value: 34.99290060405171
+        value: 37.9498147369564
       source_values:
-        yfinance: 34.99290060405171
+        yfinance: 37.9498147369564
       status: observed
       unit: percent
-      value: 34.9929
+      value: 37.9498
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:32.235732+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:46.678826+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/UNP/history/
         status: observed
         unit: percent
-        value: 20.749032471891702
+        value: 20.917592434052835
       source_values:
-        yfinance: 20.749032471891702
+        yfinance: 20.917592434052835
       status: observed
       unit: percent
-      value: 20.749
+      value: 20.9176
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 83.48
-  snapshot_hash: a7c9fb870929358204d64c8920bae4b1e33f6852cfc213da835f6150cc6be729
+  research_priority: 86.08
+  snapshot_hash: 9e10353ca6b8b815473dd0e6deadacde54cc367b4e8fa91f05cee76539cec61f
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: UNP
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 83.48
+research_priority: 86.08
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: a7c9fb870929358204d64c8920bae4b1e33f6852cfc213da835f6150cc6be729
+snapshot_hash: 9e10353ca6b8b815473dd0e6deadacde54cc367b4e8fa91f05cee76539cec61f
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

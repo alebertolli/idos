@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: MRK
-discovery_score: 80.41
+discovery_score: 83.19
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-MRK
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:19:29.510138+00:00'
+  as_of: '2026-11-01T10:23:35.820630+00:00'
   component_scores:
-    market_confirmation: 80.41
+    market_confirmation: 83.19
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 80.41
+  discovery_score: 83.19
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 1375886052.3768737
+    avg_dollar_volume_usd: 1490955682.1265411
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 348882731008.0
+    size_metric_usd: 368891494400.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 141.41000366210938
+    price: 149.52000427246094
     source: yfinance
     url: https://finance.yahoo.com/quote/MRK/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:19:29.510138+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:23:35.820630+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/MRK/history/
         status: observed
         unit: percent
-        value: 9.613290878560031
+        value: 4.429525606238187
       source_values:
-        yfinance: 9.613290878560031
+        yfinance: 4.429525606238187
       status: observed
       unit: percent
-      value: 9.6133
+      value: 4.4295
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:19:29.510138+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:23:35.820630+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/MRK/history/
         status: observed
         unit: percent
-        value: 60.69318597966975
+        value: 73.9009053672052
       source_values:
-        yfinance: 60.69318597966975
+        yfinance: 73.9009053672052
       status: observed
       unit: percent
-      value: 60.6932
+      value: 73.9009
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:19:29.510138+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:23:35.820630+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/MRK/history/
         status: observed
         unit: percent
-        value: 34.1930558167039
+        value: 34.43342916724445
       source_values:
-        yfinance: 34.1930558167039
+        yfinance: 34.43342916724445
       status: observed
       unit: percent
-      value: 34.1931
+      value: 34.4334
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 80.41
-  snapshot_hash: bde591c38a9c9984f08a0fd1ba9401b15898cf33d78d8973d2347952ec4f995c
+  research_priority: 83.19
+  snapshot_hash: ca873be8065ab3ffd222c6b7fa7c3a3ee7f3980064a6c31d47552ae4c2cbcaa4
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: MRK
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 80.41
+research_priority: 83.19
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: bde591c38a9c9984f08a0fd1ba9401b15898cf33d78d8973d2347952ec4f995c
+snapshot_hash: ca873be8065ab3ffd222c6b7fa7c3a3ee7f3980064a6c31d47552ae4c2cbcaa4
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

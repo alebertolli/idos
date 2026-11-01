@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: TMO
-discovery_score: 76.59
+discovery_score: 78.26
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-TMO
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:22:02.117806+00:00'
+  as_of: '2026-11-01T10:26:10.050247+00:00'
   component_scores:
-    market_confirmation: 76.59
+    market_confirmation: 78.26
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 76.59
+  discovery_score: 78.26
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 1601850977.6036377
+    avg_dollar_volume_usd: 1622359429.3188477
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 250599931904.0
+    size_metric_usd: 258249555968.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 677.760009765625
+    price: 697.0
     source: yfinance
     url: https://finance.yahoo.com/quote/TMO/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:02.117806+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:10.050247+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/TMO/history/
         status: observed
         unit: percent
-        value: 2.68919592978604
+        value: 1.7174755071452823
       source_values:
-        yfinance: 2.68919592978604
+        yfinance: 1.7174755071452823
       status: observed
       unit: percent
-      value: 2.6892
+      value: 1.7175
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:02.117806+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:10.050247+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/TMO/history/
         status: observed
         unit: percent
-        value: 20.217101448396726
+        value: 22.843191104071604
       source_values:
-        yfinance: 20.217101448396726
+        yfinance: 22.843191104071604
       status: observed
       unit: percent
-      value: 20.2171
+      value: 22.8432
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:02.117806+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:10.050247+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/TMO/history/
         status: observed
         unit: percent
-        value: 28.770722703959816
+        value: 28.15453879157066
       source_values:
-        yfinance: 28.770722703959816
+        yfinance: 28.15453879157066
       status: observed
       unit: percent
-      value: 28.7707
+      value: 28.1545
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 76.59
-  snapshot_hash: 2510b5d7bc249c9a0718dabf245ffcc50f155058613a81bb59d6a27c232e0199
+  research_priority: 78.26
+  snapshot_hash: 270ccc5470c94cda1aa37f52ec7e592e85fe0681a68dce37a1c3d6706b4237fe
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: TMO
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 76.59
+research_priority: 78.26
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 2510b5d7bc249c9a0718dabf245ffcc50f155058613a81bb59d6a27c232e0199
+snapshot_hash: 270ccc5470c94cda1aa37f52ec7e592e85fe0681a68dce37a1c3d6706b4237fe
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

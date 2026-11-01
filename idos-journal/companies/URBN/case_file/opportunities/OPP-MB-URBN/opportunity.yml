@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: URBN
-discovery_score: 78.87
+discovery_score: 80.66
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-URBN
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:22:35.661623+00:00'
+  as_of: '2026-11-01T10:26:51.906220+00:00'
   component_scores:
-    market_confirmation: 78.87
+    market_confirmation: 80.66
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 78.87
+  discovery_score: 80.66
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 80827055.57733536
+    avg_dollar_volume_usd: 86087883.09986115
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 7823344640.0
+    size_metric_usd: 7771091968.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 91.33000183105469
+    price: 90.72000122070312
     source: yfinance
     url: https://finance.yahoo.com/quote/URBN/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:35.661623+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:51.906220+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/URBN/history/
         status: observed
         unit: percent
-        value: 0.0
+        value: 1.5945343115024022
       source_values:
-        yfinance: 0.0
+        yfinance: 1.5945343115024022
       status: observed
       unit: percent
-      value: 0.0
+      value: 1.5945
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:35.661623+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:51.906220+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/URBN/history/
         status: observed
         unit: percent
-        value: 34.94385552487991
+        value: 40.41170153799429
       source_values:
-        yfinance: 34.94385552487991
+        yfinance: 40.41170153799429
       status: observed
       unit: percent
-      value: 34.9439
+      value: 40.4117
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:22:35.661623+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:26:51.906220+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/URBN/history/
         status: observed
         unit: percent
-        value: 38.67141042212131
+        value: 36.613705917522196
       source_values:
-        yfinance: 38.67141042212131
+        yfinance: 36.613705917522196
       status: observed
       unit: percent
-      value: 38.6714
+      value: 36.6137
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 78.87
-  snapshot_hash: 449a326539e29708bf93a164850255abab650bc3a967aabacd460ddb2760c675
+  research_priority: 80.66
+  snapshot_hash: 121b3260d71a2bc708aa137c3da1ac2ff988e2295a545fb4bf678a77039eeded
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: URBN
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 78.87
+research_priority: 80.66
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 449a326539e29708bf93a164850255abab650bc3a967aabacd460ddb2760c675
+snapshot_hash: 121b3260d71a2bc708aa137c3da1ac2ff988e2295a545fb4bf678a77039eeded
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

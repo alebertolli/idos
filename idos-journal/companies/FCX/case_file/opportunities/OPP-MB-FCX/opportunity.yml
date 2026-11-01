@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: FCX
-discovery_score: 71.27
+discovery_score: 69.84
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-FCX
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:17:26.981044+00:00'
+  as_of: '2026-11-01T10:21:31.996077+00:00'
   component_scores:
-    market_confirmation: 71.27
+    market_confirmation: 69.84
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 71.27
+  discovery_score: 69.84
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 769708089.1409867
+    avg_dollar_volume_usd: 772940370.6816864
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 93398581248.0
+    size_metric_usd: 89708019712.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 65.04000091552734
+    price: 62.470001220703125
     source: yfinance
     url: https://finance.yahoo.com/quote/FCX/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:17:26.981044+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:21:31.996077+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/FCX/history/
         status: observed
         unit: percent
-        value: 18.608437073108135
+        value: 21.824554676720297
       source_values:
-        yfinance: 18.608437073108135
+        yfinance: 21.824554676720297
       status: observed
       unit: percent
-      value: 18.6084
+      value: 21.8246
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:17:26.981044+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:21:31.996077+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/FCX/history/
         status: observed
         unit: percent
-        value: 58.24818328516543
+        value: 49.808153663687335
       source_values:
-        yfinance: 58.24818328516543
+        yfinance: 49.808153663687335
       status: observed
       unit: percent
-      value: 58.2482
+      value: 49.8082
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:17:26.981044+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:21:31.996077+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/FCX/history/
         status: observed
         unit: percent
-        value: 44.15445516856353
+        value: 43.14495103295385
       source_values:
-        yfinance: 44.15445516856353
+        yfinance: 43.14495103295385
       status: observed
       unit: percent
-      value: 44.1545
+      value: 43.145
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 71.27
-  snapshot_hash: 3a60dfbb822f785574a73e1c098e55926f12df5898021c07c7c84dd1077cc3ec
+  research_priority: 69.84
+  snapshot_hash: c8d6c445d069c096c35838134aac7a295a92cec9179ad7fc4fe7cf4e8504fcec
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: FCX
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 71.27
+research_priority: 69.84
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 3a60dfbb822f785574a73e1c098e55926f12df5898021c07c7c84dd1077cc3ec
+snapshot_hash: c8d6c445d069c096c35838134aac7a295a92cec9179ad7fc4fe7cf4e8504fcec
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

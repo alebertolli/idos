@@ -348,9 +348,244 @@ discovery_evidence:
       value: 0
     version: positive_fundamentals_v1
   reason: All configured filters passed; Research required
+discovery_last_evaluated_at: '2026-11-01T07:18:47.863852-03:00'
 entry_policy: VALUATION_ZONE
 hypothesis_ids: []
 id: OPP-COMPOUNDER-EA-0001
+latest_discovery_evidence:
+  conflicting_metrics: []
+  data_provenance:
+    conflicts: []
+    field_sources:
+      analyst_count:
+      - yfinance
+      asset_type:
+      - yfinance
+      avg_dollar_volume_usd:
+      - yfinance
+      avg_volume:
+      - yfinance
+      beta_5y:
+      - yfinance
+      current_ratio:
+      - yfinance
+      debt_equity_ratio:
+      - yfinance
+      dividend_yield_pct:
+      - yfinance
+      employees:
+      - yfinance
+      enterprise_value:
+      - yfinance
+      eps_forward:
+      - yfinance
+      eps_ttm:
+      - yfinance
+      exchange:
+      - yfinance
+      financial_currency:
+      - yfinance
+      financial_data_observed_at:
+      - yfinance
+      financial_metric_metadata:
+      - yfinance
+      financial_period_end_timestamp:
+      - yfinance
+      float_shares:
+      - yfinance
+      forward_pe:
+      - yfinance
+      gross_margin_pct:
+      - yfinance
+      high_52w:
+      - yfinance
+      industry:
+      - yfinance
+      levered_fcf:
+      - yfinance
+      liquidity_provenance:
+      - yfinance
+      low_52w:
+      - yfinance
+      ma_200d:
+      - yfinance
+      ma_50d:
+      - yfinance
+      market_cap:
+      - yfinance
+      market_cap_currency:
+      - yfinance
+      market_cap_provenance:
+      - yfinance
+      market_cap_usd:
+      - yfinance
+      market_data_normalization:
+      - yfinance
+      net_margin_pct:
+      - yfinance
+      operating_margin_pct:
+      - yfinance
+      pb_ratio:
+      - yfinance
+      pe_ratio:
+      - yfinance
+      peg_ratio:
+      - yfinance
+      price:
+      - yfinance
+      price_history:
+      - yfinance
+      price_history_basis:
+      - yfinance
+      price_history_dates:
+      - yfinance
+      price_target_avg:
+      - yfinance
+      price_target_high:
+      - yfinance
+      price_target_low:
+      - yfinance
+      ps_ratio:
+      - yfinance
+      quote_currency:
+      - yfinance
+      revenue_growth_pct:
+      - yfinance
+      revenue_ttm:
+      - yfinance
+      roa_pct:
+      - yfinance
+      roe_pct:
+      - yfinance
+      sector:
+      - yfinance
+      shares_outstanding:
+      - yfinance
+      size_metric_provenance:
+      - yfinance
+      size_metric_usd:
+      - yfinance
+      source:
+      - yfinance
+      ticker:
+      - yfinance
+      volume_history:
+      - yfinance
+    source_count: 1
+    sources_used:
+    - yfinance
+  eligibility_status: PENDING_DATA
+  evaluated_at: '2026-11-01T07:18:47.863852-03:00'
+  filter_results:
+    fcf: null
+    investability: 100
+    operating_margin_pct: null
+    revenue_growth_pct: null
+  financial_observations:
+    operating_margin_pct:
+      currency: null
+      non_comparable_reason: null
+      non_comparable_values: {}
+      observed_at: '2026-11-01T10:17:29.056034+00:00'
+      period_end_date: '2026-06-30'
+      period_status: PERIOD_UNSPECIFIED
+      period_type: PROVIDER_REPORTED_UNSPECIFIED
+      provider_period_end_timestamp: 1782777600
+      selected_source: yfinance
+      source_metadata:
+        yfinance:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: PROVIDER_REPORTED_UNSPECIFIED
+          unit: percentage_points
+      unit: percentage_points
+      values:
+        yfinance: 25.881
+    revenue_growth_pct:
+      currency: null
+      non_comparable_reason: null
+      non_comparable_values: {}
+      observed_at: '2026-11-01T10:17:29.056034+00:00'
+      period_end_date: '2026-06-30'
+      period_status: PERIOD_UNSPECIFIED
+      period_type: PROVIDER_REPORTED_UNSPECIFIED
+      provider_period_end_timestamp: 1782777600
+      selected_source: yfinance
+      source_metadata:
+        yfinance:
+          currency: null
+          period_end_date: '2026-06-30'
+          period_type: PROVIDER_REPORTED_UNSPECIFIED
+          unit: percentage_points
+      unit: percentage_points
+      values:
+        yfinance: 18.9
+  liquidity_provenance:
+    as_of: '2026-08-04'
+    basis: UNDERLYING_USD_PROXY
+    coverage: 1.0
+    currency: USD
+    expected_observations: 1
+    first_price_date: '2026-08-04'
+    fx_observations: []
+    fx_reference: null
+    fx_side: null
+    fx_source: null
+    last_price_date: '2026-08-04'
+    minimum_coverage: null
+    missing_market_dates: []
+    price_source: yfinance
+    quote_currency: USD
+    source: yfinance
+    valid_observations: 1
+    valid_price_dates:
+    - '2026-08-04'
+    window_sessions: 20
+  market_cap_provenance:
+    as_of: '2026-08-04'
+    basis: USD_PROVIDER_METRIC
+    currency: USD
+    source: yfinance
+  market_data_normalization:
+    errors: []
+    fx_conversion_used: false
+    geography_filter: null
+    liquidity_basis: UNDERLYING_USD_PROXY
+    size_metric: market_cap_usd
+    status: complete
+  market_quote:
+    as_of_date: '2026-08-04'
+    currency: USD
+    price: 209.6999969482422
+    source: yfinance
+  metrics:
+    fcf: null
+    operating_margin_pct: 25.881
+    revenue_growth_pct: 18.9
+  missing_metrics:
+  - operating_margin_pct
+  - fcf
+  - revenue_growth_pct
+  policy:
+    filters:
+    - label: Margen operativo
+      metric: operating_margin_pct
+      operator: gt
+      unit: percentage_points
+      value: 0
+    - label: Flujo de caja libre
+      metric: fcf
+      operator: gt
+      unit: provider_currency
+      value: 0
+    - label: Crecimiento de ingresos
+      metric: revenue_growth_pct
+      operator: gt
+      unit: percentage_points
+      value: 0
+    version: positive_fundamentals_v1
+  reason: 'Datos pendientes: Margen operativo, Flujo de caja libre, Crecimiento de
+    ingresos'
 opportunity_cycle: 1
 origin: automated
 research_profile: strategic
