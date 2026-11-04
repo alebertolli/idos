@@ -15,7 +15,11 @@ from pathlib import PurePosixPath
 
 RESULTS_BRANCH = "codex/ddd-research-results"
 MAIN_REF = "refs/remotes/origin/main"
-AUDIT_LOG = PurePosixPath("SDD/25.PLAN-E2E-EN-RAMA-DE-PRUEBA.md")
+MAIN_OWNED_CONFLICTS = {
+    PurePosixPath(".github/workflows/ddd-pipeline.yml"),
+    PurePosixPath("SDD/25.PLAN-E2E-EN-RAMA-DE-PRUEBA.md"),
+    PurePosixPath("idos-core/tests/test_ddd_research_script.py"),
+}
 
 
 def _git(*args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
@@ -59,18 +63,21 @@ def _sync_results_branch() -> None:
         return
 
     conflicts = _git("diff", "--name-only", "--diff-filter=U").stdout.splitlines()
-    expected_conflicts = {AUDIT_LOG.as_posix()}
-    if set(conflicts) != expected_conflicts:
+    expected_conflicts = {path.as_posix() for path in MAIN_OWNED_CONFLICTS}
+    if not conflicts or not set(conflicts).issubset(expected_conflicts):
         _git("merge", "--abort", check=False)
         raise RuntimeError(
             "Refusing to resolve unexpected results-branch merge conflicts: "
             + (", ".join(conflicts) if conflicts else "merge failed without a file conflict")
         )
 
-    # The current merge direction is results branch <- main. Keep main's canonical
-    # audit log; the results branch persists state and generated reports, not SDD.
-    _git("checkout", "--theirs", "--", AUDIT_LOG.as_posix())
-    _git("add", "--", AUDIT_LOG.as_posix())
+    # The current merge direction is results branch <- main. These files are
+    # canonical source/audit files; resumable results and generated reports live
+    # elsewhere and must never be auto-resolved.
+    for conflict in sorted(conflicts):
+        path = PurePosixPath(conflict)
+        _git("checkout", "--theirs", "--", path.as_posix())
+        _git("add", "--", path.as_posix())
     commit = _git(
         "-c",
         "user.name=idos-bot",
@@ -85,7 +92,7 @@ def _sync_results_branch() -> None:
         details = commit.stderr.strip() or commit.stdout.strip()
         raise RuntimeError(f"Could not finish the documented main-owned conflict resolution: {details}")
 
-    print(f"[DDD-SYNC] Resolved {AUDIT_LOG.as_posix()} using canonical main content")
+    print("[DDD-SYNC] Resolved main-owned source conflicts using canonical main content")
 
 
 if __name__ == "__main__":
