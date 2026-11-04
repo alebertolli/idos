@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Resume the persistent DDD results branch on current main safely.
 
-The results branch carries resumable data across runs. The append-only SDD audit
-log is owned by main, so a conflict in that single file is resolved in favor of
-main. Any conflict in persisted results or other files remains a hard failure.
+The results branch carries resumable data across runs. The workflow, its static
+test, and the append-only SDD audit log are owned by main, so conflicts in those
+files resolve in favor of main. Conflicts in persisted results remain failures.
 """
 
 from __future__ import annotations
@@ -83,7 +83,7 @@ def _sync_results_branch() -> None:
     if commit.returncode:
         _git("merge", "--abort", check=False)
         details = commit.stderr.strip() or commit.stdout.strip()
-        raise RuntimeError(f"Could not finish the documented audit-log resolution: {details}")
+        raise RuntimeError(f"Could not finish the documented main-owned conflict resolution: {details}")
 
     print(f"[DDD-SYNC] Resolved {AUDIT_LOG.as_posix()} using canonical main content")
 
