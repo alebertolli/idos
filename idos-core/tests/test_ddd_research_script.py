@@ -727,6 +727,9 @@ def test_scheduled_results_pr_requires_a_published_commit():
     publish_pr = next(step for step in steps if step.get("name") == "Open or update scheduled results PR and enable auto-merge")
 
     assert publish["id"] == "publish-results"
+    assert 'git merge --no-edit "origin/$TARGET_BRANCH"' in publish["run"]
+    assert 'git rebase "origin/$TARGET_BRANCH"' not in publish["run"]
+    assert "git merge --abort" in publish["run"]
     assert 'echo "changed=false"' in publish["run"]
     assert 'echo "changed=true"' in publish["run"]
     assert "steps.publish-results.outputs.changed == 'true'" in publish_pr["if"]
