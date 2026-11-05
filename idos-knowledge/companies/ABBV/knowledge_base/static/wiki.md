@@ -48,10 +48,9 @@ To be evaluated
 ## Catalysts
 - **Catalyst** (Impact: medium, Timeline: medium)
 - **Catalyst** (Impact: medium, Timeline: medium)
-- **Catalyst** (Impact: medium, Timeline: medium)
 
 ---
 
 ## Investment Thesis
 
-Mantener/añadir posición en AbbVie dado su fuerte flujo de caja, margen operativo elevado y potenciales catalizadores de pipeline que pueden cerrar la brecha entre precio actual y target medio.
+AbbVie combina un sólido flujo de caja libre con un margen bruto elevado y un crecimiento de ingresos sostenido, mientras que su pipeline de inmunología y oncología ofrece oportunidades de upside, aunque la alta deuda neta y la cobertura de intereses limitada representan riesgos.

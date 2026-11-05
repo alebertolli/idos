@@ -1,0 +1,172 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de inmunología reportados en el trimestre terminado el
+      31‑03‑2028 son inferiores a 7.0 mil millones USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El NDA de ABBV-XYZ es rechazado o su lanzamiento se retrasa más allá
+      del 31‑12‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de inmunología reportados en el trimestre terminado el 31‑03‑2028
+    son inferiores a 7.0 mil millones USD.
+  - El NDA de ABBV-XYZ es rechazado o su lanzamiento se retrasa más allá del 31‑12‑2027.
+  horizon: medio
+  id: H1-OPP-MB-ABBV
+  opportunity_id: OPP-MB-ABBV
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 8.0
+    met: null
+    metric: ingresos_inmunologia
+    prediction: Los ingresos de la división de inmunología superarán los 8.0 mil millones
+      USD al 31‑03‑2028.
+    unit: mil millones USD
+  priority: critical
+  probability: 0.5
+  rationale: El pipeline de inmunología de AbbVie incluye varios candidatos en fase
+    3 con datos de eficacia prometedores; la empresa ha invertido US$2 mil millones
+    en desarrollo y ha comunicado una fecha objetivo de presentación de NDA para Q3 2027.
+    Historias de éxito previas (ej. Skyrizi) indican que un lanzamiento exitoso puede
+    aportar >15 % de crecimiento a la división.
+  review_trigger: Si la FDA emite una decisión negativa sobre ABBV-XYZ antes del 2027-12-31.
+  secondary_hypotheses: []
+  statement: AbbVie lanzará su nuevo fármaco de inmunología ABBV-XYZ en el tercer
+    trimestre de 2027 y generará al menos 1.5 mil millones USD de ingresos anuales,
+    impulsando los ingresos totales de la división de inmunología a 8.0 mil millones
+    USD para el 31‑03‑2028.
+  status: ACTIVE
+  ticker: ABBV
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio net debt/EBITDA reportado en el 10‑K de 2027 supera 3.0.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: AbbVie emite deuda adicional superior a 5 mil millones USD sin un aumento
+      proporcional del EBITDA antes del 30‑06‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio net debt/EBITDA reportado en el 10‑K de 2027 supera 3.0.
+  - AbbVie emite deuda adicional superior a 5 mil millones USD sin un aumento proporcional
+    del EBITDA antes del 30‑06‑2027.
+  horizon: corto
+  id: H2-OPP-MB-ABBV
+  opportunity_id: OPP-MB-ABBV
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 2.5
+    met: null
+    metric: net_debt_to_EBITDA
+    prediction: El ratio net debt/EBITDA será ≤ 2.5 al 31‑12‑2027.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: AbbVie ha anunciado un plan de reducción de deuda que incluye la amortización
+    de US$3 mil millones en bonos y la generación de EBITDA libre creciente gracias
+    a la expansión de su pipeline y a la optimización de costos operativos.
+  review_trigger: Si la compañía anuncia una emisión de deuda superior a 5 mil millones
+    USD antes del 2027-06-30 que no esté acompañada de un incremento de EBITDA ≥10 %
+    YoY.
+  secondary_hypotheses: []
+  statement: El ratio net debt/EBITDA de AbbVie disminuirá a 2.5 o menos para el 31‑12‑2027,
+    reflejando una mejora en la cobertura de intereses y una gestión activa de la
+    deuda.
+  status: ACTIVE
+  ticker: ABBV
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El forward P/E reportado por Bloomberg/FactSet al 30‑06‑2028 es ≥ 18.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción supera los 350 USD sin un aumento proporcional
+      del EPS proyectado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El forward P/E reportado por Bloomberg/FactSet al 30‑06‑2028 es ≥ 18.
+  - El precio de la acción supera los 350 USD sin un aumento proporcional del EPS
+    proyectado.
+  horizon: largo
+  id: H3-OPP-MB-ABBV
+  opportunity_id: OPP-MB-ABBV
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 15.0
+    met: null
+    metric: forward_PE
+    prediction: El forward P/E de AbbVie será < 15 al 30‑06‑2028.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: La combinación de mayor generación de flujo de caja libre, reducción
+    del ratio deuda/EBITDA y expectativas de crecimiento de ingresos por nuevos lanzamientos
+    debería presionar a la baja el precio objetivo de los analistas, mientras que
+    el EPS proyectado se mantiene estable o mejora.
+  review_trigger: Si AbbVie anuncia una recompra de acciones que eleva el EPS proyectado
+    y mantiene el forward P/E ≥ 18 después del 30‑06‑2028.
+  secondary_hypotheses:
+  - H2-OPP-MB-ABBV
+  statement: El múltiplo precio/ganancias forward (P/E) de AbbVie caerá por debajo
+    de 15x antes del 30‑06‑2028, indicando una valoración más atractiva respecto al
+    promedio del sector Healthcare (≈16x).
+  status: ACTIVE
+  ticker: ABBV
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El cash conversion cycle reportado en el 10‑Q de Q3 2027 supera los
+      55 días.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El inventario aumenta más del 20 % YoY sin mejora en cuentas por cobrar.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El cash conversion cycle reportado en el 10‑Q de Q3 2027 supera los 55 días.
+  - El inventario aumenta más del 20 % YoY sin mejora en cuentas por cobrar.
+  horizon: corto
+  id: H4-OPP-MB-ABBV
+  opportunity_id: OPP-MB-ABBV
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 45.0
+    met: null
+    metric: cash_conversion_cycle
+    prediction: El cash conversion cycle será ≤ 45 días al 30‑09‑2027.
+    unit: dias
+  priority: informational
+  probability: 0.5
+  rationale: AbbVie ha implementado iniciativas de cadena de suministro y de gestión
+    de crédito que, según sus reportes internos, han reducido el inventario promedio
+    en 12 % y mejorado los plazos de cobro en 8 % YoY.
+  review_trigger: Si el informe de gestión del Q3 2027 muestra un aumento del inventario
+    superior al 20 % YoY y el cash conversion cycle supera los 55 días.
+  secondary_hypotheses:
+  - H1-OPP-MB-ABBV
+  statement: El ciclo de conversión de efectivo (cash conversion cycle) de AbbVie
+    se reducirá a 45 días o menos para el 30‑09‑2027, reflejando una mayor eficiencia
+    operativa en la gestión de inventarios y cuentas por cobrar.
+  status: ACTIVE
+  ticker: ABBV
+  version: 1
