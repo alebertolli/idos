@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-11-05 10:58 AR _
+_Generado: 2026-11-05 11:26 AR _
 
 ## Resumen
 
@@ -12,17 +12,17 @@ _Generado: 2026-11-05 10:58 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **ABBV** (OPP-20261023-001): score=78, class=?
+- ✅ **ABBV** (OPP-MB-ABBV): score=78, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
 - ⚠️ **ABBV**
-  - Opp: [OPP-20261023-001]
-  - Conviction: 61/100 | Rec: BLOCKED
-  - Scores: Business: 67 | Valuation: 55 | Recovery: 60 | Risk: 70 | Portfolio: 50
+  - Opp: [OPP-MB-ABBV]
+  - Conviction: 60/100 | Rec: BLOCKED
+  - Scores: Business: 67 | Valuation: 55 | Recovery: 54 | Risk: 70 | Portfolio: 50
   - Rules BLOCKED:
     - 🚫 RULE-001: Business quality: 67/70
-    - 🚫 RULE-005: Conviction: 61/65
+    - 🚫 RULE-005: Conviction: 60/65
     - 🚫 RULE-008: B/R 0.9:1 ❌ (Bull +18.7% / Bear -19.6%)
 
 ---
