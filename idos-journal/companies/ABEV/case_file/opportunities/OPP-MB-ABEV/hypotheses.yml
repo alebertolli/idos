@@ -1,0 +1,161 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Participación de mercado premium inferior al 10% en la encuesta de
+      Nielsen a la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El lanzamiento del producto se retrasa más de 6 meses respecto al plan
+      anunciado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Participación de mercado premium inferior al 10% en la encuesta de Nielsen a la
+    fecha objetivo.
+  - El lanzamiento del producto se retrasa más de 6 meses respecto al plan anunciado.
+  horizon: medio
+  id: H1-OPP-MB-ABEV
+  opportunity_id: OPP-MB-ABEV
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 12.0
+    met: null
+    metric: participacion_mercado_premium
+    prediction: Participación de mercado premium en Brasil = 12% a 2027-06-30.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: La compañía ha anunciado inversiones en innovación de productos y ha
+    identificado una demanda creciente de cervezas premium en el mercado brasileño,
+    respaldado por estudios de consumo que muestran un crecimiento anual del 5% en
+    este segmento.
+  review_trigger: Si al 2027-04-30 la participación de mercado premium sigue por debajo
+    del 9% según datos de Euromonitor.
+  secondary_hypotheses: []
+  statement: Ambev lanzará una nueva línea de cervezas premium en Brasil y aumentará
+    su participación de mercado en el segmento premium al 12% para mediados de 2027.
+  status: ACTIVE
+  ticker: ABEV
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF reportado inferior a US$2.2 mil millones al cierre de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Crecimiento interanual del FCF menor al 4%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF reportado inferior a US$2.2 mil millones al cierre de 2027.
+  - Crecimiento interanual del FCF menor al 4%.
+  horizon: largo
+  id: H2-OPP-MB-ABEV
+  opportunity_id: OPP-MB-ABEV
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 2500.0
+    met: null
+    metric: flujo_caja_libre
+    prediction: FCF 2027 = US$2.5 mil millones.
+    unit: millones_USD
+  priority: important
+  probability: 0.5
+  rationale: El sólido margen bruto superior al 50% y la generación de efectivo neto,
+    combinados con la expansión de la línea premium y la optimización de costos operativos,
+    deberían impulsar la generación de efectivo.
+  review_trigger: Si el reporte financiero del Q4 2027 muestra un FCF acumulado menor
+    a US$2.0 mil millones.
+  secondary_hypotheses:
+  - H1-OPP-MB-ABEV
+  statement: El flujo de caja libre (FCF) de Ambev crecerá un 8% interanual en 2027,
+    alcanzando US$2.5 mil millones al cierre del año fiscal 2027.
+  status: ACTIVE
+  ticker: ABEV
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Precio de cierre superior a US$3.00 el 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El consenso de analistas se mantiene por encima de US$3.30 sin ajuste
+      a la baja.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Precio de cierre superior a US$3.00 el 2027-09-30.
+  - El consenso de analistas se mantiene por encima de US$3.30 sin ajuste a la baja.
+  horizon: corto
+  id: H3-OPP-MB-ABEV
+  opportunity_id: OPP-MB-ABEV
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 2.97
+    met: null
+    metric: precio_accion
+    prediction: Precio acción ≤ US$2.97 a 2027-09-30.
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: El precio actual supera ligeramente el consenso medio, lo que sugiere
+    una sobrevaloración que el mercado corregirá una vez que se publiquen los resultados
+    financieros de 2027 y se confirme la evolución de los márgenes.
+  review_trigger: Si el precio de la acción supera US$3.10 al 2027-08-31 y no hay
+    señales de corrección.
+  secondary_hypotheses:
+  - H2-OPP-MB-ABEV
+  statement: El precio de la acción de Ambev caerá al menos un 10% respecto al nivel
+    actual de US$3.305 antes del 30 de septiembre de 2027.
+  status: ACTIVE
+  ticker: ABEV
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Margen bruto reportado inferior al 49% en el Q2 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Incremento del costo de materias primas superior al 15% sin compensación
+      de precios.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Margen bruto reportado inferior al 49% en el Q2 2027.
+  - Incremento del costo de materias primas superior al 15% sin compensación de precios.
+  horizon: corto
+  id: H4-OPP-MB-ABEV
+  opportunity_id: OPP-MB-ABEV
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-31'
+    expected: 51.0
+    met: null
+    metric: margen_bruto
+    prediction: Margen bruto Q2 2027 ≥ 51%.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: Los márgenes históricos superiores al 50% y la mejora en la mezcla de
+    productos premium deberían sostener o elevar el margen bruto, a menos que haya
+    aumentos inesperados en costos de materias primas.
+  review_trigger: Si el reporte financiero del Q2 2027 muestra un margen bruto ≤ 48%
+    antes del 2027-08-15.
+  secondary_hypotheses: []
+  statement: El margen bruto de Ambev se mantendrá por encima del 51% en el segundo
+    trimestre de 2027.
+  status: ACTIVE
+  ticker: ABEV
+  version: 1

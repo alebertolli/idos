@@ -7,10 +7,13 @@ aliases:
 
 # IDOS Company Index
 
-Total: 5 companies tracked
+Total: 6 companies tracked
 
 ## Basic Materials
 - 📄 [[DOW|Dow Inc.]]
+
+## Consumer Defensive
+- 📄 [[ABEV|Ambev S.A.]]
 
 ## Energy
 - 📄 [[E|Eni S.p.A.]]

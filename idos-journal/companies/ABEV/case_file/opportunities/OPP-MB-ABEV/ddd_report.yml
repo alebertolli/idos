@@ -1,0 +1,476 @@
+calidad_evidencia:
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 2
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Consumer Defensive - Growth
+  justificacion: Ambev muestra fuerte generación de flujo de caja y margen bruto estable,
+    con potencial de expansión de marcas en América Latina.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Generación de FCF consistente (4.52B USD) y margen bruto estable (~51.8%)
+    respaldan una posición financiera robusta.
+  rating: A
+dominio_catalizadores:
+- descripcion: Lanzamiento de nuevos productos premium podría elevar márgenes y flujo
+    de caja.
+  tipo: Expansión de marcas premium
+- descripcion: Mejoras en la cadena de suministro podrían incrementar el margen bruto.
+  tipo: Optimización de costos logísticos
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: El ratio de cobertura de intereses reportado es 0, por debajo del umbral
+    de 2.0, indicando vulnerabilidad a cambios en costos de deuda.
+  tipo: Cobertura de intereses
+- descripcion: Falta de datos de dilución impide evaluar riesgo de aumento de acciones
+    en circulación.
+  tipo: Dilución de acciones
+error_mercado:
+  catalizador_cambio: Revisión de expectativas de crecimiento de ingresos o cambios
+    regulatorios en Brasil podrían alinear precio con consenso.
+  conclusion_error_valoracion: Existe una ligera discrepancia entre precio y consenso
+    que justifica un análisis de escenarios.
+  consenso_actual:
+    currency: USD
+    high: 4.0
+    low: 2.64
+    mean: 3.2
+  hipotesis_contraria: El precio actual (3.305 USD) supera ligeramente el consenso
+    medio, indicando posible sobrevaloración ligera.
+  razonamiento: El consenso medio (3.2) está por debajo del precio de mercado (3.305),
+    sugiriendo que el mercado podría estar incorporando expectativas de crecimiento
+    no reflejadas en el consenso.
+generated_at: '2026-11-05T14:53:05.029090-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-ABEV
+prompt_inputs:
+  business_model: Ambev S.A., through its subsidiaries, engages in the production,
+    distribution, and sale of beer, draft beer, soft drinks, malt and food, and other
+    beverages in Brazil, Central America and Caribbean, Latin America South, and Canada.
+    The company offers beer, ready-to-drink cocktails and spritzers, soft drinks,
+    water, teas, and isotonic drinks under the Brahma, Skol, Antarctica, Original,
+    Quilmes, Andes Origen, Patricia, Paceha, Huari, Pilsen, Presidente, Balboa, Guaraná
+    Antarctica, and Beats brands. It sells its products to distributors, supermarkets,
+    and retailers within a broad distribution network. The company was founded in
+    1853 and is headquartered in São Paulo, Brazil. Ambev S.A. operates as a subsidiary
+    of Interbrew International B.V.
+  ceo_tenure: 0
+  debt_to_equity: 0.03
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Ambev S.A.
+  operating_margin: 26.05
+  pe_ratio: 15.12
+  products: ''
+  revenue: 17180000000.0
+  revenue_growth: -1.61
+  roic: 25.3
+  sector: Consumer Defensive
+  ticker: ABEV
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ABEV/statistics/
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/abev/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: observed
+  inputs:
+    fcf_growth_TTM: 19.67
+  limitations: null
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/abev/financials/
+  status: reported
+  unit: percent
+  value: 19.67
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ABEV/statistics/
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/abev/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/abev/financials/
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ABEV/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: null
+  inputs: null
+  limitations: Datos de acciones diluidas históricas no proporcionados.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-05'
+  business_model: Ambev S.A., through its subsidiaries, engages in the production,
+    distribution, and sale of beer, draft beer, soft drinks, malt and food, and other
+    beverages in Brazil, Central America and Caribbean, Latin America South, and Canada.
+    The company offers beer, ready-to-drink cocktails and spritzers, soft drinks,
+    water, teas, and isotonic drinks under the Brahma, Skol, Antarctica, Original,
+    Quilmes, Andes Origen, Patricia, Paceha, Huari, Pilsen, Presidente, Balboa, Guaraná
+    Antarctica, and Beats brands. It sells its products to distributors, supermarkets,
+    and retailers within a broad distribution network. The company was founded in
+    1853 and is headquartered in São Paulo, Brazil. Ambev S.A. operates as a subsidiary
+    of Interbrew International B.V.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 3.305000066757202
+  current_price_as_of_date: '2026-10-23'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.03
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-05T17:52:46.922048+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Ambev S.A.
+  operating_margin: 26.05
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Ambev S.A., through its subsidiaries, engages in the production,
+    distribution, and sale of beer, draft beer, soft drinks, malt and food, and other
+    beverages in Brazil, Central America and Caribbean, Latin America South, and Canada.
+    The company offers beer, ready-to-drink cocktails and spritzers, soft drinks,
+    water, teas, and isotonic drinks under the Brahma, Skol, Antarctica, Original,
+    Quilmes, Andes Origen, Patricia, Paceha, Huari, Pilsen, Presidente, Balboa, Guaraná
+    Antarctica, and Beats brand
+  revenue: 17180000000.0
+  revenue_growth: -1.61
+  roic: 25.3
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/abev/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABEV/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABEV/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABEV/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABEV/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/abev/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/abev/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/abev/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABEV/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/abev/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABEV/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/abev/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/abev/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/abev/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABEV/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABEV/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/abev/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    4.0, "low": 2.64, "mean": 3.2, "median": 3.2, "observed_at": "2026-11-05T14:52:50.439022-03:00",
+    "sources": [{"as_of_date": "2026-11-05", "name": "stockanalysis", "observed_at":
+    "2026-11-05T14:52:50.439022-03:00", "observed_date": "2026-11-05", "target_price":
+    3.2, "url": "https://stockanalysis.com/stocks/abev/forecast/"}, {"as_of_date":
+    "2026-11-05", "name": "yfinance", "observed_at": "2026-11-05T14:52:50.439022-03:00",
+    "observed_date": "2026-11-05", "target_price": 3.196, "url": "https://finance.yahoo.com/quote/ABEV/"}]},
+    "current_quote": {"as_of_date": "2026-10-23", "currency": "USD", "price": 3.305000066757202,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ABEV/"}]}}'
+  sector: Consumer Defensive
+  ticker: ABEV
+research_trigger:
+  discovery_snapshot_hash: 184482a169b30ab440054e0eecb66252556c3abef2e5213ff91485414b232bf0
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 10c365ab320d1f94447ce6f2ef7ce501699ae1f592855476a619bc66716dffe7
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-05T14:53:05.029090-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- Interest coverage ratio below threshold (0 < 2.0)
+scenario_analysis:
+  as_of_date: '2026-11-05'
+  currency: USD
+  horizon_date: '2027-11-05'
+  scenarios:
+  - falsifiers:
+    - Ingresos Q4 superan expectativas
+    - Márgenes brutos se mantienen >51%
+    id: BEAR
+    key_assumptions:
+    - CAGR de ingresos 3y cae a <2%
+    - Margen bruto disminuye a <50%
+    - FCF growth negativo
+    rationale: Desaceleración del crecimiento de ingresos y presión de costos reducen
+      márgenes y flujo de caja.
+    sources:
+    - as_of_date: '2026-11-05'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abev/forecast/
+    - as_of_date: '2026-10-23'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABEV/
+    target_price: 2.64
+  - falsifiers:
+    - Caída de ingresos >5% YoY
+    - Márgenes brutos caen bajo 50%
+    id: BULL
+    key_assumptions:
+    - CAGR de ingresos 3y supera 5%
+    - Margen bruto supera 52%
+    - FCF growth >20%
+    rationale: Crecimiento sostenido de ingresos y expansión de marcas premium mejoran
+      márgenes y FCF.
+    sources:
+    - as_of_date: '2026-11-05'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abev/forecast/
+    - as_of_date: '2026-10-23'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABEV/
+    target_price: 4.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 87
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-05T14:52:50.439022-03:00'
+  fuentes:
+    stockanalysis: 3.2
+    yfinance: 3.196
+  mediana: 3.2
+  n_fuentes: 2
+  promedio: 3.2
+  source_references:
+  - as_of_date: '2026-11-05'
+    name: stockanalysis
+    observed_at: '2026-11-05T14:52:50.439022-03:00'
+    observed_date: '2026-11-05'
+    target_price: 3.2
+    url: https://stockanalysis.com/stocks/abev/forecast/
+  - as_of_date: '2026-11-05'
+    name: yfinance
+    observed_at: '2026-11-05T14:52:50.439022-03:00'
+    observed_date: '2026-11-05'
+    target_price: 3.196
+    url: https://finance.yahoo.com/quote/ABEV/
+  target_high: 4.0
+  target_low: 2.64
+tesis_inversion: Ambev combina un sólido flujo de caja libre con márgenes brutos superiores
+  al 50% y una posición de efectivo neto, lo que respalda una valoración atractiva
+  bajo escenarios de crecimiento moderado.
+ticker: ABEV
+version: '3.0'
