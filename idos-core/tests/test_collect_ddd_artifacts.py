@@ -57,6 +57,25 @@ def test_collector_copies_current_selected_dossier_and_manifest(tmp_path):
     assert stale.is_dir() and unrelated.is_dir()
 
 
+def test_collector_infers_tickers_from_processed_resume_results(tmp_path):
+    _write_case(tmp_path, "ABBV", "OPP-ABBV-001", "2026-10-20T19:00:00Z")
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    (cache / "ddd_results.json").write_text(json.dumps({
+        "processed": [{"ticker": "abbv", "opp_id": "OPP-ABBV-001", "status": "completed"}],
+        "assessments": [],
+        "errors": [],
+    }), encoding="utf-8")
+
+    manifest = collect_ddd_artifacts(tmp_path, [], RUN_STARTED_AT)
+
+    assert manifest["tickers"] == ["ABBV"]
+    assert [(item["ticker"], item["opp_id"]) for item in manifest["opportunities"]] == [
+        ("ABBV", "OPP-ABBV-001")
+    ]
+    assert (tmp_path / "cache/ddd-artifact/companies/ABBV/opportunities/OPP-ABBV-001/ddd_report.yml").is_file()
+
+
 def test_collector_writes_empty_manifest_for_unbounded_scheduled_run(tmp_path):
     manifest = collect_ddd_artifacts(tmp_path, [], RUN_STARTED_AT)
 
