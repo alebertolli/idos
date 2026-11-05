@@ -1,38 +1,11 @@
 {
-  "total": 2,
-  "processed": [
-    {
-      "opp_id": "OPP-MB-ABEV",
-      "ticker": "ABEV",
-      "status": "completed",
-      "score": 87,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-20261023-003",
-      "ticker": "ABNB",
-      "status": "ddd_failed",
-      "score": null,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    }
-  ],
+  "processed": [],
+  "errors": [],
+  "total": 0,
+  "status": "ramp_paused",
+  "event_type": "quarterly-results",
+  "force": true,
+  "deferred_count": 1,
   "skipped": [],
-  "assessments": [],
-  "errors": [
-    {
-      "ticker": "ABNB",
-      "opp_id": "OPP-20261023-003",
-      "status": "ddd_failed",
-      "error": "All providers failed",
-      "errors": []
-    }
-  ],
-  "status": "failed",
-  "deferred_count": 189,
-  "capacity_failure": null,
-  "event_type": "monthly",
-  "force": false,
-  "stale_days_threshold": 30
+  "assessments": []
 }
