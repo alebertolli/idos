@@ -301,9 +301,9 @@ jobs:
           git stash push --include-untracked -m 'ddd transient outputs before results push'
           if git ls-remote --exit-code --heads origin "$TARGET_BRANCH" >/dev/null 2>&1; then
             git fetch origin "$TARGET_BRANCH"
-            if ! git rebase "origin/$TARGET_BRANCH"; then
-              git rebase --abort
-              echo "[ERROR] DDD could not rebase onto origin/$TARGET_BRANCH. Refusing to publish results."
+            if ! git merge --no-edit "origin/$TARGET_BRANCH"; then
+              git merge --abort
+              echo "[ERROR] DDD could not merge the latest origin/$TARGET_BRANCH. Refusing to publish results."
               exit 1
             fi
           fi
