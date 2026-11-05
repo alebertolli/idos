@@ -2,84 +2,84 @@ ticker: GGB
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 74.6
-research_priority: 74.6
+discovery_score: 72.49
+research_priority: 72.49
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 74.6
+  market_confirmation: 72.49
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 39.2625
+    value: 33.5244
     unit: percent
     currency: null
-    period: price_momentum_12m_pct:2025-10-27/2026-10-26
+    period: price_momentum_12m_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 39.26253830257651
+      yfinance: 33.52435056384628
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 39.26253830257651
+      value: 33.52435056384628
       unit: percent
       currency: null
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:17:36.052419+00:00'
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:21:43.981610+00:00'
       source_url: https://finance.yahoo.com/quote/GGB/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
   drawdown_pct:
-    value: 9.9046
+    value: 11.0687
     unit: percent
     currency: null
-    period: drawdown_pct:2025-10-27/2026-10-26
+    period: drawdown_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 9.904572504549062
+      yfinance: 11.068701317563006
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 9.904572504549062
+      value: 11.068701317563006
       unit: percent
       currency: null
-      period: drawdown_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:17:36.052419+00:00'
+      period: drawdown_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:21:43.981610+00:00'
       source_url: https://finance.yahoo.com/quote/GGB/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
   volatility_90d_pct:
-    value: 39.1609
+    value: 38.0909
     unit: percent
     currency: null
-    period: volatility_90d_pct:2025-10-27/2026-10-26
+    period: volatility_90d_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 39.160935791849624
+      yfinance: 38.09089176745768
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 39.160935791849624
+      value: 38.09089176745768
       unit: percent
       currency: null
-      period: volatility_90d_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:17:36.052419+00:00'
+      period: volatility_90d_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:21:43.981610+00:00'
       source_url: https://finance.yahoo.com/quote/GGB/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
 red_flags: []
 data_quality:
   critical_metric_count: 3
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-26T16:17:36.052419+00:00'
-snapshot_hash: ec5198976c1f97359fe0dcd33802ce1bfc2ce171cf539531249bbad42ba92fe3
+as_of: '2026-11-01T10:21:43.981610+00:00'
+snapshot_hash: a344d5c59bbfc056e42949e05b864cf10f30397e625de3aa1163dde77b004afc
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 9261363200.0
+  size_metric_usd: 9140404224.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 77966964.7202909
+  avg_dollar_volume_usd: 88369467.74533033
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -111,7 +111,7 @@ global_market_eligibility:
     fx_conversion_used: false
   size_provenance:
     source: yfinance
-    as_of: '2026-10-26'
+    as_of: '2026-10-30'
     currency: USD
     basis: USD_PROVIDER_METRIC
   liquidity_provenance:
@@ -124,17 +124,13 @@ global_market_eligibility:
     valid_observations: 20
     coverage: 1.0
     minimum_coverage: null
-    first_price_date: '2026-09-29'
-    last_price_date: '2026-10-26'
-    as_of: '2026-10-26'
+    first_price_date: '2026-10-05'
+    last_price_date: '2026-10-30'
+    as_of: '2026-10-30'
     price_source: yfinance
     fx_source: null
     fx_observations: []
     valid_price_dates:
-    - '2026-09-29'
-    - '2026-09-30'
-    - '2026-10-01'
-    - '2026-10-02'
     - '2026-10-05'
     - '2026-10-06'
     - '2026-10-07'
@@ -151,12 +147,16 @@ global_market_eligibility:
     - '2026-10-22'
     - '2026-10-23'
     - '2026-10-26'
+    - '2026-10-27'
+    - '2026-10-28'
+    - '2026-10-29'
+    - '2026-10-30'
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
     source: yfinance
 market_quote:
-  price: 4.7210001945495605
-  as_of_date: '2026-10-26'
+  price: 4.659999847412109
+  as_of_date: '2026-10-30'
   currency: USD
   source: yfinance
   url: https://finance.yahoo.com/quote/GGB/history/

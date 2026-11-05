@@ -363,7 +363,7 @@ discovery_evidence:
       value: 0
     version: positive_fundamentals_v1
   reason: All configured filters passed; Research required
-discovery_last_evaluated_at: '2026-10-26T13:14:16.026689-03:00'
+discovery_last_evaluated_at: '2026-11-01T07:18:48.769756-03:00'
 entry_policy: VALUATION_ZONE
 hypothesis_ids: []
 id: OPP-20261023-017
@@ -466,6 +466,13 @@ latest_discovery_evidence:
       - stockanalysis.com
       market_cap:
       - stockanalysis.com
+      - yfinance
+      market_cap_currency:
+      - yfinance
+      market_cap_provenance:
+      - yfinance
+      market_cap_usd:
+      - yfinance
       market_data_normalization:
       - yfinance
       net_cash_history:
@@ -532,6 +539,10 @@ latest_discovery_evidence:
       - stockanalysis.com
       short_ratio:
       - stockanalysis.com
+      size_metric_provenance:
+      - yfinance
+      size_metric_usd:
+      - yfinance
       source:
       - stockanalysis.com
       - yfinance
@@ -550,11 +561,11 @@ latest_discovery_evidence:
     sources_used:
     - stockanalysis.com
     - yfinance
-  eligibility_status: PENDING_DATA
-  evaluated_at: '2026-10-26T13:14:16.026689-03:00'
+  eligibility_status: PASSED
+  evaluated_at: '2026-11-01T07:18:48.769756-03:00'
   filter_results:
     fcf: 100
-    investability: 0
+    investability: 100
     operating_margin_pct: 100
     revenue_growth_pct: 100
   financial_observations:
@@ -562,7 +573,7 @@ latest_discovery_evidence:
       currency: null
       non_comparable_reason: null
       non_comparable_values: {}
-      observed_at: '2026-10-26T16:12:17.705694+00:00'
+      observed_at: '2026-11-01T10:16:56.358622+00:00'
       period_end_date: '2026-09-30'
       period_status: SINGLE_SOURCE
       period_type: TTM
@@ -577,13 +588,13 @@ latest_discovery_evidence:
           unit: provider_financial_currency
       unit: provider_financial_currency
       values:
-        stockanalysis.com: 449230000.0
+        stockanalysis.com: 515730000.0
     operating_margin_pct:
       currency: null
       non_comparable_reason: missing_period_unit_or_cutoff
       non_comparable_values:
         yfinance: 37.328
-      observed_at: '2026-10-26T16:12:17.705694+00:00'
+      observed_at: '2026-11-01T10:16:56.358622+00:00'
       period_end_date: '2026-09-30'
       period_status: SINGLE_SOURCE
       period_type: TTM
@@ -609,7 +620,7 @@ latest_discovery_evidence:
       non_comparable_reason: missing_period_unit_or_cutoff
       non_comparable_values:
         yfinance: 18.9
-      observed_at: '2026-10-26T16:12:17.705694+00:00'
+      observed_at: '2026-11-01T10:16:56.358622+00:00'
       period_end_date: '2026-09-30'
       period_status: SINGLE_SOURCE
       period_type: TTM
@@ -631,17 +642,17 @@ latest_discovery_evidence:
       values:
         stockanalysis.com: 12.69
   liquidity_provenance:
-    as_of: '2026-10-26'
+    as_of: '2026-10-30'
     basis: UNDERLYING_USD_PROXY
     coverage: 1.0
     currency: USD
     expected_observations: 20
-    first_price_date: '2026-09-29'
+    first_price_date: '2026-10-05'
     fx_observations: []
     fx_reference: null
     fx_side: null
     fx_source: null
-    last_price_date: '2026-10-26'
+    last_price_date: '2026-10-30'
     minimum_coverage: null
     missing_market_dates: []
     price_source: yfinance
@@ -649,10 +660,6 @@ latest_discovery_evidence:
     source: yfinance
     valid_observations: 20
     valid_price_dates:
-    - '2026-09-29'
-    - '2026-09-30'
-    - '2026-10-01'
-    - '2026-10-02'
     - '2026-10-05'
     - '2026-10-06'
     - '2026-10-07'
@@ -669,28 +676,33 @@ latest_discovery_evidence:
     - '2026-10-22'
     - '2026-10-23'
     - '2026-10-26'
+    - '2026-10-27'
+    - '2026-10-28'
+    - '2026-10-29'
+    - '2026-10-30'
     window_sessions: 20
-  market_cap_provenance: {}
+  market_cap_provenance:
+    as_of: '2026-10-30'
+    basis: USD_PROVIDER_METRIC
+    currency: USD
+    source: yfinance
   market_data_normalization:
-    errors:
-    - USD-denominated market capitalization metric unavailable
+    errors: []
     fx_conversion_used: false
     geography_filter: null
     liquidity_basis: UNDERLYING_USD_PROXY
     size_metric: market_cap_usd
-    status: blocked
+    status: complete
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 252.23500061035156
+    price: 250.86000061035156
     source: yfinance
   metrics:
-    fcf: 449230000.0
+    fcf: 515730000.0
     operating_margin_pct: 40.87
     revenue_growth_pct: 12.69
-  missing_metrics:
-  - avg_dollar_volume_usd
-  - size_metric_usd
+  missing_metrics: []
   policy:
     filters:
     - label: Margen operativo
@@ -709,7 +721,7 @@ latest_discovery_evidence:
       unit: percentage_points
       value: 0
     version: positive_fundamentals_v1
-  reason: 'Datos pendientes: liquidez promedio en USD, capitalización en USD'
+  reason: All configured filters passed; Research required
 origin: automated
 research_profile: strategic
 review_ids: []

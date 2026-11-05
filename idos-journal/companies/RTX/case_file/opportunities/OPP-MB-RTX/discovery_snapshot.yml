@@ -2,84 +2,84 @@ ticker: RTX
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 68.48
-research_priority: 68.48
+discovery_score: 70.78
+research_priority: 70.78
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 68.48
+  market_confirmation: 70.78
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 9.1023
+    value: 11.9328
     unit: percent
     currency: null
-    period: price_momentum_12m_pct:2025-10-27/2026-10-26
+    period: price_momentum_12m_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 9.102313480591473
+      yfinance: 11.932774818911929
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 9.102313480591473
+      value: 11.932774818911929
       unit: percent
       currency: null
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:21:09.019157+00:00'
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:25:21.623067+00:00'
       source_url: https://finance.yahoo.com/quote/RTX/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
   drawdown_pct:
-    value: 13.2755
+    value: 11.393
     unit: percent
     currency: null
-    period: drawdown_pct:2025-10-27/2026-10-26
+    period: drawdown_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 13.275538643902477
+      yfinance: 11.392967233833815
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 13.275538643902477
+      value: 11.392967233833815
       unit: percent
       currency: null
-      period: drawdown_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:21:09.019157+00:00'
+      period: drawdown_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:25:21.623067+00:00'
       source_url: https://finance.yahoo.com/quote/RTX/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
   volatility_90d_pct:
-    value: 25.2305
+    value: 24.4906
     unit: percent
     currency: null
-    period: volatility_90d_pct:2025-10-27/2026-10-26
+    period: volatility_90d_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 25.230514605212566
+      yfinance: 24.490595743874806
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 25.230514605212566
+      value: 24.490595743874806
       unit: percent
       currency: null
-      period: volatility_90d_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:21:09.019157+00:00'
+      period: volatility_90d_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:25:21.623067+00:00'
       source_url: https://finance.yahoo.com/quote/RTX/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
 red_flags: []
 data_quality:
   critical_metric_count: 3
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-26T16:21:09.019157+00:00'
-snapshot_hash: a0a5cb788bd1521214d9fffbe45ae2ac6bf43ce21e9677bc311cff246978b9d5
+as_of: '2026-11-01T10:25:21.623067+00:00'
+snapshot_hash: 628cbe61c390063106bfe1f6cd601d4c430dd5adeefd28afabb01ea14955f403
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 263889829888.0
+  size_metric_usd: 269618216960.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 902069860.3419983
+  avg_dollar_volume_usd: 1077707575.0289917
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -111,7 +111,7 @@ global_market_eligibility:
     fx_conversion_used: false
   size_provenance:
     source: yfinance
-    as_of: '2026-10-26'
+    as_of: '2026-10-30'
     currency: USD
     basis: USD_PROVIDER_METRIC
   liquidity_provenance:
@@ -124,17 +124,13 @@ global_market_eligibility:
     valid_observations: 20
     coverage: 1.0
     minimum_coverage: null
-    first_price_date: '2026-09-29'
-    last_price_date: '2026-10-26'
-    as_of: '2026-10-26'
+    first_price_date: '2026-10-05'
+    last_price_date: '2026-10-30'
+    as_of: '2026-10-30'
     price_source: yfinance
     fx_source: null
     fx_observations: []
     valid_price_dates:
-    - '2026-09-29'
-    - '2026-09-30'
-    - '2026-10-01'
-    - '2026-10-02'
     - '2026-10-05'
     - '2026-10-06'
     - '2026-10-07'
@@ -151,12 +147,16 @@ global_market_eligibility:
     - '2026-10-22'
     - '2026-10-23'
     - '2026-10-26'
+    - '2026-10-27'
+    - '2026-10-28'
+    - '2026-10-29'
+    - '2026-10-30'
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
     source: yfinance
 market_quote:
-  price: 195.55499267578125
-  as_of_date: '2026-10-26'
+  price: 199.8000030517578
+  as_of_date: '2026-10-30'
   currency: USD
   source: yfinance
   url: https://finance.yahoo.com/quote/RTX/history/

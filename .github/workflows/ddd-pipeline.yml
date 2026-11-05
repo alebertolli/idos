@@ -163,17 +163,7 @@ jobs:
           fetch-depth: 0
       - name: Resume scheduled results branch
         if: github.event_name == 'schedule' || github.event_name == 'repository_dispatch' || (github.event_name == 'workflow_call' && inputs.trigger_type == 'monthly') || inputs.trigger_type == 'monthly' || (github.event_name == 'workflow_dispatch' && (inputs.seed_hourly_ramp || inputs.resume_hourly_ramp))
-        run: |
-          BRANCH="codex/ddd-research-results"
-          git fetch origin main
-          if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
-            git fetch origin "$BRANCH"
-            git switch -c "$BRANCH" "origin/$BRANCH"
-          else
-            git switch -c "$BRANCH"
-          fi
-          # The results branch may outlive code releases; execute the current main source with its persisted cache.
-          git -c user.name="idos-bot" -c user.email="bot@idos.local" merge --no-edit origin/main
+        run: python scripts/sync_ddd_results_branch.py
 
       - name: Validate manual production opt-in and input combinations
         env:
@@ -311,9 +301,9 @@ jobs:
           git stash push --include-untracked -m 'ddd transient outputs before results push'
           if git ls-remote --exit-code --heads origin "$TARGET_BRANCH" >/dev/null 2>&1; then
             git fetch origin "$TARGET_BRANCH"
-            if ! git rebase "origin/$TARGET_BRANCH"; then
-              git rebase --abort
-              echo "[ERROR] DDD could not rebase onto origin/$TARGET_BRANCH. Refusing to publish results."
+            if ! git merge --no-edit "origin/$TARGET_BRANCH"; then
+              git merge --abort
+              echo "[ERROR] DDD could not merge the latest origin/$TARGET_BRANCH. Refusing to publish results."
               exit 1
             fi
           fi
@@ -379,3 +369,4 @@ jobs:
         with:
           name: ddd-preview-${{ github.run_id }}
           path: cache/ddd_preview.json
+

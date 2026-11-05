@@ -171,7 +171,7 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: AAPL
-discovery_score: 80.54
+discovery_score: 80.29
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 exit_reason: ''
@@ -180,9 +180,9 @@ intrinsic_value: 329.25
 last_research_at: '2026-10-26T10:37:32.111536-03:00'
 last_thesis_assessment_at: ''
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:14:22.905748+00:00'
+  as_of: '2026-11-01T10:18:54.271672+00:00'
   component_scores:
-    market_confirmation: 80.54
+    market_confirmation: 80.29
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -192,25 +192,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 80.54
+  discovery_score: 80.29
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 12732099601.217918
+    avg_dollar_volume_usd: 13841043710.751953
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -218,10 +218,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -238,6 +234,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -249,109 +249,109 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 5020835643392.0
+    size_metric_usd: 5029592301568.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 344.0299987792969
+    price: 344.6300048828125
     source: yfinance
     url: https://finance.yahoo.com/quote/AAPL/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:14:22.905748+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:18:54.271672+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/AAPL/history/
         status: observed
         unit: percent
-        value: 1.2032630023312794
+        value: 1.2266770039192403
       source_values:
-        yfinance: 1.2032630023312794
+        yfinance: 1.2266770039192403
       status: observed
       unit: percent
-      value: 1.2033
+      value: 1.2267
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:14:22.905748+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:18:54.271672+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/AAPL/history/
         status: observed
         unit: percent
-        value: 27.982590641669525
+        value: 27.46606912998544
       source_values:
-        yfinance: 27.982590641669525
+        yfinance: 27.46606912998544
       status: observed
       unit: percent
-      value: 27.9826
+      value: 27.4661
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:14:22.905748+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:18:54.271672+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/AAPL/history/
         status: observed
         unit: percent
-        value: 27.48186893161975
+        value: 27.657927309888848
       source_values:
-        yfinance: 27.48186893161975
+        yfinance: 27.657927309888848
       status: observed
       unit: percent
-      value: 27.4819
+      value: 27.6579
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 80.54
-  snapshot_hash: 38b611978e7e564a79be52d6b05218ccdd89b41dfd86942c316e7a5772edf086
+  research_priority: 80.29
+  snapshot_hash: 3fe50f40f91772273db3071037b8b3ab2e8b4848e1ec3b0ca85d0408b722aa1e
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: AAPL
 next_thesis_review_at: '2026-11-25T10:37:30.905987-03:00'
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 80.54
+research_priority: 80.29
 research_profile: multibaggers
 risk_limits:
   max_position_pct: 1.0
 signal: {}
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 38b611978e7e564a79be52d6b05218ccdd89b41dfd86942c316e7a5772edf086
+snapshot_hash: 3fe50f40f91772273db3071037b8b3ab2e8b4848e1ec3b0ca85d0408b722aa1e
 status: UNDER_RESEARCH
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

@@ -2,84 +2,84 @@ ticker: FDX
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
 passed: true
-discovery_score: 83.38
-research_priority: 83.38
+discovery_score: 85.54
+research_priority: 85.54
 discovery_type: RESEARCH_REQUIRED
 component_scores:
-  market_confirmation: 83.38
+  market_confirmation: 85.54
 metrics_snapshot:
   price_momentum_12m_pct:
-    value: 50.7561
+    value: 53.1717
     unit: percent
     currency: null
-    period: price_momentum_12m_pct:2025-10-27/2026-10-26
+    period: price_momentum_12m_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 50.756114172459135
+      yfinance: 53.17172420414911
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 50.756114172459135
+      value: 53.17172420414911
       unit: percent
       currency: null
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:17:29.555004+00:00'
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:21:35.510578+00:00'
       source_url: https://finance.yahoo.com/quote/FDX/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
   drawdown_pct:
-    value: 11.4579
+    value: 7.6823
     unit: percent
     currency: null
-    period: drawdown_pct:2025-10-27/2026-10-26
+    period: drawdown_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 11.457936238362109
+      yfinance: 7.6823358937162745
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 11.457936238362109
+      value: 7.6823358937162745
       unit: percent
       currency: null
-      period: drawdown_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:17:29.555004+00:00'
+      period: drawdown_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:21:35.510578+00:00'
       source_url: https://finance.yahoo.com/quote/FDX/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
   volatility_90d_pct:
-    value: 24.6126
+    value: 24.4577
     unit: percent
     currency: null
-    period: volatility_90d_pct:2025-10-27/2026-10-26
+    period: volatility_90d_pct:2025-10-31/2026-10-30
     source:
     - yfinance
     source_values:
-      yfinance: 24.61259196583992
+      yfinance: 24.45766015448757
     source_evidence:
     - source_id: yfinance
       status: observed
-      value: 24.61259196583992
+      value: 24.45766015448757
       unit: percent
       currency: null
-      period: volatility_90d_pct:2025-10-27/2026-10-26
-      reported_at: '2026-10-26T00:00:00+00:00'
-      observed_at: '2026-10-26T16:17:29.555004+00:00'
+      period: volatility_90d_pct:2025-10-31/2026-10-30
+      reported_at: '2026-10-30T00:00:00+00:00'
+      observed_at: '2026-11-01T10:21:35.510578+00:00'
       source_url: https://finance.yahoo.com/quote/FDX/history/
     coverage: 1
     status: observed
     reason_code: null
     deviation_pct: 0.0
-    as_of: '2026-10-26T00:00:00+00:00'
+    as_of: '2026-10-30T00:00:00+00:00'
 red_flags: []
 data_quality:
   critical_metric_count: 3
@@ -91,14 +91,14 @@ data_quality:
   coverage_factor: 1.0
   freshness_factor: 1.0
 reason_codes: []
-as_of: '2026-10-26T16:17:29.555004+00:00'
-snapshot_hash: 577e81ceb5ada91a72a51eb73bd76d80fc88e42f27fa8d406b126bccafb9e6ca
+as_of: '2026-11-01T10:21:35.510578+00:00'
+snapshot_hash: 54b2b41e562b17dc81d7a2a55d03a1042050b10c8474b4a21b6b40cd5d316d79
 global_market_eligibility:
   passed: true
   asset_type: us_equity
-  size_metric_usd: 71111770112.0
+  size_metric_usd: 73369976832.0
   market_cap_min_usd: 2000000000.0
-  avg_dollar_volume_usd: 333204900.3435348
+  avg_dollar_volume_usd: 383362130.1345825
   avg_dollar_volume_min_usd: 100000.0
   liquidity_basis: UNDERLYING_USD_PROXY
   reason_codes: []
@@ -111,7 +111,7 @@ global_market_eligibility:
     fx_conversion_used: false
   size_provenance:
     source: yfinance
-    as_of: '2026-10-26'
+    as_of: '2026-10-30'
     currency: USD
     basis: USD_PROVIDER_METRIC
   liquidity_provenance:
@@ -124,17 +124,13 @@ global_market_eligibility:
     valid_observations: 20
     coverage: 1.0
     minimum_coverage: null
-    first_price_date: '2026-09-29'
-    last_price_date: '2026-10-26'
-    as_of: '2026-10-26'
+    first_price_date: '2026-10-05'
+    last_price_date: '2026-10-30'
+    as_of: '2026-10-30'
     price_source: yfinance
     fx_source: null
     fx_observations: []
     valid_price_dates:
-    - '2026-09-29'
-    - '2026-09-30'
-    - '2026-10-01'
-    - '2026-10-02'
     - '2026-10-05'
     - '2026-10-06'
     - '2026-10-07'
@@ -151,12 +147,16 @@ global_market_eligibility:
     - '2026-10-22'
     - '2026-10-23'
     - '2026-10-26'
+    - '2026-10-27'
+    - '2026-10-28'
+    - '2026-10-29'
+    - '2026-10-30'
     missing_market_dates: []
     basis: UNDERLYING_USD_PROXY
     source: yfinance
 market_quote:
-  price: 300.4674987792969
-  as_of_date: '2026-10-26'
+  price: 313.2799987792969
+  as_of_date: '2026-10-30'
   currency: USD
   source: yfinance
   url: https://finance.yahoo.com/quote/FDX/history/

@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: MUFG
-discovery_score: 78.96
+discovery_score: 80.36
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-MUFG
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:19:37.285761+00:00'
+  as_of: '2026-11-01T10:23:46.438142+00:00'
   component_scores:
-    market_confirmation: 78.96
+    market_confirmation: 80.36
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 78.96
+  discovery_score: 80.36
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 62611111.47276268
+    avg_dollar_volume_usd: 58922293.77316475
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 237778042880.0
+    size_metric_usd: 242674286592.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 21.125
+    price: 21.559999465942383
     source: yfinance
     url: https://finance.yahoo.com/quote/MUFG/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:19:37.285761+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:23:46.438142+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/MUFG/history/
         status: observed
         unit: percent
-        value: 12.453374493491419
+        value: 10.65064145962685
       source_values:
-        yfinance: 12.453374493491419
+        yfinance: 10.65064145962685
       status: observed
       unit: percent
-      value: 12.4534
+      value: 10.6506
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:19:37.285761+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:23:46.438142+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/MUFG/history/
         status: observed
         unit: percent
-        value: 41.77852711974603
+        value: 42.49834304604079
       source_values:
-        yfinance: 41.77852711974603
+        yfinance: 42.49834304604079
       status: observed
       unit: percent
-      value: 41.7785
+      value: 42.4983
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:19:37.285761+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:23:46.438142+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/MUFG/history/
         status: observed
         unit: percent
-        value: 27.321770214139384
+        value: 26.94381657456481
       source_values:
-        yfinance: 27.321770214139384
+        yfinance: 26.94381657456481
       status: observed
       unit: percent
-      value: 27.3218
+      value: 26.9438
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 78.96
-  snapshot_hash: e555cea1b905bcfde0d7c6a2a76c649cfe2bc975401368191e7e9559c2c4f846
+  research_priority: 80.36
+  snapshot_hash: 4d5cb9fcca01f74e9986e36ba7bffa63fc7ba179137c92750c794b9d56bd1f6d
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: MUFG
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 78.96
+research_priority: 80.36
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: e555cea1b905bcfde0d7c6a2a76c649cfe2bc975401368191e7e9559c2c4f846
+snapshot_hash: 4d5cb9fcca01f74e9986e36ba7bffa63fc7ba179137c92750c794b9d56bd1f6d
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'

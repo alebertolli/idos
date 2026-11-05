@@ -171,15 +171,15 @@ discovery_evidence:
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: SHEL
-discovery_score: 87.66
+discovery_score: 89.27
 discovery_type: RESEARCH_REQUIRED
 entry_policy: MANUAL_REVIEW
 hypothesis_ids: []
 id: OPP-MB-SHEL
 latest_discovery_evidence:
-  as_of: '2026-10-26T16:21:23.060622+00:00'
+  as_of: '2026-11-01T10:25:31.223515+00:00'
   component_scores:
-    market_confirmation: 87.66
+    market_confirmation: 89.27
   data_quality:
     coverage_factor: 1.0
     critical_conflicts: []
@@ -189,25 +189,25 @@ latest_discovery_evidence:
     critical_source_failures: 0
     critical_stale: 0
     freshness_factor: 1.0
-  discovery_score: 87.66
+  discovery_score: 89.27
   discovery_type: RESEARCH_REQUIRED
   global_market_eligibility:
     asset_type: us_equity
     avg_dollar_volume_min_usd: 100000.0
-    avg_dollar_volume_usd: 642997213.1220642
+    avg_dollar_volume_usd: 605876719.7630527
     liquidity_basis: UNDERLYING_USD_PROXY
     liquidity_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: UNDERLYING_USD_PROXY
       coverage: 1.0
       currency: USD
       expected_observations: 20
-      first_price_date: '2026-09-29'
+      first_price_date: '2026-10-05'
       fx_observations: []
       fx_reference: null
       fx_side: null
       fx_source: null
-      last_price_date: '2026-10-26'
+      last_price_date: '2026-10-30'
       minimum_coverage: null
       missing_market_dates: []
       price_source: yfinance
@@ -215,10 +215,6 @@ latest_discovery_evidence:
       source: yfinance
       valid_observations: 20
       valid_price_dates:
-      - '2026-09-29'
-      - '2026-09-30'
-      - '2026-10-01'
-      - '2026-10-02'
       - '2026-10-05'
       - '2026-10-06'
       - '2026-10-07'
@@ -235,6 +231,10 @@ latest_discovery_evidence:
       - '2026-10-22'
       - '2026-10-23'
       - '2026-10-26'
+      - '2026-10-27'
+      - '2026-10-28'
+      - '2026-10-29'
+      - '2026-10-30'
       window_sessions: 20
     market_cap_min_usd: 2000000000.0
     normalization:
@@ -246,108 +246,108 @@ latest_discovery_evidence:
       status: complete
     passed: true
     reason_codes: []
-    size_metric_usd: 304514891776.0
+    size_metric_usd: 308565114880.0
     size_provenance:
-      as_of: '2026-10-26'
+      as_of: '2026-10-30'
       basis: USD_PROVIDER_METRIC
       currency: USD
       source: yfinance
   market_quote:
-    as_of_date: '2026-10-26'
+    as_of_date: '2026-10-30'
     currency: USD
-    price: 107.18499755859375
+    price: 108.69000244140625
     source: yfinance
     url: https://finance.yahoo.com/quote/SHEL/history/
   metrics_snapshot:
     drawdown_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: drawdown_pct:2025-10-27/2026-10-26
+      period: drawdown_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:21:23.060622+00:00'
-        period: drawdown_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:25:31.223515+00:00'
+        period: drawdown_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/SHEL/history/
         status: observed
         unit: percent
-        value: 0.9197658936727015
+        value: 0.0
       source_values:
-        yfinance: 0.9197658936727015
+        yfinance: 0.0
       status: observed
       unit: percent
-      value: 0.9198
+      value: 0.0
     price_momentum_12m_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: price_momentum_12m_pct:2025-10-27/2026-10-26
+      period: price_momentum_12m_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:21:23.060622+00:00'
-        period: price_momentum_12m_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:25:31.223515+00:00'
+        period: price_momentum_12m_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/SHEL/history/
         status: observed
         unit: percent
-        value: 41.94807909714691
+        value: 45.074753200486285
       source_values:
-        yfinance: 41.94807909714691
+        yfinance: 45.074753200486285
       status: observed
       unit: percent
-      value: 41.9481
+      value: 45.0748
     volatility_90d_pct:
-      as_of: '2026-10-26T00:00:00+00:00'
+      as_of: '2026-10-30T00:00:00+00:00'
       coverage: 1
       currency: null
       deviation_pct: 0.0
-      period: volatility_90d_pct:2025-10-27/2026-10-26
+      period: volatility_90d_pct:2025-10-31/2026-10-30
       reason_code: null
       source:
       - yfinance
       source_evidence:
       - currency: null
-        observed_at: '2026-10-26T16:21:23.060622+00:00'
-        period: volatility_90d_pct:2025-10-27/2026-10-26
-        reported_at: '2026-10-26T00:00:00+00:00'
+        observed_at: '2026-11-01T10:25:31.223515+00:00'
+        period: volatility_90d_pct:2025-10-31/2026-10-30
+        reported_at: '2026-10-30T00:00:00+00:00'
         source_id: yfinance
         source_url: https://finance.yahoo.com/quote/SHEL/history/
         status: observed
         unit: percent
-        value: 21.962005575919992
+        value: 21.80211318056518
       source_values:
-        yfinance: 21.962005575919992
+        yfinance: 21.80211318056518
       status: observed
       unit: percent
-      value: 21.962
+      value: 21.8021
   passed: true
   reason_codes: []
   red_flags: []
-  research_priority: 87.66
-  snapshot_hash: 9da87ab68e542a424c6e1edc6f2e21e79665f7e87ac20d36527f93270a9479b6
+  research_priority: 89.27
+  snapshot_hash: f743d2d3ad895ed800878feda0cbf900e2a241ddbe5acd4c204983bce583d45f
   strategy_id: MULTIBAGGERS
   strategy_version: '1.5'
   ticker: SHEL
 origin: multibaggers_discovery
 position_limit_pct: 1.0
-research_priority: 87.66
+research_priority: 89.27
 research_profile: multibaggers
 review_ids: []
 risk_limits:
   max_position_pct: 1.0
 sleeve: ALPHA_ASYMMETRY
-snapshot_hash: 9da87ab68e542a424c6e1edc6f2e21e79665f7e87ac20d36527f93270a9479b6
+snapshot_hash: f743d2d3ad895ed800878feda0cbf900e2a241ddbe5acd4c204983bce583d45f
 status: SCREENED
 strategy_id: MULTIBAGGERS
 strategy_version: '1.5'
