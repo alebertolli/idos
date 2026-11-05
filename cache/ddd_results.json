@@ -1,69 +1,36 @@
 {
-  "total": 1,
+  "total": 2,
   "processed": [
     {
-      "opp_id": "OPP-MB-ABBV",
-      "ticker": "ABBV",
+      "opp_id": "OPP-MB-ABEV",
+      "ticker": "ABEV",
       "status": "completed",
-      "score": 78,
+      "score": 87,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-20261023-003",
+      "ticker": "ABNB",
+      "status": "ddd_failed",
+      "score": null,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
   ],
   "skipped": [],
-  "assessments": [
+  "assessments": [],
+  "errors": [
     {
-      "ticker": "ABBV",
-      "opp_id": "OPP-MB-ABBV",
-      "status": "completed",
-      "conviction_score": 60,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": null,
-      "decision_id": null,
-      "assessments": {
-        "BusinessAssessmentEngine": 67,
-        "ValuationAssessmentEngine": 55,
-        "RecoveryAssessmentEngine": 54,
-        "RiskAssessmentEngine": 70,
-        "PortfolioAssessmentEngine": 50
-      },
-      "rules_passed": [
-        "RULE-003",
-        "RULE-004",
-        "RULE-010"
-      ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-005",
-        "RULE-008"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 67/70",
-        "RULE-003": "Rerating: 54/50",
-        "RULE-004": "Risk: 70/50",
-        "RULE-005": "Conviction: 60/65",
-        "RULE-008": "B/R 0.9:1 \u274c (Bull +18.7% / Bear -19.6%)",
-        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
-      },
-      "data_quality": "good",
-      "financial_data_quality": {
-        "status": "good",
-        "core_metric_coverage": "5/5",
-        "missing_core_metrics": [],
-        "source": "stockanalysis.com",
-        "as_of_date": "2026-09-30",
-        "as_of_basis": "period_end_date",
-        "as_of_date_source": "stockanalysis.com",
-        "missing_provenance": [],
-        "conflicting_core_metrics": [],
-        "unreconciled_core_metrics": []
-      }
+      "ticker": "ABNB",
+      "opp_id": "OPP-20261023-003",
+      "status": "ddd_failed",
+      "error": "All providers failed",
+      "errors": []
     }
   ],
-  "errors": [],
-  "status": "partial_deferred",
-  "deferred_count": 190,
+  "status": "failed",
+  "deferred_count": 189,
   "capacity_failure": null,
   "event_type": "monthly",
   "force": false,

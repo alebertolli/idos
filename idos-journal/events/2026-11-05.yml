@@ -47,3 +47,48 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-05T11:26:46.768987'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ABEV
+    ticker: ABEV
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-05T14:53:05.019815'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ABEV
+    ticker: ABEV
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-05T14:53:05.026188'
+- data:
+    classification: Consumer Defensive - Growth
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 10c365ab320d1f94447ce6f2ef7ce501699ae1f592855476a619bc66716dffe7
+    opp_id: OPP-MB-ABEV
+    score: 87
+    strategy_version: '1.5'
+    ticker: ABEV
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-05T14:55:43.329258'
+- data:
+    error: All providers failed
+    event_evidence: null
+    event_type: monthly
+    forced: false
+    opp_id: OPP-20261023-003
+    ticker: ABNB
+  event_type: research:failed
+  source: research_worker
+  timestamp: '2026-11-05T14:55:46.423561'
