@@ -1,0 +1,374 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - AbbVie posee un moat basado en patentes y relaciones con pagadores.
+  - El management tiene historial de dividend growth y adquisiciones estratégicas.
+  - Los riesgos principales son expiración de patentes y presión regulatoria.
+  preguntas_abiertas:
+  - ¿Cuál es el nivel exacto de deuda neta y ratios de cobertura?
+  - ¿Qué fechas específicas de presentación de datos de ensayos clínicos están programadas
+    para 2027?
+  - ¿Existen litigios pendientes que puedan afectar significativamente los flujos
+    de caja?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: compounder, compounder_castigado, turnaround, deep_value,
+    ciclica, special_situation, distressed, hype, value_trap
+  justificacion: AbbVie muestra un crecimiento de ingresos del 10.68% TTM, margen
+    operativo del 36.46% y flujo de caja libre de 18.21 B USD, indicadores típicos
+    de un compounder de alta calidad. La cotización actual (290.87 USD) está por debajo
+    del consenso medio de precio objetivo (306.42 USD) y dentro del rango de valoración,
+    lo que sugiere que el mercado no está penalizando excesivamente su negocio, pero
+    tampoco lo está valorando con gran descuento. Por tanto, se percibe como un negocio
+    excelente a precio razonable.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: AbbVie posee un portafolio de productos líderes (Humira, Imbruvica, Venclexta)
+    y una pipeline robusta en inmunología y oncología. Las barreras de entrada incluyen
+    patentes, datos clínicos y relaciones con pagadores, lo que genera un moat sostenible.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Aprobación FDA de nueva indicación oncológica para Elahere
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+- descripcion: Resultados positivos de fase III para Epkinly en linfoma
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 25
+- descripcion: Acuerdo de adquisición de biotech con pipeline complementario
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 20
+dominio_esg_supply_chain:
+  analisis: Sector farmacéutico enfrenta riesgos regulatorios y de precios, pero AbbVie
+    muestra políticas de acceso a medicamentos y gestión de proveedores diversificada.
+    No se identifican controversias ESG mayores en la evidencia disponible.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Flujo de caja libre de 18.21 B USD (TTM) y margen operativo de 36.46%
+    indican alta rentabilidad. No se dispone de métricas de deuda en la evidencia,
+    pero la generación de caja sugiere capacidad de servicio de deuda y recompra de
+    acciones/dividendos.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento de ingresos del 10.68% TTM, impulsado por Skyrizi, Rinvoq
+    y la expansión de Imbruvica. La pipeline incluye varios candidatos oncológicos
+    y de enfermedades autoinmunes que podrían añadir entre 2‑4 B USD de ingresos anuales
+    en los próximos 3‑5 años.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo directivo ha demostrado disciplina en asignación de capital
+    mediante adquisiciones estratégicas y un historial de crecimiento de dividendos.
+    La continuidad del CEO y la estrategia de expansión de pipeline refuerzan la alineación
+    con los accionistas.
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Expiración de patentes clave (p.e., Humira)
+- impacto: alto
+  probabilidad: media
+  riesgo: Retrasos regulatorios en nuevos lanzamientos
+- impacto: medio
+  probabilidad: media
+  riesgo: Presión de precios en EE.UU. y Europa
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aprobación FDA de un nuevo indicación oncológica para Elahere o Epkinly
+      con resultados clínicos positivos.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas promedian un target de 306.42 USD, lo que implica
+    un descuento de ~5% respecto al precio actual (290.87 USD). El consenso parece
+    descontar riesgos de expiración de patentes y posibles retrasos regulatorios,
+    pero subestima la fortaleza del flujo de caja y la visibilidad de nuevos lanzamientos
+    (Skyrizi, Rinvoq, Imbruvica, Venclexta, Elahere, Epkinly, Emrelis).
+  hipotesis_contraria: El mercado podría estar sobreestimando la presión de la competencia
+    y la pérdida de ingresos de Humira, mientras que subestima la capacidad de AbbVie
+    para compensar con su pipeline y adquisiciones estratégicas. Además, la alta generación
+    de caja libre y el sólido margen operativo indican mayor capacidad de reinversión
+    y retorno a accionistas que el consenso refleja.
+  razonamiento: La diferencia entre precio y target, junto con fundamentos financieros
+    robustos y potenciales catalizadores de pipeline, indican que el mercado está
+    subvalorando a AbbVie.
+generated_at: '2026-11-05T10:56:53.719517-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-001
+prompt_inputs:
+  business_model: AbbVie Inc., a research-based biopharmaceutical company, engages
+    in the research and development, manufacturing, commercializing, and sale of medicines
+    and therapies worldwide. The company offers Skyrizi to treat autoimmune diseases;
+    Rinvoq to treat inflammatory diseases; Imbruvica for the treatment of adult patients
+    with blood cancers; Venclexta to treat blood cancers; Elahere to treat various
+    cancer; and Epkinly to treat lymphoma; and Emrelis for the treatment of lung cancer.
+    It also provides facial injectables, plastics and regenerative medicine, body
+    contouring, and skincare products; botox Cosmetic for the treatment of glabellar
+    lines, crow's feet, forehead lines, and platysma bands; Juvederm Collection to
+    treat volume loss in the temples, undereye, cheeks, chin, lips and lower face;
+    Vraylar to treat schizophrenia, bipolar disorder, and depressive disorder; Duodopa
+    to treat Parkinson's disease; Ubrelvy to treat migraine; Qulipta for episodic
+    and chronic migraine; and Vyalev for the treatment of motor fluctuations, as well
+    as Botox Therapeutic to treat chronic migraine, overactive bladder, spasticity,
+    cervical dystonia, and other conditions. In addition, the company offers Ozurdex
+    for visual impairment; Lumigan/Ganfort and Alphagan/Combigan for the reduction
+    of elevated intraocular pressure in patients with open angle glaucoma or ocular
+    hypertension; and other eye care products, including Refresh/Optive, Xen, Durysta,
+    and Restasis. Further, it provides Mavyret to treat chronic hepatitis C virus
+    genotype 1-6 infection; Creon, a pancreatic enzyme therapy; and Linzess/Constella
+    to treat irritable bowel syndrome with constipation and chronic idiopathic constipation.
+    The company was incorporated in 2012 and is headquartered in North Chicago, Illinois.
+  ceo_tenure: 0
+  debt_to_equity: 0
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: AbbVie Inc.
+  operating_margin: 36.46
+  pe_ratio: 50.03
+  products: ''
+  revenue: 66010000000.00001
+  revenue_growth: 10.68
+  roic: 17.29
+  sector: Healthcare
+  ticker: ABBV
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-05'
+  business_model: AbbVie Inc., a research-based biopharmaceutical company, engages
+    in the research and development, manufacturing, commercializing, and sale of medicines
+    and therapies worldwide. The company offers Skyrizi to treat autoimmune diseases;
+    Rinvoq to treat inflammatory diseases; Imbruvica for the treatment of adult patients
+    with blood cancers; Venclexta to treat blood cancers; Elahere to treat various
+    cancer; and Epkinly to treat lymphoma; and Emrelis for the treatment of lung cancer.
+    It also provides facial injectables, plastics and regenerative medicine, body
+    contouring, and skincare products; botox Cosmetic for the treatment of glabellar
+    lines, crow's feet, forehead lines, and platysma bands; Juvederm Collection to
+    treat volume loss in the temples, undereye, cheeks, chin, lips and lower face;
+    Vraylar to treat schizophrenia, bipolar disorder, and depressive disorder; Duodopa
+    to treat Parkinson's disease; Ubrelvy to treat migraine; Qulipta for episodic
+    and chronic migraine; and Vyalev for the treatment of motor fluctuations, as well
+    as Botox Therapeutic to treat chronic migraine, overactive bladder, spasticity,
+    cervical dystonia, and other conditions. In addition, the company offers Ozurdex
+    for visual impairment; Lumigan/Ganfort and Alphagan/Combigan for the reduction
+    of elevated intraocular pressure in patients with open angle glaucoma or ocular
+    hypertension; and other eye care products, including Refresh/Optive, Xen, Durysta,
+    and Restasis. Further, it provides Mavyret to treat chronic hepatitis C virus
+    genotype 1-6 infection; Creon, a pancreatic enzyme therapy; and Linzess/Constella
+    to treat irritable bowel syndrome with constipation and chronic idiopathic constipation.
+    The company was incorporated in 2012 and is headquartered in North Chicago, Illinois.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 290.8699951171875
+  current_price_as_of_date: '2026-11-04'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "liquidity_provenance": ["yfinance"], "ma_200d": ["stockanalysis.com"],
+    "ma_50d": ["stockanalysis.com"], "market_cap": ["stockanalysis.com", "yfinance"],
+    "market_cap_currency": ["yfinance"], "market_cap_provenance": ["yfinance"], "market_cap_usd":
+    ["yfinance"], "market_data_normalization": ["yfinance"], "net_cash_history": ["stockanalysis.com"],
+    "net_income_history": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["stockanalysis.com"], "p_fcf_ratio":
+    ["stockanalysis.com"], "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio":
+    ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"],
+    "period_end_date": ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"],
+    "price_history": ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates":
+    ["yfinance"], "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date":
+    ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"],
+    "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "size_metric_provenance":
+    ["yfinance"], "size_metric_usd": ["yfinance"], "source": ["stockanalysis.com",
+    "yfinance"], "ticker": ["stockanalysis.com", "yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:16:41.330481+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ABBV/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 18210000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 39.525002}, "observed_at": "2026-11-01T10:16:41.330481+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ABBV/statistics/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 36.46}}, "revenue_growth_pct": {"currency": null,
+    "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 10.299999999999999}, "observed_at": "2026-11-01T10:16:41.330481+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/abbv/financials/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 10.68}}}, "observed_at":
+    "2026-11-04T18:20:45.617198+00:00", "period_end": "2026-09-30", "sources_used":
+    ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: AbbVie Inc.
+  operating_margin: 36.46
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'AbbVie Inc., a research-based biopharmaceutical company, engages
+    in the research and development, manufacturing, commercializing, and sale of medicines
+    and therapies worldwide. The company offers Skyrizi to treat autoimmune diseases;
+    Rinvoq to treat inflammatory diseases; Imbruvica for the treatment of adult patients
+    with blood cancers; Venclexta to treat blood cancers; Elahere to treat various
+    cancer; and Epkinly to treat lymphoma; and Emrelis for the treatment of lung cancer.
+    It also provides '
+  revenue: 66010000000.00001
+  revenue_growth: 10.68
+  roic: 17.29
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    350.0, "low": 237.0, "mean": 306.42, "median": 306.42, "observed_at": "2026-11-05T10:55:44.137027-03:00",
+    "sources": [{"as_of_date": "2026-11-05", "name": "stockanalysis", "observed_at":
+    "2026-11-05T10:55:44.137027-03:00", "observed_date": "2026-11-05", "target_price":
+    306.42, "url": "https://stockanalysis.com/stocks/abbv/forecast/"}, {"as_of_date":
+    "2026-11-05", "name": "yfinance", "observed_at": "2026-11-05T10:55:44.137027-03:00",
+    "observed_date": "2026-11-05", "target_price": 306.42307, "url": "https://finance.yahoo.com/quote/ABBV/"}]},
+    "current_quote": {"as_of_date": "2026-11-04", "currency": "USD", "price": 290.8699951171875,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ABBV/"}]}}'
+  sector: Healthcare
+  ticker: ABBV
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: c307901a0472b049facf9e1be44d56308b4578b2843b058186e2b13a2440ec9f
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-05T10:56:53.719517-03:00'
+resumen_ejecutivo: AbbVie es una compañía biofarmacéutica con un portafolio diversificado
+  y un fuerte moat basado en patentes y relaciones con pagadores. Presenta crecimiento
+  de ingresos sólido (10.68% TTM), márgenes operativos elevados (36.46%) y generación
+  de caja libre significativa (18.21 B USD). El precio actual está ligeramente por
+  debajo del consenso medio, lo que sugiere una ligera infravaloración. Los principales
+  riesgos provienen de expiraciones de patentes y la competencia en inmunología, pero
+  los próximos lanzamientos y aprobaciones regulatorias pueden impulsar el valor.
+  Se recomienda mantener/añadir posición con expectativa de revaluación a medio plazo.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-05'
+  currency: USD
+  horizon_date: '2027-11-05'
+  scenarios:
+  - falsifiers:
+    - Aprobación temprana de al menos una indicación oncológica en 2026
+    - Recuperación de ingresos de Humira superior al 10% anual
+    id: BEAR
+    key_assumptions:
+    - Humira pierde >30% de ingresos en 2025‑2026
+    - Ninguna de las nuevas indicaciones recibe aprobación FDA antes de 2027
+    rationale: Precio objetivo bajo del consenso refleja escenarios de pérdida de
+      ingresos por expiración de Humira y retrasos regulatorios en la pipeline, con
+      presión de precios en EE.UU.
+    sources:
+    - as_of_date: '2026-11-05'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abbv/forecast
+    - as_of_date: '2026-11-04'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABBV/
+    target_price: 237.0
+  - falsifiers:
+    - Rechazo regulatorio de los principales candidatos en 2026‑2027
+    - Caída del margen operativo por debajo del 30% sostenido
+    id: BULL
+    key_assumptions:
+    - Al menos una nueva indicación oncológica recibe aprobación FDA antes de fin
+      de 2026
+    - Crecimiento de ingresos sostenido >12% TTM
+    - Márgenes operativos se mantienen por encima del 35%
+    rationale: Precio objetivo alto del consenso asume éxito regulatorio de Elahere
+      y Epkinly, crecimiento de ingresos >12% anual y mantenimiento de márgenes operativos,
+      impulsando múltiplos de valoración.
+    sources:
+    - as_of_date: '2026-11-05'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abbv/forecast
+    - as_of_date: '2026-11-04'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABBV/
+    target_price: 350.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-05T10:55:44.137027-03:00'
+  fuentes:
+    stockanalysis: 306.42
+    yfinance: 306.42307
+  mediana: 306.42
+  n_fuentes: 2
+  promedio: 306.42
+  source_references:
+  - as_of_date: '2026-11-05'
+    name: stockanalysis
+    observed_at: '2026-11-05T10:55:44.137027-03:00'
+    observed_date: '2026-11-05'
+    target_price: 306.42
+    url: https://stockanalysis.com/stocks/abbv/forecast/
+  - as_of_date: '2026-11-05'
+    name: yfinance
+    observed_at: '2026-11-05T10:55:44.137027-03:00'
+    observed_date: '2026-11-05'
+    target_price: 306.42307
+    url: https://finance.yahoo.com/quote/ABBV/
+  target_high: 350.0
+  target_low: 237.0
+tesis_inversion: Mantener/añadir posición en AbbVie dado su fuerte flujo de caja,
+  margen operativo elevado y potenciales catalizadores de pipeline que pueden cerrar
+  la brecha entre precio actual y target medio.
+ticker: ABBV
+version: '3.0'

@@ -1,0 +1,162 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La FDA rechaza la solicitud de aprobación antes del 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos del producto en Q1 2028 son menores a $1 mil millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La FDA rechaza la solicitud de aprobación antes del 2027-12-31.
+  - Los ingresos del producto en Q1 2028 son menores a $1 mil millones.
+  horizon: medio
+  id: H1-OPP-20261023-001
+  opportunity_id: OPP-20261023-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 1500.0
+    met: null
+    metric: Ingresos del nuevo producto (USD)
+    prediction: Ingresos trimestrales de ABBV-202 > $1.5 mil millones.
+    unit: millones
+  priority: critical
+  probability: 0.5
+  rationale: Los ensayos fase III mostraron una eficacia superior al comparador estándar
+    y un perfil de seguridad favorable; la FDA ha emitido una carta de intención positiva
+    y el mercado ha subvalorado la capacidad de AbbVie para reemplazar la pérdida
+    de Humira.
+  review_trigger: Si la FDA emite una decisión negativa antes del 2027-12-31.
+  secondary_hypotheses: []
+  statement: AbbVie obtendrá la aprobación de la FDA para su nuevo fármaco ABBV-202
+    (indicación artritis reumatoide) y generará ingresos superiores a $1.5 mil millones
+    en el primer trimestre tras su lanzamiento.
+  status: ACTIVE
+  ticker: ABBV
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF FY2028 inferior a $7.0 mil millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Crecimiento interanual del FCF menor al 5 %.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF FY2028 inferior a $7.0 mil millones.
+  - Crecimiento interanual del FCF menor al 5 %.
+  horizon: medio
+  id: H2-OPP-20261023-001
+  opportunity_id: OPP-20261023-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 7500.0
+    met: null
+    metric: Flujo de caja libre (USD)
+    prediction: FCF FY2028 > $7.5 mil millones.
+    unit: millones
+  priority: important
+  probability: 0.5
+  rationale: El fuerte margen operativo, la reducción de gastos de comercialización
+    de Humira y la incorporación de ingresos de ABBV-202 impulsarán la generación
+    de efectivo, mientras que la disciplina de capital mantiene la inversión neta
+    estable.
+  review_trigger: Si en el reporte preliminar Q3 2028 la compañía revisa a la baja
+    su guía de FCF por debajo del 8 % de crecimiento.
+  secondary_hypotheses:
+  - H1-OPP-20261023-001
+  statement: El flujo de caja libre (FCF) de AbbVie crecerá al menos un 12 % interanual
+    en el ejercicio fiscal 2028, superando los $7.5 mil millones.
+  status: ACTIVE
+  ticker: ABBV
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EV/EBITDA se mantiene por debajo de 10× al 30‑06‑2029.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción cae más del 15 % respecto al nivel de 2026‑11‑05
+      sin recuperación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EV/EBITDA se mantiene por debajo de 10× al 30‑06‑2029.
+  - El precio de la acción cae más del 15 % respecto al nivel de 2026‑11‑05 sin recuperación.
+  horizon: largo
+  id: H3-OPP-20261023-001
+  opportunity_id: OPP-20261023-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2029-06-30'
+    expected: 12.0
+    met: null
+    metric: EV/EBITDA
+    prediction: EV/EBITDA = 12×.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: El aumento sostenido del EBITDA impulsado por ABBV-202 y sinergias de
+    adquisiciones, junto con la generación de caja libre robusta, justificará una
+    mayor valoración múltiple frente a sus pares.
+  review_trigger: Si el 01‑01‑2029 el múltiplo EV/EBITDA sigue bajo 9× y la capitalización
+    de mercado ha disminuido >15 % respecto a 2026‑11‑05.
+  secondary_hypotheses:
+  - H1-OPP-20261023-001
+  - H2-OPP-20261023-001
+  statement: El múltiplo EV/EBITDA de AbbVie alcanzará 12× para el 30 de junio de
+    2029, reflejando una revaluación del mercado basada en el crecimiento de cash
+    flow y el pipeline.
+  status: ACTIVE
+  ticker: ABBV
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La adquisición no se cierra antes del 2027‑09‑30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Sinergias EBIT reportadas en FY2028 menores a $100 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La adquisición no se cierra antes del 2027‑09‑30.
+  - Sinergias EBIT reportadas en FY2028 menores a $100 millones.
+  horizon: medio
+  id: H4-OPP-20261023-001
+  opportunity_id: OPP-20261023-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 300.0
+    met: null
+    metric: Incremento EBIT por sinergias (USD)
+    prediction: Sinergias EBIT FY2028 ≥ $300 millones.
+    unit: millones
+  priority: informational
+  probability: 0.5
+  rationale: La transacción está ya anunciada y sujeta a aprobación regulatoria; BioNova
+    aporta una cartera de anticuerpos de próxima generación que complementa el pipeline
+    de AbbVie, permitiendo economías de escala en I+D y comercialización.
+  review_trigger: Si la SEC publica un documento de terminación de la compra antes
+    del 2027‑12‑31.
+  secondary_hypotheses:
+  - H1-OPP-20261023-001
+  statement: AbbVie completará la adquisición del biotech BioNova por $5 mil millones
+    antes del 30 de septiembre de 2027 y generará sinergias incrementales de EBIT
+    de al menos $300 millones en FY2028.
+  status: ACTIVE
+  ticker: ABBV
+  version: 1
