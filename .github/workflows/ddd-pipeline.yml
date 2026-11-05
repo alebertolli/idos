@@ -323,8 +323,10 @@ jobs:
       - name: Open or update scheduled results PR and enable auto-merge
         if: always() && (github.event_name == 'schedule' || github.event_name == 'repository_dispatch' || (github.event_name == 'workflow_call' && inputs.trigger_type == 'monthly') || inputs.trigger_type == 'monthly' || (github.event_name == 'workflow_dispatch' && (inputs.seed_hourly_ramp || inputs.resume_hourly_ramp))) && github.event.inputs.preview_only != 'true' && steps.publish-results.outputs.changed == 'true'
         run: |
-          gh pr view codex/ddd-research-results --json number >/dev/null 2>&1 || \
+          OPEN_PR_NUMBER=$(gh pr list --base main --head codex/ddd-research-results --state open --json number --jq '.[0].number // empty')
+          if [ -z "$OPEN_PR_NUMBER" ]; then
             gh pr create --base main --head codex/ddd-research-results --title "chore: publish scheduled DDD results" --body "Publishes queued Research results and resumable work from the scheduled DDD pipeline."
+          fi
           PREVIOUS_RUN_ID=$(gh run list --workflow ci.yml --branch codex/ddd-research-results --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // empty')
           gh workflow run ci.yml --ref codex/ddd-research-results
           RUN_ID=""

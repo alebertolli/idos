@@ -46,6 +46,27 @@ def _load_mapping(path: Path) -> dict[str, Any]:
     return value
 
 
+
+
+def _processed_tickers(base: Path) -> list[str]:
+    """Return unique tickers actually processed when a resume run has no explicit scope."""
+    results_path = base / "cache" / "ddd_results.json"
+    try:
+        results = json.loads(results_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    if not isinstance(results, dict):
+        return []
+    processed = results.get("processed", [])
+    if not isinstance(processed, list):
+        return []
+    tickers = []
+    for item in processed:
+        if isinstance(item, dict) and item.get("ticker"):
+            tickers.append(str(item["ticker"]).strip().upper())
+    return list(dict.fromkeys(ticker for ticker in tickers if ticker))
+
+
 def collect_ddd_artifacts(
     base_path: Path,
     tickers: list[str],
@@ -67,6 +88,8 @@ def collect_ddd_artifacts(
         raise ValueError("run_started_at must be an ISO-8601 timestamp")
 
     normalized_tickers = [ticker.strip().upper() for ticker in tickers if ticker.strip()]
+    if not normalized_tickers:
+        normalized_tickers = _processed_tickers(base)
     for ticker in normalized_tickers:
         if not _TICKER_PATTERN.fullmatch(ticker):
             raise ValueError(f"Invalid ticker in DDD artifact scope: {ticker}")
