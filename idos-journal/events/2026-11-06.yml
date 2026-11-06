@@ -1,0 +1,43 @@
+events:
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-TS
+    ticker: TS
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-06T18:03:19.028908'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TS
+    ticker: TS
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-06T18:03:19.030946'
+- data:
+    errors:
+    - hypotheses must be a non-empty list
+    event_evidence:
+      event_id: 37fefa16d9f8635d43dec3b9fc8bc6a187548a6c4a7b623b0b9ce74b34f136fa
+      event_type: quarterly_results
+      observed_at: '2026-11-06T17:46:42.920863+00:00'
+      occurred_at: '2026-11-04'
+      source_name: Yahoo Finance earnings calendar via yfinance
+      source_url: https://finance.yahoo.com/calendar/earnings/?symbol=TS
+      summary: El calendario de resultados indica la fecha 2026-11-04. La fecha no
+        confirma por sí sola la publicación del reporte; Research debe verificar el
+        resultado en una fuente primaria.
+      ticker: TS
+    event_type: quarterly_results
+    opp_id: OPP-MB-TS
+    ticker: TS
+  event_type: research:hypothesis_validation_failed
+  source: research_worker
+  timestamp: '2026-11-06T18:06:09.701058'
