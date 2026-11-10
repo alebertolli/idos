@@ -1,7 +1,7 @@
 {
   "analyst_consensus": "Hold",
   "asset_type": "us_equity",
-  "avg_dollar_volume_usd": 19866175.48540125,
+  "avg_dollar_volume_usd": 19339083.426878452,
   "beta_5y": 0.21,
   "capex_history": [
     {
@@ -348,7 +348,17 @@
         "yfinance"
       ]
     },
-    "conflicts": []
+    "conflicts": [
+      {
+        "field": "market_cap",
+        "sources": {
+          "stockanalysis.com": 18370000000.0,
+          "yfinance": 36802715648
+        },
+        "avg": 27586357824.0,
+        "deviation_pct": 66.8
+      }
+    ]
   },
   "debt_ebitda": "n/a",
   "debt_equity_ratio": 2.55,
@@ -400,7 +410,7 @@
   "ev_fcf": "n/a",
   "ev_sales": "n/a",
   "exchange": "NYQ",
-  "fcf": 9690000000.0,
+  "fcf": 9590000000.0,
   "fcf_growth_history": [
     {
       "value": 514.74,
@@ -498,11 +508,11 @@
     }
   ],
   "fcf_margin_pct": 114.88,
-  "fcf_per_share": 2.59,
-  "fcf_yield_pct": 55.45,
+  "fcf_per_share": 2.56,
+  "fcf_yield_pct": 52.39,
   "financial_currency": "BRL",
   "financial_data_as_of_date": "2026-09-30",
-  "financial_data_observed_at": "2026-11-09T21:13:18.897384+00:00",
+  "financial_data_observed_at": "2026-11-10T18:23:31.966977+00:00",
   "financial_history": {
     "revenue_history": [
       {
@@ -946,8 +956,8 @@
   "financial_period_end_timestamp": 1790726400,
   "financial_period_type": "TTM",
   "financials_data_updated_date": "2026-09-30",
-  "forward_pe": 5.96,
-  "forward_ps": 1.08,
+  "forward_pe": 6.25,
+  "forward_ps": 1.14,
   "gross_margin_pct": "n/a",
   "liquidity_provenance": {
     "quote_currency": "USD",
@@ -959,14 +969,13 @@
     "valid_observations": 20,
     "coverage": 1.0,
     "minimum_coverage": null,
-    "first_price_date": "2026-10-13",
-    "last_price_date": "2026-11-09",
-    "as_of": "2026-11-09",
+    "first_price_date": "2026-10-14",
+    "last_price_date": "2026-11-10",
+    "as_of": "2026-11-10",
     "price_source": "yfinance",
     "fx_source": null,
     "fx_observations": [],
     "valid_price_dates": [
-      "2026-10-13",
       "2026-10-14",
       "2026-10-15",
       "2026-10-16",
@@ -985,7 +994,8 @@
       "2026-11-04",
       "2026-11-05",
       "2026-11-06",
-      "2026-11-09"
+      "2026-11-09",
+      "2026-11-10"
     ],
     "missing_market_dates": [],
     "basis": "UNDERLYING_USD_PROXY",
@@ -993,15 +1003,15 @@
   },
   "ma_200d": 5.76,
   "ma_50d": 5.51,
-  "market_cap": 18464862144.0,
+  "market_cap": 27586357824.0,
   "market_cap_currency": "USD",
   "market_cap_provenance": {
     "source": "yfinance",
-    "as_of": "2026-11-09",
+    "as_of": "2026-11-10",
     "currency": "USD",
     "basis": "USD_PROVIDER_METRIC"
   },
-  "market_cap_usd": 18419724288.0,
+  "market_cap_usd": 36802715648.0,
   "market_data_normalization": {
     "status": "complete",
     "size_metric": "market_cap_usd",
@@ -1125,10 +1135,10 @@
     }
   ],
   "operating_margin_pct": 40.38,
-  "p_fcf_ratio": 1.8,
-  "payout_ratio_pct": 44.58,
-  "pb_ratio": 0.69,
-  "pe_ratio_ttm": 7.87,
+  "p_fcf_ratio": 1.91,
+  "payout_ratio_pct": 44.5,
+  "pb_ratio": 0.73,
+  "pe_ratio_ttm": 8.13,
   "peg_ratio": "n/a",
   "period_end_date": "2026-09-30",
   "pretax_margin_pct": 35.64,
@@ -1383,7 +1393,8 @@
     4.760000228881836,
     4.730000019073486,
     4.639999866485596,
-    4.920000076293945
+    4.909999847412109,
+    4.914999961853027
   ],
   "price_history_basis": "close_unadjusted",
   "price_history_dates": [
@@ -1637,11 +1648,12 @@
     "2026-11-04",
     "2026-11-05",
     "2026-11-06",
-    "2026-11-09"
+    "2026-11-09",
+    "2026-11-10"
   ],
   "price_target_avg": 6.77,
-  "provider_data_updated_date": "2026-11-09",
-  "ps_ratio_ttm": 1.95,
+  "provider_data_updated_date": "2026-11-10",
+  "ps_ratio_ttm": 2.04,
   "quick_ratio": "n/a",
   "quote_currency": "USD",
   "revenue_growth_forecast_3y_pct": 6.05,
@@ -1731,11 +1743,11 @@
   "short_ratio": 1.19,
   "size_metric_provenance": {
     "source": "yfinance",
-    "as_of": "2026-11-09",
+    "as_of": "2026-11-10",
     "currency": "USD",
     "basis": "USD_PROVIDER_METRIC"
   },
-  "size_metric_usd": 18419724288.0,
+  "size_metric_usd": 36802715648.0,
   "source": "stockanalysis.com",
   "ticker": "BSBR",
   "total_debt_history": [
@@ -1777,7 +1789,7 @@
     }
   ],
   "url": "https://stockanalysis.com/stocks/BSBR/statistics/",
-  "volume_avg": 4003060.0,
+  "volume_avg": 4069393.0,
   "volume_history": [
     1092500,
     954500,
@@ -2029,7 +2041,8 @@
     2566600,
     2993100,
     2376200,
-    1474783
+    2596000,
+    1358450
   ],
   "financial_observations": {
     "operating_margin_pct": {
@@ -2037,7 +2050,7 @@
       "values": {
         "stockanalysis.com": 40.38
       },
-      "observed_at": "2026-11-09T21:13:18.897384+00:00",
+      "observed_at": "2026-11-10T18:23:31.966977+00:00",
       "provider_period_end_timestamp": null,
       "period_type": "TTM",
       "period_end_date": "2026-09-30",
@@ -2069,7 +2082,7 @@
       "values": {
         "stockanalysis.com": 4.78
       },
-      "observed_at": "2026-11-09T21:13:18.897384+00:00",
+      "observed_at": "2026-11-10T18:23:31.966977+00:00",
       "provider_period_end_timestamp": null,
       "period_type": "TTM",
       "period_end_date": "2026-09-30",
@@ -2099,9 +2112,9 @@
     "fcf": {
       "selected_source": "stockanalysis.com",
       "values": {
-        "stockanalysis.com": 9690000000.0
+        "stockanalysis.com": 9590000000.0
       },
-      "observed_at": "2026-11-09T21:13:18.897384+00:00",
+      "observed_at": "2026-11-10T18:23:31.966977+00:00",
       "provider_period_end_timestamp": null,
       "period_type": "TTM",
       "period_end_date": "2026-09-30",
