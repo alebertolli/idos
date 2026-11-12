@@ -1,7 +1,31 @@
 {
-  "selected": [],
+  "selected": [
+    {
+      "ticker": "PBR",
+      "opp_id": "OPP-MB-PBR",
+      "reason": "configured event trigger: quarterly_results (status=SCREENED)",
+      "force_reprocess": true,
+      "trigger_type": "quarterly_results",
+      "event_evidence": {
+        "event_type": "quarterly_results",
+        "ticker": "PBR",
+        "occurred_at": "2026-11-10",
+        "source_name": "Yahoo Finance earnings calendar via yfinance",
+        "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=PBR",
+        "summary": "El calendario de resultados indica la fecha 2026-11-10. La fecha no confirma por s\u00ed sola la publicaci\u00f3n del reporte; Research debe verificar el resultado en una fuente primaria.",
+        "observed_at": "2026-11-12T18:40:23.021036+00:00",
+        "event_id": "f16bad928f2e3e2c1defee60abd9255ed34373a9bba70cec4c6ab5ae3607ebba"
+      }
+    }
+  ],
   "skipped": [],
-  "screened": [],
+  "screened": [
+    {
+      "ticker": "PBR",
+      "opp_id": "OPP-MB-PBR",
+      "score": 0
+    }
+  ],
   "stale": [],
   "fresh": [],
   "excluded_count": 0
