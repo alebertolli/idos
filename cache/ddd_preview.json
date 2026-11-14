@@ -1,7 +1,31 @@
 {
-  "selected": [],
+  "selected": [
+    {
+      "ticker": "UGP",
+      "opp_id": "OPP-MB-UGP",
+      "reason": "configured event trigger: quarterly_results (status=SCREENED)",
+      "force_reprocess": true,
+      "trigger_type": "quarterly_results",
+      "event_evidence": {
+        "event_type": "quarterly_results",
+        "ticker": "UGP",
+        "occurred_at": "2026-11-11",
+        "source_name": "Yahoo Finance earnings calendar via yfinance",
+        "source_url": "https://finance.yahoo.com/calendar/earnings/?symbol=UGP",
+        "summary": "El calendario de resultados indica la fecha 2026-11-11. La fecha no confirma por s\u00ed sola la publicaci\u00f3n del reporte; Research debe verificar el resultado en una fuente primaria.",
+        "observed_at": "2026-11-13T18:18:58.489327+00:00",
+        "event_id": "5e766cc2ae5957e5ab6b0e385cb5a7bcaccdf42176bd984893e0b2ba5c0b1603"
+      }
+    }
+  ],
   "skipped": [],
-  "screened": [],
+  "screened": [
+    {
+      "ticker": "UGP",
+      "opp_id": "OPP-MB-UGP",
+      "score": 0
+    }
+  ],
   "stale": [],
   "fresh": [],
   "excluded_count": 0
