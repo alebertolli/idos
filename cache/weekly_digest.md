@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-11-16 22:50 AR _
+_Generado: 2026-11-17 07:17 AR _
 
 ## Resumen
 
