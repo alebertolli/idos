@@ -27,6 +27,8 @@ idos = "idos.cli.main:app"
 
 [tool.setuptools.packages.find]
 where = ["."]
+include = ["idos", "idos.*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["smoke: CLI smoke checks", "e2e: isolated lifecycle end-to-end checks"]

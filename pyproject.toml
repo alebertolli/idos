@@ -22,3 +22,4 @@ idos = "idos.cli.main:app"
 
 [tool.pytest.ini_options]
 testpaths = ["idos-core/tests"]
+markers = ["smoke: CLI smoke checks", "e2e: isolated lifecycle end-to-end checks"]

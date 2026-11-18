@@ -56,7 +56,7 @@ def _load_existing_config() -> dict[str, Any]:
     return data
 
 
-def populate_earnings(dry_run: bool = False) -> dict[str, Any]:
+def populate_earnings(dry_run: bool = False, *, today: date | None = None) -> dict[str, Any]:
     cache_data = _load_cache_tickers()
     config = _load_existing_config()
     existing = config.get("tickers", {})
@@ -67,7 +67,11 @@ def populate_earnings(dry_run: bool = False) -> dict[str, Any]:
 
     for ticker in sorted(cache_data):
         ts = cache_data[ticker]["next_earnings_date"]
-        date_str = _timestamp_to_date(ts)
+        try:
+            date_str = _timestamp_to_date(ts)
+        except (TypeError, ValueError, OSError, OverflowError):
+            skipped.append(ticker)
+            continue
         current = existing.get(ticker, {})
         if not isinstance(current, dict):
             current = {}
@@ -98,14 +102,16 @@ def populate_earnings(dry_run: bool = False) -> dict[str, Any]:
             "triggered_at": None,
         }
 
-    today = date.today()
+    today = today if today is not None else date.today()
     for ticker in list(existing.keys()):
         info = existing[ticker]
+        if not isinstance(info, dict):
+            continue
         earnings_str = info.get("earnings_date", "")
         if not earnings_str or info.get("triggered_at"):
             continue
         try:
-            ed = datetime.strptime(earnings_str, "%Y-%m-%d").date()
+            ed = datetime.strptime(str(earnings_str), "%Y-%m-%d").date()
         except ValueError:
             continue
         if ed < today - timedelta(days=STALE_DAYS):
