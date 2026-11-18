@@ -1,0 +1,365 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El margen operativo del 31.22% proviene de stockanalysis.com (TTM, 2026‑07‑26).
+  - El FCF de 5.62 B USD proviene de stockanalysis.com (TTM, 2026‑07‑26).
+  - El precio actual de 347.61499 USD proviene de yfinance (2026‑11‑18).
+  - El consenso de analistas (low 358, mean 561.89, high 900) proviene de stockanalysis.com
+    y yfinance (2026‑11‑18).
+  - El crecimiento de ingresos del 7.77% proviene de stockanalysis.com (TTM, 2026‑07‑26).
+  preguntas_abiertas:
+  - ¿Cuál es la estructura exacta de deuda y el ratio deuda/EBITDA de AMAT?
+  - ¿Qué nivel de exposición tiene la compañía a clientes chinos bajo las últimas
+    licencias de exportación?
+  - ¿Cuáles son los planes de inversión de capital de los principales fabricantes
+    de semiconductores para 2025‑2026?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: compounder_castigado
+  categorias_descartadas: compounder, quality_at_fair_price, ciclica, deep_value,
+    turnaround, distressed, hype, value_trap, special_situation
+  justificacion: Applied Materials posee un negocio de alta calidad con liderazgo
+    tecnológico, márgenes operativos sólidos (31.22%) y generación de flujo de caja
+    libre robusta (5.62 B USD). Sin embargo, el precio actual (347.6 USD) está por
+    debajo del rango bajo del consenso de analistas (358 USD), reflejando una penalización
+    del mercado por la ciclicidad del sector de semiconductores y tensiones geopolíticas.
+    La empresa mantiene un moat duradero y perspectivas de crecimiento a medio‑largo
+    plazo, lo que la sitúa como un compounder temporalmente desvalorizado.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Liderazgo tecnológico en etapas críticas de fabricación (etch, deposition,
+    rapid thermal processing). Amplia base de clientes globales y alta dependencia
+    de sus equipos, creando barreras de cambio. Servicios y software generan ingresos
+    recurrentes y aumentan la retención.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Recuperación acelerada del capex impulsada por IA y centros de datos
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 30
+- descripcion: Lanzamiento de nueva generación de equipos de deposición ALD para nodos
+    <2 nm
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 25
+- descripcion: Resolución de restricciones de exportación a China mediante licencias
+    específicas
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 20
+dominio_esg_supply_chain:
+  analisis: Políticas ESG alineadas con estándares industriales; exposición a proveedores
+    críticos en Asia, pero la diversificación geográfica y los programas de cumplimiento
+    reducen riesgos de interrupción.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: FCF de 5.62 B USD (TTM) y margen operativo de 31.22%. No se reportan niveles
+    de deuda problemáticos en los datos disponibles. Liquidez suficiente y generación
+    de caja consistente respaldan inversiones y dividendos.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento de ingresos TTM del 7.77% indica expansión sostenida, pero
+    está sujeto a la ciclicidad del gasto de capital. Oportunidades de crecimiento
+    a medio plazo en IA, automoción y 5G, aunque la visibilidad depende de la recuperación
+    del ciclo.
+  rating: moderado
+dominio_management:
+  analisis: El equipo directivo ha demostrado capacidad para ejecutar lanzamientos
+    de productos complejos y mantener relaciones estratégicas con los principales
+    fabricantes. Historial de asignación de capital orientada a crecimiento orgánico
+    y adquisiciones complementarias.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Ciclicidad del gasto de capital en semiconductores
+- impacto: alto
+  probabilidad: media
+  riesgo: Restricciones de exportación EE.UU.-China
+- impacto: medio
+  probabilidad: baja
+  riesgo: Obsolescencia tecnológica frente a competidores (ASML, Tokyo Electron)
+- impacto: medio
+  probabilidad: baja
+  riesgo: Concentración de clientes (top 10 representan >50% de ingresos)
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aceleración del gasto de capital en IA y lanzamiento exitoso de equipos
+      de deposición avanzados compatibles con nodos de 2 nm.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas promedian un precio objetivo de 561.89 USD (rango
+    358‑900 USD), lo que implica que el mercado está descontando aproximadamente un
+    38% respecto al objetivo medio, probablemente por una visión pesimista del ciclo
+    de capex de semiconductores y riesgos geopolíticos.
+  hipotesis_contraria: El mercado podría estar subestimando la recuperación acelerada
+    del gasto de capital impulsada por la demanda de IA, 5G y automoción, así como
+    la capacidad de AMAT para capturar cuota de mercado con su cartera de servicios
+    y software. Además, la diversificación geográfica y la fortaleza del balance podrían
+    mitigar los riesgos de exportación.
+  razonamiento: El amplio diferencial entre el precio actual y el objetivo medio,
+    junto con fundamentos financieros sólidos y un moat defensible, indican que el
+    mercado está sobrevalorando los riesgos cíclicos y subvalorando la capacidad de
+    recuperación y crecimiento a medio plazo.
+generated_at: '2026-11-18T17:49:57.659321-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-010
+prompt_inputs:
+  business_model: Applied Materials, Inc. provides materials engineering solutions,
+    equipment, services, and software to the semiconductor and related industries
+    in the United States, China, Korea, Taiwan, Japan, Southeast Asia, Europe, and
+    internationally. The company operates through Semiconductor Systems and Applied
+    Global Services (AGS) segments. The Semiconductor Systems segment includes semiconductor
+    capital equipment to enable materials engineering steps, including etch, rapid
+    thermal processing, deposition, chemical mechanical planarization, metrology and
+    inspection, wafer packaging, and ion implantation. The AGS segment offers integrated
+    solutions to optimize equipment and fab performance and productivity comprising
+    spares, upgrades, services, and 200 millimeter and other equipment and factory
+    automation software for semiconductor and other products. It serves manufacturers
+    of semiconductor wafers and chips, and other electronic devices. Applied Materials,
+    Inc. was incorporated in 1967 and is headquartered in Santa Clara, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.25
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Applied Materials, Inc.
+  operating_margin: 32.94
+  pe_ratio: 27.71
+  products: ''
+  revenue: 34450000000.0
+  revenue_growth: 21.43
+  roic: 42.19
+  sector: Technology
+  ticker: AMAT
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-18'
+  business_model: Applied Materials, Inc. provides materials engineering solutions,
+    equipment, services, and software to the semiconductor and related industries
+    in the United States, China, Korea, Taiwan, Japan, Southeast Asia, Europe, and
+    internationally. The company operates through Semiconductor Systems and Applied
+    Global Services (AGS) segments. The Semiconductor Systems segment includes semiconductor
+    capital equipment to enable materials engineering steps, including etch, rapid
+    thermal processing, deposition, chemical mechanical planarization, metrology and
+    inspection, wafer packaging, and ion implantation. The AGS segment offers integrated
+    solutions to optimize equipment and fab performance and productivity comprising
+    spares, upgrades, services, and 200 millimeter and other equipment and factory
+    automation software for semiconductor and other products. It serves manufacturers
+    of semiconductor wafers and chips, and other electronic devices. Applied Materials,
+    Inc. was incorporated in 1967 and is headquartered in Santa Clara, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 347.614990234375
+  current_price_as_of_date: '2026-11-18'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.25
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:50.861572+00:00", "period_end_date": "2026-07-26",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-07-26", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/AMAT/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 5620000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 33.736}, "observed_at": "2026-11-01T10:16:50.861572+00:00",
+    "period_end_date": "2026-07-26", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-07-26", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/AMAT/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-07-26", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 31.22}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 24.8}, "observed_at": "2026-11-01T10:16:50.861572+00:00", "period_end_date":
+    "2026-07-26", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-07-26", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/amat/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-07-26", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 7.77}}}, "observed_at": "2026-11-18T19:11:43.055652+00:00",
+    "period_end": "2026-10-25", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Applied Materials, Inc.
+  operating_margin: 32.94
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Applied Materials, Inc. provides materials engineering solutions,
+    equipment, services, and software to the semiconductor and related industries
+    in the United States, China, Korea, Taiwan, Japan, Southeast Asia, Europe, and
+    internationally. The company operates through Semiconductor Systems and Applied
+    Global Services (AGS) segments. The Semiconductor Systems segment includes semiconductor
+    capital equipment to enable materials engineering steps, including etch, rapid
+    thermal processing, depositio
+  revenue: 34450000000.0
+  revenue_growth: 21.43
+  roic: 42.19
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    900.0, "low": 358.0, "mean": 561.89, "median": 561.89, "observed_at": "2026-11-18T17:49:48.092360-03:00",
+    "sources": [{"as_of_date": "2026-11-18", "name": "stockanalysis", "observed_at":
+    "2026-11-18T17:49:48.092360-03:00", "observed_date": "2026-11-18", "target_price":
+    561.89, "url": "https://stockanalysis.com/stocks/amat/forecast/"}, {"as_of_date":
+    "2026-11-18", "name": "yfinance", "observed_at": "2026-11-18T17:49:48.092360-03:00",
+    "observed_date": "2026-11-18", "target_price": 561.8889, "url": "https://finance.yahoo.com/quote/AMAT/"}]},
+    "current_quote": {"as_of_date": "2026-11-18", "currency": "USD", "price": 347.614990234375,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/AMAT/"}]}}'
+  sector: Technology
+  ticker: AMAT
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 85cde19ffd4a0b81e818da09e8ce54a9b2a284455b9d787cb74bd9ddbaab6d4f
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: manual
+  triggered_at: '2026-11-18T17:49:57.659321-03:00'
+resumen_ejecutivo: Applied Materials es un proveedor líder de equipos y servicios
+  para la industria de semiconductores, con márgenes operativos superiores al 30%
+  y flujo de caja libre de 5.6 B USD. El precio cotiza 38% bajo el objetivo medio
+  de los analistas, lo que sugiere una oportunidad de compra para un compounder castigado,
+  siempre que la recuperación del capex y la demanda de IA se materialicen.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-18'
+  currency: USD
+  horizon_date: '2028-11-18'
+  scenarios:
+  - falsifiers:
+    - Anuncio de un aumento >5% en el gasto de capital de los principales fabricantes.
+    - Obtención de licencias de exportación que reabran el mercado chino.
+    - Mejora de márgenes operativos por encima del 30%.
+    id: BEAR
+    key_assumptions:
+    - Capex global de semiconductores crece <2% anual durante los próximos 2 años.
+    - Se imponen nuevas restricciones de exportación EE.UU.-China que limitan ventas
+      a clientes chinos.
+    - Márgenes operativos disminuyen a <25%.
+    rationale: Supone una prolongada desaceleración del capex, restricciones de exportación
+      a China y una caída del margen operativo por presión competitiva, manteniendo
+      el precio por debajo del rango bajo del consenso.
+    sources:
+    - as_of_date: '2026-11-18'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AMAT/
+    - as_of_date: '2026-11-01'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/AMAT/statistics/
+    target_price: 300
+  - falsifiers:
+    - Recesión global que reduzca el gasto de capital a <5% anual.
+    - Fracaso en la adopción de la nueva generación de equipos.
+    - Incremento significativo de la deuda que limite la capacidad de inversión.
+    id: BULL
+    key_assumptions:
+    - Capex global de semiconductores crece >12% anual en 2025‑2026.
+    - AMAT captura >15% de mercado adicional en equipos de deposición avanzada.
+    - Márgenes operativos se mantienen >30% y el FCF crece >15% anual.
+    rationale: Supone una recuperación robusta del gasto de capital impulsada por
+      IA, lanzamiento exitoso de equipos de próxima generación y alivio de restricciones
+      geopolíticas, llevando el múltiplo EV/EBITDA a niveles históricos y cerrando
+      la brecha con el objetivo alto del consenso.
+    sources:
+    - as_of_date: '2026-11-18'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AMAT/
+    - as_of_date: '2026-11-18'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/amat/forecast
+    target_price: 900
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors:
+  - 'BEAR.sources[1]: URL no está respaldada por evidencia de entrada verificable'
+  status: invalid_pending_revision
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-18T17:49:48.092360-03:00'
+  fuentes:
+    stockanalysis: 561.89
+    yfinance: 561.8889
+  mediana: 561.89
+  n_fuentes: 2
+  promedio: 561.89
+  source_references:
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    observed_at: '2026-11-18T17:49:48.092360-03:00'
+    observed_date: '2026-11-18'
+    target_price: 561.89
+    url: https://stockanalysis.com/stocks/amat/forecast/
+  - as_of_date: '2026-11-18'
+    name: yfinance
+    observed_at: '2026-11-18T17:49:48.092360-03:00'
+    observed_date: '2026-11-18'
+    target_price: 561.8889
+    url: https://finance.yahoo.com/quote/AMAT/
+  target_high: 900.0
+  target_low: 358.0
+tesis_inversion: Mantener posición larga en AMAT, anticipando que la recuperación
+  del gasto de capital y la demanda de IA impulsarán un re‑rating del múltiplo, cerrando
+  la brecha entre el precio actual y el objetivo medio de los analistas.
+ticker: AMAT
+version: '3.0'

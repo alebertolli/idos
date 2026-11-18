@@ -7,22 +7,27 @@ aliases:
 
 # IDOS Company Index
 
-Total: 6 companies tracked
+Total: 9 companies tracked
 
 ## Basic Materials
 - 📄 [[DOW|Dow Inc.]]
+
+## Consumer Cyclical
+- ⏳ [[ABNB|Airbnb, Inc.]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
 
 ## Energy
 - 📄 [[E|Eni S.p.A.]]
+- ⏳ [[TS|Tenaris S.A.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]
+- 📄 [[AMAT|Applied Materials, Inc.]]
 - 📄 [[ASML|ASML Holding N.V.]]
 
 ---

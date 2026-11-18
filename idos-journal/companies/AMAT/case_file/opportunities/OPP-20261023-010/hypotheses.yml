@@ -1,0 +1,174 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de IA representarán menos del 18% de los ingresos totales
+      en el reporte financiero de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía anuncia una reducción significativa (>10%) en su pipeline
+      de productos de IA durante 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de IA representarán menos del 18% de los ingresos totales en el reporte
+    financiero de 2027.
+  - La compañía anuncia una reducción significativa (>10%) en su pipeline de productos
+    de IA durante 2027.
+  horizon: medio
+  id: H1-OPP-20261023-010
+  opportunity_id: OPP-20261023-010
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 25.0
+    met: null
+    metric: participación de ingresos IA
+    prediction: Para el 31 de diciembre de 2027, el 25% de los ingresos consolidados
+      de AMAT provendrán de ventas de equipos y materiales directamente vinculados
+      a la fabricación de chips de IA.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: La demanda de IA está impulsando un aumento acelerado del gasto de capital
+    en centros de datos y chips especializados. AMAT ha anunciado recientemente su
+    hoja de ruta de productos de litografía avanzada y ha firmado acuerdos de suministro
+    con los principales fabricantes de chips AI, lo que sugiere una capacidad de captura
+    de cuota de mercado superior a la estimada por analistas.
+  review_trigger: Si al cierre del Q3 2027 los ingresos de IA representan menos del
+    18% del total, se reconsiderará la hipótesis.
+  secondary_hypotheses: []
+  statement: Applied Materials capturará una mayor cuota del mercado de equipos para
+    IA, alcanzando el 25% de sus ingresos totales provenientes de ventas relacionadas
+    con IA para finales de 2027.
+  status: ACTIVE
+  ticker: AMAT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EPS diluido reportado para FY2027 inferior a $10.5.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Margen operativo cae por debajo del 18% en FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EPS diluido reportado para FY2027 inferior a $10.5.
+  - Margen operativo cae por debajo del 18% en FY2027.
+  horizon: medio
+  id: H2-OPP-20261023-010
+  opportunity_id: OPP-20261023-010
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 12.5
+    met: null
+    metric: EPS diluido
+    prediction: Al cierre del FY2027 (31 de diciembre de 2027), el EPS diluido será
+      de $12.5 o superior.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: El repunte del gasto de capital en IA, 5G y automoción aumentará los
+    márgenes operativos, mientras que la mejora del balance y la reducción del costo
+    de capital impulsarán la rentabilidad neta.
+  review_trigger: Si el EPS diluido reportado en el Q2 2027 está por debajo de $10.0,
+    la hipótesis será descartada.
+  secondary_hypotheses:
+  - H1-OPP-20261023-010
+  statement: El EPS diluido de AMAT crecerá al menos un 15% interanual en el ejercicio
+    fiscal 2027, alcanzando $12.5 por acción.
+  status: ACTIVE
+  ticker: AMAT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Forward P/E permanece por debajo de 16x en junio de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción no supera los $150, lo que implica un forward
+      P/E inferior a 20x.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Forward P/E permanece por debajo de 16x en junio de 2028.
+  - El precio de la acción no supera los $150, lo que implica un forward P/E inferior
+    a 20x.
+  horizon: largo
+  id: H3-OPP-20261023-010
+  opportunity_id: OPP-20261023-010
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 20.0
+    met: null
+    metric: forward P/E
+    prediction: Al 30 de junio de 2028, el forward P/E de AMAT será de 20x o superior,
+      basado en estimaciones de EPS de 2029.
+    unit: veces
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento sostenido de ingresos y EPS, junto con la mejora de la
+    percepción del mercado sobre la exposición a IA, impulsará una re‑rating del múltiplo.
+    Los analistas han elevado sus precios objetivo en promedio un 30% desde 2026.
+  review_trigger: Si al cierre del Q1 2028 el forward P/E está bajo 16x, la hipótesis
+    será revisada.
+  secondary_hypotheses:
+  - H2-OPP-20261023-010
+  statement: El múltiplo forward P/E de AMAT se revalorizará a 20x para mediados de
+    2028, cerrando la brecha con el objetivo medio de los analistas.
+  status: ACTIVE
+  ticker: AMAT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Ingresos de servicios menores a $2.4 B o menos del 12% del total en
+      el reporte del Q2 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía anuncia una reducción del presupuesto de desarrollo de
+      software en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ingresos de servicios menores a $2.4 B o menos del 12% del total en el reporte
+    del Q2 2027.
+  - La compañía anuncia una reducción del presupuesto de desarrollo de software en
+    2027.
+  horizon: corto
+  id: H4-OPP-20261023-010
+  opportunity_id: OPP-20261023-010
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 3.0
+    met: null
+    metric: ingresos servicios
+    prediction: Al 30 de junio de 2027, los ingresos de servicios serán ≥ $3.0 B y
+      ≥15% del total de ingresos consolidados.
+    unit: billones USD
+  priority: critical
+  probability: 0.5
+  rationale: La estrategia de AMAT de expandir su oferta de software y servicios de
+    optimización de procesos está capturando mayor valor de los clientes, especialmente
+    en la transición a fábricas de chips más automatizadas y basadas en IA.
+  review_trigger: Si en el reporte Q2 2027 los ingresos de servicios están por debajo
+    de $2.4 B, la hipótesis será descartada.
+  secondary_hypotheses: []
+  statement: Los ingresos por servicios (software, mantenimiento y soluciones de datos)
+    superarán los $3.0 B para el 30 de junio de 2027, representando al menos el 15%
+    del total de ingresos.
+  status: ACTIVE
+  ticker: AMAT
+  version: 1
