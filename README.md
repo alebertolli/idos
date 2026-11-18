@@ -87,7 +87,7 @@ set IDOS_LLM_MODEL=gpt-4o
 ```
 
 El pipeline Research usa `idos-config/models.yml`: Gemini → Groq → OpenRouter
-→ OpenAI directo (`gpt-4o-mini`). Para Research se omite OpenRouter según su
+→ OpenAI directo (`gpt-6.2-sol`, razonamiento `low`). Para Research se omite OpenRouter según su
 política actual. OpenAI es `fallback_only`: no se promueve por el router
 adaptativo. El secreto verificado en Settings → Secrets and variables → Actions
 es **`OPENAI_API_KEY`**; `OPEN_AI_API` no es el nombre de la variable.
@@ -852,3 +852,5 @@ o cualquier push a `idos-journal/**` / `idos-knowledge/**` / `idos-config/ui.yml
 *360+ tests · 28 comandos CLI · Ciclo de vida completo · Entry 100% algorítmico · UI estática*
 
 <!-- Test auto-commit skill -->
+
+Prueba real acotada (manual, no se ejecuta en cada PR): `gh workflow run ci.yml --ref codex/runtime-openai-audit-20261118 -f openai_smoke=true`. Una solicitud sintética, máximo 512 tokens de finalización incluyendo razonamiento, sin acceso a portfolio. El artefacto registra uso y validación; el adaptador limita OpenAI a 8192 tokens por llamada y respeta límites menores del worker.

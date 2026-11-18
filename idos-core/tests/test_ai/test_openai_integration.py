@@ -22,7 +22,7 @@ def response(payload, status=200):
 
 def completion(finish="stop", content='{"ok": true}', refusal=None):
     return {
-        "model": "gpt-4o-mini",
+        "model": "gpt-6.2-sol",
         "choices": [{"finish_reason": finish, "message": {"content": content, "refusal": refusal}}],
         "usage": {"prompt_tokens": 12, "completion_tokens": 5},
     }
@@ -40,8 +40,11 @@ def test_configured_chain_reaches_openai_last_and_persists_json(tmp_path, monkey
             assert method == "POST"
             assert kwargs["headers"]["Authorization"] == "Bearer synthetic-key-OPENAI_API_KEY"
             payload = kwargs["json"]
-            assert payload["model"] == "gpt-4o-mini"
+            assert payload["model"] == "gpt-6.2-sol"
             assert payload["max_completion_tokens"] == 64
+            assert payload["reasoning_effort"] == "low"
+            assert "temperature" not in payload
+            assert payload["store"] is False
             assert payload["response_format"] == {"type": "json_object"}
             assert payload["messages"][0] == {"role": "system", "content": "Synthetic integration test"}
             return response(completion())
@@ -71,7 +74,7 @@ def test_configured_chain_reaches_openai_last_and_persists_json(tmp_path, monkey
 ])
 def test_openai_rejects_incomplete_or_refused_response(monkeypatch, finish, content, refusal):
     monkeypatch.setattr(requests, "request", lambda *a, **kw: response(completion(finish, content, refusal)))
-    client = LLMClient(provider="openai", api_key="synthetic-key", model="gpt-4o-mini", fallback_model="")
+    client = LLMClient(provider="openai", api_key="synthetic-key", model="gpt-6.2-sol", fallback_model="")
     result = client.generate("Synthetic test")
     assert not result.success
     assert "incomplete or refused" in result.error
@@ -79,14 +82,14 @@ def test_openai_rejects_incomplete_or_refused_response(monkeypatch, finish, cont
 
 def test_no_cross_provider_model_is_invented(monkeypatch):
     monkeypatch.setenv("IDOS_LLM_FALLBACK_MODEL", "gemini-foreign-model")
-    service = LLMService.from_config({"providers": {"openai": {"model": "gpt-4o-mini"}}})
+    service = LLMService.from_config({"providers": {"openai": {"model": "gpt-6.2-sol"}}})
     assert service.clients["openai"].fallback_model == ""
 
 
 def test_missing_openai_key_never_reuses_primary_provider_credential(monkeypatch):
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     client = LLMClient(provider="gemini", api_key="synthetic-gemini-secret", model="gemini-test",
-                       fallback_providers=[{"provider": "openai", "model": "gpt-4o-mini"}])
+                       fallback_providers=[{"provider": "openai", "model": "gpt-6.2-sol"}])
 
     def unavailable(*args, **kwargs):
         raise requests.HTTPError("capacity unavailable", response=response({}, 429))
@@ -101,16 +104,38 @@ def test_model_without_configured_default_is_safe():
     assert service.model() == ""
 
 
+@pytest.mark.parametrize("model", ["gpt-6.2-sol", "gpt-4o-mini"])
+def test_openai_parameters_token_cap_and_reasoning_usage(monkeypatch, model):
+    captured = {}
+    def request(*args, **kwargs):
+        captured.update(kwargs["json"])
+        data = completion()
+        data["usage"]["completion_tokens_details"] = {"reasoning_tokens": 3}
+        return response(data)
+    monkeypatch.setattr(requests, "request", request)
+    client = LLMClient(provider="openai", api_key="synthetic", model=model,
+                       openai_max_completion_tokens=100)
+    result = client.generate("Synthetic", max_tokens=200)
+    assert result.success and result.tokens_reasoning == 3
+    assert captured["max_completion_tokens"] == 100
+    if model == "gpt-6.2-sol":
+        assert captured["reasoning_effort"] == "low"
+        assert "temperature" not in captured
+    else:
+        assert captured["temperature"] == 0.3
+        assert "reasoning_effort" not in captured
+
+
 def test_llm_worker_accepts_default_config_and_serializes_service_model(monkeypatch):
     from idos.workers.ai.llm_worker import LLMWorker
 
     assert isinstance(LLMWorker().client, LLMClient)
-    service = LLMService.from_config({"default_provider": "openai", "providers": {"openai": {"model": "gpt-4o-mini"}}})
+    service = LLMService.from_config({"default_provider": "openai", "providers": {"openai": {"model": "gpt-6.2-sol"}}})
     monkeypatch.setattr(service, "generate_structured", lambda **kw: {"ok": True})
     worker = LLMWorker({"llm_service": service})
     monkeypatch.setattr(worker.registry, "get", lambda name: {"user_prompt": "Synthetic JSON test"})
     result = worker.run({"prompt_name": "synthetic", "structured": True})
-    assert result["model"] == "gpt-4o-mini"
+    assert result["model"] == "gpt-6.2-sol"
     assert json.loads(json.dumps(result))["structured"] == {"ok": True}
 
 

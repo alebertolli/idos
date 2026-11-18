@@ -66,6 +66,8 @@ class LLMService:
                 model=pcfg["model"],
                 fallback_model=pcfg.get("fallback", ""),
                 fallback_providers=[],
+                openai_reasoning_effort=pcfg.get("reasoning_effort", "low"),
+                openai_max_completion_tokens=pcfg.get("max_completion_tokens"),
             )
             self.circuit_breakers[name] = CircuitBreaker(
                 name=name,

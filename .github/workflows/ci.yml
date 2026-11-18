@@ -2,13 +2,42 @@ name: IDOS CI
 
 on:
   workflow_dispatch:
+    inputs:
+      openai_smoke:
+        description: "One bounded real OpenAI request with synthetic data"
+        type: boolean
+        default: false
   push:
     branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
+  openai-smoke:
+    if: github.event_name == 'workflow_dispatch' && inputs.openai_smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e idos-core
+      - name: One real bounded request
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          IDOS_LLM_TIMEOUT: "30"
+        run: python scripts/smoke_openai.py --output /tmp/openai-smoke.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: openai-smoke-${{ github.run_id }}
+          path: /tmp/openai-smoke.json
+          if-no-files-found: error
   test:
+    if: github.event_name != 'workflow_dispatch' || !inputs.openai_smoke
     runs-on: ubuntu-latest
     strategy:
       matrix:

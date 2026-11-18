@@ -55,6 +55,7 @@ class LLMResponse:
     retry_after_seconds: float | None = None
     rate_limit_remaining_tokens: int | None = None
     rate_limit_reset_seconds: float | None = None
+    tokens_reasoning: int = 0
 
 
 def _parse_retry_delay(value: str | None) -> float | None:
@@ -107,6 +108,8 @@ class LLMClient:
         model: str = "",
         fallback_model: str | None = None,
         fallback_providers: list[dict[str, str]] | None = None,
+        openai_reasoning_effort: str = "low",
+        openai_max_completion_tokens: int | None = None,
     ):
         self.provider = provider or os.getenv("IDOS_LLM_PROVIDER", "openrouter")
         self.api_key = api_key or self._resolve_api_key(self.provider)
@@ -117,6 +120,8 @@ class LLMClient:
         )
         self.fallback_providers = fallback_providers or []
         self.timeout = int(os.getenv("IDOS_LLM_TIMEOUT", "60"))
+        self.openai_reasoning_effort = openai_reasoning_effort
+        self.openai_max_completion_tokens = openai_max_completion_tokens
 
     @staticmethod
     def _resolve_api_key(provider: str) -> str:
@@ -312,9 +317,16 @@ class LLMClient:
         payload = {
             "model": _mod,
             "messages": messages,
-            "temperature": temperature,
             "max_completion_tokens": max_tokens,
+            "store": False,
         }
+        if _mod.startswith("gpt-6.2-"):
+            payload["reasoning_effort"] = getattr(self, "openai_reasoning_effort", "low")
+        else:
+            payload["temperature"] = temperature
+        token_limit = getattr(self, "openai_max_completion_tokens", None)
+        if token_limit is not None:
+            payload["max_completion_tokens"] = min(max_tokens, token_limit)
         if response_format == "json":
             payload["response_format"] = {"type": "json_object"}
 
@@ -343,6 +355,7 @@ class LLMClient:
             latency_ms=int((time.time() - start) * 1000),
             success=complete,
             error="" if complete else f"OpenAI incomplete or refused response (finish_reason={finish_reason})",
+            tokens_reasoning=usage.get("completion_tokens_details", {}).get("reasoning_tokens", 0),
             **_rate_limit_metadata(resp),
         )
 
