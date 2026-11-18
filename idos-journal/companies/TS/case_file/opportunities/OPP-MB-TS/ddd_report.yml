@@ -1,0 +1,565 @@
+calidad_evidencia:
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas:
+  - ¿Cuál es la tasa de crecimiento de acciones diluidas?
+  - ¿Cómo evolucionará la demanda de tuberías en energía renovable?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Multibagger
+  justificacion: Alta confirmación de mercado (85.22) y fuerte impulso de precio 12m
+    (+51.5%).
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Liquidez excelente (current ratio 3.25), deuda neta negativa y generación
+    de FCF robusta (1.91B USD).
+  rating: A
+dominio_catalizadores:
+- descripcion: Reactivación del gasto de capital en upstream
+  impacto: Positivo
+- descripcion: Expansión de la base de clientes en Asia‑Pacífico
+  impacto: Positivo
+- descripcion: Innovaciones en tuberías de alta resistencia
+  impacto: Positivo
+- descripcion: Políticas de transición energética que reduzcan demanda de petróleo
+  impacto: Negativo
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: Cobertura de intereses insuficiente (ratio 0)
+  relevancia: Alta
+- descripcion: Posible deterioro de márgenes por aumento de costos de materias primas
+  relevancia: Media
+- descripcion: Riesgo de dilución de acciones (datos no disponibles)
+  relevancia: Desconocida
+- descripcion: Volatilidad 90d alta (27.7%)
+  relevancia: Media
+error_mercado:
+  catalizador_cambio: Recuperación sostenida del precio del crudo que impulsa la demanda
+    de tuberías.
+  conclusion_error_valoracion: Posible sesgo bajista en la valoración actual.
+  consenso_actual:
+    currency: USD
+    high: 88.0
+    low: 48.0
+    mean: 68.48
+    source:
+    - as_of_date: '2026-11-18'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ts/forecast/
+    - as_of_date: '2026-11-18'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/TS/
+  hipotesis_contraria: El mercado subestima la exposición de Tenaris a la desaceleración
+    del gasto de capital en energía.
+  razonamiento: El precio actual (60.31 USD) está por debajo del promedio de consenso
+    (68.48 USD) pese a márgenes brutos sólidos (38.5%).
+generated_at: '2026-11-18T18:55:03.241358-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-TS
+prompt_inputs:
+  business_model: Tenaris S.A., together with its subsidiaries, manufactures and supplies
+    steel pipe products and related services for the energy industry and other industrial
+    applications in North America, South America, Europe, the Middle East and Africa,
+    and the Asia Pacific. It provides steel casings to sustain the walls of oil and
+    gas wells during and after drilling; steel tubing for conducting crude oil and
+    natural gas to the surface after drilling has been completed; steel line pipes
+    to transport crude oil and natural gas from wells to refineries, storage tanks,
+    and loading and distribution centers; and mechanical and structural pipes for
+    the transportation of other forms of gas and liquids under high pressure. The
+    company also offers cold-drawn pipes for use in boilers, superheaters, condensers,
+    heat exchangers, automobile production, and other industrial applications; premium
+    joints and couplings for use in high temperature or high pressure environments
+    under the TenarisHydril brand name; coiled tubing is used for oil and gas drilling
+    and well workovers and for subsea pipelines; sucker rods used in oil extraction
+    activities, tubes used for plumbing and construction applications, and oilfield
+    / hydraulic fracturing services; pipe coating services; and automotive components.
+    In addition, it engages in the sale of energy and raw materials; development,
+    management, and licensing of intellectual property; procurement and trading services;
+    and financial operations, as well as markets steel products. Further, the company
+    manufactures and markets connections; and welded and seamless steel pipes. Tenaris
+    S.A. was incorporated in 2001 and is based in Luxembourg, Luxembourg. Tenaris
+    S.A. operates as a subsidiary of Techint Holdings S.àr.l.
+  ceo_tenure: 0
+  debt_to_equity: 0.03
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Tenaris S.A.
+  operating_margin: 18.21
+  pe_ratio: 15.3
+  products: ''
+  revenue: 12160000000.0
+  revenue_growth: 2.82
+  roic: 12.22
+  sector: Energy
+  ticker: TS
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/TS/statistics/
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/ts/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: null
+  inputs:
+    fcf_growth_TTM: 15.69
+  limitations: null
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/ts/financials/
+  status: reported
+  unit: percent
+  value: 15.69
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/TS/statistics/
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/ts/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/ts/financials/
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/TS/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (Diluted_Shares_t / Diluted_Shares_t-1) - 1
+  inputs: {}
+  limitations: No se dispone de datos históricos de acciones diluidas.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-18'
+  business_model: Tenaris S.A., together with its subsidiaries, manufactures and supplies
+    steel pipe products and related services for the energy industry and other industrial
+    applications in North America, South America, Europe, the Middle East and Africa,
+    and the Asia Pacific. It provides steel casings to sustain the walls of oil and
+    gas wells during and after drilling; steel tubing for conducting crude oil and
+    natural gas to the surface after drilling has been completed; steel line pipes
+    to transport crude oil and natural gas from wells to refineries, storage tanks,
+    and loading and distribution centers; and mechanical and structural pipes for
+    the transportation of other forms of gas and liquids under high pressure. The
+    company also offers cold-drawn pipes for use in boilers, superheaters, condensers,
+    heat exchangers, automobile production, and other industrial applications; premium
+    joints and couplings for use in high temperature or high pressure environments
+    under the TenarisHydril brand name; coiled tubing is used for oil and gas drilling
+    and well workovers and for subsea pipelines; sucker rods used in oil extraction
+    activities, tubes used for plumbing and construction applications, and oilfield
+    / hydraulic fracturing services; pipe coating services; and automotive components.
+    In addition, it engages in the sale of energy and raw materials; development,
+    management, and licensing of intellectual property; procurement and trading services;
+    and financial operations, as well as markets steel products. Further, the company
+    manufactures and markets connections; and welded and seamless steel pipes. Tenaris
+    S.A. was incorporated in 2001 and is based in Luxembourg, Luxembourg. Tenaris
+    S.A. operates as a subsidiary of Techint Holdings S.àr.l.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 60.310001373291016
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.03
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-18T21:54:48.003404+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Tenaris S.A.
+  operating_margin: 18.21
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Tenaris S.A., together with its subsidiaries, manufactures and supplies
+    steel pipe products and related services for the energy industry and other industrial
+    applications in North America, South America, Europe, the Middle East and Africa,
+    and the Asia Pacific. It provides steel casings to sustain the walls of oil and
+    gas wells during and after drilling; steel tubing for conducting crude oil and
+    natural gas to the surface after drilling has been completed; steel line pipes
+    to transport crude oil
+
+
+    Evento disparador validado para revisar: {"event_id": "62edf9c47c959ce36a8d51b0da242ea5f91c6436fde3994d6c3b0400e2afa05d",
+    "event_type": "quarterly_results", "observed_at": "2026-11-18T21:54:46.138397+00:00",
+    "occurred_at": "2026-11-04", "source_name": "Tenaris 2026 Third Quarter Results
+    (SEC Form 6-K)", "source_url": "https://www.sec.gov/Archives/edgar/data/1190723/000117184326007191/f6k_110426ern.htm",
+    "summary": "Tenaris publicó el 2026-11-04 los resultados del trimestre terminado
+    el 2026-09-30 en su comunicado presentado mediante Form 6-K; verificar cifras
+    y contexto en la fuente primaria.", "ticker": "TS"}'
+  revenue: 12160000000.0
+  revenue_growth: 2.82
+  roic: 12.22
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ts/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TS/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ts/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ts/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ts/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ts/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ts/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ts/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ts/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ts/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    88.0, "low": 48.0, "mean": 68.48, "median": 68.48, "observed_at": "2026-11-18T18:54:51.868272-03:00",
+    "sources": [{"as_of_date": "2026-11-18", "name": "stockanalysis", "observed_at":
+    "2026-11-18T18:54:51.868272-03:00", "observed_date": "2026-11-18", "target_price":
+    68.48, "url": "https://stockanalysis.com/stocks/ts/forecast/"}, {"as_of_date":
+    "2026-11-18", "name": "yfinance", "observed_at": "2026-11-18T18:54:51.868272-03:00",
+    "observed_date": "2026-11-18", "target_price": 68.48333, "url": "https://finance.yahoo.com/quote/TS/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 60.310001373291016,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/TS/"}]}}'
+  sector: Energy
+  ticker: TS
+research_trigger:
+  discovery_snapshot_hash: 4e856ed29bb415350945a39440e83bb84899bd102ef43418968da376bb719d2f
+  event_evidence:
+    event_id: 62edf9c47c959ce36a8d51b0da242ea5f91c6436fde3994d6c3b0400e2afa05d
+    event_type: quarterly_results
+    observed_at: '2026-11-18T21:54:46.138397+00:00'
+    occurred_at: '2026-11-04'
+    source_name: Tenaris 2026 Third Quarter Results (SEC Form 6-K)
+    source_url: https://www.sec.gov/Archives/edgar/data/1190723/000117184326007191/f6k_110426ern.htm
+    summary: Tenaris publicó el 2026-11-04 los resultados del trimestre terminado
+      el 2026-09-30 en su comunicado presentado mediante Form 6-K; verificar cifras
+      y contexto en la fuente primaria.
+    ticker: TS
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: aa949c55b7caba0fa79d441ba54c4f21b5018ffa08d7c737195c674312df364c
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: quarterly_results
+  triggered_at: '2026-11-18T18:55:03.241358-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- comment: Cobertura de intereses insuficiente.
+  observed: 0
+  ratio: interest_coverage
+  status: below_threshold
+  threshold: 2.0
+- comment: Falta información de dilución de acciones.
+  observed: null
+  ratio: dilution_yoy_pct
+  status: data_missing
+  threshold: 10
+scenario_analysis:
+  as_of_date: '2026-11-18'
+  currency: USD
+  horizon_date: '2028-10-30'
+  scenarios:
+  - falsifiers:
+    - Recuperación del precio del crudo superior al 70 USD/bbl
+    - Crecimiento de CAPEX upstream > 5% anual
+    id: BEAR
+    key_assumptions:
+    - Revenue CAGR -10% anual
+    - FCF growth negativo -5% anual
+    - Incremento de deuda neta a 1B USD
+    rationale: Demanda de tuberías cae por prolongada baja de precios del crudo y
+      mayor eficiencia de los clientes.
+    sources:
+    - as_of_date: '2026-11-18'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ts/forecast/
+    - as_of_date: '2026-11-18'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/TS/
+    target_price: 48.0
+  - falsifiers:
+    - Caída de precios del crudo > 30% sostenida
+    - Aumento de costos de acero > 15% anual
+    id: BASE
+    key_assumptions:
+    - Revenue CAGR -2% anual
+    - FCF growth 5% anual
+    - Deuda neta mantenida negativa
+    rationale: Escenario medio basado en consenso de analistas; crecimiento moderado
+      de ingresos y márgenes estables.
+    sources:
+    - as_of_date: '2026-11-18'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ts/forecast/
+    - as_of_date: '2026-11-18'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/TS/
+    target_price: 68.48
+  - falsifiers:
+    - Recesión global que reduzca CAPEX energético
+    - Regulaciones que limiten producción de petróleo
+    id: BULL
+    key_assumptions:
+    - Revenue CAGR +8% anual
+    - FCF growth +20% anual
+    - Deuda neta sigue negativa y se reduce
+    rationale: Recuperación fuerte del sector energético impulsa demanda de tuberías
+      y mejora de márgenes.
+    sources:
+    - as_of_date: '2026-11-18'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ts/forecast/
+    - as_of_date: '2026-11-18'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/TS/
+    target_price: 88.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 85.22
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-18T18:54:51.868272-03:00'
+  fuentes:
+    stockanalysis: 68.48
+    yfinance: 68.48333
+  mediana: 68.48
+  n_fuentes: 2
+  promedio: 68.48
+  source_references:
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    observed_at: '2026-11-18T18:54:51.868272-03:00'
+    observed_date: '2026-11-18'
+    target_price: 68.48
+    url: https://stockanalysis.com/stocks/ts/forecast/
+  - as_of_date: '2026-11-18'
+    name: yfinance
+    observed_at: '2026-11-18T18:54:51.868272-03:00'
+    observed_date: '2026-11-18'
+    target_price: 68.48333
+    url: https://finance.yahoo.com/quote/TS/
+  target_high: 88.0
+  target_low: 48.0
+tesis_inversion: Tenaris combina un balance sólido, generación de flujo de caja libre
+  positivo y exposición a la recuperación del sector energético, lo que justifica
+  un rango de valoración amplio entre 48 y 88 USD.
+ticker: TS
+version: '3.0'

@@ -1443,6 +1443,12 @@ class ResearchWorker(BaseWorker):
             {"depth": 5, "items": 5, "keys": 64, "chars": 500},
             {"depth": 5, "items": 3, "keys": 64, "chars": 300},
             {"depth": 5, "items": 2, "keys": 64, "chars": 180},
+            # Large research responses can contain many sibling fields. The
+            # general DDD compactor intentionally preserves those fields, but
+            # the wiki prompt has a stricter budget and can compact more
+            # aggressively because the complete reports remain persisted.
+            {"depth": 4, "items": 2, "keys": 16, "chars": 120},
+            {"depth": 3, "items": 1, "keys": 8, "chars": 80},
         ):
             context = build(**limits)
             if len(json.dumps(context, ensure_ascii=False, sort_keys=True, default=str)) <= max_chars:
