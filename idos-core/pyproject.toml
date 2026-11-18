@@ -27,6 +27,7 @@ idos = "idos.cli.main:app"
 
 [tool.setuptools.packages.find]
 where = ["."]
+include = ["idos", "idos.*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

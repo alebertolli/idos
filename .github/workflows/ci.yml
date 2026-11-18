@@ -30,6 +30,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e idos-core
           pip install pytest
+      - name: Build and validate distributable
+        run: |
+          python -m pip wheel ./idos-core --no-deps --wheel-dir /tmp/idos-wheels
+          python scripts/check_wheel_contents.py /tmp/idos-wheels/idos_core-*.whl
       - name: Run tests
         run: |
           set -o pipefail
