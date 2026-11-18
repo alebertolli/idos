@@ -46,3 +46,27 @@ events:
   event_type: research:force_reprocess
   source: research_worker
   timestamp: '2026-11-18T18:56:37.603891'
+- data:
+    classification: compounder
+    ddd_empty: false
+    event_evidence:
+      event_id: e8c2e1cde537d64c1213bd0c52402fc8cc37c41ba8916d93afba920d6f6b7bfc
+      event_type: quarterly_results
+      observed_at: '2026-11-18T22:26:08.905Z'
+      occurred_at: '2026-11-12'
+      source_name: Applied Materials FY2026 Q4 Form 8-K
+      source_url: https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/amat-20261112.htm
+      summary: Applied Materials filed its fourth-quarter and fiscal-year 2026 results
+        on 2026-11-12; this SEC Form 8-K is the primary source for the event.
+      ticker: AMAT
+    event_type: quarterly_results
+    hypotheses: 4
+    input_snapshot_sha256: babf2df4fb73d9fb4b03663754102f6c81ae2b48b42215b022610c7cecf8eaf2
+    opp_id: OPP-20261023-010
+    original_status: SCREENED
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: AMAT
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-18T19:30:25.954512'
