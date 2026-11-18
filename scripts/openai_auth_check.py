@@ -14,7 +14,7 @@ def _safe_text(value: object, api_key: str) -> str:
     text = str(value or "")
     if api_key:
         text = text.replace(api_key, "[REDACTED]")
-    text = re.sub(r"sk-[A-Za-z0-9_-]{8,}", "[REDACTED]", text)
+    text = re.sub(r"(?:sk|key)[_-][A-Za-z0-9*_=-]{4,}", "[REDACTED]", text, flags=re.IGNORECASE)
     return " ".join(text.split())[:300]
 
 
@@ -61,12 +61,18 @@ def check_auth(api_key: str) -> dict[str, object]:
         detail = body.get("error", {}) if isinstance(body, dict) else {}
         if not isinstance(detail, dict):
             detail = {}
+        error_code = detail.get("code")
+        error_message = (
+            "OpenAI rejected the supplied API key (invalid_api_key)."
+            if error_code == "invalid_api_key"
+            else _safe_text(detail.get("message"), api_key) or None
+        )
         return {
             "ok": False,
             "http_status": error.code,
             "error_type": _safe_text(detail.get("type"), api_key) or None,
-            "error_code": _safe_text(detail.get("code"), api_key) or None,
-            "error_message": _safe_text(detail.get("message"), api_key) or None,
+            "error_code": _safe_text(error_code, api_key) or None,
+            "error_message": error_message,
             "request_id": error.headers.get("x-request-id"),
             "gpt_6_luna_listed": None,
             "models_returned": None,
