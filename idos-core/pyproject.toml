@@ -30,3 +30,4 @@ where = ["."]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["smoke: CLI smoke checks", "e2e: isolated lifecycle end-to-end checks"]

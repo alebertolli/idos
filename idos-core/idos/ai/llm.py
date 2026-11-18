@@ -105,13 +105,16 @@ class LLMClient:
         provider: str = "",
         api_key: str = "",
         model: str = "",
-        fallback_model: str = "",
+        fallback_model: str | None = None,
         fallback_providers: list[dict[str, str]] | None = None,
     ):
         self.provider = provider or os.getenv("IDOS_LLM_PROVIDER", "openrouter")
         self.api_key = api_key or self._resolve_api_key(self.provider)
         self.model = model or os.getenv("IDOS_LLM_MODEL", "openai/gpt-4o")
-        self.fallback_model = fallback_model or os.getenv("IDOS_LLM_FALLBACK_MODEL", "gemini-2.5-flash")
+        self.fallback_model = (
+            os.getenv("IDOS_LLM_FALLBACK_MODEL", "")
+            if fallback_model is None else fallback_model
+        )
         self.fallback_providers = fallback_providers or []
         self.timeout = int(os.getenv("IDOS_LLM_TIMEOUT", "60"))
 
@@ -159,7 +162,10 @@ class LLMClient:
             print(f"[LLM] PROMPT: {_trunc(prompt)}")
             try:
                 if prov == "openai":
-                    resp = self._call_openai(prompt, system_prompt, temperature, max_tokens, akey, modl)
+                    resp = self._call_openai(
+                        prompt, system_prompt, temperature, max_tokens, akey, modl,
+                        **({"response_format": response_format} if response_format else {}),
+                    )
                 elif prov == "openrouter":
                     resp = self._call_openrouter(prompt, system_prompt, temperature, max_tokens, akey, modl)
                 elif prov == "gemini":
@@ -200,7 +206,10 @@ class LLMClient:
                         elif prov == "openrouter":
                             resp = self._call_openrouter(prompt, system_prompt, temperature, max_tokens, akey, fbk)
                         elif prov == "openai":
-                            resp = self._call_openai(prompt, system_prompt, temperature, max_tokens, akey, fbk)
+                            resp = self._call_openai(
+                                prompt, system_prompt, temperature, max_tokens, akey, fbk,
+                                **({"response_format": response_format} if response_format else {}),
+                            )
                         else:
                             resp = self._call_generic(prompt, system_prompt, temperature, max_tokens, akey, fbk)
                     except Exception as e2:
@@ -285,41 +294,55 @@ class LLMClient:
         system_prompt: str,
         temperature: float,
         max_tokens: int,
-        api_key: str = "",
+        api_key: str | None = None,
         model: str = "",
+        response_format: str | None = None,
     ) -> LLMResponse:
-        _key = api_key or self.api_key
+        _key = self.api_key if api_key is None else api_key
         _mod = model or self.model
+        if not _key:
+            return LLMResponse(content="", success=False, provider="openai",
+                               error="OPENAI_API_KEY is not configured")
         start = time.time()
         messages = []
         if system_prompt:
             messages.append({"role": "system", "content": system_prompt})
         messages.append({"role": "user", "content": prompt})
 
+        payload = {
+            "model": _mod,
+            "messages": messages,
+            "temperature": temperature,
+            "max_completion_tokens": max_tokens,
+        }
+        if response_format == "json":
+            payload["response_format"] = {"type": "json_object"}
+
         resp = self._request_with_retry("POST", "https://api.openai.com/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {_key}",
                 "Content-Type": "application/json",
             },
-            json={
-                "model": _mod,
-                "messages": messages,
-                "temperature": temperature,
-                "max_tokens": max_tokens,
-            },
+            json=payload,
             timeout=self.timeout,
         )
         data = resp.json()
         choice = data["choices"][0]
         usage = data.get("usage", {})
 
+        finish_reason = choice.get("finish_reason", "stop")
+        message = choice.get("message", {})
+        content = message.get("content") or ""
+        complete = finish_reason == "stop" and bool(content.strip()) and not message.get("refusal")
+
         return LLMResponse(
-            content=choice["message"]["content"],
+            content=content,
             model=data["model"],
             tokens_in=usage.get("prompt_tokens", 0),
             tokens_out=usage.get("completion_tokens", 0),
             latency_ms=int((time.time() - start) * 1000),
-            success=True,
+            success=complete,
+            error="" if complete else f"OpenAI incomplete or refused response (finish_reason={finish_reason})",
             **_rate_limit_metadata(resp),
         )
 

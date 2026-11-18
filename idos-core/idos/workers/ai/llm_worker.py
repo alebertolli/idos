@@ -10,6 +10,7 @@ class LLMWorker(BaseWorker):
 
     def __init__(self, config: dict[str, Any] | None = None):
         super().__init__(config)
+        config = self.config
         self.client = config.get("llm_service") or LLMClient(
             provider=config.get("provider", ""),
             api_key=config.get("api_key", ""),
@@ -44,10 +45,11 @@ class LLMWorker(BaseWorker):
                 system_prompt=system,
                 temperature=temperature,
             )
+            model = self.client.model
             return {
                 "prompt_name": prompt_name,
                 "structured": result,
-                "model": self.client.model,
+                "model": model() if callable(model) else model,
             }
 
         result = self.client.generate(
