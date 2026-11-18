@@ -1,0 +1,168 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de equipos 3 nm representan <20% del total de ventas de
+      equipos avanzados en el Q2‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa anuncia una reducción de capacidad o retraso en la disponibilidad
+      de la herramienta Gen 5.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de equipos 3 nm representan <20% del total de ventas de equipos avanzados
+    en el Q2‑2027.
+  - La empresa anuncia una reducción de capacidad o retraso en la disponibilidad de
+    la herramienta Gen 5.
+  horizon: corto
+  id: H1-OPP-20261023-010
+  opportunity_id: OPP-20261023-010
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-07-31'
+    expected: 30.0
+    met: null
+    metric: participación de ingresos en equipos 3 nm
+    prediction: El reporte de ventas del Q2‑2027 mostrará que los ingresos atribuibles
+      a equipos de 3 nm representan ≥30% del total de ventas de equipos avanzados.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: La empresa lidera la tecnología de deposición y litografía para procesos
+    avanzados, ha anunciado recientemente la disponibilidad de su herramienta Gen
+    5 para 3 nm y ha firmado acuerdos preliminares con los principales fabricantes
+    de chips (TSMC, Samsung). La demanda estructural de IA y 5G impulsa la expansión
+    de capacidad en estos nodos.
+  review_trigger: Si al cierre del Q2‑2027 los ingresos de equipos 3 nm son <20% del
+    total, la hipótesis se descartará.
+  secondary_hypotheses: []
+  statement: Applied Materials capturará al menos el 30% de los pedidos mundiales
+    de equipos para nodos de 3 nm y menores durante el segundo trimestre de 2027.
+  status: ACTIVE
+  ticker: AMAT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio FCF/Ingresos del FY2027 es <0.18.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Se produce un aumento inesperado del CAPEX que supere el 12% de los
+      ingresos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio FCF/Ingresos del FY2027 es <0.18.
+  - Se produce un aumento inesperado del CAPEX que supere el 12% de los ingresos.
+  horizon: medio
+  id: H2-OPP-20261023-010
+  opportunity_id: OPP-20261023-010
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 0.25
+    met: null
+    metric: tasa de conversión de FCF
+    prediction: El FCF/Ingresos del FY2027 será ≥0.25.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: Los márgenes operativos de AMAT se han mantenido por encima del 20% gracias
+    a la venta de equipos de alta complejidad y a la mejora de la eficiencia de capital.
+    Además, la empresa ha reducido su CAPEX relativo al crecimiento de ingresos, lo
+    que favorece la generación de efectivo.
+  review_trigger: Si al cierre del FY2027 el ratio FCF/Ingresos es inferior al 18%,
+    la hipótesis se considerará refutada.
+  secondary_hypotheses: []
+  statement: El flujo de caja libre (FCF) de Applied Materials alcanzará una tasa
+    de conversión del 25% sobre los ingresos consolidados en el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: AMAT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El P/E al 30‑jun‑2028 es <15.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El EPS del FY2028 cae más del 10% respecto al FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El P/E al 30‑jun‑2028 es <15.
+  - El EPS del FY2028 cae más del 10% respecto al FY2027.
+  horizon: largo
+  id: H3-OPP-20261023-010
+  opportunity_id: OPP-20261023-010
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 20.0
+    met: null
+    metric: P/E ratio
+    prediction: El P/E al 30‑jun‑2028 será ≥20.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: El mercado subvalorará actualmente a AMAT debido a riesgos cíclicos y
+    geopolíticos temporales. Con la materialización de la demanda de IA, 5G y la ejecución
+    del CHIPS Act, los ingresos y márgenes crecerán, impulsando el EPS y permitiendo
+    que el precio de la acción se revalorice sin que el P/E se diluya.
+  review_trigger: Si al 30‑jun‑2028 el P/E está por debajo de 15, la hipótesis se
+    descartará.
+  secondary_hypotheses:
+  - H1-OPP-20261023-010
+  statement: El múltiplo precio/beneficio (P/E) de Applied Materials superará los
+    20× al cierre del segundo semestre de 2028.
+  status: ACTIVE
+  ticker: AMAT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El CAPEX en EE.UU. del FY2027 es <1.2× el del FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa anuncia la cancelación o postergación de al menos una planta
+      planificada en EE.UU.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El CAPEX en EE.UU. del FY2027 es <1.2× el del FY2026.
+  - La empresa anuncia la cancelación o postergación de al menos una planta planificada
+    en EE.UU.
+  horizon: medio
+  id: H4-OPP-20261023-010
+  opportunity_id: OPP-20261023-010
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 1.4
+    met: null
+    metric: crecimiento CAPEX EE.UU.
+    prediction: El CAPEX en EE.UU. reportado en el FY2027 será ≥1.4× el CAPEX de EE.UU.
+      del FY2026.
+    unit: multiplicador
+  priority: informational
+  probability: 0.5
+  rationale: El CHIPS Act destina subsidios y créditos fiscales a fabricantes de equipos
+    de semiconductores que invierten en capacidad productiva en EE.UU. AMAT ha anunciado
+    planes de expansión de sus instalaciones en Arizona y Texas, y la empresa ha recibido
+    aprobaciones preliminares de fondos federales.
+  review_trigger: Si al cierre del FY2027 el CAPEX en EE.UU. crece menos del 20% respecto
+    al FY2026, la hipótesis se considerará refutada.
+  secondary_hypotheses: []
+  statement: El gasto de capital (CAPEX) de AMAT en EE.UU. aumentará un 40% respecto
+    al FY2026 como resultado directo de los incentivos del CHIPS Act.
+  status: ACTIVE
+  ticker: AMAT
+  version: 1
