@@ -1,5 +1,7 @@
 import json
+from datetime import date
 
+import pytest
 import yaml
 
 from idos.workers.data import earnings_calendar
@@ -52,7 +54,7 @@ def test_new_earnings_date_resets_previous_trigger_and_preserves_metadata(
         earnings_calendar, "_timestamp_to_date", lambda _: "2026-11-05"
     )
 
-    result = earnings_calendar.populate_earnings()
+    result = earnings_calendar.populate_earnings(today=date(2026, 11, 5))
     saved = yaml.safe_load(config_file.read_text(encoding="utf-8"))
 
     assert result["updated"] == ["AAPL"]
@@ -84,7 +86,7 @@ def test_unchanged_earnings_date_keeps_trigger_and_is_idempotent(tmp_path, monke
         earnings_calendar, "_timestamp_to_date", lambda _: "2026-11-05"
     )
 
-    result = earnings_calendar.populate_earnings()
+    result = earnings_calendar.populate_earnings(today=date(2026, 11, 7))
     saved = yaml.safe_load(config_file.read_text(encoding="utf-8"))
 
     assert result["updated"] == []
@@ -92,3 +94,32 @@ def test_unchanged_earnings_date_keeps_trigger_and_is_idempotent(tmp_path, monke
     assert saved["tickers"]["AAPL"]["triggered_at"] == "2026-11-07"
     assert saved["tickers"]["AAPL"]["source_name"] == "Yahoo Finance earnings calendar via yfinance"
     assert saved["tickers"]["AAPL"]["source_url"] == "https://finance.yahoo.com/calendar/earnings/?symbol=AAPL"
+
+
+@pytest.mark.parametrize("today, expected", [
+    (date(2026, 11, 10), None),
+    (date(2026, 11, 11), "auto-skip (stale)"),
+])
+def test_stale_boundary_is_deterministic(tmp_path, monkeypatch, today, expected):
+    config_file = tmp_path / "earnings.yml"
+    config_file.write_text("tickers:\n  AAPL:\n    earnings_date: 2026-11-05\n", encoding="utf-8")
+    monkeypatch.setattr(earnings_calendar, "CACHE_DIR", tmp_path / "missing-cache")
+    monkeypatch.setattr(earnings_calendar, "EARNINGS_CONFIG_PATH", config_file)
+    result = earnings_calendar.populate_earnings(today=today)
+    saved = yaml.safe_load(config_file.read_text(encoding="utf-8"))
+    assert saved["tickers"]["AAPL"].get("triggered_at") == expected
+    assert result["stale_marked"] == (["AAPL"] if expected else [])
+
+
+def test_invalid_earnings_records_do_not_abort_valid_events(tmp_path, monkeypatch):
+    config_file = tmp_path / "earnings.yml"
+    config_file.write_text("tickers:\n  BROKEN: null\n", encoding="utf-8")
+    monkeypatch.setattr(earnings_calendar, "EARNINGS_CONFIG_PATH", config_file)
+    source = {"source_name": "test", "source_url": "https://example.test"}
+    monkeypatch.setattr(earnings_calendar, "_load_cache_tickers", lambda: {
+        "BAD": {**source, "next_earnings_date": "invalid"},
+        "GOOD": {**source, "next_earnings_date": 1_800_000_000},
+    })
+    result = earnings_calendar.populate_earnings(today=date(2026, 1, 1))
+    assert result["added"] == ["GOOD"]
+    assert result["skipped"] == ["BAD"]

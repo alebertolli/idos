@@ -2,6 +2,7 @@
 
 from pathlib import Path
 
+import pytest
 import yaml
 
 from idos.ai.llm import LLMClient, redact_sensitive_text
@@ -32,14 +33,18 @@ def test_provider_model_config_uses_pinned_models_and_no_random_router():
     )
 
 
-def test_generate_fallback_on_no_api_key():
+def test_generate_fallback_on_no_api_key(monkeypatch):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.setattr("requests.request", lambda *a, **kw: pytest.fail("Unexpected network request"))
     client = LLMClient(provider="openai", api_key="", model="gpt-4o")
     resp = client.generate("Hello")
     assert not resp.success
     assert resp.error != ""
 
 
-def test_generate_structured_parse_json():
+def test_generate_structured_parse_json(monkeypatch):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.setattr("requests.request", lambda *a, **kw: pytest.fail("Unexpected network request"))
     client = LLMClient(provider="openai", api_key="", model="gpt-4o")
     result = client.generate_structured("Test")
     assert "error" in result

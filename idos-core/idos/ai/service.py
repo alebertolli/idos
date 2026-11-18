@@ -66,6 +66,8 @@ class LLMService:
                 model=pcfg["model"],
                 fallback_model=pcfg.get("fallback", ""),
                 fallback_providers=[],
+                openai_reasoning_effort=pcfg.get("reasoning_effort", "low"),
+                openai_max_completion_tokens=pcfg.get("max_completion_tokens"),
             )
             self.circuit_breakers[name] = CircuitBreaker(
                 name=name,
@@ -83,13 +85,15 @@ class LLMService:
                 "rpd": pcfg.get("rpd", 1000),
                 "task_types": pcfg.get("task_types", []),
                 "disabled_task_types": pcfg.get("disabled_task_types", []),
+                "fallback_only": pcfg.get("fallback_only", False),
             }
 
         self.fallback_order = llm_cfg.get("fallback_order", [])
         self.router = AdaptiveRouter()
 
         for name, pcfg in providers_cfg.items():
-            self.router.register(name, pcfg.get("task_types", []))
+            if not pcfg.get("fallback_only", False):
+                self.router.register(name, pcfg.get("task_types", []))
 
     def _rank_providers(self, task_type: str = "analysis",
                         provider_hint: str | None = None) -> list[str]:
@@ -110,7 +114,9 @@ class LLMService:
         for p in self.clients:
             if p not in ordered and supports_task(p):
                 ordered.append(p)
-        return ordered
+        # Paid last-resort providers must stay after the existing providers,
+        # even when adaptive outcomes would otherwise promote them.
+        return sorted(ordered, key=lambda p: self.provider_limits.get(p, {}).get("fallback_only", False))
 
     def _block_provider_for_local_limit(self, provider: str, limit_name: str, limiter: RateLimiter) -> dict[str, Any]:
         delay = limiter.retry_after_seconds(provider)
@@ -320,4 +326,5 @@ class LLMService:
         return status
 
     def model(self) -> str:
-        return self.clients.get(self.default_provider, {}).model if hasattr(self, "clients") else ""
+        client = getattr(self, "clients", {}).get(self.default_provider)
+        return client.model if client is not None else ""

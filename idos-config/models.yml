@@ -30,12 +30,26 @@ llm:
         - classification
       disabled_task_types:
         - research
+    openai:
+      model: gpt-6-luna
+      reasoning_effort: low
+      max_completion_tokens: 8192
+      rpm: 20
+      rpd: 50
+      fallback_only: true
+      task_types:
+        - reasoning
+        - analysis
+        - classification
+        - research
   fallback_order:
     - provider: groq
       model: openai/gpt-oss-120b
       fallback_model: openai/gpt-oss-20b
     - provider: openrouter
       model: google/gemma-4-31b-it:free
+    - provider: openai
+      model: gpt-6-luna
   circuit_breaker:
     failure_threshold: 3
     recovery_timeout: 60

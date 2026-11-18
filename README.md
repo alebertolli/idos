@@ -86,6 +86,21 @@ set IDOS_LLM_PROVIDER=openai
 set IDOS_LLM_MODEL=gpt-4o
 ```
 
+El pipeline Research usa `idos-config/models.yml`: Gemini → Groq → OpenRouter
+→ OpenAI directo (`gpt-6.2-sol`, razonamiento `low`). Para Research se omite OpenRouter según su
+política actual. OpenAI es `fallback_only`: no se promueve por el router
+adaptativo. El secreto verificado en Settings → Secrets and variables → Actions
+es **`OPENAI_API_KEY`**; `OPEN_AI_API` no es el nombre de la variable.
+Los workflows que ya suministraban las claves LLM también suministran ésta.
+Los límites locales de OpenAI (20 RPM/50 RPD) son topes de IDOS, no una
+garantía de cuota ni de gratuidad. Sin clave, OpenAI falla localmente sin HTTP.
+
+La integración conserva Chat Completions, solicita JSON explícito cuando
+corresponde y rechaza respuestas truncadas, vacías o rechazadas. Las pruebas
+seguras no usan credenciales reales: `python -m pytest
+idos-core/tests/test_ai/test_openai_integration.py -q`.
+Evidencia y límites de la auditoría: [SDD/28.AUDITORIA-RUNTIME-OPENAI.md](SDD/28.AUDITORIA-RUNTIME-OPENAI.md).
+
 ---
 
 ## 2. Configuración del Universo Invertible
@@ -837,3 +852,5 @@ o cualquier push a `idos-journal/**` / `idos-knowledge/**` / `idos-config/ui.yml
 *360+ tests · 28 comandos CLI · Ciclo de vida completo · Entry 100% algorítmico · UI estática*
 
 <!-- Test auto-commit skill -->
+
+Prueba real acotada (manual, no se ejecuta en cada PR): `gh workflow run ci.yml --ref codex/runtime-openai-audit-20261118 -f openai_smoke=true`. Una solicitud sintética, máximo 512 tokens de finalización incluyendo razonamiento, sin acceso a portfolio. El artefacto registra uso y validación; el adaptador limita OpenAI a 8192 tokens por llamada y respeta límites menores del worker.
