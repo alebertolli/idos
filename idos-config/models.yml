@@ -31,7 +31,7 @@ llm:
       disabled_task_types:
         - research
     openai:
-      model: gpt-6.2-sol
+      model: gpt-6-luna
       reasoning_effort: low
       max_completion_tokens: 8192
       rpm: 20
@@ -49,7 +49,7 @@ llm:
     - provider: openrouter
       model: google/gemma-4-31b-it:free
     - provider: openai
-      model: gpt-6.2-sol
+      model: gpt-6-luna
   circuit_breaker:
     failure_threshold: 3
     recovery_timeout: 60

@@ -320,7 +320,7 @@ class LLMClient:
             "max_completion_tokens": max_tokens,
             "store": False,
         }
-        if _mod.startswith("gpt-6.2-"):
+        if _mod.startswith(("gpt-6-", "gpt-6.1-", "gpt-6.2-")):
             payload["reasoning_effort"] = getattr(self, "openai_reasoning_effort", "low")
         else:
             payload["temperature"] = temperature
