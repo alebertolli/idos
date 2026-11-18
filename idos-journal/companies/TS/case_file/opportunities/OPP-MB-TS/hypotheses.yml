@@ -1,0 +1,170 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La utilización promedio reportada en los estados operativos trimestrales
+      sea ≤80% al 30/06/2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa anuncia una reducción de capacidad productiva antes de esa
+      fecha.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La utilización promedio reportada en los estados operativos trimestrales sea ≤80%
+    al 30/06/2027.
+  - La empresa anuncia una reducción de capacidad productiva antes de esa fecha.
+  horizon: corto
+  id: H1-OPP-MB-TS
+  opportunity_id: OPP-MB-TS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 85.0
+    met: null
+    metric: utilizacion_capacidad_promedio
+    prediction: El ratio de utilización de capacidad promedio de las plantas de Tenaris
+      en América del Sur y del Norte alcanzará 85% en el trimestre final del 2027.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: La recuperación de la demanda de energía impulsa mayores pedidos de tubos
+    de acero; la empresa ha anunciado inversiones en mejoras de línea y cuenta con
+    una liquidez robusta que permite acelerar la producción sin necesidad de financiamiento
+    externo.
+  review_trigger: Si al cierre del Q2 2027 la empresa publica un informe operativo
+    indicando utilización ≤80% o anuncia recorte de producción.
+  secondary_hypotheses: []
+  statement: Tenaris incrementará su utilización de capacidad productiva de tubos
+    a 85% en sus principales plantas de América del Sur y del Norte.
+  status: ACTIVE
+  ticker: TS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La deuda neta/EBITDA reportada al cierre de 2027 sea >0.5.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Tenaris emite deuda senior significativa después del 01/01/2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La deuda neta/EBITDA reportada al cierre de 2027 sea >0.5.
+  - Tenaris emite deuda senior significativa después del 01/01/2027.
+  horizon: medio
+  id: H2-OPP-MB-TS
+  opportunity_id: OPP-MB-TS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 0.5
+    met: null
+    metric: deuda_neta_ebitda
+    prediction: Al 31 de diciembre de 2027, la deuda neta/EBITDA será ≤0.5.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: La empresa mantiene una posición de liquidez alta y genera flujos de
+    caja operativos crecientes; además, la estrategia de reducción de deuda mediante
+    amortizaciones programadas y la ausencia de nuevos endeudamientos importantes
+    impulsarán la mejora del ratio.
+  review_trigger: Si al cierre del año fiscal 2027 la empresa publica un balance con
+    deuda neta/EBITDA >0.5 o anuncia una emisión de deuda mayor a US$500 millones.
+  secondary_hypotheses:
+  - H1-OPP-MB-TS
+  statement: El ratio deuda neta/EBITDA de Tenaris caerá por debajo de 0.5, consolidando
+    su posición de deuda neta negativa.
+  status: ACTIVE
+  ticker: TS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El precio de cierre el 31/03/2028 sea <US$65.00.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El mercado experimenta una caída sostenida del sector energía >15%
+      durante los 6 meses previos sin recuperación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El precio de cierre el 31/03/2028 sea <US$65.00.
+  - El mercado experimenta una caída sostenida del sector energía >15% durante los
+    6 meses previos sin recuperación.
+  horizon: largo
+  id: H3-OPP-MB-TS
+  opportunity_id: OPP-MB-TS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 68.48
+    met: null
+    metric: precio_accion
+    prediction: El precio de cierre de la acción de Tenaris será ≥US$68.48 en la jornada
+      del 31 de marzo de 2028.
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: La combinación de mayor utilización de capacidad, mejora de métricas
+    financieras y la subvaloración actual del mercado frente a la recuperación de
+    la demanda de energía impulsará la revaluación del stock.
+  review_trigger: Si al 31/03/2028 el precio de cierre está por debajo de US$65.00
+    o si la empresa entra en un proceso de reestructuración que afecte su modelo de
+    negocio.
+  secondary_hypotheses:
+  - H1-OPP-MB-TS
+  - H2-OPP-MB-TS
+  statement: El precio de la acción de Tenaris alcanzará los US$68.48, alineándose
+    con el objetivo medio de los analistas.
+  status: ACTIVE
+  ticker: TS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio EBIT/Intereses reportado al 30/09/2027 sea ≤2.0.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Tenaris incurre en gastos financieros extraordinarios que aumenten
+      los intereses pagados en más del 30% respecto al año anterior.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio EBIT/Intereses reportado al 30/09/2027 sea ≤2.0.
+  - Tenaris incurre en gastos financieros extraordinarios que aumenten los intereses
+    pagados en más del 30% respecto al año anterior.
+  horizon: corto
+  id: H4-OPP-MB-TS
+  opportunity_id: OPP-MB-TS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 2.0
+    met: null
+    metric: cobertura_intereses
+    prediction: Al 30 de septiembre de 2027, el ratio EBIT/Intereses será >2.0.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: El aumento del EBIT derivado de mayor utilización de capacidad y márgenes
+    brutos estables, junto con la ausencia de nuevos costos financieros, elevará la
+    capacidad de la empresa para cubrir sus gastos por intereses.
+  review_trigger: Si al cierre del Q3 2027 la empresa publica un informe financiero
+    con cobertura de intereses ≤2.0 o anuncia un aumento significativo de deuda con
+    alta tasa de interés.
+  secondary_hypotheses:
+  - H1-OPP-MB-TS
+  statement: El ratio de cobertura de intereses (EBIT/Intereses) superará 2.0, reduciendo
+    el riesgo de cobertura nula.
+  status: ACTIVE
+  ticker: TS
+  version: 1

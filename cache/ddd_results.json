@@ -2,48 +2,48 @@
   "total": 1,
   "processed": [
     {
-      "opp_id": "OPP-20261023-010",
-      "ticker": "AMAT",
+      "opp_id": "OPP-MB-TS",
+      "ticker": "TS",
       "status": "completed",
-      "score": 78,
-      "reason": "new entry: SCREENED (score=0)",
+      "score": 85.22,
+      "reason": "configured event trigger: quarterly_results (status=SCREENED)",
       "errors": []
     }
   ],
   "skipped": [],
   "assessments": [
     {
-      "ticker": "AMAT",
-      "opp_id": "OPP-20261023-010",
+      "ticker": "TS",
+      "opp_id": "OPP-MB-TS",
       "status": "completed",
-      "conviction_score": 70,
+      "conviction_score": 60,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": null,
       "decision_id": null,
       "assessments": {
-        "BusinessAssessmentEngine": 76,
-        "ValuationAssessmentEngine": 70,
-        "RecoveryAssessmentEngine": 64,
+        "BusinessAssessmentEngine": 54,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 55,
         "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 50
       },
       "rules_passed": [
-        "RULE-001",
         "RULE-003",
         "RULE-004",
-        "RULE-005",
+        "RULE-008",
         "RULE-010"
       ],
       "rules_failed": [
-        "RULE-008"
+        "RULE-001",
+        "RULE-005"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 76/70",
-        "RULE-003": "Rerating: 64/50",
+        "RULE-001": "Business quality: 54/70",
+        "RULE-003": "Rerating: 55/50",
         "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 70/65",
-        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: BEAR.sources[1]: URL no est\u00e1 respaldada por evidencia de entrada verificable",
+        "RULE-005": "Conviction: 60/65",
+        "RULE-008": "B/R 3.2:1 \u2705 (Bull +53.0% / Bear -16.5%)",
         "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
       },
       "data_quality": "good",
@@ -52,7 +52,7 @@
         "core_metric_coverage": "5/5",
         "missing_core_metrics": [],
         "source": "stockanalysis.com",
-        "as_of_date": "2026-10-25",
+        "as_of_date": "2026-09-30",
         "as_of_basis": "period_end_date",
         "as_of_date_source": "stockanalysis.com",
         "missing_provenance": [],
@@ -65,7 +65,7 @@
   "status": "research_completed",
   "deferred_count": 0,
   "capacity_failure": null,
-  "event_type": "manual",
+  "event_type": "quarterly_results",
   "force": false,
   "stale_days_threshold": 30
 }

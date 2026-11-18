@@ -20,7 +20,7 @@ Total: 9 companies tracked
 
 ## Energy
 - 📄 [[E|Eni S.p.A.]]
-- ⏳ [[TS|Tenaris S.A.]]
+- 📄 [[TS|Tenaris S.A.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]

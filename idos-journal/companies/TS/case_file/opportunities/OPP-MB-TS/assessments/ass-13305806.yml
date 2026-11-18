@@ -1,0 +1,33 @@
+confidence: HIGH
+engine: ResearchWorker
+findings:
+- 'Classification: multibagger potencial'
+- 'Market error: Existe una brecha de valoración al alza que justifica un potencial
+  upside, aunque riesgos de cobertura de intereses y volatilidad alta deben monitorearse.'
+- 'Thesis: Tenaris combina una posición de liquidez robusta, deuda neta negativa y
+  márgenes brutos consistentes, lo que le permite capitalizar la recuperación del
+  mercado de energía; sin embargo, la cobertura de'
+generated_at: '2026-11-18T18:53:11.885641-03:00'
+id: ass-13305806
+recommendation: REVIEW
+risks:
+- risk: Cobertura de intereses insuficiente (interest_coverage = 0)
+  source:
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/TS/statistics/
+- risk: Alta volatilidad 90d (27.74%)
+  source:
+  - as_of_date: '2026-11-01'
+    name: yfinance
+    url: https://finance.yahoo.com/quote/TS/history/
+- risk: Dilución de acciones no disponible para evaluar
+  source: []
+- risk: Dependencia de la demanda de energía cíclica
+  source:
+  - as_of_date: '2026-11-18'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/TS/statistics/
+score: 85.22
+status: COMPLETED
+version: '3.0'
