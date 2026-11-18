@@ -1,0 +1,168 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La capacidad instalada reportada en el informe trimestral de Q4 2027
+      muestra un incremento menor al 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La planta de Texas reporta retrasos operacionales que impiden alcanzar
+      la producción prevista.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La capacidad instalada reportada en el informe trimestral de Q4 2027 muestra un
+    incremento menor al 5%.
+  - La planta de Texas reporta retrasos operacionales que impiden alcanzar la producción
+    prevista.
+  horizon: medio
+  id: H1-OPP-MB-TS
+  opportunity_id: OPP-MB-TS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 10.0
+    met: null
+    metric: incremento_capacidad_produccion
+    prediction: La capacidad instalada de producción de tubos alcanzará un 10% más
+      que la de 2026 al 31 de diciembre de 2027.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La empresa anunció la inversión de US$800 millones en una planta de fabricación
+    de alta eficiencia en Texas, con un cronograma de construcción que culmina en
+    Q4 2027. Historicamente, nuevas plantas de Tenaris han aportado entre 8% y 12%
+    de capacidad adicional en los primeros 12 meses.
+  review_trigger: Si al cierre del Q4 2027 la capacidad instalada no supera el 5%
+    de incremento respecto a 2026, la hipótesis se descartará.
+  secondary_hypotheses: []
+  statement: Tenaris incrementará su capacidad de producción de tubos en un 10% al
+    finalizar 2027 gracias a la puesta en marcha de la nueva planta de Texas.
+  status: ACTIVE
+  ticker: TS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio FCF/EBITDA reportado en el semestre 2028 es inferior al 25%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una caída significativa del EBITDA (>15% YoY) que reduzca la base de
+      cálculo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio FCF/EBITDA reportado en el semestre 2028 es inferior al 25%.
+  - Una caída significativa del EBITDA (>15% YoY) que reduzca la base de cálculo.
+  horizon: largo
+  id: H2-OPP-MB-TS
+  opportunity_id: OPP-MB-TS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 30.0
+    met: null
+    metric: conversion_fcf_ebitda
+    prediction: El FCF/EBITDA reportado al 30 de junio de 2028 será ≥30%.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Con la expansión de capacidad (H1) y la estabilización del gasto de capital,
+    Tenaris debería generar mayores márgenes operativos y liberar efectivo. En los
+    últimos cinco años, la conversión promedio ha sido 27% cuando la capacidad crece
+    >5%.
+  review_trigger: Si al cierre del semestre 2028 el ratio está por debajo del 25%,
+    la hipótesis se considerará refutada.
+  secondary_hypotheses:
+  - H1-OPP-MB-TS
+  statement: El ratio de conversión de flujo de caja libre (FCF) sobre EBITDA superará
+    el 30% en el ejercicio fiscal 2028.
+  status: ACTIVE
+  ticker: TS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El precio de cierre el 30/06/2029 está por debajo de US$60.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El múltiplo EV/EBITDA se mantiene por debajo de 7x durante todo 2029.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El precio de cierre el 30/06/2029 está por debajo de US$60.
+  - El múltiplo EV/EBITDA se mantiene por debajo de 7x durante todo 2029.
+  horizon: largo
+  id: H3-OPP-MB-TS
+  opportunity_id: OPP-MB-TS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2029-06-30'
+    expected: 70.0
+    met: null
+    metric: precio_objetivo
+    prediction: El precio de cierre de la acción será ≥70 USD el 30/06/2029.
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: El mercado subestima la exposición de Tenaris a la recuperación del gasto
+    de capital en energía y la mejora operativa (H1, H2). Un múltiplo EV/EBITDA de
+    9x, comparable al promedio histórico, implicaría un precio de alrededor de US$70
+    dado el EBITDA proyectado para 2029.
+  review_trigger: Si al 30/06/2029 el precio está bajo US$60, la hipótesis se descartará.
+  secondary_hypotheses:
+  - H1-OPP-MB-TS
+  - H2-OPP-MB-TS
+  statement: El precio de la acción de Tenaris alcanzará los US$70 antes del 30 de
+    junio de 2029, reflejando una revaloración del múltiplo EV/EBITDA hacia el rango
+    superior del consenso.
+  status: ACTIVE
+  ticker: TS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El CapEx FY2028 crece menos del 2% YoY.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Tenaris anuncia una reducción de proyectos que implique una caída del
+      CapEx.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El CapEx FY2028 crece menos del 2% YoY.
+  - Tenaris anuncia una reducción de proyectos que implique una caída del CapEx.
+  horizon: medio
+  id: H4-OPP-MB-TS
+  opportunity_id: OPP-MB-TS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 5.0
+    met: null
+    metric: crecimiento_capex_yoy
+    prediction: El CapEx reportado para FY2028 mostrará un crecimiento ≥5% respecto
+      a FY2027.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: A diferencia de la expectativa de desaceleración del sector, Tenaris
+    ha asegurado contratos de suministro a nuevos proyectos de energía renovable y
+    gas natural, lo que requiere inversión en capacidad adicional. Historicamente,
+    cuando la empresa asegura contratos >US$1B, el CapEx crece ≥5% YoY.
+  review_trigger: Si al cierre del FY2028 el CapEx muestra un crecimiento inferior
+    al 2%, la hipótesis será rechazada.
+  secondary_hypotheses: []
+  statement: El crecimiento interanual del gasto de capital (CapEx) de Tenaris será
+    al menos del 5% en el año fiscal 2028.
+  status: ACTIVE
+  ticker: TS
+  version: 1

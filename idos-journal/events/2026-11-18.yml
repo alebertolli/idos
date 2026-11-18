@@ -1,0 +1,48 @@
+events:
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-TS
+    ticker: TS
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-18T18:55:03.238192'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TS
+    ticker: TS
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-18T18:55:03.240555'
+- data:
+    classification: Multibagger
+    ddd_empty: false
+    event_evidence:
+      event_id: 62edf9c47c959ce36a8d51b0da242ea5f91c6436fde3994d6c3b0400e2afa05d
+      event_type: quarterly_results
+      observed_at: '2026-11-18T21:54:46.138397+00:00'
+      occurred_at: '2026-11-04'
+      source_name: Tenaris 2026 Third Quarter Results (SEC Form 6-K)
+      source_url: https://www.sec.gov/Archives/edgar/data/1190723/000117184326007191/f6k_110426ern.htm
+      summary: Tenaris publicó el 2026-11-04 los resultados del trimestre terminado
+        el 2026-09-30 en su comunicado presentado mediante Form 6-K; verificar cifras
+        y contexto en la fuente primaria.
+      ticker: TS
+    event_type: quarterly_results
+    hypotheses: 4
+    input_snapshot_sha256: aa949c55b7caba0fa79d441ba54c4f21b5018ffa08d7c737195c674312df364c
+    opp_id: OPP-MB-TS
+    original_status: SCREENED
+    score: 85.22
+    strategy_version: '1.5'
+    ticker: TS
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-18T18:56:37.603891'
