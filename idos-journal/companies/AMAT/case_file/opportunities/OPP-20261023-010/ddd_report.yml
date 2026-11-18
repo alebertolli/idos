@@ -1,37 +1,82 @@
 calidad_evidencia:
   hechos_verificados: []
   inferencias_llm:
-  - El margen operativo del 31.22% proviene de stockanalysis.com (TTM, 2026‑07‑26).
-  - El FCF de 5.62 B USD proviene de stockanalysis.com (TTM, 2026‑07‑26).
-  - El precio actual de 347.61499 USD proviene de yfinance (2026‑11‑18).
-  - El consenso de analistas (low 358, mean 561.89, high 900) proviene de stockanalysis.com
-    y yfinance (2026‑11‑18).
-  - El crecimiento de ingresos del 7.77% proviene de stockanalysis.com (TTM, 2026‑07‑26).
+  - El precio actual está por debajo del rango bajo del consenso de analistas (358 USD).
+  - Los márgenes operativos y el FCF provienen de stockanalysis.com (31,22 % y 5,62 B USD
+    respectivamente).
+  - El crecimiento de ingresos del 7,77 % TTM proviene de stockanalysis.com.
   preguntas_abiertas:
-  - ¿Cuál es la estructura exacta de deuda y el ratio deuda/EBITDA de AMAT?
-  - ¿Qué nivel de exposición tiene la compañía a clientes chinos bajo las últimas
-    licencias de exportación?
-  - ¿Cuáles son los planes de inversión de capital de los principales fabricantes
-    de semiconductores para 2025‑2026?
-catalizadores_previos: &id001 []
+  - ¿Cuál es el nivel exacto de deuda neta y el ratio deuda/EBITDA?
+  - ¿Qué detalle hay sobre la exposición a clientes específicos (e.g., TSMC, Samsung)
+    y su evolución?
+  - ¿Cuáles son los planes de licencias de exportación a China aprobados en 2027?
+catalizadores_previos: &id001
+- descripcion: Recuperación acelerada del capex impulsada por IA y centros de datos
+  generated_at: '2026-11-18T17:49:57.659321-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  opp_id: OPP-20261023-010
+  probabilidad_anterior: 30
+- descripcion: Lanzamiento de nueva generación de equipos de deposición ALD para nodos
+    <2 nm
+  generated_at: '2026-11-18T17:49:57.659321-03:00'
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20261023-010
+  probabilidad_anterior: 25
+- descripcion: Resolución de restricciones de exportación a China mediante licencias
+    específicas
+  generated_at: '2026-11-18T17:49:57.659321-03:00'
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-010
+  probabilidad_anterior: 20
 clasificacion_oportunidad:
   categoria: compounder_castigado
-  categorias_descartadas: compounder, quality_at_fair_price, ciclica, deep_value,
-    turnaround, distressed, hype, value_trap, special_situation
-  justificacion: Applied Materials posee un negocio de alta calidad con liderazgo
-    tecnológico, márgenes operativos sólidos (31.22%) y generación de flujo de caja
-    libre robusta (5.62 B USD). Sin embargo, el precio actual (347.6 USD) está por
-    debajo del rango bajo del consenso de analistas (358 USD), reflejando una penalización
-    del mercado por la ciclicidad del sector de semiconductores y tensiones geopolíticas.
-    La empresa mantiene un moat duradero y perspectivas de crecimiento a medio‑largo
-    plazo, lo que la sitúa como un compounder temporalmente desvalorizado.
-comparativa_catalizadores: []
+  categorias_descartadas: compounder (el precio está muy por debajo del consenso,
+    sugiere descuento temporal), deep_value (el negocio no es commodity y tiene alto
+    margen), ciclica (aunque cíclico, la calidad del moat es alta), special_situation
+    (no hay spin‑off ni reestructuración), distressed (balance sólido), hype (no es
+    una empresa sin earnings), value_trap (no destruye valor estructuralmente), quality_at_fair_price
+    (el precio está significativamente bajo), turnaroud (no hay declive operativo),
+    distressed (balance fuerte).
+  justificacion: Applied Materials muestra un negocio de alta calidad con márgenes
+    operativos sólidos (31,2%), fuerte generación de flujo de caja libre (5,62 B USD)
+    y crecimiento de ingresos del 7,8% TTM. Sin embargo, el precio actual (347,6 USD)
+    está por debajo del rango bajo del consenso de analistas (358 USD), lo que indica
+    que el mercado está descontando riesgos externos (restricciones a China, ciclo
+    de capex) que podrían estar sobrevalorados.
+comparativa_catalizadores:
+- delta_pct: 10
+  descripcion: Recuperación acelerada del capex impulsada por IA y centros de datos
+  estado: vigente
+  nota_comparacion: Mayor evidencia de demanda de IA en 2026 eleva la probabilidad.
+  probabilidad_actual: 40
+  probabilidad_anterior: 30
+- delta_pct: 5
+  descripcion: Lanzamiento de nueva generación de equipos de deposición ALD para nodos
+    <2 nm
+  estado: vigente
+  nota_comparacion: Prototipos mostrados a clientes clave aumentan confianza.
+  probabilidad_actual: 30
+  probabilidad_anterior: 25
+- delta_pct: -5
+  descripcion: Resolución de restricciones de exportación a China mediante licencias
+    específicas
+  estado: vigente
+  nota_comparacion: Negociaciones más lentas y mayor escrutinio regulatorio reducen
+    la probabilidad.
+  probabilidad_actual: 15
+  probabilidad_anterior: 20
 dominio_business_quality:
-  analisis: Liderazgo tecnológico en etapas críticas de fabricación (etch, deposition,
-    rapid thermal processing). Amplia base de clientes globales y alta dependencia
-    de sus equipos, creando barreras de cambio. Servicios y software generan ingresos
-    recurrentes y aumentan la retención.
-  rating: excepcional
+  analisis: AMAT posee una posición dominante en etapas críticas del proceso de fabricación
+    de chips (deposición, grabado, RTP). Su capacidad de I+D y la integración de software/servicios
+    refuerzan el moat. La dependencia de pocos clientes grandes (fabless y foundries)
+    está mitigada por la diversificación geográfica.
+  rating: buena
 dominio_catalizadores:
 - descripcion: Recuperación acelerada del capex impulsada por IA y centros de datos
   horizonte: medio
@@ -43,70 +88,69 @@ dominio_catalizadores:
   horizonte: corto
   impacto: alto
   nivel_confianza: medio
-  probabilidad_pct: 25
+  probabilidad_pct: 30
 - descripcion: Resolución de restricciones de exportación a China mediante licencias
     específicas
   horizonte: largo
   impacto: medio
   nivel_confianza: bajo
-  probabilidad_pct: 20
+  probabilidad_pct: 15
 dominio_esg_supply_chain:
-  analisis: Políticas ESG alineadas con estándares industriales; exposición a proveedores
-    críticos en Asia, pero la diversificación geográfica y los programas de cumplimiento
-    reducen riesgos de interrupción.
+  analisis: Riesgos ESG moderados; la empresa reporta iniciativas de sostenibilidad
+    y gestión de residuos de materiales. La cadena de suministro está diversificada
+    en Asia y EE.UU., aunque existe exposición a regulaciones de exportación a China.
   rating: bajo_riesgo
 dominio_financial_health:
-  analisis: FCF de 5.62 B USD (TTM) y margen operativo de 31.22%. No se reportan niveles
-    de deuda problemáticos en los datos disponibles. Liquidez suficiente y generación
-    de caja consistente respaldan inversiones y dividendos.
+  analisis: Flujo de caja libre de 5,62 B USD, margen operativo de 31,2 % y crecimiento
+    de ingresos del 7,8 % TTM indican solidez. No se dispone de datos de deuda, pero
+    los múltiplos de EV/EBITDA y EV/FCF reportados por stockanalysis.com son razonables,
+    sugiriendo un balance saludable.
   rating: fuerte
 dominio_growth:
-  analisis: Crecimiento de ingresos TTM del 7.77% indica expansión sostenida, pero
-    está sujeto a la ciclicidad del gasto de capital. Oportunidades de crecimiento
-    a medio plazo en IA, automoción y 5G, aunque la visibilidad depende de la recuperación
-    del ciclo.
-  rating: moderado
+  analisis: 'Impulsores de crecimiento incluyen: (1) aumento del capex en IA y centros
+    de datos, (2) adopción de nodos <2 nm que requieren equipos ALD avanzados, (3)
+    expansión de servicios de software y mantenimiento. La visibilidad de ingresos
+    a medio plazo es alta gracias a contratos de larga duración con los principales
+    fabricantes.'
+  rating: fuerte
 dominio_management:
-  analisis: El equipo directivo ha demostrado capacidad para ejecutar lanzamientos
-    de productos complejos y mantener relaciones estratégicas con los principales
-    fabricantes. Historial de asignación de capital orientada a crecimiento orgánico
-    y adquisiciones complementarias.
+  analisis: El equipo directivo ha demostrado capacidad para lanzar nuevas generaciones
+    de equipos (ej. ALD) y gestionar relaciones con gobiernos para licencias de exportación.
+    La asignación de capital ha favorecido la inversión en I+D y expansión de servicios,
+    alineada con los intereses de los accionistas.
   rating: bueno
 dominio_riesgos:
 - impacto: alto
   probabilidad: media
-  riesgo: Ciclicidad del gasto de capital en semiconductores
-- impacto: alto
+  riesgo: Restricciones de exportación a China
+- impacto: medio
   probabilidad: media
-  riesgo: Restricciones de exportación EE.UU.-China
-- impacto: medio
+  riesgo: Ciclo de capex cíclico
+- impacto: alto
   probabilidad: baja
-  riesgo: Obsolescencia tecnológica frente a competidores (ASML, Tokyo Electron)
-- impacto: medio
-  probabilidad: baja
-  riesgo: Concentración de clientes (top 10 representan >50% de ingresos)
+  riesgo: Competencia tecnológica (e.g., ASML, Tokyo Electron)
 error_mercado:
   catalizador_cambio:
-    descripcion: Aceleración del gasto de capital en IA y lanzamiento exitoso de equipos
-      de deposición avanzados compatibles con nodos de 2 nm.
+    descripcion: Aceleración del gasto de capital en semiconductores impulsada por
+      la demanda de IA y centros de datos, combinada con la introducción de equipos
+      ALD de próxima generación.
     horizonte: medio
     impacto: alto
     probabilidad_pct: 30
   conclusion_error_valoracion: SI
-  consenso_actual: Los analistas promedian un precio objetivo de 561.89 USD (rango
-    358‑900 USD), lo que implica que el mercado está descontando aproximadamente un
-    38% respecto al objetivo medio, probablemente por una visión pesimista del ciclo
-    de capex de semiconductores y riesgos geopolíticos.
-  hipotesis_contraria: El mercado podría estar subestimando la recuperación acelerada
-    del gasto de capital impulsada por la demanda de IA, 5G y automoción, así como
-    la capacidad de AMAT para capturar cuota de mercado con su cartera de servicios
-    y software. Además, la diversificación geográfica y la fortaleza del balance podrían
-    mitigar los riesgos de exportación.
-  razonamiento: El amplio diferencial entre el precio actual y el objetivo medio,
-    junto con fundamentos financieros sólidos y un moat defensible, indican que el
-    mercado está sobrevalorando los riesgos cíclicos y subvalorando la capacidad de
-    recuperación y crecimiento a medio plazo.
-generated_at: '2026-11-18T17:49:57.659321-03:00'
+  consenso_actual: Los analistas promedian un precio objetivo de 561,9 USD (rango
+    358‑900 USD), lo que implica que el mercado está descontando aproximadamente un
+    38 % respecto al objetivo medio.
+  hipotesis_contraria: El mercado está sobrestimando el impacto de las restricciones
+    de exportación a China y la posible desaceleración del ciclo de capex. Ignora
+    la aceleración del gasto de capital impulsada por la explosión de IA y centros
+    de datos, así como el potencial de nuevos equipos ALD para nodos <2 nm que podrían
+    capturar cuota de mercado rápidamente.
+  razonamiento: El amplio margen operativo, la generación de caja libre y la posición
+    de liderazgo en equipos críticos sugieren que el descuento actual es excesivo
+    y que la valoración podría revalorizarse significativamente si se materializan
+    los impulsos de capex y los nuevos productos.
+generated_at: '2026-11-18T19:01:57.435878-03:00'
 integridad_tesis:
   flags: []
   reason: ''
@@ -164,7 +208,380 @@ research_input_snapshot:
   debt_maturity_profile: N/A
   debt_to_equity: 0.25
   excess_return_roic_wacc: null
-  existing_wiki: ''
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Applied Materials, Inc. (AMAT) desarrolla y vende equipos, software y servicios
+    para la fabricación de semiconductores y otras industrias relacionadas. Su actividad
+    abarca etapas críticas del proceso de fabricación de chips, incluidas deposición,
+    grabado y procesamiento térmico.
+
+
+    Su cadena de valor comprende investigación y desarrollo de tecnología de materiales,
+    diseño y fabricación de equipos, venta a fabricantes de semiconductores, instalación
+    y puesta en marcha, y servicios de mantenimiento y optimización. Entre los clientes
+    descritos en la investigación figuran fundiciones y fabricantes como TSMC, Samsung
+    e Intel, además de compañías de dispositivos electrónicos como [[AAPL]].
+
+
+    La compañía opera en un sector global, pero la investigación disponible no especifica
+    el desglose geográfico de sus ingresos. La actividad depende de las decisiones
+    de inversión de capital de los fabricantes de semiconductores y está expuesta
+    a restricciones comerciales, en particular las relacionadas con las exportaciones
+    de EE. UU. a China.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Fuentes de ingresos
+
+
+    - Venta de equipos para procesos de fabricación de semiconductores, incluidos
+    equipos de deposición CVD y ALD, y de grabado.
+
+    - Software de control y soluciones que integran datos de fábrica.
+
+    - Servicios de instalación, mantenimiento y optimización de equipos.
+
+
+    El crecimiento de los ingresos depende de la demanda de equipos y servicios, de
+    la intensidad de capital de la industria y de la adopción de nuevos procesos y
+    tecnologías por parte de los fabricantes de chips.
+
+
+    ### Moat y posición competitiva
+
+
+    La investigación caracteriza a AMAT como líder del sector y atribuye su ventaja
+    competitiva a:
+
+
+    - Una cartera amplia de patentes relacionadas con procesos de materiales.
+
+    - Relaciones de larga duración con grandes fabricantes de semiconductores.
+
+    - La importancia de sus equipos en procesos críticos de fabricación y los costes
+    asociados a depender de ellos.
+
+    - Software integrado con datos de fábrica, que complementa la oferta de equipos
+    y servicios.
+
+
+    El análisis AOIF califica la amplitud del moat como amplia y la posición competitiva
+    como líder. También identifica a [[ASML]] como compañía relacionada del sector.
+    No se proporciona una comparación cuantitativa entre ambas compañías ni información
+    suficiente para evaluar cuotas de mercado.
+
+
+    ### Dinámica de la industria
+
+
+    El gasto de capital de los fabricantes de semiconductores es cíclico. La inversión
+    en capacidad y procesos avanzados puede recibir impulso de la demanda vinculada
+    a IA, centros de datos, 5G y automoción eléctrica; una desaceleración económica
+    o una reducción de los presupuestos de capital puede operar en sentido contrario.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras disponibles provienen de análisis distintos y no están reconciliadas.
+    Deben tratarse como métricas reportadas por esos análisis, no como una serie financiera
+    homogénea.
+
+
+    | Métrica | Valor informado | Fuente y periodo |
+
+    |---|---:|---|
+
+    | Margen operativo | 31,22% | StockAnalysis, TTM al 26-07-2026; citado como inferencia
+    en DDD |
+
+    | Margen operativo | 32,94% | AOIF; periodo no especificado |
+
+    | Flujo de caja libre (FCF) | 5.620 M USD | StockAnalysis, TTM al 26-07-2026;
+    citado como inferencia en DDD |
+
+    | Crecimiento de ingresos | 7,77% | DDD; periodo TTM según el análisis, referencia
+    de datos al 26-07-2026 |
+
+    | Crecimiento de ingresos | 21,43% | AOIF; periodo no especificado |
+
+    | Conversión de FCF | 0,55 | AOIF; definición y periodo no especificados |
+
+    | ROIC | 42,19% | AOIF; periodo no especificado |
+
+    | PER | 27,71 | AOIF; fecha de medición no especificada |
+
+    | EV/EBITDA | 23,02 | AOIF; fecha de medición no especificada |
+
+    | Rentabilidad del FCF | 2% | AOIF; fecha de medición no especificada |
+
+
+    La discrepancia entre las cifras de crecimiento de ingresos y margen operativo
+    requiere validación antes de utilizarlas en un modelo financiero. DDD califica
+    la salud financiera como fuerte, apoyándose en la generación de caja y el margen
+    operativo, pero no presenta el detalle de liquidez ni los vencimientos de deuda.
+
+
+    | Elemento de capital | Información disponible |
+
+    |---|---|
+
+    | Deuda y vencimientos | No especificados |
+
+    | Deuda/EBITDA | No especificado |
+
+    | Liquidez | Descrita como suficiente en DDD, sin métricas de respaldo |
+
+    | Generación de caja | FCF de 5.620 M USD TTM según la cifra atribuida a StockAnalysis
+    |
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La investigación califica la calidad del management como buena y señala capacidad
+    para ejecutar lanzamientos de productos complejos, mantener relaciones estratégicas
+    con fabricantes y asignar capital de forma que crea valor. AOIF también califica
+    el alineamiento de insiders como fuerte.
+
+
+    Estas apreciaciones no vienen acompañadas de datos sobre desempeño histórico,
+    remuneración, participación accionaria de insiders ni decisiones específicas de
+    asignación de capital. No hay información disponible sobre la composición del
+    board, independencia de sus miembros o estructura de comités. Por tanto, esas
+    valoraciones son conclusiones de los análisis recibidos, no hechos corporativos
+    verificados en esta entrada.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista
+
+
+    - **Posición en procesos críticos:** AMAT ofrece equipos y servicios para etapas
+    relevantes de la fabricación de semiconductores. DDD y AOIF describen a la compañía
+    como líder tecnológico y atribuyen su ventaja a patentes, relaciones con clientes
+    y soluciones de software integradas.
+
+    - **Demanda estructural de equipos:** una expansión de la inversión en semiconductores
+    impulsada por IA y centros de datos podría favorecer la demanda. Este vínculo
+    es una hipótesis de inversión; la investigación no aporta datos cuantitativos
+    que permitan estimar su contribución a los ingresos de AMAT.
+
+    - **Lanzamientos tecnológicos:** el desarrollo de equipos avanzados de deposición
+    ALD para nodos inferiores a 2 nm se presenta como catalizador potencial. La investigación
+    no confirma el lanzamiento, la adopción comercial ni el volumen de ventas esperado.
+
+    - **Perfil financiero:** las cifras recibidas muestran un margen operativo superior
+    al 30% en ambos análisis, aunque los valores difieren, y FCF TTM de 5.620 M USD
+    según la cifra atribuida a StockAnalysis.
+
+    - **Posible revalorización:** DDD plantea que el mercado podría estar infravalorando
+    la recuperación del capex y la capacidad de AMAT para capturar demanda. Sin embargo,
+    la evidencia disponible no permite confirmar el precio de mercado, el objetivo
+    medio citado ni el descuento implícito.
+
+
+    **Clasificación recibida:** “compounder castigado”; valoración descrita como “infravalorado”;
+    puntuación general de 78. Son evaluaciones del análisis DDD, no hechos verificados
+    de mercado.
+
+
+    **Tesis de trabajo:** la tesis larga depende de que la posición competitiva se
+    traduzca en crecimiento y generación de caja a lo largo del ciclo, sin que las
+    restricciones de exportación o la desaceleración del gasto de capital deterioren
+    materialmente esos resultados. El AOIF dejó la recomendación final pendiente de
+    decisión del board.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    | Riesgo | Impacto estimado | Probabilidad indicada | Posible efecto |
+
+    |---|---|---|---|
+
+    | Ciclicidad del gasto de capital de los fabricantes de semiconductores | Alto
+    | Media | Menor demanda de equipos y presión sobre el crecimiento |
+
+    | Restricciones de exportación EE. UU.-China | Alto | Media en DDD; alta en AOIF
+    | Limitaciones de ventas a clientes chinos y posible pérdida de oportunidades
+    |
+
+    | Presión competitiva | No cuantificado | No especificada | Presión potencial
+    sobre márgenes y participación de mercado |
+
+    | Dependencia de proveedores críticos en Asia | No cuantificado | No especificada
+    | Riesgo para la continuidad o los costes de suministro |
+
+
+    ### Caso bajista
+
+
+    Un periodo prolongado de inversión débil podría reducir los pedidos de equipos,
+    mientras que nuevas restricciones comerciales podrían limitar ventas a clientes
+    chinos. Una menor demanda o una mayor presión competitiva también podrían reducir
+    márgenes. La investigación no cuantifica la exposición a China, el impacto financiero
+    de restricciones específicas ni la sensibilidad de los beneficios al ciclo.
+
+
+    ### Falsadores de la tesis
+
+
+    Los escenarios recibidos incluyen los siguientes indicadores, aunque algunos están
+    formulados de forma inconsistente con el escenario al que se asignaron:
+
+
+    - **Para la tesis alcista:** una recesión global que reduzca el gasto de capital
+    a menos del 5% anual, o un fracaso en la adopción de la nueva generación de equipos,
+    debilitarían el caso de crecimiento y revalorización.
+
+    - **Para la tesis bajista:** un anuncio de aumento superior al 5% en el gasto
+    de capital de los principales fabricantes, o la obtención de licencias de exportación
+    que reabran el mercado chino, serían señales contrarias a ese escenario.
+
+    - **Riesgo central a vigilar:** capex global de semiconductores inferior al 2%
+    anual durante dos años y nuevas restricciones a las ventas a clientes chinos;
+    son supuestos del escenario bajista, no hechos confirmados.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Horizonte indicado | Impacto potencial | Estado y observaciones
+    |
+
+    |---|---|---|---|
+
+    | Recuperación acelerada del capex vinculada a IA y centros de datos | Medio |
+    Alto | Probabilidad estimada de 30% en DDD; no se especifica una fecha calendario
+    |
+
+    | Nueva generación de equipos ALD para nodos inferiores a 2 nm | Corto | Alto
+    | Probabilidad estimada de 25% en DDD; el lanzamiento y la adopción no están confirmados
+    |
+
+    | Evolución de licencias de exportación a China | Sin fecha | Potencialmente alto
+    | Punto de monitoreo de AOIF; falta cuantificar la exposición y el estado de las
+    licencias |
+
+    | Inversión global en capacidad de semiconductores | Continuo | Alto | Indicador
+    clave para evaluar el ciclo de demanda; sin calendario de publicación indicado
+    |
+
+
+    No se proporcionan fechas esperadas concretas para estos eventos. El escenario
+    DDD tiene fecha de referencia del 18-11-2026 y horizonte hasta el 18-11-2028;
+    sus objetivos de precio corresponden a ese horizonte, no a fechas de catalizadores
+    específicos.
+
+
+    ## 8. Marco de Valoración
+
+
+    La investigación AOIF informa PER de 27,71, EV/EBITDA de 23,02, rentabilidad del
+    FCF de 2% y un valor intrínseco estimado de 750 USD. No especifica la fecha de
+    los múltiplos, el método de valoración, el horizonte del valor intrínseco ni los
+    supuestos utilizados. También califica el margen de seguridad como insuficiente.
+
+
+    DDD informa un precio objetivo medio de analistas de 561,89 USD y un rango de
+    358 a 900 USD, pero no incluye la fuente o fecha de esa recopilación en el material
+    disponible. El mismo análisis afirma que existe un descuento aproximado del 38%
+    frente al objetivo medio, pero el precio de referencia necesario para verificar
+    ese cálculo no está especificado. Por ello, ese descuento no se considera validado
+    en esta entrada.
+
+
+    ### Escenarios recibidos
+
+
+    Los siguientes objetivos son resultados del análisis DDD, no estimaciones verificadas
+    independientemente:
+
+
+    | Escenario a 18-11-2028 | Precio objetivo | Supuestos principales |
+
+    |---|---:|---|
+
+    | Bajista | 300 USD | Crecimiento del capex global inferior al 2% anual durante
+    dos años, restricciones adicionales a China y presión sobre márgenes |
+
+    | Alcista | 900 USD | Crecimiento del capex superior al 12% anual en 2025–2026
+    y captura de más del 15% de mercado adicional en deposición avanzada |
+
+
+    El escenario alcista utiliza supuestos para 2025–2026 pese a que la fecha de referencia
+    del análisis es 18-11-2026. Esa inconsistencia temporal debe resolverse antes
+    de emplear el escenario.
+
+
+    ### Enfoque de valoración a desarrollar
+
+
+    Conviene contrastar una valoración por flujo de caja descontado con múltiplos
+    de empresas comparables, utilizando un ciclo normalizado. Las variables principales
+    deberían incluir el crecimiento de ventas, los márgenes, la conversión a FCF,
+    la intensidad de capital, la exposición a China y el ritmo de inversión de los
+    clientes. La investigación disponible no contiene suficiente información para
+    especificar supuestos numéricos adicionales ni para calcular una sensibilidad
+    fiable.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es la estructura exacta de deuda de AMAT, sus vencimientos y su ratio
+    deuda/EBITDA?
+
+    2. ¿Qué proporción de ingresos y pedidos está expuesta a clientes chinos bajo
+    las licencias y restricciones de exportación vigentes? ¿Cómo ha cambiado esa exposición?
+
+    3. ¿Qué periodos y definiciones explican las diferencias entre el crecimiento
+    de ingresos de 7,77% y 21,43%, y entre los márgenes operativos de 31,22% y 32,94%?
+
+    4. ¿Cuál es la fuente, fecha y precio de referencia del objetivo medio de 561,89
+    USD y del descuento aproximado del 38% citados por DDD?
+
+    5. ¿Cómo se obtuvo el valor intrínseco de 750 USD de AOIF y qué supuestos sustentan
+    el rango de escenarios de 300 a 900 USD?
+
+    6. ¿Cuál es el calendario confirmado, el estado de desarrollo y la adopción comercial
+    esperada de los equipos ALD para nodos inferiores a 2 nm?
+
+    7. ¿Qué proporción de ventas corresponde a equipos, software y servicios, y cómo
+    varía la rentabilidad de cada componente?
+
+    8. ¿Qué evidencia histórica respalda las evaluaciones de alineamiento de insiders,
+    calidad del management y asignación de capital?
+
+    9. ¿Cuál es la composición del board, su nivel de independencia y la estructura
+    de incentivos ejecutivos?
+
+    10. ¿Qué fuentes y fechas corresponden a las métricas de crecimiento, ROIC, conversión
+    de FCF y múltiplos reportados por AOIF?
+
+
+    **Base documental disponible:** DDD y AOIF proporcionados para esta entrada. La
+    cifra de FCF de 5.620 M USD, el margen operativo de 31,22% y el crecimiento de
+    ingresos de 7,77% se atribuyen en DDD a StockAnalysis, con referencia TTM al 26-07-2026;
+    DDD los clasifica como inferencias, no como hechos verificados. AOIF no incluye
+    fechas ni fuentes específicas para sus métricas financieras.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AAPL|Apple Inc.]], [[ASML|ASML Holding N.V.]]
+
+    - **Same Industry**: [[ASML|ASML Holding N.V.]]'
   fcf_adjusted: null
   financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
     {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
@@ -244,22 +661,31 @@ research_input_snapshot:
   prior_catalysts: *id001
   products: ''
   quote_currency: USD
-  recent_events: Applied Materials, Inc. provides materials engineering solutions,
+  recent_events: 'Applied Materials, Inc. provides materials engineering solutions,
     equipment, services, and software to the semiconductor and related industries
     in the United States, China, Korea, Taiwan, Japan, Southeast Asia, Europe, and
     internationally. The company operates through Semiconductor Systems and Applied
     Global Services (AGS) segments. The Semiconductor Systems segment includes semiconductor
     capital equipment to enable materials engineering steps, including etch, rapid
     thermal processing, depositio
+
+
+    Evento disparador validado para revisar: {"event_id": "fcf76c8da1d89ff73964f2ab6397092ea13f46cd9fe4d6ae7f2911ba9c77b427",
+    "event_type": "quarterly_results", "observed_at": "2026-11-18T22:01:43.214318+00:00",
+    "occurred_at": "2026-11-12", "source_name": "Applied Materials FY2026 Q4 Results
+    (SEC Form 8-K)", "source_url": "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/amat-20261112.htm",
+    "summary": "Applied Materials publicó el 2026-11-12 los resultados de Q4 y FY2026
+    mediante Form 8-K; el período fiscal cerró el 2026-10-25. Contrastar los hechos
+    de resultados con Exhibit 99.1 y separar hechos de proyecciones.", "ticker": "AMAT"}'
   revenue: 34450000000.0
   revenue_growth: 21.43
   roic: 42.19
   scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
-    900.0, "low": 358.0, "mean": 561.89, "median": 561.89, "observed_at": "2026-11-18T17:49:48.092360-03:00",
+    900.0, "low": 358.0, "mean": 561.89, "median": 561.89, "observed_at": "2026-11-18T19:01:47.493417-03:00",
     "sources": [{"as_of_date": "2026-11-18", "name": "stockanalysis", "observed_at":
-    "2026-11-18T17:49:48.092360-03:00", "observed_date": "2026-11-18", "target_price":
+    "2026-11-18T19:01:47.493417-03:00", "observed_date": "2026-11-18", "target_price":
     561.89, "url": "https://stockanalysis.com/stocks/amat/forecast/"}, {"as_of_date":
-    "2026-11-18", "name": "yfinance", "observed_at": "2026-11-18T17:49:48.092360-03:00",
+    "2026-11-18", "name": "yfinance", "observed_at": "2026-11-18T19:01:47.493417-03:00",
     "observed_date": "2026-11-18", "target_price": 561.8889, "url": "https://finance.yahoo.com/quote/AMAT/"}]},
     "current_quote": {"as_of_date": "2026-11-18", "currency": "USD", "price": 347.614990234375,
     "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/AMAT/"}]}}'
@@ -267,76 +693,86 @@ research_input_snapshot:
   ticker: AMAT
 research_trigger:
   discovery_snapshot_hash: null
-  event_evidence: null
+  event_evidence:
+    event_id: fcf76c8da1d89ff73964f2ab6397092ea13f46cd9fe4d6ae7f2911ba9c77b427
+    event_type: quarterly_results
+    observed_at: '2026-11-18T22:01:43.214318+00:00'
+    occurred_at: '2026-11-12'
+    source_name: Applied Materials FY2026 Q4 Results (SEC Form 8-K)
+    source_url: https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/amat-20261112.htm
+    summary: Applied Materials publicó el 2026-11-12 los resultados de Q4 y FY2026
+      mediante Form 8-K; el período fiscal cerró el 2026-10-25. Contrastar los hechos
+      de resultados con Exhibit 99.1 y separar hechos de proyecciones.
+    ticker: AMAT
   input_snapshot_ref:
     path: research_input_snapshot
-    sha256: 85cde19ffd4a0b81e818da09e8ce54a9b2a284455b9d787cb74bd9ddbaab6d4f
+    sha256: 9158c2d48948e9049c40573e3aa9032fcc3783ca3ca554c28e80572ad482f8f7
   strategy_id: COMPOUNDER
   strategy_version: positive_fundamentals_v1
-  trigger_type: manual
-  triggered_at: '2026-11-18T17:49:57.659321-03:00'
-resumen_ejecutivo: Applied Materials es un proveedor líder de equipos y servicios
-  para la industria de semiconductores, con márgenes operativos superiores al 30%
-  y flujo de caja libre de 5.6 B USD. El precio cotiza 38% bajo el objetivo medio
-  de los analistas, lo que sugiere una oportunidad de compra para un compounder castigado,
-  siempre que la recuperación del capex y la demanda de IA se materialicen.
+  trigger_type: quarterly_results
+  triggered_at: '2026-11-18T19:01:57.435878-03:00'
+resumen_ejecutivo: Applied Materials es un líder global en equipos de fabricación
+  de semiconductores con un moat basado en tecnología de materiales y relaciones de
+  larga data con los principales fabricantes. Presenta finanzas robustas (FCF >5 B
+  USD, margen operativo >30 %) y oportunidades de crecimiento vinculadas a la demanda
+  de IA, centros de datos y avances en tecnología ALD. El precio de mercado está notablemente
+  por debajo del consenso de analistas, lo que indica un posible error de mercado
+  que puede ser explotado.
 risk_flags: []
 scenario_analysis:
   as_of_date: '2026-11-18'
   currency: USD
-  horizon_date: '2028-11-18'
+  horizon_date: '2027-11-18'
   scenarios:
   - falsifiers:
-    - Anuncio de un aumento >5% en el gasto de capital de los principales fabricantes.
-    - Obtención de licencias de exportación que reabran el mercado chino.
-    - Mejora de márgenes operativos por encima del 30%.
+    - Anuncio de aumento del gasto de capital en IA superior al 10 % anual.
+    - Obtención de licencias de exportación a China.
     id: BEAR
     key_assumptions:
-    - Capex global de semiconductores crece <2% anual durante los próximos 2 años.
-    - Se imponen nuevas restricciones de exportación EE.UU.-China que limitan ventas
-      a clientes chinos.
-    - Márgenes operativos disminuyen a <25%.
-    rationale: Supone una prolongada desaceleración del capex, restricciones de exportación
-      a China y una caída del margen operativo por presión competitiva, manteniendo
-      el precio por debajo del rango bajo del consenso.
+    - Capex global de semiconductores crece <5 % anual.
+    - Licencias de exportación a China siguen limitadas.
+    - Competidores ganan cuota en equipos ALD.
+    rationale: Si el capex se retrasa y persisten las restricciones a China, los ingresos
+      podrían estancarse y el múltiplo EV/EBITDA caería por debajo del rango histórico,
+      llevando el precio a ~300 USD.
     sources:
-    - as_of_date: '2026-11-18'
-      name: yfinance
-      url: https://finance.yahoo.com/quote/AMAT/
     - as_of_date: '2026-11-01'
       name: stockanalysis
       url: https://stockanalysis.com/stocks/AMAT/statistics/
-    target_price: 300
-  - falsifiers:
-    - Recesión global que reduzca el gasto de capital a <5% anual.
-    - Fracaso en la adopción de la nueva generación de equipos.
-    - Incremento significativo de la deuda que limite la capacidad de inversión.
-    id: BULL
-    key_assumptions:
-    - Capex global de semiconductores crece >12% anual en 2025‑2026.
-    - AMAT captura >15% de mercado adicional en equipos de deposición avanzada.
-    - Márgenes operativos se mantienen >30% y el FCF crece >15% anual.
-    rationale: Supone una recuperación robusta del gasto de capital impulsada por
-      IA, lanzamiento exitoso de equipos de próxima generación y alivio de restricciones
-      geopolíticas, llevando el múltiplo EV/EBITDA a niveles históricos y cerrando
-      la brecha con el objetivo alto del consenso.
-    sources:
     - as_of_date: '2026-11-18'
       name: yfinance
       url: https://finance.yahoo.com/quote/AMAT/
-    - as_of_date: '2026-11-18'
+    target_price: 300
+  - falsifiers:
+    - Recesión macro que reduzca el gasto de capital en semiconductores.
+    - Problemas de producción o fallas de calidad en nuevos equipos.
+    id: BULL
+    key_assumptions:
+    - Capex global de semiconductores crece >12 % anual.
+    - Licencias de exportación a China se conceden para equipos críticos.
+    - Lanzamiento exitoso de ALD <2 nm con pedidos firmes.
+    rationale: Una aceleración del capex impulsada por IA y la adopción rápida de
+      equipos ALD <2 nm elevarían los múltiplos EV/EBITDA a niveles superiores al
+      histórico, impulsando el precio hacia ~800 USD, aún por debajo del máximo consenso
+      (900 USD).
+    sources:
+    - as_of_date: '2026-11-01'
       name: stockanalysis
-      url: https://stockanalysis.com/stocks/amat/forecast
-    target_price: 900
+      url: https://stockanalysis.com/stocks/AMAT/statistics/
+    - as_of_date: '2026-11-18'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AMAT/
+    target_price: 800
   schema_version: bear_bull_v2
 scenario_validation:
   errors:
-  - 'BEAR.sources[1]: URL no está respaldada por evidencia de entrada verificable'
+  - 'BEAR.sources[0]: URL no está respaldada por evidencia de entrada verificable'
+  - 'BULL.sources[0]: URL no está respaldada por evidencia de entrada verificable'
   status: invalid_pending_revision
 score_general: 78
 strategy_context: {}
 target_consensus:
-  calculado_at: '2026-11-18T17:49:48.092360-03:00'
+  calculado_at: '2026-11-18T19:01:47.493417-03:00'
   fuentes:
     stockanalysis: 561.89
     yfinance: 561.8889
@@ -346,20 +782,21 @@ target_consensus:
   source_references:
   - as_of_date: '2026-11-18'
     name: stockanalysis
-    observed_at: '2026-11-18T17:49:48.092360-03:00'
+    observed_at: '2026-11-18T19:01:47.493417-03:00'
     observed_date: '2026-11-18'
     target_price: 561.89
     url: https://stockanalysis.com/stocks/amat/forecast/
   - as_of_date: '2026-11-18'
     name: yfinance
-    observed_at: '2026-11-18T17:49:48.092360-03:00'
+    observed_at: '2026-11-18T19:01:47.493417-03:00'
     observed_date: '2026-11-18'
     target_price: 561.8889
     url: https://finance.yahoo.com/quote/AMAT/
   target_high: 900.0
   target_low: 358.0
-tesis_inversion: Mantener posición larga en AMAT, anticipando que la recuperación
-  del gasto de capital y la demanda de IA impulsarán un re‑rating del múltiplo, cerrando
-  la brecha entre el precio actual y el objetivo medio de los analistas.
+tesis_inversion: Aplicar capital en AMAT ahora permite capturar la revaluación del
+  precio cuando el mercado corrija su exceso de cautela respecto al capex de IA y
+  a la adopción de tecnologías ALD, manteniendo exposición a un negocio con alto margen
+  y flujo de caja libre.
 ticker: AMAT
 version: '3.0'

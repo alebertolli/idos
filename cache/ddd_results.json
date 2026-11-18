@@ -1,68 +1,16 @@
 {
   "total": 1,
-  "processed": [
-    {
-      "opp_id": "OPP-MB-TS",
-      "ticker": "TS",
-      "status": "completed",
-      "score": 85.22,
-      "reason": "configured event trigger: quarterly_results (status=SCREENED)",
-      "errors": []
-    }
-  ],
+  "processed": [],
   "skipped": [],
-  "assessments": [
+  "assessments": [],
+  "errors": [
     {
-      "ticker": "TS",
-      "opp_id": "OPP-MB-TS",
-      "status": "completed",
-      "conviction_score": 60,
-      "recommendation": "BLOCKED",
-      "board_approved": false,
-      "decision_type": null,
-      "decision_id": null,
-      "assessments": {
-        "BusinessAssessmentEngine": 54,
-        "ValuationAssessmentEngine": 65,
-        "RecoveryAssessmentEngine": 55,
-        "RiskAssessmentEngine": 80,
-        "PortfolioAssessmentEngine": 50
-      },
-      "rules_passed": [
-        "RULE-003",
-        "RULE-004",
-        "RULE-008",
-        "RULE-010"
-      ],
-      "rules_failed": [
-        "RULE-001",
-        "RULE-005"
-      ],
-      "rules_details": {
-        "RULE-001": "Business quality: 54/70",
-        "RULE-003": "Rerating: 55/50",
-        "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 60/65",
-        "RULE-008": "B/R 3.2:1 \u2705 (Bull +53.0% / Bear -16.5%)",
-        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
-      },
-      "data_quality": "good",
-      "financial_data_quality": {
-        "status": "good",
-        "core_metric_coverage": "5/5",
-        "missing_core_metrics": [],
-        "source": "stockanalysis.com",
-        "as_of_date": "2026-09-30",
-        "as_of_basis": "period_end_date",
-        "as_of_date_source": "stockanalysis.com",
-        "missing_provenance": [],
-        "conflicting_core_metrics": [],
-        "unreconciled_core_metrics": []
-      }
+      "ticker": "AMAT",
+      "opp_id": "OPP-20261023-010",
+      "error": "Research prompt context exceeds 10000 characters after compaction"
     }
   ],
-  "errors": [],
-  "status": "research_completed",
+  "status": "failed",
   "deferred_count": 0,
   "capacity_failure": null,
   "event_type": "quarterly_results",
