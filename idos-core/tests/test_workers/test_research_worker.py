@@ -151,6 +151,30 @@ def test_wiki_prompt_context_is_bounded_and_keeps_research_evidence():
     assert len(existing_wiki) > 8000
 
 
+def test_wiki_prompt_context_compacts_wide_research_reports_under_default_budget():
+    ddd = {
+        "resumen_ejecutivo": "AMAT mantiene una posición competitiva relevante.",
+        "scenario_analysis": {f"section_{index}": {
+            f"field_{field}": "x" * 1000 for field in range(20)
+        } for index in range(20)},
+        "supporting_analysis": {
+            f"analysis_{index}": ["evidencia " * 100 for _ in range(20)]
+            for index in range(20)
+        },
+    }
+    aoif = {f"step_{index}": "conclusión " * 1000 for index in range(30)}
+
+    context = ResearchWorker._bounded_wiki_prompt_context(
+        ddd, aoif, "wiki anterior " * 10000, "[[LRCX]], [[KLAC]]"
+    )
+
+    assert len(json.dumps(context, ensure_ascii=False, sort_keys=True)) <= 10000
+    assert "AMAT mantiene una posición competitiva relevante." in context["ddd_output"]
+    assert context["related_tickers"] == "[[LRCX]], [[KLAC]]"
+    assert len(ddd["scenario_analysis"]) == 20
+    assert len(aoif) == 30
+
+
 def test_current_price_context_uses_latest_aligned_close_with_provenance():
     context = ResearchWorker._current_price_context({
         "price_history": [100.0, None, 125.5],
