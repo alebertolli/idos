@@ -1,0 +1,989 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La coexistencia de FCF positivo y deuda neta positiva sugiere que la generación
+    de caja es relevante para sostener la estructura financiera; no se evalúa aquí
+    la capacidad de servicio completa.
+  - La dispersión del rango de objetivos de analistas indica desacuerdo observado,
+    pero no revela cuál escenario es más probable.
+  - 'El paquete reporta ingresos TTM de USD 38.903 millones, FCF TTM de USD 9.581
+    millones y margen bruto TTM de 72,47%, con período terminado el 2026-09-30; fuente
+    indicada: StockAnalysis.'
+  - 'El precio observado fue USD 439,33 y el consenso medio de objetivos fue USD 435,77
+    el 2026-11-19; fuentes indicadas: YFinance y StockAnalysis.'
+  - 'El paquete de intake reporta momentum de precio a 12 meses de 56,1539%, con período
+    terminado el 2026-10-30; fuente indicada: YFinance.'
+  preguntas_abiertas:
+  - ¿Qué productos y candidatos explican el crecimiento, y cuál es su mercado direccionable,
+    penetración y calendario de hitos?
+  - ¿Cuáles son los retornos incrementales sobre I+D, adquisiciones y capex, y cómo
+    se asigna el capital entre deuda, dividendos y recompras?
+  - ¿Qué supuestos de ingresos, márgenes, competencia y riesgos sustentan los objetivos
+    de analistas y el rango publicado?
+catalizadores_previos: &id001
+- descripcion: Publicación de resultados futuros que permita contrastar la evolución
+    de ingresos y FCF con las expectativas. No se presenta como evento anunciado ni
+    como resultado anticipado.
+  generated_at: '2026-11-19T18:37:33.148139-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-013
+  probabilidad_anterior: 50
+- descripcion: Actualizaciones de ensayos, decisiones regulatorias o lanzamientos
+    que alteren las expectativas sobre la cartera; no se han proporcionado eventos
+    concretos que puedan verificarse.
+  generated_at: '2026-11-19T18:37:33.148139-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-013
+  probabilidad_anterior: 40
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia fundamental incompleta
+  justificacion: El paquete muestra impulso de precio positivo y datos financieros
+    recientes, pero no proporciona fuentes dentro de trusted_source_urls para validar
+    ratios ni evidencia suficiente sobre productos, mercado direccionable, reinversión
+    o retornos sobre capital.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe a Amgen como desarrolladora, fabricante y distribuidora
+    de terapias humanas; reporta margen bruto TTM de 72,47% e ingresos TTM de USD
+    38.903 millones al 2026-09-30. No hay evidencia suficiente para concluir sobre
+    moat, penetración, retornos sobre capital, management o asignación de capital.
+  rating: Incompleto
+dominio_catalizadores:
+- catalizador: La evolución de ingresos y flujo de caja libre puede aportar evidencia
+    sobre crecimiento y capacidad de reinversión.
+  evidencia: Ingresos TTM de USD 38.903 millones y FCF TTM de USD 9.581 millones al
+    2026-09-30, reportados por StockAnalysis.
+  pendiente: Faltan desglose por producto, inversión de capital, I+D y comparabilidad
+    temporal detallada.
+- catalizador: Los objetivos de analistas ofrecen referencias observables para revisar
+    cambios de expectativas.
+  evidencia: Rango USD 230–542 y media USD 435,77, observados el 2026-11-19.
+  pendiente: El paquete no incluye fechas de revisión por analista ni sus supuestos
+    operativos.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: Deuda total USD 54.007 millones y efectivo e inversiones USD 13.190 millones;
+    StockAnalysis, período actual al 2026-09-30.
+  limitacion: El paquete no aporta una URL autorizada en trusted_source_urls para
+    citar estos campos como ratios validados.
+  riesgo: 'Apalancamiento significativo: la deuda total reportada supera el efectivo
+    e inversiones reportados al 2026-09-30.'
+- evidencia: StockAnalysis reporta crecimiento de FCF TTM de -16,97% al 2026-09-30.
+  limitacion: No se dispone aquí del detalle de los componentes ni de una serie trimestral
+    para evaluar la causa.
+  riesgo: El flujo de caja libre TTM reportado cae 16,97% frente al período de comparación
+    indicado por el proveedor.
+- evidencia: StockAnalysis, TTM al 2026-09-30.
+  limitacion: El campo EBIT y el gasto por intereses no permiten reconstruir de forma
+    verificable ese valor con la evidencia disponible.
+  riesgo: La cobertura de intereses reportada es cero, dato potencialmente anómalo
+    y no interpretable sin verificar su definición o inputs.
+- evidencia: YFinance, histórico de AMGN, períodos 2025-10-31/2026-10-30.
+  limitacion: Son observaciones de mercado y no prueban crecimiento fundamental ni
+    valor intrínseco.
+  riesgo: El impulso de precio a 12 meses fue 56,1539% y la volatilidad a 90 días
+    fue 31,176% al 2026-10-30.
+error_mercado:
+  catalizador_cambio: Los datos disponibles no identifican catalizadores clínicos,
+    regulatorios o comerciales fechados que permitan precisar un cambio de expectativas.
+  conclusion_error_valoracion: 'No se valida un error de valoración: los objetivos
+    de analistas son referencias observadas, no una valoración intrínseca, y falta
+    evidencia para evaluar los supuestos que los sustentan.'
+  consenso_actual: El precio observado fue USD 439,33 el 2026-11-19; la media y mediana
+    de objetivos de analistas fueron USD 435,77 en esa fecha.
+  hipotesis_contraria: Los extremos publicados de objetivos de analistas, USD 230
+    y USD 542, muestran dispersión; el paquete no permite determinar qué supuestos
+    de negocio explican esa diferencia.
+  razonamiento: El precio superó el objetivo medio observado por un margen pequeño,
+    mientras el rango de objetivos es amplio. Sin estimaciones operativas, valoración
+    defendible ni evidencia sobre el pipeline, no es posible atribuir esa diferencia
+    a expectativas equivocadas.
+generated_at: '2026-11-19T18:39:42.946886-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-AMGN
+prompt_inputs:
+  business_model: Amgen Inc. discovers, develops, manufactures, and delivers human
+    therapeutics worldwide. The company's principal products include Enbrel for the
+    treatment of rheumatoid arthritis, plaque psoriasis, and psoriatic arthritis;
+    Otezla for the treatment of adult patients with plaque psoriasis, psoriatic arthritis,
+    and oral ulcers associated with Behçet's disease; Prolia to treat postmenopausal
+    women with osteoporosis; XGEVA for skeletal-related events prevention; Repatha,
+    which reduces the risks of myocardial infarction, stroke, and coronary revascularization;
+    Nplate for the treatment of patients with immune thrombocytopenia; KYPROLIS to
+    treat patients with relapsed or refractory multiple myeloma; Aranesp to treat
+    a lower-than-normal number of red blood cells and anemia; EVENITY for the treatment
+    of osteoporosis in postmenopausal for women; Vectibix to treat patients with wild-type
+    RAS metastatic colorectal cancer; BLINCYTO for the treatment of patients with
+    acute lymphoblastic leukemia; TEPEZZA to treat thyroid eye disease; and KRYSTEXXA
+    for the treatment of chronic refractory gout. It also markets other products,
+    including PROLIA, REPATHA, OTEZLA, ENBREL, EVENITY, XGEVA, TEPEZZA, BLINCYTO,
+    NPLATE, TEZSPIRE, KYPROLIS, ARANESP, KRYSTEXXA AND VECTIBIX, MVASI, PAVBLU, UPLIZNA,
+    IMDELLTRA/IMDYLLTRA, AMJEVITA/AMGEVITA, TAVNEOS, NEULASTA, LUMAKRAS/LUMYKRAS,
+    RAVICTI, PARSABIV, AIMOVIG, WEZLANA/WEZENLA, AND PROCYSBI. The company serves
+    healthcare providers, including physicians or their clinics, dialysis centers,
+    hospitals, and pharmacies. It distributes its products through pharmaceutical
+    wholesale distributors. The company has collaboration agreements with AstraZeneca
+    plc for the development and commercialization of TEZSPIRE; BEONE MEDICINES LTD.
+    to develop and commercialize Aimovig; UCB for the development and commercialization
+    of EVENITY; Kyowa Kirin Co., Ltd. for rocatinlimab development and commercialization;
+    and BeiGene, Ltd. for oncology products expansion and development. The company
+    was incorporated in 1980 and is headquartered in Thousand Oaks, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.037599999999999995
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Amgen Inc.
+  operating_margin: 34.12
+  pe_ratio: 25.48
+  products: ''
+  revenue: 38900000000.0
+  revenue_growth: 8.15
+  roic: 20.48
+  sector: Healthcare
+  ticker: AMGN
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      value: 38903.0
+    - period: FY 2023
+      period_end: '2023-12-31'
+      value: 28190.0
+  limitations: Aunque hay observaciones de ingresos para TTM y FY 2023, no existe
+    URL en trusted_source_urls que permita citar y validar el ratio conforme a las
+    instrucciones.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_growth_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      value: -16.97
+    fcf_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      value: 9581.0
+    - period: FY 2025
+      period_end: '2025-12-31'
+      value: 8100.0
+  limitations: No hay URL en trusted_source_urls; además, TTM y FY no son períodos
+    comparables para recalcular el crecimiento solicitado.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+  inputs:
+    fcf_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      value: 9581.0
+    net_income_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      value: 9391.0
+  limitations: Los inputs TTM están disponibles, pero falta URL en trusted_source_urls
+    que respalde y permita citar el cálculo.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history:
+    - period: Current
+      period_end: '2026-09-30'
+      value: 13190.0
+    ebitda: 17630000000.0
+    total_debt_history:
+    - period: Current
+      period_end: '2026-09-30'
+      value: 54007.0
+  limitations: La URL de los campos no figura en trusted_source_urls; el paquete tampoco
+    establece que cash_and_investments sea exactamente cash_and_equivalents para esta
+    fórmula.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 540910000.0
+  limitations: Falta un dato de acciones diluidas o acciones en circulación de un
+    período comparable anterior; el valor actual aislado no permite calcular dilución
+    interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: Amgen Inc. discovers, develops, manufactures, and delivers human
+    therapeutics worldwide. The company's principal products include Enbrel for the
+    treatment of rheumatoid arthritis, plaque psoriasis, and psoriatic arthritis;
+    Otezla for the treatment of adult patients with plaque psoriasis, psoriatic arthritis,
+    and oral ulcers associated with Behçet's disease; Prolia to treat postmenopausal
+    women with osteoporosis; XGEVA for skeletal-related events prevention; Repatha,
+    which reduces the risks of myocardial infarction, stroke, and coronary revascularization;
+    Nplate for the treatment of patients with immune thrombocytopenia; KYPROLIS to
+    treat patients with relapsed or refractory multiple myeloma; Aranesp to treat
+    a lower-than-normal number of red blood cells and anemia; EVENITY for the treatment
+    of osteoporosis in postmenopausal for women; Vectibix to treat patients with wild-type
+    RAS metastatic colorectal cancer; BLINCYTO for the treatment of patients with
+    acute lymphoblastic leukemia; TEPEZZA to treat thyroid eye disease; and KRYSTEXXA
+    for the treatment of chronic refractory gout. It also markets other products,
+    including PROLIA, REPATHA, OTEZLA, ENBREL, EVENITY, XGEVA, TEPEZZA, BLINCYTO,
+    NPLATE, TEZSPIRE, KYPROLIS, ARANESP, KRYSTEXXA AND VECTIBIX, MVASI, PAVBLU, UPLIZNA,
+    IMDELLTRA/IMDYLLTRA, AMJEVITA/AMGEVITA, TAVNEOS, NEULASTA, LUMAKRAS/LUMYKRAS,
+    RAVICTI, PARSABIV, AIMOVIG, WEZLANA/WEZENLA, AND PROCYSBI. The company serves
+    healthcare providers, including physicians or their clinics, dialysis centers,
+    hospitals, and pharmacies. It distributes its products through pharmaceutical
+    wholesale distributors. The company has collaboration agreements with AstraZeneca
+    plc for the development and commercialization of TEZSPIRE; BEONE MEDICINES LTD.
+    to develop and commercialize Aimovig; UCB for the development and commercialization
+    of EVENITY; Kyowa Kirin Co., Ltd. for rocatinlimab development and commercialization;
+    and BeiGene, Ltd. for oncology products expansion and development. The company
+    was incorporated in 1980 and is headquartered in Thousand Oaks, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 439.3299865722656
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.037599999999999995
+  excess_return_roic_wacc: null
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Amgen Inc. es una compañía biofarmacéutica integrada que descubre, desarrolla,
+    fabrica y comercializa terapias humanas. Su cadena de valor abarca investigación
+    y desarrollo, ensayos clínicos, autorizaciones regulatorias, fabricación y comercialización.
+
+
+    La información aportada describe productos comercializados como Enbrel y Otezla,
+    y relaciones comerciales con médicos, clínicas y hospitales. No especifica de
+    forma verificable la distribución de ingresos por geografía, producto o área terapéutica.
+
+
+    Amgen opera en una industria intensiva en investigación, capital y regulación.
+    Entre las compañías relacionadas del sector figuran [[ABBV]] y [[ABT]].
+
+
+    **Base de evidencia:** perfil de negocio y productos según AOIF; la entrada de
+    Wiki existente también describe a Amgen como desarrolladora, fabricante y comercializadora
+    de terapias humanas a escala mundial. No se proporcionan fechas ni fuentes primarias
+    para esas descripciones.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    Los ingresos dependen de la venta de terapias comercializadas y, en términos generales,
+    de la capacidad de desarrollar y lanzar productos que compensen la maduración
+    de productos existentes. Los inputs identifican Enbrel y Otezla, pero no incluyen
+    ventas por producto, contribución geográfica, precios, volúmenes ni concentración
+    de ingresos.
+
+
+    ### Moat y competencia
+
+
+    AOIF caracteriza el moat potencial como amplio y la posición competitiva como
+    líder. Las ventajas identificadas —de manera cualitativa y sin evidencia cuantitativa
+    adjunta— incluyen:
+
+
+    - Patentes y exclusividad regulatoria.
+
+    - Evidencia clínica y reputación médica.
+
+    - Escala de investigación y desarrollo y capacidades de fabricación.
+
+    - Relaciones comerciales con profesionales e instituciones sanitarias.
+
+
+    Estas ventajas pueden sostener la posición competitiva, pero dependen de la continuidad
+    de la protección de productos, de los resultados clínicos y regulatorios y de
+    la capacidad de renovar la cartera.
+
+
+    ### Dinámica competitiva
+
+
+    La industria requiere inversión sostenida en I+D y está expuesta a competencia
+    de biosimilares o genéricos cuando expira la exclusividad, así como a la competencia
+    por innovación clínica y comercial. La exposición específica de cada producto
+    y la posición frente a competidores no están documentadas en los inputs. Entre
+    las comparables sectoriales disponibles en la Wiki figuran [[ABBV]] y [[ABT]].
+
+
+    **Evaluación provisional:** AOIF califica la amplitud del moat como “amplio” y
+    la posición como “líder”; DDD califica la calidad del negocio como “buena”. Estas
+    valoraciones son cualitativas y no vienen acompañadas de análisis verificable
+    por producto.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras y métricas siguientes proceden de observaciones seleccionadas en DDD
+    y AOIF. Los inputs no incluyen enlaces a informes, definiciones completas de las
+    métricas ni series comparables; por ello, deben tratarse como datos reportados
+    por la investigación, pendientes de verificación.
+
+
+    | Métrica | Valor reportado | Periodo o fecha | Limitaciones |
+
+    |---|---:|---|---|
+
+    | Flujo de caja libre (FCF) TTM | USD 10.180 millones | Periodo terminado el 30-06-2026
+    | DDD lo identifica como observación seleccionada; no aporta cálculo ni fuente
+    primaria. |
+
+    | Crecimiento de ingresos TTM | 9,1% | Al 30-06-2026 | No se aporta base comparativa
+    ni desglose por producto o geografía. |
+
+    | Precio observado | USD 439,33 | 19-11-2026 | Cotización reportada en DDD; no
+    se incluye fuente de mercado. |
+
+    | Objetivo medio observado | USD 435,77 | 19-11-2026 | Referencia de analistas,
+    no estimación de valor intrínseco; no se aportan fuentes ni composición del consenso.
+    |
+
+    | P/E | 25,48 | Fecha y base no especificadas | AOIF señala que faltan fecha,
+    precio de referencia y base verificable. |
+
+    | EV/EBITDA | 15,93 | Fecha y base no especificadas | AOIF señala que faltan fecha
+    y definición de la base utilizada. |
+
+
+    DDD califica la salud financiera como “adecuada” y el crecimiento como “moderado”.
+    AOIF considera la tendencia financiera “estable”, pero indica que no recibió cifras
+    comparables suficientes para evaluar rigurosamente la conversión de caja, el ROIC
+    o los márgenes. No se aportan datos de deuda, efectivo, vencimientos, liquidez,
+    margen operativo verificable ni estructura de capital.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La información disponible no permite una evaluación concluyente del liderazgo
+    ni del gobierno corporativo. AOIF asigna una calidad de management “regular”,
+    alineamiento de insiders “moderado” y asignación de capital “neutral”, pero identifica
+    estas conclusiones como provisionales por falta de datos actuales.
+
+
+    No se proporcionan datos verificables sobre:
+
+
+    - Trayectoria y resultados del equipo directivo.
+
+    - Remuneración ejecutiva, métricas de incentivos o tenencia accionaria de directivos.
+
+    - Composición, independencia, experiencia o comités del consejo de administración.
+
+    - Historial de adquisiciones, recompras, dividendos u otras decisiones de asignación
+    de capital.
+
+
+    **Conclusión:** las calificaciones disponibles no deben interpretarse como una
+    evaluación fundamentada del equipo directivo o del consejo hasta contrastarlas
+    con información corporativa y regulatoria.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista
+
+
+    - **Negocio biofarmacéutico integrado:** la compañía cubre descubrimiento, desarrollo,
+    fabricación y comercialización de terapias humanas. Esta integración puede aportar
+    capacidades a lo largo de la cadena de valor, aunque los inputs no cuantifican
+    sus efectos económicos.
+
+    - **Cartera de productos comercializados:** AOIF identifica Enbrel y Otezla. La
+    existencia de productos comercializados puede servir de base para ingresos recurrentes,
+    pero no se aportan ventas, crecimiento ni duración de exclusividad por producto.
+
+    - **Capacidades y barreras potenciales:** AOIF identifica patentes, exclusividad
+    regulatoria, evidencia clínica, reputación y escala como fuentes posibles de ventaja
+    competitiva. Su valor depende de la vigencia de esas ventajas y de la ejecución
+    clínica y comercial.
+
+    - **Generación de caja reportada:** DDD registra FCF TTM de USD 10.180 millones
+    al 30-06-2026 y crecimiento de ingresos TTM de 9,1% a esa fecha. Son observaciones
+    favorables si se confirman con estados financieros comparables.
+
+    - **Posibles avances de cartera:** nuevas publicaciones de ensayos, decisiones
+    regulatorias o lanzamientos podrían modificar las expectativas sobre la cartera.
+    No se identifican en los inputs candidatos concretos ni fechas de eventos.
+
+
+    La tesis es **provisional**: los datos aportados sugieren capacidad de generación
+    de caja y una cartera comercial, pero no permiten verificar la durabilidad del
+    crecimiento, la composición de ingresos ni la valoración intrínseca.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos clave
+
+
+    | Riesgo | Impacto indicado | Probabilidad indicada | Evidencia y limitaciones
+    |
+
+    |---|---|---|---|
+
+    | Pérdida de exclusividad y competencia de biosimilares o genéricos | Alto | Alta
+    en AOIF; media en la formulación de DDD | Riesgo sectorial identificado; no se
+    detallan productos, fechas de expiración ni exposición económica. |
+
+    | Resultados clínicos adversos o problemas de seguridad | Alto | Media en AOIF;
+    no cuantificada en DDD | Riesgo sobre productos y candidatos; no se informa de
+    un evento específico. |
+
+    | Retrasos de desarrollo o autorizaciones regulatorias desfavorables | Alto |
+    Media en AOIF para resultados clínicos adversos o incapacidad de reemplazar ventas
+    | No se identifican ensayos, decisiones o calendarios concretos. |
+
+    | Presión de precios o deterioro de márgenes | No cuantificado | No cuantificada
+    | DDD la incluye entre los riesgos potenciales, pero no aporta datos sobre productos
+    o mercados afectados. |
+
+    | Dependencia de instalaciones, insumos y controles de calidad | No cuantificado
+    | No cuantificada | DDD señala exposición potencial propia de la fabricación farmacéutica;
+    no reporta incidentes ni cuellos de botella específicos. |
+
+
+    ### Contra-tesis
+
+
+    El mercado podría estar valorando de forma adecuada —o excesiva— la capacidad
+    de la cartera para sostener ingresos y caja. La cercanía entre el precio observado
+    de USD 439,33 y el objetivo medio reportado de USD 435,77 no demuestra infravaloración:
+    los objetivos de analistas son referencias, no una valoración intrínseca. DDD
+    clasifica el posible error de valoración como **incierto**.
+
+
+    ### Triggers de falsación
+
+
+    La tesis se debilitaría si la evidencia futura mostrara, entre otros aspectos:
+
+
+    - Caídas persistentes de ingresos, márgenes o FCF.
+
+    - Pérdida de exclusividad con sustitución insuficiente de ventas por productos
+    nuevos.
+
+    - Resultados clínicos, decisiones regulatorias o problemas de seguridad que reduzcan
+    el potencial de la cartera.
+
+    - Deterioro de la conversión de caja, endeudamiento o capacidad de financiar I+D
+    y otras obligaciones.
+
+
+    Los inputs no fijan umbrales cuantitativos para estos triggers; deberán definirse
+    tras obtener series financieras y datos por producto.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    No se aportan eventos corporativos o regulatorios específicos con fecha confirmada.
+    Los catalizadores siguientes son categorías de seguimiento, no anuncios de eventos
+    concretos.
+
+
+    | Evento potencial | Fecha esperada según inputs | Horizonte | Impacto potencial
+    | Confianza reportada |
+
+    |---|---|---|---|---|
+
+    | Publicación de resultados futuros y actualización de ingresos y FCF | Sin fecha
+    especificada | Corto | Medio | Baja; probabilidad indicativa de 50% en DDD |
+
+    | Actualizaciones de ensayos, decisiones regulatorias o lanzamientos | Sin producto
+    ni fecha especificados | Medio | Alto | Baja; probabilidad indicativa de 40% en
+    DDD |
+
+
+    **Fechas de referencia de la investigación:** DDD sitúa su análisis de escenarios
+    al 19-11-2026 y fija un horizonte al 19-11-2027. Estas fechas son referencias
+    del análisis, no calendarios de eventos corporativos confirmados.
+
+
+    ## 8. Marco de Valoración
+
+
+    ### Metodología apropiada
+
+
+    Para una biofarmacéutica integrada, una evaluación fundamentada debería combinar:
+
+
+    1. **Flujos de caja descontados (DCF):** con proyecciones explícitas de ingresos,
+    márgenes, impuestos, inversión, capital de trabajo y riesgo de cartera.
+
+    2. **Análisis por producto o cartera:** incorporando ventas, vencimientos de exclusividad,
+    competencia, probabilidad de éxito clínico y comercial, y potencial de sustitución
+    de productos maduros.
+
+    3. **Múltiplos comparables:** P/E y EV/EBITDA pueden servir como referencias,
+    siempre que se normalicen periodos, definiciones y composición de la deuda.
+
+    4. **Escenarios de sensibilidad:** variando crecimiento, márgenes, duración de
+    exclusividad, éxito de lanzamientos, competencia y tasa de descuento.
+
+
+    ### Datos observados y límites
+
+
+    DDD reporta un precio de USD 439,33 y un objetivo medio de analistas de USD 435,77
+    al 19-11-2026; también describe el precio como cercano al objetivo medio. AOIF
+    reporta P/E de 25,48 y EV/EBITDA de 15,93, pero advierte que no se indican fecha,
+    precio de referencia ni base de cálculo. AOIF considera el margen de seguridad
+    “insuficiente” y no estima un valor intrínseco independiente.
+
+
+    DDD presenta escenarios anclados en extremos del rango de objetivos observado
+    —USD 230 para el escenario bajista y USD 542 para el alcista—, pero aclara que
+    no son valoraciones propias. No se aportan probabilidades de escenario ni supuestos
+    operativos que permitan interpretarlos como objetivos de valor.
+
+
+    **Conclusión de valoración:** DDD clasifica la oportunidad como *quality_at_fair_price*
+    y la opinión de valoración como “justo”, pero ambas conclusiones son provisionales.
+    La evidencia disponible no permite calcular de forma independiente el valor intrínseco
+    ni confirmar un margen de seguridad.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Qué muestran los informes corporativos y regulatorios más recientes sobre
+    ingresos, márgenes, caja, deuda y vencimientos?
+
+    2. ¿Cómo se reconcilia el FCF TTM reportado de USD 10.180 millones con los estados
+    financieros del periodo terminado el 30-06-2026?
+
+    3. ¿Cuál es la evolución histórica de crecimiento de ingresos, FCF, margen operativo,
+    ROIC y conversión de caja en periodos comparables?
+
+    4. ¿Qué proporción de ingresos y beneficios aporta cada producto y geografía?
+    ¿Cuál es la concentración de la cartera?
+
+    5. ¿Qué productos están expuestos a pérdida de exclusividad, biosimilares, genéricos
+    o presión de precios, y en qué fechas?
+
+    6. ¿Qué candidatos, ensayos, decisiones regulatorias y lanzamientos constituyen
+    los catalizadores concretos de los próximos 12–24 meses?
+
+    7. ¿Qué evidencia clínica, comercial y regulatoria respalda la durabilidad del
+    moat y la calificación cualitativa de posición competitiva líder?
+
+    8. ¿Cuál es el nivel y calendario de deuda, liquidez disponible y capacidad de
+    financiar I+D, inversiones y retornos al accionista?
+
+    9. ¿Cómo se determinan las cifras de P/E y EV/EBITDA reportadas por AOIF, y qué
+    fecha y base contable utilizan?
+
+    10. ¿Qué fuentes y composición sustentan el objetivo medio de USD 435,77 y el
+    rango utilizado para los escenarios de USD 230–542?
+
+    11. ¿Qué datos recientes permiten evaluar asignación de capital, compensación
+    ejecutiva, propiedad de insiders y composición del consejo?
+
+    12. ¿Existen concentraciones o dependencias materiales en instalaciones, proveedores,
+    insumos o procesos de fabricación?
+
+
+    **Agenda prioritaria:** verificar las cifras financieras y de valoración con fuentes
+    primarias; obtener ventas, exclusividad y competencia por producto; y construir
+    una serie histórica comparable antes de actualizar la clasificación de oportunidad
+    o la tesis.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ABBV|AbbVie Inc.]], [[ABT|Abbott Laboratories]]
+
+    - **Same Industry**: [[ABBV|AbbVie Inc.]]'
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-19T19:15:32.125611+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/AMGN/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 9580000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 34.120998}, "observed_at": "2026-11-19T19:15:32.125611+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/AMGN/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 34.12}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 8.5}, "observed_at": "2026-11-19T19:15:32.125611+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/amgn/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 8.15}}}, "observed_at": "2026-11-19T19:15:32.125611+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Amgen Inc.
+  operating_margin: 34.12
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Amgen Inc. discovers, develops, manufactures, and delivers human
+    therapeutics worldwide. The company's principal products include Enbrel for the
+    treatment of rheumatoid arthritis, plaque psoriasis, and psoriatic arthritis;
+    Otezla for the treatment of adult patients with plaque psoriasis, psoriatic arthritis,
+    and oral ulcers associated with Behçet's disease; Prolia to treat postmenopausal
+    women with osteoporosis; XGEVA for skeletal-related events prevention; Repatha,
+    which reduces the risks of my
+  revenue: 38900000000.0
+  revenue_growth: 8.15
+  roic: 20.48
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AMGN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    542.0, "low": 230.0, "mean": 435.77, "median": 435.77, "observed_at": "2026-11-19T18:37:00.519607-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T18:37:00.519607-03:00", "observed_date": "2026-11-19", "target_price":
+    435.77, "url": "https://stockanalysis.com/stocks/amgn/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T18:37:00.519607-03:00",
+    "observed_date": "2026-11-19", "target_price": 435.7714, "url": "https://finance.yahoo.com/quote/AMGN/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 439.3299865722656,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AMGN/"}]}}'
+  sector: Healthcare
+  ticker: AMGN
+research_trigger:
+  discovery_snapshot_hash: f6217e46840bcb9194efabaac115ee38831bfb4861aa91d6bee24efde4dc147e
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 395ca5a3dc5eac5394893dbd67b71097c02e6c8cf4e5c8faf7723594122fd67f
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-19T18:39:42.946886-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- assessment_note: Observación de umbral, no decisión de inversión.
+  metric: current_ratio
+  observation: 'El valor reportado es 1,48 al 2026-09-30, por encima del umbral; fuente
+    indicada: StockAnalysis.'
+  threshold: below 0.5
+- assessment_note: No puede evaluarse frente al umbral.
+  metric: dilution_yoy_pct
+  observation: 'No disponible: falta una serie comparable de acciones.'
+  threshold: above 10%
+- assessment_note: No interpretar como cobertura económica confirmada.
+  metric: interest_coverage
+  observation: El campo reporta 0 al 2026-09-30; requiere verificación por posible
+    anomalía y no se pudo reconstruir con inputs verificables.
+  threshold: below 2.0x
+- assessment_note: El umbral se refiere a runway con FCF negativo.
+  metric: negative_fcf_runway_months
+  observation: No aplica al FCF TTM reportado como positivo al 2026-09-30.
+  threshold: below 12 months
+- assessment_note: No puede evaluarse frente al umbral.
+  metric: net_debt_ebitda
+  observation: 'No calculado: falta validación de fuente autorizada y de compatibilidad
+    del efectivo con la fórmula.'
+  threshold: above 4.0x
+- assessment_note: No puede evaluarse frente al umbral.
+  metric: share_count_cagr_3y_pct
+  observation: 'No disponible: no se proporcionó una serie comparable de acciones
+    para tres años.'
+  threshold: above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 42
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T18:37:00.519607-03:00'
+  fuentes:
+    stockanalysis: 435.77
+    yfinance: 435.7714
+  mediana: 435.77
+  n_fuentes: 2
+  promedio: 435.77
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T18:37:00.519607-03:00'
+    observed_date: '2026-11-19'
+    target_price: 435.77
+    url: https://stockanalysis.com/stocks/amgn/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T18:37:00.519607-03:00'
+    observed_date: '2026-11-19'
+    target_price: 435.7714
+    url: https://finance.yahoo.com/quote/AMGN/
+  target_high: 542.0
+  target_low: 230.0
+tesis_inversion: La tesis a investigar es si Amgen puede sostener crecimiento y generación
+  de caja mediante su cartera de terapias y reinversión eficaz, preservando márgenes
+  frente a competencia y riesgos de producto. La evidencia suministrada confirma ingresos,
+  margen bruto y flujo de caja libre, pero no permite validar penetración de mercado,
+  ventaja competitiva, retornos sobre capital ni asignación de capital.
+ticker: AMGN
+version: '3.0'

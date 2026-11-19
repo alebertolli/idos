@@ -1,0 +1,390 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Evaluación del moat basado en liderazgo de CPU/GPU
+  - Valoración de la calidad del management
+  - Estimación de riesgos ESG y de cadena de suministro
+  - Asignación de probabilidades a catalizadores
+  - Precio actual 481.38 USD (yfinance, 2026-11-19)
+  - Target consensus mean 657.74 USD (stockanalysis.com, 2026-11-19)
+  - FCF TTM 8.4B USD (stockanalysis.com, 2026-06-27)
+  - Operating margin TTM 15.82% (stockanalysis.com, 2026-06-27)
+  - Revenue growth TTM 39.54% (stockanalysis.com, 2026-06-27)
+  preguntas_abiertas:
+  - ¿Cuál es el nivel de deuda neta y ratios de apalancamiento de AMD?
+  - Detalles de la hoja de ruta de productos AI para 2027‑2028
+  - Impacto exacto de la integración de Xilinx en ingresos y margen
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: compounder_castigado (no está fuera de favor), turnaround
+    (no hay declive operativo), deep_value (no es un negocio commodity ni con PER/EV
+    bajo), ciclica (aunque la demanda de semiconductores tiene ciclo, el moat y la
+    diversificación reducen la exposición cíclica), special_situation (no hay spin‑off
+    ni reestructuración), distressed (balance sólido), hype (aunque hay crecimiento,
+    los fundamentos son fuertes), value_trap (no hay destrucción de valor estructural).
+  justificacion: AMD posee un modelo de negocio de alta calidad con liderazgo en CPU
+    y GPU, fuerte presencia en IA y centros de datos, y márgenes operativos sólidos
+    (15.8%). La generación de flujo de caja libre es alta (8.4 B USD) y la tasa de
+    crecimiento de ingresos es superior al 30% YoY, lo que indica capacidad de compounding
+    a largo plazo. La valoración actual (481 USD) está por debajo del rango de consenso
+    de analistas (525‑1250 USD), sugiriendo que el mercado no está valorando plenamente
+    su potencial.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: AMD mantiene una posición competitiva dominante en CPUs de alto rendimiento
+    y GPUs, con una arquitectura de diseño heterogéneo que le permite ofrecer soluciones
+    integradas (APU). Su moat se basa en patentes, ecosistema de software (ROCm) y
+    relaciones estratégicas con OEMs y proveedores de cloud.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Lanzamiento y adopción masiva de la GPU/AI accelerator MI300X
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+- descripcion: Incremento de pedidos de centros de datos de los principales proveedores
+    de cloud (AWS, Azure, Google)
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 25
+- descripcion: Beneficios de la integración de Xilinx (IP y mercado de FPGA)
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 20
+dominio_esg_supply_chain:
+  analisis: No se dispone de datos ESG específicos en la evidencia. Los semiconductores
+    presentan riesgos típicos de cadena de suministro (dependencia de foundries como
+    TSMC) y consumo energético, pero AMD ha anunciado objetivos de reducción de carbono
+    y diversificación de proveedores.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Flujo de caja libre TTM de 8.4 B USD y margen operativo del 15.8% indican
+    generación de efectivo robusta. No se dispone de datos de deuda en la evidencia,
+    pero la alta generación de caja sugiere capacidad para cubrir obligaciones y financiar
+    inversiones sin presión de liquidez.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento de ingresos TTM del 39.5% y fuerte demanda en IA, data center
+    y gaming. La expansión de la línea de aceleradores AI y la integración de Xilinx
+    abren oportunidades de ingresos adicionales.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo liderado por Lisa Su ha demostrado una asignación de capital
+    disciplinada, con inversiones en I+D que han traducido en lanzamientos de productos
+    de alta gama y adquisiciones estratégicas (p.ej. Xilinx) que amplían el portafolio
+    de soluciones.
+  rating: excepcional
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Competencia intensiva de Nvidia y Intel en AI y data center
+- impacto: alto
+  probabilidad: media
+  riesgo: Escasez de capacidad de fabricación (foundry) y aumento de costos
+- impacto: medio
+  probabilidad: media
+  riesgo: Desaceleración macro que reduzca gasto de capital en TI
+error_mercado:
+  catalizador_cambio:
+    descripcion: Lanzamiento y adopción masiva de la próxima generación de GPU/AI
+      accelerator (ej. MI300X) con pedidos significativos de los principales proveedores
+      de cloud.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas esperan un precio objetivo medio de 658 USD (rango
+    525‑1250 USD), lo que implica que el mercado está descontando gran parte del potencial
+    de crecimiento de AMD en IA, centros de datos y gaming.
+  hipotesis_contraria: El consenso podría estar sobrestimando la capacidad de AMD
+    para capturar cuota de mercado frente a Nvidia y la posible desaceleración macro
+    que reduzca la inversión en infraestructura de datos. Además, la escasez de suministro
+    de semiconductores y la presión de precios podrían limitar los márgenes futuros.
+  razonamiento: El precio actual está por debajo del límite inferior del consenso
+    analista, lo que indica que el mercado está subvalorando el negocio. La evidencia
+    de fuerte generación de caja y crecimiento de ingresos respalda la hipótesis de
+    que el precio podría subir significativamente si se materializan los catalizadores
+    de IA y data center.
+generated_at: '2026-11-19T18:35:42.444811-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-012
+prompt_inputs:
+  business_model: 'Advanced Micro Devices, Inc. operates as a semiconductor company
+    internationally. It operates in three segments: Data Center, Client and Gaming,
+    and Embedded. The company offers artificial intelligence (AI) accelerators, microprocessors,
+    and graphics processing units (GPUs) as standalone devices or as incorporated
+    into accelerated processing units, chipsets, and data center and professional
+    GPUs; and embedded processors and semi-custom system-on-chip (SoC) products, microprocessor
+    and SoC development services and technology, data processing units, field programmable
+    gate arrays (FPGA), system on modules, AI network interface cards, and adaptive
+    SoC products. It provides processors under the AMD Ryzen, AMD Ryzen AI, AMD Ryzen
+    PRO, AMD Ryzen Threadripper, AMD Ryzen Threadripper PRO, AMD Athlon, and AMD PRO
+    A-Series brands; graphics under the AMD Radeon graphics and AMD Embedded Radeon
+    graphics; professional graphics under the AMD Radeon Pro graphics brand; and AI
+    and general-purpose compute infrastructure for hyperscale providers. The company
+    offers data center graphics under the AMD Instinct accelerators and Radeon PRO
+    V-series brands; server microprocessors under the AMD EPYC brand; low power solutions
+    under the AMD Athlon, AMD Geode, AMD Ryzen, AMD EPYC, and AMD R-Series and G-Series
+    brands; FPGA products under the Virtex-6, Virtex-7, Virtex UltraScale+, Kintex-7,
+    Kintex UltraScale, Kintex UltraScale+, Artix-7, Artix UltraScale+, Spartan-6,
+    and Spartan-7 brands; adaptive SOCs under the Zynq-7000, Zynq UltraScale+ MPSoC,
+    Zynq UltraScale+ RFSoCs, Versal HBM, Versal Premium, Versal Prime, Versal AI Core,
+    Versal AI Edge, Vitis, and Vivado brands; and compute and network acceleration
+    board products under the Alveo and Pensando brands. It serves original equipment
+    and design manufacturers, public cloud service providers, system integrators,
+    distributors, and add-in-board manufacturers. The company was incorporated in
+    1969 and is headquartered in Santa Clara, California.'
+  ceo_tenure: 0
+  debt_to_equity: 0.13
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Advanced Micro Devices, Inc.
+  operating_margin: 17.82
+  pe_ratio: 114.91
+  products: ''
+  revenue: 45440000000.0
+  revenue_growth: 41.87
+  roic: 12.82
+  sector: Technology
+  ticker: AMD
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: 'Advanced Micro Devices, Inc. operates as a semiconductor company
+    internationally. It operates in three segments: Data Center, Client and Gaming,
+    and Embedded. The company offers artificial intelligence (AI) accelerators, microprocessors,
+    and graphics processing units (GPUs) as standalone devices or as incorporated
+    into accelerated processing units, chipsets, and data center and professional
+    GPUs; and embedded processors and semi-custom system-on-chip (SoC) products, microprocessor
+    and SoC development services and technology, data processing units, field programmable
+    gate arrays (FPGA), system on modules, AI network interface cards, and adaptive
+    SoC products. It provides processors under the AMD Ryzen, AMD Ryzen AI, AMD Ryzen
+    PRO, AMD Ryzen Threadripper, AMD Ryzen Threadripper PRO, AMD Athlon, and AMD PRO
+    A-Series brands; graphics under the AMD Radeon graphics and AMD Embedded Radeon
+    graphics; professional graphics under the AMD Radeon Pro graphics brand; and AI
+    and general-purpose compute infrastructure for hyperscale providers. The company
+    offers data center graphics under the AMD Instinct accelerators and Radeon PRO
+    V-series brands; server microprocessors under the AMD EPYC brand; low power solutions
+    under the AMD Athlon, AMD Geode, AMD Ryzen, AMD EPYC, and AMD R-Series and G-Series
+    brands; FPGA products under the Virtex-6, Virtex-7, Virtex UltraScale+, Kintex-7,
+    Kintex UltraScale, Kintex UltraScale+, Artix-7, Artix UltraScale+, Spartan-6,
+    and Spartan-7 brands; adaptive SOCs under the Zynq-7000, Zynq UltraScale+ MPSoC,
+    Zynq UltraScale+ RFSoCs, Versal HBM, Versal Premium, Versal Prime, Versal AI Core,
+    Versal AI Edge, Vitis, and Vivado brands; and compute and network acceleration
+    board products under the Alveo and Pensando brands. It serves original equipment
+    and design manufacturers, public cloud service providers, system integrators,
+    distributors, and add-in-board manufacturers. The company was incorporated in
+    1969 and is headquartered in Santa Clara, California.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 481.3800048828125
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.13
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:50.912788+00:00", "period_end_date": "2026-06-27",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-27", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/AMD/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 8400000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 17.25}, "observed_at": "2026-11-01T10:16:50.912788+00:00",
+    "period_end_date": "2026-06-27", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-27", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/AMD/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-06-27", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 15.82}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 50.1}, "observed_at": "2026-11-01T10:16:50.912788+00:00", "period_end_date":
+    "2026-06-27", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-27", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/amd/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-06-27", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 39.54}}}, "observed_at": "2026-11-19T19:15:30.452467+00:00",
+    "period_end": "2026-09-26", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Advanced Micro Devices, Inc.
+  operating_margin: 17.82
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Advanced Micro Devices, Inc. operates as a semiconductor company
+    internationally. It operates in three segments: Data Center, Client and Gaming,
+    and Embedded. The company offers artificial intelligence (AI) accelerators, microprocessors,
+    and graphics processing units (GPUs) as standalone devices or as incorporated
+    into accelerated processing units, chipsets, and data center and professional
+    GPUs; and embedded processors and semi-custom system-on-chip (SoC) products, microprocessor
+    and SoC develo'
+  revenue: 45440000000.0
+  revenue_growth: 41.87
+  roic: 12.82
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    1250.0, "low": 525.0, "mean": 657.74, "median": 657.74, "observed_at": "2026-11-19T18:35:33.233590-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T18:35:33.233590-03:00", "observed_date": "2026-11-19", "target_price":
+    657.74, "url": "https://stockanalysis.com/stocks/amd/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T18:35:33.233590-03:00",
+    "observed_date": "2026-11-19", "target_price": 657.74286, "url": "https://finance.yahoo.com/quote/AMD/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 481.3800048828125,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AMD/"}]}}'
+  sector: Technology
+  ticker: AMD
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 0f1a77d564086c3fc641f7738ef76d843b34459c359ee5fcad57e6bd27f7a0c6
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-19T18:35:42.444811-03:00'
+resumen_ejecutivo: AMD combina un liderazgo tecnológico en CPU, GPU y aceleradores
+  de IA con una sólida generación de flujo de caja y márgenes operativos saludables.
+  El precio de mercado está por debajo del rango de consenso, lo que sugiere una oportunidad
+  de compra. Los principales riesgos son la competencia intensiva y la volatilidad
+  macro, pero los catalizadores de nuevos productos y la expansión en centros de datos
+  pueden impulsar una revaluación al alza.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2028-11-19'
+  scenarios:
+  - falsifiers:
+    - Ingresos TTM superior al 30%
+    - Margen operativo mantenido > 14%
+    - Anuncios de grandes pedidos de data center
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos < 20% YoY
+    - Margen operativo cae por debajo del 12%
+    - FCF se reduce a menos de 5B USD
+    rationale: Escenario adverso donde la competencia de Nvidia gana cuota de mercado,
+      la demanda de IA se desacelera y la escasez de capacidad de fabricación eleva
+      los costos, reduciendo márgenes y flujo de caja.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/amd/forecast
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AMD/
+    target_price: 450
+  - falsifiers:
+    - Crecimiento de ingresos inferior al 30%
+    - Margen operativo estancado < 15%
+    - Retrasos en el lanzamiento de MI300X
+    id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos > 45% YoY
+    - Margen operativo mejora a > 18%
+    - FCF supera los 10B USD
+    rationale: Escenario optimista donde AMD captura una cuota significativa del mercado
+      de IA, lanza con éxito la GPU MI300X y asegura pedidos de data center de los
+      principales proveedores, impulsando ingresos y márgenes.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/amd/forecast
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AMD/
+    target_price: 800
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 85
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T18:35:33.233590-03:00'
+  fuentes:
+    stockanalysis: 657.74
+    yfinance: 657.74286
+  mediana: 657.74
+  n_fuentes: 2
+  promedio: 657.74
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T18:35:33.233590-03:00'
+    observed_date: '2026-11-19'
+    target_price: 657.74
+    url: https://stockanalysis.com/stocks/amd/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T18:35:33.233590-03:00'
+    observed_date: '2026-11-19'
+    target_price: 657.74286
+    url: https://finance.yahoo.com/quote/AMD/
+  target_high: 1250.0
+  target_low: 525.0
+tesis_inversion: AMD combina un moat tecnológico sólido con una generación de caja
+  libre robusta y un crecimiento de ingresos superior al 30% YoY. El precio actual
+  está por debajo del rango de consenso, lo que indica una subvaloración que puede
+  corregirse con la materialización de los catalizadores de IA y data center.
+ticker: AMD
+version: '3.0'
