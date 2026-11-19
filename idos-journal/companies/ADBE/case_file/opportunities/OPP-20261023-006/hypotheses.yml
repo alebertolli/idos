@@ -1,0 +1,170 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La tasa de renovación bruta reportada en el trimestre Q2 FY2027 es
+      ≤ 90%
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una tendencia descendente sostenida de la tasa de renovación durante
+      tres trimestres consecutivos
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La tasa de renovación bruta reportada en el trimestre Q2 FY2027 es ≤ 90%
+  - Una tendencia descendente sostenida de la tasa de renovación durante tres trimestres
+    consecutivos
+  horizon: corto
+  id: H1-OPP-20261023-006
+  opportunity_id: OPP-20261023-006
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 92.0
+    met: null
+    metric: tasa_de_renovacion_bruta
+    prediction: La tasa de renovación bruta alcanzará al menos 92% en el trimestre
+      que cierre el 2027-06-30.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: La integración de IA generativa en Photoshop, Illustrator y otras apps
+    ha sido anunciada y los clientes valoran la mejora de productividad; históricamente,
+    mejoras de producto aumentan la retención. Además, la base de suscriptores está
+    en fase de madurez, lo que favorece la lealtad.
+  review_trigger: Si al cierre del trimestre Q2 FY2027 (2027-03-31) la tasa de renovación
+    bruta está ≤ 90% y no muestra señales de mejora.
+  secondary_hypotheses: []
+  statement: Adobe incrementará la tasa de renovación bruta de suscripciones de Creative
+    Cloud gracias a la incorporación de funcionalidades generativas de IA, superando
+    el 92% antes del 2027-06-30.
+  status: ACTIVE
+  ticker: ADBE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de FCF reportado para FY2028 es < 25%
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una caída del margen de FCF de más del 5% respecto al FY2027
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de FCF reportado para FY2028 es < 25%
+  - Una caída del margen de FCF de más del 5% respecto al FY2027
+  horizon: medio
+  id: H2-OPP-20261023-006
+  opportunity_id: OPP-20261023-006
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 30.0
+    met: null
+    metric: margen_fcf
+    prediction: El margen de FCF será ≥ 30% en el FY2028.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: Una mayor retención reduce costos de adquisición; la automatización de
+    procesos internos y la monetización de IA generan ingresos de alto margen. Adobe
+    históricamente mantiene márgenes operativos superiores al 35%, lo que sugiere
+    capacidad para elevar el FCF.
+  review_trigger: Si al cierre del Q4 FY2028 (2028-12-31) el margen de FCF es < 25%
+    y la tendencia es a la baja.
+  secondary_hypotheses:
+  - H1-OPP-20261023-006
+  statement: El margen de flujo de caja libre (FCF/Ingresos) de Adobe superará el
+    30% al cierre del ejercicio fiscal 2028 (2028-12-31) impulsado por mayores renovaciones
+    y eficiencias operativas.
+  status: ACTIVE
+  ticker: ADBE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EV/EBITDA permanece > 22 al 2028-06-30
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El múltiplo sube a > 24 en cualquier punto antes del 2028-12-31
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EV/EBITDA permanece > 22 al 2028-06-30
+  - El múltiplo sube a > 24 en cualquier punto antes del 2028-12-31
+  horizon: largo
+  id: H3-OPP-20261023-006
+  opportunity_id: OPP-20261023-006
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 20.0
+    met: null
+    metric: EV/EBITDA
+    prediction: EV/EBITDA será ≤ 20 al cierre del 2028-12-31.
+    unit: veces
+  priority: important
+  probability: 0.5
+  rationale: Los analistas están sobrevalorando a Adobe basándose en múltiplos de
+    software de crecimiento rápido, sin ajustar por su alta generación de caja y márgenes
+    estables. Una mayor claridad sobre la monetización de IA y la sinergia con Figma
+    reducirá la prima de valoración.
+  review_trigger: Si el 30 de junio de 2028 (2028-06-30) el EV/EBITDA está > 22, indicando
+    que el mercado no ha ajustado la valoración.
+  secondary_hypotheses:
+  - H2-OPP-20261023-006
+  statement: El múltiplo EV/EBITDA de Adobe se revaluará a ≤ 20x antes del 2028-12-31,
+    reflejando una corrección de valoración frente a comparables de alto múltiplo.
+  status: ACTIVE
+  ticker: ADBE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de Figma representan < 3% del total en el trimestre Q1
+      FY2028
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No hay crecimiento interanual del ingreso de Figma superior al 10%
+      en los últimos dos trimestres
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de Figma representan < 3% del total en el trimestre Q1 FY2028
+  - No hay crecimiento interanual del ingreso de Figma superior al 10% en los últimos
+    dos trimestres
+  horizon: medio
+  id: H4-OPP-20261023-006
+  opportunity_id: OPP-20261023-006
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: participacion_ingresos_figma
+    prediction: Ingresos de Figma ≥ 5% del total de ingresos consolidados en el trimestre
+      que cierre el 2028-03-31.
+    unit: porcentaje
+  priority: informational
+  probability: 0.5
+  rationale: Desde la adquisición, Adobe ha lanzado paquetes combinados y funcionalidades
+    cruzadas que facilitan la adopción de Figma dentro del ecosistema Creative Cloud.
+    La tendencia de crecimiento de usuarios de Figma y la estrategia de cross‑selling
+    sugieren una contribución creciente.
+  review_trigger: Si al cierre del Q1 FY2028 (2028-03-31) la participación de ingresos
+    de Figma es < 3% y la tasa de crecimiento anual es ≤ 10%.
+  secondary_hypotheses:
+  - H1-OPP-20261023-006
+  statement: Los ingresos atribuibles a la integración de Figma representarán al menos
+    el 5% del total de ingresos de Adobe antes del 2028-03-31.
+  status: ACTIVE
+  ticker: ADBE
+  version: 1

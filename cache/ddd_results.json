@@ -2,10 +2,10 @@
   "total": 1,
   "processed": [
     {
-      "opp_id": "OPP-20261023-005",
-      "ticker": "ACN",
+      "opp_id": "OPP-20261023-006",
+      "ticker": "ADBE",
       "status": "completed",
-      "score": 78,
+      "score": 84,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
@@ -13,37 +13,37 @@
   "skipped": [],
   "assessments": [
     {
-      "ticker": "ACN",
-      "opp_id": "OPP-20261023-005",
+      "ticker": "ADBE",
+      "opp_id": "OPP-20261023-006",
       "status": "completed",
-      "conviction_score": 63,
+      "conviction_score": 67,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": null,
       "decision_id": null,
       "assessments": {
-        "BusinessAssessmentEngine": 64,
-        "ValuationAssessmentEngine": 65,
+        "BusinessAssessmentEngine": 72,
+        "ValuationAssessmentEngine": 75,
         "RecoveryAssessmentEngine": 62,
-        "RiskAssessmentEngine": 70,
+        "RiskAssessmentEngine": 60,
         "PortfolioAssessmentEngine": 50
       },
       "rules_passed": [
+        "RULE-001",
         "RULE-003",
         "RULE-004",
+        "RULE-005",
         "RULE-010"
       ],
       "rules_failed": [
-        "RULE-001",
-        "RULE-005",
         "RULE-008"
       ],
       "rules_details": {
-        "RULE-001": "Business quality: 64/70",
+        "RULE-001": "Business quality: 72/70",
         "RULE-003": "Rerating: 62/50",
-        "RULE-004": "Risk: 70/50",
-        "RULE-005": "Conviction: 63/65",
-        "RULE-008": "B/R 1.6:1 \u274c (Bull +28.5% / Bear -17.4%)",
+        "RULE-004": "Risk: 60/50",
+        "RULE-005": "Conviction: 67/65",
+        "RULE-008": "B/R 1.9:1 \u274c (Bull +68.4% / Bear -36.8%)",
         "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
       },
       "data_quality": "good",
@@ -52,7 +52,7 @@
         "core_metric_coverage": "5/5",
         "missing_core_metrics": [],
         "source": "stockanalysis.com",
-        "as_of_date": "2026-08-31",
+        "as_of_date": "2026-08-28",
         "as_of_basis": "period_end_date",
         "as_of_date_source": "stockanalysis.com",
         "missing_provenance": [],
@@ -63,7 +63,7 @@
   ],
   "errors": [],
   "status": "partial_deferred",
-  "deferred_count": 187,
+  "deferred_count": 186,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",
