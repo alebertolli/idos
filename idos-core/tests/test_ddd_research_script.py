@@ -750,7 +750,12 @@ def test_scheduled_results_pr_requires_a_published_commit():
 
     assert publish["id"] == "publish-results"
     assert "gh pr list --base main --head codex/ddd-research-results --state open" in publish_pr["run"]
-    assert "gh pr view codex/ddd-research-results" not in publish_pr["run"]
+    assert "gh pr view codex/ddd-research-results --json state" in publish_pr["run"]
+    assert 'if [ "$PR_STATE" != "MERGED" ]' in publish_pr["run"]
+    continuation = next(step for step in steps if step.get("name") == "Continue hourly Research while due work remains")
+    assert steps.index(continuation) > steps.index(publish_pr)
+    assert "steps.publish-scheduled-results.outcome == 'success'" in continuation["if"]
+    assert "git show origin/main:cache/ddd_research_resume.json" in continuation["run"]
     assert 'git merge --no-edit "origin/$TARGET_BRANCH"' in publish["run"]
     assert 'git rebase "origin/$TARGET_BRANCH"' not in publish["run"]
     assert "git merge --abort" in publish["run"]
