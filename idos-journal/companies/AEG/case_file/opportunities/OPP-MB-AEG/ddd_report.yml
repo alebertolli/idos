@@ -1,0 +1,494 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La variabilidad observada de resultados y FCF impide tratar un único período TTM
+    como medida de desempeño normalizado.
+  - Sin datos de capital empleado, primas, reservas, persistencia de pólizas o rentabilidad
+    por segmento, no se puede establecer el mecanismo de crecimiento ni los retornos
+    sobre capital.
+  - 'El precio reportado fue 8,18 USD al 2026-10-30; el consenso de objetivos fue
+    9,15–10,60 USD, con media de 9,88 USD observada el 2026-11-19. Fuentes: https://finance.yahoo.com/quote/AEG/
+    y https://stockanalysis.com/stocks/aeg/forecast/.'
+  - 'La serie financiera reporta ingresos de 12.193 millones en FY 2025 y 14.287 millones
+    en FY 2022, con período final 2025-12-31 y 2022-12-31 respectivamente. Fuente:
+    https://stockanalysis.com/stocks/aeg/financials/.'
+  - 'Al 2026-06-30, Stock Analysis reporta deuda total de 3.835 millones, net cash
+    de -320 millones, beneficio neto TTM de 936 millones y FCF TTM de 1.741 millones
+    en su serie financiera. Fuente: https://stockanalysis.com/stocks/aeg/financials/.'
+  preguntas_abiertas:
+  - ¿Cuál es la moneda y la definición contable de cada serie financiera, y cómo se
+    concilia el FCF TTM de 1.741 millones con los 1.910 millones reportados en estadísticas?
+  - ¿Qué tendencias de primas, clientes, productos, márgenes y capital respaldan crecimiento,
+    reinversión y ventaja competitiva?
+  - ¿Cuáles son el horizonte y los supuestos de negocio detrás de los objetivos de
+    analistas?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; calidad de evidencia fundamental incompleta
+  justificacion: El paquete identifica AEG como oportunidad del perfil multibaggers,
+    pero no aporta evidencia suficiente sobre retornos sobre capital, reinversión,
+    mercado direccionable o ventaja competitiva para validar esa clasificación.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe un proveedor de seguros y productos de jubilación
+    con actividad en América, Países Bajos, Reino Unido e internacionalmente, y menciona
+    las marcas Transamerica y World Financial Group. No aporta datos suficientes para
+    evaluar retornos sobre capital, reinversión, penetración de mercado, moat, erosión
+    competitiva ni calidad de la asignación de capital.
+  rating: No concluyente
+dominio_catalizadores:
+- analisis: La publicación de nuevos datos comparables podría aclarar si el FCF TTM
+    reportado al 2026-06-30 se sostiene; el paquete no proporciona una fecha de publicación
+    futura.
+  catalizador: Actualización de resultados y conversión de caja
+- analisis: El consenso observado al 2026-11-19 tiene rango de 9,15–10,60 USD y media
+    de 9,88 USD; el paquete no identifica supuestos ni horizonte de esos objetivos.
+  catalizador: Evolución del consenso de analistas
+  fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/aeg/forecast/
+  - name: Yahoo Finance
+    url: https://finance.yahoo.com/quote/AEG/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- analisis: Los valores TTM y anuales no siempre son comparables; además, el FCF TTM
+    aparece como 1.741 millones en la serie financiera y como 1.910 millones en estadísticas.
+    No se informan moneda ni conciliación para esas cifras.
+  fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/aeg/financials/
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/AEG/statistics/
+  riesgo: Comparabilidad y calidad de métricas financieras
+- analisis: La serie reporta net cash de -320 millones y deuda total de 3.835 millones
+    al 2026-06-30; el EBITDA figura como n/a, por lo que no se puede calcular deuda
+    neta/EBITDA.
+  fuente: https://stockanalysis.com/stocks/aeg/financials/
+  riesgo: Apalancamiento y capacidad de servicio de deuda
+- analisis: La serie muestra beneficio neto negativo en FY 2022 y FY 2023, seguido
+    de cifras positivas en FY 2024, FY 2025 y TTM a 2026-06-30; el FCF anual reportado
+    también varía entre períodos.
+  fuente: https://stockanalysis.com/stocks/aeg/financials/
+  riesgo: Resultados y flujos variables
+error_mercado:
+  catalizador_cambio: No hay en el paquete hitos operativos o financieros futuros
+    fechados que permitan identificar un catalizador verificable.
+  conclusion_error_valoracion: 'No se valida un error de valoración: el consenso de
+    analistas es una referencia observada, no evidencia de valor intrínseco.'
+  consenso_actual: 'El precio observado fue 8,18 USD al 2026-10-30; el consenso de
+    precio objetivo reportado fue 9,88 USD al 2026-11-19, con rango de 9,15–10,60
+    USD. Fuentes: https://finance.yahoo.com/quote/AEG/ y https://stockanalysis.com/stocks/aeg/forecast/.'
+  hipotesis_contraria: La evidencia disponible no permite determinar si el mercado
+    subestima el crecimiento sostenible, la generación de caja o los riesgos de Aegon.
+  razonamiento: 'El momentum de precio a 12 meses fue 8,0581% para 2025-10-31/2026-10-30,
+    frente a un drawdown de 14,1658% en ese período; ninguna de esas métricas demuestra
+    por sí sola una brecha de valoración. Fuente: https://finance.yahoo.com/quote/AEG/history/.'
+generated_at: '2026-11-19T17:48:15.316492-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-AEG
+prompt_inputs:
+  business_model: Aegon Ltd. provides insurance services in the Americas, the Netherlands,
+    the United Kingdom, and internationally. It offers retirement plans, mutual funds,
+    and unit-linked products; and annuities, life, and health insurance. The company
+    provides its products under the Transamerica and World Financial Group brands.
+    Aegon Ltd. was founded in 1844 and is based in Schiphol, the Netherlands.
+  ceo_tenure: 0
+  debt_to_equity: 0.43
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Aegon Ltd.
+  operating_margin: 4.31
+  pe_ratio: 12.33
+  products: ''
+  revenue: 13340000000.0
+  revenue_growth: -4.21
+  roic: 3.7
+  sector: Financial Services
+  ticker: AEG
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/aeg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_growth_history:
+      TTM 2026-06-30: 343.0
+    fcf_history:
+      FY 2025: 393.0
+      TTM 2026-06-30: 1741.0
+  limitations: No hay FCF del período TTM comparable anterior; el crecimiento TTM
+    reportado no incluye su base en los campos disponibles y TTM no es comparable
+    directamente con FY 2025.
+  metric: fcf_growth_pct
+  period_end: '2026-06-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/aeg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-06-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/aeg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA; si la fuente reporta net_cash
+    = cash - debt, equivale a -net_cash / EBITDA
+  inputs:
+    ebitda: n/a
+    net_cash_history:
+      Current 2026-06-30: -320.0
+    total_debt_history:
+      Current 2026-06-30: 3835.0
+  limitations: EBITDA no está disponible como valor numérico; no se puede calcular
+    un múltiplo de deuda neta sobre EBITDA.
+  metric: net_debt_ebitda
+  period_end: '2026-06-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/aeg/financials/
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/AEG/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares_history: null
+    shares_outstanding: 1480000000.0
+    shares_outstanding_history: null
+  limitations: Sólo se proporciona una observación de acciones en circulación; falta
+    un valor comparable del período anterior y no se proporciona historial de acciones
+    diluidas.
+  metric: dilution_yoy_pct
+  period_end: '2026-06-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/AEG/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: Aegon Ltd. provides insurance services in the Americas, the Netherlands,
+    the United Kingdom, and internationally. It offers retirement plans, mutual funds,
+    and unit-linked products; and annuities, life, and health insurance. The company
+    provides its products under the Transamerica and World Financial Group brands.
+    Aegon Ltd. was founded in 1844 and is based in Schiphol, the Netherlands.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 8.180000305175781
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.43
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-19T20:47:43.133789+00:00", "period_end": "2026-06-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Aegon Ltd.
+  operating_margin: 4.31
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Aegon Ltd. provides insurance services in the Americas, the Netherlands,
+    the United Kingdom, and internationally. It offers retirement plans, mutual funds,
+    and unit-linked products; and annuities, life, and health insurance. The company
+    provides its products under the Transamerica and World Financial Group brands.
+    Aegon Ltd. was founded in 1844 and is based in Schiphol, the Netherlands.
+  revenue: 13340000000.0
+  revenue_growth: -4.21
+  roic: 3.7
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aeg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AEG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AEG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AEG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AEG/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aeg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aeg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AEG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AEG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aeg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aeg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aeg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AEG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/AEG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-06-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/aeg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    10.6, "low": 9.15, "mean": 9.88, "median": 9.88, "observed_at": "2026-11-19T17:47:46.109591-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T17:47:46.109591-03:00", "observed_date": "2026-11-19", "target_price":
+    9.88, "url": "https://stockanalysis.com/stocks/aeg/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T17:47:46.109591-03:00",
+    "observed_date": "2026-11-19", "target_price": 9.875, "url": "https://finance.yahoo.com/quote/AEG/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 8.180000305175781,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AEG/"}]}}'
+  sector: Financial Services
+  ticker: AEG
+research_trigger:
+  discovery_snapshot_hash: acaad24086a36acbd90b762c79430f8505e504ac31dc230ea3974edc36ed15be
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: c4eb1d4a49ac45b934685bd4032bf34dfefd788c42338797f7b1e4c1f310a50f
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-19T17:48:15.316492-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1,16x al 2026-06-30; no está por debajo del umbral configurado.
+  source: https://stockanalysis.com/stocks/AEG/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta historial comparable de acciones.'
+  source: https://stockanalysis.com/stocks/AEG/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-06-30; no se dispone de detalle de EBIT
+    y gasto por intereses para validar el cálculo.
+  source: https://stockanalysis.com/stocks/AEG/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplica a la observación FCF TTM positiva de 1.741 millones al 2026-06-30;
+    la discrepancia con estadísticas requiere conciliación.
+  source: https://stockanalysis.com/stocks/aeg/financials/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 'No evaluable: EBITDA figura como n/a.'
+  source: https://stockanalysis.com/stocks/AEG/statistics/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta historial de acciones para un cálculo de tres
+    años.'
+  source: https://stockanalysis.com/stocks/AEG/statistics/
+  threshold: above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 38
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T17:47:46.109591-03:00'
+  fuentes:
+    stockanalysis: 9.88
+    yfinance: 9.875
+  mediana: 9.88
+  n_fuentes: 2
+  promedio: 9.88
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T17:47:46.109591-03:00'
+    observed_date: '2026-11-19'
+    target_price: 9.88
+    url: https://stockanalysis.com/stocks/aeg/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T17:47:46.109591-03:00'
+    observed_date: '2026-11-19'
+    target_price: 9.875
+    url: https://finance.yahoo.com/quote/AEG/
+  target_high: 10.6
+  target_low: 9.15
+tesis_inversion: La hipótesis de investigación es que la generación de caja y la evolución
+  de resultados podrían respaldar la creación de valor; sin embargo, los datos proporcionados
+  no permiten separar generación sostenible de variación temporal ni evaluar retornos
+  sobre capital, reinversión o ventajas competitivas. La tesis queda sin validar hasta
+  contar con evidencia operativa, financiera y de asignación de capital comparable.
+ticker: AEG
+version: '3.0'

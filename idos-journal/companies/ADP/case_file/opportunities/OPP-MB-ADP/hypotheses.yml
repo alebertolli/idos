@@ -1,0 +1,167 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de los ingresos de servicios de valor añadido
+      sea inferior al 8% en FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La plataforma basada en IA no se lanza antes del 30 de junio de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de los ingresos de servicios de valor añadido sea inferior
+    al 8% en FY2028.
+  - La plataforma basada en IA no se lanza antes del 30 de junio de 2028.
+  horizon: medio
+  id: H1-OPP-MB-ADP
+  opportunity_id: OPP-MB-ADP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 12.0
+    met: null
+    metric: Crecimiento ingresos servicios de valor añadido
+    prediction: Los ingresos de servicios de valor añadido crecerán al menos un 12%
+      interanual en el ejercicio fiscal que finalice el 31 de diciembre de 2028.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tendencia de digitalización del capital humano y la inversión de ADP
+    en IA y APIs sugiere que una oferta diferenciada aumentará la venta cruzada a
+    clientes existentes, como lo evidencian los recientes anuncios de alianzas con
+    proveedores de IA.
+  review_trigger: Si la plataforma no se anuncia oficialmente antes del 2028-06-30,
+    la hipótesis se descarta.
+  secondary_hypotheses: []
+  statement: ADP lanzará una plataforma basada en IA para gestión de talento que impulsará
+    el crecimiento de los ingresos de servicios de valor añadido.
+  status: ACTIVE
+  ticker: ADP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF reportado sea inferior a 2.000 millones de USD al 31/12/2029.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento anual compuesto del FCF sea menor al 7% desde 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF reportado sea inferior a 2.000 millones de USD al 31/12/2029.
+  - El crecimiento anual compuesto del FCF sea menor al 7% desde 2026.
+  horizon: largo
+  id: H2-OPP-MB-ADP
+  opportunity_id: OPP-MB-ADP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2029-12-31'
+    expected: 2500.0
+    met: null
+    metric: Free cash flow
+    prediction: El FCF reportado en el estado de flujos de efectivo será de 2.500
+      millones de USD o más al 31 de diciembre de 2029.
+    unit: millones USD
+  priority: important
+  probability: 0.5
+  rationale: El aumento esperado de ingresos de alto margen y la disciplina en la
+    gestión de capital, reforzada por la sólida posición de efectivo, deberían traducirse
+    en mayor generación de efectivo disponible.
+  review_trigger: Si ADP anuncia un gasto de capital inesperado que reduzca el FCF
+    en más del 15% en FY2028, la hipótesis se invalida.
+  secondary_hypotheses:
+  - H1-OPP-MB-ADP
+  statement: El flujo de caja libre (FCF) de ADP crecerá al menos un 10% anual compuesto
+    hasta 2029, alcanzando 2.500 millones de USD al cierre del FY2029.
+  status: ACTIVE
+  ticker: ADP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EV/EBITDA se mantiene por debajo de 14x al 31/12/2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una rebaja de rating crediticio importante que afecte la percepción
+      de riesgo de ADP.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EV/EBITDA se mantiene por debajo de 14x al 31/12/2027.
+  - Una rebaja de rating crediticio importante que afecte la percepción de riesgo
+    de ADP.
+  horizon: corto
+  id: H3-OPP-MB-ADP
+  opportunity_id: OPP-MB-ADP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 15.0
+    met: null
+    metric: EV/EBITDA
+    prediction: El EV/EBITDA reportado por proveedores de datos financieros será de
+      15x o superior al 31 de diciembre de 2027.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: El mercado subvalorará la capacidad de ADP para escalar ingresos y márgenes;
+    la mejora en FCF y la adopción de la nueva plataforma IA crearán expectativas
+    de mayor rentabilidad, impulsando la valoración.
+  review_trigger: Si S&P Global downgrade la calificación crediticia de ADP antes
+    del 2027-06-30, la hipótesis se descarta.
+  secondary_hypotheses:
+  - H1-OPP-MB-ADP
+  - H2-OPP-MB-ADP
+  statement: El múltiplo EV/EBITDA de ADP será revaluado al alza al menos un 15% respecto
+    al nivel de 13x observado el 19‑11‑2026, alcanzando 15x o más para finales de
+    2027.
+  status: ACTIVE
+  ticker: ADP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La tasa de retención sea inferior al 92% al cierre de FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El churn de clientes corporativos supere el 5% en FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La tasa de retención sea inferior al 92% al cierre de FY2028.
+  - El churn de clientes corporativos supere el 5% en FY2028.
+  horizon: medio
+  id: H4-OPP-MB-ADP
+  opportunity_id: OPP-MB-ADP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 95.0
+    met: null
+    metric: Tasa de retención de clientes
+    prediction: La tasa de retención de clientes corporativos será de 95% o más al
+      31 de diciembre de 2028.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: La capacidad de conectar sistemas de recursos humanos mediante APIs reduce
+    la fricción y aumenta la dependencia del cliente, mientras que la IA mejora la
+    experiencia y la eficiencia operativa, factores que históricamente elevan la retención.
+  review_trigger: Si el reporte de churn trimestral muestra un aumento sostenido superior
+    al 5% en cualquier trimestre de FY2028, la hipótesis se invalida.
+  secondary_hypotheses:
+  - H1-OPP-MB-ADP
+  statement: ADP mejorará su tasa de retención de clientes corporativos a al menos
+    95% al cierre del FY2028, gracias a la integración de APIs y servicios de IA.
+  status: ACTIVE
+  ticker: ADP
+  version: 1
