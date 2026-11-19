@@ -24,6 +24,7 @@ from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.decision.scenarios import (
     scenario_financial_evidence_snapshot,
+    scenario_source_urls_from_financial_data_evidence,
     scenario_source_urls_from_evidence,
     scenario_source_urls_from_research_financial_evidence,
     canonicalize_scenario_ticker_url_case,
@@ -356,6 +357,11 @@ class ResearchWorker(BaseWorker):
         scenario_analysis = ddd_result.get("scenario_analysis")
         trusted_scenario_urls = scenario_source_urls_from_evidence(
             ddd_inputs.get("scenario_market_evidence")
+        )
+        trusted_scenario_urls.update(
+            scenario_source_urls_from_financial_data_evidence(
+                ddd_inputs.get("financial_data_evidence")
+            )
         )
         if is_multibaggers:
             trusted_scenario_urls.update(
@@ -2218,8 +2224,29 @@ class ResearchWorker(BaseWorker):
             for source in str(price_context.get("source") or "").split(",")
             if source.strip()
         ]
+        raw_as_of_date = price_context.get("as_of_date")
+        if isinstance(raw_as_of_date, datetime):
+            quote_as_of_date = raw_as_of_date.date().isoformat()
+        elif isinstance(raw_as_of_date, date):
+            quote_as_of_date = raw_as_of_date.isoformat()
+        elif isinstance(raw_as_of_date, str):
+            try:
+                quote_as_of_date = date.fromisoformat(raw_as_of_date).isoformat()
+            except ValueError:
+                try:
+                    quote_as_of_date = datetime.fromisoformat(
+                        raw_as_of_date.replace("Z", "+00:00")
+                    ).date().isoformat()
+                except ValueError:
+                    quote_as_of_date = None
+        else:
+            quote_as_of_date = None
         quote_references = [
-            {"name": source, "url": source_urls[source]}
+            {
+                "name": source,
+                "url": source_urls[source],
+                **({"as_of_date": quote_as_of_date} if quote_as_of_date else {}),
+            }
             for source in source_names if source in source_urls
         ]
         consensus = target_consensus if isinstance(target_consensus, dict) else {}
@@ -2227,7 +2254,7 @@ class ResearchWorker(BaseWorker):
             "current_quote": {
                 "price": price_context.get("price"),
                 "currency": quote_currency,
-                "as_of_date": price_context.get("as_of_date"),
+                "as_of_date": quote_as_of_date,
                 "sources": quote_references,
             },
             "analyst_target_consensus": {

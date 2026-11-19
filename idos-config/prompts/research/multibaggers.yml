@@ -79,6 +79,9 @@ user_prompt: >
   justifican. Las fuentes citadas deben respaldar el ancla o los inputs, no fingir
   que publicaron la tesis del modelo. Copia cada URL exactamente desde las fuentes
   del paquete; no reconstruyas rutas ni inventes cifras, fuentes, fechas o métodos.
+  Cada fuente debe conservar la fecha ISO YYYY-MM-DD de la evidencia correspondiente;
+  no uses timestamps ni inventes fechas. Para una cotización, usa la fecha del objeto
+  current_quote que contiene la fuente.
   Sin un rango comparable o un método y datos defendibles para ambos extremos,
   devuelve null; Assessment mantendrá RULE-008 bloqueada.
   Incluye BEAR y BULL, con BASE opcional. Cumple Bear <= Base <= Bull si BASE
