@@ -1,0 +1,346 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Evaluación del moat basado en efectos de red y marca
+  - Valoración de la calidad del management sin datos de compensación
+  - Clasificación de riesgo ESG medio por ausencia de datos específicos
+  - Precio actual 182.14999389648438 USD (yfinance, 2026-11-18)
+  - Objetivo medio de analistas 205.44 USD (stockanalysis, 2026-11-19)
+  - FCF TTM 4.86 B USD (stockanalysis, 2026-06-30)
+  - Margen operativo TTM 20.81% (stockanalysis, 2026-06-30)
+  - Crecimiento de ingresos TTM 13.64% (stockanalysis, 2026-06-30)
+  preguntas_abiertas:
+  - ¿Cuál es el nivel de endeudamiento y cobertura de deuda de Airbnb?
+  - ¿Qué impacto tendrán regulaciones específicas en ciudades como Nueva York, Barcelona
+    y Tokio?
+  - ¿Cuál es la tasa de retención de hosts y su efecto en la rentabilidad futura?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: deep_value (valoración no extremadamente baja), distressed
+    (balance sólido y flujo de caja positivo), hype (existe earnings y cash flow),
+    value_trap (crecimiento y margen robustos), ciclica (aunque el turismo es cíclico,
+    la plataforma tiene resiliencia y diversificación), special_situation (no hay
+    eventos corporativos relevantes), turnaroud (no hay declive operativo), compounder_castigado
+    (no está fuera de favor), quality_at_fair_price (el precio está por debajo del
+    fair value implícito).
+  justificacion: Airbnb muestra un modelo de negocio con fuertes efectos de red, crecimiento
+    de ingresos del 13.6% TTM y márgenes operativos del 20.8%, además de generar flujo
+    de caja libre positivo de 4.86 B USD. La valoración actual (182 USD) está por
+    debajo del consenso medio de los analistas (205 USD), indicando potencial de apreciación
+    sostenida a largo plazo.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La plataforma posee efectos de red que dificultan la entrada de nuevos
+    competidores y una marca global reconocida. La diversificación en experiencias
+    y servicios complementa el core de alojamientos, reforzando el moat.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Aprobación de marcos regulatorios favorables en EE.UU. y Europa
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+- descripcion: Lanzamiento y adopción masiva de nuevas experiencias y servicios de
+    viajes integrados
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 45
+- descripcion: Implementación de IA para optimizar precios y matching host‑guest
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: Existen riesgos regulatorios vinculados a la vivienda y a la presión de
+    comunidades locales, así como exposición a la sostenibilidad de los viajes. No
+    se identifican problemas críticos de cadena de suministro.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Flujo de caja libre de 4.86 B USD (TTM) y margen operativo del 20.81%
+    indican generación de efectivo robusta. No se dispone de datos de deuda, pero
+    la capacidad de generar cash flow sugiere solvencia adecuada.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento de ingresos del 13.64% TTM y expansión continua en mercados
+    internacionales y en la oferta de experiencias indican una trayectoria de crecimiento
+    sostenible.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo directivo ha demostrado capacidad para escalar el negocio globalmente,
+    lanzar nuevas líneas (experiencias) y mantener márgenes saludables. La alineación
+    de intereses parece adecuada, aunque no se dispone de datos de compensación accionaria.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Regulación de alquileres de corta duración en ciudades clave
+- impacto: medio
+  probabilidad: media
+  riesgo: Intensificación de la competencia (p.ej., Booking, Expedia, plataformas
+    locales)
+- impacto: alto
+  probabilidad: media
+  riesgo: Ciclo económico y desaceleración del turismo
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aprobación de marcos regulatorios favorables en EE.UU. y Europa que
+      permitan la expansión de alquileres de corta duración y experiencias, impulsando
+      la demanda y la oferta.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: El precio actual de 182.15 USD refleja un descuento respecto al
+    objetivo medio de los analistas de 205.44 USD, lo que sugiere que el mercado está
+    descontando riesgos de regulación, competencia y posible desaceleración macro,
+    pero quizás subestima la capacidad de Airbnb para mantener su crecimiento y generación
+    de cash flow.
+  hipotesis_contraria: El consenso podría estar sobrestimando la capacidad de Airbnb
+    para seguir creciendo a tasas de >13% y mantener márgenes del 20% en un entorno
+    de mayor competencia (p.ej., plataformas de viajes integradas) y presión regulatoria
+    en ciudades clave, lo que justificaría un precio más bajo.
+  razonamiento: El precio está significativamente bajo el objetivo medio de los analistas
+    y la empresa muestra fundamentos sólidos (crecimiento, margen, cash flow). La
+    diferencia sugiere un posible error de mercado que puede ser aprovechado si los
+    riesgos regulatorios y competitivos se mitigan.
+generated_at: '2026-11-19T13:29:13.690485-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-003
+prompt_inputs:
+  business_model: Airbnb, Inc., together with its subsidiaries, operates a platform
+    for stays, experiences, and services worldwide. The company's marketplace connects
+    hosts and guests online or through mobile devices to book spaces, experiences,
+    and services. It also offers gift cards. The company was formerly known as AirBed
+    & Breakfast, Inc. and changed its name to Airbnb, Inc. in November 2010. Airbnb,
+    Inc. was founded in 2007 and is headquartered in San Francisco, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.27
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Airbnb, Inc.
+  operating_margin: 22.49
+  pe_ratio: 33.99
+  products: ''
+  revenue: 13930000000.0
+  revenue_growth: 16.66
+  roic: 17.25
+  sector: Consumer Cyclical
+  ticker: ABNB
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: Airbnb, Inc., together with its subsidiaries, operates a platform
+    for stays, experiences, and services worldwide. The company's marketplace connects
+    hosts and guests online or through mobile devices to book spaces, experiences,
+    and services. It also offers gift cards. The company was formerly known as AirBed
+    & Breakfast, Inc. and changed its name to Airbnb, Inc. in November 2010. Airbnb,
+    Inc. was founded in 2007 and is headquartered in San Francisco, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 182.14999389648438
+  current_price_as_of_date: '2026-11-18'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.27
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:43.886920+00:00", "period_end_date": "2026-06-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ABNB/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 4860000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 21.009000999999998}, "observed_at": "2026-11-01T10:16:43.886920+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ABNB/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 20.81}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 16.5}, "observed_at": "2026-11-01T10:16:43.886920+00:00", "period_end_date":
+    "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/abnb/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-06-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 13.64}}}, "observed_at": "2026-11-18T19:11:30.480006+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Airbnb, Inc.
+  operating_margin: 22.49
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Airbnb, Inc., together with its subsidiaries, operates a platform
+    for stays, experiences, and services worldwide. The company's marketplace connects
+    hosts and guests online or through mobile devices to book spaces, experiences,
+    and services. It also offers gift cards. The company was formerly known as AirBed
+    & Breakfast, Inc. and changed its name to Airbnb, Inc. in November 2010. Airbnb,
+    Inc. was founded in 2007 and is headquartered in San Francisco, California.
+  revenue: 13930000000.0
+  revenue_growth: 16.66
+  roic: 17.25
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    245.0, "low": 147.0, "mean": 205.44, "median": 205.44, "observed_at": "2026-11-19T13:29:03.985929-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T13:29:03.985929-03:00", "observed_date": "2026-11-19", "target_price":
+    205.44, "url": "https://stockanalysis.com/stocks/abnb/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T13:29:03.985929-03:00",
+    "observed_date": "2026-11-19", "target_price": 205.4405, "url": "https://finance.yahoo.com/quote/ABNB/"}]},
+    "current_quote": {"as_of_date": "2026-11-18", "currency": "USD", "price": 182.14999389648438,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ABNB/"}]}}'
+  sector: Consumer Cyclical
+  ticker: ABNB
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: f637ea78673bc47d9c2ce4736172ea744ef5f5c9f55016b083eb0afef1d9d0f7
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-19T13:29:13.690485-03:00'
+resumen_ejecutivo: Airbnb combina una plataforma de alta escalabilidad con efectos
+  de red fuertes, crecimiento de ingresos de dos dígitos y generación de cash flow
+  libre positivo. La valoración actual está por debajo del consenso de los analistas,
+  lo que indica un potencial upside. Los principales riesgos son regulatorios y de
+  competencia, pero existen catalizadores claros que podrían desbloquear valor.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2028-11-19'
+  scenarios:
+  - falsifiers:
+    - Aprobación de marcos regulatorios favorables
+    - Crecimiento de ingresos superior al 10% anual
+    id: BEAR
+    key_assumptions:
+    - Regulaciones limitan la oferta en al menos 5 mercados clave
+    - Crecimiento de ingresos cae por debajo del 5% anual
+    - Márgenes operativos se reducen a ~15%
+    rationale: El mercado mantiene una visión pesimista debido a regulaciones restrictivas
+      y una desaceleración del turismo que reduce ingresos y margenes, llevando el
+      precio al límite inferior del consenso.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abnb/forecast
+    - as_of_date: '2026-11-18'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABNB/
+    target_price: 147.0
+  - falsifiers:
+    - Implementación de regulaciones restrictivas
+    - Crecimiento de ingresos <8% anual
+    id: BULL
+    key_assumptions:
+    - Regulaciones aprobadas en EE.UU. y Europa
+    - Crecimiento de ingresos >15% anual
+    - Márgenes operativos se mantienen >22%
+    rationale: Se materializan los catalizadores de regulación favorable y expansión
+      de experiencias, impulsando un crecimiento de ingresos superior al 15% y manteniendo
+      márgenes operativos alrededor del 22%, lo que justifica un múltiplo superior
+      al consenso alto.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abnb/forecast
+    - as_of_date: '2026-11-18'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABNB/
+    target_price: 245.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T13:29:03.985929-03:00'
+  fuentes:
+    stockanalysis: 205.44
+    yfinance: 205.4405
+  mediana: 205.44
+  n_fuentes: 2
+  promedio: 205.44
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T13:29:03.985929-03:00'
+    observed_date: '2026-11-19'
+    target_price: 205.44
+    url: https://stockanalysis.com/stocks/abnb/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T13:29:03.985929-03:00'
+    observed_date: '2026-11-19'
+    target_price: 205.4405
+    url: https://finance.yahoo.com/quote/ABNB/
+  target_high: 245.0
+  target_low: 147.0
+tesis_inversion: Airbnb combina un modelo de negocio con fuertes efectos de red, crecimiento
+  de ingresos superior al 13% y generación de cash flow libre positivo, mientras que
+  su valoración actual está por debajo del consenso de los analistas, ofreciendo un
+  upside significativo si los riesgos regulatorios se gestionan.
+ticker: ABNB
+version: '3.0'
