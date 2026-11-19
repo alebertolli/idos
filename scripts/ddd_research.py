@@ -30,6 +30,7 @@ from idos.research.hourly_ramp import (
     load_state as load_hourly_ramp_state,
     record_outcome as record_hourly_ramp_outcome,
     resume_state as resume_hourly_ramp_state,
+    record_candidate_failure as record_hourly_candidate_failure,
     save_state as save_hourly_ramp_state,
 )
 
@@ -37,6 +38,7 @@ STALE_DAYS = 30
 MAX_RESEARCH_CANDIDATES_PER_RUN = 5
 RESUME_QUEUE_PATH = Path("cache/ddd_research_resume.json")
 HOURLY_RAMP_STATE_PATH = Path("cache/ddd_research_capacity.json")
+QUARANTINE_PATH = Path("cache/ddd_research_quarantine.json")
 SKIP_TICKERS = set()
 
 def _save_resume_queue(items: list[dict]) -> None:
@@ -55,6 +57,21 @@ def _load_resume_queue() -> list[dict]:
         return [item for item in payload["pending"] if isinstance(item, dict) and item.get("ticker") and item.get("opp_id")]
     except (OSError, ValueError, AttributeError):
         return []
+
+
+def _load_quarantine() -> list[dict]:
+    try:
+        value = json.loads(QUARANTINE_PATH.read_text(encoding="utf-8"))
+        return value.get("items", []) if value.get("schema_version") == 1 else []
+    except (OSError, ValueError, AttributeError):
+        return []
+
+
+def _save_quarantine(items: list[dict]) -> None:
+    QUARANTINE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    temporary = QUARANTINE_PATH.with_suffix(".json.tmp")
+    temporary.write_text(json.dumps({"schema_version": 1, "items": items}, indent=2), encoding="utf-8")
+    temporary.replace(QUARANTINE_PATH)
 
 
 EVENT_RESEARCHABLE_STATUSES = {
@@ -447,6 +464,10 @@ def main():
     if hourly_ramp and os.environ.get('RESET_DDD_HOURLY_RAMP', 'false').lower() == 'true':
         hourly_ramp_state = resume_hourly_ramp_state(hourly_ramp_state)
         save_hourly_ramp_state(HOURLY_RAMP_STATE_PATH, hourly_ramp_state)
+    elif hourly_ramp and hourly_ramp_state.get('paused'):
+        hourly_ramp_state = resume_hourly_ramp_state(hourly_ramp_state)
+        save_hourly_ramp_state(HOURLY_RAMP_STATE_PATH, hourly_ramp_state)
+        print('[DDD] Recovering legacy paused ramp automatically at its last proven batch size')
     if hourly_ramp and hourly_ramp_state.get('paused'):
         print('[DDD] Hourly Research ramp is paused after a provider or quality failure; no LLM calls will be made')
         print('[DDD] Last failure: {}'.format(hourly_ramp_state.get('pause_reason', 'unknown')))
@@ -481,6 +502,20 @@ def main():
     if resume_pending:
         today = datetime.now(timezone.utc).date().isoformat()
         queue = _load_resume_queue()
+        if not queue and hourly_ramp:
+            # An empty checkpoint is not a reason to stop: rescan Discovery below.
+            resume_pending = False
+            print('[DDD] Resume queue is empty; scanning Discovery for eligible Research candidates')
+        else:
+            retry_after = hourly_ramp_state.get('provider_retry_after')
+            if retry_after:
+                try:
+                    if datetime.now(timezone.utc) >= datetime.fromisoformat(retry_after):
+                        hourly_ramp_state['provider_retry_after'] = None
+                        save_hourly_ramp_state(HOURLY_RAMP_STATE_PATH, hourly_ramp_state)
+                        print('[DDD] Provider cooldown expired; resuming automatically')
+                except ValueError:
+                    hourly_ramp_state['provider_retry_after'] = None
         due = [item for item in queue if item.get('next_attempt_date', '') <= today]
         limit = hourly_ramp_batch_limit(hourly_ramp_state, len(due)) if hourly_ramp else MAX_RESEARCH_CANDIDATES_PER_RUN
         opportunities = due[:limit]
@@ -584,6 +619,18 @@ def main():
         }, indent=2), encoding='utf-8')
         return 0
 
+    quarantined_keys = {(item.get('ticker'), item.get('opp_id')) for item in _load_quarantine()}
+    opportunities = [item for item in opportunities if (item.get('ticker'), item.get('opp_id')) not in quarantined_keys]
+    if not opportunities:
+        print('[DDD] All selected opportunities are already quarantined; no provider calls made')
+        Path('cache').mkdir(parents=True, exist_ok=True)
+        Path('cache/ddd_results.json').write_text(json.dumps({
+            'processed': [], 'errors': [], 'total': 0, 'status': 'quarantined',
+            'quarantined_count': len(quarantined_keys), 'event_type': event_type, 'force': force,
+            'skipped': skipped_list,
+        }, indent=2), encoding='utf-8')
+        return 0
+
     queue = _load_resume_queue() if resume_pending else []
     if hourly_ramp and not resume_pending and not queue and opportunities and not hourly_ramp_state.get('paused'):
         hourly_ramp_state = initial_hourly_ramp_state()
@@ -642,6 +689,7 @@ def main():
     })
     rw_results = []
     rw_errors = []
+    quarantined = _load_quarantine()
     deferred_for_capacity = False
     for index, opp in enumerate(opportunities):
         ticker = opp['ticker']
@@ -660,6 +708,14 @@ def main():
             r = rw.run(ctx)
             status = r.get('status', 'unknown')
             validation_errors = [str(error) for error in (r.get('errors') or []) if error]
+            if hourly_ramp and status == 'completed':
+                report_path = journal.opportunity_path(ticker, opp_id) / 'ddd_report.yml'
+                if report_path.exists():
+                    report = yaml.safe_load(report_path.read_text(encoding='utf-8')) or {}
+                    scenario_status = (report.get('scenario_validation') or {}).get('status')
+                    if scenario_status and scenario_status != 'valid_pending_decision_board':
+                        status = 'quality_failed'
+                        validation_errors.append('Scenario validation status: {}'.format(scenario_status))
             print('  -> status={} score={}'.format(
                 status, r.get('conviction_score', r.get('score', '?'))))
             if validation_errors:
@@ -695,16 +751,28 @@ def main():
                     'errors': validation_errors,
                 })
                 if hourly_ramp:
-                    print('[DDD] Hourly ramp stops at the first incomplete opportunity')
-                    break
+                    failed, should_quarantine = record_hourly_candidate_failure(opp, rw_errors[-1]['error'])
+                    queue = [item for item in queue if (item.get('ticker'), item.get('opp_id')) != (ticker, opp_id)]
+                    if should_quarantine:
+                        quarantined.append({**failed, 'quarantined_at': datetime.now(timezone.utc).isoformat()})
+                        print('[DDD] Candidate quarantined after {} attempts; continuing the batch'.format(failed['attempt_count']))
+                    else:
+                        queue.append(failed)
+                        print('[DDD] Candidate deferred for a later retry; continuing the batch')
+                    continue
         except Exception as e:
             import traceback
             traceback.print_exc()
             print('  -> ERROR: {}'.format(e))
             rw_errors.append({'ticker': ticker, 'opp_id': opp_id, 'error': str(e)})
             if hourly_ramp:
-                print('[DDD] Hourly ramp stops at the first ResearchWorker exception')
-                break
+                failed, should_quarantine = record_hourly_candidate_failure(opp, str(e))
+                queue = [item for item in queue if (item.get('ticker'), item.get('opp_id')) != (ticker, opp_id)]
+                if should_quarantine:
+                    quarantined.append({**failed, 'quarantined_at': datetime.now(timezone.utc).isoformat()})
+                else:
+                    queue.append(failed)
+                continue
 
     completed_keys = {(item.get('ticker'), item.get('opp_id')) for item in rw_results if item.get('status') == 'completed'}
     remaining = [item for item in queue if (item.get('ticker'), item.get('opp_id')) not in completed_keys]
@@ -713,27 +781,31 @@ def main():
 
     if hourly_ramp and opportunities:
         completed_count = len(completed_keys)
-        if rw_errors:
-            first_error = rw_errors[0]
-            failure_reason = '{} {}: {}'.format(
-                first_error.get('ticker', '?'),
-                first_error.get('opp_id', '?'),
-                first_error.get('error', 'Research failed'),
-            )
-        elif deferred_for_capacity:
-            failure_reason = 'Provider capacity exhausted: {}'.format(
-                getattr(llm_service, 'capacity_failure', None) or 'Research deferred'
-            )
+        if deferred_for_capacity:
+            from idos.research.hourly_ramp import defer_provider_retry
+            hourly_ramp_state = defer_provider_retry(hourly_ramp_state)
+        elif rw_errors:
+            # Candidate-local errors are retried/quarantined independently; keep
+            # the last proven batch size and let the scheduler progress.
+            hourly_ramp_state['next_batch_size'] = max(1, int(hourly_ramp_state.get('last_successful_batch_size', 0)))
+            hourly_ramp_state['paused'] = False
+            hourly_ramp_state['pause_reason'] = ''
+            hourly_ramp_state['last_failure'] = {
+                'at': datetime.now(timezone.utc).isoformat(),
+                'reason': 'Candidate-specific Research errors were deferred or quarantined',
+                'error_count': len(rw_errors),
+            }
         elif completed_count != len(opportunities):
             failure_reason = f'Only {completed_count} of {len(opportunities)} opportunities completed'
         else:
             failure_reason = ''
-        hourly_ramp_state = record_hourly_ramp_outcome(
-            hourly_ramp_state,
-            attempted=len(opportunities),
-            completed=completed_count,
-            failure_reason=failure_reason,
-        )
+        if not deferred_for_capacity and not rw_errors:
+            hourly_ramp_state = record_hourly_ramp_outcome(
+                hourly_ramp_state,
+                attempted=len(opportunities),
+                completed=completed_count,
+                failure_reason=failure_reason,
+            )
         save_hourly_ramp_state(HOURLY_RAMP_STATE_PATH, hourly_ramp_state)
         print('[DDD] Hourly ramp next batch={} paused={} last_successful={}'.format(
             hourly_ramp_state['next_batch_size'],
@@ -749,12 +821,15 @@ def main():
         'errors': rw_errors,
         'status': 'failed' if rw_errors and not deferred_for_capacity else ('partial_deferred' if remaining else 'research_completed'),
         'deferred_count': len(remaining),
+        'quarantined_count': len(quarantined),
         'capacity_failure': getattr(llm_service, 'capacity_failure', None),
         'event_type': event_type,
         'force': force,
         'stale_days_threshold': STALE_DAYS,
     }
     Path('cache').mkdir(parents=True, exist_ok=True)
+    if hourly_ramp:
+        _save_quarantine(quarantined)
     Path('cache/ddd_results.json').write_text(
         json.dumps(results, indent=2), encoding='utf-8'
     )

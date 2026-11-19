@@ -3,13 +3,15 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
 SCHEMA_VERSION = 1
 MAX_BATCH_SIZE = 250
 DEFAULT_BATCH_SIZE = 1
+MAX_PROVIDER_BACKOFF_HOURS = 24
+MAX_CANDIDATE_ATTEMPTS = 3
 
 
 def initial_state() -> dict[str, Any]:
@@ -21,6 +23,8 @@ def initial_state() -> dict[str, Any]:
         "pause_reason": "",
         "last_failure": None,
         "updated_at": None,
+        "provider_retry_after": None,
+        "provider_failure_count": 0,
     }
 
 
@@ -50,7 +54,50 @@ def save_state(path: Path, state: dict[str, Any]) -> None:
 def batch_limit(state: dict[str, Any], pending_count: int) -> int:
     if state.get("paused") or pending_count <= 0:
         return 0
+    retry_after = state.get("provider_retry_after")
+    if retry_after:
+        try:
+            if datetime.now(timezone.utc) < datetime.fromisoformat(retry_after):
+                return 0
+        except (TypeError, ValueError):
+            pass
     return min(int(state.get("next_batch_size", DEFAULT_BATCH_SIZE)), pending_count, MAX_BATCH_SIZE)
+
+
+def defer_provider_retry(state: dict[str, Any], *, now: datetime | None = None) -> dict[str, Any]:
+    """Apply bounded exponential cooldown without requiring a manual resume."""
+    updated = {**state}
+    failures = int(updated.get("provider_failure_count", 0)) + 1
+    delay_hours = min(2 ** (failures - 1), MAX_PROVIDER_BACKOFF_HOURS)
+    current = (now or datetime.now(timezone.utc)).astimezone(timezone.utc)
+    updated.update({
+        "provider_failure_count": failures,
+        "provider_retry_after": (current + timedelta(hours=delay_hours)).isoformat(),
+        "paused": False,
+        "pause_reason": "",
+        "updated_at": current.isoformat(),
+    })
+    return updated
+
+
+def record_candidate_failure(
+    item: dict[str, Any], error: str, *, now: datetime | None = None,
+) -> tuple[dict[str, Any], bool]:
+    """Schedule a bounded candidate retry; return (updated item, quarantined)."""
+    current = (now or datetime.now(timezone.utc)).astimezone(timezone.utc)
+    attempts = int(item.get("attempt_count", 0)) + 1
+    updated = {
+        **item,
+        "attempt_count": attempts,
+        "last_error": str(error)[:500],
+        "force_reprocess": True,
+    }
+    quarantined = attempts >= MAX_CANDIDATE_ATTEMPTS
+    if not quarantined:
+        updated["next_attempt_date"] = (current.date() + timedelta(days=1)).isoformat()
+    else:
+        updated.pop("next_attempt_date", None)
+    return updated, quarantined
 
 
 def record_outcome(
@@ -84,6 +131,8 @@ def record_outcome(
         )
         updated["paused"] = False
         updated["pause_reason"] = ""
+        updated["provider_retry_after"] = None
+        updated["provider_failure_count"] = 0
         return updated
 
     if not failure_reason and completed == attempted:
