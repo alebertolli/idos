@@ -14,6 +14,7 @@ La rampa DDD podía quedar bloqueada por dos causas operativas: un checkpoint si
 - El lote solo aumenta tras un lote completo sin errores. Los fallos de proveedores nunca suben el tamaño.
 - Cola, capacidad, resultados y cuarentena se publican en la rama de resultados para auditoría. La cuarentena no significa Research completado ni habilita Assessment.
 - Después de publicar y fusionar cada lote, el workflow vuelve a leer la cola durable de `main` y despacha una única reanudación si queda trabajo vencido y el proveedor está fuera de cooldown. Así los lotes no dependen de que GitHub entregue cada evento `schedule`; la rampa mantiene el límite de tamaño y no inicia una llamada durante espera o pausa.
+- La reanudación manual (`resume_hourly_ramp`) recupera una rampa pausada y reinicia el tamaño al último lote probado. La continuación automática usa `continue_hourly_ramp`: conserva el siguiente tamaño persistido y evita repetir la evaluación mensual, de modo que la rampa pueda crecer tras cada lote exitoso.
 
 ## Incidente de pérdida de cola (2026-11-19)
 
