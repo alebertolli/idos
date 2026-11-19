@@ -1,0 +1,173 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de IA crecen menos del 10% interanual en Q2‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Accenture reduce o elimina su oferta de IA antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de IA crecen menos del 10% interanual en Q2‑2027.
+  - Accenture reduce o elimina su oferta de IA antes de la fecha objetivo.
+  horizon: corto
+  id: H1-OPP-20261023-005
+  opportunity_id: OPP-20261023-005
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 3.6
+    met: null
+    metric: Ingresos IA
+    prediction: Los ingresos de la línea de IA de Accenture superarán los $3.6 bn
+      en el trimestre Q2‑2027, representando un crecimiento del 20% respecto al mismo
+      trimestre de 2026.
+    unit: billones USD
+  priority: critical
+  probability: 0.5
+  rationale: El mercado global de IA está proyectado a crecer > 30% CAGR 2024‑2029
+    y Accenture ha anunciado nuevas alianzas estratégicas con proveedores de nube
+    y ha incrementado su capacidad de entrega de IA mediante la adquisición de firmas
+    especializadas, lo que debería traducirse en mayor captación de clientes.
+  review_trigger: Si al cierre del Q2‑2027 los ingresos de IA no superan los $3.2 bn
+    (crecimiento < 10%).
+  secondary_hypotheses: []
+  statement: La demanda de servicios de inteligencia artificial (IA) de Accenture
+    crecerá al menos un 20% interanual durante el primer semestre de 2027.
+  status: ACTIVE
+  ticker: ACN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen operativo ajustado queda por debajo del 13.5% al cierre del
+      FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Se registran aumentos de costos operativos superiores al 5% interanual
+      sin compensación de ingresos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen operativo ajustado queda por debajo del 13.5% al cierre del FY2027.
+  - Se registran aumentos de costos operativos superiores al 5% interanual sin compensación
+    de ingresos.
+  horizon: medio
+  id: H2-OPP-20261023-005
+  opportunity_id: OPP-20261023-005
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 15.0
+    met: null
+    metric: Margen operativo ajustado
+    prediction: El margen operativo ajustado reportado en el FY2027 será ≥ 15.0%.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: La automatización de procesos internos y la mayor venta cruzada de servicios
+    de nube y ciberseguridad están reduciendo costos operativos, mientras que la mezcla
+    de contratos de mayor valor y duración mejora la rentabilidad.
+  review_trigger: Si el informe anual FY2027 muestra un margen operativo ajustado
+    ≤ 13.5%.
+  secondary_hypotheses:
+  - H1-OPP-20261023-005
+  statement: El margen operativo ajustado de Accenture alcanzará al menos el 15.0%
+    al cierre del ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: ACN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El precio de cierre el 2028-03-31 está ≤ 5% por encima de la mediana
+      de precios objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los analistas reducen la mediana de precios objetivo en más del 5%
+      respecto al nivel actual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El precio de cierre el 2028-03-31 está ≤ 5% por encima de la mediana de precios
+    objetivo.
+  - Los analistas reducen la mediana de precios objetivo en más del 5% respecto al
+    nivel actual.
+  horizon: largo
+  id: H3-OPP-20261023-005
+  opportunity_id: OPP-20261023-005
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 1.1
+    met: null
+    metric: Relación precio/consenso
+    prediction: El precio de cierre de ACN el 2028-03-31 será ≥ 1.10 × mediana de
+      precios objetivo de analistas al 12‑meses (publicada en Bloomberg).
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: El mercado está subvalorando la exposición de Accenture a IA y nube;
+    una confirmación de crecimiento de ingresos y mejora de márgenes impulsará revisiones
+    al alza de los analistas, elevando los precios objetivo.
+  review_trigger: Si el 31‑mar‑2028 el precio de ACN está ≤ 1.05 × mediana de precios
+    objetivo.
+  secondary_hypotheses:
+  - H1-OPP-20261023-005
+  - H2-OPP-20261023-005
+  statement: El precio de la acción de ACN superará en al menos un 10% la mediana
+    de los precios objetivo de los analistas a 12 meses vista para finales de marzo
+    de 2028.
+  status: ACTIVE
+  ticker: ACN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La contribución de cross‑sell queda ≤ 25% de los ingresos totales en
+      Q2‑2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Accenture anuncia una reorientación que reduce el enfoque en ventas
+      cruzadas antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La contribución de cross‑sell queda ≤ 25% de los ingresos totales en Q2‑2028.
+  - Accenture anuncia una reorientación que reduce el enfoque en ventas cruzadas antes
+    de la fecha objetivo.
+  horizon: largo
+  id: H4-OPP-20261023-005
+  opportunity_id: OPP-20261023-005
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 30.0
+    met: null
+    metric: Participación de ingresos cross‑sell
+    prediction: En el reporte financiero de Q2‑2028, la contribución de cross‑sell
+      será ≥ 30% de los ingresos totales.
+    unit: porcentaje
+  priority: informational
+  probability: 0.5
+  rationale: La estrategia de integración de ofertas y la plataforma de entrega unificada
+    facilitan la venta de paquetes combinados de IA, nube y ciberseguridad, lo que
+    debería elevar la proporción de ingresos cross‑sell.
+  review_trigger: Si el reporte Q2‑2028 muestra una contribución de cross‑sell ≤ 25%.
+  secondary_hypotheses:
+  - H1-OPP-20261023-005
+  statement: El porcentaje de ingresos provenientes de ventas cruzadas (cross‑sell)
+    de al menos dos líneas de servicio diferentes superará el 30% del total de ingresos
+    de Accenture para junio de 2028.
+  status: ACTIVE
+  ticker: ACN
+  version: 1

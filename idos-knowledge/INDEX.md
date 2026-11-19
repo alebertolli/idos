@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 11 companies tracked
+Total: 12 companies tracked
 
 ## Basic Materials
 - 📄 [[DOW|Dow Inc.]]
@@ -28,6 +28,7 @@ Total: 11 companies tracked
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]
+- 📄 [[ACN|Accenture plc]]
 - 📄 [[AMAT|Applied Materials, Inc.]]
 - 📄 [[ASML|ASML Holding N.V.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
