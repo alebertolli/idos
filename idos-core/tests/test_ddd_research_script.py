@@ -12,6 +12,17 @@ import scripts.ddd_research as ddd_research
 
 
 
+def test_event_ramp_run_preserves_existing_pending_research_queue(tmp_path, monkeypatch):
+    queue_path = tmp_path / "cache" / "ddd_research_resume.json"
+    queue_path.parent.mkdir()
+    original = [{"ticker": "AAPL", "opp_id": "OPP-AAPL"}]
+    queue_path.write_text(json.dumps({"schema_version": 1, "pending": original}), encoding="utf-8")
+    monkeypatch.setattr(ddd_research, "RESUME_QUEUE_PATH", queue_path)
+
+    assert ddd_research._resume_queue_for_run(resume_pending=False, hourly_ramp=True) == original
+    assert ddd_research._resume_queue_for_run(resume_pending=False, hourly_ramp=False) == []
+
+
 def test_ddd_strategy_selector_is_optional_validated_and_case_insensitive(tmp_path, monkeypatch):
     from idos.strategy.catalog import StrategyCatalog
 
@@ -739,7 +750,12 @@ def test_scheduled_results_pr_requires_a_published_commit():
 
     assert publish["id"] == "publish-results"
     assert "gh pr list --base main --head codex/ddd-research-results --state open" in publish_pr["run"]
-    assert "gh pr view codex/ddd-research-results" not in publish_pr["run"]
+    assert "gh pr view codex/ddd-research-results --json state" in publish_pr["run"]
+    assert 'if [ "$PR_STATE" != "MERGED" ]' in publish_pr["run"]
+    continuation = next(step for step in steps if step.get("name") == "Continue hourly Research while due work remains")
+    assert steps.index(continuation) > steps.index(publish_pr)
+    assert "steps.publish-scheduled-results.outcome == 'success'" in continuation["if"]
+    assert "git show origin/main:cache/ddd_research_resume.json" in continuation["run"]
     assert 'git merge --no-edit "origin/$TARGET_BRANCH"' in publish["run"]
     assert 'git rebase "origin/$TARGET_BRANCH"' not in publish["run"]
     assert "git merge --abort" in publish["run"]

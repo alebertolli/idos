@@ -64,6 +64,24 @@ def batch_limit(state: dict[str, Any], pending_count: int) -> int:
     return min(int(state.get("next_batch_size", DEFAULT_BATCH_SIZE)), pending_count, MAX_BATCH_SIZE)
 
 
+def has_due_work(
+    state: dict[str, Any], pending: list[dict[str, Any]], *, now: datetime | None = None,
+) -> bool:
+    """Return whether the durable queue can safely trigger another ramp run."""
+    current = (now or datetime.now(timezone.utc)).astimezone(timezone.utc)
+    if state.get("paused") or not pending:
+        return False
+    retry_after = state.get("provider_retry_after")
+    if retry_after:
+        try:
+            if current < datetime.fromisoformat(retry_after):
+                return False
+        except (TypeError, ValueError):
+            pass
+    today = current.date().isoformat()
+    return any(item.get("next_attempt_date", "") <= today for item in pending)
+
+
 def defer_provider_retry(state: dict[str, Any], *, now: datetime | None = None) -> dict[str, Any]:
     """Apply bounded exponential cooldown without requiring a manual resume."""
     updated = {**state}
