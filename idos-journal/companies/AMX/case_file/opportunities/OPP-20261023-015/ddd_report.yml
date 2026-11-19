@@ -1,0 +1,370 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El margen operativo del 19.68% indica eficiencia operativa superior al promedio
+    del sector.
+  - El crecimiento de ingresos del 4.04% sugiere expansión moderada pero sostenida.
+  - La diferencia entre precio actual y target medio implica un descuento del ~16%.
+  - FCF TTM = 9.55 B MXN (stockanalysis.com, 2026-09-30)
+  - Operating margin TTM = 19.68 % (stockanalysis.com, 2026-09-30)
+  - Revenue growth TTM = 4.04 % (stockanalysis.com, 2026-09-30)
+  - Current price = USD 24.83 (yfinance, 2026-11-19)
+  - Analyst target consensus mean = USD 29.5 (stockanalysis.com, 2026-11-19)
+  - Analyst target consensus low = USD 20.8 (stockanalysis.com, 2026-11-19)
+  - Analyst target consensus high = USD 35.0 (stockanalysis.com, 2026-11-19)
+  preguntas_abiertas:
+  - ¿Cuál es el nivel actual de deuda neta y su ratio deuda/EBITDA?
+  - ¿Cuál es el CAPEX proyectado para los próximos 2‑3 años?
+  - ¿Existen litigios regulatorios pendientes que puedan impactar significativamente
+    los ingresos?
+  - ¿Cuál es la exposición exacta al tipo de cambio MXN‑USD en los ingresos y deuda?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: compounder, compounder_castigado, turnaround, deep_value,
+    ciclica, special_situation, distressed, hype, value_trap
+  justificacion: América Móvil posee un modelo de negocio con fuerte moat en telecomunicaciones
+    latinoamericanas, generación de flujo de caja libre robusta (FCF 9.55 B MXN) y
+    márgenes operativos sólidos (≈19.7%). La valoración actual (USD 24.83) está por
+    debajo del consenso de analistas (USD 29.5) pero no muestra una gran brecha que
+    justifique una etiqueta de deep value o compounder castigado. Por tanto, se considera
+    un negocio de alta calidad a precio razonable.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Presencia dominante en México y varios países de América Latina, infraestructura
+    de red propia, alta retención de clientes y barreras de entrada elevadas por licencias
+    de espectro y costos de capital.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Acuerdo regulatorio que reduzca multas o restricciones operativas en
+    México
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 45
+- descripcion: Refinanciamiento de deuda a tasas más bajas
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 40
+- descripcion: Lanzamiento exitoso de servicios de datos y cloud en América Latina
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: No se identifican riesgos ESG críticos en la evidencia disponible. La
+    empresa opera en sectores regulados con requisitos de cobertura de infraestructura
+    y responsabilidad social.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: FCF TTM de 9.55 B MXN y margen operativo de 19.68% indican generación
+    de caja robusta. No se dispone de datos de deuda en la evidencia proporcionada,
+    lo que impide una evaluación completa del apalancamiento, pero los flujos de caja
+    sugieren capacidad de servicio de deuda.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento de ingresos TTM del 4.04% refleja expansión moderada en mercados
+    maduros. El potencial de crecimiento futuro dependerá de la penetración de servicios
+    de datos y de la expansión de ofertas de valor añadido.
+  rating: moderado
+dominio_management:
+  analisis: El equipo directivo ha mantenido una política de inversión en infraestructura
+    y expansión regional, alineada con la generación de flujo de caja. No se observan
+    señales de mala asignación de capital en la información disponible.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Regulatorio en México y otros mercados latinoamericanos
+- impacto: medio
+  probabilidad: media
+  riesgo: Exposición al tipo de cambio MXN‑USD
+- impacto: alto
+  probabilidad: alta
+  riesgo: Endeudamiento no visible en la evidencia
+error_mercado:
+  catalizador_cambio:
+    descripcion: Resolución favorable de disputas regulatorias en México y mejora
+      de la cobertura de deuda mediante refinanciamiento a tasas más bajas.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 45
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas estiman un precio objetivo medio de USD 29.5 (rango
+    20.8‑35.0), lo que implica que el mercado está descontando aproximadamente un
+    16% respecto al nivel esperado por el consenso.
+  hipotesis_contraria: El mercado podría estar sobrevalorando riesgos regulatorios
+    en México y América Latina, la exposición a la volatilidad del tipo de cambio
+    MXN‑USD y la carga de deuda no divulgada. Estos factores podrían estar inflando
+    la percepción de riesgo y manteniendo el precio bajo, pese a los sólidos flujos
+    de caja y márgenes.
+  razonamiento: La diferencia entre el precio actual y el consenso sugiere un descuento
+    que no está plenamente justificado por los fundamentos financieros verificables.
+    Si los riesgos percibidos se mitigan, el precio podría revaluarse hacia el rango
+    medio‑alto del consenso.
+generated_at: '2026-11-19T18:48:29.293554-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-015
+prompt_inputs:
+  business_model: América Móvil, S.A.B. de C.V. provides telecommunications services
+    in Latin America and internationally. It offers wireless and fixed-line voice
+    services, including airtime, local, domestic, and international long-distance
+    services; and network interconnection services. The company provides data services,
+    such as data centers, data administration, and hosting services to residential
+    and corporate clients; value-added services, including internet access, messaging
+    and other wireless entertainment, and corporate services; data transmission, email
+    services, instant messaging, content streaming, and interactive applications;
+    and wireless security services, mobile payment solutions, machine-to-machine services,
+    mobile banking, virtual private network services, and video calls and personal
+    communications services. In addition, it offers residential broadband services;
+    IT solutions to small businesses and large corporations; and cable and satellite
+    television subscriptions. Further, the company sells equipment, accessories, and
+    computers; and offers software development, call center, entertainment content
+    and news, telephone directories, advertising, cybersecurity services, and corporate
+    IT solutions. Additionally, it provides video, audio, and other media content
+    through the internet directly from the content provider to the end user. It sells
+    its products and services under the Telcel, Telmex Infinitum, and A1 brand names
+    through a network of retailers and service centers to retail customers; and through
+    sales force to corporate customers. The company was incorporated in 2000 and is
+    based in Mexico City, Mexico.
+  ceo_tenure: 0
+  debt_to_equity: 0.015
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: América Móvil, S.A.B. de C.V.
+  operating_margin: 19.68
+  pe_ratio: 15.47
+  products: ''
+  revenue: 54010000000.0
+  revenue_growth: 4.04
+  roic: 11.68
+  sector: Communication Services
+  ticker: AMX
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: América Móvil, S.A.B. de C.V. provides telecommunications services
+    in Latin America and internationally. It offers wireless and fixed-line voice
+    services, including airtime, local, domestic, and international long-distance
+    services; and network interconnection services. The company provides data services,
+    such as data centers, data administration, and hosting services to residential
+    and corporate clients; value-added services, including internet access, messaging
+    and other wireless entertainment, and corporate services; data transmission, email
+    services, instant messaging, content streaming, and interactive applications;
+    and wireless security services, mobile payment solutions, machine-to-machine services,
+    mobile banking, virtual private network services, and video calls and personal
+    communications services. In addition, it offers residential broadband services;
+    IT solutions to small businesses and large corporations; and cable and satellite
+    television subscriptions. Further, the company sells equipment, accessories, and
+    computers; and offers software development, call center, entertainment content
+    and news, telephone directories, advertising, cybersecurity services, and corporate
+    IT solutions. Additionally, it provides video, audio, and other media content
+    through the internet directly from the content provider to the end user. It sells
+    its products and services under the Telcel, Telmex Infinitum, and A1 brand names
+    through a network of retailers and service centers to retail customers; and through
+    sales force to corporate customers. The company was incorporated in 2000 and is
+    based in Mexico City, Mexico.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 24.829999923706055
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.015
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "MXN", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:53.173303+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/AMX/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 9550000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 22.787}, "observed_at": "2026-11-01T10:16:53.173303+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/AMX/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 19.68}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 7.6}, "observed_at": "2026-11-01T10:16:53.173303+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/amx/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 4.04}}}, "observed_at": "2026-11-19T19:15:35.577319+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: América Móvil, S.A.B. de C.V.
+  operating_margin: 19.68
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: América Móvil, S.A.B. de C.V. provides telecommunications services
+    in Latin America and internationally. It offers wireless and fixed-line voice
+    services, including airtime, local, domestic, and international long-distance
+    services; and network interconnection services. The company provides data services,
+    such as data centers, data administration, and hosting services to residential
+    and corporate clients; value-added services, including internet access, messaging
+    and other wireless entertainment
+  revenue: 54010000000.0
+  revenue_growth: 4.04
+  roic: 11.68
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    35.0, "low": 20.8, "mean": 29.5, "median": 29.5, "observed_at": "2026-11-19T18:48:20.696117-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T18:48:20.696117-03:00", "observed_date": "2026-11-19", "target_price":
+    29.5, "url": "https://stockanalysis.com/stocks/amx/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T18:48:20.696117-03:00",
+    "observed_date": "2026-11-19", "target_price": 29.498, "url": "https://finance.yahoo.com/quote/AMX/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 24.829999923706055,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AMX/"}]}}'
+  sector: Communication Services
+  ticker: AMX
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: b1b02c19f6df12d35d83eeb1be547f4d4849ea0302a947e2aebd1cfbde92c1ad
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-19T18:48:29.293554-03:00'
+resumen_ejecutivo: América Móvil muestra un negocio de telecomunicaciones con moat
+  significativo, generación de FCF sólido y márgenes operativos estables. El precio
+  cotiza bajo el consenso de analistas, indicando un posible error de mercado vinculado
+  a riesgos regulatorios y de tipo de cambio. Un catalizador clave sería la resolución
+  de dichos riesgos, lo que podría impulsar la revaluación del precio hacia niveles
+  superiores al consenso.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2027-11-19'
+  scenarios:
+  - falsifiers:
+    - Resolución favorable de los conflictos regulatorios
+    - Reducción significativa del apalancamiento
+    - Mejora del tipo de cambio MXN‑USD
+    id: BEAR
+    key_assumptions:
+    - Persistencia de disputas regulatorias en México
+    - Deuda elevada que reduzca el flujo de caja disponible
+    - Tipo de cambio MXN se deprecia frente al USD
+    rationale: El precio se mantiene en el extremo bajo del rango de consenso, reflejando
+      la materialización de riesgos regulatorios y una posible presión de deuda que
+      limite la generación de caja.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/amx/forecast/
+    target_price: 20.8
+  - falsifiers:
+    - Nuevas sanciones regulatorias
+    - Aumento de la carga de deuda
+    - Estancamiento del crecimiento de ingresos
+    id: BULL
+    key_assumptions:
+    - Acuerdo regulatorio positivo en México
+    - Refinanciamiento de deuda a tasas menores al 5 %
+    - Crecimiento de ingresos superior al 6 % anual gracias a servicios de datos
+    rationale: El precio alcanza el extremo alto del consenso, impulsado por la eliminación
+      de riesgos regulatorios, refinanciamiento de deuda a tasas bajas y expansión
+      exitosa de servicios de datos, lo que eleva múltiplos de valoración.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/amx/forecast/
+    target_price: 35.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T18:48:20.696117-03:00'
+  fuentes:
+    stockanalysis: 29.5
+    yfinance: 29.498
+  mediana: 29.5
+  n_fuentes: 2
+  promedio: 29.5
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T18:48:20.696117-03:00'
+    observed_date: '2026-11-19'
+    target_price: 29.5
+    url: https://stockanalysis.com/stocks/amx/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T18:48:20.696117-03:00'
+    observed_date: '2026-11-19'
+    target_price: 29.498
+    url: https://finance.yahoo.com/quote/AMX/
+  target_high: 35.0
+  target_low: 20.8
+tesis_inversion: América Móvil combina un moat robusto y generación de caja libre
+  consistente con una valoración actual por debajo del consenso de analistas, ofreciendo
+  una oportunidad de upside si se mitigan los riesgos regulatorios y de deuda.
+ticker: AMX
+version: '3.0'

@@ -1,0 +1,30 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de crecimiento de largo plazo'
+- 'Market error: No validado: el rango de objetivos de analistas no demuestra por
+  sí solo un error de valoración ni constituye una valoración intrínseca.'
+- 'Thesis: América Móvil ofrece servicios de telecomunicaciones en América Latina
+  y otros mercados. La información proporcionada no basta para validar que el crecimiento,
+  la reinversión y los retornos sobre capi'
+generated_at: '2026-11-19T18:51:35.423225-03:00'
+id: ass-4e17bb86
+recommendation: REVIEW
+risks:
+- analisis: El registro financiero reporta deuda total y caja en escalas que no permiten
+    calcular de forma compatible deuda neta/EBITDA con los datos proporcionados. La
+    cobertura de intereses reportada figura como cero, pero no se dispone de EBIT
+    y gasto por intereses verificables mediante una URL autorizada para el cálculo.
+  riesgo: Apalancamiento y capacidad de servicio de deuda
+- analisis: El modelo descrito opera en telecomunicaciones en América Latina e internacionalmente;
+    el paquete no cuantifica exposición por país ni efectos de regulación, competencia
+    o divisas.
+  riesgo: Exposición a ciclos regulatorios, competitivos y cambiarios
+- analisis: El paquete contiene campos con magnitudes aparentemente no conciliables
+    entre sí y no incluye URLs en trusted_source_urls; por ello varios ratios solicitados
+    no pueden validarse.
+  riesgo: Calidad y comparabilidad de los datos
+score: 35
+status: COMPLETED
+version: '3.0'

@@ -367,3 +367,42 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-19T18:41:16.081859'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b1b02c19f6df12d35d83eeb1be547f4d4849ea0302a947e2aebd1cfbde92c1ad
+    opp_id: OPP-20261023-015
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: AMX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T18:49:35.193684'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-AMX
+    ticker: AMX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-19T18:50:00.522368'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de crecimiento de largo plazo
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 90f8371320f5de24cf846edea6374373b0561be4ec9f4c1c89e2bf74e04cbbb4
+    opp_id: OPP-MB-AMX
+    score: 35
+    strategy_version: '1.5'
+    ticker: AMX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T18:51:35.483037'
