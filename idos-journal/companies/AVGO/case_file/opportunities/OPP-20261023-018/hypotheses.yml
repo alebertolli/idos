@@ -1,0 +1,194 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual del segmento de semiconductores es inferior
+      al 20% en dos trimestres consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La dirección atribuye una caída sostenida de pedidos o ingresos a cancelaciones
+      de clientes de IA o centros de datos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual del segmento de semiconductores es inferior al 20% en
+    dos trimestres consecutivos.
+  - La dirección atribuye una caída sostenida de pedidos o ingresos a cancelaciones
+    de clientes de IA o centros de datos.
+  horizon: medio
+  id: H1-OPP-20261023-018
+  opportunity_id: OPP-20261023-018
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 20.0
+    met: null
+    metric: Crecimiento interanual de ingresos del segmento de semiconductores en
+      dos trimestres consecutivos
+    prediction: En dos trimestres consecutivos publicados hasta 2027-11-19, los ingresos
+      del segmento de semiconductores crecerán al menos un 20% interanual en cada
+      trimestre.
+    unit: porcentaje mínimo en cada trimestre
+  priority: critical
+  probability: 0.5
+  rationale: La combinación de diseño de chips especializados y conectividad para
+    centros de datos puede sostener la demanda incluso si otros mercados de semiconductores
+    se debilitan. El crecimiento de ingresos del 48,7% TTM citado en la tesis es consistente
+    con un impulso significativo, aunque no garantiza que continúe.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    hasta 2027-11-19 muestran crecimiento interanual inferior al 20% en semiconductores.
+  secondary_hypotheses: []
+  statement: El negocio de semiconductores de Broadcom mantendrá un crecimiento interanual
+    de ingresos de al menos el 20% durante dos trimestres consecutivos, apoyado por
+    la demanda de aceleradores de IA y redes para centros de datos.
+  status: ACTIVE
+  ticker: AVGO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos del segmento de software de infraestructura caen interanualmente
+      en el trimestre comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa que menores renovaciones o cancelaciones de contratos
+      son una causa material de la caída.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos del segmento de software de infraestructura caen interanualmente
+    en el trimestre comparable.
+  - La empresa informa que menores renovaciones o cancelaciones de contratos son una
+    causa material de la caída.
+  horizon: medio
+  id: H2-OPP-20261023-018
+  opportunity_id: OPP-20261023-018
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ingresos del segmento de software de infraestructura
+    prediction: En el informe trimestral más cercano a 2027-11-19, los ingresos del
+      segmento de software de infraestructura serán al menos un 5% superiores a los
+      del trimestre comparable del año anterior.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La tesis atribuye al software ingresos recurrentes y márgenes altos.
+    Una base instalada amplia y renovaciones de contratos pueden amortiguar la volatilidad
+    de las ventas de hardware, aunque la evidencia disponible en el contexto no cuantifica
+    la tasa de renovación ni el crecimiento del segmento.
+  review_trigger: Dejar de creerla si el informe trimestral más cercano a 2027-11-19
+    registra una caída interanual de ingresos del segmento.
+  secondary_hypotheses: []
+  statement: El negocio de software de infraestructura conservará un crecimiento positivo
+    y demostrará resiliencia frente a la moderación cíclica de semiconductores.
+  status: ACTIVE
+  ticker: AVGO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre TTM reportado es inferior a 39.400 millones
+      de USD en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La caída se debe a un deterioro persistente de la conversión de caja,
+      al aumento de gastos de capital o a necesidades de capital circulante.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre TTM reportado es inferior a 39.400 millones de USD en la
+    fecha objetivo.
+  - La caída se debe a un deterioro persistente de la conversión de caja, al aumento
+    de gastos de capital o a necesidades de capital circulante.
+  horizon: medio
+  id: H3-OPP-20261023-018
+  opportunity_id: OPP-20261023-018
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 43.3
+    met: null
+    metric: Flujo de caja libre TTM
+    prediction: El flujo de caja libre de los cuatro trimestres más recientes, calculado
+      como flujo de caja operativo menos gastos de capital, alcanzará al menos 43.300
+      millones de USD para 2027-11-19.
+    unit: miles de millones de USD
+  priority: critical
+  probability: 0.5
+  rationale: La elevada generación de caja citada proporciona una base para financiar
+    operaciones, inversión y retornos al accionista. Si el crecimiento de ingresos
+    persiste y la conversión de beneficios en caja se mantiene, el flujo de caja libre
+    debería crecer; un deterioro del capital circulante o mayores inversiones podría
+    impedirlo.
+  review_trigger: Dejar de creerla si una publicación de resultados con datos TTM
+    disponibles hasta 2027-11-19 muestra flujo de caja libre inferior a 39.400 millones
+    de USD.
+  secondary_hypotheses:
+  - H1-OPP-20261023-018
+  - H2-OPP-20261023-018
+  statement: Broadcom aumentará su flujo de caja libre TTM por encima de los 39.400
+    millones de USD indicados en la tesis, pese a las necesidades de inversión y al
+    ciclo de semiconductores.
+  status: ACTIVE
+  ticker: AVGO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de AVGO menos el rendimiento total del Nasdaq-100
+      entre las fechas especificadas es inferior a 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción queda rezagada respecto al índice mientras las métricas operativas
+      y de caja de Broadcom incumplen las predicciones de las hipótesis relacionadas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de AVGO menos el rendimiento total del Nasdaq-100 entre las
+    fechas especificadas es inferior a 10 puntos porcentuales.
+  - La acción queda rezagada respecto al índice mientras las métricas operativas y
+    de caja de Broadcom incumplen las predicciones de las hipótesis relacionadas.
+  horizon: medio
+  id: H4-OPP-20261023-018
+  opportunity_id: OPP-20261023-018
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total de AVGO menos rendimiento total del Nasdaq-100
+    prediction: Desde el cierre del 2026-11-19 hasta el cierre del 2027-11-19, el
+      rendimiento total de AVGO, incluidos dividendos, superará al del Nasdaq-100
+      en al menos 10 puntos porcentuales.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Si el crecimiento de semiconductores, la resiliencia del software y la
+    generación de caja se confirman, podrían reducir la percepción de riesgo cíclico
+    y respaldar una revalorización. La tesis afirma que la cotización está por debajo
+    del consenso, pero no proporciona precios, múltiplos ni una estimación cuantitativa
+    de ese descuento; por ello, el rendimiento relativo es una prueba observable de
+    mercado, no una medida directa de valor intrínseco.
+  review_trigger: Dejar de creerla en 2027-11-19 si el rendimiento total relativo
+    de AVGO frente al Nasdaq-100 es inferior a 10 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-20261023-018
+  - H2-OPP-20261023-018
+  - H3-OPP-20261023-018
+  statement: La acción de Broadcom superará al Nasdaq-100 en rendimiento total durante
+    el año posterior a la fecha de corte, consistente con una reducción parcial del
+    descuento de valoración planteado en la tesis.
+  status: ACTIVE
+  ticker: AVGO
+  version: 1

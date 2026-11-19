@@ -470,3 +470,54 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-19T19:12:38.255605'
+- data:
+    classification: compounder_castigado
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 6079301ca00635f4c4f06d5dc3cfd0cdb8afcbcdec5859d7dd991077e398bad3
+    opp_id: OPP-20261023-018
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: AVGO
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T19:21:24.336772'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 594e6538e80533e7b067d38a2b1a5e640f0617bed58e287dfeb7310ff57b4596
+    opp_id: OPP-20261023-020
+    score: 58
+    strategy_version: positive_fundamentals_v1
+    ticker: AVY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T19:23:44.181164'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-AVY
+    ticker: AVY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-19T19:24:14.532851'
+- data:
+    classification: Investigación requerida; evidencia financiera parcial
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 8af27b359c644f8349bb354728efdbb0617df46679b249f7253818b0cecb6200
+    opp_id: OPP-MB-AVY
+    score: 48
+    strategy_version: '1.5'
+    ticker: AVY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T19:26:00.334258'

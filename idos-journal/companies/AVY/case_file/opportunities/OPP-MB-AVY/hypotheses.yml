@@ -1,0 +1,195 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto TTM al 2027-12-31 es inferior a 28,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa deterioro del margen atribuible a presión de precios
+      o pérdida de competitividad que no se compensa con menores costos o mejor mezcla.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto TTM al 2027-12-31 es inferior a 28,0%.
+  - La empresa informa deterioro del margen atribuible a presión de precios o pérdida
+    de competitividad que no se compensa con menores costos o mejor mezcla.
+  horizon: medio
+  id: H1-OPP-MB-AVY
+  opportunity_id: OPP-MB-AVY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 28.5
+    met: null
+    metric: Margen bruto TTM
+    prediction: El margen bruto de los doce meses terminados el 2027-12-31 será igual
+      o superior a 28,5%.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: El margen bruto TTM informado al 2026-09-30 fue de 28,83%. Ese dato ofrece
+    una referencia observable, aunque por sí solo no demuestra una ventaja competitiva
+    duradera. La hipótesis es que la gestión de precios, costos y mezcla de productos
+    evitará una erosión material.
+  review_trigger: Dejar de creerla si un informe financiero presentado antes del 2027-12-31
+    muestra un margen bruto TTM inferior a 28,0%, o si la empresa comunica una erosión
+    competitiva persistente que hace improbable recuperar ese nivel antes de la fecha
+    objetivo.
+  secondary_hypotheses: []
+  statement: AVY mantendrá la rentabilidad bruta de su negocio de materiales y soluciones
+    de identificación pese a la presión competitiva y de costos.
+  status: ACTIVE
+  ticker: AVY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF del ejercicio 2027 es inferior a USD 900 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF cae por debajo de USD 1.000 millones debido a un deterioro persistente
+      del flujo operativo, y no principalmente a una variación temporal identificada
+      del capital de trabajo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF del ejercicio 2027 es inferior a USD 900 millones.
+  - El FCF cae por debajo de USD 1.000 millones debido a un deterioro persistente
+    del flujo operativo, y no principalmente a una variación temporal identificada
+    del capital de trabajo.
+  horizon: medio
+  id: H2-OPP-MB-AVY
+  opportunity_id: OPP-MB-AVY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 1000.0
+    met: null
+    metric: Flujo de caja libre del ejercicio
+    prediction: El flujo de caja libre del ejercicio terminado el 2027-12-31 será
+      de al menos USD 1.000 millones, calculado como flujo de caja operativo menos
+      inversiones de capital.
+    unit: USD millones
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM informado al 2026-09-30 fue de USD 1.038 millones. Mantener
+    un FCF anual en torno a USD 1.000 millones indicaría que el negocio puede financiar
+    sus necesidades de inversión y devolver o retener capital sin depender de una
+    mejora meramente contable de los resultados.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran FCF
+    inferior a USD 900 millones, o si dos informes trimestrales consecutivos anteriores
+    a la fecha objetivo muestran una caída del flujo operativo que haga improbable
+    alcanzar el umbral anual.
+  secondary_hypotheses:
+  - H1-OPP-MB-AVY
+  statement: AVY sostendrá una conversión de resultados en flujo de caja libre cercana
+    al nivel reciente.
+  status: ACTIVE
+  ticker: AVY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón deuda neta/EBITDA al 2028-12-31 supera 2,5 veces.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La razón al 2028-12-31 no es inferior a la calculada con la información
+      disponible al 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El apalancamiento aumenta por recompras, adquisiciones o distribuciones
+      que no estén respaldadas por una mejora equivalente de la generación de caja.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón deuda neta/EBITDA al 2028-12-31 supera 2,5 veces.
+  - La razón al 2028-12-31 no es inferior a la calculada con la información disponible
+    al 2026-09-30.
+  - El apalancamiento aumenta por recompras, adquisiciones o distribuciones que no
+    estén respaldadas por una mejora equivalente de la generación de caja.
+  horizon: largo
+  id: H3-OPP-MB-AVY
+  opportunity_id: OPP-MB-AVY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 2.5
+    met: null
+    metric: Deuda neta/EBITDA
+    prediction: La razón deuda neta/EBITDA, calculada con deuda neta al cierre y EBITDA
+      de los últimos doce meses, será igual o inferior a 2,5 veces al 2028-12-31 y
+      habrá disminuido frente al nivel calculado con información publicada al 2026-09-30.
+    unit: veces o menos
+  priority: important
+  probability: 0.5
+  rationale: La tesis requiere que la generación de FCF compense la deuda y los riesgos
+    competitivos, pero la información disponible no incluye una medida verificable
+    del apalancamiento actual. La hipótesis se somete a prueba con una métrica estandarizada
+    de deuda neta sobre EBITDA y no presupone que AVY parta de un nivel específico.
+  review_trigger: Dejar de creerla si un informe financiero anterior al 2028-12-31
+    muestra que la razón deuda neta/EBITDA supera en más de 0,5 veces el nivel de
+    referencia calculado con datos al 2026-09-30, o si la empresa anuncia una operación
+    financiada con deuda que haga inalcanzable el umbral.
+  secondary_hypotheses:
+  - H2-OPP-MB-AVY
+  statement: AVY reducirá su apalancamiento financiero neto mediante generación de
+    caja y disciplina en la asignación de capital.
+  status: ACTIVE
+  ticker: AVY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de AVY queda por debajo del del S&P 500 durante
+      el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La ventaja de rendimiento total de AVY frente al S&P 500 es inferior
+      a 5 puntos porcentuales al 2028-11-19.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de AVY queda por debajo del del S&P 500 durante el periodo.
+  - La ventaja de rendimiento total de AVY frente al S&P 500 es inferior a 5 puntos
+    porcentuales al 2028-11-19.
+  horizon: largo
+  id: H4-OPP-MB-AVY
+  opportunity_id: OPP-MB-AVY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-19'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de AVY frente al S&P 500
+    prediction: El rendimiento total de AVY, incluidos dividendos, superará en al
+      menos 5 puntos porcentuales el rendimiento total del S&P 500 entre el 2026-11-19
+      y el 2028-11-19.
+    unit: puntos porcentuales de exceso
+  priority: informational
+  probability: 0.5
+  rationale: Un FCF sostenido podría respaldar el valor para los accionistas y mejorar
+    la percepción de la calidad financiera del negocio. Sin embargo, no se dispone
+    de datos verificables sobre valoración, crecimiento esperado o retornos sobre
+    capital para concluir que la acción esté infravalorada; por ello, esta hipótesis
+    prueba el resultado relativo de mercado, no una valoración intrínseca.
+  review_trigger: Dejar de creerla si, al cierre de una revisión trimestral anterior
+    al 2028-11-19, AVY acumula una desventaja de al menos 15 puntos porcentuales frente
+    al S&P 500 y las divulgaciones muestran deterioro persistente del FCF o del margen
+    bruto.
+  secondary_hypotheses:
+  - H1-OPP-MB-AVY
+  - H2-OPP-MB-AVY
+  statement: La continuidad de la generación de caja de AVY se traducirá en un rendimiento
+    bursátil superior al del mercado amplio durante el horizonte de la hipótesis.
+  status: ACTIVE
+  ticker: AVY
+  version: 1

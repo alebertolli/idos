@@ -1,0 +1,32 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia financiera parcial'
+- 'Market error: No se valida un error de valoración. Los objetivos de analistas son
+  referencias observadas, no una valoración intrínseca ni una tesis propia.'
+- 'Thesis: La tesis a investigar es si el negocio de materiales y soluciones de identificación
+  puede sostener crecimiento rentable y convertirlo en FCF, con disciplina de capital
+  suficiente para compensar deuda '
+generated_at: '2026-11-19T19:26:00.280275-03:00'
+id: ass-ea7f1ac8
+recommendation: REVIEW
+risks:
+- fuente: Evidencia financiera del paquete; URL no admisible para citar ratios porque
+    trusted_source_urls está vacío.
+  riesgo: 'Apalancamiento: el proveedor reporta net cash de -USD 3.301 millones al
+    2026-09-30; no se valida aquí el ratio deuda neta/EBITDA por las restricciones
+    de fuentes.'
+- fuente: Evidencia financiera del paquete; serie atribuida a stockanalysis.com.
+  riesgo: 'El crecimiento del FCF es irregular en la serie aportada: FY 2023 -17,89%,
+    FY 2024 30,19%, FY 2025 -2,41% y TTM 51,68% al 2026-09-30.'
+- fuente: Evidencia financiera del paquete; URL no admisible para citar ratios porque
+    trusted_source_urls está vacío.
+  riesgo: La cobertura de intereses aparece reportada como 0 al 2026-09-30; sin detalle
+    del cálculo, el dato es ambiguo y no debe interpretarse como cobertura económica
+    validada.
+- fuente: Ausencia de esos datos en el paquete recibido.
+  riesgo: No hay evidencia aportada sobre cuota, mercado direccionable, concentración
+    de clientes, presión competitiva o retornos incrementales del capital reinvertido.
+score: 48
+status: COMPLETED
+version: '3.0'

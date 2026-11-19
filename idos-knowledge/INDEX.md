@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 25 companies tracked
+Total: 27 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -19,6 +19,7 @@ Total: 25 companies tracked
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
 - 📄 [[ANF|Abercrombie & Fitch Co.]]
+- 📄 [[AVY|Avery Dennison Corporation]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
@@ -50,6 +51,7 @@ Total: 25 companies tracked
 - 📄 [[AMD|Advanced Micro Devices, Inc.]]
 - 📄 [[ARM|Arm Holdings plc]]
 - 📄 [[ASML|ASML Holding N.V.]]
+- 📄 [[AVGO|Broadcom Inc.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 
 ---

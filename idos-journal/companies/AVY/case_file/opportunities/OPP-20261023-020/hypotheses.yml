@@ -1,0 +1,150 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico acumulado de Label Materials en esos cuatro
+      trimestres es inferior al 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento reportado depende de adquisiciones o de divisas y las
+      ventas orgánicas comparables no alcanzan el umbral previsto.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico acumulado de Label Materials en esos cuatro trimestres
+    es inferior al 3%.
+  - El crecimiento reportado depende de adquisiciones o de divisas y las ventas orgánicas
+    comparables no alcanzan el umbral previsto.
+  horizon: medio
+  id: H1-OPP-20261023-020
+  opportunity_id: OPP-20261023-020
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 3.0
+    met: null
+    metric: Crecimiento orgánico acumulado de ventas de Label Materials
+    prediction: En los cuatro trimestres que terminan el 2027-09-30, las ventas orgánicas
+      de Label Materials crecerán al menos un 3% interanual en conjunto, excluidos
+      los efectos de divisas y adquisiciones, según los resultados publicados hasta
+      el 2027-11-19.
+    unit: porcentaje interanual mínimo en cuatro trimestres
+  priority: critical
+  probability: 0.5
+  rationale: La integración de etiquetas y soluciones de identificación en los procesos
+    de clientes puede favorecer continuidad de compra cuando se requieren consistencia
+    y desempeño técnico. Sin embargo, el contexto disponible no aporta cifras recientes
+    que demuestren que esa ventaja ya se traduce en crecimiento; la hipótesis debe
+    validarse con ventas orgánicas reportadas por la empresa.
+  review_trigger: Dejar de creerla si los resultados disponibles al 2027-11-19 muestran
+    crecimiento orgánico acumulado inferior al 3%, o antes si dos trimestres consecutivos
+    reportan contracción orgánica en Label Materials.
+  secondary_hypotheses: []
+  statement: La demanda de materiales especializados y soluciones de identificación
+    integradas permitirá a AVY mantener crecimiento orgánico en Label Materials durante
+    los próximos cuatro trimestres, sin depender principalmente de adquisiciones o
+    divisas.
+  status: ACTIVE
+  ticker: AVY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La conversión de flujo de caja libre a beneficio neto ajustado del
+      ejercicio fiscal 2027 es inferior al 80%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica datos suficientes para calcular ambas métricas
+      de forma comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La conversión de flujo de caja libre a beneficio neto ajustado del ejercicio fiscal
+    2027 es inferior al 80%.
+  - La empresa no publica datos suficientes para calcular ambas métricas de forma
+    comparable.
+  horizon: medio
+  id: H2-OPP-20261023-020
+  opportunity_id: OPP-20261023-020
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 80.0
+    met: null
+    metric: Flujo de caja libre dividido por beneficio neto ajustado
+    prediction: Para el ejercicio fiscal 2027, el flujo de caja libre será al menos
+      el 80% del beneficio neto ajustado; el resultado será verificable cuando AVY
+      publique sus resultados anuales, previsiblemente no más tarde del 2028-03-31.
+    unit: porcentaje mínimo en el ejercicio fiscal 2027
+  priority: critical
+  probability: 0.5
+  rationale: La tesis depende de que la integración operativa y la demanda resiliente
+    produzcan beneficios y caja, no solo ingresos. La información proporcionada no
+    incluye resultados de caja ni datos de balance que confirmen esa conversión, por
+    lo que la prueba debe basarse en flujo de caja libre y beneficio neto ajustado
+    reportados.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados del ejercicio
+    fiscal 2027 si la conversión es inferior al 80%; si los resultados no están disponibles
+    el 2028-03-31, suspender la conclusión hasta su publicación.
+  secondary_hypotheses:
+  - H1-OPP-20261023-020
+  statement: El crecimiento del negocio de AVY se convertirá en caja libre con una
+    conversión suficiente para respaldar la deuda y una asignación de capital prudente.
+  status: ACTIVE
+  ticker: AVY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de AVY menos la del S&P 500 es inferior a 5 puntos
+      porcentuales en el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción supera al índice únicamente por cambios de precio no ajustados
+      por dividendos y la rentabilidad total no alcanza el umbral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de AVY menos la del S&P 500 es inferior a 5 puntos porcentuales
+    en el periodo definido.
+  - La acción supera al índice únicamente por cambios de precio no ajustados por dividendos
+    y la rentabilidad total no alcanza el umbral.
+  horizon: medio
+  id: H3-OPP-20261023-020
+  opportunity_id: OPP-20261023-020
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de AVY menos rentabilidad total del S&P 500
+    prediction: Desde el cierre del 2026-11-19 hasta el cierre del 2027-11-19, la
+      rentabilidad total de AVY, incluidos dividendos, superará en al menos 5 puntos
+      porcentuales la rentabilidad total del S&P 500.
+    unit: puntos porcentuales mínimos entre 2026-11-19 y 2027-11-19
+  priority: important
+  probability: 0.5
+  rationale: La cotización indicada está por debajo de la media del consenso aportado,
+    pero cerca del extremo bajo de ese rango; esa diferencia no prueba que el mercado
+    esté infravalorando la empresa. La hipótesis de mercado es que resultados operativos
+    verificables reduzcan la incertidumbre y favorezcan una rentabilidad relativa
+    positiva, no que exista una brecha de valoración ya confirmada.
+  review_trigger: Dejar de creerla el 2027-11-19 si la rentabilidad total relativa
+    acumulada es inferior a 5 puntos porcentuales, o antes si se abandona explícitamente
+    la previsión por una revisión material de las perspectivas del negocio.
+  secondary_hypotheses:
+  - H1-OPP-20261023-020
+  - H2-OPP-20261023-020
+  statement: Si AVY convierte la resiliencia operativa en crecimiento orgánico, la
+    acción ofrecerá una rentabilidad total superior a la del mercado amplio durante
+    los siguientes doce meses, aunque la evidencia disponible no demuestra actualmente
+    una infravaloración.
+  status: ACTIVE
+  ticker: AVY
+  version: 1
