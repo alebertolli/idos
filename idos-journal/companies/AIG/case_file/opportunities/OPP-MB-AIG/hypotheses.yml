@@ -1,0 +1,164 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El ratio combinado reportado al cierre del trimestre Q2 2027 supera
+      el 92.5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa anuncia una extensión de la reestructuración más allá de
+      2027 sin hitos claros de mejora.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio combinado reportado al cierre del trimestre Q2 2027 supera el 92.5%.
+  - La empresa anuncia una extensión de la reestructuración más allá de 2027 sin hitos
+    claros de mejora.
+  horizon: corto
+  id: H1-OPP-MB-AIG
+  opportunity_id: OPP-MB-AIG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 92.5
+    met: null
+    metric: ratio_combinado_seguro_comercial
+    prediction: El ratio combinado de seguros comerciales de AIG será ≤ 92.5% al 30-06-2027.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: La reestructuración anunciada en Q3 2026 incluye la consolidación de
+    líneas de negocio, reducción de costos operativos y la implementación de una nueva
+    plataforma de suscripción que, según la gerencia, debería traducirse en mayor
+    eficiencia y menor siniestralidad.
+  review_trigger: Si al 31-03-2027 el ratio combinado sigue por encima del 95%, se
+    considerará que la hipótesis es inviable.
+  secondary_hypotheses: []
+  statement: AIG completará la reestructuración de su negocio de seguros comerciales
+    y mejorará su ratio combinado en al menos 5 puntos básicos antes del 30 de junio
+    de 2027.
+  status: ACTIVE
+  ticker: AIG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ingreso neto anual reportado para FY2027 es < 5.0 B USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: AIG revisa a la baja su guía de ingresos netos antes del 30-09-2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ingreso neto anual reportado para FY2027 es < 5.0 B USD.
+  - AIG revisa a la baja su guía de ingresos netos antes del 30-09-2027.
+  horizon: medio
+  id: H2-OPP-MB-AIG
+  opportunity_id: OPP-MB-AIG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 5.5
+    met: null
+    metric: ingreso_neto_fy2027
+    prediction: El ingreso neto reportado para FY2027 será ≥ 5.5 B USD.
+    unit: mil millones USD
+  priority: important
+  probability: 0.5
+  rationale: La combinación de la mejora operativa (H1), la reducción de la exposición
+    a líneas de alta siniestralidad y la expectativa de mayores márgenes en seguros
+    de vida y de propiedad respaldan un impulso significativo en la rentabilidad.
+  review_trigger: Si el ingreso neto interino al 30-09-2027 está por debajo de 5.0 B
+    USD, la hipótesis se descartará.
+  secondary_hypotheses:
+  - H1-OPP-MB-AIG
+  statement: El ingreso neto de AIG para el año fiscal 2027 superará los 5.5 mil millones
+    de dólares, reflejando un crecimiento superior al 10% respecto al FY2026.
+  status: ACTIVE
+  ticker: AIG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El precio de cierre el 31-03-2028 es < 85 USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El múltiplo P/E de AIG sigue por debajo de 6x sin señales de ajuste.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El precio de cierre el 31-03-2028 es < 85 USD.
+  - El múltiplo P/E de AIG sigue por debajo de 6x sin señales de ajuste.
+  horizon: largo
+  id: H3-OPP-MB-AIG
+  opportunity_id: OPP-MB-AIG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 95.0
+    met: null
+    metric: precio_accion
+    prediction: El precio de cierre de AIG será ≥ 95 USD el 31-03-2028.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: Los analistas de equity han señalado que el múltiplo P/E actual (≈7x)
+    está por debajo del promedio del sector (≈9x) y que la mejora en ingresos y cobertura
+    de intereses debería impulsar una revaloración.
+  review_trigger: Si el precio promedio del mes de febrero 2028 se mantiene bajo 85
+    USD, la hipótesis se considerará falsificada.
+  secondary_hypotheses:
+  - H2-OPP-MB-AIG
+  statement: El precio de la acción de AIG alcanzará los 95 dólares antes del 31 de
+    marzo de 2028, reflejando la revalorización del mercado ante la mejora operativa
+    y financiera.
+  status: ACTIVE
+  ticker: AIG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio reportado al 30-09-2027 es < 2.5.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: AIG anuncia una nueva emisión de deuda significativa que eleva los
+      intereses a pagar sin un aumento proporcional del EBITDA.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio reportado al 30-09-2027 es < 2.5.
+  - AIG anuncia una nueva emisión de deuda significativa que eleva los intereses a
+    pagar sin un aumento proporcional del EBITDA.
+  horizon: corto
+  id: H4-OPP-MB-AIG
+  opportunity_id: OPP-MB-AIG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 3.0
+    met: null
+    metric: interest_coverage_ratio
+    prediction: El interest coverage ratio será ≥ 3.0 al 30-09-2027.
+    unit: ratio
+  priority: critical
+  probability: 0.5
+  rationale: La reducción de deuda neta proyectada tras la venta de activos no estratégicos
+    y la mejora en EBITDA derivada de H1 y H2 aumentarán la capacidad de la compañía
+    para cubrir sus gastos financieros.
+  review_trigger: Si al 31-07-2027 el ratio está por debajo de 2.5, la hipótesis será
+    descartada.
+  secondary_hypotheses:
+  - H1-OPP-MB-AIG
+  statement: El ratio de cobertura de intereses (EBITDA/Intereses) de AIG superará
+    3.0 antes del 30 de septiembre de 2027.
+  status: ACTIVE
+  ticker: AIG
+  version: 1

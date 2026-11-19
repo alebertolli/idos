@@ -1,0 +1,212 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos crecen menos de un 20% interanual en al menos dos de esos
+      cuatro trimestres.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa atribuye una desaceleración material a retrasos o cancelaciones
+      de despliegues de clientes de IA.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa reduce su previsión de crecimiento por menor demanda de
+      conectividad para infraestructura de IA.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos crecen menos de un 20% interanual en al menos dos de esos cuatro
+    trimestres.
+  - La empresa atribuye una desaceleración material a retrasos o cancelaciones de
+    despliegues de clientes de IA.
+  - La empresa reduce su previsión de crecimiento por menor demanda de conectividad
+    para infraestructura de IA.
+  horizon: medio
+  id: H1-OPP-20261023-011
+  opportunity_id: OPP-20261023-011
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 20.0
+    met: null
+    metric: Crecimiento interanual de ingresos trimestrales
+    prediction: En al menos tres de los cuatro próximos trimestres con resultados
+      publicados hasta 2027-11-19, los ingresos trimestrales de Astera Labs crecerán
+      al menos un 20% interanual.
+    unit: porcentaje mínimo en al menos 3 de 4 trimestres
+  priority: critical
+  probability: 0.5
+  rationale: Si aumentan el tamaño y la complejidad de los clústeres de IA, los clientes
+    necesitarán más conectividad especializada. La tesis disponible apunta a esta
+    posible relación, pero no demuestra que la demanda sea persistente ni que Astera
+    capture una cuota creciente.
+  review_trigger: Dejar de creerla si, antes del 2027-11-19, dos trimestres consecutivos
+    registran crecimiento interanual de ingresos inferior al 20% y la dirección no
+    identifica una causa temporal verificable.
+  secondary_hypotheses: []
+  statement: La creciente demanda de interconexión en clústeres de IA permitirá a
+    Astera Labs sostener un crecimiento elevado de ingresos durante el próximo año.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF acumulado de los doce meses terminados el 2027-09-30 es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de FCF de ese periodo es inferior al 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF positivo se explica principalmente por una reducción no recurrente
+      del capital circulante, mientras el flujo operativo subyacente se deteriora.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF acumulado de los doce meses terminados el 2027-09-30 es negativo.
+  - El margen de FCF de ese periodo es inferior al 10%.
+  - El FCF positivo se explica principalmente por una reducción no recurrente del
+    capital circulante, mientras el flujo operativo subyacente se deteriora.
+  horizon: medio
+  id: H2-OPP-20261023-011
+  opportunity_id: OPP-20261023-011
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 10.0
+    met: null
+    metric: Margen de FCF sobre ingresos en los doce meses terminados el 2027-09-30
+    prediction: En el periodo de doce meses terminado el 2027-09-30, Astera Labs registrará
+      flujo de caja libre positivo y un margen de FCF de al menos el 10% de los ingresos.
+    unit: porcentaje mínimo, con FCF positivo
+  priority: critical
+  probability: 0.5
+  rationale: La información disponible es compatible con FCF positivo, pero no prueba
+    que este sea recurrente ni que sus márgenes sean sostenibles. La conversión de
+    crecimiento en caja dependerá de márgenes, gastos operativos y capital circulante.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos muestran
+    FCF negativo y la empresa no presenta una explicación temporal respaldada por
+    datos.
+  secondary_hypotheses:
+  - H1-OPP-20261023-011
+  statement: El crecimiento de Astera Labs se traducirá en generación de caja operativa
+    sostenible, y no dependerá únicamente de expansión de ingresos o partidas no monetarias.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: No se divulgan dos adopciones que cumplan los criterios dentro del
+      plazo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Las divulgaciones se limitan a muestras, pruebas, anuncios de producto
+      o colaboraciones sin confirmación de uso comercial.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa comunica pérdida de diseños, sustitución por soluciones
+      internas de clientes o presión competitiva que afecte materialmente la oferta
+      integrada.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - No se divulgan dos adopciones que cumplan los criterios dentro del plazo.
+  - Las divulgaciones se limitan a muestras, pruebas, anuncios de producto o colaboraciones
+    sin confirmación de uso comercial.
+  - La empresa comunica pérdida de diseños, sustitución por soluciones internas de
+    clientes o presión competitiva que afecte materialmente la oferta integrada.
+  horizon: medio
+  id: H3-OPP-20261023-011
+  opportunity_id: OPP-20261023-011
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 2.0
+    met: null
+    metric: Nuevas adopciones comerciales verificadas de soluciones integradas
+    prediction: Antes del 2027-11-19, Astera Labs divulgará al menos dos nuevas adopciones
+      comerciales de soluciones integradas de hardware y software por clientes o socios
+      distintos, con uso en producción o despliegue comercial explícitamente confirmado.
+    unit: adopciones de clientes o socios distintos
+  priority: important
+  probability: 0.5
+  rationale: Una oferta integrada podría reducir la complejidad de diseño y gestión
+    para los clientes, pero la tesis disponible no acredita la adopción del software
+    ni la existencia de costes de cambio. La hipótesis requiere señales públicas de
+    despliegue comercial, no solo anuncios de producto.
+  review_trigger: Dejar de creerla el 2027-11-19 si no existen dos adopciones comerciales
+    verificables, o antes si Astera Labs confirma una pérdida material de diseños
+    atribuida a sustitución o falta de diferenciación.
+  secondary_hypotheses:
+  - H1-OPP-20261023-011
+  statement: La combinación de hardware y software de Astera Labs aportará diferenciación
+    comercial observable y limitará la sustitución de sus soluciones por alternativas
+    internas o de competidores.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de ALAB no supera la del SOX por al menos 10
+      puntos porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción queda rezagada frente al SOX mientras los resultados publicados
+      no alcanzan las predicciones de crecimiento o FCF.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad relativa positiva, si la hubiera, coincide con deterioro
+      de ingresos o caja y no con una mejora verificable de resultados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de ALAB no supera la del SOX por al menos 10 puntos porcentuales
+    en la fecha objetivo.
+  - La acción queda rezagada frente al SOX mientras los resultados publicados no alcanzan
+    las predicciones de crecimiento o FCF.
+  - La rentabilidad relativa positiva, si la hubiera, coincide con deterioro de ingresos
+    o caja y no con una mejora verificable de resultados.
+  horizon: medio
+  id: H4-OPP-20261023-011
+  opportunity_id: OPP-20261023-011
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total de ALAB menos rentabilidad total del índice SOX
+    prediction: Entre el cierre del 2026-11-19 y el cierre del 2027-11-19, la rentabilidad
+      total de ALAB superará en al menos 10 puntos porcentuales la del índice PHLX
+      Semiconductor Sector (SOX), usando precios ajustados por dividendos.
+    unit: puntos porcentuales de exceso de rentabilidad
+  priority: important
+  probability: 0.5
+  rationale: La tesis plantea que el mercado podría infravalorar la persistencia de
+    la demanda y la propuesta integrada. Sin datos suficientes sobre valoración, previsiones
+    y competencia, no puede afirmarse que la acción esté infravalorada; esta hipótesis
+    pone a prueba una posible revalorización relativa condicionada a resultados observables.
+  review_trigger: Dejar de creerla el 2027-11-19 si la rentabilidad total de ALAB
+    no supera en 10 puntos porcentuales la del SOX; reconsiderarla antes si se incumplen
+    las predicciones de H1 y H2.
+  secondary_hypotheses:
+  - H1-OPP-20261023-011
+  - H2-OPP-20261023-011
+  statement: Si Astera Labs confirma crecimiento y conversión a caja, el mercado reconocerá
+    esa ejecución con una rentabilidad bursátil superior a la del sector de semiconductores.
+  status: ACTIVE
+  ticker: ALAB
+  version: 1

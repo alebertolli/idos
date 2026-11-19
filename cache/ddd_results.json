@@ -1,11 +1,19 @@
 {
-  "total": 1,
+  "total": 2,
   "processed": [
     {
-      "opp_id": "OPP-20261023-009",
-      "ticker": "AEM",
+      "opp_id": "OPP-MB-AIG",
+      "ticker": "AIG",
       "status": "completed",
-      "score": 84,
+      "score": 73,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-20261023-011",
+      "ticker": "ALAB",
+      "status": "completed",
+      "score": 57,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
@@ -13,18 +21,66 @@
   "skipped": [],
   "assessments": [
     {
-      "ticker": "AEM",
-      "opp_id": "OPP-20261023-009",
+      "ticker": "AIG",
+      "opp_id": "OPP-MB-AIG",
       "status": "completed",
-      "conviction_score": 73,
+      "conviction_score": 56,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "assessments": {
+        "BusinessAssessmentEngine": 54,
+        "ValuationAssessmentEngine": 55,
+        "RecoveryAssessmentEngine": 51,
+        "RiskAssessmentEngine": 70,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 54/70",
+        "RULE-003": "Rerating: 51/50",
+        "RULE-004": "Risk: 70/50",
+        "RULE-005": "Conviction: 56/65",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
+    },
+    {
+      "ticker": "ALAB",
+      "opp_id": "OPP-20261023-011",
+      "status": "completed",
+      "conviction_score": 70,
       "recommendation": "BLOCKED",
       "board_approved": false,
       "decision_type": null,
       "decision_id": null,
       "assessments": {
         "BusinessAssessmentEngine": 76,
-        "ValuationAssessmentEngine": 80,
-        "RecoveryAssessmentEngine": 64,
+        "ValuationAssessmentEngine": 70,
+        "RecoveryAssessmentEngine": 62,
         "RiskAssessmentEngine": 80,
         "PortfolioAssessmentEngine": 50
       },
@@ -40,10 +96,10 @@
       ],
       "rules_details": {
         "RULE-001": "Business quality: 76/70",
-        "RULE-003": "Rerating: 64/50",
+        "RULE-003": "Rerating: 62/50",
         "RULE-004": "Risk: 80/50",
-        "RULE-005": "Conviction: 73/65",
-        "RULE-008": "B/R 1.4:1 \u274c (Bull +59.8% / Bear -43.2%)",
+        "RULE-005": "Conviction: 70/65",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual",
         "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
       },
       "data_quality": "good",
@@ -63,7 +119,7 @@
   ],
   "errors": [],
   "status": "partial_deferred",
-  "deferred_count": 184,
+  "deferred_count": 182,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

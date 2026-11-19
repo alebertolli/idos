@@ -270,3 +270,49 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-19T17:58:37.021316'
+- data:
+    metrics:
+    - net_debt_ebitda
+    opp_id: OPP-MB-AIG
+    ticker: AIG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-19T18:05:48.949163'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-AIG
+    ticker: AIG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-19T18:05:48.976336'
+- data:
+    classification: Neutral
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 89a64d6a54251a65bf8649f8df8210963c48e0a5e5372dc7cbbbbc7b3bb4b329
+    opp_id: OPP-MB-AIG
+    score: 73
+    strategy_version: '1.5'
+    ticker: AIG
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T18:07:15.560910'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b24d74b559042b1259793cad5e2e6cc0c7b4e4773437ca9b3e4895111ec52c2f
+    opp_id: OPP-20261023-011
+    score: 57
+    strategy_version: positive_fundamentals_v1
+    ticker: ALAB
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T18:09:34.689238'
