@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-11-19 16:18 AR _
+_Generado: 2026-11-19 17:06 AR _
 
 ## Resumen
 
@@ -12,14 +12,18 @@ _Generado: 2026-11-19 16:18 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **NVDA** (OPP-MB-NVDA): score=78, class=?
+- ✅ **ACN** (OPP-20261023-005): score=78, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **NVDA**
-  - Opp: [OPP-MB-NVDA]
-  - Conviction: 69/100 | Rec: WAIT
-  - Scores: Business: 76 | Valuation: 70 | Recovery: 58 | Risk: 80 | Portfolio: 50
+- ⚠️ **ACN**
+  - Opp: [OPP-20261023-005]
+  - Conviction: 63/100 | Rec: BLOCKED
+  - Scores: Business: 64 | Valuation: 65 | Recovery: 62 | Risk: 70 | Portfolio: 50
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 64/70
+    - 🚫 RULE-005: Conviction: 63/65
+    - 🚫 RULE-008: B/R 1.6:1 ❌ (Bull +28.5% / Bear -17.4%)
 
 ---
 

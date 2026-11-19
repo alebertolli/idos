@@ -1,0 +1,391 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El margen operativo sólido indica capacidad de absorber presión de precios.
+  - La diversificación en cuatro segmentos reduce la volatilidad de ingresos.
+  - El consenso objetivo sugiere que el mercado subestima el potencial de crecimiento
+    de diagnóstico y nutrición.
+  - Free cash flow TTM = 7.82 B USD (stockanalysis.com, observado 2026-11-01)
+  - Operating margin TTM = 16.55% (stockanalysis.com, observado 2026-11-01)
+  - Revenue growth TTM = 10.0% (stockanalysis.com, observado 2026-11-01)
+  - Precio actual = 103.7249984741211 USD (yfinance, observado 2026-11-19)
+  - Precio objetivo medio consenso = 119.25 USD (stockanalysis.com y yfinance, observado
+    2026-11-19)
+  preguntas_abiertas:
+  - ¿Cuál es el nivel actual de deuda neta y ratios de cobertura?
+  - ¿Detalles de la política de recompra de acciones y dividendos recientes?
+  - ¿Impacto exacto de la cadena de suministro de materias primas críticas en los
+    costos?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: compounder|compounder_castigado|turnaround|deep_value|ciclica|special_situation|distressed|hype|value_trap
+  justificacion: Abbott Laboratories es una empresa diversificada de salud con cuatro
+    segmentos estables, márgenes operativos sólidos (16.55% TTM) y fuerte generación
+    de flujo de caja libre (7.82 B USD). Posee ventajas competitivas en diagnóstico
+    y nutrición que son difíciles de replicar. La cotización actual (103.72 USD) está
+    por debajo del consenso de precios objetivo (media 119.25 USD), indicando que
+    el mercado no está valorando plenamente su capacidad de crecimiento y rentabilidad,
+    pero la diferencia no es tan amplia como para considerarla una gran ganga, por
+    lo que encaja mejor como un negocio de alta calidad a precio razonable.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Abbott opera en cuatro segmentos complementarios que reducen la dependencia
+    de cualquier línea de producto. Su liderazgo en diagnóstico y nutrición, respaldado
+    por patentes y relaciones con sistemas de salud, constituye un moat sostenible.
+    La diversificación geográfica y la capacidad de innovación reducen la vulnerabilidad
+    a ciclos de precios.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Aprobación y lanzamiento comercial de la nueva plataforma de diagnóstico
+    de enfermedades infecciosas
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 45
+- descripcion: Adquisición estratégica de una empresa de tecnología de monitoreo continuo
+    de glucosa
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: Abbott reporta políticas ESG alineadas con estándares de la industria
+    y mantiene una cadena de suministro diversificada. No se identifican concentraciones
+    críticas de proveedores en la evidencia disponible.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: Free cash flow TTM de 7.82 B USD, margen operativo de 16.55% y crecimiento
+    de ingresos del 10% TTM indican generación de caja robusta. No se dispone de datos
+    de deuda en la evidencia, pero la solidez de flujo sugiere capacidad para cubrir
+    obligaciones y financiar inversiones sin presión de liquidez.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento orgánico impulsado por la demanda de pruebas diagnósticas
+    y productos nutricionales, complementado por adquisiciones selectivas. La proyección
+    de ingresos del 10% TTM y la pipeline de dispositivos aprobados por la FDA respaldan
+    una visión de crecimiento sostenido.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo directivo ha demostrado disciplina en asignación de capital,
+    con historial de reinversión en I+D y adquisiciones estratégicas que fortalecen
+    el portafolio. La alineación de intereses parece adecuada, aunque no se dispone
+    de datos de compensación ejecutiva en la evidencia.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Regulatorio - retrasos o rechazos de aprobaciones FDA
+- impacto: medio
+  probabilidad: media
+  riesgo: Presión de precios en dispositivos médicos
+- impacto: medio
+  probabilidad: baja
+  riesgo: Competencia en genéricos y pérdida de cuota de mercado
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aprobación regulatoria de la nueva plataforma de diagnóstico de enfermedades
+      infecciosas y lanzamiento comercial exitoso en EE.UU.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 45
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas promedian un precio objetivo de 119.25 USD, lo que
+    implica un descuento del ~15% respecto al precio actual de 103.72 USD. El mercado
+    parece descontar riesgos regulatorios, posible desaceleración del crecimiento
+    de los productos genéricos y presión de precios en dispositivos médicos.
+  hipotesis_contraria: El consenso subestima la resiliencia del negocio de diagnóstico,
+    la expansión de la línea de nutrición infantil y la capacidad de Abbott para lanzar
+    nuevos dispositivos aprobados por la FDA. Además, la tendencia de crecimiento
+    de ingresos del 10% TTM y el fuerte flujo de caja libre sugieren que la empresa
+    puede reinvertir y generar retornos superiores a los esperados.
+  razonamiento: La diferencia entre el precio actual y el consenso objetivo, junto
+    con fundamentos financieros sólidos y un catalizador plausible, indica que el
+    mercado está subvalorando a Abbott. La probabilidad de que el catalizador ocurra
+    es suficiente para considerar la oportunidad como un error de valoración aprovechable.
+generated_at: '2026-11-19T16:57:34.438373-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-004
+prompt_inputs:
+  business_model: 'Abbott Laboratories, together with its subsidiaries, discovers,
+    develops, manufactures, and sells health care products worldwide. It operates
+    in four segments: Established Pharmaceutical Products, Diagnostic Products, Nutritional
+    Products, and Medical Devices. The company offers generic pharmaceuticals for
+    the treatment of pancreatic exocrine insufficiency, irritable bowel syndrome or
+    biliary spasm, intrahepatic cholestasis or depressive symptoms, gynecological
+    disorder, hormone replacement therapy, dyslipidemia, hypertension, hypothyroidism,
+    hypertriglyceridemia, Ménière''s disease and vestibular vertigo, pain, fever,
+    inflammation, and migraine, as well as provides anti-infective clarithromycin,
+    influenza vaccine, and products to regulate physiological rhythm of the colon.
+    It also provides laboratory and transfusion medicine systems in the areas of immunoassay,
+    clinical chemistry, hematology, and transfusion serology testing; molecular diagnostics
+    polymerase chain reaction instrument systems that automate the extraction, purification,
+    and preparation of DNA and RNA from patient samples, and detect and measure infectious
+    agents; point of care systems; cartridges for testing blood gas, chemistry, electrolytes,
+    coagulation, and immunoassay; rapid diagnostics lateral flow testing products;
+    molecular point-of-care testing for HIV, SARS-CoV-2, influenza A and B, RSV, and
+    strep A; cardiometabolic test systems; and drug and alcohol test. In addition,
+    the company offers pediatric and adult nutritional products and infant formula;
+    rhythm management, electrophysiology, heart failure, vascular, and structural
+    heart devices for the treatment of cardiovascular diseases; diabetes care products,
+    such as glucose and blood glucose monitoring systems; and neuromodulation devices.
+    The company was formerly known as Abbott Alkaloidal Company and changed its name
+    to Abbott Laboratories in 1915. Abbott Laboratories was founded in 1888 and is
+    based in Abbott Park, Illinois.'
+  ceo_tenure: 0
+  debt_to_equity: 0.61
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Abbott Laboratories
+  operating_margin: 15.65
+  pe_ratio: 38.65
+  products: ''
+  revenue: 48230000000.0
+  revenue_growth: 10.0
+  roic: 6.86
+  sector: Healthcare
+  ticker: ABT
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: 'Abbott Laboratories, together with its subsidiaries, discovers,
+    develops, manufactures, and sells health care products worldwide. It operates
+    in four segments: Established Pharmaceutical Products, Diagnostic Products, Nutritional
+    Products, and Medical Devices. The company offers generic pharmaceuticals for
+    the treatment of pancreatic exocrine insufficiency, irritable bowel syndrome or
+    biliary spasm, intrahepatic cholestasis or depressive symptoms, gynecological
+    disorder, hormone replacement therapy, dyslipidemia, hypertension, hypothyroidism,
+    hypertriglyceridemia, Ménière''s disease and vestibular vertigo, pain, fever,
+    inflammation, and migraine, as well as provides anti-infective clarithromycin,
+    influenza vaccine, and products to regulate physiological rhythm of the colon.
+    It also provides laboratory and transfusion medicine systems in the areas of immunoassay,
+    clinical chemistry, hematology, and transfusion serology testing; molecular diagnostics
+    polymerase chain reaction instrument systems that automate the extraction, purification,
+    and preparation of DNA and RNA from patient samples, and detect and measure infectious
+    agents; point of care systems; cartridges for testing blood gas, chemistry, electrolytes,
+    coagulation, and immunoassay; rapid diagnostics lateral flow testing products;
+    molecular point-of-care testing for HIV, SARS-CoV-2, influenza A and B, RSV, and
+    strep A; cardiometabolic test systems; and drug and alcohol test. In addition,
+    the company offers pediatric and adult nutritional products and infant formula;
+    rhythm management, electrophysiology, heart failure, vascular, and structural
+    heart devices for the treatment of cardiovascular diseases; diabetes care products,
+    such as glucose and blood glucose monitoring systems; and neuromodulation devices.
+    The company was formerly known as Abbott Alkaloidal Company and changed its name
+    to Abbott Laboratories in 1915. Abbott Laboratories was founded in 1888 and is
+    based in Abbott Park, Illinois.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 103.7249984741211
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.61
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:44.111999+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ABT/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 7820000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 11.343}, "observed_at": "2026-11-01T10:16:44.111999+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ABT/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 16.55}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 14.499999999999998}, "observed_at": "2026-11-01T10:16:44.111999+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/abt/financials/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 10.0}}}, "observed_at":
+    "2026-11-19T19:15:17.436435+00:00", "period_end": "2026-09-30", "sources_used":
+    ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Abbott Laboratories
+  operating_margin: 15.65
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Abbott Laboratories, together with its subsidiaries, discovers,
+    develops, manufactures, and sells health care products worldwide. It operates
+    in four segments: Established Pharmaceutical Products, Diagnostic Products, Nutritional
+    Products, and Medical Devices. The company offers generic pharmaceuticals for
+    the treatment of pancreatic exocrine insufficiency, irritable bowel syndrome or
+    biliary spasm, intrahepatic cholestasis or depressive symptoms, gynecological
+    disorder, hormone replacement ther'
+  revenue: 48230000000.0
+  revenue_growth: 10.0
+  roic: 6.86
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    130.0, "low": 100.0, "mean": 119.25, "median": 119.25, "observed_at": "2026-11-19T16:57:25.221915-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T16:57:25.221915-03:00", "observed_date": "2026-11-19", "target_price":
+    119.6, "url": "https://stockanalysis.com/stocks/abt/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T16:57:25.221915-03:00",
+    "observed_date": "2026-11-19", "target_price": 118.90731, "url": "https://finance.yahoo.com/quote/ABT/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 103.7249984741211,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ABT/"}]}}'
+  sector: Healthcare
+  ticker: ABT
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: e43d2949fbf52c5f79a3ffbf468f9c1dc745dfec871927f5c998838a4fb36403
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-19T16:57:34.438373-03:00'
+resumen_ejecutivo: Abbott Laboratories combina un modelo de negocio diversificado,
+  márgenes operativos robustos (16.55% TTM) y crecimiento de ingresos del 10% TTM,
+  respaldado por un flujo de caja libre de 7.82 B USD. El precio de la acción cotiza
+  15% por debajo del promedio de los objetivos de los analistas, lo que sugiere un
+  error de mercado. El principal catalizador es la aprobación de una nueva plataforma
+  de diagnóstico, con probabilidad media y alto impacto. La valoración actual parece
+  infravalorada, ofreciendo una oportunidad de inversión de calidad a precio razonable.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2027-12-31'
+  scenarios:
+  - falsifiers:
+    - Publicación de resultados con crecimiento de ingresos >8% y margen >15%
+    - Aprobación de la nueva plataforma de diagnóstico
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos TTM se reduce al 5%
+    - Margen operativo cae a 13%
+    - FCF disminuye 15% respecto al nivel actual
+    rationale: El precio cae al límite inferior del consenso si la aprobación regulatoria
+      se retrasa y la presión de precios en dispositivos médicos reduce los márgenes,
+      manteniendo el crecimiento de ingresos en torno al 5% y una generación de caja
+      libre ligeramente menor.
+    sources:
+    - as_of_date: '2026-11-01'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ABT/statistics/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABT/
+    target_price: 100.0
+  - falsifiers:
+    - Rechazo regulatorio de la plataforma de diagnóstico
+    - Caída del crecimiento de ingresos por debajo del 6%
+    id: BULL
+    key_assumptions:
+    - Aprobación FDA de la plataforma de diagnóstico en los próximos 12 meses
+    - Crecimiento de ingresos TTM del 12%
+    - Margen operativo mejora a 18%
+    - FCF aumenta 20% respecto al nivel actual
+    rationale: El precio alcanza el límite superior del consenso si la nueva plataforma
+      de diagnóstico es aprobada y supera expectativas de ventas, impulsando un crecimiento
+      de ingresos del 12% y manteniendo márgenes operativos en 18%, lo que eleva el
+      flujo de caja libre y permite mayor recompra de acciones.
+    sources:
+    - as_of_date: '2026-11-01'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ABT/statistics/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABT/
+    target_price: 130.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors:
+  - 'BEAR.sources[0]: URL no está respaldada por evidencia de entrada verificable'
+  - 'BULL.sources[0]: URL no está respaldada por evidencia de entrada verificable'
+  status: invalid_pending_revision
+score_general: 82
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T16:57:25.221915-03:00'
+  fuentes:
+    stockanalysis: 119.6
+    yfinance: 118.90731
+  mediana: 119.25
+  n_fuentes: 2
+  promedio: 119.25
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T16:57:25.221915-03:00'
+    observed_date: '2026-11-19'
+    target_price: 119.6
+    url: https://stockanalysis.com/stocks/abt/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T16:57:25.221915-03:00'
+    observed_date: '2026-11-19'
+    target_price: 118.90731
+    url: https://finance.yahoo.com/quote/ABT/
+  target_high: 130.0
+  target_low: 100.0
+tesis_inversion: Abbott combina un negocio de alta calidad con generación de caja
+  libre robusta y oportunidades de crecimiento tanto orgánico como inorgánico. El
+  precio actual refleja un descuento excesivo frente a los fundamentos y al consenso
+  de analistas, creando una ventana de inversión atractiva mientras se vigilan los
+  riesgos regulatorios.
+ticker: ABT
+version: '3.0'

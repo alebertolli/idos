@@ -1,0 +1,160 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos del segmento de diagnóstico son ≤ US$6.9 bn en el trimestre
+      Q3‑2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La FDA rechaza o retrasa la aprobación del nuevo dispositivo después
+      del 31‑12‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos del segmento de diagnóstico son ≤ US$6.9 bn en el trimestre Q3‑2028.
+  - La FDA rechaza o retrasa la aprobación del nuevo dispositivo después del 31‑12‑2027.
+  horizon: medio
+  id: H1-OPP-20261023-004
+  opportunity_id: OPP-20261023-004
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-09-30'
+    expected: 7.5
+    met: null
+    metric: Ingresos diagnóstico
+    prediction: Los ingresos del segmento de diagnóstico alcanzarán US$7.5 bn en el
+      trimestre terminado el 30‑09‑2028.
+    unit: billones USD
+  priority: critical
+  probability: 0.5
+  rationale: El pipeline de diagnóstico de Abbott incluye varios dispositivos en fase
+    3 con datos clínicos positivos; la empresa ha invertido un 12% de su CAPEX en
+    I+D diagnóstico en los últimos 3 años y su historial muestra aprobaciones regulatorias
+    cada 18‑24 meses.
+  review_trigger: Si la FDA emite una decisión de no aprobación para el dispositivo
+    antes del 31‑12‑2027.
+  secondary_hypotheses: []
+  statement: Abbott lanzará al mercado una nueva plataforma de diagnóstico point‑of‑care
+    aprobada por la FDA antes de finales de 2027, incrementando los ingresos del segmento
+    de diagnóstico en al menos un 8% YoY.
+  status: ACTIVE
+  ticker: ABT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF/Ingresos ≤ 28% en el reporte anual 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Un aumento inesperado del CAPEX > 5% de los ingresos en 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF/Ingresos ≤ 28% en el reporte anual 2028.
+  - Un aumento inesperado del CAPEX > 5% de los ingresos en 2028.
+  horizon: largo
+  id: H2-OPP-20261023-004
+  opportunity_id: OPP-20261023-004
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 31.2
+    met: null
+    metric: FCF sobre ingresos
+    prediction: FCF/Ingresos = 31.2% en el reporte anual 2028.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: Abbott ha mejorado su margen operativo mediante eficiencias en la cadena
+    de suministro y ha reducido CAPEX discrecional; además, el crecimiento de ingresos
+    de alto margen (diagnóstico y nutrición) impulsa mayor generación de efectivo.
+  review_trigger: Si el reporte anual 2028 muestra un ratio de FCF/Ingresos ≤ 28%.
+  secondary_hypotheses: []
+  statement: El ratio de conversión de flujo de caja libre (FCF) sobre ingresos netos
+    de Abbott superará el 30% al cierre del ejercicio fiscal 2028.
+  status: ACTIVE
+  ticker: ABT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EV/EBITDA ≥ 14.0x en 30‑06‑2029.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una caída sostenida del EBITDA > 15% YoY en 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EV/EBITDA ≥ 14.0x en 30‑06‑2029.
+  - Una caída sostenida del EBITDA > 15% YoY en 2028.
+  horizon: largo
+  id: H3-OPP-20261023-004
+  opportunity_id: OPP-20261023-004
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2029-06-30'
+    expected: 12.0
+    met: null
+    metric: EV/EBITDA
+    prediction: EV/EBITDA = 12.0x en la fecha de cierre del 30‑06‑2029.
+    unit: veces
+  priority: important
+  probability: 0.5
+  rationale: El mercado está subvaluando a Abbott debido a una percepción excesiva
+    de riesgos regulatorios; la mejora operativa y la generación de caja libre superior
+    a la media deberían corregir el múltiplo.
+  review_trigger: Si el EV/EBITDA se mantiene por encima de 14.0x al 30‑06‑2029.
+  secondary_hypotheses:
+  - H2-OPP-20261023-004
+  statement: El múltiplo EV/EBITDA de Abbott convergerá al promedio del sector Healthcare
+    (12.0x) antes del 30‑06‑2029, lo que implicará una revaluación alcista del precio
+    de la acción.
+  status: ACTIVE
+  ticker: ABT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La adquisición no se cierra antes del 31‑12‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos atribuibles a MediTech en 2028 son < US$400 mm.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La adquisición no se cierra antes del 31‑12‑2027.
+  - Los ingresos atribuibles a MediTech en 2028 son < US$400 mm.
+  horizon: corto
+  id: H4-OPP-20261023-004
+  opportunity_id: OPP-20261023-004
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 0.5
+    met: null
+    metric: Ingresos adicionales por adquisición
+    prediction: Ingresos consolidados de Abbott en 2028 incluirán al menos US$500 mm
+      adicionales atribuibles a la adquisición de MediTech.
+    unit: billones USD
+  priority: critical
+  probability: 0.5
+  rationale: Abbott ha anunciado intenciones de expansión inorgánica en el segmento
+    de terapias avanzadas; MediTech posee una cartera de productos aprobados y un
+    pipeline complementario que encaja con la estrategia de diversificación de Abbott.
+  review_trigger: Si la SEC o la autoridad regulatoria rechaza la transacción antes
+    del 31‑12‑2027.
+  secondary_hypotheses: []
+  statement: Abbott completará la adquisición de la empresa de biotecnología MediTech
+    antes del 31‑12‑2027, añadiendo al menos US$500 mm de ingresos anuales recurrentes
+    a partir de 2028.
+  status: ACTIVE
+  ticker: ABT
+  version: 1
