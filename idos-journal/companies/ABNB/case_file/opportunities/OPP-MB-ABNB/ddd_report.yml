@@ -1,0 +1,835 @@
+calidad_evidencia:
+  hechos_verificados: 5
+  inferencias_llm: 4
+  preguntas_abiertas: 2
+catalizadores_previos: &id001
+- descripcion: Aprobación de marcos regulatorios favorables en EE.UU. y Europa
+  generated_at: '2026-11-19T13:29:13.690485-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20261023-003
+  probabilidad_anterior: 30
+- descripcion: Lanzamiento y adopción masiva de nuevas experiencias y servicios de
+    viajes integrados
+  generated_at: '2026-11-19T13:29:13.690485-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  opp_id: OPP-20261023-003
+  probabilidad_anterior: 45
+- descripcion: Implementación de IA para optimizar precios y matching host‑guest
+  generated_at: '2026-11-19T13:29:13.690485-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  opp_id: OPP-20261023-003
+  probabilidad_anterior: 40
+clasificacion_oportunidad:
+  categoria: Growth
+  justificacion: Alta tasa de crecimiento de ingresos y fuerte margen bruto respaldan
+    potencial de apreciación
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Fuerte generación de flujo de caja libre y balance neto positivo, aunque
+    la cobertura de intereses es nula
+  rating: A-
+dominio_catalizadores:
+- catalizador: Expansión de la oferta de experiencias
+- catalizador: Incremento de usuarios anfitriones
+- catalizador: Mejora continua del margen bruto
+- catalizador: Alianzas estratégicas con plataformas de viajes
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- impact: Alta incertidumbre de precios
+  risk: Volatilidad 90 días del 43.31%
+- impact: Capacidad limitada para cubrir gastos financieros
+  risk: Cobertura de intereses insuficiente (0x)
+- impact: Sensibilidad a desaceleración macro
+  risk: Dependencia de crecimiento de ingresos
+- impact: Posibles restricciones operativas
+  risk: Riesgo regulatorio en principales ciudades
+error_mercado:
+  catalizador_cambio: Expansión acelerada en mercados emergentes y mayor adopción
+    de experiencias
+  conclusion_error_valoracion: El precio actual (174.39 USD) está por debajo del promedio
+    de consenso, indicando posible infravaloración
+  consenso_actual: 205.44
+  hipotesis_contraria: El mercado subvalora el potencial de crecimiento de Airbnb
+    frente a la expectativa de ingresos sostenidos
+  razonamiento: Basado en margen bruto del 83.12% y generación de flujo de caja libre
+    positivo
+generated_at: '2026-11-19T16:49:06.437841-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-ABNB
+prompt_inputs:
+  business_model: Airbnb, Inc., together with its subsidiaries, operates a platform
+    for stays, experiences, and services worldwide. The company's marketplace connects
+    hosts and guests online or through mobile devices to book spaces, experiences,
+    and services. It also offers gift cards. The company was formerly known as AirBed
+    & Breakfast, Inc. and changed its name to Airbnb, Inc. in November 2010. Airbnb,
+    Inc. was founded in 2007 and is headquartered in San Francisco, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.27
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Airbnb, Inc.
+  operating_margin: 22.49
+  pe_ratio: 33.36
+  products: ''
+  revenue: 13930000000.0
+  revenue_growth: 16.66
+  roic: 17.25
+  sector: Consumer Cyclical
+  ticker: ABNB
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ABNB/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: as reported
+  inputs:
+    fcf_growth_TTM: 9.29
+  limitations: null
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ABNB/statistics/
+  status: reported
+  unit: percent
+  value: 9.29
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ABNB/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ABNB/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: Historial de acciones diluidas no proporcionado
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: Airbnb, Inc., together with its subsidiaries, operates a platform
+    for stays, experiences, and services worldwide. The company's marketplace connects
+    hosts and guests online or through mobile devices to book spaces, experiences,
+    and services. It also offers gift cards. The company was formerly known as AirBed
+    & Breakfast, Inc. and changed its name to Airbnb, Inc. in November 2010. Airbnb,
+    Inc. was founded in 2007 and is headquartered in San Francisco, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 174.38999938964844
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.27
+  excess_return_roic_wacc: null
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Airbnb, Inc. opera una plataforma digital global que conecta a huéspedes con anfitriones.
+    Facilita la búsqueda, reserva, pago y comunicación para estancias, y también ofrece
+    experiencias. Su modelo es un marketplace de dos lados: los anfitriones publican
+    alojamientos y los huéspedes buscan y reservan opciones de viaje y ocio. La compañía
+    genera ingresos principalmente mediante las reservas realizadas en la plataforma.
+    [AOIF, 2026-11-19]
+
+
+    La actividad combina tecnología y servicios de intermediación en el sector de
+    viajes y alojamiento. La información de investigación describe operaciones en
+    mercados internacionales, pero no detalla países, concentración geográfica ni
+    desglose de ingresos por región. [DDD, 2026-11-19; AOIF, 2026-11-19]
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    **Drivers de ingresos identificados**
+
+    - Volumen y valor de las reservas, noches reservadas y tarifas medias. Son métricas
+    que conviene seguir, aunque no se aportan cifras para ellas. [AOIF, 2026-11-19]
+
+    - Oferta de alojamientos y actividad de anfitriones, junto con la demanda de huéspedes.
+
+    - Expansión de la oferta de experiencias y servicios de viaje integrados. Su adopción
+    podría ampliar la actividad de la plataforma, pero el input no cuantifica su contribución
+    actual o futura. [DDD, 2026-11-19]
+
+
+    **Moat y posición competitiva**
+
+    - La investigación atribuye a Airbnb ventajas por su marca global, la escala de
+    la oferta, la confianza y los efectos de red entre anfitriones y huéspedes. [DDD,
+    2026-11-19; AOIF, 2026-11-19]
+
+    - AOIF califica la amplitud del moat como **estrecha** y la posición competitiva
+    como **líder**. La ventaja potencial de red no elimina la competencia ni las restricciones
+    regulatorias.
+
+    - La industria es competitiva y sensible al ciclo económico, al gasto discrecional
+    y a cambios en las preferencias de viaje. Entre los competidores mencionados están
+    [[Booking Holdings]], [[Expedia Group]] y plataformas locales. [DDD, 2026-11-19;
+    AOIF, 2026-11-19]
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras proceden de los outputs de investigación y no incluyen estados financieros,
+    definiciones completas ni enlaces a documentación primaria. Los periodos y métricas
+    no siempre son comparables entre sí; deben verificarse antes de utilizarlos en
+    un modelo.
+
+
+    | Métrica | Valor reportado | Contexto y fuente |
+
+    |---|---:|---|
+
+    | Crecimiento de ingresos | 13,64% TTM | DDD, 2026-11-19 |
+
+    | Crecimiento de ingresos | 16,66% | AOIF, 2026-11-19; periodo no especificado
+    |
+
+    | Margen operativo | 20,81% | DDD, 2026-11-19 |
+
+    | Margen operativo | 22,49% | AOIF, 2026-11-19; periodo no especificado |
+
+    | Flujo de caja libre (FCF) | 4.860 M USD TTM | DDD, 2026-11-19 |
+
+    | ROIC | 17,25% | AOIF, 2026-11-19 |
+
+    | PER | 33,99 | AOIF, 2026-11-19 |
+
+    | EV/EBITDA | 30,56 | AOIF, 2026-11-19 |
+
+    | FCF yield | 0 | AOIF, 2026-11-19; metodología o significado no aclarados |
+
+
+    DDD caracteriza la tendencia financiera como sólida, apoyándose en el FCF y el
+    margen operativo. AOIF califica la tendencia como estable, pero señala que no
+    dispone de cifras verificables de FCF ni de beneficio neto para evaluar la conversión
+    de caja. La diferencia entre los datos de FCF de ambos inputs requiere conciliación.
+    [DDD, 2026-11-19; AOIF, 2026-11-19]
+
+
+    **Estructura de capital:** no se proporcionan cifras de deuda, efectivo, vencimientos
+    ni cobertura de intereses. DDD describe el balance como sólido, pero también indica
+    que no dispone de datos de deuda; por tanto, esa caracterización no puede confirmarse
+    con la evidencia aportada. [DDD, 2026-11-19]
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    Los inputs califican la calidad del management como buena. Atribuyen al equipo
+    capacidad para escalar el negocio globalmente, mantener márgenes y lanzar nuevas
+    líneas, aunque no aportan métricas que permitan comprobar esa evaluación de forma
+    independiente. AOIF califica la asignación de capital como creadora de valor y
+    el alineamiento de insiders como moderado. [DDD, 2026-11-19; AOIF, 2026-11-19]
+
+
+    No se proporcionan datos sobre remuneración ejecutiva, propiedad accionaria de
+    insiders, composición o independencia del board, comités, sucesión ni objetivos
+    de compensación. DDD identifica expresamente la evaluación de la calidad del management
+    sin datos de compensación como una inferencia, no como un hecho verificado. [DDD,
+    2026-11-19]
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista**
+
+    - Airbnb opera un marketplace digital escalable y relativamente ligero en activos,
+    que conecta oferta y demanda de alojamiento. [AOIF, 2026-11-19]
+
+    - Los inputs reportan crecimiento de ingresos de dos dígitos —13,64% TTM en DDD
+    y 16,66% en AOIF, con periodos no conciliados— y márgenes operativos superiores
+    al 20%. [DDD, 2026-11-19; AOIF, 2026-11-19]
+
+    - DDD reporta FCF de 4.860 M USD TTM. Si la cifra se confirma, respalda la capacidad
+    de generación de caja del modelo. [DDD, 2026-11-19]
+
+    - La marca, la escala y los efectos de red pueden favorecer la retención de usuarios
+    y la amplitud de la oferta, aunque la magnitud y persistencia de esa ventaja no
+    están cuantificadas. [DDD, 2026-11-19; AOIF, 2026-11-19]
+
+    - La expansión de experiencias y servicios podría añadir oportunidades de crecimiento.
+    La adopción masiva es una posibilidad, no un resultado confirmado. [DDD, 2026-11-19]
+
+
+    DDD clasifica la oportunidad como *compounder* y registra una puntuación general
+    de 78. También considera que la acción está infravalorada; esa conclusión depende
+    de datos de valoración que no están conciliados entre los inputs. No se presenta
+    aquí como hecho verificado. [DDD, 2026-11-19]
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    **Riesgos principales**
+
+    1. **Regulación de alquileres de corta duración:** restricciones municipales o
+    nacionales podrían reducir la oferta disponible o elevar los costes de cumplimiento.
+    DDD la considera de impacto alto y probabilidad media; AOIF, de impacto alto y
+    probabilidad alta. La diferencia de evaluación refleja incertidumbre, no una probabilidad
+    establecida. [DDD, 2026-11-19; AOIF, 2026-11-19]
+
+    2. **Ciclo económico y gasto discrecional:** una desaceleración del turismo podría
+    reducir reservas, tarifas o duración de las estancias. AOIF califica su impacto
+    como alto y su probabilidad como media. [AOIF, 2026-11-19]
+
+    3. **Competencia:** la intensificación competitiva de [[Booking Holdings]], [[Expedia
+    Group]] y plataformas locales podría presionar el crecimiento o los márgenes.
+    DDD la califica de impacto y probabilidad medios. [DDD, 2026-11-19]
+
+    4. **Valoración y expectativas:** una desaceleración del crecimiento o una presión
+    sobre los márgenes podría dejar la acción expuesta si las expectativas implícitas
+    resultan demasiado elevadas. AOIF reporta PER de 33,99 y EV/EBITDA de 30,56, sin
+    aportar fecha o metodología detallada. [AOIF, 2026-11-19]
+
+
+    **Contra-tesis:** el mercado podría estar sobrestimando la capacidad de Airbnb
+    para sostener crecimiento superior al 13% y márgenes operativos cercanos al 20%
+    ante mayor competencia y regulación. Esta es una hipótesis planteada por DDD,
+    no una conclusión demostrada. [DDD, 2026-11-19]
+
+
+    **Triggers de falsación**
+
+    - Crecimiento de ingresos inferior al 5% anual, supuesto del escenario bajista.
+
+    - Restricciones regulatorias que limiten la oferta en al menos cinco mercados
+    clave, supuesto del escenario bajista.
+
+    - Deterioro persistente de las métricas de reservas, tarifas, margen operativo
+    o FCF. El input los propone como variables a vigilar, pero no establece umbrales
+    cuantitativos para todas ellas. [DDD, 2026-11-19; AOIF, 2026-11-19]
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    Los horizontes son cualitativos; no se proporcionan fechas de calendario específicas.
+    Las probabilidades son estimaciones de DDD, no probabilidades verificadas.
+
+
+    | Catalizador | Horizonte estimado | Impacto potencial | Probabilidad estimada
+    | Evidencia y condiciones |
+
+    |---|---|---|---:|---|
+
+    | Aprobación de marcos regulatorios favorables en EE. UU. y Europa | Medio plazo
+    | Alto | 30% | Podría facilitar la expansión de alquileres de corta duración y
+    experiencias. La adopción de dichos marcos no está confirmada. [DDD, 2026-11-19]
+    |
+
+    | Lanzamiento y adopción de experiencias y servicios de viaje integrados | Corto
+    plazo | Medio | 45% | Catalizador identificado por DDD; no se aportan métricas
+    de adopción ni fechas de lanzamiento específicas. [DDD, 2026-11-19] |
+
+
+    El escenario alcista supone regulación favorable en EE. UU. y Europa, crecimiento
+    de ingresos superior al 15% y márgenes operativos alrededor del nivel indicado
+    en el análisis. Son supuestos del escenario, no una previsión confirmada. [DDD,
+    2026-11-19]
+
+
+    ## 8. Marco de Valoración
+
+
+    La valoración debe contrastar la generación de caja a largo plazo con el crecimiento,
+    los márgenes, las necesidades de inversión y los riesgos regulatorios. Un enfoque
+    de flujo de caja descontado requeriría FCF verificable y supuestos explícitos
+    de crecimiento, tasa de descuento y valor terminal. También pueden emplearse múltiplos
+    comparables, teniendo en cuenta las diferencias entre modelos y exposición regulatoria.
+
+
+    **Datos y escenarios aportados**
+
+
+    | Referencia | Valor | Interpretación y limitaciones |
+
+    |---|---:|---|
+
+    | Precio citado por DDD | 182,15 USD | Fecha y fuente de cotización no especificadas
+    en el input. [DDD, 2026-11-19] |
+
+    | Objetivo medio de analistas citado por DDD | 205,44 USD | Fuente y horizonte
+    no especificados; no equivale a valor intrínseco. [DDD, 2026-11-19] |
+
+    | Escenario bajista a 19-11-2028 | 147 USD | Supone restricciones en al menos
+    cinco mercados clave y crecimiento inferior al 5% anual. [DDD, 2026-11-19] |
+
+    | Escenario alcista a 19-11-2028 | 245 USD | Supone regulación favorable y crecimiento
+    superior al 15% anual. [DDD, 2026-11-19] |
+
+    | Margen de seguridad | Insuficiente | Evaluación de AOIF; su estimación de valor
+    intrínseco no es determinable con los datos aportados. [AOIF, 2026-11-19] |
+
+
+    Los precios objetivo de los escenarios dependen de supuestos que no vienen acompañados
+    de un modelo financiero ni de fuentes concretas. AOIF no aporta precio actual
+    y considera que no se puede determinar el valor intrínseco con la información
+    disponible. Por ello, la conclusión de DDD de que existe un descuento frente al
+    consenso no queda plenamente reconciliada con AOIF. [DDD, 2026-11-19; AOIF, 2026-11-19]
+
+
+    **Sensibilidad cualitativa:** el caso alcista depende de crecimiento superior
+    al 15% y regulación favorable; el bajista, de crecimiento inferior al 5% y restricciones
+    en mercados clave. La valoración sería especialmente sensible a la trayectoria
+    de crecimiento, la resiliencia del margen operativo y el impacto regulatorio.
+    No hay información suficiente para calcular sensibilidades numéricas adicionales.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    - ¿Cuál es la deuda bruta y neta, su calendario de vencimientos y la cobertura
+    de intereses?
+
+    - ¿Qué restricciones concretas están vigentes o propuestas en ciudades y países
+    relevantes, incluidos Nueva York, Barcelona y Tokio? Los inputs plantean esta
+    cuestión, pero no aportan datos regulatorios específicos. [DDD, 2026-11-19]
+
+    - ¿Cómo se concilian las cifras de crecimiento de ingresos (13,64% TTM frente
+    a 16,66%) y margen operativo (20,81% frente a 22,49%)? ¿Qué periodos y definiciones
+    utiliza cada una?
+
+    - ¿Se puede verificar el FCF TTM de 4.860 M USD y reconciliarlo con la observación
+    de AOIF de que no dispone de cifras verificables de FCF?
+
+    - ¿Cuáles son las tendencias de noches reservadas, valor bruto de reservas, tarifas
+    medias, duración de estancias y retención de usuarios?
+
+    - ¿Qué contribución tienen las experiencias y servicios a los ingresos y al margen,
+    y qué evidencia existe sobre su adopción?
+
+    - ¿Qué evidencia cuantitativa respalda la magnitud del moat y la afirmación de
+    efectos de red? ¿Cómo se compara la dinámica competitiva frente a [[Booking Holdings]],
+    [[Expedia Group]] y plataformas locales?
+
+    - ¿Cuáles son la remuneración ejecutiva, la propiedad de insiders, la composición
+    del board y los indicadores de alineamiento de incentivos?
+
+    - ¿Cuál es la fecha, fuente y metodología de las cifras de precio, consenso de
+    analistas y múltiplos de valoración citadas?
+
+    - ¿Qué supuestos de crecimiento, márgenes, inversión y descuento producen los
+    objetivos de 147 USD y 245 USD?
+
+
+    **Estado de evidencia:** los outputs DDD y AOIF están fechados el 19-11-2026.
+    No incluyen enlaces a fuentes primarias ni referencias documentales para las métricas;
+    los datos cuantitativos y las valoraciones deben tratarse como reportes de investigación
+    pendientes de verificación. Las afirmaciones sobre moat, calidad del management
+    y catalizadores son evaluaciones o hipótesis, no hechos confirmados.'
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-19T19:15:15.749895+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ABNB/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 5010000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 22.493}, "observed_at": "2026-11-19T19:15:15.749895+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ABNB/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 22.49}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 18.9}, "observed_at": "2026-11-19T19:15:15.749895+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/abnb/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 16.66}}}, "observed_at": "2026-11-19T19:15:15.749895+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Airbnb, Inc.
+  operating_margin: 22.49
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Airbnb, Inc., together with its subsidiaries, operates a platform
+    for stays, experiences, and services worldwide. The company's marketplace connects
+    hosts and guests online or through mobile devices to book spaces, experiences,
+    and services. It also offers gift cards. The company was formerly known as AirBed
+    & Breakfast, Inc. and changed its name to Airbnb, Inc. in November 2010. Airbnb,
+    Inc. was founded in 2007 and is headquartered in San Francisco, California.
+  revenue: 13930000000.0
+  revenue_growth: 16.66
+  roic: 17.25
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ABNB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    245.0, "low": 147.0, "mean": 205.44, "median": 205.44, "observed_at": "2026-11-19T16:48:54.694178-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T16:48:54.694178-03:00", "observed_date": "2026-11-19", "target_price":
+    205.44, "url": "https://stockanalysis.com/stocks/abnb/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T16:48:54.694178-03:00",
+    "observed_date": "2026-11-19", "target_price": 205.4405, "url": "https://finance.yahoo.com/quote/ABNB/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 174.38999938964844,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/ABNB/"}]}}'
+  sector: Consumer Cyclical
+  ticker: ABNB
+research_trigger:
+  discovery_snapshot_hash: 9e62696433193d84f5943abe62b97308769cb0c56f39123ff1520fc9fc508535
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: b79e2d7d34947317b71d4d42c8c5a6ef7f0e3cd2edbd3a5fa86c90183eba7b3f
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-19T16:49:06.437841-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- interest_coverage_below_threshold (0 < 2.0)
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2027-11-19'
+  scenarios:
+  - falsifiers:
+    - Reanudación del crecimiento de ingresos >10%
+    - Mejora de la cobertura de intereses
+    id: BEAR
+    key_assumptions:
+    - CAGR de ingresos 5% en lugar del 12% histórico
+    - FCF growth negativo
+    - Incremento de deuda neta
+    rationale: Desaceleración del crecimiento de ingresos y presión regulatoria reducen
+      flujos futuros
+    sources:
+    - as_of_date: '2026-11-19T16:48:54.694178-03:00'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abnb/forecast/
+    - as_of_date: '2026-11-19T16:48:54.694178-03:00'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABNB/
+    target_price: 147.0
+  - falsifiers:
+    - Caída del margen bruto bajo 80%
+    - Aumento significativo de deuda
+    id: BASE
+    key_assumptions:
+    - CAGR de ingresos 12% sostenido
+    - FCF growth 9.3% (TTM)
+    - Mantener net cash positivo
+    rationale: Continuación del crecimiento actual de ingresos y margen bruto estable
+    sources:
+    - as_of_date: '2026-11-19T16:48:54.694178-03:00'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abnb/forecast/
+    - as_of_date: '2026-11-19T16:48:54.694178-03:00'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABNB/
+    target_price: 205.44
+  - falsifiers:
+    - Regulación restrictiva en principales ciudades
+    - Deterioro del margen bruto por competencia
+    id: BULL
+    key_assumptions:
+    - CAGR de ingresos >15%
+    - FCF conversion >160%
+    - Mantener net cash y reducir deuda
+    rationale: Expansión acelerada en nuevos mercados y mejora de la rentabilidad
+      operativa
+    sources:
+    - as_of_date: '2026-11-19T16:48:54.694178-03:00'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/abnb/forecast/
+    - as_of_date: '2026-11-19T16:48:54.694178-03:00'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ABNB/
+    target_price: 245.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors:
+  - 'BEAR.sources[0]: as_of_date debe ser una fecha ISO válida'
+  - 'BEAR.sources[1]: as_of_date debe ser una fecha ISO válida'
+  - 'BASE.sources[0]: as_of_date debe ser una fecha ISO válida'
+  - 'BASE.sources[1]: as_of_date debe ser una fecha ISO válida'
+  - 'BULL.sources[0]: as_of_date debe ser una fecha ISO válida'
+  - 'BULL.sources[1]: as_of_date debe ser una fecha ISO válida'
+  status: invalid_pending_revision
+score_general: 68
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T16:48:54.694178-03:00'
+  fuentes:
+    stockanalysis: 205.44
+    yfinance: 205.4405
+  mediana: 205.44
+  n_fuentes: 2
+  promedio: 205.44
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T16:48:54.694178-03:00'
+    observed_date: '2026-11-19'
+    target_price: 205.44
+    url: https://stockanalysis.com/stocks/abnb/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T16:48:54.694178-03:00'
+    observed_date: '2026-11-19'
+    target_price: 205.4405
+    url: https://finance.yahoo.com/quote/ABNB/
+  target_high: 245.0
+  target_low: 147.0
+tesis_inversion: Airbnb muestra crecimiento de ingresos sólido, márgenes brutos elevados
+  y generación de flujo de caja libre, aunque enfrenta riesgos de cobertura de intereses
+  y volatilidad de mercado.
+ticker: ABNB
+version: '3.0'

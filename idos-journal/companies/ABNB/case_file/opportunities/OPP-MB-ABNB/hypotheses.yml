@@ -1,0 +1,158 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Crecimiento interanual de noches reservadas < 5% en Q2 2027
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Disminución absoluta del número de noches reservadas respecto a Q2
+      2026
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Crecimiento interanual de noches reservadas < 5% en Q2 2027
+  - Disminución absoluta del número de noches reservadas respecto a Q2 2026
+  horizon: medio
+  id: H1-OPP-MB-ABNB
+  opportunity_id: OPP-MB-ABNB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-07-31'
+    expected: 10.0
+    met: null
+    metric: crecimiento_nights_Q2_2027_vs_Q2_2026
+    prediction: El número total de noches reservadas en el Q2 2027 será al menos un
+      10% superior al Q2 2026.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La empresa ha anunciado inversiones en productos B2B y ha contratado
+    equipos de ventas corporativas; estudios de mercado indican una demanda creciente
+    de viajes de negocios flexibles que se alinean con la oferta de Airbnb.
+  review_trigger: Si al 2027-08-01 el crecimiento interanual de noches reservadas
+    es inferior al 5%.
+  secondary_hypotheses: []
+  statement: Airbnb lanzará un programa de experiencias corporativas que impulsará
+    un crecimiento del 10% interanual en el número total de noches reservadas en el
+    segundo trimestre de 2027.
+  status: ACTIVE
+  ticker: ABNB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Margen FCF < 12% al cierre del FY 2028
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: FCF negativo en el FY 2028
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Margen FCF < 12% al cierre del FY 2028
+  - FCF negativo en el FY 2028
+  horizon: largo
+  id: H2-OPP-MB-ABNB
+  opportunity_id: OPP-MB-ABNB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 15.0
+    met: null
+    metric: FCF_margin_FY2028
+    prediction: FCF / Ingresos >= 15% al 31 de diciembre de 2028.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La combinación de crecimiento de ingresos sostenido, mejora de la eficiencia
+    operativa y la reducción del gasto de capital neto proyectada por la gerencia
+    sugiere una mayor generación de efectivo disponible.
+  review_trigger: Si al 2029-01-01 el margen FCF reportado es inferior al 12%.
+  secondary_hypotheses:
+  - H1-OPP-MB-ABNB
+  statement: El margen de flujo de caja libre (FCF) de Airbnb superará el 15% de los
+    ingresos totales al cierre del ejercicio fiscal 2028.
+  status: ACTIVE
+  ticker: ABNB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Capitalización bursátil < 130 B USD al 2029-06-30
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Múltiplo P/E < 25x sobre EPS FY 2029
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Capitalización bursátil < 130 B USD al 2029-06-30
+  - Múltiplo P/E < 25x sobre EPS FY 2029
+  horizon: largo
+  id: H3-OPP-MB-ABNB
+  opportunity_id: OPP-MB-ABNB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2029-06-30'
+    expected: 150.0
+    met: null
+    metric: market_cap_2029_06_30
+    prediction: Capitalización bursátil >= 150 B USD al 2029-06-30.
+    unit: BUSD
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento esperado de ingresos y la mejora de márgenes, junto con
+    la percepción de resiliencia frente a la volatilidad macroeconómica, deberían
+    impulsar la capitalización bursátil a niveles históricamente altos.
+  review_trigger: Si al 2029-07-01 la capitalización bursátil es inferior a 130 B
+    USD.
+  secondary_hypotheses:
+  - H2-OPP-MB-ABNB
+  statement: El valor de mercado de Airbnb alcanzará los 150 000 millones de dólares
+    para el 30 de junio de 2029, reflejando una valoración basada en un múltiplo P/E
+    superior a 30x sobre las ganancias proyectadas del FY 2029.
+  status: ACTIVE
+  ticker: ABNB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Margen bruto FY 2027 < 75%
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Deterioro significativo del margen bruto en al menos dos trimestres
+      consecutivos
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Margen bruto FY 2027 < 75%
+  - Deterioro significativo del margen bruto en al menos dos trimestres consecutivos
+  horizon: medio
+  id: H4-OPP-MB-ABNB
+  opportunity_id: OPP-MB-ABNB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 78.0
+    met: null
+    metric: gross_margin_FY2027
+    prediction: Margen bruto FY 2027 >= 78%.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La empresa ha implementado algoritmos de precios dinámicos y ha renegociado
+    acuerdos con proveedores de servicios, lo que históricamente ha elevado los márgenes
+    brutos en plataformas de alojamiento digital.
+  review_trigger: Si al 2028-01-01 el margen bruto reportado es inferior al 75%.
+  secondary_hypotheses: []
+  statement: Airbnb alcanzará un margen bruto promedio del 78% en el ejercicio fiscal
+    2027 mediante mejoras en la gestión de precios y reducción de costos de servicio.
+  status: ACTIVE
+  ticker: ABNB
+  version: 1
