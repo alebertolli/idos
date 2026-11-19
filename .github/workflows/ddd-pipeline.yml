@@ -341,6 +341,16 @@ jobs:
           if [ -z "$RUN_ID" ]; then echo "::error::CI workflow_dispatch did not appear"; exit 1; fi
           gh run watch "$RUN_ID" --exit-status
           gh pr merge codex/ddd-research-results --auto --squash
+          PR_STATE=""
+          for attempt in {1..60}; do
+            PR_STATE=$(gh pr view codex/ddd-research-results --json state --jq '.state')
+            if [ "$PR_STATE" = "MERGED" ]; then break; fi
+            sleep 5
+          done
+          if [ "$PR_STATE" != "MERGED" ]; then
+            echo "::error::Scheduled DDD results PR did not merge; refusing to dispatch another batch"
+            exit 1
+          fi
 
       - name: Continue hourly Research while due work remains
         if: always() && steps.publish-results.outputs.changed == 'true' && steps.publish-scheduled-results.outcome == 'success' && (github.event_name == 'repository_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '0 * * * *') || (github.event_name == 'workflow_call' && inputs.trigger_type == 'monthly') || inputs.trigger_type == 'monthly' || (github.event_name == 'workflow_dispatch' && (inputs.seed_hourly_ramp || inputs.resume_hourly_ramp)))
