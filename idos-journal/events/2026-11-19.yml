@@ -145,3 +145,33 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-19T17:23:21.774621'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ADI
+    ticker: ADI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-19T17:30:29.174548'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ADI
+    ticker: ADI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-19T17:30:29.190674'
+- data:
+    errors:
+    - 'ratio cites a URL absent from research evidence: fcf_growth_pct'
+    opp_id: OPP-MB-ADI
+    ticker: ADI
+  event_type: research:ratio_review_validation_failed
+  source: research_worker
+  timestamp: '2026-11-19T17:30:29.208566'
