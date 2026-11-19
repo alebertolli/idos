@@ -342,13 +342,18 @@ jobs:
           GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: python scripts/notify_ddd_failure.py
 
-      - name: Open or update scheduled results PR and enable auto-merge
+      - name: Validate and merge scheduled results PR
         id: publish-scheduled-results
         if: always() && (github.event_name == 'schedule' || github.event_name == 'repository_dispatch' || (github.event_name == 'workflow_call' && inputs.trigger_type == 'monthly') || inputs.trigger_type == 'monthly' || (github.event_name == 'workflow_dispatch' && (inputs.seed_hourly_ramp || inputs.resume_hourly_ramp || inputs.continue_hourly_ramp))) && github.event.inputs.preview_only != 'true' && steps.publish-results.outputs.changed == 'true'
         run: |
           OPEN_PR_NUMBER=$(gh pr list --base main --head codex/ddd-research-results --state open --json number --jq '.[0].number // empty')
           if [ -z "$OPEN_PR_NUMBER" ]; then
             gh pr create --base main --head codex/ddd-research-results --title "chore: publish scheduled DDD results" --body "Publishes queued Research results and resumable work from the scheduled DDD pipeline."
+            OPEN_PR_NUMBER=$(gh pr list --base main --head codex/ddd-research-results --state open --json number --jq '.[0].number // empty')
+          fi
+          if [ -z "$OPEN_PR_NUMBER" ]; then
+            echo "::error::Scheduled DDD results PR could not be resolved"
+            exit 1
           fi
           PREVIOUS_RUN_ID=$(gh run list --workflow ci.yml --branch codex/ddd-research-results --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // empty')
           gh workflow run ci.yml --ref codex/ddd-research-results
@@ -361,10 +366,11 @@ jobs:
           done
           if [ -z "$RUN_ID" ]; then echo "::error::CI workflow_dispatch did not appear"; exit 1; fi
           gh run watch "$RUN_ID" --exit-status
-          gh pr merge codex/ddd-research-results --auto --squash
+          gh pr checks "$OPEN_PR_NUMBER" --watch --fail-fast
+          gh pr merge "$OPEN_PR_NUMBER" --squash
           PR_STATE=""
           for attempt in {1..60}; do
-            PR_STATE=$(gh pr view codex/ddd-research-results --json state --jq '.state')
+            PR_STATE=$(gh pr view "$OPEN_PR_NUMBER" --json state --jq '.state')
             if [ "$PR_STATE" = "MERGED" ]; then break; fi
             sleep 5
           done
