@@ -1,0 +1,157 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Crecimiento de ventas omnicanal inferior al 8% YoY.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Disminución de ventas omnicanal en cualquier trimestre del FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Crecimiento de ventas omnicanal inferior al 8% YoY.
+  - Disminución de ventas omnicanal en cualquier trimestre del FY2027.
+  horizon: medio
+  id: H1-OPP-20261023-014
+  opportunity_id: OPP-20261023-014
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 12.0
+    met: null
+    metric: Crecimiento ventas omnicanal
+    prediction: Las ventas netas omnicanal crecerán al menos un 12% respecto al FY2026.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La compañía ha invertido $250 M en plataformas digitales, mejoró la integración
+    de inventario entre tienda y e‑commerce y lanzó campañas de marketing dirigidas
+    a millennials, lo que históricamente impulsa ventas omnicanal en el sector.
+  review_trigger: Si el reporte del Q2 FY2027 muestra un crecimiento inferior al 5%
+    respecto al mismo período del año anterior.
+  secondary_hypotheses: []
+  statement: Abercrombie & Fitch logrará un crecimiento de ventas netas omnicanal
+    superior al 12% interanual en el FY2027.
+  status: ACTIVE
+  ticker: ANF
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Ratio FCF/EBIT inferior al 70% al cierre del FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Generación de flujo de caja libre negativo en cualquier trimestre del
+      FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ratio FCF/EBIT inferior al 70% al cierre del FY2027.
+  - Generación de flujo de caja libre negativo en cualquier trimestre del FY2027.
+  horizon: medio
+  id: H2-OPP-20261023-014
+  opportunity_id: OPP-20261023-014
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 80.0
+    met: null
+    metric: Conversión FCF
+    prediction: El ratio FCF/EBIT será ≥ 80% al cierre del FY2027.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Con márgenes operativos estables y una gestión de capital de trabajo
+    más eficiente derivada del crecimiento omnicanal, la empresa podrá convertir la
+    mayor parte de su EBIT en efectivo disponible.
+  review_trigger: Si el informe Q3 FY2027 muestra un ratio FCF/EBIT del 60% o menos.
+  secondary_hypotheses:
+  - H1-OPP-20261023-014
+  statement: El ratio de conversión de flujo de caja libre (FCF/EBIT) alcanzará al
+    menos el 80% en FY2027.
+  status: ACTIVE
+  ticker: ANF
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Precio de la acción permanece por debajo de 55 USD al 31‑12‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El múltiplo EV/EBITDA se mantiene por debajo del promedio histórico
+      de la industria.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Precio de la acción permanece por debajo de 55 USD al 31‑12‑2027.
+  - El múltiplo EV/EBITDA se mantiene por debajo del promedio histórico de la industria.
+  horizon: largo
+  id: H3-OPP-20261023-014
+  opportunity_id: OPP-20261023-014
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 60.0
+    met: null
+    metric: Precio acción
+    prediction: El precio de cierre de la acción será ≥ 60 USD antes del 2028-03-31.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: El cumplimiento de H1 y H2 mejorará la percepción de rentabilidad y generación
+    de efectivo, reduciendo el riesgo percibido y justificando una prima de valoración
+    frente al consenso de 55 USD.
+  review_trigger: Si el precio de cierre el 2027-12-31 es ≤ 55 USD y no muestra tendencia
+    alcista sostenida.
+  secondary_hypotheses:
+  - H1-OPP-20261023-014
+  - H2-OPP-20261023-014
+  statement: El precio de la acción superará los 60 USD antes del 31‑03‑2028, reflejando
+    una valoración superior al rango medio de los analistas.
+  status: ACTIVE
+  ticker: ANF
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Rotación de inventario ≤ 0.45 al cierre del Q3 FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Incremento del inventario promedio superior al 10% intertrimestral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Rotación de inventario ≤ 0.45 al cierre del Q3 FY2027.
+  - Incremento del inventario promedio superior al 10% intertrimestral.
+  horizon: corto
+  id: H4-OPP-20261023-014
+  opportunity_id: OPP-20261023-014
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 0.55
+    met: null
+    metric: Rotación de inventario
+    prediction: Rotación de inventario será > 0.55 al 2027-09-30.
+    unit: veces
+  priority: informational
+  probability: 0.5
+  rationale: La mejora en la precisión de pronósticos de demanda y la integración
+    omnicanal reducirán los niveles de inventario sin afectar la disponibilidad de
+    productos.
+  review_trigger: Si el reporte Q3 FY2027 muestra una rotación de 0.40 o menos.
+  secondary_hypotheses:
+  - H1-OPP-20261023-014
+  statement: La rotación de inventario (ventas/ inventario promedio) superará 0.55
+    veces al cierre del Q3 FY2027.
+  status: ACTIVE
+  ticker: ANF
+  version: 1

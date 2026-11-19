@@ -1,0 +1,189 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas comparables acumuladas de los últimos doce meses registran
+      crecimiento inferior al 1% interanual en la información disponible al cierre
+      del período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa crecimiento comparable negativo en dos trimestres
+      consecutivos antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas comparables acumuladas de los últimos doce meses registran crecimiento
+    inferior al 1% interanual en la información disponible al cierre del período.
+  - La compañía informa crecimiento comparable negativo en dos trimestres consecutivos
+    antes de la fecha objetivo.
+  horizon: medio
+  id: H1-OPP-MB-ANF
+  opportunity_id: OPP-MB-ANF
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 1.0
+    met: null
+    metric: Crecimiento interanual de ventas comparables acumuladas en doce meses
+    prediction: En el período de doce meses que finaliza el 2027-11-19, las ventas
+      comparables acumuladas de ANF crecerán al menos un 1% interanual, según las
+      definiciones que la compañía publique para cada período.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La compañía vende mediante tiendas, comercio electrónico y canales mayoristas,
+    de franquicia y licencia. La amplitud de canales puede sostener las ventas si
+    la demanda se mantiene, pero la información disponible no demuestra que el crecimiento
+    sea estructural; por eso la hipótesis se limita a un horizonte de doce meses.
+  review_trigger: Dejar de creerla si ANF informa dos trimestres consecutivos de ventas
+    comparables negativas, o si la métrica acumulada a 2027-11-19 es inferior al 1%
+    interanual.
+  secondary_hypotheses: []
+  statement: ANF mantendrá crecimiento positivo de ventas comparables durante los
+    próximos doce meses, señal de que la demanda de sus marcas y la ejecución comercial
+    siguen siendo favorables.
+  status: ACTIVE
+  ticker: ANF
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM al 2027-08-01 es inferior a USD 400 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF TTM cae por debajo de USD 400 millones en dos publicaciones
+      consecutivas antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM al 2027-08-01 es inferior a USD 400 millones.
+  - El FCF TTM cae por debajo de USD 400 millones en dos publicaciones consecutivas
+    antes de la fecha objetivo.
+  horizon: medio
+  id: H2-OPP-MB-ANF
+  opportunity_id: OPP-MB-ANF
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-01'
+    expected: 400.0
+    met: null
+    metric: FCF de los últimos doce meses
+    prediction: El FCF de los doce meses terminados el 2027-08-01 será de al menos
+      USD 400 millones, calculado con la misma definición que la compañía utiliza
+      o, si no la mantiene, conciliado con sus estados de flujo de efectivo.
+    unit: USD millones
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM disponible es elevado, pero la serie muestra variaciones entre
+    períodos y el dato supera el FCF del ejercicio FY 2026. Esto hace plausible una
+    moderación; la hipótesis plantea que la caja se normalice sin deteriorarse por
+    debajo de un umbral material.
+  review_trigger: Dejar de creerla si una publicación de resultados muestra FCF TTM
+    inferior a USD 400 millones y la compañía no identifica una causa temporal verificable,
+    o si el umbral se incumple durante dos publicaciones consecutivas.
+  secondary_hypotheses:
+  - H1-OPP-MB-ANF
+  statement: ANF conservará una capacidad significativa de generación de caja, aunque
+    el FCF TTM se modere frente a los USD 566,46 millones reportados al 2026-08-01.
+  status: ACTIVE
+  ticker: ANF
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto TTM al 2027-08-01 es inferior al 60%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto queda por debajo del 60% durante dos trimestres consecutivos
+      antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto TTM al 2027-08-01 es inferior al 60%.
+  - El margen bruto queda por debajo del 60% durante dos trimestres consecutivos antes
+    de la fecha objetivo.
+  horizon: medio
+  id: H3-OPP-MB-ANF
+  opportunity_id: OPP-MB-ANF
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-01'
+    expected: 60.0
+    met: null
+    metric: Margen bruto TTM
+    prediction: El margen bruto de los doce meses terminados el 2027-08-01 será igual
+      o superior al 60%, usando la definición contable reportada por ANF.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: El margen bruto observado es alto, aunque no basta para probar una ventaja
+    competitiva duradera y podría variar con descuentos, mezcla de productos, costos
+    y fletes. Un umbral inferior al dato actual permite cierta normalización sin asumir
+    que la rentabilidad bruta colapsará.
+  review_trigger: Dejar de creerla ante un margen bruto TTM inferior al 60% o ante
+    dos trimestres consecutivos por debajo de ese nivel, salvo que la compañía cuantifique
+    un efecto excepcional y temporal que pueda verificarse posteriormente.
+  secondary_hypotheses:
+  - H1-OPP-MB-ANF
+  statement: El margen bruto de ANF se moderará respecto del 63,68% TTM reportado
+    al 2026-08-01, pero permanecerá por encima del 60% durante los doce meses siguientes.
+  status: ACTIVE
+  ticker: ANF
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de ANF menos el de XLY es inferior a 5 puntos
+      porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: H2 queda falsada antes de la fecha objetivo, lo que elimina la condición
+      operativa que sustenta la hipótesis de revalorización.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de ANF menos el de XLY es inferior a 5 puntos porcentuales
+    en la fecha objetivo.
+  - H2 queda falsada antes de la fecha objetivo, lo que elimina la condición operativa
+    que sustenta la hipótesis de revalorización.
+  horizon: medio
+  id: H4-OPP-MB-ANF
+  opportunity_id: OPP-MB-ANF
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de ANF frente a XLY
+    prediction: Entre el cierre del 2026-11-19 y el cierre del 2027-11-19, el rendimiento
+      total de ANF, incluidos dividendos, superará el rendimiento total de XLY en
+      al menos 5 puntos porcentuales. La comparación se hará en USD y con precios
+      de cierre ajustados por distribuciones.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: 'La evidencia disponible no establece una ventaja competitiva duradera
+    ni permite determinar una valoración fundamental. Por tanto, esta es una hipótesis
+    condicional de mercado: la confirmación de ventas y FCF puede mejorar la percepción
+    de persistencia de beneficios y favorecer el rendimiento relativo, aunque no garantiza
+    una revalorización.'
+  review_trigger: Dejar de creerla si H2 se falsifica o si, al 2027-11-19, ANF no
+    supera a XLY por al menos 5 puntos porcentuales en rendimiento total.
+  secondary_hypotheses:
+  - H2-OPP-MB-ANF
+  - H3-OPP-MB-ANF
+  statement: Si ANF confirma la resiliencia de ventas y caja prevista, sus acciones
+    superarán al ETF Consumer Discretionary Select Sector SPDR (XLY) en el período
+    siguiente, al reducirse el descuento asociado a la incertidumbre sobre la sostenibilidad
+    operativa.
+  status: ACTIVE
+  ticker: ANF
+  version: 1
