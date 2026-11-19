@@ -1,0 +1,557 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Interpretación de margen bruto como indicador de ventaja competitiva
+  - Suposición de que cash supera deuda implica net debt negativo
+  - Current ratio 4.08 (stockanalysis, 2026-10-25)
+  - FCF 148.72B TTM (stockanalysis, 2026-10-25)
+  - Net income 226.26B TTM (stockanalysis, 2026-10-25)
+  - EBITDA 243.28B TTM (stockanalysis, 2026-10-25)
+  preguntas_abiertas:
+  - ¿Cuál es la tasa de crecimiento de ingresos a 3 años?
+  - ¿Cuál es la evolución histórica de diluted shares?
+  - ¿Qué planes de recompra de acciones tiene la compañía?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Multibagger Potential
+  justificacion: Elevado margen bruto (74.9%), fuerte generación de flujo de caja
+    libre (148.7B) y balance sólido con net debt negativo respaldan una alta capacidad
+    de reinversión.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Fuerte generación de efectivo, margen bruto superior al 70% y balance
+    con cash net positivo respaldan la calidad del negocio.
+  rating: A
+dominio_catalizadores:
+- descripcion: Mayor demanda de GPUs para entrenamiento y despliegue de modelos grandes.
+  nombre: Expansión de IA generativa
+- descripcion: Acuerdos con hyperscalers pueden impulsar ingresos de Compute & Networking.
+  nombre: Contratos de data center
+- descripcion: Crecimiento de plataformas para vehículos autónomos y eléctricos.
+  nombre: Innovación en automotive
+- descripcion: Uso de efectivo disponible para reducir acciones en circulación.
+  nombre: Recompras de acciones
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: Interest coverage ratio reportado es 0, por debajo del umbral de 2.0.
+  nombre: Cobertura de intereses insuficiente
+- descripcion: Volatilidad 90d del 36.6% indica alta sensibilidad del mercado.
+  nombre: Volatilidad del precio
+- descripcion: CAGR de ingresos a 3 años no disponible, lo que impide validar la sostenibilidad
+    del crecimiento.
+  nombre: Dependencia de crecimiento de ingresos
+- descripcion: Datos de dilución de acciones no provistos; riesgo de aumento de acciones
+    en circulación.
+  nombre: Dilución potencial
+error_mercado:
+  catalizador_cambio: Un repunte inesperado de la adopción de IA o la firma de grandes
+    contratos de data center elevaría el precio por encima del consenso medio.
+  conclusion_error_valoracion: La evidencia sugiere una ligera subvaloración respecto
+    al promedio de analistas, pero la alta volatilidad y cobertura de intereses indican
+    incertidumbre.
+  consenso_actual:
+    currency: USD
+    high: 425.0
+    low: 130.0
+    mean: 246.67
+    source:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/nvda/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/NVDA/
+  hipotesis_contraria: El precio actual (215.52) podría reflejar una sobrevaloración
+    si la demanda de IA se desacelera y los márgenes se comprimen.
+  razonamiento: El precio está por debajo del objetivo medio (246.67) mientras que
+    los fundamentos (FCF, margen) son robustos; sin embargo, la cobertura de intereses
+    es cero, lo que aumenta el riesgo de valoración.
+generated_at: '2026-11-19T16:17:11.528103-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-NVDA
+prompt_inputs:
+  business_model: NVIDIA Corporation operates as a data center scale AI infrastructure
+    company in the United States, Taiwan, China, Hong Kong, Europe, and internationally.
+    It operates through Compute & Networking, and Graphics segments. The Compute &
+    Networking segment provides data center accelerated computing and networking platforms
+    and artificial intelligence solutions and software, and automotive platforms and
+    autonomous and electric vehicle solutions, including software. The Graphics segment
+    offers GeForce GPUs for gaming and PCs; Quadro/NVIDIA RTX GPUs for enterprise
+    workstation graphics. The company's products are used in gaming, professional
+    visualization, data center, and automotive markets. It sells its products to original
+    equipment manufacturers, original device manufacturers, system integrators and
+    distributors, independent software vendors, cloud service providers, add-in board
+    manufacturers, distributors, automotive manufacturers and tier-1 automotive suppliers,
+    and other ecosystem participants. It has a collaboration with Cisco to develop
+    Ultra-Dense Small Form Factor Pluggable (USFP), a high-density optical module
+    pluggable transceiver. It has a collaboration with ChipAgents to develop Build-A-Chip-Bench,
+    a benchmark for AI agents carrying chip design tasks and The Company has a strategic
+    alliance with MediaTek to build the next generations of AI computing platforms.
+    NVIDIA Corporation was incorporated in 1993 and is headquartered in Santa Clara,
+    California.
+  ceo_tenure: 0
+  debt_to_equity: 0.14
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: NVIDIA Corporation
+  operating_margin: 66.08
+  pe_ratio: 16.86
+  products: ''
+  revenue: 361810000000.0
+  revenue_growth: 93.33
+  roic: 96.86
+  sector: Technology
+  ticker: NVDA
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: FY 2026, FY 2025, FY 2024
+  limitations: Falta el dato de revenue FY 2023 para calcular el CAGR de 3 años.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-10-25'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/nvda/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs:
+    fcf_growth_history: TTM
+  limitations: null
+  metric: fcf_growth_pct
+  period_end: '2026-10-25'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/nvda/financials/
+  status: reported
+  unit: percent
+  value: 92.34
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-10-25'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/nvda/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-10-25'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/nvda/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares_history: null
+  limitations: No se dispone de datos de diluted shares ni de su evolución histórica.
+  metric: dilution_yoy_pct
+  period_end: '2026-10-25'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: NVIDIA Corporation operates as a data center scale AI infrastructure
+    company in the United States, Taiwan, China, Hong Kong, Europe, and internationally.
+    It operates through Compute & Networking, and Graphics segments. The Compute &
+    Networking segment provides data center accelerated computing and networking platforms
+    and artificial intelligence solutions and software, and automotive platforms and
+    autonomous and electric vehicle solutions, including software. The Graphics segment
+    offers GeForce GPUs for gaming and PCs; Quadro/NVIDIA RTX GPUs for enterprise
+    workstation graphics. The company's products are used in gaming, professional
+    visualization, data center, and automotive markets. It sells its products to original
+    equipment manufacturers, original device manufacturers, system integrators and
+    distributors, independent software vendors, cloud service providers, add-in board
+    manufacturers, distributors, automotive manufacturers and tier-1 automotive suppliers,
+    and other ecosystem participants. It has a collaboration with Cisco to develop
+    Ultra-Dense Small Form Factor Pluggable (USFP), a high-density optical module
+    pluggable transceiver. It has a collaboration with ChipAgents to develop Build-A-Chip-Bench,
+    a benchmark for AI agents carrying chip design tasks and The Company has a strategic
+    alliance with MediaTek to build the next generations of AI computing platforms.
+    NVIDIA Corporation was incorporated in 1993 and is headquartered in Santa Clara,
+    California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 215.52000427246094
+  current_price_as_of_date: '2026-10-26'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.14
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-19T19:16:56.876718+00:00", "period_end": "2026-10-25",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: NVIDIA Corporation
+  operating_margin: 66.08
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: "NVIDIA Corporation operates as a data center scale AI infrastructure\
+    \ company in the United States, Taiwan, China, Hong Kong, Europe, and internationally.\
+    \ It operates through Compute & Networking, and Graphics segments. The Compute\
+    \ & Networking segment provides data center accelerated computing and networking\
+    \ platforms and artificial intelligence solutions and software, and automotive\
+    \ platforms and autonomous and electric vehicle solutions, including software.\
+    \ The Graphics segment offers GeForce \n\nEvento disparador validado para revisar:\
+    \ {\"event_id\": \"0584b6da41a4ffeb4e44939ab03d02b68b83fd6e26e02b6b57fcd853166e713d\"\
+    , \"event_type\": \"quarterly_results\", \"observed_at\": \"2026-11-19T19:16:25.558095+00:00\"\
+    , \"occurred_at\": \"2026-11-17\", \"source_name\": \"Yahoo Finance earnings calendar\
+    \ via yfinance\", \"source_url\": \"https://finance.yahoo.com/calendar/earnings/?symbol=NVDA\"\
+    , \"summary\": \"El calendario de resultados indica la fecha 2026-11-17. La fecha\
+    \ no confirma por sí sola la publicación del reporte; Research debe verificar\
+    \ el resultado en una fuente primaria.\", \"ticker\": \"NVDA\"}"
+  revenue: 361810000000.0
+  revenue_growth: 93.33
+  roic: 96.86
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nvda/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NVDA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NVDA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NVDA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NVDA/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nvda/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nvda/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nvda/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NVDA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nvda/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NVDA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nvda/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nvda/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nvda/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NVDA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NVDA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-10-25'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nvda/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    425.0, "low": 130.0, "mean": 246.67, "median": 246.67, "observed_at": "2026-11-19T16:17:00.717300-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T16:17:00.717300-03:00", "observed_date": "2026-11-19", "target_price":
+    246.67, "url": "https://stockanalysis.com/stocks/nvda/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T16:17:00.717300-03:00",
+    "observed_date": "2026-11-19", "target_price": 246.67091, "url": "https://finance.yahoo.com/quote/NVDA/"}]},
+    "current_quote": {"as_of_date": "2026-10-26", "currency": "USD", "price": 215.52000427246094,
+    "sources": [{"name": "yfinance", "url": "https://finance.yahoo.com/quote/NVDA/"}]}}'
+  sector: Technology
+  ticker: NVDA
+research_trigger:
+  discovery_snapshot_hash: 188e345431d0ebfc0b00909ee96c4b0e3b4cda0db3c44e6f005f3469fadcb342
+  event_evidence:
+    event_id: 0584b6da41a4ffeb4e44939ab03d02b68b83fd6e26e02b6b57fcd853166e713d
+    event_type: quarterly_results
+    observed_at: '2026-11-19T19:16:25.558095+00:00'
+    occurred_at: '2026-11-17'
+    source_name: Yahoo Finance earnings calendar via yfinance
+    source_url: https://finance.yahoo.com/calendar/earnings/?symbol=NVDA
+    summary: El calendario de resultados indica la fecha 2026-11-17. La fecha no confirma
+      por sí sola la publicación del reporte; Research debe verificar el resultado
+      en una fuente primaria.
+    ticker: NVDA
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: bf6c7def82ec8e871d52c9ba16568450a0e3ddb67576caec32463927e807a8d1
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: quarterly_results
+  triggered_at: '2026-11-19T16:17:11.528103-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: interest_coverage_ratio
+  observed_value: 0
+  source:
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/NVDA/statistics/
+  status: below_threshold
+  threshold: 2.0
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2027-11-19'
+  scenarios:
+  - falsifiers:
+    - Crecimiento de ingresos superior al 10% anual
+    - Mantenimiento del margen bruto >70%
+    id: BEAR
+    key_assumptions:
+    - CAGR de ingresos < 5%
+    - Margen bruto cae bajo 65%
+    - FCF crecimiento negativo
+    rationale: Desaceleración de la demanda de IA y presión competitiva reducen ingresos
+      y márgenes.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/nvda/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/NVDA/
+    target_price: 130.0
+  - falsifiers:
+    - Crecimiento de ingresos <10%
+    - Margen bruto <70%
+    id: BASE
+    key_assumptions:
+    - CAGR de ingresos ~15% anual
+    - Margen bruto ~74%
+    - FCF crecimiento ~90%
+    rationale: Escenario medio alineado con el consenso de analistas; crecimiento
+      de ingresos moderado y márgenes estables.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/nvda/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/NVDA/
+    target_price: 246.67
+  - falsifiers:
+    - Crecimiento de ingresos <20%
+    - Márgenes caen bajo 70%
+    id: BULL
+    key_assumptions:
+    - CAGR de ingresos >25% anual
+    - Margen bruto >78%
+    - FCF crecimiento >120%
+    rationale: Aceleración de adopción de IA y captura de cuota de mercado impulsan
+      ingresos y márgenes.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/nvda/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/NVDA/
+    target_price: 425.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T16:17:00.717300-03:00'
+  fuentes:
+    stockanalysis: 246.67
+    yfinance: 246.67091
+  mediana: 246.67
+  n_fuentes: 2
+  promedio: 246.67
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T16:17:00.717300-03:00'
+    observed_date: '2026-11-19'
+    target_price: 246.67
+    url: https://stockanalysis.com/stocks/nvda/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T16:17:00.717300-03:00'
+    observed_date: '2026-11-19'
+    target_price: 246.67091
+    url: https://finance.yahoo.com/quote/NVDA/
+  target_high: 425.0
+  target_low: 130.0
+tesis_inversion: NVDA combina una posición dominante en IA y data center con finanzas
+  fuertes; el upside proviene de mayor adopción de IA, mientras que el downside está
+  ligado a una posible desaceleración del mercado y a la falta de cobertura de intereses.
+ticker: NVDA
+version: '3.0'

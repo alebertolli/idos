@@ -12,3 +12,49 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-19T13:31:02.886003'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-NVDA
+    ticker: NVDA
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-19T16:17:11.522786'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-NVDA
+    ticker: NVDA
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-19T16:17:11.526642'
+- data:
+    classification: Multibagger Potential
+    ddd_empty: false
+    event_evidence:
+      event_id: 0584b6da41a4ffeb4e44939ab03d02b68b83fd6e26e02b6b57fcd853166e713d
+      event_type: quarterly_results
+      observed_at: '2026-11-19T19:16:25.558095+00:00'
+      occurred_at: '2026-11-17'
+      source_name: Yahoo Finance earnings calendar via yfinance
+      source_url: https://finance.yahoo.com/calendar/earnings/?symbol=NVDA
+      summary: El calendario de resultados indica la fecha 2026-11-17. La fecha no
+        confirma por sí sola la publicación del reporte; Research debe verificar el
+        resultado en una fuente primaria.
+      ticker: NVDA
+    event_type: quarterly_results
+    hypotheses: 4
+    input_snapshot_sha256: bf6c7def82ec8e871d52c9ba16568450a0e3ddb67576caec32463927e807a8d1
+    opp_id: OPP-MB-NVDA
+    original_status: SCREENED
+    score: 78
+    strategy_version: '1.5'
+    ticker: NVDA
+  event_type: research:force_reprocess
+  source: research_worker
+  timestamp: '2026-11-19T16:18:39.446594'
