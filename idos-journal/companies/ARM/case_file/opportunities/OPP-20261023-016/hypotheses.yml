@@ -1,0 +1,143 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos por licencias de IA en FY2027 son inferiores a $1.000
+      millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento interanual de dichos ingresos es menor al 20%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos por licencias de IA en FY2027 son inferiores a $1.000 millones.
+  - El crecimiento interanual de dichos ingresos es menor al 20%.
+  horizon: medio
+  id: H1-OPP-20261023-016
+  opportunity_id: OPP-20261023-016
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 30.0
+    met: null
+    metric: Crecimiento interanual de ingresos por licencias IA
+    prediction: Los ingresos por licencias de IA superarán los $1.200 millones en
+      el FY2027, representando un crecimiento interanual del 30% respecto al FY2026.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: Arm ha lanzado recientemente su arquitectura de IA de última generación
+    y ha firmado acuerdos con los principales fabricantes de chips. La demanda de
+    aceleradores de IA está en expansión y los clientes buscan licencias para integrar
+    la tecnología en sus productos, lo que debería traducirse en un fuerte impulso
+    de ingresos.
+  review_trigger: Si al cierre del Q2 2027 los ingresos por licencias de IA están
+    por debajo de $1.000 millones o el crecimiento YoY es menor al 20%.
+  secondary_hypotheses: []
+  statement: Los ingresos por licencias de IA de Arm crecerán más del 30% interanual
+    en el segundo trimestre de 2027.
+  status: ACTIVE
+  ticker: ARM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen EBITDA de FY2027 es inferior al 40%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen EBITDA de FY2027 es inferior al 40%.
+  horizon: medio
+  id: H2-OPP-20261023-016
+  opportunity_id: OPP-20261023-016
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 45.0
+    met: null
+    metric: Margen EBITDA
+    prediction: El margen EBITDA reportado para FY2027 será igual o superior al 45%.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: El aumento de ingresos de alto margen provenientes de licencias de IA,
+    combinado con la estructura de costos relativamente fija de la empresa, debería
+    impulsar la rentabilidad operativa.
+  review_trigger: Si el margen EBITDA intermedio (Q3 FY2027) está por debajo del 38%.
+  secondary_hypotheses:
+  - H1-OPP-20261023-016
+  statement: El margen EBITDA de Arm alcanzará al menos el 45% al cierre del FY2027.
+  status: ACTIVE
+  ticker: ARM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EV/EBITDA se mantiene por encima de 14x al 31 de marzo de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EV/EBITDA se mantiene por encima de 14x al 31 de marzo de 2028.
+  horizon: largo
+  id: H3-OPP-20261023-016
+  opportunity_id: OPP-20261023-016
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 12.0
+    met: null
+    metric: EV/EBITDA
+    prediction: El EV/EBITDA de Arm será ≤12x al 31 de marzo de 2028.
+    unit: x
+  priority: important
+  probability: 0.5
+  rationale: Una combinación de mayor rentabilidad (H2) y una posible desaceleración
+    del entusiasmo del mercado por las valoraciones de semiconductores tras el ciclo
+    de IA debería llevar a una revaloración a múltiplos más conservadores.
+  review_trigger: Si al 31 de marzo de 2028 el múltiplo EV/EBITDA supera los 14x.
+  secondary_hypotheses:
+  - H2-OPP-20261023-016
+  statement: El múltiplo EV/EBITDA de Arm se comprimirá a 12x o menos al cierre del
+    Q1 2028.
+  status: ACTIVE
+  ticker: ARM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de ingresos por licencias es ≥10% en FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de ingresos por licencias es ≥10% en FY2027.
+  horizon: medio
+  id: H4-OPP-20261023-016
+  opportunity_id: OPP-20261023-016
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ingresos totales por licencias
+    prediction: El crecimiento interanual de los ingresos totales por licencias será
+      <5% en FY2027.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: Los reguladores de EE. UU. y la UE están considerando medidas más estrictas
+    que podrían impedir que Arm venda licencias de sus diseños avanzados a fabricantes
+    chinos, reduciendo la exposición a uno de sus mayores mercados.
+  review_trigger: Si al cierre del Q2 2027 los ingresos totales por licencias crecen
+    al menos un 10% YoY o la participación de ingresos de China supera el 20% del
+    total.
+  secondary_hypotheses: []
+  statement: Las restricciones de exportación de tecnología a China limitarán el crecimiento
+    total de ingresos por licencias a menos del 5% interanual en FY2027.
+  status: ACTIVE
+  ticker: ARM
+  version: 1

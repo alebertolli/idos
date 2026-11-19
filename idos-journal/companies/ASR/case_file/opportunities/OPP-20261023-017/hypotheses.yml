@@ -1,0 +1,216 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El tráfico consolidado de los doce meses terminados en octubre de 2027
+      es inferior al de los doce meses terminados en octubre de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento consolidado es inferior al 3% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una concesión individual explica más del 60% del aumento neto consolidado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El tráfico consolidado de los doce meses terminados en octubre de 2027 es inferior
+    al de los doce meses terminados en octubre de 2026.
+  - El crecimiento consolidado es inferior al 3% interanual.
+  - Una concesión individual explica más del 60% del aumento neto consolidado.
+  horizon: medio
+  id: H1-OPP-20261023-017
+  opportunity_id: OPP-20261023-017
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 3.0
+    met: null
+    metric: Variación interanual del tráfico consolidado de pasajeros en doce meses
+    prediction: Al 2027-11-19, el tráfico consolidado de pasajeros de los doce meses
+      terminados en octubre de 2027 será al menos 3% superior al de los doce meses
+      terminados en octubre de 2026; además, ninguna concesión individual explicará
+      más del 60% del aumento neto consolidado.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Una base de aeropuertos concesionados puede beneficiarse del aumento
+    de viajes y de la conectividad. La información recibida no acredita que esa tendencia
+    esté presente ni que sea uniforme, por lo que esta hipótesis debe contrastarse
+    con los reportes mensuales de tráfico por aeropuerto.
+  review_trigger: Dejar de creerla si los reportes mensuales publicados hasta el 2027-08-31
+    muestran una caída interanual del tráfico consolidado durante tres meses consecutivos.
+  secondary_hypotheses: []
+  statement: El tráfico de pasajeros de ASUR crecerá de forma moderada durante los
+    próximos doce meses, sin que el crecimiento dependa de una sola concesión.
+  status: ACTIVE
+  ticker: ASR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón entre flujo de caja libre antes de adquisiciones y distribuciones
+      y EBITDA es inferior al 35% en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre definido es negativo en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no proporciona datos suficientes para conciliar flujo de
+      caja operativo, inversiones y EBITDA.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón entre flujo de caja libre antes de adquisiciones y distribuciones y EBITDA
+    es inferior al 35% en 2027.
+  - El flujo de caja libre definido es negativo en 2027.
+  - La compañía no proporciona datos suficientes para conciliar flujo de caja operativo,
+    inversiones y EBITDA.
+  horizon: medio
+  id: H2-OPP-20261023-017
+  opportunity_id: OPP-20261023-017
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 35.0
+    met: null
+    metric: Flujo de caja operativo menos inversiones en propiedad, planta y equipo,
+      antes de adquisiciones y distribuciones, dividido entre EBITDA
+    prediction: Para el ejercicio terminado el 2027-12-31, el flujo de caja operativo
+      menos las inversiones en propiedad, planta y equipo, antes de adquisiciones
+      y distribuciones, será al menos el 35% del EBITDA consolidado del mismo ejercicio.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis de calidad de infraestructura requiere que el crecimiento del
+    tráfico y los ingresos no quede absorbido por costos operativos, impuestos, capital
+    de trabajo o inversión de mantenimiento y expansión. No se aportaron estados financieros
+    ni presupuestos de inversión que permitan verificar esa conversión.
+  review_trigger: Dejar de creerla si los resultados acumulados publicados al 2027-09-30
+    implican, incluso usando el límite superior de la guía anual disponible, una conversión
+    inferior al 25% para 2027.
+  secondary_hypotheses:
+  - H1-OPP-20261023-017
+  statement: ASUR convertirá una proporción significativa de su EBITDA en flujo de
+    caja libre antes de adquisiciones y distribuciones durante 2027.
+  status: ACTIVE
+  ticker: ASR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Las inversiones en propiedad, planta y equipo superan el 25% de los
+      ingresos consolidados de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El tráfico de pasajeros crece menos del 3% interanual en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa inversiones obligatorias no reflejadas en los desembolsos
+      reportados que hagan insostenible la comparación entre inversión y actividad.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las inversiones en propiedad, planta y equipo superan el 25% de los ingresos consolidados
+    de 2027.
+  - El tráfico de pasajeros crece menos del 3% interanual en 2027.
+  - La compañía informa inversiones obligatorias no reflejadas en los desembolsos
+    reportados que hagan insostenible la comparación entre inversión y actividad.
+  horizon: medio
+  id: H3-OPP-20261023-017
+  opportunity_id: OPP-20261023-017
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 25.0
+    met: null
+    metric: Inversiones en propiedad, planta y equipo sobre ingresos consolidados
+    prediction: En el ejercicio 2027, las inversiones en propiedad, planta y equipo
+      no superarán el 25% de los ingresos consolidados, y el tráfico de pasajeros
+      crecerá al menos 3% interanual.
+    unit: porcentaje máximo
+  priority: important
+  probability: 0.5
+  rationale: La tesis de generación de caja depende de que la capacidad aeroportuaria
+    y el mantenimiento puedan acompañar el tráfico sin consumir una fracción creciente
+    de los ingresos. Las obligaciones de concesión y los planes maestros pueden imponer
+    inversiones significativas; la evidencia disponible no permite cuantificarlas.
+  review_trigger: Dejar de creerla si un plan maestro, obligación regulatoria o actualización
+    de presupuesto publicada antes del 2027-09-30 proyecta para 2027 inversiones superiores
+    al 25% de los ingresos de referencia, o si los resultados acumulados a esa fecha
+    hacen inevitable superar ese umbral.
+  secondary_hypotheses:
+  - H1-OPP-20261023-017
+  - H2-OPP-20261023-017
+  statement: El crecimiento de la actividad no requerirá un aumento desproporcionado
+    de la inversión de capital.
+  status: ACTIVE
+  ticker: ASR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de ASUR es igual o inferior al del S&P/BMV IPC
+      durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La ventaja de rendimiento total de ASUR sobre el índice es inferior
+      a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación no puede calcularse de forma reproducible con precios
+      ajustados por dividendos y una fuente pública consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de ASUR es igual o inferior al del S&P/BMV IPC durante el
+    periodo.
+  - La ventaja de rendimiento total de ASUR sobre el índice es inferior a 5 puntos
+    porcentuales.
+  - La comparación no puede calcularse de forma reproducible con precios ajustados
+    por dividendos y una fuente pública consistente.
+  horizon: medio
+  id: H4-OPP-20261023-017
+  opportunity_id: OPP-20261023-017
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de ASUR menos rendimiento total del S&P/BMV IPC
+    prediction: Entre el 2026-11-19 y el 2027-11-19, el rendimiento total de la acción
+      local de ASUR, incluidos dividendos y medido en pesos mexicanos, superará en
+      al menos 5 puntos porcentuales el rendimiento total del S&P/BMV IPC en pesos
+      mexicanos.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: La valoración depende de que el mercado observe resultados operativos
+    y financieros verificables, no solo objetivos publicados por analistas. Una rentabilidad
+    relativa positiva sería compatible con una revisión favorable de expectativas,
+    pero no puede deducirse de la cotización frente al consenso sin validar supuestos,
+    riesgos y valoración independiente.
+  review_trigger: Dejar de creerla si al 2027-05-19 el rendimiento total de ASUR queda
+    al menos 10 puntos porcentuales por debajo del S&P/BMV IPC y no hay evidencia
+    publicada de recuperación del tráfico o de la conversión de caja.
+  secondary_hypotheses:
+  - H1-OPP-20261023-017
+  - H2-OPP-20261023-017
+  - H3-OPP-20261023-017
+  statement: Si ASUR confirma crecimiento de tráfico y conversión de caja, su rendimiento
+    total a doce meses superará al del índice S&P/BMV IPC; la brecha de objetivos
+    de analistas, por sí sola, no será suficiente para producir ese resultado.
+  status: ACTIVE
+  ticker: ASR
+  version: 1
