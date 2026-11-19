@@ -181,6 +181,30 @@ def _normalize_source_url(value: Any) -> str | None:
     return f"https://{parsed.netloc.lower()}{parsed.path.rstrip('/')}{'?' + parsed.query if parsed.query else ''}"
 
 
+def canonicalize_scenario_ids(value: Any) -> Any:
+    """Normalize casing for known scenario IDs without repairing unknown values."""
+    if not isinstance(value, dict):
+        return value
+
+    import copy
+
+    result = copy.deepcopy(value)
+    scenarios = result.get("scenarios")
+    if not isinstance(scenarios, list):
+        return result
+
+    canonical_ids = {scenario_id.casefold(): scenario_id for scenario_id in SCENARIO_IDS}
+    for scenario in scenarios:
+        if not isinstance(scenario, dict):
+            continue
+        scenario_id = scenario.get("id")
+        if isinstance(scenario_id, str):
+            canonical_id = canonical_ids.get(scenario_id.strip().casefold())
+            if canonical_id is not None:
+                scenario["id"] = canonical_id
+    return result
+
+
 
 def canonicalize_scenario_ticker_url_case(
     value: Any,
