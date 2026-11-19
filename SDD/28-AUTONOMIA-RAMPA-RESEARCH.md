@@ -10,6 +10,7 @@ La rampa DDD podía quedar bloqueada por dos causas operativas: un checkpoint si
 - Los estados heredados `paused` se reanudan en forma automática al último tamaño de lote probado.
 - Los límites de cuota del proveedor no repiten llamadas durante el cooldown: se persiste `provider_retry_after` con backoff exponencial de 1, 2, 4… hasta 24 horas. Al vencer, el cron vuelve a procesar la cola.
 - Los errores locales de una oportunidad se reintentan hasta tres veces, separados por un día. Tras el tercer intento se guardan en cuarentena con motivo y timestamp; el resto de la cola continúa.
+- Si una falla local actualiza `last_failure`, también actualiza `updated_at` con el mismo instante para que el checkpoint describa cuándo cambió realmente.
 - Una oportunidad completada solo cuenta como trabajo completo cuando ResearchWorker la marca `completed`; si su informe presenta `scenario_validation` distinto de `valid_pending_decision_board`, se trata como error local y no aumenta el lote.
 - El lote solo aumenta tras un lote completo sin errores. Los fallos de proveedores nunca suben el tamaño.
 - Cola, capacidad, resultados y cuarentena se publican en la rama de resultados para auditoría. La cuarentena no significa Research completado ni habilita Assessment.
