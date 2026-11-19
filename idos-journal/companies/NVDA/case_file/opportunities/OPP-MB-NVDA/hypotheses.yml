@@ -1,0 +1,172 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los envíos reportados en el informe de resultados Q2 2027 son ≤ 10%
+      superiores a Q2 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: NVIDIA anuncia un retraso de más de 6 meses en la producción de Hopper+.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los envíos reportados en el informe de resultados Q2 2027 son ≤ 10% superiores
+    a Q2 2026.
+  - NVIDIA anuncia un retraso de más de 6 meses en la producción de Hopper+.
+  horizon: corto
+  id: H1-OPP-MB-NVDA
+  opportunity_id: OPP-MB-NVDA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-07-31'
+    expected: 30.0
+    met: null
+    metric: crecimiento_envios_GPU_DC
+    prediction: Los envíos de GPUs para centros de datos en Q2 2027 serán al menos
+      30% superiores a los de Q2 2026.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: La hoja de ruta de productos indica que Hopper+ ofrecerá un 25% más de
+    rendimiento por vatio que la generación actual, lo que debería impulsar la demanda
+    de los hyperscalers que buscan renovar sus infraestructuras antes de la escasez
+    de chips de 2025‑2026. Los pedidos anticipados de clientes como Amazon y Microsoft
+    ya se han registrado en los últimos informes de la compañía.
+  review_trigger: Si el informe de resultados Q2 2027 (publicado antes del 2027-08-15)
+    muestra un crecimiento de envíos ≤ 10%, dejaremos de creer en la hipótesis.
+  secondary_hypotheses: []
+  statement: NVIDIA lanzará la arquitectura Hopper+ y aumentará sus envíos de GPUs
+    para centros de datos un 30% interanual en el trimestre Q2 2027.
+  status: ACTIVE
+  ticker: NVDA
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto GAAP anual reportado para FY2027 es < 68.0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: NVIDIA reconoce una deterioración significativa de inventario que reduce
+      el margen en más de 2 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto GAAP anual reportado para FY2027 es < 68.0%.
+  - NVIDIA reconoce una deterioración significativa de inventario que reduce el margen
+    en más de 2 puntos porcentuales.
+  horizon: medio
+  id: H2-OPP-MB-NVDA
+  opportunity_id: OPP-MB-NVDA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 70.0
+    met: null
+    metric: margen_bruto_GAAP
+    prediction: El margen bruto GAAP reportado en el cierre del FY2027 será ≥ 70.0%.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: Los productos de alto valor añadido (GPU para IA, software de plataforma
+    y servicios de nube) generan márgenes superiores al 80%, mientras que la mezcla
+    de ingresos se desplaza cada vez más hacia estos segmentos de alto margen, compensando
+    la presión de costos de los componentes de memoria.
+  review_trigger: Si el reporte anual FY2027 (publicado antes del 2028-02-15) muestra
+    un margen bruto GAAP < 68%, abandonaremos la hipótesis.
+  secondary_hypotheses: []
+  statement: El margen bruto GAAP de NVIDIA se mantendrá por encima del 70% durante
+    todo el año fiscal 2027.
+  status: ACTIVE
+  ticker: NVDA
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La capitalización bursátil cae por debajo de 1.0 trillón USD antes
+      del 2028-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción se mantiene ≤ $250 durante tres meses consecutivos
+      antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La capitalización bursátil cae por debajo de 1.0 trillón USD antes del 2028-06-30.
+  - El precio de la acción se mantiene ≤ $250 durante tres meses consecutivos antes
+    de la fecha objetivo.
+  horizon: largo
+  id: H3-OPP-MB-NVDA
+  opportunity_id: OPP-MB-NVDA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 1200000000000.0
+    met: null
+    metric: capitalizacion_bursatil
+    prediction: La capitalización bursátil de NVIDIA será ≥ 1.2 trillones USD antes
+      del 2028-06-30.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento sostenido de ingresos por IA y la expansión en el mercado
+    de data center deberían traducirse en una capitalización que refleje una valoración
+    de al menos 30× el EPS proyectado para 2028, lo que, con la base accionarial actual
+    (~4.0 B acciones), implica un precio por acción superior a $300.
+  review_trigger: Si el precio de la acción está ≤ $250 el 2028-06-15 y la capitalización
+    es < 1.0 trillón, descartaremos la hipótesis.
+  secondary_hypotheses:
+  - H2-OPP-MB-NVDA
+  statement: El valor de mercado de NVIDIA superará los 1.2 billones de dólares antes
+    del 30 de junio de 2028.
+  status: ACTIVE
+  ticker: NVDA
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de Q3 2027 crecen ≥ 8% YoY.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción se mantiene > $200 al cierre del 2027-12-14.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de Q3 2027 crecen ≥ 8% YoY.
+  - El precio de la acción se mantiene > $200 al cierre del 2027-12-14.
+  horizon: corto
+  id: H4-OPP-MB-NVDA
+  opportunity_id: OPP-MB-NVDA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-14'
+    expected: 5.0
+    met: null
+    metric: crecimiento_ingresos_Q3
+    prediction: Los ingresos consolidados de Q3 2027 serán ≤ 5% superiores a Q3 2026
+      y el precio de la acción cerrará ≤ $180 el 2027-12-14.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: Una desaceleración macroeconómica o una saturación temprana del mercado
+    de GPUs para IA reduciría los pedidos de los principales clientes, impactando
+    directamente los ingresos trimestrales. La correlación histórica muestra que caídas
+    del 10% en los pedidos de IA se traducen en caídas de >15% en el precio de la
+    acción en un horizonte de 3‑4 meses.
+  review_trigger: Si el reporte de resultados Q3 2027 (publicado antes del 2027-12-20)
+    muestra un crecimiento de ingresos ≥ 8% YoY, la hipótesis se descartará.
+  secondary_hypotheses:
+  - H1-OPP-MB-NVDA
+  statement: Si la demanda de IA se desacelera, los ingresos de NVIDIA en el trimestre
+    Q3 2027 crecerán menos del 5% YoY y el precio de la acción caerá bajo $180 antes
+    del 15 de diciembre de 2027.
+  status: ACTIVE
+  ticker: NVDA
+  version: 1
