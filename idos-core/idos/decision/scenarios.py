@@ -70,6 +70,34 @@ def scenario_source_urls_from_research_financial_evidence(value: Any) -> set[str
     return urls
 
 
+def scenario_source_urls_from_financial_data_evidence(value: Any) -> set[str]:
+    """Return only selected provider URLs present in the DDD financial evidence."""
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except (TypeError, ValueError):
+            return set()
+    if not isinstance(value, dict):
+        return set()
+
+    observations = value.get("observations")
+    if not isinstance(observations, dict):
+        return set()
+
+    urls: set[str] = set()
+    for observation in observations.values():
+        if not isinstance(observation, dict):
+            continue
+        selected_source = observation.get("selected_source")
+        metadata = observation.get("source_metadata")
+        source = metadata.get(selected_source) if isinstance(metadata, dict) else None
+        if isinstance(source, dict):
+            normalized = _normalize_source_url(source.get("source_url"))
+            if normalized:
+                urls.add(normalized)
+    return urls
+
+
 def scenario_financial_evidence_snapshot(value: Any) -> dict[str, Any]:
     """Persist only source metadata needed to revalidate scenario citations."""
     if not isinstance(value, dict):
@@ -127,6 +155,9 @@ def scenario_source_urls_from_report(report: Any) -> set[str]:
     snapshot = report.get("research_input_snapshot")
     if isinstance(snapshot, dict):
         urls = scenario_source_urls_from_evidence(snapshot.get("scenario_market_evidence"))
+        urls.update(scenario_source_urls_from_financial_data_evidence(
+            snapshot.get("financial_data_evidence")
+        ))
         urls.update(scenario_source_urls_from_research_financial_evidence(
             snapshot.get("scenario_financial_evidence")
         ))
