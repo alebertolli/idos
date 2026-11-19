@@ -1,113 +1,130 @@
 ## 1. Visión General de la Compañía
 
-Airbnb, Inc. opera una plataforma digital global que conecta a huéspedes con anfitriones. Facilita la búsqueda, reserva, pago y comunicación para estancias, y también ofrece experiencias. Su modelo es un marketplace de dos lados: los anfitriones publican alojamientos y los huéspedes buscan y reservan opciones de viaje y ocio. La compañía genera ingresos principalmente mediante las reservas realizadas en la plataforma. [AOIF, 2026-11-19]
+**Airbnb, Inc. (ABNB)** opera un marketplace digital que conecta a huéspedes con anfitriones y facilita la búsqueda, reserva, pago y comunicación. Sus productos incluyen alojamientos de corta y larga duración y experiencias ofrecidas por anfitriones. El negocio pertenece al sector de viajes y alojamiento, y su modelo se basa principalmente en comisiones por las transacciones facilitadas.
 
-La actividad combina tecnología y servicios de intermediación en el sector de viajes y alojamiento. La información de investigación describe operaciones en mercados internacionales, pero no detalla países, concentración geográfica ni desglose de ingresos por región. [DDD, 2026-11-19; AOIF, 2026-11-19]
+La información aportada describe una plataforma global, pero no especifica mercados geográficos, desglose de ingresos por región ni una fecha de referencia uniforme para todas las métricas. El análisis de escenarios está fechado el **19 de noviembre de 2026**.
 
 ## 2. Modelo de Negocio y Posición Competitiva
 
-**Drivers de ingresos identificados**
-- Volumen y valor de las reservas, noches reservadas y tarifas medias. Son métricas que conviene seguir, aunque no se aportan cifras para ellas. [AOIF, 2026-11-19]
-- Oferta de alojamientos y actividad de anfitriones, junto con la demanda de huéspedes.
-- Expansión de la oferta de experiencias y servicios de viaje integrados. Su adopción podría ampliar la actividad de la plataforma, pero el input no cuantifica su contribución actual o futura. [DDD, 2026-11-19]
+Los principales factores que impulsan los ingresos son:
 
-**Moat y posición competitiva**
-- La investigación atribuye a Airbnb ventajas por su marca global, la escala de la oferta, la confianza y los efectos de red entre anfitriones y huéspedes. [DDD, 2026-11-19; AOIF, 2026-11-19]
-- AOIF califica la amplitud del moat como **estrecha** y la posición competitiva como **líder**. La ventaja potencial de red no elimina la competencia ni las restricciones regulatorias.
-- La industria es competitiva y sensible al ciclo económico, al gasto discrecional y a cambios en las preferencias de viaje. Entre los competidores mencionados están [[Booking Holdings]], [[Expedia Group]] y plataformas locales. [DDD, 2026-11-19; AOIF, 2026-11-19]
+- Número de noches y experiencias reservadas.
+- Valor bruto de las reservas y precio promedio.
+- Amplitud y disponibilidad de la oferta de anfitriones.
+- Adopción de experiencias y servicios dentro de la plataforma.
+
+La propuesta de valor incluye atraer a huéspedes y anfitriones mediante la marca, el producto digital y el marketing; facilitar la publicación de ofertas y el proceso de reserva; y prestar soporte a los usuarios.
+
+**Ventajas competitivas descritas en la investigación:** marca global, escala de oferta, efectos de red locales, familiaridad de los usuarios y datos de búsqueda y reserva. La evaluación AOIF clasifica a la compañía como líder competitivo, pero caracteriza su moat como **estrecho**. Estas valoraciones son análisis cualitativos y no vienen acompañadas de datos comparativos o fuentes primarias en los inputs.
+
+La demanda de viajes es sensible al ciclo económico, al ingreso disponible y a las preferencias de los consumidores. La digitalización puede favorecer a los marketplaces, mientras que la regulación local puede limitar la oferta. No se proporcionaron compañías comparables concretas para enlazar; por tanto, no se añaden wikilinks a competidores.
 
 ## 3. Perfil Financiero
 
-Las cifras proceden de los outputs de investigación y no incluyen estados financieros, definiciones completas ni enlaces a documentación primaria. Los periodos y métricas no siempre son comparables entre sí; deben verificarse antes de utilizarlos en un modelo.
+Las cifras siguientes son las proporcionadas por los análisis de investigación. No se entregaron estados financieros, periodos homogéneos ni metodologías completas para verificarlas de forma independiente.
 
-| Métrica | Valor reportado | Contexto y fuente |
+| Métrica | Valor informado | Observaciones |
 |---|---:|---|
-| Crecimiento de ingresos | 13,64% TTM | DDD, 2026-11-19 |
-| Crecimiento de ingresos | 16,66% | AOIF, 2026-11-19; periodo no especificado |
-| Margen operativo | 20,81% | DDD, 2026-11-19 |
-| Margen operativo | 22,49% | AOIF, 2026-11-19; periodo no especificado |
-| Flujo de caja libre (FCF) | 4.860 M USD TTM | DDD, 2026-11-19 |
-| ROIC | 17,25% | AOIF, 2026-11-19 |
-| PER | 33,99 | AOIF, 2026-11-19 |
-| EV/EBITDA | 30,56 | AOIF, 2026-11-19 |
-| FCF yield | 0 | AOIF, 2026-11-19; metodología o significado no aclarados |
+| Crecimiento de ingresos | 16,66% | El input no especifica periodo ni metodología. |
+| Margen bruto | 83,12% | Utilizado en la tesis de infravaloración; periodo no indicado. |
+| Margen operativo | 22,49% | Periodo y metodología no especificados. |
+| ROIC | 17,25% | La interpretación depende del periodo y la metodología. |
+| Crecimiento del FCF, TTM | 9,29% | Reportado por Stock Analysis; no se aportó serie histórica. |
+| CAGR de ingresos a 3 años | No disponible | El cálculo fue descartado por falta de referencias explícitas a sus inputs. |
+| Cobertura de intereses | 0x | Señalada como insuficiente; requiere verificar definición y datos subyacentes. |
+| Deuda neta | No especificada | El análisis describe un balance neto positivo, sin cuantificarlo. |
+| PER | 33,36x | Periodo y precio de referencia no especificados. |
+| EV/EBITDA | 30,42x | Periodo y metodología no especificados. |
+| FCF yield | 0% | Cifra informada; cálculo no explicado. |
 
-DDD caracteriza la tendencia financiera como sólida, apoyándose en el FCF y el margen operativo. AOIF califica la tendencia como estable, pero señala que no dispone de cifras verificables de FCF ni de beneficio neto para evaluar la conversión de caja. La diferencia entre los datos de FCF de ambos inputs requiere conciliación. [DDD, 2026-11-19; AOIF, 2026-11-19]
+La investigación describe una generación relevante de flujo de caja libre y un modelo relativamente ligero en activos, pero advierte que la sostenibilidad del FCF debe contrastarse considerando compensación basada en acciones, capital de trabajo y estacionalidad. También aparece una señal de riesgo por cobertura de intereses inferior al umbral de 2,0x. La aparente tensión entre esa señal, la descripción de un balance neto positivo y la naturaleza de plataforma de la empresa requiere conciliación con datos financieros primarios.
 
-**Estructura de capital:** no se proporcionan cifras de deuda, efectivo, vencimientos ni cobertura de intereses. DDD describe el balance como sólido, pero también indica que no dispone de datos de deuda; por tanto, esa caracterización no puede confirmarse con la evidencia aportada. [DDD, 2026-11-19]
+**Fuente de ratios:** [Stock Analysis — ABNB Statistics](https://stockanalysis.com/stocks/ABNB/statistics/). El input identifica esta fuente para las métricas relacionadas, aunque no especifica la fecha de consulta.
 
 ## 4. Management y Gobierno Corporativo
 
-Los inputs califican la calidad del management como buena. Atribuyen al equipo capacidad para escalar el negocio globalmente, mantener márgenes y lanzar nuevas líneas, aunque no aportan métricas que permitan comprobar esa evaluación de forma independiente. AOIF califica la asignación de capital como creadora de valor y el alineamiento de insiders como moderado. [DDD, 2026-11-19; AOIF, 2026-11-19]
+La evaluación AOIF califica la calidad de la dirección como **buena** y la asignación de capital como creadora de valor. Identifica a **Brian Chesky** como cofundador y consejero delegado, y considera que su continuidad aporta conocimiento del negocio.
 
-No se proporcionan datos sobre remuneración ejecutiva, propiedad accionaria de insiders, composición o independencia del board, comités, sucesión ni objetivos de compensación. DDD identifica expresamente la evaluación de la calidad del management sin datos de compensación como una inferencia, no como un hecho verificado. [DDD, 2026-11-19]
+- **Alineamiento de insiders:** moderado, según AOIF.
+- **Propiedad accionarial de insiders:** no se proporciona porcentaje ni detalle de operaciones.
+- **Composición e independencia del consejo:** no especificadas.
+- **Remuneración e incentivos:** no se aportan datos.
+
+Estas conclusiones son evaluaciones cualitativas de la investigación recibida, no verificaciones independientes de la composición del consejo o de la estructura de incentivos.
 
 ## 5. Tesis de Inversión
 
-**Caso alcista**
-- Airbnb opera un marketplace digital escalable y relativamente ligero en activos, que conecta oferta y demanda de alojamiento. [AOIF, 2026-11-19]
-- Los inputs reportan crecimiento de ingresos de dos dígitos —13,64% TTM en DDD y 16,66% en AOIF, con periodos no conciliados— y márgenes operativos superiores al 20%. [DDD, 2026-11-19; AOIF, 2026-11-19]
-- DDD reporta FCF de 4.860 M USD TTM. Si la cifra se confirma, respalda la capacidad de generación de caja del modelo. [DDD, 2026-11-19]
-- La marca, la escala y los efectos de red pueden favorecer la retención de usuarios y la amplitud de la oferta, aunque la magnitud y persistencia de esa ventaja no están cuantificadas. [DDD, 2026-11-19; AOIF, 2026-11-19]
-- La expansión de experiencias y servicios podría añadir oportunidades de crecimiento. La adopción masiva es una posibilidad, no un resultado confirmado. [DDD, 2026-11-19]
+**Caso alcista planteado:** Airbnb podría sostener el crecimiento de ingresos y aprovechar su marca, escala y efectos de red locales para ampliar la oferta y aumentar las reservas. El margen bruto informado de 83,12% y el crecimiento del FCF TTM reportado de 9,29% respaldan, de forma preliminar, la posibilidad de una economía de plataforma con generación de caja.
 
-DDD clasifica la oportunidad como *compounder* y registra una puntuación general de 78. También considera que la acción está infravalorada; esa conclusión depende de datos de valoración que no están conciliados entre los inputs. No se presenta aquí como hecho verificado. [DDD, 2026-11-19]
+Los catalizadores potenciales identificados son la expansión de experiencias y el aumento del número de anfitriones. La investigación también plantea expansión acelerada en mercados emergentes y mayor adopción de experiencias como posibles motores de crecimiento; no aporta cifras, fechas ni evidencia específica que permitan confirmar su magnitud.
+
+El análisis DDD estima un **precio de consenso de USD 205,44** frente a un precio actual informado de **USD 174,39**, lo que interpreta como posible infravaloración. En el escenario base al 19 de noviembre de 2026, el precio objetivo a un año —hasta el 19 de noviembre de 2027— también es USD 205,44. Esta diferencia frente al precio informado no constituye por sí misma evidencia de valor intrínseco: no se proporcionaron metodología de consenso, fecha del precio ni fuentes de los supuestos de valoración.
+
+La calificación de oportunidad es **Growth** y el score general informado es **68**. Son resultados del marco de análisis recibido, no una recomendación independiente.
 
 ## 6. Riesgos y Contra-Tesis
 
-**Riesgos principales**
-1. **Regulación de alquileres de corta duración:** restricciones municipales o nacionales podrían reducir la oferta disponible o elevar los costes de cumplimiento. DDD la considera de impacto alto y probabilidad media; AOIF, de impacto alto y probabilidad alta. La diferencia de evaluación refleja incertidumbre, no una probabilidad establecida. [DDD, 2026-11-19; AOIF, 2026-11-19]
-2. **Ciclo económico y gasto discrecional:** una desaceleración del turismo podría reducir reservas, tarifas o duración de las estancias. AOIF califica su impacto como alto y su probabilidad como media. [AOIF, 2026-11-19]
-3. **Competencia:** la intensificación competitiva de [[Booking Holdings]], [[Expedia Group]] y plataformas locales podría presionar el crecimiento o los márgenes. DDD la califica de impacto y probabilidad medios. [DDD, 2026-11-19]
-4. **Valoración y expectativas:** una desaceleración del crecimiento o una presión sobre los márgenes podría dejar la acción expuesta si las expectativas implícitas resultan demasiado elevadas. AOIF reporta PER de 33,99 y EV/EBITDA de 30,56, sin aportar fecha o metodología detallada. [AOIF, 2026-11-19]
+La tesis puede fallar si el crecimiento se desacelera, la presión regulatoria limita la oferta o el margen y la generación de caja se deterioran.
 
-**Contra-tesis:** el mercado podría estar sobrestimando la capacidad de Airbnb para sostener crecimiento superior al 13% y márgenes operativos cercanos al 20% ante mayor competencia y regulación. Esta es una hipótesis planteada por DDD, no una conclusión demostrada. [DDD, 2026-11-19]
+| Riesgo | Evaluación aportada | Implicación |
+|---|---|---|
+| Regulación de alquileres de corta duración | Impacto alto, probabilidad alta | Restricciones, licencias, impuestos o límites de noches podrían reducir la oferta o elevar costes. |
+| Ciclo económico y gasto de consumo | Impacto alto, probabilidad media | Una recesión o menor ingreso disponible podría debilitar la demanda de viajes. |
+| Volatilidad del precio | Volatilidad a 90 días de 43,31% | Riesgo elevado de fluctuaciones; fecha de medición no especificada. |
+| Cobertura de intereses | 0x, bajo el umbral de 2,0x | Señal de posible capacidad limitada para cubrir gastos financieros; definición y datos requieren verificación. |
+| Desaceleración de ingresos y presión sobre flujos | Hipótesis del escenario bajista | El escenario bajista asume CAGR de ingresos de 5% y crecimiento negativo del FCF. |
+| Moat limitado | Evaluación cualitativa: estrecho | La competencia y la facilidad de sustitución pueden limitar el poder de fijación de precios. |
 
-**Triggers de falsación**
-- Crecimiento de ingresos inferior al 5% anual, supuesto del escenario bajista.
-- Restricciones regulatorias que limiten la oferta en al menos cinco mercados clave, supuesto del escenario bajista.
-- Deterioro persistente de las métricas de reservas, tarifas, margen operativo o FCF. El input los propone como variables a vigilar, pero no establece umbrales cuantitativos para todas ellas. [DDD, 2026-11-19; AOIF, 2026-11-19]
+**Falsadores explícitos de la tesis:**
+
+- Disminución significativa del margen bruto.
+- Aumento de la deuda neta.
+- Caída del margen bruto por debajo de 80% (falsador del escenario base).
+- Aumento significativo de deuda (falsador del escenario base).
+
+El escenario bajista también identifica como señales contrarias a sus supuestos una reanudación del crecimiento de ingresos superior al 10% y una mejora de la cobertura de intereses.
 
 ## 7. Catalizadores y Timeline
 
-Los horizontes son cualitativos; no se proporcionan fechas de calendario específicas. Las probabilidades son estimaciones de DDD, no probabilidades verificadas.
+No se proporcionaron fechas específicas para los catalizadores operativos. La investigación identifica los siguientes factores, sin calendario confirmado:
 
-| Catalizador | Horizonte estimado | Impacto potencial | Probabilidad estimada | Evidencia y condiciones |
-|---|---|---|---:|---|
-| Aprobación de marcos regulatorios favorables en EE. UU. y Europa | Medio plazo | Alto | 30% | Podría facilitar la expansión de alquileres de corta duración y experiencias. La adopción de dichos marcos no está confirmada. [DDD, 2026-11-19] |
-| Lanzamiento y adopción de experiencias y servicios de viaje integrados | Corto plazo | Medio | 45% | Catalizador identificado por DDD; no se aportan métricas de adopción ni fechas de lanzamiento específicas. [DDD, 2026-11-19] |
+| Catalizador o hito | Fecha esperada | Impacto potencial | Estado de evidencia |
+|---|---|---|---|
+| Expansión de la oferta de experiencias | No especificada | Podría ampliar el gasto y la actividad dentro de la plataforma. | Catalizador propuesto; no hay metas ni datos de avance. |
+| Incremento de usuarios anfitriones | No especificada | Podría ampliar la disponibilidad de oferta y favorecer las reservas. | Catalizador propuesto; no hay cifras de incorporación. |
+| Expansión en mercados emergentes | No especificada | Posible fuente de crecimiento adicional. | Hipótesis del análisis DDD, sin desglose geográfico. |
+| Escenario de valoración a un año | 19 nov. 2026–19 nov. 2027 | El escenario base estima USD 205,44; el bajista, USD 147,00. | Proyección de escenarios, no evento corporativo ni precio garantizado. |
 
-El escenario alcista supone regulación favorable en EE. UU. y Europa, crecimiento de ingresos superior al 15% y márgenes operativos alrededor del nivel indicado en el análisis. Son supuestos del escenario, no una previsión confirmada. [DDD, 2026-11-19]
+La investigación no identifica fechas de lanzamientos, resultados trimestrales, cambios regulatorios concretos ni objetivos públicos de producto.
 
 ## 8. Marco de Valoración
 
-La valoración debe contrastar la generación de caja a largo plazo con el crecimiento, los márgenes, las necesidades de inversión y los riesgos regulatorios. Un enfoque de flujo de caja descontado requeriría FCF verificable y supuestos explícitos de crecimiento, tasa de descuento y valor terminal. También pueden emplearse múltiplos comparables, teniendo en cuenta las diferencias entre modelos y exposición regulatoria.
+Los datos disponibles no permiten establecer de forma independiente un valor intrínseco. AOIF califica el margen de seguridad como **insuficiente** y proporciona múltiplos informados de PER 33,36x y EV/EBITDA 30,42x, pero no detalla sus periodos ni los supuestos empleados.
 
-**Datos y escenarios aportados**
+El análisis de escenarios, fechado el **19 de noviembre de 2026**, establece:
 
-| Referencia | Valor | Interpretación y limitaciones |
-|---|---:|---|
-| Precio citado por DDD | 182,15 USD | Fecha y fuente de cotización no especificadas en el input. [DDD, 2026-11-19] |
-| Objetivo medio de analistas citado por DDD | 205,44 USD | Fuente y horizonte no especificados; no equivale a valor intrínseco. [DDD, 2026-11-19] |
-| Escenario bajista a 19-11-2028 | 147 USD | Supone restricciones en al menos cinco mercados clave y crecimiento inferior al 5% anual. [DDD, 2026-11-19] |
-| Escenario alcista a 19-11-2028 | 245 USD | Supone regulación favorable y crecimiento superior al 15% anual. [DDD, 2026-11-19] |
-| Margen de seguridad | Insuficiente | Evaluación de AOIF; su estimación de valor intrínseco no es determinable con los datos aportados. [AOIF, 2026-11-19] |
+| Escenario | Precio objetivo | Supuestos principales | Racional |
+|---|---:|---|---|
+| Bajista | USD 147,00 | CAGR de ingresos de 5% en lugar del 12% histórico; crecimiento del FCF negativo. | Menor crecimiento y presión regulatoria reducen los flujos futuros. |
+| Base | USD 205,44 | CAGR de ingresos de 12%; crecimiento del FCF de 9,3% TTM. | Continuación del crecimiento y margen bruto estable. |
 
-Los precios objetivo de los escenarios dependen de supuestos que no vienen acompañados de un modelo financiero ni de fuentes concretas. AOIF no aporta precio actual y considera que no se puede determinar el valor intrínseco con la información disponible. Por ello, la conclusión de DDD de que existe un descuento frente al consenso no queda plenamente reconciliada con AOIF. [DDD, 2026-11-19; AOIF, 2026-11-19]
+Los dos escenarios disponibles no especifican probabilidades y no constituyen un rango completo de resultados. El análisis no incluye una metodología reproducible de flujos descontados, tasas de descuento, múltiplos terminales ni sensibilidades cuantitativas. Tampoco se proporcionaron fuentes para los supuestos de crecimiento del 12% histórico o para las proyecciones de precio.
 
-**Sensibilidad cualitativa:** el caso alcista depende de crecimiento superior al 15% y regulación favorable; el bajista, de crecimiento inferior al 5% y restricciones en mercados clave. La valoración sería especialmente sensible a la trayectoria de crecimiento, la resiliencia del margen operativo y el impacto regulatorio. No hay información suficiente para calcular sensibilidades numéricas adicionales.
+**Sensibilidades que conviene evaluar:** crecimiento de ingresos y reservas; evolución del margen bruto; crecimiento y conversión del FCF; costes regulatorios; compensación basada en acciones; deuda neta; y coste de capital. Hasta contar con esos datos y una metodología verificable, los precios objetivo deben tratarse como estimaciones del análisis recibido, no como una valoración confirmada.
 
 ## 9. Preguntas Abiertas y Agenda de Investigación
 
-- ¿Cuál es la deuda bruta y neta, su calendario de vencimientos y la cobertura de intereses?
-- ¿Qué restricciones concretas están vigentes o propuestas en ciudades y países relevantes, incluidos Nueva York, Barcelona y Tokio? Los inputs plantean esta cuestión, pero no aportan datos regulatorios específicos. [DDD, 2026-11-19]
-- ¿Cómo se concilian las cifras de crecimiento de ingresos (13,64% TTM frente a 16,66%) y margen operativo (20,81% frente a 22,49%)? ¿Qué periodos y definiciones utiliza cada una?
-- ¿Se puede verificar el FCF TTM de 4.860 M USD y reconciliarlo con la observación de AOIF de que no dispone de cifras verificables de FCF?
-- ¿Cuáles son las tendencias de noches reservadas, valor bruto de reservas, tarifas medias, duración de estancias y retención de usuarios?
-- ¿Qué contribución tienen las experiencias y servicios a los ingresos y al margen, y qué evidencia existe sobre su adopción?
-- ¿Qué evidencia cuantitativa respalda la magnitud del moat y la afirmación de efectos de red? ¿Cómo se compara la dinámica competitiva frente a [[Booking Holdings]], [[Expedia Group]] y plataformas locales?
-- ¿Cuáles son la remuneración ejecutiva, la propiedad de insiders, la composición del board y los indicadores de alineamiento de incentivos?
-- ¿Cuál es la fecha, fuente y metodología de las cifras de precio, consenso de analistas y múltiplos de valoración citadas?
-- ¿Qué supuestos de crecimiento, márgenes, inversión y descuento producen los objetivos de 147 USD y 245 USD?
+1. ¿Cuál es el periodo y la fuente primaria de las cifras de crecimiento de ingresos, margen bruto y margen operativo?
+2. ¿Cómo se calcula la cobertura de intereses de 0x y qué obligaciones financieras incluye? ¿Cómo se reconcilia con la descripción de balance neto positivo?
+3. ¿Cuál es la deuda neta actual y cómo ha evolucionado?
+4. ¿Qué proporción de ingresos y reservas corresponde a alojamientos, experiencias y servicios, y cómo evolucionan sus márgenes?
+5. ¿Cuál es la serie histórica de noches y experiencias reservadas, valor bruto de reservas, precio promedio y anfitriones activos?
+6. ¿Qué parte del FCF es recurrente tras ajustar por compensación basada en acciones, capital de trabajo y estacionalidad?
+7. ¿Qué exposición tienen los ingresos y la oferta a regulaciones locales, y qué cambios concretos se esperan en mercados relevantes?
+8. ¿Cuál es la fecha de referencia del precio de USD 174,39, de la volatilidad de 43,31% y del consenso de USD 205,44?
+9. ¿Qué metodología y fuentes respaldan los escenarios de USD 147,00 y USD 205,44, y qué probabilidades se asignan a cada uno?
+10. ¿Cuál es la participación accionarial de insiders, la composición del consejo y la estructura de incentivos?
+11. ¿Qué evidencia cuantitativa sustenta la expansión de experiencias y mercados emergentes como catalizadores?
+12. ¿Cómo se calculan el PER, EV/EBITDA, ROIC y FCF yield, y a qué periodo corresponden?
 
-**Estado de evidencia:** los outputs DDD y AOIF están fechados el 19-11-2026. No incluyen enlaces a fuentes primarias ni referencias documentales para las métricas; los datos cuantitativos y las valoraciones deben tratarse como reportes de investigación pendientes de verificación. Las afirmaciones sobre moat, calidad del management y catalizadores son evaluaciones o hipótesis, no hechos confirmados.
+**Agenda prioritaria:** verificar los ratios y sus periodos; revisar estados financieros y flujo de caja; cuantificar el impacto regulatorio y la exposición geográfica; y reconstruir la valoración con supuestos explícitos y análisis de sensibilidad.
