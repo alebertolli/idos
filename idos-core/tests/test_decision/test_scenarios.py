@@ -3,6 +3,7 @@ import json
 from zoneinfo import ZoneInfo
 
 from idos.decision.scenarios import (
+    canonicalize_scenario_ids,
     calculate_scenario_asymmetry,
     scenario_fingerprint,
     scenario_source_urls_from_evidence,
@@ -47,6 +48,36 @@ def test_valid_bear_bull_contract_calculates_unweighted_extreme_asymmetry():
     assert asymmetry["downside_pct"] == -20
     assert asymmetry["benefit_risk_ratio"] == 2.5
     assert "retorno_esperado_pct" not in asymmetry
+
+
+def test_known_scenario_ids_are_canonicalized_without_mutating_model_output():
+    analysis = scenario_set()
+    analysis["scenarios"][0]["id"] = " bear "
+    analysis["scenarios"][1]["id"] = "base"
+    analysis["scenarios"][2]["id"] = "Bull"
+
+    corrected = canonicalize_scenario_ids(analysis)
+
+    assert [scenario["id"] for scenario in corrected["scenarios"]] == [
+        "BEAR", "BASE", "BULL"
+    ]
+    assert [scenario["id"] for scenario in analysis["scenarios"]] == [
+        " bear ", "base", "Bull"
+    ]
+    assert validate_scenario_analysis(corrected, today=TODAY) == []
+
+
+def test_scenario_id_canonicalization_keeps_unknown_ids_invalid():
+    analysis = scenario_set()
+    analysis["scenarios"][0]["id"] = "bearish"
+
+    corrected = canonicalize_scenario_ids(analysis)
+
+    assert corrected["scenarios"][0]["id"] == "bearish"
+    assert any(
+        "scenarios[0].id debe ser BEAR, BASE o BULL" in error
+        for error in validate_scenario_analysis(corrected, today=TODAY)
+    )
 
 
 def test_base_is_optional_and_probabilities_are_rejected_without_calibration():
