@@ -59,6 +59,11 @@ def _load_resume_queue() -> list[dict]:
         return []
 
 
+def _resume_queue_for_run(*, resume_pending: bool, hourly_ramp: bool) -> list[dict]:
+    """Keep existing pending work across both scheduled and event-triggered ramp runs."""
+    return _load_resume_queue() if (resume_pending or hourly_ramp) else []
+
+
 def _load_quarantine() -> list[dict]:
     try:
         value = json.loads(QUARANTINE_PATH.read_text(encoding="utf-8"))
@@ -631,7 +636,10 @@ def main():
         }, indent=2), encoding='utf-8')
         return 0
 
-    queue = _load_resume_queue() if resume_pending else []
+    # Event-triggered Research runs also share and must preserve the durable
+    # hourly queue. Starting from [] here silently dropped every other pending
+    # candidate when the results PR was merged.
+    queue = _resume_queue_for_run(resume_pending=resume_pending, hourly_ramp=hourly_ramp)
     if hourly_ramp and not resume_pending and not queue and opportunities and not hourly_ramp_state.get('paused'):
         hourly_ramp_state = initial_hourly_ramp_state()
     if not resume_pending and (hourly_ramp or event_type in {'monthly', 're-research-30d'}):

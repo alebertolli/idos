@@ -5,6 +5,7 @@ from pathlib import Path
 from idos.research.hourly_ramp import (
     batch_limit,
     defer_provider_retry,
+    has_due_work,
     initial_state,
     load_state,
     record_outcome,
@@ -98,3 +99,13 @@ def test_candidate_failure_is_retried_twice_then_quarantined():
     assert quarantined
     assert item["attempt_count"] == 3
     assert "next_attempt_date" not in item
+
+
+def test_due_queue_gate_respects_cooldown_and_candidate_retry_date():
+    now = datetime(2026, 11, 19, 12, tzinfo=timezone.utc)
+    state = initial_state()
+    assert not has_due_work(state, [], now=now)
+    assert has_due_work(state, [{"next_attempt_date": "2026-11-19"}], now=now)
+    assert not has_due_work(state, [{"next_attempt_date": "2026-11-20"}], now=now)
+    cooling = defer_provider_retry(state, now=now)
+    assert not has_due_work(cooling, [{"next_attempt_date": "2026-11-19"}], now=now)

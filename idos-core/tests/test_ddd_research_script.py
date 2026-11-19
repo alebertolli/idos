@@ -12,6 +12,17 @@ import scripts.ddd_research as ddd_research
 
 
 
+def test_event_ramp_run_preserves_existing_pending_research_queue(tmp_path, monkeypatch):
+    queue_path = tmp_path / "cache" / "ddd_research_resume.json"
+    queue_path.parent.mkdir()
+    original = [{"ticker": "AAPL", "opp_id": "OPP-AAPL"}]
+    queue_path.write_text(json.dumps({"schema_version": 1, "pending": original}), encoding="utf-8")
+    monkeypatch.setattr(ddd_research, "RESUME_QUEUE_PATH", queue_path)
+
+    assert ddd_research._resume_queue_for_run(resume_pending=False, hourly_ramp=True) == original
+    assert ddd_research._resume_queue_for_run(resume_pending=False, hourly_ramp=False) == []
+
+
 def test_ddd_strategy_selector_is_optional_validated_and_case_insensitive(tmp_path, monkeypatch):
     from idos.strategy.catalog import StrategyCatalog
 
