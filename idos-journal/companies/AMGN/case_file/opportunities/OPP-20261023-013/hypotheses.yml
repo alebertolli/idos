@@ -1,0 +1,197 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos del ejercicio fiscal 2027 crecen menos del 5% frente al
+      ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa que las caídas de productos maduros superan el
+      crecimiento de los productos nuevos y en expansión en el conjunto del ejercicio
+      fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos del ejercicio fiscal 2027 crecen menos del 5% frente al ejercicio
+    fiscal 2026.
+  - La compañía informa que las caídas de productos maduros superan el crecimiento
+    de los productos nuevos y en expansión en el conjunto del ejercicio fiscal 2027.
+  horizon: medio
+  id: H1-OPP-20261023-013
+  opportunity_id: OPP-20261023-013
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ingresos totales en el ejercicio fiscal 2027
+    prediction: Los ingresos totales de Amgen en el ejercicio fiscal 2027 crecerán
+      al menos un 5% frente a los ingresos reportados para el ejercicio fiscal 2026,
+      según los estados financieros anuales publicados por la compañía.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Una cartera diversificada y la capacidad de desarrollar y comercializar
+    nuevos tratamientos podrían compensar la presión sobre productos expuestos a competencia
+    o a pérdida de exclusividad. La información disponible no basta para confirmar
+    la magnitud ni la persistencia de esa compensación.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran crecimiento
+    de ingresos inferior al 5%, o si una revisión formal de previsiones de la compañía
+    anticipa que no se alcanzará ese umbral.
+  secondary_hypotheses:
+  - H2-OPP-20261023-013
+  statement: La cartera comercial y los lanzamientos recientes permitirán que Amgen
+    aumente sus ingresos, pese a la competencia y a la erosión de productos maduros.
+  status: ACTIVE
+  ticker: AMGN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos totales del ejercicio fiscal 2027 son iguales o inferiores
+      a los del ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: En dos trimestres consecutivos de 2027, la compañía reporta que las
+      caídas por competencia o pérdida de exclusividad exceden el crecimiento de sus
+      productos en expansión.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos totales del ejercicio fiscal 2027 son iguales o inferiores a los
+    del ejercicio fiscal 2026.
+  - En dos trimestres consecutivos de 2027, la compañía reporta que las caídas por
+    competencia o pérdida de exclusividad exceden el crecimiento de sus productos
+    en expansión.
+  horizon: medio
+  id: H2-OPP-20261023-013
+  opportunity_id: OPP-20261023-013
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.0
+    met: null
+    metric: Variación interanual de ingresos totales en el ejercicio fiscal 2027
+    prediction: Los ingresos totales del ejercicio fiscal 2027 serán superiores a
+      los del ejercicio fiscal 2026, aunque el crecimiento sea inferior al 5%.
+    unit: porcentaje, superior a 0
+  priority: important
+  probability: 0.5
+  rationale: La tesis contraria sostiene que competencia, expiraciones de exclusividad
+    y presión de precios erosionarán la cartera existente más deprisa de lo que nuevos
+    productos puedan compensarla. La evidencia suministrada no permite cuantificar
+    esa erosión; por ello, esta hipótesis pone a prueba directamente ese riesgo.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran una
+    caída interanual de ingresos, o si dos informes trimestrales consecutivos documentan
+    una erosión neta de la cartera.
+  secondary_hypotheses:
+  - H1-OPP-20261023-013
+  statement: La presión competitiva y de precios sobre productos maduros no será suficiente
+    para provocar una contracción de los ingresos totales en 2027.
+  status: ACTIVE
+  ticker: AMGN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre de 2027 es inferior a 8.000 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no proporciona datos suficientes para conciliar el flujo
+      de caja libre con los estados financieros publicados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre de 2027 es inferior a 8.000 millones de dólares.
+  - La compañía no proporciona datos suficientes para conciliar el flujo de caja libre
+    con los estados financieros publicados.
+  horizon: medio
+  id: H3-OPP-20261023-013
+  opportunity_id: OPP-20261023-013
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 8000.0
+    met: null
+    metric: Flujo de caja libre del ejercicio fiscal 2027
+    prediction: El flujo de caja libre acumulado del ejercicio fiscal 2027 será de
+      al menos 8.000 millones de dólares, calculado como flujo de caja de operaciones
+      menos compras de propiedad, planta y equipo, usando la definición reportada
+      por la compañía o conciliándola con sus estados financieros.
+    unit: millones de dólares, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis disponible señala una generación de FCF relevante, pero no aporta
+    una serie verificable, una previsión futura ni el balance completo. La hipótesis
+    comprueba si esa capacidad se mantiene después de inversiones, impuestos, intereses
+    y necesidades de capital.
+  review_trigger: Dejar de creerla al publicarse los resultados anuales de 2027 si
+    el flujo de caja libre conciliado es inferior a 8.000 millones de dólares, o antes
+    si una revisión de previsiones de la compañía proyecta un importe inferior.
+  secondary_hypotheses:
+  - H1-OPP-20261023-013
+  - H2-OPP-20261023-013
+  statement: Amgen conservará una generación de caja libre suficiente para financiar
+    sus necesidades operativas y mantener flexibilidad financiera.
+  status: ACTIVE
+  ticker: AMGN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de AMGN iguala o supera la del S&P 500 Health
+      Care Total Return durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La diferencia de rentabilidad total entre AMGN y el índice es superior
+      a -5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de AMGN iguala o supera la del S&P 500 Health Care Total
+    Return durante el periodo.
+  - La diferencia de rentabilidad total entre AMGN y el índice es superior a -5 puntos
+    porcentuales.
+  horizon: medio
+  id: H4-OPP-20261023-013
+  opportunity_id: OPP-20261023-013
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: -5.0
+    met: null
+    metric: Rentabilidad total relativa de AMGN frente al S&P 500 Health Care Total
+      Return
+    prediction: Desde el cierre del 2026-11-19 hasta el cierre del 2027-11-19, la
+      rentabilidad total de AMGN, incluidos dividendos, quedará por debajo de la del
+      índice S&P 500 Health Care Total Return en al menos 5 puntos porcentuales.
+    unit: puntos porcentuales como máximo
+  priority: important
+  probability: 0.5
+  rationale: La información de partida sitúa la cotización cerca del consenso medio
+    observado, pero no proporciona precio, valoración intrínseca ni expectativas cuantificadas.
+    Sin esos elementos, no puede afirmarse que el mercado esté infravalorando la cartera;
+    esta hipótesis examina si la acción supera de forma observable a un índice sectorial.
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si AMGN supera al índice
+    o si su rezago es inferior a 5 puntos porcentuales; revisar antes si una actualización
+    pública de valoración demuestra un margen de seguridad sustentado en previsiones
+    verificables.
+  secondary_hypotheses:
+  - H1-OPP-20261023-013
+  - H2-OPP-20261023-013
+  - H3-OPP-20261023-013
+  statement: La cotización de Amgen no ofrecerá una rentabilidad total claramente
+    superior a la del sector sanitario en los próximos doce meses, porque la evidencia
+    disponible no demuestra un margen de seguridad ni una revisión favorable de las
+    expectativas.
+  status: ACTIVE
+  ticker: AMGN
+  version: 1

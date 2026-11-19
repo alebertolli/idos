@@ -316,3 +316,54 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-19T18:09:34.689238'
+- data:
+    classification: compounder
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 0f1a77d564086c3fc641f7738ef76d843b34459c359ee5fcad57e6bd27f7a0c6
+    opp_id: OPP-20261023-012
+    score: 85
+    strategy_version: positive_fundamentals_v1
+    ticker: AMD
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T18:36:57.132553'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: a39fc0a972e90123d5899f04cab55381f452f5fdcb0ac760d8ca5a50d7278d29
+    opp_id: OPP-20261023-013
+    score: 56
+    strategy_version: positive_fundamentals_v1
+    ticker: AMGN
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T18:39:16.747742'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-AMGN
+    ticker: AMGN
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-19T18:39:42.936240'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 395ca5a3dc5eac5394893dbd67b71097c02e6c8cf4e5c8faf7723594122fd67f
+    opp_id: OPP-MB-AMGN
+    score: 42
+    strategy_version: '1.5'
+    ticker: AMGN
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T18:41:16.081859'

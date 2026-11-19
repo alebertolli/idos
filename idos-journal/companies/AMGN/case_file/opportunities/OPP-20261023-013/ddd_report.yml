@@ -1,0 +1,442 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - 'La clasificación quality_at_fair_price es provisional: combina el perfil de compañía
+    descrito por el usuario con la proximidad entre cotización y consenso observado,
+    sin demostrar valor intrínseco.'
+  - Las observaciones financieras seleccionadas en la entrada indican FCF TTM de 10.180
+    millones USD, margen operativo TTM de 33,4% y crecimiento de ingresos TTM de 9,1%,
+    todos al período terminado el 2026-06-30 y atribuidos a stockanalysis.com; se
+    usan con cautela por ser datos de proveedor y de fuente única.
+  - La entrada contiene un crecimiento de ingresos de yfinance de 9,5% como valor
+    no comparable; no se equipara con el dato seleccionado de 9,1%.
+  - Los riesgos de competencia, exclusividad, regulación y suministro son riesgos
+    plausibles del sector, no eventos específicos confirmados para Amgen en esta evidencia.
+  preguntas_abiertas:
+  - ¿Qué muestran los informes regulatorios y resultados corporativos más recientes
+    sobre ingresos, márgenes, caja, deuda, vencimientos y liquidez?
+  - ¿Cuál es la contribución por producto y geografía, y qué productos afrontan competencia,
+    pérdida de exclusividad o presión de precios, con qué calendario?
+  - ¿Qué evidencia clínica, regulatoria y comercial primaria respalda los catalizadores
+    y la trayectoria de crecimiento de la cartera?
+  - ¿Cómo se compara el crecimiento de ingresos de distintos proveedores una vez armonizados
+    período, unidad, fecha de corte y metodología?
+  - ¿Cuáles han sido los retornos y criterios de las adquisiciones, recompras, dividendos
+    y otras decisiones de asignación de capital?
+  - ¿Hay concentración de proveedores, plantas, insumos o riesgos de calidad documentados
+    en presentaciones corporativas o regulatorias?
+  - ¿Qué múltiplos actuales y previsiones financieras se usan para inferir expectativas
+    implícitas en el precio?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: Compounder y compounder_castigado requieren evidencia suficiente
+    sobre durabilidad del moat, crecimiento y valoración que no está presente. Deep
+    value y value trap no pueden establecerse sin múltiplos completos y evidencia
+    de tendencias operativas. Turnaround, cíclica, special situation, distressed e
+    hype no están respaldadas por los datos proporcionados.
+  justificacion: La información entregada describe una farmacéutica global con productos
+    terapéuticos y aporta una cotización de 439,33 USD frente a un consenso de objetivos
+    de 435,77 USD. Esto no demuestra por sí solo una ventaja competitiva duradera
+    ni una infravaloración; la referencia de consenso está cerca de la cotización
+    y no constituye una valoración independiente. La categoría es provisional y refleja
+    una empresa que podría ser de calidad, pero cuyo precio no muestra un descuento
+    evidente en los datos disponibles.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El perfil entregado describe descubrimiento, desarrollo, fabricación y
+    comercialización de terapias, con una cartera que incluye Enbrel, Otezla, Prolia,
+    XGEVA y Repatha. Esto sugiere capacidades y activos comerciales relevantes, pero
+    no prueba cuota de mercado, exclusividad, poder de fijación de precios, resultados
+    clínicos comparativos ni durabilidad de la cartera. La calificación es provisional;
+    se requiere revisión de informes corporativos y datos por producto.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Publicación de resultados futuros que permita contrastar la evolución
+    de ingresos y FCF con las expectativas. No se presenta como evento anunciado ni
+    como resultado anticipado.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 50
+- descripcion: Actualizaciones de ensayos, decisiones regulatorias o lanzamientos
+    que alteren las expectativas sobre la cartera; no se han proporcionado eventos
+    concretos que puedan verificarse.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: La fabricación de medicamentos puede depender de instalaciones especializadas,
+    controles de calidad, insumos y cumplimiento regulatorio; esto es una inferencia
+    general sobre el sector, no un hallazgo específico confirmado para Amgen. No se
+    proporcionan datos sobre concentración de proveedores, incidentes de calidad,
+    emisiones, agua, seguridad laboral o resiliencia de plantas.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia financiera estructurada aporta un FCF TTM de 10.180 millones
+    USD con período terminado el 2026-06-30, seleccionado de stockanalysis.com; también
+    reporta margen operativo TTM de 33,4% y crecimiento de ingresos TTM de 9,1% para
+    ese período y proveedor. Son observaciones de fuente única según la entrada y
+    no bastan para evaluar solvencia o tendencias. No se proporcionan aquí valores
+    seleccionados comparables de deuda, vencimientos, liquidez o cobertura. El FCF
+    reportado no se considera ajustado.
+  rating: adecuada
+dominio_growth:
+  analisis: La observación seleccionada reporta crecimiento de ingresos TTM de 9,1%
+    al 2026-06-30, pero la entrada también incluye un valor no comparable de yfinance
+    de 9,5%, con metadatos de período distintos o insuficientes. No se resuelve esa
+    discrepancia por intuición. Sin desglose por producto, previsiones verificables,
+    datos de lanzamientos o impacto de competencia y exclusividad, no puede evaluarse
+    la sostenibilidad del crecimiento.
+  rating: moderado
+dominio_management:
+  analisis: No se aportan datos verificables sobre asignación de capital, adquisiciones,
+    recompras, compensación, gobierno corporativo o cumplimiento de objetivos por
+    parte de la dirección. La calificación refleja insuficiencia de evidencia, no
+    una conclusión negativa sobre la gestión.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Competencia, pérdida de exclusividad o presión de precios que reduzca ventas
+    o márgenes de productos relevantes; exposición específica no cuantificada en la
+    evidencia entregada.
+- impacto: alto
+  probabilidad: media
+  riesgo: Resultados de ensayos, seguridad o decisiones regulatorias desfavorables
+    para productos o candidatos; no se aporta un evento concreto verificable.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Interrupción de fabricación, problemas de calidad o dependencia de proveedores
+    especializados; riesgo sectorial inferido, sin incidentes específicos confirmados.
+- impacto: medio
+  probabilidad: media
+  riesgo: Deuda, vencimientos o necesidades de refinanciación que limiten flexibilidad
+    financiera; la evidencia entregada no contiene datos seleccionados suficientes
+    para medirlos.
+- impacto: medio
+  probabilidad: media
+  riesgo: Desaceleración de ingresos o deterioro de la generación de caja frente a
+    expectativas; la observación TTM disponible no basta para establecer tendencia
+    o causalidad.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Resultados futuros que demuestren una evolución de ingresos y generación
+      de caja mejor o peor que la implícita en las expectativas de mercado. No se
+      aporta un evento corporativo específico verificable; se trata de un posible
+      mecanismo de revisión de expectativas, no de un hecho anunciado.
+    horizonte: corto
+    impacto: medio
+    probabilidad_pct: 50
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización observada es 439,33 USD al 2026-11-19. El consenso
+    observado de objetivos es 435,77 USD, con referencias de rango de 230 a 542 USD.
+    La proximidad entre cotización y consenso no demuestra qué expectativas operativas
+    están incorporadas. No se proporcionan múltiplos actuales completos ni estimaciones
+    de beneficios, ventas o flujos futuros que permitan deducir un escenario implícito
+    fiable.
+  hipotesis_contraria: Una hipótesis contraria sería que el mercado infravalora la
+    capacidad de la cartera y de las capacidades de desarrollo y comercialización
+    para sostener resultados; la hipótesis opuesta es que sobreestima la durabilidad
+    de productos maduros ante competencia, expiraciones de exclusividad y presión
+    de precios. La evidencia suministrada no permite decidir entre ambas ni verificar
+    qué variables pondera actualmente el mercado.
+  razonamiento: El precio está cerca del objetivo medio observado, pero los objetivos
+    de analistas son referencias, no una valoración independiente. Faltan múltiplos,
+    previsiones detalladas, historial financiero utilizable y evidencia primaria sobre
+    catalizadores y riesgos de cartera. Por tanto, no puede afirmarse que exista un
+    error de valoración aprovechable.
+generated_at: '2026-11-19T18:37:33.148139-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se aporta evidencia verificable de que se haya vulnerado alguna de las
+    categorías de integridad indicadas. La falta de datos sobre aspectos importantes
+    es una limitación de diligencia, no evidencia de deterioro estructural.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-013
+prompt_inputs:
+  business_model: Amgen Inc. discovers, develops, manufactures, and delivers human
+    therapeutics worldwide. The company's principal products include Enbrel for the
+    treatment of rheumatoid arthritis, plaque psoriasis, and psoriatic arthritis;
+    Otezla for the treatment of adult patients with plaque psoriasis, psoriatic arthritis,
+    and oral ulcers associated with Behçet's disease; Prolia to treat postmenopausal
+    women with osteoporosis; XGEVA for skeletal-related events prevention; Repatha,
+    which reduces the risks of myocardial infarction, stroke, and coronary revascularization;
+    Nplate for the treatment of patients with immune thrombocytopenia; KYPROLIS to
+    treat patients with relapsed or refractory multiple myeloma; Aranesp to treat
+    a lower-than-normal number of red blood cells and anemia; EVENITY for the treatment
+    of osteoporosis in postmenopausal for women; Vectibix to treat patients with wild-type
+    RAS metastatic colorectal cancer; BLINCYTO for the treatment of patients with
+    acute lymphoblastic leukemia; TEPEZZA to treat thyroid eye disease; and KRYSTEXXA
+    for the treatment of chronic refractory gout. It also markets other products,
+    including PROLIA, REPATHA, OTEZLA, ENBREL, EVENITY, XGEVA, TEPEZZA, BLINCYTO,
+    NPLATE, TEZSPIRE, KYPROLIS, ARANESP, KRYSTEXXA AND VECTIBIX, MVASI, PAVBLU, UPLIZNA,
+    IMDELLTRA/IMDYLLTRA, AMJEVITA/AMGEVITA, TAVNEOS, NEULASTA, LUMAKRAS/LUMYKRAS,
+    RAVICTI, PARSABIV, AIMOVIG, WEZLANA/WEZENLA, AND PROCYSBI. The company serves
+    healthcare providers, including physicians or their clinics, dialysis centers,
+    hospitals, and pharmacies. It distributes its products through pharmaceutical
+    wholesale distributors. The company has collaboration agreements with AstraZeneca
+    plc for the development and commercialization of TEZSPIRE; BEONE MEDICINES LTD.
+    to develop and commercialize Aimovig; UCB for the development and commercialization
+    of EVENITY; Kyowa Kirin Co., Ltd. for rocatinlimab development and commercialization;
+    and BeiGene, Ltd. for oncology products expansion and development. The company
+    was incorporated in 1980 and is headquartered in Thousand Oaks, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.037599999999999995
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Amgen Inc.
+  operating_margin: 34.12
+  pe_ratio: 25.48
+  products: ''
+  revenue: 38900000000.0
+  revenue_growth: 8.15
+  roic: 20.48
+  sector: Healthcare
+  ticker: AMGN
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: Amgen Inc. discovers, develops, manufactures, and delivers human
+    therapeutics worldwide. The company's principal products include Enbrel for the
+    treatment of rheumatoid arthritis, plaque psoriasis, and psoriatic arthritis;
+    Otezla for the treatment of adult patients with plaque psoriasis, psoriatic arthritis,
+    and oral ulcers associated with Behçet's disease; Prolia to treat postmenopausal
+    women with osteoporosis; XGEVA for skeletal-related events prevention; Repatha,
+    which reduces the risks of myocardial infarction, stroke, and coronary revascularization;
+    Nplate for the treatment of patients with immune thrombocytopenia; KYPROLIS to
+    treat patients with relapsed or refractory multiple myeloma; Aranesp to treat
+    a lower-than-normal number of red blood cells and anemia; EVENITY for the treatment
+    of osteoporosis in postmenopausal for women; Vectibix to treat patients with wild-type
+    RAS metastatic colorectal cancer; BLINCYTO for the treatment of patients with
+    acute lymphoblastic leukemia; TEPEZZA to treat thyroid eye disease; and KRYSTEXXA
+    for the treatment of chronic refractory gout. It also markets other products,
+    including PROLIA, REPATHA, OTEZLA, ENBREL, EVENITY, XGEVA, TEPEZZA, BLINCYTO,
+    NPLATE, TEZSPIRE, KYPROLIS, ARANESP, KRYSTEXXA AND VECTIBIX, MVASI, PAVBLU, UPLIZNA,
+    IMDELLTRA/IMDYLLTRA, AMJEVITA/AMGEVITA, TAVNEOS, NEULASTA, LUMAKRAS/LUMYKRAS,
+    RAVICTI, PARSABIV, AIMOVIG, WEZLANA/WEZENLA, AND PROCYSBI. The company serves
+    healthcare providers, including physicians or their clinics, dialysis centers,
+    hospitals, and pharmacies. It distributes its products through pharmaceutical
+    wholesale distributors. The company has collaboration agreements with AstraZeneca
+    plc for the development and commercialization of TEZSPIRE; BEONE MEDICINES LTD.
+    to develop and commercialize Aimovig; UCB for the development and commercialization
+    of EVENITY; Kyowa Kirin Co., Ltd. for rocatinlimab development and commercialization;
+    and BeiGene, Ltd. for oncology products expansion and development. The company
+    was incorporated in 1980 and is headquartered in Thousand Oaks, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 439.3299865722656
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.037599999999999995
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:52.226627+00:00", "period_end_date": "2026-06-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/AMGN/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 10180000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 35.548002000000004}, "observed_at": "2026-11-01T10:16:52.226627+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/AMGN/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 33.4}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 9.5}, "observed_at": "2026-11-01T10:16:52.226627+00:00", "period_end_date":
+    "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/amgn/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-06-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 9.1}}}, "observed_at": "2026-11-19T19:15:32.125611+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Amgen Inc.
+  operating_margin: 34.12
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Amgen Inc. discovers, develops, manufactures, and delivers human
+    therapeutics worldwide. The company's principal products include Enbrel for the
+    treatment of rheumatoid arthritis, plaque psoriasis, and psoriatic arthritis;
+    Otezla for the treatment of adult patients with plaque psoriasis, psoriatic arthritis,
+    and oral ulcers associated with Behçet's disease; Prolia to treat postmenopausal
+    women with osteoporosis; XGEVA for skeletal-related events prevention; Repatha,
+    which reduces the risks of my
+  revenue: 38900000000.0
+  revenue_growth: 8.15
+  roic: 20.48
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    542.0, "low": 230.0, "mean": 435.77, "median": 435.77, "observed_at": "2026-11-19T18:37:00.519607-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T18:37:00.519607-03:00", "observed_date": "2026-11-19", "target_price":
+    435.77, "url": "https://stockanalysis.com/stocks/amgn/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T18:37:00.519607-03:00",
+    "observed_date": "2026-11-19", "target_price": 435.7714, "url": "https://finance.yahoo.com/quote/AMGN/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 439.3299865722656,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AMGN/"}]}}'
+  sector: Healthcare
+  ticker: AMGN
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: a39fc0a972e90123d5899f04cab55381f452f5fdcb0ac760d8ca5a50d7278d29
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-19T18:37:33.148139-03:00'
+resumen_ejecutivo: La información disponible permite identificar a Amgen como una
+  compañía biofarmacéutica con productos terapéuticos comercializados, pero no basta
+  para confirmar la fortaleza actual de su moat, la calidad del balance, la trayectoria
+  de crecimiento ni la valoración intrínseca. La cotización observada está próxima
+  al consenso de objetivos, cuyo rango es amplio. La conclusión es incierta y la clasificación
+  provisional es quality_at_fair_price, no una recomendación basada en una valoración
+  completa.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2027-11-19'
+  scenarios:
+  - falsifiers:
+    - El rango de objetivos observado deja de ser una referencia pertinente por cambios
+      materiales en los fundamentales o por revisiones de analistas.
+    - Resultados y evidencia corporativa verificable muestran una trayectoria de ingresos
+      y caja incompatible con una revisión adversa de expectativas.
+    id: BEAR
+    key_assumptions:
+    - El mercado revisa sustancialmente a la baja sus expectativas de valor para la
+      compañía.
+    - La referencia baja del consenso observado sigue siendo pertinente al horizonte;
+      la entrada no aporta fundamentos para explicar su metodología.
+    rationale: Se usa el extremo bajo del rango de objetivos observado como ancla
+      de un escenario adverso, no como valoración propia ni como precio garantizado.
+      No hay evidencia suficiente para derivar un objetivo independiente a partir
+      de fundamentales.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/amgn/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AMGN/
+    target_price: 230
+  - falsifiers:
+    - El rango de objetivos observado deja de ser pertinente por deterioro de fundamentales
+      o revisiones de analistas.
+    - Resultados y evidencia corporativa verificable muestran una trayectoria incompatible
+      con una revisión favorable de expectativas.
+    id: BULL
+    key_assumptions:
+    - El mercado revisa las expectativas al alza y considera alcanzable la referencia
+      alta observada.
+    - La referencia alta del consenso observado sigue siendo pertinente al horizonte;
+      la entrada no aporta fundamentos para explicar su metodología.
+    rationale: Se usa el extremo alto del rango de objetivos observado como ancla
+      de un escenario favorable, no como valoración propia ni como precio garantizado.
+      La evidencia disponible no justifica una extrapolación por encima de ese rango.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/amgn/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AMGN/
+    target_price: 542
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 56
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T18:37:00.519607-03:00'
+  fuentes:
+    stockanalysis: 435.77
+    yfinance: 435.7714
+  mediana: 435.77
+  n_fuentes: 2
+  promedio: 435.77
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T18:37:00.519607-03:00'
+    observed_date: '2026-11-19'
+    target_price: 435.77
+    url: https://stockanalysis.com/stocks/amgn/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T18:37:00.519607-03:00'
+    observed_date: '2026-11-19'
+    target_price: 435.7714
+    url: https://finance.yahoo.com/quote/AMGN/
+  target_high: 542.0
+  target_low: 230.0
+tesis_inversion: La tesis potencial se apoya en una compañía biofarmacéutica con productos
+  comercializados y una observación de generación de FCF relevante. Sin embargo, la
+  evidencia suministrada no permite validar la durabilidad del moat, la trayectoria
+  futura de la cartera, el balance completo ni el valor intrínseco. La cotización
+  está cerca del consenso medio observado, por lo que no se identifica un margen de
+  seguridad demostrable. Mantener la tesis como provisional e incierta hasta completar
+  el análisis de cartera, expiraciones, deuda, asignación de capital y valoración.
+ticker: AMGN
+version: '3.0'
