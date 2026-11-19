@@ -2,14 +2,12 @@
   "total": 1,
   "processed": [
     {
-      "opp_id": "OPP-20261023-007",
+      "opp_id": "OPP-MB-ADI",
       "ticker": "ADI",
-      "status": "quality_failed",
-      "score": 84,
+      "status": "ddd_failed",
+      "score": null,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "errors": []
     }
   ],
   "skipped": [],
@@ -17,12 +15,10 @@
   "errors": [
     {
       "ticker": "ADI",
-      "opp_id": "OPP-20261023-007",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "opp_id": "OPP-MB-ADI",
+      "status": "ddd_failed",
+      "error": "MULTIBAGGERS ratio review contract failed: ratio cites a URL absent from research evidence: fcf_growth_pct",
+      "errors": []
     }
   ],
   "status": "failed",
