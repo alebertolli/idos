@@ -1,0 +1,205 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La retención de ingresos de Employer Services queda por debajo del
+      90,0% en el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento de los ingresos de Employer Services en moneda constante
+      es inferior al 3% en el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ADP no informa de adopción o uso de funcionalidades de IA en productos
+      relevantes antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La retención de ingresos de Employer Services queda por debajo del 90,0% en el
+    ejercicio fiscal 2027.
+  - El crecimiento de los ingresos de Employer Services en moneda constante es inferior
+    al 3% en el ejercicio fiscal 2027.
+  - ADP no informa de adopción o uso de funcionalidades de IA en productos relevantes
+    antes de la fecha objetivo.
+  horizon: medio
+  id: H1-OPP-20261023-008
+  opportunity_id: OPP-20261023-008
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-15'
+    expected: 90.5
+    met: null
+    metric: Retención de ingresos de clientes de Employer Services
+    prediction: En los resultados del ejercicio fiscal 2027, publicados previsiblemente
+      antes del 2027-08-15, la retención de ingresos de clientes de Employer Services
+      será al menos del 90,5% y los ingresos del segmento crecerán al menos un 5%
+      en moneda constante frente al ejercicio fiscal 2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La automatización puede reducir el trabajo administrativo y los errores
+    de nómina para los clientes, elevando el coste de cambiar de proveedor y favoreciendo
+    la retención y la venta de servicios adicionales. La tesis es más convincente
+    si ADP informa de adopción efectiva de funcionalidades de IA, además de resultados
+    comerciales compatibles con esa mejora.
+  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 muestran
+    retención inferior al 90,0% o crecimiento del segmento inferior al 3%; también
+    si, para el 2027-06-30, ADP no aporta evidencia verificable de uso comercial de
+    funcionalidades de IA.
+  secondary_hypotheses: []
+  statement: La automatización y las funciones de IA integradas en las soluciones
+    de ADP ayudarán a sostener la retención de clientes y el crecimiento de Employer
+    Services durante el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: ADP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual del promedio de empleados en el lugar de
+      trabajo es inferior al 1% en el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ADP informa de una contracción interanual de esa métrica en dos trimestres
+      consecutivos del ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual del promedio de empleados en el lugar de trabajo es
+    inferior al 1% en el ejercicio fiscal 2027.
+  - ADP informa de una contracción interanual de esa métrica en dos trimestres consecutivos
+    del ejercicio fiscal 2027.
+  horizon: medio
+  id: H2-OPP-20261023-008
+  opportunity_id: OPP-20261023-008
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-15'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual del promedio de empleados en el lugar de trabajo
+      de TotalSource
+    prediction: El promedio de empleados en el lugar de trabajo de ADP TotalSource
+      en el ejercicio fiscal 2027 crecerá al menos un 3% respecto al promedio del
+      ejercicio fiscal 2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La propuesta de PEO combina nómina, administración de beneficios y servicios
+    de recursos humanos; puede resultar atractiva para empresas que buscan externalizar
+    funciones administrativas. La escala y la oferta integrada de ADP pueden favorecer
+    la captación y retención de clientes, aunque la demanda laboral y la competencia
+    limitan el crecimiento.
+  review_trigger: Dejar de creerla si ADP comunica crecimiento inferior al 1% para
+    el ejercicio fiscal 2027 o contracción interanual durante dos trimestres consecutivos.
+  secondary_hypotheses: []
+  statement: El negocio PEO de ADP continuará expandiéndose en el ejercicio fiscal
+    2027, medido por el crecimiento de sus empleados en el lugar de trabajo.
+  status: ACTIVE
+  ticker: ADP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior
+      al 17%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre cae más de un 5% frente al ejercicio fiscal
+      2026 mientras los ingresos crecen.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior al 17%.
+  - El flujo de caja libre cae más de un 5% frente al ejercicio fiscal 2026 mientras
+    los ingresos crecen.
+  horizon: medio
+  id: H3-OPP-20261023-008
+  opportunity_id: OPP-20261023-008
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-15'
+    expected: 18.0
+    met: null
+    metric: Margen de flujo de caja libre
+    prediction: El margen de flujo de caja libre del ejercicio fiscal 2027, calculado
+      como flujo de caja libre dividido por ingresos, será al menos del 18%.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El modelo de nómina y servicios recurrentes puede generar cobros previsibles
+    y requiere una infraestructura escalable. Si el crecimiento se acompaña de disciplina
+    en costes e inversión, la caja libre debería mantenerse sólida; salarios, inversión
+    tecnológica o costes de implementación pueden reducirla.
+  review_trigger: Dejar de creerla cuando ADP publique los resultados del ejercicio
+    fiscal 2027 si el margen de flujo de caja libre es inferior al 17%, o si el flujo
+    de caja libre disminuye más de un 5% interanual pese al crecimiento de ingresos.
+  secondary_hypotheses:
+  - H1-OPP-20261023-008
+  - H2-OPP-20261023-008
+  statement: ADP mantendrá una conversión robusta de beneficios en caja durante el
+    ejercicio fiscal 2027, con un margen de flujo de caja libre de al menos el 18%.
+  status: ACTIVE
+  ticker: ADP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de ADP es igual o inferior a la del S&P 500 durante
+      el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total relativa de ADP queda por debajo de menos 5 puntos
+      porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de flujo de caja libre del ejercicio fiscal 2027 cae por
+      debajo del 17%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de ADP es igual o inferior a la del S&P 500 durante el periodo
+    definido.
+  - La rentabilidad total relativa de ADP queda por debajo de menos 5 puntos porcentuales.
+  - El margen de flujo de caja libre del ejercicio fiscal 2027 cae por debajo del
+    17%.
+  horizon: medio
+  id: H4-OPP-20261023-008
+  opportunity_id: OPP-20261023-008
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de ADP frente al S&P 500
+    prediction: Entre el 2026-11-19 y el 2027-11-19, la rentabilidad total de ADP,
+      incluidos dividendos, superará en al menos 5 puntos porcentuales la rentabilidad
+      total del S&P 500.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: La recurrencia de los servicios y la conversión de beneficios en caja
+    pueden reducir la incertidumbre sobre los resultados y respaldar la valoración.
+    La hipótesis también depende de que el mercado no descuente excesivamente el crecimiento
+    futuro y de que no se produzca una compresión generalizada de múltiplos.
+  review_trigger: Dejar de creerla el 2027-11-19 si ADP no supera al S&P 500 en rentabilidad
+    total durante el periodo, o antes si los resultados del ejercicio fiscal 2027
+    muestran un margen de flujo de caja libre inferior al 17%.
+  secondary_hypotheses:
+  - H3-OPP-20261023-008
+  statement: La combinación de ingresos recurrentes y generación de caja permitirá
+    que ADP supere al mercado estadounidense en rentabilidad total durante los doce
+    meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: ADP
+  version: 1
