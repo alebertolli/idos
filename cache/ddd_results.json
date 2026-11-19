@@ -1,10 +1,138 @@
 {
-  "processed": [],
+  "total": 1,
+  "processed": [
+    {
+      "opp_id": "OPP-20261023-003",
+      "ticker": "ABNB",
+      "status": "completed",
+      "score": 78,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    }
+  ],
+  "skipped": [
+    {
+      "opp_id": "OPP-20261023-002",
+      "ticker": "AAPL",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (24d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-MB-AAPL",
+      "ticker": "AAPL",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (24d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-20261023-001",
+      "ticker": "ABBV",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (14d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-MB-ABBV",
+      "ticker": "ABBV",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (14d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-MB-ABEV",
+      "ticker": "ABEV",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (13d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-20261023-010",
+      "ticker": "AMAT",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (0d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-20261022-001",
+      "ticker": "ASML",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (27d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-MB-ASML",
+      "ticker": "ASML",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (27d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-MB-DOW",
+      "ticker": "DOW",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (24d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-MB-E",
+      "ticker": "E",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (24d <= 30d)"
+    },
+    {
+      "opp_id": "OPP-MB-TS",
+      "ticker": "TS",
+      "status": "UNDER_RESEARCH",
+      "reason": "UNDER_RESEARCH fresh (0d <= 30d)"
+    }
+  ],
+  "assessments": [
+    {
+      "ticker": "ABNB",
+      "opp_id": "OPP-20261023-003",
+      "status": "completed",
+      "conviction_score": 62,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "assessments": {
+        "BusinessAssessmentEngine": 63,
+        "ValuationAssessmentEngine": 55,
+        "RecoveryAssessmentEngine": 63,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 63/70",
+        "RULE-003": "Rerating: 63/50",
+        "RULE-004": "Risk: 80/50",
+        "RULE-005": "Conviction: 62/65",
+        "RULE-008": "B/R 2.1:1 \u274c (Bull +37.4% / Bear -17.6%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
+    }
+  ],
   "errors": [],
-  "total": 0,
-  "status": "none",
+  "status": "partial_deferred",
+  "deferred_count": 189,
+  "capacity_failure": null,
   "event_type": "monthly",
   "force": false,
-  "skipped": [],
-  "assessments": []
+  "stale_days_threshold": 30
 }

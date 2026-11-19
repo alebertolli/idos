@@ -13,7 +13,7 @@ Total: 9 companies tracked
 - 📄 [[DOW|Dow Inc.]]
 
 ## Consumer Cyclical
-- ⏳ [[ABNB|Airbnb, Inc.]]
+- 📄 [[ABNB|Airbnb, Inc.]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]

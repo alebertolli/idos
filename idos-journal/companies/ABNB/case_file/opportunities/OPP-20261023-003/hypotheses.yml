@@ -1,0 +1,193 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de los últimos doce meses registran un crecimiento interanual
+      inferior al 13% en dos trimestres consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento de noches y experiencias reservadas cae por debajo del
+      8% interanual durante dos trimestres consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de los últimos doce meses registran un crecimiento interanual inferior
+    al 13% en dos trimestres consecutivos.
+  - El crecimiento de noches y experiencias reservadas cae por debajo del 8% interanual
+    durante dos trimestres consecutivos.
+  horizon: medio
+  id: H1-OPP-20261023-003
+  opportunity_id: OPP-20261023-003
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 13.0
+    met: null
+    metric: Crecimiento interanual de ingresos de los últimos doce meses
+    prediction: En los resultados publicados hasta 2027-11-19, los ingresos de los
+      últimos doce meses crecerán al menos un 13% interanual, calculados con cifras
+      reportadas y sin ajustar por tipo de cambio.
+    unit: '% mínimo'
+  priority: critical
+  probability: 0.5
+  rationale: Una oferta amplia y diferenciada puede atraer huéspedes y, a su vez,
+    incentivar la incorporación de anfitriones, reforzando los efectos de red. La
+    tesis de inversión plantea crecimiento superior al 13%; la hipótesis es que ese
+    ritmo puede sostenerse pese a la competencia y las restricciones regulatorias.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    antes del 2027-11-19 muestran crecimiento interanual de ingresos inferior al 13%.
+  secondary_hypotheses: []
+  statement: Airbnb mantendrá un crecimiento de ingresos superior al 13% gracias a
+    la fortaleza de su red de anfitriones y huéspedes y a la expansión de la oferta
+    y la demanda fuera de sus mercados más maduros.
+  status: ACTIVE
+  ticker: ABNB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de EBITDA ajustado del ejercicio fiscal 2027 es inferior
+      al 20%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre acumulado del ejercicio fiscal 2027 es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de EBITDA ajustado del ejercicio fiscal 2027 es inferior al 20%.
+  - El flujo de caja libre acumulado del ejercicio fiscal 2027 es negativo.
+  horizon: medio
+  id: H2-OPP-20261023-003
+  opportunity_id: OPP-20261023-003
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-28'
+    expected: 20.0
+    met: null
+    metric: Margen de EBITDA ajustado del ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal 2027, Airbnb reportará un margen de EBITDA
+      ajustado de al menos el 20% y flujo de caja libre positivo para el conjunto
+      del ejercicio.
+    unit: '% mínimo; flujo de caja libre anual mayor que cero'
+  priority: critical
+  probability: 0.5
+  rationale: El modelo de plataforma puede crecer sin que los costes operativos aumenten
+    al mismo ritmo que los ingresos. No obstante, la competencia y los costes de cumplimiento
+    regulatorio podrían presionar los márgenes; por ello, la hipótesis exige verificar
+    conjuntamente margen y caja.
+  review_trigger: Dejar de creerla cuando la publicación de resultados del ejercicio
+    fiscal 2027 muestre un margen de EBITDA ajustado inferior al 20% o flujo de caja
+    libre anual negativo.
+  secondary_hypotheses:
+  - H1-OPP-20261023-003
+  statement: Airbnb conservará una rentabilidad operativa robusta y generará flujo
+    de caja libre positivo, incluso si aumenta la inversión para competir y adaptarse
+    a la regulación.
+  status: ACTIVE
+  ticker: ABNB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Las noches y experiencias reservadas registran crecimiento interanual
+      inferior al 8% durante dos trimestres consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa que cambios regulatorios redujeron en términos netos
+      la oferta disponible o el volumen de reservas en el conjunto de sus mercados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las noches y experiencias reservadas registran crecimiento interanual inferior
+    al 8% durante dos trimestres consecutivos.
+  - La empresa informa que cambios regulatorios redujeron en términos netos la oferta
+    disponible o el volumen de reservas en el conjunto de sus mercados.
+  horizon: medio
+  id: H3-OPP-20261023-003
+  opportunity_id: OPP-20261023-003
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual de noches y experiencias reservadas
+    prediction: En el periodo de doce meses terminado el 2027-11-19, las noches y
+      experiencias reservadas crecerán al menos un 8% interanual, según las cifras
+      divulgadas para los trimestres que cubran dicho periodo.
+    unit: '% mínimo'
+  priority: important
+  probability: 0.5
+  rationale: Las restricciones locales pueden reducir la oferta disponible o elevar
+    los costes de cumplimiento en ciudades concretas. La diversificación geográfica
+    y la incorporación de oferta en otros destinos podrían compensar esas pérdidas,
+    pero esta compensación debe reflejarse en el volumen global de reservas.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    antes del 2027-11-19 muestran crecimiento de noches y experiencias reservadas
+    inferior al 8%, o si la empresa cuantifica un impacto regulatorio neto negativo
+    sobre las reservas globales.
+  secondary_hypotheses:
+  - H1-OPP-20261023-003
+  statement: La presión regulatoria en mercados urbanos relevantes no impedirá que
+    Airbnb aumente las noches reservadas en términos globales durante los próximos
+    doce meses.
+  status: ACTIVE
+  ticker: ABNB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El múltiplo EV/ventas de ABNB es inferior a 1,10 veces la mediana de
+      Booking Holdings y Expedia Group en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ABNB obtiene una rentabilidad total inferior a la mediana de ese grupo
+      durante el periodo comprendido entre 2026-11-19 y 2027-11-19.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El múltiplo EV/ventas de ABNB es inferior a 1,10 veces la mediana de Booking Holdings
+    y Expedia Group en la fecha objetivo.
+  - ABNB obtiene una rentabilidad total inferior a la mediana de ese grupo durante
+    el periodo comprendido entre 2026-11-19 y 2027-11-19.
+  horizon: medio
+  id: H4-OPP-20261023-003
+  opportunity_id: OPP-20261023-003
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 10.0
+    met: null
+    metric: Prima de EV/ventas de ABNB frente a la mediana de Booking Holdings y Expedia
+      Group
+    prediction: A 2027-11-19, el múltiplo EV/ventas de los últimos doce meses de ABNB
+      será al menos un 10% superior al múltiplo EV/ventas mediano de Booking Holdings
+      y Expedia Group, calculados con datos de mercado de esa fecha y cifras financieras
+      reportadas más recientes.
+    unit: '% mínimo'
+  priority: important
+  probability: 0.5
+  rationale: Un crecimiento sostenido de ingresos junto con generación de caja y márgenes
+    resilientes puede reducir la percepción de riesgo de ejecución y regulación. La
+    hipótesis contraria es que la competencia y las restricciones justifiquen que
+    el mercado mantenga un descuento de valoración.
+  review_trigger: Dejar de creerla si se cumple cualquiera de los dos criterios de
+    falsación en la fecha objetivo; no interpretar una subida del precio por sí sola
+    como confirmación si el múltiplo relativo no mejora.
+  secondary_hypotheses:
+  - H1-OPP-20261023-003
+  - H2-OPP-20261023-003
+  - H3-OPP-20261023-003
+  statement: Si Airbnb cumple sus objetivos de crecimiento y rentabilidad, la valoración
+    relativa de sus acciones mejorará frente a un grupo comparable de plataformas
+    de viajes.
+  status: ACTIVE
+  ticker: ABNB
+  version: 1
