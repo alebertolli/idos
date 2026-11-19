@@ -23,6 +23,7 @@ from idos.timezone import AR_TZ
 from idos.strategy.catalog import StrategyCatalog
 from idos.strategy.signals import SignalEvidenceError, current_selection
 from idos.decision.scenarios import (
+    canonicalize_scenario_ids,
     scenario_financial_evidence_snapshot,
     scenario_source_urls_from_financial_data_evidence,
     scenario_source_urls_from_evidence,
@@ -355,6 +356,7 @@ class ResearchWorker(BaseWorker):
         thesis = ddd_result.get("tesis_inversion", "")
         score = ddd_result.get("score_general", 50)
         scenario_analysis = ddd_result.get("scenario_analysis")
+        scenario_analysis = canonicalize_scenario_ids(scenario_analysis)
         trusted_scenario_urls = scenario_source_urls_from_evidence(
             ddd_inputs.get("scenario_market_evidence")
         )
