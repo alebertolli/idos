@@ -13,11 +13,16 @@ La rampa DDD podía quedar bloqueada por dos causas operativas: un checkpoint si
 - Una oportunidad completada solo cuenta como trabajo completo cuando ResearchWorker la marca `completed`; si su informe presenta `scenario_validation` distinto de `valid_pending_decision_board`, se trata como error local y no aumenta el lote.
 - El lote solo aumenta tras un lote completo sin errores. Los fallos de proveedores nunca suben el tamaño.
 - Cola, capacidad, resultados y cuarentena se publican en la rama de resultados para auditoría. La cuarentena no significa Research completado ni habilita Assessment.
+- Después de publicar y fusionar cada lote, el workflow vuelve a leer la cola durable de `main` y despacha una única reanudación si queda trabajo vencido y el proveedor está fuera de cooldown. Así los lotes no dependen de que GitHub entregue cada evento `schedule`; la rampa mantiene el límite de tamaño y no inicia una llamada durante espera o pausa.
+
+## Incidente de pérdida de cola (2026-11-19)
+
+El `repository_dispatch` `quarterly-results` (run [44596615424](https://github.com/alebertolli/idos/actions/runs/44596615424)) procesó NVDA correctamente, pero inicializó la cola como vacía porque no era un resume horario. El commit de resultados fusionado por PR #367 reemplazó los 189 pendientes por `pending: []`. Se restauraron los 188 pendientes restantes desde el checkpoint anterior, excluyendo NVDA que ya quedó investigado, en el commit `d06f9ca68f34df1779353d6beeea8306b989d443`. La corrección hace que cualquier ejecución de la rampa cargue la cola existente antes de añadir candidatos de evento y habilita la continuación acotada entre lotes.
 
 ## Verificación
 
-Pruebas previstas: estado/backoff y límite de cuota; reanudación con cola vacía; persistencia del intento local y continuidad de la cola; preservación del tamaño probado; cuarentena tras tres fallos. Validación E2E en GitHub Actions pendiente de CI y ejecución programada después de integrar el cambio.
+Pruebas: estado/backoff y límite de cuota; reanudación con cola vacía; preservación de cola frente a eventos; puerta de despacho para trabajo vencido; persistencia del intento local y continuidad; cuarentena tras tres fallos. Antes de integrar la corrección, el run real de `quarterly-results` demostró que Research puede terminar y aun así perder los pendientes de la cola. Debe verificarse el siguiente resume con la cantidad de candidatos completados y pendientes persistida en `main`.
 
 ## Límites
 
-GitHub Actions cron puede retrasarse y la recuperación opera en la próxima ejecución efectiva; no se garantiza puntualidad horaria. Un proveedor sin cuota puede mantener la cola en espera hasta 24 horas entre reintentos. Los casos en cuarentena necesitan corrección de datos/código para volver a intentarse; quedan persistidos para revisión, sin detener otras oportunidades.
+GitHub Actions cron puede retrasarse y no se garantiza puntualidad horaria. La continuación automática necesita que la publicación del lote y el CI del PR de resultados terminen; un fallo de CI detiene la cadena hasta la siguiente acción efectiva. Un proveedor sin cuota puede mantener la cola en espera hasta 24 horas entre reintentos. Los casos en cuarentena necesitan corrección de datos/código para volver a intentarse; quedan persistidos para revisión, sin detener otras oportunidades.
