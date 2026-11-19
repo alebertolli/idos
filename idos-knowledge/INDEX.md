@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 23 companies tracked
+Total: 25 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -36,6 +36,9 @@ Total: 23 companies tracked
 - 📄 [[ABT|Abbott Laboratories]]
 - 📄 [[AMGN|Amgen Inc.]]
 
+## Industrials
+- 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
+
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]
 - 📄 [[ACN|Accenture plc]]
@@ -45,6 +48,7 @@ Total: 23 companies tracked
 - 📄 [[ALAB|Astera Labs, Inc.]]
 - 📄 [[AMAT|Applied Materials, Inc.]]
 - 📄 [[AMD|Advanced Micro Devices, Inc.]]
+- 📄 [[ARM|Arm Holdings plc]]
 - 📄 [[ASML|ASML Holding N.V.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 

@@ -1,0 +1,464 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La descripción recibida presenta a ASR como operador de aeropuertos mediante concesiones
+    en México y otros segmentos; se trata de información proporcionada en el expediente,
+    no contrastada aquí con documentos primarios.
+  - La evidencia financiera seleccionada reporta FCF TTM de 515.730.000 en moneda
+    financiera del proveedor para el período terminado el 2026-09-30, desde stockanalysis.com.
+    Es una observación de fuente única y no está documentada como ajustada.
+  - La evidencia financiera seleccionada reporta margen operativo TTM de 40,87% para
+    el período terminado el 2026-09-30, desde stockanalysis.com.
+  - La evidencia financiera seleccionada reporta crecimiento de ingresos TTM de 12,69%
+    para el período terminado el 2026-09-30, desde stockanalysis.com.
+  - La cotización suministrada es 267,36 USD al 2026-11-19 y el consenso de objetivos
+    observado es 324,22 USD, con rango de 240–392,27 USD, para la misma fecha de observación.
+    Son referencias de proveedores, no una valoración intrínseca.
+  - La valoración justa, los ratings cualitativos, los riesgos sectoriales y las probabilidades
+    de catalizadores son juicios analíticos, no hechos verificados.
+  preguntas_abiertas:
+  - ¿Cuáles son los términos, vencimientos, obligaciones de inversión y mecanismos
+    tarifarios de cada concesión? Revisar contratos y divulgaciones regulatorias primarias.
+  - ¿Qué crecimiento de pasajeros, carga, tarifas y capacidad muestra cada aeropuerto,
+    y cómo se descompone el crecimiento reportado?
+  - ¿Cuáles son deuda, vencimientos, tasas, coberturas, liquidez y compromisos contingentes
+    según estados financieros primarios recientes?
+  - ¿Cómo se reconcilia el FCF reportado con estados de flujo de efectivo, capex de
+    mantenimiento y expansión, dividendos y otras necesidades de capital?
+  - ¿Qué retornos han generado las inversiones recientes y cómo se alinea la remuneración
+    directiva con el valor por acción?
+  - ¿Qué riesgos ESG, climáticos, de seguridad, agua, biodiversidad y licencia social
+    son materiales en cada aeropuerto, y qué datos auditables existen?
+  - ¿Cuál es la fecha efectiva de los resultados y anuncios más recientes y qué fuentes
+    primarias verifican los eventos materiales?
+  - ¿Qué múltiplos actuales y supuestos de analistas respaldan los objetivos reportados,
+    y qué metodología emplean?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: 'Compounder y Compounder castigado: la información disponible
+    no permite verificar una trayectoria de larga duración, rendimientos incrementales
+    ni que exista un castigo temporal. Deep Value: no se aportan múltiplos completos
+    ni evidencia de activos infravalorados. Cíclica: el tráfico aeroportuario puede
+    ser sensible al ciclo, pero no se demuestra que la oportunidad esté definida principalmente
+    por esa exposición. Turnaround, Special Situation, Distressed, Hype y Value Trap:
+    no hay evidencia suficiente de recuperación, evento corporativo, estrés financiero,
+    valoración especulativa o destrucción estructural de valor.'
+  justificacion: 'La descripción proporcionada presenta ASR como operador de aeropuertos
+    bajo concesiones, un modelo potencialmente respaldado por activos de infraestructura
+    y barreras de entrada. La cotización informada es 267,36 USD y el consenso de
+    precio objetivo observado es 324,22 USD, con rango de 240 a 392,27 USD. Esa diferencia
+    no demuestra infravaloración: los objetivos de analistas no son una valoración
+    independiente y no se aportan múltiplos completos ni una valoración intrínseca
+    verificable. Por ello, la mejor clasificación provisional es Quality at Fair Price,
+    con confianza limitada por la evidencia disponible.'
+comparativa_catalizadores:
+- delta_pct: 45
+  descripcion: Resultados y estadísticas de tráfico que confirmen crecimiento de pasajeros
+    y conversión a caja sin presión material de márgenes o capex.
+  estado: nuevo
+  nota_comparacion: No había catalizadores históricos proporcionados; se registra
+    como nuevo y no como evento ya anunciado o verificado.
+  probabilidad_actual: 45
+  probabilidad_anterior: 0
+- delta_pct: 35
+  descripcion: Divulgación verificable de términos concesionales, planes de capacidad
+    e inversión que reduzca la incertidumbre sobre retornos de largo plazo.
+  estado: nuevo
+  nota_comparacion: No había catalizadores históricos proporcionados; la probabilidad
+    es una estimación analítica, no una previsión calibrada.
+  probabilidad_actual: 35
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: 'Inferencia provisional basada en la descripción proporcionada del negocio:
+    operar aeropuertos mediante concesiones puede generar barreras de entrada y demanda
+    asociada a infraestructura esencial. La durabilidad efectiva depende de términos
+    concesionales, regulación tarifaria, calidad y capacidad de los activos, competencia
+    por rutas y evolución del tráfico. No se aportaron contratos, datos de participación,
+    tráfico por aeropuerto ni evidencia independiente suficiente para calificar el
+    moat como excepcional.'
+  rating: buena
+dominio_catalizadores:
+- descripcion: Resultados y estadísticas de tráfico que confirmen crecimiento de pasajeros
+    y conversión a caja sin presión material de márgenes o capex.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Divulgación verificable de términos concesionales, planes de capacidad
+    e inversión que reduzca la incertidumbre sobre retornos de largo plazo.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: Como inferencia sectorial, la operación aeroportuaria puede implicar riesgos
+    de emisiones y ruido, uso de suelo y agua, biodiversidad, seguridad operacional,
+    resiliencia climática y relación con comunidades. La cadena de suministro puede
+    depender de contratistas, equipos especializados, energía y servicios tecnológicos.
+    No se aportó evidencia específica de ASR sobre incidentes, objetivos ESG, proveedores
+    críticos o controles; la calificación refleja esos riesgos potenciales y la falta
+    de verificación.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia seleccionada de stockanalysis reporta FCF TTM de 515.730.000
+    en moneda financiera del proveedor para el período terminado el 2026-09-30; también
+    reporta margen operativo TTM de 40,87% y crecimiento de ingresos TTM de 12,69%
+    para ese período. Son observaciones de una sola fuente y no deben tratarse como
+    cifras auditadas ni como flujo de caja libre ajustado. No se aportan observaciones
+    directas utilizables sobre deuda, vencimientos, liquidez o cobertura de intereses,
+    por lo que no es posible concluir que el balance sea fuerte.
+  rating: adecuada
+dominio_growth:
+  analisis: El crecimiento de ingresos TTM reportado por la fuente seleccionada fue
+    12,69% al período terminado el 2026-09-30, pero la observación es de una sola
+    fuente y no se aporta desglose por tráfico, tarifas, mezcla, adquisiciones o tipo
+    de cambio. La expansión futura depende de capacidad aeroportuaria, inversión,
+    regulación, conectividad y demanda turística y económica. No se debe extrapolar
+    el dato observado como tasa sostenible.
+  rating: moderado
+dominio_management:
+  analisis: La evidencia suministrada no permite evaluar track record, remuneración,
+    alineación accionarial, decisiones de inversión, adquisiciones ni disciplina de
+    capital. La calificación regular expresa insuficiencia de evidencia, no una conclusión
+    de mala gestión. Se requiere revisar reportes anuales, divulgaciones de gobierno
+    corporativo y decisiones de asignación de capital.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Cambios regulatorios o concesionales, incluidos límites tarifarios, obligaciones
+    de inversión o condiciones de renovación.
+- impacto: alto
+  probabilidad: media
+  riesgo: Caída del tráfico por recesión, shocks sanitarios, restricciones de viaje
+    o deterioro de la demanda turística.
+- impacto: medio
+  probabilidad: media
+  riesgo: Capex superior a lo previsto o limitaciones de capacidad que impidan convertir
+    crecimiento de pasajeros en caja.
+- impacto: medio
+  probabilidad: media
+  riesgo: Riesgo cambiario y de jurisdicción por operar activos en más de un país,
+    según la descripción proporcionada, sin detalle suficiente de exposición por segmento.
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgos climáticos, ambientales, de seguridad operacional y de licencia
+    social que afecten continuidad, costos o permisos.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Pérdida permanente de valor si cambios en concesiones, demanda estructural
+    o necesidades de inversión reducen el retorno económico de los activos.
+error_mercado:
+  catalizador_cambio:
+    descripcion: 'Publicación de resultados y datos de tráfico que confirmen crecimiento
+      sostenido de pasajeros y generación de caja, sin deterioro material de márgenes
+      ni aumento desproporcionado de inversión. Es un catalizador condicional: no
+      se aportó calendario ni anuncio corporativo verificado.'
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización reportada de 267,36 USD está por debajo del consenso
+    de objetivos observado de 324,22 USD; el rango reportado es 240–392,27 USD. Esto
+    refleja una expectativa de apreciación entre la cotización y el consenso, pero
+    no revela por sí solo qué crecimiento, márgenes o múltiplos descuenta el mercado.
+    Los objetivos son referencias observadas, no una valoración independiente. No
+    se proporcionan múltiplos actuales suficientes para inferir el escenario implícito.
+  hipotesis_contraria: El mercado podría estar subestimando la capacidad de los aeropuertos
+    concesionados para convertir crecimiento del tráfico y tarifas en caja; también
+    podría estar descontando correctamente riesgos de regulación, inversión de capital,
+    concentración geográfica o exposición al turismo. No hay evidencia primaria aportada
+    que permita decidir cuál de estas variables está exagerada o subestimada. El segundo
+    nivel de análisis es que una aparente brecha frente al consenso puede reflejar
+    optimismo de analistas, no una oportunidad asimétrica.
+  razonamiento: Existe una diferencia entre cotización y consenso de objetivos, pero
+    el consenso no es una valoración independiente y la evidencia suministrada no
+    incluye los múltiplos necesarios, supuestos detallados ni documentación primaria
+    reciente para comprobar el caso. No puede afirmarse un error aprovechable ni descartarse.
+generated_at: '2026-11-19T19:10:55.732006-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se aportó evidencia nueva que demuestre deterioro del moat, destrucción
+    de capital, fin del crecimiento estructural, fraude, insolvencia, riesgo regulatorio
+    extremo, operación inviable, riesgo de exclusión o problemas severos de mercado.
+    La falta de evidencia suficiente limita la convicción, pero no activa por sí misma
+    una señal de tesis rota.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-017
+prompt_inputs:
+  business_model: Grupo Aeroportuario del Sureste, S. A. B. de C. V., together with
+    its subsidiaries, holds concessions to operate, maintain, and develop airports
+    in the southeast region of Mexico. The company operates through Cancún, Aerostar,
+    Airplan, Mérida, Villahermosa, Holding & Services, and Other segments. It operates
+    the airports in Cozumel, Huatulco, Mérida, Minatitlán, Oaxaca, Tapachula, Veracruz,
+    and Villahermosa; and offers aeronautical services, such as passenger, aircraft
+    landing and parking, passenger walkways, and airport security. The company also
+    provides non-aeronautical services, such as leasing of space at its airports to
+    retailers, restaurants, airlines, and other commercial tenants; luggage check-in,
+    sorting and handling, aircraft servicing and cleaning, cargo handling, aircraft
+    catering services, and assistance with passenger boarding and deplaning; and open-air
+    parking lots for commercial vehicle operators, including taxi, bus and other ground
+    transport operators; and other commercial activities. In addition, the company
+    operates various airports in Colombia, including the Enrique Olaya Herrera Airport
+    in Medellín, the José María Córdova International Airport in Rionegro, the Los
+    Garzones Airport in Montería, the Antonio Roldán Betancourt Airport in Carepa,
+    the El Caraño Airport in Quibdó, and the Las Brujas Airport in Corozal; and holds
+    a lease to operate, maintain, and develop the Luis Muñoz Marín International Airport
+    in San Juan, Puerto Rico. Grupo Aeroportuario del Sureste, S. A. B. de C. V. was
+    founded in 1996 and is headquartered in Mexico City, Mexico.
+  ceo_tenure: 0
+  debt_to_equity: 0.015
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Grupo Aeroportuario del Sureste, S. A. B. de C. V.
+  operating_margin: 40.87
+  pe_ratio: 15.32
+  products: ''
+  revenue: 2210000000.0
+  revenue_growth: 12.69
+  roic: 13.37
+  sector: Industrials
+  ticker: ASR
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: Grupo Aeroportuario del Sureste, S. A. B. de C. V., together with
+    its subsidiaries, holds concessions to operate, maintain, and develop airports
+    in the southeast region of Mexico. The company operates through Cancún, Aerostar,
+    Airplan, Mérida, Villahermosa, Holding & Services, and Other segments. It operates
+    the airports in Cozumel, Huatulco, Mérida, Minatitlán, Oaxaca, Tapachula, Veracruz,
+    and Villahermosa; and offers aeronautical services, such as passenger, aircraft
+    landing and parking, passenger walkways, and airport security. The company also
+    provides non-aeronautical services, such as leasing of space at its airports to
+    retailers, restaurants, airlines, and other commercial tenants; luggage check-in,
+    sorting and handling, aircraft servicing and cleaning, cargo handling, aircraft
+    catering services, and assistance with passenger boarding and deplaning; and open-air
+    parking lots for commercial vehicle operators, including taxi, bus and other ground
+    transport operators; and other commercial activities. In addition, the company
+    operates various airports in Colombia, including the Enrique Olaya Herrera Airport
+    in Medellín, the José María Córdova International Airport in Rionegro, the Los
+    Garzones Airport in Montería, the Antonio Roldán Betancourt Airport in Carepa,
+    the El Caraño Airport in Quibdó, and the Las Brujas Airport in Corozal; and holds
+    a lease to operate, maintain, and develop the Luis Muñoz Marín International Airport
+    in San Juan, Puerto Rico. Grupo Aeroportuario del Sureste, S. A. B. de C. V. was
+    founded in 1996 and is headquartered in Mexico City, Mexico.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 267.3599853515625
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.015
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "MXN", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:56.358622+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ASR/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 515730000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 37.328}, "observed_at": "2026-11-01T10:16:56.358622+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ASR/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 40.87}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 18.9}, "observed_at": "2026-11-01T10:16:56.358622+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/asr/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 12.69}}}, "observed_at": "2026-11-19T19:16:19.661808+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Grupo Aeroportuario del Sureste, S. A. B. de C. V.
+  operating_margin: 40.87
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Grupo Aeroportuario del Sureste, S. A. B. de C. V., together with
+    its subsidiaries, holds concessions to operate, maintain, and develop airports
+    in the southeast region of Mexico. The company operates through Cancún, Aerostar,
+    Airplan, Mérida, Villahermosa, Holding & Services, and Other segments. It operates
+    the airports in Cozumel, Huatulco, Mérida, Minatitlán, Oaxaca, Tapachula, Veracruz,
+    and Villahermosa; and offers aeronautical services, such as passenger, aircraft
+    landing and parking, passe
+  revenue: 2210000000.0
+  revenue_growth: 12.69
+  roic: 13.37
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    392.27, "low": 240.0, "mean": 324.22, "median": 324.22, "observed_at": "2026-11-19T19:10:18.716165-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T19:10:18.716165-03:00", "observed_date": "2026-11-19", "target_price":
+    324.22, "url": "https://stockanalysis.com/stocks/asr/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T19:10:18.716165-03:00",
+    "observed_date": "2026-11-19", "target_price": 324.2189, "url": "https://finance.yahoo.com/quote/ASR/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 267.3599853515625,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ASR/"}]}}'
+  sector: Industrials
+  ticker: ASR
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 1acfcee1f66c187955ad49c114e6758366a133c6a99774b896dbcf9a454e3d1a
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-19T19:10:55.732006-03:00'
+resumen_ejecutivo: ASR parece ofrecer exposición a activos aeroportuarios concesionados,
+  pero la información recibida no basta para verificar la calidad y duración del moat,
+  la posición financiera completa, la asignación de capital ni una valoración intrínseca.
+  Los datos estructurados disponibles reportan FCF TTM, margen operativo TTM y crecimiento
+  de ingresos TTM de una fuente seleccionada, aunque no permiten reemplazar una revisión
+  de estados financieros y concesiones. La cotización está por debajo del consenso
+  observado, pero la conclusión de inversión es incierta. La tesis requiere diligencia
+  primaria sobre concesiones, tráfico, tarifas, deuda, capex, gobierno corporativo
+  y los segmentos internacionales.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2027-11-19'
+  scenarios:
+  - falsifiers:
+    - Resultados y tráfico publicados por la compañía muestran crecimiento sostenido
+      y conversión favorable a caja, sin deterioro de márgenes.
+    - Divulgaciones primarias confirman términos concesionales y retornos de inversión
+      que reduzcan materialmente los riesgos planteados.
+    id: BEAR
+    key_assumptions:
+    - La demanda o la conversión de crecimiento a caja decepciona frente a las expectativas
+      reflejadas en los objetivos de analistas.
+    - Persisten riesgos de regulación, inversión o capacidad que limitan la valoración.
+    - El límite bajo del consenso observado es una referencia de mercado y no un valor
+      garantizado.
+    rationale: Se utiliza el límite bajo del rango de objetivos observado como ancla
+      adversa, no como valoración independiente. No hay datos suficientes para justificar
+      un objetivo por debajo de ese rango sin añadir supuestos no respaldados.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/asr/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ASR/
+    target_price: 240
+  - falsifiers:
+    - Los resultados publicados muestran desaceleración persistente o conversión débil
+      de ingresos a caja.
+    - Las necesidades de capex, condiciones regulatorias o cambios concesionales reducen
+      materialmente los retornos esperados.
+    id: BULL
+    key_assumptions:
+    - El tráfico y los ingresos mantienen un desempeño favorable y la generación de
+      caja resulta sostenible.
+    - La inversión necesaria no erosiona materialmente el retorno económico de las
+      concesiones.
+    - El mercado converge hacia el límite alto del rango de objetivos observado.
+    rationale: Se utiliza el límite alto del rango de objetivos observado como ancla
+      favorable, no como valoración independiente. No se propone un precio superior
+      porque la evidencia de entrada no incluye una fuente independiente que lo respalde.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/asr/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ASR/
+    target_price: 392.27
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 54
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T19:10:18.716165-03:00'
+  fuentes:
+    stockanalysis: 324.22
+    yfinance: 324.2189
+  mediana: 324.22
+  n_fuentes: 2
+  promedio: 324.22
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T19:10:18.716165-03:00'
+    observed_date: '2026-11-19'
+    target_price: 324.22
+    url: https://stockanalysis.com/stocks/asr/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T19:10:18.716165-03:00'
+    observed_date: '2026-11-19'
+    target_price: 324.2189
+    url: https://finance.yahoo.com/quote/ASR/
+  target_high: 392.27
+  target_low: 240.0
+tesis_inversion: 'Tesis provisional de calidad de infraestructura: si las concesiones
+  mantienen condiciones económicas atractivas y el tráfico crece sin exigir capex
+  desproporcionado, ASR podría sostener generación de caja y crecimiento. Sin embargo,
+  la evidencia recibida no verifica esos supuestos ni permite construir una valoración
+  independiente. La cotización inferior al consenso de objetivos no basta para justificar
+  compra; la tesis queda condicionada a diligencia sobre contratos, regulación, tráfico,
+  deuda, capex y gobierno corporativo.'
+ticker: ASR
+version: '3.0'

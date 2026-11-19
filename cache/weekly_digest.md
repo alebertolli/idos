@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-11-19 18:09 AR _
+_Generado: 2026-11-19 19:12 AR _
 
 ## Resumen
 
@@ -12,25 +12,23 @@ _Generado: 2026-11-19 18:09 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **AIG** (OPP-MB-AIG): score=73, class=?
-- ✅ **ALAB** (OPP-20261023-011): score=57, class=?
+- ✅ **ARM** (OPP-20261023-016): score=78, class=?
+- ✅ **ASR** (OPP-20261023-017): score=54, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **AIG**
-  - Opp: [OPP-MB-AIG]
-  - Conviction: 56/100 | Rec: BLOCKED
-  - Scores: Business: 54 | Valuation: 55 | Recovery: 51 | Risk: 70 | Portfolio: 50
+- ⚠️ **ARM**
+  - Opp: [OPP-20261023-016]
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 62 | Valuation: 70 | Recovery: 58 | Risk: 80 | Portfolio: 50
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 54/70
-    - 🚫 RULE-005: Conviction: 56/65
-    - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual
-- ⚠️ **ALAB**
-  - Opp: [OPP-20261023-011]
-  - Conviction: 70/100 | Rec: BLOCKED
-  - Scores: Business: 76 | Valuation: 70 | Recovery: 62 | Risk: 80 | Portfolio: 50
+    - 🚫 RULE-001: Business quality: 62/70
+- ⚠️ **ASR**
+  - Opp: [OPP-20261023-017]
+  - Conviction: 65/100 | Rec: BLOCKED
+  - Scores: Business: 62 | Valuation: 75 | Recovery: 55 | Risk: 80 | Portfolio: 50
   - Rules BLOCKED:
-    - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual
+    - 🚫 RULE-001: Business quality: 62/70
 
 ---
 
