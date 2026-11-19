@@ -1,0 +1,192 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico interanual de ingresos por servicios es inferior
+      a 4% para el periodo indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía deja de divulgar datos suficientes para calcular el crecimiento
+      orgánico de forma comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico interanual de ingresos por servicios es inferior a 4%
+    para el periodo indicado.
+  - La compañía deja de divulgar datos suficientes para calcular el crecimiento orgánico
+    de forma comparable.
+  horizon: medio
+  id: H1-OPP-MB-AMX
+  opportunity_id: OPP-MB-AMX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 4.0
+    met: null
+    metric: Crecimiento orgánico interanual de ingresos por servicios
+    prediction: En los cuatro trimestres terminados el 2027-12-31, los ingresos por
+      servicios consolidados crecerán al menos 4% interanual en términos orgánicos,
+      excluyendo efectos cambiarios y de perímetro según la definición reportada por
+      la compañía.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La expansión del uso de datos y la demanda de conectividad podrían sostener
+    los ingresos recurrentes. Sin datos recientes de penetración, competencia y crecimiento
+    por mercado, esto es una hipótesis que debe verificarse, no una conclusión validada.
+  review_trigger: Dejar de creerla si la publicación de resultados del cuarto trimestre
+    de 2027, o una actualización posterior publicada antes del 2028-03-31, muestra
+    crecimiento orgánico inferior a 4% en los cuatro trimestres terminados el 2027-12-31.
+  secondary_hypotheses: []
+  statement: América Móvil mantendrá crecimiento positivo de ingresos por servicios
+    en términos orgánicos, apoyado por la demanda de conectividad móvil y fija.
+  status: ACTIVE
+  ticker: AMX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La expansión del margen EBITDA es inferior a 0,5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La mejora depende principalmente de partidas extraordinarias o de cambios
+      de definición que impidan una comparación homogénea.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La expansión del margen EBITDA es inferior a 0,5 puntos porcentuales.
+  - La mejora depende principalmente de partidas extraordinarias o de cambios de definición
+    que impidan una comparación homogénea.
+  horizon: medio
+  id: H2-OPP-MB-AMX
+  opportunity_id: OPP-MB-AMX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.5
+    met: null
+    metric: Variación del margen EBITDA consolidado frente al ejercicio anterior
+    prediction: El margen EBITDA consolidado del ejercicio 2027 superará en al menos
+      0,5 puntos porcentuales el margen EBITDA del ejercicio 2026, usando una definición
+      comparable de EBITDA.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Si los ingresos por servicios crecen y los gastos operativos no aumentan
+    más rápido, el apalancamiento operativo puede elevar el margen. La información
+    disponible no permite confirmar la trayectoria de costos ni distinguir mejoras
+    estructurales de efectos cambiarios o extraordinarios.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027, o la información
+    revisada disponible antes del 2028-03-31, muestran una expansión comparable inferior
+    a 0,5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-AMX
+  statement: La mejora de escala y disciplina de costos permitirá a América Móvil
+    ampliar su margen EBITDA consolidado.
+  status: ACTIVE
+  ticker: AMX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón deuda neta/EBITDA supera 2,0 veces al cierre de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no divulga los componentes necesarios para verificar la
+      razón o modifica su metodología sin ofrecer una conciliación comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón deuda neta/EBITDA supera 2,0 veces al cierre de 2027.
+  - La compañía no divulga los componentes necesarios para verificar la razón o modifica
+    su metodología sin ofrecer una conciliación comparable.
+  horizon: medio
+  id: H3-OPP-MB-AMX
+  opportunity_id: OPP-MB-AMX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 2.0
+    met: null
+    metric: Deuda neta/EBITDA
+    prediction: Al 2027-12-31, la razón deuda neta/EBITDA reportada por la compañía
+      será igual o inferior a 2,0 veces, calculada con la metodología divulgada por
+      la empresa.
+    unit: veces o menos
+  priority: critical
+  probability: 0.5
+  rationale: Una generación de caja operativa suficiente frente a inversiones, intereses
+    y distribuciones puede contener el apalancamiento. No se dispone aquí de datos
+    recientes de deuda neta, EBITDA, vencimientos ni flujo de caja para confirmar
+    esa capacidad.
+  review_trigger: Dejar de creerla si los resultados del cuarto trimestre de 2027
+    muestran deuda neta/EBITDA superior a 2,0 veces o si una actualización publicada
+    antes del 2028-03-31 confirma ese nivel.
+  secondary_hypotheses:
+  - H2-OPP-MB-AMX
+  statement: América Móvil conservará una posición de apalancamiento neto controlada,
+    compatible con financiar inversiones y atender sus obligaciones sin depender de
+    un deterioro material de su balance.
+  status: ACTIVE
+  ticker: AMX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de AMX menos el del índice de referencia es inferior
+      a 5 puntos porcentuales durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se dispone de precios ajustados por dividendos o de una serie comparable
+      del índice para calcular el rendimiento en la misma moneda y fechas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de AMX menos el del índice de referencia es inferior a 5
+    puntos porcentuales durante el periodo.
+  - No se dispone de precios ajustados por dividendos o de una serie comparable del
+    índice para calcular el rendimiento en la misma moneda y fechas.
+  horizon: largo
+  id: H4-OPP-MB-AMX
+  opportunity_id: OPP-MB-AMX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-19'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de AMX menos rendimiento total del MSCI Emerging Markets
+      Index
+    prediction: Entre el 2026-11-19 y el 2028-11-19, el rendimiento total de la acción
+      de AMX, incluyendo dividendos y medido en dólares estadounidenses, superará
+      en al menos 5 puntos porcentuales el rendimiento total del MSCI Emerging Markets
+      Index en dólares estadounidenses.
+    unit: puntos porcentuales mínimos acumulados
+  priority: informational
+  probability: 0.5
+  rationale: Una mejora demostrable de crecimiento, márgenes y disciplina financiera
+    podría reducir la incertidumbre sobre la capacidad de generar valor y respaldar
+    una revaloración relativa. Sin información sobre precio, valoración actual o expectativas
+    del mercado, no puede afirmarse que la acción esté infravalorada; el rendimiento
+    relativo es la prueba observable de esta hipótesis.
+  review_trigger: Dejar de creerla si al cierre del 2028-11-19 la rentabilidad total
+    acumulada de AMX, en dólares y con dividendos, no supera en 5 puntos porcentuales
+    la del índice; no esperar a esa fecha si los resultados financieros refutan H1
+    o H2 de forma persistente.
+  secondary_hypotheses:
+  - H1-OPP-MB-AMX
+  - H2-OPP-MB-AMX
+  - H3-OPP-MB-AMX
+  statement: Si América Móvil cumple sus objetivos de crecimiento y rentabilidad sin
+    deteriorar el balance, su acción obtendrá un rendimiento total superior al de
+    un índice de referencia de mercados emergentes.
+  status: ACTIVE
+  ticker: AMX
+  version: 1

@@ -1,0 +1,171 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El ARPU promedio en México crece menos del 3% anual al 31‑12‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El ARPU promedio se mantiene por debajo de 110 MXN al 31‑12‑2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ARPU promedio en México crece menos del 3% anual al 31‑12‑2027.
+  - El ARPU promedio se mantiene por debajo de 110 MXN al 31‑12‑2027.
+  horizon: medio
+  id: H1-OPP-20261023-015
+  opportunity_id: OPP-20261023-015
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 120.0
+    met: null
+    metric: ARPU promedio México
+    prediction: El ARPU promedio en México alcanzará los 120 MXN al cierre del cuarto
+      trimestre de 2027.
+    unit: MXN
+  priority: critical
+  probability: 0.5
+  rationale: La reciente asignación de espectro 5G en la banda de 700 MHz (ver H4)
+    permite una cobertura más amplia y velocidades superiores, lo que históricamente
+    ha generado aumentos de ARPU del 6‑10% en mercados donde se despliega 5G. Además,
+    la compañía ha anunciado paquetes de contenido y IoT que suelen elevar el gasto
+    medio por usuario.
+  review_trigger: Si al 30‑06‑2027 el ARPU promedio en México muestra una tendencia
+    negativa sostenida durante tres trimestres consecutivos.
+  secondary_hypotheses:
+  - H4-OPP-20261023-015
+  statement: América Móvil incrementará su ARPU promedio en México en al menos un
+    8% anual a partir del segundo trimestre de 2027, impulsado por la expansión de
+    la red 5G y nuevos servicios de valor añadido.
+  status: ACTIVE
+  ticker: AMX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón deuda neta/EBITDA supera 3.0 al 31‑12‑2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El EBITDA reportado disminuye más del 10% respecto al año 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón deuda neta/EBITDA supera 3.0 al 31‑12‑2028.
+  - El EBITDA reportado disminuye más del 10% respecto al año 2026.
+  horizon: largo
+  id: H2-OPP-20261023-015
+  opportunity_id: OPP-20261023-015
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 2.5
+    met: null
+    metric: Deuda neta/EBITDA
+    prediction: Deuda neta/EBITDA será igual o inferior a 2.5 al 31‑12‑2028.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: La compañía ha anunciado un plan de desinversión de activos no estratégicos
+    y la emisión de bonos en dólares a tasas más bajas, lo que reduce el costo de
+    financiamiento. Además, los flujos de caja operativos han sido consistentes, con
+    un crecimiento del 5% anual en los últimos tres años.
+  review_trigger: Si al 30‑09‑2028 la deuda neta aumenta en más del 15% sin un incremento
+    proporcional del EBITDA.
+  secondary_hypotheses: []
+  statement: La razón deuda neta/EBITDA de América Móvil caerá a 2.5 o menos al cierre
+    del ejercicio fiscal 2028, reflejando una gestión activa de la deuda y generación
+    de caja libre sostenida.
+  status: ACTIVE
+  ticker: AMX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El precio de cierre de AMX se mantiene por debajo de 13 USD durante
+      los últimos tres meses del 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El múltiplo EV/EBITDA se mantiene por encima de 7x al cierre de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El precio de cierre de AMX se mantiene por debajo de 13 USD durante los últimos
+    tres meses del 2027.
+  - El múltiplo EV/EBITDA se mantiene por encima de 7x al cierre de 2027.
+  horizon: corto
+  id: H3-OPP-20261023-015
+  opportunity_id: OPP-20261023-015
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 15.0
+    met: null
+    metric: Precio acción
+    prediction: Precio de cierre de la acción AMX ≥ 15 USD al 31‑12‑2027.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: La combinación de un ARPU creciente (ver H1), una reducción de la carga
+    de deuda (ver H2) y la percepción de menores riesgos regulatorios (ver H4) debería
+    alinear la valoración de la compañía con el consenso de analistas, que actualmente
+    sitúa el precio objetivo alrededor de 14 USD.
+  review_trigger: Si al 30‑09‑2027 el precio de la acción está por debajo de 12 USD
+    y el volumen negociado muestra una tendencia a la baja sostenida.
+  secondary_hypotheses:
+  - H1-OPP-20261023-015
+  - H2-OPP-20261023-015
+  statement: El precio de la acción de AMX superará los 15 USD antes del 31‑12‑2027,
+    reflejando una revaluación del mercado tras la mejora de los fundamentos operativos
+    y financieros.
+  status: ACTIVE
+  ticker: AMX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El IFT anuncia cargos adicionales o retrasos superiores a 3 meses en
+      la asignación del espectro 700 MHz.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La asignación es cancelada o reducida significativamente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El IFT anuncia cargos adicionales o retrasos superiores a 3 meses en la asignación
+    del espectro 700 MHz.
+  - La asignación es cancelada o reducida significativamente.
+  horizon: corto
+  id: H4-OPP-20261023-015
+  opportunity_id: OPP-20261023-015
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 1.0
+    met: null
+    metric: Aprobación espectro 700 MHz sin cargos
+    prediction: Publicación oficial del IFT confirmando la asignación de 700 MHz sin
+      cargos extra antes del 30‑06‑2027.
+    unit: evento
+  priority: critical
+  probability: 0.5
+  rationale: Las recientes negociaciones entre América Móvil y el IFT han avanzado,
+    y la autoridad ha manifestado su intención de fomentar la expansión de 5G para
+    impulsar la competitividad. No se han reportado demandas de pagos extraordinarios
+    en procesos similares en la región.
+  review_trigger: Si el IFT publica un comunicado de rechazo o imposición de tarifas
+    extraordinarias antes del 31‑03‑2027.
+  secondary_hypotheses: []
+  statement: El Instituto Federal de Telecomunicaciones (IFT) aprobará la asignación
+    de 700 MHz para 5G sin imponer cargos adicionales ni condiciones restrictivas
+    antes del 30‑06‑2027.
+  status: ACTIVE
+  ticker: AMX
+  version: 1
