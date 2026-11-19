@@ -277,10 +277,27 @@ def test_scenario_market_evidence_keeps_quote_and_analyst_target_provenance():
         "sources": [{
             "name": "yfinance",
             "url": "https://finance.yahoo.com/quote/BRK.B/",
+            "as_of_date": "2026-10-19",
         }],
     }
     assert evidence["analyst_target_consensus"]["low"] == 450.0
     assert evidence["analyst_target_consensus"]["sources"][0]["as_of_date"] == "2026-10-19"
+
+
+def test_scenario_market_evidence_normalizes_quote_timestamp_to_iso_date():
+    evidence = ResearchWorker._scenario_market_evidence(
+        ticker="BRK.B",
+        price_context={
+            "price": 500.0,
+            "as_of_date": "2026-10-19T15:32:20-03:00",
+            "source": "yfinance",
+        },
+        quote_currency="USD",
+        target_consensus=None,
+    )
+
+    assert evidence["current_quote"]["as_of_date"] == "2026-10-19"
+    assert evidence["current_quote"]["sources"][0]["as_of_date"] == "2026-10-19"
 
 
 def test_target_consensus_records_urls_and_observation_dates(monkeypatch):
@@ -346,6 +363,7 @@ def test_ddd_prompt_renders_the_scenario_evidence_contract():
     assert '{"conflicts": []}' in prompt
     assert '"rationale"' in prompt
     assert '"key_assumptions"' in prompt
+    assert "YYYY-MM-DD, nunca timestamps" in prompt
 
 
 

@@ -42,11 +42,15 @@ user_prompt: >
   {scenario_market_evidence}
   Reglas de procedencia para casos Bear/Bull (Base es opcional):
   - Usa exclusivamente las URLs incluidas literalmente en
-    scenario_market_evidence.current_quote.sources o
-    scenario_market_evidence.analyst_target_consensus.sources. Copia name, url y
-    as_of_date exactamente como aparecen en la evidencia; no construyas URLs ni
-    cites informes que no estén en esos objetos. La validación bloquea fuentes
-    que no estén respaldadas por la entrada.
+    scenario_market_evidence.current_quote.sources,
+    scenario_market_evidence.analyst_target_consensus.sources, o en
+    financial_data_evidence.observations[*].source_metadata del selected_source.
+    Copia la URL completa sin cambiar path, query ni barra final. No cites una fuente
+    alternativa del mismo proveedor ni un objeto source_metadata no seleccionado.
+    Las fechas deben ser YYYY-MM-DD, nunca timestamps. Para una cotización, usa el
+    as_of_date del current_quote. Para una observación financiera usa su period_end_date;
+    si falta, usa la fecha de observed_at. Si ninguna evidencia trae fecha, devuelve
+    scenario_analysis como null. No inventes URLs ni fechas.
   - Los valores low, mean/median y high del consenso son referencias observadas,
     no una valoración independiente. Si son válidos y están en la misma moneda
     de la cotización, úsalos como límites/anclas de la propuesta. No pongas

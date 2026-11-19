@@ -6,6 +6,7 @@ from idos.decision.scenarios import (
     calculate_scenario_asymmetry,
     scenario_fingerprint,
     scenario_source_urls_from_evidence,
+    scenario_source_urls_from_financial_data_evidence,
     scenario_source_urls_from_research_financial_evidence,
     scenario_financial_evidence_snapshot,
     scenario_source_urls_from_report,
@@ -144,6 +145,44 @@ def test_scenario_sources_accept_exact_research_financial_urls_and_ignore_invali
     }
 
 
+def test_scenario_sources_accept_only_selected_financial_data_urls():
+    evidence = {
+        "observations": {
+            "fcf": {
+                "selected_source": "stockanalysis.com",
+                "source_metadata": {
+                    "stockanalysis.com": {
+                        "source_url": "https://stockanalysis.com/stocks/adi/statistics/",
+                    },
+                    "yfinance": {
+                        "source_url": "https://finance.yahoo.com/quote/ADI/cash-flow/",
+                    },
+                },
+            },
+            "invalid": {
+                "selected_source": "unknown",
+                "source_metadata": {
+                    "stockanalysis.com": {
+                        "source_url": "javascript:alert(1)",
+                    },
+                },
+            },
+        },
+    }
+
+    trusted = scenario_source_urls_from_financial_data_evidence(json.dumps(evidence))
+
+    assert trusted == {
+        "https://stockanalysis.com/stocks/adi/statistics",
+    }
+    analysis = scenario_set()
+    analysis["scenarios"][0]["sources"][0]["url"] = (
+        "https://stockanalysis.com/stocks/adi/statistics/"
+    )
+    errors = validate_scenario_analysis(analysis, today=TODAY, trusted_source_urls=trusted)
+    assert not any("BEAR.sources[0]" in error for error in errors)
+
+
 def test_report_scenario_source_allowlist_combines_market_and_financial_evidence():
     report = {
         "research_input_snapshot": {
@@ -155,12 +194,25 @@ def test_report_scenario_source_allowlist_combines_market_and_financial_evidence
                     "revenue_history": {"source_url": "https://stockanalysis.com/stocks/asml/financials/"},
                 },
             },
+            "financial_data_evidence": {
+                "observations": {
+                    "fcf": {
+                        "selected_source": "stockanalysis.com",
+                        "source_metadata": {
+                            "stockanalysis.com": {
+                                "source_url": "https://stockanalysis.com/stocks/asml/statistics/",
+                            },
+                        },
+                    },
+                },
+            },
         },
     }
 
     assert scenario_source_urls_from_report(report) == {
         "https://finance.yahoo.com/quote/ASML",
         "https://stockanalysis.com/stocks/asml/financials",
+        "https://stockanalysis.com/stocks/asml/statistics",
     }
 
 
