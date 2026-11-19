@@ -760,11 +760,14 @@ def test_scheduled_results_pr_requires_a_published_commit():
     assert "RESUME_PENDING=true" in continue_branch
     assert "RESET_DDD_HOURLY_RAMP=true" not in continue_branch
     publish = next(step for step in steps if step.get("name") == "Commit results")
-    publish_pr = next(step for step in steps if step.get("name") == "Open or update scheduled results PR and enable auto-merge")
+    publish_pr = next(step for step in steps if step.get("name") == "Validate and merge scheduled results PR")
 
     assert publish["id"] == "publish-results"
     assert "gh pr list --base main --head codex/ddd-research-results --state open" in publish_pr["run"]
-    assert "gh pr view codex/ddd-research-results --json state" in publish_pr["run"]
+    assert 'gh pr checks "$OPEN_PR_NUMBER" --watch --fail-fast' in publish_pr["run"]
+    assert 'gh pr merge "$OPEN_PR_NUMBER" --squash' in publish_pr["run"]
+    assert "--auto" not in publish_pr["run"]
+    assert 'gh pr view "$OPEN_PR_NUMBER" --json state' in publish_pr["run"]
     assert 'if [ "$PR_STATE" != "MERGED" ]' in publish_pr["run"]
     continuation = next(step for step in steps if step.get("name") == "Continue hourly Research while due work remains")
     assert steps.index(continuation) > steps.index(publish_pr)
