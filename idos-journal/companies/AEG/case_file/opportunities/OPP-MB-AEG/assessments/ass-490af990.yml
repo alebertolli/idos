@@ -1,0 +1,35 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; calidad de evidencia fundamental incompleta'
+- 'Market error: No se valida un error de valoración: el consenso de analistas es
+  una referencia observada, no evidencia de valor intrínseco.'
+- 'Thesis: La hipótesis de investigación es que la generación de caja y la evolución
+  de resultados podrían respaldar la creación de valor; sin embargo, los datos proporcionados
+  no permiten separar generación sos'
+generated_at: '2026-11-19T17:50:10.137486-03:00'
+id: ass-490af990
+recommendation: REVIEW
+risks:
+- analisis: Los valores TTM y anuales no siempre son comparables; además, el FCF TTM
+    aparece como 1.741 millones en la serie financiera y como 1.910 millones en estadísticas.
+    No se informan moneda ni conciliación para esas cifras.
+  fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/aeg/financials/
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/AEG/statistics/
+  riesgo: Comparabilidad y calidad de métricas financieras
+- analisis: La serie reporta net cash de -320 millones y deuda total de 3.835 millones
+    al 2026-06-30; el EBITDA figura como n/a, por lo que no se puede calcular deuda
+    neta/EBITDA.
+  fuente: https://stockanalysis.com/stocks/aeg/financials/
+  riesgo: Apalancamiento y capacidad de servicio de deuda
+- analisis: La serie muestra beneficio neto negativo en FY 2022 y FY 2023, seguido
+    de cifras positivas en FY 2024, FY 2025 y TTM a 2026-06-30; el FCF anual reportado
+    también varía entre períodos.
+  fuente: https://stockanalysis.com/stocks/aeg/financials/
+  riesgo: Resultados y flujos variables
+score: 38
+status: COMPLETED
+version: '3.0'

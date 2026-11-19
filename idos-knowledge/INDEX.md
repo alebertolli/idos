@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 15 companies tracked
+Total: 16 companies tracked
 
 ## Basic Materials
 - 📄 [[DOW|Dow Inc.]]
@@ -21,6 +21,9 @@ Total: 15 companies tracked
 ## Energy
 - 📄 [[E|Eni S.p.A.]]
 - 📄 [[TS|Tenaris S.A.]]
+
+## Financial Services
+- 📄 [[AEG|Aegon Ltd.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
