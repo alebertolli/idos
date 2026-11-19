@@ -1,0 +1,27 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No validado: el paquete ofrece referencias de precio de mercado y
+  consenso, pero no un método de valoración con inputs suficientes para determinar
+  infravaloración o sobrevaloración.'
+- 'Thesis: ANF opera marcas de ropa y accesorios mediante tiendas, comercio electrónico
+  y acuerdos mayoristas, de franquicia y licencia. La evidencia financiera disponible
+  muestra margen bruto TTM de 63,68% y FC'
+generated_at: '2026-11-19T19:01:43.380793-03:00'
+id: ass-f88cf257
+recommendation: REVIEW
+risks:
+- evidencia: El resumen clasifica a ANF en Consumer Cyclical y describe un negocio
+    minorista de apparel; el paquete no cuantifica sensibilidad a demanda.
+  riesgo: Ciclicidad y exposición a preferencias de consumo.
+- evidencia: Al 2026-08-01, Stock Analysis informa net cash de -USD 649,44 millones
+    y efectivo e inversiones de USD 638,00 millones; ambas series tienen URL fuente
+    en la evidencia financiera.
+  riesgo: Deuda neta reportada y recursos líquidos menores que el ejercicio anterior.
+- evidencia: Stock Analysis informa FCF TTM de USD 566,46 millones al 2026-08-01 frente
+    a USD 378,37 millones en FY 2026; los períodos no tienen la misma duración.
+  riesgo: Riesgo de extrapolar el crecimiento reciente de caja.
+score: 48
+status: COMPLETED
+version: '3.0'

@@ -1,0 +1,352 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Evaluación de moat basado en reconocimiento de marca y omnicanal
+  - Suposición de posición financiera adecuada pese a ausencia de datos de deuda
+  - Calificación de riesgos ESG sin datos específicos
+  - Precio actual 140.3699951171875 USD (yfinance, 2026-11-19)
+  - Target analyst consensus mean 170.64 USD (stockanalysis.com, 2026-11-19)
+  - FCF TTM 566,460,000 USD (stockanalysis.com, 2026-08-01)
+  - Operating margin TTM 14.08% (stockanalysis.com, 2026-08-01)
+  - Revenue growth TTM 4.73% (stockanalysis.com, 2026-08-01)
+  preguntas_abiertas:
+  - Nivel de endeudamiento y ratios de cobertura de deuda
+  - Detalle de iniciativas ESG y métricas de sostenibilidad
+  - Planes de CAPEX y su impacto en flujo de caja futuro
+  - Estructura de compensación y alineación de incentivos del management
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: compounder_castigado
+  categorias_descartadas: compounder, deep_value, turnaround, distressed, special_situation,
+    hype, value_trap, quality_at_fair_price, ciclica
+  justificacion: Abercrombie & Fitch muestra un negocio con marcas reconocidas, márgenes
+    operativos sólidos (14.08% TTM) y generación de flujo de caja libre positivo (566.46M
+    USD). Sin embargo, su crecimiento de ingresos es moderado (4.73% TTM) y está expuesto
+    a la ciclicidad del consumo discrecional, lo que ha llevado a una valoración de
+    mercado por debajo del consenso de analistas (precio actual 140.37 USD vs target
+    medio 170.64 USD). Esta combinación sugiere un compounder de calidad temporalmente
+    fuera de favor.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La compañía posee marcas con reconocimiento global y una red omnicanal
+    que le permite captar tanto tráfico físico como digital. El moat se basa en la
+    lealtad de marca y la capacidad de lanzar colecciones alineadas a tendencias,
+    aunque la diferenciación frente a competidores de fast‑fashion está bajo presión.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Mejora de la experiencia digital mediante IA y personalización
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+- descripcion: Expansión exitosa de la línea de productos sostenibles
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 25
+- descripcion: Reducción de costos operativos a través de optimización de la cadena
+    de suministro
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: No se dispone de datos específicos de ESG en la evidencia proporcionada.
+    La industria de la moda enfrenta riesgos de sostenibilidad y cadena de suministro,
+    por lo que se asume un riesgo medio hasta contar con información más detallada.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Flujo de caja libre positivo de 566.46M USD y margen operativo de 14.08%
+    indican generación de efectivo robusta. No se dispone de datos de deuda, por lo
+    que la evaluación de apalancamiento es limitada, pero la capacidad de autofinanciar
+    operaciones sugiere una posición financiera razonable.
+  rating: adecuada
+dominio_growth:
+  analisis: Crecimiento de ingresos del 4.73% TTM refleja una expansión lenta pero
+    positiva. Las oportunidades de crecimiento provienen de la expansión digital,
+    la internacionalización y la línea de productos sostenibles, aunque la exposición
+    a la demanda discrecional limita la velocidad de crecimiento.
+  rating: moderado
+dominio_management:
+  analisis: El equipo directivo ha demostrado capacidad para ejecutar re‑posicionamiento
+    de marca y mejorar la rentabilidad en años recientes. La alineación de incentivos
+    con accionistas parece adecuada, aunque la falta de información pública sobre
+    recompensas y tenencia de acciones limita la evaluación completa.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Ciclicidad del gasto discrecional
+- impacto: alto
+  probabilidad: media
+  riesgo: Presión de precios y competencia de fast‑fashion
+- impacto: medio
+  probabilidad: media
+  riesgo: Gestión de inventario y posibles descuentos
+error_mercado:
+  catalizador_cambio:
+    descripcion: Lanzamiento exitoso de una estrategia omnicanal reforzada con IA
+      para personalizar la experiencia de compra y expansión de la línea de productos
+      sostenibles, impulsando ventas digitales y mejorando márgenes.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas asumen que el precio actual subestima la capacidad
+    de la compañía para mantener márgenes operativos y generar flujo de caja libre,
+    proyectando un upside del ~21% (target medio 170.64 USD). El múltiplo implícito
+    sugiere expectativas de crecimiento de ingresos superior al 4.7% observado.
+  hipotesis_contraria: El mercado podría estar sobrestimando la recuperación del gasto
+    discrecional y la capacidad de la empresa para diferenciarse de competidores de
+    fast‑fashion. Riesgos de inventario, presión de precios y cambios en preferencias
+    de los consumidores podrían limitar el crecimiento y comprimir márgenes.
+  razonamiento: El precio actual está significativamente por debajo del rango de precios
+    objetivo de los analistas, mientras que los fundamentos (margen operativo, FCF
+    y crecimiento positivo) respaldan una valoración superior. La diferencia sugiere
+    un error de mercado que puede ser explotado.
+generated_at: '2026-11-19T18:58:41.756519-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-014
+prompt_inputs:
+  business_model: Abercrombie & Fitch Co., through its subsidiaries, operates as an
+    omnichannel retailer in the Americas, Europe, the Middle East, Africa, and the
+    Asia-Pacific. It offers an assortment of apparel, personal care products, and
+    accessories for men, women, and kids under the Abercrombie & Fitch, abercrombie
+    kids, Your Personal Best, Hollister, and Gilly Hicks brands. The company sells
+    products through its stores, various wholesale, franchise, and licensing arrangements,
+    as well as e-commerce platforms. Abercrombie & Fitch Co. was founded in 1892 and
+    is headquartered in New Albany, Ohio.
+  ceo_tenure: 0
+  debt_to_equity: 0.94
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Abercrombie & Fitch Co.
+  operating_margin: 14.08
+  pe_ratio: 12.58
+  products: ''
+  revenue: 5340000000.0
+  revenue_growth: 4.73
+  roic: 26.66
+  sector: Consumer Cyclical
+  ticker: ANF
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: Abercrombie & Fitch Co., through its subsidiaries, operates as an
+    omnichannel retailer in the Americas, Europe, the Middle East, Africa, and the
+    Asia-Pacific. It offers an assortment of apparel, personal care products, and
+    accessories for men, women, and kids under the Abercrombie & Fitch, abercrombie
+    kids, Your Personal Best, Hollister, and Gilly Hicks brands. The company sells
+    products through its stores, various wholesale, franchise, and licensing arrangements,
+    as well as e-commerce platforms. Abercrombie & Fitch Co. was founded in 1892 and
+    is headquartered in New Albany, Ohio.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 140.3699951171875
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.94
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:53.417659+00:00", "period_end_date": "2026-08-01",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-08-01", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ANF/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 566460000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 19.941}, "observed_at": "2026-11-01T10:16:53.417659+00:00",
+    "period_end_date": "2026-08-01", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-08-01", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ANF/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-08-01", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 14.08}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 4.8}, "observed_at": "2026-11-01T10:16:53.417659+00:00", "period_end_date":
+    "2026-08-01", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-08-01", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/anf/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-08-01", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 4.73}}}, "observed_at": "2026-11-19T19:15:33.758496+00:00",
+    "period_end": "2026-08-01", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Abercrombie & Fitch Co.
+  operating_margin: 14.08
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Abercrombie & Fitch Co., through its subsidiaries, operates as an
+    omnichannel retailer in the Americas, Europe, the Middle East, Africa, and the
+    Asia-Pacific. It offers an assortment of apparel, personal care products, and
+    accessories for men, women, and kids under the Abercrombie & Fitch, abercrombie
+    kids, Your Personal Best, Hollister, and Gilly Hicks brands. The company sells
+    products through its stores, various wholesale, franchise, and licensing arrangements,
+    as well as e-commerce platforms
+  revenue: 5340000000.0
+  revenue_growth: 4.73
+  roic: 26.66
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    200.0, "low": 150.0, "mean": 170.64, "median": 170.64, "observed_at": "2026-11-19T18:58:32.504926-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T18:58:32.504926-03:00", "observed_date": "2026-11-19", "target_price":
+    170.64, "url": "https://stockanalysis.com/stocks/anf/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T18:58:32.504926-03:00",
+    "observed_date": "2026-11-19", "target_price": 170.63635, "url": "https://finance.yahoo.com/quote/ANF/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 140.3699951171875,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ANF/"}]}}'
+  sector: Consumer Cyclical
+  ticker: ANF
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: d4ad06ec518dd651d3e31b64bb48114381c08d50bb834ebe8958a23e33e96411
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-19T18:58:41.756519-03:00'
+resumen_ejecutivo: Abercrombie & Fitch es un retailer de moda con marcas consolidadas
+  y márgenes operativos saludables, pero con crecimiento moderado y exposición cíclica.
+  El precio cotiza a 140.37 USD, por debajo del consenso de analistas (150‑200 USD).
+  Los fundamentos indican capacidad de generar flujo de caja libre y margen estable,
+  lo que sugiere una oportunidad de compra bajo la premisa de un compounder castigado.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2027-11-19'
+  scenarios:
+  - falsifiers:
+    - Reporte de crecimiento de ingresos positivo en 2027
+    - Mantenimiento o mejora del margen operativo
+    - Incremento del múltiplo EV/EBITDA
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos negativo o nulo
+    - Compresión del margen operativo a <12%
+    - Múltiplo EV/EBITDA disminuye 15%
+    rationale: Escenario adverso donde el gasto discrecional se contrae, la competencia
+      intensifica descuentos y la empresa no logra mejorar su margen operativo, reduciendo
+      el múltiplo de valoración.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ANF/
+    - as_of_date: '2026-08-01'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ANF/statistics/
+    target_price: 120
+  - falsifiers:
+    - Crecimiento de ingresos <3% anual
+    - Margen operativo se mantiene en 14% o disminuye
+    - Múltiplo EV/EBITDA cae por presión del mercado
+    id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos >6% anual
+    - Margen operativo mejora a 16%
+    - Múltiplo EV/EBITDA aumenta 10% respecto al nivel actual
+    rationale: Escenario optimista donde la estrategia omnicanal impulsa ventas digitales,
+      la línea sostenible atrae a consumidores premium y la empresa mejora su margen
+      operativo a ~16%, permitiendo un múltiplo EV/EBITDA superior al promedio del
+      sector.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ANF/
+    - as_of_date: '2026-08-01'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ANF/statistics/
+    target_price: 190
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T18:58:32.504926-03:00'
+  fuentes:
+    stockanalysis: 170.64
+    yfinance: 170.63635
+  mediana: 170.64
+  n_fuentes: 2
+  promedio: 170.64
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T18:58:32.504926-03:00'
+    observed_date: '2026-11-19'
+    target_price: 170.64
+    url: https://stockanalysis.com/stocks/anf/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T18:58:32.504926-03:00'
+    observed_date: '2026-11-19'
+    target_price: 170.63635
+    url: https://finance.yahoo.com/quote/ANF/
+  target_high: 200.0
+  target_low: 150.0
+tesis_inversion: Abercrombie & Fitch combina marcas fuertes, márgenes operativos saludables
+  y generación de efectivo libre, mientras que su precio actual está por debajo del
+  rango de valoración de los analistas, ofreciendo un margen de upside significativo
+  si la empresa logra capitalizar su estrategia omnicanal y mantener su rentabilidad.
+ticker: ANF
+version: '3.0'

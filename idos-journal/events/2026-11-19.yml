@@ -406,3 +406,41 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-19T18:51:35.483037'
+- data:
+    classification: compounder_castigado
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: d4ad06ec518dd651d3e31b64bb48114381c08d50bb834ebe8958a23e33e96411
+    opp_id: OPP-20261023-014
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: ANF
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T18:59:47.131817'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ANF
+    ticker: ANF
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-19T19:00:08.749674'
+- data:
+    classification: RESEARCH_REQUIRED
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 72de8b48859912017766529c25ff628154d44bb726fc76111f6e704e74687bae
+    opp_id: OPP-MB-ANF
+    score: 48
+    strategy_version: '1.5'
+    ticker: ANF
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-19T19:01:43.484547'
