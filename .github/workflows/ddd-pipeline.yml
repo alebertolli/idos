@@ -289,7 +289,7 @@ jobs:
           fi
           git config user.name "idos-bot"
           git config user.email "bot@idos.local"
-          git add cache/ddd_results.json cache/ddd_preview.json cache/ddd_research_resume.json cache/ddd_research_capacity.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
+          git add cache/ddd_results.json cache/ddd_preview.json cache/ddd_research_resume.json cache/ddd_research_capacity.json cache/ddd_research_quarantine.json cache/weekly_digest.md cache/monthly_reassessment.json 2>/dev/null || true
           git add idos-journal/ 2>/dev/null || true
           git add idos-knowledge/ 2>/dev/null || true
           if git diff --cached --quiet; then
