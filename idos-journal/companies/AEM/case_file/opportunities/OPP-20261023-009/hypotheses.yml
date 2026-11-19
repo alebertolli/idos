@@ -1,0 +1,160 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Margen EBITDA ajustado reportado < 58% en el Q2 2027
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Revisión de costos operativos que indique un aumento del 15% o más
+      respecto al Q4 2026
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Margen EBITDA ajustado reportado < 58% en el Q2 2027
+  - Revisión de costos operativos que indique un aumento del 15% o más respecto al
+    Q4 2026
+  horizon: corto
+  id: H1-OPP-20261023-009
+  opportunity_id: OPP-20261023-009
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-07-31'
+    expected: 60.0
+    met: null
+    metric: Margen EBITDA ajustado
+    prediction: El margen EBITDA ajustado reportado en el Q2 2027 será ≥ 60%.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La empresa ha demostrado históricamente márgenes elevados gracias a su
+    bajo costo de extracción y alta calidad del mineral, y los proyectos en México
+    y Finlandia están operando cerca de su capacidad óptima sin interrupciones mayores.
+  review_trigger: Si el reporte del Q2 2027 muestra margen < 58% o si se publica una
+    alerta de costos operativos mayores al 15% antes del 2027-07-31.
+  secondary_hypotheses: []
+  statement: Agnico Eagle mantendrá un margen EBITDA ajustado superior al 60% en el
+    segundo trimestre de 2027.
+  status: ACTIVE
+  ticker: AEM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Crecimiento del flujo de caja libre < 10% YoY en 2027
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Reducción del flujo de caja libre respecto a 2026
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Crecimiento del flujo de caja libre < 10% YoY en 2027
+  - Reducción del flujo de caja libre respecto a 2026
+  horizon: medio
+  id: H2-OPP-20261023-009
+  opportunity_id: OPP-20261023-009
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 15.0
+    met: null
+    metric: Crecimiento del flujo de caja libre
+    prediction: El flujo de caja libre reportado para el año fiscal 2027 será ≥ 15%
+      superior al de 2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Los márgenes operacionales superiores al 60% y la expansión de la producción
+    en la mina de La India (México) deberían traducirse en mayor generación de efectivo,
+    mientras que la disciplina de capital mantiene CAPEX bajo control.
+  review_trigger: Si el reporte anual 2027 muestra crecimiento < 10% antes del 2027-12-31.
+  secondary_hypotheses:
+  - H1-OPP-20261023-009
+  statement: El flujo de caja libre anual de Agnico Eagle crecerá al menos un 15%
+    respecto al 2026.
+  status: ACTIVE
+  ticker: AEM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Precio de cierre < 200 USD en la sesión del 2028-03-31
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Revisión a la baja del precio objetivo medio por más de 5% antes de
+      esa fecha
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Precio de cierre < 200 USD en la sesión del 2028-03-31
+  - Revisión a la baja del precio objetivo medio por más de 5% antes de esa fecha
+  horizon: largo
+  id: H3-OPP-20261023-009
+  opportunity_id: OPP-20261023-009
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 210.0
+    met: null
+    metric: Precio de la acción
+    prediction: El precio de cierre de la acción será ≥ 210 USD en la sesión del 2028-03-31.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: El consenso de precio objetivo medio (209,85 USD) está cercano al nivel
+    actual (159,41 USD) y la combinación de márgenes robustos y flujo de caja creciente
+    debería impulsar revisiones al alza por parte de analistas, reduciendo la brecha
+    de valoración.
+  review_trigger: Si el precio de cierre el 2028-03-31 está por debajo de 200 USD
+    o si el consenso de analistas baja a menos de 200 USD antes de esa fecha.
+  secondary_hypotheses:
+  - H2-OPP-20261023-009
+  statement: El precio de la acción de Agnico Eagle superará los 210 USD antes del
+    31 de marzo de 2028.
+  status: ACTIVE
+  ticker: AEM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Multas o costos ESG reportados > 50 millones USD en 2027
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Publicación de sanciones regulatorias significativas que superen ese
+      umbral
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Multas o costos ESG reportados > 50 millones USD en 2027
+  - Publicación de sanciones regulatorias significativas que superen ese umbral
+  horizon: corto
+  id: H4-OPP-20261023-009
+  opportunity_id: OPP-20261023-009
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 50.0
+    met: null
+    metric: Multas y costos ESG
+    prediction: Las multas y costos ESG reportados en 2027 serán ≤ 50 millones USD.
+    unit: USD
+  priority: informational
+  probability: 0.5
+  rationale: La empresa ha implementado programas de cumplimiento y sostenibilidad
+    que han reducido incidentes en sus operaciones en México y Finlandia; además,
+    no se han anunciado cambios regulatorios mayores en esas jurisdicciones.
+  review_trigger: Si se publica una sanción o multa superior a 50 millones USD antes
+    del 2027-12-31.
+  secondary_hypotheses: []
+  statement: Agnico Eagle no incurrirá en multas regulatorias o costos ESG superiores
+    a 50 millones USD durante el año 2027.
+  status: ACTIVE
+  ticker: AEM
+  version: 1

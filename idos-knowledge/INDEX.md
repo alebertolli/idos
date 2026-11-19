@@ -7,9 +7,10 @@ aliases:
 
 # IDOS Company Index
 
-Total: 16 companies tracked
+Total: 17 companies tracked
 
 ## Basic Materials
+- 📄 [[AEM|Agnico Eagle Mines Limited]]
 - 📄 [[DOW|Dow Inc.]]
 
 ## Consumer Cyclical

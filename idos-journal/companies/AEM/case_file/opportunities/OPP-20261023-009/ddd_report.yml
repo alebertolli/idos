@@ -1,0 +1,341 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El precio actual está 24 % por debajo del consenso medio.
+  - Los márgenes operativos del 60,3 % y el FCF de 4,17 MM USD indican alta rentabilidad.
+  - El crecimiento de ingresos del 42,4 % TTM sugiere impulso de crecimiento orgánico.
+  - Los riesgos ESG son moderados dada la exposición a varias jurisdicciones mineras.
+  preguntas_abiertas:
+  - ¿Cuál es el nivel de endeudamiento neto y la relación deuda/EBITDA?
+  - ¿Qué planes específicos tiene la compañía para reducir su huella de carbono?
+  - ¿Existen acuerdos de suministro críticos que puedan afectar la producción?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: compounder_castigado (no hay evidencia de deterioro temporal),
+    turnaround (no hay señal de declive operativo), deep_value (el PER/EV no está
+    extremadamente bajo), ciclica (aunque el oro es cíclico, la empresa tiene ventajas
+    competitivas que amortiguan la ciclicidad), special_situation (no hay eventos
+    corporativos relevantes), distressed (balance sólido), hype (no hay crecimiento
+    explosivo sin earnings), value_trap (no hay destrucción de valor estructural).
+  justificacion: Agnico Eagle muestra márgenes operativos muy altos (60,3%), fuerte
+    generación de flujo de caja libre (4,17 MM USD) y crecimiento de ingresos del
+    42 % TTM, con una presencia geográfica diversificada y múltiples metales. El precio
+    actual (159,41 USD) está significativamente por debajo del consenso medio de los
+    analistas (209,85 USD), indicando potencial de apreciación sostenida sin necesidad
+    de cambios estructurales drásticos.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Operaciones diversificadas en 4 países, exposición a varios metales, márgenes
+    operativos >60 % y capacidad de generar FCF de 4,17 MM USD. Estas características
+    confieren una ventaja competitiva sostenible.
+  rating: excepcional
+dominio_catalizadores:
+- descripcion: Rally del precio del oro >2.200 USD/oz
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 45
+- descripcion: Finalización de la expansión de la mina Kittila (Finlandia) con reducción
+    de costos unitarios
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 35
+- descripcion: Descubrimiento de nuevas reservas en proyectos de exploración en Canadá
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: La minería de oro está sujeta a riesgos ESG (impacto ambiental, derechos
+    de comunidades locales). Agnico Eagle ha publicado reportes de sostenibilidad,
+    pero la exposición a jurisdicciones como México y Finlandia mantiene un riesgo
+    medio.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: FCF robusto (4,17 MM USD TTM) y margen operativo del 60,3 % indican excelente
+    generación de efectivo. La falta de datos de deuda impide una evaluación completa,
+    pero la liquidez parece adecuada.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento de ingresos del 42,4 % TTM y expansión de reservas en Canadá,
+    Australia y Finlandia respaldan una visión de crecimiento orgánico continuo. No
+    hay anuncios de adquisiciones mayores, pero la exploración interna es prometedora.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo directivo ha mantenido una política de dividendos estables y
+    ha ejecutado expansiones de minas con éxito. No se dispone de evidencia de desalinhación
+    de intereses con accionistas.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Volatilidad del precio del oro
+- impacto: alto
+  probabilidad: media
+  riesgo: Regulaciones ambientales y sociales
+- impacto: medio
+  probabilidad: media
+  riesgo: Costos operativos inesperados en minas de alta latitud
+error_mercado:
+  catalizador_cambio:
+    descripcion: Rally sostenido del precio del oro por encima de 2.200 USD/oz combinado
+      con la puesta en marcha de la expansión de la mina Kittila (Finlandia) que reduciría
+      costos unitarios.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 45
+  conclusion_error_valoracion: SI
+  consenso_actual: El precio cotiza 159,41 USD, mientras que el consenso medio de
+    los analistas es 209,85 USD (rango 90‑253 USD). El mercado parece descontar riesgos
+    de precios del oro, posibles aumentos de costos operativos y exposición a regulaciones
+    ESG.
+  hipotesis_contraria: Los analistas podrían estar subestimando la volatilidad del
+    precio del oro y los costos de extracción en regiones como México y Finlandia,
+    así como riesgos regulatorios y de ESG que podrían erosionar márgenes futuros.
+  razonamiento: La brecha entre precio y consenso medio sugiere un descuento que no
+    está plenamente justificado por los fundamentos actuales; la probabilidad de que
+    el mercado corrija al alza es razonable dado el fuerte desempeño financiero y
+    los catalizadores identificados.
+generated_at: '2026-11-19T17:57:05.465154-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-009
+prompt_inputs:
+  business_model: Agnico Eagle Mines Limited, a gold mining company, engages in the
+    exploration, development, and production of precious metals. It explores for gold,
+    silver, copper, and zinc. The company's mines are located in Canada, Australia,
+    Finland, and Mexico; and with exploration and development activities in Canada,
+    Australia, Europe, Latin America, and the United States. Agnico Eagle Mines Limited
+    was incorporated in 1953 and is headquartered in Toronto, Canada.
+  ceo_tenure: 0
+  debt_to_equity: 0.01
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Agnico Eagle Mines Limited
+  operating_margin: 60.32
+  pe_ratio: 13.04
+  products: ''
+  revenue: 15050000000.0
+  revenue_growth: 42.42
+  roic: 23.6
+  sector: Basic Materials
+  ticker: AEM
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-19'
+  business_model: Agnico Eagle Mines Limited, a gold mining company, engages in the
+    exploration, development, and production of precious metals. It explores for gold,
+    silver, copper, and zinc. The company's mines are located in Canada, Australia,
+    Finland, and Mexico; and with exploration and development activities in Canada,
+    Australia, Europe, Latin America, and the United States. Agnico Eagle Mines Limited
+    was incorporated in 1953 and is headquartered in Toronto, Canada.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 159.41000366210938
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.01
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:16:48.674691+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/AEM/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 4170000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 55.48499999999999}, "observed_at": "2026-11-01T10:16:48.674691+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/AEM/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 60.32}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 17.1}, "observed_at": "2026-11-01T10:16:48.674691+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/aem/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 42.42}}}, "observed_at": "2026-11-19T19:15:25.804647+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Agnico Eagle Mines Limited
+  operating_margin: 60.32
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Agnico Eagle Mines Limited, a gold mining company, engages in the
+    exploration, development, and production of precious metals. It explores for gold,
+    silver, copper, and zinc. The company's mines are located in Canada, Australia,
+    Finland, and Mexico; and with exploration and development activities in Canada,
+    Australia, Europe, Latin America, and the United States. Agnico Eagle Mines Limited
+    was incorporated in 1953 and is headquartered in Toronto, Canada.
+  revenue: 15050000000.0
+  revenue_growth: 42.42
+  roic: 23.6
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    253.0, "low": 90.0, "mean": 209.85, "median": 209.85, "observed_at": "2026-11-19T17:56:56.682671-03:00",
+    "sources": [{"as_of_date": "2026-11-19", "name": "stockanalysis", "observed_at":
+    "2026-11-19T17:56:56.682671-03:00", "observed_date": "2026-11-19", "target_price":
+    209.85, "url": "https://stockanalysis.com/stocks/aem/forecast/"}, {"as_of_date":
+    "2026-11-19", "name": "yfinance", "observed_at": "2026-11-19T17:56:56.682671-03:00",
+    "observed_date": "2026-11-19", "target_price": 209.85143, "url": "https://finance.yahoo.com/quote/AEM/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 159.41000366210938,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/AEM/"}]}}'
+  sector: Basic Materials
+  ticker: AEM
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: faf98f1ce36a717ebe7942a10d346fe2a60469ad91fc9279499265c32c26c30e
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-19T17:57:05.465154-03:00'
+resumen_ejecutivo: Agnico Eagle es una compañía minera de oro con alta rentabilidad,
+  sólido flujo de caja y crecimiento de ingresos. El precio actual está 24 % por debajo
+  del objetivo medio de los analistas, lo que indica un posible error de mercado.
+  Los principales riesgos son la volatilidad del precio del oro y cuestiones ESG,
+  pero los catalizadores de precios del oro y expansión de minas pueden impulsar una
+  revaluación al alza.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-19'
+  currency: USD
+  horizon_date: '2028-11-19'
+  scenarios:
+  - falsifiers:
+    - Rally del oro >2.000 USD/oz
+    - Reducción de costos operativos mediante eficiencia de minas
+    - Aprobación de planes ESG sin costos adicionales
+    id: BEAR
+    key_assumptions:
+    - Precio del oro <1.800 USD/oz durante 12‑24 meses
+    - Incremento de costos operativos >15 %
+    - Regulaciones ambientales aumentan CAPEX en 1 MM USD anuales
+    rationale: El precio del oro se mantiene bajo presión prolongada y la compañía
+      enfrenta mayores costos operativos y posibles sanciones ESG, reduciendo márgenes
+      y flujo de caja.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/aem/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AEM/
+    target_price: 90
+  - falsifiers:
+    - Precio del oro cae bajo 1.800 USD/oz
+    - Retrasos o sobrecostos en la expansión de Kittila
+    - Problemas regulatorios que limiten la producción
+    id: BULL
+    key_assumptions:
+    - Precio del oro >2.200 USD/oz sostenido
+    - Expansión Kittila reduce costos unitarios en 10 %
+    - Descubrimiento de reservas que aumentan la producción en 15 %
+    rationale: Un fuerte rally del oro combinado con la expansión de Kittila y mejoras
+      operativas eleva los márgenes y el flujo de caja, impulsando la valoración hacia
+      el extremo superior del rango de consenso.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/aem/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/AEM/
+    target_price: 253
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 84
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-19T17:56:56.682671-03:00'
+  fuentes:
+    stockanalysis: 209.85
+    yfinance: 209.85143
+  mediana: 209.85
+  n_fuentes: 2
+  promedio: 209.85
+  source_references:
+  - as_of_date: '2026-11-19'
+    name: stockanalysis
+    observed_at: '2026-11-19T17:56:56.682671-03:00'
+    observed_date: '2026-11-19'
+    target_price: 209.85
+    url: https://stockanalysis.com/stocks/aem/forecast/
+  - as_of_date: '2026-11-19'
+    name: yfinance
+    observed_at: '2026-11-19T17:56:56.682671-03:00'
+    observed_date: '2026-11-19'
+    target_price: 209.85143
+    url: https://finance.yahoo.com/quote/AEM/
+  target_high: 253.0
+  target_low: 90.0
+tesis_inversion: Aprovechar la brecha entre el precio actual (159,41 USD) y el consenso
+  medio (209,85 USD) mediante exposición a una empresa con márgenes operativos superiores
+  al 60 % y fuerte generación de flujo de caja, respaldada por una diversificación
+  geográfica y de metales que mitiga riesgos cíclicos.
+ticker: AEM
+version: '3.0'
