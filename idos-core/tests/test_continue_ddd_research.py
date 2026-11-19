@@ -20,7 +20,7 @@ def test_continuation_dispatches_one_bounded_resume_for_due_work():
     assert dispatched
     command, kwargs = calls[0]
     assert command[:5] == ["gh", "workflow", "run", "ddd-pipeline.yml", "--repo"]
-    assert "resume_hourly_ramp=true" in command
+    assert "continue_hourly_ramp=true" in command
     assert "allow_production_e2e=true" in command
     assert kwargs == {"check": True}
 
