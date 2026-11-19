@@ -745,6 +745,20 @@ def test_scheduled_results_pr_requires_a_published_commit():
         Loader=yaml.BaseLoader,
     )
     steps = workflow["jobs"]["ddd"]["steps"]
+    dispatch_inputs = workflow["on"]["workflow_dispatch"]["inputs"]
+    assert "continue_hourly_ramp" in dispatch_inputs
+    input_validation = next(
+        step for step in steps if step.get("name") == "Validate manual production opt-in and input combinations"
+    )["run"]
+    assert "RAMP_MODE_COUNT" in input_validation
+    assert "inputs.continue_hourly_ramp" in input_validation
+    run_context = next(step for step in steps if step.get("name") == "Set run context")["run"]
+    continue_branch = run_context.split('inputs.continue_hourly_ramp', 1)[1].split(
+        'elif [ "${{ github.event_name }}" = "repository_dispatch" ]', 1
+    )[0]
+    assert "RESET_DDD_HOURLY_RAMP=true" in run_context
+    assert "RESUME_PENDING=true" in continue_branch
+    assert "RESET_DDD_HOURLY_RAMP=true" not in continue_branch
     publish = next(step for step in steps if step.get("name") == "Commit results")
     publish_pr = next(step for step in steps if step.get("name") == "Open or update scheduled results PR and enable auto-merge")
 
@@ -762,6 +776,7 @@ def test_scheduled_results_pr_requires_a_published_commit():
     assert 'echo "changed=false"' in publish["run"]
     assert 'echo "changed=true"' in publish["run"]
     assert "steps.publish-results.outputs.changed == 'true'" in publish_pr["if"]
+    assert "inputs.continue_hourly_ramp" in publish_pr["if"]
     assert "always()" in publish["if"]
     assert "cache/ddd_research_capacity.json" in publish["run"]
     assert "0 * * * *" in workflow["on"]["schedule"][0]["cron"] or any(

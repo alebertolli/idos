@@ -30,7 +30,7 @@ def dispatch_if_due(
         "--repo", repository,
         "--ref", "main",
         "-f", "allow_production_e2e=true",
-        "-f", "resume_hourly_ramp=true",
+        "-f", "continue_hourly_ramp=true",
         "-f", "skip_portfolio_reevaluation=true",
     ]
     run(command, check=True)
