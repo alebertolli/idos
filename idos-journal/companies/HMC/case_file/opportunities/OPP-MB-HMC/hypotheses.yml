@@ -1,0 +1,156 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Honda reporta para el ejercicio fiscal 2028 un aumento inferior al
+      3% de las ventas mundiales de motocicletas frente al ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Honda reporta una caída interanual de las ventas mundiales de motocicletas
+      en el ejercicio fiscal 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Honda reporta para el ejercicio fiscal 2028 un aumento inferior al 3% de las ventas
+    mundiales de motocicletas frente al ejercicio fiscal 2027.
+  - Honda reporta una caída interanual de las ventas mundiales de motocicletas en
+    el ejercicio fiscal 2028.
+  horizon: medio
+  id: H1-OPP-MB-HMC
+  opportunity_id: OPP-MB-HMC
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de las ventas mundiales de motocicletas en unidades
+    prediction: En el ejercicio fiscal que termina el 2028-03-31, las ventas mundiales
+      de motocicletas, medidas en unidades según la definición reportada por Honda,
+      serán al menos un 3% superiores a las del ejercicio fiscal que termina el 2027-03-31.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: Honda opera en motocicletas además de automóviles y otros negocios. Una
+    expansión de unidades vendidas en motocicletas sería una señal observable de crecimiento
+    operativo, aunque la información disponible no permite confirmar la penetración
+    de mercado ni la fortaleza competitiva por región.
+  review_trigger: Dejar de creerla si Honda informa, en sus resultados anuales del
+    ejercicio fiscal 2027 o en una actualización posterior, que las ventas mundiales
+    de motocicletas acumuladas o previstas para el ejercicio fiscal 2028 están estancadas
+    o disminuyen frente al ejercicio fiscal 2027.
+  secondary_hypotheses: []
+  statement: Las ventas mundiales de motocicletas de Honda crecerán en el ejercicio
+    fiscal 2028 frente al ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: HMC
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen operativo consolidado del ejercicio fiscal 2028 es inferior
+      al 4%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Honda reporta una pérdida operativa consolidada en el ejercicio fiscal
+      2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Honda cambia la definición o el alcance de la métrica de manera que
+      impida comparar el resultado con los ingresos y el beneficio operativo consolidados
+      reportados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen operativo consolidado del ejercicio fiscal 2028 es inferior al 4%.
+  - Honda reporta una pérdida operativa consolidada en el ejercicio fiscal 2028.
+  - Honda cambia la definición o el alcance de la métrica de manera que impida comparar
+    el resultado con los ingresos y el beneficio operativo consolidados reportados.
+  horizon: medio
+  id: H2-OPP-MB-HMC
+  opportunity_id: OPP-MB-HMC
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 4.0
+    met: null
+    metric: Margen operativo consolidado
+    prediction: Para el ejercicio fiscal terminado el 2028-03-31, el margen operativo
+      consolidado —beneficio operativo dividido por ingresos consolidados, según las
+      cifras reportadas por Honda— será de al menos el 4% y el beneficio operativo
+      será positivo.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El contexto señala que el EBIT TTM reportado es negativo y que el margen
+    bruto TTM está por debajo de los niveles de los ejercicios fiscales 2023–2026.
+    La hipótesis plantea una recuperación verificable, pero la evidencia disponible
+    no identifica qué segmentos o factores explican el deterioro.
+  review_trigger: Dejar de creerla si Honda reporta una pérdida operativa consolidada
+    en cualquier resultado anual o intermedio publicado antes de la fecha objetivo
+    y no presenta una previsión cuantificada que implique un margen operativo de al
+    menos el 4% para el ejercicio fiscal 2028.
+  secondary_hypotheses:
+  - H1-OPP-MB-HMC
+  statement: Honda recuperará una rentabilidad operativa consolidada positiva y alcanzará
+    un margen operativo de al menos el 4% en el ejercicio fiscal 2028.
+  status: ACTIVE
+  ticker: HMC
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de HMC menos el rendimiento total del S&P 500
+      en el periodo indicado es inferior a 8 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento total de HMC es igual o inferior al del S&P 500.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden calcular rendimientos comparables por falta de cotizaciones,
+      datos de dividendos o una serie de precios ajustada verificable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de HMC menos el rendimiento total del S&P 500 en el periodo
+    indicado es inferior a 8 puntos porcentuales.
+  - El rendimiento total de HMC es igual o inferior al del S&P 500.
+  - No se pueden calcular rendimientos comparables por falta de cotizaciones, datos
+    de dividendos o una serie de precios ajustada verificable.
+  horizon: medio
+  id: H3-OPP-MB-HMC
+  opportunity_id: OPP-MB-HMC
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 8.0
+    met: null
+    metric: Rendimiento total de HMC menos rendimiento total del S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de HMC en dólares estadounidenses, incluidos dividendos y convertido a
+      dólares, superará en al menos 8 puntos porcentuales el rendimiento total del
+      S&P 500 en dólares estadounidenses.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Los objetivos de analistas disponibles se agrupan cerca de la cotización
+    y no bastan para determinar el valor fundamental de Honda. La hipótesis evalúa
+    una posible revalorización mediante un resultado de mercado observable, sin asumir
+    que esos objetivos sean estimaciones fiables del valor intrínseco.
+  review_trigger: Dejar de creerla si, al cierre del 2027-05-20, HMC acumula un rendimiento
+    total inferior al del S&P 500 por 10 puntos porcentuales o más y Honda no ha publicado
+    una mejora cuantificada de sus perspectivas de beneficio operativo.
+  secondary_hypotheses:
+  - H2-OPP-MB-HMC
+  statement: HMC obtendrá un rendimiento total superior al del S&P 500 durante los
+    12 meses posteriores al 2026-11-20.
+  status: ACTIVE
+  ticker: HMC
+  version: 1

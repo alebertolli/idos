@@ -1,0 +1,595 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La falta de datos sobre retornos sobre capital, penetración y moat impide validar
+    una tesis multibagger con el paquete.
+  - La diferencia entre cifras TTM y anuales, y entre campos de FCF, limita las conclusiones
+    sobre tendencia.
+  - La cotización observada fue USD 33,96 al 2026-10-30; el momentum de precio a 12
+    meses fue 11,3443% y la volatilidad a 90 días 26,8768%, según yfinance.
+  - Al 2026-09-30, stockanalysis reportó margen bruto TTM de 16,05%, EBIT TTM de -989.020.000
+    y FCF TTM de 1.250.000.000 en sus campos correspondientes.
+  - El consenso de objetivos al 2026-11-20 reportó rango USD 34,00–36,26 y media USD
+    34,75.
+  preguntas_abiertas:
+  - ¿Cómo evolucionan márgenes, EBIT, FCF y retornos sobre capital por segmento en
+    períodos comparables?
+  - ¿Qué evidencia de mercado direccionable, penetración, ventaja competitiva y asignación
+    de capital respalda el crecimiento?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
+    de crecimiento multibagger
+  justificacion: El paquete ofrece indicadores de mercado y algunos datos financieros,
+    pero no aporta evidencia suficiente sobre retornos sobre capital, reinversión,
+    mercado direccionable o ventaja competitiva.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El negocio está diversificado por segmentos y geografías según el resumen
+    financiero, pero no hay datos para comprobar ventajas competitivas, reinversión,
+    retornos sobre capital ni penetración de mercado. La serie financiera disponible
+    muestra presión reciente en margen bruto y EBIT TTM negativo.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: Evolución de los próximos resultados financieros
+  detalle: Una mejora verificable de EBIT, margen bruto y FCF frente a las cifras
+    recientes sería relevante para reevaluar la tesis; el paquete no proporciona fechas
+    de publicación futuras.
+- catalizador: Actualización del consenso de mercado
+  detalle: El paquete registra objetivos de analistas al 2026-11-20, pero no incluye
+    revisiones históricas ni sus razones.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- detalle: EBIT TTM reportado negativo a 2026-09-30 y margen bruto TTM de 16,05%,
+    frente a 16,75% en FY 2026.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/HMC/statistics/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  riesgo: Rentabilidad débil en el período reciente
+- detalle: La serie reportada de FCF muestra valores positivos y negativos en ejercicios
+    distintos; el FCF TTM y su crecimiento reportado requieren cautela por diferencias
+    entre campos y comparabilidad no aclarada.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  riesgo: La tendencia de caja libre no está suficientemente establecida
+- detalle: La deuda total reportada supera el efectivo e inversiones al 2026-09-30,
+    pero no se dispone de inputs compatibles para calcular deuda neta/EBITDA con la
+    definición requerida.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  riesgo: Servicios financieros y deuda pueden complicar la lectura de apalancamiento
+    consolidado
+error_mercado:
+  catalizador_cambio: Resultados financieros comparables que muestren una recuperación
+    sostenida de rentabilidad y generación de caja podrían modificar la lectura; el
+    paquete no aporta una guía corporativa para contrastar.
+  conclusion_error_valoracion: No se valida un error de valoración con la evidencia
+    disponible.
+  consenso_actual: La cotización observada fue USD 33,96 al 2026-10-30; el consenso
+    de precio objetivo medio fue USD 34,75 al 2026-11-20.
+  hipotesis_contraria: Los objetivos de analistas disponibles se agrupan cerca de
+    la cotización, pero no permiten determinar si el mercado subestima o sobreestima
+    el valor fundamental de Honda.
+  razonamiento: El precio objetivo bajo/alto observado es USD 34,00/USD 36,26, frente
+    a una cotización de USD 33,96. No hay método de valoración ni inputs suficientes
+    para atribuir a esos datos una valoración intrínseca.
+generated_at: '2026-11-20T15:30:43.917552-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-HMC
+prompt_inputs:
+  business_model: 'Honda Motor Co., Ltd. engages in the development, manufacturing,
+    and distribution of motorcycles, automobiles, and power products in Japan, North
+    America, Europe, Asia, and internationally. It operates through four segments:
+    Motorcycle Business, Automobile Business, Financial Services Business, and Power
+    Product and Other Businesses. The Motorcycle Business segment produces motorcycles,
+    including sports, business, and commuter models; and various off-road vehicles,
+    such as all-terrain vehicles and side-by-sides. The Automobile Business segment
+    offers passenger cars, light trucks, and mini vehicles. The Financial Services
+    Business segment provides various financial services, including retail lending
+    and leasing services to customers, as well as wholesale financing services to
+    dealers. The Power Product and Other Businesses manufactures and sells power products,
+    such as general-purpose engines, lawn mowers, generators, water pumps, brush cutters,
+    and tillers. This segment also offers HondaJet aircraft. The company also sells
+    spare parts; and provides after-sales services through retail dealers directly,
+    as well as through independent distributors and licensees. Honda Motor Co., Ltd.
+    was founded in 1946 and is headquartered in Tokyo, Japan.'
+  ceo_tenure: 0
+  debt_to_equity: 0.011699999999999999
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Honda Motor Co., Ltd.
+  operating_margin: -0.67
+  pe_ratio: 0
+  products: ''
+  revenue: 147640000000.0
+  revenue_growth: 7.8
+  roic: -0.73
+  sector: Consumer Cyclical
+  ticker: HMC
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-03-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF growth reportado por la fuente; no recalculado por falta de una serie
+    comparable confirmada.
+  inputs:
+    fcf_growth_history:
+      period: TTM
+      value: 197.27
+  limitations: El paquete reporta el porcentaje como TTM, pero no identifica con suficiente
+    claridad el período de comparación usado por el proveedor.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  status: reported
+  unit: percent
+  value: 197.27
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+  inputs:
+    fcf_history:
+      period: TTM
+      period_end: '2026-09-30'
+      value: 198804.0
+    net_income_history:
+      period: TTM
+      period_end: '2026-09-30'
+      value: -219009.0
+  limitations: El ingreso neto TTM reportado es negativo, por lo que la definición
+    requiere informar no significativo; además, el campo FCF histórico no coincide
+    claramente en escala con el FCF TTM de estadísticas.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history:
+      period: Current
+      period_end: '2026-09-30'
+      value: 5694158.0
+    net_cash_history:
+      period: Current
+      period_end: '2026-09-30'
+      value: -8729002.0
+    total_debt_history:
+      period: Current
+      period_end: '2026-09-30'
+      value: 14423160.0
+  limitations: Falta EBITDA en la lista de inputs configurados para esta métrica;
+    además, el campo de estadísticas informa EBITDA TTM en una escala distinta a los
+    importes de la serie financiera, por lo que no puede calcularse de forma compatible.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 3890000000.0
+  limitations: El paquete sólo proporciona acciones en circulación para un período;
+    falta una observación comparable del período anterior o una serie histórica.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/HMC/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Honda Motor Co., Ltd. engages in the development, manufacturing,
+    and distribution of motorcycles, automobiles, and power products in Japan, North
+    America, Europe, Asia, and internationally. It operates through four segments:
+    Motorcycle Business, Automobile Business, Financial Services Business, and Power
+    Product and Other Businesses. The Motorcycle Business segment produces motorcycles,
+    including sports, business, and commuter models; and various off-road vehicles,
+    such as all-terrain vehicles and side-by-sides. The Automobile Business segment
+    offers passenger cars, light trucks, and mini vehicles. The Financial Services
+    Business segment provides various financial services, including retail lending
+    and leasing services to customers, as well as wholesale financing services to
+    dealers. The Power Product and Other Businesses manufactures and sells power products,
+    such as general-purpose engines, lawn mowers, generators, water pumps, brush cutters,
+    and tillers. This segment also offers HondaJet aircraft. The company also sells
+    spare parts; and provides after-sales services through retail dealers directly,
+    as well as through independent distributors and licensees. Honda Motor Co., Ltd.
+    was founded in 1946 and is headquartered in Tokyo, Japan.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 33.959999084472656
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.011699999999999999
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T18:30:08.102681+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Honda Motor Co., Ltd.
+  operating_margin: -0.67
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Honda Motor Co., Ltd. engages in the development, manufacturing,
+    and distribution of motorcycles, automobiles, and power products in Japan, North
+    America, Europe, Asia, and internationally. It operates through four segments:
+    Motorcycle Business, Automobile Business, Financial Services Business, and Power
+    Product and Other Businesses. The Motorcycle Business segment produces motorcycles,
+    including sports, business, and commuter models; and various off-road vehicles,
+    such as all-terrain vehicles a'
+  revenue: 147640000000.0
+  revenue_growth: 7.8
+  roic: -0.73
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hmc/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HMC/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HMC/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HMC/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HMC/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hmc/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hmc/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hmc/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HMC/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hmc/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HMC/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hmc/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hmc/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hmc/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HMC/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/HMC/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/hmc/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    36.26, "low": 34.0, "mean": 34.75, "median": 34.75, "observed_at": "2026-11-20T15:30:11.443458-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T15:30:11.443458-03:00", "observed_date": "2026-11-20", "target_price":
+    34.75, "url": "https://stockanalysis.com/stocks/hmc/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T15:30:11.443458-03:00",
+    "observed_date": "2026-11-20", "target_price": 34.75203, "url": "https://finance.yahoo.com/quote/HMC/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 33.959999084472656,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/HMC/"}]}}'
+  sector: Consumer Cyclical
+  ticker: HMC
+research_trigger:
+  discovery_snapshot_hash: 4cae011e594bcf5a85cde2a90634c032f331ee34f4213f4bb101d97bdf4c9def
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 355a4107811a27654880a55edeb2c8d7ef1d96d9fc30a88d9badb225b62f03c8
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T15:30:43.917552-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.32x al 2026-09-30; no cruza el umbral configurado.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/HMC/statistics/
+  threshold: below 0.5x
+- metric: dilution_yoy_pct
+  observation: 'No disponible: falta una serie de acciones comparable para calcular
+    la dilución interanual.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/HMC/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: 0 reportado al 2026-09-30; el EBIT TTM también es negativo. El paquete
+    no aporta el gasto por intereses para validar independientemente el ratio.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/HMC/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplica según el FCF TTM reportado, que es positivo; el paquete no
+    proporciona una serie compatible que permita confirmar esa cifra frente al campo
+    histórico de FCF.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/HMC/statistics/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 'No disponible bajo la definición requerida: faltan inputs compatibles
+    para el cálculo.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No disponible: no se proporciona una serie de acciones para tres años.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/HMC/statistics/
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Una mejora sostenida y verificable de EBIT y FCF debilitaría la lectura adversa.
+    id: BEAR
+    key_assumptions:
+    - El extremo bajo del consenso sigue siendo una referencia comparable en USD para
+      el horizonte.
+    - No se atribuye una valoración intrínseca propia ni un método de valoración no
+      disponible.
+    rationale: 'Ancla observada: extremo bajo del consenso de analistas. Es el caso
+      adverso dentro del rango observado; la rentabilidad débil reciente ofrece una
+      razón de negocio para no asumir una mejora, pero el paquete no permite cuantificar
+      su efecto en el precio.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/hmc/forecast/
+    target_price: 34.0
+  - falsifiers:
+    - Un deterioro adicional de EBIT, márgenes o generación de caja debilitaría la
+      lectura favorable.
+    id: BULL
+    key_assumptions:
+    - El extremo alto del consenso sigue siendo una referencia comparable en USD para
+      el horizonte.
+    - No se atribuye una valoración intrínseca propia ni un método de valoración no
+      disponible.
+    rationale: 'Ancla observada: extremo alto del consenso de analistas. Es el mejor
+      resultado plausible respaldado por el rango disponible, no una estimación propia;
+      la diversificación de segmentos proporciona contexto de negocio, pero el paquete
+      no prueba una recuperación de resultados.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/hmc/forecast/
+    target_price: 36.26
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 48
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T15:30:11.443458-03:00'
+  fuentes:
+    stockanalysis: 34.75
+    yfinance: 34.75203
+  mediana: 34.75
+  n_fuentes: 2
+  promedio: 34.75
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T15:30:11.443458-03:00'
+    observed_date: '2026-11-20'
+    target_price: 34.75
+    url: https://stockanalysis.com/stocks/hmc/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T15:30:11.443458-03:00'
+    observed_date: '2026-11-20'
+    target_price: 34.75203
+    url: https://finance.yahoo.com/quote/HMC/
+  target_high: 36.26
+  target_low: 34.0
+tesis_inversion: Honda opera en motocicletas, automóviles, servicios financieros y
+  productos de fuerza, según el resumen financiero. La evidencia entregada no permite
+  validar que el crecimiento, la reinversión y los retornos sobre capital sostengan
+  una tesis multibagger; además, el EBIT TTM reportado es negativo y el margen bruto
+  TTM es inferior a los de FY 2023–FY 2026. Faltan datos para evaluar penetración
+  de mercado, moat, rentabilidad por segmento, retornos sobre capital y asignación
+  de capital.
+ticker: HMC
+version: '3.0'

@@ -1,0 +1,39 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de crecimiento multibagger'
+- 'Market error: No se valida un error de valoración con la evidencia disponible.'
+- 'Thesis: Honda opera en motocicletas, automóviles, servicios financieros y productos
+  de fuerza, según el resumen financiero. La evidencia entregada no permite validar
+  que el crecimiento, la reinversión y los r'
+generated_at: '2026-11-20T15:32:12.245673-03:00'
+id: ass-42288c94
+recommendation: REVIEW
+risks:
+- detalle: EBIT TTM reportado negativo a 2026-09-30 y margen bruto TTM de 16,05%,
+    frente a 16,75% en FY 2026.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/HMC/statistics/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  riesgo: Rentabilidad débil en el período reciente
+- detalle: La serie reportada de FCF muestra valores positivos y negativos en ejercicios
+    distintos; el FCF TTM y su crecimiento reportado requieren cautela por diferencias
+    entre campos y comparabilidad no aclarada.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  riesgo: La tendencia de caja libre no está suficientemente establecida
+- detalle: La deuda total reportada supera el efectivo e inversiones al 2026-09-30,
+    pero no se dispone de inputs compatibles para calcular deuda neta/EBITDA con la
+    definición requerida.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/hmc/financials/
+  riesgo: Servicios financieros y deuda pueden complicar la lectura de apalancamiento
+    consolidado
+score: 48
+status: COMPLETED
+version: '3.0'

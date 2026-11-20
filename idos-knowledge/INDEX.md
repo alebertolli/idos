@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 81 companies tracked
+Total: 82 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -37,6 +37,7 @@ Total: 81 companies tracked
 - 📄 [[EBAY|eBay Inc.]]
 - 📄 [[ETSY|Etsy, Inc.]]
 - 📄 [[GM|General Motors Company]]
+- 📄 [[HMC|Honda Motor Co., Ltd.]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
