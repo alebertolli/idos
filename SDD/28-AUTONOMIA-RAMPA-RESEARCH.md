@@ -29,6 +29,14 @@ Pruebas: estado/backoff y límite de cuota; reanudación con cola vacía; preser
 
 En `2026-11-19`, el run [44615144605](https://github.com/alebertolli/idos/actions/runs/44615144605) completó dos investigaciones, publicó el PR #382 y pasó CI, pero falló al pedir `gh pr merge --auto`: GitHub indicó que no había reglas de rama protegida para habilitar Auto-merge. El PR se fusionó tras verificar sus checks. La continuación queda corregida para esperar los checks del PR y ejecutar la fusión directa antes del despacho siguiente.
 
+## Incidente de handoff CI (2026-11-20)
+
+Los runs [#44627427454](https://github.com/alebertolli/idos/actions/runs/44627427454) y [#44657883594](https://github.com/alebertolli/idos/actions/runs/44657883594) terminaron con error al consultar el estado de Actions; uno devolvió HTTP 500 desde la API. El run [#44723662253](https://github.com/alebertolli/idos/actions/runs/44723662253) también llegó a publicar resultados y ejecutar el CI completo por `workflow_dispatch`, pero el paso `gh pr checks` informó que no había checks en la rama. Los checks de la ejecución `workflow_dispatch` pasan en el SHA de la rama de resultados; no siempre están asociados al evento `pull_request` y por eso ese comando no es una señal de validación confiable.
+
+La corrección espera el run `workflow_dispatch` recién lanzado con reintentos para errores transitorios de la API, exige `conclusion=success`, `event=workflow_dispatch` y que su `headSha` coincida con el SHA actual del PR; vuelve a comprobar ese SHA antes de fusionar. Un cambio de commit durante CI falla de forma segura. El PR de resultados [#390](https://github.com/alebertolli/idos/pull/390) tiene CI manual exitoso en Python 3.11 y 3.12, pero quedó sin fusionar por el handoff anterior. La próxima ejecución debe demostrar que se publica ese estado y que la continuación vuelve a dispararse.
+
+En el run #44723662253, OpenAI respondió correctamente como proveedor de fallback; Gemini devolvió HTTP 400 y Groq informó cuota agotada (429). Una de las tres oportunidades tuvo `scenario_validation=invalid_pending_revision` y se reprogramó sin pausar el resto. Es un error de calidad por candidato, separado del fallo de publicación. La cola en el checkpoint actual continúa `paused=false`; el lote sólo crece después de un lote enteramente exitoso.
+
 ## Límites
 
 GitHub Actions cron puede retrasarse y no se garantiza puntualidad horaria. La continuación automática necesita que la publicación del lote y el CI del PR de resultados terminen; un fallo de CI detiene la cadena hasta la siguiente acción efectiva. Un proveedor sin cuota puede mantener la cola en espera hasta 24 horas entre reintentos. Los casos en cuarentena necesitan corrección de datos/código para volver a intentarse; quedan persistidos para revisión, sin detener otras oportunidades.
