@@ -1,0 +1,197 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El GMV en moneda constante cae interanualmente en dos trimestres consecutivos
+      antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento acumulado del GMV en los doce meses terminados en la
+      fecha objetivo es inferior al 2%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El GMV en moneda constante cae interanualmente en dos trimestres consecutivos
+    antes de la fecha objetivo.
+  - El crecimiento acumulado del GMV en los doce meses terminados en la fecha objetivo
+    es inferior al 2%.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-EBAY-0001
+  opportunity_id: OPP-COMPOUNDER-EBAY-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 4.5
+    met: null
+    metric: Crecimiento interanual del GMV en moneda constante en los doce meses terminados
+      en la fecha objetivo
+    prediction: En los doce meses terminados el 2027-11-20, el GMV crecerá entre 3%
+      y 6% interanual en moneda constante, según los resultados trimestrales publicados
+      hasta esa fecha.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La amplitud de compradores y vendedores del marketplace puede reforzar
+    sus efectos de red, mientras que la especialización en artículos usados, reacondicionados
+    y coleccionables puede diferenciar la oferta de eBay. La tesis quedaría respaldada
+    si el GMV crece de forma sostenida en moneda constante; no se presupone que la
+    empresa publique una medida completa y comparable de cuota en recommerce.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos muestran
+    contracción interanual del GMV en moneda constante, o si el GMV acumulado a 2027-11-20
+    crece menos del 2%.
+  secondary_hypotheses: []
+  statement: eBay sostendrá un crecimiento positivo del GMV gracias a la fortaleza
+    de sus categorías de segunda mano y coleccionables, sin depender exclusivamente
+    de una recuperación general del comercio electrónico.
+  status: ACTIVE
+  ticker: EBAY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre es inferior al 18% en cada uno de
+      dos ejercicios fiscales consecutivos publicados antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen del ejercicio fiscal que termine más cerca de la fecha objetivo
+      es inferior al 20%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre es inferior al 18% en cada uno de dos ejercicios
+    fiscales consecutivos publicados antes de la fecha objetivo.
+  - El margen del ejercicio fiscal que termine más cerca de la fecha objetivo es inferior
+    al 20%.
+  horizon: largo
+  id: H2-OPP-COMPOUNDER-EBAY-0001
+  opportunity_id: OPP-COMPOUNDER-EBAY-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 20.0
+    met: null
+    metric: Margen de flujo de caja libre del ejercicio fiscal objetivo
+    prediction: En el ejercicio fiscal que termine más cerca del 2028-11-20, el margen
+      de flujo de caja libre será de al menos 20%, calculado como flujo de caja libre
+      dividido por ingresos netos.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El modelo de marketplace requiere menos activos físicos que el comercio
+    minorista tradicional y puede convertir una parte importante de sus ingresos en
+    efectivo. La automatización y la reducción de costos podrían respaldar esa conversión,
+    aunque una mayor inversión o un deterioro de márgenes la limitarían.
+  review_trigger: Dejar de creerla si dos ejercicios fiscales consecutivos publicados
+    antes del 2028-11-20 presentan un margen de flujo de caja libre inferior al 18%,
+    o si la cifra del ejercicio objetivo queda por debajo del 20%.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-EBAY-0001
+  statement: eBay mantendrá una generación de flujo de caja libre elevada en relación
+    con sus ingresos, aun cuando invierta en producto, tecnología e iniciativas de
+    inteligencia artificial.
+  status: ACTIVE
+  ticker: EBAY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La diferencia entre el crecimiento interanual del GMV internacional
+      y el estadounidense es inferior a 0 puntos porcentuales en dos trimestres consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La diferencia acumulada para los doce meses terminados en la fecha
+      objetivo es inferior a 2 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La diferencia entre el crecimiento interanual del GMV internacional y el estadounidense
+    es inferior a 0 puntos porcentuales en dos trimestres consecutivos.
+  - La diferencia acumulada para los doce meses terminados en la fecha objetivo es
+    inferior a 2 puntos porcentuales.
+  horizon: largo
+  id: H3-OPP-COMPOUNDER-EBAY-0001
+  opportunity_id: OPP-COMPOUNDER-EBAY-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 2.0
+    met: null
+    metric: Ventaja de crecimiento del GMV internacional frente al estadounidense
+      en moneda constante
+    prediction: En los doce meses terminados el 2028-11-20, el GMV internacional crecerá
+      en moneda constante al menos 2 puntos porcentuales más que el GMV de Estados
+      Unidos.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: La presencia de eBay en distintos países y la posibilidad de conectar
+    oferta y demanda transfronterizas pueden facilitar el crecimiento internacional.
+    La hipótesis requiere que la compañía informe datos geográficos comparables y
+    que las diferencias no se expliquen solo por tipos de cambio.
+  review_trigger: Dejar de creerla si el GMV internacional no supera al estadounidense
+    en moneda constante durante dos trimestres consecutivos, o si la ventaja acumulada
+    a 2028-11-20 es inferior a 2 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-EBAY-0001
+  statement: La expansión internacional de eBay contribuirá al crecimiento por encima
+    de su mercado estadounidense, en lugar de ser únicamente una fuente de escala
+    sin aceleración relativa.
+  status: ACTIVE
+  ticker: EBAY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total acumulada de EBAY queda por debajo de la de XLY
+      en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de EBAY supera a XLY, pero por menos de 10 puntos
+      porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total acumulada de EBAY queda por debajo de la de XLY en la fecha
+    objetivo.
+  - La rentabilidad total de EBAY supera a XLY, pero por menos de 10 puntos porcentuales
+    en la fecha objetivo.
+  horizon: largo
+  id: H4-OPP-COMPOUNDER-EBAY-0001
+  opportunity_id: OPP-COMPOUNDER-EBAY-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total acumulada de EBAY menos rentabilidad total acumulada
+      de XLY
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2028-11-20, la rentabilidad
+      total de EBAY, incluidos dividendos, superará en al menos 10 puntos porcentuales
+      la rentabilidad total del ETF Consumer Discretionary Select Sector SPDR (XLY).
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Si el crecimiento del GMV y la conversión de efectivo se mantienen, el
+    mercado podría valorar más favorablemente la durabilidad y la capacidad de retorno
+    de capital del negocio. La hipótesis es de desempeño relativo y no presupone una
+    expansión concreta del múltiplo de valoración.
+  review_trigger: Dejar de creerla si, en la fecha de cierre del 2028-11-20, la rentabilidad
+    total acumulada de EBAY no supera la de XLY por al menos 10 puntos porcentuales,
+    o antes si las hipótesis H1 y H2 quedan falsadas.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-EBAY-0001
+  - H2-OPP-COMPOUNDER-EBAY-0001
+  statement: La combinación de crecimiento del marketplace y generación de efectivo
+    permitirá que la acción de eBay obtenga una rentabilidad total superior a la de
+    un índice sectorial amplio en un horizonte de dos años.
+  status: ACTIVE
+  ticker: EBAY
+  version: 1

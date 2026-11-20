@@ -1,0 +1,463 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La combinación de soluciones especializadas y servicios para varios sectores podría
+    favorecer costes de cambio y resiliencia, pero no hay datos directos de retención
+    o cuota de mercado.
+  - La diferencia entre cotización y objetivos de analistas no prueba una infravaloración,
+    porque los objetivos no son valoraciones independientes.
+  - El perfil parece compatible con calidad empresarial, aunque la evidencia presentada
+    no valida completamente la durabilidad del moat.
+  - Los catalizadores, riesgos y probabilidades asignadas son estimaciones analíticas,
+    no hechos observados ni probabilidades calibradas.
+  - 'Campo fcf: valor reportado USD 1.870 millones; fuente seleccionada stockanalysis.com;
+    periodo TTM con fecha de periodo 2026-09-30. La unidad original es provider_financial_currency
+    y la moneda general declarada en la evidencia financiera es USD.'
+  - 'Campo operating_margin_pct: valor reportado 19,217 puntos porcentuales; fuente
+    seleccionada yfinance; fecha de periodo 2026-09-30; periodo no especificado por
+    el proveedor.'
+  - 'Campo revenue_growth_pct: valor reportado 12,7 puntos porcentuales; fuente seleccionada
+    yfinance; fecha de periodo 2026-09-30; periodo no especificado por el proveedor.'
+  - 'Campo current_quote: USD 303,005; fuente yfinance; fecha de cotización 2026-10-30.'
+  - 'Campo analyst_target_consensus: media y mediana observadas de USD 342,95, con
+    mínimo USD 310 y máximo USD 385; fuentes stockanalysis y yfinance; fecha de observación
+    2026-11-20.'
+  preguntas_abiertas:
+  - ¿Cuál es la composición orgánica del crecimiento por volumen, precio, adquisiciones
+    y divisas, y cuál es su evolución interanual?
+  - ¿Qué valoración implican los múltiplos actuales y qué supuestos de crecimiento
+    y márgenes los sostienen?
+  - ¿Cuáles son la deuda neta, los vencimientos, la liquidez disponible y la cobertura
+    de intereses?
+  - ¿Qué evidencias de retención, costes de cambio, cuota de mercado y rendimiento
+    por segmento confirman la durabilidad del moat?
+  - ¿Cómo se asignó el capital entre adquisiciones, inversión, recompras y dividendos,
+    y cuál ha sido el retorno de esas decisiones?
+  - ¿Qué incidentes regulatorios, ambientales, de seguridad de producto o de cadena
+    de suministro son materiales, y qué controles existen?
+  - ¿Cuál es el periodo exacto al que corresponden el crecimiento de ingresos y el
+    margen operativo reportados por yfinance?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: 'Compounder: la calidad y duración del moat son plausibles,
+    pero no están suficientemente documentadas aquí para afirmar un compounder excepcional.
+    Compounder castigado: no hay evidencia de una caída temporal del negocio o de
+    una discrepancia de valoración demostrada. Turnaround: no se aporta evidencia
+    de declive operativo ni de un plan de recuperación. Deep Value: no hay múltiplos
+    ni datos de activos que sustenten infravaloración profunda. Cíclica: la exposición
+    a clientes industriales podría transmitir ciclos, pero no acredita que el negocio
+    sea intrínsecamente cíclico. Special Situation: no se describen spin-off, fusión
+    o reestructuración. Distressed: no se aportan señales de insolvencia. Hype: no
+    hay evidencia de valoración puramente especulativa ni de ausencia de ganancias.
+    Value Trap: tampoco hay evidencia de destrucción estructural de valor.'
+  justificacion: Ecolab presenta un perfil de negocio que, por la descripción disponible,
+    combina soluciones de agua, higiene y prevención de infecciones con servicios
+    para clientes de distintos sectores. Esto es compatible con una empresa de calidad,
+    pero la información aportada no basta para validar con profundidad la durabilidad
+    del moat ni para demostrar que la acción esté barata. La cotización observada
+    está por debajo del objetivo medio de analistas, aunque esos objetivos no constituyen
+    una valoración independiente. Por ello, la clasificación más prudente es calidad
+    a precio razonable, no compounder castigado.
+comparativa_catalizadores:
+- delta_pct: 45
+  descripcion: Confirmación de crecimiento rentable y generación de caja mediante
+    resultados futuros con desglose operativo.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos; se incorpora como
+    catalizador nuevo. La probabilidad es una estimación analítica con confianza baja.
+  probabilidad_actual: 45
+  probabilidad_anterior: 0
+- delta_pct: 35
+  descripcion: Revisión de expectativas a la baja si resultados o guía muestran desaceleración
+    o presión de márgenes.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos; se incorpora como
+    riesgo-catalizador nuevo. La probabilidad es una estimación analítica con confianza
+    baja.
+  probabilidad_actual: 35
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: La descripción disponible cubre agua, higiene, prevención de infecciones
+    y servicios para múltiples industrias, lo que sugiere una propuesta especializada
+    y diversificada. Puede haber costes de cambio asociados a procesos críticos y
+    a la integración de productos y servicios, pero esto es una inferencia, no una
+    verificación de retención, cuota de mercado o ventaja de costes. Faltan datos
+    de concentración de clientes, recurrencia, márgenes por segmento y competencia.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Confirmación en resultados futuros de crecimiento rentable y generación
+    de caja, con desglose que permita distinguir crecimiento orgánico de precios,
+    adquisiciones y divisas.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Actualización de resultados o guía que revele desaceleración o presión
+    de márgenes y lleve al mercado a revisar a la baja expectativas y objetivos.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: La actividad en tratamiento de agua e higiene hace pertinentes riesgos
+    de uso de agua, químicos, seguridad de producto, cumplimiento ambiental y salud
+    laboral. No se aportan datos de incidentes, auditorías, intensidad de recursos,
+    proveedores críticos o concentración geográfica. La calificación es provisional
+    y expresa incertidumbre material sobre exposición y controles.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia financiera estructurada reporta FCF de USD 1.870 millones,
+    TTM con fecha de periodo 2026-09-30, seleccionado de stockanalysis.com. Yfinance
+    reporta margen operativo de 19,217% y crecimiento de ingresos de 12,7%, ambos
+    con fecha de periodo 2026-09-30 y periodo no especificado por el proveedor. Estos
+    datos no permiten evaluar por sí solos apalancamiento, vencimientos, liquidez,
+    cobertura de intereses o conversión histórica de caja; las métricas de balance
+    no están incluidas como observaciones utilizables.
+  rating: adecuada
+dominio_growth:
+  analisis: La observación de yfinance informa crecimiento de ingresos de 12,7% al
+    2026-09-30, pero el periodo está especificado como no identificado por el proveedor.
+    No hay descomposición entre crecimiento orgánico, precios, volumen, adquisiciones
+    y divisas, ni guía o previsiones verificables. La diversificación sectorial descrita
+    podría ofrecer oportunidades de crecimiento, como inferencia, pero no permite
+    cuantificar su visibilidad.
+  rating: moderado
+dominio_management:
+  analisis: No se aportan datos verificables sobre incentivos, compras y ventas de
+    insiders, adquisiciones, retornos sobre capital, política de dividendos o recompras,
+    ni ejecución histórica frente a objetivos. La calificación refleja falta de evidencia
+    para evaluar, no una conclusión de mala gestión.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: La valoración podría depender de expectativas de crecimiento y márgenes
+    que no pueden contrastarse con los datos parciales disponibles.
+- impacto: medio
+  probabilidad: media
+  riesgo: La competencia, la pérdida de contratos o la menor capacidad de trasladar
+    costes podrían debilitar el crecimiento y los márgenes.
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgos regulatorios, ambientales, de seguridad de producto o de cumplimiento
+    asociados a soluciones químicas y de tratamiento de agua.
+- impacto: medio
+  probabilidad: media
+  riesgo: Exposición a ciclos de actividad de clientes industriales, de alimentos
+    y bebidas y de otros sectores atendidos.
+- impacto: alto
+  probabilidad: baja
+  riesgo: La falta de evidencia disponible sobre deuda, liquidez y vencimientos impide
+    descartar vulnerabilidades financieras relevantes.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una secuencia de resultados y comunicaciones corporativas que confirme
+      crecimiento rentable y conversión de caja, y que reduzca la incertidumbre sobre
+      la sostenibilidad del crecimiento. Es un catalizador condicional; no se aportaron
+      fechas de resultados futuros ni evidencia primaria que confirme tal mejora.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización disponible es USD 303,005, con fecha 2026-10-30.
+    El consenso de objetivos observado el 2026-11-20 es USD 342,95, con rango USD
+    310-385. La cotización está por debajo del límite bajo de ese rango; sin embargo,
+    los objetivos son referencias de analistas, no una valoración independiente ni
+    una predicción garantizada. No se proporcionaron múltiplos actuales ni expectativas
+    financieras suficientes para inferir qué escenario operativo descuenta el precio.
+  hipotesis_contraria: El mercado podría estar infravalorando la resiliencia de soluciones
+    integradas y servicios recurrentes si estos generan costes de cambio y relaciones
+    duraderas con clientes. En sentido contrario, el consenso podría estar sobreestimando
+    el crecimiento o la capacidad de trasladar costes. Con la evidencia suministrada
+    no es posible determinar qué variable predomina ni afirmar que exista información
+    material ignorada por el mercado.
+  razonamiento: 'La cotización es inferior a los objetivos observados, pero la diferencia
+    no demuestra por sí sola un error de mercado: los objetivos no son una valoración
+    independiente y faltan múltiplos, previsiones operativas detalladas y evidencia
+    primaria reciente. No se puede establecer si el precio descuenta deterioro excesivo
+    o si el consenso está demasiado optimista.'
+generated_at: '2026-11-20T14:13:22.450979-03:00'
+integridad_tesis:
+  flags: []
+  reason: 'No se aporta evidencia que active ninguna de las nueve categorías de invalidación.
+    Esto no equivale a verificar que la tesis esté intacta: moat, gestión, solvencia
+    y riesgos operativos requieren investigación adicional.'
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-ECL-0001
+prompt_inputs:
+  business_model: 'Ecolab Inc. provides water, hygiene, and infection prevention solutions
+    and services in the United States and internationally. The company operates through
+    four segments: Global Water, Global Institutional & Specialty, Global Pest Elimination,
+    and Global Life Sciences. The Global Water segment offers water treatment and
+    process applications, and cleaning and sanitizing solutions to manufacturing,
+    food and beverage processing, transportation, chemical, primary metals and mining,
+    power generation, global refining, petrochemical, pulp and paper industries. The
+    Global Institutional & Specialty segment provides cleaning and sanitizing products
+    to the foodservice, healthcare, hospitality, lodging, government, education and
+    retail industries. The Global Pest Elimination segment provides pest elimination
+    services to detect, prevent, and eliminate pests comprising rodents and insects
+    in full-service and quick-service restaurants, food and beverage processors, hotels,
+    grocery operations, and other commercial segments, including education, life sciences,
+    and healthcare. The Global Life Sciences segment provides cleaning and contamination
+    control solutions to pharmaceutical and personal care manufacturers. It offers
+    its products under the Ecolab, Kay, Purolite, and Bioquell brand names. The company
+    sells its products through field sales and corporate account personnel, distributors,
+    and dealers. Ecolab Inc. was founded in 1923 and is headquartered in Saint Paul,
+    Minnesota.'
+  ceo_tenure: 0
+  debt_to_equity: 0.0132
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Ecolab Inc.
+  operating_margin: 18.54
+  pe_ratio: 41.11
+  products: ''
+  revenue: 17370000000.0
+  revenue_growth: 9.33
+  roic: 12.24
+  sector: Basic Materials
+  ticker: ECL
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Ecolab Inc. provides water, hygiene, and infection prevention solutions
+    and services in the United States and internationally. The company operates through
+    four segments: Global Water, Global Institutional & Specialty, Global Pest Elimination,
+    and Global Life Sciences. The Global Water segment offers water treatment and
+    process applications, and cleaning and sanitizing solutions to manufacturing,
+    food and beverage processing, transportation, chemical, primary metals and mining,
+    power generation, global refining, petrochemical, pulp and paper industries. The
+    Global Institutional & Specialty segment provides cleaning and sanitizing products
+    to the foodservice, healthcare, hospitality, lodging, government, education and
+    retail industries. The Global Pest Elimination segment provides pest elimination
+    services to detect, prevent, and eliminate pests comprising rodents and insects
+    in full-service and quick-service restaurants, food and beverage processors, hotels,
+    grocery operations, and other commercial segments, including education, life sciences,
+    and healthcare. The Global Life Sciences segment provides cleaning and contamination
+    control solutions to pharmaceutical and personal care manufacturers. It offers
+    its products under the Ecolab, Kay, Purolite, and Bioquell brand names. The company
+    sells its products through field sales and corporate account personnel, distributors,
+    and dealers. Ecolab Inc. was founded in 1923 and is headquartered in Saint Paul,
+    Minnesota.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 303.0050048828125
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0132
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:39.971664+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ECL/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 1870000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:30.135843+00:00", "period_end_date": "2026-09-30", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1790726400, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    19.217000000000002}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:30.135843+00:00",
+    "period_end_date": "2026-09-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1790726400,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    12.7}}}, "observed_at": "2026-10-30T16:53:39.971664+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Ecolab Inc.
+  operating_margin: 18.54
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Ecolab Inc. provides water, hygiene, and infection prevention solutions
+    and services in the United States and internationally. The company operates through
+    four segments: Global Water, Global Institutional & Specialty, Global Pest Elimination,
+    and Global Life Sciences. The Global Water segment offers water treatment and
+    process applications, and cleaning and sanitizing solutions to manufacturing,
+    food and beverage processing, transportation, chemical, primary metals and mining,
+    power generation,'
+  revenue: 17370000000.0
+  revenue_growth: 9.33
+  roic: 12.24
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    385.0, "low": 310.0, "mean": 342.95, "median": 342.95, "observed_at": "2026-11-20T14:12:49.016878-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T14:12:49.016878-03:00", "observed_date": "2026-11-20", "target_price":
+    342.95, "url": "https://stockanalysis.com/stocks/ecl/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:12:49.016878-03:00",
+    "observed_date": "2026-11-20", "target_price": 342.9524, "url": "https://finance.yahoo.com/quote/ECL/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 303.0050048828125,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ECL/"}]}}'
+  sector: Basic Materials
+  ticker: ECL
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 3ba1a5384a3f682eaa1cfb6bcf3a9c1eb4a8aff85c5700bf3a410c340cf0279c
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T14:13:22.450979-03:00'
+resumen_ejecutivo: 'Ecolab parece tener atributos compatibles con un negocio de calidad:
+  ofrece soluciones especializadas de agua, higiene y prevención de infecciones a
+  clientes de varios sectores. No obstante, la información disponible es insuficiente
+  para verificar la intensidad y durabilidad del moat, la calidad del balance, la
+  asignación de capital o la valoración relativa. Los datos financieros aportados
+  muestran FCF TTM de USD 1.870 millones hasta 2026-09-30, crecimiento de ingresos
+  reportado de 12,7% y margen operativo reportado de 19,217% para el periodo que termina
+  en esa fecha; las dos últimas observaciones tienen periodo no especificado por el
+  proveedor. La cotización queda por debajo del rango de objetivos de analistas, pero
+  eso no basta para concluir que exista una oportunidad. Tesis: calidad potencial,
+  valoración y error de mercado aún no demostrados.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados publicados que muestren desaceleración material o deterioro persistente
+      de márgenes.
+    - Evidencia de crecimiento orgánico rentable y conversión de caja que sostenga
+      una valoración superior al extremo inferior observado.
+    id: BEAR
+    key_assumptions:
+    - La incertidumbre sobre crecimiento y márgenes persiste durante el horizonte.
+    - El mercado no concede una prima superior a la implícita en el extremo inferior
+      del rango de analistas observado.
+    - No se produce un deterioro operativo grave que requiera un objetivo fuera del
+      rango de referencia disponible.
+    rationale: Usa el límite inferior del rango de objetivos observado como ancla,
+      no como valoración independiente. Representa un resultado adverso plausible
+      en el que la incertidumbre sobre crecimiento y márgenes limita la revalorización.
+      La entrada no aporta evidencia primaria suficiente para sostener una cifra inferior
+      al rango observado.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos de ECL
+      url: https://stockanalysis.com/stocks/ecl/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance, cotización de ECL
+      url: https://finance.yahoo.com/quote/ECL/
+    target_price: 310
+  - falsifiers:
+    - Resultados o guía que indiquen desaceleración persistente o presión relevante
+      sobre márgenes.
+    - Evidencia de que el crecimiento reportado depende principalmente de factores
+      no recurrentes o de adquisiciones no reflejadas en crecimiento orgánico.
+    id: BULL
+    key_assumptions:
+    - El crecimiento y los márgenes se mantienen suficientemente sólidos como para
+      apoyar el extremo superior de las expectativas observadas.
+    - No aparece evidencia material de deterioro del moat, pérdida de contratos o
+      presión estructural de márgenes.
+    - El mercado conserva una valoración compatible con el objetivo máximo observado.
+    rationale: Usa el límite superior del rango de objetivos observado como ancla,
+      no como valoración independiente. Es el mejor resultado plausible respaldado
+      por las referencias suministradas si los resultados y la generación de caja
+      sostienen una interpretación favorable. No se proyecta por encima del rango
+      observado porque no se proporcionó una fuente independiente que lo respalde.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos de ECL
+      url: https://stockanalysis.com/stocks/ecl/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance, cotización de ECL
+      url: https://finance.yahoo.com/quote/ECL/
+    target_price: 385
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T14:12:49.016878-03:00'
+  fuentes:
+    stockanalysis: 342.95
+    yfinance: 342.9524
+  mediana: 342.95
+  n_fuentes: 2
+  promedio: 342.95
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T14:12:49.016878-03:00'
+    observed_date: '2026-11-20'
+    target_price: 342.95
+    url: https://stockanalysis.com/stocks/ecl/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T14:12:49.016878-03:00'
+    observed_date: '2026-11-20'
+    target_price: 342.9524
+    url: https://finance.yahoo.com/quote/ECL/
+  target_high: 385.0
+  target_low: 310.0
+tesis_inversion: La tesis favorable depende de que Ecolab convierta su cartera especializada
+  y su presencia en varias industrias en demanda recurrente, crecimiento rentable
+  y caja sostenible. Los datos suministrados son compatibles con generación de caja
+  y crecimiento, pero no permiten verificar la recurrencia, la ventaja competitiva,
+  el balance ni el precio intrínseco. La diferencia entre cotización y objetivos de
+  analistas es una señal para investigar, no evidencia suficiente de infravaloración.
+  Mantener una postura de calidad potencial a valoración no demostrada, con incertidumbre
+  elevada sobre el margen de seguridad.
+ticker: ECL
+version: '3.0'

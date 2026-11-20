@@ -1,0 +1,742 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El crecimiento de ingresos y FCF TTM frente a FY 2025 es una señal descriptiva
+    favorable, pero un solo período TTM no establece una tendencia sostenible.
+  - La falta de datos sobre penetración, usuarios, competencia y reinversión impide
+    concluir si el marketplace conserva una ventaja duradera.
+  - 'El resumen financiero describe eBay como operador de marketplaces que conectan
+    compradores y vendedores en varios países; período de referencia: descripción
+    del negocio en el paquete al 2026-11-20.'
+  - 'Ingresos TTM reportados de USD 12,394 millones y FCF TTM reportado de USD 2,412
+    millones; período terminado el 2026-09-30. Fuente: https://stockanalysis.com/stocks/EBAY/statistics/.'
+  - 'Momentum de precio a 12 meses reportado de 49.6003% y drawdown reportado de 1.0333%;
+    período 2025-10-31/2026-10-30. Fuente: https://finance.yahoo.com/quote/EBAY/history/.'
+  preguntas_abiertas:
+  - ¿Cuál es la evolución comparable de los ingresos, FCF y acciones diluidas y qué
+    factores explican sus cambios?
+  - ¿Qué cuota y penetración tiene eBay en sus mercados relevantes y cómo cambian
+    frente a competidores?
+  - ¿Qué retornos obtiene la empresa sobre el capital reinvertido y cómo asigna capital
+    la dirección?
+  - ¿Qué supuestos y horizonte respaldan los extremos del consenso de analistas?
+catalizadores_previos: &id001
+- descripcion: Implementación de IA para optimizar listados y precios, aumentando
+    la retención de vendedores
+  generated_at: '2026-11-20T14:09:18.482420-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-COMPOUNDER-EBAY-0001
+  probabilidad_anterior: 45
+- descripcion: Expansión de la plataforma en mercados emergentes de Asia y Latinoamérica
+  generated_at: '2026-11-20T14:09:18.482420-03:00'
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-COMPOUNDER-EBAY-0001
+  probabilidad_anterior: 35
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia de mercado favorable, pero evidencia
+    fundamental incompleta
+  justificacion: El paquete registra momentum de precio positivo a 12 meses, pero
+    no aporta una fuente validada en trusted_source_urls para respaldar los ratios
+    requeridos.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo de marketplace puede conectar múltiples compradores y vendedores,
+    pero el paquete no documenta la fortaleza o erosión de una ventaja competitiva,
+    la penetración del mercado, la reinversión ni los retornos sobre capital. El margen
+    bruto TTM reportado fue 72.17% al 2026-09-30, aunque no basta para establecer
+    calidad o durabilidad del negocio.
+  rating: Evidencia insuficiente para una calificación concluyente
+dominio_catalizadores:
+- catalizador: El FCF TTM reportado para el período terminado el 2026-09-30 fue USD
+    2,412 millones; su evolución y sostenibilidad requieren validación con evidencia
+    fuente permitida.
+  fuente: Resumen de evidencia financiera, stockanalysis.com, https://stockanalysis.com/stocks/EBAY/statistics/,
+    TTM terminado el 2026-09-30.
+- catalizador: Los ingresos TTM reportados para el período terminado el 2026-09-30
+    fueron USD 12,394 millones; el paquete no incluye orientación futura de la empresa.
+  fuente: Resumen de evidencia financiera, stockanalysis.com, https://stockanalysis.com/stocks/EBAY/statistics/,
+    TTM terminado el 2026-09-30.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: Research Intake Package; trusted_source_urls vacío.
+  riesgo: 'Evidencia financiera insuficientemente verificable para los ratios solicitados:
+    trusted_source_urls está vacío.'
+- fuente: Resumen de evidencia financiera, stockanalysis.com, https://stockanalysis.com/stocks/EBAY/statistics/,
+    período terminado el 2026-09-30.
+  riesgo: El current ratio reportado es 0.78x al 2026-09-30, pero no forma parte de
+    los ratios solicitados y no permite por sí solo evaluar liquidez completa.
+- fuente: Resumen de evidencia financiera, stockanalysis.com, https://stockanalysis.com/stocks/EBAY/statistics/,
+    período terminado el 2026-09-30.
+  riesgo: La deuda total reportada supera el efectivo e inversiones reportados al
+    2026-09-30; falta validar el ratio deuda neta/EBITDA conforme a las restricciones
+    de fuente.
+- fuente: Research Intake Package y resumen financiero; no se aportan esos campos.
+  riesgo: No se proporcionan datos sobre cuota de mercado, penetración del mercado
+    direccionable, retención de usuarios ni evolución competitiva.
+error_mercado:
+  catalizador_cambio: Una actualización verificable de resultados, perspectivas o
+    indicadores operativos podría cambiar la evaluación, pero el paquete no aporta
+    un calendario ni objetivos empresariales.
+  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
+    disponible.
+  consenso_actual: El consenso de analistas reportado es USD 127.11, con rango de
+    USD 71 a USD 153, observado el 2026-11-20. La cotización del 2026-10-30 fue USD
+    121.33.
+  hipotesis_contraria: El rango amplio de objetivos no demuestra por sí mismo que
+    el mercado esté equivocado; la evidencia disponible no identifica qué expectativas
+    operativas están incorporadas en la cotización.
+  razonamiento: Los objetivos de analistas son anclas observadas, no una valoración
+    intrínseca. La información financiera disponible describe resultados históricos,
+    pero no proporciona previsiones comparables ni un método de valoración.
+generated_at: '2026-11-20T14:11:20.038987-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-EBAY
+prompt_inputs:
+  business_model: eBay Inc., together with its subsidiaries, operates marketplace
+    platforms that connect buyers and sellers in the United States, the United Kingdom,
+    China, Germany, and internationally. Its marketplace platform includes its online
+    marketplace at ebay.com, off-platform businesses, and the eBay suite of mobile
+    apps. The company's platforms enable users to list, sell, buy, and pay various
+    products. The company was founded in 1995 and is headquartered in San Jose, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.016
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: eBay Inc.
+  operating_margin: 21.55
+  pe_ratio: 26.42
+  products: ''
+  revenue: 12390000000.0
+  revenue_growth: 15.68
+  roic: 24.68
+  sector: Consumer Cyclical
+  ticker: EBAY
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs: {}
+  limitations: No hay URL en trusted_source_urls. Además, el dato TTM al 2026-09-30
+    no es directamente comparable con un año fiscal de tres años antes; falta una
+    serie anual comparable y respaldada por URL permitida.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs: {}
+  limitations: El paquete muestra FCF TTM y años fiscales, pero trusted_source_urls
+    está vacío; no se puede citar una URL autorizada para validar la serie comparable.
+  metric: fcf_growth_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100
+  inputs: {}
+  limitations: Aunque se reportan FCF y net income TTM al 2026-09-30, trusted_source_urls
+    está vacío y no permite respaldar el cálculo con una URL autorizada.
+  metric: fcf_conversion_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs: {}
+  limitations: Se reportan deuda, net cash y EBITDA, pero trusted_source_urls está
+    vacío; no se puede validar el cálculo con una URL autorizada.
+  metric: net_debt_ebitda
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: No se proporciona una serie histórica de acciones diluidas y trusted_source_urls
+    está vacío; las acciones en circulación actuales no permiten calcular dilución
+    interanual.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: eBay Inc., together with its subsidiaries, operates marketplace
+    platforms that connect buyers and sellers in the United States, the United Kingdom,
+    China, Germany, and internationally. Its marketplace platform includes its online
+    marketplace at ebay.com, off-platform businesses, and the eBay suite of mobile
+    apps. The company's platforms enable users to list, sell, buy, and pay various
+    products. The company was founded in 1995 and is headquartered in San Jose, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 121.33000183105469
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.016
+  excess_return_roic_wacc: null
+  existing_wiki: "## 1. Visión General de la Compañía\n\neBay Inc. opera marketplaces\
+    \ digitales que conectan compradores y vendedores. Su actividad principal es facilitar\
+    \ la publicación, búsqueda y compraventa de productos mediante su sitio web y\
+    \ aplicaciones móviles. Monetiza principalmente mediante comisiones por transacción\
+    \ y servicios para vendedores, además de publicidad y otros servicios. [AOIF,\
+    \ análisis recibido con fecha de referencia 2026-11-20]\n\nLa plataforma sirve\
+    \ a vendedores particulares y pequeñas y medianas empresas. La investigación describe\
+    \ una presencia internacional, aunque no aporta un desglose de ingresos por país\
+    \ o región. Entre las geografías mencionadas figuran Estados Unidos, Reino Unido,\
+    \ China y Alemania. [Wiki existente; AOIF, 2026-11-20]\n\n**Clasificación provisional:**\
+    \ negocio de calidad buena, con crecimiento moderado y valoración considerada\
+    \ justa en el análisis DDD. La recomendación final permanece pendiente de decisión.\
+    \ [DDD; AOIF, 2026-11-20]\n\n## 2. Modelo de Negocio y Posición Competitiva\n\n\
+    **Drivers de ingresos**\n- Actividad transaccional del marketplace y servicios\
+    \ asociados a vendedores.\n- Publicidad y otros servicios.\n- Evolución de compradores\
+    \ activos, actividad de vendedores y volumen bruto de mercancías (GMV), indicadores\
+    \ que la investigación recomienda vigilar. [AOIF, 2026-11-20]\n\n**Moat y posición\
+    \ competitiva**\n- La investigación identifica efectos de red entre compradores\
+    \ y vendedores, reconocimiento de marca, escala y amplitud del catálogo.\n- La\
+    \ diferenciación puede ser más relevante en productos usados, coleccionables y\
+    \ artículos difíciles de encontrar.\n- AOIF califica el moat como **estrecho**\
+    \ y la posición competitiva como **líder**. Estas son evaluaciones analíticas,\
+    \ no hechos cuantificados por las fuentes proporcionadas. [AOIF, 2026-11-20]\n\
+    - La industria es competitiva y depende de la experiencia de búsqueda, los precios,\
+    \ la publicidad y la calidad del producto. La competencia incluye marketplaces\
+    \ generalistas y especializados, así como canales directos. [AOIF, 2026-11-20]\n\
+    \nLas compañías indicadas como pertenecientes a la misma industria o sector son\
+    \ [[ABNB]], [[ANF]], [[AVY]], [[BKNG]], [[CCL]] y [[DECK]]. La información disponible\
+    \ no establece que sean competidores directos de eBay.\n\n## 3. Perfil Financiero\n\
+    \nLas métricas recibidas contienen diferencias entre análisis y no incluyen una\
+    \ serie histórica que permita confirmar tendencias. Deben tratarse como cifras\
+    \ reportadas por los inputs, no como una serie financiera reconciliada.\n\n| Métrica\
+    \ | Dato proporcionado | Fuente y observación |\n|---|---:|---|\n| Crecimiento\
+    \ de ingresos TTM | 13,7% | DDD; periodo TTM, fecha de referencia 2026-11-20 |\n\
+    | Crecimiento de ingresos | 15,68% | AOIF; periodo no especificado en el input\
+    \ |\n| Margen operativo | 19,2% | DDD; periodo TTM |\n| Margen operativo | 21,55%\
+    \ | AOIF; periodo no especificado |\n| Flujo de caja libre | 2.410 M USD | DDD;\
+    \ TTM |\n| ROIC | 24,68% | AOIF; periodo no especificado |\n| PER | 26,42 | AOIF;\
+    \ precio y fecha de cálculo no especificados |\n| EV/EBITDA | 18,56 | AOIF; precio\
+    \ y fecha de cálculo no especificados |\n| FCF yield | 0 | AOIF; metodología y\
+    \ significado no aclarados |\n\nDDD describe la generación de flujo de caja libre\
+    \ y el margen operativo como sólidos. AOIF indica que no puede calcular la conversión\
+    \ de FCF con la información disponible. La cifra de FCF yield igual a cero no\
+    \ permite concluir que el rendimiento económico sea literalmente cero: requiere\
+    \ aclarar metodología y datos de cálculo. [DDD; AOIF, 2026-11-20]\n\n**Estructura\
+    \ de capital:** no se proporcionan deuda, efectivo, deuda neta, vencimientos ni\
+    \ ratios de liquidez. Por tanto, no es posible evaluar el apalancamiento o la\
+    \ solvencia con los inputs disponibles. [DDD; AOIF, 2026-11-20]\n\n## 4. Management\
+    \ y Gobierno Corporativo\n\nDDD califica la gestión como buena y señala que ha\
+    \ mantenido el enfoque en el marketplace y promovido iniciativas para mejorar\
+    \ la experiencia de usuario. AOIF también evalúa la calidad del management como\
+    \ buena, pero considera neutral la asignación de capital y moderado el alineamiento\
+    \ de insiders. [DDD; AOIF, 2026-11-20]\n\nEstas valoraciones son provisionales:\
+    \ no se aportan historial detallado de ejecución, datos de remuneración, propiedad\
+    \ accionaria de insiders, retornos de recompras o inversiones, ni composición\
+    \ e independencia del board. No es posible confirmar la alineación entre dirección\
+    \ y accionistas ni hacer una evaluación sustantiva del gobierno corporativo. [AOIF,\
+    \ 2026-11-20]\n\n## 5. Tesis de Inversión\n\n**Caso alcista**\n- El marketplace\
+    \ conecta dos grupos de usuarios y podría beneficiarse de efectos de red, reconocimiento\
+    \ de marca y escala. AOIF describe estas ventajas como un moat estrecho, particularmente\
+    \ relevante en productos usados, coleccionables y difíciles de encontrar. [AOIF,\
+    \ 2026-11-20]\n- Los indicadores proporcionados muestran rentabilidad operativa\
+    \ significativa: margen de 19,2% según DDD y de 21,55% según AOIF. DDD también\
+    \ reporta 2.410 M USD de FCF TTM. Las diferencias entre cifras requieren reconciliación.\
+    \ [DDD; AOIF, 2026-11-20]\n- El crecimiento de ingresos reportado se sitúa entre\
+    \ 13,7% y 15,68%, aunque los periodos y metodologías no están suficientemente\
+    \ definidos para compararlos directamente. [DDD; AOIF, 2026-11-20]\n- La adopción\
+    \ de herramientas de IA podría mejorar la creación de listados, la búsqueda, la\
+    \ personalización y la fijación de precios, con posibles beneficios para la experiencia\
+    \ de compra y la retención de vendedores. Es un catalizador hipotético, no un\
+    \ resultado confirmado. [DDD, escenario fechado 2026-11-20]\n- DDD considera la\
+    \ acción razonablemente valorada y clasifica la oportunidad como *quality at fair\
+    \ price*. La conclusión depende de la validez de las métricas y de que eBay sostenga\
+    \ crecimiento y márgenes. [DDD, 2026-11-20]\n\n## 6. Riesgos y Contra-Tesis\n\n\
+    **Caso bajista y riesgos**\n- **Competencia:** marketplaces generalistas y especializados\
+    \ y canales directos pueden reducir crecimiento, cuota de mercado o capacidad\
+    \ de monetización. AOIF lo califica como riesgo de impacto alto y probabilidad\
+    \ alta. [AOIF, 2026-11-20]\n- **Experiencia y confianza:** deterioro de búsqueda,\
+    \ conversión o confianza —incluidos fraude, falsificaciones y disputas entre usuarios—\
+    \ podría debilitar la actividad de la plataforma. AOIF lo califica como riesgo\
+    \ de impacto alto y probabilidad media. [AOIF, 2026-11-20]\n- **Entorno macroeconómico:**\
+    \ una desaceleración que reduzca el gasto de los consumidores puede afectar la\
+    \ actividad transaccional. DDD lo califica como riesgo de impacto medio y probabilidad\
+    \ media. [DDD, 2026-11-20]\n- **Ejecución de IA y expansión geográfica:** los\
+    \ beneficios previstos podrían no materializarse o llegar más tarde de lo esperado.\
+    \ DDD asigna una probabilidad de 45% al catalizador de IA y de 35% a la expansión\
+    \ en mercados emergentes, estimaciones analíticas no verificadas. [DDD, 2026-11-20]\n\
+    - **Finanzas y valoración:** la falta de datos sobre deuda, liquidez y FCF normalizado\
+    \ impide evaluar plenamente la resiliencia financiera y la relación entre precio\
+    \ y valor intrínseco. [DDD; AOIF, 2026-11-20]\n\n**Triggers de falsación indicados\
+    \ por los escenarios DDD**\n- Escenario bajista: crecimiento de ingresos inferior\
+    \ al 5% anual y margen operativo por debajo del 15%.\n- Escenario alcista: crecimiento\
+    \ de ingresos superior al 15% anual y margen operativo superior al 20%.\n- El\
+    \ escenario alcista también se vería cuestionado por varios trimestres con crecimiento\
+    \ inferior al 5% o margen estancado por debajo del 18%.\n- El escenario bajista\
+    \ se vería cuestionado por resultados con crecimiento superior al 10% y margen\
+    \ superior al 18%, o por avances significativos en IA.  \n[DDD, escenarios con\
+    \ fecha de referencia 2026-11-20; horizonte 2027-11-20]\n\n## 7. Catalizadores\
+    \ y Timeline\n\n| Catalizador | Horizonte indicado | Impacto y probabilidad estimada\
+    \ | Estado de evidencia |\n|---|---|---|---|\n| Implementación de IA para optimizar\
+    \ listados y precios, personalizar la experiencia y mejorar la retención de vendedores\
+    \ | Medio; el análisis fija horizonte de escenarios a 2027-11-20 | Impacto alto;\
+    \ probabilidad 45% | Hipótesis de DDD; no se proporciona calendario de implementación\
+    \ ni hitos confirmados |\n| Expansión en mercados emergentes de Asia y Latinoamérica\
+    \ | Largo plazo | Impacto medio; probabilidad 35% | Hipótesis de DDD; sin fechas\
+    \ o planes detallados |\n| Evolución de ingresos, GMV, compradores activos, actividad\
+    \ de vendedores, margen operativo y FCF | Seguimiento continuo; próximos reportes\
+    \ no especificados | Puede confirmar o debilitar la tesis | Indicadores de monitoreo\
+    \ propuestos por AOIF |\n\nNo se proporcionan fechas concretas para lanzamientos\
+    \ de IA, resultados trimestrales u otras decisiones corporativas. Por ello, los\
+    \ horizontes son orientativos y no constituyen un calendario confirmado. [DDD;\
+    \ AOIF, 2026-11-20]\n\n## 8. Marco de Valoración\n\nLa valoración intrínseca **no\
+    \ puede estimarse de forma responsable** con la información disponible: faltan\
+    \ precio de referencia claramente fechado, deuda neta, FCF normalizado y supuestos\
+    \ explícitos de crecimiento y descuento. AOIF señala expresamente estas limitaciones.\
+    \ [AOIF, 2026-11-20]\n\n**Referencias disponibles, con limitaciones**\n- AOIF\
+    \ informa PER de 26,42 y EV/EBITDA de 18,56, sin detallar fecha de cálculo ni\
+    \ precio de referencia.\n- DDD menciona un precio de 121,33 USD y un objetivo\
+    \ medio de analistas de 127,11 USD. La fecha de esas referencias no queda especificada\
+    \ en el input; no deben tratarse como cotizaciones actuales verificadas.\n- Los\
+    \ escenarios DDD fijan objetivos a 2027-11-20: **71 USD** en el caso bajista y\
+    \ **153 USD** en el caso alcista. Son resultados de escenarios, no objetivos respaldados\
+    \ por fuentes externas; los inputs no proporcionan fuentes para ellos. [DDD; AOIF,\
+    \ fecha de referencia de análisis 2026-11-20]\n\n**Método apropiado para investigación\
+    \ adicional**\n- Contrastar valoración por múltiplos con comparables pertinentes,\
+    \ evitando asumir que las compañías sectoriales listadas son competidores directos.\n\
+    - Elaborar un análisis de flujo de caja descontado con FCF normalizado, deuda\
+    \ neta, crecimiento, márgenes e hipótesis de descuento verificadas.\n- Sensibilizar\
+    \ el valor ante cambios en crecimiento de ingresos, margen operativo, conversión\
+    \ de FCF y ritmo de ejecución de iniciativas de IA.\n\nDDD califica la valoración\
+    \ como justa, pero también describe como incierto si el mercado subestima el potencial\
+    \ de IA y de las categorías de segunda mano. Sin datos reconciliados y supuestos\
+    \ de valoración transparentes, la conclusión debe considerarse provisional. [DDD;\
+    \ AOIF, 2026-11-20]\n\n## 9. Preguntas Abiertas y Agenda de Investigación\n\n\
+    1. ¿Cuál es la deuda bruta, el efectivo, la deuda neta y la liquidez disponible?\
+    \ ¿Qué vencimientos y obligaciones relevantes existen?\n2. ¿Cuál es el FCF normalizado\
+    \ y cómo se reconcilia el FCF TTM de 2.410 M USD con el FCF yield de cero reportado\
+    \ por AOIF?\n3. ¿Qué periodos y definiciones explican las diferencias entre crecimiento\
+    \ de ingresos de 13,7% y 15,68%, y entre márgenes operativos de 19,2% y 21,55%?\n\
+    4. ¿Cómo han evolucionado históricamente ingresos, GMV, compradores activos, actividad\
+    \ de vendedores, márgenes y conversión de FCF?\n5. ¿Qué productos de IA se están\
+    \ implementando, con qué calendario, métricas de adopción y resultados observables?\n\
+    6. ¿Qué mercados y categorías son prioritarios para la expansión geográfica? ¿Existe\
+    \ evidencia de inversión, lanzamiento o tracción comercial en Asia y Latinoamérica?\n\
+    7. ¿Qué datos respaldan la valoración de competencia alta y del moat estrecho?\
+    \ ¿Cómo varían la retención y la monetización por categoría y tipo de vendedor?\n\
+    8. ¿Qué mecanismos de prevención y resolución existen para fraude, falsificaciones\
+    \ y disputas entre usuarios?\n9. ¿Cuál es la remuneración del equipo directivo,\
+    \ su participación accionaria y el historial de asignación de capital?\n10. ¿Cuál\
+    \ es la composición del board, su independencia y la experiencia relevante de\
+    \ sus miembros?\n11. ¿Qué precio de referencia y fecha corresponden a las cifras\
+    \ de valoración, y cuáles son los supuestos explícitos detrás de los objetivos\
+    \ de 71 y 153 USD?\n\n**Estado de la tesis:** activa según DDD, pero con evidencia\
+    \ incompleta y decisión final pendiente según AOIF. [DDD; AOIF, 2026-11-20]\n\n\
+    ---\n\n## Related Companies\n\n- **Same Sector**: [[ABNB|Airbnb, Inc.]], [[ANF|Abercrombie\
+    \ & Fitch Co.]], [[AVY|Avery Dennison Corporation]], [[BKNG|Booking Holdings Inc.]],\
+    \ [[CCL|Carnival Corporation Ltd.]], [[DECK|Deckers Outdoor Corporation]]"
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-10-30T16:53:38.174821+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/EBAY/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 2410000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 19.214001}, "observed_at": "2026-10-30T16:53:38.174821+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/EBAY/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 21.55}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 13.700000000000001}, "observed_at": "2026-10-30T16:53:38.174821+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ebay/financials/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 15.68}}}, "observed_at":
+    "2026-10-30T16:53:38.174821+00:00", "period_end": "2026-09-30", "sources_used":
+    ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: eBay Inc.
+  operating_margin: 21.55
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: eBay Inc., together with its subsidiaries, operates marketplace platforms
+    that connect buyers and sellers in the United States, the United Kingdom, China,
+    Germany, and internationally. Its marketplace platform includes its online marketplace
+    at ebay.com, off-platform businesses, and the eBay suite of mobile apps. The company's
+    platforms enable users to list, sell, buy, and pay various products. The company
+    was founded in 1995 and is headquartered in San Jose, California.
+  revenue: 12390000000.0
+  revenue_growth: 15.68
+  roic: 24.68
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EBAY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    153.0, "low": 71.0, "mean": 127.11, "median": 127.11, "observed_at": "2026-11-20T14:09:09.672878-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T14:09:09.672878-03:00", "observed_date": "2026-11-20", "target_price":
+    127.11, "url": "https://stockanalysis.com/stocks/ebay/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:09:09.672878-03:00",
+    "observed_date": "2026-11-20", "target_price": 127.11111, "url": "https://finance.yahoo.com/quote/EBAY/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 121.33000183105469,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/EBAY/"}]}}'
+  sector: Consumer Cyclical
+  ticker: EBAY
+research_trigger:
+  discovery_snapshot_hash: 221fc919d92e28d1a35d57df2e4d2fe9c9366f852a448d4113cd5796e132fe71
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 010a7c09c02009ecb32b7f145c4e3d0e7b6214ed56098f67557ffc43c7590adb
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T14:11:20.038987-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: El valor reportado es 0.78x al 2026-09-30; no cruza el umbral. Observación
+    para Assessment, no decisión de compra.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/EBAY/statistics/
+  threshold: below 0.5x
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta serie histórica de acciones diluidas validada.'
+  source: null
+  threshold: above 10%
+- metric: interest_coverage
+  observation: 'No evaluable: el valor reportado de cobertura de intereses es 0, pero
+    no se aportan inputs para verificar EBIT e interés ni una URL autorizada.'
+  source: null
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplica al FCF TTM reportado, que es positivo; no se calcula runway
+    de caja.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/EBAY/statistics/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: No evaluable bajo las restricciones de fuentes y URL del análisis.
+  source: null
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta serie histórica de acciones con fechas y URL autorizada.'
+  source: null
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: null
+  scenarios:
+  - falsifiers:
+    - Un método de valoración con inputs fechados y verificables que sustente un resultado
+      distinto.
+    - Previsiones empresariales o evidencia operativa verificable que permitan caracterizar
+      el escenario adverso.
+    id: BEAR
+    key_assumptions:
+    - Se utiliza el extremo bajo del consenso observado como resultado de escenario,
+      no como previsión garantizada.
+    - No se dispone de una fecha de horizonte ni de previsiones financieras para modelar
+      un resultado distinto.
+    rationale: Ancla baja observada en el rango de objetivos de analistas, no valoración
+      intrínseca propia. Representa el extremo adverso del rango; el paquete no aporta
+      supuestos operativos suficientes para justificar una explicación fundamental
+      más específica.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ebay/forecast/
+    target_price: 71.0
+  - falsifiers:
+    - Un método de valoración con inputs fechados y verificables que sustente un resultado
+      distinto.
+    - Previsiones empresariales o evidencia operativa verificable que permitan caracterizar
+      el escenario favorable.
+    id: BULL
+    key_assumptions:
+    - Se utiliza el extremo alto del consenso observado como resultado de escenario,
+      no como previsión garantizada.
+    - No se dispone de una fecha de horizonte ni de previsiones financieras para modelar
+      un resultado distinto.
+    rationale: Ancla alta observada en el rango de objetivos de analistas, no valoración
+      intrínseca propia. Representa el extremo favorable del rango; el paquete no
+      aporta supuestos operativos suficientes para justificar una explicación fundamental
+      más específica.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ebay/forecast/
+    target_price: 153.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors:
+  - horizon_date debe ser una fecha ISO válida
+  status: invalid_pending_revision
+score_general: 45
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T14:09:09.672878-03:00'
+  fuentes:
+    stockanalysis: 127.11
+    yfinance: 127.11111
+  mediana: 127.11
+  n_fuentes: 2
+  promedio: 127.11
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T14:09:09.672878-03:00'
+    observed_date: '2026-11-20'
+    target_price: 127.11
+    url: https://stockanalysis.com/stocks/ebay/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T14:09:09.672878-03:00'
+    observed_date: '2026-11-20'
+    target_price: 127.11111
+    url: https://finance.yahoo.com/quote/EBAY/
+  target_high: 153.0
+  target_low: 71.0
+tesis_inversion: eBay opera un marketplace que conecta compradores y vendedores y
+  permite listar, vender, comprar y pagar productos. El paquete muestra crecimiento
+  de ingresos y flujo de caja libre en el TTM terminado el 2026-09-30 frente a FY
+  2025, pero no permite validar ratios clave con las URL exigidas; por ello, la durabilidad
+  del crecimiento, la reinversión y los retornos sobre capital siguen siendo preguntas
+  abiertas.
+ticker: EBAY
+version: '3.0'

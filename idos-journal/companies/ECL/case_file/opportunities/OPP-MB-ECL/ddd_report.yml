@@ -1,0 +1,973 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Un FCF TTM positivo indica generación de caja reportada en ese período, pero no
+    establece su calidad, recurrencia ni conversión respecto del beneficio neto.
+  - Los datos de ingresos y margen bruto son compatibles con expansión reciente, pero
+    no identifican sus motores ni prueban ventajas competitivas duraderas.
+  - La cotización observada fue USD 303,005 al 2026-10-30; el momentum de precio de
+    12 meses fue 18,1669% y el drawdown reportado fue 1,7415% para el período 2025-10-31/2026-10-30
+    (Yahoo Finance, https://finance.yahoo.com/quote/ECL/history/).
+  - 'Los ingresos TTM fueron USD 17.372 millones y el FCF TTM USD 1.870 millones al
+    2026-09-30; fuente reportada: StockAnalysis, https://stockanalysis.com/stocks/ECL/statistics/.'
+  - 'El consenso de objetivos al 2026-11-20 fue USD 342,95, con rango USD 310–385;
+    fuentes reportadas: https://stockanalysis.com/stocks/ecl/forecast/ y https://finance.yahoo.com/quote/ECL/.'
+  preguntas_abiertas:
+  - ¿Cuál es el crecimiento orgánico por segmento y cuánto corresponde a precio, volumen,
+    adquisiciones y divisas?
+  - ¿Cuáles son el ROIC, las necesidades de reinversión, la penetración del mercado
+    y la evolución de participación competitiva?
+  - ¿Qué explica el incremento de deuda reportada al 2026-09-30 y cuáles son sus vencimientos
+    y costos?
+  - ¿Qué objetivos, incentivos y decisiones de asignación de capital de management
+    están respaldados por fuentes primarias?
+catalizadores_previos: &id001
+- descripcion: Confirmación en resultados futuros de crecimiento rentable y generación
+    de caja, con desglose que permita distinguir crecimiento orgánico de precios,
+    adquisiciones y divisas.
+  generated_at: '2026-11-20T14:13:22.450979-03:00'
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-COMPOUNDER-ECL-0001
+  probabilidad_anterior: 45
+- descripcion: Actualización de resultados o guía que revele desaceleración o presión
+    de márgenes y lleve al mercado a revisar a la baja expectativas y objetivos.
+  generated_at: '2026-11-20T14:13:22.450979-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-COMPOUNDER-ECL-0001
+  probabilidad_anterior: 35
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia insuficiente para una conclusión de
+    valoración
+  justificacion: El paquete presenta datos financieros y de mercado observados, pero
+    no incluye URLs en trusted_source_urls para validar ratios ni información suficiente
+    para construir supuestos financieros y fechas de horizonte defendibles.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo descrito combina soluciones y servicios en agua, higiene y prevención
+    de infecciones y cuatro segmentos. Los datos reportados muestran FCF positivo
+    y un margen bruto TTM de 44,04%, pero faltan retornos sobre capital, reinversión,
+    penetración del mercado, evidencia directa de moat y datos suficientes para evaluar
+    la asignación de capital de management.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: La expansión de ingresos TTM frente a FY 2025 es observable, pero no
+    se puede separar crecimiento orgánico, adquisiciones, precios o divisas con los
+    datos disponibles.
+  fuente: Evidencia financiera del paquete, StockAnalysis; TTM al 2026-09-30 y FY
+    2025.
+  url: https://stockanalysis.com/stocks/ECL/statistics/
+- catalizador: El margen bruto reportado aumentó desde 40,39% en FY 2023 hasta 44,04%
+    TTM al 2026-09-30; no hay información que atribuya las causas ni confirme su sostenibilidad.
+  fuente: Evidencia financiera del paquete, StockAnalysis; FY 2023 y TTM al 2026-09-30.
+  url: https://stockanalysis.com/stocks/ECL/statistics/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: Evidencia financiera del paquete, StockAnalysis, estadísticas de ECL; período
+    FY 2025 y fecha 2026-09-30.
+  riesgo: La deuda reportada aumentó de USD 8.998 millones al cierre de FY 2025 a
+    USD 13.770 millones al 2026-09-30; no se aporta explicación ni desglose.
+  url: https://stockanalysis.com/stocks/ECL/statistics/
+- fuente: Research Intake Package y evidencia financiera suministrada; observación
+    financiera al 2026-09-30.
+  riesgo: El paquete no permite validar los ratios de crecimiento de FCF, conversión
+    de FCF, apalancamiento neto ni dilución conforme a las reglas de fuentes y períodos
+    solicitadas.
+- fuente: Paquete suministrado; sin fuente adicional verificable.
+  riesgo: No hay evidencia aportada sobre competencia, retención de clientes, exposición
+    a costos de insumos, asignación de capital o remuneración de management; esos
+    factores no pueden evaluarse.
+error_mercado:
+  catalizador_cambio: No se identifican catalizadores corporativos fechados en la
+    evidencia suministrada.
+  conclusion_error_valoracion: 'No se puede validar que exista un error de valoración:
+    los objetivos de analistas son referencias observadas, no una valoración intrínseca
+    independiente.'
+  consenso_actual: El precio observado fue USD 303,005 el 2026-10-30; el consenso
+    de precio objetivo reportado fue USD 342,95 el 2026-11-20, con rango USD 310–385.
+  hipotesis_contraria: El consenso podría no reflejar deterioro de márgenes, presión
+    competitiva, necesidades de reinversión o el efecto del endeudamiento; el paquete
+    no aporta evidencia para cuantificar esos factores.
+  razonamiento: La cotización y el rango de objetivos son comparables en USD, pero
+    faltan estimaciones financieras, metodología de valoración y horizonte de escenario.
+    El movimiento de precio de 12 meses fue positivo, aunque por sí solo no demuestra
+    una brecha de valoración.
+generated_at: '2026-11-20T14:15:13.685396-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-ECL
+prompt_inputs:
+  business_model: 'Ecolab Inc. provides water, hygiene, and infection prevention solutions
+    and services in the United States and internationally. The company operates through
+    four segments: Global Water, Global Institutional & Specialty, Global Pest Elimination,
+    and Global Life Sciences. The Global Water segment offers water treatment and
+    process applications, and cleaning and sanitizing solutions to manufacturing,
+    food and beverage processing, transportation, chemical, primary metals and mining,
+    power generation, global refining, petrochemical, pulp and paper industries. The
+    Global Institutional & Specialty segment provides cleaning and sanitizing products
+    to the foodservice, healthcare, hospitality, lodging, government, education and
+    retail industries. The Global Pest Elimination segment provides pest elimination
+    services to detect, prevent, and eliminate pests comprising rodents and insects
+    in full-service and quick-service restaurants, food and beverage processors, hotels,
+    grocery operations, and other commercial segments, including education, life sciences,
+    and healthcare. The Global Life Sciences segment provides cleaning and contamination
+    control solutions to pharmaceutical and personal care manufacturers. It offers
+    its products under the Ecolab, Kay, Purolite, and Bioquell brand names. The company
+    sells its products through field sales and corporate account personnel, distributors,
+    and dealers. Ecolab Inc. was founded in 1923 and is headquartered in Saint Paul,
+    Minnesota.'
+  ceo_tenure: 0
+  debt_to_equity: 0.0132
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Ecolab Inc.
+  operating_margin: 18.54
+  pe_ratio: 41.11
+  products: ''
+  revenue: 17370000000.0
+  revenue_growth: 9.33
+  roic: 12.24
+  sector: Basic Materials
+  ticker: ECL
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs: {}
+  limitations: Aunque hay valores históricos de ingresos, trusted_source_urls está
+    vacío. No se puede citar una URL copiada de ese campo para validar y reportar
+    el ratio conforme a las instrucciones.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs: {}
+  limitations: Hay historia de FCF reportada, pero trusted_source_urls está vacío;
+    no se puede validar ni citar el ratio con una URL permitida.
+  metric: fcf_growth_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100
+  inputs: {}
+  limitations: Hay FCF y beneficio neto TTM reportados, pero trusted_source_urls está
+    vacío; no se puede validar ni citar el cálculo con una URL permitida.
+  metric: fcf_conversion_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs: {}
+  limitations: La deuda, el efectivo y EBITDA están reportados, pero trusted_source_urls
+    está vacío. No se puede validar y citar el cálculo con una URL permitida.
+  metric: net_debt_ebitda
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: El paquete aporta acciones en circulación en un solo período, no una
+    serie comparable de acciones diluidas; además, trusted_source_urls está vacío.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Ecolab Inc. provides water, hygiene, and infection prevention solutions
+    and services in the United States and internationally. The company operates through
+    four segments: Global Water, Global Institutional & Specialty, Global Pest Elimination,
+    and Global Life Sciences. The Global Water segment offers water treatment and
+    process applications, and cleaning and sanitizing solutions to manufacturing,
+    food and beverage processing, transportation, chemical, primary metals and mining,
+    power generation, global refining, petrochemical, pulp and paper industries. The
+    Global Institutional & Specialty segment provides cleaning and sanitizing products
+    to the foodservice, healthcare, hospitality, lodging, government, education and
+    retail industries. The Global Pest Elimination segment provides pest elimination
+    services to detect, prevent, and eliminate pests comprising rodents and insects
+    in full-service and quick-service restaurants, food and beverage processors, hotels,
+    grocery operations, and other commercial segments, including education, life sciences,
+    and healthcare. The Global Life Sciences segment provides cleaning and contamination
+    control solutions to pharmaceutical and personal care manufacturers. It offers
+    its products under the Ecolab, Kay, Purolite, and Bioquell brand names. The company
+    sells its products through field sales and corporate account personnel, distributors,
+    and dealers. Ecolab Inc. was founded in 1923 and is headquartered in Saint Paul,
+    Minnesota.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 303.0050048828125
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0132
+  excess_return_roic_wacc: null
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Ecolab Inc. (ECL) ofrece soluciones y servicios especializados de agua, higiene,
+    prevención de infecciones y control de plagas. Atiende a clientes industriales
+    e institucionales y a empresas de alimentos y bebidas. Entre los sectores mencionados
+    en la información disponible están transporte, energía, minería, metales, refinación,
+    petroquímica y papel.
+
+
+    Su cadena de valor comprende el desarrollo y formulación de productos y soluciones,
+    su fabricación o abastecimiento y su distribución mediante personal de ventas
+    y gestión de cuentas. El modelo combina productos especializados con servicios
+    aplicados a operaciones de clientes.
+
+
+    La actividad de Ecolab se relaciona con empresas de sectores industriales y de
+    materiales como [[DD]], [[DOW]], [[BHP]] y [[AEM]]. Esta relación sectorial no
+    implica que sean competidores directos.
+
+
+    **Alcance y limitaciones de la evidencia:** la información proporcionada no especifica
+    la distribución de ingresos por geografía, segmento o línea de producto. Tampoco
+    permite verificar la composición actual de la cartera de negocios.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    Los principales drivers que pueden evaluarse con la información disponible son:
+
+
+    - Demanda de soluciones de tratamiento de agua, limpieza y sanitización.
+
+    - Actividad de los clientes industriales e institucionales.
+
+    - Continuidad de servicios y relaciones con clientes.
+
+    - Capacidad de trasladar a clientes los cambios en costes de materias primas,
+    fabricación, transporte y mano de obra.
+
+    - Composición del crecimiento entre volumen, precio, adquisiciones y divisas,
+    que aún no está desglosada.
+
+
+    La investigación AOIF reporta un crecimiento de ingresos de 9,33%, pero no identifica
+    claramente el periodo ni su composición. DDD señala una observación de crecimiento
+    de ingresos de 12,7% con fecha de periodo 2026-09-30 y advierte que el periodo
+    está especificado de forma ambigua. Estas cifras no deben considerarse directamente
+    comparables sin aclarar sus bases.
+
+
+    ### Moat y posición competitiva
+
+
+    La evaluación AOIF caracteriza la posición competitiva como líder y el moat como
+    amplio. La justificación propuesta es la combinación de conocimiento técnico aplicado
+    a procesos críticos, amplitud de soluciones y relaciones de servicio recurrentes.
+    Estos atributos podrían elevar los costes de cambio y sostener la resiliencia
+    de la demanda, pero la evidencia suministrada no incluye datos de retención, duración
+    de contratos, cuota de mercado ni rentabilidad por cliente que permitan medirlo.
+
+
+    Las necesidades de seguridad, higiene, eficiencia del agua, cumplimiento y control
+    de procesos pueden respaldar una demanda relativamente persistente. No obstante,
+    la intensidad de esa ventaja frente a competidores y soluciones alternativas no
+    está documentada en los inputs.
+
+
+    ### Dinámica competitiva
+
+
+    La competencia puede afectar la capacidad de ganar o retener contratos y de trasladar
+    costes a clientes. La información disponible no identifica competidores directos
+    ni proporciona comparaciones de precios, tecnología, cuota o márgenes. Las empresas
+    relacionadas en la wiki, como [[DD]] y [[DOW]], sirven como referencias industriales
+    generales, no como competidores confirmados.
+
+
+    ## 3. Perfil Financiero
+
+
+    | Métrica | Valor reportado | Fecha o periodo | Observaciones |
+
+    |---|---:|---|---|
+
+    | Crecimiento de ingresos | 9,33% | Periodo no especificado en AOIF | No se indica
+    si es crecimiento orgánico ni su desglose. |
+
+    | Crecimiento de ingresos | 12,7% | Periodo indicado como 2026-09-30 en DDD |
+    La propia fuente advierte que la especificación del periodo es ambigua. |
+
+    | Margen operativo | 18,54% | Periodo no especificado en AOIF | No se proporciona
+    serie histórica. |
+
+    | ROIC | 12,24% | Periodo no especificado en AOIF | Faltan definición, periodo
+    y comparación histórica. |
+
+    | FCF | USD 1.870 millones | TTM, periodo indicado como 2026-09-30 en DDD | La
+    fecha del periodo debe verificarse; no se aporta conciliación con caja operativa
+    y capex. |
+
+    | PER | 41,11x | Sin fecha especificada en AOIF | Métrica reportada, no validada
+    con estados financieros en los inputs. |
+
+    | EV/EBITDA | 22,74x | Sin fecha especificada en AOIF | Métrica reportada, no
+    se incluyen componentes del cálculo. |
+
+    | FCF yield | 0% | Sin fecha especificada en AOIF | No se ofrecen datos suficientes
+    para validar el cálculo. |
+
+    | Precio de la acción | USD 303,005 | 2026-10-30, DDD | Cotización observada;
+    la precisión y el contexto de mercado no se detallan. |
+
+
+    La evaluación de salud financiera de DDD es “adecuada”, mientras que AOIF califica
+    la tendencia financiera como estable. Sin embargo, no se proporcionan cifras de
+    deuda neta, vencimientos, liquidez, acciones en circulación, flujo de caja operativo
+    ni gasto de capital. Por ello, no es posible evaluar de manera completa la estructura
+    de capital, la cobertura de deuda o la conversión de beneficios en caja.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF califica la calidad del management como buena, el alineamiento de insiders
+    como débil y la asignación de capital como neutral. No se incluyen datos verificables
+    sobre incentivos, remuneración, participación accionarial de insiders, transacciones
+    de insiders, adquisiciones, recompras, dividendos o retornos sobre capital.
+
+
+    Tampoco se proporciona información sobre composición, independencia, experiencia
+    o comités del consejo de administración. Por tanto, las calificaciones cualitativas
+    no bastan para concluir que los incentivos del equipo directivo estén alineados
+    con los accionistas ni para evaluar la calidad del gobierno corporativo.
+
+
+    ## 5. Tesis de Inversión
+
+
+    La tesis favorable es que Ecolab podría combinar soluciones técnicas especializadas
+    con servicios recurrentes en actividades importantes para la operación de sus
+    clientes. El tratamiento de agua, la higiene, la prevención de infecciones y el
+    control de procesos responden a necesidades persistentes de clientes industriales
+    e institucionales.
+
+
+    La hipótesis de inversión se apoya en los siguientes elementos:
+
+
+    - AOIF describe una posición competitiva de liderazgo y un moat amplio, basado
+    en conocimiento técnico, amplitud de soluciones y relaciones de servicio. Es una
+    evaluación cualitativa; los inputs no incluyen métricas independientes de cuota
+    de mercado o retención.
+
+    - Las cifras reportadas por AOIF incluyen un margen operativo de 18,54% y un ROIC
+    de 12,24%, aunque faltan periodos y series comparables.
+
+    - DDD reporta FCF de USD 1.870 millones en una observación TTM fechada 2026-09-30,
+    con la salvedad de que la referencia temporal debe verificarse.
+
+    - La variedad de sectores atendidos podría reducir la dependencia de una sola
+    industria, pero no se aportan datos de concentración de ingresos para confirmar
+    ese efecto.
+
+
+    **Clasificación de oportunidad:** *quality at fair price* según DDD. Esta clasificación
+    refleja una interpretación de la información disponible, no una conclusión demostrada
+    por una valoración intrínseca. DDD considera que el posible valor de relaciones
+    recurrentes y soluciones integradas aún no se puede contrastar suficientemente
+    con los datos suministrados.
+
+
+    La diferencia entre la cotización indicada por DDD y los objetivos de analistas
+    no demuestra infravaloración: los objetivos no son una estimación independiente
+    del valor intrínseco. La conclusión de DDD sobre la existencia de un error de
+    valoración es **incierta**.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos principales
+
+
+    | Riesgo | Impacto / probabilidad reportados | Consideraciones |
+
+    |---|---|---|
+
+    | Presión de costes | Impacto medio; probabilidad media (AOIF) | Materias primas,
+    fabricación, transporte o mano de obra podrían presionar los márgenes si no se
+    trasladan a clientes. |
+
+    | Menor actividad de clientes | Impacto medio; probabilidad media (AOIF) | Una
+    desaceleración industrial o institucional podría reducir volúmenes, actividad
+    de servicio o demanda. |
+
+    | Competencia o pérdida de contratos | Impacto medio; probabilidad media (DDD)
+    | Podría debilitar el crecimiento y los márgenes, especialmente si disminuye la
+    capacidad de trasladar costes. |
+
+    | Expectativas de valoración exigentes | Impacto alto; probabilidad media (DDD)
+    | El precio podría depender de expectativas de crecimiento y márgenes que no pueden
+    contrastarse con los datos parciales. |
+
+    | Riesgos ESG y de cadena de suministro | “Medio_riesgo” (DDD) | Son pertinentes
+    el uso de agua, los productos químicos y la seguridad de producto, pero no se
+    aportan indicadores de exposición o desempeño. |
+
+
+    ### Contra-tesis
+
+
+    La tesis podría fallar si el crecimiento reportado resulta principalmente de precios,
+    adquisiciones o divisas y no de una demanda orgánica sostenible; si los costes
+    crecen más rápido que los precios; o si las relaciones de servicio no se traducen
+    en retención y retornos duraderos. Además, los múltiplos reportados —PER de 41,11x
+    y EV/EBITDA de 22,74x— pueden dejar poco margen para decepciones si se verifican
+    y corresponden a la cotización relevante.
+
+
+    ### Triggers de falsación y seguimiento
+
+
+    - Resultados que muestren desaceleración persistente de ingresos o volúmenes.
+
+    - Contracción de márgenes que indique una capacidad insuficiente para trasladar
+    costes.
+
+    - Menor generación de caja frente a beneficios o inversión creciente sin retornos
+    demostrables.
+
+    - Pérdida de contratos, debilitamiento de la recurrencia o evidencia de competencia
+    más intensa.
+
+    - Datos que contradigan la supuesta amplitud del moat o la estabilidad de las
+    relaciones con clientes.
+
+
+    DDD indica que la tesis sigue activa y que no se activó ninguna de sus categorías
+    de invalidación. La misma fuente aclara que la ausencia de flags no equivale a
+    verificar que la tesis esté confirmada.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    Las probabilidades siguientes son estimaciones de DDD y tienen **nivel de confianza
+    bajo**. No se proporcionaron fechas concretas de anuncios o resultados; los horizontes
+    son aproximados.
+
+
+    | Horizonte esperado | Catalizador o evento | Probabilidad | Impacto potencial
+    | Evidencia / condición a observar |
+
+    |---|---|---:|---|---|
+
+    | Corto plazo; fecha no especificada | Resultados o guía que revelen desaceleración
+    o presión de márgenes | 35% | Medio | Podría llevar a una revisión a la baja de
+    expectativas. |
+
+    | Medio plazo; próximos resultados, fecha no especificada | Confirmación de crecimiento
+    rentable y generación de caja | 45% | Medio | El desglose de crecimiento debería
+    separar volumen, precio, adquisiciones y divisas; la conversión de caja debería
+    poder evaluarse. |
+
+    | Medio plazo; secuencia de comunicaciones corporativas, fecha no especificada
+    | Evidencia de que servicios y soluciones integradas sostienen crecimiento y caja
+    | 45% | Medio | DDD lo plantea como posible fuente de reconocimiento de valor
+    por el mercado, no como evento confirmado. |
+
+
+    DDD presenta un escenario bajista de USD 310 y uno alcista de USD 385 para el
+    2027-11-20, con fecha de análisis 2026-11-20. Ambos utilizan límites del rango
+    de objetivos observado como anclas, no como valoraciones independientes. No se
+    dispone de catalizadores históricos para comparar; los señalados se incorporaron
+    como nuevos.
+
+
+    ## 8. Marco de Valoración
+
+
+    ### Metodología apropiada
+
+
+    Para una empresa con beneficios operativos, servicios y generación de caja, sería
+    pertinente contrastar:
+
+
+    1. Un modelo de flujo de caja descontado basado en FCF normalizado.
+
+    2. Múltiplos de beneficios y EV/EBITDA comparables, con definiciones y periodo
+    consistentes.
+
+    3. Rendimiento de FCF y retorno sobre capital en relación con el crecimiento esperado
+    y la inversión necesaria.
+
+
+    ### Estado de la evidencia y supuestos necesarios
+
+
+    AOIF informa PER de 41,11x, EV/EBITDA de 22,74x y FCF yield de 0%, pero no proporciona
+    los datos necesarios para validar los cálculos. Tampoco aporta FCF normalizado,
+    deuda neta, acciones en circulación ni supuestos de crecimiento, márgenes, reinversión
+    o coste de capital. AOIF concluye que no puede determinarse rigurosamente el valor
+    intrínseco con la información disponible y califica el margen de seguridad como
+    insuficiente.
+
+
+    La opinión de valoración de DDD es “justo”, pero no debe interpretarse como una
+    estimación verificable de valor intrínseco. La misma investigación considera incierto
+    que exista un error de valoración. La cotización reportada fue USD 303,005 el
+    2026-10-30; el consenso de objetivos observado el 2026-11-20 se describe como
+    superior, pero el valor exacto aparece truncado en el input disponible.
+
+
+    ### Sensibilidad y escenarios
+
+
+    Los escenarios de DDD son:
+
+
+    | Escenario | Precio objetivo | Fecha horizonte | Interpretación |
+
+    |---|---:|---|---|
+
+    | Bajista | USD 310 | 2027-11-20 | Límite inferior del rango de objetivos observado;
+    no es una valoración independiente. |
+
+    | Alcista | USD 385 | 2027-11-20 | Límite superior del rango de objetivos observado;
+    representa un resultado favorable, no una estimación fundamental autónoma. |
+
+
+    No hay base para construir una sensibilidad cuantitativa fiable a crecimiento,
+    márgenes o tasa de descuento. Antes de usar estos escenarios en una decisión,
+    conviene reconstruir una valoración con datos financieros verificables y supuestos
+    explícitos.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es el crecimiento orgánico y cómo se descompone entre volumen, precio,
+    adquisiciones y divisas?
+
+    2. ¿Qué periodos cubren las cifras de crecimiento de ingresos de 9,33% y 12,7%,
+    y son comparables?
+
+    3. ¿Cuál es la evolución histórica de márgenes operativos, ROIC y FCF, y cómo
+    se calculan las cifras reportadas?
+
+    4. ¿Qué parte del FCF TTM de USD 1.870 millones corresponde a caja operativa y
+    cuánto a inversión de capital?
+
+    5. ¿Cuál es la deuda neta, su calendario de vencimientos y la cobertura de intereses?
+
+    6. ¿Qué porcentaje de ingresos proviene de servicios recurrentes, productos y
+    contratos, y cuál es la retención de clientes?
+
+    7. ¿Qué evidencias cuantitativas respaldan la caracterización de Ecolab como líder
+    con moat amplio?
+
+    8. ¿Qué competidores directos enfrenta Ecolab en cada segmento y cómo se compara
+    su precio, tecnología y rentabilidad?
+
+    9. ¿Cuál es la exposición por geografía, cliente, industria y línea de producto?
+
+    10. ¿Qué políticas de remuneración, propiedad de insiders y decisiones de asignación
+    de capital respaldan las calificaciones de management de AOIF?
+
+    11. ¿Qué indicadores permiten medir riesgos relacionados con agua, químicos, seguridad
+    de producto y cadena de suministro?
+
+    12. ¿Cuáles son los objetivos exactos de analistas, cuántos analistas los sustentan
+    y cuál es su metodología?
+
+    13. ¿Qué supuestos de crecimiento, márgenes, reinversión y coste de capital justificarían
+    los múltiplos reportados?
+
+    14. ¿Cuáles son las fechas concretas de los próximos resultados y de las actualizaciones
+    de guía relevantes para los catalizadores descritos?
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[AEM|Agnico Eagle Mines Limited]], [[B|Barrick Mining Corporation]],
+    [[BHP|BHP Group Limited]], [[CDE|Coeur Mining, Inc.]], [[CX|CEMEX, S.A.B. de C.V.]],
+    [[DD|DuPont de Nemours, Inc.]], [[DOW|Dow Inc.]]
+
+    - **Same Industry**: [[DD|DuPont de Nemours, Inc.]]'
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "liquidity_provenance": ["yfinance"], "ma_200d": ["stockanalysis.com"],
+    "ma_50d": ["stockanalysis.com"], "market_cap": ["stockanalysis.com", "yfinance"],
+    "market_cap_currency": ["yfinance"], "market_cap_provenance": ["yfinance"], "market_cap_usd":
+    ["yfinance"], "market_data_normalization": ["yfinance"], "net_cash_history": ["stockanalysis.com"],
+    "net_income_history": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["stockanalysis.com"], "p_fcf_ratio":
+    ["stockanalysis.com"], "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio":
+    ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"],
+    "period_end_date": ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"],
+    "price_history": ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates":
+    ["yfinance"], "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date":
+    ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"],
+    "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "size_metric_provenance":
+    ["yfinance"], "size_metric_usd": ["yfinance"], "source": ["stockanalysis.com",
+    "yfinance"], "ticker": ["stockanalysis.com", "yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:39.971664+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ECL/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 1870000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 19.03}, "observed_at": "2026-10-30T16:53:39.971664+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ECL/statistics/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 18.54}}, "revenue_growth_pct": {"currency": null,
+    "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 12.7}, "observed_at": "2026-10-30T16:53:39.971664+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ecl/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 9.33}}}, "observed_at": "2026-10-30T16:53:39.971664+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Ecolab Inc.
+  operating_margin: 18.54
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Ecolab Inc. provides water, hygiene, and infection prevention solutions
+    and services in the United States and internationally. The company operates through
+    four segments: Global Water, Global Institutional & Specialty, Global Pest Elimination,
+    and Global Life Sciences. The Global Water segment offers water treatment and
+    process applications, and cleaning and sanitizing solutions to manufacturing,
+    food and beverage processing, transportation, chemical, primary metals and mining,
+    power generation,'
+  revenue: 17370000000.0
+  revenue_growth: 9.33
+  roic: 12.24
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ECL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    385.0, "low": 310.0, "mean": 342.95, "median": 342.95, "observed_at": "2026-11-20T14:12:49.016878-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T14:12:49.016878-03:00", "observed_date": "2026-11-20", "target_price":
+    342.95, "url": "https://stockanalysis.com/stocks/ecl/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:12:49.016878-03:00",
+    "observed_date": "2026-11-20", "target_price": 342.9524, "url": "https://finance.yahoo.com/quote/ECL/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 303.0050048828125,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ECL/"}]}}'
+  sector: Basic Materials
+  ticker: ECL
+research_trigger:
+  discovery_snapshot_hash: e4ba274e86fc30aa2c3bb7b69bff38419f3c9d2bd1a5b8ed5e9ead41c32fd910
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 38117007705096d7382a152c433eb5ebb9ba9244e7b6576bed0d34c8c4305aef
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T14:15:13.685396-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observed_value: 1.11
+  period_end: '2026-09-30'
+  source: Evidencia financiera del paquete, StockAnalysis; https://stockanalysis.com/stocks/ECL/statistics/.
+  threshold_observation: Marcar para revisión si es inferior a 0,5x.
+  unit: x
+- metric: dilution_yoy_pct
+  observed_value: null
+  period_end: null
+  source: No validable con los datos y URLs permitidos del paquete.
+  threshold_observation: Marcar para revisión si supera 10%.
+  unit: percent
+- metric: interest_coverage
+  observed_value: null
+  period_end: '2026-09-30'
+  source: El campo reportado es 0, pero no se aporta definición verificable para interpretarlo
+    como cobertura; trusted_source_urls está vacío.
+  threshold_observation: Marcar para revisión si es inferior a 2,0x.
+  unit: x
+- metric: negative_fcf_runway_months
+  observed_value: null
+  period_end: null
+  source: El FCF TTM reportado es positivo; el umbral condicionado a FCF negativo
+    no resulta aplicable.
+  threshold_observation: Si el FCF es negativo, marcar para revisión si el runway
+    es inferior a 12 meses.
+  unit: months
+- metric: net_debt_ebitda
+  observed_value: null
+  period_end: null
+  source: 'No validable con una URL permitida: trusted_source_urls está vacío.'
+  threshold_observation: Marcar para revisión si supera 4,0x.
+  unit: x
+- metric: share_count_cagr_3y_pct
+  observed_value: null
+  period_end: null
+  source: No hay historia comparable de acciones en el paquete y trusted_source_urls
+    está vacío.
+  threshold_observation: Marcar para revisión si supera 5%.
+  unit: percent
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 42
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T14:12:49.016878-03:00'
+  fuentes:
+    stockanalysis: 342.95
+    yfinance: 342.9524
+  mediana: 342.95
+  n_fuentes: 2
+  promedio: 342.95
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T14:12:49.016878-03:00'
+    observed_date: '2026-11-20'
+    target_price: 342.95
+    url: https://stockanalysis.com/stocks/ecl/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T14:12:49.016878-03:00'
+    observed_date: '2026-11-20'
+    target_price: 342.9524
+    url: https://finance.yahoo.com/quote/ECL/
+  target_high: 385.0
+  target_low: 310.0
+tesis_inversion: Ecolab ofrece soluciones y servicios de agua, higiene y prevención
+  de infecciones en varios segmentos. La evidencia financiera suministrada muestra
+  ingresos TTM de USD 17.372 millones, FCF TTM de USD 1.870 millones y margen bruto
+  TTM de 44,04% al 2026-09-30; no basta para establecer retornos sobre capital, crecimiento
+  sostenible, penetración de mercado ni ventaja competitiva neta de erosión.
+ticker: ECL
+version: '3.0'

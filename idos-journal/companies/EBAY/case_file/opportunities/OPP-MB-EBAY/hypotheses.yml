@@ -1,0 +1,156 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El GMV acumulado de los cuatro trimestres terminados el 2027-09-30
+      crece menos de 3% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no reporta datos comparables que permitan verificar la predicción
+      antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El GMV acumulado de los cuatro trimestres terminados el 2027-09-30 crece menos
+    de 3% interanual.
+  - La empresa no reporta datos comparables que permitan verificar la predicción antes
+    de la fecha objetivo.
+  horizon: medio
+  id: H1-OPP-MB-EBAY
+  opportunity_id: OPP-MB-EBAY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual del GMV acumulado en cuatro trimestres
+    prediction: El GMV acumulado de los cuatro trimestres terminados el 2027-09-30
+      será al menos un 3% superior al de los cuatro trimestres terminados el 2026-09-30,
+      calculado con cifras reportadas comparables.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El paquete informa crecimiento de ingresos y flujo de caja libre en el
+    TTM terminado el 2026-09-30, pero no valida su durabilidad ni aporta una medida
+    de GMV. El crecimiento del GMV permitiría comprobar si aumenta la actividad subyacente
+    del marketplace y no solo los ingresos por cada transacción.
+  review_trigger: Dejar de creerla si el GMV interanual cae en dos trimestres consecutivos
+    antes del 2027-09-30, o si el acumulado de cuatro trimestres no alcanza 3% de
+    crecimiento en la fecha objetivo.
+  secondary_hypotheses: []
+  statement: eBay mantendrá crecimiento positivo del volumen bruto de mercancías (GMV)
+    durante los próximos cuatro trimestres, señal de que el crecimiento reciente del
+    negocio no depende únicamente de cambios de monetización.
+  status: ACTIVE
+  ticker: EBAY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La diferencia entre el crecimiento interanual del flujo de caja libre
+      TTM y el de los ingresos TTM es inferior a 2 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre TTM cae interanualmente al 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Un cambio de definición contable impide una comparación homogénea y
+      la empresa no ofrece una conciliación suficiente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La diferencia entre el crecimiento interanual del flujo de caja libre TTM y el
+    de los ingresos TTM es inferior a 2 puntos porcentuales.
+  - El flujo de caja libre TTM cae interanualmente al 2027-09-30.
+  - Un cambio de definición contable impide una comparación homogénea y la empresa
+    no ofrece una conciliación suficiente.
+  horizon: medio
+  id: H2-OPP-MB-EBAY
+  opportunity_id: OPP-MB-EBAY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 2.0
+    met: null
+    metric: Ventaja de crecimiento interanual del flujo de caja libre TTM frente a
+      ingresos TTM
+    prediction: Al 2027-09-30, el crecimiento interanual del flujo de caja libre TTM
+      superará en al menos 2 puntos porcentuales al crecimiento interanual de los
+      ingresos TTM, usando períodos comparables y la definición de flujo de caja libre
+      divulgada por la empresa.
+    unit: puntos porcentuales
+  priority: critical
+  probability: 0.5
+  rationale: El paquete señala que tanto los ingresos como el flujo de caja libre
+    del TTM terminado el 2026-09-30 superaron los del FY 2025, pero no proporciona
+    ratios validados ni demuestra que la mejora sea sostenible. Comparar las tasas
+    de crecimiento de ambas métricas permite comprobar si el crecimiento de caja acompaña
+    o supera al de ingresos.
+  review_trigger: Dejar de creerla si la diferencia entre ambas tasas resulta inferior
+    a 2 puntos porcentuales cuando se publiquen los resultados del trimestre terminado
+    el 2027-09-30, o si el flujo de caja libre TTM cae interanualmente.
+  secondary_hypotheses:
+  - H1-OPP-MB-EBAY
+  statement: El flujo de caja libre de eBay crecerá más rápido que sus ingresos durante
+    los próximos cuatro trimestres, reflejando conversión de ingresos en caja al menos
+    estable.
+  status: ACTIVE
+  ticker: EBAY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de EBAY supera al del S&P 500 en 5 puntos porcentuales
+      o más durante el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cotización ajustada por dividendos o el índice de referencia no
+      puede reconstruirse con datos públicos consistentes para las dos fechas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de EBAY supera al del S&P 500 en 5 puntos porcentuales o
+    más durante el período.
+  - La cotización ajustada por dividendos o el índice de referencia no puede reconstruirse
+    con datos públicos consistentes para las dos fechas.
+  horizon: medio
+  id: H3-OPP-MB-EBAY
+  opportunity_id: OPP-MB-EBAY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rendimiento total de EBAY menos rendimiento total del S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de EBAY, incluidos dividendos, quedará al menos 5 puntos porcentuales
+      por debajo del rendimiento total del S&P 500.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: El paquete indica que el amplio rango de objetivos de analistas no demuestra
+    por sí solo que el mercado esté equivocado y que no se han validado ratios clave
+    ni las expectativas incorporadas en la cotización. Sin evidencia de una brecha
+    entre expectativas y resultados, no hay base para afirmar una revaloración positiva;
+    la hipótesis es que la acción no generará rendimiento relativo superior mientras
+    esa brecha no quede demostrada.
+  review_trigger: Dejar de creerla si, antes del 2027-11-20, EBAY supera al S&P 500
+    en 5 puntos porcentuales o más sobre una ventana móvil de doce meses, o si los
+    resultados publicados acreditan crecimiento sostenido de GMV y flujo de caja libre
+    según H1 y H2.
+  secondary_hypotheses:
+  - H1-OPP-MB-EBAY
+  - H2-OPP-MB-EBAY
+  statement: La acción de eBay no superará al S&P 500 en rendimiento total durante
+    los próximos doce meses, salvo que los resultados demuestren crecimiento operativo
+    y financiero duradero.
+  status: ACTIVE
+  ticker: EBAY
+  version: 1
