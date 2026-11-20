@@ -1,0 +1,27 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de multibagger'
+- 'Market error: No validado: el consenso observado no demuestra por sí mismo un error
+  de valoración.'
+- 'Thesis: GSK desarrolla, fabrica y comercializa vacunas y medicamentos especializados
+  y generales; los datos disponibles muestran margen bruto TTM de 73,76% y FCF positivo
+  reportado, pero no bastan para valida'
+generated_at: '2026-11-20T15:19:23.339205-03:00'
+id: ass-4966788d
+recommendation: REVIEW
+risks:
+- observacion: La deuda total reportada fue 23.802 al 2026-09-30 y el efectivo e inversiones
+    2.962; ambas cifras son importes reportados por StockAnalysis y sus unidades no
+    están especificadas en el paquete.
+  riesgo: Apalancamiento y liquidez
+- observacion: Las cifras de FCF TTM difieren entre la estadística reportada y la
+    serie financiera; no se pueden reconciliar con la evidencia disponible.
+  riesgo: Calidad y comparabilidad de datos
+- observacion: No se incluyen datos de ventas por producto, expiraciones, pipeline
+    clínico, patentes ni penetración de mercado.
+  riesgo: Riesgo de crecimiento y cartera
+score: 52
+status: COMPLETED
+version: '3.0'

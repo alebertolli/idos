@@ -2,28 +2,28 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-GM",
-      "ticker": "GM",
+      "opp_id": "OPP-MB-GSK",
+      "ticker": "GSK",
       "status": "completed",
-      "score": 76.06,
+      "score": 52,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-GOOGL",
-      "ticker": "GOOGL",
+      "opp_id": "OPP-MB-HAL",
+      "ticker": "HAL",
       "status": "quality_failed",
-      "score": 68.03,
+      "score": 55,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "opp_id": "OPP-MB-GRMN",
-      "ticker": "GRMN",
+      "opp_id": "OPP-COMPOUNDER-HL-0001",
+      "ticker": "HL",
       "status": "completed",
-      "score": 69,
+      "score": 48,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
@@ -32,8 +32,8 @@
   "assessments": [],
   "errors": [
     {
-      "ticker": "GOOGL",
-      "opp_id": "OPP-MB-GOOGL",
+      "ticker": "HAL",
+      "opp_id": "OPP-MB-HAL",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -42,7 +42,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 117,
+  "deferred_count": 115,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

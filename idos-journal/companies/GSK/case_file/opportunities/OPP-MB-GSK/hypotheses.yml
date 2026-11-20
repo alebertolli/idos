@@ -1,0 +1,161 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas agregadas de vacunas y medicamentos especializados crecen
+      menos del 5% en 2027 frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Su crecimiento no supera en al menos 2 puntos porcentuales el de los
+      demás negocios.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación no puede reconstruirse de forma consistente a partir
+      de los informes publicados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas agregadas de vacunas y medicamentos especializados crecen menos del
+    5% en 2027 frente a 2026.
+  - Su crecimiento no supera en al menos 2 puntos porcentuales el de los demás negocios.
+  - La comparación no puede reconstruirse de forma consistente a partir de los informes
+    publicados.
+  horizon: medio
+  id: H1-OPP-MB-GSK
+  opportunity_id: OPP-MB-GSK
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-28'
+    expected: 5.0
+    met: null
+    metric: Crecimiento de ventas agregadas de vacunas y medicamentos especializados
+      a tipos de cambio constantes, ejercicio 2027 frente a 2026
+    prediction: En el ejercicio fiscal 2027, las ventas agregadas de vacunas y medicamentos
+      especializados, medidas a tipos de cambio constantes y con perímetro comparable,
+      crecerán al menos un 5% frente al ejercicio fiscal 2026 y superarán en al menos
+      2 puntos porcentuales el crecimiento de los demás negocios.
+    unit: porcentaje mínimo; además, al menos 2 puntos porcentuales por encima del
+      resto de negocios
+  priority: critical
+  probability: 0.5
+  rationale: La tesis identifica vacunas y medicamentos especializados como áreas
+    potenciales de crecimiento, pero la información disponible no incluye ventas por
+    segmento, evolución de productos ni datos de mercado. La hipótesis se plantea
+    como prueba de esa posible fortaleza, no como un hecho establecido.
+  review_trigger: Dejar de creerla cuando GSK publique sus resultados anuales de 2027
+    si cualquiera de los dos umbrales de crecimiento no se alcanza; si la publicación
+    se retrasa, reconsiderarla el 2028-02-28 con la información entonces disponible.
+  secondary_hypotheses: []
+  statement: Durante el ejercicio 2027, el crecimiento de las ventas de vacunas y
+    medicamentos especializados de GSK superará al del resto de sus negocios, señal
+    de que esas franquicias están ampliando su peso comercial.
+  status: ACTIVE
+  ticker: GSK
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre reportado de 2027 es inferior a 1,05 veces el
+      de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre de 2027 es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La razón entre flujo de caja libre y beneficio operativo subyacente
+      es inferior al 70%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre reportado de 2027 es inferior a 1,05 veces el de 2026.
+  - El flujo de caja libre de 2027 es negativo.
+  - La razón entre flujo de caja libre y beneficio operativo subyacente es inferior
+    al 70%.
+  horizon: medio
+  id: H2-OPP-MB-GSK
+  opportunity_id: OPP-MB-GSK
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-28'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual del flujo de caja libre reportado en 2027
+    prediction: En el ejercicio fiscal 2027, el flujo de caja libre reportado será
+      al menos un 5% superior al de 2026 y representará al menos el 70% del beneficio
+      operativo subyacente reportado para 2027. Se usarán las definiciones y conciliaciones
+      publicadas por GSK.
+    unit: porcentaje mínimo; conversión de flujo de caja libre a beneficio operativo
+      subyacente de al menos 70%
+  priority: critical
+  probability: 0.5
+  rationale: La información de partida señala flujo de caja libre positivo, pero no
+    demuestra que sea creciente ni que la reinversión genere retornos atractivos.
+    La hipótesis prueba si el crecimiento operativo se traduce en más caja disponible.
+  review_trigger: Dejar de creerla al publicarse los resultados anuales de 2027 si
+    falla cualquiera de los umbrales; reconsiderarla como máximo el 2028-02-28 si
+    los datos necesarios siguen sin publicarse.
+  secondary_hypotheses:
+  - H1-OPP-MB-GSK
+  statement: GSK aumentará su flujo de caja libre reportado en 2027 sin deteriorar
+    la conversión de beneficio operativo subyacente en caja.
+  status: ACTIVE
+  ticker: GSK
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de GSK menos la del índice de referencia es inferior
+      a 5 puntos porcentuales al cierre del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de GSK es inferior a la del índice, aunque el
+      rendimiento absoluto de GSK sea positivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de GSK menos la del índice de referencia es inferior a 5
+    puntos porcentuales al cierre del periodo.
+  - La rentabilidad total de GSK es inferior a la del índice, aunque el rendimiento
+    absoluto de GSK sea positivo.
+  horizon: medio
+  id: H3-OPP-MB-GSK
+  opportunity_id: OPP-MB-GSK
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Exceso de rentabilidad total de GSK frente al STOXX Europe 600 Health
+      Care Net Return, 2026-11-20 a 2027-11-19
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, la rentabilidad
+      total de GSK, incluidos dividendos y medida en libras esterlinas, superará en
+      al menos 5 puntos porcentuales la rentabilidad total del STOXX Europe 600 Health
+      Care Net Return en libras esterlinas.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: El margen bruto TTM de 73,76% y el flujo de caja libre positivo aportan
+    contexto financiero favorable, pero no bastan para determinar el crecimiento sostenible
+    ni la valoración. Esta hipótesis convierte la posible infravaloración en una prueba
+    relativa de mercado, sin presuponer que esos datos prueben una ventaja competitiva.
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si el exceso de rentabilidad
+    no alcanza 5 puntos porcentuales; no extender el horizonte para reinterpretar
+    el resultado.
+  secondary_hypotheses:
+  - H1-OPP-MB-GSK
+  - H2-OPP-MB-GSK
+  statement: En los 12 meses posteriores a la fecha de corte, la rentabilidad total
+    de GSK superará a la del índice STOXX Europe 600 Health Care Net Return en libras
+    esterlinas, coherente con que el mercado reconozca una trayectoria de crecimiento
+    y generación de caja mejor de lo que actualmente descuenta.
+  status: ACTIVE
+  ticker: GSK
+  version: 1
