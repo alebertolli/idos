@@ -1,0 +1,420 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La exposición a demanda discrecional y ciclos económicos justifica clasificar
+    la oportunidad principalmente como cíclica.
+  - Las marcas y la escala descritas en el perfil aportado podrían contribuir a la
+    competencia, pero no acreditan por sí solas un moat durable.
+  - El flujo de caja libre reportado es un dato favorable aislado, pero no basta para
+    concluir que la salud financiera sea fuerte sin evidencia de deuda, liquidez y
+    vencimientos.
+  - La cotización por debajo del objetivo medio de analistas no demuestra infravaloración
+    porque esos objetivos no son una valoración independiente.
+  - 'La observación seleccionada de stockanalysis.com reporta flujo de caja libre
+    TTM de 3.180.000.000 en la unidad de moneda financiera del proveedor, con período
+    terminado el 2026-08-31; fuente indicada: https://stockanalysis.com/stocks/CCL/statistics/.'
+  - 'La observación seleccionada de stockanalysis.com reporta margen operativo TTM
+    de 15,92 puntos porcentuales, con período terminado el 2026-08-31; fuente indicada:
+    https://stockanalysis.com/stocks/CCL/statistics/.'
+  - 'La observación seleccionada de stockanalysis.com reporta crecimiento de ingresos
+    TTM de 5,2 puntos porcentuales, con período terminado el 2026-08-31; fuente indicada:
+    https://stockanalysis.com/stocks/ccl/financials/.'
+  preguntas_abiertas:
+  - ¿Cuáles son la deuda total, la deuda neta, el efectivo disponible, los vencimientos
+    y el coste de financiación, según los últimos documentos primarios?
+  - ¿Cómo se concilia el flujo de caja libre reportado con el flujo operativo, el
+    capex, partidas no recurrentes y las definiciones del proveedor?
+  - ¿Qué resultados, guía y métricas de ocupación, precio por pasajero y costos operativos
+    ha publicado la compañía en sus documentos más recientes?
+  - ¿Qué explica la diferencia entre el crecimiento de ingresos de 5,2% seleccionado
+    y el valor no comparable de 3,5% informado por otra fuente?
+  - ¿Qué evidencia cuantitativa existe sobre cuota de mercado, poder de precios, retornos
+    sobre capital y resiliencia a lo largo del ciclo?
+  - ¿Qué compromisos de inversión, descarbonización y cumplimiento ambiental son materiales
+    para la flota?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'No se clasifica como compounder ni compounder_castigado
+    porque la evidencia disponible no demuestra una ventaja competitiva durable ni
+    una valoración atractiva frente a beneficios normalizados. No es posible sostener
+    turnaround: faltan datos comparables de balance, rentabilidad histórica y avance
+    de un plan de recuperación. Deep value no está probado porque no se aportan múltiplos
+    o valoración independiente suficientes. Distressed no puede afirmarse sin evidencia
+    actual de solvencia o riesgo de quiebra. Special situation, hype, quality at fair
+    price y value trap tampoco quedan demostradas con los datos disponibles.'
+  justificacion: 'La categoría principal es cíclica: el negocio de cruceros está expuesto
+    a cambios en la demanda de ocio, los precios, los costos operativos y las condiciones
+    económicas. La información disponible no permite concluir que la cotización represente
+    una oportunidad de valor independiente del ciclo. La descripción de la compañía
+    y sus marcas se toma del perfil aportado, no de una verificación externa en este
+    análisis.'
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El perfil aportado describe una compañía con múltiples marcas y actividades
+    relacionadas con cruceros y turismo. La escala y diversidad de marcas podrían
+    ayudar a distribuir la oferta y captar distintos segmentos, pero no se aportan
+    datos comparativos de cuota, rentabilidad por marca, poder de precios, retención
+    o costos que permitan verificar un moat durable. La exposición a demanda discrecional
+    hace que la resiliencia operativa deba evaluarse a lo largo de distintos ciclos.
+  rating: regular
+dominio_catalizadores:
+- descripcion: Confirmación en reportes futuros de crecimiento de ingresos y generación
+    de flujo de caja libre, acompañada de estabilidad de márgenes.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Revisión de expectativas del mercado hacia el extremo superior del
+    rango de objetivos observado si los resultados operativos superan las expectativas;
+    el rango de analistas es una referencia, no una garantía.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: El modelo de cruceros implica, como inferencia sectorial, exposición a
+    regulación ambiental, consumo de combustible, emisiones, residuos, seguridad de
+    pasajeros y continuidad operativa. También puede depender de astilleros, combustible,
+    puertos y destinos, aunque la información aportada no cuantifica concentración
+    de proveedores ni exposición por jurisdicción. No se dispone de evidencia específica
+    de incidentes, métricas ESG o cumplimiento regulatorio de la compañía.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La única observación financiera directa seleccionada es flujo de caja
+    libre TTM de 3.180 millones en la moneda financiera del proveedor, con período
+    terminado el 2026-08-31. La entrada identifica la moneda global como USD, pero
+    no proporciona composición, conciliación ni serie comparable de este flujo. No
+    hay observaciones seleccionadas de deuda, efectivo, vencimientos, cobertura de
+    intereses o liquidez con las que concluir que el balance sea fuerte o débil. El
+    flujo reportado no se describe como ajustado.
+  rating: adecuada
+dominio_growth:
+  analisis: El proveedor seleccionado reporta crecimiento de ingresos TTM de 5,2%
+    al 2026-08-31; existe un valor distinto de otra fuente, pero está marcado como
+    no comparable por falta de período, unidad o corte comparable, por lo que no se
+    resuelve el conflicto por intuición. La observación seleccionada permite describir
+    crecimiento positivo reportado, pero no proyectarlo ni atribuirlo a volumen, precio,
+    capacidad o adquisiciones. La visibilidad futura y el crecimiento de beneficios
+    no están suficientemente documentados.
+  rating: moderado
+dominio_management:
+  analisis: No se aportan datos verificables sobre asignación de capital, remuneración,
+    compras de acciones, decisiones de inversión, reducción de deuda o cumplimiento
+    de objetivos de gestión. En consecuencia, no es posible valorar de forma fundamentada
+    el track record ni la alineación del equipo directivo.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Caída de demanda de viajes discrecionales por desaceleración económica o
+    deterioro del gasto del consumidor.
+- impacto: alto
+  probabilidad: media
+  riesgo: Presión sobre costos operativos, incluidos combustible, mano de obra y operación
+    de buques, que reduzca márgenes o caja.
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgo financiero por deuda, coste de refinanciación o necesidades de liquidez;
+    no cuantificable con las observaciones disponibles.
+- impacto: medio
+  probabilidad: media
+  riesgo: Cambios regulatorios o costos de cumplimiento ambiental y de seguridad que
+    afecten inversiones y operación.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Interrupciones operativas por incidentes, condiciones meteorológicas, restricciones
+    portuarias o eventos sanitarios.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una secuencia de reportes que confirme crecimiento de ingresos y
+      generación de flujo de caja libre, sin deterioro sustancial de márgenes, podría
+      mejorar la percepción del mercado; la información disponible no permite verificar
+      calendario, guía corporativa ni compromisos de gestión.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización observada es USD 27,76 al 2026-11-19. El consenso
+    de objetivos observado al 2026-11-20 es USD 33,56, con rango de USD 23 a USD 43.
+    Esas referencias sugieren una expectativa media por encima de la cotización, pero
+    no revelan por sí solas qué supuestos operativos o múltiplos están descontados.
+    No se aportan múltiplos actuales seleccionados ni datos suficientes para inferir
+    el escenario implícito en ellos.
+  hipotesis_contraria: La lectura optimista sería que el precio no refleja plenamente
+    la capacidad de sostener crecimiento de ingresos y generación de caja. La lectura
+    contraria es que el consenso puede subestimar la sensibilidad del negocio a una
+    desaceleración de la demanda, costos y necesidades de financiación. Estas son
+    hipótesis, no hechos verificados con la evidencia suministrada.
+  razonamiento: La cotización está por debajo del objetivo medio observado, pero el
+    consenso de analistas no constituye valoración independiente ni evidencia de infravaloración.
+    Las observaciones financieras disponibles son escasas y no incluyen datos suficientes
+    sobre deuda, vencimientos, liquidez, beneficios normalizados o valoración relativa.
+    Por tanto, no se puede distinguir con confianza entre una oportunidad y una prima
+    de riesgo justificada.
+generated_at: '2026-11-20T11:46:18.831342-03:00'
+integridad_tesis:
+  flags: []
+  reason: No hay evidencia en la entrada que permita afirmar que se haya vulnerado
+    una de las nueve categorías de integridad de tesis. La ausencia de información
+    suficiente sobre solvencia y moat es una limitación de diligencia, no prueba de
+    insolvencia ni de deterioro estructural.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-036
+prompt_inputs:
+  business_model: 'Carnival Corporation Ltd., a cruise company, provides leisure travel
+    services. The company operates through four segments: North America Cruise Operations,
+    Europe Cruise Operations, Cruise Support, and Tour and Other. It operates port
+    destinations and islands, as well as owns and operates hotels, lodges, glass-domed
+    railcars, and motorcoaches. The company offers its services under the AIDA Cruises,
+    Carnival Cruise Line, Costa Cruises, Cunard, Holland America Line, P&O Cruises
+    (Australia), P&O Cruises (UK), Princess Cruises, and Seabourn brands. It sells
+    its cruises through travel agents, tour operators, vacation planners, websites,
+    and onboard future cruise consultants. Carnival Corporation Ltd. was founded in
+    1972 and is headquartered in Miami, Florida.'
+  ceo_tenure: 0
+  debt_to_equity: 0.0177
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Carnival Corporation Ltd.
+  operating_margin: 15.92
+  pe_ratio: 12.77
+  products: ''
+  revenue: 27590000000.0
+  revenue_growth: 5.2
+  roic: 11.59
+  sector: Consumer Cyclical
+  ticker: CCL
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Carnival Corporation Ltd., a cruise company, provides leisure travel
+    services. The company operates through four segments: North America Cruise Operations,
+    Europe Cruise Operations, Cruise Support, and Tour and Other. It operates port
+    destinations and islands, as well as owns and operates hotels, lodges, glass-domed
+    railcars, and motorcoaches. The company offers its services under the AIDA Cruises,
+    Carnival Cruise Line, Costa Cruises, Cunard, Holland America Line, P&O Cruises
+    (Australia), P&O Cruises (UK), Princess Cruises, and Seabourn brands. It sells
+    its cruises through travel agents, tour operators, vacation planners, websites,
+    and onboard future cruise consultants. Carnival Corporation Ltd. was founded in
+    1972 and is headquartered in Miami, Florida.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 27.760000228881836
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0177
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:19.114085+00:00", "period_end_date": "2026-08-31",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-08-31", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/CCL/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 3180000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 26.426}, "observed_at": "2026-11-01T10:17:19.114085+00:00",
+    "period_end_date": "2026-08-31", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-08-31", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/CCL/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-08-31", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 15.92}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 3.5000000000000004}, "observed_at": "2026-11-01T10:17:19.114085+00:00",
+    "period_end_date": "2026-08-31", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-08-31", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/ccl/financials/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-08-31", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 5.2}}}, "observed_at":
+    "2026-11-19T19:16:08.419907+00:00", "period_end": "2026-08-31", "sources_used":
+    ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Carnival Corporation Ltd.
+  operating_margin: 15.92
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Carnival Corporation Ltd., a cruise company, provides leisure travel
+    services. The company operates through four segments: North America Cruise Operations,
+    Europe Cruise Operations, Cruise Support, and Tour and Other. It operates port
+    destinations and islands, as well as owns and operates hotels, lodges, glass-domed
+    railcars, and motorcoaches. The company offers its services under the AIDA Cruises,
+    Carnival Cruise Line, Costa Cruises, Cunard, Holland America Line, P&O Cruises
+    (Australia), P&O Cr'
+  revenue: 27590000000.0
+  revenue_growth: 5.2
+  roic: 11.59
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    43.0, "low": 23.0, "mean": 33.56, "median": 33.56, "observed_at": "2026-11-20T11:45:46.512032-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T11:45:46.512032-03:00", "observed_date": "2026-11-20", "target_price":
+    33.56, "url": "https://stockanalysis.com/stocks/ccl/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T11:45:46.512032-03:00",
+    "observed_date": "2026-11-20", "target_price": 33.56296, "url": "https://finance.yahoo.com/quote/CCL/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 27.760000228881836,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CCL/"}]}}'
+  sector: Consumer Cyclical
+  ticker: CCL
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: d980576a078273c3ab13a10c80d38254e66f50b9aaafbcdf5b3057d94e79dd50
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T11:46:18.831342-03:00'
+resumen_ejecutivo: 'Clasificación: cíclica. La información aportada muestra una cotización
+  de USD 27,76 y objetivos de analistas entre USD 23 y USD 43, con media de USD 33,56;
+  esas referencias no bastan para establecer valor intrínseco. La observación financiera
+  seleccionada reporta flujo de caja libre TTM de USD 3.180 millones al 2026-08-31,
+  pero la evidencia no incluye el detalle del cálculo ni los datos de balance necesarios
+  para evaluar holgadamente la deuda. Tesis posible, pero con convicción limitada
+  y preguntas materiales abiertas. No se verificaron eventos corporativos o catalizadores
+  externos con fuentes primarias.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados y guía corporativa muestran mejora sostenida de ingresos, márgenes
+      y flujo de caja libre.
+    - La documentación primaria demuestra una reducción significativa del riesgo financiero
+      y de vencimientos.
+    id: BEAR
+    key_assumptions:
+    - La demanda o los precios de los viajes se debilitan frente a las expectativas.
+    - Los costos o las necesidades de financiación presionan la generación de caja.
+    - El mercado asigna una valoración cercana al límite inferior del rango de analistas
+      observado.
+    rationale: Ancla bajista basada en el límite inferior observado del rango de objetivos
+      de analistas. No es una valoración independiente ni una predicción de precio;
+      representa una referencia condicional ante una lectura desfavorable del negocio.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ccl/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CCL/
+    target_price: 23
+  - falsifiers:
+    - Los reportes futuros muestran contracción de ingresos o deterioro material de
+      márgenes y caja.
+    - La información primaria evidencia mayor presión de deuda, liquidez o financiación
+      que la implícita en el escenario.
+    id: BULL
+    key_assumptions:
+    - La demanda y los precios se mantienen suficientemente sólidos para respaldar
+      crecimiento operativo.
+    - La generación de caja no se deteriora y los costos no erosionan materialmente
+      los márgenes.
+    - El mercado adopta una valoración correspondiente al extremo superior del rango
+      de objetivos observado.
+    rationale: Ancla alcista basada en el límite superior observado del rango de objetivos
+      de analistas. No constituye valoración independiente ni precio garantizado;
+      supone que la evolución del negocio permite justificar la referencia alta del
+      rango.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ccl/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CCL/
+    target_price: 43
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 52
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T11:45:46.512032-03:00'
+  fuentes:
+    stockanalysis: 33.56
+    yfinance: 33.56296
+  mediana: 33.56
+  n_fuentes: 2
+  promedio: 33.56
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T11:45:46.512032-03:00'
+    observed_date: '2026-11-20'
+    target_price: 33.56
+    url: https://stockanalysis.com/stocks/ccl/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T11:45:46.512032-03:00'
+    observed_date: '2026-11-20'
+    target_price: 33.56296
+    url: https://finance.yahoo.com/quote/CCL/
+  target_high: 43.0
+  target_low: 23.0
+tesis_inversion: 'La tesis es condicional: una compañía de cruceros podría beneficiarse
+  de crecimiento de ingresos y conversión de ventas en caja, pero el carácter cíclico
+  y la falta de información suficiente sobre deuda y valoración normalizada impiden
+  sostener una compra por infravaloración. El precio observado está por debajo del
+  consenso medio de analistas, aunque esa diferencia no demuestra por sí misma un
+  error de mercado. La conclusión debe permanecer incierta hasta contrastar estados
+  financieros, vencimientos, guías y resultados operativos con fuentes primarias.'
+ticker: CCL
+version: '3.0'
