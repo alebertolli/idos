@@ -1,0 +1,188 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto GAAP de FY2027 es inferior al 70%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica ingresos y coste de ventas anuales que permitan
+      calcular la métrica.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto GAAP de FY2027 es inferior al 70%.
+  - La compañía no publica ingresos y coste de ventas anuales que permitan calcular
+    la métrica.
+  horizon: medio
+  id: H1-OPP-MB-PFE
+  opportunity_id: OPP-MB-PFE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-29'
+    expected: 70.0
+    met: null
+    metric: Margen bruto GAAP FY2027
+    prediction: El margen bruto GAAP consolidado de FY2027 será al menos del 70%,
+      calculado como ingresos menos coste de ventas dividido por ingresos, usando
+      las cifras anuales reportadas.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: 'La normalización de los ingresos y del mix de productos tras la variabilidad
+    asociada a productos contra la COVID-19 podría mejorar la comparación interanual.
+    La hipótesis es condicional: sin datos futuros de ventas y costes por producto
+    no puede darse por confirmada una recuperación sostenible.'
+  review_trigger: Abandonar la hipótesis si los resultados anuales de FY2027 muestran
+    un margen bruto inferior al 70%; si no se publican antes del 2028-02-29, mantenerla
+    sin confirmar y no tratarla como evidencia de recuperación.
+  secondary_hypotheses: []
+  statement: Pfizer recuperará parcialmente el margen bruto en el ejercicio fiscal
+    2027, aunque esa mejora no bastará por sí sola para demostrar crecimiento estructural.
+  status: ACTIVE
+  ticker: PFE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF acumulado en los cuatro trimestres más recientes es inferior
+      a 10.000 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica datos suficientes para calcular el flujo de caja
+      operativo menos compras de propiedades, planta y equipo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF acumulado en los cuatro trimestres más recientes es inferior a 10.000 millones
+    de dólares.
+  - La empresa no publica datos suficientes para calcular el flujo de caja operativo
+    menos compras de propiedades, planta y equipo.
+  horizon: medio
+  id: H2-OPP-MB-PFE
+  opportunity_id: OPP-MB-PFE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10000.0
+    met: null
+    metric: FCF acumulado de cuatro trimestres
+    prediction: El FCF acumulado de los cuatro trimestres terminados el 2027-11-20
+      será de al menos 10.000 millones de dólares, definido como flujo de caja operativo
+      menos compras de propiedades, planta y equipo.
+    unit: millones de USD
+  priority: critical
+  probability: 0.5
+  rationale: La generación de caja puede sostener las necesidades de inversión, dividendos
+    y servicio de deuda si el flujo de caja operativo cubre el gasto de capital. La
+    información disponible no permite asumir que el FCF sea estable ni que su nivel
+    baste para reducir rápidamente la deuda.
+  review_trigger: Dejar de creerla en la primera publicación trimestral que muestre
+    un FCF acumulado de cuatro trimestres inferior a 10.000 millones de dólares; la
+    fecha límite de evaluación es 2027-11-20.
+  secondary_hypotheses:
+  - H1-OPP-MB-PFE
+  statement: Pfizer conservará una generación de caja libre positiva y material durante
+    los próximos doce meses, pese a la variabilidad de esa métrica y a las obligaciones
+    de deuda.
+  status: ACTIVE
+  ticker: PFE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La deuda neta al 2027-11-20 es inferior al 90% de la deuda neta al
+      2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No existen cifras comparables de deuda financiera y efectivo para ambas
+      fechas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La deuda neta al 2027-11-20 es inferior al 90% de la deuda neta al 2026-09-30.
+  - No existen cifras comparables de deuda financiera y efectivo para ambas fechas.
+  horizon: medio
+  id: H3-OPP-MB-PFE
+  opportunity_id: OPP-MB-PFE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 90.0
+    met: null
+    metric: Deuda neta como porcentaje de la base del 2026-09-30
+    prediction: La deuda neta al 2027-11-20, definida como deuda financiera total
+      menos efectivo y equivalentes, será como mínimo el 90% de la deuda neta reportada
+      al 2026-09-30.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La generación de FCF puede coexistir con deuda neta elevada si se destina
+    a otros usos. Sin una conciliación de deuda, caja y asignaciones de capital, no
+    es válido inferir una reducción de deuda únicamente a partir del FCF.
+  review_trigger: Dejar de creerla cuando una publicación financiera muestre una deuda
+    neta inferior al 90% de la base del 2026-09-30; si no hay datos comparables para
+    el 2027-11-20, clasificar la hipótesis como no verificable.
+  secondary_hypotheses:
+  - H2-OPP-MB-PFE
+  statement: La caja libre positiva no se traducirá automáticamente en una reducción
+    material de la deuda neta durante el periodo observado, porque el FCF también
+    debe financiar dividendos, inversiones y otras asignaciones de capital.
+  status: ACTIVE
+  ticker: PFE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de PFE supera al del S&P 500 o queda menos de
+      5 puntos porcentuales por debajo en el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden obtener precios ajustados por dividendos comparables para
+      ambas inversiones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de PFE supera al del S&P 500 o queda menos de 5 puntos porcentuales
+    por debajo en el periodo definido.
+  - No se pueden obtener precios ajustados por dividendos comparables para ambas inversiones.
+  horizon: medio
+  id: H4-OPP-MB-PFE
+  opportunity_id: OPP-MB-PFE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rendimiento total de PFE menos rendimiento total del S&P 500
+    prediction: El rendimiento total de PFE, incluidos dividendos, entre el cierre
+      del 2026-11-20 y el cierre del 2027-11-19 quedará al menos 5 puntos porcentuales
+      por debajo del rendimiento total del S&P 500 en el mismo intervalo.
+    unit: puntos porcentuales o menos
+  priority: informational
+  probability: 0.5
+  rationale: 'El contexto disponible no valida crecimiento estructural, rentabilidad
+    incremental de reinversión ni una ventaja competitiva duradera. Esto no demuestra
+    que la acción esté sobrevalorada: plantea únicamente una hipótesis falsable de
+    rendimiento relativo, no una estimación de valor intrínseco.'
+  review_trigger: Abandonar la hipótesis si, al cierre del 2027-11-19, la desventaja
+    de rendimiento total de PFE frente al S&P 500 es menor de 5 puntos porcentuales;
+    no interpretar el resultado como prueba de valor intrínseco.
+  secondary_hypotheses:
+  - H1-OPP-MB-PFE
+  - H2-OPP-MB-PFE
+  - H3-OPP-MB-PFE
+  statement: En los doce meses posteriores al corte, la acción de Pfizer tendrá un
+    rendimiento total inferior al del S&P 500, reflejando que la incertidumbre sobre
+    crecimiento, reinversión y durabilidad competitiva puede limitar la revaloración
+    mientras no se confirme una mejora operativa y financiera.
+  status: ACTIVE
+  ticker: PFE
+  version: 1

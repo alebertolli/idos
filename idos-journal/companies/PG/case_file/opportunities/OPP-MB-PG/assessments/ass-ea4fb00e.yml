@@ -1,0 +1,33 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida; calidad operativa observable,
+  pero evidencia insuficiente para validar una tesis de multibagger.'
+- 'Market error: No se valida un error de valoración: el paquete ofrece consenso de
+  analistas, pero no un método de valoración propio ni evidencia suficiente para juzgar
+  si el consenso refleja correctamente los fundamentales.'
+- 'Thesis: La evidencia disponible muestra una compañía con FCF positivo y margen
+  bruto elevado, aunque el margen TTM está por debajo de FY 2025 y el crecimiento
+  de FCF reportado es moderado. La hipótesis a inve'
+generated_at: '2026-11-20T18:18:10.414685-03:00'
+id: ass-ea4fb00e
+recommendation: REVIEW
+risks:
+- evidencia: Current ratio 0.72, período terminado 2026-09-30; StockAnalysis.
+  implicacion: Revisar composición y vencimientos de pasivos antes de concluir sobre
+    liquidez.
+  riesgo: La liquidez corriente reportada es inferior a 1; el paquete no incluye activos
+    y pasivos corrientes desglosados para verificar el cálculo.
+- evidencia: 50.59% TTM al 2026-09-30 frente a 51.34% en FY 2025; StockAnalysis.
+  implicacion: El paquete no desglosa precios, volúmenes, mezcla ni costos para identificar
+    la causa.
+  riesgo: El margen bruto TTM reportado es inferior al de FY 2025.
+- evidencia: Faltan historia de ingresos FY 2023 y serie de acciones; EBITDA no está
+    entre los campos permitidos para este ratio.
+  implicacion: Estos aspectos permanecen sin resolver, no se interpretan como ausencia
+    de riesgo.
+  riesgo: No hay datos suficientes en los campos permitidos para validar crecimiento
+    de ingresos a tres años, dilución o deuda neta/EBITDA.
+score: 59
+status: COMPLETED
+version: '3.0'

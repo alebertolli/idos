@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 118 companies tracked
+Total: 121 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -63,6 +63,7 @@ Total: 118 companies tracked
 - 📄 [[EQNR|Equinor ASA]]
 - 📄 [[HAL|Halliburton Company]]
 - 📄 [[OXY|Occidental Petroleum Corporation]]
+- 📄 [[PBR|Petróleo Brasileiro S.A. - Petrobras]]
 - 📄 [[TS|Tenaris S.A.]]
 
 ## Financial Services
@@ -115,6 +116,10 @@ Total: 118 companies tracked
 - 📄 [[LMT|Lockheed Martin Corporation]]
 - 📄 [[MMM|3M Company]]
 - 📄 [[PAM|Pampa Energía S.A.]]
+- ⏳ [[PBI|Pitney Bowes Inc.]]
+
+## Other
+- 📄 [[PG|The Procter & Gamble Company]]
 
 ## Real Estate
 - 📄 [[O|Realty Income Corporation]]

@@ -1,0 +1,28 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de crecimiento multibagger'
+- 'Market error: No se valida un error de valoración con la evidencia disponible.'
+- 'Thesis: La hipótesis a investigar es que la generación de caja y la recuperación
+  del margen bruto puedan sostener el negocio pese a la deuda neta y a la variabilidad
+  histórica del FCF; el paquete no permite v'
+generated_at: '2026-11-20T18:15:51.352736-03:00'
+id: ass-66203f88
+recommendation: REVIEW
+risks:
+- evidencia: 'La caja neta reportada fue -49.129 para Current al 2026-09-27; fuente:
+    Stockanalysis, estados financieros.'
+  riesgo: La deuda supera al efectivo según la serie de caja neta reportada; no puede
+    calcularse deuda neta/EBITDA con los campos permitidos para ese ratio.
+- evidencia: 'FCF: 4.793 en FY 2023, 9.835 en FY 2024, 9.075 en FY 2025 y 11.786 TTM
+    al 2026-09-27; ingreso neto TTM: 4.033.'
+  riesgo: El FCF histórico es volátil y el ingreso neto TTM es inferior a los valores
+    FY 2024 y FY 2025 reportados.
+- evidencia: Esos campos no están informados en el resumen financiero ni en la evidencia
+    por campo proporcionada.
+  riesgo: La evidencia no identifica productos, patentes, vencimientos, competidores,
+    pipeline ni concentración de ingresos.
+score: 61
+status: COMPLETED
+version: '3.0'

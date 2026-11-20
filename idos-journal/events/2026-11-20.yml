@@ -2853,3 +2853,106 @@ events:
   event_type: research:hypothesis_validation_failed
   source: research_worker
   timestamp: '2026-11-20T18:05:16.400370'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-PBR
+    ticker: PBR
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T18:12:26.913364'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PBR
+    ticker: PBR
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T18:12:27.079710'
+- data:
+    classification: Investigación requerida; evidencia parcial
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 1fff59da3740ee28b19e541ebcaefd61953a6225caea6d16d5d005351474be15
+    opp_id: OPP-MB-PBR
+    score: 48
+    strategy_version: '1.5'
+    ticker: PBR
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T18:13:54.709072'
+- data:
+    metrics:
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-PFE
+    ticker: PFE
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T18:14:24.907196'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PFE
+    ticker: PFE
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T18:14:25.050653'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de crecimiento multibagger
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 46993581c6d3a3fc7dcb7bc0f511df323e8c8a9d30dad6eb5813b131621d8d23
+    opp_id: OPP-MB-PFE
+    score: 61
+    strategy_version: '1.5'
+    ticker: PFE
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T18:15:51.464301'
+- data:
+    metrics:
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-PG
+    ticker: PG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T18:16:25.892507'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PG
+    ticker: PG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T18:16:26.013830'
+- data:
+    classification: Investigación fundamental requerida; calidad operativa observable,
+      pero evidencia insuficiente para validar una tesis de multibagger.
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: ce2da933e07a8c7bb584a44f0d96b1814429a6d4ce0a5a665aa8e81bd9ec4d73
+    opp_id: OPP-MB-PG
+    score: 59
+    strategy_version: '1.5'
+    ticker: PG
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T18:18:10.632975'

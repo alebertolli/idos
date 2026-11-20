@@ -1,0 +1,143 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto TTM terminado el 2027-09-30 queda más de 1,0 punto
+      porcentual por debajo del TTM terminado el 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Dos publicaciones consecutivas disponibles antes de la fecha objetivo
+      muestran una disminución interanual del margen bruto.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto TTM terminado el 2027-09-30 queda más de 1,0 punto porcentual
+    por debajo del TTM terminado el 2026-09-30.
+  - Dos publicaciones consecutivas disponibles antes de la fecha objetivo muestran
+    una disminución interanual del margen bruto.
+  horizon: medio
+  id: H1-OPP-MB-PG
+  opportunity_id: OPP-MB-PG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: -1.0
+    met: null
+    metric: Variación del margen bruto TTM frente al TTM terminado el 2026-09-30
+    prediction: En la publicación de resultados que permita calcular el TTM terminado
+      el 2027-09-30, el margen bruto será como mínimo el margen bruto TTM informado
+      para 2026-09-30 menos 1,0 punto porcentual.
+    unit: puntos porcentuales como máximo de caída
+  priority: critical
+  probability: 0.5
+  rationale: La información de StockAnalysis para el período terminado el 2026-09-30
+    indica que el margen bruto TTM está por debajo del FY 2025. Esa diferencia señala
+    presión, pero por sí sola no demuestra un deterioro persistente. La hipótesis
+    es que, si la presión no se intensifica, el margen se estabilizará cerca de su
+    nivel TTM de referencia; no se dispone de datos para atribuirlo a un mecanismo
+    operativo específico.
+  review_trigger: Dejar de creerla si una publicación de resultados disponible antes
+    del 2027-09-30 muestra que el margen bruto TTM ha caído más de 1,0 punto porcentual
+    frente al nivel TTM del 2026-09-30.
+  secondary_hypotheses: []
+  statement: PG conservará la mayor parte de su margen bruto TTM pese a la compresión
+    observada frente al ejercicio fiscal 2025.
+  status: ACTIVE
+  ticker: PG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM terminado el 2027-09-30 es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF TTM terminado el 2027-09-30 es inferior al nivel TTM terminado
+      el 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM terminado el 2027-09-30 es negativo.
+  - El FCF TTM terminado el 2027-09-30 es inferior al nivel TTM terminado el 2026-09-30.
+  horizon: medio
+  id: H2-OPP-MB-PG
+  opportunity_id: OPP-MB-PG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 0.0
+    met: null
+    metric: Cambio porcentual del FCF TTM frente al TTM terminado el 2026-09-30
+    prediction: El FCF TTM informado para el período terminado el 2027-09-30 será
+      positivo y al menos igual al FCF TTM informado por StockAnalysis para el 2026-09-30.
+    unit: porcentaje como mínimo; FCF TTM también debe ser positivo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia proporcionada señala FCF positivo y crecimiento reportado
+    moderado. Esto respalda la posibilidad de continuidad, pero no permite identificar
+    la contribución de beneficios, capital circulante, inversión o asignación de capital.
+    La hipótesis se limita a comprobar si la generación de caja se sostiene, sin asumir
+    un mecanismo aún no documentado.
+  review_trigger: Dejar de creerla si una publicación disponible antes del 2027-09-30
+    presenta FCF TTM negativo, o si el FCF TTM terminado el 2027-09-30 queda por debajo
+    del nivel de referencia del 2026-09-30.
+  secondary_hypotheses:
+  - H1-OPP-MB-PG
+  statement: PG mantendrá FCF TTM positivo y evitará una contracción frente al nivel
+    de referencia informado para el período terminado el 2026-09-30.
+  status: ACTIVE
+  ticker: PG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de PG menos la rentabilidad total del S&P 500
+      es inferior a 5 puntos porcentuales entre las fechas indicadas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad relativa de PG es negativa durante el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de PG menos la rentabilidad total del S&P 500 es inferior
+    a 5 puntos porcentuales entre las fechas indicadas.
+  - La rentabilidad relativa de PG es negativa durante el período.
+  horizon: medio
+  id: H3-OPP-MB-PG
+  opportunity_id: OPP-MB-PG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de PG frente al S&P 500
+    prediction: Desde el 2026-11-20 hasta el 2027-11-20, la rentabilidad total de
+      PG, incluidos dividendos, superará en al menos 5 puntos porcentuales la rentabilidad
+      total del S&P 500 durante el mismo período.
+    unit: puntos porcentuales como mínimo en 12 meses
+  priority: important
+  probability: 0.5
+  rationale: La tesis plantea que el mercado podría estar interpretando la compresión
+    del margen y el crecimiento moderado del FCF como señales de deterioro duradero,
+    pero la evidencia disponible no demuestra que ese deterioro sea persistente ni
+    que la valoración lo refleje en exceso. Si las métricas operativas y de caja se
+    mantienen, una revisión de expectativas podría favorecer la rentabilidad relativa.
+    La falta de datos de valoración hace que esta sea una hipótesis por comprobar,
+    no una conclusión sobre infravaloración.
+  review_trigger: Dejar de creerla si al 2027-11-20 la rentabilidad total de PG no
+    supera en 5 puntos porcentuales la del S&P 500; reevaluarla antes si H1 o H2 se
+    falsifica.
+  secondary_hypotheses:
+  - H1-OPP-MB-PG
+  - H2-OPP-MB-PG
+  statement: Si PG sostiene el margen bruto y el FCF, su rentabilidad total a 12 meses
+    será superior a la del mercado amplio; esta hipótesis de valoración es provisional
+    porque el paquete no aporta datos de precio, valoración ni expectativas incorporadas.
+  status: ACTIVE
+  ticker: PG
+  version: 1
