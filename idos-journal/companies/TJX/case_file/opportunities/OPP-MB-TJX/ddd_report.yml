@@ -1,0 +1,550 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El crecimiento reportado de ventas, margen bruto y FCF es compatible con mejora
+    operativa reciente, pero no demuestra causalidad ni durabilidad.
+  - Los objetivos de analistas sirven como anclas observadas de escenario, no como
+    valor intrínseco.
+  - El modelo descrito opera en ropa y artículos para el hogar off-price mediante
+    cuatro segmentos; resumen financiero, análisis al 2026-11-20.
+  - StockAnalysis reporta ingresos FY 2023 de 49.936 y FY 2026 de 60.372, con períodos
+    terminados el 2023-01-28 y 2026-01-31, respectivamente.
+  - StockAnalysis reporta FCF TTM de 6.010 y utilidad neta TTM de 6.168, con período
+    terminado el 2026-10-31.
+  preguntas_abiertas:
+  - ¿Cuál es el mercado direccionable y la penetración de TJX por geografía y categoría?
+  - ¿Qué retornos sobre capital genera el negocio y cuánto capital puede reinvertirse
+    a retornos atractivos?
+  - ¿Qué supuestos de ventas, margen y valoración sustentan los objetivos de analistas?
+  - ¿Cuál es la evolución histórica de acciones diluidas y cómo se compone la deuda
+    reportada?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia operativa favorable, pero tesis de
+    multibagger no validada
+  justificacion: El paquete muestra crecimiento de ingresos y flujo de caja libre
+    (FCF) y margen bruto al alza. No aporta datos suficientes sobre mercado direccionable,
+    penetración, retornos sobre capital, reinversión ni valoración para validar una
+    tesis multibagger.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo descrito es de retail off-price de ropa y artículos para el
+    hogar, operado mediante cuatro segmentos. El crecimiento reportado de ventas,
+    margen bruto y FCF es favorable, pero no basta para inferir moat, retornos sobre
+    capital o capacidad de reinversión; tampoco se aportan datos de retención, productividad
+    por tienda o penetración.
+  rating: Calidad operativa potencialmente sólida, no plenamente validada
+dominio_catalizadores:
+- catalizador: La continuación del crecimiento de ventas podría confirmar la expansión
+    operativa.
+  evidencia: 'Ventas reportadas: FY 2023 49.936, FY 2026 60.372 y TTM 63.198 al 2026-10-31;
+    StockAnalysis, financials.'
+- catalizador: La evolución del margen bruto puede mostrar si la mejora reciente es
+    sostenible.
+  evidencia: Margen bruto reportado de 27,61% en FY 2023, 30,96% en FY 2026 y 31,34%
+    TTM al 2026-10-31; StockAnalysis, financials.
+- catalizador: La conversión de resultados a FCF puede aportar evidencia sobre generación
+    de caja.
+  evidencia: FCF TTM de 6.010 y utilidad neta TTM de 6.168 al 2026-10-31; StockAnalysis,
+    statistics.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: El paquete incluye ventas, utilidad neta, FCF y EBITDA, pero no esos
+    indicadores.
+  riesgo: La evaluación de retornos sobre capital y capacidad de reinversión queda
+    limitada por la ausencia de datos de capital invertido y retornos.
+- evidencia: Deuda total 13.417 y efectivo e inversiones 4.610, ambos reportados al
+    2026-10-31 por StockAnalysis; la unidad y escala no se explicitan en la evidencia
+    recibida.
+  riesgo: La deuda total supera el efectivo reportado en el período actual disponible.
+- evidencia: La descripción de negocio identifica segmentos y productos, pero no aporta
+    métricas de mercado o participación.
+  riesgo: No hay información suficiente para cuantificar mercado direccionable, penetración,
+    competencia o erosión de ventaja.
+- evidencia: Sólo se aporta un dato de acciones en circulación, sin serie histórica.
+  riesgo: La serie de acciones diluidas no está disponible para medir dilución interanual
+    o crecimiento de acciones a tres años.
+error_mercado:
+  catalizador_cambio: La evidencia disponible no identifica un catalizador corporativo
+    fechado. La actualización de ventas, márgenes y FCF en nuevos períodos permitiría
+    revisar si persiste la tendencia reportada.
+  conclusion_error_valoracion: 'No validado: el consenso de analistas es una referencia
+    de mercado, no una estimación de valor intrínseco, y el paquete no incluye inputs
+    suficientes para estimar este último.'
+  consenso_actual: 'El precio observado fue USD 144,90 al 2026-10-26; el consenso
+    de precio objetivo reportado fue USD 165,55, con rango de USD 135 a USD 190 al
+    2026-11-20. Fuentes: yfinance y StockAnalysis, resumen financiero.'
+  hipotesis_contraria: La cotización podría no reflejar la continuidad del crecimiento
+    reciente; también podría estar justificada si la evolución futura de ventas, márgenes
+    o FCF se debilita. El paquete no proporciona expectativas de crecimiento ni valoración
+    fundamental para contrastarlo.
+  razonamiento: El impulso de precio a 12 meses fue 1,1377% y el drawdown reportado
+    fue 13,96% para 2025-10-27/2026-10-26 (yfinance, historial de TJX). Esas observaciones
+    de mercado no demuestran por sí solas una brecha entre precio y valor.
+generated_at: '2026-11-20T19:45:51.907153-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-TJX
+prompt_inputs:
+  business_model: 'The TJX Companies, Inc., together with its subsidiaries, operates
+    as an off-price apparel and home fashions retailer worldwide. It operates through
+    four segments: Marmaxx, HomeGoods, TJX Canada, and TJX International. The company
+    provides family apparel comprising footwear; accessories, such as beauty and jewelry;
+    home fashion products, including home basics, decorative accessories and giftware,
+    as well as furniture, rugs, lighting, soft home, decorative accessories, tabletop,
+    and cookware; pet and gourmet food; and other merchandise. It also offers home
+    decor, furniture, and seasonal home merchandise. The company sells its products
+    through stores and e-commerce sites. The TJX Companies, Inc. was incorporated
+    in 1962 and is headquartered in Framingham, Massachusetts.'
+  ceo_tenure: 0
+  debt_to_equity: 0.0125
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: The TJX Companies, Inc.
+  operating_margin: 12.03
+  pe_ratio: 25.33
+  products: ''
+  revenue: 63200000000.0
+  revenue_growth: 7.15
+  roic: 30.53
+  sector: Consumer Cyclical
+  ticker: TJX
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-01-31'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/tjx/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: Variación de FCF reportada por la fuente para TTM
+  inputs:
+    fcf_growth_history TTM: 36.01
+  limitations: La fuente reporta el crecimiento TTM, pero el paquete no incluye la
+    base comparativa TTM necesaria para recalcularlo.
+  metric: fcf_growth_pct
+  period_end: '2026-10-31'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/tjx/financials/
+  status: reported
+  unit: percent
+  value: 36.01
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-10-31'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TJX/statistics/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/tjx/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-10-31'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/tjx/financials/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TJX/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 1100000000.0
+  limitations: Falta una serie de acciones diluidas o acciones en circulación para
+    el período comparable anterior; un único dato no permite calcular dilución interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-10-31'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TJX/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'The TJX Companies, Inc., together with its subsidiaries, operates
+    as an off-price apparel and home fashions retailer worldwide. It operates through
+    four segments: Marmaxx, HomeGoods, TJX Canada, and TJX International. The company
+    provides family apparel comprising footwear; accessories, such as beauty and jewelry;
+    home fashion products, including home basics, decorative accessories and giftware,
+    as well as furniture, rugs, lighting, soft home, decorative accessories, tabletop,
+    and cookware; pet and gourmet food; and other merchandise. It also offers home
+    decor, furniture, and seasonal home merchandise. The company sells its products
+    through stores and e-commerce sites. The TJX Companies, Inc. was incorporated
+    in 1962 and is headquartered in Framingham, Massachusetts.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 144.89999389648438
+  current_price_as_of_date: '2026-10-26'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0125
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T22:45:21.298811+00:00", "period_end": "2026-10-31",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: The TJX Companies, Inc.
+  operating_margin: 12.03
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'The TJX Companies, Inc., together with its subsidiaries, operates
+    as an off-price apparel and home fashions retailer worldwide. It operates through
+    four segments: Marmaxx, HomeGoods, TJX Canada, and TJX International. The company
+    provides family apparel comprising footwear; accessories, such as beauty and jewelry;
+    home fashion products, including home basics, decorative accessories and giftware,
+    as well as furniture, rugs, lighting, soft home, decorative accessories, tabletop,
+    and cookware; pet '
+  revenue: 63200000000.0
+  revenue_growth: 7.15
+  roic: 30.53
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tjx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TJX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TJX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TJX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TJX/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tjx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tjx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tjx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TJX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tjx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TJX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tjx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tjx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tjx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TJX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TJX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tjx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    190.0, "low": 135.0, "mean": 165.55, "median": 165.55, "observed_at": "2026-11-20T19:45:24.912430-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T19:45:24.912430-03:00", "observed_date": "2026-11-20", "target_price":
+    165.55, "url": "https://stockanalysis.com/stocks/tjx/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T19:45:24.912430-03:00",
+    "observed_date": "2026-11-20", "target_price": 165.55, "url": "https://finance.yahoo.com/quote/TJX/"}]},
+    "current_quote": {"as_of_date": "2026-10-26", "currency": "USD", "price": 144.89999389648438,
+    "sources": [{"as_of_date": "2026-10-26", "name": "yfinance", "url": "https://finance.yahoo.com/quote/TJX/"}]}}'
+  sector: Consumer Cyclical
+  ticker: TJX
+research_trigger:
+  discovery_snapshot_hash: 785718ea111fcf604899a563cb1d627736d89e803bb2c25a4762df3971c474a1
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: a033db9037f47109bf95580b690abc40e7dce7f8dd138262082d8ef0f1bf5cd6
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T19:45:51.907153-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.13x al 2026-10-31; no cruza el umbral.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TJX/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: No disponible; no se puede evaluar frente al umbral.
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-10-31, pero el paquete no permite validar
+    si representa ausencia de cobertura o dato faltante.
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TJX/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No aplica a la observación disponible: FCF TTM reportado positivo,
+    6.010 al 2026-10-31.'
+  source:
+    name: StockAnalysis
+    url: https://stockanalysis.com/stocks/TJX/statistics/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: Estimación aritmética cercana a 0.98x, pero la compatibilidad de escala
+    de los inputs no está validada; no usar como conclusión firme.
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: No disponible; falta historia de acciones para tres años.
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - La publicación de una previsión verificable que vincule resultados operativos
+      con un valor inferior al ancla.
+    id: BEAR
+    key_assumptions:
+    - El precio objetivo bajo reportado es una referencia de mercado comparable en
+      USD.
+    - No se dispone de supuestos de analistas ni de datos operativos futuros para
+      explicar ese extremo.
+    rationale: 'Ancla observada: extremo bajo del rango de precios objetivo de analistas,
+      no valoración intrínseca propia. Representa el resultado desfavorable dentro
+      del rango publicado; el paquete no permite asociarlo a una previsión operativa
+      específica.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/tjx/forecast/
+    target_price: 135.0
+  - falsifiers:
+    - Una reversión persistente del crecimiento de ventas, margen bruto o FCF en períodos
+      posteriores.
+    id: BULL
+    key_assumptions:
+    - El precio objetivo alto reportado es una referencia de mercado comparable en
+      USD.
+    - La tendencia de ventas, margen bruto y FCF reportada podría continuar, aunque
+      el paquete no ofrece previsiones para el horizonte.
+    rationale: 'Ancla observada: extremo alto del rango de precios objetivo de analistas,
+      no valoración intrínseca propia. Es el resultado favorable dentro del rango
+      publicado; el crecimiento histórico reportado es compatible con una tesis operativa
+      favorable, pero no demuestra que se alcance ese precio.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/tjx/forecast/
+    target_price: 190.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T19:45:24.912430-03:00'
+  fuentes:
+    stockanalysis: 165.55
+    yfinance: 165.55
+  mediana: 165.55
+  n_fuentes: 2
+  promedio: 165.55
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T19:45:24.912430-03:00'
+    observed_date: '2026-11-20'
+    target_price: 165.55
+    url: https://stockanalysis.com/stocks/tjx/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T19:45:24.912430-03:00'
+    observed_date: '2026-11-20'
+    target_price: 165.55
+    url: https://finance.yahoo.com/quote/TJX/
+  target_high: 190.0
+  target_low: 135.0
+tesis_inversion: La tesis a investigar es que el modelo minorista off-price y la capacidad
+  de generar FCF puedan sostener crecimiento rentable; la evidencia suministrada muestra
+  crecimiento de ventas y FCF y mejora del margen bruto, pero no demuestra retornos
+  sobre capital, escala reinvertible ni durabilidad de la ventaja. El paquete tampoco
+  permite establecer si el mercado subestima o sobreestima ese potencial.
+ticker: TJX
+version: '3.0'

@@ -1,0 +1,189 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas comparables del ejercicio fiscal 2028 son iguales o inferiores
+      a las del ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa una caída de ventas comparables de al menos 1%
+      en el conjunto del ejercicio fiscal 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas comparables del ejercicio fiscal 2028 son iguales o inferiores a las
+    del ejercicio fiscal 2027.
+  - La compañía informa una caída de ventas comparables de al menos 1% en el conjunto
+    del ejercicio fiscal 2028.
+  horizon: medio
+  id: H1-OPP-MB-TJX
+  opportunity_id: OPP-MB-TJX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-04-15'
+    expected: 3.0
+    met: null
+    metric: Crecimiento de ventas comparables en el ejercicio fiscal 2028 frente al
+      ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal 2028, las ventas comparables aumentarán entre
+      2% y 4% frente al ejercicio fiscal 2027, según el resultado anual publicado
+      por la compañía.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El contexto suministrado señala crecimiento reciente de ventas. La variedad
+    de mercancía y la propuesta de valor del modelo off-price podrían sostener visitas
+    y compras, aunque el paquete no permite medir la fortaleza ni la durabilidad de
+    esa ventaja.
+  review_trigger: Dejar de creerla si TJX informa ventas comparables acumuladas negativas
+    durante dos trimestres consecutivos del ejercicio fiscal 2028 o si el resultado
+    anual queda por debajo del umbral de crecimiento positivo.
+  secondary_hypotheses: []
+  statement: TJX mantendrá crecimiento positivo de ventas comparables durante el ejercicio
+    fiscal 2028, apoyado por la demanda de su oferta off-price.
+  status: ACTIVE
+  ticker: TJX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre del ejercicio fiscal 2028 es inferior al del
+      ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja operativo cae y las inversiones de capital aumentan
+      frente al ejercicio fiscal 2027, provocando una reducción del flujo de caja
+      libre.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre del ejercicio fiscal 2028 es inferior al del ejercicio
+    fiscal 2027.
+  - El flujo de caja operativo cae y las inversiones de capital aumentan frente al
+    ejercicio fiscal 2027, provocando una reducción del flujo de caja libre.
+  horizon: medio
+  id: H2-OPP-MB-TJX
+  opportunity_id: OPP-MB-TJX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-04-15'
+    expected: 3.0
+    met: null
+    metric: Crecimiento del flujo de caja libre del ejercicio fiscal 2028 frente al
+      ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal 2028, el flujo de caja libre será al menos
+      3% superior al del ejercicio fiscal 2027.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El contexto indica crecimiento reciente del FCF y mejora del margen bruto.
+    Si se mantienen la disciplina de inventario y la rentabilidad de las ventas, el
+    flujo de caja libre —flujo de caja operativo menos inversiones de capital— debería
+    crecer al menos en línea con las ventas.
+  review_trigger: Dejar de creerla si los resultados publicados muestran una caída
+    interanual del flujo de caja libre durante dos trimestres consecutivos del ejercicio
+    fiscal 2028 o si el dato anual no alcanza el crecimiento mínimo previsto.
+  secondary_hypotheses:
+  - H1-OPP-MB-TJX
+  statement: TJX convertirá el crecimiento de ventas en generación de caja operativa,
+    sin que el gasto de capital absorba una proporción creciente de esa caja.
+  status: ACTIVE
+  ticker: TJX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto del ejercicio fiscal 2028 cae más de 0,20 puntos porcentuales
+      frente al del ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía atribuye la contracción anual del margen bruto principalmente
+      a descuentos, costes de mercancía o presión operativa persistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto del ejercicio fiscal 2028 cae más de 0,20 puntos porcentuales
+    frente al del ejercicio fiscal 2027.
+  - La compañía atribuye la contracción anual del margen bruto principalmente a descuentos,
+    costes de mercancía o presión operativa persistente.
+  horizon: medio
+  id: H3-OPP-MB-TJX
+  opportunity_id: OPP-MB-TJX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-04-15'
+    expected: -0.2
+    met: null
+    metric: Variación del margen bruto del ejercicio fiscal 2028 frente al ejercicio
+      fiscal 2027
+    prediction: El margen bruto anual del ejercicio fiscal 2028 no será más de 0,20
+      puntos porcentuales inferior al del ejercicio fiscal 2027.
+    unit: puntos porcentuales como máximo de contracción
+  priority: important
+  probability: 0.5
+  rationale: El contexto suministrado registra una mejora del margen bruto. Una combinación
+    favorable de mercancía y control de costes podría sostenerla, pero no se dispone
+    de datos suficientes para atribuirla a factores estructurales o evaluar su persistencia.
+  review_trigger: Dejar de creerla si TJX informa una contracción interanual superior
+    a 0,20 puntos porcentuales en el margen bruto acumulado durante dos trimestres
+    consecutivos del ejercicio fiscal 2028.
+  secondary_hypotheses:
+  - H1-OPP-MB-TJX
+  statement: La mejora reciente del margen bruto de TJX no se revertirá de forma material
+    en el ejercicio fiscal 2028.
+  status: ACTIVE
+  ticker: TJX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de TJX es igual o inferior a la del S&P 500 durante
+      el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: TJX supera al S&P 500 por menos de 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de TJX es igual o inferior a la del S&P 500 durante el periodo
+    definido.
+  - TJX supera al S&P 500 por menos de 5 puntos porcentuales.
+  horizon: medio
+  id: H4-OPP-MB-TJX
+  opportunity_id: OPP-MB-TJX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de TJX menos rentabilidad total del S&P 500
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de TJX,
+      incluidos dividendos, superará en al menos 5 puntos porcentuales la rentabilidad
+      total del S&P 500.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: La continuidad del crecimiento rentable podría favorecer la valoración
+    de TJX frente al mercado. Sin embargo, el paquete no incluye precio, múltiplos,
+    expectativas de consenso ni una valoración fundamental; por ello, la hipótesis
+    sobre rendimiento relativo es una predicción de mercado que debe contrastarse,
+    no una conclusión sobre infravaloración.
+  review_trigger: Dejar de creerla antes de la fecha objetivo si se incumplen H1 y
+    H2 según sus criterios de falsación; evaluar definitivamente la hipótesis el 2027-11-20.
+  secondary_hypotheses:
+  - H1-OPP-MB-TJX
+  - H2-OPP-MB-TJX
+  statement: Si TJX sostiene crecimiento de ventas comparables y de flujo de caja
+    libre, sus acciones obtendrán una rentabilidad total superior a la del S&P 500
+    durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: TJX
+  version: 1

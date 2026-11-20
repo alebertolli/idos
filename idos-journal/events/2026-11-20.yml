@@ -3596,3 +3596,108 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T19:36:35.162346'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-TGT
+    ticker: TGT
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:43:51.014919'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TGT
+    ticker: TGT
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:43:51.235248'
+- data:
+    classification: RESEARCH_REQUIRED
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 0c19e84081209597d506b3f61216caee8fda3a18c8deb199128be90fcadaf40c
+    opp_id: OPP-MB-TGT
+    score: 58
+    strategy_version: '1.5'
+    ticker: TGT
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:45:19.810582'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-TJX
+    ticker: TJX
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:45:51.598282'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TJX
+    ticker: TJX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:45:51.825456'
+- data:
+    classification: Investigación requerida; evidencia operativa favorable, pero tesis
+      de multibagger no validada
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: a033db9037f47109bf95580b690abc40e7dce7f8dd138262082d8ef0f1bf5cd6
+    opp_id: OPP-MB-TJX
+    score: 58
+    strategy_version: '1.5'
+    ticker: TJX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:47:22.664118'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-TMO
+    ticker: TMO
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:47:56.917888'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TMO
+    ticker: TMO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:47:57.147977'
+- data:
+    classification: Investigación fundamental requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 5e4baced74c5f946a0f4b4fb5f687a50fd669df0884ad628c12f0ae7dd3c583e
+    opp_id: OPP-MB-TMO
+    score: 62
+    strategy_version: '1.5'
+    ticker: TMO
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:49:27.747189'

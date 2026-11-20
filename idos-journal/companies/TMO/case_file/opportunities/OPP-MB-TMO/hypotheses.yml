@@ -1,0 +1,186 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico de ingresos del ejercicio fiscal 2027 es inferior
+      a 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no informa ingresos orgánicos comparables que permitan
+      verificar el crecimiento.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico de ingresos del ejercicio fiscal 2027 es inferior a 3%.
+  - La compañía no informa ingresos orgánicos comparables que permitan verificar el
+    crecimiento.
+  horizon: medio
+  id: H1-OPP-MB-TMO
+  opportunity_id: OPP-MB-TMO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 3.0
+    met: null
+    metric: Crecimiento orgánico de ingresos en FY2027 frente a FY2026
+    prediction: En los resultados del ejercicio fiscal 2027, el crecimiento orgánico
+      de ingresos, excluyendo adquisiciones y efectos cambiarios, será de al menos
+      3% frente al ejercicio fiscal 2026.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La oferta diversificada de la compañía en ciencias de la vida, instrumentos,
+    diagnóstico especializado y servicios para laboratorios y biofarmacia podría amortiguar
+    debilidades de segmentos individuales. Sin embargo, la información disponible
+    no demuestra que la demanda ya se esté acelerando, por lo que la tesis depende
+    de una mejora observable en los ingresos comparables.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados anuales de 2027
+    si el crecimiento orgánico queda por debajo de 3%, o si antes de esa fecha dos
+    trimestres consecutivos muestran una contracción orgánica interanual.
+  secondary_hypotheses: []
+  statement: La demanda de productos y servicios de Thermo Fisher se recuperará lo
+    suficiente para generar crecimiento orgánico de ingresos en el ejercicio fiscal
+    2027.
+  status: ACTIVE
+  ticker: TMO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto GAAP de FY2027 cae más de 1 punto porcentual frente
+      a FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre de FY2027 es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto GAAP de FY2027 cae más de 1 punto porcentual frente a FY2026.
+  - El flujo de caja libre de FY2027 es cero o negativo.
+  horizon: medio
+  id: H2-OPP-MB-TMO
+  opportunity_id: OPP-MB-TMO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: -1.0
+    met: null
+    metric: Variación interanual del margen bruto GAAP en FY2027
+    prediction: En FY2027, el margen bruto GAAP anual no caerá más de 1 punto porcentual
+      frente a FY2026 y el flujo de caja libre anual será positivo.
+    unit: puntos porcentuales como caída máxima; además FCF anual mayor que 0 USD
+  priority: critical
+  probability: 0.5
+  rationale: El margen bruto TTM se describe como relativamente estable frente a FY2025
+    y el FCF TTM como positivo. Esto respalda una hipótesis de resiliencia operativa,
+    pero no prueba que la rentabilidad ni la conversión de caja estén mejorando. La
+    prueba será que ambas métricas se sostengan en un periodo completo posterior a
+    la fecha de corte.
+  review_trigger: Dejar de creerla al publicarse los resultados anuales de FY2027
+    si se incumple cualquiera de los dos umbrales, o antes si un informe trimestral
+    revela una pérdida operativa que haga improbable el FCF anual positivo.
+  secondary_hypotheses:
+  - H1-OPP-MB-TMO
+  statement: La estabilidad reciente del margen bruto se mantendrá, y la generación
+    de caja libre continuará siendo positiva durante el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: TMO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF de FY2027 crece menos de 5% frente a FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación no puede verificarse con cifras de flujo de caja publicadas
+      y una definición consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF de FY2027 crece menos de 5% frente a FY2026.
+  - La comparación no puede verificarse con cifras de flujo de caja publicadas y una
+    definición consistente.
+  horizon: medio
+  id: H3-OPP-MB-TMO
+  opportunity_id: OPP-MB-TMO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 5.0
+    met: null
+    metric: Crecimiento del FCF de FY2027 frente a FY2026
+    prediction: El FCF de FY2027 será al menos 5% superior al FCF de FY2026, calculado
+      con la misma definición y método.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La evidencia disponible establece que el FCF TTM es positivo, pero no
+    aporta una serie comparable que pruebe crecimiento sostenido ni retornos incrementales
+    sobre capital. Si el crecimiento orgánico se recupera y no se deteriora significativamente
+    el margen bruto, debería observarse una mejora en la generación anual de caja
+    libre; si no ocurre, la tesis de crecimiento rentable quedará debilitada.
+  review_trigger: Dejar de creerla al publicarse los resultados de FY2027 si el crecimiento
+    del FCF es inferior a 5%; si el FCF de FY2027 es negativo, abandonar la hipótesis
+    inmediatamente tras su divulgación.
+  secondary_hypotheses:
+  - H1-OPP-MB-TMO
+  - H2-OPP-MB-TMO
+  statement: La recuperación de ingresos se traducirá en crecimiento de la caja libre,
+    y no solo en estabilidad del margen bruto.
+  status: ACTIVE
+  ticker: TMO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de TMO supera a la de XLV por menos de 5 puntos
+      porcentuales durante el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: TMO queda por debajo de XLV en rentabilidad total al final del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de TMO supera a la de XLV por menos de 5 puntos porcentuales
+    durante el periodo definido.
+  - TMO queda por debajo de XLV en rentabilidad total al final del periodo.
+  horizon: medio
+  id: H4-OPP-MB-TMO
+  opportunity_id: OPP-MB-TMO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-05-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de TMO menos rentabilidad total de XLV
+    prediction: Desde el cierre del 20 de noviembre de 2026 hasta el 20 de mayo de
+      2028, la rentabilidad total de TMO, incluidos dividendos, superará en al menos
+      5 puntos porcentuales la rentabilidad total del ETF XLV en el mismo periodo.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: Un crecimiento verificable y una generación de caja resistente podrían
+    reducir la percepción de que la diversificación solo aporta estabilidad, sin crecimiento
+    rentable. No hay datos disponibles aquí sobre valoración inicial, expectativas
+    del mercado o prima de múltiplo; por ello, la hipótesis se prueba mediante rendimiento
+    relativo observable y no presupone una revalorización concreta del múltiplo.
+  review_trigger: Dejar de creerla el 20 de mayo de 2028 si la ventaja de rentabilidad
+    total frente a XLV es inferior a 5 puntos porcentuales. Antes de esa fecha, reevaluar
+    si los resultados de FY2027 incumplen H1 o H3.
+  secondary_hypotheses:
+  - H1-OPP-MB-TMO
+  - H3-OPP-MB-TMO
+  statement: Si se confirma el crecimiento de ingresos y caja libre, la rentabilidad
+    de la acción de TMO superará a la del sector sanitario durante los siguientes
+    18 meses.
+  status: ACTIVE
+  ticker: TMO
+  version: 1
