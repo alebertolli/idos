@@ -1671,3 +1671,106 @@ events:
   event_type: research:hypothesis_validation_failed
   source: research_worker
   timestamp: '2026-11-20T15:34:54.190133'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-HSBC
+    ticker: HSBC
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:42:14.210357'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HSBC
+    ticker: HSBC
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:42:14.365754'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de multibagger.
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: d6587975541019bd837f911534bd12856a110f88fed22649ff88bb786a0c5440
+    opp_id: OPP-MB-HSBC
+    score: 55
+    strategy_version: '1.5'
+    ticker: HSBC
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:43:37.888649'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-IBN
+    ticker: IBN
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:44:04.598677'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-IBN
+    ticker: IBN
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:44:04.757202'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      oportunidad de crecimiento compuesto
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: e2b83079d13438768fc2d23cc2e7f0484c6359bceaaa6ae11a990c6e60099d1c
+    opp_id: OPP-MB-IBN
+    score: 42
+    strategy_version: '1.5'
+    ticker: IBN
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:45:27.323872'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-IFF
+    ticker: IFF
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:45:59.629078'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-IFF
+    ticker: IFF
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:45:59.792908'
+- data:
+    classification: Investigación requerida; oportunidad de crecimiento no validada
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 8249c9d730f0e3303d9c520994087349f35897020d38641f5f95eebcab15f58d
+    opp_id: OPP-MB-IFF
+    score: 53
+    strategy_version: '1.5'
+    ticker: IFF
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:47:28.944650'

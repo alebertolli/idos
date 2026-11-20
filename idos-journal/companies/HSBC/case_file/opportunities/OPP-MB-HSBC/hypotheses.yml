@@ -1,0 +1,184 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento de ingresos subyacentes en moneda constante para 2027
+      es inferior al 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Un solo segmento aporta más del 60% del aumento absoluto de ingresos,
+      o los ingresos de al menos dos segmentos disminuyen frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento de ingresos subyacentes en moneda constante para 2027 es inferior
+    al 3%.
+  - Un solo segmento aporta más del 60% del aumento absoluto de ingresos, o los ingresos
+    de al menos dos segmentos disminuyen frente a 2026.
+  horizon: medio
+  id: H1-OPP-MB-HSBC
+  opportunity_id: OPP-MB-HSBC
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de ingresos subyacentes en moneda constante en
+      2027
+    prediction: En los resultados del ejercicio 2027 publicados a más tardar el 2028-03-31,
+      los ingresos subyacentes totales en moneda constante serán al menos un 3% superiores
+      a los de 2026 y ningún segmento reportado aportará más del 60% del aumento absoluto
+      de ingresos.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: HSBC opera en varios segmentos y mercados, lo que podría compensar debilidad
+    localizada con actividad en otras áreas. La información disponible no demuestra
+    que esa diversificación haya generado crecimiento; esta hipótesis lo somete a
+    prueba.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 publicados antes
+    o el 2028-03-31 muestran crecimiento inferior al 3% o concentración del crecimiento
+    por encima del umbral indicado.
+  secondary_hypotheses: []
+  statement: La diversificación de HSBC entre banca minorista, comercial, patrimonial
+    e institucional permitirá que sus ingresos subyacentes crezcan en 2027, sin depender
+    exclusivamente de un solo segmento.
+  status: ACTIVE
+  ticker: HSBC
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El RoTE subyacente de 2027 es igual o inferior al 12%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: HSBC no publica datos suficientes para calcular el RoTE conforme a
+      una definición consistente con la empleada para 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El RoTE subyacente de 2027 es igual o inferior al 12%.
+  - HSBC no publica datos suficientes para calcular el RoTE conforme a una definición
+    consistente con la empleada para 2026.
+  horizon: medio
+  id: H2-OPP-MB-HSBC
+  opportunity_id: OPP-MB-HSBC
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 12.0
+    met: null
+    metric: RoTE subyacente del ejercicio 2027
+    prediction: El RoTE subyacente de 2027, calculado según la definición que HSBC
+      publique para ese ejercicio, será superior al 12% en los resultados anuales
+      divulgados a más tardar el 2028-03-31.
+    unit: porcentaje, superior a
+  priority: critical
+  probability: 0.5
+  rationale: La tesis disponible indica que HSBC tiene ingresos y utilidad neta TTM
+    positivos, pero no aporta evidencia suficiente sobre retornos sobre capital. La
+    hipótesis comprueba si esa rentabilidad se traduce en un retorno anual sostenido
+    por encima de un umbral definido.
+  review_trigger: Dejar de creerla cuando los resultados anuales de 2027 indiquen
+    un RoTE igual o inferior al 12%, o cuando no sea posible verificarlo con información
+    publicada antes del 2028-03-31.
+  secondary_hypotheses:
+  - H1-OPP-MB-HSBC
+  statement: HSBC mantendrá una rentabilidad sobre el capital tangible (RoTE) superior
+    al 12% en el ejercicio 2027.
+  status: ACTIVE
+  ticker: HSBC
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de HSBC es inferior a la del índice de referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de HSBC supera la del índice, pero por menos
+      de 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de HSBC es inferior a la del índice de referencia.
+  - La rentabilidad total de HSBC supera la del índice, pero por menos de 5 puntos
+    porcentuales.
+  horizon: medio
+  id: H3-OPP-MB-HSBC
+  opportunity_id: OPP-MB-HSBC
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de HSBC frente al MSCI ACWI Banks Index
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de la acción ordinaria de HSBC, medido en GBP e incluyendo dividendos
+      reinvertidos, superará en al menos 5 puntos porcentuales el rendimiento total
+      del MSCI ACWI Banks Index en GBP.
+    unit: puntos porcentuales mínimos
+  priority: informational
+  probability: 0.5
+  rationale: La información disponible no incluye supuestos de analistas ni elementos
+    suficientes para validar un precio objetivo. Por ello, la prueba se basa en rendimiento
+    relativo observable y no en un precio objetivo que no puede contrastarse con el
+    paquete de información.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si el rendimiento relativo
+    acumulado es inferior a 5 puntos porcentuales.
+  secondary_hypotheses:
+  - H2-OPP-MB-HSBC
+  statement: La acción de HSBC tendrá un rendimiento total superior al de un índice
+    amplio de bancos globales durante los 12 meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: HSBC
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Un informe trimestral publicado dentro del período muestra un ratio
+      CET1 inferior al 13%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: HSBC deja de publicar una cifra CET1 comparable y no ofrece una conciliación
+      verificable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Un informe trimestral publicado dentro del período muestra un ratio CET1 inferior
+    al 13%.
+  - HSBC deja de publicar una cifra CET1 comparable y no ofrece una conciliación verificable.
+  horizon: medio
+  id: H4-OPP-MB-HSBC
+  opportunity_id: OPP-MB-HSBC
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 13.0
+    met: null
+    metric: Ratio CET1 mínimo en informes trimestrales del período
+    prediction: En cada informe trimestral publicado entre el 2026-11-20 y el 2027-11-20,
+      el ratio CET1 reportado por HSBC será igual o superior al 13%.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: La tesis comprende actividades bancarias en múltiples mercados, donde
+    la capacidad de absorber pérdidas es relevante para sostener operaciones y retornos.
+    La información disponible no aporta cifras de capital ni permite evaluar holgura;
+    esta hipótesis establece una prueba cuantitativa futura.
+  review_trigger: Dejar de creerla si cualquier informe trimestral publicado hasta
+    el 2027-11-20 muestra CET1 inferior al 13%, o si no hay datos comparables para
+    verificar el umbral.
+  secondary_hypotheses: []
+  statement: HSBC mantendrá una posición de capital regulatorio que le permita absorber
+    pérdidas sin caer por debajo de un umbral prudencial definido.
+  status: ACTIVE
+  ticker: HSBC
+  version: 1

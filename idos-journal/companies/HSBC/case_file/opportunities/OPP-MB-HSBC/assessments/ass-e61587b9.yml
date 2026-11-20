@@ -1,0 +1,32 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de multibagger.'
+- 'Market error: No validado: el paquete no permite determinar si existe un error
+  de valoración.'
+- 'Thesis: HSBC opera en banca minorista, comercial, patrimonial e institucional en
+  varios mercados y reporta ingresos y utilidad neta TTM positivos. Sin embargo, la
+  evidencia disponible no basta para evaluar re'
+generated_at: '2026-11-20T15:43:37.709824-03:00'
+id: ass-e61587b9
+recommendation: REVIEW
+risks:
+- fuente: StockAnalysis, estados financieros e indicadores, período FY 2022–TTM al
+    2026-09-30.
+  riesgo: 'La conversión de flujo de caja libre y su crecimiento no quedan suficientemente
+    validados: el historial disponible muestra signos distintos entre ejercicios y
+    el dato TTM de FCF no comparte una unidad explícitamente conciliable con la serie
+    financiera.'
+- fuente: StockAnalysis, estados financieros e indicadores, FY 2025 y período al 2026-09-30.
+  riesgo: La deuda total reportada subió de 699906 en FY 2025 a 851906 al 2026-09-30,
+    mientras que no se dispone de EBITDA utilizable para evaluar deuda neta/EBITDA.
+- fuente: StockAnalysis, estadísticas al 2026-09-30.
+  riesgo: No se proporcionan datos históricos de acciones suficientes para medir dilución
+    interanual o CAGR de acciones.
+- fuente: Yahoo Finance, historial de HSBC, período 2025-10-31/2026-10-30.
+  riesgo: El descenso máximo observado fue 20.8047% durante 2025-10-31/2026-10-30;
+    el paquete no explica sus causas.
+score: 55
+status: COMPLETED
+version: '3.0'

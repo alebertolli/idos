@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 82 companies tracked
+Total: 87 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -21,6 +21,7 @@ Total: 82 companies tracked
 - 📄 [[FCX|Freeport-McMoRan Inc.]]
 - 📄 [[GGB|Gerdau S.A.]]
 - 📄 [[HL|Hecla Mining Company]]
+- 📄 [[IFF|International Flavors & Fragrances Inc.]]
 
 ## Communication Services
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
@@ -38,6 +39,7 @@ Total: 82 companies tracked
 - 📄 [[ETSY|Etsy, Inc.]]
 - 📄 [[GM|General Motors Company]]
 - 📄 [[HMC|Honda Motor Co., Ltd.]]
+- ⏳ [[HOG|Harley-Davidson, Inc.]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
@@ -63,6 +65,8 @@ Total: 82 companies tracked
 - 📄 [[BSBR|Banco Santander (Brasil) S.A.]]
 - 📄 [[BX|Blackstone Inc.]]
 - 📄 [[C|Citigroup Inc.]]
+- 📄 [[HSBC|HSBC Holdings plc]]
+- 📄 [[IBN|ICICI Bank Limited]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -106,6 +110,7 @@ Total: 82 companies tracked
 - 📄 [[CSCO|Cisco Systems, Inc.]]
 - 📄 [[DOCU|DocuSign, Inc.]]
 - 📄 [[GRMN|Garmin Ltd.]]
+- ⏳ [[HPQ|HP Inc.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 
 ## Utilities
