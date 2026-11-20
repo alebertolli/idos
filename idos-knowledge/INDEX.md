@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 46 companies tracked
+Total: 49 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -28,6 +28,7 @@ Total: 46 companies tracked
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
+- 📄 [[CL|Colgate-Palmolive Company]]
 
 ## Energy
 - 📄 [[BKR|Baker Hughes Company]]
@@ -71,7 +72,11 @@ Total: 46 companies tracked
 - 📄 [[ASML|ASML Holding N.V.]]
 - 📄 [[AVGO|Broadcom Inc.]]
 - 📄 [[BB|BlackBerry Limited]]
+- 📄 [[CLS|Celestica Inc.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
+
+## Utilities
+- 📄 [[CEG|Constellation Energy Corporation]]
 
 ---
 *Generated: auto-updated on each research run*

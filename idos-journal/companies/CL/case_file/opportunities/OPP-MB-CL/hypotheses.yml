@@ -1,0 +1,221 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas orgánicas del ejercicio fiscal 2027 crecen menos del 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento orgánico se concentra en precio mientras el volumen
+      cae en el conjunto del ejercicio.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa que la variación de ventas orgánicas fue negativa
+      en dos o más trimestres consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas orgánicas del ejercicio fiscal 2027 crecen menos del 3%.
+  - El crecimiento orgánico se concentra en precio mientras el volumen cae en el conjunto
+    del ejercicio.
+  - La compañía informa que la variación de ventas orgánicas fue negativa en dos o
+    más trimestres consecutivos de 2027.
+  horizon: medio
+  id: H1-OPP-MB-CL
+  opportunity_id: OPP-MB-CL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento de ventas orgánicas en el ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal 2027, las ventas orgánicas crecerán al menos
+      un 3% frente al ejercicio fiscal 2026, según la definición que utilice la compañía
+      para excluir divisas y adquisiciones.
+    unit: '% mínimo interanual'
+  priority: critical
+  probability: 0.5
+  rationale: La compra repetida de productos esenciales puede sostener el volumen
+    y la capacidad de trasladar precios. Sin embargo, la evidencia disponible no confirma
+    que estos factores generen crecimiento estructural; la hipótesis requiere comprobar
+    ventas orgánicas positivas y suficientemente amplias.
+  review_trigger: Dejar de creerla si el informe anual del ejercicio fiscal 2027 muestra
+    crecimiento orgánico inferior al 3%, o si antes de su publicación la compañía
+    reduce su previsión de crecimiento orgánico para 2027 por debajo de ese umbral.
+  secondary_hypotheses: []
+  statement: Colgate-Palmolive mantendrá un crecimiento orgánico de ventas superior
+    al 3% en el ejercicio fiscal 2027, apoyado por la demanda recurrente de productos
+    de cuidado oral, personal y del hogar.
+  status: ACTIVE
+  ticker: CL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón entre flujo de caja libre y beneficio neto es inferior al
+      90% en el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre es negativo en el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La conversión depende de una reducción extraordinaria del capital circulante
+      que la compañía no presenta como repetible.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón entre flujo de caja libre y beneficio neto es inferior al 90% en el ejercicio
+    fiscal 2027.
+  - El flujo de caja libre es negativo en el ejercicio fiscal 2027.
+  - La conversión depende de una reducción extraordinaria del capital circulante que
+    la compañía no presenta como repetible.
+  horizon: medio
+  id: H2-OPP-MB-CL
+  opportunity_id: OPP-MB-CL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 90.0
+    met: null
+    metric: Flujo de caja libre / beneficio neto atribuible, ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal 2027, el flujo de caja libre —flujo de caja
+      operativo menos inversiones de capital— será igual o superior al 90% del beneficio
+      neto atribuible a la compañía.
+    unit: '% mínimo'
+  priority: critical
+  probability: 0.5
+  rationale: El flujo de caja libre positivo ya observado indica capacidad de convertir
+    operaciones en efectivo, pero no demuestra por sí solo que esa conversión sea
+    persistente ni que el capital circulante y el gasto de capital sean sostenibles.
+    La conversión frente al beneficio neto permite comprobar esa calidad de generación
+    de caja.
+  review_trigger: Dejar de creerla si el informe anual del ejercicio fiscal 2027 confirma
+    una conversión inferior al 90% o un flujo de caja libre negativo.
+  secondary_hypotheses: []
+  statement: La generación de caja de Colgate-Palmolive seguirá siendo sólida y el
+    flujo de caja libre cubrirá al menos el 90% del beneficio neto en el ejercicio
+    fiscal 2027.
+  status: ACTIVE
+  ticker: CL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total acumulada de CL menos la del índice de referencia
+      es inferior a 5 puntos porcentuales al cierre del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: CL obtiene una rentabilidad total acumulada inferior a la del índice
+      durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad relativa positiva, si la hubiera, se debe principalmente
+      a una caída del índice y CL registra rentabilidad total negativa.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total acumulada de CL menos la del índice de referencia es inferior
+    a 5 puntos porcentuales al cierre del periodo.
+  - CL obtiene una rentabilidad total acumulada inferior a la del índice durante el
+    periodo.
+  - La rentabilidad relativa positiva, si la hubiera, se debe principalmente a una
+    caída del índice y CL registra rentabilidad total negativa.
+  horizon: medio
+  id: H3-OPP-MB-CL
+  opportunity_id: OPP-MB-CL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de CL menos rentabilidad total del S&P 500 Consumer
+      Staples
+    prediction: Desde el 20 de noviembre de 2026 hasta el 20 de noviembre de 2028,
+      la rentabilidad total de CL, con dividendos reinvertidos, superará en al menos
+      5 puntos porcentuales la rentabilidad total del índice S&P 500 Consumer Staples.
+    unit: puntos porcentuales acumulados, mínimo
+  priority: important
+  probability: 0.5
+  rationale: Si el crecimiento orgánico y la conversión de caja se mantienen, el mercado
+    podría reconocer una combinación más favorable de crecimiento y calidad de beneficios.
+    No hay evidencia suficiente para afirmar que esa mejora esté descontada en la
+    valoración actual; la hipótesis se contrasta directamente con el rendimiento relativo,
+    incluidos dividendos.
+  review_trigger: Dejar de creerla el 20 de noviembre de 2028 si la rentabilidad total
+    relativa de CL frente al índice es inferior a 5 puntos porcentuales; reconsiderarla
+    antes si la compañía reduce de forma material sus perspectivas de ventas o generación
+    de caja.
+  secondary_hypotheses:
+  - H1-OPP-MB-CL
+  - H2-OPP-MB-CL
+  statement: La rentabilidad bursátil total de Colgate-Palmolive superará a la del
+    índice S&P 500 Consumer Staples entre la fecha de corte y el 20 de noviembre de
+    2028.
+  status: ACTIVE
+  ticker: CL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto del ejercicio fiscal 2027 mejora menos de 0,5 puntos
+      porcentuales frente a FY 2026 o disminuye.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía atribuye toda la mejora del margen a precios y no informa
+      contribuciones positivas de productividad, eficiencia o mezcla.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen mejora, pero el flujo de caja libre cae por debajo del nivel
+      necesario para cumplir H2.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto del ejercicio fiscal 2027 mejora menos de 0,5 puntos porcentuales
+    frente a FY 2026 o disminuye.
+  - La compañía atribuye toda la mejora del margen a precios y no informa contribuciones
+    positivas de productividad, eficiencia o mezcla.
+  - El margen mejora, pero el flujo de caja libre cae por debajo del nivel necesario
+    para cumplir H2.
+  horizon: medio
+  id: H4-OPP-MB-CL
+  opportunity_id: OPP-MB-CL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.5
+    met: null
+    metric: Variación del margen bruto FY 2027 frente a FY 2026
+    prediction: El margen bruto del ejercicio fiscal 2027 será al menos 0,5 puntos
+      porcentuales superior al del ejercicio fiscal 2026, y la compañía atribuirá
+      parte de la mejora a productividad, eficiencia o mezcla, no únicamente a precios.
+    unit: puntos porcentuales mínimo
+  priority: important
+  probability: 0.5
+  rationale: Un margen bruto creciente sería consistente con una mejor combinación
+    de precios, costos y eficiencia operativa, y aportaría evidencia de que el crecimiento
+    puede sostener rentabilidad. El margen TTM superior al de FY 2022 es una señal
+    histórica, pero no demuestra que la mejora continúe ni identifica su causa.
+  review_trigger: Dejar de creerla si el informe anual del ejercicio fiscal 2027 muestra
+    una mejora del margen bruto inferior a 0,5 puntos porcentuales frente a FY 2026,
+    o si la compañía confirma que no hubo contribución favorable de eficiencia, productividad
+    o mezcla.
+  secondary_hypotheses:
+  - H1-OPP-MB-CL
+  - H2-OPP-MB-CL
+  statement: Colgate-Palmolive elevará su margen bruto en el ejercicio fiscal 2027
+    respecto al ejercicio fiscal 2026, sin depender exclusivamente de aumentos de
+    precios.
+  status: ACTIVE
+  ticker: CL
+  version: 1

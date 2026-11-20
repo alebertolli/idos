@@ -1,0 +1,464 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La exposición a inversiones de clientes y programas de manufactura puede generar
+    sensibilidad cíclica.
+  - Ingeniería, escalado y ejecución pueden aportar diferenciación, aunque la evidencia
+    no demuestra costes de cambio ni moat duradero.
+  - El crecimiento observado no permite distinguir crecimiento orgánico de adquisiciones,
+    mezcla o efectos de base.
+  - La distancia entre cotización y objetivos de analistas no acredita por sí sola
+    infravaloración.
+  preguntas_abiertas:
+  - ¿Cuál es la concentración de ingresos y beneficios por cliente, segmento, programa
+    y geografía?
+  - ¿Qué parte del crecimiento reciente es orgánica, cuánto es recurrente y cómo evoluciona
+    la cartera de pedidos?
+  - ¿Cuál es la deuda neta, el calendario de vencimientos, la liquidez disponible
+    y la sensibilidad de cobertura?
+  - ¿Cómo se compara el FCF reportado con flujo operativo, capex, capital de trabajo
+    y conversión de beneficios?
+  - ¿Qué evidencia primaria respalda las previsiones de demanda, las guías de la empresa
+    y los objetivos de analistas?
+  - ¿Cuáles son las exposiciones de proveedores, plantas y clientes a riesgos geopolíticos,
+    regulatorios, laborales y ambientales?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'Compounder y quality_at_fair_price: no hay evidencia suficiente
+    aquí sobre retornos sobre capital, estabilidad de márgenes, reinversión y valoración
+    para sostener esas categorías. Compounder_castigado: no se demuestra que exista
+    una caída temporal de valoración frente a un valor intrínseco estimado. Turnaround,
+    deep_value, distressed y value_trap: faltan pruebas de deterioro, infravaloración,
+    insolvencia o destrucción estructural de valor. Special_situation: no se aporta
+    una operación o reestructuración identificable. Hype: el crecimiento comunicado
+    no basta para determinar que la valoración sea especulativa.'
+  justificacion: Celestica es un proveedor de manufactura y soluciones de cadena de
+    suministro con exposición a ciclos de inversión de clientes, demanda de infraestructura
+    tecnológica y condiciones de la cadena de suministro. La evidencia disponible
+    no basta para concluir que la acción sea un compounder de alta durabilidad ni
+    para establecer que su valoración sea barata. La clasificación refleja la sensibilidad
+    potencial del modelo a los ciclos de pedidos y de inversión, no una afirmación
+    de deterioro operativo actual.
+comparativa_catalizadores:
+- delta_pct: 45
+  descripcion: Resultados y previsiones que confirmen la continuidad del crecimiento
+    y la conversión de ventas en flujo de caja.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores previos; se incorpora como
+    hipótesis para seguimiento, no como evento confirmado.
+  probabilidad_actual: 45
+  probabilidad_anterior: 0
+- delta_pct: 35
+  descripcion: Desaceleración de pedidos o contracción de márgenes que provoque revisiones
+    a la baja.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores previos; riesgo derivado de
+    la sensibilidad potencial del modelo, pendiente de contraste con información primaria.
+  probabilidad_actual: 35
+  probabilidad_anterior: 0
+- delta_pct: 40
+  descripcion: Mayor divulgación verificable de segmentos, concentración de clientes
+    y calidad de caja.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores previos; posibilidad de mejora
+    de transparencia, sin anuncio específico aportado.
+  probabilidad_actual: 40
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: El modelo descrito combina diseño, introducción de nuevos productos, ingeniería,
+    abastecimiento, ensamblaje y pruebas, lo que puede aportar valor operativo a clientes
+    que externalizan manufactura compleja. Sin evidencia de participaciones de mercado,
+    costes de cambio, concentración por cliente, contratos, rentabilidad por segmento
+    o historial de retención, no se puede calificar el moat como excepcional ni medir
+    su durabilidad. La capacidad de ejecución y las relaciones con clientes son hipótesis
+    de ventaja, no hechos verificados en los datos disponibles.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Resultados y previsiones que confirmen la continuidad del crecimiento
+    y la conversión de ventas en flujo de caja.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Una desaceleración de pedidos o una contracción de márgenes que haga
+    revisar a la baja las expectativas de crecimiento.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+- descripcion: Mayor divulgación verificable de la contribución por segmento, concentración
+    de clientes y calidad de caja, que reduzca la incertidumbre de valoración.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: La operación internacional y la dependencia de componentes y proveedores
+    son riesgos plausibles para un fabricante y proveedor de cadena de suministro.
+    No hay datos específicos de países y plantas, trazabilidad de proveedores, incidentes
+    laborales o ambientales, auditorías, concentración de componentes ni planes de
+    continuidad. La calificación es provisional y no representa una constatación de
+    incumplimientos.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La observación seleccionada reporta FCF de USD 545,4 millones, TTM terminado
+    el 2026-09-30, de StockAnalysis; no se documenta que sea un flujo ajustado. La
+    evidencia aportada no incluye valores verificables de deuda, efectivo, vencimientos
+    o cobertura, por lo que no es posible evaluar con rigor apalancamiento y liquidez.
+    La diferencia de comparabilidad indicada para márgenes e ingresos entre proveedores
+    impide combinar esos datos como si fueran medidas plenamente consistentes.
+  rating: adecuada
+dominio_growth:
+  analisis: La observación de StockAnalysis indica crecimiento de ingresos TTM de
+    61,59% al periodo terminado el 2026-09-30; el proveedor señala que el valor de
+    yfinance no es comparable por falta de metadatos equivalentes de periodo, unidad
+    o corte. El dato indica fuerte crecimiento reportado en esa observación, pero
+    no prueba crecimiento orgánico, recurrencia, rentabilidad incremental ni continuidad
+    futura. No se aporta desglose por segmento, cliente, programa o adquisición.
+  rating: fuerte
+dominio_management:
+  analisis: No se aportan datos sobre equipo directivo, incentivos, compras o ventas
+    de acciones, adquisiciones, retornos de capital, decisiones de inversión ni desempeño
+    frente a objetivos anteriores. No es posible emitir un juicio sólido sobre asignación
+    de capital o alineación; la calificación refleja falta de evidencia suficiente
+    y no una acusación de mala gestión.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Desaceleración o cancelación de inversiones de clientes en infraestructura
+    y productos tecnológicos, con impacto en volumen de pedidos.
+- impacto: alto
+  probabilidad: media
+  riesgo: Presión sobre márgenes por competencia, mezcla de productos, utilización
+    de capacidad o costes de componentes.
+- impacto: alto
+  probabilidad: media
+  riesgo: Concentración de ingresos o dependencia de un número reducido de clientes
+    y programas, no cuantificada en la evidencia.
+- impacto: medio
+  probabilidad: media
+  riesgo: Interrupciones de suministro, restricciones comerciales, riesgos geopolíticos
+    o eventos operativos en la red internacional.
+- impacto: alto
+  probabilidad: media
+  riesgo: Valoración sensible a expectativas de crecimiento y a los objetivos de analistas,
+    que no son estimaciones independientes verificadas.
+- impacto: alto
+  probabilidad: baja
+  riesgo: 'Riesgo permanente aún no descartado: pérdida de programas o clientes que
+    reduzca estructuralmente la escala, la rentabilidad o la posición competitiva.'
+error_mercado:
+  catalizador_cambio:
+    descripcion: La publicación de resultados y previsiones que confirmen crecimiento
+      sostenido, márgenes y conversión de caja en los periodos siguientes podría modificar
+      la percepción del mercado. Es un catalizador hipotético; no se aporta un calendario
+      ni evidencia primaria de un evento concreto ya anunciado.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización observada fue USD 245,15 al 2026-11-19. El consenso
+    de objetivos observado al 2026-11-20 es USD 456,17, con rango de USD 340 a USD
+    535. Esto muestra una brecha entre cotización y referencias de analistas, pero
+    no demuestra por sí sola infravaloración ni representa un precio garantizado.
+    No se proporcionan los múltiplos actuales necesarios para determinar qué crecimiento
+    o márgenes descuenta el precio.
+  hipotesis_contraria: El consenso podría sobreestimar la duración del crecimiento
+    ligado a infraestructura tecnológica, la conversión de ventas en caja o la estabilidad
+    de márgenes en un negocio de manufactura por contrato. A la inversa, el mercado
+    podría subestimar la persistencia de la demanda y el valor de las capacidades
+    de ingeniería, escalado y ejecución. La evidencia aportada no permite decidir
+    cuál de estas variables está mal valorada.
+  razonamiento: La cotización está por debajo del rango de objetivos de analistas
+    proporcionado, pero estos objetivos son referencias observadas y no una valoración
+    independiente. Sin múltiplos completos, estimaciones de beneficios, balance detallado,
+    historial de márgenes comparable y contraste con fuentes primarias, no se puede
+    demostrar que exista un error de valoración aprovechable. El análisis de segundo
+    nivel debe considerar tanto que el consenso exagere el crecimiento como que el
+    mercado descuente una desaceleración razonable.
+generated_at: '2026-11-20T12:03:10.315003-03:00'
+integridad_tesis:
+  flags: []
+  reason: No hay evidencia aportada que demuestre la vulneración de alguna de las
+    categorías de invalidación. La falta de datos sobre moat, gestión y balance es
+    una limitación de diligencia, no prueba de deterioro.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-040
+prompt_inputs:
+  business_model: Celestica Inc., together with its subsidiaries, provides supply
+    chain solutions in Asia, North America, and internationally. It operates through
+    two segments, Advanced Technology Solutions, and Connectivity and Cloud Solutions.
+    The company offers a range of product manufacturing and related supply chain services,
+    including design and development, new product introduction, engineering services,
+    component sourcing, electronics manufacturing and assembly, testing, mechanical
+    assembly, systems integration, precision machining, logistics, asset management,
+    product licensing, and after-market repair and return services. It also provides
+    hardware platform solutions, which includes development of infrastructure platforms,
+    and hardware and software design solutions and services, including open-source
+    software that can be used as-is or customized for specific applications; and management
+    of program, including design and supply chain, manufacturing, and after-market
+    support, including IT asset disposition and asset management services. The company
+    offers its products and services to original equipment manufacturers, and cloud-based
+    and other service providers, including hyperscalers, and other companies in aerospace
+    and defense, industrial, HealthTech, capital equipment, communications, and enterprise
+    markets. The company has a strategic collaboration with Advanced Micro Devices,
+    Inc. for the development of Helios, a rack-scale AI platform. The company was
+    incorporated in 1994 and is headquartered in Toronto, Canada.
+  ceo_tenure: 0
+  debt_to_equity: 0.17
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Celestica Inc.
+  operating_margin: 8.32
+  pe_ratio: 23.15
+  products: ''
+  revenue: 18230000000.0
+  revenue_growth: 61.59
+  roic: 41.85
+  sector: Technology
+  ticker: CLS
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Celestica Inc., together with its subsidiaries, provides supply
+    chain solutions in Asia, North America, and internationally. It operates through
+    two segments, Advanced Technology Solutions, and Connectivity and Cloud Solutions.
+    The company offers a range of product manufacturing and related supply chain services,
+    including design and development, new product introduction, engineering services,
+    component sourcing, electronics manufacturing and assembly, testing, mechanical
+    assembly, systems integration, precision machining, logistics, asset management,
+    product licensing, and after-market repair and return services. It also provides
+    hardware platform solutions, which includes development of infrastructure platforms,
+    and hardware and software design solutions and services, including open-source
+    software that can be used as-is or customized for specific applications; and management
+    of program, including design and supply chain, manufacturing, and after-market
+    support, including IT asset disposition and asset management services. The company
+    offers its products and services to original equipment manufacturers, and cloud-based
+    and other service providers, including hyperscalers, and other companies in aerospace
+    and defense, industrial, HealthTech, capital equipment, communications, and enterprise
+    markets. The company has a strategic collaboration with Advanced Micro Devices,
+    Inc. for the development of Helios, a rack-scale AI platform. The company was
+    incorporated in 1994 and is headquartered in Toronto, Canada.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 245.15499877929688
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.17
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:22.395398+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/CLS/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 545400000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 7.908999999999999}, "observed_at": "2026-11-01T10:17:22.395398+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/CLS/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 8.32}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 82.5}, "observed_at": "2026-11-01T10:17:22.395398+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/cls/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 61.59}}}, "observed_at": "2026-11-19T19:16:14.910375+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Celestica Inc.
+  operating_margin: 8.32
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Celestica Inc., together with its subsidiaries, provides supply chain
+    solutions in Asia, North America, and internationally. It operates through two
+    segments, Advanced Technology Solutions, and Connectivity and Cloud Solutions.
+    The company offers a range of product manufacturing and related supply chain services,
+    including design and development, new product introduction, engineering services,
+    component sourcing, electronics manufacturing and assembly, testing, mechanical
+    assembly, systems integ
+  revenue: 18230000000.0
+  revenue_growth: 61.59
+  roic: 41.85
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    535.0, "low": 340.0, "mean": 456.17, "median": 456.17, "observed_at": "2026-11-20T12:02:34.694569-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T12:02:34.694569-03:00", "observed_date": "2026-11-20", "target_price":
+    456.17, "url": "https://stockanalysis.com/stocks/cls/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T12:02:34.694569-03:00",
+    "observed_date": "2026-11-20", "target_price": 456.17014, "url": "https://finance.yahoo.com/quote/CLS/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 245.15499877929688,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CLS/"}]}}'
+  sector: Technology
+  ticker: CLS
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 3683d7e98adfcf1bbd89df9d8aee9375ea71d364b8b2193339aa0ef37d976435
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T12:03:10.315003-03:00'
+resumen_ejecutivo: Celestica ofrece exposición a servicios de manufactura, ingeniería
+  y cadena de suministro para mercados tecnológicos, pero la información disponible
+  es demasiado limitada para verificar la durabilidad del moat, la calidad del balance
+  o la sostenibilidad del crecimiento. Las observaciones financieras aportadas muestran
+  FCF TTM de USD 545,4 millones al 2026-09-30 y crecimiento de ingresos TTM de 61,59%
+  según StockAnalysis, con discrepancias de comparabilidad frente a datos de otro
+  proveedor. La cotización de USD 245,15 es inferior al rango de objetivos de analistas
+  de USD 340–535, sin que esa brecha pruebe infravaloración. Tesis activa, pero con
+  convicción limitada y necesidad de diligencia adicional.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados y previsiones primarias que demuestren crecimiento sostenido y conversión
+      de caja robusta.
+    - Revisiones amplias al alza de estimaciones y objetivos, respaldadas por datos
+      verificables de pedidos y rentabilidad.
+    id: BEAR
+    key_assumptions:
+    - La demanda o el crecimiento se desacelera frente al periodo reciente.
+    - La conversión de crecimiento en caja o la estabilidad de márgenes no satisface
+      las expectativas del mercado.
+    - La referencia baja de analistas sigue siendo pertinente durante el horizonte,
+      aunque no se aporta el modelo subyacente.
+    rationale: Ancla bajista en el extremo inferior del rango de objetivos observado.
+      No es una valoración independiente ni una garantía de precio. La evidencia disponible
+      no sustenta un objetivo inferior al mínimo del rango, por lo que se utiliza
+      ese límite como referencia conservadora.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/cls/forecast/
+    - as_of_date: '2026-11-19'
+      name: Yahoo Finance
+      url: https://finance.yahoo.com/quote/CLS/
+    target_price: 340
+  - falsifiers:
+    - Desaceleración material de pedidos, pérdida de programas relevantes o revisión
+      a la baja de previsiones.
+    - Caída sostenida de márgenes o flujo de caja, o evidencia de apalancamiento y
+      necesidades de capital incompatibles con la tesis.
+    id: BULL
+    key_assumptions:
+    - La demanda relacionada con los mercados atendidos se mantiene y sostiene crecimiento
+      de ingresos.
+    - Los márgenes y la generación de caja resisten el crecimiento sin deterioro material.
+    - El mercado mantiene o eleva su disposición a valorar favorablemente las perspectivas
+      de la empresa.
+    rationale: Ancla alcista en el extremo superior del rango de objetivos observado.
+      No es una valoración independiente ni una garantía de precio. Se limita al máximo
+      reportado porque no se aporta evidencia independiente que justifique excederlo.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis
+      url: https://stockanalysis.com/stocks/cls/forecast/
+    - as_of_date: '2026-11-19'
+      name: Yahoo Finance
+      url: https://finance.yahoo.com/quote/CLS/
+    target_price: 535
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 56
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T12:02:34.694569-03:00'
+  fuentes:
+    stockanalysis: 456.17
+    yfinance: 456.17014
+  mediana: 456.17
+  n_fuentes: 2
+  promedio: 456.17
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T12:02:34.694569-03:00'
+    observed_date: '2026-11-20'
+    target_price: 456.17
+    url: https://stockanalysis.com/stocks/cls/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T12:02:34.694569-03:00'
+    observed_date: '2026-11-20'
+    target_price: 456.17014
+    url: https://finance.yahoo.com/quote/CLS/
+  target_high: 535.0
+  target_low: 340.0
+tesis_inversion: 'Tesis condicional: Celestica podría beneficiarse de la demanda de
+  soluciones de manufactura tecnológica y de la complejidad de integrar ingeniería,
+  abastecimiento y producción. La evidencia aportada confirma crecimiento elevado
+  reportado y FCF positivo en una observación, pero no permite demostrar que ese crecimiento
+  sea sostenible ni calcular valor intrínseco. La brecha entre cotización y objetivos
+  de analistas merece investigación, no es por sí sola una señal de compra. La tesis
+  se debilitaría materialmente ante contracción sostenida de márgenes o caja, pérdida
+  de programas relevantes o deterioro del balance.'
+ticker: CLS
+version: '3.0'

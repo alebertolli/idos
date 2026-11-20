@@ -1,0 +1,362 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Evaluación de la fortaleza financiera basada en margen y FCF
+  - Suposición de ausencia de problemas de solvencia por falta de datos de deuda
+  - Calificación de gestión y moat basada en la naturaleza regulada del sector
+  - Precio actual 254.89500427246094 USD (yfinance, 2026-11-19)
+  - Precio objetivo medio 340.29 USD (stockanalysis.com, 2026-11-20)
+  - FCF 295000000 USD TTM (stockanalysis.com, 2026-06-30)
+  - Margen operativo 15.05% TTM (stockanalysis.com, 2026-06-30)
+  - Crecimiento de ingresos 25.99% TTM (stockanalysis.com, 2026-06-30)
+  preguntas_abiertas:
+  - Nivel exacto de deuda y ratios de apalancamiento (debt/EBITDA, debt/equity)
+  - Detalle de planes de capital (CAPEX) y su financiación
+  - Historial de desempeño del equipo directivo y alineación de incentivos
+  - Impacto específico de regulaciones estatales en cada segmento regional
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: compounder_castigado,turnaround,deep_value,ciclica,special_situation,distressed,hype,value_trap
+  justificacion: Constellation Energy muestra un crecimiento de ingresos del 25.99%
+    TTM, margen operativo del 15.05% y generación de flujo de caja libre de 295 millones
+    USD, indicadores típicos de un negocio con capacidad de generar retornos compuestos.
+    El precio actual (254.9 USD) está significativamente por debajo del consenso de
+    precio objetivo medio (340.29 USD), sugiriendo que el mercado no está valorando
+    plenamente su potencial de crecimiento y generación de caja.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La empresa opera en un sector regulado que brinda barreras de entrada
+    y estabilidad de flujos. Su mix de generación diversificado y presencia en varios
+    mercados regionales le otorgan cierta resiliencia frente a cambios de precios
+    de combustibles. No obstante, la dependencia de activos nucleares y gas natural
+    introduce riesgos de costos de desmantelamiento y volatilidad de precios.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Aprobación de un plan regulatorio que permita aumentos de tarifas y
+    expansión de capacidad renovable
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 45
+- descripcion: Cierre exitoso de una adquisición estratégica de activos de generación
+    renovable
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 30
+- descripcion: Reducción de costos operativos mediante mejoras en eficiencia de plantas
+    nucleares
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 25
+dominio_esg_supply_chain:
+  analisis: La cartera incluye energía nuclear y gas natural, lo que genera preocupaciones
+    medioambientales y de seguridad. Sin embargo, la empresa también está invirtiendo
+    en energía eólica y solar, lo que mitiga parcialmente el riesgo ESG. La cadena
+    de suministro de combustibles fósiles sigue siendo una exposición relevante.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Flujo de caja libre de 295 millones USD y margen operativo del 15.05%
+    indican capacidad de generar efectivo. El crecimiento de ingresos del 25.99% TTM
+    refuerza la solidez. No se dispone de datos de deuda, por lo que la evaluación
+    de apalancamiento queda como inferencia basada en la ausencia de alertas de distress.
+  rating: fuerte
+dominio_growth:
+  analisis: El crecimiento de ingresos del 26% TTM, impulsado por la expansión de
+    capacidad renovable y contratos con distribuidores y municipios, indica buenas
+    perspectivas de crecimiento orgánico. No se observan anuncios de adquisiciones
+    recientes, pero la posición en mercados regulados brinda oportunidades de crecimiento
+    inorgánico mediante compras de activos de generación.
+  rating: fuerte
+dominio_management:
+  analisis: Aunque no se cuenta con información detallada de la gestión, la ejecución
+    de una estrategia de diversificación de generación y el mantenimiento de márgenes
+    sugiere una administración competente y alineada con la creación de valor para
+    los accionistas.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgo regulatorio y de tarifas
+- impacto: alto
+  probabilidad: media
+  riesgo: Costos de desmantelamiento nuclear
+- impacto: medio
+  probabilidad: alta
+  riesgo: Volatilidad de precios del gas natural
+- impacto: alto
+  probabilidad: media
+  riesgo: Transición a energía limpia y posibles cambios de política
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aprobación de un plan regulatorio favorable que permita incrementar
+      tarifas y/o la incorporación de nuevos proyectos renovables de gran escala.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 45
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas promedian un precio objetivo de 340.29 USD, lo que
+    implica un descuento de aproximadamente 25% respecto al precio actual de 254.90
+    USD. El consenso parece estar valorando un crecimiento sostenido y márgenes estables.
+  hipotesis_contraria: El consenso podría sobreestimar la continuidad del crecimiento
+    del 26% y subestimar riesgos regulatorios, costos de desmantelamiento nuclear
+    y volatilidad de precios de energía. Además, la exposición a combustibles fósiles
+    y posibles cambios en políticas de energía limpia podrían limitar la capacidad
+    de mantener los márgenes actuales.
+  razonamiento: El precio actual está por debajo del rango de consenso y la empresa
+    presenta fundamentos sólidos de crecimiento y generación de caja. Los riesgos
+    identificados no parecen estar completamente incorporados en el precio, lo que
+    sugiere una oportunidad de valoración infravalorada.
+generated_at: '2026-11-20T11:56:59.633143-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-038
+prompt_inputs:
+  business_model: 'Constellation Energy Corporation produces and sells energy products
+    and services in the United States. The company operates through five segments:
+    Mid-Atlantic, Midwest, New York, ERCOT, and Other Power Regions. It offers electricity,
+    natural gas, energy-related products, and sustainable solutions. The company has
+    approximately 31,676 megawatts of generating capacity consisting of nuclear, wind,
+    solar, natural gas, and hydroelectric assets. It serves distribution utilities,
+    municipalities, cooperatives, and commercial, industrial, public sector, and residential
+    customers. The company was incorporated in 2021 and is headquartered in Baltimore,
+    Maryland.'
+  ceo_tenure: 0
+  debt_to_equity: 0.71
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Constellation Energy Corporation
+  operating_margin: 17.94
+  pe_ratio: 20.93
+  products: ''
+  revenue: 34250000000.0
+  revenue_growth: 37.88
+  roic: 9.58
+  sector: Utilities
+  ticker: CEG
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Constellation Energy Corporation produces and sells energy products
+    and services in the United States. The company operates through five segments:
+    Mid-Atlantic, Midwest, New York, ERCOT, and Other Power Regions. It offers electricity,
+    natural gas, energy-related products, and sustainable solutions. The company has
+    approximately 31,676 megawatts of generating capacity consisting of nuclear, wind,
+    solar, natural gas, and hydroelectric assets. It serves distribution utilities,
+    municipalities, cooperatives, and commercial, industrial, public sector, and residential
+    customers. The company was incorporated in 2021 and is headquartered in Baltimore,
+    Maryland.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 254.89500427246094
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.71
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_pct":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:20.191342+00:00", "period_end_date": "2026-06-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/CEG/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 295000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 8.6619996}, "observed_at": "2026-11-01T10:17:20.191342+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/CEG/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 15.05}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 23.0}, "observed_at": "2026-11-01T10:17:20.191342+00:00", "period_end_date":
+    "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/ceg/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-06-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 25.99}}}, "observed_at": "2026-11-19T19:16:11.671295+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Constellation Energy Corporation
+  operating_margin: 17.94
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Constellation Energy Corporation produces and sells energy products
+    and services in the United States. The company operates through five segments:
+    Mid-Atlantic, Midwest, New York, ERCOT, and Other Power Regions. It offers electricity,
+    natural gas, energy-related products, and sustainable solutions. The company has
+    approximately 31,676 megawatts of generating capacity consisting of nuclear, wind,
+    solar, natural gas, and hydroelectric assets. It serves distribution utilities,
+    municipalities, coope'
+  revenue: 34250000000.0
+  revenue_growth: 37.88
+  roic: 9.58
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    399.0, "low": 240.0, "mean": 340.29, "median": 340.29, "observed_at": "2026-11-20T11:56:50.117969-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T11:56:50.117969-03:00", "observed_date": "2026-11-20", "target_price":
+    340.29, "url": "https://stockanalysis.com/stocks/ceg/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T11:56:50.117969-03:00",
+    "observed_date": "2026-11-20", "target_price": 340.2887, "url": "https://finance.yahoo.com/quote/CEG/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 254.89500427246094,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CEG/"}]}}'
+  sector: Utilities
+  ticker: CEG
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 4ee26e52082af9fb6409e674ec0865494a0602d13f76411a178ebb9740fb2f66
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T11:56:59.633143-03:00'
+resumen_ejecutivo: Constellation Energy es una empresa de utilities con una cartera
+  diversificada de generación (nuclear, renovables, gas y hidroeléctrica) que muestra
+  fuerte crecimiento de ingresos (26% TTM) y márgenes operativos saludables (15%).
+  El mercado está descontando aproximadamente un 25% respecto a los objetivos de los
+  analistas, lo que indica un posible error de valoración. Los principales riesgos
+  son regulatorios y de transición energética, mientras que los catalizadores incluyen
+  aprobaciones regulatorias y expansión de renovables.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2028-11-20'
+  scenarios:
+  - falsifiers:
+    - Publicación de resultados con crecimiento de ingresos >15% anual
+    - Anuncio de aprobación regulatoria que permite aumentos de tarifas
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos se desacelera a <10% anual
+    - Márgenes operativos caen por debajo del 12%
+    - Incremento significativo de CAPEX para cumplimiento regulatorio
+    rationale: El precio objetivo bajo refleja un escenario donde los riesgos regulatorios
+      y de costos de desmantelamiento nuclear se materializan, limitando el crecimiento
+      de ingresos y reduciendo márgenes, manteniendo el múltiplo de valoración cercano
+      al extremo inferior del consenso.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ceg/forecast
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CEG/
+    target_price: 240
+  - falsifiers:
+    - Rechazo de planes regulatorios que limiten aumentos de tarifas
+    - Incremento inesperado de costos de desmantelamiento nuclear que reduzcan flujo
+      de caja
+    id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos sostenido >25% anual durante 2 años
+    - Márgenes operativos mejoran a >16% gracias a eficiencias y precios regulatorios
+      favorables
+    - Ejecución exitosa de proyectos renovables que aumentan la capacidad sin elevar
+      significativamente la deuda
+    rationale: El precio objetivo alto asume que la empresa supera los riesgos regulatorios,
+      logra una expansión significativa de capacidad renovable y mantiene márgenes
+      operativos superiores al 16%, impulsando un múltiplo de valoración cercano al
+      extremo superior del consenso.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ceg/forecast
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CEG/
+    target_price: 399
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T11:56:50.117969-03:00'
+  fuentes:
+    stockanalysis: 340.29
+    yfinance: 340.2887
+  mediana: 340.29
+  n_fuentes: 2
+  promedio: 340.29
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T11:56:50.117969-03:00'
+    observed_date: '2026-11-20'
+    target_price: 340.29
+    url: https://stockanalysis.com/stocks/ceg/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T11:56:50.117969-03:00'
+    observed_date: '2026-11-20'
+    target_price: 340.2887
+    url: https://finance.yahoo.com/quote/CEG/
+  target_high: 399.0
+  target_low: 240.0
+tesis_inversion: Constellation Energy combina un modelo de negocio regulado con una
+  cartera diversificada y un fuerte crecimiento de ingresos, generando flujos de caja
+  libres robustos. El precio actual está por debajo del consenso de los analistas,
+  lo que sugiere que el mercado no está valorando plenamente su potencial de crecimiento
+  y la capacidad de generar caja, creando una oportunidad de inversión a medio plazo.
+ticker: CEG
+version: '3.0'
