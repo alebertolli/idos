@@ -1,0 +1,192 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto TTM reportado a la fecha objetivo es inferior al valor
+      TTM reportado a la fecha de corte.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación no puede realizarse con una definición contable consistente
+      y la empresa no proporciona una conciliación suficiente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto TTM reportado a la fecha objetivo es inferior al valor TTM reportado
+    a la fecha de corte.
+  - La comparación no puede realizarse con una definición contable consistente y la
+    empresa no proporciona una conciliación suficiente.
+  horizon: medio
+  id: H1-OPP-MB-GGB
+  opportunity_id: OPP-MB-GGB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.0
+    met: null
+    metric: Variación del margen bruto TTM frente al margen bruto TTM reportado a
+      2026-11-20
+    prediction: En la información financiera publicada hasta 2027-11-20, el margen
+      bruto de los últimos doce meses será igual o superior al margen bruto TTM reportado
+      a 2026-11-20, calculado con la misma definición contable.
+    unit: puntos porcentuales como mínimo
+  priority: important
+  probability: 0.5
+  rationale: La evidencia disponible indica que el margen bruto TTM mejoró frente
+    al FY 2025. Esa mejora ofrece una base para probar su persistencia, aunque no
+    se conocen sus causas ni el aporte de cada segmento y el acero está expuesto a
+    condiciones cíclicas.
+  review_trigger: Dejar de creerla si un informe financiero publicado antes o en 2027-11-20
+    muestra que el margen bruto TTM cayó por debajo de la base del 2026-11-20.
+  secondary_hypotheses: []
+  statement: Gerdau mantendrá durante los próximos doce meses un margen bruto TTM
+    no inferior al registrado en la fecha de corte.
+  status: ACTIVE
+  ticker: GGB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM reportado o recalculado con una definición consistente es
+      negativo en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa deja de divulgar los componentes necesarios para calcular
+      el FCF y no es posible verificar que sea no negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM reportado o recalculado con una definición consistente es negativo
+    en la fecha objetivo.
+  - La empresa deja de divulgar los componentes necesarios para calcular el FCF y
+    no es posible verificar que sea no negativo.
+  horizon: medio
+  id: H2-OPP-MB-GGB
+  opportunity_id: OPP-MB-GGB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.0
+    met: null
+    metric: FCF TTM
+    prediction: El FCF acumulado de los últimos doce meses, calculado con la misma
+      definición utilizada en la información financiera disponible a 2026-11-20, será
+      igual o superior a cero en la información publicada hasta 2027-11-20.
+    unit: USD millones o moneda de reporte, igual o superior a cero
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM disponible a la fecha de corte es positivo. La hipótesis prueba
+    si esa generación de caja puede sostenerse pese a la ciclicidad del acero y a
+    posibles cambios en inversión, capital de trabajo y resultados operativos.
+  review_trigger: Dejar de creerla si un informe publicado antes o en 2027-11-20 muestra
+    FCF TTM negativo; si los datos necesarios no están disponibles a esa fecha, clasificar
+    la hipótesis como no verificable.
+  secondary_hypotheses:
+  - H1-OPP-MB-GGB
+  statement: Gerdau conservará una generación de flujo de caja libre (FCF) TTM no
+    negativa durante los próximos doce meses.
+  status: ACTIVE
+  ticker: GGB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón deuda neta/EBITDA ajustado supera 2,5 veces en el período
+      reportado a la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Un cambio de definición impide comparar el indicador y Gerdau no publica
+      una conciliación que permita recalcularlo consistentemente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón deuda neta/EBITDA ajustado supera 2,5 veces en el período reportado a
+    la fecha objetivo.
+  - Un cambio de definición impide comparar el indicador y Gerdau no publica una conciliación
+    que permita recalcularlo consistentemente.
+  horizon: medio
+  id: H3-OPP-MB-GGB
+  opportunity_id: OPP-MB-GGB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 2.5
+    met: null
+    metric: Deuda neta/EBITDA ajustado
+    prediction: La razón deuda neta/EBITDA ajustado reportada para el período de doce
+      meses terminado a más tardar el 2027-11-20 será igual o inferior a 2,5 veces.
+      La deuda neta y el EBITDA se calcularán según las definiciones divulgadas por
+      Gerdau, usando una metodología consistente.
+    unit: veces como máximo
+  priority: important
+  probability: 0.5
+  rationale: La tesis requiere que la generación de caja y los márgenes se sostengan
+    sin deteriorar materialmente la flexibilidad financiera. El contexto no proporciona
+    una razón de apalancamiento ni un umbral de la empresa; por ello, 2,5 veces se
+    plantea como umbral explícito de esta hipótesis, no como dato observado ni guía
+    corporativa.
+  review_trigger: Dejar de creerla si un informe publicado antes o en 2027-11-20 muestra
+    deuda neta/EBITDA ajustado superior a 2,5 veces; revisar el umbral solo si la
+    empresa presenta una definición distinta con conciliación verificable.
+  secondary_hypotheses:
+  - H2-OPP-MB-GGB
+  statement: Gerdau mantendrá una carga de deuda compatible con una estructura financiera
+    manejable, medida por deuda neta sobre EBITDA ajustado.
+  status: ACTIVE
+  ticker: GGB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de GGB menos el rendimiento total de SLX es inferior
+      a 5 puntos porcentuales en el período definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden obtener series de precios ajustados y dividendos comparables
+      para ambos instrumentos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de GGB menos el rendimiento total de SLX es inferior a 5
+    puntos porcentuales en el período definido.
+  - No se pueden obtener series de precios ajustados y dividendos comparables para
+    ambos instrumentos.
+  horizon: medio
+  id: H4-OPP-MB-GGB
+  opportunity_id: OPP-MB-GGB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de GGB menos rendimiento total de SLX
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de GGB, incluidos dividendos, superará el rendimiento total de SLX en
+      al menos 5 puntos porcentuales, usando precios ajustados y la misma moneda de
+      comparación.
+    unit: puntos porcentuales como mínimo
+  priority: informational
+  probability: 0.5
+  rationale: Si Gerdau sostiene márgenes y generación de caja, el mercado podría valorar
+    favorablemente su desempeño relativo. Sin embargo, la evidencia disponible no
+    demuestra una ventaja competitiva ni permite atribuir cambios de valoración a
+    factores propios de la empresa; el rendimiento relativo es una prueba de mercado,
+    no una conclusión sobre sus causas.
+  review_trigger: Dejar de creerla si al cierre del 2027-11-20 el rendimiento total
+    relativo de GGB frente a SLX es inferior a 5 puntos porcentuales; si faltan datos
+    comparables, considerarla no verificable.
+  secondary_hypotheses:
+  - H1-OPP-MB-GGB
+  - H2-OPP-MB-GGB
+  statement: El rendimiento total de la acción ADR de Gerdau superará al del índice
+    NYSE Arca Steel Index (SLX) durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: GGB
+  version: 1

@@ -1,0 +1,33 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No se valida un error de valoración: el consenso observado está cerca
+  de la cotización, y no hay estimaciones de resultados futuros ni método de valoración
+  con inputs fechados.'
+- 'Thesis: Gilead reporta escala de ingresos, margen bruto elevado y FCF positivo
+  en los períodos proporcionados; estos datos son compatibles con capacidad de generar
+  recursos, pero no prueban crecimiento orgáni'
+generated_at: '2026-11-20T14:55:51.912795-03:00'
+id: ass-702d6682
+recommendation: REVIEW
+risks:
+- evidencia: 'Stockanalysis.com, TTM al 2026-09-30: net_income -3862 y FCF 13780.'
+  implicacion: La diferencia requiere explicación mediante información financiera
+    detallada no incluida en el paquete.
+  riesgo: La utilidad neta TTM reportada es negativa, aunque el FCF TTM es positivo;
+    no puede interpretarse la conversión de FCF a utilidad como significativa.
+- evidencia: Stockanalysis.com, Current al 2026-09-30; net_cash reportado -18279.
+  implicacion: La métrica deuda neta/EBITDA calculada es positiva y debe leerse junto
+    con la calidad y estabilidad futura de los flujos.
+  riesgo: La deuda total reportada al 2026-09-30 es 26231 y el efectivo e inversiones
+    7952, ambos valores del proveedor; la deuda neta reduce flexibilidad financiera.
+- evidencia: El resumen financiero describe áreas y productos, sin métricas comerciales
+    o clínicas fechadas.
+  implicacion: No se pueden validar erosión competitiva, concentración de ingresos
+    ni tamaño y penetración del mercado.
+  riesgo: La evidencia no incluye ventas, cuotas, patentes, vencimientos, resultados
+    clínicos ni competencia por producto.
+score: 45
+status: COMPLETED
+version: '3.0'

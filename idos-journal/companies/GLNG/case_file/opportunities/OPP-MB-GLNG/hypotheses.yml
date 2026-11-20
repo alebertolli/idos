@@ -1,0 +1,135 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos del FY 2027 crecen menos del 10% frente al FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen EBITDA ajustado del FY 2027 mejora al menos 2 puntos porcentuales
+      frente al FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos del FY 2027 crecen menos del 10% frente al FY 2026.
+  - El margen EBITDA ajustado del FY 2027 mejora al menos 2 puntos porcentuales frente
+    al FY 2026.
+  horizon: medio
+  id: H1-OPP-MB-GLNG
+  opportunity_id: OPP-MB-GLNG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: Crecimiento de ingresos FY 2027 frente a FY 2026
+    prediction: En el ejercicio fiscal 2027, los ingresos aumentarán al menos un 10%
+      frente al ejercicio fiscal 2026, mientras que el margen EBITDA ajustado mejorará
+      menos de 2 puntos porcentuales frente al FY 2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La operación de activos FLNG puede impulsar los ingresos, pero el crecimiento
+    por sí solo no demuestra una mejora de la rentabilidad económica. La evidencia
+    disponible señala FCF TTM negativo y no permite validar ventajas competitivas
+    duraderas ni reinversión productiva.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados auditados del
+    FY 2027 si el crecimiento de ingresos alcanza el 10% o más y el margen EBITDA
+    ajustado mejora al menos 2 puntos porcentuales.
+  secondary_hypotheses: []
+  statement: GLNG aumentará sus ingresos en el ejercicio fiscal 2027, pero ese crecimiento
+    no se traducirá en una expansión material del margen EBITDA.
+  status: ACTIVE
+  ticker: GLNG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF acumulado de los doce meses terminados en la fecha objetivo
+      es cero o positivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La deuda neta al cierre del período es menos de 100 millones de dólares
+      superior a la última cifra disponible al 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF acumulado de los doce meses terminados en la fecha objetivo es cero o positivo.
+  - La deuda neta al cierre del período es menos de 100 millones de dólares superior
+    a la última cifra disponible al 2026-11-20.
+  horizon: medio
+  id: H2-OPP-MB-GLNG
+  opportunity_id: OPP-MB-GLNG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 100.0
+    met: null
+    metric: Aumento de deuda neta frente a la última cifra disponible al 2026-11-20
+    prediction: Para el período de doce meses terminado el 2027-11-20, el FCF acumulado
+      será inferior a cero y la deuda neta reportada será al menos 100 millones de
+      dólares superior a la última deuda neta reportada disponible al 2026-11-20.
+    unit: millones de dólares
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM reportado es negativo y la deuda neta aumentó frente al FY
+    2025. Si el crecimiento operativo no se convierte en caja después de inversiones,
+    GLNG tendrá dificultades para reducir su apalancamiento con recursos internos.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-11-20
+    muestra FCF positivo en los últimos doce meses y deuda neta inferior a la cifra
+    de referencia del 2026-11-20; en todo caso, reevaluar con los resultados del tercer
+    trimestre de 2027.
+  secondary_hypotheses:
+  - H1-OPP-MB-GLNG
+  statement: La generación de caja de GLNG seguirá siendo insuficiente para reducir
+    la deuda neta durante los próximos doce meses.
+  status: ACTIVE
+  ticker: GLNG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de GLNG iguala o supera al del S&P 500 durante
+      el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: GLNG queda por debajo del S&P 500 por menos de 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de GLNG iguala o supera al del S&P 500 durante el período.
+  - GLNG queda por debajo del S&P 500 por menos de 10 puntos porcentuales.
+  horizon: medio
+  id: H3-OPP-MB-GLNG
+  opportunity_id: OPP-MB-GLNG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -10.0
+    met: null
+    metric: Rendimiento total relativo de GLNG frente al S&P 500
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de GLNG,
+      incluidos dividendos, quedará al menos 10 puntos porcentuales por debajo del
+      rendimiento total del S&P 500.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento de ingresos no basta para justificar una revalorización
+    si no se acompaña de generación de caja y desapalancamiento. La evidencia disponible
+    indica FCF TTM negativo y deuda neta superior a la reportada para FY 2025, sin
+    información suficiente para confirmar retornos sobre capital sostenibles.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la diferencia de rendimiento
+    total frente al S&P 500 es superior a -10 puntos porcentuales.
+  secondary_hypotheses:
+  - H2-OPP-MB-GLNG
+  statement: La acción de GLNG tendrá un rendimiento total inferior al del S&P 500
+    durante los doce meses siguientes al corte, porque el FCF negativo y el aumento
+    de deuda limitarán la valoración que el mercado esté dispuesto a asignarle.
+  status: ACTIVE
+  ticker: GLNG
+  version: 1

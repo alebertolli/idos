@@ -1286,3 +1286,105 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T14:44:44.834665'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-GGB
+    ticker: GGB
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T14:52:03.409885'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-GGB
+    ticker: GGB
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T14:52:03.536344'
+- data:
+    classification: Investigación requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 1d918954ad174463406bc54715a334667b9946c1a388f9bdd1850a003a79d285
+    opp_id: OPP-MB-GGB
+    score: 48
+    strategy_version: '1.5'
+    ticker: GGB
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:53:55.213987'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-GILD
+    ticker: GILD
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T14:54:26.636665'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-GILD
+    ticker: GILD
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T14:54:26.763810'
+- data:
+    classification: RESEARCH_REQUIRED
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 84c62af44ed8716f8a0c6b965640d4b68fd53a1d00b226136eaad22619c44f0f
+    opp_id: OPP-MB-GILD
+    score: 45
+    strategy_version: '1.5'
+    ticker: GILD
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:55:52.048516'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-GLNG
+    ticker: GLNG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T14:56:24.313922'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-GLNG
+    ticker: GLNG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T14:56:24.440923'
+- data:
+    classification: Research requerido; oportunidad de crecimiento con riesgos financieros
+      relevantes
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 2dfbc99cbda8f21e79bee119894d9cb1a9c19424f6ce67814730a7101e61678d
+    opp_id: OPP-MB-GLNG
+    score: 67.28
+    strategy_version: '1.5'
+    ticker: GLNG
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:57:51.722568'

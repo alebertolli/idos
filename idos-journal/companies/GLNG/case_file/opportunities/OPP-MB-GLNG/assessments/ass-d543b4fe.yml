@@ -1,0 +1,36 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; oportunidad de crecimiento con riesgos financieros
+  relevantes'
+- 'Market error: No se puede establecer que exista un error de valoración: los datos
+  no incluyen valoración intrínseca ni estimaciones financieras futuras comparables.'
+- 'Thesis: La tesis común es que el crecimiento de ingresos y el margen bruto puedan
+  sostener una expansión económica del negocio, mientras la generación de FCF y la
+  deuda determinan si ese crecimiento crea valo'
+generated_at: '2026-11-20T14:57:51.585425-03:00'
+id: ass-d543b4fe
+recommendation: REVIEW
+risks:
+- fuente: https://stockanalysis.com/stocks/glng/financials/
+  hecho: El FCF TTM reportado fue -149,82 al 2026-09-30; el historial también muestra
+    FCF negativo en FY 2025, FY 2024, FY 2023 y FY 2022.
+  implicacion: La inversión y las necesidades de caja pueden limitar la capacidad
+    de financiar crecimiento o reducir deuda.
+- fuente: https://stockanalysis.com/stocks/glng/financials/
+  hecho: El net cash reportado fue -1.967 al 2026-09-30, frente a -1.600 en FY 2025.
+  implicacion: La posición de deuda neta es un riesgo; no se puede atribuir su cambio
+    a una causa específica con los datos suministrados.
+- fuente: https://stockanalysis.com/stocks/GLNG/statistics/
+  hecho: La cobertura de intereses publicada figura como 0 para TTM al 2026-09-30;
+    EBIT TTM reportado fue 258,27 millones.
+  implicacion: La cifra de cobertura requiere verificación antes de interpretarse,
+    pues el paquete no presenta el gasto por intereses ni explica ese valor.
+- fuente: https://finance.yahoo.com/quote/GLNG/history/
+  hecho: La cotización tuvo drawdown de 19,39% y volatilidad a 90 días de 22,79% para
+    los períodos que terminan el 2026-10-30.
+  implicacion: La trayectoria de mercado observada incluye fluctuaciones relevantes;
+    estos datos no explican sus causas.
+score: 67.28
+status: COMPLETED
+version: '3.0'
