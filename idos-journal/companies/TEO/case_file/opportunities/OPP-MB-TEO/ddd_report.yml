@@ -1,0 +1,598 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La continuidad del crecimiento de ingresos y FCF sería relevante para sostener
+    la tesis, pero los datos disponibles no prueban su persistencia.
+  - Las obligaciones financieras y la liquidez reportadas son áreas de atención; no
+    se deriva de ellas una decisión de inversión.
+  - El precio observado fue USD 12,625 al 2026-10-23, según yfinance.
+  - Los ingresos, FCF, margen bruto, deuda y efectivo tienen observaciones reportadas
+    hasta el 2026-09-30 en las fuentes financieras indicadas.
+  - El rango de objetivos de analistas observado fue USD 9,20–22,00 al 2026-11-20.
+  preguntas_abiertas:
+  - ¿Cuál es la moneda y escala exacta de cada cifra monetaria de las series financieras,
+    y cómo se reconcilian las dos cifras de FCF TTM?
+  - ¿Qué muestran los estados financieros primarios sobre deuda, coste de financiación,
+    inversión, retornos sobre capital y acciones diluidas?
+  - ¿Qué datos de mercado direccionable, penetración, competencia, churn y asignación
+    de capital sustentan la evolución futura?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación fundamental requerida
+  justificacion: La evidencia disponible muestra crecimiento reciente de ingresos
+    y FCF, pero no permite validar varios ratios clave ni establecer una valoración
+    intrínseca.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe servicios móviles y de conectividad, con operaciones
+    en Argentina, Paraguay, Uruguay, Chile y Estados Unidos. El margen bruto reportado
+    fue 77,44% TTM al 2026-09-30, pero el paquete no permite evaluar retornos sobre
+    capital, intensidad de reinversión, penetración, moat o calidad de la gestión.
+  rating: Evidencia insuficiente
+dominio_catalizadores:
+- catalizador: Continuidad del crecimiento de ingresos
+  detalle: Los ingresos reportados fueron 8.328.814 en FY 2025 y 8.897.237 en TTM
+    al 2026-09-30; unidades según fuente.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+- catalizador: Conversión operativa en caja
+  detalle: El FCF reportado en la serie financiera fue 1.456.868 TTM al 2026-09-30,
+    frente a 1.030.797 en FY 2025; no se asume que el ritmo sea sostenible.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+- catalizador: Objetivos de analistas como referencias de mercado
+  detalle: El rango observado de objetivos fue USD 9,20–22,00 al 2026-11-20; no constituye
+    una previsión propia ni un catalizador confirmado.
+  fuentes:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/teo/forecast/
+  - name: yfinance
+    url: https://finance.yahoo.com/quote/TEO/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- detalle: La deuda total reportada fue 6.074.581 y el efectivo e inversiones 1.211.109
+    al 2026-09-30; el ratio corriente reportado fue 0,65 para el período indicado.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TEO/statistics/
+  riesgo: Apalancamiento y liquidez
+- detalle: Las cifras de FCF de la página financiera y de estadísticas difieren para
+    TTM; las unidades monetarias no están explicitadas de forma suficiente en todos
+    los campos.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TEO/statistics/
+  riesgo: Calidad y comparabilidad de métricas
+- detalle: El ingreso neto anual reportado alternó entre valores positivos y negativos
+    durante FY 2022–FY 2025.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+  riesgo: Variabilidad de resultados
+error_mercado:
+  catalizador_cambio: La evidencia de crecimiento de ingresos, FCF y margen bruto
+    hasta el 2026-09-30 podría cambiar la percepción si se mantiene en períodos posteriores.
+  conclusion_error_valoracion: 'No se valida un error de valoración: el paquete ofrece
+    cotización y objetivos de analistas, pero no un método de valoración con inputs
+    suficientes.'
+  consenso_actual: La cotización observada fue USD 12,625 al 2026-10-23. El consenso
+    de precio objetivo reportado el 2026-11-20 fue USD 16,87, con rango de USD 9,20
+    a USD 22,00.
+  hipotesis_contraria: La expansión reciente de ingresos y FCF podría no sostenerse;
+    la deuda neta reportada y la volatilidad observada dejan abierta la posibilidad
+    de deterioro del desempeño o de una menor valoración.
+  razonamiento: El momentum de precio a 12 meses fue 65,0327% y el drawdown informado
+    fue 20,995% al 2026-10-23; son datos de mercado, no evidencia de valor intrínseco.
+    La dispersión entre objetivos de analistas tampoco identifica qué escenario de
+    negocio prevalecerá.
+generated_at: '2026-11-20T19:35:04.723640-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-TEO
+prompt_inputs:
+  business_model: Telecom Argentina S.A., together with its subsidiaries, provides
+    telecommunications services in Argentina, Paraguay, Uruguay, Chile and the United
+    States. The company offers mobile telecommunications services, including voice
+    communications, high-speed mobile internet content and applications download,
+    online streaming, and other services; and sells mobile communication devices,
+    such as handsets, modems, MiFi and wingles, and smartwatches. It also offers internet
+    connectivity products, including virtual private network services, traditional
+    internet protocol links, and other products; and programming and other cable television
+    services. In addition, the company provides telephone services, including local,
+    domestic, and international long-distance telephone services, as well as public
+    telephone services; and other related supplementary services, such as call waiting,
+    call forwarding, conference calls, caller ID, voice mail, itemized billing, and
+    maintenance services. Further, it offers infrastructure, interconnection, datacenter,
+    internet, value added, and international long-distance services; and data services,
+    including data transmission, virtual private networks, symmetric internet access,
+    national and international signal transport, and videoconferencing services; Personal
+    Pay, a digital wallet service. The company also offers broadcasting, cable television,
+    financial, cybersecurity, ICT services and audiovisual communication, content
+    platform and related services; security solutions and services; closed-circuit
+    and community closed-circuit television, as well as investment and consulting
+    services. The company was formerly known as Cablevisión S.A. and changed its name
+    to Telecom Argentina S.A. in January 2018. Telecom Argentina S.A. was founded
+    in 1979 and is based in Buenos Aires, Argentina.
+  ceo_tenure: 0
+  debt_to_equity: 0.65
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Telecom Argentina S.A.
+  operating_margin: 8.44
+  pe_ratio: 6.25
+  products: ''
+  revenue: 5830000000.0
+  revenue_growth: 8.14
+  roic: 3.41
+  sector: Communication Services
+  ticker: TEO
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history: 1211109.0
+    ebitda: 1890000000.0
+    total_debt_history: 6074581.0
+  limitations: No se puede validar la compatibilidad de escala y moneda entre las
+    cifras de deuda/efectivo de la página financiera y EBITDA de estadísticas.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/teo/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TEO/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 2150000000.0
+  limitations: Falta una serie histórica de acciones diluidas o acciones en circulación
+    con dos períodos comparables; la cifra puntual no permite calcular dilución interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TEO/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Telecom Argentina S.A., together with its subsidiaries, provides
+    telecommunications services in Argentina, Paraguay, Uruguay, Chile and the United
+    States. The company offers mobile telecommunications services, including voice
+    communications, high-speed mobile internet content and applications download,
+    online streaming, and other services; and sells mobile communication devices,
+    such as handsets, modems, MiFi and wingles, and smartwatches. It also offers internet
+    connectivity products, including virtual private network services, traditional
+    internet protocol links, and other products; and programming and other cable television
+    services. In addition, the company provides telephone services, including local,
+    domestic, and international long-distance telephone services, as well as public
+    telephone services; and other related supplementary services, such as call waiting,
+    call forwarding, conference calls, caller ID, voice mail, itemized billing, and
+    maintenance services. Further, it offers infrastructure, interconnection, datacenter,
+    internet, value added, and international long-distance services; and data services,
+    including data transmission, virtual private networks, symmetric internet access,
+    national and international signal transport, and videoconferencing services; Personal
+    Pay, a digital wallet service. The company also offers broadcasting, cable television,
+    financial, cybersecurity, ICT services and audiovisual communication, content
+    platform and related services; security solutions and services; closed-circuit
+    and community closed-circuit television, as well as investment and consulting
+    services. The company was formerly known as Cablevisión S.A. and changed its name
+    to Telecom Argentina S.A. in January 2018. Telecom Argentina S.A. was founded
+    in 1979 and is based in Buenos Aires, Argentina.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 12.625
+  current_price_as_of_date: '2026-10-23'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.65
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T22:34:33.788468+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Telecom Argentina S.A.
+  operating_margin: 8.44
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Telecom Argentina S.A., together with its subsidiaries, provides
+    telecommunications services in Argentina, Paraguay, Uruguay, Chile and the United
+    States. The company offers mobile telecommunications services, including voice
+    communications, high-speed mobile internet content and applications download,
+    online streaming, and other services; and sells mobile communication devices,
+    such as handsets, modems, MiFi and wingles, and smartwatches. It also offers internet
+    connectivity products, including
+  revenue: 5830000000.0
+  revenue_growth: 8.14
+  roic: 3.41
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/teo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TEO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TEO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TEO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TEO/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/teo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/teo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/teo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TEO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/teo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TEO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/teo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/teo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/teo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TEO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TEO/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/teo/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    22.0, "low": 9.2, "mean": 16.87, "median": 16.87, "observed_at": "2026-11-20T19:34:36.921321-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T19:34:36.921321-03:00", "observed_date": "2026-11-20", "target_price":
+    16.87, "url": "https://stockanalysis.com/stocks/teo/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T19:34:36.921321-03:00",
+    "observed_date": "2026-11-20", "target_price": 16.86667, "url": "https://finance.yahoo.com/quote/TEO/"}]},
+    "current_quote": {"as_of_date": "2026-10-23", "currency": "USD", "price": 12.625,
+    "sources": [{"as_of_date": "2026-10-23", "name": "yfinance", "url": "https://finance.yahoo.com/quote/TEO/"}]}}'
+  sector: Communication Services
+  ticker: TEO
+research_trigger:
+  discovery_snapshot_hash: 5ff7c97018fbac70acd3f58500d28f4f48721227d0c4e87bb260885bc7565bd5
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 3fdfab27e6f1309f26b5d7a26ee7d4e7f0630a75975181aa85e78fd777f28410
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T19:35:04.723640-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- assessment: La observación está por encima del umbral configurado; se informa sin
+    implicar decisión de inversión.
+  metric: current_ratio
+  observed: 0.65
+  period_end: '2026-09-30'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TEO/statistics/
+  threshold: below 0.5
+  unit: x
+- assessment: La fuente reporta cero; requiere aclarar metodología y dato subyacente
+    de gasto por intereses.
+  metric: interest_coverage
+  observed: 0
+  period_end: '2026-09-30'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TEO/statistics/
+  threshold: below 2.0
+  unit: x
+- assessment: 'No evaluable: las unidades y escalas de los inputs disponibles no son
+    comparables de forma verificable.'
+  metric: net_debt_ebitda
+  observed: null
+  threshold: above 4.0
+  unit: x
+- assessment: 'No evaluable: falta una serie comparable de acciones para dos períodos.'
+  metric: dilution_yoy_pct
+  observed: null
+  threshold: above 10
+  unit: percent
+- assessment: No aplica al FCF TTM reportado, que es positivo; no se calcula runway
+    de quema de caja.
+  metric: negative_fcf_runway_months
+  observed: null
+  threshold: below 12
+  unit: months
+- assessment: 'No evaluable: no se proporcionó una serie histórica de acciones con
+    períodos comparables.'
+  metric: share_count_cagr_3y_pct
+  observed: null
+  threshold: above 5
+  unit: percent
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Crecimiento sostenido de ingresos y FCF en períodos posteriores.
+    - Evidencia verificable de mejora de deuda y liquidez.
+    id: BEAR
+    key_assumptions:
+    - La referencia de precio es el objetivo bajo reportado, no un cálculo de valoración.
+    - El crecimiento reciente no demuestra por sí solo su continuidad.
+    rationale: Ancla baja observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. Representa el resultado adverso plausible si el crecimiento
+      reciente de ingresos y FCF no se sostiene y pesan las obligaciones financieras.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/teo/forecast/
+    target_price: 9.2
+  - falsifiers:
+    - Contracción sostenida de ingresos, FCF o margen bruto.
+    - Deterioro de liquidez o aumento de obligaciones financieras.
+    id: BULL
+    key_assumptions:
+    - La referencia de precio es el objetivo alto reportado, no un cálculo de valoración.
+    - Los resultados recientes se mantienen, supuesto aún no validado por períodos
+      posteriores.
+    rationale: Ancla alta observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. Es el resultado favorable plausible si se mantienen el crecimiento
+      reciente de ingresos y FCF y la mejora del margen bruto reportado.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/teo/forecast/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/teo/financials/
+    target_price: 22.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 62
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T19:34:36.921321-03:00'
+  fuentes:
+    stockanalysis: 16.87
+    yfinance: 16.86667
+  mediana: 16.87
+  n_fuentes: 2
+  promedio: 16.87
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T19:34:36.921321-03:00'
+    observed_date: '2026-11-20'
+    target_price: 16.87
+    url: https://stockanalysis.com/stocks/teo/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T19:34:36.921321-03:00'
+    observed_date: '2026-11-20'
+    target_price: 16.86667
+    url: https://finance.yahoo.com/quote/TEO/
+  target_high: 22.0
+  target_low: 9.2
+tesis_inversion: La tesis a investigar es si el crecimiento reciente de ingresos y
+  flujo de caja libre puede sostenerse en un negocio de servicios de telecomunicaciones
+  con operaciones en varios países, mientras gestiona sus obligaciones financieras.
+  El paquete no aporta datos suficientes sobre reinversión, retornos sobre capital,
+  penetración de mercado, ventaja competitiva o asignación de capital para validar
+  esa tesis.
+ticker: TEO
+version: '3.0'

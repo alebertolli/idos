@@ -1,0 +1,145 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico de ingresos del ejercicio 2027 es inferior
+      a 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía deja de publicar una métrica comparable y la información
+      segmentaria disponible muestra contracción de ingresos en al menos dos segmentos
+      durante 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico de ingresos del ejercicio 2027 es inferior a 5%.
+  - La compañía deja de publicar una métrica comparable y la información segmentaria
+    disponible muestra contracción de ingresos en al menos dos segmentos durante 2027.
+  horizon: medio
+  id: H1-OPP-MULTIBAGGERS-SPGI-0001
+  opportunity_id: OPP-MULTIBAGGERS-SPGI-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 5.0
+    met: null
+    metric: Crecimiento orgánico de ingresos del ejercicio 2027
+    prediction: En los resultados del ejercicio 2027, SPGI reportará crecimiento orgánico
+      de ingresos de al menos 5% frente al ejercicio 2026, según la métrica orgánica
+      que defina y publique la compañía.
+    unit: '% mínimo interanual'
+  priority: critical
+  probability: 0.5
+  rationale: La oferta combina productos de información y servicios integrados que
+    pueden generar ingresos recurrentes y beneficiarse de la actividad en mercados
+    de capitales y materias primas. Sin desglose de crecimiento, penetración o mercado
+    direccionable, esta hipótesis debe probarse con el crecimiento orgánico consolidado
+    publicado por la compañía.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados del ejercicio
+    2027 si el crecimiento orgánico es inferior a 5%, o antes si dos informes trimestrales
+    consecutivos muestran contracción orgánica consolidada.
+  secondary_hypotheses: []
+  statement: SPGI mantendrá crecimiento orgánico de ingresos en sus negocios durante
+    el ejercicio 2027, señal de que la combinación de datos, analítica, workflows,
+    ratings, energía y commodities y benchmarks conserva demanda.
+  status: ACTIVE
+  ticker: SPGI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF calculado como flujo de caja de operaciones menos gastos de
+      capital crece menos de 5% frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF del ejercicio 2027 es inferior al de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF calculado como flujo de caja de operaciones menos gastos de capital crece
+    menos de 5% frente a 2026.
+  - El FCF del ejercicio 2027 es inferior al de 2026.
+  horizon: medio
+  id: H2-OPP-MULTIBAGGERS-SPGI-0001
+  opportunity_id: OPP-MULTIBAGGERS-SPGI-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 5.0
+    met: null
+    metric: Crecimiento del FCF frente al ejercicio 2026
+    prediction: El FCF del ejercicio 2027, definido como flujo de caja de operaciones
+      menos gastos de capital, será al menos 5% superior al FCF del ejercicio 2026.
+    unit: '% mínimo interanual'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis de inversión depende de que los servicios de información y análisis
+    sostengan la reinversión y generen FCF. La evidencia disponible no aporta una
+    serie de FCF ni retornos sobre capital verificables, por lo que el crecimiento
+    de caja debe contrastarse directamente con el ejercicio anterior.
+  review_trigger: Dejar de creerla al publicarse el flujo de caja anual de 2027 si
+    el crecimiento interanual del FCF es inferior a 5%; si la empresa modifica la
+    clasificación de gastos de capital, recalcular ambos ejercicios con una definición
+    consistente.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-SPGI-0001
+  statement: SPGI convertirá el crecimiento del negocio en mayor generación de caja
+    libre durante 2027, sin que la reinversión y las necesidades de capital absorban
+    la mayor parte del avance operativo.
+  status: ACTIVE
+  ticker: SPGI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de SPGI menos el rendimiento total del S&P 500
+      es inferior a 3 puntos porcentuales en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: SPGI registra rendimiento total negativo durante el periodo, aunque
+      el índice también caiga.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de SPGI menos el rendimiento total del S&P 500 es inferior
+    a 3 puntos porcentuales en el periodo.
+  - SPGI registra rendimiento total negativo durante el periodo, aunque el índice
+    también caiga.
+  horizon: medio
+  id: H3-OPP-MULTIBAGGERS-SPGI-0001
+  opportunity_id: OPP-MULTIBAGGERS-SPGI-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 3.0
+    met: null
+    metric: Rendimiento total relativo de SPGI frente al S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de SPGI, incluidos dividendos, superará al rendimiento total del índice
+      S&P 500 en al menos 3 puntos porcentuales.
+    unit: puntos porcentuales mínimo
+  priority: important
+  probability: 0.5
+  rationale: El negocio puede beneficiarse de ingresos diversificados y de la demanda
+    de información, ratings y benchmarks. Sin embargo, la evidencia disponible no
+    permite concluir que la cotización esté infravalorada ni validar objetivos de
+    analistas; por ello, la ventaja de mercado se plantea como una predicción relativa
+    observable, no como una conclusión de valoración.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si no alcanza la ventaja
+    relativa de 3 puntos porcentuales; abandonar antes si la compañía recorta su perspectiva
+    anual de crecimiento orgánico y FCF en dos comunicaciones consecutivas.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-SPGI-0001
+  - H2-OPP-MULTIBAGGERS-SPGI-0001
+  statement: La acción de SPGI obtendrá un rendimiento total superior al del S&P 500
+    durante los 12 meses posteriores a la fecha de corte, si el crecimiento del negocio
+    y la caja compensa el riesgo de valoración.
+  status: ACTIVE
+  ticker: SPGI
+  version: 1
