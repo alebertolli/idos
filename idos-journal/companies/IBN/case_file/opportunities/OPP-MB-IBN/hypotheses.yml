@@ -1,0 +1,147 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los anticipos brutos aumentan menos de 10% interanual al 2027-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación interanual no puede realizarse sobre un perímetro contable
+      comparable y la empresa no proporciona una conciliación verificable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los anticipos brutos aumentan menos de 10% interanual al 2027-03-31.
+  - La comparación interanual no puede realizarse sobre un perímetro contable comparable
+    y la empresa no proporciona una conciliación verificable.
+  horizon: medio
+  id: H1-OPP-MB-IBN
+  opportunity_id: OPP-MB-IBN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-05-15'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual de anticipos brutos
+    prediction: En los resultados correspondientes al trimestre finalizado el 2027-03-31,
+      los anticipos brutos serán al menos 10% superiores a los del 2026-03-31, calculados
+      en rupias y con perímetro comparable.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La tesis identifica exposición al crecimiento de los servicios bancarios
+    en India y señala crecimiento histórico de ingresos y beneficio neto, pero no
+    aporta datos recientes de anticipos ni evidencia de que ese crecimiento persista.
+    La hipótesis plantea que la actividad crediticia seguirá expandiéndose; debe comprobarse
+    que los nuevos préstamos no dependan de una relajación excesiva de los estándares
+    de crédito.
+  review_trigger: Dejar de creerla si el crecimiento interanual de anticipos es inferior
+    a 10% en la publicación de resultados del trimestre terminado el 2027-03-31, o
+    si la publicación se retrasa más allá del 2027-05-15 sin datos comparables.
+  secondary_hypotheses: []
+  statement: ICICI Bank mantendrá un crecimiento interanual de su cartera de anticipos
+    de al menos 10% hasta el cierre del ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: IBN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad sobre activos promedio del ejercicio fiscal 2027 es
+      inferior a 1,8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica datos suficientes para calcular el indicador
+      sobre una base consistente con el ejercicio anterior.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad sobre activos promedio del ejercicio fiscal 2027 es inferior a
+    1,8%.
+  - La empresa no publica datos suficientes para calcular el indicador sobre una base
+    consistente con el ejercicio anterior.
+  horizon: medio
+  id: H2-OPP-MB-IBN
+  opportunity_id: OPP-MB-IBN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-05-15'
+    expected: 1.8
+    met: null
+    metric: Rentabilidad sobre activos promedio
+    prediction: La rentabilidad sobre activos promedio del ejercicio fiscal terminado
+      el 2027-03-31 será igual o superior a 1,8%, calculada como beneficio neto atribuible
+      dividido por activos promedio del período.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La información disponible menciona crecimiento histórico del beneficio
+    neto, pero no permite validar retornos sobre capital ni la calidad de ese crecimiento.
+    Una rentabilidad sobre activos sostenida sería evidencia observable de que el
+    banco convierte su actividad y sus ingresos en beneficios con eficiencia; la cifra
+    es un umbral de hipótesis, no un dato confirmado por el paquete de investigación.
+  review_trigger: Dejar de creerla cuando la publicación de resultados anuales del
+    ejercicio fiscal 2027 muestre una rentabilidad sobre activos inferior a 1,8%,
+    o si no hay datos comparables disponibles para el 2027-05-15.
+  secondary_hypotheses:
+  - H1-OPP-MB-IBN
+  statement: ICICI Bank sostendrá una rentabilidad sobre activos de al menos 1,8%
+    en el ejercicio fiscal 2027, sin que el crecimiento del beneficio dependa únicamente
+    de una expansión del balance.
+  status: ACTIVE
+  ticker: IBN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de IBN menos el rendimiento total de INDA es inferior
+      a 5 puntos porcentuales durante el período definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se dispone de precios ajustados por distribuciones para ambos instrumentos
+      que permitan comparar el período con una metodología consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de IBN menos el rendimiento total de INDA es inferior a 5
+    puntos porcentuales durante el período definido.
+  - No se dispone de precios ajustados por distribuciones para ambos instrumentos
+    que permitan comparar el período con una metodología consistente.
+  horizon: medio
+  id: H3-OPP-MB-IBN
+  opportunity_id: OPP-MB-IBN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de IBN menos rendimiento total de INDA
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, el rendimiento
+      total en dólares de IBN, incluidos dividendos y ajustado por distribuciones,
+      superará en al menos 5 puntos porcentuales el rendimiento total en dólares de
+      INDA, también ajustado por distribuciones.
+    unit: puntos porcentuales mínimo
+  priority: informational
+  probability: 0.5
+  rationale: El paquete no aporta valoración, estimaciones de beneficios ni expectativas
+    del consenso, por lo que no permite concluir que IBN esté infravalorada ni anticipar
+    expansión de múltiplos. En su lugar, esta hipótesis contrasta una predicción de
+    mercado verificable mediante rendimiento relativo, sin atribuirla a una valoración
+    desconocida.
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si IBN no supera a INDA
+    en al menos 5 puntos porcentuales de rendimiento total en dólares.
+  secondary_hypotheses:
+  - H1-OPP-MB-IBN
+  - H2-OPP-MB-IBN
+  statement: La acción de ICICI Bank negociada como ADR (IBN) superará el rendimiento
+    total de INDA durante los 12 meses posteriores a la fecha de corte, señal de que
+    el mercado reconocerá mejor la evolución del banco que la del mercado amplio de
+    acciones indias.
+  status: ACTIVE
+  ticker: IBN
+  version: 1

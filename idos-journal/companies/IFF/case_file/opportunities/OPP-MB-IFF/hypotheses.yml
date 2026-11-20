@@ -1,0 +1,165 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico promedio de los cuatro trimestres terminados
+      el 2027-09-30 es inferior a 2,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de EBITDA ajustado del mismo período no supera el del ejercicio
+      fiscal 2026 en al menos 0,3 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La mejora de margen se explica principalmente por partidas no recurrentes,
+      y no por resultados operativos según las definiciones reportadas por IFF.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico promedio de los cuatro trimestres terminados el 2027-09-30
+    es inferior a 2,0%.
+  - El margen de EBITDA ajustado del mismo período no supera el del ejercicio fiscal
+    2026 en al menos 0,3 puntos porcentuales.
+  - La mejora de margen se explica principalmente por partidas no recurrentes, y no
+    por resultados operativos según las definiciones reportadas por IFF.
+  horizon: medio
+  id: H1-OPP-MB-IFF
+  opportunity_id: OPP-MB-IFF
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 2.0
+    met: null
+    metric: Crecimiento orgánico promedio de ventas en los cuatro trimestres terminados
+      el 2027-09-30
+    prediction: El crecimiento orgánico de ventas promedio de los cuatro trimestres
+      terminados el 2027-09-30 será de al menos 2,0%, y el margen de EBITDA ajustado
+      de ese período superará en al menos 0,3 puntos porcentuales el del ejercicio
+      fiscal 2026. Ambos datos deberán estar publicados a más tardar el 2027-11-20.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La presencia de IFF en sabores, ingredientes alimentarios, salud y biosciencias,
+    y fragancias ofrece varias vías para aumentar volúmenes o precios. Sin embargo,
+    la información disponible no demuestra crecimiento por segmento ni retornos incrementales;
+    por eso la hipótesis exige simultáneamente crecimiento orgánico y expansión de
+    margen, en vez de asumir que la amplitud del portafolio basta.
+  review_trigger: Dejar de creerla si, al publicarse los resultados del segundo trimestre
+    de 2027, el crecimiento orgánico acumulado de los últimos cuatro trimestres es
+    negativo o el margen de EBITDA ajustado está por debajo del nivel del ejercicio
+    fiscal 2026.
+  secondary_hypotheses: []
+  statement: IFF logrará crecimiento orgánico de ventas positivo y una mejora moderada
+    de rentabilidad operativa durante los cuatro trimestres que terminan el 2027-09-30.
+  status: ACTIVE
+  ticker: IFF
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF del ejercicio fiscal 2027 es igual o inferior al del ejercicio
+      fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF aumenta menos de 10% frente al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El aumento depende principalmente de una reducción puntual de capital
+      de trabajo o de gastos de capital aplazados, sin mejora correspondiente en el
+      flujo de efectivo operativo subyacente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF del ejercicio fiscal 2027 es igual o inferior al del ejercicio fiscal 2026.
+  - El FCF aumenta menos de 10% frente al ejercicio fiscal 2026.
+  - El aumento depende principalmente de una reducción puntual de capital de trabajo
+    o de gastos de capital aplazados, sin mejora correspondiente en el flujo de efectivo
+    operativo subyacente.
+  horizon: medio
+  id: H2-OPP-MB-IFF
+  opportunity_id: OPP-MB-IFF
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: Variación del FCF del ejercicio fiscal 2027 frente al ejercicio fiscal
+      2026
+    prediction: El flujo de caja libre del ejercicio fiscal 2027, definido como flujo
+      de efectivo de operaciones menos gastos de capital, será al menos 10% superior
+      al del ejercicio fiscal 2026. El resultado deberá poder verificarse en el informe
+      anual del ejercicio fiscal 2027, esperado a más tardar el 2028-03-31.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La mejora del FCF TTM merece seguimiento, pero la caída anual observada
+    en FY 2025 y la falta de evidencia para separar tendencias operativas de volatilidad
+    impiden asumir que sea persistente. La hipótesis pone a prueba directamente esa
+    sostenibilidad mediante una comparación anual y una definición verificable de
+    FCF.
+  review_trigger: Dejar de creerla si el FCF acumulado de los primeros nueve meses
+    del ejercicio fiscal 2027 está por debajo del acumulado comparable del ejercicio
+    fiscal 2026 y la dirección no presenta evidencia cuantificada de una reversión
+    dentro del año.
+  secondary_hypotheses:
+  - H1-OPP-MB-IFF
+  statement: La mejora del flujo de caja libre de IFF se sostendrá y aumentará en
+    el ejercicio fiscal 2027 frente al ejercicio fiscal 2026.
+  status: ACTIVE
+  ticker: IFF
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de IFF supera o iguala el rendimiento total de
+      XLB en el período definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: IFF obtiene un rendimiento relativo inferior a XLB por menos de 5 puntos
+      porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de IFF supera o iguala el rendimiento total de XLB en el
+    período definido.
+  - IFF obtiene un rendimiento relativo inferior a XLB por menos de 5 puntos porcentuales.
+  horizon: medio
+  id: H3-OPP-MB-IFF
+  opportunity_id: OPP-MB-IFF
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rendimiento total de IFF menos rendimiento total de XLB
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, el rendimiento
+      total de IFF, incluidos dividendos, será al menos 5 puntos porcentuales inferior
+      al rendimiento total del ETF Materials Select Sector SPDR (XLB), medidos ambos
+      en dólares estadounidenses.
+    unit: puntos porcentuales o menos
+  priority: important
+  probability: 0.5
+  rationale: La información disponible no demuestra una ventaja competitiva, crecimiento
+    orgánico por segmento ni retornos sobre inversión incremental, y la evolución
+    anual del FCF ha sido volátil. Si esos factores siguen sin confirmarse, los inversionistas
+    podrían exigir una valoración relativa más baja. Esta es una hipótesis de mercado
+    negativa, no una afirmación de que la acción esté sobrevalorada en términos absolutos.
+  review_trigger: Dejar de creerla si, antes del 2027-08-20, IFF supera a XLB por
+    al menos 5 puntos porcentuales en rendimiento total acumulado desde el 2026-11-20
+    y los resultados publicados muestran mejora simultánea de FCF y margen operativo.
+  secondary_hypotheses:
+  - H1-OPP-MB-IFF
+  - H2-OPP-MB-IFF
+  statement: La incertidumbre sobre el crecimiento rentable y la sostenibilidad del
+    FCF hará que las acciones de IFF rindan menos que el mercado de materiales de
+    EE. UU. durante los próximos doce meses.
+  status: ACTIVE
+  ticker: IFF
+  version: 1

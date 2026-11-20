@@ -2,31 +2,33 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-HMC",
-      "ticker": "HMC",
-      "status": "completed",
-      "score": 48,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-HOG",
-      "ticker": "HOG",
-      "status": "hypothesis_validation_failed",
-      "score": null,
+      "opp_id": "OPP-MB-HSBC",
+      "ticker": "HSBC",
+      "status": "quality_failed",
+      "score": 55,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
-        "H3: prediction or trigger references an expired year"
+        "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "opp_id": "OPP-MB-HPQ",
-      "ticker": "HPQ",
-      "status": "hypothesis_validation_failed",
-      "score": null,
+      "opp_id": "OPP-MB-IBN",
+      "ticker": "IBN",
+      "status": "quality_failed",
+      "score": 42,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
-        "H2: prediction or trigger references an expired year"
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "opp_id": "OPP-MB-IFF",
+      "ticker": "IFF",
+      "status": "quality_failed",
+      "score": 53,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
       ]
     }
   ],
@@ -34,21 +36,30 @@
   "assessments": [],
   "errors": [
     {
-      "ticker": "HOG",
-      "opp_id": "OPP-MB-HOG",
-      "status": "hypothesis_validation_failed",
-      "error": "H3: prediction or trigger references an expired year",
+      "ticker": "HSBC",
+      "opp_id": "OPP-MB-HSBC",
+      "status": "quality_failed",
+      "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
-        "H3: prediction or trigger references an expired year"
+        "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "ticker": "HPQ",
-      "opp_id": "OPP-MB-HPQ",
-      "status": "hypothesis_validation_failed",
-      "error": "H2: prediction or trigger references an expired year",
+      "ticker": "IBN",
+      "opp_id": "OPP-MB-IBN",
+      "status": "quality_failed",
+      "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
-        "H2: prediction or trigger references an expired year"
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "ticker": "IFF",
+      "opp_id": "OPP-MB-IFF",
+      "status": "quality_failed",
+      "error": "Scenario validation status: invalid_pending_revision",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
       ]
     }
   ],

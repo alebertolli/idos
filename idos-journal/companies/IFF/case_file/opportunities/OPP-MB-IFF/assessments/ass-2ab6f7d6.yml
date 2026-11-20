@@ -1,0 +1,39 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; oportunidad de crecimiento no validada'
+- 'Market error: No se puede validar un error de valoración: el paquete aporta cotización
+  y consenso de analistas, pero no una valoración intrínseca ni expectativas fundamentales
+  cuantificadas.'
+- 'Thesis: IFF opera en sabores, ingredientes alimentarios, salud y biosciencias,
+  y fragancias. La posible tesis de crecimiento sería que sus negocios y productos
+  impulsen crecimiento rentable y generación de ca'
+generated_at: '2026-11-20T15:47:28.730202-03:00'
+id: ass-2ab6f7d6
+recommendation: REVIEW
+risks:
+- fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/iff/financials/
+  implicacion: La carga financiera y su evolución requieren validación con estados
+    financieros y unidades reconciliadas.
+  riesgo: La deuda neta reportada fue negativa en caja neta y elevada en magnitud
+    absoluta al 2026-09-30; no se puede calcular deuda neta/EBITDA de forma compatible
+    con las unidades observadas.
+- fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/IFF/statistics/
+  implicacion: No debe tratarse como una medida fiable de capacidad de servicio de
+    deuda sin EBIT y gasto por intereses verificables.
+  riesgo: La cobertura de intereses reportada como 0 al 2026-09-30 no es interpretable
+    como cobertura económica sin validar la definición y los inputs subyacentes.
+- fuentes:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/iff/financials/
+  implicacion: La conversión de FCF a ingreso neto TTM puede ser alta por una base
+    de ingreso neto reducida y no acredita calidad recurrente de beneficios.
+  riesgo: El ingreso neto TTM fue positivo, pero los ejercicios FY 2023 y FY 2025
+    reportaron pérdidas; la serie refleja resultados dispares.
+score: 53
+status: COMPLETED
+version: '3.0'
