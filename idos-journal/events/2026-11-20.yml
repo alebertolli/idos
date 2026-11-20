@@ -927,3 +927,66 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T13:36:08.985569'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DHR
+    ticker: DHR
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T13:43:28.361551'
+- data:
+    classification: Investigación requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 1ae10ebcf3103e8296bac94afd49892b597dfe9dfa1b20824b64781148ee17a4
+    opp_id: OPP-MB-DHR
+    score: 46
+    strategy_version: '1.5'
+    ticker: DHR
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:44:59.864885'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 6b334107031f19aaa0f1f18261492ac9c6ac19c297c27ced149b05d3b26f7058
+    opp_id: OPP-COMPOUNDER-DOCU-0001
+    score: 58
+    strategy_version: positive_fundamentals_v1
+    ticker: DOCU
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:47:07.089833'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DOCU
+    ticker: DOCU
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T13:47:30.558364'
+- data:
+    classification: Investigación requerida; evidencia incompleta para valorar
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 5428f6f8b21d09815534fde799afdb64174e31a43e11e3029d9d3550ba878e55
+    opp_id: OPP-MB-DOCU
+    score: 35
+    strategy_version: '1.5'
+    ticker: DOCU
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:48:53.497538'
