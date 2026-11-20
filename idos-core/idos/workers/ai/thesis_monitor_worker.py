@@ -74,6 +74,14 @@ class ThesisMonitorWorker(BaseWorker):
             yaml_opp["last_thesis_assessment_at"] = now_iso
             journal.save_opportunity(ticker, yaml_opp)
 
+        buylist_removed = False
+        if not thesis_active:
+            from idos.decision.automatic_buylist import revoke_buylist_on_thesis_invalidation
+            buylist_removed = revoke_buylist_on_thesis_invalidation(
+                bp, ticker, opp_id, invalidated_at=now_iso,
+                reason=str(result.get("reason") or "thesis_invalidated"),
+            )
+
         event_data = {
             "opp_id": opp_id, "ticker": ticker,
             "thesis_active": thesis_active,
@@ -83,6 +91,7 @@ class ThesisMonitorWorker(BaseWorker):
             "confidence": result.get("confidence", 0),
             "trigger": trigger_source,
             "cascade": cascade.get("cascade", "none"),
+            "buylist_removed": buylist_removed,
         }
         journal.log_event("thesis:reassessed", event_data, source="thesis_monitor_worker")
         sqlite.log_event("thesis:reassessed", event_data, source="thesis_monitor_worker")
@@ -101,6 +110,7 @@ class ThesisMonitorWorker(BaseWorker):
             "confidence": result.get("confidence", 0),
             "recommendation": result.get("recommendation", ""),
             "cascade": cascade.get("cascade", "none"),
+            "buylist_removed": buylist_removed,
         }
 
     def _sync_hypotheses_on_invalidation(self, ticker: str, opp_id: str, thesis_active: bool,

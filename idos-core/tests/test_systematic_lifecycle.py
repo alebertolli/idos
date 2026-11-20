@@ -85,12 +85,12 @@ def test_momentum_discovery_research_assessment_wait(tmp_path: Path, monkeypatch
     assert store.get_opportunity(opp_id)["status"] == "UNDER_RESEARCH"
 
     decision = run_full_pipeline(opp_id, opp["ticker"], tmp_path)
-    assert decision["status"] == "decision_pending"
+    assert decision["status"] == "blocked"
     assert decision["recommendation"] == "WAIT"
     assert decision["board_approved"] is False
     proposal_file = tmp_path / "idos-journal" / "companies" / opp["ticker"] / "case_file" / "opportunities" / opp_id / "decision_proposal.yml"
     proposal = yaml.safe_load(proposal_file.read_text(encoding="utf-8"))
-    assert proposal["status"] == "PENDING_HUMAN_REVIEW"
+    assert proposal["status"] == "AUTO_BLOCKED"
     assert all(proposal["checks"].values())
     assert proposal["authorization_gates"]["RULE-008"]["passed"] is False
     assert [item["id"] for item in proposal["scenario_analysis"]["scenarios"]] == ["BEAR", "BULL"]
@@ -99,10 +99,10 @@ def test_momentum_discovery_research_assessment_wait(tmp_path: Path, monkeypatch
     assert not (tmp_path / "idos-journal" / "portfolio" / "buylist.yml").exists()
 
     public = SiteBuilder(tmp_path).build()
-    assert any("revisión humana" in alert["message"] for alert in public.dashboard["alerts"])
+    assert any("reglas automáticas" in alert["message"] for alert in public.dashboard["alerts"])
     row = next(item for item in public.opportunities if item["ticker"] == "XLF")
     assert [item["id"] for item in row["ddd"]["scenario_analysis"]["scenarios"]] == ["BEAR", "BULL"]
-    assert row["ddd"]["board_review"]["status"] == "pending_decision_board"
+    assert row["ddd"]["board_review"]["status"] == "automatically_blocked"
     assert public.positions == []
 
     report_file = proposal_file.parent / "ddd_report.yml"
@@ -148,5 +148,5 @@ def test_momentum_discovery_research_assessment_wait(tmp_path: Path, monkeypatch
     result = worker.run({"ticker": opp["ticker"], "opp_id": opp_id, "base_path": tmp_path, "force_reprocess": True})
     assert result["status"] == "completed"
     assert store.get_opportunity(opp_id)["signal"] == changed
-    assert run_full_pipeline(opp_id, opp["ticker"], tmp_path)["status"] == "decision_pending"
+    assert run_full_pipeline(opp_id, opp["ticker"], tmp_path)["status"] == "blocked"
     assert not (tmp_path / "idos-journal" / "portfolio" / "buylist.yml").exists()

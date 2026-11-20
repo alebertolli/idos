@@ -40,20 +40,33 @@ class BuyListRefreshWorker(BaseWorker):
         ]
         approved = [o for o in valuation_opportunities if o["status"] == OpportunityStatus.APPROVED.value]
         entry_pending = [o for o in valuation_opportunities if o["status"] == OpportunityStatus.ENTRY_PENDING.value]
-        manager_approved = [
-            o for o in valuation_opportunities
+        approved_candidates = [
+            o for o in opportunities
             if o.get("approved_for_buylist") is True
+            and o.get("thesis_active") is not False
             and o["status"] not in (OpportunityStatus.APPROVED.value, OpportunityStatus.ENTRY_PENDING.value)
         ]
-        eligible = approved + entry_pending + manager_approved
+        eligible_by_id = {o["id"]: o for o in approved + entry_pending + approved_candidates}
+        eligible = list(eligible_by_id.values())
 
         if not eligible:
-            print("[BUYLIST] No approved/entry-pending opportunities in journal; preserving existing buylist")
+            invalidated = {
+                (str(o.get("ticker", "")).upper(), str(o.get("id", "")))
+                for o in opportunities if o.get("thesis_active") is False
+            }
+            removed = sum(
+                1 for entry in self.buylist.all()
+                if (entry.ticker.upper(), getattr(entry, "opp_id", "")) in invalidated
+                and self.buylist.remove(entry.ticker)
+            )
+            if removed:
+                self._save_buylist(bp)
+            print("[BUYLIST] No eligible candidates; invalidated theses removed and other entries preserved")
             return {
                 "status": "completed",
                 "updated": 0,
                 "added": 0,
-                "removed": 0,
+                "removed": removed,
                 "total_entries": self.buylist.count(),
                 "fail_safe": True,
             }
@@ -81,6 +94,7 @@ class BuyListRefreshWorker(BaseWorker):
 
             existing = self.buylist.get(ticker)
             if existing:
+                existing.opp_id = opp_id
                 existing.target_price = intrinsic
                 existing.buy_zone_top = buy_zone_top
                 existing.max_position_pct = max_pos
@@ -97,15 +111,23 @@ class BuyListRefreshWorker(BaseWorker):
                     conviction_score=conviction.get("overall", 0),
                     horizon=opp.get("horizon", "12-36 months"),
                     catalysts=opp.get("catalysts", []),
+                    opp_id=opp_id,
                 ))
                 added += 1
 
         all_tickers = {
-            o["ticker"] for o in valuation_opportunities
-            if o["status"] in ("APPROVED", "ENTRY_PENDING") or o.get("approved_for_buylist") is True
+            (o["ticker"], o["id"]) for o in opportunities
+            if (
+                o in valuation_opportunities
+                and o["status"] in ("APPROVED", "ENTRY_PENDING")
+                and o.get("thesis_active") is not False
+            ) or (
+                o.get("approved_for_buylist") is True
+                and o.get("thesis_active") is not False
+            )
         }
         for entry in self.buylist.all():
-            if entry.ticker not in all_tickers:
+            if (entry.ticker, getattr(entry, "opp_id", "")) not in all_tickers:
                 self.buylist.remove(entry.ticker)
                 removed += 1
 
@@ -194,6 +216,8 @@ class BuyListRefreshWorker(BaseWorker):
                 "kb_last_update": e.kb_last_update,
                 "added_at": e.added_at,
                 "monitoring": prev.get("monitoring", getattr(e, "monitoring", True)),
+                "authorization_mode": prev.get("authorization_mode", ""),
+                "decision_id": prev.get("decision_id", ""),
             })
         buylist_path.parent.mkdir(parents=True, exist_ok=True)
         buylist_path.write_text(

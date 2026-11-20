@@ -63,6 +63,25 @@ def _make_worker(bp: Path, **overrides) -> MonthlyReassessmentWorker:
 
 
 class TestMonthlyReassessment:
+    def test_buylist_candidates_are_included_in_automatic_thesis_monitoring(self, tmp_path: Path):
+        journal = JournalRepository(tmp_path / "idos-journal")
+        sqlite = SQLiteStore(tmp_path / "idos.db")
+        candidate = {
+            "id": "OPP-NVDA", "ticker": "NVDA",
+            "status": OpportunityStatus.UNDER_DEEP_DD.value,
+            "strategy_id": "MULTIBAGGERS", "research_profile": "multibaggers",
+            "approved_for_buylist": True, "thesis_active": True,
+            "conviction": {"overall": 69},
+        }
+        journal.save_opportunity("NVDA", candidate)
+        buylist = journal.base / "portfolio" / "buylist.yml"
+        buylist.parent.mkdir(parents=True, exist_ok=True)
+        buylist.write_text(yaml.safe_dump({"entries": [{"ticker": "NVDA", "opp_id": "OPP-NVDA"}]}), encoding="utf-8")
+
+        active = _make_worker(tmp_path)._active_opportunities(sqlite)
+
+        assert [(item["ticker"], item["id"]) for item in active] == [("NVDA", "OPP-NVDA")]
+
     def test_recent_thesis_review_skips_llm_until_next_profile_date(self, tmp_path: Path):
         bp = tmp_path
         journal = JournalRepository(bp / "idos-journal")
