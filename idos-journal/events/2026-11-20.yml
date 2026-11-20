@@ -793,3 +793,77 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T13:10:10.413459'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-DD
+    ticker: DD
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T13:17:27.469733'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DD
+    ticker: DD
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T13:17:27.513578'
+- data:
+    classification: Growth
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: efbf9a8b231c9f671a57d1f559c682f0b1fd04ac62f5e35acc0a12d75c6d7450
+    opp_id: OPP-MB-DD
+    score: 78
+    strategy_version: '1.5'
+    ticker: DD
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:19:08.699483'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: fd854a1d4fa6fe781c8c6b89cd4163aa510f3cc57d347f73989015102737205a
+    opp_id: OPP-COMPOUNDER-DE-0001
+    score: 55
+    strategy_version: positive_fundamentals_v1
+    ticker: DE
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:21:14.166147'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DE
+    ticker: DE
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T13:21:38.604973'
+- data:
+    classification: Investigación requerida; evidencia financiera y de mercado insuficiente
+      para validar una tesis de multibagger
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 360d4e8504e360df82d875aee65041f0a9950049bb50c0744357caf8768c1635
+    opp_id: OPP-MB-DE
+    score: 42
+    strategy_version: '1.5'
+    ticker: DE
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:23:19.200816'

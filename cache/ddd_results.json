@@ -2,38 +2,38 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-COMPOUNDER-DAL-0001",
-      "ticker": "DAL",
+      "opp_id": "OPP-MB-DD",
+      "ticker": "DD",
       "status": "completed",
-      "score": 68,
+      "score": 78,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-DAL",
-      "ticker": "DAL",
+      "opp_id": "OPP-COMPOUNDER-DE-0001",
+      "ticker": "DE",
+      "status": "completed",
+      "score": 55,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-MB-DE",
+      "ticker": "DE",
       "status": "quality_failed",
       "score": 42,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
-    },
-    {
-      "opp_id": "OPP-COMPOUNDER-DD-0001",
-      "ticker": "DD",
-      "status": "completed",
-      "score": 52,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "DAL",
-      "opp_id": "OPP-MB-DAL",
+      "ticker": "DE",
+      "opp_id": "OPP-MB-DE",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -42,7 +42,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 137,
+  "deferred_count": 135,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

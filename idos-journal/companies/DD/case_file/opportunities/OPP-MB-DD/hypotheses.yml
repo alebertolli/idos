@@ -1,0 +1,140 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico del segmento es inferior a 5% interanual en
+      todos los trimestres publicados durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa de menor demanda o de pérdida de participación en
+      líneas relevantes de protección o filtración.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico del segmento es inferior a 5% interanual en todos los
+    trimestres publicados durante el periodo.
+  - La empresa informa de menor demanda o de pérdida de participación en líneas relevantes
+    de protección o filtración.
+  horizon: medio
+  id: H1-OPP-MB-DD
+  opportunity_id: OPP-MB-DD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ventas orgánicas de Water & Protection
+    prediction: En al menos dos trimestres consecutivos publicados hasta la fecha
+      objetivo, Water & Protection registrará un crecimiento de ventas orgánicas de
+      al menos 5% interanual.
+    unit: porcentaje o más en al menos dos trimestres consecutivos
+  priority: critical
+  probability: 0.5
+  rationale: La tesis plantea que el mercado subvalora el potencial de TYVEK y la
+    filtración. Si esas soluciones ganan adopción, deberían reflejarse en mayores
+    ventas orgánicas del segmento, aunque la información pública podría no desglosar
+    por separado los ingresos de cada producto.
+  review_trigger: Dejar de creerla si dos trimestres consecutivos publicados antes
+    del 2027-11-20 muestran crecimiento orgánico inferior a 5% interanual y la empresa
+    no atribuye el resultado a factores temporales identificables.
+  secondary_hypotheses: []
+  statement: La demanda de materiales de protección y soluciones de filtración contribuirá
+    a acelerar el crecimiento orgánico del segmento Water & Protection de DuPont.
+  status: ACTIVE
+  ticker: DD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La cobertura de intereses de los últimos doce meses no aumenta al menos
+      0,3 veces respecto del nivel de referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cobertura disminuye debido a menores beneficios operativos o mayores
+      gastos por intereses.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La cobertura de intereses de los últimos doce meses no aumenta al menos 0,3 veces
+    respecto del nivel de referencia.
+  - La cobertura disminuye debido a menores beneficios operativos o mayores gastos
+    por intereses.
+  horizon: medio
+  id: H2-OPP-MB-DD
+  opportunity_id: OPP-MB-DD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.3
+    met: null
+    metric: Variación de la cobertura de intereses de los últimos doce meses frente
+      al nivel de referencia
+    prediction: La cobertura de intereses de los últimos doce meses será al menos
+      0,3 veces superior a la reportada en la información financiera más reciente
+      disponible al 2026-11-20.
+    unit: veces o más
+  priority: critical
+  probability: 0.5
+  rationale: La tesis identifica deuda y cobertura de intereses limitada como riesgos.
+    Una mejora sostenible del flujo de efectivo, junto con el control de deuda y gastos
+    financieros, debería elevar la capacidad de cubrir los intereses; la predicción
+    se mide contra el dato más reciente disponible al corte, sin presuponer su nivel.
+  review_trigger: Dejar de creerla si los resultados publicados que cubran los últimos
+    doce meses al 2027-11-20 muestran una mejora inferior a 0,3 veces respecto del
+    nivel de referencia.
+  secondary_hypotheses:
+  - H1-OPP-MB-DD
+  statement: DuPont mejorará su cobertura de intereses mediante mayor generación de
+    efectivo operativo y disciplina financiera.
+  status: ACTIVE
+  ticker: DD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El retorno total de DD menos el retorno total de XLB es inferior a
+      10 puntos porcentuales en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: DD obtiene un retorno total inferior al de XLB en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El retorno total de DD menos el retorno total de XLB es inferior a 10 puntos porcentuales
+    en el periodo.
+  - DD obtiene un retorno total inferior al de XLB en el periodo.
+  horizon: medio
+  id: H3-OPP-MB-DD
+  opportunity_id: OPP-MB-DD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Retorno total de DD menos retorno total de XLB
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, el retorno
+      total de DD superará al retorno total de XLB en al menos 10 puntos porcentuales.
+    unit: puntos porcentuales o más
+  priority: important
+  probability: 0.5
+  rationale: Si el crecimiento de Water & Protection se materializa y mejora la cobertura
+    de intereses, ambos factores podrían reducir la percepción de riesgo y respaldar
+    una revaluación relativa. La comparación con XLB permite contrastar el desempeño
+    con una referencia sectorial observable.
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si DD no supera a XLB
+    en al menos 10 puntos porcentuales sobre una base de retorno total.
+  secondary_hypotheses:
+  - H1-OPP-MB-DD
+  - H2-OPP-MB-DD
+  statement: La acción de DuPont superará al ETF Materials Select Sector SPDR (XLB)
+    durante los doce meses posteriores al corte, a medida que el mercado reconozca
+    el potencial de sus materiales de alta performance y las mejoras financieras.
+  status: ACTIVE
+  ticker: DD
+  version: 1
