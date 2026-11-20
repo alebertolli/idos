@@ -1,0 +1,26 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No se puede concluir que exista un error de valoración con la evidencia
+  disponible.'
+- 'Thesis: JPMorgan opera en banca de consumo y comunidad, banca comercial y de inversión,
+  y gestión de activos y patrimonio, con productos de depósitos, inversión, crédito
+  y gestión de efectivo (resumen financi'
+generated_at: '2026-11-20T16:12:23.550757-03:00'
+id: ass-5c1d0b87
+recommendation: REVIEW
+risks:
+- evidencia: No están incluidos esos campos en el paquete financiero aportado.
+  riesgo: Los datos financieros disponibles no incluyen medidas verificables de capital
+    regulatorio, calidad de activos, morosidad o pérdidas crediticias.
+- evidencia: StockAnalysis, historial financiero, FY 2025 y TTM al 2026-09-30.
+  riesgo: El FCF reportado es negativo en FY 2025 y en TTM al 2026-09-30; la interpretación
+    de FCF de una entidad bancaria requiere cautela.
+- evidencia: No hay series de márgenes, costos de crédito ni retornos sobre capital
+    utilizables en el paquete.
+  riesgo: La información proporcionada no permite valorar la resiliencia de márgenes
+    o retornos ante cambios en tasas, crédito o condiciones de mercado.
+score: 42
+status: COMPLETED
+version: '3.0'

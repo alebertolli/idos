@@ -1,0 +1,140 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos TTM reportados al 2027-09-30 son inferiores a USD 102.315
+      mil millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos reportados de cualquiera de los dos segmentos caen interanualmente
+      durante dos trimestres consecutivos, según los informes publicados antes de
+      la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos TTM reportados al 2027-09-30 son inferiores a USD 102.315 mil millones.
+  - Los ingresos reportados de cualquiera de los dos segmentos caen interanualmente
+    durante dos trimestres consecutivos, según los informes publicados antes de la
+    fecha objetivo.
+  horizon: medio
+  id: H1-OPP-MB-JNJ
+  opportunity_id: OPP-MB-JNJ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 102.315
+    met: null
+    metric: Ingresos TTM reportados
+    prediction: Al 2027-09-30, los ingresos TTM reportados de Johnson & Johnson serán
+      al menos 3% superiores a USD 99.335 mil millones.
+    unit: USD miles de millones
+  priority: critical
+  probability: 0.5
+  rationale: La tesis favorable depende de que ambos segmentos sostengan el crecimiento.
+    Los ingresos TTM reportados fueron USD 99.335 mil millones al 2026-09-27, pero
+    la información disponible no permite validar por separado el crecimiento, la cartera
+    de productos ni la erosión competitiva; por ello, la hipótesis se limita a comprobar
+    el resultado agregado.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-09-30
+    muestra ingresos agregados TTM inferiores a USD 99.335 mil millones o dos trimestres
+    consecutivos de caída interanual en los ingresos agregados.
+  secondary_hypotheses: []
+  statement: Los negocios de Innovative Medicine y MedTech mantendrán crecimiento
+    agregado de ingresos durante los próximos cuatro trimestres.
+  status: ACTIVE
+  ticker: JNJ
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM reportado al 2027-09-30 es inferior a USD 18.0 mil millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF TTM cae por debajo de USD 18.0 mil millones en un informe trimestral
+      anterior y no se recupera en el siguiente informe disponible.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM reportado al 2027-09-30 es inferior a USD 18.0 mil millones.
+  - El FCF TTM cae por debajo de USD 18.0 mil millones en un informe trimestral anterior
+    y no se recupera en el siguiente informe disponible.
+  horizon: medio
+  id: H2-OPP-MB-JNJ
+  opportunity_id: OPP-MB-JNJ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 18.0
+    met: null
+    metric: FCF TTM reportado
+    prediction: Al 2027-09-30, el FCF TTM reportado será de al menos USD 18.0 mil
+      millones.
+    unit: USD miles de millones
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM reportado fue USD 20.590 mil millones al 2026-09-27. La continuidad
+    de la tesis depende de que los negocios conviertan sus ingresos en caja; no se
+    dispone de evidencia suficiente para dar por demostrada la estabilidad futura
+    de esa conversión.
+  review_trigger: Dejar de creerla cuando un informe publicado antes del 2027-09-30
+    sitúe el FCF TTM por debajo de USD 18.0 mil millones y el siguiente informe no
+    muestre recuperación por encima de ese umbral.
+  secondary_hypotheses:
+  - H1-OPP-MB-JNJ
+  statement: Johnson & Johnson conservará una generación sustancial de flujo de caja
+    libre, aunque podría moderarse respecto del nivel TTM observado.
+  status: ACTIVE
+  ticker: JNJ
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de JNJ desde el 2026-11-20 hasta el 2027-11-20
+      iguala o supera al del MSCI World Health Care.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La diferencia entre el rendimiento total de JNJ y el del índice es
+      superior a -5 puntos porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de JNJ desde el 2026-11-20 hasta el 2027-11-20 iguala o supera
+    al del MSCI World Health Care.
+  - La diferencia entre el rendimiento total de JNJ y el del índice es superior a
+    -5 puntos porcentuales en la fecha objetivo.
+  horizon: largo
+  id: H3-OPP-MB-JNJ
+  opportunity_id: OPP-MB-JNJ
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rendimiento total relativo de JNJ frente al MSCI World Health Care
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de JNJ quedará
+      al menos 5 puntos porcentuales por debajo del rendimiento total del índice MSCI
+      World Health Care, medido en USD.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: La acción subió 44.6498% en los doce meses terminados el 2026-10-30,
+    mientras que la evidencia disponible no cuantifica crecimiento sostenible de beneficios
+    ni retornos sobre capital que justifiquen la continuidad de ese ritmo. Esto sustenta
+    una hipótesis de riesgo de valoración, no una estimación del valor intrínseco.
+  review_trigger: Dejar de creerla si, en cualquier cierre mensual anterior al 2027-11-20,
+    JNJ supera al índice en al menos 5 puntos porcentuales desde el 2026-11-20 y mantiene
+    esa ventaja en el cierre mensual siguiente.
+  secondary_hypotheses:
+  - H1-OPP-MB-JNJ
+  - H2-OPP-MB-JNJ
+  statement: El avance de la acción observado antes de la fecha de corte no se traducirá
+    en un rendimiento relativo superior durante los siguientes doce meses.
+  status: ACTIVE
+  ticker: JNJ
+  version: 1
