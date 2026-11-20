@@ -1,0 +1,27 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; perfil multibaggers'
+- 'Market error: No se puede validar un error de valoración con la evidencia disponible.'
+- 'Thesis: Cardinal Health distribuye productos farmacéuticos y médicos y presta servicios
+  a participantes del sistema sanitario, según la descripción del modelo de negocio
+  del resumen financiero. La evidencia f'
+generated_at: '2026-11-20T11:35:16.913672-03:00'
+id: ass-b36ec893
+recommendation: REVIEW
+risks:
+- implicacion: La evidencia no permite determinar sensibilidad de beneficios a costes,
+    precios o cambios en la mezcla de productos.
+  riesgo: 'El margen bruto reportado es reducido: 3.9% TTM al 2026-09-30.'
+- implicacion: El dato requiere verificación; no se dispone de gasto por intereses
+    para calcular la cobertura definida como EBIT dividido por gasto por intereses.
+  riesgo: La cobertura de intereses aparece reportada como 0 al 2026-09-30.
+- implicacion: Está por encima del umbral configurado de 0.5, pero refleja activos
+    corrientes inferiores a pasivos corrientes según esa razón.
+  riesgo: La razón corriente reportada es 0.88 al 2026-09-30.
+- implicacion: La historia aportada muestra crecimiento de FCF de -43.09% en FY 2025
+    y 144.59% en FY 2026; la variación exige cautela al extrapolar.
+  riesgo: El FCF reportado varía entre años fiscales en la serie disponible.
+score: 52
+status: COMPLETED
+version: '3.0'

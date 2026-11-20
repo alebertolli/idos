@@ -1,0 +1,450 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La sensibilidad a viajes, precios, utilización y valores residuales hace que CAR
+    se clasifique principalmente como oportunidad cíclica.
+  - La posible escala y reconocimiento de marcas no demuestran por sí mismos un moat
+    durable.
+  - La cotización dentro del rango reportado, pero por encima de media/mediana, no
+    prueba infravaloración ni sobrevaloración intrínseca.
+  - Mejoras de demanda, precios y disciplina de flota podrían ser catalizadores, sujetos
+    a confirmación con resultados y documentación primaria.
+  - La falta de datos de deuda y vencimientos impide concluir que la solvencia sea
+    fuerte.
+  - 'FCF reportado: 173000000, TTM con periodo terminado el 2026-06-30, fuente seleccionada
+    stockanalysis.com, unidad provider_financial_currency. La evidencia no documenta
+    que sea ajustado.'
+  - 'Margen operativo reportado: 11,94 percentage_points, TTM con periodo terminado
+    el 2026-06-30, fuente seleccionada stockanalysis.com. El valor de yfinance de
+    14,91 está marcado como no comparable.'
+  - 'Crecimiento de ingresos reportado: 0,45 percentage_points, TTM con periodo terminado
+    el 2026-06-30, fuente seleccionada stockanalysis.com. El valor de yfinance de
+    -1,3 está marcado como no comparable.'
+  - 'Cotización reportada: USD 121,52999877929688, fecha de observación 2026-11-19,
+    fuente yfinance.'
+  - 'Consenso de precio objetivo reportado: media y mediana USD 110,43, rango USD
+    85-136, observación 2026-11-20; fuentes stockanalysis y yfinance.'
+  preguntas_abiertas:
+  - ¿Qué muestran los informes regulatorios y estados financieros más recientes sobre
+    deuda corporativa, deuda vinculada a vehículos, vencimientos, caja disponible,
+    garantías y covenants?
+  - ¿Cuál es la definición, composición, moneda y reconciliación del FCF reportado,
+    y cómo se compara con flujo de caja operativo, capex y obligaciones de flota?
+  - ¿Cuál es la trayectoria histórica de precios, utilización, tamaño y edad de la
+    flota, compras, ventas y valores residuales por región y segmento?
+  - ¿Qué múltiplos actuales pueden calcularse con datos primarios comparables y qué
+    supuestos de ciclo y normalización incorporan?
+  - ¿Cuáles son los incentivos, tenencia accionaria y decisiones recientes de asignación
+    de capital de la dirección?
+  - ¿Qué cuota de mercado, rentabilidad y retención aportan las marcas y canales,
+    y existe evidencia de ventajas competitivas sostenibles?
+  - ¿Qué riesgos ESG, de seguridad, suministro y concentración de fabricantes están
+    cuantificados y qué medidas de mitigación están verificadas?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'Deep Value: no hay evidencia financiera suficiente para
+    verificar múltiplos actuales ni infravaloración de activos. Turnaround: no se
+    proporciona un plan de recuperación verificable. Distressed: la información entregada
+    no permite establecer riesgo de insolvencia, aunque tampoco basta para concluir
+    que el balance sea sólido. Value Trap: no hay evidencia suficiente de destrucción
+    estructural de valor. Compounder y Compounder castigado: no se acredita un moat
+    duradero ni una trayectoria de crecimiento compuesto. Special Situation, Hype
+    y Quality at Fair Price: no hay evidencia que respalde esas caracterizaciones.'
+  justificacion: La rentabilidad de Avis Budget depende de la demanda de viajes, la
+    utilización y el precio de alquiler de vehículos, así como del costo y valor residual
+    de la flota. La evidencia disponible es insuficiente para afirmar que CAR esté
+    en un punto concreto del ciclo; la clasificación describe la sensibilidad intrínseca
+    del modelo, no un pronóstico de recuperación.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El perfil proporcionado describe marcas de alquiler y car sharing y operación
+    en diversas regiones, pero ese texto no sustituye evidencia primaria sobre participación
+    de mercado, ventajas de costo, retención o rentabilidad por marca. La escala,
+    las marcas y la red de ubicaciones podrían apoyar reconocimiento y distribución;
+    no se ha demostrado que creen un moat durable frente a competidores ni que protejan
+    márgenes en un ciclo adverso. La flota física expone el negocio a utilización,
+    depreciación y valores residuales.
+  rating: regular
+dominio_catalizadores:
+- descripcion: Resultados trimestrales que acrediten estabilización o mejora de ingresos,
+    margen operativo y flujo de caja, con disciplina de flota.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Mejora sostenida de utilización y precios de alquiler que impulse la
+    rentabilidad a través del ciclo.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+- descripcion: Revelación de datos de deuda, liquidez y gestión de flota que reduzca
+    la incertidumbre sobre el riesgo de balance.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 50
+dominio_esg_supply_chain:
+  analisis: La operación implica impactos de emisiones de vehículos, seguridad vial,
+    mantenimiento, gestión de vehículos al final de su uso y exposición a eventos
+    climáticos. La disponibilidad y precio de vehículos dependen de fabricantes, repuestos,
+    financiación y condiciones del mercado de segunda mano; la dependencia concreta
+    por proveedor no está documentada. No se aportan indicadores ESG, compromisos
+    auditados ni datos de concentración de compras, por lo que la evaluación es preliminar.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia entregada reporta FCF de 173 millones para TTM terminado
+    el 2026-06-30, con unidad provider_financial_currency; la divisa general reportada
+    es USD, pero no se proporciona definición de si esa cifra es ajustada ni detalle
+    de composición. También reporta margen operativo de 11,94% y crecimiento de ingresos
+    de 0,45% para ese TTM. Yfinance aporta valores de 14,91% y -1,3%, respectivamente,
+    pero la propia evidencia los marca como no comparables por falta de periodo/unidad/corte
+    suficiente; no deben combinarse ni resolverse por intuición. No se aportan observaciones
+    concretas de deuda, caja, cobertura, vencimientos ni liquidez para esta evaluación.
+  rating: adecuada
+dominio_growth:
+  analisis: La expansión de viajes, demanda comercial, precios y utilización de vehículos
+    podrían impulsar ingresos; optimizar flota y canales también podría mejorar rentabilidad
+    sin crecimiento significativo de ventas. La observación de crecimiento de ingresos
+    TTM es 0,45% según la fuente seleccionada; un dato de yfinance de -1,3% está explícitamente
+    marcado como no comparable. No se suministra visibilidad verificable por segmento,
+    región o reservas, por lo que no se justifica proyectar aceleración.
+  rating: moderado
+dominio_management:
+  analisis: No se proporcionan documentos primarios sobre incentivos, propiedad accionaria,
+    recompras, adquisiciones, endeudamiento, asignación de capital ni cumplimiento
+    de objetivos de la dirección. No es posible evaluar de manera fundada su alineación
+    o track record. La disciplina de gestión de flota y capital es especialmente relevante
+    en un negocio intensivo en activos, y debe verificarse en informes regulatorios
+    y comunicaciones de resultados.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Caída de demanda de viajes o de actividad económica que reduzca utilización
+    y precios de alquiler.
+- impacto: alto
+  probabilidad: media
+  riesgo: Deterioro de valores residuales o costos elevados de adquisición y renovación
+    de flota, con presión sobre caja y rentabilidad.
+- impacto: alto
+  probabilidad: media
+  riesgo: Apalancamiento, liquidez o vencimientos de deuda desfavorables; la información
+    suministrada no permite cuantificar esta exposición.
+- impacto: medio
+  probabilidad: media
+  riesgo: Competencia de otras empresas de alquiler, plataformas de movilidad y sustitutos
+    que presione precios o utilización.
+- impacto: medio
+  probabilidad: baja
+  riesgo: Interrupciones de suministro, cambios en disponibilidad de vehículos o concentración
+    no revelada de proveedores.
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgo permanente de pérdida de capital por combinación de deuda, caída
+    del valor de la flota y deterioro prolongado de precios; no puede cuantificarse
+    con la evidencia disponible.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una secuencia de resultados trimestrales que muestre estabilización
+      o mejora de ingresos, márgenes y flujo de caja, junto con evidencia de control
+      del costo y la utilización de la flota, podría modificar la percepción del mercado.
+      No se aportan fechas de resultados ni documentación de un catalizador corporativo
+      concreto.
+    horizonte: corto
+    impacto: medio
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización observada es USD 121,53 al 2026-11-19. El consenso
+    de precio objetivo reportado al 2026-11-20 tiene media y mediana de USD 110,43,
+    con rango USD 85-136. La cotización supera la media/mediana, pero está dentro
+    del rango. Estos objetivos son referencias reportadas, no una valoración independiente
+    ni una garantía. No se entregan múltiplos actuales verificables, por lo que no
+    puede afirmarse qué escenario implícito reflejan los múltiplos.
+  hipotesis_contraria: El mercado podría infravalorar el potencial de beneficios si
+    mejoran la utilización de la flota, los precios de alquiler y la disciplina de
+    compra y venta de vehículos. En sentido contrario, podría estar subestimando la
+    duración de una normalización de precios, el costo de renovar la flota o la sensibilidad
+    de la caja a condiciones adversas. Son hipótesis, no hechos verificados con la
+    información recibida.
+  razonamiento: La cotización está por encima de la media/mediana de objetivos reportados
+    y por debajo del máximo del rango; esto no demuestra por sí solo error de valoración.
+    La evidencia estructurada es limitada y no incluye los valores de los múltiplos
+    enumerados en field_sources. Sin estados financieros primarios, datos verificables
+    de deuda y flota, y una valoración independiente, no es posible concluir que exista
+    una oportunidad aprovechable ni que el precio descuente un escenario excesivamente
+    pesimista.
+generated_at: '2026-11-20T11:35:52.857567-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se ha aportado evidencia que demuestre la vulneración de alguna de las
+    nueve categorías de integridad. Esto no equivale a confirmar la calidad del moat,
+    la solvencia o la ausencia de problemas operativos; esos aspectos permanecen insuficientemente
+    verificados.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-034
+prompt_inputs:
+  business_model: Avis Budget Group, Inc., together with its subsidiaries, provides
+    car and truck rentals, car sharing, and ancillary products and services to businesses
+    and consumers in the Americas, Europe, the Middle East and Africa, Asia, and Australasia.
+    The company operates the Avis brand, which offers vehicle rental and other mobility
+    solutions to the commercial and leisure segments of the travel industry and the
+    Zipcar brand, a car sharing network that offers vehicle rental and other mobility
+    solutions comprising budget car rental and budget truck. It also operates various
+    other car rental brands, such as Payless, Apex, Maggiore, Morini Rent, FranceCars,
+    AmicoBlu, Turiscar, and ACL Hire and McNicoll vehicle Hire. The company was formerly
+    known as Cendant Corporation and changed its name to Avis Budget Group, Inc. in
+    September 2006. Avis Budget Group, Inc. was founded in 1946 and is based in Parsippany,
+    New Jersey.
+  ceo_tenure: 0
+  debt_to_equity: 0
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Avis Budget Group, Inc.
+  operating_margin: 11.54
+  pe_ratio: 0
+  products: ''
+  revenue: 11630000000.0
+  revenue_growth: -0.6
+  roic: 4.69
+  sector: Industrials
+  ticker: CAR
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Avis Budget Group, Inc., together with its subsidiaries, provides
+    car and truck rentals, car sharing, and ancillary products and services to businesses
+    and consumers in the Americas, Europe, the Middle East and Africa, Asia, and Australasia.
+    The company operates the Avis brand, which offers vehicle rental and other mobility
+    solutions to the commercial and leisure segments of the travel industry and the
+    Zipcar brand, a car sharing network that offers vehicle rental and other mobility
+    solutions comprising budget car rental and budget truck. It also operates various
+    other car rental brands, such as Payless, Apex, Maggiore, Morini Rent, FranceCars,
+    AmicoBlu, Turiscar, and ACL Hire and McNicoll vehicle Hire. The company was formerly
+    known as Cendant Corporation and changed its name to Avis Budget Group, Inc. in
+    September 2006. Avis Budget Group, Inc. was founded in 1946 and is based in Parsippany,
+    New Jersey.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 121.52999877929688
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:18.068747+00:00", "period_end_date": "2026-06-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/CAR/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 173000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 14.91}, "observed_at": "2026-11-01T10:17:18.068747+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/CAR/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 11.94}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": -1.3}, "observed_at": "2026-11-01T10:17:18.068747+00:00", "period_end_date":
+    "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/car/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-06-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 0.45}}}, "observed_at": "2026-11-19T19:16:05.122350+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Avis Budget Group, Inc.
+  operating_margin: 11.54
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Avis Budget Group, Inc., together with its subsidiaries, provides
+    car and truck rentals, car sharing, and ancillary products and services to businesses
+    and consumers in the Americas, Europe, the Middle East and Africa, Asia, and Australasia.
+    The company operates the Avis brand, which offers vehicle rental and other mobility
+    solutions to the commercial and leisure segments of the travel industry and the
+    Zipcar brand, a car sharing network that offers vehicle rental and other mobility
+    solutions co
+  revenue: 11630000000.0
+  revenue_growth: -0.6
+  roic: 4.69
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    136.0, "low": 85.0, "mean": 110.43, "median": 110.43, "observed_at": "2026-11-20T11:35:20.237620-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T11:35:20.237620-03:00", "observed_date": "2026-11-20", "target_price":
+    110.43, "url": "https://stockanalysis.com/stocks/car/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T11:35:20.237620-03:00",
+    "observed_date": "2026-11-20", "target_price": 110.42857, "url": "https://finance.yahoo.com/quote/CAR/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 121.52999877929688,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CAR/"}]}}'
+  sector: Industrials
+  ticker: CAR
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 9148dc150a2f3adda39484c28bea38dcf8a7ca37659b4e4f164473de0c1b6454
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T11:35:52.857567-03:00'
+resumen_ejecutivo: 'CAR es una compañía de alquiler de vehículos expuesta a ciclos
+  de viajes, precios y valores residuales de flota. La información financiera estructurada
+  aporta observaciones de TTM hasta 2026-06-30, pero no basta para reconstruir el
+  balance, juzgar la solvencia ni estimar valor intrínseco. La cotización observada
+  de USD 121,53 supera la media/mediana del consenso de USD 110,43, aunque permanece
+  dentro del rango de USD 85-136. Clasificación: cíclica. Conclusión sobre error de
+  valoración: incierto. La tesis requiere validar con documentación primaria la deuda,
+  vencimientos, caja, márgenes, capex, política de flota y resultados recientes.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados posteriores muestran mejoras sostenidas de ingresos, márgenes y flujo
+      de caja junto con disciplina de flota.
+    - La documentación primaria acredita holgura financiera y vencimientos manejables,
+      y el deterioro de demanda o valores residuales no se materializa.
+    id: BEAR
+    key_assumptions:
+    - El precio objetivo bajo reportado de USD 85 sirve como ancla de referencia,
+      no como garantía ni estimación propia de valor intrínseco.
+    - Se debilitan precios o utilización de vehículos y la caja operativa se deteriora
+      frente a la observación TTM disponible.
+    - Los costos de flota, valores residuales o financiación limitan la capacidad
+      de sostener la rentabilidad.
+    rationale: 'Caso adverso anclado en el límite inferior observado del rango de
+      objetivos de analistas. No es una valoración independiente: representa una referencia
+      de mercado para un escenario de menor demanda, presión de precios o deterioro
+      de la economía de flota.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis, consenso de precio objetivo
+      url: https://stockanalysis.com/stocks/car/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance, cotización de CAR
+      url: https://finance.yahoo.com/quote/CAR/
+    target_price: 85
+  - falsifiers:
+    - Caen de forma sostenida ingresos, márgenes o flujo de caja, o se deterioran
+      la utilización y los precios.
+    - La información primaria revela presión material de liquidez, vencimientos difíciles
+      de refinanciar o pérdidas relevantes en la disposición de vehículos.
+    id: BULL
+    key_assumptions:
+    - El precio objetivo alto reportado de USD 136 sirve como ancla de referencia,
+      no como garantía ni estimación propia de valor intrínseco.
+    - La demanda, la utilización y los precios de alquiler se mantienen o mejoran
+      durante el horizonte.
+    - La gestión controla costos de flota y convierte el desempeño operativo en caja,
+      sin que deuda o valores residuales neutralicen la mejora.
+    rationale: Caso favorable anclado en el límite superior observado del rango de
+      objetivos de analistas. Requiere que la mejora operativa se confirme; el objetivo
+      es una referencia reportada y no una valoración independiente.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis, consenso de precio objetivo
+      url: https://stockanalysis.com/stocks/car/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance, cotización de CAR
+      url: https://finance.yahoo.com/quote/CAR/
+    target_price: 136
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 45
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T11:35:20.237620-03:00'
+  fuentes:
+    stockanalysis: 110.43
+    yfinance: 110.42857
+  mediana: 110.43
+  n_fuentes: 2
+  promedio: 110.43
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T11:35:20.237620-03:00'
+    observed_date: '2026-11-20'
+    target_price: 110.43
+    url: https://stockanalysis.com/stocks/car/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T11:35:20.237620-03:00'
+    observed_date: '2026-11-20'
+    target_price: 110.42857
+    url: https://finance.yahoo.com/quote/CAR/
+  target_high: 136.0
+  target_low: 85.0
+tesis_inversion: 'La tesis potencial es una exposición cíclica a alquiler de vehículos
+  donde mejoras en demanda, utilización, precios y gestión de flota podrían elevar
+  caja y percepción de valor. La evidencia disponible no acredita infravaloración:
+  la cotización observada está dentro del rango de objetivos reportados y por encima
+  de su media/mediana. Tampoco permite comprobar múltiplos, deuda o valor intrínseco.
+  La posición requiere una revisión posterior de fuentes primarias; el principal riesgo
+  de segundo nivel es que una mejora aparente de resultados refleje condiciones temporales
+  de precios mientras persisten riesgos de balance, renovación de flota o valores
+  residuales.'
+ticker: CAR
+version: '3.0'

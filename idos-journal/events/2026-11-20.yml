@@ -290,3 +290,88 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T11:22:39.397743'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-CAAP
+    ticker: CAAP
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T11:29:29.137511'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CAAP
+    ticker: CAAP
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T11:29:29.164687'
+- data:
+    classification: Growth
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: a3bb00632067c79b45e2b86850622af7c39d927b217bfa6e2aa721cfe292eab2
+    opp_id: OPP-MB-CAAP
+    score: 68
+    strategy_version: '1.5'
+    ticker: CAAP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:31:09.322594'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 1dee0487c6ad5003a828fb9ce14ff2ecbdb965aa509cd557b82b1b9a6b9f387c
+    opp_id: OPP-20261023-033
+    score: 58
+    strategy_version: positive_fundamentals_v1
+    ticker: CAH
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:33:13.621855'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CAH
+    ticker: CAH
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T11:33:39.294999'
+- data:
+    classification: Investigación requerida; perfil multibaggers
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: d720d0e2685bda0ef4aef5df909d2454634c59b76bd365232773909d90145110
+    opp_id: OPP-MB-CAH
+    score: 52
+    strategy_version: '1.5'
+    ticker: CAH
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:35:16.984880'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 9148dc150a2f3adda39484c28bea38dcf8a7ca37659b4e4f164473de0c1b6454
+    opp_id: OPP-20261023-034
+    score: 45
+    strategy_version: positive_fundamentals_v1
+    ticker: CAR
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:37:24.494682'
