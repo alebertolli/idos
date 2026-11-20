@@ -1,0 +1,136 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico de ventas de FY 2027 es inferior a 1,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica una cifra comparable de crecimiento orgánico
+      para FY 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico de ventas de FY 2027 es inferior a 1,0%.
+  - La compañía no publica una cifra comparable de crecimiento orgánico para FY 2027.
+  horizon: medio
+  id: H1-OPP-MB-DEO
+  opportunity_id: OPP-MB-DEO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-05'
+    expected: 1.0
+    met: null
+    metric: Crecimiento orgánico de ventas en FY 2027
+    prediction: En los resultados de FY 2027, el crecimiento orgánico de ventas será
+      de al menos 1,0% y no superará 4,0% respecto de FY 2026.
+    unit: '% mínimo; intervalo esperado de 1,0% a 4,0%'
+  priority: important
+  probability: 0.5
+  rationale: La compañía opera en varias categorías de bebidas y cuenta con actividades
+    de producción, comercialización y distribución. Esa amplitud podría amortiguar
+    debilidad en productos o mercados concretos; sin embargo, los ingresos inferiores
+    a FY 2023 y la falta de desglose por marca o región impiden afirmar que la recuperación
+    ya esté en marcha.
+  review_trigger: Dejar de creerla cuando Diageo publique resultados de FY 2027 si
+    el crecimiento orgánico queda por debajo de 1,0%, o antes si comunica una revisión
+    que anticipe una contracción orgánica anual.
+  secondary_hypotheses: []
+  statement: Diageo conseguirá volver a crecer en ventas orgánicas durante el ejercicio
+    fiscal 2027, aunque el crecimiento será moderado.
+  status: ACTIVE
+  ticker: DEO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF de FY 2027 es inferior a USD 3.000 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cifra de FCF publicada no es comparable con los USD 3.195 millones
+      informados al 2026-06-30 y la empresa no proporciona una conciliación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF de FY 2027 es inferior a USD 3.000 millones.
+  - La cifra de FCF publicada no es comparable con los USD 3.195 millones informados
+    al 2026-06-30 y la empresa no proporciona una conciliación.
+  horizon: medio
+  id: H2-OPP-MB-DEO
+  opportunity_id: OPP-MB-DEO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-05'
+    expected: 3000.0
+    met: null
+    metric: Flujo de caja libre de FY 2027
+    prediction: El flujo de caja libre de FY 2027 será de al menos USD 3.000 millones.
+    unit: USD millones mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El paquete informa FCF de USD 3.195 millones y margen bruto de 59,82%,
+    lo que apunta a capacidad de generación de caja, aunque no incluye datos suficientes
+    sobre inversión, capital circulante ni retornos sobre capital para establecer
+    su sostenibilidad.
+  review_trigger: Dejar de creerla al publicarse los resultados de FY 2027 si el FCF
+    comparable es inferior a USD 3.000 millones, o antes si una actualización oficial
+    prevé una caída anual que haga improbable alcanzar ese umbral.
+  secondary_hypotheses:
+  - H1-OPP-MB-DEO
+  statement: Diageo mantendrá una generación anual de flujo de caja libre cercana
+    o superior a la registrada al 2026-06-30.
+  status: ACTIVE
+  ticker: DEO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de DEO supera o iguala la del MSCI World durante
+      el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se puede calcular una comparación con dividendos reinvertidos y
+      datos de precios ajustados para ambas inversiones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de DEO supera o iguala la del MSCI World durante el período.
+  - No se puede calcular una comparación con dividendos reinvertidos y datos de precios
+    ajustados para ambas inversiones.
+  horizon: medio
+  id: H3-OPP-MB-DEO
+  opportunity_id: OPP-MB-DEO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rentabilidad total relativa de DEO frente al MSCI World
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de DEO
+      en USD, incluidos dividendos, será al menos 5 puntos porcentuales inferior a
+      la rentabilidad total del MSCI World en USD.
+    unit: puntos porcentuales o peor en 12 meses
+  priority: informational
+  probability: 0.5
+  rationale: Los ingresos reportados son inferiores a FY 2023 y el beneficio neto
+    es inferior a FY 2025. Además, el paquete no aporta estimaciones de beneficios,
+    crecimiento, valoración ni desglose por marca o región. La diferencia entre el
+    precio y el objetivo medio, por sí sola, no demuestra que el mercado esté equivocado.
+  review_trigger: Dejar de creerla el 2027-11-20 si la rentabilidad total de DEO no
+    queda al menos 5 puntos porcentuales por debajo del MSCI World; reconsiderarla
+    antes si resultados publicados muestran una recuperación sostenida de beneficios
+    y una mejora verificable de las perspectivas.
+  secondary_hypotheses:
+  - H1-OPP-MB-DEO
+  - H2-OPP-MB-DEO
+  statement: Durante los próximos doce meses, la rentabilidad total de DEO quedará
+    por debajo de la del MSCI World, porque la evidencia disponible todavía no permite
+    confirmar una recuperación de beneficios ni justificar una prima de valoración.
+  status: ACTIVE
+  ticker: DEO
+  version: 1

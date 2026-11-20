@@ -1,0 +1,517 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La mezcla descrita de equipos, consumibles y servicios podría favorecer recurrencia,
+    integración en flujos de trabajo y costos de cambio.
+  - La exposición a investigación y biotecnología podría generar sensibilidad a ciclos
+    de financiación, presupuestos de laboratorio y ajustes de inventario.
+  - La cotización por debajo del consenso medio no demuestra infravaloración porque
+    los objetivos de analistas no son una valoración independiente.
+  - La calificación de calidad y crecimiento es provisional dada la falta de métricas
+    de mercado, datos segmentarios y series históricas comparables.
+  - La observación financiera de fcf registra 5730000000, unidad provider_financial_currency,
+    período TTM terminado el 2026-09-25, seleccionada de stockanalysis.com y observada
+    el 2026-10-30; la entrada indica moneda general USD.
+  - La observación de operating_margin_pct registra 21.132 percentage_points, fecha
+    de período 2026-09-25, seleccionada de yfinance y observada el 2026-11-01; el
+    período está especificado como PROVIDER_REPORTED_UNSPECIFIED.
+  - La observación de revenue_growth_pct registra 8.3 percentage_points, fecha de
+    período 2026-09-25, seleccionada de yfinance y observada el 2026-11-01; el período
+    está especificado como PROVIDER_REPORTED_UNSPECIFIED.
+  - La cotización suministrada es USD 232.05999755859375 con fecha 2026-10-30 y fuente
+    yfinance.
+  - El consenso suministrado reporta objetivos en USD con mínimo 220, media 259.9,
+    mediana 259.9 y máximo 310, observado el 2026-11-20; las fuentes indicadas son
+    stockanalysis y yfinance.
+  preguntas_abiertas:
+  - ¿Cuál es el crecimiento orgánico, la evolución de pedidos y la contribución de
+    adquisiciones y divisas por segmento?
+  - ¿Qué deuda, caja, vencimientos, cobertura de intereses y liquidez tiene la compañía
+    en el período más reciente?
+  - ¿Cuáles son los múltiplos actuales y su comparación histórica y con pares, usando
+    una fecha y metodología consistentes?
+  - ¿Qué evidencia cuantitativa existe sobre cuota de mercado, retención, poder de
+    precios, costos de cambio y durabilidad del moat?
+  - ¿Cuál es la definición y composición del FCF reportado, y cómo ha evolucionado
+    a lo largo del ciclo?
+  - ¿Qué resultados de asignación de capital y adquisiciones, incentivos ejecutivos
+    y métricas de alineación pueden verificarse en fuentes primarias?
+  - ¿Hay concentraciones materiales de proveedores, clientes o geografías, y cuáles
+    son los riesgos ESG y regulatorios concretos?
+  - ¿A qué período corresponde el crecimiento de ingresos y el margen operativo reportados
+    por yfinance?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: 'Compounder: plausible como descripción de calidad, pero
+    no hay series históricas suficientes en la evidencia para corroborar la longevidad
+    del crecimiento y del retorno sobre capital. Compounder castigado: no se demuestra
+    que el negocio esté temporalmente fuera de favor ni que la cotización implique
+    un descuento claro frente al valor intrínseco. Turnaround: no hay evidencia de
+    declive operativo y de un plan de recuperación. Deep Value: no se aportan múltiplos
+    que acrediten infravaloración profunda. Cíclica: puede tener exposición a ciclos
+    de financiación biotecnológica y demanda de laboratorios, pero el negocio descrito
+    no queda caracterizado como intrínsecamente cíclico. Special Situation: no se
+    presenta una transacción o reestructuración concreta. Distressed: no hay evidencia
+    de insolvencia. Hype: no se demuestra que la valoración dependa de crecimiento
+    sin beneficios. Value Trap: no hay evidencia de destrucción estructural de valor.'
+  justificacion: La descripción del negocio y las observaciones disponibles son compatibles
+    con una compañía de herramientas de ciencias de la vida, biotecnología y diagnóstico
+    de alta calidad. El precio observado de USD 232,06 está por debajo del consenso
+    medio de USD 259,90, pero dentro del rango publicado de USD 220 a USD 310; eso
+    no demuestra por sí solo infravaloración. La evidencia entregada es insuficiente
+    para cuantificar múltiplos actuales, crecimiento orgánico o una prima de calidad
+    frente a pares. Por tanto, la clasificación más prudente es Quality at Fair Price,
+    con confianza moderada-baja.
+comparativa_catalizadores:
+- delta_pct: null
+  descripcion: Confirmación de mejora sostenida de demanda y crecimiento orgánico
+    en los segmentos relevantes.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos previos; no es posible
+    evaluar cumplimiento ni cambio de probabilidad.
+  probabilidad_actual: 50
+  probabilidad_anterior: null
+- delta_pct: null
+  descripcion: Mantenimiento de generación de caja sólida durante una eventual recuperación
+    del crecimiento.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos previos; la probabilidad
+    actual es una estimación analítica no calibrada.
+  probabilidad_actual: 45
+  probabilidad_anterior: null
+- delta_pct: null
+  descripcion: Revisión de expectativas de analistas tras resultados que superen o
+    incumplan supuestos.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos previos; los objetivos
+    actuales son referencias observadas y no prueban una revisión futura.
+  probabilidad_actual: 40
+  probabilidad_anterior: null
+dominio_business_quality:
+  analisis: El perfil presentado describe soluciones profesionales, médicas, de investigación
+    e industriales mediante segmentos de biotecnología, ciencias de la vida y diagnóstico.
+    La combinación de equipos, consumibles y servicios puede favorecer recurrencia,
+    integración en flujos de trabajo y costos de cambio; esto es una inferencia sobre
+    el modelo, no una medición de retención, cuota de mercado o poder de precios.
+    No hay datos de ingresos por segmento, concentración de clientes, márgenes segmentarios,
+    participación de mercado ni tasas de renovación para evaluar la fortaleza y durabilidad
+    del moat. El entorno de ciencias de la vida también puede sufrir ajustes de inventario
+    y ciclos de financiación.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Confirmación mediante resultados y comentarios corporativos de una
+    mejora sostenida de demanda y crecimiento orgánico en los segmentos relevantes.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 50
+- descripcion: Evidencia de que la generación de caja se mantiene sólida mientras
+    se recupera el crecimiento, reduciendo dudas sobre la conversión de resultados.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Revisión de expectativas de analistas si los resultados publicados
+    superan o incumplen sus supuestos; los objetivos disponibles son referencias observadas,
+    no garantía de actualización.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: No se proporcionan métricas verificables de emisiones, agua, seguridad,
+    cumplimiento, controversias, auditorías de proveedores o concentración de abastecimiento.
+    Como inferencia general para un fabricante global de instrumentos, reactivos y
+    consumibles, son relevantes la continuidad de componentes especializados, la calidad
+    y trazabilidad de insumos, los controles regulatorios, la ciberseguridad y la
+    exposición geográfica. No hay evidencia suficiente para afirmar que exista una
+    falla material concreta.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia estructurada registra FCF de 5.730 millones en moneda del
+    proveedor indicada como USD, período TTM terminado el 2026-09-25, fuente stockanalysis.com.
+    Es una observación de caja relevante, pero no se aporta definición de ajuste ni
+    desglose de conversión, por lo que no se denomina FCF ajustado. También se reportan
+    margen operativo de 21,132% y crecimiento de ingresos de 8,3% por yfinance, ambos
+    con período no especificado y fecha de período 2026-09-25; no deben interpretarse
+    como tasas interanuales sin confirmación. No se aportan observaciones utilizables
+    de deuda, vencimientos, caja, cobertura de intereses o liquidez. La calificación
+    no implica que el balance haya quedado verificado.
+  rating: adecuada
+dominio_growth:
+  analisis: El perfil de productos sugiere exposición a demanda de investigación,
+    desarrollo y fabricación de terapias y diagnóstico. El crecimiento de ingresos
+    de 8,3% reportado por yfinance tiene período no especificado y no permite distinguir
+    crecimiento orgánico, adquisiciones, divisas o efectos de base. No se aportan
+    datos de pedidos, cartera, crecimiento por segmento ni previsiones corporativas.
+    El potencial estructural existe como hipótesis, pero su ritmo y calidad no están
+    establecidos por la evidencia entregada.
+  rating: moderado
+dominio_management:
+  analisis: La información suministrada no incluye datos verificables sobre asignación
+    de capital, retornos de adquisiciones, remuneración, propiedad accionaria, rotación
+    ejecutiva o cumplimiento de objetivos. La reputación y los procesos de gestión
+    no se pueden dar por probados a partir del perfil descriptivo. Se requiere revisar
+    informes anuales, transcripciones y resultados de adquisiciones antes de emitir
+    una evaluación más favorable.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: La demanda de herramientas de investigación y biotecnología puede verse
+    afectada por ciclos de financiación, presupuestos de laboratorio y ajustes de
+    inventario de clientes.
+- impacto: alto
+  probabilidad: media
+  riesgo: La cotización puede sufrir compresión de múltiplos si las expectativas de
+    crecimiento o márgenes no se cumplen; la evidencia disponible no incluye múltiplos
+    para medir el punto de partida.
+- impacto: alto
+  probabilidad: baja
+  riesgo: La falta de información sobre deuda, vencimientos y liquidez impide descartar
+    riesgos de balance o evaluar sensibilidad a tasas.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Cambios regulatorios, fallas de calidad o problemas de cumplimiento podrían
+    afectar productos de diagnóstico, investigación o fabricación terapéutica.
+- impacto: medio
+  probabilidad: media
+  riesgo: La presión competitiva, sustitución tecnológica o pérdida de relevancia
+    de un producto podría erosionar márgenes o costos de cambio.
+- impacto: medio
+  probabilidad: media
+  riesgo: Interrupciones en proveedores especializados o en logística internacional
+    podrían afectar producción y entrega.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una secuencia de resultados trimestrales que confirme mejora sostenida
+      del crecimiento orgánico y de la generación de caja, acompañada de comentarios
+      verificables de la dirección sobre demanda y pedidos por segmento, podría cambiar
+      la percepción sobre la normalización del negocio. La probabilidad es una estimación
+      analítica no calibrada, no una frecuencia observada.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 50
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización disponible es USD 232,06 al 2026-10-30; el consenso
+    de analistas observado el 2026-11-20 tiene media y mediana cercanas a USD 259,90,
+    con rango de USD 220 a USD 310. La diferencia entre cotización y media del consenso
+    sugiere expectativa agregada de apreciación, pero no constituye una valoración
+    independiente ni revela qué supuestos operativos están descontados. No se proporcionan
+    múltiplos de valoración utilizables en las observaciones seleccionadas, por lo
+    que no se puede inferir rigurosamente el escenario implícito en ellos.
+  hipotesis_contraria: 'Una posible lectura contraria es que el mercado y el consenso
+    subestimen la capacidad de recuperación de la demanda en herramientas de ciencias
+    de la vida y la contribución de consumibles, servicios y soluciones integradas.
+    En sentido opuesto, el consenso podría sobreestimar la velocidad de normalización
+    de la demanda o la conversión de crecimiento en caja. Estas son hipótesis, no
+    hechos confirmados: la evidencia no desglosa crecimiento orgánico, pedidos, utilización
+    de capacidad, cartera de pedidos ni evolución por segmento.'
+  razonamiento: El precio se encuentra entre los extremos del rango de objetivos de
+    analistas y por debajo de su media, pero esos objetivos no son una valoración
+    independiente. Faltan múltiplos, datos históricos comparables, expectativas de
+    beneficios y evidencia segmentaria para afirmar que exista un error explotable.
+    La hipótesis de oportunidad depende de una recuperación operativa que debe verificarse.
+generated_at: '2026-11-20T13:34:35.639849-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se aporta evidencia verificable de que se haya vulnerado alguna de las
+    categorías de integridad indicadas. La ausencia de datos suficientes sobre moat,
+    gestión y balance es una limitación de diligencia, no evidencia de que la tesis
+    se haya roto.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-DHR-0001
+prompt_inputs:
+  business_model: Danaher Corporation designs, manufactures, and markets professional,
+    medical, research, and industrial products and services in the United States,
+    China, and internationally. The company operates through Biotechnology, Life Sciences,
+    and Diagnostics segments. The Biotechnology segment provides technologies, consumables,
+    services, and solutions that advance, accelerate, and integrate the development
+    and manufacture of therapeutics; cell line and cell culture media development
+    services; cell culture media, process liquids and buffers for manufacturing, chromatography
+    resins, filtration technologies, and aseptic fill finish; single-use hardware,
+    consumables, and services, such as the design and installation of full manufacturing
+    suites; lab filtration, separation, and purification; lab-scale protein purification
+    and analytical tools; reagents, membranes, and services for diagnostic and assay
+    development; and healthcare filtration solutions. The Life Sciences segment provides
+    mass spectrometers; bioanalytical measurement systems; flow cytometry, genomics,
+    lab automation, centrifugation, liquid handling automation instruments, antibodies
+    and reagents, and particle counting and characterization; genome sample preparation;
+    microscopes; protein consumables; filtration products; and genomic medicines,
+    such as custom nucleic acid products, and plasmid DNA, RNA, and proteins under
+    the ABCAM, ALDEVRON, BECKMAN COULTER, GENEDATA, IDT, LEICA MICROSYSTEMS, MOLECULAR
+    DEVICES, PALL, PHENOMENEX, and SCIEX brands. The Diagnostics segment offers clinical
+    instruments, consumables, software, and services that hospitals, physicians' offices,
+    reference laboratories and other critical care settings use to diagnose disease
+    and make treatment decisions. The company was formerly known as Diversified Mortgage
+    Investors, Inc. and changed its name to Danaher Corporation in 1984. Danaher Corporation
+    was incorporated in 1969 and is headquartered in Washington, the District Of Columbia.
+  ceo_tenure: 0
+  debt_to_equity: 0.52
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Danaher Corporation
+  operating_margin: 21.97
+  pe_ratio: 38.09
+  products: ''
+  revenue: 25610000000.0
+  revenue_growth: 5.52
+  roic: 6.6
+  sector: Healthcare
+  ticker: DHR
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Danaher Corporation designs, manufactures, and markets professional,
+    medical, research, and industrial products and services in the United States,
+    China, and internationally. The company operates through Biotechnology, Life Sciences,
+    and Diagnostics segments. The Biotechnology segment provides technologies, consumables,
+    services, and solutions that advance, accelerate, and integrate the development
+    and manufacture of therapeutics; cell line and cell culture media development
+    services; cell culture media, process liquids and buffers for manufacturing, chromatography
+    resins, filtration technologies, and aseptic fill finish; single-use hardware,
+    consumables, and services, such as the design and installation of full manufacturing
+    suites; lab filtration, separation, and purification; lab-scale protein purification
+    and analytical tools; reagents, membranes, and services for diagnostic and assay
+    development; and healthcare filtration solutions. The Life Sciences segment provides
+    mass spectrometers; bioanalytical measurement systems; flow cytometry, genomics,
+    lab automation, centrifugation, liquid handling automation instruments, antibodies
+    and reagents, and particle counting and characterization; genome sample preparation;
+    microscopes; protein consumables; filtration products; and genomic medicines,
+    such as custom nucleic acid products, and plasmid DNA, RNA, and proteins under
+    the ABCAM, ALDEVRON, BECKMAN COULTER, GENEDATA, IDT, LEICA MICROSYSTEMS, MOLECULAR
+    DEVICES, PALL, PHENOMENEX, and SCIEX brands. The Diagnostics segment offers clinical
+    instruments, consumables, software, and services that hospitals, physicians' offices,
+    reference laboratories and other critical care settings use to diagnose disease
+    and make treatment decisions. The company was formerly known as Diversified Mortgage
+    Investors, Inc. and changed its name to Danaher Corporation in 1984. Danaher Corporation
+    was incorporated in 1969 and is headquartered in Washington, the District Of Columbia.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 232.05999755859375
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.52
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:29.271496+00:00",
+    "period_end_date": "2026-09-25", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-25", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/DHR/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 5730000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:28.014260+00:00", "period_end_date": "2026-09-25", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1790294400, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-09-25", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    21.132}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason": null,
+    "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:28.014260+00:00",
+    "period_end_date": "2026-09-25", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1790294400,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-09-25", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    8.3}}}, "observed_at": "2026-10-30T16:53:29.271496+00:00", "period_end": "2026-09-25",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Danaher Corporation
+  operating_margin: 21.97
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Danaher Corporation designs, manufactures, and markets professional,
+    medical, research, and industrial products and services in the United States,
+    China, and internationally. The company operates through Biotechnology, Life Sciences,
+    and Diagnostics segments. The Biotechnology segment provides technologies, consumables,
+    services, and solutions that advance, accelerate, and integrate the development
+    and manufacture of therapeutics; cell line and cell culture media development
+    services; cell cultu
+  revenue: 25610000000.0
+  revenue_growth: 5.52
+  roic: 6.6
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    310.0, "low": 220.0, "mean": 259.9, "median": 259.9, "observed_at": "2026-11-20T13:33:57.875504-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T13:33:57.875504-03:00", "observed_date": "2026-11-20", "target_price":
+    259.9, "url": "https://stockanalysis.com/stocks/dhr/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T13:33:57.875504-03:00",
+    "observed_date": "2026-11-20", "target_price": 259.90475, "url": "https://finance.yahoo.com/quote/DHR/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 232.05999755859375,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/DHR/"}]}}'
+  sector: Healthcare
+  ticker: DHR
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 2dcac34ca7d8dc997a8c055893fffcb8b408471698b30a5ed4ad197bbae0d27f
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T13:34:35.639849-03:00'
+resumen_ejecutivo: 'DHR parece reunir atributos de calidad y un modelo de negocio
+  diversificado en áreas de herramientas para ciencias de la vida, biotecnología y
+  diagnóstico, pero la información suministrada no basta para verificar la durabilidad
+  del moat, la valoración relativa ni el perfil de deuda. La evidencia financiera
+  disponible registra FCF TTM de USD 5.730 millones al 2026-09-25, un crecimiento
+  de ingresos reportado por yfinance de 8,3% con período no especificado y margen
+  operativo reportado de 21,132% también con período no especificado. No se debe interpretar
+  ese crecimiento como orgánico ni anualizado. El consenso de analistas supera la
+  cotización observada, aunque no prueba infravaloración. Conclusión: calidad potencialmente
+  alta, valoración no demostrablemente atractiva y tesis dependiente de confirmar
+  recuperación y crecimiento sostenible.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados publicados que demuestren crecimiento orgánico sostenido y mejora
+      de pedidos en los segmentos relevantes.
+    - Generación de caja y márgenes sostenidos que superen claramente el escenario
+      operativo prudente.
+    - Revisiones verificables de expectativas de analistas que eleven el extremo inferior
+      del rango.
+    id: BEAR
+    key_assumptions:
+    - El crecimiento de ingresos no se acelera o la demanda en ciencias de la vida
+      y biotecnología permanece irregular.
+    - Los márgenes o la generación de caja no muestran una mejora suficiente para
+      respaldar expectativas más altas.
+    - La referencia baja de USD 220 sigue siendo pertinente durante el horizonte,
+      aunque no se dispone de la metodología de sus analistas.
+    rationale: Se usa el extremo inferior del rango de objetivos de analistas observado
+      como ancla, no como valoración independiente. Representa un caso adverso en
+      que la recuperación esperada no se materializa plenamente y las expectativas
+      convergen hacia el extremo bajo del rango disponible. No se puede justificar
+      un precio inferior con las referencias incluidas.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/dhr/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DHR/
+    target_price: 220
+  - falsifiers:
+    - Contracción persistente de demanda, pedidos o crecimiento orgánico en los segmentos
+      relevantes.
+    - Deterioro material de márgenes o de generación de caja frente a las observaciones
+      disponibles.
+    - Revisiones a la baja de los objetivos de analistas o evidencia de que el extremo
+      alto del rango no representa expectativas vigentes.
+    id: BULL
+    key_assumptions:
+    - Los resultados futuros confirman mejora sostenida de demanda y crecimiento orgánico,
+      no explicada únicamente por adquisiciones o divisas.
+    - La generación de caja y los márgenes se mantienen suficientemente resilientes
+      durante la expansión.
+    - El mercado mantiene una valoración que permite alcanzar el extremo alto del
+      consenso observado.
+    rationale: Se usa el extremo superior del rango de objetivos de analistas observado
+      como ancla. El caso supone que la demanda y el crecimiento se normalizan mejor
+      de lo esperado y que la calidad de la caja respalda una valoración en el extremo
+      alto del rango. No se extrapola por encima de esa referencia porque la entrada
+      no aporta una fuente independiente que sustente un objetivo mayor.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/dhr/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/DHR/
+    target_price: 310
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 63
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T13:33:57.875504-03:00'
+  fuentes:
+    stockanalysis: 259.9
+    yfinance: 259.90475
+  mediana: 259.9
+  n_fuentes: 2
+  promedio: 259.9
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T13:33:57.875504-03:00'
+    observed_date: '2026-11-20'
+    target_price: 259.9
+    url: https://stockanalysis.com/stocks/dhr/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T13:33:57.875504-03:00'
+    observed_date: '2026-11-20'
+    target_price: 259.90475
+    url: https://finance.yahoo.com/quote/DHR/
+  target_high: 310.0
+  target_low: 220.0
+tesis_inversion: 'La tesis favorable es que una plataforma diversificada de herramientas,
+  consumibles y servicios para ciencias de la vida, biotecnología y diagnóstico puede
+  sostener demanda recurrente y generar caja a lo largo del tiempo. La evidencia aportada
+  no permite demostrar cuánto de esa calidad ya está incluido en el precio ni verificar
+  la normalización del crecimiento. La posición analítica es neutral: el precio está
+  por debajo del consenso medio, pero dentro del rango observado y sin prueba independiente
+  de infravaloración. La tesis se fortalecería con crecimiento orgánico segmentario
+  y caja sostenibles; se debilitaría con contracción persistente de demanda, erosión
+  de márgenes o evidencia de pérdida de relevancia competitiva.'
+ticker: DHR
+version: '3.0'

@@ -1,0 +1,195 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico de ingresos de los últimos doce meses es inferior
+      al 1% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Al menos dos segmentos reportan crecimiento orgánico negativo en el
+      último trimestre divulgado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico de ingresos de los últimos doce meses es inferior al 1%
+    interanual.
+  - Al menos dos segmentos reportan crecimiento orgánico negativo en el último trimestre
+    divulgado.
+  horizon: corto
+  id: H1-OPP-COMPOUNDER-DHR-0001
+  opportunity_id: OPP-COMPOUNDER-DHR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-03-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento orgánico de ingresos de los últimos doce meses
+    prediction: En los resultados publicados hasta el 2027-03-31, el crecimiento orgánico
+      de ingresos de los últimos doce meses será de al menos el 3% interanual.
+    unit: '% interanual mínimo'
+  priority: critical
+  probability: 0.5
+  rationale: La diversificación entre herramientas, consumibles, servicios y diagnóstico
+    puede amortiguar la debilidad de una categoría concreta; además, una recuperación
+    de la utilización de equipos podría impulsar consumibles y servicios asociados.
+    El contexto disponible no confirma pedidos, utilización ni crecimiento orgánico
+    por segmento, por lo que esta recuperación sigue siendo una hipótesis.
+  review_trigger: Dejar de creerla si, en la publicación de resultados disponible
+    al 2027-03-31, el crecimiento orgánico de los últimos doce meses es inferior al
+    1% o si dos segmentos registran crecimiento orgánico negativo durante dos trimestres
+    consecutivos.
+  secondary_hypotheses: []
+  statement: La demanda de los negocios de Danaher se normalizará lo suficiente para
+    que el crecimiento orgánico de ingresos vuelva a terreno claramente positivo.
+  status: ACTIVE
+  ticker: DHR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre del ejercicio fiscal 2026 es inferior
+      al 15%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre disminuye interanualmente mientras los ingresos
+      aumentan, y la compañía atribuye la diferencia principalmente a deterioro del
+      capital circulante o a mayores costes operativos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre del ejercicio fiscal 2026 es inferior al 15%.
+  - El flujo de caja libre disminuye interanualmente mientras los ingresos aumentan,
+    y la compañía atribuye la diferencia principalmente a deterioro del capital circulante
+    o a mayores costes operativos.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-DHR-0001
+  opportunity_id: OPP-COMPOUNDER-DHR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-03-31'
+    expected: 18.0
+    met: null
+    metric: Margen de flujo de caja libre
+    prediction: Para el ejercicio fiscal 2026, Danaher reportará un margen de flujo
+      de caja libre de al menos el 18%, calculado como flujo de caja libre dividido
+      por ingresos.
+    unit: '% de ingresos mínimo'
+  priority: critical
+  probability: 0.5
+  rationale: Los consumibles y servicios recurrentes pueden favorecer la conversión
+    de ventas en caja, mientras que una recuperación del volumen podría mejorar la
+    absorción de costes. No hay datos aportados sobre capital circulante, inversión
+    de capital ni conversión reciente, por lo que la calidad de caja debe comprobarse
+    directamente.
+  review_trigger: Dejar de creerla si los resultados anuales disponibles al 2027-03-31
+    muestran un margen de flujo de caja libre inferior al 15%.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DHR-0001
+  statement: La recuperación de ingresos se traducirá en una generación de caja operativa
+    robusta, sin una erosión material de la conversión de beneficios en caja.
+  status: ACTIVE
+  ticker: DHR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de DHR no supera la del índice de referencia
+      en al menos 5 puntos porcentuales al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Al 2027-05-20, DHR acumula una rentabilidad inferior a la del índice
+      en 5 puntos porcentuales o más.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de DHR no supera la del índice de referencia en al menos
+    5 puntos porcentuales al 2027-11-20.
+  - Al 2027-05-20, DHR acumula una rentabilidad inferior a la del índice en 5 puntos
+    porcentuales o más.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-DHR-0001
+  opportunity_id: OPP-COMPOUNDER-DHR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa frente al S&P 500 Health Care Index
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de DHR,
+      incluidos dividendos, superará en al menos 5 puntos porcentuales la del S&P
+      500 Health Care Index de rentabilidad total.
+    unit: puntos porcentuales de exceso de rentabilidad
+  priority: important
+  probability: 0.5
+  rationale: Una mejora verificable en crecimiento y caja podría reducir la incertidumbre
+    sobre la normalización del negocio y sostener la valoración relativa. Sin embargo,
+    no se dispone de una valoración independiente ni de datos suficientes para concluir
+    que la acción esté infravalorada; la predicción es de rentabilidad relativa, no
+    de un precio objetivo.
+  review_trigger: Dejar de creerla si al 2027-05-20 la rentabilidad total acumulada
+    de DHR queda 5 puntos porcentuales o más por debajo del índice; considerar la
+    predicción refutada al 2027-11-20 si no alcanza la ventaja prevista.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DHR-0001
+  - H2-OPP-COMPOUNDER-DHR-0001
+  statement: Si el crecimiento orgánico y la caja cumplen los umbrales planteados,
+    la acción ofrecerá una rentabilidad total superior a la del índice sectorial de
+    salud durante los doce meses siguientes al corte.
+  status: ACTIVE
+  ticker: DHR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico consolidado es igual o superior al 1% en todos
+      los trimestres informados hasta la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los segmentos principales muestran crecimiento orgánico positivo durante
+      al menos tres trimestres consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico consolidado es igual o superior al 1% en todos los trimestres
+    informados hasta la fecha objetivo.
+  - Los segmentos principales muestran crecimiento orgánico positivo durante al menos
+    tres trimestres consecutivos.
+  horizon: largo
+  id: H4-OPP-COMPOUNDER-DHR-0001
+  opportunity_id: OPP-COMPOUNDER-DHR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 2.0
+    met: null
+    metric: Número de trimestres con crecimiento orgánico consolidado inferior al
+      1%
+    prediction: En al menos dos de los cuatro trimestres informados hasta el 2027-11-20,
+      el crecimiento orgánico consolidado interanual será inferior al 1%.
+    unit: trimestres como mínimo
+  priority: important
+  probability: 0.5
+  rationale: La exposición a ciencias de la vida, biotecnología y diagnóstico puede
+    diversificar las fuentes de ingresos, pero no elimina el riesgo de contracción
+    simultánea de la demanda, menor utilización de equipos o presión competitiva.
+    La evidencia disponible no permite comprobar la evolución de pedidos ni la fortaleza
+    relativa por segmento.
+  review_trigger: Dejar de creerla si los informes publicados hasta el 2027-11-20
+    muestran crecimiento orgánico consolidado igual o superior al 1% en todos los
+    trimestres disponibles desde el corte.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DHR-0001
+  statement: La diversificación de Danaher no evitará que una debilidad persistente
+    en la demanda de sus negocios reduzca el crecimiento orgánico consolidado por
+    debajo de un nivel compatible con una recuperación sostenida.
+  status: ACTIVE
+  ticker: DHR
+  version: 1
