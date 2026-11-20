@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 96 companies tracked
+Total: 99 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -73,6 +73,8 @@ Total: 96 companies tracked
 - 📄 [[ITUB|Itaú Unibanco Holding S.A.]]
 - 📄 [[JPM|JPMorgan Chase & Co.]]
 - 📄 [[KB|KB Financial Group Inc.]]
+- 📄 [[LYG|Lloyds Banking Group plc]]
+- 📄 [[MA|Mastercard Incorporated]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -99,6 +101,7 @@ Total: 96 companies tracked
 - 📄 [[EFX|Equifax Inc.]]
 - 📄 [[FDX|FedEx Corporation]]
 - 📄 [[JCI|Johnson Controls International plc]]
+- 📄 [[LMT|Lockheed Martin Corporation]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]

@@ -1,0 +1,35 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia financiera incompleta para validar
+  una tesis de crecimiento multibagger.'
+- 'Market error: No se puede validar un error de valoración con los datos aportados:
+  faltan múltiplos, estimaciones de negocio y un método de valoración con inputs fechados.'
+- 'Thesis: Mastercard opera un negocio de procesamiento de transacciones y servicios
+  relacionados con pagos. La evidencia disponible muestra aumentos de ingresos, beneficio
+  neto y FCF entre FY 2022 y FY 2025, au'
+generated_at: '2026-11-20T16:38:04.563325-03:00'
+id: ass-aa14257c
+recommendation: REVIEW
+risks:
+- evidencia: StockAnalysis reporta FCF TTM de 16,082 a 2026-09-30 y crecimiento TTM
+    de -5.44%.
+  fuente: https://stockanalysis.com/stocks/ma/financials/
+  riesgo: El crecimiento de FCF se desaceleró en el período TTM reportado.
+- evidencia: La serie está expresada en unidades reportadas por la fuente; no se especifica
+    moneda en el paquete.
+  fuente: https://stockanalysis.com/stocks/ma/financials/
+  riesgo: La deuda total reportada aumentó de 19,833 en FY 2025 a 23,938 al 2026-09-30.
+- evidencia: El resumen describe el modelo de negocio, pero no aporta métricas de
+    competencia, regulación ni desglose geográfico.
+  fuente: Research Intake Package; resumen financiero de contexto
+  riesgo: No hay evidencia suficiente para medir erosión competitiva, regulación,
+    concentración o exposición geográfica.
+- evidencia: StockAnalysis reporta interest_coverage_ratio = 0 para TTM terminado
+    el 2026-09-30; el paquete no incluye gasto por intereses.
+  fuente: https://stockanalysis.com/stocks/MA/statistics/
+  riesgo: El dato de cobertura de intereses reportado como 0 no puede interpretarse
+    de forma fiable sin EBIT e intereses reconciliados.
+score: 58
+status: COMPLETED
+version: '3.0'

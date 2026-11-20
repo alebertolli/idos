@@ -1,0 +1,33 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No se valida un error de valoración con la evidencia disponible;
+  el rango de analistas es una referencia observada, no una valoración intrínseca.'
+- 'Thesis: La tesis a investigar es si la franquicia bancaria minorista y comercial
+  y las actividades de seguros, pensiones e inversiones en Reino Unido pueden sostener
+  crecimiento rentable y retornos adecuados.'
+generated_at: '2026-11-20T16:36:05.059892-03:00'
+id: ass-58dd1f49
+recommendation: REVIEW
+risks:
+- fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lyg/financials/
+  riesgo: Los datos de FCF son negativos en FY2024 y FY2025, y el FCF TTM reportado
+    también es negativo; para una entidad bancaria su interpretación requiere contexto
+    y definiciones adicionales.
+- fuentes:
+  - name: Research Intake Package
+    url: https://finance.yahoo.com/quote/LYG/history/
+  riesgo: La evidencia no incluye series de acciones diluidas, capital regulatorio,
+    calidad de activos, provisiones ni sensibilidad de ingresos a tasas; limita la
+    evaluación de dilución y riesgos bancarios.
+- fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
+  riesgo: El ratio current_ratio figura como 0 en estadísticas del proveedor, pero
+    no se valida como medida útil de liquidez para un banco ni se aportan sus componentes.
+score: 55
+status: COMPLETED
+version: '3.0'

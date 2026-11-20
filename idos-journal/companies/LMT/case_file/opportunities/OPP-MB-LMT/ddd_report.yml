@@ -1,0 +1,592 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El historial de ingresos respalda crecimiento pasado, pero no demuestra crecimiento
+    futuro ni penetración de mercado.
+  - La conversión de FCF superior a 100% en el TTM reportado no basta para establecer
+    que sea recurrente.
+  - Los extremos de objetivos de analistas son anclas observadas para escenarios,
+    no estimaciones propias de valor intrínseco.
+  - LMT reportó ingresos de USD 75,048 millones en FY 2025 y USD 65,984 millones en
+    FY 2022; StockAnalysis, ejercicio terminado el 2025-12-31 y el 2022-12-31.
+  - LMT reportó FCF de USD 8,381 millones y utilidad neta de USD 6,513 millones para
+    TTM terminado el 2026-09-27; StockAnalysis.
+  - El precio fue USD 636.95 al 2026-10-30; y el rango de objetivos de analistas observado
+    fue USD 498–835 al 2026-11-20; yfinance y StockAnalysis, respectivamente.
+  preguntas_abiertas:
+  - ¿Cuál es el mercado direccionable por segmento y la penetración actual, con fuentes
+    y período verificables?
+  - ¿Qué retornos sobre capital obtiene la empresa y qué inversión incremental requiere
+    el crecimiento?
+  - ¿Qué cartera de pedidos, guía corporativa y calendario de hitos respaldan la demanda
+    futura?
+  - ¿Cómo evolucionan acciones diluidas, costo de deuda y vencimientos en períodos
+    comparables?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Empresa de defensa madura; oportunidad de investigación de crecimiento
+    y generación de caja
+  justificacion: El paquete registra un impulso de precio positivo a 12 meses y datos
+    financieros recientes de ingresos y flujo de caja libre. La evidencia disponible
+    no permite validar penetración de mercado, retornos sobre capital ni una tesis
+    de crecimiento multibagger.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: 'El modelo descrito comprende investigación, diseño, desarrollo, fabricación,
+    integración y sostenimiento de sistemas aeroespaciales y de defensa, en cuatro
+    segmentos: Aeronautics, MFC, RMS y Space. El paquete no documenta ventaja competitiva,
+    cuota de mercado, concentración de clientes, cartera de pedidos ni retornos sobre
+    capital; tampoco permite evaluar cómo la reinversión se convierte en crecimiento
+    futuro.'
+  rating: Calidad no plenamente evaluable con la evidencia disponible
+dominio_catalizadores:
+- catalizador: Confirmación de crecimiento de ingresos en nuevos períodos comparables.
+  evidencia: Ingresos reportados de USD 65,984 millones en FY 2022 y USD 75,048 millones
+    en FY 2025.
+  fuente: https://stockanalysis.com/stocks/lmt/financials/
+- catalizador: Confirmación de que el FCF reciente se sostiene sin deterioro de conversión
+    de beneficios.
+  evidencia: FCF y utilidad neta TTM reportados para el período terminado el 2026-09-27
+    permiten calcular conversión de FCF a utilidad neta.
+  fuente: https://stockanalysis.com/stocks/lmt/financials/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: 'FCF reportado: USD 5,287 millones en FY 2024, USD 6,908 millones en
+    FY 2025 y USD 8,381 millones en TTM terminado el 2026-09-27.'
+  fuente: https://stockanalysis.com/stocks/lmt/financials/
+  riesgo: 'La mejora reciente del FCF no acredita por sí sola crecimiento sostenible:
+    la serie histórica muestra variación entre ejercicios.'
+- evidencia: Deuda total de 20,498 y efectivo e inversiones de 5,960 al 2026-09-27,
+    en unidades reportadas por la fuente.
+  fuente: https://stockanalysis.com/stocks/lmt/financials/
+  riesgo: El apalancamiento neto es positivo según deuda y efectivo reportados; el
+    paquete no permite evaluar vencimientos ni costo de deuda.
+- evidencia: Margen bruto reportado de 10.24% en FY 2025 y 11.73% en TTM terminado
+    el 2026-09-27.
+  fuente: https://stockanalysis.com/stocks/lmt/financials/
+  riesgo: 'La erosión de márgenes es una cuestión a vigilar: el margen bruto histórico
+    varía y no se proporcionan datos sobre precios, costos o mezcla de productos.'
+error_mercado:
+  catalizador_cambio: La continuidad del crecimiento de ingresos y de la generación
+    de FCF en períodos comparables podría cambiar la evaluación; el paquete no aporta
+    guía corporativa ni hitos operativos verificables.
+  conclusion_error_valoracion: 'No se valida un error de valoración: el paquete ofrece
+    cotización y objetivos de analistas, pero no una valoración intrínseca defendible.'
+  consenso_actual: El precio objetivo medio de analistas reportado es USD 660.86,
+    con un rango de USD 498 a USD 835, frente a una cotización de USD 636.95 al 2026-10-30.
+    Estas son referencias observadas, no valoraciones intrínsecas.
+  hipotesis_contraria: La evidencia financiera muestra crecimiento de ingresos entre
+    FY 2022 y FY 2025 y FCF positivo en los períodos reportados; no demuestra que
+    esos resultados se mantengan ni que el mercado esté subestimando su duración.
+  razonamiento: La cotización está entre los extremos del rango observado de objetivos.
+    Sin estimaciones operativas prospectivas comparables ni método de valoración con
+    inputs fechados, no puede atribuirse una brecha a expectativas erróneas del mercado.
+generated_at: '2026-11-20T16:32:50.494935-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-LMT
+prompt_inputs:
+  business_model: 'Lockheed Martin Corporation, an aerospace and defense company,
+    engages in the research, design, development, manufacture, integration, and sustainment
+    of technology systems, products, and services in the United States, Europe, Asia,
+    the Middle East, and internationally. The company operates through four segments:
+    Aeronautics; Missiles and Fire Control (MFC); Rotary and Mission Systems (RMS);
+    and Space. The Aeronautics segment offers combat and air mobility aircraft, unmanned
+    air vehicles, and related technologies. The MFC segment provides air and missile
+    defense systems; tactical missiles and precision strike weapon systems; logistics;
+    fire control systems; mission operations support, readiness, engineering support,
+    and integration services; and ground vehicles. The RMS segment offers military
+    and commercial helicopters, surface ships, sea- and land-based missile defense
+    systems, radar and laser systems, sea- and air-based mission and combat systems,
+    command and control mission solutions, cyber solutions, simulation and training
+    solutions, and services and support for surface ships. The Space segment provides
+    satellites; space transportation systems; strategic, advanced strike, and defensive
+    systems; and classified systems and services in support of national security systems.
+    This segment also provides network-enabled situational awareness; and integrates
+    space and ground global systems to help its customers gather, analyze, and securely
+    distribute critical intelligence data. It primarily serves the U.S. government
+    and international customers, as well as foreign military sales contracted through
+    the U.S. government. The company was formerly known as The Lockheed Corporation
+    and changed its name to Lockheed Martin Corporation in March 1995. Lockheed Martin
+    Corporation was founded in 1912 and is based in Bethesda, Maryland.'
+  ceo_tenure: 0
+  debt_to_equity: 0.0204
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Lockheed Martin Corporation
+  operating_margin: 10.83
+  pe_ratio: 20.31
+  products: ''
+  revenue: 79120000000.0
+  revenue_growth: 7.86
+  roic: 29.08
+  sector: Industrials
+  ticker: LMT
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lmt/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lmt/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-27'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lmt/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-27'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lmt/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LMT/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares: null
+    diluted_shares_history: null
+    shares_outstanding: 231000000
+    shares_outstanding_history: null
+  limitations: El paquete incluye acciones en circulación actuales, pero no una serie
+    histórica comparable de acciones diluidas o acciones en circulación; falta el
+    dato del período anterior.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-27'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LMT/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Lockheed Martin Corporation, an aerospace and defense company,
+    engages in the research, design, development, manufacture, integration, and sustainment
+    of technology systems, products, and services in the United States, Europe, Asia,
+    the Middle East, and internationally. The company operates through four segments:
+    Aeronautics; Missiles and Fire Control (MFC); Rotary and Mission Systems (RMS);
+    and Space. The Aeronautics segment offers combat and air mobility aircraft, unmanned
+    air vehicles, and related technologies. The MFC segment provides air and missile
+    defense systems; tactical missiles and precision strike weapon systems; logistics;
+    fire control systems; mission operations support, readiness, engineering support,
+    and integration services; and ground vehicles. The RMS segment offers military
+    and commercial helicopters, surface ships, sea- and land-based missile defense
+    systems, radar and laser systems, sea- and air-based mission and combat systems,
+    command and control mission solutions, cyber solutions, simulation and training
+    solutions, and services and support for surface ships. The Space segment provides
+    satellites; space transportation systems; strategic, advanced strike, and defensive
+    systems; and classified systems and services in support of national security systems.
+    This segment also provides network-enabled situational awareness; and integrates
+    space and ground global systems to help its customers gather, analyze, and securely
+    distribute critical intelligence data. It primarily serves the U.S. government
+    and international customers, as well as foreign military sales contracted through
+    the U.S. government. The company was formerly known as The Lockheed Corporation
+    and changed its name to Lockheed Martin Corporation in March 1995. Lockheed Martin
+    Corporation was founded in 1912 and is based in Bethesda, Maryland.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 636.9500122070312
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0204
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T19:32:16.574046+00:00", "period_end": "2026-09-27",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Lockheed Martin Corporation
+  operating_margin: 10.83
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Lockheed Martin Corporation, an aerospace and defense company, engages
+    in the research, design, development, manufacture, integration, and sustainment
+    of technology systems, products, and services in the United States, Europe, Asia,
+    the Middle East, and internationally. The company operates through four segments:
+    Aeronautics; Missiles and Fire Control (MFC); Rotary and Mission Systems (RMS);
+    and Space. The Aeronautics segment offers combat and air mobility aircraft, unmanned
+    air vehicles, and re'
+  revenue: 79120000000.0
+  revenue_growth: 7.86
+  roic: 29.08
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lmt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LMT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LMT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LMT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LMT/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lmt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lmt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lmt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LMT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lmt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LMT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lmt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lmt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lmt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LMT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LMT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-27'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lmt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    835.0, "low": 498.0, "mean": 660.86, "median": 660.86, "observed_at": "2026-11-20T16:32:19.820601-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T16:32:19.820601-03:00", "observed_date": "2026-11-20", "target_price":
+    660.86, "url": "https://stockanalysis.com/stocks/lmt/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:32:19.820601-03:00",
+    "observed_date": "2026-11-20", "target_price": 660.86365, "url": "https://finance.yahoo.com/quote/LMT/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 636.9500122070312,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/LMT/"}]}}'
+  sector: Industrials
+  ticker: LMT
+research_trigger:
+  discovery_snapshot_hash: fd35c2a63b911695563f5687129ffea424227d1b26d15558ff6e2180d40be218
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: d14a29e6d782ff9c4172faf03ae987b30186f35c94bac86fa221fe10eb092cbb
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T16:32:50.494935-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- configured_threshold: below 0.5
+  metric: current_ratio
+  observation: 1.26x al 2026-09-27, por encima del umbral.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LMT/statistics/
+- configured_threshold: above 10 percent
+  metric: dilution_yoy_pct
+  observation: 'No evaluable: falta historial comparable de acciones diluidas o en
+    circulación.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LMT/statistics/
+- configured_threshold: below 2.0x
+  metric: interest_coverage
+  observation: El proveedor reporta 0 para TTM terminado el 2026-09-27; requiere validación
+    y no se sustituye EBIT por EBITDA.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LMT/statistics/
+- configured_threshold: below 12 months
+  metric: negative_fcf_runway_months
+  observation: 'No aplicable a la evidencia disponible: el FCF TTM reportado es positivo,
+    USD 8,381 millones al 2026-09-27.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lmt/financials/
+- configured_threshold: above 4.0x
+  metric: net_debt_ebitda
+  observation: Estimación calculada de 1.47x para el período terminado el 2026-09-27;
+    revisar limitación de escala descrita en la fila del ratio.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lmt/financials/
+- configured_threshold: above 5 percent
+  metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: no se proporciona historial de acciones para tres años
+    comparables.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LMT/statistics/
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Crecimiento sostenido de ingresos y FCF en períodos futuros comparables.
+    - Evidencia verificable de ejecución y demanda que reduzca la incertidumbre operativa.
+    id: BEAR
+    key_assumptions:
+    - Se usa el objetivo bajo observado de analistas como ancla, sin extrapolar resultados
+      operativos.
+    - El crecimiento histórico de ingresos y FCF no garantiza continuidad.
+    rationale: 'Ancla observada: extremo inferior del rango de objetivos de analistas.
+      Es el resultado adverso de referencia disponible, no una valoración intrínseca
+      ni una predicción propia; un deterioro de la continuidad del crecimiento y del
+      FCF sería coherente con ese extremo, pero el paquete no cuantifica tal deterioro.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/lmt/forecast/
+    - as_of_date: '2026-09-27'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/lmt/financials/
+    target_price: 498
+  - falsifiers:
+    - Contracción de ingresos o FCF en períodos comparables.
+    - Deterioro de márgenes o de la generación de caja que contradiga la continuidad
+      asumida.
+    id: BULL
+    key_assumptions:
+    - Se usa el objetivo alto observado de analistas como ancla.
+    - La tendencia histórica de ingresos y FCF se mantiene, supuesto no demostrado
+      por el paquete.
+    rationale: 'Ancla observada: extremo superior del rango de objetivos de analistas.
+      Representa el resultado favorable de referencia si la expansión histórica de
+      ingresos y FCF se sostuviera; no es una valoración intrínseca ni una predicción
+      propia.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/lmt/forecast/
+    - as_of_date: '2026-09-27'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/lmt/financials/
+    target_price: 835
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 66
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T16:32:19.820601-03:00'
+  fuentes:
+    stockanalysis: 660.86
+    yfinance: 660.86365
+  mediana: 660.86
+  n_fuentes: 2
+  promedio: 660.86
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T16:32:19.820601-03:00'
+    observed_date: '2026-11-20'
+    target_price: 660.86
+    url: https://stockanalysis.com/stocks/lmt/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T16:32:19.820601-03:00'
+    observed_date: '2026-11-20'
+    target_price: 660.86365
+    url: https://finance.yahoo.com/quote/LMT/
+  target_high: 835.0
+  target_low: 498.0
+tesis_inversion: La tesis a contrastar es si la demanda de sistemas de defensa y la
+  capacidad de ejecución de LMT pueden sostener crecimiento de ingresos y FCF, con
+  reinversión que preserve retornos económicos. La evidencia aportada acredita crecimiento
+  histórico de ingresos y FCF, pero no cuantifica mercado direccionable, penetración,
+  retornos sobre capital, cartera de pedidos ni la calidad de la reinversión; por
+  tanto, la tesis de crecimiento estructural permanece sin validar.
+ticker: LMT
+version: '3.0'

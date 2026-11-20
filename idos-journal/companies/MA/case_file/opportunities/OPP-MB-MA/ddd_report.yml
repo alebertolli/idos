@@ -1,0 +1,593 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El aumento histórico de ingresos y FCF es compatible con expansión del negocio,
+    pero no prueba por sí solo crecimiento futuro ni retornos superiores sobre capital.
+  - La caída reportada del FCF TTM frente al crecimiento positivo de los ejercicios
+    anteriores sugiere revisar la continuidad de la conversión de efectivo; no identifica
+    su causa.
+  - Los ingresos reportados fueron 22,237 en FY 2022, 25,098 en FY 2023, 28,167 en
+    FY 2024 y 32,791 en FY 2025; fuente StockAnalysis, período indicado en cada observación.
+  - El FCF reportado fue 10,753 en FY 2022, 11,609 en FY 2023, 14,306 en FY 2024,
+    17,159 en FY 2025 y 16,082 TTM al 2026-09-30; fuente StockAnalysis.
+  - La cotización fue USD 638.01 al 2026-10-30 según yfinance; el consenso de objetivos
+    al 2026-11-20 fue USD 720.69, con rango USD 550–800.
+  - El Research Intake Package reporta momentum de precio a 12 meses de 15.5836% y
+    volatilidad a 90 días de 21.2537%, ambos al 2026-10-30 según yfinance.
+  preguntas_abiertas:
+  - ¿Cuál es el mercado direccionable, su penetración y la oportunidad incremental
+    por producto y geografía?
+  - ¿Qué datos comparables de capital invertido, ROIC y reinversión permiten evaluar
+    creación de valor?
+  - ¿Qué explican el FCF TTM negativo en crecimiento, el valor reportado de cobertura
+    de intereses igual a cero y los cambios de deuda?
+  - ¿Qué historia de acciones diluidas y qué supuestos operativos explican los extremos
+    del consenso de analistas?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia financiera incompleta para validar
+    una tesis de crecimiento multibagger.
+  justificacion: El paquete documenta crecimiento histórico de ingresos y FCF, pero
+    no aporta datos suficientes sobre penetración, retornos sobre capital, dilución
+    histórica ni valoración fundamental.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo descrito procesa transacciones y ofrece servicios de pago a
+    diversos participantes. La evidencia financiera muestra márgenes brutos reportados
+    de 100% y crecimiento histórico de ingresos y FCF, pero la definición económica
+    de ese margen y los retornos sobre capital no pueden verificarse con el paquete;
+    tampoco hay datos para evaluar la profundidad del mercado, la penetración o la
+    durabilidad de la ventaja competitiva.
+  rating: Calidad operativa potencialmente alta, validación incompleta
+dominio_catalizadores:
+- catalizador: Seguimiento de la evolución del FCF y de su conversión a beneficio
+    neto.
+  evidencia: El paquete ofrece series FY 2022–FY 2025 y TTM terminado el 2026-09-30,
+    pero no guía futura.
+  fuente: https://stockanalysis.com/stocks/ma/financials/
+- catalizador: Verificar si el crecimiento de ingresos continúa desde FY 2025.
+  evidencia: Los ingresos reportados aumentaron de 22,237 en FY 2022 a 32,791 en FY
+    2025; falta una serie comparable de tres años que termine en el TTM actual.
+  fuente: https://stockanalysis.com/stocks/ma/financials/
+- catalizador: Contrastar los resultados financieros futuros con el rango de objetivos
+    de analistas observado.
+  evidencia: El rango reportado al 2026-11-20 es USD 550–800.
+  fuente: https://stockanalysis.com/stocks/ma/forecast/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: StockAnalysis reporta FCF TTM de 16,082 a 2026-09-30 y crecimiento TTM
+    de -5.44%.
+  fuente: https://stockanalysis.com/stocks/ma/financials/
+  riesgo: El crecimiento de FCF se desaceleró en el período TTM reportado.
+- evidencia: La serie está expresada en unidades reportadas por la fuente; no se especifica
+    moneda en el paquete.
+  fuente: https://stockanalysis.com/stocks/ma/financials/
+  riesgo: La deuda total reportada aumentó de 19,833 en FY 2025 a 23,938 al 2026-09-30.
+- evidencia: El resumen describe el modelo de negocio, pero no aporta métricas de
+    competencia, regulación ni desglose geográfico.
+  fuente: Research Intake Package; resumen financiero de contexto
+  riesgo: No hay evidencia suficiente para medir erosión competitiva, regulación,
+    concentración o exposición geográfica.
+- evidencia: StockAnalysis reporta interest_coverage_ratio = 0 para TTM terminado
+    el 2026-09-30; el paquete no incluye gasto por intereses.
+  fuente: https://stockanalysis.com/stocks/MA/statistics/
+  riesgo: El dato de cobertura de intereses reportado como 0 no puede interpretarse
+    de forma fiable sin EBIT e intereses reconciliados.
+error_mercado:
+  catalizador_cambio: La evidencia disponible no identifica catalizadores corporativos
+    fechados; resultados futuros que confirmen crecimiento y conversión de FCF podrían
+    modificar la evaluación.
+  conclusion_error_valoracion: 'No se puede validar un error de valoración con los
+    datos aportados: faltan múltiplos, estimaciones de negocio y un método de valoración
+    con inputs fechados.'
+  consenso_actual: A 2026-11-20, el consenso de precio objetivo reportado es USD 720.69,
+    con rango USD 550–800; la cotización observada al 2026-10-30 fue USD 638.01.
+  hipotesis_contraria: El rango de objetivos de analistas no demuestra por sí solo
+    que el mercado esté subestimando el crecimiento o la durabilidad competitiva.
+  razonamiento: Los objetivos de analistas son referencias observadas, no estimaciones
+    propias de valor intrínseco. El paquete financiero permite observar cifras históricas,
+    pero no cuantificar expectativas implícitas frente a fundamentales.
+generated_at: '2026-11-20T16:36:40.427671-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-MA
+prompt_inputs:
+  business_model: Mastercard Incorporated, a technology company, provides transaction
+    processing and other payment-related products and services in the United States
+    and internationally. The company offers products and services for account holders,
+    merchants, financial institutions, digital partners, businesses, governments,
+    and other organizations, such as programs that enable issuers to provide consumers
+    with credits to defer payments; payment products and solutions that allow its
+    customers to access funds in deposit and other accounts; prepaid programs services;
+    consumer bill payment services; and commercial credit, debit, and prepaid payment
+    products and solutions. It also provides solutions that enable businesses or governments
+    to make payments to businesses, including Virtual Card Number, which is generated
+    dynamically from an existing account and leverages the credit limit of the funding
+    account; and a platform to optimize supplier payment enablement campaigns for
+    financial institutions. In addition, the company offers Mastercard Move, which
+    partners with digital messaging and payment platforms to enable consumers to send
+    money directly within applications to other consumers; and partners with central
+    banks, fintechs, and financial institutions, as well as enables various cross-border
+    payment flows. Further, it provides security solutions; marketing, personalization,
+    and issuer and merchant loyalty services; business and operational intelligence,
+    advanced analytics and AI, consulting and agentic solutions, and payments and
+    portfolio optimization; digital and authentication; processing and gateway solutions;
+    and other solutions. The company offers payment solutions and services under the
+    MasterCard, Maestro, and Cirrus names. Mastercard Incorporated was founded in
+    1966 and is headquartered in Purchase, New York.
+  ceo_tenure: 0
+  debt_to_equity: 0.0355
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Mastercard Incorporated
+  operating_margin: 60.07
+  pe_ratio: 33.21
+  products: ''
+  revenue: 36290000000.0
+  revenue_growth: 15.29
+  roic: 90.98
+  sector: Financial Services
+  ticker: MA
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history:
+    - period: FY 2023
+      period_end: '2023-12-31'
+      value: 25098
+    - period: TTM
+      period_end: '2026-09-30'
+      value: 36288
+  limitations: 'No disponible: el dato final es TTM al 2026-09-30 y el dato inicial
+    es FY 2023; los períodos no son comparables para un CAGR de tres años exacto.'
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/ma/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: Crecimiento de FCF reportado por la fuente; definición de variación TTM
+    no detallada en el paquete.
+  inputs:
+    fcf_growth_history:
+      period: TTM
+      period_end: '2026-09-30'
+      value: -5.44
+  limitations: Se conserva la métrica reportada; el paquete no define explícitamente
+    la base comparativa del crecimiento TTM.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/ma/financials/
+  status: reported
+  unit: percent
+  value: -5.44
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/ma/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/ma/financials/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/MA/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding:
+      period_end: '2026-09-30'
+      value: 871180000
+  limitations: 'No disponible: falta una observación comparable de acciones diluidas
+    o acciones en circulación para el período interanual anterior.'
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/MA/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Mastercard Incorporated, a technology company, provides transaction
+    processing and other payment-related products and services in the United States
+    and internationally. The company offers products and services for account holders,
+    merchants, financial institutions, digital partners, businesses, governments,
+    and other organizations, such as programs that enable issuers to provide consumers
+    with credits to defer payments; payment products and solutions that allow its
+    customers to access funds in deposit and other accounts; prepaid programs services;
+    consumer bill payment services; and commercial credit, debit, and prepaid payment
+    products and solutions. It also provides solutions that enable businesses or governments
+    to make payments to businesses, including Virtual Card Number, which is generated
+    dynamically from an existing account and leverages the credit limit of the funding
+    account; and a platform to optimize supplier payment enablement campaigns for
+    financial institutions. In addition, the company offers Mastercard Move, which
+    partners with digital messaging and payment platforms to enable consumers to send
+    money directly within applications to other consumers; and partners with central
+    banks, fintechs, and financial institutions, as well as enables various cross-border
+    payment flows. Further, it provides security solutions; marketing, personalization,
+    and issuer and merchant loyalty services; business and operational intelligence,
+    advanced analytics and AI, consulting and agentic solutions, and payments and
+    portfolio optimization; digital and authentication; processing and gateway solutions;
+    and other solutions. The company offers payment solutions and services under the
+    MasterCard, Maestro, and Cirrus names. Mastercard Incorporated was founded in
+    1966 and is headquartered in Purchase, New York.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 638.010009765625
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0355
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T19:36:06.687911+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Mastercard Incorporated
+  operating_margin: 60.07
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Mastercard Incorporated, a technology company, provides transaction
+    processing and other payment-related products and services in the United States
+    and internationally. The company offers products and services for account holders,
+    merchants, financial institutions, digital partners, businesses, governments,
+    and other organizations, such as programs that enable issuers to provide consumers
+    with credits to defer payments; payment products and solutions that allow its
+    customers to access funds in d
+  revenue: 36290000000.0
+  revenue_growth: 15.29
+  roic: 90.98
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ma/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MA/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ma/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ma/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ma/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ma/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ma/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ma/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ma/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MA/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ma/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    800.0, "low": 550.0, "mean": 720.69, "median": 720.69, "observed_at": "2026-11-20T16:36:09.691159-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T16:36:09.691159-03:00", "observed_date": "2026-11-20", "target_price":
+    720.69, "url": "https://stockanalysis.com/stocks/ma/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:36:09.691159-03:00",
+    "observed_date": "2026-11-20", "target_price": 720.68677, "url": "https://finance.yahoo.com/quote/MA/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 638.010009765625,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/MA/"}]}}'
+  sector: Financial Services
+  ticker: MA
+research_trigger:
+  discovery_snapshot_hash: 2d0077a18c6ec3d45cc5f729e3fe4472d2fbc5a9fedb4d12bb84f622a8ca574b
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 7eb559f070eb9a7b9588c012e7bdc6a69fed214251fc7ce5dacc29776fbdba04
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T16:36:40.427671-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.01 al 2026-09-30; no está por debajo del umbral configurado.
+  source: https://stockanalysis.com/stocks/MA/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta una serie comparable de acciones diluidas.'
+  source: https://stockanalysis.com/stocks/MA/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30; requiere validación, pues el paquete
+    no incluye gasto por intereses.
+  source: https://stockanalysis.com/stocks/MA/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No aplicable con los datos reportados: FCF TTM fue positivo al 2026-09-30.'
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: Cálculo aproximado de 0.58x con cifras reportadas al 2026-09-30; véase
+    la limitación de unidades en ratios_investigados.
+  source: https://stockanalysis.com/stocks/ma/financials/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: el paquete solo aporta un dato de acciones en circulación
+    y no una serie histórica comparable.'
+  source: https://stockanalysis.com/stocks/MA/statistics/
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Un método de valoración con inputs fechados que justifique un resultado inferior
+      o superior al ancla.
+    - Datos futuros que permitan vincular desempeño operativo con objetivos de analistas.
+    id: BEAR
+    key_assumptions:
+    - Se usa el extremo bajo observado del consenso como referencia de escenario,
+      no como valoración propia.
+    - La evidencia no permite establecer qué supuestos de negocio sustentan ese extremo.
+    rationale: 'Ancla observada: extremo bajo del rango de objetivos de analistas
+      al 2026-11-20. Representa el resultado adverso dentro del rango reportado; el
+      paquete no permite atribuir ese objetivo a un supuesto operativo específico
+      ni considerarlo valor intrínseco.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos de analistas
+      url: https://stockanalysis.com/stocks/ma/forecast/
+    target_price: 550
+  - falsifiers:
+    - Un método de valoración con inputs fechados que justifique un resultado inferior
+      o superior al ancla.
+    - Datos futuros que permitan vincular desempeño operativo con objetivos de analistas.
+    id: BULL
+    key_assumptions:
+    - Se usa el extremo alto observado del consenso como referencia de escenario,
+      no como valoración propia.
+    - La evidencia no permite establecer qué supuestos de negocio sustentan ese extremo.
+    rationale: 'Ancla observada: extremo alto del rango de objetivos de analistas
+      al 2026-11-20. Representa el resultado favorable dentro del rango reportado;
+      el paquete no permite atribuir ese objetivo a un supuesto operativo específico
+      ni considerarlo valor intrínseco.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos de analistas
+      url: https://stockanalysis.com/stocks/ma/forecast/
+    target_price: 800
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T16:36:09.691159-03:00'
+  fuentes:
+    stockanalysis: 720.69
+    yfinance: 720.68677
+  mediana: 720.69
+  n_fuentes: 2
+  promedio: 720.69
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T16:36:09.691159-03:00'
+    observed_date: '2026-11-20'
+    target_price: 720.69
+    url: https://stockanalysis.com/stocks/ma/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T16:36:09.691159-03:00'
+    observed_date: '2026-11-20'
+    target_price: 720.68677
+    url: https://finance.yahoo.com/quote/MA/
+  target_high: 800.0
+  target_low: 550.0
+tesis_inversion: Mastercard opera un negocio de procesamiento de transacciones y servicios
+  relacionados con pagos. La evidencia disponible muestra aumentos de ingresos, beneficio
+  neto y FCF entre FY 2022 y FY 2025, aunque el FCF TTM reportado a 2026-09-30 cayó
+  5.44% interanual; faltan datos para evaluar mercado direccionable, penetración,
+  reinversión y retornos sobre capital. La tesis depende de que el crecimiento y la
+  generación de efectivo sean sostenibles sin erosión competitiva, algo que este paquete
+  no permite confirmar.
+ticker: MA
+version: '3.0'
