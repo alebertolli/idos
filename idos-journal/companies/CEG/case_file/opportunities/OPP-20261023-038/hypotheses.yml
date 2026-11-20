@@ -1,0 +1,147 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El factor de capacidad nuclear agregado de los cuatro trimestres terminados
+      el 2027-09-30 es igual o inferior al 92%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El factor de capacidad queda por debajo del 90% durante dos trimestres
+      consecutivos dentro del periodo de evaluación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El factor de capacidad nuclear agregado de los cuatro trimestres terminados el
+    2027-09-30 es igual o inferior al 92%.
+  - El factor de capacidad queda por debajo del 90% durante dos trimestres consecutivos
+    dentro del periodo de evaluación.
+  horizon: medio
+  id: H1-OPP-20261023-038
+  opportunity_id: OPP-20261023-038
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 92.0
+    met: null
+    metric: Factor de capacidad nuclear agregado en los 12 meses terminados el 2027-09-30
+    prediction: El factor de capacidad nuclear agregado de los cuatro trimestres terminados
+      el 2027-09-30 será superior al 92%.
+    unit: porcentaje, superior a
+  priority: critical
+  probability: 0.5
+  rationale: La disponibilidad de las centrales nucleares sostiene la generación y
+    los márgenes de la compañía. Una operación estable permitiría capturar el valor
+    de los contratos de venta de energía y limitaría la necesidad de compensar indisponibilidades
+    con generación más costosa o compras de electricidad. La predicción es verificable
+    mediante los datos operativos que publique la compañía.
+  review_trigger: Dejar de creerla si la compañía informa un factor de capacidad inferior
+    al 90% durante dos trimestres consecutivos, o si comunica antes del 2027-09-30
+    una indisponibilidad prolongada que haga improbable superar el umbral anual.
+  secondary_hypotheses: []
+  statement: La flota nuclear de Constellation mantendrá una operación fiable y registrará
+    un factor de capacidad superior al 92% durante los 12 meses terminados el 2027-09-30.
+  status: ACTIVE
+  ticker: CEG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El EBITDA ajustado del ejercicio fiscal 2027 crece menos del 8% frente
+      al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El EBITDA ajustado del ejercicio fiscal 2027 es inferior al del ejercicio
+      fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El EBITDA ajustado del ejercicio fiscal 2027 crece menos del 8% frente al ejercicio
+    fiscal 2026.
+  - El EBITDA ajustado del ejercicio fiscal 2027 es inferior al del ejercicio fiscal
+    2026.
+  horizon: medio
+  id: H2-OPP-20261023-038
+  opportunity_id: OPP-20261023-038
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-04-30'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual del EBITDA ajustado en el ejercicio fiscal 2027
+    prediction: El EBITDA ajustado reportado para el ejercicio fiscal 2027 será al
+      menos un 8% superior al EBITDA ajustado reportado para el ejercicio fiscal 2026.
+    unit: porcentaje, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La hipótesis de crecimiento depende de que los precios y contratos de
+    energía, la producción disponible y la gestión de costos compensen los riesgos
+    de volatilidad de mercado, combustible, operación y regulación. Comparar el EBITDA
+    ajustado de dos ejercicios completos permite comprobar si el crecimiento se traduce
+    en una mejora financiera efectiva, sin asumir que el crecimiento reciente continuará
+    al mismo ritmo.
+  review_trigger: Dejar de creerla si la compañía reduce su previsión de EBITDA ajustado
+    para 2027 en más de un 10% respecto de su previsión inicial para ese ejercicio,
+    o si comunica un evento regulatorio u operativo que haga inviable el crecimiento
+    mínimo del 8%.
+  secondary_hypotheses:
+  - H1-OPP-20261023-038
+  statement: El EBITDA ajustado de Constellation crecerá al menos un 8% en el ejercicio
+    fiscal 2027 frente al ejercicio fiscal 2026.
+  status: ACTIVE
+  ticker: CEG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de CEG menos la rentabilidad total de XLU es
+      inferior a 8 puntos porcentuales al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de CEG es inferior a la de XLU durante el periodo
+      de medición.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de CEG menos la rentabilidad total de XLU es inferior a
+    8 puntos porcentuales al 2027-11-20.
+  - La rentabilidad total de CEG es inferior a la de XLU durante el periodo de medición.
+  horizon: medio
+  id: H3-OPP-20261023-038
+  opportunity_id: OPP-20261023-038
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 8.0
+    met: null
+    metric: Rentabilidad total acumulada de CEG menos rentabilidad total acumulada
+      de XLU
+    prediction: La rentabilidad total de CEG, incluidos dividendos, superará la de
+      XLU en al menos 8 puntos porcentuales durante el periodo definido.
+    unit: puntos porcentuales, mínimo
+  priority: important
+  probability: 0.5
+  rationale: Si el mercado no está incorporando plenamente la generación de caja y
+    el crecimiento de Constellation, la materialización de resultados operativos y
+    financieros debería favorecer una revaloración relativa frente a una referencia
+    diversificada del sector de utilities. La comparación de rentabilidad total incorpora
+    dividendos y permite evaluar la tesis de mercado sin depender de un precio objetivo
+    de consenso.
+  review_trigger: Dejar de creerla si, al cierre del 2027-05-20, CEG acumula una rentabilidad
+    total al menos 10 puntos porcentuales inferior a XLU y no existe una mejora observable
+    en la previsión de EBITDA ajustado o en los resultados operativos que justifique
+    mantener la tesis de recuperación relativa.
+  secondary_hypotheses:
+  - H1-OPP-20261023-038
+  - H2-OPP-20261023-038
+  statement: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de CEG superará
+    en al menos 8 puntos porcentuales la rentabilidad total del ETF Utilities Select
+    Sector SPDR (XLU).
+  status: ACTIVE
+  ticker: CEG
+  version: 1

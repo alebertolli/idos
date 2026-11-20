@@ -414,3 +414,67 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T11:49:56.467027'
+- data:
+    classification: compounder
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 4ee26e52082af9fb6409e674ec0865494a0602d13f76411a178ebb9740fb2f66
+    opp_id: OPP-20261023-038
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: CEG
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:58:33.634721'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 55293be85c73dde15838aba8aed7d7600f26b50695147c180c98790153681502
+    opp_id: OPP-20261023-039
+    score: 61
+    strategy_version: positive_fundamentals_v1
+    ticker: CL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:00:35.859748'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CL
+    ticker: CL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T12:01:01.145445'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b3b116940a8c5b78311b5c1f67c4dbe0060e57d83e596c26fd0b4a3056e2f4ef
+    opp_id: OPP-MB-CL
+    score: 45
+    strategy_version: '1.5'
+    ticker: CL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:02:30.972588'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 3683d7e98adfcf1bbd89df9d8aee9375ea71d364b8b2193339aa0ef37d976435
+    opp_id: OPP-20261023-040
+    score: 56
+    strategy_version: positive_fundamentals_v1
+    ticker: CLS
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:04:46.529405'

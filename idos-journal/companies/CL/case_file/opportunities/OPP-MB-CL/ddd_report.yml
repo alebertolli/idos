@@ -1,0 +1,899 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La mejora del margen bruto frente a FY 2022 es compatible con resiliencia operativa,
+    pero por sí sola no acredita ventaja competitiva ni su causa.
+  - El FCF positivo reportado ofrece una base potencial para reinversión o retornos
+    a accionistas, sin que el paquete permita evaluar su asignación o rendimiento.
+  - 'El resumen financiero describe dos segmentos: cuidado oral, personal y del hogar;
+    y nutrición para mascotas. Fuente: resumen financiero de contexto, sin URL suministrada.'
+  - 'La cotización fue USD 97.42 al 2026-11-19. Fuente: https://finance.yahoo.com/quote/CL/.'
+  - 'El momentum de precio a 12 meses fue 23.6729%, el drawdown 3.8834% y la volatilidad
+    a 90 días 22.1949%, con período 2025-10-31/2026-10-30. Fuente: https://finance.yahoo.com/quote/CL/history/.'
+  - 'Los datos financieros reportados incluyen margen bruto de 60.64% y FCF de USD
+    3,789 millones, ambos TTM al 2026-09-30. Fuente: https://stockanalysis.com/stocks/CL/statistics/.'
+  preguntas_abiertas:
+  - ¿Cuál es el crecimiento orgánico por segmento y región, y qué parte corresponde
+    a volumen, precio y mezcla?
+  - ¿Cuáles son el ROIC y los retornos incrementales de la reinversión, con series
+    comparables y fuentes verificables?
+  - ¿Qué datos de mercado sustentan el mercado direccionable, la penetración y la
+    posición competitiva?
+  - ¿Cuál es el horizonte del consenso de objetivos y qué gasto por intereses respalda
+    la cobertura reportada?
+catalizadores_previos: &id001
+- descripcion: Resultados futuros que confirmen crecimiento orgánico y estabilidad
+    de márgenes en las principales categorías.
+  generated_at: '2026-11-20T11:59:07.108622-03:00'
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-039
+  probabilidad_anterior: 45
+- descripcion: Mejora de la percepción del mercado sobre la contribución y crecimiento
+    de nutrición para mascotas.
+  generated_at: '2026-11-20T11:59:07.108622-03:00'
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-039
+  probabilidad_anterior: 35
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia fundamental incompleta
+  justificacion: El paquete presenta una señal de mercado favorable, pero no permite
+    validar los ratios requeridos ni establecer una valoración fundamental con horizonte
+    definido.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo combina productos de consumo y nutrición para mascotas, pero
+    la descripción disponible no demuestra moat, penetración ni poder de fijación
+    de precios. La evolución reportada del margen bruto es favorable frente a FY 2022,
+    aunque falta evidencia suficiente sobre retornos sobre capital y asignación de
+    capital.
+  rating: Calidad operativa potencial, no validada
+dominio_catalizadores:
+- catalizador: La serie reportada de margen bruto muestra 60.64% TTM al 2026-09-30
+    frente a 57.04% en FY 2022; la continuidad y las causas de la evolución no están
+    documentadas.
+  fuente: https://stockanalysis.com/stocks/CL/statistics/
+- catalizador: El paquete reporta FCF de USD 3,789 millones TTM al 2026-09-30; su
+    conversión, sostenibilidad y asignación no pueden validarse completamente con
+    los campos disponibles.
+  fuente: https://stockanalysis.com/stocks/CL/statistics/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: https://stockanalysis.com/stocks/CL/statistics/
+  riesgo: La liquidez corriente reportada es 0.96x al 2026-09-30; queda por encima
+    del umbral configurado de 0.5x, pero el paquete no aporta activos y pasivos corrientes
+    para verificar el cálculo.
+- fuente: https://stockanalysis.com/stocks/CL/statistics/
+  riesgo: La cobertura de intereses figura como 0 al 2026-09-30; no se aporta gasto
+    por intereses y el dato no permite validar EBIT dividido por gasto por intereses.
+- riesgo: La evidencia no cuantifica penetración, mercado direccionable, cuota, reinversión,
+    retornos sobre capital ni erosión competitiva; tampoco incluye historial de acciones
+    diluidas para evaluar dilución.
+error_mercado:
+  catalizador_cambio: Resultados financieros comparables que documenten crecimiento
+    de ventas y FCF, evolución de márgenes y retornos sobre capital podrían modificar
+    la evaluación; el paquete no incluye esos datos de retornos sobre capital.
+  conclusion_error_valoracion: No se valida un error de valoración. La cotización
+    y el consenso son referencias observadas, no una estimación de valor intrínseco.
+  consenso_actual: 'La cotización observada fue USD 97.42 al 2026-11-19; el consenso
+    de precio objetivo observado fue USD 101.70, con rango USD 88–112 al 2026-11-20.
+    Fuentes: yfinance, https://finance.yahoo.com/quote/CL/; StockAnalysis, https://stockanalysis.com/stocks/cl/forecast/.'
+  hipotesis_contraria: La evidencia disponible no demuestra que el mercado esté subestimando
+    el crecimiento, la reinversión o los retornos sobre capital de Colgate-Palmolive.
+  razonamiento: La cotización y el consenso están expresados en USD, pero el paquete
+    no identifica el horizonte de los objetivos ni aporta un método de valoración
+    y sus inputs para sostener una conclusión propia.
+generated_at: '2026-11-20T12:01:01.153484-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-CL
+prompt_inputs:
+  business_model: 'Colgate-Palmolive Company, together with its subsidiaries, manufactures
+    and sells consumer products in the United States and internationally. It operates
+    through two segments: Oral, Personal and Home Care; and Pet Nutrition. The Oral,
+    Personal and Home Care segment offers toothpaste, toothbrushes, mouthwash, bar
+    and liquid hand soaps, shower gels, shampoos, conditioners, deodorants and antiperspirants,
+    skin health products, dishwashing detergents, fabric conditioners, household cleaners,
+    and other related items. This segment markets and sells its products under the
+    Colgate, Palmolive, Darlie, elmex, hello, meridol, Sorriso, Tom''s of Maine, EltaMD,
+    Filorga, Irish Spring, Lady Speed Stick, PCA SKIN, Protex, Sanex, Softsoap, Speed
+    Stick, Ajax, Axion, Fabuloso, Murphy, Soupline, and Suavitel brands to a range
+    of traditional and eCommerce retailers, wholesalers, and distributors, as well
+    as dentists and skin health professionals. It also offers pharmaceutical products
+    for dentists and other oral health professionals. The Pet Nutrition segment offers
+    pet nutrition products for everyday nutritional needs under the Hill''s Science
+    Diet brand; and a range of therapeutic pet products to help nutritionally support
+    dogs and cats in different stages of health under the Hill''s Prescription Diet
+    brand; and a fresh pet food sold to pet specialty and other retailers in Australia
+    under Prime100 brand. This segment markets and sells its products through pet
+    supply retailers, veterinarians, and eCommerce retailers. Colgate-Palmolive Company
+    was founded in 1806 and is headquartered in New York, New York.'
+  ceo_tenure: 0
+  debt_to_equity: 0.1206
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Colgate-Palmolive Company
+  operating_margin: 20.66
+  pe_ratio: 37.54
+  products: ''
+  revenue: 21290000000.0
+  revenue_growth: 5.91
+  roic: 46.98
+  sector: Consumer Defensive
+  ticker: CL
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs: {}
+  limitations: Aunque hay observaciones de ingresos históricas, trusted_source_urls
+    está vacío; no hay URL autorizada para citar el ratio conforme al requisito.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs: {}
+  limitations: La serie contiene valores de FCF, pero trusted_source_urls está vacío
+    y no hay URL autorizada para respaldar el ratio.
+  metric: fcf_growth_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100
+  inputs: {}
+  limitations: Los valores TTM de FCF e ingreso neto están disponibles en la misma
+    fuente y período, pero no existe URL en trusted_source_urls para citar el cálculo.
+  metric: fcf_conversion_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs: {}
+  limitations: Hay deuda y net cash en la fuente financiera, pero no URL autorizada
+    en trusted_source_urls; no se calcula el ratio sin una fuente citable.
+  metric: net_debt_ebitda
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: Falta historial de acciones diluidas o acciones en circulación para
+    dos períodos comparables; trusted_source_urls también está vacío.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Colgate-Palmolive Company, together with its subsidiaries, manufactures
+    and sells consumer products in the United States and internationally. It operates
+    through two segments: Oral, Personal and Home Care; and Pet Nutrition. The Oral,
+    Personal and Home Care segment offers toothpaste, toothbrushes, mouthwash, bar
+    and liquid hand soaps, shower gels, shampoos, conditioners, deodorants and antiperspirants,
+    skin health products, dishwashing detergents, fabric conditioners, household cleaners,
+    and other related items. This segment markets and sells its products under the
+    Colgate, Palmolive, Darlie, elmex, hello, meridol, Sorriso, Tom''s of Maine, EltaMD,
+    Filorga, Irish Spring, Lady Speed Stick, PCA SKIN, Protex, Sanex, Softsoap, Speed
+    Stick, Ajax, Axion, Fabuloso, Murphy, Soupline, and Suavitel brands to a range
+    of traditional and eCommerce retailers, wholesalers, and distributors, as well
+    as dentists and skin health professionals. It also offers pharmaceutical products
+    for dentists and other oral health professionals. The Pet Nutrition segment offers
+    pet nutrition products for everyday nutritional needs under the Hill''s Science
+    Diet brand; and a range of therapeutic pet products to help nutritionally support
+    dogs and cats in different stages of health under the Hill''s Prescription Diet
+    brand; and a fresh pet food sold to pet specialty and other retailers in Australia
+    under Prime100 brand. This segment markets and sells its products through pet
+    supply retailers, veterinarians, and eCommerce retailers. Colgate-Palmolive Company
+    was founded in 1806 and is headquartered in New York, New York.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 97.41999816894531
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.1206
+  excess_return_roic_wacc: null
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    **Colgate-Palmolive Company (CL)** fabrica y comercializa productos de consumo
+    para higiene oral, cuidado personal y del hogar, además de productos de nutrición
+    para mascotas. Sus productos incluyen pastas y cepillos dentales, enjuagues bucales,
+    jabones, geles de ducha, champús, acondicionadores, desodorantes y productos para
+    la piel.
+
+
+    La compañía desarrolla y gestiona marcas, obtiene materias primas y componentes,
+    fabrica y envasa productos, y los distribuye a consumidores mediante minoristas
+    tradicionales y de comercio electrónico, mayoristas y distribuidores. Su presencia
+    internacional y la diversidad de categorías son elementos centrales de su perfil
+    de negocio. No se proporcionan datos desglosados por región o segmento que permitan
+    cuantificar esa diversificación.
+
+
+    Las categorías atendidas son maduras y competitivas, pero incluyen productos de
+    compra frecuente. La clasificación de oportunidad disponible es **quality at fair
+    price**; no hay evidencia longitudinal suficiente para confirmar una tesis de
+    *compounder*.
+
+
+    **Compañía relacionada:** [[ABEV]] aparece en la lista disponible de compañías
+    del mismo sector. La información aportada no detalla una relación competitiva
+    directa entre ambas.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Fuentes de ingresos y drivers
+
+
+    Los ingresos dependen de la demanda de productos de higiene oral, cuidado personal
+    y del hogar, así como de nutrición para mascotas. Los principales factores que
+    conviene seguir son:
+
+
+    - Crecimiento orgánico y evolución de ventas.
+
+    - Contribución de precios frente a volúmenes.
+
+    - Desempeño por categoría y región.
+
+    - Costes de materias primas, envases, fabricación y transporte.
+
+    - Competencia, promoción y distribución, incluido el comercio electrónico.
+
+
+    La observación disponible indica crecimiento de ingresos TTM de **5,91% al 2026-09-30**.
+    No se aporta el desglose necesario para atribuirlo a precio, volumen, divisas
+    o adquisiciones.
+
+
+    ### Moat y competencia
+
+
+    El moat descrito se apoya en marcas globales reconocidas, confianza del consumidor,
+    distribución amplia y presencia en categorías de compra frecuente. El análisis
+    suministrado califica la amplitud del moat como **amplia** y la posición competitiva
+    como **líder**, aunque no incluye métricas comparativas de cuota de mercado ni
+    evidencia longitudinal para verificar la sostenibilidad de esa posición.
+
+
+    Las categorías son maduras y competitivas. La compañía puede enfrentar competencia
+    de otras marcas globales, marcas privadas y canales de comercio electrónico. La
+    recurrencia de compra puede contribuir a la resiliencia relativa de la demanda,
+    pero no demuestra por sí sola estabilidad futura de ventas o márgenes.
+
+
+    ## 3. Perfil Financiero
+
+
+    | Métrica | Observación disponible | Fecha / contexto |
+
+    |---|---:|---|
+
+    | Crecimiento de ingresos TTM | 5,91% | TTM terminado el 2026-09-30 |
+
+    | Margen operativo | 20,66% | Métrica suministrada; período no especificado |
+
+    | ROIC | 46,98% | Métrica suministrada; período no especificado |
+
+    | Flujo de caja libre (FCF) TTM | USD 3.790 millones | TTM terminado el 2026-09-30
+    |
+
+    | PER | 37,54x | Métrica suministrada; fecha de referencia no especificada |
+
+    | EV/EBITDA | 16,8x | Métrica suministrada; fecha de referencia no especificada
+    |
+
+    | FCF yield | 0% | Métrica suministrada; metodología y fecha no especificadas
+    |
+
+
+    El análisis disponible describe la tendencia financiera como **estable** y la
+    salud financiera como **adecuada**. Sin estados financieros ni definiciones de
+    período para todas las métricas, no es posible reconciliar las cifras ni evaluar
+    su evolución histórica.
+
+
+    **Estructura de capital:** no se proporcionan datos suficientes sobre deuda, efectivo,
+    deuda neta, vencimientos, cobertura de intereses o liquidez. Tampoco se aporta
+    una serie de FCF que permita evaluar conversión de beneficios, dividendos o capacidad
+    de reinversión.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación disponible califica la calidad de management como **buena**, la
+    asignación de capital como **neutral** y el alineamiento de insiders como **débil**.
+    No se aportan detalles sobre incentivos, participación accionaria de insiders,
+    operaciones con partes relacionadas, decisiones específicas de asignación de capital
+    ni composición del consejo de administración.
+
+
+    Por tanto, esas calificaciones deben tratarse como evaluaciones generales del
+    análisis aportado, no como conclusiones verificadas con documentación corporativa.
+
+
+    ## 5. Tesis de Inversión
+
+
+    La tesis favorable es la de una compañía de consumo con marcas reconocidas, distribución
+    amplia y productos de compra frecuente en higiene oral, cuidado personal y del
+    hogar. La diversificación de categorías y la demanda recurrente podrían contribuir
+    a la resiliencia del negocio frente a cambios económicos, aunque esa resiliencia
+    no queda demostrada con datos comparativos en la información disponible.
+
+
+    Elementos que respaldan la tesis:
+
+
+    - El análisis competitivo describe marcas globales, confianza del consumidor y
+    distribución amplia como bases del moat.
+
+    - La compañía atiende varias categorías de consumo y también nutrición para mascotas.
+
+    - Se reporta crecimiento de ingresos TTM de **5,91%** al 2026-09-30, además de
+    un FCF TTM de **USD 3.790 millones** para el mismo período.
+
+    - Los análisis suministrados califican la calidad del negocio como buena y su
+    tendencia financiera como estable.
+
+
+    La tesis depende de que el crecimiento orgánico y los márgenes se mantengan, y
+    de que la generación de caja sea sostenible. Los datos disponibles no permiten
+    confirmar la composición del crecimiento, la conversión de beneficios a caja ni
+    la evolución a largo plazo del retorno sobre el capital.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos principales
+
+
+    | Riesgo | Evaluación aportada | Posible efecto |
+
+    |---|---|---|
+
+    | Pérdida de cuota o presión sobre precios por competencia de marcas globales,
+    marcas privadas y comercio electrónico | Probabilidad e impacto medios | Menores
+    ventas, cuota o márgenes |
+
+    | Aumento de costes de materias primas, envases, fabricación o transporte | Probabilidad
+    e impacto medios | Compresión de márgenes si no se compensa con precios o productividad
+    |
+
+    | Crecimiento orgánico débil o dependiente principalmente de precios | Pregunta
+    abierta | Posible señal de menor fortaleza de demanda o volumen |
+
+    | Falta de claridad sobre deuda, vencimientos y cobertura de intereses | Evidencia
+    financiera insuficiente | Impide valorar plenamente la flexibilidad financiera
+    |
+
+
+    ### Contra-tesis
+
+
+    La recurrencia de las categorías y la fortaleza de las marcas podrían no bastar
+    para proteger ventas y márgenes si los consumidores cambian a alternativas más
+    baratas, aumenta la presión promocional o los costes superan la capacidad de trasladarlos
+    a precios. Además, las métricas puntuales de crecimiento, FCF y rentabilidad no
+    establecen por sí mismas una trayectoria duradera.
+
+
+    ### Triggers de falsación a vigilar
+
+
+    - Resultados trimestrales que muestren deterioro sostenido del crecimiento orgánico
+    o de los volúmenes.
+
+    - Compresión persistente de márgenes atribuible a costes, promociones o competencia.
+
+    - Evidencia de pérdida de cuota en categorías principales.
+
+    - Deterioro de la generación de FCF o una posición de deuda menos sólida de lo
+    que sugieren las métricas disponibles.
+
+
+    No se aportan umbrales cuantitativos para estos triggers; deben definirse tras
+    revisar las series financieras y los informes de la compañía.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Catalizador | Horizonte esperado | Impacto / probabilidad indicados | Evidencia
+    y condición |
+
+    |---|---|---|---|
+
+    | Resultados que confirmen crecimiento orgánico y estabilidad de márgenes en las
+    principales categorías | Medio plazo; sin fecha específica | Impacto medio; probabilidad
+    45%; confianza baja | Requiere observar resultados trimestrales y separar precio,
+    volumen, divisas y adquisiciones |
+
+    | Mejora de la percepción del mercado sobre la contribución y el crecimiento de
+    nutrición para mascotas | Medio plazo; sin fecha específica | Impacto medio; probabilidad
+    35%; confianza baja | No se aporta una fecha de evento ni desglose cuantitativo
+    por negocio |
+
+    | Publicación de resultados trimestrales con crecimiento orgánico sostenido y
+    márgenes estables o mejores | Medio plazo; sin fecha específica | Impacto medio;
+    probabilidad 45% | Identificado como posible cambio en la percepción de la tesis
+    |
+
+
+    Las probabilidades proceden de la evaluación suministrada y no deben interpretarse
+    como estimaciones verificadas de resultados futuros. No se proporcionan fechas
+    concretas para publicaciones o eventos.
+
+
+    ## 8. Marco de Valoración
+
+
+    La valoración independiente **no puede estimarse con rigor** con los datos disponibles.
+    El análisis la clasifica como **justa** y señala un margen de seguridad insuficiente,
+    pero faltan datos y supuestos esenciales para comprobar esa conclusión.
+
+
+    ### Referencias disponibles
+
+
+    - Cotización observada: **USD 97,42 al 2026-11-19**.
+
+    - Consenso de analistas observado: **USD 101,70**, con rango de **USD 88–112**.
+    La fecha de referencia y la cobertura del consenso no se detallan más allá de
+    la información aportada.
+
+    - PER: **37,54x**.
+
+    - EV/EBITDA: **16,8x**.
+
+    - FCF yield reportado: **0%**, sin metodología especificada.
+
+
+    | Escenario de referencia | Precio objetivo | Interpretación |
+
+    |---|---:|---|
+
+    | Bajista | USD 88 | Límite inferior del rango de objetivos observado; no es una
+    valoración independiente |
+
+    | Alcista | USD 112 | Límite superior del rango de objetivos observado; no es
+    una valoración independiente |
+
+
+    Los escenarios tienen horizonte indicado al **2027-11-20**, con fecha de análisis
+    **2026-11-20**. Son referencias ancladas al rango de objetivos observado, no estimaciones
+    basadas en un modelo financiero detallado.
+
+
+    ### Metodología y sensibilidades recomendadas
+
+
+    Una valoración por flujo de caja descontado requeriría, como mínimo, FCF normalizado,
+    crecimiento orgánico, márgenes, inversión en capital, impuestos, deuda neta y
+    coste de capital. También sería útil contrastarla con múltiplos de compañías comparables
+    y con la historia de valoración de CL.
+
+
+    Las sensibilidades más relevantes serían:
+
+
+    - Crecimiento de ventas orgánicas y contribución de precios frente a volúmenes.
+
+    - Evolución de márgenes ante costes de insumos y promoción.
+
+    - Conversión de beneficios a FCF y sostenibilidad del FCF.
+
+    - Deuda neta, coste de financiación y tasa de descuento.
+
+    - Múltiplo terminal o múltiplos comparables.
+
+
+    La cotización dentro del rango de objetivos observado no demuestra infravaloración
+    ni sobrevaloración. La conclusión sobre error de valoración disponible es **incierta**.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. **Balance y liquidez:** ¿Qué muestran los informes anuales y trimestrales más
+    recientes sobre deuda, efectivo, vencimientos, cobertura de intereses y obligaciones
+    financieras?
+
+    2. **Calidad del crecimiento:** ¿Cómo se descompone el crecimiento orgánico por
+    precio, volumen, divisas, adquisiciones, regiones y segmentos?
+
+    3. **Rentabilidad por negocio:** ¿Qué contribución aportan las principales categorías,
+    regiones y nutrición para mascotas a ventas, márgenes y crecimiento?
+
+    4. **Caja:** ¿Cómo se concilia el FCF TTM reportado de USD 3.790 millones con
+    flujo operativo, inversión de capital, beneficios y distribuciones a accionistas?
+
+    5. **Tendencias históricas:** ¿Se mantienen el margen operativo, el ROIC y el
+    crecimiento reportados a través de varios años y ciclos?
+
+    6. **Ventaja competitiva:** ¿Qué muestran los datos de cuota, retención, precios
+    y desempeño frente a marcas privadas y competidores?
+
+    7. **Management y gobierno:** ¿Cuáles son la composición y experiencia del consejo,
+    los incentivos ejecutivos, la propiedad de insiders y las decisiones recientes
+    de asignación de capital?
+
+    8. **Valoración:** ¿Qué supuestos justifican los múltiplos reportados y cuál es
+    el margen de seguridad bajo escenarios explícitos de crecimiento, márgenes y coste
+    de capital?
+
+    9. **Riesgos operativos y ESG:** ¿Qué exposición concreta existe a materias primas,
+    envases, logística, regulación y continuidad de suministro?
+
+
+    La evidencia disponible no incluye enlaces o citas documentales verificables.
+    Las cifras y evaluaciones de esta entrada se presentan conforme a los datos suministrados
+    y deben contrastarse con informes corporativos antes de usarse como base concluyente
+    de inversión.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ABEV|Ambev S.A.]]'
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-19T19:16:13.246899+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/CL/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 3790000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 20.662001}, "observed_at": "2026-11-19T19:16:13.246899+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/CL/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 20.66}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 4.6}, "observed_at": "2026-11-19T19:16:13.246899+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/cl/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 5.91}}}, "observed_at": "2026-11-19T19:16:13.246899+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Colgate-Palmolive Company
+  operating_margin: 20.66
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Colgate-Palmolive Company, together with its subsidiaries, manufactures
+    and sells consumer products in the United States and internationally. It operates
+    through two segments: Oral, Personal and Home Care; and Pet Nutrition. The Oral,
+    Personal and Home Care segment offers toothpaste, toothbrushes, mouthwash, bar
+    and liquid hand soaps, shower gels, shampoos, conditioners, deodorants and antiperspirants,
+    skin health products, dishwashing detergents, fabric conditioners, household cleaners,
+    and oth'
+  revenue: 21290000000.0
+  revenue_growth: 5.91
+  roic: 46.98
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CL/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    112.0, "low": 88.0, "mean": 101.7, "median": 101.7, "observed_at": "2026-11-20T11:58:37.055550-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T11:58:37.055550-03:00", "observed_date": "2026-11-20", "target_price":
+    101.7, "url": "https://stockanalysis.com/stocks/cl/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T11:58:37.055550-03:00",
+    "observed_date": "2026-11-20", "target_price": 101.7, "url": "https://finance.yahoo.com/quote/CL/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 97.41999816894531,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CL/"}]}}'
+  sector: Consumer Defensive
+  ticker: CL
+research_trigger:
+  discovery_snapshot_hash: 6097aa68358b997b25f92c38cc9c3ad5a253a5ed985aa3e198aa3d0f9558fc0e
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: b3b116940a8c5b78311b5c1f67c4dbe0060e57d83e596c26fd0b4a3056e2f4ef
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T12:01:01.153484-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: '0.96x reportado al 2026-09-30; no cruza el umbral. Fuente: https://stockanalysis.com/stocks/CL/statistics/.'
+  threshold: below 0.5x
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta historial comparable de acciones diluidas.'
+  threshold: above 10%
+- metric: interest_coverage
+  observation: 'El proveedor reporta 0 al 2026-09-30, pero falta gasto por intereses
+    para validar EBIT / interés. Fuente: https://stockanalysis.com/stocks/CL/statistics/.'
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplicable al FCF TTM positivo reportado de USD 3,789 millones al
+    2026-09-30; no se estima runway.
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: No calculado por falta de URL autorizada en trusted_source_urls.
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta historial comparable de acciones.'
+  threshold: above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 45
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T11:58:37.055550-03:00'
+  fuentes:
+    stockanalysis: 101.7
+    yfinance: 101.7
+  mediana: 101.7
+  n_fuentes: 2
+  promedio: 101.7
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T11:58:37.055550-03:00'
+    observed_date: '2026-11-20'
+    target_price: 101.7
+    url: https://stockanalysis.com/stocks/cl/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T11:58:37.055550-03:00'
+    observed_date: '2026-11-20'
+    target_price: 101.7
+    url: https://finance.yahoo.com/quote/CL/
+  target_high: 112.0
+  target_low: 88.0
+tesis_inversion: Colgate-Palmolive vende productos de consumo en cuidado oral, personal
+  y del hogar, además de nutrición para mascotas. La evidencia disponible muestra
+  FCF positivo reportado y margen bruto TTM superior al de FY 2022, pero no basta
+  para validar crecimiento estructural, reinversión rentable, retornos sobre capital
+  o la durabilidad de la ventaja competitiva; por ello, la tesis permanece sin validar.
+ticker: CL
+version: '3.0'

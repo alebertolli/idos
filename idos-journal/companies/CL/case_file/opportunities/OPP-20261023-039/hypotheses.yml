@@ -1,0 +1,184 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico acumulado en esos cuatro trimestres es inferior
+      al 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Dos trimestres consecutivos reportan crecimiento orgánico negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico acumulado en esos cuatro trimestres es inferior al 3%.
+  - Dos trimestres consecutivos reportan crecimiento orgánico negativo.
+  horizon: medio
+  id: H1-OPP-20261023-039
+  opportunity_id: OPP-20261023-039
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 3.0
+    met: null
+    metric: Crecimiento acumulado de ventas orgánicas en cuatro trimestres
+    prediction: En los cuatro trimestres consecutivos más recientes reportados al
+      2027-11-20, las ventas orgánicas acumuladas crecerán al menos un 3% frente a
+      los mismos trimestres del año anterior, según la definición de la empresa.
+    unit: porcentaje mínimo interanual
+  priority: critical
+  probability: 0.5
+  rationale: La compra recurrente de productos de higiene y cuidado personal podría
+    sostener la demanda, mientras que las marcas y la diversidad de categorías podrían
+    amortiguar debilidades en segmentos concretos. El contexto suministrado plantea
+    estos mecanismos como hipótesis, pero no aporta resultados recientes que los verifiquen.
+  review_trigger: Dejar de creerla si, al publicarse los resultados de dos trimestres
+    consecutivos posteriores al 2026-11-20, ambos muestran ventas orgánicas negativas.
+  secondary_hypotheses: []
+  statement: El crecimiento orgánico de Colgate-Palmolive se mantendrá positivo y
+    alcanzará al menos un 3% acumulado en los cuatro trimestres consecutivos más recientes
+    reportados.
+  status: ACTIVE
+  ticker: CL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen operativo ajustado acumulado cae más de 0,5 puntos porcentuales
+      interanuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa comunica que costes, descuentos o mezcla desfavorable redujeron
+      el margen y no identifica medidas compensatorias suficientes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen operativo ajustado acumulado cae más de 0,5 puntos porcentuales interanuales.
+  - La empresa comunica que costes, descuentos o mezcla desfavorable redujeron el
+    margen y no identifica medidas compensatorias suficientes.
+  horizon: medio
+  id: H2-OPP-20261023-039
+  opportunity_id: OPP-20261023-039
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -0.5
+    met: null
+    metric: Variación interanual del margen operativo ajustado en cuatro trimestres
+    prediction: Al 2027-11-20, el margen operativo ajustado acumulado de los cuatro
+      trimestres consecutivos más recientes reportados no será más de 0,5 puntos porcentuales
+      inferior al del periodo comparable de cuatro trimestres anterior.
+    unit: puntos porcentuales como caída máxima
+  priority: critical
+  probability: 0.5
+  rationale: La capacidad de fijación de precios, las marcas y las eficiencias operativas
+    podrían compensar parte de la inflación de insumos. No hay en el contexto datos
+    de costes, precios ni márgenes que demuestren que esa compensación esté ocurriendo.
+  review_trigger: Dejar de creerla si un periodo acumulado de cuatro trimestres reportado
+    antes del 2027-11-20 muestra una caída superior a 0,5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-20261023-039
+  statement: La empresa protegerá su margen operativo ajustado durante los próximos
+    cuatro trimestres, pese a posibles presiones de costes y competencia.
+  status: ACTIVE
+  ticker: CL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón entre flujo de caja libre y beneficio neto atribuible es inferior
+      a 0,90.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La conversión aparente depende de una reducción no recurrente de capital
+      circulante o de aplazar inversiones que la empresa considere necesarias.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón entre flujo de caja libre y beneficio neto atribuible es inferior a 0,90.
+  - La conversión aparente depende de una reducción no recurrente de capital circulante
+    o de aplazar inversiones que la empresa considere necesarias.
+  horizon: medio
+  id: H3-OPP-20261023-039
+  opportunity_id: OPP-20261023-039
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.9
+    met: null
+    metric: Flujo de caja libre / beneficio neto atribuible a accionistas ordinarios
+    prediction: Para los doce meses terminados en el 2027-11-20, o el periodo de doce
+      meses más próximo con estados publicados, el flujo de caja libre será al menos
+      el 90% del beneficio neto atribuible a accionistas ordinarios.
+    unit: razón mínima
+  priority: important
+  probability: 0.5
+  rationale: Un negocio de compra recurrente podría generar flujos relativamente estables,
+    pero la caja reportada por sí sola no demuestra su recurrencia ni su conversión.
+    La hipótesis debe contrastarse con flujo operativo, inversiones y beneficio neto
+    reportados.
+  review_trigger: Dejar de creerla si los estados publicados para un periodo de doce
+    meses terminado después del 2026-11-20 muestran una conversión inferior a 0,90
+    y la empresa no identifica una causa temporal verificable.
+  secondary_hypotheses:
+  - H1-OPP-20261023-039
+  - H2-OPP-20261023-039
+  statement: La generación de caja cubrirá razonablemente el beneficio neto durante
+    los próximos doce meses, respaldando la calidad financiera del negocio.
+  status: ACTIVE
+  ticker: CL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de CL menos la de XLP es inferior a 3 puntos
+      porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción de CL obtiene una rentabilidad total inferior a la de XLP
+      durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de CL menos la de XLP es inferior a 3 puntos porcentuales.
+  - La acción de CL obtiene una rentabilidad total inferior a la de XLP durante el
+    periodo.
+  horizon: medio
+  id: H4-OPP-20261023-039
+  opportunity_id: OPP-20261023-039
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 3.0
+    met: null
+    metric: Rentabilidad total de CL menos rentabilidad total de XLP
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de CL, incluidos dividendos, superará la rentabilidad total de XLP en
+      al menos 3 puntos porcentuales.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Una posible interpretación es que el mercado subestime la resiliencia
+    de las categorías de consumo habitual y el valor de las marcas. La tesis también
+    admite que la valoración podría ser exigente y que la competencia o el menor crecimiento
+    justifiquen el descuento; por ello, la hipótesis se limita a una predicción relativa
+    de mercado, no a afirmar que CL esté infravalorada.
+  review_trigger: Abandonar la hipótesis al cierre del 2027-11-20 si la rentabilidad
+    total relativa acumulada de CL frente a XLP es inferior a 3 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-20261023-039
+  - H2-OPP-20261023-039
+  - H3-OPP-20261023-039
+  statement: En los doce meses posteriores a la fecha de corte, la acción de CL ofrecerá
+    una rentabilidad total superior a la del ETF Consumer Staples Select Sector SPDR
+    (XLP), aunque esta comparación no demostraría por sí sola infravaloración.
+  status: ACTIVE
+  ticker: CL
+  version: 1

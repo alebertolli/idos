@@ -1,0 +1,216 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de los ingresos del ejercicio fiscal 2027
+      es inferior al 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa una pérdida de programas relevantes o una contracción
+      de ingresos que impida alcanzar el umbral anual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de los ingresos del ejercicio fiscal 2027 es inferior
+    al 10%.
+  - La empresa informa una pérdida de programas relevantes o una contracción de ingresos
+    que impida alcanzar el umbral anual.
+  horizon: medio
+  id: H1-OPP-20261023-040
+  opportunity_id: OPP-20261023-040
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: Variación interanual de ingresos consolidados del ejercicio fiscal 2027
+    prediction: Los ingresos consolidados del ejercicio fiscal 2027 serán al menos
+      un 10% superiores a los del ejercicio fiscal 2026, según los estados financieros
+      anuales publicados a más tardar en la fecha objetivo.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis identifica una posible demanda persistente de infraestructura
+    tecnológica y capacidades de ejecución diferenciadas. La evidencia disponible
+    confirma crecimiento elevado en una observación, pero no demuestra que sea sostenible;
+    por ello, esta hipótesis pone a prueba esa persistencia sin asumirla como un hecho.
+  review_trigger: Dejar de creerla si los resultados anuales del ejercicio fiscal
+    2027 muestran crecimiento de ingresos inferior al 10%, o antes si Celestica anuncia
+    la pérdida de un programa relevante que reduzca materialmente las perspectivas
+    de ingresos.
+  secondary_hypotheses: []
+  statement: La demanda de soluciones de manufactura tecnológica y la capacidad de
+    Celestica para integrar ingeniería, abastecimiento y producción permitirán que
+    sus ingresos crezcan durante el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: CLS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen operativo ajustado del ejercicio fiscal 2027 resulta inferior
+      al 5,5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Dos trimestres consecutivos reportan un margen operativo ajustado inferior
+      al 5,0%, sin una explicación temporal y cuantificada que la empresa sustente
+      posteriormente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen operativo ajustado del ejercicio fiscal 2027 resulta inferior al 5,5%.
+  - Dos trimestres consecutivos reportan un margen operativo ajustado inferior al
+    5,0%, sin una explicación temporal y cuantificada que la empresa sustente posteriormente.
+  horizon: medio
+  id: H2-OPP-20261023-040
+  opportunity_id: OPP-20261023-040
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.5
+    met: null
+    metric: Margen operativo ajustado del ejercicio fiscal 2027
+    prediction: El margen operativo ajustado acumulado del ejercicio fiscal 2027 será
+      de al menos 5,5%, calculado como el resultado operativo ajustado dividido por
+      los ingresos, usando la definición reportada por la empresa de forma consistente.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La complejidad de integrar ingeniería, abastecimiento y producción podría
+    sostener la rentabilidad, pero la tesis advierte que la estabilidad de márgenes
+    no está demostrada. Un margen ajustado sostenido sería evidencia de que el crecimiento
+    no se está obteniendo a costa de una erosión material de la rentabilidad.
+  review_trigger: Dejar de creerla si los resultados anuales del ejercicio fiscal
+    2027 muestran un margen inferior al 5,5%, o si dos trimestres consecutivos quedan
+    por debajo del 5,0% y la dirección no demuestra una recuperación verificable en
+    el trimestre siguiente.
+  secondary_hypotheses:
+  - H1-OPP-20261023-040
+  statement: Celestica mantendrá márgenes operativos ajustados suficientemente estables
+    durante el ejercicio fiscal 2027, pese a los riesgos de costes, mezcla de productos
+    y ejecución propios de la manufactura por contrato.
+  status: ACTIVE
+  ticker: CLS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado del ejercicio fiscal 2027 es cero
+      o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Con resultado neto ajustado positivo, el flujo de caja libre representa
+      menos del 50% de ese resultado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La conversión de caja depende de una reducción puntual de cuentas por
+      cobrar o inventarios que no se sostiene en los trimestres siguientes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado del ejercicio fiscal 2027 es cero o negativo.
+  - Con resultado neto ajustado positivo, el flujo de caja libre representa menos
+    del 50% de ese resultado.
+  - La conversión de caja depende de una reducción puntual de cuentas por cobrar o
+    inventarios que no se sostiene en los trimestres siguientes.
+  horizon: medio
+  id: H3-OPP-20261023-040
+  opportunity_id: OPP-20261023-040
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 50.0
+    met: null
+    metric: Flujo de caja libre del ejercicio fiscal 2027 como proporción del resultado
+      neto ajustado
+    prediction: El flujo de caja libre acumulado del ejercicio fiscal 2027, definido
+      como flujo de efectivo de operaciones menos compras de inmovilizado, será positivo
+      y equivaldrá al menos al 50% del resultado neto ajustado acumulado del mismo
+      ejercicio, siempre que este último sea positivo.
+    unit: porcentaje mínimo, con flujo de caja libre positivo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia aportada registra flujo de caja libre positivo en una observación,
+    pero no permite establecer si es recurrente ni si acompaña al crecimiento. La
+    conversión de ventas y resultados en caja es un riesgo central para la tesis y
+    puede contrastarse con los estados de flujo de efectivo.
+  review_trigger: Dejar de creerla si los estados anuales del ejercicio fiscal 2027
+    muestran flujo de caja libre no positivo o una conversión inferior al 50%; también
+    si dos trimestres consecutivos exhiben una conversión débil sin recuperación en
+    el siguiente.
+  secondary_hypotheses:
+  - H1-OPP-20261023-040
+  - H2-OPP-20261023-040
+  statement: El crecimiento de Celestica se convertirá en flujo de caja libre positivo
+    y no dependerá principalmente de acumular capital circulante.
+  status: ACTIVE
+  ticker: CLS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de CLS menos la del Nasdaq Composite es inferior
+      a 10 puntos porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: CLS obtiene una rentabilidad total inferior a la del Nasdaq Composite
+      durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cotización supera al índice, pero los resultados muestran deterioro
+      material de márgenes o de conversión de caja, de modo que el movimiento no confirma
+      el mecanismo fundamental planteado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de CLS menos la del Nasdaq Composite es inferior a 10 puntos
+    porcentuales en la fecha objetivo.
+  - CLS obtiene una rentabilidad total inferior a la del Nasdaq Composite durante
+    el periodo.
+  - La cotización supera al índice, pero los resultados muestran deterioro material
+    de márgenes o de conversión de caja, de modo que el movimiento no confirma el
+    mecanismo fundamental planteado.
+  horizon: medio
+  id: H4-OPP-20261023-040
+  opportunity_id: OPP-20261023-040
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total de CLS menos rentabilidad total del Nasdaq Composite
+    prediction: Desde el cierre bursátil del 20 de noviembre de 2026 hasta el cierre
+      del 20 de noviembre de 2027, la rentabilidad total de CLS, incluidos dividendos,
+      superará la del Nasdaq Composite en al menos 10 puntos porcentuales.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: La tesis plantea que el mercado podría subestimar la persistencia de
+    la demanda y el valor de las capacidades de ingeniería, escalado y ejecución.
+    Sin embargo, la brecha entre cotización y objetivos de analistas no demuestra
+    infravaloración; la hipótesis exige un resultado de mercado observable y condiciona
+    su interpretación a la evidencia operativa y financiera.
+  review_trigger: Dejar de creerla en la fecha objetivo si la rentabilidad relativa
+    es inferior a 10 puntos porcentuales, o antes si Celestica comunica pérdida de
+    programas relevantes, contracción sostenida de márgenes o deterioro material de
+    caja.
+  secondary_hypotheses:
+  - H1-OPP-20261023-040
+  - H2-OPP-20261023-040
+  - H3-OPP-20261023-040
+  statement: Si el crecimiento y la conversión de caja se sostienen, el mercado reconocerá
+    mejor la capacidad de ejecución de Celestica y sus acciones superarán al Nasdaq
+    Composite durante los próximos doce meses.
+  status: ACTIVE
+  ticker: CLS
+  version: 1
