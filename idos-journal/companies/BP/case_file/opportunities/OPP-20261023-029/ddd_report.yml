@@ -1,0 +1,360 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - BP genera $23.4 bn de flujo de caja libre TTM (stockanalysis.com, 2026‑09‑30).
+  - El margen operativo TTM es 13.41% (stockanalysis.com, 2026‑09‑30).
+  - El crecimiento de ingresos TTM es 26.41% (stockanalysis.com, 2026‑09‑30).
+  - El precio de cierre al 2026‑11‑19 es $43.215 (yfinance).
+  - El consenso de precios objetivo medio al 2026‑11‑20 es $55.89 (stockanalysis.com
+    y yfinance).
+  preguntas_abiertas:
+  - Nivel exacto de deuda neta y ratios de cobertura (deuda/EBITDA).
+  - Detalle de inversiones planificadas en energía baja en carbono y su horizonte
+    de retorno.
+  - Impacto esperado de futuras regulaciones de carbono en los flujos de caja.
+  - Política de dividendos y recompra de acciones para los próximos 2‑3 años.
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: compounder_castigado
+  categorias_descartadas: deep_value, ciclica, turnaround, distressed, special_situation,
+    hype, value_trap, quality_at_fair_price, compounder
+  justificacion: BP es una empresa integrada de energía con generación de caja libre
+    robusta (FCF $23.4 bn TTM) y márgenes operativos razonables (13.4%). Sin embargo,
+    está temporalmente fuera de favor debido a la incertidumbre sobre la transición
+    energética, la volatilidad del precio del crudo y la presión ESG, lo que genera
+    un descuento significativo respecto al consenso de precios objetivo.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: BP posee un moat basado en su escala global, infraestructura de exploración/producción
+    y una red de comercialización de hidrocarburos. Su diversificación hacia gas,
+    energía baja en carbono y combustibles sostenibles refuerza la resiliencia, aunque
+    la exposición al petróleo sigue siendo significativa.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Recortes de producción de OPEC+ que impulsen el precio del crudo >
+    $90/bbl
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+- descripcion: Comercialización exitosa de hidrógeno verde a gran escala
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 20
+- descripcion: Aumento de dividendos y recompra de acciones tras mejora de flujo de
+    caja
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: BP enfrenta presión regulatoria y de inversores para reducir emisiones.
+    Sus inversiones en energía baja en carbono mitigan parte del riesgo, pero la exposición
+    a activos fósiles y a posibles sanciones de carbono sigue siendo material.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: FCF TTM de $23.4 bn y margen operativo de 13.4% indican generación de
+    caja sólida. No se dispone de datos de deuda, pero la capacidad de cubrir deuda
+    con EBITDA históricamente ha sido adecuada para los majors. La liquidez es suficiente
+    para financiar inversiones en energía baja en carbono.
+  rating: fuerte
+dominio_growth:
+  analisis: El crecimiento de ingresos del 26.4% TTM proviene de la recuperación del
+    crudo y de la expansión en gas y renovables. El impulso orgánico futuro dependerá
+    de la evolución del precio del petróleo y del éxito de proyectos de hidrógeno,
+    solar y eólico. Las adquisiciones significativas no se han anunciado recientemente.
+  rating: moderado
+dominio_management:
+  analisis: El equipo directivo ha avanzado en la estrategia de transición energética
+    (objetivo net zero 2050) y mantiene un historial de asignación de capital disciplinada,
+    incluyendo dividendos estables y recompra de acciones. La alineación de incentivos
+    con los accionistas es razonable.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Precio del petróleo
+- impacto: alto
+  probabilidad: media
+  riesgo: Transición energética / costos de descarbonización
+- impacto: medio
+  probabilidad: media
+  riesgo: Regulación de carbono y políticas ESG
+- impacto: medio
+  probabilidad: baja
+  riesgo: Fluctuaciones de tipos de cambio
+error_mercado:
+  catalizador_cambio:
+    descripcion: Reanudación de precios del crudo por encima de $90/barril impulsada
+      por recortes de producción de OPEC+ y mayor demanda post‑COVID.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 30
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El precio actual de $43.22 refleja un descuento respecto al objetivo
+    medio de $55.89 (rango $43‑$76), lo que indica que el mercado está descontando
+    una caída prolongada de los precios del petróleo y riesgos de transición energética.
+  hipotesis_contraria: El mercado podría estar subestimando una recuperación sostenida
+    del precio del crudo, la capacidad de BP para monetizar sus activos de bajo carbono
+    y la generación de flujo de caja libre superior al esperado.
+  razonamiento: Existe evidencia de fuerte generación de caja y crecimiento de ingresos,
+    pero la magnitud y el timing de la recuperación del crudo y la monetización de
+    la transición energética son inciertos, por lo que el error de valoración no está
+    plenamente confirmado.
+generated_at: '2026-11-20T11:04:17.587248-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-029
+prompt_inputs:
+  business_model: BP p.l.c., an integrated energy company, engages in the oil and
+    gas business worldwide. The company operates through Gas & Low Carbon Energy,
+    Oil Production & Operations, and Customers & Products segments. It engages in
+    the production of natural gas, marketing, and trading activities, as well as solar,
+    wind, and hydrogen businesses. The company also offers aviation fuel products
+    and services, such as jet fuel; aviation gasoline; UL91 aviation fuel; and sustainable
+    aviation fuel. In addition, it engages in the convenience and retail fuel; EV
+    charging; Castrol lubricants and fluids; B2B; midstream; crude oil production;
+    refining and oil trading; and bioenergy businesses. The company was founded in
+    1908 and is headquartered in London, the United Kingdom.
+  ceo_tenure: 0
+  debt_to_equity: 0.87
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: BP p.l.c.
+  operating_margin: 13.41
+  pe_ratio: 12.79
+  products: ''
+  revenue: 235140000000.0
+  revenue_growth: 26.41
+  roic: 13.69
+  sector: Energy
+  ticker: BP
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: BP p.l.c., an integrated energy company, engages in the oil and
+    gas business worldwide. The company operates through Gas & Low Carbon Energy,
+    Oil Production & Operations, and Customers & Products segments. It engages in
+    the production of natural gas, marketing, and trading activities, as well as solar,
+    wind, and hydrogen businesses. The company also offers aviation fuel products
+    and services, such as jet fuel; aviation gasoline; UL91 aviation fuel; and sustainable
+    aviation fuel. In addition, it engages in the convenience and retail fuel; EV
+    charging; Castrol lubricants and fluids; B2B; midstream; crude oil production;
+    refining and oil trading; and bioenergy businesses. The company was founded in
+    1908 and is headquartered in London, the United Kingdom.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 43.21500015258789
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.87
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:12.585646+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/BP/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 23390000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 18.586001}, "observed_at": "2026-11-01T10:17:12.585646+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/BP/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 13.41}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 41.4}, "observed_at": "2026-11-01T10:17:12.585646+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/bp/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 26.41}}}, "observed_at": "2026-11-19T19:15:56.533953+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: BP p.l.c.
+  operating_margin: 13.41
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'BP p.l.c., an integrated energy company, engages in the oil and
+    gas business worldwide. The company operates through Gas & Low Carbon Energy,
+    Oil Production & Operations, and Customers & Products segments. It engages in
+    the production of natural gas, marketing, and trading activities, as well as solar,
+    wind, and hydrogen businesses. The company also offers aviation fuel products
+    and services, such as jet fuel; aviation gasoline; UL91 aviation fuel; and sustainable
+    aviation fuel. In addition, it '
+  revenue: 235140000000.0
+  revenue_growth: 26.41
+  roic: 13.69
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    76.0, "low": 43.0, "mean": 55.89, "median": 55.89, "observed_at": "2026-11-20T11:04:07.312292-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T11:04:07.312292-03:00", "observed_date": "2026-11-20", "target_price":
+    55.89, "url": "https://stockanalysis.com/stocks/bp/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T11:04:07.312292-03:00",
+    "observed_date": "2026-11-20", "target_price": 55.89211, "url": "https://finance.yahoo.com/quote/BP/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 43.21500015258789,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/BP/"}]}}'
+  sector: Energy
+  ticker: BP
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: f5160a8c79ab8a91f3ef7d61ab4c535247d5d6f84c32baf960f568dcc0c34951
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T11:04:17.587248-03:00'
+resumen_ejecutivo: BP muestra una sólida generación de caja libre ($23.4 bn) y crecimiento
+  de ingresos (26.4% TTM) pese a la transición energética. El precio cotiza a $43.22,
+  notablemente bajo el objetivo medio de $55.89, lo que sugiere un posible descuento
+  por riesgos de precios del crudo y ESG. El análisis de los siete dominios indica
+  una empresa de calidad con buen moat, finanzas fuertes y gestión competente, aunque
+  con riesgos estructurales vinculados a la transición y a la volatilidad del petróleo.
+  Se identifica un catalizador de precios del crudo que podría revalorizar la acción,
+  mientras que escenarios de bajo precio del crudo y mayores costos de transición
+  representan riesgos a la baja.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Rebote del precio del crudo > $80/bbl.
+    - Anuncio de reducción de capex o venta de activos no estratégicos.
+    - Mejora inesperada del margen operativo > 15%.
+    id: BEAR
+    key_assumptions:
+    - Precio del crudo < $70/bbl durante 12‑18 meses.
+    - Capex adicional de $10 bn para proyectos de energía baja en carbono sin generación
+      inmediata de ingresos.
+    - Incremento del ratio de deuda/EBITDA por encima de 3x.
+    rationale: Supone que el precio del crudo se mantiene por debajo de $70/bbl durante
+      más de un año, que los costos de transición aumentan y que la regulación de
+      carbono penaliza los activos fósiles, reduciendo el flujo de caja libre y forzando
+      mayores inversiones de capital.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BP/
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/BP/statistics/
+    target_price: 35
+  - falsifiers:
+    - Caída del precio del crudo < $70/bbl.
+    - Retrasos o cancelaciones de proyectos de energía baja en carbono.
+    - Aumento significativo de costos regulatorios de carbono.
+    id: BULL
+    key_assumptions:
+    - Precio del crudo > $90/bbl sostenido 12‑18 meses.
+    - Ingresos de renovables y hidrógeno incrementan en 15% anual.
+    - Dividendos y recompra de acciones aumentan el rendimiento total para accionistas.
+    rationale: Supone que el precio del crudo supera $90/bbl, que BP logra monetizar
+      rápidamente sus proyectos de hidrógeno y energía eólica, y que mantiene su política
+      de dividendos, lo que impulsa el flujo de caja libre y eleva la valoración múltiple.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BP/
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/bp/forecast
+    target_price: 78
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T11:04:07.312292-03:00'
+  fuentes:
+    stockanalysis: 55.89
+    yfinance: 55.89211
+  mediana: 55.89
+  n_fuentes: 2
+  promedio: 55.89
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T11:04:07.312292-03:00'
+    observed_date: '2026-11-20'
+    target_price: 55.89
+    url: https://stockanalysis.com/stocks/bp/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T11:04:07.312292-03:00'
+    observed_date: '2026-11-20'
+    target_price: 55.89211
+    url: https://finance.yahoo.com/quote/BP/
+  target_high: 76.0
+  target_low: 43.0
+tesis_inversion: BP combina una generación de caja libre robusta y un margen operativo
+  razonable con una estrategia de transición energética que, si se ejecuta con éxito,
+  puede desbloquear valor adicional. El precio actual está descontado respecto al
+  consenso, lo que brinda un margen de seguridad frente a posibles reversiones al
+  alza del crudo y a la monetización de activos de bajo carbono.
+ticker: BP
+version: '3.0'

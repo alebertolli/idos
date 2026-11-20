@@ -1,0 +1,27 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; evidencia fundamental incompleta'
+- 'Market error: No se puede validar un error de valoración con la evidencia suministrada.'
+- 'Thesis: BP es una compañía integrada de energía con negocios de petróleo y gas,
+  productos y clientes, y gas y energía baja en carbono, según el resumen financiero
+  sin URL citada. La evidencia disponible no pe'
+generated_at: '2026-11-20T11:07:49.828118-03:00'
+id: ass-6fcf8ffc
+recommendation: REVIEW
+risks:
+- analisis: El beneficio neto reportado varía ampliamente entre los ejercicios FY
+    2022–FY 2025; la serie no identifica por sí sola las causas.
+  riesgo: Exposición a resultados financieros cíclicos
+- analisis: La serie de net cash reporta valores negativos entre FY 2022 y septiembre
+    de 2026; el ratio net_debt_ebitda no puede citarse bajo las restricciones de fuentes.
+  riesgo: Endeudamiento y cobertura
+- analisis: La cobertura de intereses reportada como cero no permite calcular EBIT
+    / interest_expense sin el gasto por intereses verificable.
+  riesgo: Datos de interés no utilizables
+- analisis: No se suministran expectativas operativas, método de valoración ni fuentes
+    citables para evaluar el consenso frente a fundamentales.
+  riesgo: Evidencia de mercado y valoración limitada
+score: 52
+status: COMPLETED
+version: '3.0'

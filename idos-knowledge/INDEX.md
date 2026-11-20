@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 36 companies tracked
+Total: 38 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -29,6 +29,7 @@ Total: 36 companies tracked
 
 ## Energy
 - 📄 [[BKR|Baker Hughes Company]]
+- 📄 [[BP|BP p.l.c.]]
 - 📄 [[E|Eni S.p.A.]]
 - 📄 [[TS|Tenaris S.A.]]
 
@@ -36,6 +37,7 @@ Total: 36 companies tracked
 - 📄 [[AEG|Aegon Ltd.]]
 - 📄 [[AIG|American International Group, Inc.]]
 - 📄 [[AXP|American Express Company]]
+- 📄 [[BSBR|Banco Santander (Brasil) S.A.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
