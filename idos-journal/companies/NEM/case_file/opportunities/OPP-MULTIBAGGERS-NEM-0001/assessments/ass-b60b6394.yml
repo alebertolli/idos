@@ -1,0 +1,28 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida'
+- 'Market error: No validado.'
+- 'Thesis: Newmont es un productor de oro con exposición adicional a otros metales
+  y operaciones o activos en varias jurisdicciones (resumen financiero, 2026-11-20).
+  Los datos financieros reportados muestran FCF'
+generated_at: '2026-11-20T17:25:47.255282-03:00'
+id: ass-b60b6394
+recommendation: REVIEW
+risks:
+- base: Descripción del modelo de negocio del resumen financiero, 2026-11-20.
+  riesgo: Exposición a múltiples metales y jurisdicciones; el paquete no cuantifica
+    la contribución por operación ni riesgos específicos de cada país.
+- base: Datos de deuda, efectivo y EBITDA de Stock Analysis con bases de unidad distintas
+    o no especificadas, período terminado el 2026-09-30.
+  riesgo: No se puede calcular net_debt_ebitda con unidades compatibles y verificables
+    a partir de las observaciones disponibles.
+- base: Research Intake Package, datos de yfinance, período 2025-10-27 a 2026-10-26.
+  riesgo: La volatilidad observada a 90 días fue 41.4882% y el drawdown informado
+    fue 19.1505%.
+- base: Campos disponibles en el paquete y resumen financiero, observados hasta 2026-11-20.
+  riesgo: No hay datos suficientes para evaluar dilución, retornos sobre capital,
+    producción, costos o ventaja competitiva.
+score: 56
+status: COMPLETED
+version: '3.0'
