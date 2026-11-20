@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 114 companies tracked
+Total: 116 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -62,6 +62,7 @@ Total: 114 companies tracked
 - 📄 [[E|Eni S.p.A.]]
 - 📄 [[EQNR|Equinor ASA]]
 - 📄 [[HAL|Halliburton Company]]
+- 📄 [[OXY|Occidental Petroleum Corporation]]
 - 📄 [[TS|Tenaris S.A.]]
 
 ## Financial Services
@@ -113,6 +114,9 @@ Total: 114 companies tracked
 - 📄 [[JCI|Johnson Controls International plc]]
 - 📄 [[LMT|Lockheed Martin Corporation]]
 - 📄 [[MMM|3M Company]]
+
+## Real Estate
+- 📄 [[O|Realty Income Corporation]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]

@@ -1,0 +1,32 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida; evidencia incompleta para
+  validar la tesis multibagger'
+- 'Market error: No validado: los objetivos de analistas son referencias observadas,
+  no una valoración intrínseca, y el paquete no aporta un método de valoración con
+  inputs suficientes.'
+- 'Thesis: OXY combina exploración, desarrollo y producción de petróleo y gas con
+  actividades de midstream y marketing. La evidencia reporta FCF TTM positivo y deuda
+  neta menor que en FY 2025, pero no basta para'
+generated_at: '2026-11-20T17:50:40.245728-03:00'
+id: ass-cb61eca2
+recommendation: REVIEW
+risks:
+- evidencia: Descripción del modelo de negocio en el resumen financiero, con fecha
+    de análisis 2026-11-20; no se aporta análisis de sensibilidad.
+  riesgo: Exposición económica a petróleo, condensado, NGL y gas; el paquete no cuantifica
+    sensibilidad de resultados a precios de commodities.
+- evidencia: FCF de FY 2023, FY 2024, FY 2025 y TTM al 2026-09-30, Stock Analysis.
+  riesgo: 'El FCF histórico disponible es volátil: cayó en FY 2024 y FY 2025 según
+    la serie reportada, antes del dato TTM más reciente.'
+- evidencia: Stock Analysis, estadísticas de OXY, período TTM terminado 2026-09-30.
+  riesgo: La cobertura de intereses reportada aparece como 0 para TTM al 2026-09-30;
+    el dato requiere validación y no permite concluir por sí solo que la cobertura
+    económica sea nula.
+- evidencia: Información no disponible en las fuentes y campos aportados.
+  riesgo: No hay datos en el paquete para cuantificar reservas, vida de activos, obligaciones
+    de retiro, inversión de mantenimiento o retornos incrementales del capital.
+score: 52
+status: COMPLETED
+version: '3.0'
