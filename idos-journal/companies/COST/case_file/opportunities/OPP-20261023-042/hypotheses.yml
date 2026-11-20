@@ -1,0 +1,196 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento acumulado de las ventas comparables ajustadas es inferior
+      a 4% en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa crecimiento comparable negativo durante dos trimestres
+      consecutivos dentro del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento acumulado de las ventas comparables ajustadas es inferior a 4%
+    en el periodo.
+  - La empresa informa crecimiento comparable negativo durante dos trimestres consecutivos
+    dentro del periodo.
+  horizon: medio
+  id: H1-OPP-20261023-042
+  opportunity_id: OPP-20261023-042
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 4.0
+    met: null
+    metric: Crecimiento acumulado de ventas comparables, excluidos gasolina y efecto
+      cambiario
+    prediction: En los doce meses hasta 2027-11-20, el crecimiento acumulado de las
+      ventas comparables, excluidos gasolina y efecto cambiario cuando la empresa
+      publique esos ajustes, será de al menos 4% frente al periodo comparable anterior.
+    unit: porcentaje mínimo interanual
+  priority: important
+  probability: 0.5
+  rationale: Una oferta orientada al valor y una elevada recurrencia de visitas podrían
+    favorecer la retención de clientes y el gasto por visita. Es un mecanismo plausible,
+    no una conclusión verificada por los datos suministrados; debe contrastarse con
+    ventas comparables publicadas y ajustadas por gasolina y tipo de cambio.
+  review_trigger: Dejar de creerla si, al publicarse los resultados que cubran los
+    doce meses terminados el 2027-11-20, las ventas comparables ajustadas acumuladas
+    crecen menos de 4%, o antes si se publican dos trimestres consecutivos de contracción.
+  secondary_hypotheses: []
+  statement: La escala y la percepción de valor de Costco sostendrán el crecimiento
+    de las ventas comparables durante los próximos doce meses.
+  status: ACTIVE
+  ticker: COST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos por cuotas de membresía crecen menos de 6% interanual
+      en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La tasa de renovación de Estados Unidos y Canadá cae más de 1 punto
+      porcentual respecto de la última cifra publicada antes o en la fecha de corte.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos por cuotas de membresía crecen menos de 6% interanual en el periodo.
+  - La tasa de renovación de Estados Unidos y Canadá cae más de 1 punto porcentual
+    respecto de la última cifra publicada antes o en la fecha de corte.
+  horizon: medio
+  id: H2-OPP-20261023-042
+  opportunity_id: OPP-20261023-042
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 6.0
+    met: null
+    metric: Crecimiento interanual de ingresos por cuotas de membresía
+    prediction: En los doce meses hasta 2027-11-20, los ingresos por cuotas de membresía
+      aumentarán al menos 6% interanual y la tasa de renovación publicada para Estados
+      Unidos y Canadá no caerá más de 1 punto porcentual respecto de la última tasa
+      disponible al 2026-11-20.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La membresía puede generar ingresos recurrentes y reforzar la fidelidad,
+    pero la información proporcionada no acredita la tasa de renovación actual ni
+    su trayectoria. La hipótesis requiere verificar simultáneamente el crecimiento
+    de los ingresos por cuotas y la retención comunicada por la empresa.
+  review_trigger: Dejar de creerla si la empresa informa una caída de más de 1 punto
+    porcentual en la tasa de renovación o si los resultados que cubran el horizonte
+    muestran crecimiento de ingresos por cuotas inferior a 6%.
+  secondary_hypotheses:
+  - H1-OPP-20261023-042
+  statement: La recurrencia de las cuotas de membresía crecerá sin que se deteriore
+    materialmente la tasa de renovación en Estados Unidos y Canadá.
+  status: ACTIVE
+  ticker: COST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La diferencia entre el margen operativo de ambos periodos es inferior
+      a -0,30 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa dos trimestres consecutivos de caída interanual
+      del margen operativo y el margen acumulado de doce meses ya ha caído más de
+      0,30 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La diferencia entre el margen operativo de ambos periodos es inferior a -0,30
+    puntos porcentuales.
+  - La empresa informa dos trimestres consecutivos de caída interanual del margen
+    operativo y el margen acumulado de doce meses ya ha caído más de 0,30 puntos porcentuales.
+  horizon: medio
+  id: H3-OPP-20261023-042
+  opportunity_id: OPP-20261023-042
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -0.3
+    met: null
+    metric: Variación del margen operativo de doce meses frente al periodo base
+    prediction: El margen operativo de los doce meses terminados el 2027-11-20 será
+      como máximo 0,30 puntos porcentuales inferior al margen operativo de los doce
+      meses terminados inmediatamente antes del 2026-11-20, calculados ambos como
+      ingreso operativo dividido por ventas netas.
+    unit: puntos porcentuales como límite inferior
+  priority: important
+  probability: 0.5
+  rationale: La escala de compra y la rotación podrían ayudar a compensar costes y
+    sostener la rentabilidad, aunque la política de precios competitivos también podría
+    limitar los márgenes. El expediente no incluye márgenes comparables, por lo que
+    esta hipótesis exige establecer una base verificable con los estados financieros
+    disponibles al corte.
+  review_trigger: Dejar de creerla si los estados financieros publicados para los
+    doce meses terminados el 2027-11-20 muestran una contracción superior a 0,30 puntos
+    porcentuales; reevaluar antes si se cumple el criterio de dos trimestres consecutivos.
+  secondary_hypotheses:
+  - H1-OPP-20261023-042
+  statement: El crecimiento del negocio no se traducirá en una compresión significativa
+    del margen operativo durante los próximos doce meses.
+  status: ACTIVE
+  ticker: COST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de COST iguala o supera la del S&P 500 menos
+      5 puntos porcentuales en el intervalo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento relativo de COST frente al S&P 500 es igual o superior
+      a cero durante el intervalo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de COST iguala o supera la del S&P 500 menos 5 puntos porcentuales
+    en el intervalo definido.
+  - El rendimiento relativo de COST frente al S&P 500 es igual o superior a cero durante
+    el intervalo.
+  horizon: medio
+  id: H4-OPP-20261023-042
+  opportunity_id: OPP-20261023-042
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rentabilidad total relativa de COST frente al S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, la rentabilidad
+      total de COST, incluidos dividendos, será al menos 5 puntos porcentuales inferior
+      a la rentabilidad total del S&P 500 en el mismo intervalo.
+    unit: puntos porcentuales como máximo
+  priority: informational
+  probability: 0.5
+  rationale: La tesis contraria sostiene que la calidad y continuidad del crecimiento
+    podrían estar ya reconocidas en el precio. El contexto indica que la cotización
+    observada estaba cerca del consenso medio y que no hay una valoración independiente
+    ni múltiplos seleccionados; por tanto, la hipótesis de valoración es provisional
+    y debe probarse mediante rendimiento relativo, no mediante un supuesto valor intrínseco.
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si la rentabilidad total
+    relativa de COST supera el umbral de -5 puntos porcentuales; no mantener la tesis
+    por una valoración supuestamente alta sin evidencia actualizada de precio y múltiplos.
+  secondary_hypotheses:
+  - H1-OPP-20261023-042
+  - H2-OPP-20261023-042
+  - H3-OPP-20261023-042
+  statement: La cotización de COST ofrecerá una rentabilidad total inferior a la del
+    S&P 500 durante los próximos doce meses, consistente con una valoración exigente
+    que deja poco margen para decepciones.
+  status: ACTIVE
+  ticker: COST
+  version: 1

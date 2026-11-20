@@ -478,3 +478,54 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T12:04:46.529405'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 4452a0c16d816d07d3030f42ebcbbda4fa5e94d41b99a795ae81aaa18e7b13c3
+    opp_id: OPP-20261023-041
+    score: 68
+    strategy_version: positive_fundamentals_v1
+    ticker: COP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:13:28.199684'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-COP
+    ticker: COP
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T12:13:51.678465'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: cf8192680992175fb6a27e148dc40fdfe0295aa7a6743b846b44350b8118c901
+    opp_id: OPP-MB-COP
+    score: 42
+    strategy_version: '1.5'
+    ticker: COP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:15:31.425404'
+- data:
+    classification: compounder
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: ff5b25fde1ec12a4e6346e0ce6cfb8b0adc5d040ec055c320fe66968b46fa602
+    opp_id: OPP-20261023-042
+    score: 66
+    strategy_version: positive_fundamentals_v1
+    ticker: COST
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:17:38.455157'

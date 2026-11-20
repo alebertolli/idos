@@ -1,0 +1,207 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción media anual de 2027 crece menos de 3% frente a 2026,
+      según cifras reportadas comparables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica datos suficientes para calcular la variación
+      de producción con un perímetro comparable antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción media anual de 2027 crece menos de 3% frente a 2026, según cifras
+    reportadas comparables.
+  - La compañía no publica datos suficientes para calcular la variación de producción
+    con un perímetro comparable antes de la fecha objetivo.
+  horizon: medio
+  id: H1-OPP-MB-COP
+  opportunity_id: OPP-MB-COP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Variación interanual de la producción media anual comparable
+    prediction: En los resultados del ejercicio 2027, la producción media anual reportada
+      será al menos 3% superior a la del ejercicio 2026, medida en millones de barriles
+      equivalentes de petróleo por día y usando la misma definición de perímetro en
+      ambos ejercicios.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La hipótesis es que la puesta en marcha y el desarrollo de activos de
+    producción, incluido el potencial asociado a LNG, compensarán los descensos naturales
+    de los yacimientos maduros. El contexto disponible no confirma que esto vaya a
+    ocurrir; la comparación debe hacerse con cifras reportadas y conciliando adquisiciones
+    o desinversiones.
+  review_trigger: Dejar de creerla si la guía corporativa revisada para 2027 implica
+    crecimiento inferior a 3% frente a 2026, o si los resultados anuales publicados
+    antes del 2028-03-31 muestran ese resultado.
+  secondary_hypotheses: []
+  statement: ConocoPhillips aumentará su producción media anual en el ejercicio 2027
+    frente a la producción media reportada para 2026.
+  status: ACTIVE
+  ticker: COP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF calculado con la definición anterior es inferior a 4.000 millones
+      de dólares en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF de 2027 es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica datos que permitan separar flujo operativo,
+      inversiones de capital y desinversiones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF calculado con la definición anterior es inferior a 4.000 millones de dólares
+    en 2027.
+  - El FCF de 2027 es negativo.
+  - La compañía no publica datos que permitan separar flujo operativo, inversiones
+    de capital y desinversiones.
+  horizon: medio
+  id: H2-OPP-MB-COP
+  opportunity_id: OPP-MB-COP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 4.0
+    met: null
+    metric: Flujo de caja libre del ejercicio 2027
+    prediction: El flujo de caja libre de 2027 —flujo de caja operativo menos inversiones
+      de capital, usando las cifras reportadas por la compañía y sin sumar desinversiones—
+      será de al menos 4.000 millones de dólares.
+    unit: miles de millones de USD
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia aportada indica FCF TTM positivo, pero no permite establecer
+    su persistencia ni sensibilidad a precios, producción y gasto de capital. La hipótesis
+    es que la producción y la disciplina de inversión sostendrán la conversión de
+    ingresos operativos en caja; debe comprobarse con cifras del ejercicio completo.
+  review_trigger: Dejar de creerla si la guía de flujo operativo e inversiones de
+    capital para 2027 implica FCF inferior a 4.000 millones de dólares, o si los resultados
+    anuales publicados antes del 2028-03-31 confirman un valor inferior.
+  secondary_hypotheses:
+  - H1-OPP-MB-COP
+  statement: ConocoPhillips mantendrá generación positiva de flujo de caja libre en
+    el ejercicio 2027, con un nivel suficiente para cubrir una parte sustancial de
+    sus distribuciones a accionistas.
+  status: ACTIVE
+  ticker: COP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El cociente entre dividendos ordinarios más recompras y FCF es inferior
+      a 50% en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF de 2027 es cero o negativo, por lo que la hipótesis de cobertura
+      con FCF no se cumple.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Las recompras o dividendos reportados no pueden distinguirse de otras
+      distribuciones o movimientos de capital.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El cociente entre dividendos ordinarios más recompras y FCF es inferior a 50%
+    en 2027.
+  - El FCF de 2027 es cero o negativo, por lo que la hipótesis de cobertura con FCF
+    no se cumple.
+  - Las recompras o dividendos reportados no pueden distinguirse de otras distribuciones
+    o movimientos de capital.
+  horizon: medio
+  id: H3-OPP-MB-COP
+  opportunity_id: OPP-MB-COP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 50.0
+    met: null
+    metric: Dividendos ordinarios más recompras como proporción del FCF
+    prediction: La suma de dividendos ordinarios y recompras de acciones pagados durante
+      2027, dividida por el FCF de 2027 calculado como flujo de caja operativo menos
+      inversiones de capital, será al menos 50%, siempre que el denominador sea positivo.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Si la compañía mantiene FCF positivo, las distribuciones a accionistas
+    podrían seguir siendo un componente relevante de la asignación de capital. La
+    evidencia disponible no valida la política futura ni su prioridad frente a inversión,
+    deuda o adquisiciones, por lo que esta hipótesis se prueba con desembolsos efectivamente
+    realizados.
+  review_trigger: Dejar de creerla si una actualización formal de asignación de capital
+    reduce las distribuciones previstas por debajo del umbral, o cuando las cifras
+    anuales de 2027 muestren un cociente inferior a 50%.
+  secondary_hypotheses:
+  - H2-OPP-MB-COP
+  statement: ConocoPhillips destinará al menos la mitad de su FCF de 2027 a dividendos
+    y recompras de acciones.
+  status: ACTIVE
+  ticker: COP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de COP menos el rendimiento total de XLE es inferior
+      a 5 puntos porcentuales en el período indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No es posible calcular rendimientos totales comparables, ajustados
+      por dividendos y usando la misma moneda y fechas de cierre.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de COP menos el rendimiento total de XLE es inferior a 5
+    puntos porcentuales en el período indicado.
+  - No es posible calcular rendimientos totales comparables, ajustados por dividendos
+    y usando la misma moneda y fechas de cierre.
+  horizon: medio
+  id: H4-OPP-MB-COP
+  opportunity_id: OPP-MB-COP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de COP frente a XLE
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de COP, incluidos dividendos, superará el rendimiento total de XLE en
+      al menos 5 puntos porcentuales.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: La hipótesis de mercado es que la exposición de COP a exploración y producción
+    podría beneficiarse más que una cesta energética diversificada si la generación
+    de caja y la producción cumplen las expectativas de H1 y H2. No se dispone de
+    evidencia suficiente para afirmar que la valoración actual esté subestimada; por
+    ello, esta predicción mide rendimiento relativo observable y no presupone un múltiplo
+    justo.
+  review_trigger: Dejar de creerla si, al cierre del 2027-05-20, COP acumula un rendimiento
+    total inferior al de XLE en 5 puntos porcentuales o más y no existe una revisión
+    verificable de los datos de precios o dividendos que explique la diferencia.
+  secondary_hypotheses:
+  - H1-OPP-MB-COP
+  - H2-OPP-MB-COP
+  statement: La acción de ConocoPhillips superará el rendimiento total del ETF XLE
+    durante los 12 meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: COP
+  version: 1

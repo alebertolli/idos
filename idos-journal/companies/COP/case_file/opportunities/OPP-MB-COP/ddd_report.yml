@@ -1,0 +1,919 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La evidencia aportada no basta para validar crecimiento sostenible, ventaja competitiva,
+    retornos incrementales ni error de valoración.
+  - Las cifras de FCF y margen bruto son señales descriptivas, no prueba suficiente
+    de calidad o persistencia.
+  - 'El resumen financiero reporta cotización de USD 134.270004 al 2026-11-19, fuente
+    yfinance: https://finance.yahoo.com/quote/COP/.'
+  - 'El resumen financiero reporta objetivos de analistas de USD 122–185 y media/mediana
+    de USD 153 al 2026-11-20, fuente stockanalysis: https://stockanalysis.com/stocks/cop/forecast/.'
+  - 'El paquete reporta momentum de precio a 12 meses de 73.3401% hasta 2026-10-30,
+    fuente yfinance: https://finance.yahoo.com/quote/COP/history/.'
+  preguntas_abiertas:
+  - ¿Qué muestran datos verificables y comparables sobre producción, inversión y retornos
+    sobre capital?
+  - ¿Cómo se relacionan asignación de capital, deuda y cambios en el número de acciones
+    a lo largo del tiempo?
+  - ¿Qué supuestos de negocio y método sustentan los extremos del consenso de analistas?
+catalizadores_previos: &id001
+- descripcion: Aumento sostenido del precio del crudo > USD 85/barril
+  generated_at: '2026-11-20T12:11:46.721841-03:00'
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20261023-041
+  probabilidad_anterior: 45
+- descripcion: Finalización exitosa de proyectos de LNG en Asia Pacífico
+  generated_at: '2026-11-20T12:11:46.721841-03:00'
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-041
+  probabilidad_anterior: 35
+- descripcion: Reducción de costos operativos mediante iniciativas de eficiencia
+  generated_at: '2026-11-20T12:11:46.721841-03:00'
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: alto
+  opp_id: OPP-20261023-041
+  probabilidad_anterior: 40
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia fundamental incompleta
+  justificacion: El paquete presenta señales de mercado y datos financieros seleccionados,
+    pero no ofrece URLs verificables en trusted_source_urls ni evidencia suficiente
+    para validar varios ratios clave.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo de negocio y los segmentos están descritos en el resumen financiero,
+    y se reporta margen bruto TTM de 49.01% al 2026-09-30. No hay evidencia verificable
+    suficiente sobre ventaja competitiva, erosión, retornos sobre capital, reinversión
+    o calidad de la gestión.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: Resultados financieros posteriores con datos comparables de producción,
+    FCF, inversión y retornos sobre capital.
+  hito: Requiere publicación y fuente verificable; el paquete no identifica una fecha
+    futura concreta.
+- catalizador: Mayor transparencia sobre asignación de capital y evolución de deuda,
+    caja y acciones.
+  hito: Requiere evidencia financiera fechada; no se aporta un calendario de hitos.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: El resumen financiero describe exploración, producción, transporte y
+    comercialización de crudo, gas, LNG y líquidos de gas natural.
+  riesgo: Exposición económica a hidrocarburos y LNG; el paquete no cuantifica sensibilidad
+    de resultados a precios de materias primas.
+- evidencia: Los datos disponibles incluyen FCF TTM y cifras históricas seleccionadas,
+    pero no una serie completa y verificable de capital invertido o rendimientos.
+  riesgo: 'La evidencia de crecimiento y retornos es insuficiente para caracterizar
+    sostenibilidad: el FCF TTM reportado no establece por sí solo retornos sobre capital
+    ni crecimiento de largo plazo.'
+- evidencia: Hay cotización y objetivos de analistas, pero no proyecciones de negocio
+    ni inputs fechados para una valoración intrínseca.
+  riesgo: La valoración no puede contrastarse con fundamentos mediante un método identificable
+    en el paquete.
+error_mercado:
+  catalizador_cambio: La publicación de resultados financieros comparables y datos
+    verificables sobre producción, inversión y retornos de capital podría modificar
+    la evaluación.
+  conclusion_error_valoracion: 'No validado: el paquete aporta anclas de consenso,
+    pero no un método de valoración defendible ni inputs suficientes para establecer
+    un error de valoración.'
+  consenso_actual: El paquete registra una cotización de USD 134.27 al 2026-11-19
+    y un consenso de precio objetivo de USD 153, con rango observado de USD 122–185
+    al 2026-11-20.
+  hipotesis_contraria: La evidencia disponible no permite determinar si el mercado
+    subestima o sobreestima el valor del negocio; los datos de momentum no sustituyen
+    una valoración fundamental.
+  razonamiento: El momentum de precio a 12 meses fue 73.3401% hasta 2026-10-30 (yfinance,
+    https://finance.yahoo.com/quote/COP/history/), mientras que los datos financieros
+    carecen de URLs incluidas en trusted_source_urls.
+generated_at: '2026-11-20T12:13:51.694412-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-COP
+prompt_inputs:
+  business_model: 'ConocoPhillips explores for, produces, transports, and markets
+    crude oil, bitumen, natural gas, liquefied natural gas (LNG), and natural gas
+    liquids. It operates in five segments: Alaska; Lower 48; Canada; Europe, Middle
+    East and North Africa; and Asia Pacific. The company''s portfolio includes unconventional
+    plays in North America; conventional assets in North America, Europe, Asia, and
+    Australia; global LNG developments; oil sands assets in Canada; and an inventory
+    of global exploration prospects. It serves in the United States, Canada, China,
+    Equatorial Guinea, Libya, Malaysia, Norway, Singapore, the United Kingdom, and
+    internationally. ConocoPhillips was founded in 1917 and is headquartered in Houston,
+    Texas.'
+  ceo_tenure: 0
+  debt_to_equity: 0.35
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: ConocoPhillips
+  operating_margin: 25.88
+  pe_ratio: 14.13
+  products: ''
+  revenue: 68970000000.0
+  revenue_growth: 12.54
+  roic: 14.56
+  sector: Energy
+  ticker: COP
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: null
+  limitations: No hay URL en trusted_source_urls que respalde los datos; además, revenue_history
+    no contiene una fila fechada FY 2023 y los valores presentados incluyen más de
+    una observación para algunos períodos.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf: null
+    fcf_growth_history: null
+    fcf_history: null
+    free_cash_flow: null
+  limitations: Se reportan crecimiento FCF TTM de 56.8% y FCF TTM de USD 11,114 millones
+    al 2026-09-30, pero no hay URL admisible en trusted_source_urls para validar ni
+    citar estos datos.
+  metric: fcf_growth_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+  inputs:
+    fcf_history: null
+    free_cash_flow: null
+    net_income_history: null
+    net_income_ttm: null
+  limitations: Aunque se reportan FCF TTM y utilidad neta TTM al 2026-09-30, no existe
+    URL admisible en trusted_source_urls para validar los inputs.
+  metric: fcf_conversion_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalent to -net_cash/EBITDA
+    when the source reports net_cash = cash - debt
+  inputs:
+    net_cash_history: null
+    net_debt: null
+    net_debt_ebitda: null
+    total_debt: null
+    total_debt_history: null
+  limitations: Se reportan deuda total y net cash al 2026-09-30, así como EBITDA TTM,
+    pero no hay URL admisible en trusted_source_urls que respalde esos inputs.
+  metric: net_debt_ebitda
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares: null
+    diluted_shares_history: null
+    dilution_yoy_pct: null
+    shares_outstanding: null
+    shares_outstanding_history: null
+  limitations: El paquete aporta acciones en circulación para un único período, sin
+    serie comparable del período anterior ni URL admisible en trusted_source_urls.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'ConocoPhillips explores for, produces, transports, and markets
+    crude oil, bitumen, natural gas, liquefied natural gas (LNG), and natural gas
+    liquids. It operates in five segments: Alaska; Lower 48; Canada; Europe, Middle
+    East and North Africa; and Asia Pacific. The company''s portfolio includes unconventional
+    plays in North America; conventional assets in North America, Europe, Asia, and
+    Australia; global LNG developments; oil sands assets in Canada; and an inventory
+    of global exploration prospects. It serves in the United States, Canada, China,
+    Equatorial Guinea, Libya, Malaysia, Norway, Singapore, the United Kingdom, and
+    internationally. ConocoPhillips was founded in 1917 and is headquartered in Houston,
+    Texas.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 134.27000427246094
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.35
+  excess_return_roic_wacc: null
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    ConocoPhillips ([[COP]]) es una compañía global de hidrocarburos, principalmente
+    dedicada a exploración y producción (upstream). Su cadena de valor comprende la
+    exploración y evaluación de prospectos, adquisición y desarrollo de recursos,
+    perforación y producción, y procesamiento, transporte y comercialización de hidrocarburos.
+
+
+    La información disponible describe una cartera diversificada por geografías y
+    tipos de activos, incluidos crudo, gas, LNG y arenas petrolíferas. Los productos
+    identificados incluyen petróleo crudo y bitumen. Entre sus clientes figuran refinadoras,
+    comercializadoras de petróleo, empresas de servicios públicos y productores de
+    energía. La rentabilidad depende en gran medida de los precios globales de petróleo
+    y gas, además de volúmenes, costos y gastos de capital.
+
+
+    La empresa opera en un sector intensivo en capital y cíclico. Entre compañías
+    del mismo sector o relacionadas figuran [[BKR]], [[BP]], [[E]] y [[TS]].
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    Los principales drivers económicos son los precios de petróleo, gas y LNG; los
+    volúmenes de producción; la productividad de los activos; los costos de desarrollo
+    y operación; y la inversión de capital. La información de investigación también
+    identifica proyectos de LNG y mejoras de eficiencia como posibles fuentes de crecimiento.
+
+
+    La ventaja competitiva descrita se basa en escala, experiencia técnica, diversificación
+    de activos y acceso a recursos de distintas geografías, factores que podrían contribuir
+    a reducir costos y sostener la posición competitiva. AOIF clasifica a COP como
+    líder y asigna un moat estrecho; DDD caracteriza la ventaja como moderada y basada
+    en experiencia operativa y diversificación. Estas calificaciones son evaluaciones
+    de los análisis suministrados, no evidencia independiente de una ventaja duradera.
+
+
+    Los resultados son sensibles a las condiciones de oferta y demanda globales. En
+    este sentido, COP comparte exposición sectorial y riesgos de transición energética
+    con [[BP]], [[E]] y [[TS]]; [[BKR]] también está vinculada al ciclo de inversión
+    de la industria energética, aunque su modelo de negocio no se detalla aquí.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras siguientes proceden de los análisis suministrados. No se especifica
+    un periodo comparable para todas las métricas; por tanto, no deben interpretarse
+    como una serie temporal homogénea.
+
+
+    | Métrica | Valor informado | Observaciones |
+
+    |---|---:|---|
+
+    | Crecimiento de ingresos, TTM (DDD) | 8,54 % | DDD lo describe como dependiente
+    de los precios de commodities. |
+
+    | Crecimiento de ingresos (AOIF) | 12,54 % | El periodo no se especifica en el
+    contexto de AOIF; no es directamente comparable con la cifra TTM. |
+
+    | Margen operativo (DDD) | 23,08 % | Métrica TTM según DDD. |
+
+    | Margen operativo (AOIF) | 25,88 % | El periodo no se especifica. |
+
+    | ROIC (AOIF) | 14,56 % | Sin periodo de comparación especificado. |
+
+    | Flujo de caja libre (DDD) | USD 10,06 mil millones | DDD lo identifica como
+    TTM; no se suministran cifras de flujo operativo y capex para verificar el cálculo.
+    |
+
+    | EV/EBITDA (AOIF) | 5,77× | Múltiplo aislado; su lectura requiere contexto de
+    ciclo y estimaciones normalizadas. |
+
+    | PER (AOIF) | 14,13× | Sin fecha o metodología detallada en el contexto. |
+
+    | FCF yield (AOIF) | 0 | AOIF advierte que no debe interpretarse como rendimiento
+    económico nulo: faltan cifras y metodología. |
+
+    | Deuda neta y deuda/EBITDA | No disponible | Pregunta abierta; no se proporcionan
+    datos de deuda ni de estructura de capital. |
+
+
+    DDD califica la salud financiera como fuerte debido a la generación de caja y
+    al margen operativo, pero señala que no dispone de métricas de deuda. AOIF considera
+    que la tendencia financiera es estable, aunque advierte que las cifras suministradas
+    carecen de periodo de comparación y que no permiten verificar por sí solas una
+    tendencia.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    DDD califica la gestión como buena y señala disciplina de capital, optimización
+    de costos y enfoque en proyectos de LNG de largo plazo. AOIF también califica
+    la calidad del management como buena, pero considera neutral la asignación de
+    capital y moderado el alineamiento de insiders.
+
+
+    Estas valoraciones son provisionales: la información disponible no incluye historial
+    detallado de decisiones de inversión, remuneración, recompras, dividendos ni propiedad
+    de insiders. Tampoco aporta datos sobre composición, independencia o competencias
+    del board. No es posible evaluar esos aspectos con el material suministrado.
+
+
+    ## 5. Tesis de Inversión
+
+
+    La tesis favorable es que COP podría beneficiarse de su cartera diversificada
+    de activos, experiencia operativa y generación de efectivo si los precios de los
+    hidrocarburos se mantienen favorables y los proyectos previstos se ejecutan adecuadamente.
+
+
+    - DDD informa un FCF de USD 10,06 mil millones TTM y un margen operativo de 23,08
+    %, aunque no aporta los componentes necesarios para verificar la generación de
+    FCF.
+
+    - AOIF informa un ROIC de 14,56 % y un margen operativo de 25,88 %, sin periodo
+    de comparación especificado.
+
+    - La disciplina de capital y las mejoras de eficiencia podrían respaldar la rentabilidad,
+    pero las evaluaciones de management disponibles no están acompañadas de un historial
+    detallado de decisiones.
+
+    - DDD informa un precio objetivo medio de analistas de USD 153, con rango de USD
+    122 a USD 185, frente a un precio de mercado de USD 134. La fecha y la fuente
+    de esas estimaciones no se detallan en el contexto, por lo que la comparación
+    no debe tratarse como una valoración independiente o actualizada.
+
+    - El escenario alcista suministrado sitúa el precio objetivo en USD 185 para el
+    20 de noviembre de 2027, bajo los supuestos de crudo por encima de USD 85/barril,
+    contratos de LNG entregados y operativos, y mejoras de eficiencia.
+
+
+    **Interpretación:** la oportunidad depende sobre todo del ciclo de commodities
+    y de la ejecución operativa; los datos disponibles no bastan para concluir que
+    exista infravaloración de forma robusta.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    La contra-tesis es que los flujos de caja y la valoración pueden deteriorarse
+    si persisten precios bajos de petróleo, gas o LNG, aumentan los costos o se retrasan
+    proyectos. La exposición a commodities hace que los resultados puedan variar significativamente
+    con factores fuera del control de la compañía.
+
+
+    | Riesgo | Evaluación suministrada | Posible efecto |
+
+    |---|---|---|
+
+    | Caída prolongada de precios de petróleo, gas o LNG | Impacto alto; probabilidad
+    media según AOIF | Menores ingresos y flujo de caja. |
+
+    | Volatilidad de precios del petróleo y gas | Impacto alto; probabilidad alta
+    según DDD | Variación de rentabilidad y generación de caja. |
+
+    | Costos de desarrollo u operación más altos o menor productividad | Impacto alto;
+    probabilidad media según AOIF | Presión sobre márgenes y retorno del capital.
+    |
+
+    | Regulación ambiental y transición energética | Impacto alto; probabilidad media
+    según DDD | Mayores costos, restricciones a la producción y riesgos para la demanda
+    de hidrocarburos. |
+
+    | Retrasos o problemas en proyectos de LNG | Riesgo incorporado en los escenarios
+    suministrados | Menor contribución de crecimiento y posible presión sobre los
+    flujos de caja. |
+
+    | Deuda y obligaciones financieras | No evaluable con los datos disponibles |
+    La falta de métricas de deuda impide medir el riesgo de balance. |
+
+
+    **Triggers de falsación de la tesis alcista, según los escenarios suministrados:**
+
+
+    - El crudo cae por debajo de USD 70/barril.
+
+    - Se cancelan o retrasan significativamente proyectos de LNG.
+
+    - Aumentan los costos regulatorios más de 5 % en el supuesto del escenario bajista.
+
+    - Los contratos de LNG no se entregan o no entran en operación como se espera.
+
+
+    Los escenarios aportados incluyen «falsificadores» que no son coherentes con sus
+    propios supuestos: para el escenario bajista se incluye como falsificador que
+    el crudo supere USD 80/barril, mientras que el escenario alcista incluye que caiga
+    por debajo de USD 70/barril. Deben tratarse como elementos por validar, no como
+    criterios consistentes de falsación.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    Las probabilidades e impactos de la tabla son estimaciones incluidas en DDD, no
+    resultados confirmados. No se proporcionan fechas de calendario para la ejecución
+    de proyectos de LNG.
+
+
+    | Catalizador | Horizonte informado | Probabilidad / confianza | Impacto potencial
+    | Consideraciones |
+
+    |---|---|---|---|---|
+
+    | Repunte sostenido del crudo por encima de USD 85/barril | Corto plazo | 45 %;
+    confianza media | Alto | DDD lo vincula a posibles recortes de producción de OPEP+
+    o tensiones geopolíticas. Es un escenario condicionado, no un evento programado.
+    |
+
+    | Finalización exitosa de proyectos de LNG en Asia-Pacífico | Medio plazo | 35
+    %; confianza baja | Medio | No se especifican proyectos, hitos ni fechas esperadas.
+    |
+
+    | Puesta en marcha de contratos de LNG y mejoras de eficiencia | Hasta el horizonte
+    del escenario, 20 de noviembre de 2027 | Sin probabilidad independiente informada
+    | Potencialmente alto en el escenario alcista | Forma parte de los supuestos para
+    un precio objetivo de USD 185. |
+
+
+    El escenario bajista, con horizonte al 20 de noviembre de 2027, utiliza como supuestos
+    crudo por debajo de USD 70/barril durante más de un año, aumento de costos regulatorios
+    superior al 5 % y retrasos en proyectos de LNG. Su objetivo es USD 122. El escenario
+    alcista, para la misma fecha, tiene un objetivo de USD 185 bajo supuestos de crudo
+    por encima de USD 85/barril y contratos de LNG operativos. Ambos son escenarios
+    suministrados; las fuentes de soporte aparecen como no disponibles en los datos
+    recibidos.
+
+
+    ## 8. Marco de Valoración
+
+
+    Para una productora de hidrocarburos cíclica como COP, la valoración debería considerar
+    beneficios y flujos de caja normalizados a lo largo del ciclo, en lugar de depender
+    únicamente de un múltiplo observado en un periodo específico. Resulta pertinente
+    contrastar escenarios de precios de commodities, volúmenes, costos, capex y ejecución
+    de proyectos, y comprobar cuánto de la generación de caja se convierte efectivamente
+    en FCF.
+
+
+    Los datos recibidos no permiten calcular un valor intrínseco con solidez:
+
+
+    - AOIF informa EV/EBITDA de 5,77× y PER de 14,13×, pero advierte que los múltiplos
+    aislados no bastan para valorar una productora cíclica.
+
+    - El FCF yield informado como 0 no debe leerse como rendimiento económico nulo;
+    faltan cifras y metodología.
+
+    - No se suministran deuda neta, deuda/EBITDA ni estimaciones normalizadas de beneficios
+    y flujo de caja.
+
+    - DDD califica la acción como infravalorada y registra un precio objetivo medio
+    de USD 153 frente a USD 134 de mercado, pero la fecha y fuente del consenso no
+    están especificadas.
+
+    - Los escenarios a 12 meses desde el 20 de noviembre de 2026 presentan objetivos
+    de USD 122 en el caso bajista y USD 185 en el alcista. No se facilitan probabilidades
+    completas ni una metodología de valoración que permita derivar un valor esperado.
+
+
+    La sensibilidad principal es al precio del petróleo y gas, a los costos operativos
+    y regulatorios, a la producción y al calendario de los proyectos de LNG. La conclusión
+    de infravaloración debe considerarse provisional hasta disponer de supuestos verificables
+    y datos de balance actualizados.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es la deuda neta actual de COP y cuál es su ratio deuda/EBITDA?
+
+    2. ¿Qué metas, inversiones y plazos concretos tiene la compañía para reducir su
+    intensidad de carbono durante los próximos cinco años?
+
+    3. ¿Cuáles son los proyectos de LNG de Asia-Pacífico mencionados, sus hitos de
+    construcción o puesta en marcha y su contribución esperada?
+
+    4. ¿Cuáles son las cifras subyacentes de flujo de caja operativo y capex que sustentan
+    el FCF de USD 10,06 mil millones TTM?
+
+    5. ¿A qué periodos corresponden las cifras de crecimiento de ingresos, margen
+    operativo y ROIC de AOIF, y por qué difieren del crecimiento TTM indicado por
+    DDD?
+
+    6. ¿Cuál es la sensibilidad de la producción, el margen y el FCF a distintos precios
+    de petróleo, gas y LNG?
+
+    7. ¿Qué evidencia histórica respalda la valoración de disciplina de capital, y
+    cómo se distribuye el capital entre inversiones, deuda, dividendos y recompras?
+
+    8. ¿Cuál es la fecha, la fuente y la composición del consenso de analistas citado
+    —objetivo medio de USD 153 y rango de USD 122 a USD 185—?
+
+    9. ¿Qué metodología y supuestos sustentan los objetivos de USD 122 y USD 185 de
+    los escenarios, y cómo se resuelven las inconsistencias en los falsificadores?
+
+    10. ¿Qué información disponible permite evaluar la remuneración ejecutiva, la
+    participación de insiders y la composición e independencia del board?
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[E|Eni S.p.A.]],
+    [[TS|Tenaris S.A.]]'
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-19T19:16:16.383965+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/COP/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 11110000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 25.877001999999997}, "observed_at": "2026-11-19T19:16:16.383965+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/COP/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 25.88}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 29.299999999999997}, "observed_at": "2026-11-19T19:16:16.383965+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/cop/financials/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 12.54}}}, "observed_at":
+    "2026-11-19T19:16:16.383965+00:00", "period_end": "2026-09-30", "sources_used":
+    ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: ConocoPhillips
+  operating_margin: 25.88
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'ConocoPhillips explores for, produces, transports, and markets crude
+    oil, bitumen, natural gas, liquefied natural gas (LNG), and natural gas liquids.
+    It operates in five segments: Alaska; Lower 48; Canada; Europe, Middle East and
+    North Africa; and Asia Pacific. The company''s portfolio includes unconventional
+    plays in North America; conventional assets in North America, Europe, Asia, and
+    Australia; global LNG developments; oil sands assets in Canada; and an inventory
+    of global exploration prospec'
+  revenue: 68970000000.0
+  revenue_growth: 12.54
+  roic: 14.56
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/COP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    185.0, "low": 122.0, "mean": 153.0, "median": 153.0, "observed_at": "2026-11-20T12:11:37.549471-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T12:11:37.549471-03:00", "observed_date": "2026-11-20", "target_price":
+    153.0, "url": "https://stockanalysis.com/stocks/cop/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T12:11:37.549471-03:00",
+    "observed_date": "2026-11-20", "target_price": 153.0, "url": "https://finance.yahoo.com/quote/COP/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 134.27000427246094,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/COP/"}]}}'
+  sector: Energy
+  ticker: COP
+research_trigger:
+  discovery_snapshot_hash: b154b55516286dd417daaa1f79cf74eb5d1dc76408c6be5d588a92dbae478c17
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: cf8192680992175fb6a27e148dc40fdfe0295aa7a6743b846b44350b8118c901
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T12:13:51.694412-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.52 al 2026-09-30, reportado por stockanalysis.com; URL no disponible
+    en trusted_source_urls.
+  status: observación para Assessment; no es decisión de compra
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No validable: falta una serie de acciones comparable y una URL admisible.'
+  status: observación para Assessment; no es decisión de compra
+  threshold: above 10%
+- metric: interest_coverage
+  observation: El campo reportado es 0 al 2026-09-30, pero su definición y valor no
+    pueden verificarse con URL admisible; no se interpreta como cobertura validada.
+  status: observación para Assessment; no es decisión de compra
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No aplicable a los datos reportados: el FCF TTM es positivo, aunque
+    no verificable mediante URL admisible.'
+  status: observación para Assessment; no es decisión de compra
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 'No calculado: inputs financieros sin URL admisible en trusted_source_urls.'
+  status: observación para Assessment; no es decisión de compra
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: no se aporta una serie de acciones de tres años con
+    fuente verificable.'
+  status: observación para Assessment; no es decisión de compra
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-19'
+  scenarios:
+  - falsifiers:
+    - Un método de valoración con inputs operativos verificables que justifique un
+      valor distinto.
+    - Resultados futuros que contradigan el uso del extremo bajo como resultado adverso
+      plausible.
+    id: BEAR
+    key_assumptions:
+    - El precio objetivo bajo del consenso observado es una ancla de escenario, no
+      un resultado garantizado.
+    - La evidencia del paquete no permite atribuir el extremo a cambios específicos
+      de producción, precios, inversión o márgenes.
+    rationale: Ancla baja observada del rango de objetivos de analistas al 2026-11-20;
+      representa el extremo adverso publicado, no una valoración intrínseca propia.
+      El paquete no aporta supuestos operativos suficientes para explicar cuantitativamente
+      ese extremo.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/cop/forecast/
+    target_price: 122.0
+  - falsifiers:
+    - Un método de valoración con inputs operativos verificables que justifique un
+      valor distinto.
+    - Resultados futuros que contradigan el uso del extremo alto como resultado favorable
+      plausible.
+    id: BULL
+    key_assumptions:
+    - El precio objetivo alto del consenso observado es una ancla de escenario, no
+      un resultado garantizado.
+    - La evidencia del paquete no permite atribuir el extremo a cambios específicos
+      de producción, precios, inversión o márgenes.
+    rationale: Ancla alta observada del rango de objetivos de analistas al 2026-11-20;
+      representa el extremo favorable publicado, no una valoración intrínseca propia.
+      El paquete no aporta supuestos operativos suficientes para explicar cuantitativamente
+      ese extremo.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/cop/forecast/
+    target_price: 185.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 42
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T12:11:37.549471-03:00'
+  fuentes:
+    stockanalysis: 153.0
+    yfinance: 153.0
+  mediana: 153.0
+  n_fuentes: 2
+  promedio: 153.0
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T12:11:37.549471-03:00'
+    observed_date: '2026-11-20'
+    target_price: 153.0
+    url: https://stockanalysis.com/stocks/cop/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T12:11:37.549471-03:00'
+    observed_date: '2026-11-20'
+    target_price: 153.0
+    url: https://finance.yahoo.com/quote/COP/
+  target_high: 185.0
+  target_low: 122.0
+tesis_inversion: ConocoPhillips opera en exploración y producción de hidrocarburos
+  y LNG; la evidencia aportada muestra FCF TTM positivo y margen bruto reportado,
+  pero no permite validar crecimiento estructural, reinversión, retornos incrementales
+  sobre capital, penetración del mercado direccionable ni ventaja competitiva. La
+  tesis permanece abierta hasta contar con evidencia verificable sobre esas variables
+  y asignación de capital.
+ticker: COP
+version: '3.0'
