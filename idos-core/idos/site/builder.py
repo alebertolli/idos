@@ -1340,7 +1340,7 @@ class SiteBuilder:
                     if proposal_status == "AUTO_BLOCKED" else
                     "Propuesta bloqueada por reglas; no se incorpora a Buy List"
                     if blocked else
-                    "Propuesta pendiente de revisión humana en Decision Board"
+                    "Expediente histórico pendiente de reevaluación automática"
                 )
                 add_alert(
                     "decision_pending", o.get("ticker", ""), "warn",
@@ -1812,7 +1812,7 @@ function renderOpp(){
   };
   let html = `<h2>Research (${rows.length})</h2>`;
   html += `<p class="muted">Oportunidades en <b>Research / UNDER_RESEARCH o UNDER_DEEP_DD</b>: casos que superaron el umbral de Discovery (<b>≥ ${DISC_MIN_SCORE}</b>) y fueron promovidos automáticamente. Aquí se ejecuta la due diligence en profundidad (DDD, assessments, valuation y risk). Hacé clic en un ticker para ver el detalle completo del activo. Clic en una columna para ordenar.</p>`;
-  html += `<p class="muted">Los agentes completan Discovery, Research y Assessment y preparan un expediente con datos, tesis, escenarios, asimetría, riesgos y reglas. La primera intervención humana ocurre una sola vez en <b>Decision Board</b>: el gestor revisa el paquete completo y aprueba o rechaza. Una aprobación válida agrega el caso a la <b>Buy List</b>, sin crear posiciones ni órdenes.</p>`;
+  html += `<p class="muted">Discovery, Research y Assessment preparan el expediente con datos, tesis, escenarios, asimetría, riesgos y reglas. La admisión a <b>Buy List</b> es automática cuando todas las reglas y evidencias requeridas pasan; si falta algo, queda bloqueada con un motivo auditable. Buy List no crea posiciones ni órdenes.</p>`;
   html += detailsEntryRules();
   html += tableInput('opp','opp-search','Buscar ticker...');
   html += `<table id="tbl-opp"><thead>${sortHeadRows('opp')}</thead><tbody>${sortTbody('opp')}</tbody></table>`;
@@ -1905,9 +1905,12 @@ function showCase(oppId){
   html += '</div>';
   const reviewStatus=o.proposal?.status;
   if(['PENDING_HUMAN_REVIEW','BLOCKED','AUTO_BLOCKED'].includes(reviewStatus) && o.proposal?.proposal_hash){
+    const isLegacyPending=reviewStatus==='PENDING_HUMAN_REVIEW';
     const isBlocked=['BLOCKED','AUTO_BLOCKED'].includes(reviewStatus);
-    const title=isBlocked?'Propuesta bloqueada por reglas':'Expediente listo para Decision Board';
-    const guidance=isBlocked
+    const title=isLegacyPending?'Expediente histórico pendiente de reevaluación automática':isBlocked?'Propuesta bloqueada por reglas':'Expediente listo para evaluación automática';
+    const guidance=isLegacyPending
+      ? 'Este expediente histórico se reevaluará con las reglas y evidencias vigentes; no requiere aprobación humana.'
+      : isBlocked
       ? `El motor no la incorpora a Buy List: ${esc(o.proposal?.automatic_block_reason||o.proposal?.reasoning||'hay gates o evidencia que no pasaron')}. Se requiere evidencia nueva para re-evaluar.`
       : 'Discovery, Research y Assessment están listos para la evaluación automática de reglas; la admisión a Buy List no requiere revisión humana.';
     html += `<div class="card"><b>${title}</b><p>${guidance}</p><details><summary>Hash de la propuesta completa</summary><code>${esc(o.proposal.proposal_hash)}</code></details></div>`;
@@ -1923,7 +1926,7 @@ function showCase(oppId){
     html += `<h2>Reporte sistemático</h2><div class="card"><b>Requiere actualización.</b><p class="muted">Regenerar Research con la política vigente antes de interpretar sus métricas. La señal y su fecha siguen disponibles en la estrategia.</p></div>`;
   } else {
   const dddProvisional = !dddReviewed && !dddSystematic;
-  if(dddProvisional) html += `<h2>Análisis fundamental · propuesta de agentes</h2><div class="card"><b>Expediente generado automáticamente; pendiente del Decision Board.</b><p class="muted">Discovery, Research y Assessment completan el análisis y validan la estructura y procedencia disponible. Convicción, valor intrínseco, upside y scores son propuestas sujetas a la decisión del gestor. La revisión de fuentes y supuestos ocurre dentro del Decision Board.</p></div>`;
+  if(dddProvisional) html += `<h2>Análisis fundamental · evaluación automática</h2><div class="card"><b>El expediente se resuelve mediante reglas automáticas.</b><p class="muted">Discovery, Research y Assessment validan la estructura y procedencia disponible. Convicción, valor intrínseco, upside y scores alimentan los gates configurados; sólo los casos con evidencia suficiente pasan a Buy List. El expediente conserva fuentes, supuestos y resultado para auditoría.</p></div>`;
   if(dddSystematic) html += `<div class="card"><b>Reporte sistemático.</b><p class="muted">Señal y métricas generadas por reglas de estrategia; no representan una tesis fundamental ni una aprobación de compra.</p></div>`;
   const dddVerdict = d.conclusion_error_valoracion ?? d.error_mercado?.conclusion_error_valoracion;
   html += `<h2>${dddProvisional?'Tesis de inversión (provisional)':'Tesis de inversión'}</h2>`;
