@@ -1,0 +1,204 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico combinado de servicios empresariales e IoT
+      es inferior al 3% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Vodafone deja de divulgar datos comparables por segmento y no proporciona
+      información alternativa suficiente para verificar el crecimiento.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico combinado de servicios empresariales e IoT es inferior
+    al 3% interanual.
+  - Vodafone deja de divulgar datos comparables por segmento y no proporciona información
+    alternativa suficiente para verificar el crecimiento.
+  horizon: medio
+  id: H1-OPP-MB-VOD
+  opportunity_id: OPP-MB-VOD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-05-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento orgánico interanual combinado de ingresos de servicios empresariales
+      e IoT
+    prediction: En los resultados del ejercicio fiscal que termine en marzo de 2027,
+      los ingresos orgánicos combinados de servicios empresariales e IoT crecerán
+      al menos un 3% interanual.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La presencia en conectividad, soluciones empresariales e IoT ofrece oportunidades
+    de venta cruzada y de atender necesidades de clientes multinacionales. Sin datos
+    suficientes sobre penetración, cuota de mercado o ventaja competitiva, la hipótesis
+    requiere confirmación mediante resultados segmentados.
+  review_trigger: Dejar de creerla si los resultados anuales publicados hasta el 2027-05-31
+    muestran crecimiento orgánico combinado inferior al 3%, o si la compañía revisa
+    a la baja sus perspectivas de esos negocios antes de esa fecha.
+  secondary_hypotheses: []
+  statement: Vodafone aumentará los ingresos orgánicos por servicios empresariales
+    e IoT, mostrando que la escala de sus soluciones de conectividad y servicios digitales
+    puede sostener crecimiento operativo.
+  status: ACTIVE
+  ticker: VOD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF comparable de FY2027 crece menos del 10% respecto de FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF de FY2027 es inferior al de FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El aumento declarado se debe principalmente a cambios de definición
+      o perímetro y no puede conciliarse con una base comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF comparable de FY2027 crece menos del 10% respecto de FY2026.
+  - El FCF de FY2027 es inferior al de FY2026.
+  - El aumento declarado se debe principalmente a cambios de definición o perímetro
+    y no puede conciliarse con una base comparable.
+  horizon: medio
+  id: H2-OPP-MB-VOD
+  opportunity_id: OPP-MB-VOD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-05-31'
+    expected: 10.0
+    met: null
+    metric: Aumento del FCF comparable de FY2027 frente a FY2026
+    prediction: El FCF comparable de FY2027 será al menos un 10% superior al de FY2026,
+      utilizando en ambos ejercicios la misma definición publicada por Vodafone.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM reportado es positivo, pero la caída entre FY2023 y FY2026
+    hace que la sostenibilidad de la generación de caja sea incierta. La recuperación
+    dependería de que el crecimiento del negocio y la disciplina de inversión compensen
+    la presión sobre márgenes y las necesidades de capital.
+  review_trigger: Dejar de creerla si los resultados anuales de FY2027 publicados
+    hasta el 2027-05-31 muestran un aumento del FCF comparable inferior al 10%, o
+    si la compañía reduce formalmente su previsión de FCF para FY2027 por debajo de
+    ese umbral.
+  secondary_hypotheses:
+  - H1-OPP-MB-VOD
+  statement: El flujo de caja libre anual comparable de Vodafone crecerá en FY2027
+    respecto de FY2026, iniciando una recuperación frente a la trayectoria decreciente
+    observada en los ejercicios recientes.
+  status: ACTIVE
+  ticker: VOD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El beneficio neto atribuible de los doce meses terminados el 2028-03-31
+      es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cifra positiva depende de una ganancia extraordinaria que excede
+      el beneficio antes de partidas excepcionales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El beneficio neto atribuible de los doce meses terminados el 2028-03-31 es cero
+    o negativo.
+  - La cifra positiva depende de una ganancia extraordinaria que excede el beneficio
+    antes de partidas excepcionales.
+  horizon: largo
+  id: H3-OPP-MB-VOD
+  opportunity_id: OPP-MB-VOD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-05-31'
+    expected: 0.0
+    met: null
+    metric: Beneficio neto atribuible de los doce meses terminados el 2028-03-31
+    prediction: El beneficio neto atribuible acumulado en los doce meses terminados
+      el 2028-03-31 será superior a cero.
+    unit: GBP millones, superior a cero
+  priority: important
+  probability: 0.5
+  rationale: El ingreso neto TTM disponible a la fecha de corte es negativo, lo que
+    muestra que la generación operativa de caja no se ha traducido necesariamente
+    en rentabilidad contable. Una mejora sostenida del negocio y menores cargas financieras,
+    fiscales o extraordinarias podrían facilitar el retorno a beneficios, pero la
+    evidencia actual no permite identificar cuál de esos factores sería decisivo.
+  review_trigger: Dejar de creerla si los resultados de FY2028 publicados hasta el
+    2028-05-31 informan una pérdida neta atribuible, o si Vodafone advierte antes
+    de esa fecha que espera una pérdida neta para el periodo.
+  secondary_hypotheses:
+  - H2-OPP-MB-VOD
+  statement: Vodafone volverá a registrar beneficio neto atribuible positivo en los
+    doce meses terminados el 31 de marzo de 2028.
+  status: ACTIVE
+  ticker: VOD
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de VOD supera al índice por menos de 8 puntos
+      porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de VOD es inferior a la del índice durante el
+      periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No es posible calcular retornos comparables con precios de cierre y
+      dividendos reinvertidos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de VOD supera al índice por menos de 8 puntos porcentuales.
+  - La rentabilidad total de VOD es inferior a la del índice durante el periodo.
+  - No es posible calcular retornos comparables con precios de cierre y dividendos
+    reinvertidos.
+  horizon: medio
+  id: H4-OPP-MB-VOD
+  opportunity_id: OPP-MB-VOD
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 8.0
+    met: null
+    metric: Rentabilidad total de VOD menos rentabilidad total del MSCI World Communication
+      Services
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de VOD, incluidos dividendos y medida en dólares estadounidenses, superará
+      en al menos 8 puntos porcentuales la del MSCI World Communication Services,
+      calculada en la misma moneda y periodo.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: 'Si el mercado percibe una recuperación verificable del FCF y una mejora
+    en la rentabilidad, podría reducir el descuento aplicado a Vodafone frente a empresas
+    del sector. La tesis de valoración es condicional: la caída reciente del FCF y
+    la pérdida neta TTM también pueden mantener o ampliar ese descuento.'
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la rentabilidad total
+    acumulada de VOD no supera en al menos 8 puntos porcentuales la del índice, o
+    antes si Vodafone anuncia una revisión material a la baja de sus perspectivas
+    de FCF.
+  secondary_hypotheses:
+  - H2-OPP-MB-VOD
+  - H3-OPP-MB-VOD
+  statement: La rentabilidad total de la acción de Vodafone superará la del índice
+    MSCI World Communication Services durante los doce meses posteriores a la fecha
+    de corte.
+  status: ACTIVE
+  ticker: VOD
+  version: 1

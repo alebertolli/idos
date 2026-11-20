@@ -1,0 +1,593 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La combinación de FCF TTM positivo y pérdidas netas TTM hace que la conversión
+    de FCF a ingreso neto no sea significativa bajo la definición configurada.
+  - La amplitud de servicios descrita podría ofrecer varias vías de crecimiento, pero
+    no demuestra por sí misma una ventaja competitiva o retornos atractivos.
+  - La cotización reportada fue USD 15.88 al 2026-10-30, según yfinance.
+  - El momentum de precio a 12 meses reportado fue 31.7842% y el drawdown reportado
+    fue 10.181% al 2026-10-30, según yfinance.
+  - Stockanalysis reportó FCF TTM de 9,973 e ingreso neto TTM de -6,015 al 2026-09-30;
+    la moneda de esos importes no se especifica en el paquete.
+  - El rango de objetivos de analistas recopilado al 2026-11-20 fue USD 12.90–20.82.
+  preguntas_abiertas:
+  - ¿Cuál es la trayectoria de retornos sobre capital, reinversión y crecimiento por
+    segmento?
+  - ¿Qué mercado direccionable y nivel de penetración corresponden a cada negocio
+    y geografía?
+  - ¿Cuál es la evolución comparable de acciones diluidas, deuda, efectivo y EBITDA,
+    con monedas y períodos claramente conciliados?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
+    de crecimiento compuesto
+  justificacion: El paquete muestra momentum positivo de la acción y FCF TTM reportado
+    positivo, pero también pérdidas netas TTM y contracción del FCF en los ejercicios
+    FY2023–FY2026. Varios ratios solicitados no pueden calcularse con inputs comparables
+    y verificables.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe una cartera amplia de telecomunicaciones, conectividad
+    empresarial, IoT y servicios financieros en varias geografías. No se proporcionan
+    datos suficientes sobre participación de mercado, diferenciación, retención, retornos
+    sobre capital o reinversión para establecer la durabilidad de una ventaja competitiva;
+    la evidencia de márgenes brutos y FCF es mixta.
+  rating: Inconcluso
+dominio_catalizadores:
+- catalizador: Confirmación de recuperación del FCF.
+  hito: Observar FCF reportado comparable en períodos sucesivos; el paquete no proporciona
+    una guía corporativa ni una fecha de hito.
+- catalizador: Mejora de rentabilidad.
+  hito: Verificar una transición del ingreso neto TTM negativo a resultados positivos
+    en información financiera posterior; no se aporta calendario.
+- catalizador: Evolución del negocio descrito en el resumen.
+  hito: Obtener métricas segmentarias de conectividad, soluciones empresariales, IoT
+    y servicios financieros; no se aportan métricas de crecimiento o penetración.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: El ingreso neto TTM al 2026-09-30 fue -6,015 en importe reportado; la
+    fuente no especifica en este paquete la moneda de ese campo.
+  fuente: https://stockanalysis.com/stocks/vod/financials/
+  riesgo: Rentabilidad contable débil en el período reciente.
+- evidencia: El FCF reportado bajó de 13,097 en FY2023 a 9,420 en FY2026; importe
+    reportado y moneda no especificada en el paquete.
+  fuente: https://stockanalysis.com/stocks/vod/financials/
+  riesgo: FCF decreciente en la serie anual disponible.
+- evidencia: La serie de net cash es negativa al 2026-09-30, pero el paquete no permite
+    confirmar compatibilidad de moneda y unidad con EBITDA.
+  fuente: https://stockanalysis.com/stocks/vod/financials/
+  riesgo: La deuda neta y su relación con EBITDA no se pueden validar con unidades
+    monetarias compatibles.
+- evidencia: No se proporcionan una serie de ingresos de tres años completos con los
+    períodos necesarios ni una serie de acciones que permita calcular dilución.
+  fuente: https://stockanalysis.com/stocks/vod/financials/
+  riesgo: Información incompleta para evaluar crecimiento, dilución y calidad del
+    capital.
+error_mercado:
+  catalizador_cambio: La evidencia del paquete no identifica un catalizador corporativo
+    fechado; la confirmación de una recuperación sostenida de FCF y resultados netos
+    sería relevante para reevaluar la hipótesis.
+  conclusion_error_valoracion: 'No se valida un error de valoración: el consenso y
+    la cotización son referencias observadas, no una valoración intrínseca, y faltan
+    datos para contrastar expectativas operativas con una valoración propia.'
+  consenso_actual: El precio observado fue USD 15.88 al 2026-10-30; al 2026-11-20,
+    las estimaciones de precio objetivo recopiladas arrojan media y mediana de USD
+    16.36, con rango de USD 12.90–20.82.
+  hipotesis_contraria: El rango de objetivos puede no reflejar adecuadamente la presión
+    sobre márgenes, la caída del FCF en ejercicios recientes y la pérdida neta TTM
+    observadas en la evidencia financiera disponible.
+  razonamiento: El objetivo medio recopilado está por encima de la cotización observada,
+    pero la evidencia suministrada no incluye estimaciones de crecimiento, retornos
+    sobre capital ni un método de valoración con inputs fechados que permitan sostener
+    esa diferencia.
+generated_at: '2026-11-20T20:48:01.851190-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-VOD
+prompt_inputs:
+  business_model: Vodafone Group Public Limited Company provides telecommunication
+    services in Germany, the United Kingdom, rest of Europe, Turkey, and South Africa.
+    It offers mobile and fixed services; connectivity business solutions, such as
+    digital services, the Internet of Things (IoT) and financial services; and IoT
+    platforms. The company also provides cloud, multi-cloud, and edge computing solutions;
+    M-PESA, an African mobile money platform to make payments and offer financial
+    services; and international voice and roaming services. In addition, it offers
+    unified communications, mobile connectivity, IoT connectivity, cloud and edge,
+    E2E solutions, and security services; leases fibre and other fixed connectivity
+    services; and engages in infrastructure assets, shared operations, growth platforms,
+    retail, and service operations. The company serves private and public sector customers
+    in health, banking and finance, transport and logistics, retail, utilities, and
+    agriculture industries. Vodafone Group Public Limited Company was incorporated
+    in 1984 and is based in Newbury, the United Kingdom.
+  ceo_tenure: 0
+  debt_to_equity: 0.0126
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Vodafone Group Public Limited Company
+  operating_margin: 7.53
+  pe_ratio: 0
+  products: ''
+  revenue: 48500000000.0
+  revenue_growth: 5.55
+  roic: 3.4
+  sector: Communication Services
+  ticker: VOD
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: La serie disponible contiene FY2024, FY2025 y FY2026, pero no
+      aporta la fila FY2023 necesaria para un CAGR de tres años.
+  limitations: Falta el ingreso fechado FY2023 requerido para comparar FY2026 con
+    t-3; no se completa con un período inferido.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/vod/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: Crecimiento de FCF reportado por la fuente para TTM; no se recalcula a
+    partir de períodos no equivalentes.
+  inputs:
+    fcf_growth_history:
+      period: TTM
+      period_end: '2026-09-30'
+      unit: percent
+      value: 5.87
+  limitations: Se conserva la medida TTM reportada; no se asume que su comparación
+    subyacente sea equivalente a la serie anual FY.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/vod/financials/
+  status: reported
+  unit: percent
+  value: 5.87
+- formula: FCF / net_income * 100; no significativo si net_income <= 0
+  inputs:
+    fcf_history:
+      period: TTM
+      period_end: '2026-09-30'
+      unit: source_reported_amount
+      value: 9973.0
+    net_income_history:
+      period: TTM
+      period_end: '2026-09-30'
+      unit: source_reported_amount
+      value: -6015.0
+  limitations: El ingreso neto TTM es negativo; conforme a la definición configurada,
+    la conversión no es significativa y no se calcula.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/vod/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash /
+    EBITDA si net_cash = cash - debt
+  inputs:
+    ebitda:
+      period: TTM
+      period_end: '2026-09-30'
+      value: 10700000000.0
+    net_cash_history:
+      period: Current
+      period_end: '2026-09-30'
+      unit: source_reported_amount
+      value: -47881.0
+  limitations: No se puede verificar que el importe de net cash y EBITDA estén expresados
+    en la misma moneda y escala; no se deriva el múltiplo.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/vod/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/VOD/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding:
+      period_end: '2026-09-30'
+      value: 23080000000.0
+  limitations: Sólo hay un dato actual de acciones en los campos proporcionados; falta
+    un dato comparable del período anterior para calcular variación interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/VOD/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Vodafone Group Public Limited Company provides telecommunication
+    services in Germany, the United Kingdom, rest of Europe, Turkey, and South Africa.
+    It offers mobile and fixed services; connectivity business solutions, such as
+    digital services, the Internet of Things (IoT) and financial services; and IoT
+    platforms. The company also provides cloud, multi-cloud, and edge computing solutions;
+    M-PESA, an African mobile money platform to make payments and offer financial
+    services; and international voice and roaming services. In addition, it offers
+    unified communications, mobile connectivity, IoT connectivity, cloud and edge,
+    E2E solutions, and security services; leases fibre and other fixed connectivity
+    services; and engages in infrastructure assets, shared operations, growth platforms,
+    retail, and service operations. The company serves private and public sector customers
+    in health, banking and finance, transport and logistics, retail, utilities, and
+    agriculture industries. Vodafone Group Public Limited Company was incorporated
+    in 1984 and is based in Newbury, the United Kingdom.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 15.880000114440918
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0126
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T23:47:28.730811+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Vodafone Group Public Limited Company
+  operating_margin: 7.53
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Vodafone Group Public Limited Company provides telecommunication
+    services in Germany, the United Kingdom, rest of Europe, Turkey, and South Africa.
+    It offers mobile and fixed services; connectivity business solutions, such as
+    digital services, the Internet of Things (IoT) and financial services; and IoT
+    platforms. The company also provides cloud, multi-cloud, and edge computing solutions;
+    M-PESA, an African mobile money platform to make payments and offer financial
+    services; and international vo
+  revenue: 48500000000.0
+  revenue_growth: 5.55
+  roic: 3.4
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/vod/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/VOD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/VOD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/VOD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/VOD/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/vod/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/vod/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/vod/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/VOD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/vod/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/VOD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/vod/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/vod/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/vod/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/VOD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/VOD/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/vod/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    20.82, "low": 12.9, "mean": 16.36, "median": 16.36, "observed_at": "2026-11-20T20:47:32.529433-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T20:47:32.529433-03:00", "observed_date": "2026-11-20", "target_price":
+    16.34, "url": "https://stockanalysis.com/stocks/vod/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T20:47:32.529433-03:00",
+    "observed_date": "2026-11-20", "target_price": 16.371819, "url": "https://finance.yahoo.com/quote/VOD/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 15.880000114440918,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/VOD/"}]}}'
+  sector: Communication Services
+  ticker: VOD
+research_trigger:
+  discovery_snapshot_hash: e8ea8abec998158f86b193f7ad86cdac07be40cd32a67b1df241603f54dd62fa
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: bc3c71d6a8c7ff620c1fdef3a0ead1fe69e6e13db0260df7b257616a38967049
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T20:48:01.851190-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.04 al 2026-09-30; no cruza el umbral configurado.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/VOD/statistics/
+  threshold: below 0.5
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30; requiere validación del dato y de
+    su metodología antes de interpretarlo.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/VOD/statistics/
+  threshold: below 2.0
+- metric: net_debt_ebitda
+  observation: 'No evaluable: unidades monetarias compatibles para deuda neta y EBITDA
+    no verificadas.'
+  threshold: above 4.0
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta un conteo comparable de acciones del período anterior.'
+  threshold: above 10%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Información posterior que muestre recuperación sostenida y comparable de FCF
+      y rentabilidad neta.
+    id: BEAR
+    key_assumptions:
+    - Se usa el extremo bajo observado del rango de objetivos de analistas como ancla,
+      no una valoración intrínseca propia.
+    - La evidencia financiera reciente no confirma una recuperación sostenida del
+      FCF o del ingreso neto.
+    rationale: 'Ancla de consenso observada: extremo bajo de los objetivos recopilados
+      en USD. Es un resultado adverso plausible si persiste la debilidad de rentabilidad
+      y FCF reflejada en los períodos financieros disponibles; el paquete no demuestra
+      que esos factores causen específicamente ese objetivo.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/vod/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/VOD/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/vod/financials/
+    target_price: 12.9
+  - falsifiers:
+    - Persistencia de pérdidas netas y deterioro del FCF en períodos posteriores comparables.
+    id: BULL
+    key_assumptions:
+    - Se usa el extremo alto observado del rango de objetivos de analistas como ancla,
+      no una valoración intrínseca propia.
+    - La cartera de servicios descrita en el resumen puede acompañarse de mejora de
+      FCF y rentabilidad, aspecto aún no validado por la evidencia disponible.
+    rationale: 'Ancla de consenso observada: extremo alto de los objetivos recopilados
+      en USD. Representa el mejor resultado plausible dentro del rango observado si
+      se materializa una mejora operativa, pero el paquete no aporta previsiones segmentarias
+      o un método de valoración que pruebe esa mejora.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/vod/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/VOD/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/vod/financials/
+    target_price: 20.82
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T20:47:32.529433-03:00'
+  fuentes:
+    stockanalysis: 16.34
+    yfinance: 16.371819
+  mediana: 16.36
+  n_fuentes: 2
+  promedio: 16.36
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T20:47:32.529433-03:00'
+    observed_date: '2026-11-20'
+    target_price: 16.34
+    url: https://stockanalysis.com/stocks/vod/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T20:47:32.529433-03:00'
+    observed_date: '2026-11-20'
+    target_price: 16.371819
+    url: https://finance.yahoo.com/quote/VOD/
+  target_high: 20.82
+  target_low: 12.9
+tesis_inversion: 'La tesis a investigar es si la escala de servicios de conectividad,
+  soluciones empresariales, IoT y servicios financieros descrita en el resumen puede
+  sostener crecimiento rentable y recuperación del FCF. La evidencia financiera disponible
+  es mixta: el FCF TTM reportado es positivo, mientras que el FCF de FY2023 a FY2026
+  disminuye y el ingreso neto TTM es negativo; faltan datos para validar reinversión,
+  retornos sobre capital, penetración de mercado y ventaja competitiva.'
+ticker: VOD
+version: '3.0'

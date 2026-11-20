@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 155 companies tracked
+Total: 158 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -35,6 +35,7 @@ Total: 155 companies tracked
 - ⏳ [[PSO|Pearson plc]]
 - 📄 [[ROKU|Roku, Inc.]]
 - 📄 [[TEO|Telecom Argentina S.A.]]
+- 📄 [[VOD|Vodafone Group Public Limited Company]]
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
@@ -127,6 +128,7 @@ Total: 155 companies tracked
 - 📄 [[NVS|Novartis AG]]
 - 📄 [[TMO|Thermo Fisher Scientific Inc.]]
 - 📄 [[UNH|UnitedHealth Group Incorporated]]
+- 📄 [[VRTX|Vertex Pharmaceuticals Incorporated]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
@@ -181,6 +183,7 @@ Total: 155 companies tracked
 - 📄 [[TSM|Taiwan Semiconductor Manufacturing Company Limited]]
 - 📄 [[TWLO|Twilio Inc.]]
 - ⏳ [[TXN|Texas Instruments Incorporated]]
+- 📄 [[VRSN|VeriSign, Inc.]]
 
 ## Utilities
 - 📄 [[CEG|Constellation Energy Corporation]]

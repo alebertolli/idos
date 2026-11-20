@@ -1,0 +1,190 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El total de registros .com y .net al cierre del periodo es igual o
+      inferior al nivel de referencia del 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa una caída interanual del total de registros en dos
+      publicaciones trimestrales consecutivas dentro del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El total de registros .com y .net al cierre del periodo es igual o inferior al
+    nivel de referencia del 2026-11-20.
+  - La empresa informa una caída interanual del total de registros en dos publicaciones
+    trimestrales consecutivas dentro del periodo.
+  horizon: medio
+  id: H1-OPP-MB-VRSN
+  opportunity_id: OPP-MB-VRSN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 1.0
+    met: null
+    metric: Crecimiento del total de registros .com y .net
+    prediction: Al 2027-11-20, el total de registros .com y .net será al menos un
+      1,0% superior al nivel del 2026-11-20, comparando las cifras más recientes disponibles
+      en cada fecha.
+    unit: '% interanual mínimo'
+  priority: important
+  probability: 0.5
+  rationale: La tesis favorable atribuye resiliencia a la demanda de registros .com
+    y .net, pero la información disponible no aporta cifras recientes de registros
+    ni evidencia suficiente para confirmar esa resiliencia. La hipótesis se comprobará
+    con los datos operativos publicados por la empresa.
+  review_trigger: Dejar de creerla si dos publicaciones trimestrales consecutivas
+    muestran una caída interanual del total de registros .com y .net, o si la cifra
+    al 2027-11-20 no supera la referencia inicial.
+  secondary_hypotheses: []
+  statement: La actividad de registros de VeriSign seguirá creciendo moderadamente
+    durante los próximos doce meses, en lugar de estancarse.
+  status: ACTIVE
+  ticker: VRSN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de los ingresos de los últimos doce meses
+      es inferior al 3,0% al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos muestran contracción interanual en dos trimestres consecutivos
+      durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de los ingresos de los últimos doce meses es inferior
+    al 3,0% al 2027-11-20.
+  - Los ingresos muestran contracción interanual en dos trimestres consecutivos durante
+    el periodo.
+  horizon: medio
+  id: H2-OPP-MB-VRSN
+  opportunity_id: OPP-MB-VRSN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 3.0
+    met: null
+    metric: Crecimiento de ingresos de los últimos doce meses
+    prediction: Al 2027-11-20, los ingresos de los últimos doce meses serán al menos
+      un 3,0% superiores a los ingresos de los doce meses terminados el 2026-11-20,
+      según los estados financieros publicados.
+    unit: '% interanual mínimo'
+  priority: important
+  probability: 0.5
+  rationale: La tesis de inversión plantea que el crecimiento de registros e ingresos
+    puede persistir y que el negocio tiene márgenes brutos elevados. Sin cifras recientes
+    en el paquete, el crecimiento de ingresos debe verificarse directamente y no darse
+    por supuesto.
+  review_trigger: Dejar de creerla si los ingresos de los últimos doce meses crecen
+    menos del 3,0% al 2027-11-20 o si se registran dos trimestres consecutivos de
+    contracción interanual.
+  secondary_hypotheses:
+  - H1-OPP-MB-VRSN
+  statement: Los ingresos de VeriSign crecerán durante los próximos doce meses, respaldados
+    por la continuidad del negocio de registros.
+  status: ACTIVE
+  ticker: VRSN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre de los últimos doce meses es inferior
+      al 30% al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de flujo de caja libre cae por debajo del 30% en dos mediciones
+      trimestrales consecutivas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre de los últimos doce meses es inferior al 30%
+    al 2027-11-20.
+  - El margen de flujo de caja libre cae por debajo del 30% en dos mediciones trimestrales
+    consecutivas.
+  horizon: medio
+  id: H3-OPP-MB-VRSN
+  opportunity_id: OPP-MB-VRSN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 30.0
+    met: null
+    metric: Margen de flujo de caja libre de los últimos doce meses
+    prediction: Para los doce meses terminados el 2027-11-20, el margen de flujo de
+      caja libre será de al menos el 30%, calculado como flujo de caja operativo menos
+      inversiones de capital, dividido por ingresos.
+    unit: '% mínimo'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis favorable depende de una elevada conversión de caja, aunque
+    el material suministrado no incluye cifras para validarla. El flujo de caja operativo
+    menos inversiones de capital, dividido por los ingresos, ofrece una medida observable
+    y reproducible.
+  review_trigger: Dejar de creerla si el margen calculado con datos de los últimos
+    doce meses cae por debajo del 30% en dos mediciones trimestrales consecutivas
+    o permanece por debajo de ese umbral al 2027-11-20.
+  secondary_hypotheses:
+  - H2-OPP-MB-VRSN
+  statement: VeriSign mantendrá una elevada conversión de ingresos en flujo de caja
+    libre durante los próximos doce meses.
+  status: ACTIVE
+  ticker: VRSN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de VRSN no supera al del Nasdaq-100 en al menos
+      5 puntos porcentuales al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: VRSN registra un rendimiento total inferior al del Nasdaq-100 y, además,
+      no alcanza el crecimiento de ingresos previsto en H2.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de VRSN no supera al del Nasdaq-100 en al menos 5 puntos
+    porcentuales al 2027-11-20.
+  - VRSN registra un rendimiento total inferior al del Nasdaq-100 y, además, no alcanza
+    el crecimiento de ingresos previsto en H2.
+  horizon: medio
+  id: H4-OPP-MB-VRSN
+  opportunity_id: OPP-MB-VRSN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de VRSN frente al Nasdaq-100
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de VRSN,
+      incluidos dividendos, superará en al menos 5 puntos porcentuales el rendimiento
+      total del Nasdaq-100.
+    unit: puntos porcentuales de exceso mínimo
+  priority: informational
+  probability: 0.5
+  rationale: La tesis de mercado sostiene que los inversores podrían estar subestimando
+    la resiliencia del negocio. No se proporcionan precio, múltiplos, expectativas
+    del mercado ni una estimación de valor intrínseco; por ello, esta hipótesis solo
+    puede evaluarse como rendimiento relativo y no demuestra por sí sola una infravaloración.
+  review_trigger: Dejar de creerla al 2027-11-20 si la diferencia de rendimiento total
+    frente al Nasdaq-100 es inferior a 5 puntos porcentuales; reevaluarla antes si
+    H2 se falsifica.
+  secondary_hypotheses:
+  - H2-OPP-MB-VRSN
+  - H3-OPP-MB-VRSN
+  statement: Si VeriSign confirma crecimiento de ingresos y conversión de caja, su
+    acción tendrá un rendimiento total superior al del Nasdaq-100 durante los próximos
+    doce meses.
+  status: ACTIVE
+  ticker: VRSN
+  version: 1

@@ -1,0 +1,144 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento de ingresos del ejercicio 2027 frente al ejercicio 2026
+      es inferior al 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa una contracción interanual de ingresos en dos trimestres
+      consecutivos del ejercicio 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento de ingresos del ejercicio 2027 frente al ejercicio 2026 es inferior
+    al 8%.
+  - La compañía informa una contracción interanual de ingresos en dos trimestres consecutivos
+    del ejercicio 2027.
+  horizon: medio
+  id: H1-OPP-MB-VRTX
+  opportunity_id: OPP-MB-VRTX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 8.0
+    met: null
+    metric: Crecimiento de ingresos del ejercicio 2027 frente al ejercicio 2026
+    prediction: Los ingresos consolidados del ejercicio 2027 serán al menos un 8%
+      superiores a los del ejercicio 2026, según los estados financieros anuales publicados
+      para el ejercicio 2027.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La compañía opera en fibrosis quística, enfermedad de células falciformes,
+    beta talasemia dependiente de transfusiones y dolor agudo. La diversificación
+    podría ampliar las fuentes de crecimiento, pero la información disponible no permite
+    cuantificar la contribución futura de cada área; por eso la hipótesis exige crecimiento
+    agregado, no atribuye un resultado a un producto concreto.
+  review_trigger: Dejar de creerla si los resultados de dos trimestres consecutivos
+    del ejercicio 2027 muestran ingresos interanuales decrecientes, o si la publicación
+    anual del ejercicio 2027 confirma crecimiento inferior al 8%.
+  secondary_hypotheses: []
+  statement: Vertex aumentará sus ingresos consolidados en el ejercicio 2027 frente
+    al ejercicio 2026, apoyada por la continuidad de su negocio de fibrosis quística
+    y una contribución creciente de sus otras áreas terapéuticas.
+  status: ACTIVE
+  ticker: VRTX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF acumulado del ejercicio 2027 es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de FCF del ejercicio 2027 es inferior al 10% de los ingresos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF acumulado del ejercicio 2027 es cero o negativo.
+  - El margen de FCF del ejercicio 2027 es inferior al 10% de los ingresos.
+  horizon: medio
+  id: H2-OPP-MB-VRTX
+  opportunity_id: OPP-MB-VRTX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: Margen de FCF del ejercicio 2027
+    prediction: El FCF acumulado del ejercicio 2027 será positivo y equivaldrá al
+      menos al 10% de los ingresos consolidados de ese ejercicio.
+    unit: '% de los ingresos'
+  priority: important
+  probability: 0.5
+  rationale: El contexto indica que el flujo de caja libre (FCF) de los últimos doce
+    meses es positivo. Esa observación respalda una hipótesis de continuidad, pero
+    no demuestra que el FCF pueda mantenerse ante cambios en ingresos, gastos de I+D,
+    inversión o capital circulante. La prueba propuesta evalúa el FCF anual reportado,
+    sin asumir rendimientos incrementales sobre el capital.
+  review_trigger: Dejar de creerla cuando un informe trimestral muestre FCF acumulado
+    negativo durante los primeros nueve meses del ejercicio 2027 y la compañía no
+    publique evidencia posterior de recuperación; confirmación definitiva con los
+    resultados anuales del ejercicio 2027.
+  secondary_hypotheses:
+  - H1-OPP-MB-VRTX
+  statement: Vertex conservará capacidad de generación de caja positiva durante el
+    ejercicio 2027, incluso mientras financia el desarrollo y la comercialización
+    de sus distintas áreas terapéuticas.
+  status: ACTIVE
+  ticker: VRTX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de VRTX menos la de XBI durante el periodo es
+      inferior a 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de VRTX durante el periodo es negativa.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de VRTX menos la de XBI durante el periodo es inferior a
+    10 puntos porcentuales.
+  - La rentabilidad total de VRTX durante el periodo es negativa.
+  horizon: medio
+  id: H3-OPP-MB-VRTX
+  opportunity_id: OPP-MB-VRTX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total de VRTX menos rentabilidad total de XBI
+    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
+      noviembre de 2027, la rentabilidad total de VRTX, incluidos dividendos, superará
+      la rentabilidad total de XBI en al menos 10 puntos porcentuales.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: 'La información disponible señala un rango amplio de objetivos de valoración,
+    pero no aporta sus supuestos ni evidencia para establecer una brecha concreta
+    entre precio y fundamentos. Por ello, esta es una hipótesis de desempeño relativo,
+    no una afirmación de infravaloración: el resultado se puede observar directamente
+    y contrastar con un índice sectorial.'
+  review_trigger: Dejar de creerla al cierre del 20 de noviembre de 2027 si la ventaja
+    de rentabilidad total frente a XBI es inferior a 10 puntos porcentuales; dejar
+    de creerla antes si la rentabilidad total de VRTX cae al menos un 20% desde el
+    cierre del 20 de noviembre de 2026.
+  secondary_hypotheses:
+  - H1-OPP-MB-VRTX
+  - H2-OPP-MB-VRTX
+  statement: Durante los doce meses siguientes a la fecha de corte, la rentabilidad
+    total de la acción de Vertex superará la del ETF SPDR S&P Biotech (XBI), consistente
+    con que el mercado valore favorablemente la continuidad del crecimiento y la generación
+    de caja.
+  status: ACTIVE
+  ticker: VRTX
+  version: 1
