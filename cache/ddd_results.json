@@ -2,49 +2,49 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-JNJ",
-      "ticker": "JNJ",
-      "status": "completed",
-      "score": 62,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-JOYY",
-      "ticker": "JOYY",
-      "status": "hypothesis_validation_failed",
-      "score": null,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "H1: prediction or trigger references an expired year"
-      ]
-    },
-    {
-      "opp_id": "OPP-MB-JPM",
-      "ticker": "JPM",
+      "opp_id": "OPP-MB-KB",
+      "ticker": "KB",
       "status": "quality_failed",
-      "score": 42,
+      "score": 38,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
+    },
+    {
+      "opp_id": "OPP-MB-KO",
+      "ticker": "KO",
+      "status": "quality_failed",
+      "score": 58,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "opp_id": "OPP-MB-LLY",
+      "ticker": "LLY",
+      "status": "completed",
+      "score": 62,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "JOYY",
-      "opp_id": "OPP-MB-JOYY",
-      "status": "hypothesis_validation_failed",
-      "error": "H1: prediction or trigger references an expired year",
+      "ticker": "KB",
+      "opp_id": "OPP-MB-KB",
+      "status": "quality_failed",
+      "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
-        "H1: prediction or trigger references an expired year"
+        "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "ticker": "JPM",
-      "opp_id": "OPP-MB-JPM",
+      "ticker": "KO",
+      "opp_id": "OPP-MB-KO",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -53,7 +53,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 112,
+  "deferred_count": 111,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

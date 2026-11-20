@@ -1,0 +1,556 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Las tendencias reportadas de ingresos y beneficio neto no bastan para atribuir
+    crecimiento a reinversión, mejora de retornos sobre capital o una ventaja competitiva.
+  - Sin extremos de consenso utilizables ni inputs defendibles de valoración, no es
+    posible establecer escenarios de precio dentro de las reglas solicitadas.
+  - yfinance reporta momentum de precio a 12 meses de 38.4181% y drawdown de 15.1866%
+    para 2025-10-31/2026-10-30; https://finance.yahoo.com/quote/KB/history/.
+  - StockAnalysis reporta beneficio neto de 4,026,590 en FY 2022 y 5,630,770 en FY
+    2025, e ingresos de 12,085,842 y 15,884,338, respectivamente; moneda/unidad de
+    los importes no especificada en la observación. https://stockanalysis.com/stocks/kb/financials/.
+  - El resumen financiero registra precio de USD 112.70 al 2026-10-30 y objetivo medio
+    de analistas de USD 166.51 observado al 2026-11-20; los extremos bajo y alto aparecen
+    como 0. https://finance.yahoo.com/quote/KB/.
+  preguntas_abiertas:
+  - ¿Cuál es la serie comparable y con moneda/unidad explícita de ingresos, FCF, efectivo
+    y deuda?
+  - ¿Cuáles son EBIT, gasto por intereses, EBITDA y acciones diluidas por período?
+  - ¿Qué datos segmentados permiten valorar mercados direccionables, penetración,
+    competencia y retornos sobre capital?
+  - ¿Qué rango de consenso y supuestos de valoración sustentan las expectativas observadas?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Research requerido; oportunidad no validada
+  justificacion: El paquete aporta evidencia de mercado y algunos datos financieros,
+    pero no permite validar los ratios solicitados ni construir escenarios BEAR/BULL
+    defendibles.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe una entidad financiera con oferta de depósitos y préstamos
+    y actividad en varios países, pero no aporta datos suficientes para validar moat,
+    retornos sobre capital, reinversión o penetración de mercado. Los ratios de negocio
+    solicitados quedan sin validar por faltantes o incompatibilidades de datos.
+  rating: No determinado
+dominio_catalizadores:
+- catalizador: La actualización de resultados puede aclarar la evolución de ingresos,
+    beneficio neto y FCF frente a las series históricas disponibles.
+  evidencia: StockAnalysis reporta ingresos FY 2022–FY 2025 y TTM terminado el 2026-09-30;
+    no se proporciona un calendario de próximos resultados.
+  fuente: https://stockanalysis.com/stocks/kb/financials/
+- catalizador: La publicación de datos de acciones diluidas y de EBITDA/EBIT podría
+    permitir evaluar dilución y apalancamiento con las definiciones requeridas.
+  evidencia: El paquete no incluye historia de acciones diluidas; EBITDA y EBIT figuran
+    como n/a.
+  fuente: 'StockAnalysis, período TTM terminado el 2026-09-30: https://stockanalysis.com/stocks/KB/statistics/.'
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: 'StockAnalysis, observaciones al 2026-09-30: https://stockanalysis.com/stocks/KB/statistics/
+    y https://stockanalysis.com/stocks/kb/financials/.'
+  riesgo: 'Métricas clave insuficientes o no comparables: no se pueden calcular los
+    cinco ratios solicitados con los campos, períodos y unidades disponibles.'
+- fuente: 'StockAnalysis, período TTM terminado el 2026-09-30: https://stockanalysis.com/stocks/KB/statistics/.'
+  riesgo: 'La evidencia sobre liquidez y cobertura de intereses no es interpretable:
+    el proveedor muestra current ratio e interest coverage como 0 y EBIT como n/a.'
+- fuente: 'StockAnalysis, períodos TTM terminado el 2026-09-30 y FY 2022–FY 2025:
+    https://stockanalysis.com/stocks/kb/financials/.'
+  riesgo: La serie de FCF reportada es negativa en TTM y en FY 2022–FY 2025; no hay
+    FCF positivo comparable para evaluar crecimiento bajo la definición indicada.
+- fuente: 'yfinance, períodos 2025-10-31/2026-10-30: https://finance.yahoo.com/quote/KB/history/.'
+  riesgo: 'El momentum de precio observado no elimina el riesgo de fluctuación: el
+    paquete informa volatilidad a 90 días de 36.6524% y drawdown de 15.1866% para
+    el período indicado.'
+error_mercado:
+  catalizador_cambio: Resultados financieros comparables y divulgación de supuestos
+    que permitan evaluar la trayectoria de beneficios, capital y valoración.
+  conclusion_error_valoracion: No se puede establecer si existe un error de valoración
+    con la evidencia disponible.
+  consenso_actual: El precio observado fue USD 112.70 al 2026-10-30; el objetivo medio
+    de analistas reportado fue USD 166.51 al 2026-11-20. El paquete muestra extremos
+    bajo y alto de 0, por lo que no ofrece un rango de consenso utilizable.
+  hipotesis_contraria: 'La diferencia entre precio y objetivo medio no demuestra por
+    sí sola una infravaloración: no hay estimaciones financieras ni método de valoración
+    que expliquen el objetivo.'
+  razonamiento: 'La cotización y el objetivo medio están expresados en USD, pero el
+    paquete no aporta un rango bajo/alto válido ni inputs para justificar una valoración
+    propia. Fuente: yfinance, cotización al 2026-10-30 y consenso observado al 2026-11-20,
+    https://finance.yahoo.com/quote/KB/.'
+generated_at: '2026-11-20T16:19:52.909676-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-KB
+prompt_inputs:
+  business_model: KB Financial Group Inc. provides financial products and services
+    in South Korea, the United States, New Zealand, China, Cambodia, the United Kingdom,
+    Indonesia, and internationally. The company offers deposit products, such as demand
+    and time deposits, certificates of deposit, foreign currency deposits, and savings
+    deposits for housing subscription; loan products, including mortgage loans to
+    finance home purchases, construction, improvements, or rentals; and home equity
+    loans, overdraft loans, and other consumer loans. It also provides debit and credit
+    cards; working capital loans and facility loans; mortgage loans to home builders
+    or developers; securities underwriting; financing and financial advisory services
+    for mergers and acquisitions; project finance and financial advisory services
+    for social overhead capital projects such as highway, port, power, water, and
+    sewage projects; financing and financial advisory services for real estate development
+    projects; and structured finance. In addition, the company offers brokerage services
+    for stocks, futures, options, equity, derivative-linked securities, and debt instruments;
+    foreign exchange services and derivatives dealing; import and export-related services;
+    offshore lending, syndicated loans, and foreign currency securities investment;
+    and trust account management services. Further, it provides long-term insurance
+    products, automobile insurance products, and general property and casualty insurance
+    products; life insurance comprising annuities, savings insurance, variable life
+    insurance, whole life insurance, term life insurance, and health insurance; bancassurance;
+    consumer finance services; and mortgage financing and construction loans. Additionally,
+    the company is involved in real estate trust management; capital investment; and
+    software advisory, development, and supply. KB Financial Group Inc. was founded
+    in 1963 and is headquartered in Seoul, South Korea.
+  ceo_tenure: 0
+  debt_to_equity: 0.0273
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: KB Financial Group Inc.
+  operating_margin: 57.08
+  pe_ratio: 8.65
+  products: ''
+  revenue: 12760000000.0
+  revenue_growth: 16.07
+  roic: 10.1
+  sector: Financial Services
+  ticker: KB
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history:
+    - period: FY 2023
+      period_end: '2023-12-31'
+      source: StockAnalysis
+      value: 13032378.0
+    - period: TTM
+      period_end: '2026-09-30'
+      source: StockAnalysis
+      value: 17283418.0
+  limitations: El punto inicial FY 2023 y el punto final TTM al 2026-09-30 no forman
+    un intervalo exacto de tres años; además, la unidad/moneda de los importes no
+    está especificada en la observación.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/kb/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      source: StockAnalysis
+      value: -18238001.0
+    - period: FY 2025
+      period_end: '2025-12-31'
+      source: StockAnalysis
+      value: -19257188.0
+  limitations: Los dos FCF reportados son negativos y los períodos TTM y FY no son
+    comparables bajo la definición requerida; la unidad/moneda no está especificada.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/kb/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+  inputs:
+    fcf_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      source: StockAnalysis
+      value: -18238001.0
+    net_income_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      source: StockAnalysis
+      value: 6174465.0
+  limitations: No se puede reconciliar el FCF de fcf_history (-18,238,001) con el
+    campo fcf de estadísticas (-13,650,000,000); las unidades/monedas reportadas no
+    son compatibles o no están especificadas.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/kb/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history:
+    - period: Current
+      period_end: '2026-09-30'
+      source: StockAnalysis
+      value: 156407881.0
+    ebitda: n/a
+    total_debt_history:
+    - period: Current
+      period_end: '2026-09-30'
+      source: StockAnalysis
+      value: 170766756.0
+  limitations: EBITDA figura como n/a; además, cash_and_investments no se identifica
+    como cash_and_equivalents y no se confirma compatibilidad de unidad/moneda con
+    deuda.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/kb/financials/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/KB/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares_history: null
+    shares_outstanding:
+      period_end: '2026-09-30'
+      source: StockAnalysis
+      value: 348350000.0
+  limitations: Falta el dato comparable del período anterior y no hay serie de acciones
+    diluidas; el dato actual de acciones en circulación por sí solo no permite calcular
+    dilución interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/KB/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: KB Financial Group Inc. provides financial products and services
+    in South Korea, the United States, New Zealand, China, Cambodia, the United Kingdom,
+    Indonesia, and internationally. The company offers deposit products, such as demand
+    and time deposits, certificates of deposit, foreign currency deposits, and savings
+    deposits for housing subscription; loan products, including mortgage loans to
+    finance home purchases, construction, improvements, or rentals; and home equity
+    loans, overdraft loans, and other consumer loans. It also provides debit and credit
+    cards; working capital loans and facility loans; mortgage loans to home builders
+    or developers; securities underwriting; financing and financial advisory services
+    for mergers and acquisitions; project finance and financial advisory services
+    for social overhead capital projects such as highway, port, power, water, and
+    sewage projects; financing and financial advisory services for real estate development
+    projects; and structured finance. In addition, the company offers brokerage services
+    for stocks, futures, options, equity, derivative-linked securities, and debt instruments;
+    foreign exchange services and derivatives dealing; import and export-related services;
+    offshore lending, syndicated loans, and foreign currency securities investment;
+    and trust account management services. Further, it provides long-term insurance
+    products, automobile insurance products, and general property and casualty insurance
+    products; life insurance comprising annuities, savings insurance, variable life
+    insurance, whole life insurance, term life insurance, and health insurance; bancassurance;
+    consumer finance services; and mortgage financing and construction loans. Additionally,
+    the company is involved in real estate trust management; capital investment; and
+    software advisory, development, and supply. KB Financial Group Inc. was founded
+    in 1963 and is headquartered in Seoul, South Korea.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 112.69999694824219
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0273
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T19:19:24.867133+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: KB Financial Group Inc.
+  operating_margin: 57.08
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: KB Financial Group Inc. provides financial products and services
+    in South Korea, the United States, New Zealand, China, Cambodia, the United Kingdom,
+    Indonesia, and internationally. The company offers deposit products, such as demand
+    and time deposits, certificates of deposit, foreign currency deposits, and savings
+    deposits for housing subscription; loan products, including mortgage loans to
+    finance home purchases, construction, improvements, or rentals; and home equity
+    loans, overdraft loans, a
+  revenue: 12760000000.0
+  revenue_growth: 16.07
+  roic: 10.1
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/kb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/KB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/KB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/KB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/KB/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/kb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/kb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/KB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/KB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/kb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/kb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/kb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/KB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/KB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/kb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    0.0, "low": 0.0, "mean": 166.51, "median": 166.51, "observed_at": "2026-11-20T16:19:27.753456-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:19:27.753456-03:00",
+    "observed_date": "2026-11-20", "target_price": 166.51282, "url": "https://finance.yahoo.com/quote/KB/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 112.69999694824219,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/KB/"}]}}'
+  sector: Financial Services
+  ticker: KB
+research_trigger:
+  discovery_snapshot_hash: 423c3acd66dd089bc39cce4802b0cebaaf142872231b3eeef5c4edb87558e6b5
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 1b2fba2cd8af8f44f761be7be1fac8b1368f58c735d75747c3e8af715332ce7c
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T16:19:52.909676-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: El proveedor reporta 0 para TTM terminado el 2026-09-30; no es interpretable
+    como ratio validado con la evidencia recibida.
+  source: https://stockanalysis.com/stocks/KB/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta historia comparable de acciones diluidas.'
+  source: https://stockanalysis.com/stocks/KB/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: El proveedor reporta 0 y EBIT como n/a para TTM terminado el 2026-09-30;
+    no se valida cobertura.
+  source: https://stockanalysis.com/stocks/KB/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No evaluable: aunque el proveedor reporta FCF negativo, no se valida
+    una tasa mensual comparable ni efectivo utilizable bajo los campos disponibles.'
+  source: https://stockanalysis.com/stocks/kb/financials/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 'No evaluable: EBITDA figura como n/a y no se valida compatibilidad
+    entre efectivo e inversiones y deuda.'
+  source: https://stockanalysis.com/stocks/KB/statistics/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta historia de acciones para el período de tres años.'
+  source: https://stockanalysis.com/stocks/KB/statistics/
+  threshold: above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 38
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T16:19:27.753456-03:00'
+  fuentes:
+    yfinance: 166.51282
+  mediana: 166.51
+  n_fuentes: 1
+  promedio: 166.51
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T16:19:27.753456-03:00'
+    observed_date: '2026-11-20'
+    target_price: 166.51282
+    url: https://finance.yahoo.com/quote/KB/
+  target_high: 0.0
+  target_low: 0.0
+tesis_inversion: KB Financial Group presta servicios financieros, incluidos depósitos
+  y préstamos, en Corea del Sur y otros mercados internacionales (resumen financiero,
+  análisis al 2026-11-20). La serie reportada de ingresos y beneficio neto aumenta
+  entre FY 2022 y FY 2025, pero los datos disponibles no permiten atribuir ese cambio
+  a crecimiento orgánico, reinversión, retornos sobre capital o ventaja competitiva.
+  La evidencia no alcanza para validar una tesis de crecimiento multibagger ni para
+  determinar penetración de mercado, erosión competitiva o calidad de asignación de
+  capital.
+ticker: KB
+version: '3.0'

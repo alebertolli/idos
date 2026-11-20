@@ -1,0 +1,139 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos netos por intereses de FY2027 crecen menos del 3% frente
+      a FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica una cifra comparable para ambos ejercicios antes
+      de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos netos por intereses de FY2027 crecen menos del 3% frente a FY2026.
+  - La compañía no publica una cifra comparable para ambos ejercicios antes de la
+    fecha objetivo.
+  horizon: medio
+  id: H1-OPP-MB-KB
+  opportunity_id: OPP-MB-KB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de los ingresos netos por intereses en FY2027
+    prediction: Los ingresos netos por intereses de FY2027 serán al menos un 3% superiores
+      a los de FY2026, según los resultados anuales publicados.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La actividad de depósitos y préstamos puede sostener los ingresos netos
+    por intereses si el crecimiento de los saldos y la gestión de márgenes compensan
+    el coste de financiación. El contexto disponible no permite verificar esos factores,
+    por lo que esta es una hipótesis que debe contrastarse con los estados financieros.
+  review_trigger: Dejar de creerla si los resultados anuales de FY2027 muestran crecimiento
+    interanual inferior al 3%; si no se publican datos comparables antes del 2028-03-31,
+    clasificarla como no confirmada.
+  secondary_hypotheses: []
+  statement: KB Financial Group aumentará sus ingresos netos por intereses en el ejercicio
+    fiscal 2027 frente al ejercicio fiscal 2026.
+  status: ACTIVE
+  ticker: KB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El beneficio neto atribuible a los accionistas de FY2027 es inferior
+      a 1,03 veces el de FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación interanual no es posible por falta de cifras publicadas
+      o por cambios de perímetro no reconciliados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El beneficio neto atribuible a los accionistas de FY2027 es inferior a 1,03 veces
+    el de FY2026.
+  - La comparación interanual no es posible por falta de cifras publicadas o por cambios
+    de perímetro no reconciliados.
+  horizon: medio
+  id: H2-OPP-MB-KB
+  opportunity_id: OPP-MB-KB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual del beneficio neto atribuible a accionistas en
+      FY2027
+    prediction: El beneficio neto atribuible a los accionistas de FY2027 será al menos
+      un 3% superior al de FY2026.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La serie disponible señala un aumento de ingresos y beneficio neto entre
+    FY2022 y FY2025, pero no identifica sus causas ni prueba que la tendencia continúe.
+    La hipótesis plantea una continuación moderada que deberá validarse con resultados
+    comparables y no presupone que el crecimiento histórico sea orgánico o recurrente.
+  review_trigger: Dejar de creerla cuando se publiquen resultados comparables de FY2027
+    que muestren crecimiento inferior al 3%; si no hay datos comparables al 2028-03-31,
+    no considerar la hipótesis confirmada.
+  secondary_hypotheses:
+  - H1-OPP-MB-KB
+  statement: El beneficio neto atribuible a los accionistas de KB Financial Group
+    crecerá en FY2027 respecto a FY2026.
+  status: ACTIVE
+  ticker: KB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de KB Financial Group menos la del KOSPI es inferior
+      a 5 puntos porcentuales en el periodo especificado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se dispone de precios de cierre ajustados por dividendos para calcular
+      la rentabilidad de ambas inversiones en fechas comparables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de KB Financial Group menos la del KOSPI es inferior a 5
+    puntos porcentuales en el periodo especificado.
+  - No se dispone de precios de cierre ajustados por dividendos para calcular la rentabilidad
+    de ambas inversiones en fechas comparables.
+  horizon: medio
+  id: H3-OPP-MB-KB
+  opportunity_id: OPP-MB-KB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa frente al KOSPI en 12 meses
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de KB Financial Group, incluidos dividendos, superará en al menos 5 puntos
+      porcentuales la rentabilidad total del KOSPI.
+    unit: puntos porcentuales de exceso de rentabilidad
+  priority: informational
+  probability: 0.5
+  rationale: El aumento reportado de ingresos y beneficio neto entre FY2022 y FY2025
+    podría respaldar el desempeño bursátil si se mantiene, pero no basta para demostrar
+    infravaloración. Esta hipótesis prueba el resultado de mercado directamente, sin
+    atribuirlo a un múltiplo objetivo no fundamentado.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la rentabilidad total
+    relativa es inferior a 5 puntos porcentuales; antes de esa fecha, no considerarla
+    confirmada.
+  secondary_hypotheses:
+  - H2-OPP-MB-KB
+  statement: La rentabilidad total de KB Financial Group superará a la del índice
+    KOSPI durante los 12 meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: KB
+  version: 1

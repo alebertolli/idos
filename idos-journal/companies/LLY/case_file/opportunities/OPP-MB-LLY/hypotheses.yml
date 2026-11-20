@@ -1,0 +1,151 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos TTM reportados para el periodo terminado el 30 de septiembre
+      de 2027 son iguales o inferiores a USD 100.000 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa una caída interanual de ingresos TTM en cualquiera
+      de los dos trimestres que terminan el 30 de junio y el 30 de septiembre de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos TTM reportados para el periodo terminado el 30 de septiembre de 2027
+    son iguales o inferiores a USD 100.000 millones.
+  - La empresa informa una caída interanual de ingresos TTM en cualquiera de los dos
+    trimestres que terminan el 30 de junio y el 30 de septiembre de 2027.
+  horizon: medio
+  id: H1-OPP-MB-LLY
+  opportunity_id: OPP-MB-LLY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-15'
+    expected: 100000.0
+    met: null
+    metric: Ingresos TTM
+    prediction: Los ingresos TTM reportados para los doce meses terminados el 30 de
+      septiembre de 2027 serán superiores a USD 100.000 millones, según los resultados
+      publicados por la empresa.
+    unit: USD millones; superior al umbral
+  priority: critical
+  probability: 0.5
+  rationale: La base disponible muestra ingresos TTM de USD 86.462 millones al 30
+    de septiembre de 2026. La hipótesis es que la demanda de productos cardiometabólicos
+    y la reinversión en el negocio sostendrán suficiente crecimiento para superar
+    USD 100.000 millones; la información aportada no permite confirmar por separado
+    la contribución de esos productos, por lo que esa relación causal debe verificarse
+    con datos posteriores.
+  review_trigger: Dejar de creerla si los resultados del periodo terminado el 30 de
+    junio de 2027 muestran ingresos TTM inferiores a USD 93.000 millones o una caída
+    interanual, salvo que la empresa documente que el resultado se debe a un efecto
+    contable o extraordinario no recurrente.
+  secondary_hypotheses: []
+  statement: El crecimiento de los productos cardiometabólicos permitirá que Eli Lilly
+    mantenga la expansión de sus ingresos y supere los USD 100.000 millones de ingresos
+    en los doce meses terminados el 30 de septiembre de 2027.
+  status: ACTIVE
+  ticker: LLY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de FCF TTM reportado para los doce meses terminados el 30
+      de septiembre de 2027 es inferior a 20%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF TTM cae por debajo de USD 19.661 millones en ese periodo, sin
+      que la empresa identifique un desembolso extraordinario claramente no recurrente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de FCF TTM reportado para los doce meses terminados el 30 de septiembre
+    de 2027 es inferior a 20%.
+  - El FCF TTM cae por debajo de USD 19.661 millones en ese periodo, sin que la empresa
+    identifique un desembolso extraordinario claramente no recurrente.
+  horizon: medio
+  id: H2-OPP-MB-LLY
+  opportunity_id: OPP-MB-LLY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-15'
+    expected: 20.0
+    met: null
+    metric: Margen de FCF TTM
+    prediction: El FCF TTM dividido por los ingresos TTM será igual o superior a 20%
+      para los doce meses terminados el 30 de septiembre de 2027.
+    unit: porcentaje; mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM disponible es de USD 19.661 millones frente a ingresos TTM
+    de USD 86.462 millones al 30 de septiembre de 2026, equivalente a un margen aproximado
+    de 22,7%. La hipótesis plantea que el crecimiento y la reinversión podrán coexistir
+    con una conversión de caja relativamente estable; el dato disponible no permite
+    determinar el retorno incremental sobre el capital ni el efecto futuro del gasto
+    de inversión.
+  review_trigger: Dejar de creerla si dos publicaciones trimestrales consecutivas
+    muestran un margen de FCF TTM inferior a 20% y la empresa no atribuye la caída
+    a factores temporales cuantificados y reversibles.
+  secondary_hypotheses:
+  - H1-OPP-MB-LLY
+  statement: 'La expansión del negocio no se traducirá en una erosión material de
+    la generación de caja: Eli Lilly mantendrá un margen de FCF TTM de al menos 20%
+    al 30 de septiembre de 2027.'
+  status: ACTIVE
+  ticker: LLY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total acumulada de LLY es igual o inferior a la del
+      índice S&P 500 Health Care durante el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: LLY supera al índice, pero por menos de 5 puntos porcentuales al cierre
+      del 20 de mayo de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total acumulada de LLY es igual o inferior a la del índice S&P
+    500 Health Care durante el periodo definido.
+  - LLY supera al índice, pero por menos de 5 puntos porcentuales al cierre del 20
+    de mayo de 2028.
+  horizon: largo
+  id: H3-OPP-MB-LLY
+  opportunity_id: OPP-MB-LLY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-05-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de LLY menos rentabilidad total del índice S&P 500
+      Health Care
+    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
+      mayo de 2028, la rentabilidad total de LLY, incluidos dividendos, superará en
+      al menos 5 puntos porcentuales la del índice S&P 500 Health Care.
+    unit: puntos porcentuales; mínimo
+  priority: important
+  probability: 0.5
+  rationale: 'La tesis plantea que el mercado podría no estar descontando plenamente
+    la duración del crecimiento, pero los datos disponibles no permiten determinar
+    si la valoración ya incorpora ese escenario. Esta hipótesis convierte esa posibilidad
+    en una prueba relativa de mercado: la acción debe superar un referente sectorial
+    en un plazo definido, sin asumir que la valoración actual está barata.'
+  review_trigger: Dejar de creerla si, al cierre del 20 de noviembre de 2027, LLY
+    acumula una rentabilidad total inferior a la del índice por 10 puntos porcentuales
+    o más y los informes publicados entretanto muestran que no se cumplen H1 o H2.
+  secondary_hypotheses:
+  - H1-OPP-MB-LLY
+  - H2-OPP-MB-LLY
+  statement: Si el crecimiento de ingresos y la generación de caja se sostienen, la
+    acción de Eli Lilly obtendrá una rentabilidad total superior a la del índice S&P
+    500 Health Care durante los 18 meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: LLY
+  version: 1
