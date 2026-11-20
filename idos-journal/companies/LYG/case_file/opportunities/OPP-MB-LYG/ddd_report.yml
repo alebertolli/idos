@@ -1,0 +1,542 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La variación calculada de ingresos entre FY2022 y FY2025 es positiva, pero no
+    basta para inferir crecimiento orgánico, calidad de ingresos ni retornos sobre
+    capital.
+  - Los objetivos de analistas y la cotización son referencias observadas; sin previsiones
+    empresariales y método de valoración no permiten establecer un error de valoración.
+  - 'El resumen describe operaciones en Reino Unido en tres segmentos: Retail; Commercial
+    Banking; e Insurance, Pensions and Investments. Fuente: resumen financiero, sin
+    URL aportada; período: no especificado.'
+  - 'Stockanalysis reporta ingresos de 18.627 para FY2025 y 14.530 para FY2022, y
+    beneficio neto de 4.196 para FY2025; período terminado el 2025-12-31. Fuente:
+    https://stockanalysis.com/stocks/lyg/financials/.'
+  - 'Stockanalysis reporta FCF de -12.852 para FY2025 y -20.085 para FY2024; período
+    terminado el 2025-12-31 y 2024-12-31, respectivamente. Fuente: https://stockanalysis.com/stocks/lyg/financials/.'
+  - 'Yfinance reporta momentum de precio a 12 meses de 15,2128%, volatilidad a 90
+    días de 26,4849% y drawdown de 13,7739%, observados al 2026-10-26. Fuente: https://finance.yahoo.com/quote/LYG/history/.'
+  preguntas_abiertas:
+  - ¿Cuáles son el capital regulatorio, la rentabilidad sobre capital, el coste de
+    riesgo, la morosidad y la sensibilidad de márgenes a tasas en períodos comparables?
+  - ¿Cuál es la definición, unidad monetaria y composición del FCF reportado para
+    un banco, y cómo se reconcilia con flujo de caja operativo y capital regulatorio?
+  - ¿Qué serie de acciones diluidas, datos de competencia y penetración de mercado,
+    y política de asignación de capital respaldan la tesis?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: RESEARCH_REQUIRED
+  justificacion: El paquete la clasifica como RESEARCH_REQUIRED y aporta evidencia
+    de mercado y datos financieros parciales; varias métricas necesarias para evaluar
+    crecimiento, reinversión y apalancamiento no están disponibles o no son comparables.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo de negocio descrito cubre banca minorista, comercial y seguros,
+    pensiones e inversiones para clientes del Reino Unido. No hay datos suficientes
+    sobre retornos sobre capital, costes, participación de mercado, persistencia de
+    clientes o ventaja competitiva para valorar calidad o erosión.
+  rating: Evidencia insuficiente
+dominio_catalizadores:
+- catalizador: La publicación de resultados comparables posteriores a 2026-09-30 permitiría
+    contrastar ingresos, beneficio y balance con las series históricas disponibles.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lyg/financials/
+- catalizador: La revisión de las estimaciones de analistas puede aportar una referencia
+    de mercado actualizada; el paquete solo contiene objetivos observados al 2026-11-20.
+  fuentes:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/lyg/forecast/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lyg/financials/
+  riesgo: Los datos de FCF son negativos en FY2024 y FY2025, y el FCF TTM reportado
+    también es negativo; para una entidad bancaria su interpretación requiere contexto
+    y definiciones adicionales.
+- fuentes:
+  - name: Research Intake Package
+    url: https://finance.yahoo.com/quote/LYG/history/
+  riesgo: La evidencia no incluye series de acciones diluidas, capital regulatorio,
+    calidad de activos, provisiones ni sensibilidad de ingresos a tasas; limita la
+    evaluación de dilución y riesgos bancarios.
+- fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
+  riesgo: El ratio current_ratio figura como 0 en estadísticas del proveedor, pero
+    no se valida como medida útil de liquidez para un banco ni se aportan sus componentes.
+error_mercado:
+  catalizador_cambio: Resultados financieros fechados que permitan verificar la evolución
+    de ingresos, beneficio, FCF y balance podrían modificar la lectura; no se aportan
+    previsiones empresariales ni fechas de próximos hitos.
+  conclusion_error_valoracion: No se valida un error de valoración con la evidencia
+    disponible; el rango de analistas es una referencia observada, no una valoración
+    intrínseca.
+  consenso_actual: 'La cotización reportada es USD 5,415 al 2026-10-26; el consenso
+    objetivo reportado es USD 6,28 al 2026-11-20, con rango de USD 5,95–6,96. Fuentes:
+    https://finance.yahoo.com/quote/LYG/ y https://stockanalysis.com/stocks/lyg/forecast/'
+  hipotesis_contraria: 'El precio y el consenso no demuestran por sí solos que el
+    mercado esté subestimando o sobrestimando la capacidad de generar retornos: el
+    paquete no incluye expectativas de beneficios, márgenes bancarios, crédito ni
+    capital regulatorio.'
+  razonamiento: El precio avanzó 15,2128% en los 12 meses terminados el 2026-10-26
+    y el drawdown informado fue 13,7739% en ese período. La evidencia disponible no
+    permite conectar esos movimientos con expectativas fundamentales ni cuantificar
+    su brecha.
+generated_at: '2026-11-20T16:34:46.722821-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-LYG
+prompt_inputs:
+  business_model: 'Lloyds Banking Group plc, together with its subsidiaries, provides
+    a range of banking and financial products and services for retail and commercial
+    customers in the United Kingdom. It operates in three segments: Retail; Commercial
+    Banking; and Insurance, Pensions and Investments. The Retail segment offers a
+    range of financial service products, including current accounts, savings, mortgages,
+    credit cards, unsecured loans, motor finance, and leasing solutions to personal
+    customers. Its Commercial Banking segment provides lending, transactional banking,
+    working capital management, debt financing, and risk management services to small
+    and medium businesses, corporates, and institutions. The Insurance, Pensions and
+    Investments segment offers insurance, investment, and pension management products
+    and services. It also provides life assurance; and digital banking services. The
+    company offers its products and services under the Lloyds Bank, Halifax, Bank
+    of Scotland, Scottish Widows, MBNA, Schroders Personal Wealth, Black Horse, Lex
+    Autolease, Birmingham Midshires, LDC, AMC, Embark Group, Lloyds Living, Cavendish
+    Online, Tusker, and HGP brands. The company was formerly known as Lloyds TSB Group
+    plc and changed its name to Lloyds Banking Group plc in January 2009. Lloyds Banking
+    Group plc was founded in 1695 and is headquartered in London, the United Kingdom.'
+  ceo_tenure: 0
+  debt_to_equity: 0.0366
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Lloyds Banking Group plc
+  operating_margin: 42.94
+  pe_ratio: 9.58
+  products: ''
+  revenue: 26750000000.0
+  revenue_growth: 11.96
+  roic: 13.21
+  sector: Financial Services
+  ticker: LYG
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lyg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_history:
+    - period: FY 2025
+      period_end: '2025-12-31'
+      value: -12852
+    - period: FY 2024
+      period_end: '2024-12-31'
+      value: -20085
+  limitations: 'No se cumplen las condiciones de la definición: ambos FCF históricos
+    son negativos. No corresponde calcular crecimiento bajo la fórmula configurada.'
+  metric: fcf_growth_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lyg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lyg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    ebitda: n/a
+    net_cash_history:
+    - period: Current
+      period_end: '2026-09-30'
+      value: 166429
+  limitations: EBITDA figura como n/a para el período terminado el 2026-09-30; no
+    se puede calcular el ratio. El proveedor reporta net_cash, pero falta un denominador
+    utilizable.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/lyg/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 57410000000
+  limitations: Solo se aporta una observación de acciones en circulación; faltan acciones
+    diluidas y una observación comparable del período anterior para calcular dilución
+    interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Lloyds Banking Group plc, together with its subsidiaries, provides
+    a range of banking and financial products and services for retail and commercial
+    customers in the United Kingdom. It operates in three segments: Retail; Commercial
+    Banking; and Insurance, Pensions and Investments. The Retail segment offers a
+    range of financial service products, including current accounts, savings, mortgages,
+    credit cards, unsecured loans, motor finance, and leasing solutions to personal
+    customers. Its Commercial Banking segment provides lending, transactional banking,
+    working capital management, debt financing, and risk management services to small
+    and medium businesses, corporates, and institutions. The Insurance, Pensions and
+    Investments segment offers insurance, investment, and pension management products
+    and services. It also provides life assurance; and digital banking services. The
+    company offers its products and services under the Lloyds Bank, Halifax, Bank
+    of Scotland, Scottish Widows, MBNA, Schroders Personal Wealth, Black Horse, Lex
+    Autolease, Birmingham Midshires, LDC, AMC, Embark Group, Lloyds Living, Cavendish
+    Online, Tusker, and HGP brands. The company was formerly known as Lloyds TSB Group
+    plc and changed its name to Lloyds Banking Group plc in January 2009. Lloyds Banking
+    Group plc was founded in 1695 and is headquartered in London, the United Kingdom.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 5.414999961853027
+  current_price_as_of_date: '2026-10-26'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0366
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T19:34:20.236293+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Lloyds Banking Group plc
+  operating_margin: 42.94
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Lloyds Banking Group plc, together with its subsidiaries, provides
+    a range of banking and financial products and services for retail and commercial
+    customers in the United Kingdom. It operates in three segments: Retail; Commercial
+    Banking; and Insurance, Pensions and Investments. The Retail segment offers a
+    range of financial service products, including current accounts, savings, mortgages,
+    credit cards, unsecured loans, motor finance, and leasing solutions to personal
+    customers. Its Commercial '
+  revenue: 26750000000.0
+  revenue_growth: 11.96
+  roic: 13.21
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lyg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LYG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LYG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LYG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LYG/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lyg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lyg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LYG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LYG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lyg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lyg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lyg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LYG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/LYG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/lyg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    6.96, "low": 5.95, "mean": 6.28, "median": 6.28, "observed_at": "2026-11-20T16:34:23.299773-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T16:34:23.299773-03:00", "observed_date": "2026-11-20", "target_price":
+    6.28, "url": "https://stockanalysis.com/stocks/lyg/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:34:23.299773-03:00",
+    "observed_date": "2026-11-20", "target_price": 6.2775, "url": "https://finance.yahoo.com/quote/LYG/"}]},
+    "current_quote": {"as_of_date": "2026-10-26", "currency": "USD", "price": 5.414999961853027,
+    "sources": [{"as_of_date": "2026-10-26", "name": "yfinance", "url": "https://finance.yahoo.com/quote/LYG/"}]}}'
+  sector: Financial Services
+  ticker: LYG
+research_trigger:
+  discovery_snapshot_hash: d46081c1610c7aa1072329041e082a2112968b0c6f0b28e4e92e920806a5a654
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 2b9081aac7a87586c5982b5b1767ce8b4c23b6403406b8f2ee1b922ab60fbf09
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T16:34:46.722821-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- assessment: Observación para revisión; no constituye una decisión de compra.
+  metric: current_ratio
+  observation: Stockanalysis reporta current_ratio 0 para el período terminado el
+    2026-09-30; no hay componentes disponibles para validarlo ni se asume que sea
+    una medida adecuada para un banco.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
+  threshold: below 0.5
+- assessment: No se puede determinar si se cruza el umbral.
+  metric: dilution_yoy_pct
+  observation: 'No evaluable: falta una serie de acciones diluidas comparable.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
+  threshold: above 10 percent
+- assessment: No interpretable con la evidencia disponible; no se sustituye EBIT por
+    EBITDA.
+  metric: interest_coverage
+  observation: El proveedor reporta 0 y EBIT como n/a para el período terminado el
+    2026-09-30; no se valida un cálculo compatible.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
+  threshold: below 2.0x
+- assessment: Umbral no evaluable con los datos disponibles.
+  metric: negative_fcf_runway_months
+  observation: El FCF TTM reportado es -3.860.000.000 para el período terminado el
+    2026-09-30; no se calcula runway porque no se aportan inputs de flujo mensual
+    compatibles y verificables.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
+  threshold: below 12 months
+- assessment: No se puede comparar con el umbral configurado.
+  metric: net_debt_ebitda
+  observation: 'No evaluable: EBITDA figura como n/a para el período terminado el
+    2026-09-30.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
+  threshold: above 4.0x
+- assessment: No se puede comparar con el umbral configurado.
+  metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta una serie histórica comparable de acciones en
+    circulación o diluidas.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/LYG/statistics/
+  threshold: above 5 percent
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 55
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T16:34:23.299773-03:00'
+  fuentes:
+    stockanalysis: 6.28
+    yfinance: 6.2775
+  mediana: 6.28
+  n_fuentes: 2
+  promedio: 6.28
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T16:34:23.299773-03:00'
+    observed_date: '2026-11-20'
+    target_price: 6.28
+    url: https://stockanalysis.com/stocks/lyg/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T16:34:23.299773-03:00'
+    observed_date: '2026-11-20'
+    target_price: 6.2775
+    url: https://finance.yahoo.com/quote/LYG/
+  target_high: 6.96
+  target_low: 5.95
+tesis_inversion: La tesis a investigar es si la franquicia bancaria minorista y comercial
+  y las actividades de seguros, pensiones e inversiones en Reino Unido pueden sostener
+  crecimiento rentable y retornos adecuados. El paquete confirma esos segmentos, ingresos
+  y beneficio reportados, pero no aporta datos suficientes para validar reinversión,
+  retornos sobre capital, ventaja competitiva o penetración de mercado.
+ticker: LYG
+version: '3.0'

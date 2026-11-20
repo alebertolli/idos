@@ -1,0 +1,140 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento de ingresos de FY 2027 frente a FY 2026 es inferior
+      al 4%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa reduce su previsión de ingresos de FY 2027 por debajo de
+      ese umbral antes de publicar los resultados anuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento de ingresos de FY 2027 frente a FY 2026 es inferior al 4%.
+  - La empresa reduce su previsión de ingresos de FY 2027 por debajo de ese umbral
+    antes de publicar los resultados anuales.
+  horizon: medio
+  id: H1-OPP-MB-LMT
+  opportunity_id: OPP-MB-LMT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 4.0
+    met: null
+    metric: Crecimiento de ingresos consolidados de FY 2027 frente a FY 2026
+    prediction: Los ingresos consolidados de FY 2027 serán al menos un 4% superiores
+      a los de FY 2026, según los estados financieros anuales publicados.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Los datos aportados muestran crecimiento histórico de ingresos entre
+    FY 2022 y FY 2025, pero no prueban su continuidad. La hipótesis es que la demanda
+    de sistemas de defensa y la ejecución de los programas permitirán mantener un
+    crecimiento superior al de una expansión meramente nominal.
+  review_trigger: Dejar de creerla si una previsión oficial reduce el crecimiento
+    esperado de FY 2027 por debajo del 4%, o si los resultados anuales publicados
+    el 2028-02-15 muestran crecimiento inferior al umbral.
+  secondary_hypotheses: []
+  statement: La demanda de defensa y la capacidad de entrega de Lockheed Martin sostendrán
+    crecimiento de ingresos durante el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: LMT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF de FY 2027 es inferior al de FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa reduce su previsión oficial de FCF de FY 2027 a un nivel
+      inferior al FCF reportado de FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF de FY 2027 es inferior al de FY 2026.
+  - La empresa reduce su previsión oficial de FCF de FY 2027 a un nivel inferior al
+    FCF reportado de FY 2026.
+  horizon: medio
+  id: H2-OPP-MB-LMT
+  opportunity_id: OPP-MB-LMT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 100.0
+    met: null
+    metric: FCF de FY 2027 como porcentaje del FCF de FY 2026
+    prediction: El FCF de FY 2027, medido con la definición de la empresa y comparado
+      de forma consistente, será al menos el 100% del FCF de FY 2026.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia aportada indica FCF positivo en los períodos reportados,
+    pero no demuestra que la caja libre vaya a crecer ni que la conversión de beneficios
+    se mantenga. La hipótesis plantea que la ejecución de programas y la disciplina
+    de capital de trabajo evitarán que el crecimiento de ingresos se traduzca en una
+    reducción material del FCF.
+  review_trigger: Dejar de creerla si la previsión oficial de FCF para FY 2027 cae
+    por debajo del resultado de FY 2026, o si los resultados anuales publicados el
+    2028-02-15 confirman una disminución.
+  secondary_hypotheses:
+  - H1-OPP-MB-LMT
+  statement: Lockheed Martin convertirá el crecimiento del negocio en generación de
+    caja libre sostenida durante FY 2027.
+  status: ACTIVE
+  ticker: LMT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de LMT menos la del índice de referencia es inferior
+      a 5 puntos porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de LMT es inferior a la del índice de referencia
+      durante el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de LMT menos la del índice de referencia es inferior a 5
+    puntos porcentuales en la fecha objetivo.
+  - La rentabilidad total de LMT es inferior a la del índice de referencia durante
+    el período.
+  horizon: medio
+  id: H3-OPP-MB-LMT
+  opportunity_id: OPP-MB-LMT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de LMT menos rentabilidad total del índice de referencia
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de LMT,
+      incluidos dividendos, superará en al menos 5 puntos porcentuales la rentabilidad
+      total del S&P 500 Aerospace & Defense Select Industry Index.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: La evidencia disponible no cuantifica la duración del crecimiento ni
+    demuestra que el mercado la esté subestimando. Si los inversores observan ejecución
+    y generación de caja compatibles con H1 y H2, la acción podría superar a sus pares;
+    esta hipótesis se limita a un resultado de mercado verificable y no presupone
+    un múltiplo concreto.
+  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia de rentabilidad
+    total frente al índice es inferior a 5 puntos porcentuales, calculada en la misma
+    moneda y con dividendos reinvertidos.
+  secondary_hypotheses:
+  - H1-OPP-MB-LMT
+  - H2-OPP-MB-LMT
+  statement: La valoración de mercado reconocerá la capacidad de LMT para sostener
+    crecimiento y caja, reflejándose en una rentabilidad total superior a la de un
+    índice comparable del sector.
+  status: ACTIVE
+  ticker: LMT
+  version: 1

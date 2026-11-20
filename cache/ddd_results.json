@@ -2,30 +2,28 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-KB",
-      "ticker": "KB",
-      "status": "quality_failed",
-      "score": 38,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "opp_id": "OPP-MB-KO",
-      "ticker": "KO",
-      "status": "quality_failed",
-      "score": 58,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "opp_id": "OPP-MB-LLY",
-      "ticker": "LLY",
+      "opp_id": "OPP-MB-LMT",
+      "ticker": "LMT",
       "status": "completed",
-      "score": 62,
+      "score": 66,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-MB-LYG",
+      "ticker": "LYG",
+      "status": "quality_failed",
+      "score": 55,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "opp_id": "OPP-MB-MA",
+      "ticker": "MA",
+      "status": "completed",
+      "score": 58,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
@@ -34,17 +32,8 @@
   "assessments": [],
   "errors": [
     {
-      "ticker": "KB",
-      "opp_id": "OPP-MB-KB",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "ticker": "KO",
-      "opp_id": "OPP-MB-KO",
+      "ticker": "LYG",
+      "opp_id": "OPP-MB-LYG",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -53,7 +42,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 111,
+  "deferred_count": 109,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

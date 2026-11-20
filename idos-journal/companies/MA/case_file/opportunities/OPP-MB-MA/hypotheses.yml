@@ -1,0 +1,138 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento de ingresos netos de FY 2027 frente a FY 2026 es inferior
+      a 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa una contracción interanual de ingresos en dos trimestres
+      consecutivos antes de cerrar FY 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento de ingresos netos de FY 2027 frente a FY 2026 es inferior a 8%.
+  - La compañía informa una contracción interanual de ingresos en dos trimestres consecutivos
+    antes de cerrar FY 2027.
+  horizon: medio
+  id: H1-OPP-MB-MA
+  opportunity_id: OPP-MB-MA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual de ingresos netos en FY 2027
+    prediction: Los ingresos netos de FY 2027 crecerán al menos 8% frente a FY 2026,
+      según los estados financieros anuales publicados a más tardar el 2028-03-31.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Los ingresos aumentaron entre FY 2022 y FY 2025. Si la expansión de pagos
+    electrónicos y los servicios relacionados siguen impulsando el negocio, los ingresos
+    deberían crecer; sin datos actuales sobre volúmenes, mezcla de servicios o participación
+    de mercado, esta hipótesis debe comprobarse con resultados publicados.
+  review_trigger: Dejar de creerla si Mastercard informa crecimiento de ingresos inferior
+    a 8% en FY 2027, o si dos informes trimestrales consecutivos muestran contracción
+    interanual antes del 2027-12-31.
+  secondary_hypotheses: []
+  statement: Mastercard mantendrá crecimiento de ingresos en FY 2027, pese a que la
+    información disponible no basta para confirmar la sostenibilidad de su crecimiento
+    histórico.
+  status: ACTIVE
+  ticker: MA
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual del FCF TTM al 2027-09-30 es inferior a 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF TTM al 2027-09-30 es igual o inferior al FCF TTM al 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual del FCF TTM al 2027-09-30 es inferior a 5%.
+  - El FCF TTM al 2027-09-30 es igual o inferior al FCF TTM al 2026-09-30.
+  horizon: medio
+  id: H2-OPP-MB-MA
+  opportunity_id: OPP-MB-MA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual del FCF TTM
+    prediction: El FCF TTM al 2027-09-30 será al menos 5% superior al FCF TTM al 2026-09-30,
+      calculado con la misma definición contable en ambos periodos.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El FCF aumentó entre FY 2022 y FY 2025, aunque el FCF TTM al 2026-09-30
+    cayó 5,44% interanual. Si esa caída refleja una variación temporal y no un deterioro
+    persistente de márgenes, capital circulante o inversión, el FCF debería recuperarse.
+    El paquete disponible no permite identificar cuál de esos factores explica la
+    caída.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados correspondientes
+    a 2027-09-30 si el FCF TTM no supera en al menos 5% el del año anterior; no extender
+    la hipótesis más allá del 2027-11-20 sin nueva evidencia.
+  secondary_hypotheses:
+  - H1-OPP-MB-MA
+  statement: La caída interanual reportada del FCF TTM se revertirá y Mastercard volverá
+    a producir crecimiento positivo de flujo de caja libre.
+  status: ACTIVE
+  ticker: MA
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de MA menos el rendimiento total del S&P 500 durante
+      el periodo es inferior a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: MA registra un rendimiento total inferior al del S&P 500 durante el
+      periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de MA menos el rendimiento total del S&P 500 durante el periodo
+    es inferior a 5 puntos porcentuales.
+  - MA registra un rendimiento total inferior al del S&P 500 durante el periodo.
+  horizon: medio
+  id: H3-OPP-MB-MA
+  opportunity_id: OPP-MB-MA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de MA menos rendimiento total del S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, el rendimiento
+      total de MA, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      el rendimiento total del S&P 500.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: El crecimiento histórico de ingresos, beneficio neto y FCF podría sostener
+    las expectativas de beneficios y el rendimiento de la acción si continúa. Sin
+    datos de valoración actual, estimaciones de beneficios ni comparación con sus
+    pares, no se puede afirmar que el mercado subestime ese crecimiento; esta hipótesis
+    pone a prueba únicamente el resultado relativo de mercado.
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si la rentabilidad total
+    relativa de MA es inferior a 5 puntos porcentuales; no interpretar el resultado
+    por sí solo como prueba de infravaloración o sobrevaloración.
+  secondary_hypotheses:
+  - H1-OPP-MB-MA
+  - H2-OPP-MB-MA
+  statement: Durante los doce meses posteriores a la fecha de corte, la acción de
+    Mastercard obtendrá un rendimiento total superior al del S&P 500, aunque la información
+    disponible no demuestra que esté infravalorada.
+  status: ACTIVE
+  ticker: MA
+  version: 1
