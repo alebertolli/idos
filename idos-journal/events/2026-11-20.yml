@@ -1158,3 +1158,131 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T14:29:48.899928'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-ETSY
+    ticker: ETSY
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T14:37:18.742879'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ETSY
+    ticker: ETSY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T14:37:18.817764'
+- data:
+    classification: Research requerido
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 905548366daafb50e7bd8eb15ee1536b45e539fbb86ac356a223fc061070f052
+    opp_id: OPP-MB-ETSY
+    score: 55
+    strategy_version: '1.5'
+    ticker: ETSY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:38:45.930690'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-FCX
+    ticker: FCX
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T14:39:19.705116'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-FCX
+    ticker: FCX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T14:39:19.783869'
+- data:
+    classification: Investigación requerida; exposición minera cíclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: b5e2a385bbcc009879eabe7b37b5717381bbfaf239cdbc5bfa6275b1bda2cb79
+    opp_id: OPP-MB-FCX
+    score: 61
+    strategy_version: '1.5'
+    ticker: FCX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:40:44.596438'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-FDX
+    ticker: FDX
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T14:41:17.816708'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-FDX
+    ticker: FDX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T14:41:17.895597'
+- data:
+    classification: Investigación fundamental requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 90528f47a9ef0227ce7db37baf5e907516cf74783308dad88fcfd76af910be9d
+    opp_id: OPP-MB-FDX
+    score: 55
+    strategy_version: '1.5'
+    ticker: FDX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:42:44.983461'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-FMX
+    ticker: FMX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T14:43:15.533753'
+- data:
+    classification: Research requerido; evidencia fundamental incompleta para validar
+      una tesis de crecimiento multibagger.
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b8f41d1451c07c41526abcfd9a79dbada0667fb24e685bffdb201fb0f7cbae7d
+    opp_id: OPP-MB-FMX
+    score: 62
+    strategy_version: '1.5'
+    ticker: FMX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:44:44.834665'

@@ -1,0 +1,133 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El GMS consolidado de 2027 crece menos de un 5% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El GMS consolidado de 2027 disminuye interanualmente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El GMS consolidado de 2027 crece menos de un 5% interanual.
+  - El GMS consolidado de 2027 disminuye interanualmente.
+  horizon: medio
+  id: H1-OPP-MB-ETSY
+  opportunity_id: OPP-MB-ETSY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual del GMS consolidado de 2027
+    prediction: En los resultados del ejercicio 2027, que se publicarán previsiblemente
+      antes del 2028-03-31, el GMS consolidado crecerá al menos un 5% interanual en
+      dólares nominales.
+    unit: '% mínimo'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis depende de que los mercados de Etsy y Depop mantengan ingresos
+    y generación de caja. El contexto no aporta datos suficientes para confirmar una
+    recuperación, por lo que esta hipótesis pone a prueba directamente la demanda
+    transaccionada.
+  review_trigger: Dejar de creerla si los resultados de 2027 publicados antes del
+    2028-03-31 muestran crecimiento interanual del GMS consolidado inferior al 5%.
+  secondary_hypotheses: []
+  statement: El volumen bruto de mercancía (GMS) consolidado de Etsy crecerá en 2027,
+    señal de que sus mercados pueden sostener la actividad pese a la incertidumbre
+    sobre la trayectoria operativa.
+  status: ACTIVE
+  ticker: ETSY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF de los últimos doce meses al cierre de 2027 es igual o inferior
+      al del cierre de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF de los últimos doce meses al cierre de 2027 es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF de los últimos doce meses al cierre de 2027 es igual o inferior al del
+    cierre de 2026.
+  - El FCF de los últimos doce meses al cierre de 2027 es cero o negativo.
+  horizon: medio
+  id: H2-OPP-MB-ETSY
+  opportunity_id: OPP-MB-ETSY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual del FCF TTM al cierre de 2027
+    prediction: En los resultados del ejercicio 2027, que se publicarán previsiblemente
+      antes del 2028-03-31, el FCF de los últimos doce meses será positivo y al menos
+      un 5% superior al del ejercicio 2026.
+    unit: '% mínimo, con FCF TTM positivo'
+  priority: critical
+  probability: 0.5
+  rationale: El contexto indica FCF TTM positivo, pero con crecimiento negativo. Una
+    mejora sostenida del FCF permitiría distinguir una generación de caja resiliente
+    de una tendencia de deterioro y respaldaría la calidad financiera del negocio.
+  review_trigger: Dejar de creerla si los resultados del ejercicio 2027 publicados
+    antes del 2028-03-31 muestran crecimiento interanual del FCF inferior al 5% o
+    FCF no positivo.
+  secondary_hypotheses:
+  - H1-OPP-MB-ETSY
+  statement: Etsy recuperará el crecimiento de su flujo de caja libre (FCF) sin perder
+    la generación positiva de caja.
+  status: ACTIVE
+  ticker: ETSY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El retorno total de ETSY menos el retorno total de XLY es inferior
+      a 10 puntos porcentuales en el período definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ETSY obtiene un retorno total igual o inferior al de XLY durante el
+      período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El retorno total de ETSY menos el retorno total de XLY es inferior a 10 puntos
+    porcentuales en el período definido.
+  - ETSY obtiene un retorno total igual o inferior al de XLY durante el período.
+  horizon: medio
+  id: H3-OPP-MB-ETSY
+  opportunity_id: OPP-MB-ETSY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Retorno total de ETSY menos retorno total de XLY
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el retorno total de ETSY, incluidos
+      dividendos si los hubiera, superará al retorno total de XLY en al menos 10 puntos
+      porcentuales, medidos en dólares y sin cubrir divisa.
+    unit: puntos porcentuales mínimo entre 2026-11-20 y 2027-11-20
+  priority: important
+  probability: 0.5
+  rationale: El rango de analistas, por sí solo, no demuestra un error de valoración,
+    y el contexto no proporciona expectativas operativas detalladas para identificarlo.
+    Por tanto, la hipótesis trata la posible ventaja de mercado como una predicción
+    relativa y verificable, no como una conclusión de infravaloración.
+  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia de retorno total
+    entre ETSY y XLY es inferior a 10 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-ETSY
+  - H2-OPP-MB-ETSY
+  statement: La acción de Etsy superará al ETF de consumo discrecional estadounidense
+    XLY durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: ETSY
+  version: 1

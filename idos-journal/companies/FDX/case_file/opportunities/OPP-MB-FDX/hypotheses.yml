@@ -1,0 +1,152 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El margen operativo ajustado del ejercicio fiscal 2028 aumenta menos
+      de 0,5 puntos porcentuales frente al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación no puede hacerse de forma homogénea por cambios en la
+      definición de la métrica o por falta de datos conciliables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen operativo ajustado del ejercicio fiscal 2028 aumenta menos de 0,5 puntos
+    porcentuales frente al ejercicio fiscal 2026.
+  - La comparación no puede hacerse de forma homogénea por cambios en la definición
+    de la métrica o por falta de datos conciliables.
+  horizon: medio
+  id: H1-OPP-MB-FDX
+  opportunity_id: OPP-MB-FDX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 0.5
+    met: null
+    metric: Cambio del margen operativo ajustado consolidado frente al ejercicio fiscal
+      2026
+    prediction: En los resultados del ejercicio fiscal 2028, el margen operativo ajustado
+      consolidado será al menos 0,5 puntos porcentuales superior al margen del ejercicio
+      fiscal 2026, usando la misma definición contable en ambos periodos.
+    unit: puntos porcentuales como mínimo
+  priority: important
+  probability: 0.5
+  rationale: Una red más integrada y una reducción de costos operativos pueden mejorar
+    la rentabilidad si los ahorros superan los costos de implementación, la inflación
+    salarial y de combustible, y cualquier presión sobre precios o volúmenes. El contexto
+    disponible no demuestra que estos efectos sean duraderos, por lo que la hipótesis
+    se limita a un cambio medible en el margen.
+  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 muestran
+    un margen operativo ajustado inferior al del ejercicio fiscal 2026 y la empresa
+    no identifica medidas operativas cuantificadas que compensen ese deterioro.
+  secondary_hypotheses: []
+  statement: La optimización de la red y de las operaciones de FedEx elevará el margen
+    operativo ajustado consolidado en el ejercicio fiscal 2028 frente al ejercicio
+    fiscal 2026.
+  status: ACTIVE
+  ticker: FDX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF del ejercicio fiscal 2027 crece menos de un 10% frente al ejercicio
+      fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF del ejercicio fiscal 2027 es inferior al del ejercicio fiscal
+      2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento del FCF depende de una reducción de inversión de capital
+      que la empresa describa como temporal o incompatible con el mantenimiento de
+      la red.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF del ejercicio fiscal 2027 crece menos de un 10% frente al ejercicio fiscal
+    2026.
+  - El FCF del ejercicio fiscal 2027 es inferior al del ejercicio fiscal 2026.
+  - El crecimiento del FCF depende de una reducción de inversión de capital que la
+    empresa describa como temporal o incompatible con el mantenimiento de la red.
+  horizon: corto
+  id: H2-OPP-MB-FDX
+  opportunity_id: OPP-MB-FDX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual del flujo de caja libre reportado
+    prediction: El flujo de caja libre reportado del ejercicio fiscal 2027 será al
+      menos un 10% superior al del ejercicio fiscal 2026. Se calculará como flujo
+      de caja operativo menos compras de propiedades y equipo, de manera consistente
+      en ambos ejercicios.
+    unit: porcentaje como mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia del contexto señala crecimiento reciente del FCF reportado,
+    pero no establece si puede mantenerse. La hipótesis plantea una continuación cuantificable
+    y contrasta el flujo de caja generado con posibles cambios en inversión de capital
+    y capital de trabajo.
+  review_trigger: Dejar de creerla si una actualización trimestral posterior al 2026-11-20
+    reduce la previsión de FCF del ejercicio fiscal 2027 por debajo del FCF reportado
+    del ejercicio fiscal 2026, o si los resultados anuales muestran un crecimiento
+    inferior al 10%.
+  secondary_hypotheses: []
+  statement: El flujo de caja libre reportado de FedEx crecerá en el ejercicio fiscal
+    2027, confirmando que el aumento reciente no se limita a un periodo aislado.
+  status: ACTIVE
+  ticker: FDX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de FDX menos la del índice S&P 500 Industrials
+      es inferior a 5 puntos porcentuales al cierre del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad relativa es negativa al cierre del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de FDX menos la del índice S&P 500 Industrials es inferior
+    a 5 puntos porcentuales al cierre del periodo.
+  - La rentabilidad relativa es negativa al cierre del periodo.
+  horizon: medio
+  id: H3-OPP-MB-FDX
+  opportunity_id: OPP-MB-FDX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de FDX frente al índice S&P 500 Industrials
+    prediction: La rentabilidad total de FDX, incluidos dividendos, entre el 2026-11-20
+      y el 2027-11-20 superará en al menos 5 puntos porcentuales la rentabilidad total
+      del índice S&P 500 Industrials durante el mismo periodo.
+    unit: puntos porcentuales como mínimo
+  priority: important
+  probability: 0.5
+  rationale: Una mejora verificable del FCF podría respaldar una reevaluación de la
+    acción. Sin datos de valoración suministrados, no se puede afirmar que la recuperación
+    esté descontada ni que exista infravaloración; por ello, esta hipótesis se prueba
+    mediante rentabilidad relativa, no mediante una afirmación sobre el múltiplo justo.
+  review_trigger: Dejar de creerla antes del vencimiento si FedEx reduce su previsión
+    de FCF del ejercicio fiscal 2027 por debajo del FCF reportado del ejercicio fiscal
+    2026; en cualquier caso, la hipótesis queda falsada si no alcanza la rentabilidad
+    relativa prevista el 2027-11-20.
+  secondary_hypotheses:
+  - H2-OPP-MB-FDX
+  statement: Durante los doce meses posteriores a la fecha de corte, la acción de
+    FedEx superará la rentabilidad total del índice S&P 500 Industrials si el mercado
+    empieza a reconocer una recuperación más sostenible del flujo de caja.
+  status: ACTIVE
+  ticker: FDX
+  version: 1

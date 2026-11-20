@@ -1,0 +1,202 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico acumulado reportado o calculable es inferior
+      a 3,0% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no divulga datos suficientes para separar, con un método
+      reproducible, crecimiento orgánico de efectos cambiarios y cambios de perímetro.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico acumulado reportado o calculable es inferior a 3,0% interanual.
+  - La empresa no divulga datos suficientes para separar, con un método reproducible,
+    crecimiento orgánico de efectos cambiarios y cambios de perímetro.
+  horizon: medio
+  id: H1-OPP-MB-FMX
+  opportunity_id: OPP-MB-FMX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de ventas orgánicas consolidadas acumuladas a nueve
+      meses
+    prediction: Al 2027-11-20, las ventas orgánicas consolidadas acumuladas de FMX
+      entre el 2027-01-01 y el 2027-09-30, calculadas a tipo de cambio constante y
+      excluyendo adquisiciones o desinversiones cuando la empresa divulgue esos ajustes,
+      serán al menos 3,0% mayores que en el mismo período de 2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La combinación de bebidas de marca y tiendas de proximidad puede sostener
+    el crecimiento mediante volumen, precios y expansión de ventas comparables. Sin
+    embargo, la información disponible no permite determinar cuál de esos motores
+    predomina; por eso la hipótesis exige crecimiento orgánico medible y no presupone
+    su causa.
+  review_trigger: Dejar de creerla si los resultados acumulados al 2027-06-30 muestran
+    crecimiento orgánico interanual inferior a 1,0%, o si la información publicada
+    hasta el 2027-11-20 impide verificar la métrica.
+  secondary_hypotheses: []
+  statement: FMX aumentará sus ventas orgánicas consolidadas en los primeros nueve
+    meses de 2027, lo que indicaría que sus negocios de bebidas y proximidad mantienen
+    crecimiento comparable.
+  status: ACTIVE
+  ticker: FMX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen EBITDA ajustado acumulado cae más de 0,5 puntos porcentuales
+      interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: FMX modifica la definición de EBITDA y no proporciona una conciliación
+      que permita comparar ambos períodos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen EBITDA ajustado acumulado cae más de 0,5 puntos porcentuales interanual.
+  - FMX modifica la definición de EBITDA y no proporciona una conciliación que permita
+    comparar ambos períodos.
+  horizon: medio
+  id: H2-OPP-MB-FMX
+  opportunity_id: OPP-MB-FMX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -0.5
+    met: null
+    metric: Variación interanual del margen EBITDA ajustado consolidado acumulado
+      a nueve meses
+    prediction: Al 2027-11-20, el margen EBITDA ajustado consolidado acumulado entre
+      el 2027-01-01 y el 2027-09-30 será como máximo 0,5 puntos porcentuales inferior
+      al del mismo período de 2026, usando la definición de EBITDA ajustado de FMX
+      y manteniendo consistencia metodológica.
+    unit: puntos porcentuales, como caída máxima
+  priority: important
+  probability: 0.5
+  rationale: Una mezcla de negocios de bebidas y proximidad podría amortiguar variaciones
+    de demanda entre divisiones, pero el contexto no aporta márgenes segmentados ni
+    evidencia de retornos incrementales. La hipótesis comprueba directamente si el
+    crecimiento se acompaña de estabilidad de margen.
+  review_trigger: Dejar de creerla si el margen EBITDA ajustado del primer semestre
+    de 2027 cae más de 0,5 puntos porcentuales interanual, salvo que la empresa publique
+    una conciliación que demuestre un efecto temporal no recurrente claramente cuantificado.
+  secondary_hypotheses:
+  - H1-OPP-MB-FMX
+  statement: FMX conservará su rentabilidad operativa consolidada durante los primeros
+    nueve meses de 2027, sin que el crecimiento de ventas dependa de una contracción
+    material del margen.
+  status: ACTIVE
+  ticker: FMX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre de los doce meses terminados el 2027-09-30 es
+      cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La deuda neta/EBITDA ajustado supera 3,0 veces.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se divulgan datos suficientes para reconstruir deuda neta, EBITDA
+      ajustado y flujo de caja libre con criterios consistentes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre de los doce meses terminados el 2027-09-30 es cero o negativo.
+  - La deuda neta/EBITDA ajustado supera 3,0 veces.
+  - No se divulgan datos suficientes para reconstruir deuda neta, EBITDA ajustado
+    y flujo de caja libre con criterios consistentes.
+  horizon: medio
+  id: H3-OPP-MB-FMX
+  opportunity_id: OPP-MB-FMX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.0
+    met: null
+    metric: Flujo de caja libre de doce meses y deuda neta/EBITDA ajustado
+    prediction: Al 2027-11-20, el flujo de caja libre de los doce meses terminados
+      el 2027-09-30 será positivo y la deuda neta dividida por EBITDA ajustado de
+      los mismos doce meses no superará 3,0 veces. El flujo de caja libre se calculará
+      como flujo neto de operación menos inversiones de capital, sin reclasificar
+      dividendos ni financiamiento como flujo operativo.
+    unit: FCF positivo; apalancamiento máximo de 3,0 veces
+  priority: critical
+  probability: 0.5
+  rationale: La tesis depende de que la operación convierta sus resultados en efectivo
+    suficiente para financiar inversiones, dividendos y deuda. El contexto menciona
+    deuda neta y una cobertura de intereses no interpretable, pero no aporta cifras
+    que permitan concluir que el flujo de caja sea sostenible; esta hipótesis busca
+    verificarlo con métricas observables.
+  review_trigger: Dejar de creerla si el flujo de caja libre de los doce meses terminados
+    el 2027-06-30 es negativo o si la deuda neta/EBITDA ajustado supera 3,0 veces
+    en esa fecha, salvo que una venta de activos o partida excepcional identificada
+    explique íntegramente la desviación.
+  secondary_hypotheses:
+  - H2-OPP-MB-FMX
+  statement: FMX generará flujo de caja libre positivo y mantendrá acotado su apalancamiento
+    neto durante el período de doce meses terminado el 2027-09-30.
+  status: ACTIVE
+  ticker: FMX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La diferencia entre el rendimiento total de FMX y el de XLP es inferior
+      a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento total de FMX es inferior al de XLP.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La diferencia entre el rendimiento total de FMX y el de XLP es inferior a 5 puntos
+    porcentuales.
+  - El rendimiento total de FMX es inferior al de XLP.
+  horizon: medio
+  id: H4-OPP-MB-FMX
+  opportunity_id: OPP-MB-FMX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de FMX menos rendimiento total de XLP
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de FMX en dólares estadounidenses, incluidos dividendos reinvertidos,
+      superará en al menos 5 puntos porcentuales el rendimiento total del ETF Consumer
+      Staples Select Sector SPDR (XLP), también en dólares y con dividendos reinvertidos.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: La exposición a bebidas de marca y negocios de proximidad podría ofrecer
+    resiliencia y fuentes diversas de crecimiento, pero el contexto no demuestra que
+    el mercado las valore por debajo de su potencial ni que el consenso esté equivocado.
+    La hipótesis trata ese posible reconocimiento como una prueba relativa de mercado,
+    no como un hecho asumido.
+  review_trigger: Dejar de creerla si, al cierre del 2027-05-20, FMX acumula un rendimiento
+    total al menos 5 puntos porcentuales inferior al de XLP y no existe una perturbación
+    temporal identificable cuya reversión pueda comprobarse antes del 2027-11-20.
+  secondary_hypotheses:
+  - H1-OPP-MB-FMX
+  - H3-OPP-MB-FMX
+  statement: FMX superará el rendimiento total de un índice de consumo básico de Estados
+    Unidos durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: FMX
+  version: 1

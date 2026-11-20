@@ -1,0 +1,137 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas de cobre acumuladas de 2027 son inferiores a 3.800 millones
+      de libras.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa una interrupción operativa que reduzca las ventas
+      anuales de cobre por debajo del umbral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas de cobre acumuladas de 2027 son inferiores a 3.800 millones de libras.
+  - La empresa informa una interrupción operativa que reduzca las ventas anuales de
+    cobre por debajo del umbral.
+  horizon: medio
+  id: H1-OPP-MB-FCX
+  opportunity_id: OPP-MB-FCX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-29'
+    expected: 3800.0
+    met: null
+    metric: Ventas de cobre del ejercicio calendario 2027
+    prediction: En el ejercicio calendario 2027, las ventas de cobre reportadas por
+      FCX serán iguales o superiores a 3.800 millones de libras.
+    unit: millones de libras, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La compañía tiene exposición a activos mineros en América e Indonesia
+    y sus ingresos TTM fueron de USD 26.442 millones al 2026-09-30. Sin datos operativos
+    desglosados en el paquete, esta hipótesis plantea un umbral que debe comprobarse
+    con los informes de producción y ventas, no una conclusión sobre reservas o costos.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2028-02-29
+    rebaja la guía de ventas de cobre de 2027 por debajo de 3.800 millones de libras,
+    o si el informe anual confirma un resultado inferior.
+  secondary_hypotheses: []
+  statement: FCX mantendrá un nivel de producción de cobre compatible con su escala
+    actual durante 2027, sin una caída anual material.
+  status: ACTIVE
+  ticker: FCX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM al 2027-06-30 es inferior a USD 1.500 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: FCX reporta FCF TTM nulo o negativo en cualquier publicación disponible
+      antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM al 2027-06-30 es inferior a USD 1.500 millones.
+  - FCX reporta FCF TTM nulo o negativo en cualquier publicación disponible antes
+    de la fecha objetivo.
+  horizon: corto
+  id: H2-OPP-MB-FCX
+  opportunity_id: OPP-MB-FCX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-15'
+    expected: 1500.0
+    met: null
+    metric: FCF TTM al 2027-06-30
+    prediction: El FCF TTM reportado por FCX al 2027-06-30 será de al menos USD 1.500
+      millones.
+    unit: millones de USD, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El paquete registra FCF TTM positivo de USD 1.976 millones al 2026-09-30.
+    Ese dato ofrece una base observable, aunque no permite separar cuánto depende
+    de precios de metales, costos, inversión de capital o capital circulante.
+  review_trigger: Dejar de creerla si FCX reporta FCF TTM inferior a USD 1.500 millones
+    en una publicación trimestral antes del 2027-08-15, o si la cifra del 2027-06-30
+    queda por debajo del umbral.
+  secondary_hypotheses:
+  - H1-OPP-MB-FCX
+  statement: FCX conservará un flujo de caja libre TTM positivo y por encima de USD
+    1.500 millones hasta mediados de 2027.
+  status: ACTIVE
+  ticker: FCX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La diferencia entre el rendimiento total de FCX y el de XLB durante
+      el periodo es inferior a 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: FCX obtiene un rendimiento total igual o inferior al de XLB durante
+      el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La diferencia entre el rendimiento total de FCX y el de XLB durante el periodo
+    es inferior a 10 puntos porcentuales.
+  - FCX obtiene un rendimiento total igual o inferior al de XLB durante el periodo.
+  horizon: medio
+  id: H3-OPP-MB-FCX
+  opportunity_id: OPP-MB-FCX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total de FCX menos rendimiento total de XLB
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de FCX superará al de XLB en al menos 10 puntos porcentuales, con dividendos
+      reinvertidos.
+    unit: puntos porcentuales, mínimo
+  priority: informational
+  probability: 0.5
+  rationale: La exposición de FCX a cobre y otros metales puede generar un rendimiento
+    distinto al del sector amplio de materiales. Sin precios de metales, estimaciones
+    de beneficios ni valoración actual en el paquete, la hipótesis se limita a una
+    comparación relativa y falsable, no a un precio objetivo.
+  review_trigger: Dejar de creerla si, en cualquier revisión trimestral posterior
+    al 2027-02-20, el rendimiento total acumulado de FCX desde el 2026-11-20 queda
+    al menos 10 puntos porcentuales por detrás de XLB; la prueba definitiva se realiza
+    el 2027-11-20.
+  secondary_hypotheses:
+  - H1-OPP-MB-FCX
+  - H2-OPP-MB-FCX
+  statement: FCX superará el rendimiento total del ETF de materiales básicos XLB durante
+    los próximos doce meses, aunque el paquete disponible no permite afirmar que sus
+    acciones estén infravaloradas.
+  status: ACTIVE
+  ticker: FCX
+  version: 1

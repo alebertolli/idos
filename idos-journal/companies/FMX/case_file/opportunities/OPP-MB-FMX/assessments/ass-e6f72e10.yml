@@ -1,0 +1,31 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; evidencia fundamental incompleta para validar
+  una tesis de crecimiento multibagger.'
+- 'Market error: No se valida un error de valoración con la evidencia disponible;
+  el rango de analistas es una referencia observada, no una valoración intrínseca.'
+- 'Thesis: FMX combina embotellado de bebidas de marca Coca-Cola con divisiones de
+  proximidad y otros negocios; el paquete describe operaciones en varios países de
+  América Latina, pero no aporta desglose suficie'
+generated_at: '2026-11-20T14:44:44.567015-03:00'
+id: ass-e6f72e10
+recommendation: REVIEW
+risks:
+- fuente: stockanalysis.com, estados financieros, período terminado 2026-09-30.
+  riesgo: 'Apalancamiento: el proveedor reporta net_cash negativo de 135427 en el
+    período actual al 2026-09-30; no se calcula net_debt_ebitda por incompatibilidad
+    de escala/unidad entre los datos disponibles.'
+- fuente: stockanalysis.com, estadísticas, período TTM terminado 2026-09-30.
+  riesgo: La cobertura de intereses reportada como 0 al 2026-09-30 no permite concluir
+    capacidad de servicio de deuda; falta un gasto por intereses verificable y compatible.
+- fuente: stockanalysis.com, estados financieros, períodos indicados.
+  riesgo: 'La serie de FCF reporta crecimiento irregular: -65.61% en FY 2023, 93.78%
+    en FY 2024, 13.1% en FY 2025 y 112.19% TTM al 2026-09-30; la comparabilidad del
+    TTM requiere cautela.'
+- fuente: stockanalysis.com, estadísticas, período terminado 2026-09-30.
+  riesgo: No hay historia de acciones diluidas o acciones en circulación por período
+    para medir dilución; el número actual de acciones no basta para calcular su evolución.
+score: 62
+status: COMPLETED
+version: '3.0'
