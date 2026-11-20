@@ -1,0 +1,419 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La categoría principal es cíclica por la sensibilidad usual de la demanda de maquinaria
+    agrícola y de construcción a los ciclos de inversión y crédito.
+  - La base instalada, el servicio, la marca y la tecnología pueden contribuir a ventajas
+    competitivas, pero no se han cuantificado con los datos entregados.
+  - El consenso de objetivos está cerca de la cotización observada, pero no constituye
+    una valoración independiente ni garantiza convergencia.
+  - La volatilidad cíclica de ventas y caja es un riesgo material para la tesis.
+  - La cotización puede ser razonable, pero la evidencia es insuficiente para demostrar
+    infravaloración o sobrevaloración.
+  - FCF reportado de 3.230.000.000 en moneda financiera del proveedor, periodo TTM
+    terminado el 2026-08-02; fuente seleccionada stockanalysis.com; URL https://stockanalysis.com/stocks/DE/statistics/.
+  - Margen operativo reportado de 13,372 puntos porcentuales por yfinance; periodo
+    terminado el 2026-08-02, periodo del proveedor no especificado.
+  - Crecimiento de ingresos reportado de 4,9 puntos porcentuales por yfinance; periodo
+    terminado el 2026-08-02, periodo del proveedor no especificado.
+  - Cotización observada de USD 671,5999755859375 al 2026-10-30; fuente yfinance,
+    URL https://finance.yahoo.com/quote/DE/.
+  - 'Consenso observado de precio objetivo en USD: media y mediana 694,01, mínimo
+    500, máximo 813,18; observación 2026-11-20; fuentes stockanalysis y yfinance.'
+  preguntas_abiertas:
+  - ¿Cuáles son los resultados más recientes por segmento, y qué tendencias muestran
+    pedidos, entregas, precios, inventarios y márgenes?
+  - ¿Cuál es la deuda, liquidez, calendario de vencimientos, cobertura de intereses
+    y exposición de financiación a clientes?
+  - ¿Cómo se define y calcula el FCF reportado, y cómo se reconcilia con flujo operativo
+    y capex?
+  - ¿Qué nivel de pedidos, utilización, precios de cosechas, tasas de interés y gasto
+    de clientes sostiene las previsiones actuales?
+  - ¿Qué parte de ingresos y margen proviene de repuestos, servicio, software y tecnología
+    de precisión?
+  - ¿Qué evidencia primaria reciente respalda la evaluación de moat, gestión, asignación
+    de capital y riesgos de proveedores?
+  - ¿Qué múltiplos actuales y previsiones consensuadas permiten evaluar el escenario
+    implícito en la cotización?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'Compounder y quality_at_fair_price: podrían describir atributos
+    de calidad del negocio, pero no se aportan evidencia suficiente sobre retornos,
+    crecimiento de largo plazo ni valoración para que sean la categoría principal.
+    Compounder_castigado: no hay evidencia de que la cotización refleje un castigo
+    temporal. Turnaround, deep_value, special_situation, distressed, hype y value_trap:
+    no hay datos que permitan sustentar esas tesis. La exposición al ciclo hace que
+    ciclica sea más informativa que una categoría basada en calidad o valoración.'
+  justificacion: 'La mejor clasificación principal es cíclica: la demanda de maquinaria
+    agrícola y de construcción suele depender de los ciclos de inversión, ingresos
+    de productores y condiciones de crédito. La evidencia entregada es demasiado limitada
+    para validar el ciclo operativo actual o concluir que la acción está temporalmente
+    castigada. La clasificación se apoya en la naturaleza conocida del negocio, no
+    en datos operativos recientes aportados en este expediente.'
+comparativa_catalizadores:
+- delta_pct: 45
+  descripcion: Resultados o actualización corporativa que confirmen estabilización
+    sostenida de pedidos, ventas y márgenes.
+  estado: nuevo
+  nota_comparacion: No había catalizadores históricos en el expediente; catalizador
+    incorporado en este análisis como hipótesis, no como evento confirmado.
+  probabilidad_actual: 45
+  probabilidad_anterior: 0
+- delta_pct: 35
+  descripcion: Mayor evidencia de monetización de tecnología de precisión, automatización,
+    repuestos y servicios.
+  estado: nuevo
+  nota_comparacion: No había catalizadores históricos en el expediente; catalizador
+    incorporado como posibilidad estratégica y pendiente de verificación.
+  probabilidad_actual: 35
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: La marca, la base instalada y la red de distribuidores y servicio de Deere
+    son fuentes plausibles de diferenciación y costos de cambio. Sin embargo, no se
+    aportan datos actuales de participación, retención, márgenes por segmento, ventas
+    de repuestos o ventajas tecnológicas que permitan cuantificar la durabilidad del
+    moat. La calificación es una inferencia basada en conocimiento general del negocio,
+    no un hecho verificado en este expediente. El carácter cíclico puede provocar
+    volatilidad en resultados aun si las ventajas competitivas permanecen.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Resultados o actualización corporativa que confirmen estabilización
+    sostenida de pedidos, ventas y márgenes.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Mayor evidencia de monetización de tecnología de precisión, automatización,
+    repuestos y servicios que reduzca la dependencia de ventas de equipos nuevos.
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: La manufactura de maquinaria puede implicar exposición a emisiones, consumo
+    de recursos, seguridad laboral, minerales y componentes, además de dependencias
+    de proveedores y logística. Estos son riesgos sectoriales generales, no incidentes
+    verificados de Deere. No se proporcionan datos de emisiones, auditorías de proveedores,
+    concentración, trazabilidad ni litigios; hace falta investigación específica.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia reporta FCF de USD 3.230 millones, TTM, periodo terminado
+    el 2026-08-02, fuente stockanalysis.com. Yfinance reporta margen operativo de
+    13,372% y crecimiento de ingresos de 4,9% para un periodo no especificado, con
+    fecha de periodo terminado 2026-08-02. Estos datos aislados no permiten determinar
+    tendencia, liquidez, vencimientos, deuda neta ni cobertura. No se infiere que
+    el FCF esté ajustado. Rating provisional por insuficiencia de evidencia sobre
+    balance y trayectoria.
+  rating: adecuada
+dominio_growth:
+  analisis: La maquinaria de precisión, automatización, servicios y repuestos son
+    posibles impulsores estructurales, mientras que la demanda de equipos nuevos está
+    expuesta al ciclo. El crecimiento de ingresos reportado por yfinance es 4,9%,
+    pero el periodo está especificado como no disponible; no debe interpretarse como
+    crecimiento anual ni tendencia. No se aportan estimaciones segmentarias ni cartera
+    de pedidos.
+  rating: moderado
+dominio_management:
+  analisis: El expediente no incluye información verificable sobre asignación de capital,
+    remuneración, propiedad accionaria, recompras, adquisiciones ni desempeño frente
+    a objetivos. No es posible emitir una evaluación fundada del equipo directivo.
+    La calificación regular refleja falta de evidencia disponible, no un juicio de
+    desempeño negativo.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Contracción cíclica de ingresos agrícolas o de construcción que reduzca
+    ventas de equipos, utilización de capacidad y márgenes.
+- impacto: alto
+  probabilidad: media
+  riesgo: Volatilidad de ingresos y generación de caja superior a la que sugiere una
+    observación financiera aislada.
+- impacto: medio
+  probabilidad: media
+  riesgo: Presión competitiva o tecnológica sobre precios, retención y diferenciación
+    de productos.
+- impacto: medio
+  probabilidad: media
+  riesgo: Disrupciones en componentes, proveedores o logística que afecten producción
+    y entregas.
+- impacto: medio
+  probabilidad: media
+  riesgo: Valoración poco atractiva si las expectativas de recuperación ya están incorporadas
+    en el precio.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Deterioro permanente del moat por pérdida de relevancia tecnológica o de
+    la red de servicio.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una actualización corporativa o resultados que muestren estabilización
+      sostenida de pedidos, ventas y márgenes en los negocios cíclicos, sin deterioro
+      material de la generación de caja. Probabilidad estimada por el analista, no
+      derivada de un modelo calibrado; falta información de pedidos y calendario de
+      resultados para precisar el evento.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización disponible es USD 671,60 al 2026-10-30. El consenso
+    de precio objetivo observado al 2026-11-20 es USD 694,01 de media y mediana, con
+    rango USD 500–813,18. La media implica aproximadamente 3,3% por encima de la cotización,
+    pero las fechas de observación no coinciden y los objetivos no son una valoración
+    independiente. No se proporcionan múltiplos actuales, estimaciones de beneficios
+    ni suficiente evidencia operativa para determinar qué escenario implícito descuentan
+    los múltiplos.
+  hipotesis_contraria: El mercado podría estar valorando de forma excesivamente lineal
+    una fase débil del ciclo y subestimando la resiliencia de la demanda de repuestos,
+    servicio y tecnología; también podría estar subestimando la duración de la debilidad
+    en ingresos agrícolas, inversión de clientes o márgenes. Son hipótesis plausibles
+    por el modelo de negocio, pero no están verificadas por la evidencia incluida.
+    El segundo nivel es que una acción de una compañía de calidad puede ser una inversión
+    poco atractiva si el precio ya incorpora una recuperación; los datos aportados
+    no permiten probar ni descartar ese caso.
+  razonamiento: El precio objetivo medio observado está modestamente por encima de
+    la cotización, pero es una referencia de analistas y no evidencia de infravaloración.
+    El rango de objetivos es amplio y no se aportan múltiplos, previsiones financieras
+    suficientes ni una valoración independiente. Por tanto, no puede afirmarse que
+    exista un error de mercado aprovechable. La conclusión es incierta, no una señal
+    de compra.
+generated_at: '2026-11-20T13:19:45.310674-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se aporta evidencia que confirme vulneración de alguna de las categorías
+    de invalidación. La falta de información no equivale a evidencia de deterioro,
+    fraude o insolvencia.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-DE-0001
+prompt_inputs:
+  business_model: ''
+  ceo_tenure: 0
+  debt_to_equity: 0.023
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: DE
+  operating_margin: 13.52
+  pe_ratio: 37.28
+  products: ''
+  revenue: 47930000000.0
+  revenue_growth: 8.31
+  roic: 5.69
+  sector: ''
+  ticker: DE
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: ''
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 671.5999755859375
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.023
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:25.790015+00:00",
+    "period_end_date": "2026-08-02", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-08-02", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/DE/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 3230000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:27.193239+00:00", "period_end_date": "2026-08-02", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1785628800, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-08-02", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    13.372}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason": null,
+    "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:27.193239+00:00",
+    "period_end_date": "2026-08-02", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1785628800,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-08-02", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    4.9}}}, "observed_at": "2026-10-30T16:53:25.790015+00:00", "period_end": "2026-08-02",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: DE
+  operating_margin: 13.52
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: ''
+  revenue: 47930000000.0
+  revenue_growth: 8.31
+  roic: 5.69
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    813.18, "low": 500.0, "mean": 694.01, "median": 694.01, "observed_at": "2026-11-20T13:19:11.927601-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T13:19:11.927601-03:00", "observed_date": "2026-11-20", "target_price":
+    694.01, "url": "https://stockanalysis.com/stocks/de/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T13:19:11.927601-03:00",
+    "observed_date": "2026-11-20", "target_price": 694.0078, "url": "https://finance.yahoo.com/quote/DE/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 671.5999755859375,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/DE/"}]}}'
+  sector: ''
+  ticker: DE
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: fd854a1d4fa6fe781c8c6b89cd4163aa510f3cc57d347f73989015102737205a
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T13:19:45.310674-03:00'
+resumen_ejecutivo: 'DE se clasifica principalmente como una oportunidad cíclica. La
+  compañía es conocida por maquinaria y servicios vinculados a agricultura, construcción
+  y actividades relacionadas, pero el expediente no aporta evidencia primaria reciente
+  sobre pedidos, segmentos, estrategia, dirección o ciclo. La evidencia financiera
+  estructurada incluye FCF TTM de USD 3.230 millones al periodo terminado el 2026-08-02
+  y dos datos de yfinance con periodo no especificado: margen operativo de 13,372%
+  y crecimiento de ingresos de 4,9%. No basta para evaluar tendencias, balance o calidad
+  sostenible de caja. El consenso de precio objetivo está cerca de la cotización,
+  con una dispersión importante. Valoración: incierta; convicción limitada por insuficiencia
+  de evidencia.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados y pedidos publicados que demuestren recuperación sostenida de ventas
+      y márgenes.
+    - Evidencia de caja y balance más resilientes de lo que implica el caso bajista.
+    - Revisión al alza consistente de previsiones y objetivos de analistas.
+    id: BEAR
+    key_assumptions:
+    - El objetivo bajo observado continúa siendo una referencia pertinente para el
+      horizonte de un año.
+    - La demanda de equipos o los márgenes se debilitan y no hay evidencia suficiente
+      de compensación mediante servicios y repuestos.
+    - No se supone insolvencia ni un evento corporativo no documentado.
+    rationale: Ancla bajista en el extremo inferior del rango de objetivos observado
+      por analistas. No representa una valoración independiente ni una predicción;
+      refleja un resultado adverso plausible si la exposición cíclica se traduce en
+      expectativas más débiles. El expediente no permite calcular un precio objetivo
+      fundamental.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis, consenso de precio objetivo
+      url: https://stockanalysis.com/stocks/de/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance, cotización
+      url: https://finance.yahoo.com/quote/DE/
+    target_price: 500
+  - falsifiers:
+    - Debilidad sostenida de pedidos, ingresos o márgenes en resultados publicados.
+    - Deterioro material de liquidez, deuda o generación de caja.
+    - Revisiones a la baja persistentes de previsiones y objetivos observados.
+    id: BULL
+    key_assumptions:
+    - El objetivo alto observado sigue siendo pertinente para el horizonte de un año.
+    - Se materializa una evolución operativa favorable suficiente para respaldar la
+      parte alta del rango observado.
+    - No ocurre un deterioro cíclico o competitivo que invalide la referencia.
+    rationale: Ancla alcista en el extremo superior del rango de objetivos observado
+      por analistas. Es una referencia del proveedor, no una valoración independiente
+      ni un precio garantizado. Un resultado cercano a esta ancla requeriría evidencia
+      favorable sobre demanda, márgenes y resiliencia de caja; el expediente no permite
+      validar esos supuestos.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis, consenso de precio objetivo
+      url: https://stockanalysis.com/stocks/de/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance, cotización
+      url: https://finance.yahoo.com/quote/DE/
+    target_price: 813.18
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 55
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T13:19:11.927601-03:00'
+  fuentes:
+    stockanalysis: 694.01
+    yfinance: 694.0078
+  mediana: 694.01
+  n_fuentes: 2
+  promedio: 694.01
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T13:19:11.927601-03:00'
+    observed_date: '2026-11-20'
+    target_price: 694.01
+    url: https://stockanalysis.com/stocks/de/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T13:19:11.927601-03:00'
+    observed_date: '2026-11-20'
+    target_price: 694.0078
+    url: https://finance.yahoo.com/quote/DE/
+  target_high: 813.18
+  target_low: 500.0
+tesis_inversion: Tesis provisional de exposición a un fabricante de maquinaria con
+  ventajas competitivas potenciales y resultados sensibles al ciclo. La cotización
+  está cerca del objetivo medio observado por analistas, pero no hay base suficiente
+  para establecer valor intrínseco ni margen de seguridad. La tesis favorable requiere
+  que la base instalada, el servicio y la tecnología amortigüen las caídas de equipos
+  nuevos y que la caja se mantenga resiliente; la tesis adversa es que una contracción
+  cíclica prolongada deprima beneficios y que el precio no ofrezca protección adecuada.
+  La información actual no permite elegir con alta convicción entre ambos escenarios.
+ticker: DE
+version: '3.0'

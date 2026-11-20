@@ -1,0 +1,177 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas netas de los segmentos de equipos disminuyen un 10% o más
+      frente al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Si se divulgan por separado, los ingresos de posventa o tecnología
+      disminuyen más de un 5% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa atribuye una parte material del descenso a una contracción
+      de repuestos, servicio o tecnología, y no principalmente a equipos nuevos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas netas de los segmentos de equipos disminuyen un 10% o más frente al
+    ejercicio fiscal 2026.
+  - Si se divulgan por separado, los ingresos de posventa o tecnología disminuyen
+    más de un 5% interanual.
+  - La empresa atribuye una parte material del descenso a una contracción de repuestos,
+    servicio o tecnología, y no principalmente a equipos nuevos.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-DE-0001
+  opportunity_id: OPP-COMPOUNDER-DE-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -10.0
+    met: null
+    metric: Variación interanual de ventas netas de los segmentos de equipos en el
+      ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal 2027, las ventas netas de los segmentos de
+      equipos de Deere disminuirán menos de un 10% frente al ejercicio fiscal 2026;
+      además, si la compañía informa por separado ingresos de posventa o tecnología,
+      estos no caerán más de un 5% interanual.
+    unit: porcentaje; la caída será menor que este umbral
+  priority: important
+  probability: 0.5
+  rationale: La base instalada puede sostener la demanda de repuestos, servicio y
+    soluciones tecnológicas incluso cuando los clientes retrasan la compra de maquinaria.
+    El contexto plantea este mecanismo como posible, pero no aporta datos que lo confirmen;
+    por tanto, se considera una hipótesis que debe verificarse con los resultados
+    por segmento y las divulgaciones de posventa.
+  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 muestran
+    una caída de al menos el 10% en las ventas netas de los segmentos de equipos,
+    o si las divulgaciones disponibles evidencian una contracción superior al 5% en
+    posventa o tecnología.
+  secondary_hypotheses: []
+  statement: La actividad de posventa y tecnología amortiguará la debilidad de equipos
+    nuevos y limitará la contracción de las ventas de Deere durante el ejercicio fiscal
+    2027.
+  status: ACTIVE
+  ticker: DE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre de las operaciones de equipos es cero o negativo
+      en el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre equivale a menos del 70% del beneficio neto
+      atribuible a Deere.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa que la debilidad de caja se debe a una caída persistente
+      de cobros o márgenes, y no principalmente a una variación transitoria del capital
+      circulante.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre de las operaciones de equipos es cero o negativo en el
+    ejercicio fiscal 2027.
+  - El flujo de caja libre equivale a menos del 70% del beneficio neto atribuible
+    a Deere.
+  - La compañía informa que la debilidad de caja se debe a una caída persistente de
+    cobros o márgenes, y no principalmente a una variación transitoria del capital
+    circulante.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-DE-0001
+  opportunity_id: OPP-COMPOUNDER-DE-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 70.0
+    met: null
+    metric: Flujo de caja libre de las operaciones de equipos como porcentaje del
+      beneficio neto atribuible
+    prediction: En el ejercicio fiscal 2027, el flujo de caja libre de las operaciones
+      de equipos —flujo de caja operativo menos inversiones de capital— será positivo
+      y equivaldrá al menos al 70% del beneficio neto atribuible a Deere.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Una base instalada amplia y la generación de ingresos de posventa podrían
+    amortiguar el ciclo y sostener la caja. Sin embargo, el contexto no incluye datos
+    de flujo de caja, capital circulante ni inversión, por lo que la resiliencia financiera
+    debe comprobarse directamente.
+  review_trigger: Dejar de creerla al publicarse los resultados del ejercicio fiscal
+    2027 si el flujo de caja libre de las operaciones de equipos es negativo o su
+    conversión respecto al beneficio neto es inferior al 70%.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DE-0001
+  statement: Deere conservará una conversión suficiente de beneficios en caja durante
+    el ejercicio fiscal 2027, pese a la sensibilidad cíclica de sus operaciones.
+  status: ACTIVE
+  ticker: DE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de DE supera al del S&P 500 en 10 puntos porcentuales
+      o más durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La diferencia entre los rendimientos totales de DE y del S&P 500 es
+      superior a -10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción obtiene un rendimiento total positivo y no registra una caída
+      máxima superior a la del S&P 500 durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de DE supera al del S&P 500 en 10 puntos porcentuales o más
+    durante el periodo.
+  - La diferencia entre los rendimientos totales de DE y del S&P 500 es superior a
+    -10 puntos porcentuales.
+  - La acción obtiene un rendimiento total positivo y no registra una caída máxima
+    superior a la del S&P 500 durante el periodo.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-DE-0001
+  opportunity_id: OPP-COMPOUNDER-DE-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -10.0
+    met: null
+    metric: Rendimiento total de DE menos rendimiento total del S&P 500 durante un
+      año
+    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
+      noviembre de 2027, el rendimiento total de DE, incluidos dividendos, será al
+      menos 10 puntos porcentuales inferior al rendimiento total del S&P 500.
+    unit: puntos porcentuales o menos
+  priority: important
+  probability: 0.5
+  rationale: El contexto señala que la cotización está cerca del objetivo medio observado
+    por analistas y que no existe base suficiente para establecer valor intrínseco
+    ni margen de seguridad. Si los beneficios o las expectativas de recuperación se
+    deterioran, la acción podría quedar rezagada; la comparación futura con un índice
+    permite comprobar esta hipótesis sin asumir que el objetivo de analistas sea una
+    valoración fundamental.
+  review_trigger: Dejar de creerla si, en cualquier fecha de publicación de resultados
+    anterior al 20 de noviembre de 2027, Deere eleva sus previsiones de ventas y beneficios
+    para el ejercicio fiscal 2027 y mantiene o aumenta su previsión de flujo de caja
+    libre de equipos; la evaluación final se hará el 20 de noviembre de 2027.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DE-0001
+  - H2-OPP-COMPOUNDER-DE-0001
+  statement: Desde la fecha de corte hasta el 20 de noviembre de 2027, la acción de
+    Deere tendrá un rendimiento inferior al del S&P 500, porque el precio cercano
+    al objetivo medio de analistas ofrece protección limitada si la debilidad cíclica
+    se prolonga.
+  status: ACTIVE
+  ticker: DE
+  version: 1

@@ -1,0 +1,151 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas netas de las operaciones de equipos del ejercicio fiscal
+      2027 crecen menos del 5% frente al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen operativo de las operaciones de equipos aumenta menos de
+      1,0 punto porcentual o disminuye frente al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas netas de las operaciones de equipos del ejercicio fiscal 2027 crecen
+    menos del 5% frente al ejercicio fiscal 2026.
+  - El margen operativo de las operaciones de equipos aumenta menos de 1,0 punto porcentual
+    o disminuye frente al ejercicio fiscal 2026.
+  horizon: medio
+  id: H1-OPP-MB-DE
+  opportunity_id: OPP-MB-DE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-15'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ventas netas de operaciones de equipos
+    prediction: En los resultados del ejercicio fiscal 2027, las ventas netas de las
+      operaciones de equipos serán al menos un 5% superiores a las del ejercicio fiscal
+      2026 y el margen operativo de esas operaciones habrá aumentado al menos 1,0
+      punto porcentual interanual.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La demanda de equipos agrícolas, de construcción y forestales es cíclica.
+    Si mejora frente al nivel del ejercicio fiscal 2026, una mayor utilización de
+    capacidad y una mezcla de ventas más favorable deberían impulsar simultáneamente
+    ingresos y margen. La información disponible al corte no permite confirmar que
+    esa recuperación ya esté en marcha; por ello, esta hipótesis depende de los resultados
+    futuros.
+  review_trigger: Dejar de creerla si los resultados publicados para el ejercicio
+    fiscal 2027 incumplen cualquiera de los dos umbrales; la fecha límite de evaluación
+    es 2027-12-15.
+  secondary_hypotheses: []
+  statement: La recuperación de la demanda y una mejor absorción de costos elevarán
+    las ventas de equipos y el margen operativo de Deere durante el ejercicio fiscal
+    2027.
+  status: ACTIVE
+  ticker: DE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre consolidado del ejercicio fiscal 2027 es inferior
+      a 3.000 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre del ejercicio fiscal 2027 no supera en al menos
+      un 15% el del ejercicio fiscal 2026, calculado con la misma definición.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre consolidado del ejercicio fiscal 2027 es inferior a 3.000
+    millones de dólares.
+  - El flujo de caja libre del ejercicio fiscal 2027 no supera en al menos un 15%
+    el del ejercicio fiscal 2026, calculado con la misma definición.
+  horizon: medio
+  id: H2-OPP-MB-DE
+  opportunity_id: OPP-MB-DE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-15'
+    expected: 3000.0
+    met: null
+    metric: Flujo de caja libre consolidado del ejercicio fiscal 2027
+    prediction: El flujo de caja libre consolidado del ejercicio fiscal 2027, definido
+      como efectivo neto provisto por actividades de operación menos adquisiciones
+      de propiedad y equipo, será de al menos 3.000 millones de dólares y superará
+      en al menos un 15% el resultado calculado con la misma fórmula para el ejercicio
+      fiscal 2026.
+    unit: millones de dólares
+  priority: critical
+  probability: 0.5
+  rationale: 'La rentabilidad contable no garantiza por sí sola una recuperación de
+    caja: las necesidades de capital de trabajo, inversión y financiación pueden absorberla.
+    Si se recuperan las operaciones y se contiene la inversión neta, el flujo de caja
+    libre calculado de manera consistente debería mejorar. Esta medición incluye el
+    efecto de Financial Services y no debe interpretarse como caja generada exclusivamente
+    por las operaciones de equipos.'
+  review_trigger: 'Dejar de creerla cuando se publiquen los estados financieros del
+    ejercicio fiscal 2027 si no se cumplen ambos umbrales; fecha límite de evaluación:
+    2027-12-15.'
+  secondary_hypotheses:
+  - H1-OPP-MB-DE
+  statement: La generación de caja consolidada de Deere será positiva y mejorará en
+    el ejercicio fiscal 2027, señal de que la recuperación operativa se traduce en
+    efectivo.
+  status: ACTIVE
+  ticker: DE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de DE, incluidos dividendos, supera al del S&P
+      500 en menos de 5 puntos porcentuales entre las fechas especificadas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento total de DE es igual o inferior al del S&P 500 durante
+      el intervalo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de DE, incluidos dividendos, supera al del S&P 500 en menos
+    de 5 puntos porcentuales entre las fechas especificadas.
+  - El rendimiento total de DE es igual o inferior al del S&P 500 durante el intervalo.
+  horizon: medio
+  id: H3-OPP-MB-DE
+  opportunity_id: OPP-MB-DE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de DE menos rendimiento total del S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de DE, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      el rendimiento total del S&P 500 durante el mismo intervalo.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: La cotización puede anticipar una recuperación de beneficios antes de
+    que esta sea plenamente visible en los estados financieros. Si las ventas y los
+    márgenes de equipos mejoran y la generación de caja acompaña, ese reconocimiento
+    podría sostener un rendimiento relativo positivo. La hipótesis se refiere al rendimiento
+    observado, no presupone que la valoración actual sea atractiva.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la diferencia de rendimiento
+    total frente al S&P 500 es inferior a 5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-DE
+  - H2-OPP-MB-DE
+  statement: La acción de Deere tendrá un rendimiento total superior al del S&P 500
+    durante los 12 meses posteriores al corte, si el mercado empieza a reconocer una
+    mejora de fundamentales.
+  status: ACTIVE
+  ticker: DE
+  version: 1

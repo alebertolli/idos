@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 59 companies tracked
+Total: 60 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -65,6 +65,7 @@ Total: 59 companies tracked
 - 📄 [[CAR|Avis Budget Group, Inc.]]
 - 📄 [[CAT|Caterpillar Inc.]]
 - 📄 [[DAL|Delta Air Lines, Inc.]]
+- 📄 [[DE|Deere & Company]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]
