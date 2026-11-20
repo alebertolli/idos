@@ -1,0 +1,162 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción promedio diaria de 2027 aumenta menos del 15% frente
+      a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica datos comparables que permitan calcular la variación
+      de producción.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La producción promedio diaria de 2027 es igual o inferior a la de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción promedio diaria de 2027 aumenta menos del 15% frente a 2026.
+  - La compañía no publica datos comparables que permitan calcular la variación de
+    producción.
+  - La producción promedio diaria de 2027 es igual o inferior a la de 2026.
+  horizon: medio
+  id: H1-OPP-MB-VIST
+  opportunity_id: OPP-MB-VIST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 15.0
+    met: null
+    metric: Crecimiento interanual de la producción promedio diaria de hidrocarburos
+    prediction: En los resultados anuales de 2027, la producción promedio diaria de
+      hidrocarburos será al menos un 15% mayor que el promedio anual de 2026, medida
+      en boe/d y con la misma metodología de reporte.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis de inversión plantea que la reinversión puede sostener el crecimiento
+    de la producción y los ingresos. Sin embargo, la información suministrada no incluye
+    cifras de producción, planes de inversión ni capacidad disponible; por ello, esta
+    hipótesis requiere verificación con datos futuros.
+  review_trigger: Dejar de creerla si los datos publicados para los primeros tres
+    trimestres de 2027 muestran que la producción acumulada promedio crece menos del
+    10% frente al mismo período de 2026, salvo que la compañía documente una interrupción
+    temporal y cuantifique su reversión antes del cierre de 2027.
+  secondary_hypotheses: []
+  statement: Vista aumentará su producción promedio anual de hidrocarburos en 2027
+    frente a 2026, apoyada por la reinversión en sus activos de Vaca Muerta.
+  status: ACTIVE
+  ticker: VIST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado de 2027 es cero o negativo según la
+      definición indicada.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica flujo de caja operativo e inversiones de capital
+      que permitan calcular esa métrica.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El resultado positivo depende de excluir pagos de inversión que la
+      compañía clasifica como capex en otros períodos o segmentos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado de 2027 es cero o negativo según la definición
+    indicada.
+  - La compañía no publica flujo de caja operativo e inversiones de capital que permitan
+    calcular esa métrica.
+  - El resultado positivo depende de excluir pagos de inversión que la compañía clasifica
+    como capex en otros períodos o segmentos.
+  horizon: medio
+  id: H2-OPP-MB-VIST
+  opportunity_id: OPP-MB-VIST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.0
+    met: null
+    metric: Flujo de caja libre acumulado en 2027
+    prediction: El flujo de caja libre acumulado de los cuatro trimestres de 2027
+      será positivo, calculado como flujo de caja operativo menos inversiones de capital,
+      en la moneda de reporte de la compañía.
+    unit: mayor que cero, en moneda de reporte
+  priority: critical
+  probability: 0.5
+  rationale: La tesis señala que se ha observado generación de FCF y propone que puede
+    sostenerse mediante reinversión. La evidencia suministrada no proporciona importes,
+    definición de FCF, precios realizados ni capex futuros; la continuidad de la generación
+    de caja es, por tanto, una hipótesis por contrastar, no un hecho confirmado.
+  review_trigger: Dejar de creerla si los estados financieros de los primeros nueve
+    meses de 2027 muestran FCF acumulado negativo y la compañía no presenta una explicación
+    cuantificada que permita esperar FCF anual positivo.
+  secondary_hypotheses:
+  - H1-OPP-MB-VIST
+  statement: Vista mantendrá generación positiva de flujo de caja libre durante 2027,
+    incluso mientras financia su programa de inversión.
+  status: ACTIVE
+  ticker: VIST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de VIST supera al de XOP en menos de 5 puntos
+      porcentuales durante el período definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: VIST obtiene un rendimiento total igual o inferior al de XOP.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No es posible calcular rendimientos comparables por falta de datos
+      de precios o distribuciones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de VIST supera al de XOP en menos de 5 puntos porcentuales
+    durante el período definido.
+  - VIST obtiene un rendimiento total igual o inferior al de XOP.
+  - No es posible calcular rendimientos comparables por falta de datos de precios
+    o distribuciones.
+  horizon: medio
+  id: H3-OPP-MB-VIST
+  opportunity_id: OPP-MB-VIST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de VIST menos rendimiento total de XOP
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, el rendimiento
+      total de VIST, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      al rendimiento total del ETF SPDR S&P Oil & Gas Exploration & Production (XOP),
+      calculado en dólares estadounidenses.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Si el crecimiento operativo y la generación de FCF se sostienen, podrían
+    favorecer la percepción del mercado sobre la capacidad de crecimiento de Vista.
+    No se suministran una valoración actual, estimaciones futuras ni evidencia suficiente
+    para afirmar que la acción esté infravalorada; por eso, esta hipótesis evalúa
+    un resultado relativo de mercado y no presupone un valor intrínseco.
+  review_trigger: Dejar de creerla si, al cierre del 2027-06-30, VIST acumula un rendimiento
+    total inferior al de XOP por 10 puntos porcentuales o más y los reportes disponibles
+    no muestran una mejora verificable en producción o FCF.
+  secondary_hypotheses:
+  - H1-OPP-MB-VIST
+  - H2-OPP-MB-VIST
+  statement: La acción de Vista Energy tendrá un rendimiento total superior al de
+    un referente del sector de exploración y producción de petróleo y gas durante
+    los próximos doce meses.
+  status: ACTIVE
+  ticker: VIST
+  version: 1

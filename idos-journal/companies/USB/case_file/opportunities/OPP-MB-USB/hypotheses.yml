@@ -1,0 +1,187 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de los ingresos totales de FY 2027 es inferior
+      al 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación no puede realizarse de forma consistente por cambios
+      materiales en la presentación contable o el perímetro de consolidación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de los ingresos totales de FY 2027 es inferior al 3%.
+  - La comparación no puede realizarse de forma consistente por cambios materiales
+    en la presentación contable o el perímetro de consolidación.
+  horizon: medio
+  id: H1-OPP-MB-USB
+  opportunity_id: OPP-MB-USB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de ingresos totales en FY 2027
+    prediction: Los ingresos totales reportados para FY 2027 serán al menos un 3%
+      superiores a los de FY 2026.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La información disponible indica crecimiento de ingresos entre FY 2023
+    y el TTM terminado el 2026-09-30 y describe varias líneas de negocio que podrían
+    contribuir al crecimiento. Sin datos segmentarios suficientes, la persistencia
+    y la fuente del crecimiento siguen sin estar validadas.
+  review_trigger: Dejar de creerla si los resultados de FY 2027 publicados antes del
+    2028-02-15 muestran crecimiento de ingresos inferior al 3%; si la publicación
+    se retrasa, reevaluar cuando se publiquen los resultados anuales.
+  secondary_hypotheses: []
+  statement: U.S. Bancorp mantendrá crecimiento de ingresos durante el ejercicio 2027,
+    apoyado por sus negocios diversificados de banca, pagos y gestión patrimonial.
+  status: ACTIVE
+  ticker: USB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La tasa trimestral de castigos netos sobre préstamos promedio alcanza
+      o supera el 1,0% en cualquier trimestre de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La entidad informa de un deterioro material de calidad crediticia que
+      impide comparar esa tasa de manera consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La tasa trimestral de castigos netos sobre préstamos promedio alcanza o supera
+    el 1,0% en cualquier trimestre de 2027.
+  - La entidad informa de un deterioro material de calidad crediticia que impide comparar
+    esa tasa de manera consistente.
+  horizon: medio
+  id: H2-OPP-MB-USB
+  opportunity_id: OPP-MB-USB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 1.0
+    met: null
+    metric: Tasa trimestral de castigos netos sobre préstamos promedio
+    prediction: La tasa anual de castigos netos sobre préstamos promedio se mantendrá
+      por debajo del 1,0% en cada trimestre de 2027.
+    unit: porcentaje máximo
+  priority: critical
+  probability: 0.5
+  rationale: El contexto disponible no aporta datos sobre morosidad, castigos netos
+    ni provisiones. Por ello, esta hipótesis plantea un umbral verificable para comprobar
+    si el crecimiento observado puede sostenerse sin un deterioro significativo del
+    crédito.
+  review_trigger: Dejar de creerla al publicarse un resultado trimestral de 2027 con
+    castigos netos iguales o superiores al 1,0% de los préstamos promedio, o ante
+    una revisión de datos que confirme ese umbral.
+  secondary_hypotheses: []
+  statement: La calidad de los activos de U.S. Bancorp seguirá siendo compatible con
+    una expansión rentable y no mostrará un deterioro marcado durante 2027.
+  status: ACTIVE
+  ticker: USB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La ratio CET1 reportada al cierre de cualquier trimestre de 2027 es
+      inferior al 10,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La ratio se vuelve incomparable por un cambio regulatorio o metodológico
+      y no se publica una conciliación suficiente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La ratio CET1 reportada al cierre de cualquier trimestre de 2027 es inferior al
+    10,0%.
+  - La ratio se vuelve incomparable por un cambio regulatorio o metodológico y no
+    se publica una conciliación suficiente.
+  horizon: medio
+  id: H3-OPP-MB-USB
+  opportunity_id: OPP-MB-USB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 10.0
+    met: null
+    metric: Ratio CET1 al cierre de cada trimestre de 2027
+    prediction: La ratio CET1 de U.S. Bancorp será de al menos el 10,0% al cierre
+      de cada trimestre de 2027.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis identifica la posición de capital regulatorio y la asignación
+    de capital como cuestiones pendientes de validar. Un nivel de CET1 sostenido por
+    encima de un umbral explícito sería evidencia observable de capacidad para absorber
+    pérdidas y financiar operaciones, aunque no demostraría por sí solo una buena
+    asignación de capital.
+  review_trigger: Dejar de creerla si un informe trimestral de 2027 muestra CET1 inferior
+    al 10,0%, o si una revisión posterior confirma que la ratio publicada quedó por
+    debajo de ese nivel.
+  secondary_hypotheses:
+  - H2-OPP-MB-USB
+  statement: U.S. Bancorp conservará un colchón de capital regulatorio que limite
+    la necesidad de reducir distribuciones o captar capital ordinario durante 2027.
+  status: ACTIVE
+  ticker: USB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de USB menos la rentabilidad total del BKX es
+      inferior a 5 puntos porcentuales en el periodo especificado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se dispone de precios ajustados por dividendos comparables para
+      ambas series en las fechas de medición.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de USB menos la rentabilidad total del BKX es inferior a
+    5 puntos porcentuales en el periodo especificado.
+  - No se dispone de precios ajustados por dividendos comparables para ambas series
+    en las fechas de medición.
+  horizon: medio
+  id: H4-OPP-MB-USB
+  opportunity_id: OPP-MB-USB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de USB menos rentabilidad total del BKX
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, la rentabilidad
+      total de USB, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      la del BKX.
+    unit: puntos porcentuales mínimos
+  priority: informational
+  probability: 0.5
+  rationale: La información disponible no incluye una valoración fundamental propia
+    ni estimaciones que expliquen una diferencia entre cotización y valor intrínseco.
+    Por tanto, la hipótesis de mercado se limita a una predicción relativa, medible
+    y no equivalente a afirmar que el mercado está equivocado.
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si el rendimiento relativo
+    acumulado es inferior a 5 puntos porcentuales; no interpretar un resultado favorable
+    como prueba suficiente de infravaloración sin una valoración fundamental independiente.
+  secondary_hypotheses:
+  - H1-OPP-MB-USB
+  - H2-OPP-MB-USB
+  - H3-OPP-MB-USB
+  statement: Durante los 12 meses posteriores a la fecha de corte, la rentabilidad
+    total de la acción de U.S. Bancorp superará la del índice KBW Bank Index (BKX),
+    aunque esta prueba relativa no bastará por sí sola para concluir que existe infravaloración.
+  status: ACTIVE
+  ticker: USB
+  version: 1

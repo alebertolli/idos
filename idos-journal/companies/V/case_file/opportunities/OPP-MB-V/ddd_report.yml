@@ -1,0 +1,570 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El crecimiento de ingresos y FCF es compatible con expansión del negocio, pero
+    no demuestra por sí solo retornos sobre capital ni reinversión rentable.
+  - La red y los servicios asociados podrían favorecer la continuidad del negocio;
+    la evidencia del paquete no mide la fuerza ni la duración de esa ventaja.
+  - StockAnalysis reportó ingresos de 45,903 para FY 2026 y 32,653 para FY 2023, con
+    períodos terminados el 2026-09-30 y 2023-09-30.
+  - StockAnalysis reportó FCF de 22,057 para FY 2026 y 21,577 para FY 2025, con períodos
+    terminados el 2026-09-30 y 2025-09-30.
+  - yfinance reportó momentum de precio a 12 meses de 21.3799% y volatilidad de 90
+    días de 19.9166%, hasta el 2026-10-30.
+  preguntas_abiertas:
+  - ¿Cuál es la penetración por mercado, el volumen procesado y la contribución económica
+    de los servicios de valor añadido?
+  - ¿Qué retornos obtiene Visa sobre el capital reinvertido y qué inversión requiere
+    el crecimiento?
+  - ¿Qué significan el valor reportado de cobertura de intereses igual a 0 y los importes
+    financieros en su unidad monetaria original?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación fundamental requerida; evidencia operativa favorable pero
+    incompleta para validar una tesis multibagger.
+  justificacion: El paquete muestra crecimiento histórico de ingresos y FCF, junto
+    con momentum de precio positivo a 12 meses. No aporta datos suficientes sobre
+    penetración, retornos sobre capital, dilución ni valoración fundamental para confirmar
+    la oportunidad.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: 'Hecho: el modelo descrito combina procesamiento de pagos y servicios
+    asociados. Hechos reportados: margen bruto de 97.68% y crecimiento de ingresos
+    y FCF en FY 2026 frente a FY 2025. Inferencia: estos datos son compatibles con
+    una actividad de alto margen, pero no bastan para medir retornos sobre capital,
+    necesidades de reinversión o durabilidad de la ventaja competitiva.'
+  rating: Alta calidad operativa potencial; validación incompleta
+dominio_catalizadores:
+- analisis: Los ingresos reportados aumentaron de 32,653 en FY 2023 a 45,903 en FY
+    2026; el paquete no proporciona guía futura.
+  catalizador: Crecimiento de ingresos
+- analisis: El FCF reportado subió de 21,577 en FY 2025 a 22,057 en FY 2026; su continuidad
+    es un hito a contrastar con próximos períodos.
+  catalizador: Generación de FCF
+- analisis: El resumen describe Visa Direct, tokenización y servicios de procesamiento;
+    no cuantifica su contribución actual ni su crecimiento.
+  catalizador: Ampliación de servicios
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- analisis: El modelo descrito depende de una red de pagos, pero el paquete no aporta
+    cuotas, tendencias de volumen ni evidencia cuantificada de sustitución por alternativas.
+  riesgo: Competencia y sustitución
+- analisis: El paquete no cuantifica exposición regulatoria, litigios ni su impacto
+    financiero; son preguntas abiertas para la diligencia.
+  riesgo: Regulación y litigios
+- analisis: La cobertura de intereses aparece como 0 en StockAnalysis para TTM al
+    2026-09-30, dato que requiere verificación antes de interpretarse económicamente.
+  riesgo: Calidad de algunas métricas
+- analisis: El current ratio reportado es 0.97 y el net cash reportado es negativo
+    en el período más reciente; faltan elementos para evaluar necesidades de capital
+    y vencimientos.
+  riesgo: Capital y liquidez
+error_mercado:
+  catalizador_cambio: La evidencia futura sobre ingresos, FCF y evolución de los riesgos
+    de regulación, competencia y pagos alternativos podría confirmar o debilitar esa
+    expectativa; el paquete no fecha hitos concretos.
+  conclusion_error_valoracion: 'No se valida un error de valoración: el rango de analistas
+    es una referencia observada, no una estimación intrínseca, y faltan múltiplos
+    y un método de valoración con inputs fechados.'
+  consenso_actual: El resumen recoge un precio de USD 413.59 al 2026-10-30 y un consenso
+    de precio objetivo de USD 450.96, con rango de USD 330 a USD 500 observado el
+    2026-11-20.
+  hipotesis_contraria: 'Inferencia: la expectativa de continuidad del crecimiento
+    podría estar incorporada en el precio, mientras que los datos disponibles no permiten
+    cuantificar la valoración ni probar cuánto crecimiento exige.'
+  razonamiento: La evidencia disponible combina crecimiento de ingresos y FCF con
+    objetivos de analistas superiores e inferiores a la cotización observada. No permite
+    determinar qué expectativas de negocio están implícitas ni comparar el precio
+    con valor intrínseco.
+generated_at: '2026-11-20T20:37:30.249808-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-V
+prompt_inputs:
+  business_model: Visa Inc. operates as a payments technology company in the United
+    States and internationally. It operates VisaNet, a transaction processing network
+    that enables authorization, clearing, and settlement of payment transactions.
+    The company also offers credit, debit, and prepaid card products; tap to pay,
+    tokenization, and click to pay services; Visa Direct, a platform which facilitates
+    money movement, enabling clients to collect, hold, convert, and send funds across
+    its network; and issuing solutions, such as airport lounge access, dining reservations,
+    shopping experiences, event tickets, and seller offers. In addition, it provides
+    acceptance solutions, an omnichannel payment integration with e-commerce platforms;
+    risk detection and prevention solutions; and advisory and other services comprising
+    consulting practice, proprietary analytics models, data scientists and economists,
+    marketing services, and managed services. The company provides its services under
+    the Visa, Visa Electron, V PAY, Interlink, and PLUS brands. It serves consumers,
+    sellers, financial institutions, and government entities. Visa Inc. was founded
+    in 1958 and is headquartered in San Francisco, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.64
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Visa Inc.
+  operating_margin: 66.31
+  pe_ratio: 33.11
+  products: ''
+  revenue: 45900000000.0
+  revenue_growth: 14.76
+  roic: 56.45
+  sector: Financial Services
+  ticker: V
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/v/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/v/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/v/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    net_cash_history:
+      period: Current
+      period_end: '2026-09-30'
+      value: -8872.0
+  limitations: Falta EBITDA entre los campos permitidos para este ratio; no se deriva
+    un EBITDA ni se combina con cifras de unidad monetaria no verificada.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/v/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding:
+      period: TTM
+      period_end: '2026-09-30'
+      value: 1890000000.0
+  limitations: Sólo hay un dato de acciones en circulación; falta una observación
+    comparable de un período anterior o una serie de acciones diluidas.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/V/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Visa Inc. operates as a payments technology company in the United
+    States and internationally. It operates VisaNet, a transaction processing network
+    that enables authorization, clearing, and settlement of payment transactions.
+    The company also offers credit, debit, and prepaid card products; tap to pay,
+    tokenization, and click to pay services; Visa Direct, a platform which facilitates
+    money movement, enabling clients to collect, hold, convert, and send funds across
+    its network; and issuing solutions, such as airport lounge access, dining reservations,
+    shopping experiences, event tickets, and seller offers. In addition, it provides
+    acceptance solutions, an omnichannel payment integration with e-commerce platforms;
+    risk detection and prevention solutions; and advisory and other services comprising
+    consulting practice, proprietary analytics models, data scientists and economists,
+    marketing services, and managed services. The company provides its services under
+    the Visa, Visa Electron, V PAY, Interlink, and PLUS brands. It serves consumers,
+    sellers, financial institutions, and government entities. Visa Inc. was founded
+    in 1958 and is headquartered in San Francisco, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 413.5899963378906
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.64
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T23:37:00.338641+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Visa Inc.
+  operating_margin: 66.31
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Visa Inc. operates as a payments technology company in the United
+    States and internationally. It operates VisaNet, a transaction processing network
+    that enables authorization, clearing, and settlement of payment transactions.
+    The company also offers credit, debit, and prepaid card products; tap to pay,
+    tokenization, and click to pay services; Visa Direct, a platform which facilitates
+    money movement, enabling clients to collect, hold, convert, and send funds across
+    its network; and issuing soluti
+  revenue: 45900000000.0
+  revenue_growth: 14.76
+  roic: 56.45
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/v/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/V/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/V/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/V/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/V/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/v/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/v/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/v/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/V/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/v/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/V/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/v/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/v/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/v/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/V/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/V/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/v/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    500.0, "low": 330.0, "mean": 450.96, "median": 450.96, "observed_at": "2026-11-20T20:37:03.337945-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T20:37:03.337945-03:00", "observed_date": "2026-11-20", "target_price":
+    450.96, "url": "https://stockanalysis.com/stocks/v/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T20:37:03.337945-03:00",
+    "observed_date": "2026-11-20", "target_price": 450.9562, "url": "https://finance.yahoo.com/quote/V/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 413.5899963378906,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/V/"}]}}'
+  sector: Financial Services
+  ticker: V
+research_trigger:
+  discovery_snapshot_hash: 2dad84dfc6c51148d3dce178f6df80d09f297ff9ec06ab2222d093bd647657d5
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 261273970b2f362f5cef315f3cf6d856d8440ae1e0d0c06a26017171f259b914
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T20:37:30.249808-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 0.97x reportado al 2026-09-30; no queda por debajo del umbral.
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/V/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No disponible: falta una serie comparable de acciones para calcular
+    la variación interanual.'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/V/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: 0 reportado para TTM al 2026-09-30; requiere validación y no se interpreta
+    como cobertura económica confirmada.
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/V/statistics/
+  threshold: below 2.0x
+- metric: net_debt_ebitda
+  observation: 'No disponible: falta EBITDA compatible en los campos permitidos para
+    calcular el ratio.'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/v/financials/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No disponible: falta una serie histórica comparable de acciones en
+    circulación o acciones diluidas.'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/V/statistics/
+  threshold: above 5%
+- metric: negative_fcf_runway_months
+  observation: 'No se activa el cálculo de runway: el FCF reportado para TTM al 2026-09-30
+    es positivo.'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/V/statistics/
+  threshold: below 12 months
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Un objetivo actualizado y verificable que cambie el rango observado.
+    - Evidencia financiera futura que permita valorar el negocio mediante un método
+      identificable.
+    id: BEAR
+    key_assumptions:
+    - El precio objetivo bajo observado es una referencia de escenario, no una predicción
+      propia.
+    - No se dispone de supuestos publicados sobre ingresos, márgenes, múltiplos ni
+      horizonte del objetivo.
+    rationale: 'Ancla observada: extremo bajo del rango de objetivos de analistas,
+      no valoración intrínseca propia. Representa el resultado adverso relativo dentro
+      del rango publicado; la evidencia no explica qué supuestos de negocio originaron
+      ese objetivo.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos de analistas
+      url: https://stockanalysis.com/stocks/v/forecast/
+    target_price: 330.0
+  - falsifiers:
+    - Un objetivo actualizado y verificable que cambie el rango observado.
+    - Evidencia financiera futura que permita valorar el negocio mediante un método
+      identificable.
+    id: BULL
+    key_assumptions:
+    - El precio objetivo alto observado es una referencia de escenario, no una predicción
+      propia.
+    - No se dispone de supuestos publicados sobre ingresos, márgenes, múltiplos ni
+      horizonte del objetivo.
+    rationale: 'Ancla observada: extremo alto del rango de objetivos de analistas,
+      no valoración intrínseca propia. Es el resultado favorable relativo dentro del
+      rango publicado; el paquete no expone los supuestos de negocio detrás de ese
+      objetivo.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos de analistas
+      url: https://stockanalysis.com/stocks/v/forecast/
+    target_price: 500.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T20:37:03.337945-03:00'
+  fuentes:
+    stockanalysis: 450.96
+    yfinance: 450.9562
+  mediana: 450.96
+  n_fuentes: 2
+  promedio: 450.96
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T20:37:03.337945-03:00'
+    observed_date: '2026-11-20'
+    target_price: 450.96
+    url: https://stockanalysis.com/stocks/v/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T20:37:03.337945-03:00'
+    observed_date: '2026-11-20'
+    target_price: 450.9562
+    url: https://finance.yahoo.com/quote/V/
+  target_high: 500.0
+  target_low: 330.0
+tesis_inversion: 'Visa opera una red de pagos y ofrece servicios de procesamiento
+  y movimiento de dinero. Inferencia: si mantiene crecimiento de ingresos y FCF, su
+  red y servicios podrían sostener la expansión del negocio; sin datos de volúmenes,
+  penetración, inversión, retornos sobre capital y competencia, la durabilidad de
+  esa expansión y su relación con la valoración siguen sin validarse.'
+ticker: V
+version: '3.0'

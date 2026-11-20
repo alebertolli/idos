@@ -3937,3 +3937,106 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T20:28:06.746356'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-USB
+    ticker: USB
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T20:35:26.080563'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-USB
+    ticker: USB
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T20:35:26.425699'
+- data:
+    classification: Investigación requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 171ce5f75502780edecf29dcfab13d8837bbdbe208eedbdc66826a945443c9bd
+    opp_id: OPP-MB-USB
+    score: 56
+    strategy_version: '1.5'
+    ticker: USB
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T20:36:58.924749'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-V
+    ticker: V
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T20:37:29.771103'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-V
+    ticker: V
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T20:37:30.122707'
+- data:
+    classification: Investigación fundamental requerida; evidencia operativa favorable
+      pero incompleta para validar una tesis multibagger.
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 261273970b2f362f5cef315f3cf6d856d8440ae1e0d0c06a26017171f259b914
+    opp_id: OPP-MB-V
+    score: 58
+    strategy_version: '1.5'
+    ticker: V
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T20:38:54.656160'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-VIST
+    ticker: VIST
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T20:39:22.845970'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-VIST
+    ticker: VIST
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T20:39:23.197055'
+- data:
+    classification: Investigación fundamental requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: ec6d503bbd50912f8b3ad36bde57b8dd84ecf314e8d5e2c80068dfab39e8a061
+    opp_id: OPP-MB-VIST
+    score: 56
+    strategy_version: '1.5'
+    ticker: VIST
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T20:40:42.230825'

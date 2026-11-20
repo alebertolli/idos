@@ -2,39 +2,6 @@
   "schema_version": 1,
   "pending": [
     {
-      "opp_id": "OPP-MB-USB",
-      "ticker": "USB",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
-      "opp_id": "OPP-MB-V",
-      "ticker": "V",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
-      "opp_id": "OPP-MB-VIST",
-      "ticker": "VIST",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
       "opp_id": "OPP-MB-VOD",
       "ticker": "VOD",
       "score": 0,
@@ -1055,6 +1022,19 @@
       "next_attempt_date": "2026-11-21",
       "attempt_count": 1,
       "last_error": "HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=60)"
+    },
+    {
+      "opp_id": "OPP-MB-VIST",
+      "ticker": "VIST",
+      "score": 0,
+      "current_status": "SCREENED",
+      "reason": "new entry: SCREENED (score=0)",
+      "force_reprocess": true,
+      "trigger_type": null,
+      "event_evidence": null,
+      "next_attempt_date": "2026-11-21",
+      "attempt_count": 1,
+      "last_error": "Scenario validation status: invalid_pending_revision"
     }
   ]
 }

@@ -1,0 +1,29 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida'
+- 'Market error: No establecido con la evidencia disponible.'
+- 'Thesis: U.S. Bancorp es un holding de servicios financieros con operaciones descritas
+  en banca de consumo, pagos, banca comercial e institucional, gestión patrimonial
+  y soporte corporativo. Los datos disponib'
+generated_at: '2026-11-20T20:36:58.632489-03:00'
+id: ass-71a30081
+recommendation: REVIEW
+risks:
+- impacto: Estas métricas no deben interpretarse como señales económicas sin validar
+    su definición y aplicabilidad al modelo bancario.
+  riesgo: 'La evidencia no permite evaluar adecuadamente la solvencia bancaria mediante
+    los ratios corporativos genéricos solicitados: los valores reportados de current
+    ratio e interest coverage son cero, y EBITDA no está disponible.'
+- impacto: La generación de caja no debe extrapolarse como una medida estable de crecimiento
+    o capacidad de reinversión.
+  riesgo: El flujo de caja libre reportado presenta variabilidad entre ejercicios,
+    y el paquete no aporta los flujos comparables necesarios para validar el crecimiento
+    interanual.
+- impacto: Quedan sin evaluar la dilución y riesgos centrales de balance para una
+    entidad bancaria.
+  riesgo: No se incluyen datos de acciones diluidas históricos ni métricas de capital
+    regulatorio, calidad de activos, morosidad o pérdidas crediticias.
+score: 56
+status: COMPLETED
+version: '3.0'

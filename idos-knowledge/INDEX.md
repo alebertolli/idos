@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 152 companies tracked
+Total: 155 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -83,6 +83,7 @@ Total: 152 companies tracked
 - 📄 [[TS|Tenaris S.A.]]
 - 📄 [[TTE|TotalEnergies SE]]
 - ⏳ [[UGP|Ultrapar Participações S.A.]]
+- 📄 [[VIST|Vista Energy, S.A.B. de C.V.]]
 
 ## Financial Services
 - 📄 [[AEG|Aegon Ltd.]]
@@ -104,6 +105,8 @@ Total: 152 companies tracked
 - 📄 [[NMR|Nomura Holdings, Inc.]]
 - 📄 [[SAN|Banco Santander, S.A.]]
 - 📄 [[SPGI|S&P Global Inc.]]
+- 📄 [[USB|U.S. Bancorp]]
+- 📄 [[V|Visa Inc.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
