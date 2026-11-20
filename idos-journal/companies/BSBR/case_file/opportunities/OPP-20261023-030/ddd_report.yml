@@ -1,0 +1,445 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La exposición a crédito, tasas y condiciones macroeconómicas hace que la oportunidad
+    se clasifique principalmente como cíclica.
+  - La diferencia entre la cotización observada y los objetivos de analistas no demuestra
+    por sí misma una infravaloración.
+  - La información financiera disponible no permite establecer de forma robusta la
+    calidad del balance, la durabilidad del moat o la rentabilidad ajustada por riesgo.
+  - Las probabilidades e impactos asignados a catalizadores y riesgos son estimaciones
+    analíticas, no hechos observados ni probabilidades calibradas.
+  - La observación seleccionada para fcf reporta 9820000000, período TTM terminado
+    el 2026-09-30, fuente stockanalysis.com y unidad provider_financial_currency.
+  - La observación seleccionada para operating_margin_pct reporta 40.38 percentage_points,
+    período TTM terminado el 2026-09-30, fuente stockanalysis.com.
+  - La observación seleccionada para revenue_growth_pct reporta 4.78 percentage_points,
+    período TTM terminado el 2026-09-30, fuente stockanalysis.com.
+  preguntas_abiertas:
+  - ¿Cuáles son los datos más recientes y comparables de morosidad, provisiones, cobertura,
+    capital regulatorio y liquidez?
+  - ¿Qué definiciones, períodos y bases de cálculo explican la discrepancia entre
+    el crecimiento de ingresos seleccionado de 4,78% y el valor no comparable de -14,6%?
+  - ¿Cómo se define el FCF reportado para esta entidad financiera y qué utilidad tiene
+    como medida de generación económica de caja?
+  - ¿Qué cuota de mercado, coste de financiación, eficiencia y retención sustentan
+    la posición competitiva y la posible existencia de un moat?
+  - ¿Qué evidencia primaria respalda los objetivos de analistas y cuáles son sus supuestos,
+    fechas de publicación y cobertura?
+  - ¿Cuál es la estructura de capital y propiedad, el historial de asignación de capital
+    y la exposición a riesgos ESG, ciberseguridad y conducta?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'Compounder y compounder_castigado: no hay evidencia aportada
+    sobre retornos sobre capital, crecimiento de largo plazo o ventaja competitiva
+    duradera que justifique esas categorías. Quality_at_fair_price: faltan datos suficientes
+    para acreditar calidad y precio razonable. Deep_value: no se proporcionan múltiplos
+    seleccionados ni valoración de activos que acrediten descuento. Turnaround: no
+    se documentan un declive operativo ni un plan de recuperación. Value_trap: tampoco
+    hay evidencia suficiente de destrucción estructural de valor. Special_situation,
+    distressed e hype no están respaldadas por los datos disponibles.'
+  justificacion: La actividad bancaria en Brasil está expuesta al ciclo de crédito,
+    las tasas de interés, el empleo, la calidad de los activos y el entorno macroeconómico.
+    La información suministrada describe un banco diversificado, pero no aporta evidencia
+    suficiente para clasificarlo como compounder de calidad excepcional ni para demostrar
+    una infravaloración fundamental. Esta clasificación refleja la naturaleza cíclica
+    del negocio, no una conclusión de que la acción esté barata.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La descripción disponible indica actividad de banca comercial y banca
+    mayorista, con productos para particulares, pymes y empresas. Esa amplitud sugiere
+    diversificación de líneas, pero no permite medir cuota de mercado, retención,
+    eficiencia, coste de financiación ni diferenciación frente a competidores. No
+    hay evidencia suficiente para afirmar un moat duradero; el análisis de la ventaja
+    competitiva queda abierto.
+  rating: regular
+dominio_catalizadores:
+- descripcion: Resultados posteriores al 2026-09-30 que aporten series comparables
+    y permitan evaluar ingresos, márgenes y calidad crediticia.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 55
+- descripcion: Revisión de expectativas de analistas si nuevos resultados confirman
+    una mejora o un deterioro sostenido de la trayectoria operativa.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: No se aportan datos específicos de desempeño ESG, financiación de actividades
+    sensibles, ciberseguridad, protección al consumidor, privacidad, controversias
+    o dependencias de proveedores tecnológicos. La valoración de riesgo es provisional
+    y refleja la necesidad de diligencia adicional en una entidad financiera, no la
+    constatación de un incidente.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia seleccionada reporta FCF de 9.820.000.000 para TTM terminado
+    el 2026-09-30, en unidad indicada por el proveedor como provider_financial_currency.
+    No se debe tratar como FCF ajustado ni asumir que la métrica tiene la misma interpretación
+    económica que en una empresa no financiera. El margen operativo seleccionado es
+    40,38% para ese período, pero hay un valor de otra fuente de 38,01% que se declara
+    no comparable por metadatos incompletos. No se aportan datos seleccionados de
+    capital regulatorio, morosidad, provisiones, liquidez o vencimientos; por tanto,
+    no es posible emitir una evaluación integral del balance.
+  rating: adecuada
+dominio_growth:
+  analisis: La observación seleccionada de crecimiento de ingresos es 4,78% TTM hasta
+    2026-09-30, pero la misma entrada identifica un valor de -14,6% de otro proveedor
+    como no comparable. Sin aclarar definiciones, períodos y moneda, la trayectoria
+    de crecimiento no está verificada de forma consistente. La descripción de productos
+    y segmentos no basta para establecer crecimiento futuro.
+  rating: moderado
+dominio_management:
+  analisis: No se aportan datos sobre asignación de capital, gobierno corporativo,
+    remuneración, operaciones con partes relacionadas o track record de la administración.
+    No se infiere calidad o deficiencia de gestión en ausencia de evidencia específica.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Deterioro de calidad crediticia y aumento de provisiones ante una evolución
+    macroeconómica adversa en Brasil.
+- impacto: medio
+  probabilidad: media
+  riesgo: Variación de tasas de interés y competencia que afecten márgenes, originación
+    y coste de financiación.
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgos regulatorios, de conducta, privacidad y ciberseguridad propios de
+    una entidad bancaria, no evaluables con la evidencia recibida.
+- impacto: medio
+  probabilidad: alta
+  riesgo: Señales financieras inconsistentes o insuficientemente comparables que conduzcan
+    a una lectura equivocada de la tendencia operativa.
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgo permanente de pérdida de capital si la calidad de activos o la rentabilidad
+    estructural se deterioran; no hay evidencia suficiente para cuantificarlo ni para
+    afirmar que ya se materializó.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Publicación de resultados posteriores al 2026-09-30 que permita observar
+      en períodos comparables la evolución de ingresos, márgenes y calidad crediticia,
+      y reduzca la incertidumbre creada por las señales financieras discrepantes.
+      No se dispone de una fecha confirmada para esa publicación.
+    horizonte: corto
+    impacto: medio
+    probabilidad_pct: 55
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: 'La cotización observada es USD 4,745 al 2026-11-19. El consenso
+    de analistas observado al 2026-11-20 tiene media y mediana de USD 6,47, con rango
+    de USD 5,30 a USD 8,10. Esto implica que las referencias de analistas están por
+    encima de la cotización, pero no demuestra por sí solo que el mercado esté equivocado:
+    no se aportan los múltiplos actuales necesarios para inferir qué escenario operativo
+    descuenta el precio.'
+  hipotesis_contraria: El consenso podría subestimar la sensibilidad del banco al
+    ciclo crediticio y a la evolución macroeconómica brasileña; alternativamente,
+    el mercado podría descontar riesgos de calidad de activos, márgenes o ejecución
+    que las referencias de analistas no reflejan. La observación seleccionada de crecimiento
+    de ingresos de 4,78% TTM contrasta con un valor de -14,6% de otra fuente, declarado
+    no comparable por falta de período, unidad o corte homogéneos. No es válido resolver
+    esa discrepancia por intuición.
+  razonamiento: Existe una diferencia visible entre la cotización y las referencias
+    de precio de analistas, pero estas no son una valoración independiente ni sustituyen
+    datos de múltiplos, riesgo de crédito, rentabilidad ajustada por riesgo o valoración
+    propia. La evidencia disponible es insuficiente para afirmar un error de valoración
+    aprovechable.
+generated_at: '2026-11-20T11:08:28.410909-03:00'
+integridad_tesis:
+  flags: []
+  reason: 'No se ha identificado evidencia aportada que active alguna de las categorías
+    de invalidación. Esto no equivale a verificar la ausencia de fraude, riesgo de
+    insolvencia u otros problemas: la información disponible no permite evaluarlos
+    exhaustivamente.'
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-030
+prompt_inputs:
+  business_model: Banco Santander (Brasil) S.A., together with its subsidiaries, provides
+    various banking products and services to individuals, small and medium enterprises,
+    and corporate customers in Brazil and internationally. It operates in two segments,
+    Commercial Banking and Global Wholesale Banking. The company offers payment and
+    loyalty products, including credit and debit cards; payroll and real estate loans;
+    home equity financing solutions; microfinance programs; consortiums; agribusiness
+    products, such as credit, securities and other products; call center and digital
+    solutions; nonperforming assets; and insurance products comprising life, personal
+    accident, vehicle, property, and credit insurance, as well as insurance for travel
+    and banking transactions. It also provides emergency solutions for homes, cars,
+    motorcycles, pets, and telemedicine; consumer finance; and corporate and investment
+    banking services, which include cash management, structured trade and working
+    capital solutions, trade and lending, mergers and acquisitions, equity capital
+    markets, investment grade and emerging markets debt, and structured finance, as
+    well as sales markets, market making, energy trading, equities, research, and
+    private debt mobilization and securitization. In addition, the company offers
+    cash management solutions, such as collections, payments, instant payments, and
+    payroll and custody services; advance program, a non-financial platform to support
+    entrepreneurs regarding educational content, certified courses, events focused
+    on management, innovation, internationalization, and team development; customer
+    funding through deposits and other bank funding instruments; and various investments.
+    It offers its products and services through branches, mini-branches, and automated
+    teller machines; call centers; banking correspondents and third-party vendors;
+    and online and mobile banking platforms. The company was founded in 1970 and is
+    headquartered in São Paulo, Brazil.
+  ceo_tenure: 0
+  debt_to_equity: 0.0255
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Banco Santander (Brasil) S.A.
+  operating_margin: 40.38
+  pe_ratio: 8.14
+  products: ''
+  revenue: 8980000000.0
+  revenue_growth: 4.78
+  roic: 9.95
+  sector: Financial Services
+  ticker: BSBR
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Banco Santander (Brasil) S.A., together with its subsidiaries, provides
+    various banking products and services to individuals, small and medium enterprises,
+    and corporate customers in Brazil and internationally. It operates in two segments,
+    Commercial Banking and Global Wholesale Banking. The company offers payment and
+    loyalty products, including credit and debit cards; payroll and real estate loans;
+    home equity financing solutions; microfinance programs; consortiums; agribusiness
+    products, such as credit, securities and other products; call center and digital
+    solutions; nonperforming assets; and insurance products comprising life, personal
+    accident, vehicle, property, and credit insurance, as well as insurance for travel
+    and banking transactions. It also provides emergency solutions for homes, cars,
+    motorcycles, pets, and telemedicine; consumer finance; and corporate and investment
+    banking services, which include cash management, structured trade and working
+    capital solutions, trade and lending, mergers and acquisitions, equity capital
+    markets, investment grade and emerging markets debt, and structured finance, as
+    well as sales markets, market making, energy trading, equities, research, and
+    private debt mobilization and securitization. In addition, the company offers
+    cash management solutions, such as collections, payments, instant payments, and
+    payroll and custody services; advance program, a non-financial platform to support
+    entrepreneurs regarding educational content, certified courses, events focused
+    on management, innovation, internationalization, and team development; customer
+    funding through deposits and other bank funding instruments; and various investments.
+    It offers its products and services through branches, mini-branches, and automated
+    teller machines; call centers; banking correspondents and third-party vendors;
+    and online and mobile banking platforms. The company was founded in 1970 and is
+    headquartered in São Paulo, Brazil.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 4.744999885559082
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0255
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "BRL", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_pct":
+    ["stockanalysis.com"], "liquidity_provenance": ["yfinance"], "ma_200d": ["stockanalysis.com"],
+    "ma_50d": ["stockanalysis.com"], "market_cap": ["stockanalysis.com", "yfinance"],
+    "market_cap_currency": ["yfinance"], "market_cap_provenance": ["yfinance"], "market_cap_usd":
+    ["yfinance"], "market_data_normalization": ["yfinance"], "net_cash_history": ["stockanalysis.com"],
+    "net_income_history": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_margin_pct": ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com",
+    "yfinance"], "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"],
+    "volume_avg": ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations":
+    {"fcf": {"currency": null, "non_comparable_reason": null, "non_comparable_values":
+    {}, "observed_at": "2026-11-01T10:17:14.839050+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/BSBR/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 9820000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 38.009998}, "observed_at": "2026-11-01T10:17:14.839050+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/BSBR/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 40.38}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": -14.6}, "observed_at": "2026-11-01T10:17:14.839050+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/bsbr/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 4.78}}}, "observed_at": "2026-11-19T19:15:58.458463+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Banco Santander (Brasil) S.A.
+  operating_margin: 40.38
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Banco Santander (Brasil) S.A., together with its subsidiaries, provides
+    various banking products and services to individuals, small and medium enterprises,
+    and corporate customers in Brazil and internationally. It operates in two segments,
+    Commercial Banking and Global Wholesale Banking. The company offers payment and
+    loyalty products, including credit and debit cards; payroll and real estate loans;
+    home equity financing solutions; microfinance programs; consortiums; agribusiness
+    products, such '
+  revenue: 8980000000.0
+  revenue_growth: 4.78
+  roic: 9.95
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    8.1, "low": 5.3, "mean": 6.47, "median": 6.47, "observed_at": "2026-11-20T11:07:53.379391-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T11:07:53.379391-03:00", "observed_date": "2026-11-20", "target_price":
+    6.47, "url": "https://stockanalysis.com/stocks/bsbr/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T11:07:53.379391-03:00",
+    "observed_date": "2026-11-20", "target_price": 6.46667, "url": "https://finance.yahoo.com/quote/BSBR/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 4.744999885559082,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/BSBR/"}]}}'
+  sector: Financial Services
+  ticker: BSBR
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 55a84e221b6e8300a0bcf93f6dbf65ffd7a1f876569e6b9714fb3d11a71b3a79
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T11:08:28.410909-03:00'
+resumen_ejecutivo: 'BSBR es una franquicia bancaria brasileña expuesta a factores
+  cíclicos. La evidencia financiera suministrada es escasa y presenta una señal de
+  crecimiento de ingresos no comparable entre proveedores; además, la métrica de FCF
+  requiere cautela al aplicarse a un banco. La cotización está por debajo del rango
+  de objetivos de analistas aportado, pero no se puede concluir que exista infravaloración
+  fundamental. La tesis es condicional: el caso mejoraría si resultados comparables
+  confirmaran crecimiento y resiliencia de márgenes y crédito; se deterioraría si
+  aflorara debilidad persistente en ingresos o activos. Convicción limitada por falta
+  de evidencia primaria y de estados financieros completos.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados comparables que muestren deterioro persistente de ingresos, márgenes
+      o calidad de activos harían que USD 5,30 no representase necesariamente un límite
+      a la baja.
+    - Una validación independiente de mejoras operativas sostenidas debilitaría este
+      caso adverso.
+    id: BEAR
+    key_assumptions:
+    - La actividad y la calidad crediticia no justifican una revisión al alza de las
+      expectativas.
+    - El mercado converge, como referencia de escenario, hacia el límite bajo observado
+      del consenso.
+    - El objetivo de analistas es una referencia observada, no una garantía de precio
+      ni una valoración verificada.
+    rationale: Caso adverso acotado por la referencia baja observada del consenso,
+      no por una valoración fundamental independiente. La referencia de analistas
+      está por encima de la cotización, pero no se dispone de evidencia suficiente
+      para calcular un objetivo propio inferior sin introducir supuestos no respaldados.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/bsbr/forecast/
+    - as_of_date: '2026-11-19'
+      name: Yahoo Finance, cotización BSBR
+      url: https://finance.yahoo.com/quote/BSBR/
+    target_price: 5.3
+  - falsifiers:
+    - Deterioro sostenido de ingresos, márgenes o calidad de activos invalidaría la
+      premisa de mejora o resiliencia.
+    - Revisiones a la baja de estimaciones de analistas o evidencia de riesgos materiales
+      de capital y crédito debilitarían el caso.
+    - La ausencia de resultados comparables impide confirmar los supuestos operativos.
+    id: BULL
+    key_assumptions:
+    - Resultados futuros comparables confirman resiliencia o mejora operativa y no
+      revelan deterioro material del crédito.
+    - El mercado adopta una expectativa favorable compatible con el límite alto observado
+      del consenso.
+    - El objetivo de USD 8,10 se usa como referencia de analistas, no como valoración
+      independiente ni precio garantizado.
+    rationale: Caso favorable anclado en el límite alto observado del consenso. Requiere
+      que los resultados y la calidad crediticia respalden expectativas optimistas;
+      la evidencia disponible no permite verificar esos supuestos ni justificar un
+      objetivo superior al rango observado.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/bsbr/forecast/
+    - as_of_date: '2026-11-19'
+      name: Yahoo Finance, cotización BSBR
+      url: https://finance.yahoo.com/quote/BSBR/
+    target_price: 8.1
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 48
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T11:07:53.379391-03:00'
+  fuentes:
+    stockanalysis: 6.47
+    yfinance: 6.46667
+  mediana: 6.47
+  n_fuentes: 2
+  promedio: 6.47
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T11:07:53.379391-03:00'
+    observed_date: '2026-11-20'
+    target_price: 6.47
+    url: https://stockanalysis.com/stocks/bsbr/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T11:07:53.379391-03:00'
+    observed_date: '2026-11-20'
+    target_price: 6.46667
+    url: https://finance.yahoo.com/quote/BSBR/
+  target_high: 8.1
+  target_low: 5.3
+tesis_inversion: La acción presenta referencias de objetivos de analistas por encima
+  de su cotización observada, pero la brecha no basta para probar infravaloración.
+  La tesis depende de validar con información comparable la evolución del negocio
+  y de evaluar calidad de activos, capital y rentabilidad. Sin esa diligencia, la
+  posición sería una exposición cíclica con incertidumbre relevante, no una oportunidad
+  de valor confirmada.
+ticker: BSBR
+version: '3.0'

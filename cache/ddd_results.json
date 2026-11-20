@@ -1,35 +1,27 @@
 {
-  "total": 4,
+  "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-20261023-027",
-      "ticker": "BKR",
+      "opp_id": "OPP-20261023-029",
+      "ticker": "BP",
       "status": "completed",
-      "score": 68,
+      "score": 78,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MULTIBAGGERS-BKR-0001",
-      "ticker": "BKR",
+      "opp_id": "OPP-MB-BP",
+      "ticker": "BP",
       "status": "quality_failed",
-      "score": 42,
+      "score": 52,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "opp_id": "OPP-20261023-028",
-      "ticker": "BMY",
-      "status": "completed",
-      "score": 56,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-BMY",
-      "ticker": "BMY",
+      "opp_id": "OPP-20261023-030",
+      "ticker": "BSBR",
       "status": "completed",
       "score": 48,
       "reason": "new entry: SCREENED (score=0)",
@@ -40,8 +32,8 @@
   "assessments": [],
   "errors": [
     {
-      "ticker": "BKR",
-      "opp_id": "OPP-MULTIBAGGERS-BKR-0001",
+      "ticker": "BP",
+      "opp_id": "OPP-MB-BP",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -50,7 +42,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 162,
+  "deferred_count": 160,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

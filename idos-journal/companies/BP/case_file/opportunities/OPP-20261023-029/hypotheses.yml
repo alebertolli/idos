@@ -1,0 +1,189 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción upstream del cuarto trimestre de 2027 cae más de un 2%
+      frente al cuarto trimestre de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El coste unitario de producción del cuarto trimestre de 2027 aumenta
+      más del 5% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción upstream del cuarto trimestre de 2027 cae más de un 2% frente al
+    cuarto trimestre de 2026.
+  - El coste unitario de producción del cuarto trimestre de 2027 aumenta más del 5%
+    interanual.
+  horizon: medio
+  id: H1-OPP-20261023-029
+  opportunity_id: OPP-20261023-029
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 2.0
+    met: null
+    metric: Variación interanual de la producción upstream del cuarto trimestre de
+      2027
+    prediction: En el cuarto trimestre de 2027, la producción upstream informada por
+      BP será al menos un 2% superior a la del cuarto trimestre de 2026, y el coste
+      unitario de producción no habrá aumentado más del 5% en términos interanuales.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: Una base de producción resiliente y el control de costes permiten preservar
+    los volúmenes de venta y los márgenes incluso si el entorno de precios se debilita.
+    La tesis depende de que la ejecución de proyectos y la gestión de declinos compensen
+    las caídas naturales de los yacimientos.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    antes del 2028-02-15 muestran una caída interanual de producción superior al 2%,
+    o si BP anuncia la suspensión de proyectos que hacía falta para compensar el declino.
+  secondary_hypotheses: []
+  statement: BP mantendrá una producción upstream estable o creciente mientras mejora
+    la eficiencia operativa, sosteniendo así su capacidad de generar caja.
+  status: ACTIVE
+  ticker: BP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre de 2027 es inferior a 8.000 millones de dólares
+      estadounidenses.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: BP no publica los componentes necesarios para calcular el flujo de
+      caja libre de forma comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre de 2027 es inferior a 8.000 millones de dólares estadounidenses.
+  - BP no publica los componentes necesarios para calcular el flujo de caja libre
+    de forma comparable.
+  horizon: medio
+  id: H2-OPP-20261023-029
+  opportunity_id: OPP-20261023-029
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 8000.0
+    met: null
+    metric: Flujo de caja libre del ejercicio 2027
+    prediction: El flujo de caja libre de BP en el ejercicio 2027, calculado como
+      flujo de caja operativo menos gasto de capital, será de al menos 8.000 millones
+      de dólares estadounidenses.
+    unit: millones de dólares estadounidenses
+  priority: critical
+  probability: 0.5
+  rationale: La combinación de generación de caja operativa, control del gasto de
+    capital y optimización de costes puede sostener un flujo de caja libre elevado.
+    La predicción es verificable, aunque el resultado también dependerá de los precios
+    realizados de petróleo y gas.
+  review_trigger: Dejar de creerla si BP reduce formalmente su previsión de generación
+    de caja o eleva su gasto de capital previsto de manera que haga improbable alcanzar
+    8.000 millones de dólares en 2027.
+  secondary_hypotheses:
+  - H1-OPP-20261023-029
+  statement: BP generará un flujo de caja libre anual superior al que implicaría una
+    operación sin mejoras de eficiencia y disciplina de inversión.
+  status: ACTIVE
+  ticker: BP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La deuda neta al cierre de 2027 es igual o superior a 20.000 millones
+      de dólares estadounidenses.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La deuda neta aumenta durante 2027 pese a que BP registra flujo de
+      caja libre positivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La deuda neta al cierre de 2027 es igual o superior a 20.000 millones de dólares
+    estadounidenses.
+  - La deuda neta aumenta durante 2027 pese a que BP registra flujo de caja libre
+    positivo.
+  horizon: medio
+  id: H3-OPP-20261023-029
+  opportunity_id: OPP-20261023-029
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 20000.0
+    met: null
+    metric: Deuda neta al cierre de 2027
+    prediction: La deuda neta comunicada por BP al cierre de 2027 será inferior a
+      20.000 millones de dólares estadounidenses.
+    unit: millones de dólares estadounidenses, máximo
+  priority: important
+  probability: 0.5
+  rationale: Una generación de caja libre sostenida puede financiar dividendos e inversión
+    y, a la vez, reducir deuda neta. La hipótesis quedaría debilitada si las distribuciones
+    a accionistas, las adquisiciones o el gasto de capital absorben la caja disponible.
+  review_trigger: Dejar de creerla si un informe trimestral de 2027 muestra deuda
+    neta superior a 23.000 millones de dólares estadounidenses y BP no atribuye el
+    aumento a un efecto temporal claramente cuantificado.
+  secondary_hypotheses:
+  - H2-OPP-20261023-029
+  statement: BP reducirá su deuda neta mediante la conversión de generación de caja
+    en desapalancamiento, sin depender de una mejora extraordinaria del precio de
+    sus acciones.
+  status: ACTIVE
+  ticker: BP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de BP queda por debajo de la media equiponderada
+      de los cuatro comparables durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de BP supera la media de comparables, pero por
+      menos de 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de BP queda por debajo de la media equiponderada de los
+    cuatro comparables durante el periodo.
+  - La rentabilidad total de BP supera la media de comparables, pero por menos de
+    10 puntos porcentuales.
+  horizon: medio
+  id: H4-OPP-20261023-029
+  opportunity_id: OPP-20261023-029
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total relativa de BP frente a la media equiponderada de comparables
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total para el
+      accionista de BP, incluidos dividendos y medida en dólares estadounidenses,
+      superará en al menos 10 puntos porcentuales la media equiponderada de Shell,
+      Exxon Mobil, Chevron y TotalEnergies.
+    unit: puntos porcentuales de exceso de rentabilidad
+  priority: important
+  probability: 0.5
+  rationale: Si BP convierte su generación de caja y sus decisiones de asignación
+    de capital en resultados verificables, los inversores podrían reducir el descuento
+    aplicado frente a compañías integradas comparables. La predicción mide el resultado
+    de mercado sin presuponer una revalorización absoluta de la acción.
+  review_trigger: Dejar de creerla antes del 2027-11-20 si BP recorta la remuneración
+    ordinaria al accionista o anuncia una revisión que reduzca materialmente sus objetivos
+    de flujo de caja o retorno sobre el capital.
+  secondary_hypotheses:
+  - H2-OPP-20261023-029
+  - H3-OPP-20261023-029
+  statement: La rentabilidad total para el accionista de BP superará la de un grupo
+    comparable de petroleras integradas, al reducirse el descuento relativo de valoración.
+  status: ACTIVE
+  ticker: BP
+  version: 1

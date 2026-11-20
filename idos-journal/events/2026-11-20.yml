@@ -178,3 +178,54 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T10:57:11.199081'
+- data:
+    classification: compounder_castigado
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: f5160a8c79ab8a91f3ef7d61ab4c535247d5d6f84c32baf960f568dcc0c34951
+    opp_id: OPP-20261023-029
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: BP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:05:56.058718'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-BP
+    ticker: BP
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T11:06:20.069084'
+- data:
+    classification: Research requerido; evidencia fundamental incompleta
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 62335cdc5e15daea80d0e16a9fc66ed5181103f25a30f8701797cd557bc5ec26
+    opp_id: OPP-MB-BP
+    score: 52
+    strategy_version: '1.5'
+    ticker: BP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:07:49.878824'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 55a84e221b6e8300a0bcf93f6dbf65ffd7a1f876569e6b9714fb3d11a71b3a79
+    opp_id: OPP-20261023-030
+    score: 48
+    strategy_version: positive_fundamentals_v1
+    ticker: BSBR
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:10:03.233806'

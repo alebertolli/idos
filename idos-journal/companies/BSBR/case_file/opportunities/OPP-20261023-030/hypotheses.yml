@@ -1,0 +1,144 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos TTM comparables publicados hasta la fecha objetivo crecen
+      menos de 3% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación homogénea arroja crecimiento negativo, aunque otra fuente
+      muestre crecimiento positivo con una base distinta.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos TTM comparables publicados hasta la fecha objetivo crecen menos de
+    3% interanual.
+  - La comparación homogénea arroja crecimiento negativo, aunque otra fuente muestre
+    crecimiento positivo con una base distinta.
+  horizon: medio
+  id: H1-OPP-20261023-030
+  opportunity_id: OPP-20261023-030
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de ingresos TTM comparable
+    prediction: En los estados financieros disponibles hasta el 2027-06-30, los ingresos
+      TTM, calculados con la misma definición y base de comparación que el período
+      precedente, crecerán al menos 3% interanual.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La observación de crecimiento de ingresos TTM de 4,78% y la cifra de
+    -14,6% proceden de fuentes no comparables; ninguna debe prevalecer por intuición.
+    Si el crecimiento operativo subyacente es positivo, debería poder verificarse
+    en estados financieros comparables publicados por la compañía.
+  review_trigger: Dejar de creerla si la última publicación financiera disponible
+    hasta 2027-06-30 muestra crecimiento interanual comparable inferior a 3%.
+  secondary_hypotheses: []
+  statement: El crecimiento del negocio de BSBR se mantendrá positivo cuando los ingresos
+    se comparen con una definición, moneda, período y corte homogéneos.
+  status: ACTIVE
+  ticker: BSBR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón de préstamos vencidos por más de 90 días aumenta más de 0,30
+      puntos porcentuales respecto del último dato comparable previo al corte.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía deja de publicar una métrica conciliable y no es posible
+      verificar la predicción con datos equivalentes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón de préstamos vencidos por más de 90 días aumenta más de 0,30 puntos porcentuales
+    respecto del último dato comparable previo al corte.
+  - La compañía deja de publicar una métrica conciliable y no es posible verificar
+    la predicción con datos equivalentes.
+  horizon: medio
+  id: H2-OPP-20261023-030
+  opportunity_id: OPP-20261023-030
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 0.3
+    met: null
+    metric: Aumento máximo de la razón de préstamos vencidos por más de 90 días respecto
+      de la referencia comparable
+    prediction: En la publicación financiera disponible hasta el 2027-06-30, la razón
+      de préstamos vencidos por más de 90 días no superará en más de 0,30 puntos porcentuales
+      el último nivel comparable divulgado antes del 2026-11-20.
+    unit: puntos porcentuales
+  priority: critical
+  probability: 0.5
+  rationale: La exposición al ciclo crediticio brasileño puede afectar pérdidas, provisiones
+    y rentabilidad. La tesis requiere comprobar la calidad de activos con datos de
+    períodos homogéneos y no inferirla a partir de objetivos de analistas o de cifras
+    agregadas no comparables.
+  review_trigger: Dejar de creerla si un informe trimestral publicado hasta 2027-06-30
+    confirma un aumento superior a 0,30 puntos porcentuales frente al último dato
+    comparable previo al corte.
+  secondary_hypotheses:
+  - H1-OPP-20261023-030
+  statement: La calidad de activos no sufrirá un deterioro material en los próximos
+    informes, de modo que la proporción de préstamos vencidos por más de 90 días se
+    mantendrá próxima a su nivel más reciente anterior al corte.
+  status: ACTIVE
+  ticker: BSBR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de BSBR menos el rendimiento total del Ibovespa
+      es inferior a 5 puntos porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción supera al índice únicamente en precio, pero no al incluir
+      dividendos conforme a una metodología consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de BSBR menos el rendimiento total del Ibovespa es inferior
+    a 5 puntos porcentuales en la fecha objetivo.
+  - La acción supera al índice únicamente en precio, pero no al incluir dividendos
+    conforme a una metodología consistente.
+  horizon: largo
+  id: H3-OPP-20261023-030
+  opportunity_id: OPP-20261023-030
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de BSBR frente al Ibovespa
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de BSBR,
+      incluidos dividendos, superará en al menos 5 puntos porcentuales el rendimiento
+      total del Ibovespa.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Las referencias de objetivos de analistas por encima de la cotización
+    observada podrían respaldar una revalorización, pero no prueban infravaloración.
+    La predicción es una prueba directa y falsable del desempeño relativo de mercado,
+    y reconoce que el ciclo crediticio y la ejecución pueden impedir esa revalorización.
+  review_trigger: Dejar de creerla el 2027-11-20 si el rendimiento total relativo
+    acumulado es inferior a 5 puntos porcentuales; revisar antes si se publican resultados
+    que incumplan H1 o H2.
+  secondary_hypotheses:
+  - H1-OPP-20261023-030
+  - H2-OPP-20261023-030
+  statement: BSBR obtendrá un rendimiento total superior al del Ibovespa durante los
+    12 meses posteriores al corte, si los resultados publicados no confirman un deterioro
+    material del negocio o de la calidad de activos.
+  status: ACTIVE
+  ticker: BSBR
+  version: 1

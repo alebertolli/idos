@@ -1,0 +1,918 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La variabilidad reportada del beneficio neto hace insuficiente extrapolar un único
+    período como capacidad de ganancias normalizada.
+  - Las referencias de analistas no acreditan por sí solas valor intrínseco ni expectativas
+    operativas implícitas.
+  - yfinance reporta momentum de precio a 12 meses de 43.4387% y drawdown de 1.8122%
+    para 2025-10-31/2026-10-30, según el paquete de intake.
+  - Stockanalysis reporta FCF de USD 23,393 millones, beneficio neto de USD 8,961
+    millones y margen bruto de 29.56% para TTM terminado el 2026-09-30.
+  - El resumen financiero reporta cotización de USD 43.215 al 2026-11-19 y consenso
+    de analistas con rango USD 43–76 observado el 2026-11-20.
+  preguntas_abiertas:
+  - ¿Qué precios, volúmenes, márgenes y supuestos explican el consenso de analistas
+    y sus extremos?
+  - ¿Cuál es la rentabilidad sobre capital por segmento y cómo se compara con el costo
+    de capital?
+  - ¿Qué planes de inversión, desinversión, deuda y retorno de capital ha comunicado
+    la dirección?
+catalizadores_previos: &id001
+- descripcion: Recortes de producción de OPEC+ que impulsen el precio del crudo >
+    $90/bbl
+  generated_at: '2026-11-20T11:04:17.587248-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20261023-029
+  probabilidad_anterior: 30
+- descripcion: Comercialización exitosa de hidrógeno verde a gran escala
+  generated_at: '2026-11-20T11:04:17.587248-03:00'
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-029
+  probabilidad_anterior: 20
+- descripcion: Aumento de dividendos y recompra de acciones tras mejora de flujo de
+    caja
+  generated_at: '2026-11-20T11:04:17.587248-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  opp_id: OPP-20261023-029
+  probabilidad_anterior: 40
+clasificacion_oportunidad:
+  categoria: Research requerido; evidencia fundamental incompleta
+  justificacion: El paquete muestra momentum de precio positivo, pero no aporta URLs
+    verificables en trusted_source_urls y faltan datos compatibles para varios ratios.
+    El score general refleja calidad de evidencia disponible, no probabilidad de retorno
+    ni convicción.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe un modelo integrado con actividades en petróleo y
+    gas, trading, productos y negocios de energía baja en carbono. No hay información
+    verificable sobre mercado direccionable, penetración, retornos sobre capital,
+    moat, disciplina de asignación de capital o erosión competitiva.
+  rating: No concluyente
+dominio_catalizadores:
+- analisis: Stockanalysis reporta FCF de USD 23,393 millones para TTM terminado el
+    2026-09-30; es una observación financiera, no evidencia de que la tendencia vaya
+    a persistir.
+  catalizador: FCF TTM reportado
+- analisis: Stockanalysis reporta margen bruto de 29.56% para TTM terminado el 2026-09-30;
+    no se aportan datos que atribuyan el cambio a factores estructurales.
+  catalizador: Margen bruto TTM
+- analisis: El rango observado de USD 43–76 ofrece anclas de mercado en la misma moneda
+    que la cotización, pero no explica los supuestos que las sustentan.
+  catalizador: Consenso de analistas
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- analisis: El beneficio neto reportado varía ampliamente entre los ejercicios FY
+    2022–FY 2025; la serie no identifica por sí sola las causas.
+  riesgo: Exposición a resultados financieros cíclicos
+- analisis: La serie de net cash reporta valores negativos entre FY 2022 y septiembre
+    de 2026; el ratio net_debt_ebitda no puede citarse bajo las restricciones de fuentes.
+  riesgo: Endeudamiento y cobertura
+- analisis: La cobertura de intereses reportada como cero no permite calcular EBIT
+    / interest_expense sin el gasto por intereses verificable.
+  riesgo: Datos de interés no utilizables
+- analisis: No se suministran expectativas operativas, método de valoración ni fuentes
+    citables para evaluar el consenso frente a fundamentales.
+  riesgo: Evidencia de mercado y valoración limitada
+error_mercado:
+  catalizador_cambio: No se aportan hitos corporativos fechados ni estimaciones operativas
+    que permitan identificar un catalizador verificable.
+  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
+    suministrada.
+  consenso_actual: 'El consenso de analistas reportado es USD 55.89, con rango USD
+    43–76; la cotización reportada es USD 43.215 al 2026-11-19. Fuentes: stockanalysis
+    y yfinance, resumen financiero.'
+  hipotesis_contraria: Los datos disponibles no demuestran que la cotización refleje
+    una valoración errónea; tampoco permiten contrastar expectativas sobre precios
+    de energía, márgenes o retornos de proyectos.
+  razonamiento: El rango de analistas es una referencia observada, no una valoración
+    intrínseca. La evidencia financiera incluye FCF TTM y métricas de balance, pero
+    carece de series suficientes y fuentes citables según la restricción de URLs.
+generated_at: '2026-11-20T11:06:20.074533-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-BP
+prompt_inputs:
+  business_model: BP p.l.c., an integrated energy company, engages in the oil and
+    gas business worldwide. The company operates through Gas & Low Carbon Energy,
+    Oil Production & Operations, and Customers & Products segments. It engages in
+    the production of natural gas, marketing, and trading activities, as well as solar,
+    wind, and hydrogen businesses. The company also offers aviation fuel products
+    and services, such as jet fuel; aviation gasoline; UL91 aviation fuel; and sustainable
+    aviation fuel. In addition, it engages in the convenience and retail fuel; EV
+    charging; Castrol lubricants and fluids; B2B; midstream; crude oil production;
+    refining and oil trading; and bioenergy businesses. The company was founded in
+    1908 and is headquartered in London, the United Kingdom.
+  ceo_tenure: 0
+  debt_to_equity: 0.87
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: BP p.l.c.
+  operating_margin: 13.41
+  pe_ratio: 12.79
+  products: ''
+  revenue: 235140000000.0
+  revenue_growth: 26.41
+  roic: 13.69
+  sector: Energy
+  ticker: BP
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: Hay valores reportados, pero no una fila identificable de FY
+      2023 en revenue_history; aparecen filas duplicadas para algunos períodos.
+  limitations: Falta un valor comparable y fechado de revenue_t-3 en los campos disponibles;
+    además, trusted_source_urls está vacío y no hay URL permitida para citar el ratio.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs:
+    fcf_history: 'TTM: 2026-09-30; FY 2025: 2025-12-31. Importes reportados en USD,
+      escala de origen no especificada.'
+  limitations: Aunque se reportan importes para TTM y FY 2025, la comparación mezcla
+    período TTM con ejercicio fiscal y no hay URL verificable en trusted_source_urls
+    para respaldar el ratio.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100; no significativo si net_income <= 0
+  inputs:
+    fcf_history: 'TTM terminado el 2026-09-30: 23393.0, USD en unidad de origen.'
+    net_income_history: 'TTM terminado el 2026-09-30: 8961.0, USD en unidad de origen.'
+  limitations: Los períodos coinciden y el beneficio neto reportado es positivo, pero
+    trusted_source_urls está vacío y no existe URL permitida para citar el cálculo.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
+    si net_cash = cash - debt
+  inputs:
+    ebitda: 'TTM terminado el 2026-09-30: 47100000000.0 USD.'
+    net_cash_history: 'Current al 2026-09-30: -26563.0, USD en unidad de origen.'
+  limitations: La convención de net_cash es compatible con la definición indicada,
+    pero no hay URL verificable en trusted_source_urls para respaldar los inputs y
+    el ratio.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 15560000000 al 2026-09-30; no se aporta serie histórica comparable.
+  limitations: Falta el número de acciones diluidas o en circulación del período comparable
+    anterior; trusted_source_urls también está vacío.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: BP p.l.c., an integrated energy company, engages in the oil and
+    gas business worldwide. The company operates through Gas & Low Carbon Energy,
+    Oil Production & Operations, and Customers & Products segments. It engages in
+    the production of natural gas, marketing, and trading activities, as well as solar,
+    wind, and hydrogen businesses. The company also offers aviation fuel products
+    and services, such as jet fuel; aviation gasoline; UL91 aviation fuel; and sustainable
+    aviation fuel. In addition, it engages in the convenience and retail fuel; EV
+    charging; Castrol lubricants and fluids; B2B; midstream; crude oil production;
+    refining and oil trading; and bioenergy businesses. The company was founded in
+    1908 and is headquartered in London, the United Kingdom.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 43.21500015258789
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.87
+  excess_return_roic_wacc: null
+  existing_wiki: '# BP p.l.c. (BP)
+
+
+    > [!info] Alcance y calidad de la evidencia
+
+    > Esta entrada sintetiza los outputs de DDD y AOIF proporcionados. No se incluyeron
+    enlaces verificables ni referencias bibliográficas completas; las cifras atribuidas
+    a StockAnalysis proceden de DDD y no se pueden validar de forma independiente
+    con el material disponible. Las hipótesis y escenarios se identifican como tales.
+
+
+    ## 1. Visión General de la Compañía
+
+
+    BP p.l.c. es una compañía energética integrada con operaciones internacionales.
+    Su negocio abarca exploración y producción de petróleo y gas, transporte, almacenamiento
+    y trading de hidrocarburos, refinación, fabricación de productos y distribución
+    de combustibles, lubricantes y servicios energéticos. También desarrolla actividades
+    de energía baja en carbono.
+
+
+    La cadena de valor incluye producción de hidrocarburos, procesamiento y comercialización,
+    y venta a clientes particulares y empresariales, entre ellos conductores, aerolíneas
+    y operadores aeroportuarios. El material proporcionado no detalla países, activos
+    o distribución geográfica de ingresos.
+
+
+    BP participa en un sector expuesto a ciclos de inversión y volatilidad de precios,
+    con demanda persistente de petróleo y gas y presión regulatoria y tecnológica
+    para reducir emisiones. Entre las compañías relacionadas del sector incluidas
+    en la wiki figuran [[BKR]], [[E]] y [[TS]].
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    ### Drivers de ingresos
+
+
+    Los ingresos y la rentabilidad dependen principalmente de:
+
+
+    - Precios y volúmenes de petróleo y gas.
+
+    - Márgenes de refinación y comercialización.
+
+    - Actividad de trading, transporte y almacenamiento.
+
+    - Venta de combustibles, lubricantes y productos asociados.
+
+    - Desarrollo y monetización de negocios de energía baja en carbono.
+
+
+    AOIF reporta un crecimiento de ingresos TTM de **26,41%**, pero el material no
+    proporciona el periodo exacto ni una descomposición por segmento. DDD atribuye
+    el crecimiento a la recuperación del crudo y a la expansión en gas y renovables;
+    esa explicación es una inferencia del análisis recibido, no una atribución verificada
+    por fuentes primarias.
+
+
+    ### Moat y competencia
+
+
+    La integración, escala global, marcas e infraestructura de producción, refinación
+    y distribución pueden aportar ventajas operativas y acceso al mercado. AOIF clasifica
+    la amplitud del moat como **estrecha** y la posición competitiva como **líder**.
+    DDD considera que la calidad del negocio es **buena**, aunque señala exposición
+    a activos fósiles y riesgos de transición.
+
+
+    La integración puede conectar distintas etapas de la cadena de valor, pero no
+    elimina la exposición a los ciclos de materias primas ni la competencia de otras
+    empresas energéticas. La transición energética también plantea incertidumbre sobre
+    retornos, necesidades de capital y ritmo de adopción de nuevas tecnologías. Como
+    referencias de compañías relacionadas del sector se pueden consultar [[BKR]],
+    [[E]] y [[TS]].
+
+
+    ## 3. Perfil Financiero
+
+
+    | Métrica | Valor informado | Fuente/contexto | Observación |
+
+    |---|---:|---|---|
+
+    | Crecimiento de ingresos TTM | 26,41% | AOIF | No se detalla periodo de comparación
+    ni composición del crecimiento. |
+
+    | Margen operativo TTM | 13,41% | DDD y AOIF | DDD atribuye la cifra a StockAnalysis
+    con fecha 2026-09-30; no se adjuntó enlace verificable. |
+
+    | ROIC | 13,69% | AOIF | Sin fecha o metodología detallada en el material. |
+
+    | Flujo de caja libre TTM | US$23,4 mil millones | DDD | Atribuido a StockAnalysis,
+    2026-09-30; inferencia del output, no hecho verificado en la cadena proporcionada.
+    |
+
+    | PER | 12,79 | AOIF | Falta fecha de referencia y precio asociado. |
+
+    | EV/EBITDA | 3,3 | AOIF | Falta fecha de referencia y detalle de cálculo. |
+
+    | FCF yield | 0 | AOIF | El valor no es interpretable sin definición; AOIF señala
+    que no hay FCF verificable ni precio de referencia. |
+
+    | Deuda neta y deuda/EBITDA | No disponible | DDD/AOIF | Pregunta abierta; no
+    se puede evaluar la estructura de capital ni la cobertura. |
+
+
+    AOIF caracteriza la tendencia financiera como **estable**, pero advierte que no
+    se proporcionan cifras comparables de flujo de caja libre ni información suficiente
+    para verificar su conversión. DDD califica la salud financiera como **fuerte**
+    basándose en el FCF y el margen operativo reportados; esa evaluación debe tratarse
+    con cautela mientras no se comprueben las cifras y se conozca la deuda.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La información disponible sobre gestión es limitada y presenta evaluaciones distintas:
+
+
+    - **DDD:** valoración de management “buena”; señala avances en la estrategia de
+    transición energética, un objetivo net zero para 2050 y asignación de capital
+    disciplinada, incluida la política de dividendos.
+
+    - **AOIF:** calidad de gestión “regular”, asignación de capital “neutral” y alineamiento
+    de insiders “débil”.
+
+
+    Estas valoraciones no vienen acompañadas de datos sobre remuneración, tenencia
+    accionaria de directivos, composición o independencia del board, cambios de dirección,
+    ni métricas de cumplimiento de objetivos. Por ello, no se puede establecer una
+    conclusión independiente sobre gobierno corporativo. El objetivo net zero para
+    2050 se registra como información reportada por DDD, sin documentación primaria
+    adjunta.
+
+
+    ## 5. Tesis de Inversión
+
+
+    ### Caso alcista — hipótesis de inversión
+
+
+    1. **Generación de caja y rentabilidad:** DDD reporta FCF TTM de **US$23,4 mil
+    millones** y margen operativo de **13,41%**; AOIF reporta ROIC de **13,69%**.
+    Si se confirman, estas métricas indicarían una capacidad significativa de generación
+    de caja y rentabilidad operativa.
+
+    2. **Integración y escala:** la presencia en producción, trading, refinación y
+    distribución puede ofrecer flexibilidad entre etapas del ciclo energético y ventajas
+    operativas.
+
+    3. **Potencial de recuperación de hidrocarburos:** un entorno de precios más altos
+    podría favorecer ingresos y caja. DDD identifica como posible catalizador un crudo
+    superior a US$90/barril, pero asigna una probabilidad de 30%; es una estimación
+    del análisis, no un dato observado.
+
+    4. **Opcionalidad de transición energética:** la comercialización exitosa de hidrógeno
+    verde y el crecimiento de actividades de energía baja en carbono podrían crear
+    fuentes adicionales de ingresos. DDD considera este catalizador de largo plazo,
+    con impacto medio y probabilidad del 20%; la confianza indicada es baja.
+
+    5. **Descuento de valoración reportado:** DDD registra un precio de US$43,22 y
+    un objetivo medio de US$55,89, con rango de US$43–76. No se proporciona fecha,
+    método ni fuente verificable para esas referencias; por tanto, el supuesto de
+    infravaloración no está confirmado.
+
+
+    La tesis dependería de que la caja reportada sea verificable, de una gestión sostenible
+    de la deuda y de que los retornos de las inversiones de transición compensen el
+    capital comprometido.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    ### Riesgos principales
+
+
+    | Riesgo | Evaluación recibida | Posible efecto |
+
+    |---|---|---|
+
+    | Caída o volatilidad de precios de petróleo y gas | Impacto alto, probabilidad
+    alta (AOIF) | Menores ingresos, márgenes y flujo de caja. |
+
+    | Costos y ejecución de la transición energética | Impacto alto, probabilidad
+    media (AOIF) | Inversiones elevadas, retornos inferiores a lo previsto o retrasos.
+    |
+
+    | Regulación de carbono y exposición a activos fósiles | Riesgo cualitativo en
+    DDD | Costos adicionales, restricciones operativas o pérdida de valor de activos.
+    |
+
+    | Deuda y compromisos de capital | Datos insuficientes | No se puede evaluar el
+    riesgo de refinanciación, cobertura o flexibilidad financiera. |
+
+    | Dependencia de materias primas | Riesgo central del modelo | Los resultados
+    pueden variar de forma importante con el ciclo energético. |
+
+
+    ### Contra-tesis
+
+
+    El crecimiento y la caja podrían depender más de condiciones favorables de precios
+    que de mejoras estructurales del negocio. El descenso de precios puede reducir
+    rápidamente la rentabilidad, mientras que las inversiones de transición podrían
+    consumir capital sin generar retornos suficientes. Sin datos de deuda, conversión
+    de caja y asignación de capital, tampoco puede determinarse si las métricas favorables
+    reportadas se traducen en valor sostenible para los accionistas.
+
+
+    ### Triggers de falsación y condiciones que requieren revisión
+
+
+    DDD plantea para su escenario alcista que una caída del crudo por debajo de **US$70/barril**
+    o retrasos o cancelaciones de proyectos de energía baja en carbono debilitarían
+    ese caso. En cambio, también lista el rebote por encima de **US$80/barril** y
+    anuncios de reducción de capex o venta de activos no estratégicos como falsadores
+    del escenario bajista. Estas condiciones proceden de escenarios hipotéticos y
+    no son hechos observados.
+
+
+    La tesis también requeriría revisión si se verifican deterioros sostenidos de
+    caja, un aumento relevante de deuda o retornos de transición inferiores a los
+    supuestos.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    | Horizonte | Catalizador | Impacto potencial | Probabilidad/confianza indicada
+    | Estado de evidencia |
+
+    |---|---|---|---|---|
+
+    | Medio plazo; sin fecha concreta | Recortes de producción de OPEC+ y posible
+    crudo por encima de US$90/barril | Alto, según DDD | 30%; confianza media | Hipótesis
+    de catalizador, no evento confirmado. |
+
+    | Largo plazo; sin fecha concreta | Comercialización de hidrógeno verde a gran
+    escala | Medio, según DDD | 20%; confianza baja | Hipótesis; no se proporcionan
+    hitos, capacidad ni fechas. |
+
+    | 2027-11-20, horizonte de escenario | Escenario alcista: crudo por encima de
+    US$90/barril durante 12–18 meses y crecimiento anual de 15% en ingresos de renovables
+    e hidrógeno | Precio objetivo hipotético de US$78 | Supuestos de escenario | Estimación
+    DDD, no guía corporativa ni valoración validada. |
+
+    | 2027-11-20, horizonte de escenario | Escenario bajista: crudo por debajo de
+    US$70/barril durante 12–18 meses y US$10 mil millones adicionales de capex de
+    energía baja en carbono sin ingresos inmediatos | Precio objetivo hipotético de
+    US$35 | Supuestos de escenario | Estimación DDD; fuentes de escenarios no especificadas.
+    |
+
+
+    El escenario DDD indica fecha de análisis **2026-11-20**, moneda **USD** y horizonte
+    **2027-11-20**. No se proporciona un calendario corporativo que permita asignar
+    fechas a los catalizadores operativos.
+
+
+    ## 8. Marco de Valoración
+
+
+    La valoración debería reflejar la naturaleza cíclica e intensiva en capital del
+    negocio y distinguir entre generación de caja en distintos entornos de precios
+    y el valor de actividades de transición energética.
+
+
+    ### Metodologías apropiadas para investigar
+
+
+    - **EV/EBITDA normalizado por ciclo:** contrastar con escenarios de precios y
+    márgenes, evitando extrapolar un periodo favorable.
+
+    - **Flujo de caja descontado por escenarios:** proyectar producción, márgenes,
+    capex, impuestos y capital circulante, con sensibilidad a precios de petróleo
+    y gas.
+
+    - **Valoración por segmentos:** analizar por separado actividades de hidrocarburos,
+    refinación/comercialización y energía baja en carbono, si se dispone de datos
+    segmentados.
+
+    - **Rendimiento de caja al accionista:** evaluar dividendos y recompras junto
+    con necesidades de inversión y evolución de deuda.
+
+
+    ### Referencias existentes y limitaciones
+
+
+    DDD informa un precio de **US$43,22**, objetivo medio de **US$55,89** y rango
+    de **US$43–76**; AOIF registra **PER 12,79** y **EV/EBITDA 3,3**. No se aportan
+    fechas ni bases de cálculo suficientes para reconciliar esas cifras. AOIF marca
+    el margen de seguridad como **insuficiente** y señala que el valor intrínseco
+    no es determinable con la información disponible.
+
+
+    Los objetivos de **US$35** en el escenario bajista y **US$78** en el alcista son
+    escenarios hipotéticos a un año, no estimaciones verificadas. Entre sus supuestos
+    figuran precios del crudo inferiores a US$70 o superiores a US$90 por barril y,
+    en el escenario alcista, un aumento anual de 15% en los ingresos de renovables
+    e hidrógeno.
+
+
+    ### Sensibilidades clave
+
+
+    La valoración es especialmente sensible a:
+
+
+    1. Precio realizado de petróleo y gas y duración de cada ciclo.
+
+    2. Márgenes de refinación y comercialización.
+
+    3. Capex, costes de descarbonización y retorno de los proyectos de transición.
+
+    4. Deuda neta, coste de financiación y compromisos de capital.
+
+    5. Conversión de resultados en flujo de caja libre distribuible.
+
+
+    Sin datos verificables de deuda, capex, flujos segmentados y supuestos de valoración,
+    no se puede concluir de forma robusta que la acción esté infravalorada.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es la deuda neta actual, la deuda/EBITDA y la cobertura de intereses?
+
+    2. ¿Se confirma el FCF TTM de US$23,4 mil millones atribuido a StockAnalysis al
+    2026-09-30? ¿Qué definición de FCF se utiliza?
+
+    3. ¿Cómo se descompone el crecimiento de ingresos TTM de 26,41% entre precios,
+    volúmenes, trading, refinación y energía baja en carbono?
+
+    4. ¿Qué capex está planificado por segmento y cuál es su horizonte esperado de
+    retorno?
+
+    5. ¿Qué ingresos, inversión y capacidad operativa corresponden a hidrógeno, renovables
+    y otros negocios de baja emisión?
+
+    6. ¿Qué métricas sustentan la evaluación de asignación de capital, dividendos
+    y alineamiento de insiders?
+
+    7. ¿Cuál es la composición del board, su independencia y la estructura de incentivos
+    de la dirección?
+
+    8. ¿Qué fecha y metodología corresponden al precio de US$43,22, el objetivo medio
+    de US$55,89, los múltiplos de AOIF y los escenarios de DDD?
+
+    9. ¿Qué supuestos de precios, producción, márgenes y capex se emplearon para los
+    objetivos de US$35 y US$78?
+
+    10. ¿Qué datos primarios permiten verificar el objetivo net zero para 2050 y evaluar
+    el progreso frente a hitos intermedios?
+
+
+    **Estado de la tesis:** activa en DDD, pero pendiente de validación financiera,
+    de deuda y valoración. AOIF deja la recomendación pendiente de decisión del board.
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[BKR|Baker Hughes Company]], [[E|Eni S.p.A.]], [[TS|Tenaris
+    S.A.]]
+
+    - **Same Industry**: [[E|Eni S.p.A.]]'
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-19T19:15:56.533953+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/BP/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 23390000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 13.411000000000001}, "observed_at": "2026-11-19T19:15:56.533953+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/BP/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 13.41}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 41.4}, "observed_at": "2026-11-19T19:15:56.533953+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/bp/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 26.41}}}, "observed_at": "2026-11-19T19:15:56.533953+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: BP p.l.c.
+  operating_margin: 13.41
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'BP p.l.c., an integrated energy company, engages in the oil and
+    gas business worldwide. The company operates through Gas & Low Carbon Energy,
+    Oil Production & Operations, and Customers & Products segments. It engages in
+    the production of natural gas, marketing, and trading activities, as well as solar,
+    wind, and hydrogen businesses. The company also offers aviation fuel products
+    and services, such as jet fuel; aviation gasoline; UL91 aviation fuel; and sustainable
+    aviation fuel. In addition, it '
+  revenue: 235140000000.0
+  revenue_growth: 26.41
+  roic: 13.69
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    76.0, "low": 43.0, "mean": 55.89, "median": 55.89, "observed_at": "2026-11-20T11:04:07.312292-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T11:04:07.312292-03:00", "observed_date": "2026-11-20", "target_price":
+    55.89, "url": "https://stockanalysis.com/stocks/bp/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T11:04:07.312292-03:00",
+    "observed_date": "2026-11-20", "target_price": 55.89211, "url": "https://finance.yahoo.com/quote/BP/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 43.21500015258789,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/BP/"}]}}'
+  sector: Energy
+  ticker: BP
+research_trigger:
+  discovery_snapshot_hash: 41effaddb8a0a525679b273ab4b5c372535213c48b1605e15ebe8835f28aa9c7
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 62335cdc5e15daea80d0e16a9fc66ed5181103f25a30f8701797cd557bc5ec26
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T11:06:20.074533-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- assessment_note: Observación frente al umbral; no es una decisión de inversión.
+  metric: current_ratio
+  threshold_observation: El umbral configurado señala revisión si current_ratio <
+    0.5; el valor reportado es 1.29 para TTM terminado el 2026-09-30.
+- assessment_note: Ratio unavailable; no se puede determinar si supera el umbral.
+  metric: net_debt_ebitda
+  threshold_observation: El umbral configurado señala revisión si net_debt_ebitda
+    > 4.0; el ratio no puede validarse con las restricciones de fuente.
+- assessment_note: Dato por validar; no interpretar el cero como cobertura económica
+    confirmada.
+  metric: interest_coverage
+  threshold_observation: El umbral configurado señala revisión si interest_coverage
+    < 2.0; la cobertura reportada como 0 no es utilizable sin EBIT y gasto por intereses
+    compatibles.
+- assessment_note: Ratio unavailable; no se puede determinar si supera el umbral.
+  metric: dilution_yoy_pct
+  threshold_observation: El umbral configurado señala revisión si dilution_yoy_pct
+    > 10%; no hay serie comparable de acciones.
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 52
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T11:04:07.312292-03:00'
+  fuentes:
+    stockanalysis: 55.89
+    yfinance: 55.89211
+  mediana: 55.89
+  n_fuentes: 2
+  promedio: 55.89
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T11:04:07.312292-03:00'
+    observed_date: '2026-11-20'
+    target_price: 55.89
+    url: https://stockanalysis.com/stocks/bp/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T11:04:07.312292-03:00'
+    observed_date: '2026-11-20'
+    target_price: 55.89211
+    url: https://finance.yahoo.com/quote/BP/
+  target_high: 76.0
+  target_low: 43.0
+tesis_inversion: BP es una compañía integrada de energía con negocios de petróleo
+  y gas, productos y clientes, y gas y energía baja en carbono, según el resumen financiero
+  sin URL citada. La evidencia disponible no permite establecer si la reinversión
+  puede generar retornos sobre capital sostenibles ni si existe una ventaja competitiva
+  defendible; por ello, la tesis permanece sin validar.
+ticker: BP
+version: '3.0'
