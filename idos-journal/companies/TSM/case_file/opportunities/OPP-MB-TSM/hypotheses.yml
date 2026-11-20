@@ -1,0 +1,193 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de los ingresos consolidados de 2027 es inferior
+      al 15%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos de dos trimestres consecutivos de 2027 disminuyen interanualmente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de los ingresos consolidados de 2027 es inferior al
+    15%.
+  - Los ingresos de dos trimestres consecutivos de 2027 disminuyen interanualmente.
+  horizon: medio
+  id: H1-OPP-MB-TSM
+  opportunity_id: OPP-MB-TSM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 15.0
+    met: null
+    metric: Crecimiento interanual de ingresos consolidados del ejercicio 2027
+    prediction: Los ingresos consolidados de TSMC para el ejercicio 2027, expresados
+      en dólares taiwaneses, superarán en al menos un 15% los ingresos consolidados
+      del ejercicio 2026.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis disponible señala crecimiento de ingresos e inversión relevante
+    en capacidad. Si la demanda se mantiene y la nueva capacidad se utiliza, el volumen
+    fabricado y vendido debería crecer; la evidencia disponible no permite confirmar
+    por adelantado la utilización ni la demanda futura.
+  review_trigger: Dejar de creerla si el informe de resultados del cuarto trimestre
+    de 2027, o la publicación anual correspondiente, confirma crecimiento de ingresos
+    inferior al 15% en el conjunto del ejercicio.
+  secondary_hypotheses: []
+  statement: TSMC seguirá convirtiendo la demanda de sus clientes y la capacidad añadida
+    en crecimiento de ingresos durante 2027.
+  status: ACTIVE
+  ticker: TSM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto medio de 2027 queda más de 2 puntos porcentuales por
+      debajo del margen bruto del tercer trimestre de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto de dos trimestres consecutivos de 2027 queda más de
+      3 puntos porcentuales por debajo del nivel del tercer trimestre de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto medio de 2027 queda más de 2 puntos porcentuales por debajo del
+    margen bruto del tercer trimestre de 2026.
+  - El margen bruto de dos trimestres consecutivos de 2027 queda más de 3 puntos porcentuales
+    por debajo del nivel del tercer trimestre de 2026.
+  horizon: medio
+  id: H2-OPP-MB-TSM
+  opportunity_id: OPP-MB-TSM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-28'
+    expected: -2.0
+    met: null
+    metric: Margen bruto medio de 2027 frente al margen bruto del tercer trimestre
+      de 2026
+    prediction: El margen bruto medio de los cuatro trimestres de 2027 será como mínimo
+      igual al margen bruto reportado para el tercer trimestre de 2026 menos 2 puntos
+      porcentuales.
+    unit: puntos porcentuales como máximo de deterioro
+  priority: critical
+  probability: 0.5
+  rationale: La tesis identifica expansión reciente del margen bruto. Una utilización
+    adecuada de capacidad y una combinación de productos favorable podrían sostenerlo;
+    la inversión elevada, los costes de puesta en marcha y cambios de mezcla podrían
+    contrarrestar esos factores.
+  review_trigger: Dejar de creerla cuando TSMC publique resultados que permitan calcular
+    el promedio de los cuatro trimestres de 2027 y este incumpla el umbral; hacerlo
+    antes si dos trimestres consecutivos activan el segundo criterio de falsación.
+  secondary_hypotheses:
+  - H1-OPP-MB-TSM
+  statement: La expansión reciente del margen bruto será suficientemente durable para
+    que el margen no se deteriore de forma sustancial durante 2027.
+  status: ACTIVE
+  ticker: TSM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja operativo menos compras de propiedad, planta y equipo
+      es cero o negativo para el ejercicio 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre acumulado es negativo al cierre de tres trimestres
+      consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja operativo menos compras de propiedad, planta y equipo es cero
+    o negativo para el ejercicio 2027.
+  - El flujo de caja libre acumulado es negativo al cierre de tres trimestres consecutivos
+    de 2027.
+  horizon: medio
+  id: H3-OPP-MB-TSM
+  opportunity_id: OPP-MB-TSM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.0
+    met: null
+    metric: Flujo de caja libre consolidado del ejercicio 2027
+    prediction: El flujo de caja libre consolidado acumulado del ejercicio 2027 será
+      superior a cero, calculado como flujo de caja operativo menos compras de propiedad,
+      planta y equipo.
+    unit: dólares taiwaneses, estrictamente superior a cero
+  priority: important
+  probability: 0.5
+  rationale: La tesis combina crecimiento y expansión reciente del margen con una
+    inversión relevante en capacidad. Si el crecimiento de ingresos y la rentabilidad
+    operativa compensan el gasto de capital, la empresa debería generar efectivo después
+    de inversiones; la información disponible no permite verificar el nivel de inversión
+    ni el retorno sobre el capital.
+  review_trigger: Dejar de creerla si la publicación anual de 2027 muestra flujo de
+    caja libre no positivo; reducir la confianza antes si el flujo acumulado sigue
+    negativo tras tres trimestres consecutivos.
+  secondary_hypotheses:
+  - H1-OPP-MB-TSM
+  - H2-OPP-MB-TSM
+  statement: La inversión en capacidad no impedirá que TSMC mantenga un flujo de caja
+    libre anual positivo en 2027.
+  status: ACTIVE
+  ticker: TSM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de TSMC menos el rendimiento total del SOX es
+      inferior a 5 puntos porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento total de TSMC es inferior al del SOX durante todo el
+      periodo medido, según precios de cierre y dividendos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de TSMC menos el rendimiento total del SOX es inferior a
+    5 puntos porcentuales en la fecha objetivo.
+  - El rendimiento total de TSMC es inferior al del SOX durante todo el periodo medido,
+    según precios de cierre y dividendos.
+  horizon: medio
+  id: H4-OPP-MB-TSM
+  opportunity_id: OPP-MB-TSM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de TSMC menos rendimiento total del SOX
+    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
+      noviembre de 2027, el rendimiento total de la acción de TSMC, medido en dólares
+      estadounidenses e incluyendo dividendos, superará el rendimiento total del SOX
+      en al menos 5 puntos porcentuales.
+    unit: puntos porcentuales como mínimo
+  priority: informational
+  probability: 0.5
+  rationale: El crecimiento de ingresos y la expansión reciente del margen pueden
+    respaldar expectativas de beneficios, pero no demuestran que la acción esté infravalorada.
+    La hipótesis es una predicción relativa y verificable de mercado, no una conclusión
+    de valoración intrínseca; los múltiplos y expectativas iniciales deben analizarse
+    por separado.
+  review_trigger: Dejar de creerla al cierre del 20 de noviembre de 2027 si la diferencia
+    de rendimiento total frente al SOX es inferior a 5 puntos porcentuales; no interpretar
+    la variación de precio por sí sola como prueba de infravaloración.
+  secondary_hypotheses:
+  - H1-OPP-MB-TSM
+  - H2-OPP-MB-TSM
+  statement: Durante los doce meses posteriores a la fecha de corte, la acción de
+    TSMC tendrá un rendimiento total superior al del índice Philadelphia Semiconductor
+    (SOX).
+  status: ACTIVE
+  ticker: TSM
+  version: 1

@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 143 companies tracked
+Total: 146 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -79,6 +79,7 @@ Total: 143 companies tracked
 - 📄 [[SHEL|Shell plc]]
 - 📄 [[SLB|SLB N.V.]]
 - 📄 [[TS|Tenaris S.A.]]
+- 📄 [[TTE|TotalEnergies SE]]
 
 ## Financial Services
 - 📄 [[AEG|Aegon Ltd.]]
@@ -169,6 +170,8 @@ Total: 143 companies tracked
 - 📄 [[NVDA|NVIDIA Corporation]]
 - 📄 [[PANW|Palo Alto Networks, Inc.]]
 - 📄 [[SNOW|Snowflake Inc.]]
+- 📄 [[TSM|Taiwan Semiconductor Manufacturing Company Limited]]
+- 📄 [[TWLO|Twilio Inc.]]
 
 ## Utilities
 - 📄 [[CEG|Constellation Energy Corporation]]

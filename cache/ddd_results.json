@@ -2,28 +2,30 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-TGT",
-      "ticker": "TGT",
+      "opp_id": "OPP-MB-TSM",
+      "ticker": "TSM",
       "status": "quality_failed",
-      "score": 58,
+      "score": 65,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
       ]
     },
     {
-      "opp_id": "OPP-MB-TJX",
-      "ticker": "TJX",
-      "status": "completed",
-      "score": 58,
+      "opp_id": "OPP-MB-TTE",
+      "ticker": "TTE",
+      "status": "quality_failed",
+      "score": 46,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": []
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
     },
     {
-      "opp_id": "OPP-MB-TMO",
-      "ticker": "TMO",
+      "opp_id": "OPP-MB-TWLO",
+      "ticker": "TWLO",
       "status": "completed",
-      "score": 62,
+      "score": 65.33,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
@@ -32,8 +34,17 @@
   "assessments": [],
   "errors": [
     {
-      "ticker": "TGT",
-      "opp_id": "OPP-MB-TGT",
+      "ticker": "TSM",
+      "opp_id": "OPP-MB-TSM",
+      "status": "quality_failed",
+      "error": "Scenario validation status: invalid_pending_revision",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "ticker": "TTE",
+      "opp_id": "OPP-MB-TTE",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -42,7 +53,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 87,
+  "deferred_count": 86,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

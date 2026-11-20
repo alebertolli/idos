@@ -3701,3 +3701,105 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T19:49:27.747189'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MB-TSM
+    ticker: TSM
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:56:34.548888'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TSM
+    ticker: TSM
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:56:34.781820'
+- data:
+    classification: Investigación fundamental pendiente de validar
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b6eda7b67f9bccd3a0fe88a5cc63a7d2083ecf36169110d1f0efea431b367f67
+    opp_id: OPP-MB-TSM
+    score: 65
+    strategy_version: '1.5'
+    ticker: TSM
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:58:05.829858'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-TTE
+    ticker: TTE
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:58:34.066125'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TTE
+    ticker: TTE
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:58:34.251133'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de multibagger
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: d6c499524f255056483333e3f7e5391af5ef809af2298be36236ce2516c7dd68
+    opp_id: OPP-MB-TTE
+    score: 46
+    strategy_version: '1.5'
+    ticker: TTE
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:59:58.706096'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-TWLO
+    ticker: TWLO
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T20:00:35.759828'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TWLO
+    ticker: TWLO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T20:00:35.964862'
+- data:
+    classification: Investigación requerida; perfil multibagger
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 879806282988414e10f599c436ae49693b6689b7b78c22ceddaf99711945517f
+    opp_id: OPP-MB-TWLO
+    score: 65.33
+    strategy_version: '1.5'
+    ticker: TWLO
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T20:02:08.818351'

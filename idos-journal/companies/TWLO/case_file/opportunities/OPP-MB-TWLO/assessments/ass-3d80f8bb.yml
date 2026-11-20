@@ -1,0 +1,35 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; perfil multibagger'
+- 'Market error: No puede validarse un error de valoración con la evidencia suministrada:
+  el consenso medio está cerca de la cotización observada y no hay método propio ni
+  inputs suficientes para estimar valor intrínseco.'
+- 'Thesis: Twilio ofrece APIs y software de interacción con clientes para comunicaciones,
+  marketing, centros de interacción y autenticación. La tesis favorable requiere que
+  la expansión de ingresos y FCF continú'
+generated_at: '2026-11-20T20:02:08.647323-03:00'
+id: ass-3d80f8bb
+recommendation: REVIEW
+risks:
+- fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/twlo/financials/
+  riesgo: El margen bruto TTM fue 48.61%, frente a 51.13% en FY2024; la serie aportada
+    no explica las causas del descenso.
+- fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TWLO/statistics/
+  riesgo: No se aportan datos de acciones diluidas históricos ni detalle de compensación
+    en acciones para medir dilución.
+- fuentes: []
+  riesgo: No hay evidencia del paquete sobre TAM, penetración, retención, concentración
+    de clientes o retornos incrementales sobre capital.
+- fuentes:
+  - name: yfinance
+    url: https://finance.yahoo.com/quote/TWLO/history/
+  riesgo: La cotización observada mostró volatilidad a 90 días de 66.04% en el período
+    reportado.
+score: 65.33
+status: COMPLETED
+version: '3.0'
