@@ -3803,3 +3803,59 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T20:02:08.818351'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-TX
+    ticker: TX
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T20:09:09.075420'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-TX
+    ticker: TX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T20:09:09.275868'
+- data:
+    classification: Growth
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: abc958670192d27eb20742450919e0440b2544cf66e8fcb7ea847ccc3ddada69
+    opp_id: OPP-MB-TX
+    score: 80
+    strategy_version: '1.5'
+    ticker: TX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T20:13:11.384097'
+- data:
+    error: 'HTTPSConnectionPool(host=''api.openai.com'', port=443): Read timed out.
+      (read timeout=60)'
+    event_evidence: null
+    event_type: monthly
+    forced: false
+    opp_id: OPP-MB-TXN
+    ticker: TXN
+  event_type: research:failed
+  source: research_worker
+  timestamp: '2026-11-20T20:14:18.269308'
+- data:
+    error: '400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent'
+    event_evidence: null
+    event_type: monthly
+    forced: false
+    opp_id: OPP-MB-UGP
+    ticker: UGP
+  event_type: research:failed
+  source: research_worker
+  timestamp: '2026-11-20T20:15:27.256495'

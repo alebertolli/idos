@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 146 companies tracked
+Total: 147 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -25,6 +25,7 @@ Total: 146 companies tracked
 - 📄 [[NEM|Newmont Corporation]]
 - 📄 [[NUE|Nucor Corporation]]
 - 📄 [[SCCO|Southern Copper Corporation]]
+- 📄 [[TX|Ternium S.A.]]
 
 ## Communication Services
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
