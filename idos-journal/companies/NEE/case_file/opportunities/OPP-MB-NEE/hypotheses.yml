@@ -1,0 +1,141 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ganancias ajustadas por acción de 2027 crecen menos de un 6% frente
+      a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa una disminución interanual de las ganancias ajustadas
+      por acción de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ganancias ajustadas por acción de 2027 crecen menos de un 6% frente a 2026.
+  - La compañía informa una disminución interanual de las ganancias ajustadas por
+    acción de 2027.
+  horizon: medio
+  id: H1-OPP-MB-NEE
+  opportunity_id: OPP-MB-NEE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 6.0
+    met: null
+    metric: Crecimiento interanual de ganancias ajustadas por acción
+    prediction: Las ganancias ajustadas por acción de 2027, según la definición de
+      la compañía, serán al menos un 6% superiores a las de 2026.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis favorable supone que las inversiones intensivas en capital incorporan
+    activos que generan ingresos y beneficios suficientes. Sin embargo, la información
+    disponible no incluye datos de proyectos ni retornos; por eso, el crecimiento
+    de las ganancias ajustadas será una prueba observable de conversión de inversión
+    en resultados.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 publicados por
+    la compañía muestran un crecimiento de las ganancias ajustadas por acción inferior
+    al 6% frente a 2026.
+  secondary_hypotheses: []
+  statement: El crecimiento de generación, almacenamiento y redes se traducirá en
+    crecimiento operativo rentable, reflejado en un aumento de las ganancias ajustadas
+    por acción de NEE durante 2027.
+  status: ACTIVE
+  ticker: NEE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM calculado con los estados de flujo de efectivo publicados
+      es inferior a cero al 30 de junio de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica información suficiente para calcular el FCF
+      TTM con flujo de caja operativo y gastos de capital comparables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM calculado con los estados de flujo de efectivo publicados es inferior
+    a cero al 30 de junio de 2028.
+  - La compañía no publica información suficiente para calcular el FCF TTM con flujo
+    de caja operativo y gastos de capital comparables.
+  horizon: medio
+  id: H2-OPP-MB-NEE
+  opportunity_id: OPP-MB-NEE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 0.0
+    met: null
+    metric: Flujo de caja libre de los últimos doce meses
+    prediction: Al 30 de junio de 2028, el flujo de caja libre de los últimos doce
+      meses, calculado como flujo de caja operativo menos gastos de capital, será
+      igual o superior a cero.
+    unit: USD millones, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis depende de que los activos financiados con inversiones produzcan
+    efectivo suficiente para sostener los compromisos financieros. El FCF TTM negativo
+    señalado en la información disponible hace que la conversión de inversión en efectivo
+    sea un riesgo relevante y medible.
+  review_trigger: Dejar de creerla si los estados financieros del segundo trimestre
+    de 2028 muestran FCF TTM negativo con la definición indicada.
+  secondary_hypotheses:
+  - H1-OPP-MB-NEE
+  statement: La inversión de NEE empezará a convertirse en efectivo disponible y el
+    flujo de caja libre de los últimos doce meses será no negativo antes de mediados
+    de 2028.
+  status: ACTIVE
+  ticker: NEE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de NEE menos el rendimiento total de XLU durante
+      el periodo es inferior a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento total de NEE es inferior al de XLU durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de NEE menos el rendimiento total de XLU durante el periodo
+    es inferior a 5 puntos porcentuales.
+  - El rendimiento total de NEE es inferior al de XLU durante el periodo.
+  horizon: medio
+  id: H3-OPP-MB-NEE
+  opportunity_id: OPP-MB-NEE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de NEE frente a XLU
+    prediction: Entre el 20 de noviembre de 2026 y el 20 de noviembre de 2027, el
+      rendimiento total de NEE, incluidos dividendos, superará en al menos 5 puntos
+      porcentuales al rendimiento total del ETF Utilities Select Sector SPDR (XLU).
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Si NEE demuestra crecimiento rentable y mejora la conversión de inversión
+    en efectivo, podría reducirse la preocupación por el FCF negativo y los compromisos
+    financieros. La evidencia disponible no confirma todavía esos retornos, por lo
+    que la hipótesis exige una mejora observable en el rendimiento de mercado y no
+    presupone que vaya a ocurrir.
+  review_trigger: Dejar de creerla al cierre del 20 de noviembre de 2027 si la rentabilidad
+    total relativa de NEE frente a XLU es inferior a 5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-NEE
+  - H2-OPP-MB-NEE
+  statement: El mercado reconocerá una mejora relativa en las perspectivas financieras
+    de NEE, de modo que su rendimiento total superará al de un referente amplio de
+    utilities durante los próximos doce meses.
+  status: ACTIVE
+  ticker: NEE
+  version: 1

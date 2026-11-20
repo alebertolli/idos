@@ -1,0 +1,542 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El FCF negativo puede aumentar la dependencia de financiación externa para sostener
+    inversiones; no demuestra por sí solo que la inversión destruya valor.
+  - Los extremos de consenso se utilizan como anclas de escenarios, no como objetivos
+    propios ni como resultados garantizados.
+  - Al 2026-09-30, stockanalysis reportó ingresos TTM de 18.76 mil millones y FCF
+    TTM de -2.85 mil millones en su página financiera; la página de estadísticas reportó
+    FCF de -3.73 mil millones para TTM, una discrepancia que impide tratar ambas cifras
+    como reconciliadas.
+  - La serie FY 2023–FY 2026 de ingresos reportada en la página financiera permite
+    comparar cierres anuales fechados.
+  - El paquete reporta cotización USD 83.95 al 2026-10-30 y rango de objetivos de
+    analistas USD 73.40–100.00 observado el 2026-11-20.
+  preguntas_abiertas:
+  - ¿Cuáles son los retornos incrementales sobre capital y el rendimiento esperado
+    de los proyectos de redes?
+  - ¿Qué parte del gasto de inversión se financia con caja operativa, deuda o emisión
+    de acciones?
+  - ¿Cuál es la definición y el período subyacente de la cobertura de intereses reportada
+    como cero?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: RESEARCH_REQUIRED
+  justificacion: El paquete clasifica NGG como RESEARCH_REQUIRED bajo el perfil multibaggers.
+    La evidencia disponible muestra inversión intensiva y FCF negativo, pero no aporta
+    retornos sobre capital ni datos suficientes para validar crecimiento compuesto.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe un operador de redes eléctricas y de gas con segmentos
+    regulados y de ventures en Reino Unido y Estados Unidos. No incluye evidencia
+    suficiente sobre retornos sobre capital, términos regulatorios, ejecución de management
+    o asignación de capital para calificar la calidad económica del negocio.
+  rating: Incompleto
+dominio_catalizadores:
+- catalizador: La evolución del FCF y de la deuda puede aportar evidencia sobre la
+    capacidad de financiar inversiones.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ngg/financials/
+  hito: Contrastar futuros estados financieros comparables con el FCF TTM de -2.85
+    mil millones reportado al 2026-09-30.
+- catalizador: El rango de objetivos de analistas ofrece anclas observadas para escenarios,
+    no una validación fundamental.
+  fuentes:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ngg/forecast/
+  hito: Consenso y rango reportados el 2026-11-20.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ngg/financials/
+  implicacion: La expansión puede requerir financiación externa; no se dispone de
+    desglose suficiente para evaluar coste, vencimientos o capacidad de autofinanciación.
+  riesgo: FCF TTM reportado negativo y deuda neta histórica negativa en la convención
+    de caja menos deuda.
+- implicacion: No se puede concluir que el crecimiento de redes se traduzca en retornos
+    incrementales sostenibles.
+  riesgo: La evidencia no contiene métricas verificables de retorno sobre capital,
+    penetración, mercado direccionable ni ventajas competitivas específicas.
+- implicacion: El paquete no aclara la definición ni la calidad de este dato; requiere
+    verificación antes de interpretarlo.
+  riesgo: La métrica reportada de cobertura de intereses es 0 para el período indicado.
+error_mercado:
+  catalizador_cambio: La evidencia no identifica un catalizador fechado; la evolución
+    de FCF y deuda sería relevante para contrastar la tesis.
+  conclusion_error_valoracion: 'No se valida un error de valoración: los precios objetivo
+    son observaciones de consenso, no una valoración intrínseca propia.'
+  consenso_actual: El consenso de analistas reportado es USD 91.77, con rango USD
+    73.40–100.00, observado el 2026-11-20; la cotización reportada fue USD 83.95 al
+    2026-10-30.
+  hipotesis_contraria: Las redes reguladas podrían sostener inversiones y crecimiento,
+    pero el FCF TTM negativo y el aumento reportado de deuda neta también podrían
+    limitar la creación de valor para accionistas.
+  razonamiento: El rango de consenso está en USD, igual que la cotización, pero las
+    fechas de observación difieren. No hay método de valoración ni datos fechados
+    suficientes para justificar una desviación de sus extremos.
+generated_at: '2026-11-20T17:26:21.000262-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-NGG
+prompt_inputs:
+  business_model: National Grid plc engages in the transmission and distribution of
+    electricity and gas. It operates through UK Electricity Transmission, UK Electricity
+    Distribution, New England, New York, National Grid Ventures, and Other segments.
+    The UK Electricity Transmission segment provides electricity transmission networks
+    in England and Wales. The UK Electricity Distribution segment offers electricity
+    distribution services in east and west Midlands, Southwest of England, and South
+    Wales. The New England segment provides electricity and gas supply and distribution,
+    and high-voltage electricity transmission services in New England. The New York
+    segment offers electricity and gas distribution, and electricity transmission
+    services in New York. The National Grid Ventures segment provides transmission
+    services through electricity interconnectors and LNG importation at the Isle of
+    Grain. The Other segment engages in the leasing and sale of commercial property,
+    as well as insurance activities in the United Kingdom. The company was founded
+    in 1990 and is headquartered in London, the United Kingdom.
+  ceo_tenure: 0
+  debt_to_equity: 0.0132
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: National Grid plc
+  operating_margin: 31.02
+  pe_ratio: 15.54
+  products: ''
+  revenue: 24910000000.0
+  revenue_growth: 6.07
+  roic: 4.12
+  sector: Utilities
+  ticker: NGG
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-03-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ngg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_growth_history: null
+    fcf_history: null
+  limitations: La serie disponible contiene FCF negativo en TTM, FY 2026 y FY 2025;
+    no hay dos períodos comparables positivos.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ngg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ngg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history_Current: 3323.0
+    ebitda: 10360000000.0
+    total_debt_history_Current: 52607.0
+  limitations: No se puede verificar compatibilidad de unidades y escala entre los
+    importes de la página financiera y EBITDA reportado en la página de estadísticas;
+    no se deriva el ratio.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ngg/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares: null
+    diluted_shares_history: null
+    shares_outstanding: 5000000000.0
+    shares_outstanding_history: null
+  limitations: Sólo se proporciona un dato de acciones en circulación actual; falta
+    una serie histórica compatible o el recuento diluido de períodos comparables.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/NGG/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: National Grid plc engages in the transmission and distribution of
+    electricity and gas. It operates through UK Electricity Transmission, UK Electricity
+    Distribution, New England, New York, National Grid Ventures, and Other segments.
+    The UK Electricity Transmission segment provides electricity transmission networks
+    in England and Wales. The UK Electricity Distribution segment offers electricity
+    distribution services in east and west Midlands, Southwest of England, and South
+    Wales. The New England segment provides electricity and gas supply and distribution,
+    and high-voltage electricity transmission services in New England. The New York
+    segment offers electricity and gas distribution, and electricity transmission
+    services in New York. The National Grid Ventures segment provides transmission
+    services through electricity interconnectors and LNG importation at the Isle of
+    Grain. The Other segment engages in the leasing and sale of commercial property,
+    as well as insurance activities in the United Kingdom. The company was founded
+    in 1990 and is headquartered in London, the United Kingdom.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 83.94999694824219
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0132
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T20:25:49.016084+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: National Grid plc
+  operating_margin: 31.02
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'National Grid plc engages in the transmission and distribution of
+    electricity and gas. It operates through UK Electricity Transmission, UK Electricity
+    Distribution, New England, New York, National Grid Ventures, and Other segments.
+    The UK Electricity Transmission segment provides electricity transmission networks
+    in England and Wales. The UK Electricity Distribution segment offers electricity
+    distribution services in east and west Midlands, Southwest of England, and South
+    Wales. The New England '
+  revenue: 24910000000.0
+  revenue_growth: 6.07
+  roic: 4.12
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ngg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NGG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NGG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NGG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NGG/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ngg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ngg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NGG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NGG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ngg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ngg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ngg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NGG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NGG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ngg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    100.0, "low": 73.4, "mean": 91.77, "median": 91.77, "observed_at": "2026-11-20T17:25:52.130233-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T17:25:52.130233-03:00", "observed_date": "2026-11-20", "target_price":
+    91.77, "url": "https://stockanalysis.com/stocks/ngg/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:25:52.130233-03:00",
+    "observed_date": "2026-11-20", "target_price": 91.77, "url": "https://finance.yahoo.com/quote/NGG/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 83.94999694824219,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/NGG/"}]}}'
+  sector: Utilities
+  ticker: NGG
+research_trigger:
+  discovery_snapshot_hash: 3875afdfd5251b1424f3e8f4445265aad8097d3c71bf1f66a21b3fb652518d90
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 01de9a5570a07c6102b115882d6022ab6a5e90d162245ec45f7bef334dfa77b4
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T17:26:21.000262-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- assessment_note: Observación para Assessment, no decisión de compra.
+  metric: current_ratio
+  observation: 0.62 al 2026-09-30; no cruza el umbral configurado.
+  threshold: below 0.5
+- assessment_note: No se puede evaluar el umbral.
+  metric: dilution_yoy_pct
+  observation: No disponible; faltan acciones diluidas o acciones en circulación históricas
+    comparables.
+  threshold: above 10 percent
+- assessment_note: Verificar el dato antes de interpretarlo.
+  metric: interest_coverage
+  observation: 0 reportado al 2026-09-30; definición y datos subyacentes no aclarados.
+  threshold: below 2.0x
+- assessment_note: No se evalúa el umbral.
+  metric: negative_fcf_runway_months
+  observation: No calculable; faltan caja y FCF con unidades y períodos compatibles
+    para burn mensual.
+  threshold: below 12 months
+- assessment_note: No se evalúa el umbral.
+  metric: net_debt_ebitda
+  observation: No disponible por incompatibilidad verificable de unidades y escala
+    entre inputs.
+  threshold: above 4.0x
+- assessment_note: No se evalúa el umbral.
+  metric: share_count_cagr_3y_pct
+  observation: No disponible; falta historial de acciones con fechas comparables.
+  threshold: above 5 percent
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Una recuperación sostenida del FCF y una reducción de deuda neta debilitarían
+      esta lectura adversa.
+    id: BEAR
+    key_assumptions:
+    - El desempeño financiero no mejora suficientemente para contrarrestar el FCF
+      TTM negativo reportado.
+    - El objetivo bajo observado sigue siendo una referencia relevante para el horizonte.
+    rationale: Ancla observada en el extremo bajo del rango de objetivos de analistas.
+      Es el resultado adverso plausible si el FCF negativo y el aumento de deuda neta
+      reportados pesan sobre la valoración; no es una estimación intrínseca propia.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ngg/forecast/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ngg/financials/
+    target_price: 73.4
+  - falsifiers:
+    - La persistencia del FCF negativo junto con un mayor endeudamiento debilitaría
+      esta lectura favorable.
+    id: BULL
+    key_assumptions:
+    - La operación de redes descrita en el resumen sostiene el crecimiento y mejora
+      la generación de caja.
+    - El objetivo alto observado sigue siendo una referencia relevante para el horizonte.
+    rationale: Ancla observada en el extremo alto del rango de objetivos de analistas.
+      Representa el mejor resultado plausible dentro de ese rango si la inversión
+      en redes se traduce en mejores flujos y la deuda no impide capturar valor; no
+      es una estimación intrínseca propia.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ngg/forecast/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ngg/financials/
+    target_price: 100.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T17:25:52.130233-03:00'
+  fuentes:
+    stockanalysis: 91.77
+    yfinance: 91.77
+  mediana: 91.77
+  n_fuentes: 2
+  promedio: 91.77
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T17:25:52.130233-03:00'
+    observed_date: '2026-11-20'
+    target_price: 91.77
+    url: https://stockanalysis.com/stocks/ngg/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T17:25:52.130233-03:00'
+    observed_date: '2026-11-20'
+    target_price: 91.77
+    url: https://finance.yahoo.com/quote/NGG/
+  target_high: 100.0
+  target_low: 73.4
+tesis_inversion: National Grid opera redes de transmisión y distribución de electricidad
+  y gas en Reino Unido y Estados Unidos, según el resumen financiero. Una tesis favorable
+  depende de que la inversión en redes genere crecimiento y retornos adecuados; la
+  evidencia disponible no permite verificar retornos sobre capital, planes de inversión
+  ni penetración de mercado, mientras que el FCF TTM reportado es negativo.
+ticker: NGG
+version: '3.0'

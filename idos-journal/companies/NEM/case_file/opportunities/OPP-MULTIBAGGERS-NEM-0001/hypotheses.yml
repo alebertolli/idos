@@ -1,0 +1,146 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción atribuible de oro del ejercicio 2027 es inferior a 5,0
+      millones de onzas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa reduce su previsión anual de producción de oro para 2027
+      por debajo de 5,0 millones de onzas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción atribuible de oro del ejercicio 2027 es inferior a 5,0 millones
+    de onzas.
+  - La empresa reduce su previsión anual de producción de oro para 2027 por debajo
+    de 5,0 millones de onzas.
+  horizon: medio
+  id: H1-OPP-MULTIBAGGERS-NEM-0001
+  opportunity_id: OPP-MULTIBAGGERS-NEM-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-29'
+    expected: 5.0
+    met: null
+    metric: Producción atribuible anual de oro
+    prediction: La producción atribuible de oro reportada para el ejercicio 2027 será
+      igual o superior a 5,0 millones de onzas.
+    unit: millones de onzas
+  priority: important
+  probability: 0.5
+  rationale: La escala y diversificación de sus operaciones pueden compensar interrupciones
+    o descensos de producción en activos individuales. Sin embargo, la información
+    disponible no permite confirmar una trayectoria estructural de crecimiento; esta
+    hipótesis prueba la capacidad de sostener un nivel mínimo de producción.
+  review_trigger: Dejar de creerla si Newmont publica una previsión revisada para
+    2027 inferior a 5,0 millones de onzas o si un informe anual confirma una producción
+    inferior a ese umbral.
+  secondary_hypotheses: []
+  statement: Newmont mantendrá una producción anual atribuible de oro de al menos
+    5,0 millones de onzas en 2027, señal de continuidad operativa a pesar de la exposición
+    a múltiples activos y jurisdicciones.
+  status: ACTIVE
+  ticker: NEM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre reportado para el ejercicio 2027 es inferior
+      a 3.000 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre acumulado resulta negativo durante dos trimestres
+      consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre reportado para el ejercicio 2027 es inferior a 3.000 millones
+    de dólares.
+  - El flujo de caja libre acumulado resulta negativo durante dos trimestres consecutivos
+    de 2027.
+  horizon: medio
+  id: H2-OPP-MULTIBAGGERS-NEM-0001
+  opportunity_id: OPP-MULTIBAGGERS-NEM-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-29'
+    expected: 3000.0
+    met: null
+    metric: Flujo de caja libre del ejercicio
+    prediction: El flujo de caja libre acumulado del ejercicio 2027, calculado como
+      flujo de caja operativo menos inversiones de capital, será igual o superior
+      a 3.000 millones de dólares.
+    unit: millones de dólares
+  priority: critical
+  probability: 0.5
+  rationale: El FCF reportado ha sido positivo y los márgenes brutos aumentaron hasta
+    el TTM terminado el 2026-09-30, lo que respalda la posibilidad de continuar generando
+    caja. Esa evidencia no demuestra por sí sola que la mejora sea estructural ni
+    permite atribuirla a retornos sobre capital; el umbral pone a prueba si la generación
+    de caja se mantiene en un ejercicio completo.
+  review_trigger: Dejar de creerla si Newmont reduce su previsión de flujo de caja
+    libre para 2027 por debajo de 3.000 millones de dólares o si los resultados anuales
+    de 2027 confirman un valor inferior.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-NEM-0001
+  statement: Newmont generará al menos 3.000 millones de dólares de flujo de caja
+    libre durante 2027, si sostiene la producción y convierte los márgenes operativos
+    en caja después de inversiones.
+  status: ACTIVE
+  ticker: NEM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de NEM menos la rentabilidad total de GDX es
+      inferior a 5 puntos porcentuales en el periodo indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: NEM registra una rentabilidad total inferior a la de GDX en el periodo
+      indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de NEM menos la rentabilidad total de GDX es inferior a
+    5 puntos porcentuales en el periodo indicado.
+  - NEM registra una rentabilidad total inferior a la de GDX en el periodo indicado.
+  horizon: medio
+  id: H3-OPP-MULTIBAGGERS-NEM-0001
+  opportunity_id: OPP-MULTIBAGGERS-NEM-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de NEM frente a GDX
+    prediction: La rentabilidad total de NEM, incluidos dividendos, entre el 2026-11-20
+      y el 2027-11-20 excederá en al menos 5 puntos porcentuales la rentabilidad total
+      de GDX durante el mismo periodo.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: La producción diversificada, el FCF positivo y la expansión reciente
+    de márgenes podrían respaldar una rentabilidad relativa superior si se mantienen.
+    No hay evidencia suficiente para concluir que el mercado infravalora a Newmont;
+    por ello, esta hipótesis exige una diferencia observable frente a un índice sectorial,
+    en vez de asumir una revaloración.
+  review_trigger: Dejar de creerla si, al cierre de dos trimestres consecutivos antes
+    del 2027-11-20, la rentabilidad total acumulada de NEM desde la fecha inicial
+    queda por debajo de la de GDX y la empresa no muestra una mejora verificable de
+    FCF o producción.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-NEM-0001
+  - H2-OPP-MULTIBAGGERS-NEM-0001
+  statement: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de NEM superará
+    en al menos 5 puntos porcentuales la del ETF VanEck Gold Miners (GDX), reflejando
+    una mejora relativa en la valoración de su generación de caja.
+  status: ACTIVE
+  ticker: NEM
+  version: 1

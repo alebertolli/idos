@@ -1,0 +1,500 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - FCF positivo y margen bruto alto en el TTM son compatibles con una capacidad de
+    generación de caja relevante en ese período, pero no prueban persistencia ni retornos
+    incrementales atractivos.
+  - No se valida una brecha entre expectativas y fundamentales ni una ventaja competitiva
+    duradera con la evidencia entregada.
+  - La cotización reportada fue USD 109.26 al 2026-10-26 (yfinance, https://finance.yahoo.com/quote/NEM/).
+  - Para el TTM terminado el 2026-09-30, Stock Analysis reportó ingresos de 26,606,
+    FCF de 10,074 y utilidad neta de 9,240; los importes se mantienen en las unidades
+    reportadas por la fuente.
+  - El consenso observado el 2026-11-20 fue USD 134.57, con extremos USD 70 y USD
+    165 (Stock Analysis y yfinance, según el resumen financiero).
+  preguntas_abiertas:
+  - ¿Qué parte de la evolución financiera proviene de precios realizados, producción,
+    costos, adquisiciones u otros factores?
+  - ¿Cuáles son los planes de inversión, producción y costos por activo, y qué retornos
+    generan?
+  - ¿Cómo han evolucionado las acciones diluidas y qué política de asignación de capital
+    aplica la dirección?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida
+  justificacion: El paquete asigna a NEM el perfil MULTIBAGGERS y un discovery_score
+    de 68.39 (Research Intake Package, 2026-10-26); esa puntuación no acredita por
+    sí sola una oportunidad de inversión.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El FCF y el margen bruto reportados son sólidos en el TTM al 2026-09-30,
+    pero las series muestran resultados históricos variables y no permiten separar
+    efectos de precios, volumen, costos o cambios de perímetro. No hay información
+    suficiente sobre moat, reinversión, retornos incrementales sobre capital, management
+    o asignación de capital.
+  rating: Evidencia incompleta
+dominio_catalizadores:
+- base: Stock Analysis, https://stockanalysis.com/stocks/nem/financials/, TTM al 2026-09-30
+    y FY 2025.
+  catalizador: El FCF reportado fue 10,074 para el TTM terminado el 2026-09-30, frente
+    a 7,299 en FY 2025.
+- base: Stock Analysis, https://stockanalysis.com/stocks/nem/financials/, períodos
+    indicados.
+  catalizador: El margen bruto reportado aumentó de 63.24% en FY 2025 a 68.04% en
+    el TTM terminado el 2026-09-30.
+- base: Descripción del modelo de negocio del resumen financiero, 2026-11-20.
+  catalizador: La exposición a cobre, plata, plomo y zinc, además de oro, es una posible
+    fuente de diversificación de productos; el paquete no cuantifica su impacto económico.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- base: Descripción del modelo de negocio del resumen financiero, 2026-11-20.
+  riesgo: Exposición a múltiples metales y jurisdicciones; el paquete no cuantifica
+    la contribución por operación ni riesgos específicos de cada país.
+- base: Datos de deuda, efectivo y EBITDA de Stock Analysis con bases de unidad distintas
+    o no especificadas, período terminado el 2026-09-30.
+  riesgo: No se puede calcular net_debt_ebitda con unidades compatibles y verificables
+    a partir de las observaciones disponibles.
+- base: Research Intake Package, datos de yfinance, período 2025-10-27 a 2026-10-26.
+  riesgo: La volatilidad observada a 90 días fue 41.4882% y el drawdown informado
+    fue 19.1505%.
+- base: Campos disponibles en el paquete y resumen financiero, observados hasta 2026-11-20.
+  riesgo: No hay datos suficientes para evaluar dilución, retornos sobre capital,
+    producción, costos o ventaja competitiva.
+error_mercado:
+  catalizador_cambio: Resultados financieros posteriores al 2026-09-30 y evidencia
+    de ejecución operativa podrían cambiar la evaluación; no se aportan hitos corporativos
+    concretos.
+  conclusion_error_valoracion: No validado.
+  consenso_actual: El consenso de analistas reportado es USD 134.57, con rango USD
+    70–165; la cotización era USD 109.26 el 2026-10-26 (resumen financiero, consenso
+    observado el 2026-11-20 y cotización del 2026-10-26).
+  hipotesis_contraria: El paquete no contiene evidencia suficiente para establecer
+    que el mercado esté valorando mal la capacidad de generación de caja o el crecimiento
+    futuro de Newmont.
+  razonamiento: El rango de consenso y la cotización son referencias observadas, no
+    una valoración intrínseca; faltan datos de producción, costos, precios realizados
+    y método de valoración defendible.
+generated_at: '2026-11-20T17:24:23.956675-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MULTIBAGGERS-NEM-0001
+prompt_inputs:
+  business_model: Newmont Corporation operates as a gold producer. It also explores
+    for copper, silver, lead, zinc, and other metals. It has operations and/or assets
+    in the United States, Papua New Guinea, Australia, Ghana, Suriname, Argentina,
+    Dominican Republic, Chile, Peru, Ecuador, Mexico, and Canada. The company was
+    founded in 1916 and is headquartered in Denver, Colorado.
+  ceo_tenure: 0
+  debt_to_equity: 0.16
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Newmont Corporation
+  operating_margin: 55.56
+  pe_ratio: 11.23
+  products: ''
+  revenue: 26610000000.0
+  revenue_growth: 23.73
+  roic: 29.38
+  sector: Basic Materials
+  ticker: NEM
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/nem/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF growth reportado por la fuente; no se recalcula sin los dos períodos
+    comparables que sustentan esta tasa.
+  inputs:
+    fcf_growth_history:
+      TTM: 64.55
+  limitations: La fuente reporta crecimiento TTM, pero el paquete no identifica explícitamente
+    el período comparativo utilizado; no se puede validar la comparabilidad.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/nem/financials/
+  status: reported
+  unit: percent
+  value: 64.55
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/NEM/statistics/
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/nem/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history:
+      Current: 9261.0
+    ebitda: 17610000000.0
+    total_debt_history:
+      Current: 5584.0
+  limitations: Deuda y efectivo están en source_reported_amount, mientras EBITDA figura
+    en provider_financial_currency; el paquete no valida escala o moneda compatibles
+    para el cálculo.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/nem/financials/
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/NEM/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 1040000000.0
+  limitations: Falta el número de acciones diluidas o acciones en circulación de un
+    período comparable anterior; sólo hay un dato actual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/NEM/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Newmont Corporation operates as a gold producer. It also explores
+    for copper, silver, lead, zinc, and other metals. It has operations and/or assets
+    in the United States, Papua New Guinea, Australia, Ghana, Suriname, Argentina,
+    Dominican Republic, Chile, Peru, Ecuador, Mexico, and Canada. The company was
+    founded in 1916 and is headquartered in Denver, Colorado.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 109.26000213623047
+  current_price_as_of_date: '2026-10-26'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.16
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T20:23:56.747178+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Newmont Corporation
+  operating_margin: 55.56
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Newmont Corporation operates as a gold producer. It also explores
+    for copper, silver, lead, zinc, and other metals. It has operations and/or assets
+    in the United States, Papua New Guinea, Australia, Ghana, Suriname, Argentina,
+    Dominican Republic, Chile, Peru, Ecuador, Mexico, and Canada. The company was
+    founded in 1916 and is headquartered in Denver, Colorado.
+  revenue: 26610000000.0
+  revenue_growth: 23.73
+  roic: 29.38
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nem/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NEM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NEM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NEM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NEM/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nem/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nem/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nem/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NEM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nem/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NEM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nem/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nem/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nem/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NEM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NEM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nem/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    165.0, "low": 70.0, "mean": 134.57, "median": 134.57, "observed_at": "2026-11-20T17:24:00.005276-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T17:24:00.005276-03:00", "observed_date": "2026-11-20", "target_price":
+    134.57, "url": "https://stockanalysis.com/stocks/nem/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:24:00.005276-03:00",
+    "observed_date": "2026-11-20", "target_price": 134.56842, "url": "https://finance.yahoo.com/quote/NEM/"}]},
+    "current_quote": {"as_of_date": "2026-10-26", "currency": "USD", "price": 109.26000213623047,
+    "sources": [{"as_of_date": "2026-10-26", "name": "yfinance", "url": "https://finance.yahoo.com/quote/NEM/"}]}}'
+  sector: Basic Materials
+  ticker: NEM
+research_trigger:
+  discovery_snapshot_hash: 5c3a0a620f2dc94b7f2a19af6b21a8f20449b2ca57c6b6e49fad6e5e9d27d3d3
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 545f5386d7581fa2227b27140bb70bcc411941f12871d5b6f58370a05dc958cd
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T17:24:23.956675-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 2.45 al 2026-09-30; no cruza el umbral.
+  source: Stock Analysis, https://stockanalysis.com/stocks/NEM/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta una serie comparable de acciones diluidas o en
+    circulación.'
+  source: Stock Analysis, https://stockanalysis.com/stocks/NEM/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30, pero el paquete no aclara si representa
+    un valor económico o dato faltante; requiere validación.
+  source: Stock Analysis, https://stockanalysis.com/stocks/NEM/statistics/
+  threshold: below 2.0x
+- metric: net_debt_ebitda
+  observation: 'No evaluable: unidades compatibles para deuda neta y EBITDA no están
+    verificadas.'
+  source: Stock Analysis, https://stockanalysis.com/stocks/nem/financials/ y https://stockanalysis.com/stocks/NEM/statistics/
+  threshold: above 4.0x
+- metric: negative_fcf_runway_months
+  observation: No aplica al FCF positivo reportado de 10,074 para el TTM terminado
+    el 2026-09-30; no se calcula runway.
+  source: Stock Analysis, https://stockanalysis.com/stocks/nem/financials/
+  threshold: below 12 months
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: faltan observaciones históricas de acciones comparables.'
+  source: Stock Analysis, https://stockanalysis.com/stocks/NEM/statistics/
+  threshold: above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 56
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T17:24:00.005276-03:00'
+  fuentes:
+    stockanalysis: 134.57
+    yfinance: 134.56842
+  mediana: 134.57
+  n_fuentes: 2
+  promedio: 134.57
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T17:24:00.005276-03:00'
+    observed_date: '2026-11-20'
+    target_price: 134.57
+    url: https://stockanalysis.com/stocks/nem/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T17:24:00.005276-03:00'
+    observed_date: '2026-11-20'
+    target_price: 134.56842
+    url: https://finance.yahoo.com/quote/NEM/
+  target_high: 165.0
+  target_low: 70.0
+tesis_inversion: Newmont es un productor de oro con exposición adicional a otros metales
+  y operaciones o activos en varias jurisdicciones (resumen financiero, 2026-11-20).
+  Los datos financieros reportados muestran FCF positivo y márgenes brutos crecientes
+  hasta el TTM terminado el 2026-09-30, pero no bastan para atribuir esa evolución
+  a crecimiento estructural, evaluar retornos sobre capital ni validar una asimetría
+  de valoración.
+ticker: NEM
+version: '3.0'

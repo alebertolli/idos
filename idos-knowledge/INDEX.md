@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 108 companies tracked
+Total: 111 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -22,6 +22,7 @@ Total: 108 companies tracked
 - 📄 [[GGB|Gerdau S.A.]]
 - 📄 [[HL|Hecla Mining Company]]
 - 📄 [[IFF|International Flavors & Fragrances Inc.]]
+- 📄 [[NEM|Newmont Corporation]]
 
 ## Communication Services
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
@@ -136,6 +137,8 @@ Total: 108 companies tracked
 
 ## Utilities
 - 📄 [[CEG|Constellation Energy Corporation]]
+- 📄 [[NEE|NextEra Energy, Inc.]]
+- 📄 [[NGG|National Grid plc]]
 
 ---
 *Generated: auto-updated on each research run*

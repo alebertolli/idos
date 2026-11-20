@@ -1,0 +1,189 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La base de activos regulados consolidada aumenta menos de un 5% en
+      términos reales frente al 2026-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica datos suficientes para calcular una comparación
+      consolidada y comparable en esa fecha.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La base de activos regulados consolidada aumenta menos de un 5% en términos reales
+    frente al 2026-03-31.
+  - La compañía no publica datos suficientes para calcular una comparación consolidada
+    y comparable en esa fecha.
+  horizon: medio
+  id: H1-OPP-MB-NGG
+  opportunity_id: OPP-MB-NGG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 5.0
+    met: null
+    metric: Crecimiento real acumulado de la base de activos regulados consolidada
+    prediction: A más tardar el 2028-06-30, la última información anual disponible
+      mostrará que la base de activos regulados consolidada aumentó al menos un 5%
+      en términos reales frente al ejercicio terminado el 2026-03-31.
+    unit: '% mínimo frente al 2026-03-31'
+  priority: important
+  probability: 0.5
+  rationale: La inversión en transmisión y distribución puede ampliar la base sobre
+    la que se reconocen ingresos regulados. Sin embargo, la información disponible
+    no permite verificar el plan de inversión ni los retornos obtenidos; por ello,
+    el crecimiento de la base de activos debe comprobarse en las publicaciones de
+    la compañía.
+  review_trigger: Dejar de creerla si la información anual publicada antes del 2028-06-30
+    muestra crecimiento real inferior al 5%, o si la compañía deja de divulgar datos
+    comparables sobre la base de activos.
+  secondary_hypotheses: []
+  statement: La base de activos regulados de National Grid crecerá en términos reales
+    durante los próximos dos ejercicios, reflejando la ejecución de inversiones en
+    redes.
+  status: ACTIVE
+  ticker: NGG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La deuda neta comparable al 2027-03-31 aumenta menos de un 5% frente
+      al 2026-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La deuda neta comparable disminuye frente al 2026-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La deuda neta comparable al 2027-03-31 aumenta menos de un 5% frente al 2026-03-31.
+  - La deuda neta comparable disminuye frente al 2026-03-31.
+  horizon: corto
+  id: H2-OPP-MB-NGG
+  opportunity_id: OPP-MB-NGG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 5.0
+    met: null
+    metric: Variación interanual de la deuda neta
+    prediction: En la información anual publicada a más tardar el 2027-06-30, la deuda
+      neta reportada será al menos un 5% superior a la cifra comparable del 2026-03-31.
+    unit: '% mínimo'
+  priority: critical
+  probability: 0.5
+  rationale: El contexto disponible indica FCF TTM negativo y aumento de deuda neta.
+    Si las inversiones exceden el efectivo generado por las operaciones, la diferencia
+    puede financiarse con más deuda, aunque la financiación de capital u otros cambios
+    podrían moderar ese efecto.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados anuales correspondientes
+    al 2027-03-31 si muestran un aumento de deuda neta inferior al 5%, o una reducción.
+  secondary_hypotheses:
+  - H1-OPP-MB-NGG
+  statement: El flujo de caja libre negativo y las inversiones en redes seguirán presionando
+    al alza la deuda neta de National Grid durante el ejercicio terminado el 2027-03-31.
+  status: ACTIVE
+  ticker: NGG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La compañía divulga un retorno sobre capital empleado superior a su
+      coste de capital declarado para el ejercicio terminado el 2028-03-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía demuestra con datos comparables que el retorno incremental
+      de las inversiones en redes supera el coste de capital.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La compañía divulga un retorno sobre capital empleado superior a su coste de capital
+    declarado para el ejercicio terminado el 2028-03-31.
+  - La compañía demuestra con datos comparables que el retorno incremental de las
+    inversiones en redes supera el coste de capital.
+  horizon: medio
+  id: H3-OPP-MB-NGG
+  opportunity_id: OPP-MB-NGG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 0.0
+    met: null
+    metric: Diferencia entre retorno sobre capital empleado y coste de capital declarado
+    prediction: A más tardar el 2028-06-30, National Grid no habrá divulgado para
+      el ejercicio terminado el 2028-03-31 un retorno sobre capital empleado superior
+      a su coste de capital declarado para ese ejercicio, calculado sobre una base
+      comparable.
+    unit: puntos porcentuales o menos
+  priority: important
+  probability: 0.5
+  rationale: 'La expansión de activos regulados no garantiza creación de valor para
+    los accionistas: los retornos dependen de los marcos regulatorios, la ejecución
+    de proyectos, los costes y la financiación. El FCF TTM negativo y el aumento reportado
+    de deuda neta hacen necesario verificar tanto la rentabilidad como la conversión
+    de inversiones en ingresos.'
+  review_trigger: Dejar de creerla si los resultados publicados antes del 2028-06-30
+    muestran un retorno sobre capital empleado superior al coste de capital declarado,
+    o evidencia comparable de retornos incrementales superiores a dicho coste.
+  secondary_hypotheses:
+  - H1-OPP-MB-NGG
+  - H2-OPP-MB-NGG
+  statement: El gasto de capital en redes no se traducirá de forma suficiente en retornos
+    reconocidos para compensar el coste de capital y la presión financiera.
+  status: ACTIVE
+  ticker: NGG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de NGG iguala o supera la del FTSE All-Share
+      en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de NGG queda menos de 5 puntos porcentuales por
+      debajo del índice.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de NGG iguala o supera la del FTSE All-Share en el periodo.
+  - La rentabilidad total de NGG queda menos de 5 puntos porcentuales por debajo del
+    índice.
+  horizon: medio
+  id: H4-OPP-MB-NGG
+  opportunity_id: OPP-MB-NGG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rentabilidad total de NGG menos rentabilidad total del FTSE All-Share
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de NGG,
+      incluidos dividendos, será al menos 5 puntos porcentuales inferior a la del
+      FTSE All-Share, en una comparación en libras esterlinas.
+    unit: puntos porcentuales como máximo
+  priority: informational
+  probability: 0.5
+  rationale: La valoración puede verse limitada si el crecimiento de activos no se
+    acompaña de retornos adecuados y si el FCF negativo y el aumento de deuda generan
+    preocupación sobre la financiación. Esta hipótesis es una predicción de mercado,
+    no una afirmación sobre la valoración actual, que no está especificada en la información
+    disponible.
+  review_trigger: Dejar de creerla si, en cualquier cierre mensual previo al 2027-11-20,
+    NGG supera al FTSE All-Share en rentabilidad total acumulada desde el 2026-11-20;
+    la evaluación definitiva se hará el 2027-11-20.
+  secondary_hypotheses:
+  - H2-OPP-MB-NGG
+  - H3-OPP-MB-NGG
+  statement: La acción de NGG obtendrá una rentabilidad total inferior a la del mercado
+    británico amplio durante los 12 meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: NGG
+  version: 1
