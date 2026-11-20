@@ -1,0 +1,214 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos consolidados del ejercicio fiscal 2027 crecen menos del
+      5% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos del segundo semestre fiscal 2027 caen interanualmente
+      y la compañía atribuye la caída a debilidad persistente de la demanda, no solo
+      a calendario o comparables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos consolidados del ejercicio fiscal 2027 crecen menos del 5% interanual.
+  - Los ingresos del segundo semestre fiscal 2027 caen interanualmente y la compañía
+    atribuye la caída a debilidad persistente de la demanda, no solo a calendario
+    o comparables.
+  horizon: medio
+  id: H1-OPP-MB-MSI
+  opportunity_id: OPP-MB-MSI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ingresos consolidados del ejercicio fiscal 2027
+    prediction: Los ingresos consolidados del ejercicio fiscal 2027 crecerán al menos
+      un 5% frente al ejercicio fiscal 2026, según los resultados anuales publicados
+      por la compañía.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis considera que la combinación de soluciones y servicios puede
+    sostener la expansión del negocio. El crecimiento financiero reciente es evidencia
+    favorable, aunque no basta por sí solo para demostrar la durabilidad de la demanda;
+    por eso esta hipótesis se centra en ingresos reportados y no presupone una expansión
+    del mercado direccionable.
+  review_trigger: Dejar de creerla si la publicación de resultados del ejercicio fiscal
+    2027 muestra crecimiento de ingresos inferior al 5%, o si antes de esa fecha la
+    compañía reduce su previsión anual por deterioro de la demanda.
+  secondary_hypotheses: []
+  statement: Motorola Solutions mantendrá crecimiento de ingresos en el ejercicio
+    fiscal 2027, apoyado por la demanda de sus soluciones de productos, integración,
+    software y servicios.
+  status: ACTIVE
+  ticker: MSI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de los ingresos del segmento es inferior
+      al 7%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento del segmento es igual o inferior al crecimiento de los
+      ingresos consolidados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía modifica la presentación de segmentos de modo que no sea
+      posible verificar una comparación comparable, sin publicar una conciliación
+      suficiente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de los ingresos del segmento es inferior al 7%.
+  - El crecimiento del segmento es igual o inferior al crecimiento de los ingresos
+    consolidados.
+  - La compañía modifica la presentación de segmentos de modo que no sea posible verificar
+    una comparación comparable, sin publicar una conciliación suficiente.
+  horizon: medio
+  id: H2-OPP-MB-MSI
+  opportunity_id: OPP-MB-MSI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 7.0
+    met: null
+    metric: Crecimiento interanual de ingresos del segmento Software and Services
+      en el ejercicio fiscal 2027
+    prediction: Los ingresos del segmento Software and Services crecerán al menos
+      un 7% interanual en el ejercicio fiscal 2027 y superarán el crecimiento de los
+      ingresos consolidados de ese ejercicio.
+    unit: porcentaje mínimo, y superior al crecimiento consolidado
+  priority: important
+  probability: 0.5
+  rationale: La tesis atribuye parte de la continuidad del crecimiento a software
+    y servicios junto con productos e integración. Un crecimiento superior al de la
+    compañía en su conjunto sería una señal observable de que esa composición está
+    ganando peso; no demostraría por sí solo mayor retención o rentabilidad.
+  review_trigger: Dejar de creerla al publicarse los resultados del ejercicio fiscal
+    2027 si se incumple cualquiera de los dos umbrales de crecimiento; también si
+    la compañía comunica antes un deterioro estructural de la demanda del segmento.
+  secondary_hypotheses:
+  - H1-OPP-MB-MSI
+  statement: El segmento Software and Services crecerá más rápido que los ingresos
+    consolidados en el ejercicio fiscal 2027, sosteniendo la expansión de la oferta
+    de mayor recurrencia.
+  status: ACTIVE
+  ticker: MSI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de FCF del ejercicio fiscal 2027 es inferior al 18%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía presenta flujo de caja libre negativo en dos trimestres
+      consecutivos del ejercicio fiscal 2027 y lo atribuye a necesidades operativas
+      recurrentes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cifra depende de ajustes que excluyen costes de caja recurrentes
+      y no se ofrece una conciliación verificable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de FCF del ejercicio fiscal 2027 es inferior al 18%.
+  - La compañía presenta flujo de caja libre negativo en dos trimestres consecutivos
+    del ejercicio fiscal 2027 y lo atribuye a necesidades operativas recurrentes.
+  - La cifra depende de ajustes que excluyen costes de caja recurrentes y no se ofrece
+    una conciliación verificable.
+  horizon: medio
+  id: H3-OPP-MB-MSI
+  opportunity_id: OPP-MB-MSI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 18.0
+    met: null
+    metric: Margen de flujo de caja libre del ejercicio fiscal 2027
+    prediction: El margen de flujo de caja libre del ejercicio fiscal 2027 será de
+      al menos el 18%, calculado como flujo de caja libre dividido por ingresos consolidados,
+      utilizando la definición y las conciliaciones publicadas por la compañía.
+    unit: porcentaje mínimo de ingresos
+  priority: critical
+  probability: 0.5
+  rationale: La tesis requiere que la expansión del negocio se traduzca en efectivo
+    después de inversiones. La generación reciente de FCF es evidencia favorable,
+    pero la información disponible no cuantifica las necesidades futuras de reinversión
+    ni los retornos sobre capital; por eso se contrasta directamente el margen de
+    FCF reportado.
+  review_trigger: Dejar de creerla al publicarse los resultados del ejercicio fiscal
+    2027 si el margen de FCF es inferior al 18%; abandonar antes si la empresa revisa
+    a la baja su previsión de caja anual por necesidades recurrentes de capital de
+    trabajo o inversión.
+  secondary_hypotheses:
+  - H1-OPP-MB-MSI
+  statement: Motorola Solutions conservará una generación de flujo de caja libre robusta
+    en relación con sus ingresos durante el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: MSI
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de MSI es igual o inferior a la del S&P 500 durante
+      el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad relativa supera al índice únicamente por un cambio
+      metodológico o por datos de precios no ajustados por dividendos, y no se confirma
+      con fuentes comparables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de MSI es igual o inferior a la del S&P 500 durante el periodo
+    definido.
+  - La rentabilidad relativa supera al índice únicamente por un cambio metodológico
+    o por datos de precios no ajustados por dividendos, y no se confirma con fuentes
+    comparables.
+  horizon: medio
+  id: H4-OPP-MB-MSI
+  opportunity_id: OPP-MB-MSI
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de MSI frente al S&P 500 en doce meses
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de MSI, incluidos dividendos reinvertidos, superará en al menos 5 puntos
+      porcentuales la rentabilidad total del S&P 500.
+    unit: puntos porcentuales de exceso de rentabilidad mínimo
+  priority: important
+  probability: 0.5
+  rationale: El riesgo planteado es que el consenso subestime la continuidad del crecimiento
+    y del FCF, mientras que la valoración podría limitar o amplificar la rentabilidad.
+    Una comparación de rentabilidad total con un índice amplio permite comprobar el
+    resultado de mercado, aunque no identifica por sí sola si la causa fue crecimiento,
+    valoración u otros factores.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si MSI no supera al S&P
+    500 por al menos 5 puntos porcentuales; reevaluar antes si una revisión material
+    de previsiones o un deterioro de resultados invalida la premisa de crecimiento
+    y caja.
+  secondary_hypotheses:
+  - H1-OPP-MB-MSI
+  - H3-OPP-MB-MSI
+  statement: La rentabilidad total de MSI superará la del S&P 500 durante los doce
+    meses posteriores a la fecha de corte, consistente con que el mercado no descuente
+    plenamente la continuidad del crecimiento y la generación de efectivo.
+  status: ACTIVE
+  ticker: MSI
+  version: 1

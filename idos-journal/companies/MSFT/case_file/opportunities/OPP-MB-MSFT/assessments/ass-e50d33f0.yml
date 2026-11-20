@@ -1,0 +1,29 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; perfil multibaggers'
+- 'Market error: No validado con la evidencia disponible.'
+- 'Thesis: Microsoft combina una cartera tecnológica diversificada con crecimiento
+  de ingresos a largo plazo observado en los ejercicios FY2023–FY2026, pero el FCF
+  TTM informado al 2026-09-30 cayó frente al perí'
+generated_at: '2026-11-20T17:10:48.196151-03:00'
+id: ass-e50d33f0
+recommendation: REVIEW
+risks:
+- evidencia: 'El FCF TTM reportado al 2026-09-30 fue 59.957 millones y su crecimiento
+    informado fue -23,15%; fuente: https://stockanalysis.com/stocks/msft/financials/.'
+  riesgo: Debilitamiento de la conversión de crecimiento en caja.
+- evidencia: El paquete no contiene métricas de retorno sobre capital, mercado direccionable
+    o cuotas/penetración.
+  riesgo: La evidencia suministrada no permite evaluar cuantitativamente retornos
+    incrementales sobre capital ni la penetración de mercados.
+- evidencia: 'Net cash reportado fue -69.422 al 2026-09-30, frente a 31.815 al 2023-06-30;
+    fuente: https://stockanalysis.com/stocks/msft/financials/.'
+  riesgo: Deuda neta creciente en la serie reportada.
+- evidencia: 'Cálculo reportado por el paquete a partir de historial de precios de
+    yfinance: https://finance.yahoo.com/quote/MSFT/history/.'
+  riesgo: La volatilidad de precio observada fue 36,3759% en el período de 90 días
+    terminado el 2026-10-30.
+score: 53
+status: COMPLETED
+version: '3.0'

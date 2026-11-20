@@ -1,0 +1,171 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento acumulado entre los ejercicios fiscales 2026 y 2028
+      es inferior al 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: MUFG deja de publicar una métrica comparable y no es posible reconciliarla
+      con datos reportados de forma consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El aumento de la métrica se debe exclusivamente a cambios de perímetro
+      o clasificación contable que impidan atribuirlo a un crecimiento operativo comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento acumulado entre los ejercicios fiscales 2026 y 2028 es inferior
+    al 5%.
+  - MUFG deja de publicar una métrica comparable y no es posible reconciliarla con
+    datos reportados de forma consistente.
+  - El aumento de la métrica se debe exclusivamente a cambios de perímetro o clasificación
+    contable que impidan atribuirlo a un crecimiento operativo comparable.
+  horizon: medio
+  id: H1-OPP-MB-MUFG
+  opportunity_id: OPP-MB-MUFG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-05-31'
+    expected: 5.0
+    met: null
+    metric: Variación acumulada del beneficio neto de explotación relacionado con
+      clientes entre los ejercicios fiscales 2026 y 2028
+    prediction: El beneficio neto de explotación relacionado con clientes del ejercicio
+      fiscal 2028 será al menos un 5% superior al del ejercicio fiscal 2026, comparando
+      la misma métrica publicada por MUFG y aplicando sus definiciones de reporte.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: Una expansión sostenida de las actividades bancarias y de servicios a
+    clientes podría elevar los ingresos y la rentabilidad operativa. Sin embargo,
+    la información suministrada no confirma crecimiento de volúmenes, precios, mezcla
+    de ingresos ni eficiencia; esta hipótesis plantea una prueba, no da por demostrado
+    el mecanismo.
+  review_trigger: Dejar de creerla cuando MUFG publique los resultados del ejercicio
+    fiscal 2027 si la métrica comparable cae respecto al ejercicio fiscal 2026 y la
+    guía o los datos publicados no muestran una vía verificable para alcanzar un crecimiento
+    acumulado del 5% al cierre del ejercicio fiscal 2028; en todo caso, reevaluar
+    el 2028-05-31.
+  secondary_hypotheses: []
+  statement: MUFG aumentará la rentabilidad de sus actividades con clientes, medida
+    por el beneficio neto de explotación relacionado con clientes que reporte el grupo,
+    durante el ejercicio fiscal terminado el 31 de marzo de 2028.
+  status: ACTIVE
+  ticker: MUFG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ROE reportado para el ejercicio fiscal 2028 es inferior al 9%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La medida no puede calcularse con datos publicados o su definición
+      cambia sin una conciliación comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El umbral solo se alcanza mediante una reducción extraordinaria del
+      patrimonio que no refleje una mejora de la rentabilidad recurrente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ROE reportado para el ejercicio fiscal 2028 es inferior al 9%.
+  - La medida no puede calcularse con datos publicados o su definición cambia sin
+    una conciliación comparable.
+  - El umbral solo se alcanza mediante una reducción extraordinaria del patrimonio
+    que no refleje una mejora de la rentabilidad recurrente.
+  horizon: medio
+  id: H2-OPP-MB-MUFG
+  opportunity_id: OPP-MB-MUFG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-05-31'
+    expected: 9.0
+    met: null
+    metric: ROE del ejercicio fiscal 2028
+    prediction: El ROE del ejercicio fiscal 2028, usando la definición publicada por
+      MUFG y especificando si se trata de ROE atribuible a los accionistas o de otra
+      medida, será igual o superior al 9%.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Una mejora sostenida de la rentabilidad operativa puede traducirse en
+    mayor retorno sobre el capital. La información recibida no proporciona ROE, coste
+    de capital, reinversión ni asignación de capital; por tanto, no permite confirmar
+    que MUFG pueda alcanzar este umbral.
+  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 sitúan
+    el ROE por debajo del 8% y MUFG no presenta una guía pública que sustente una
+    recuperación de al menos un punto porcentual en el ejercicio fiscal 2028; decisión
+    final al publicarse los resultados de 2028, como máximo el 2028-05-31.
+  secondary_hypotheses:
+  - H1-OPP-MB-MUFG
+  statement: MUFG alcanzará un retorno sobre el patrimonio neto (ROE) de al menos
+    el 9% en el ejercicio fiscal terminado el 31 de marzo de 2028.
+  status: ACTIVE
+  ticker: MUFG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de MUFG menos la rentabilidad total del TOPIX
+      es inferior a 5 puntos porcentuales en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación no puede realizarse de forma consistente ajustando ambas
+      series por dividendos y eventos corporativos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: MUFG obtiene rentabilidad relativa inferior a la del TOPIX, aunque
+      sus métricas operativas o financieras mejoren.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de MUFG menos la rentabilidad total del TOPIX es inferior
+    a 5 puntos porcentuales en el periodo.
+  - La comparación no puede realizarse de forma consistente ajustando ambas series
+    por dividendos y eventos corporativos.
+  - MUFG obtiene rentabilidad relativa inferior a la del TOPIX, aunque sus métricas
+    operativas o financieras mejoren.
+  horizon: medio
+  id: H3-OPP-MB-MUFG
+  opportunity_id: OPP-MB-MUFG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de MUFG menos rentabilidad total del TOPIX
+    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
+      noviembre de 2028, la rentabilidad total de MUFG, incluidos dividendos y ajustada
+      por eventos corporativos, superará la rentabilidad total del TOPIX en al menos
+      5 puntos porcentuales.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Si la mejora operativa y financiera se materializa, podría respaldar
+    una revaloración y una rentabilidad relativa superior. No se dispone de valoración
+    inicial, expectativas del mercado ni evidencia sobre una ventaja competitiva;
+    por ello, la predicción se contrasta directamente con un índice de referencia
+    y no presupone que exista infravaloración.
+  review_trigger: Dejar de creerla antes del vencimiento si, al cierre del 20 de noviembre
+    de 2027, MUFG acumula una rentabilidad total inferior a la del TOPIX en 10 puntos
+    porcentuales o más y no hay evidencia publicada de una mejora de rentabilidad
+    que permita justificar una reversión; verificación definitiva el 2028-11-20.
+  secondary_hypotheses:
+  - H1-OPP-MB-MUFG
+  - H2-OPP-MB-MUFG
+  statement: La rentabilidad total para el accionista de MUFG superará la del TOPIX
+    en al menos 5 puntos porcentuales durante los dos años posteriores a la fecha
+    de corte.
+  status: ACTIVE
+  ticker: MUFG
+  version: 1
