@@ -1,0 +1,473 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Cálculo del CAGR de ingresos
+  - Interpretación de riesgos basados en umbrales
+  - Precio actual 31.46 USD (yfinance, 2026-10-30)
+  - Revenue FY2025 24,459 (stockanalysis, 2025-12-31)
+  - Revenue FY2022 29,423 (stockanalysis, 2022-12-31)
+  - Current ratio 0 (stockanalysis, 2026-09-30)
+  - Interest coverage 0 (stockanalysis, 2026-09-30)
+  preguntas_abiertas:
+  - ¿Cuál es la unidad exacta de los valores de FCF y net income?
+  - ¿Existe EBITDA reportado para calcular net debt/EBITDA?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Neutral
+  justificacion: La evidencia muestra crecimiento de ingresos negativo y ratios clave
+    no disponibles, mientras que el precio actual está por debajo del rango bajo de
+    consenso de analistas.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Ingresos en declive (-5.96% CAGR 3 años) y márgenes no reportados limitan
+    la claridad del desempeño operativo.
+  rating: Media
+dominio_catalizadores:
+- catalizador: Mejora de la rentabilidad neta
+  efecto: Podría elevar el precio objetivo hacia el extremo alto del consenso.
+- catalizador: Reducción del endeudamiento neto
+  efecto: Mejoraría el ratio net debt/EBITDA y la percepción de riesgo.
+- catalizador: Revaluación de la cobertura de intereses
+  efecto: Aumentaría la confianza del mercado en la solvencia.
+- catalizador: Política regulatoria favorable en Europa
+  efecto: Podría impulsar la expansión de préstamos y márgenes.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- impacto: Indicador de liquidez insuficiente para cubrir obligaciones a corto plazo.
+  riesgo: Current ratio muy bajo (0)
+- impacto: Posible dificultad para cumplir con pagos de intereses en escenarios de
+    estrés.
+  riesgo: Cobertura de intereses nula (0)
+- impacto: Limitada capacidad de reinversión y generación de valor para accionistas.
+  riesgo: FCF negativo y sin crecimiento positivo
+- impacto: Incertidumbre sobre la presión de emisión de acciones futuras.
+  riesgo: Falta de datos de dilución de acciones
+error_mercado:
+  catalizador_cambio: Un repunte inesperado en la rentabilidad neta o una mejora significativa
+    del ratio de cobertura de intereses.
+  conclusion_error_valoracion: El precio actual (31.46 USD) está por debajo del límite
+    inferior del consenso, indicando posible subvaloración.
+  consenso_actual:
+    currency: USD
+    high: 43.0
+    low: 32.0
+    mean: 36.67
+  hipotesis_contraria: El mercado podría estar sobrevalorando ING al asumir una recuperación
+    de ingresos más rápida de lo que la tendencia histórica sugiere.
+  razonamiento: Los analistas proyectan precios superiores al actual pese a la caída
+    de ingresos y la ausencia de cobertura de intereses, lo que sugiere que el mercado
+    está penalizando riesgos percibidos.
+generated_at: '2026-11-20T15:54:31.347384-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-ING
+prompt_inputs:
+  business_model: 'ING Groep N.V. provides various banking products and services in
+    the Netherlands, Belgium, Germany, rest of Europe, and internationally. The company
+    operates through five segments: Retail Netherlands, Retail Belgium, Retail Germany,
+    Retail Other, and Wholesale Banking. It accepts current and savings accounts;
+    and time deposits. The company also offers business lending products; SME loans;
+    consumer lending products, such as residential mortgage loans and other consumer
+    lending loans; and mortgages. In addition, it provides working capital solutions;
+    debt and equity market solutions; various loans; payments; and cash management,
+    trade and corporate finance, and treasury services, as well as savings, investment,
+    insurance, and digital banking services. The company serves individual customers,
+    corporate clients, and financial institutions. ING Groep N.V. was founded in 1762
+    and is headquartered in Amsterdam, the Netherlands.'
+  ceo_tenure: 0
+  debt_to_equity: 0.06
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: ING Groep N.V.
+  operating_margin: 52.03
+  pe_ratio: 8.93
+  products: ''
+  revenue: 28920000000.0
+  revenue_growth: 27.08
+  roic: 16.75
+  sector: Financial Services
+  ticker: ING
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/ing/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs:
+    fcf_FY2024: -56148.0
+    fcf_FY2025: -44036.0
+  limitations: FCF negativo impide cálculo de crecimiento positivo.
+  metric: fcf_growth_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100
+  inputs:
+    fcf_TTM: -44060000000.0
+    net_income_TTM: 8760.0
+  limitations: Unidades de FCF y net income no son comparables.
+  metric: fcf_conversion_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_equivalents_Current: 135528.0
+    total_debt_Current: 306459.0
+  limitations: EBITDA no reportado (valor "n/a").
+  metric: net_debt_ebitda
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: No se dispone de series históricas de acciones diluidas.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'ING Groep N.V. provides various banking products and services in
+    the Netherlands, Belgium, Germany, rest of Europe, and internationally. The company
+    operates through five segments: Retail Netherlands, Retail Belgium, Retail Germany,
+    Retail Other, and Wholesale Banking. It accepts current and savings accounts;
+    and time deposits. The company also offers business lending products; SME loans;
+    consumer lending products, such as residential mortgage loans and other consumer
+    lending loans; and mortgages. In addition, it provides working capital solutions;
+    debt and equity market solutions; various loans; payments; and cash management,
+    trade and corporate finance, and treasury services, as well as savings, investment,
+    insurance, and digital banking services. The company serves individual customers,
+    corporate clients, and financial institutions. ING Groep N.V. was founded in 1762
+    and is headquartered in Amsterdam, the Netherlands.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 31.459999084472656
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.06
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T18:54:16.653596+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: ING Groep N.V.
+  operating_margin: 52.03
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'ING Groep N.V. provides various banking products and services in
+    the Netherlands, Belgium, Germany, rest of Europe, and internationally. The company
+    operates through five segments: Retail Netherlands, Retail Belgium, Retail Germany,
+    Retail Other, and Wholesale Banking. It accepts current and savings accounts;
+    and time deposits. The company also offers business lending products; SME loans;
+    consumer lending products, such as residential mortgage loans and other consumer
+    lending loans; and mortgage'
+  revenue: 28920000000.0
+  revenue_growth: 27.08
+  roic: 16.75
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ing/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ING/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ING/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ING/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ING/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ing/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ing/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ING/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ING/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ing/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ing/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ing/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ING/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ING/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ing/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    43.0, "low": 32.0, "mean": 36.67, "median": 36.67, "observed_at": "2026-11-20T15:54:20.580896-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T15:54:20.580896-03:00", "observed_date": "2026-11-20", "target_price":
+    36.67, "url": "https://stockanalysis.com/stocks/ing/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T15:54:20.580896-03:00",
+    "observed_date": "2026-11-20", "target_price": 36.66667, "url": "https://finance.yahoo.com/quote/ING/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 31.459999084472656,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ING/"}]}}'
+  sector: Financial Services
+  ticker: ING
+research_trigger:
+  discovery_snapshot_hash: 055e0680b9017b8bc0f1ec2f8cd173be1f2d303ec89667e74efc3f9061952c88
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: c626527c407a3030aa1ae0124b8392040882f94e34bc18dae81cd3874cab5a85
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T15:54:31.347384-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- detail: Current ratio reportado es 0 (stockanalysis, 2026-09-30).
+  flag: Current ratio below 0.5
+- detail: Interest coverage reportado es 0 (stockanalysis, 2026-09-30).
+  flag: Interest coverage below 2.0
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-10-30'
+  scenarios:
+  - falsifiers:
+    - Recuperación de ingresos superior al -5.96% CAGR
+    id: BEAR
+    key_assumptions:
+    - Ingresos continúan disminuyendo
+    - Sin mejora en cobertura de intereses
+    rationale: Precio objetivo bajo del consenso refleja la visión más pesimista de
+      los analistas.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ing/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ING/
+    target_price: 32.0
+  - falsifiers:
+    - Persistencia de FCF negativo y deterioro de liquidez
+    id: BULL
+    key_assumptions:
+    - Mejora sustancial de la rentabilidad neta
+    - Reducción del endeudamiento neto
+    rationale: Precio objetivo alto del consenso asume una recuperación significativa
+      de márgenes y liquidez.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/ing/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/ING/
+    target_price: 43.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 73
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T15:54:20.580896-03:00'
+  fuentes:
+    stockanalysis: 36.67
+    yfinance: 36.66667
+  mediana: 36.67
+  n_fuentes: 2
+  promedio: 36.67
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T15:54:20.580896-03:00'
+    observed_date: '2026-11-20'
+    target_price: 36.67
+    url: https://stockanalysis.com/stocks/ing/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T15:54:20.580896-03:00'
+    observed_date: '2026-11-20'
+    target_price: 36.66667
+    url: https://finance.yahoo.com/quote/ING/
+  target_high: 43.0
+  target_low: 32.0
+tesis_inversion: ING enfrenta presión de ingresos y liquidez, con indicadores de solvencia
+  débiles; sin embargo, el precio está por debajo del rango bajo de valoración de
+  analistas, lo que abre una posible ventana de compra si la recuperación de márgenes
+  se materializa.
+ticker: ING
+version: '3.0'
