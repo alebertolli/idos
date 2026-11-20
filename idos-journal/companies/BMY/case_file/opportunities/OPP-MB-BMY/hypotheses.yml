@@ -1,0 +1,184 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos TTM reportados al 2027-09-30 son inferiores a USD 48.000
+      millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los informes trimestrales muestran una caída interanual de ingresos
+      en al menos tres trimestres consecutivos hasta el 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos TTM reportados al 2027-09-30 son inferiores a USD 48.000 millones.
+  - Los informes trimestrales muestran una caída interanual de ingresos en al menos
+    tres trimestres consecutivos hasta el 2027-09-30.
+  horizon: medio
+  id: H1-OPP-MB-BMY
+  opportunity_id: OPP-MB-BMY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 48000.0
+    met: null
+    metric: Ingresos TTM consolidados
+    prediction: Los ingresos TTM al 2027-09-30 serán iguales o superiores a USD 48.000
+      millones.
+    unit: USD millones; mínimo al 2027-09-30
+  priority: critical
+  probability: 0.5
+  rationale: Los ingresos TTM fueron de USD 50.033 millones al 2026-09-30. La evidencia
+    disponible no permite atribuir crecimiento ni compensación a productos concretos,
+    por lo que esta hipótesis se limita a una predicción sobre ingresos consolidados,
+    no sobre el desempeño de productos individuales.
+  review_trigger: Dejar de creerla si un informe financiero publicado antes o en 2027-09-30
+    sitúa los ingresos TTM por debajo de USD 48.000 millones.
+  secondary_hypotheses: []
+  statement: BMY mantendrá ingresos suficientemente estables durante los próximos
+    12 meses; la cartera comercial compensará la erosión de productos existentes sin
+    que los ingresos consolidados caigan más de forma material.
+  status: ACTIVE
+  ticker: BMY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto TTM al 2027-09-30 es inferior a 69,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto trimestral cae por debajo de 68,0% en dos trimestres
+      consecutivos antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto TTM al 2027-09-30 es inferior a 69,0%.
+  - El margen bruto trimestral cae por debajo de 68,0% en dos trimestres consecutivos
+    antes de la fecha objetivo.
+  horizon: medio
+  id: H2-OPP-MB-BMY
+  opportunity_id: OPP-MB-BMY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 69.0
+    met: null
+    metric: Margen bruto TTM
+    prediction: El margen bruto TTM al 2027-09-30 será de al menos 69,0%.
+    unit: porcentaje mínimo al 2027-09-30
+  priority: important
+  probability: 0.5
+  rationale: El margen bruto reportado fue de 78,04% en FY 2022 y de 70,5% TTM al
+    2026-09-30. Esa caída requiere explicación, pero por sí sola no demuestra un deterioro
+    estructural. La hipótesis plantea una estabilización verificable, no una recuperación
+    a niveles históricos.
+  review_trigger: Dejar de creerla si el margen bruto TTM cae por debajo de 69,0%
+    al 2027-09-30 o si se observa la secuencia de dos trimestres consecutivos por
+    debajo de 68,0%.
+  secondary_hypotheses:
+  - H1-OPP-MB-BMY
+  statement: El margen bruto de BMY se estabilizará en torno a su nivel TTM actual,
+    en lugar de seguir deteriorándose rápidamente.
+  status: ACTIVE
+  ticker: BMY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM calculado con la misma definición es inferior a USD 8.000
+      millones al 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF TTM cae por debajo de USD 8.000 millones en dos informes trimestrales
+      consecutivos antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM calculado con la misma definición es inferior a USD 8.000 millones
+    al 2027-09-30.
+  - El FCF TTM cae por debajo de USD 8.000 millones en dos informes trimestrales consecutivos
+    antes de la fecha objetivo.
+  horizon: medio
+  id: H3-OPP-MB-BMY
+  opportunity_id: OPP-MB-BMY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 8000.0
+    met: null
+    metric: FCF TTM
+    prediction: El FCF TTM al 2027-09-30 será de al menos USD 8.000 millones, calculado
+      como flujo de caja operativo menos adquisiciones de propiedad, planta y equipo.
+    unit: USD millones; mínimo al 2027-09-30
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM fue de USD 9.286 millones al 2026-09-30. La caída observada
+    del FCF requiere explicación y no basta para concluir que la capacidad de generación
+    de caja se ha deteriorado estructuralmente. El umbral propuesto permite una reducción
+    respecto de la base actual y es comprobable con estados financieros futuros.
+  review_trigger: Dejar de creerla si el FCF TTM cae por debajo de USD 8.000 millones
+    en dos informes consecutivos o si permanece por debajo de ese nivel al 2027-09-30.
+  secondary_hypotheses:
+  - H1-OPP-MB-BMY
+  - H2-OPP-MB-BMY
+  statement: BMY conservará una generación anual de flujo de caja libre superior a
+    USD 8.000 millones, aunque el FCF pueda fluctuar frente al nivel TTM informado.
+  status: ACTIVE
+  ticker: BMY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de BMY menos la de XLV es inferior a 5 puntos
+      porcentuales entre las fechas especificadas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de BMY queda por debajo de la de XLV en el periodo,
+      aunque se cumplan los umbrales de ingresos y FCF de H1 y H3.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de BMY menos la de XLV es inferior a 5 puntos porcentuales
+    entre las fechas especificadas.
+  - La rentabilidad total de BMY queda por debajo de la de XLV en el periodo, aunque
+    se cumplan los umbrales de ingresos y FCF de H1 y H3.
+  horizon: medio
+  id: H4-OPP-MB-BMY
+  opportunity_id: OPP-MB-BMY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de BMY frente a XLV
+    prediction: La rentabilidad total de BMY, incluidos dividendos, superará en al
+      menos 5 puntos porcentuales la rentabilidad total de XLV entre 2026-11-20 y
+      2027-11-20.
+    unit: puntos porcentuales; mínimo entre 2026-11-20 y 2027-11-20
+  priority: informational
+  probability: 0.5
+  rationale: 'La evidencia entregada no permite concluir si el mercado subestima o
+    sobrestima BMY, y no incluye valoración, expectativas de consenso ni datos de
+    penetración o vencimientos de patentes. Por ello, esta hipótesis no presupone
+    una infravaloración: plantea una predicción relativa de mercado que puede contrastarse
+    directamente, mientras H1 y H3 aportan señales fundamentales relevantes.'
+  review_trigger: Dejar de creerla el 2027-11-20 si la rentabilidad total relativa
+    de BMY frente a XLV es inferior a 5 puntos porcentuales; reconsiderarla antes
+    si H1 o H3 se falsan.
+  secondary_hypotheses:
+  - H1-OPP-MB-BMY
+  - H3-OPP-MB-BMY
+  statement: Durante los próximos 12 meses, la rentabilidad total de BMY superará
+    a la del ETF de salud XLV, en la medida en que la estabilidad de ingresos y caja
+    reduzca la percepción de riesgo sobre la sostenibilidad del negocio.
+  status: ACTIVE
+  ticker: BMY
+  version: 1

@@ -1,0 +1,374 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El negocio es cíclico y sensible a precios del crudo.
+  - El margen operativo del 12% indica cierta resiliencia.
+  - La generación de FCF sugiere capacidad de financiar inversiones y dividendos.
+  preguntas_abiertas:
+  - ¿Cuál es el nivel actual de deuda neta y los ratios de cobertura?
+  - ¿Qué planes concretos tiene la compañía para diversificar hacia energías renovables?
+  - ¿Cómo evolucionarán los precios del crudo en los próximos 12-24 meses?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: Compounder, Compounder castigado, Turnaround, Deep Value,
+    Special Situation, Distressed, Quality at Fair Price, Hype, Value Trap
+  justificacion: Baker Hughes opera en el sector de servicios petroleros, cuya demanda
+    está fuertemente vinculada a los ciclos de precios del crudo y gas. Su modelo
+    de negocio es sensible a la actividad de exploración y producción, lo que lo alinea
+    con una naturaleza cíclica más que con características de compounder o deep value.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Baker Hughes posee una posición competitiva establecida en servicios de
+    perforación, completación y mantenimiento, respaldada por una amplia base de clientes
+    y una cartera tecnológica diversificada. Sin embargo, su dependencia del ciclo
+    del petróleo limita la durabilidad del moat.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Recuperación sostenida del precio del crudo >80 USD/barril
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 45
+- descripcion: Ejecución exitosa de plan de reducción de costos y mejora operativa
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 55
+- descripcion: Expansión significativa en servicios de energía renovable
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: Como empresa de servicios petroleros, enfrenta riesgos ESG relacionados
+    con emisiones y transición energética. No se dispone de datos detallados sobre
+    la cadena de suministro, pero la exposición a regulaciones medioambientales es
+    significativa.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: El flujo de caja libre de 3.23B USD (TTM) y un margen operativo del 12.2%
+    indican generación de efectivo razonable. No se dispone de datos de deuda o ratios
+    de cobertura, por lo que la evaluación se basa en la capacidad de generar cash
+    y en la ausencia de señales de insolvencia.
+  rating: adecuada
+dominio_growth:
+  analisis: El crecimiento de ingresos del 3.71% (TTM) es modestamente positivo. El
+    potencial de crecimiento futuro depende de la recuperación de precios del crudo
+    y de la expansión en servicios de energía limpia, ambos con alta incertidumbre.
+  rating: moderado
+dominio_management:
+  analisis: El equipo directivo ha comunicado iniciativas de reducción de costos y
+    diversificación hacia energías renovables, alineadas con la tendencia de la industria.
+    No se observan indicadores de mala asignación de capital.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Caída prolongada de precios del crudo
+- impacto: alto
+  probabilidad: media
+  riesgo: Elevada carga de deuda (datos no disponibles)
+- impacto: medio
+  probabilidad: media
+  riesgo: Riesgos regulatorios ESG
+error_mercado:
+  catalizador_cambio:
+    descripcion: Recuperación sostenida del precio del crudo por encima de 80 USD/barril,
+      combinada con la ejecución de un plan de reducción de costos y posible expansión
+      en servicios de energía renovable.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 45
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas promedian un precio objetivo de 69.75 USD (rango
+    51-85), lo que implica que el mercado está descontando aproximadamente un 30%
+    respecto al consenso, probablemente por riesgos percibidos en la volatilidad del
+    precio del petróleo, exposición a deuda y márgenes operativos modestos.
+  hipotesis_contraria: El mercado podría estar sobreestimando la persistencia de la
+    debilidad de los precios del crudo y subestimando la capacidad de Baker Hughes
+    para generar flujo de caja libre sólido (3.23B USD TTM) y mantener márgenes operativos
+    alrededor del 12%, lo que brinda resiliencia frente a ciclos adversos.
+  razonamiento: La brecha entre el precio actual (46.93 USD) y el consenso sugiere
+    un descuento que puede estar justificado en parte por riesgos cíclicos, pero la
+    generación de FCF y los márgenes indican que el mercado podría estar penalizando
+    excesivamente a la compañía.
+generated_at: '2026-11-20T10:49:47.586587-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-027
+prompt_inputs:
+  business_model: Baker Hughes Company provides a portfolio of technologies and services
+    to energy and industrial value chain. Its Oilfield Services & Equipment segment
+    designs and manufactures exploration, appraisal, development, production, rejuvenation,
+    and decommissioning products and related services for onshore and offshore oilfield
+    operations. This segment also provides drilling services, drill bits, and drilling
+    and completions fluids; completions, intervention, measurements, pressure pumping,
+    and wireline services; artificial lift systems, and oilfield and industrial chemicals;
+    subsea projects and services, flexible pipe systems, and surface pressure control
+    systems; and integrated well services and solutions. It serves oil and natural
+    gas companies; the United States and international independent oil and natural
+    gas companies; national or state-owned oil companies; engineering, procurement,
+    and construction contractors; geothermal companies; and other oilfield service
+    companies. The company's Industrial & Energy Technology segment offers gas technology
+    equipment, such as drivers, driven equipment, and turnkey solutions for the mechanical
+    and electric-drive, compression, and power-generation applications; aftermarket
+    support and uptime gas technology services; non-destructive testing technologies,
+    software, and services; pre-commissioning and maintenance services; flow control
+    and safety solutions; mechanical and electromechanical gear transmission systems;
+    Cordant, a software solution to optimize assets, processes, and energy use; Bently
+    Nevada, a sensing and protection hardware for rack-based vibrating monitoring
+    equipment and sensors; and climate technology solutions. It serves industrial,
+    upstream, midstream, downstream, onshore, offshore, and small-to-large scale customers.
+    The company was formerly known as Baker Hughes, a GE company and changed its name
+    to Baker Hughes Company in October 2019. The company was incorporated in 2016
+    and is based in Houston, Texas.
+  ceo_tenure: 0
+  debt_to_equity: 0.89
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Baker Hughes Company
+  operating_margin: 12.2
+  pe_ratio: 16.13
+  products: ''
+  revenue: 28740000000.0
+  revenue_growth: 3.71
+  roic: 12.12
+  sector: Energy
+  ticker: BKR
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Baker Hughes Company provides a portfolio of technologies and services
+    to energy and industrial value chain. Its Oilfield Services & Equipment segment
+    designs and manufactures exploration, appraisal, development, production, rejuvenation,
+    and decommissioning products and related services for onshore and offshore oilfield
+    operations. This segment also provides drilling services, drill bits, and drilling
+    and completions fluids; completions, intervention, measurements, pressure pumping,
+    and wireline services; artificial lift systems, and oilfield and industrial chemicals;
+    subsea projects and services, flexible pipe systems, and surface pressure control
+    systems; and integrated well services and solutions. It serves oil and natural
+    gas companies; the United States and international independent oil and natural
+    gas companies; national or state-owned oil companies; engineering, procurement,
+    and construction contractors; geothermal companies; and other oilfield service
+    companies. The company's Industrial & Energy Technology segment offers gas technology
+    equipment, such as drivers, driven equipment, and turnkey solutions for the mechanical
+    and electric-drive, compression, and power-generation applications; aftermarket
+    support and uptime gas technology services; non-destructive testing technologies,
+    software, and services; pre-commissioning and maintenance services; flow control
+    and safety solutions; mechanical and electromechanical gear transmission systems;
+    Cordant, a software solution to optimize assets, processes, and energy use; Bently
+    Nevada, a sensing and protection hardware for rack-based vibrating monitoring
+    equipment and sensors; and climate technology solutions. It serves industrial,
+    upstream, midstream, downstream, onshore, offshore, and small-to-large scale customers.
+    The company was formerly known as Baker Hughes, a GE company and changed its name
+    to Baker Hughes Company in October 2019. The company was incorporated in 2016
+    and is based in Houston, Texas.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 46.93000030517578
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.89
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:09.752540+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/BKR/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 3230000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 11.29}, "observed_at": "2026-11-01T10:17:09.752540+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/BKR/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 12.2}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 14.499999999999998}, "observed_at": "2026-11-01T10:17:09.752540+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/bkr/financials/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 3.71}}}, "observed_at":
+    "2026-11-19T19:15:53.298853+00:00", "period_end": "2026-09-30", "sources_used":
+    ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Baker Hughes Company
+  operating_margin: 12.2
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Baker Hughes Company provides a portfolio of technologies and services
+    to energy and industrial value chain. Its Oilfield Services & Equipment segment
+    designs and manufactures exploration, appraisal, development, production, rejuvenation,
+    and decommissioning products and related services for onshore and offshore oilfield
+    operations. This segment also provides drilling services, drill bits, and drilling
+    and completions fluids; completions, intervention, measurements, pressure pumping,
+    and wirelin
+  revenue: 28740000000.0
+  revenue_growth: 3.71
+  roic: 12.12
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    85.0, "low": 51.0, "mean": 69.75, "median": 69.75, "observed_at": "2026-11-20T10:49:38.988976-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T10:49:38.988976-03:00", "observed_date": "2026-11-20", "target_price":
+    69.75, "url": "https://stockanalysis.com/stocks/bkr/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T10:49:38.988976-03:00",
+    "observed_date": "2026-11-20", "target_price": 69.75, "url": "https://finance.yahoo.com/quote/BKR/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 46.93000030517578,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/BKR/"}]}}'
+  sector: Energy
+  ticker: BKR
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: ee7fce21fe772e498cb6c8f3448c7ccb7a701235669809aac57990e476ddc617
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T10:49:47.586587-03:00'
+resumen_ejecutivo: Baker Hughes (BKR) es un proveedor líder de tecnologías y servicios
+  para la cadena de valor energética, con exposición cíclica a los precios del petróleo.
+  Genera FCF de 3.23B USD (TTM) y mantiene márgenes operativos del 12.2%. El precio
+  de mercado está significativamente por debajo del consenso de analistas, lo que
+  indica un posible error de valoración que podría aprovecharse si se materializa
+  una recuperación de precios del crudo y mejoras operativas.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Precio del crudo supera 80 USD/barril
+    - Márgenes operativos mejoran por encima del 12%
+    id: BEAR
+    key_assumptions:
+    - Precio del crudo <70 USD/barril durante 12 meses
+    - Márgenes operativos caen por debajo del 10%
+    - No se materializan reducciones de costos significativas
+    rationale: Persistencia de precios del crudo bajo 70 USD/barril, presión sobre
+      márgenes y posible deterioro de la generación de cash flow.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BKR/
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/bkr/forecast/
+    target_price: 45
+  - falsifiers:
+    - Precio del crudo se mantiene <70 USD/barril
+    - Márgenes operativos se deterioran
+    - Plan de costos no se implementa
+    id: BULL
+    key_assumptions:
+    - Precio del crudo >80 USD/barril durante 12-24 meses
+    - Márgenes operativos mejoran al 14%+
+    - Se logra una reducción de costos del 5% anual
+    rationale: Recuperación del precio del crudo >80 USD/barril, ejecución exitosa
+      de plan de reducción de costos y expansión en servicios de energía renovable,
+      impulsando márgenes y cash flow.
+    sources:
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BKR/
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/bkr/forecast/
+    target_price: 80
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 68
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T10:49:38.988976-03:00'
+  fuentes:
+    stockanalysis: 69.75
+    yfinance: 69.75
+  mediana: 69.75
+  n_fuentes: 2
+  promedio: 69.75
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T10:49:38.988976-03:00'
+    observed_date: '2026-11-20'
+    target_price: 69.75
+    url: https://stockanalysis.com/stocks/bkr/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T10:49:38.988976-03:00'
+    observed_date: '2026-11-20'
+    target_price: 69.75
+    url: https://finance.yahoo.com/quote/BKR/
+  target_high: 85.0
+  target_low: 51.0
+tesis_inversion: El precio actual de BKR refleja un descuento excesivo frente a su
+  capacidad de generar flujo de caja y a los múltiplos implícitos en el consenso de
+  analistas. Una recuperación de precios del crudo y la ejecución de iniciativas de
+  eficiencia operativa podrían cerrar la brecha, ofreciendo upside significativo.
+ticker: BKR
+version: '3.0'

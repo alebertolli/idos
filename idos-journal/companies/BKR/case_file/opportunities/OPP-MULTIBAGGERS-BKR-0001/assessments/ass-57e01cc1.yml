@@ -1,0 +1,29 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida'
+- 'Market error: No se puede validar un error de valoración: hay cotización y objetivos
+  de analistas, pero faltan estimaciones, método de valoración y horizonte de escenarios
+  defendibles.'
+- 'Thesis: Baker Hughes ofrece tecnologías y servicios para la cadena energética e
+  industrial. La evidencia financiera suministrada muestra FCF TTM superior al de
+  FY 2025 y margen bruto TTM ligeramente superior '
+generated_at: '2026-11-20T10:52:57.727625-03:00'
+id: ass-57e01cc1
+recommendation: REVIEW
+risks:
+- fuente: Evidencia financiera por campo, stockanalysis.com, https://stockanalysis.com/stocks/BKR/statistics/,
+    período terminado 2026-09-30 y FY 2025.
+  riesgo: La deuda total informada para 2026-09-30 difiere marcadamente de FY 2025;
+    el paquete no aporta contexto que permita explicar el cambio.
+- fuente: Evidencia financiera por campo, stockanalysis.com, https://stockanalysis.com/stocks/BKR/statistics/,
+    TTM terminado 2026-09-30.
+  riesgo: El ratio de cobertura de intereses aparece como cero en el dato suministrado,
+    pero no se aportan interés pagado ni una definición que permitan validar esa observación.
+- fuente: Resumen financiero de contexto, fecha de análisis 2026-11-20.
+  riesgo: El negocio está expuesto a operaciones de servicios y equipos para yacimientos
+    petrolíferos; el paquete no cuantifica su sensibilidad a actividad, precios o
+    inversión del sector.
+score: 42
+status: COMPLETED
+version: '3.0'
