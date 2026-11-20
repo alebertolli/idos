@@ -1,0 +1,166 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Crecimiento interanual del ingreso por servicios inferior al 4% en
+      el trimestre Q4 FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Reducción del backlog de servicios en más del 10% respecto al Q4 FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Crecimiento interanual del ingreso por servicios inferior al 4% en el trimestre
+    Q4 FY2028.
+  - Reducción del backlog de servicios en más del 10% respecto al Q4 FY2026.
+  horizon: medio
+  id: H1-OPP-20261023-035
+  opportunity_id: OPP-20261023-035
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 8.0
+    met: null
+    metric: crecimiento_ingreso_servicios
+    prediction: El ingreso por servicios alcanzará al menos 8% de crecimiento YoY
+      en el trimestre terminado el 31 de diciembre de 2028.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: El robusto backlog de pedidos, la expansión de la plataforma Cat® Connect
+    y la creciente adopción de contratos de mantenimiento predictivo impulsan la demanda
+    de servicios de alto margen, como lo evidencian los últimos 12 trimestres de crecimiento
+    sostenido del segmento de servicios.
+  review_trigger: Si en el reporte Q2 FY2028 el crecimiento YoY del ingreso por servicios
+    es ≤ 3%, se reconsiderará la hipótesis.
+  secondary_hypotheses: []
+  statement: Caterpillar incrementará su ingreso por servicios y soluciones digitales
+    a más del 8% interanual a finales del FY2028.
+  status: ACTIVE
+  ticker: CAT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Margen de FCF ajustado ≤ 11% en el trimestre Q4 FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Incremento del CAPEX neto superior al 5% del ingreso total en FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Margen de FCF ajustado ≤ 11% en el trimestre Q4 FY2028.
+  - Incremento del CAPEX neto superior al 5% del ingreso total en FY2028.
+  horizon: medio
+  id: H2-OPP-20261023-035
+  opportunity_id: OPP-20261023-035
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 15.0
+    met: null
+    metric: margen_fcf_ajustado
+    prediction: El margen de FCF ajustado será ≥ 15% en el trimestre terminado el
+      31 de diciembre de 2028.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: La combinación de mayores ingresos por servicios, mayor eficiencia operativa
+    en la cadena de suministro y la reducción de CAPEX neto por la adopción de plataformas
+    modulares de equipos, debería traducirse en una generación de caja más eficiente.
+  review_trigger: Si el reporte Q3 FY2028 muestra un margen de FCF ajustado ≤ 12%,
+    la hipótesis será descartada.
+  secondary_hypotheses:
+  - H1-OPP-20261023-035
+  statement: El margen de flujo de caja libre ajustado (FCF) de Caterpillar superará
+    el 15% al cierre del FY2028.
+  status: ACTIVE
+  ticker: CAT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EV/EBITDA ≤ 7.5x al 30 de junio de 2029.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Desviación del múltiplo sectorial superior al 20% durante tres trimestres
+      consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EV/EBITDA ≤ 7.5x al 30 de junio de 2029.
+  - Desviación del múltiplo sectorial superior al 20% durante tres trimestres consecutivos.
+  horizon: largo
+  id: H3-OPP-20261023-035
+  opportunity_id: OPP-20261023-035
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2029-06-30'
+    expected: 9.0
+    met: null
+    metric: EV/EBITDA
+    prediction: El EV/EBITDA de Caterpillar será ≥ 9.0x al 30 de junio de 2029.
+    unit: veces
+  priority: important
+  probability: 0.5
+  rationale: Los catalizadores estructurales de infraestructura y la transición energética
+    mejorarán la percepción de resiliencia del negocio, impulsando la revaluación
+    del múltiplo por parte de analistas y fondos institucionales.
+  review_trigger: Si al cierre del Q2 2029 el EV/EBITDA sigue bajo 7.5x, la hipótesis
+    será rechazada.
+  secondary_hypotheses:
+  - H1-OPP-20261023-035
+  - H2-OPP-20261023-035
+  statement: El múltiplo EV/EBITDA de Caterpillar convergirá al promedio de su sector
+    (≈9x) para mediados de 2029, reduciendo el descuento actual de mercado.
+  status: ACTIVE
+  ticker: CAT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Participación ≤ 2% en el mix de unidades vendidas al cierre de FY2029.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Retraso o cancelación del programa DualFuel anunciada antes del Q3
+      FY2029.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Participación ≤ 2% en el mix de unidades vendidas al cierre de FY2029.
+  - Retraso o cancelación del programa DualFuel anunciada antes del Q3 FY2029.
+  horizon: largo
+  id: H4-OPP-20261023-035
+  opportunity_id: OPP-20261023-035
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2029-12-31'
+    expected: 5.0
+    met: null
+    metric: participacion_motores_limpios
+    prediction: La participación de motores de gas natural o eléctricos será ≥ 5%
+      del total de unidades vendidas en el trimestre terminado el 31 de diciembre
+      de 2029.
+    unit: porcentaje
+  priority: informational
+  probability: 0.5
+  rationale: La presión regulatoria sobre emisiones y la demanda de soluciones de
+    energía limpia están impulsando la adopción de tecnologías de gas natural y electrificación;
+    Caterpillar ya ha anunciado la línea de motores DualFuel y los prototipos eléctricos,
+    lo que debería traducirse en ventas tangibles.
+  review_trigger: Si en el reporte Q3 FY2029 la participación de estos motores es
+    ≤ 2%, la hipótesis será invalidada.
+  secondary_hypotheses: []
+  statement: Para finales de 2029, al menos el 5% de las unidades vendidas por Caterpillar
+    serán motores alimentados con gas natural o electrificados.
+  status: ACTIVE
+  ticker: CAT
+  version: 1

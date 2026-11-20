@@ -7,12 +7,13 @@ aliases:
 
 # IDOS Company Index
 
-Total: 43 companies tracked
+Total: 46 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
 - 📄 [[B|Barrick Mining Corporation]]
 - 📄 [[BHP|BHP Group Limited]]
+- 📄 [[CDE|Coeur Mining, Inc.]]
 - 📄 [[DOW|Dow Inc.]]
 
 ## Communication Services
@@ -23,6 +24,7 @@ Total: 43 companies tracked
 - 📄 [[ANF|Abercrombie & Fitch Co.]]
 - 📄 [[AVY|Avery Dennison Corporation]]
 - 📄 [[BKNG|Booking Holdings Inc.]]
+- 📄 [[CCL|Carnival Corporation Ltd.]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
@@ -54,6 +56,7 @@ Total: 43 companies tracked
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
 - 📄 [[CAAP|Corporación América Airports S.A.]]
 - 📄 [[CAR|Avis Budget Group, Inc.]]
+- 📄 [[CAT|Caterpillar Inc.]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]

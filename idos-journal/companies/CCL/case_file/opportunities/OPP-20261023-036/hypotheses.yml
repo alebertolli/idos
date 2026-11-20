@@ -1,0 +1,195 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de ingresos del ejercicio fiscal 2027 es
+      inferior al 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía reduce su guía de ingresos para 2027 y la guía revisada
+      implica un crecimiento inferior al 5% frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de ingresos del ejercicio fiscal 2027 es inferior al
+    5%.
+  - La compañía reduce su guía de ingresos para 2027 y la guía revisada implica un
+    crecimiento inferior al 5% frente a 2026.
+  horizon: medio
+  id: H1-OPP-20261023-036
+  opportunity_id: OPP-20261023-036
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-30'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ingresos del ejercicio fiscal 2027
+    prediction: En los estados financieros del ejercicio fiscal 2027, los ingresos
+      serán al menos un 5% superiores a los del ejercicio fiscal 2026, medidos sobre
+      la misma base contable.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La lectura optimista de la tesis es que la demanda y la conversión de
+    ventas en ingresos pueden sostener el crecimiento. El contexto no aporta resultados
+    ni guías verificadas que lo confirmen, por lo que debe contrastarse con los informes
+    y las guías de la compañía.
+  review_trigger: Dejar de creerla si una guía oficial revisada implica crecimiento
+    inferior al 5% o si dos trimestres consecutivos muestran ingresos interanuales
+    decrecientes.
+  secondary_hypotheses: []
+  statement: Los ingresos de Carnival crecerán al menos un 5% en el ejercicio fiscal
+    2027 frente al ejercicio fiscal 2026.
+  status: ACTIVE
+  ticker: CCL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La reducción de deuda neta entre los dos cierres comparables es inferior
+      a 1.000 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La deuda neta aumenta durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La reducción depende materialmente de una emisión de acciones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La reducción de deuda neta entre los dos cierres comparables es inferior a 1.000
+    millones de dólares.
+  - La deuda neta aumenta durante el periodo.
+  - La reducción depende materialmente de una emisión de acciones.
+  horizon: medio
+  id: H2-OPP-20261023-036
+  opportunity_id: OPP-20261023-036
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 1000.0
+    met: null
+    metric: Reducción de deuda neta
+    prediction: La deuda neta al cierre del trimestre más cercano al 20 de noviembre
+      de 2027 será al menos 1.000 millones de dólares menor que la deuda neta del
+      trimestre más cercano al 20 de noviembre de 2026; no habrá una emisión de acciones
+      durante el periodo.
+    unit: millones de dólares
+  priority: critical
+  probability: 0.5
+  rationale: La tesis plantea que el crecimiento podría convertirse en caja, pero
+    señala que faltan datos suficientes sobre deuda y necesidades de financiación.
+    Una reducción de deuda neta financiada por la operación apoyaría esa lectura;
+    la comparación debe usar definiciones consistentes y estados financieros primarios.
+  review_trigger: Dejar de creerla si la guía oficial de deuda o caja implica que
+    no se alcanzará la reducción de 1.000 millones de dólares, o si una emisión de
+    acciones se utiliza para financiar el desapalancamiento.
+  secondary_hypotheses:
+  - H1-OPP-20261023-036
+  statement: Carnival reducirá su deuda neta en al menos 1.000 millones de dólares
+    durante los próximos doce meses, sin depender de una emisión de acciones.
+  status: ACTIVE
+  ticker: CCL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado durante el periodo es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cobertura de inversiones de capital por flujo de caja operativo
+      es inferior a 1,0 veces.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado durante el periodo es negativo.
+  - La cobertura de inversiones de capital por flujo de caja operativo es inferior
+    a 1,0 veces.
+  horizon: medio
+  id: H3-OPP-20261023-036
+  opportunity_id: OPP-20261023-036
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.0
+    met: null
+    metric: 'Flujo de caja libre acumulado: flujo operativo menos inversiones de capital'
+    prediction: Entre el trimestre más cercano al 20 de noviembre de 2026 y el trimestre
+      más cercano al 20 de noviembre de 2027, el flujo de caja operativo acumulado
+      será al menos igual a las inversiones de capital acumuladas, es decir, el flujo
+      de caja libre definido como flujo operativo menos inversiones de capital será
+      igual o superior a cero.
+    unit: millones de dólares, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis optimista requiere que el crecimiento de ingresos se convierta
+    en caja, no solo en ventas contables. La tesis contraria contempla necesidades
+    de financiación y costes que podrían absorberla. El flujo de caja operativo y
+    las inversiones de capital reportados permitirán contrastar ambas posibilidades.
+  review_trigger: Dejar de creerla si, al cierre de cualquier periodo acumulado de
+    doce meses, el flujo de caja libre es negativo y la guía oficial no anticipa una
+    recuperación que permita alcanzar cero al 20 de noviembre de 2027.
+  secondary_hypotheses:
+  - H1-OPP-20261023-036
+  statement: La generación de caja operativa de Carnival cubrirá sus inversiones de
+    capital durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: CCL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de CCL menos el rendimiento total de XLY es inferior
+      a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: CCL registra un rendimiento total inferior al de XLY durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de CCL menos el rendimiento total de XLY es inferior a 5
+    puntos porcentuales.
+  - CCL registra un rendimiento total inferior al de XLY durante el periodo.
+  horizon: medio
+  id: H4-OPP-20261023-036
+  opportunity_id: OPP-20261023-036
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de CCL menos rendimiento total de XLY
+    prediction: El rendimiento total de CCL desde el cierre del 20 de noviembre de
+      2026 hasta el cierre del 20 de noviembre de 2027 superará en al menos 5 puntos
+      porcentuales el rendimiento total de XLY durante el mismo periodo, con dividendos
+      reinvertidos y en la misma moneda.
+    unit: puntos porcentuales, mínimo
+  priority: informational
+  probability: 0.5
+  rationale: La tesis optimista sostiene que el precio podría no reflejar plenamente
+    el crecimiento y la generación de caja, mientras que la tesis contraria advierte
+    que el consenso puede subestimar la sensibilidad cíclica, los costes y la financiación.
+    Un rendimiento relativo positivo sería un resultado observable compatible con
+    una revisión favorable del mercado, pero no demostraría por sí solo infravaloración.
+  review_trigger: Dejar de creerla si, antes de la fecha objetivo, CCL queda rezagada
+    frente a XLY en al menos 10 puntos porcentuales y las guías o resultados publicados
+    no muestran una recuperación operativa que sustente la tesis.
+  secondary_hypotheses:
+  - H1-OPP-20261023-036
+  - H2-OPP-20261023-036
+  - H3-OPP-20261023-036
+  statement: La acción de Carnival tendrá un rendimiento total superior al de un índice
+    amplio del sector consumo cíclico durante los doce meses posteriores a la fecha
+    de corte.
+  status: ACTIVE
+  ticker: CCL
+  version: 1

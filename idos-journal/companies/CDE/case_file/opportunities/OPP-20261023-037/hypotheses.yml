@@ -1,0 +1,140 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción atribuible de GEO de 2027 resulta inferior al 90% de
+      la producción atribuible reportada para 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa reduce su guía de producción anual de 2027 en más de un
+      10% respecto de la guía inicial por causas operativas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción atribuible de GEO de 2027 resulta inferior al 90% de la producción
+    atribuible reportada para 2026.
+  - La empresa reduce su guía de producción anual de 2027 en más de un 10% respecto
+    de la guía inicial por causas operativas.
+  horizon: medio
+  id: H1-OPP-20261023-037
+  opportunity_id: OPP-20261023-037
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 90.0
+    met: null
+    metric: Producción atribuible anual de GEO en 2027 respecto de 2026
+    prediction: En el ejercicio 2027, la producción atribuible anual de GEO será al
+      menos el 90% de la producción atribuible reportada para 2026.
+    unit: '% mínimo'
+  priority: critical
+  probability: 0.5
+  rationale: La continuidad de la producción en las minas existentes permitiría sostener
+    los ingresos y absorber costos fijos. Sin datos suficientes para juzgar reservas,
+    ley del mineral o capacidad por activo, esta hipótesis es condicional y debe verificarse
+    con resultados y guías publicados por la empresa.
+  review_trigger: Dejar de creerla si la empresa reduce en más de un 10% su guía de
+    producción de 2027 por problemas de operación, mineral o disponibilidad de equipos,
+    o cuando se publiquen los resultados anuales de 2027 que incumplan el umbral.
+  secondary_hypotheses: []
+  statement: Durante 2027, Coeur Mining mantendrá una producción atribuible de plata
+    equivalente (GEO) sin una contracción material frente a 2026, siempre que no se
+    produzcan interrupciones operativas relevantes.
+  status: ACTIVE
+  ticker: CDE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La caja libre es negativa en dos o más trimestres de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La caja libre acumulada de los cuatro trimestres de 2027 es negativa.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La caja libre es negativa en dos o más trimestres de 2027.
+  - La caja libre acumulada de los cuatro trimestres de 2027 es negativa.
+  horizon: medio
+  id: H2-OPP-20261023-037
+  opportunity_id: OPP-20261023-037
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Trimestres con caja libre positiva durante 2027
+    prediction: La caja libre, definida consistentemente como flujo de caja operativo
+      menos inversión de capital, será positiva en al menos tres de los cuatro trimestres
+      de 2027.
+    unit: trimestres de 4
+  priority: critical
+  probability: 0.5
+  rationale: La caja libre TTM elevada señalada en el contexto podría reflejar tanto
+    mejores precios de metales como cambios operativos o de inversión. La prueba relevante
+    es si la empresa conserva caja libre positiva en periodos futuros y no solo en
+    una ventana histórica; no se dispone de evidencia suficiente para atribuir el
+    resultado reciente a una mejora estructural.
+  review_trigger: Dejar de creerla en cuanto dos trimestres de 2027 reporten caja
+    libre negativa, o al publicarse el informe anual de 2027 si la caja libre acumulada
+    es negativa.
+  secondary_hypotheses:
+  - H1-OPP-20261023-037
+  statement: La generación de caja libre de Coeur Mining seguirá siendo positiva durante
+    2027, pero su persistencia dependerá de que los costos y la inversión no absorban
+    el beneficio de precios realizados favorables.
+  status: ACTIVE
+  ticker: CDE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de CDE es igual o inferior al de GDX en el periodo
+      definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La diferencia de rendimiento total entre CDE y GDX es inferior a 5
+      puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de CDE es igual o inferior al de GDX en el periodo definido.
+  - La diferencia de rendimiento total entre CDE y GDX es inferior a 5 puntos porcentuales.
+  horizon: medio
+  id: H3-OPP-20261023-037
+  opportunity_id: OPP-20261023-037
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de CDE menos rendimiento total de GDX
+    prediction: Desde el cierre del 20 de noviembre de 2026 hasta el cierre del 20
+      de noviembre de 2027, el rendimiento total de CDE superará en al menos 5 puntos
+      porcentuales el rendimiento total de GDX, usando precios ajustados por distribuciones.
+    unit: puntos porcentuales mínimo
+  priority: important
+  probability: 0.5
+  rationale: La cotización podría beneficiarse si el mercado observa que los resultados
+    de caja son repetibles y no solo un efecto de precios o de comparación. Sin datos
+    suficientes para estimar valor razonable, balance o múltiplos comparables, el
+    rendimiento relativo es una prueba observable de mercado, no una afirmación de
+    infravaloración.
+  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia de rendimiento total
+    frente a GDX es inferior a 5 puntos porcentuales; reconsiderarla antes si se materializan
+    las condiciones de falsación de H1 o H2.
+  secondary_hypotheses:
+  - H1-OPP-20261023-037
+  - H2-OPP-20261023-037
+  statement: Si Coeur Mining sostiene la producción y la caja libre, su acción tendrá
+    un rendimiento total superior al de un referente de mineras de oro y plata durante
+    los siguientes doce meses; si no lo consigue, la tesis de rerating pierde respaldo.
+  status: ACTIVE
+  ticker: CDE
+  version: 1

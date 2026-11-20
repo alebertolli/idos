@@ -1,0 +1,443 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La actividad minera expone estructuralmente a CDE a precios de metales, geología,
+    costos, ejecución y riesgos regulatorios.
+  - Las métricas TTM favorables reportadas no demuestran por sí solas la sostenibilidad
+    de la generación de caja o del crecimiento.
+  - La brecha entre la cotización y los objetivos de analistas no demuestra infravaloración
+    porque dichos objetivos no son una valoración independiente.
+  - La clasificación cíclica es más adecuada que compounder, deep value o turnaround
+    con la evidencia disponible.
+  - La observación financiera de fcf reporta 1160000000.0 para TTM con period_end_date
+    2026-06-30; selected_source stockanalysis.com; source_url https://stockanalysis.com/stocks/CDE/statistics/;
+    unidad provider_financial_currency.
+  - La observación financiera de operating_margin_pct reporta 34.88 para TTM con period_end_date
+    2026-06-30; selected_source stockanalysis.com; source_url https://stockanalysis.com/stocks/CDE/statistics/;
+    unidad percentage_points.
+  - La observación financiera de revenue_growth_pct reporta 117.26 para TTM con period_end_date
+    2026-06-30; selected_source stockanalysis.com; source_url https://stockanalysis.com/stocks/cde/financials/;
+    unidad percentage_points.
+  - 'La cotización proporcionada es USD 11.704999923706055 con fecha 2026-11-19 y
+    fuente yfinance: https://finance.yahoo.com/quote/CDE/.'
+  - 'El consenso de objetivos proporcionado es USD 21.32, con rango bajo USD 16.0
+    y alto USD 27.0, observado el 2026-11-20; fuentes stockanalysis: https://stockanalysis.com/stocks/cde/forecast/
+    y yfinance: https://finance.yahoo.com/quote/CDE/.'
+  preguntas_abiertas:
+  - ¿Cuáles son la deuda neta, caja disponible, vencimientos, covenants y obligaciones
+    de cierre al último período?
+  - ¿Qué explica el FCF TTM reportado y cómo se reconcilia con estados financieros
+    primarios, capex de sostenimiento y capital de trabajo?
+  - ¿Cuáles son la producción, costos unitarios, leyes, reservas, recursos y vida
+    útil de cada operación?
+  - ¿Qué proporción del crecimiento de ingresos proviene de precio, volumen, mezcla
+    o cambios de perímetro?
+  - ¿Cuál es la sensibilidad de resultados y valor de activos a precios de oro, plata,
+    zinc y plomo?
+  - ¿Qué evidencia existe sobre asignación de capital, dilución, adquisiciones y desempeño
+    de la dirección a través del ciclo?
+  - ¿Cuáles son los principales riesgos ambientales, de seguridad, comunitarios, permisos
+    y concentración de clientes o proveedores?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'Deep Value es una alternativa cercana, pero no hay datos
+    suficientes de balance, deuda, múltiplos o valor de activos para acreditar una
+    infravaloración fundamental. Turnaround no queda sustentada: las observaciones
+    disponibles no documentan un declive operativo ni un plan de recuperación. Compounder
+    y Compounder castigado se descartan por falta de evidencia de moat durable y de
+    retornos compuestos consistentes. Distressed no se puede afirmar sin información
+    suficiente sobre deuda y liquidez. Special Situation, Hype, Value Trap y Quality
+    at Fair Price tampoco están demostradas por la evidencia disponible.'
+  justificacion: 'Coeur Mining es un productor de oro y plata: sus ingresos, márgenes
+    y valor económico dependen en gran medida de precios de metales, leyes del mineral,
+    costos de extracción y ejecución operativa. La evidencia financiera proporcionada
+    muestra crecimiento TTM elevado y margen operativo positivo, pero no basta para
+    demostrar una ventaja competitiva durable ni un perfil de compounder. La cotización
+    también está expuesta a la volatilidad de commodities y a riesgos propios de activos
+    mineros.'
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La actividad minera y la cartera de operaciones en Estados Unidos, Canadá
+    y México pueden diversificar parcialmente la exposición a un solo activo o jurisdicción,
+    pero no eliminan los riesgos de geología, ejecución, permisos y precios de metales.
+    El modelo de productor y vendedor a terceros está descrito en el perfil entregado;
+    no se aportan datos para cuantificar concentración de clientes, calidad de reservas,
+    costos relativos, vida útil de minas o barreras competitivas. No hay evidencia
+    suficiente para afirmar un moat durable.
+  rating: regular
+dominio_catalizadores:
+- descripcion: Confirmación de generación de caja y márgenes en reportes posteriores,
+    con desglose de producción, costos, capex y capital de trabajo.
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Actualización verificable de reservas, vida de mina y planes de producción
+    que mejore la visibilidad de flujos futuros.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+- descripcion: Mejora o deterioro persistente del precio realizado de los metales
+    que cambie las expectativas de rentabilidad del sector.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 50
+dominio_esg_supply_chain:
+  analisis: La minería implica riesgos materiales de seguridad, agua, relaves, biodiversidad,
+    emisiones, relaciones comunitarias, permisos y cierre de minas. El perfil recibido
+    ubica operaciones en Estados Unidos, Canadá y México y señala ventas a terceros,
+    incluidos refinadores y fundiciones, bajo acuerdos de offtake; no aporta evidencia
+    primaria sobre incidentes, desempeño ambiental, concentración de proveedores o
+    clientes, trazabilidad de concentrados ni términos contractuales. La calificación
+    refleja riesgos sectoriales y falta de datos, no una constatación de incumplimientos.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia proporcionada reporta FCF TTM de 1.160 millones de USD al
+    2026-06-30, con fuente única stockanalysis.com y unidad indicada como moneda financiera
+    del proveedor; el contexto señala USD, pero no aporta una conciliación primaria
+    ni desglose. También reporta margen operativo TTM de 34,88% al 2026-06-30. Estos
+    datos son favorables como observaciones puntuales, no prueban sostenibilidad.
+    No se han proporcionado valores verificables de deuda, liquidez, vencimientos,
+    caja, capex ni obligaciones de cierre; la salud del balance no puede calificarse
+    como fuerte.
+  rating: adecuada
+dominio_growth:
+  analisis: El crecimiento de ingresos TTM reportado es 117,26% al 2026-06-30, según
+    stockanalysis.com. Es una observación retrospectiva de una sola fuente y no permite
+    inferir crecimiento orgánico futuro ni separar volumen, precio, mezcla o cambios
+    de perímetro. No hay información suficiente sobre planes de expansión, reservas,
+    producción prevista o cronograma de proyectos para estimar visibilidad.
+  rating: moderado
+dominio_management:
+  analisis: No hay evidencia aportada sobre historial de asignación de capital, remuneración,
+    compras o ventas de activos, dilución, cumplimiento de objetivos o alineación
+    accionaria. No corresponde atribuir mérito o deficiencias a la dirección sin esos
+    datos. La evaluación queda limitada y requiere revisar reportes corporativos y
+    decisiones de capital a través del ciclo.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Caída de precios de oro y plata o deterioro de precios de metales asociados,
+    con efecto en ingresos, márgenes y valor de reservas.
+- impacto: alto
+  probabilidad: media
+  riesgo: Aumento de costos, interrupciones, menor ley del mineral o fallas de ejecución
+    en operaciones mineras.
+- impacto: alto
+  probabilidad: media
+  riesgo: Necesidades de capital, deuda o compromisos de cierre no evaluables por
+    falta de datos de balance y vencimientos.
+- impacto: alto
+  probabilidad: media
+  riesgo: Cambios regulatorios, permisos, litigios, incidentes ambientales o conflictos
+    comunitarios en jurisdicciones operativas.
+- impacto: alto
+  probabilidad: media
+  riesgo: 'Reversión de resultados recientes: crecimiento de ingresos o flujo de caja
+    no recurrente o impulsado por factores cíclicos.'
+- impacto: medio
+  probabilidad: media
+  riesgo: Concentración de operaciones, clientes, fundiciones o proveedores críticos
+    no cuantificada en la evidencia recibida.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Confirmación en reportes futuros de que la generación de caja y el
+      margen operativo se sostienen, acompañada de información verificable sobre costos,
+      producción, inversión y balance. Un resultado aislado no sería suficiente para
+      establecer persistencia.
+    horizonte: corto
+    impacto: alto
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización observada fue USD 11,705 al 2026-11-19. El consenso
+    de objetivos aportado, observado el 2026-11-20, es USD 21,32, con rango de USD
+    16 a USD 27. La diferencia entre cotización y objetivos sugiere una brecha de
+    expectativas, pero los objetivos de analistas no son una valoración independiente
+    ni garantizan convergencia. No se aportan múltiplos actuales completos para inferir
+    qué escenario está descontando el mercado; por tanto, no es posible caracterizarlo
+    con precisión.
+  hipotesis_contraria: 'El mercado podría estar descontando riesgos de ciclo de metales,
+    costos, ejecución minera, necesidades de inversión o incertidumbre sobre la duración
+    de resultados recientes. En sentido contrario, puede estar subestimando la posibilidad
+    de que márgenes y generación de caja se mantengan si los precios realizados y
+    la operación son favorables. La observación de FCF TTM elevada y crecimiento de
+    ingresos TTM no basta para distinguir entre mejora estructural y efectos de precio,
+    base de comparación u otros factores: no se dispone de detalle suficiente para
+    atribuirlos.'
+  razonamiento: 'La brecha entre cotización y rango de objetivos es observable, pero
+    no prueba que exista un error explotable: los objetivos son referencias de analistas,
+    no una valoración independiente, y faltan datos de reservas, producción, costos,
+    balance, inversiones y sensibilidad a los metales. El pensamiento de segundo nivel
+    exige considerar que el descuento aparente podría compensar riesgos cíclicos y
+    operativos que no están cuantificados en la evidencia recibida.'
+generated_at: '2026-11-20T11:48:25.450769-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se aporta evidencia verificable de que se haya vulnerado alguna de las
+    nueve condiciones de invalidación. Esto no acredita la ausencia de esos riesgos;
+    faltan datos para evaluarlos plenamente.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-037
+prompt_inputs:
+  business_model: Coeur Mining, Inc. operates as a gold and silver producer in the
+    United States, Canada, and Mexico. The company operates through Palmarejo, Rochester,
+    Kensington, Wharf, Silvertip, and Las Chispas segments. It explores for gold,
+    silver, zinc, lead, and other related metals. It markets and sells its concentrates
+    to third-party customers, including refiners and smelters, under off-take agreements.
+    The company was formerly known as Coeur d'Alene Mines Corporation and changed
+    its name to Coeur Mining, Inc. in May 2013. Coeur Mining, Inc. was incorporated
+    in 1928 and is headquartered in Chicago, Illinois.
+  ceo_tenure: 0
+  debt_to_equity: 0.07
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Coeur Mining, Inc.
+  operating_margin: 30.18
+  pe_ratio: 15.03
+  products: ''
+  revenue: 3600000000.0
+  revenue_growth: 111.69
+  roic: 7.06
+  sector: Basic Materials
+  ticker: CDE
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Coeur Mining, Inc. operates as a gold and silver producer in the
+    United States, Canada, and Mexico. The company operates through Palmarejo, Rochester,
+    Kensington, Wharf, Silvertip, and Las Chispas segments. It explores for gold,
+    silver, zinc, lead, and other related metals. It markets and sells its concentrates
+    to third-party customers, including refiners and smelters, under off-take agreements.
+    The company was formerly known as Coeur d'Alene Mines Corporation and changed
+    its name to Coeur Mining, Inc. in May 2013. Coeur Mining, Inc. was incorporated
+    in 1928 and is headquartered in Chicago, Illinois.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 11.704999923706055
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.07
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:19.994615+00:00", "period_end_date": "2026-06-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/CDE/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 1160000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 19.387}, "observed_at": "2026-11-01T10:17:19.994615+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/CDE/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 34.88}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 125.89999999999999}, "observed_at": "2026-11-01T10:17:19.994615+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/cde/financials/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 117.26}}}, "observed_at":
+    "2026-11-19T19:16:10.005666+00:00", "period_end": "2026-09-30", "sources_used":
+    ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Coeur Mining, Inc.
+  operating_margin: 30.18
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Coeur Mining, Inc. operates as a gold and silver producer in the
+    United States, Canada, and Mexico. The company operates through Palmarejo, Rochester,
+    Kensington, Wharf, Silvertip, and Las Chispas segments. It explores for gold,
+    silver, zinc, lead, and other related metals. It markets and sells its concentrates
+    to third-party customers, including refiners and smelters, under off-take agreements.
+    The company was formerly known as Coeur d'Alene Mines Corporation and changed
+    its name to Coeur Minin
+  revenue: 3600000000.0
+  revenue_growth: 111.69
+  roic: 7.06
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    27.0, "low": 16.0, "mean": 21.32, "median": 21.32, "observed_at": "2026-11-20T11:47:51.588190-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T11:47:51.588190-03:00", "observed_date": "2026-11-20", "target_price":
+    21.32, "url": "https://stockanalysis.com/stocks/cde/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T11:47:51.588190-03:00",
+    "observed_date": "2026-11-20", "target_price": 21.31818, "url": "https://finance.yahoo.com/quote/CDE/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 11.704999923706055,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CDE/"}]}}'
+  sector: Basic Materials
+  ticker: CDE
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: bcd3691b8d66220a46c931623420cbd884105be24501211598529f57a38efd02
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T11:48:25.450769-03:00'
+resumen_ejecutivo: CDE se clasifica principalmente como una oportunidad cíclica. La
+  evidencia financiera disponible registra FCF TTM de 1.160 millones de USD, margen
+  operativo TTM de 34,88% y crecimiento de ingresos TTM de 117,26%, todos reportados
+  por una sola fuente y sin información suficiente para evaluar sostenibilidad o causas.
+  La cotización observada está por debajo del rango de objetivos aportado, pero no
+  se puede concluir que la acción esté infravalorada sin un análisis de activos, costos,
+  deuda y sensibilidad a los metales. La tesis merece seguimiento, con especial atención
+  a persistencia de caja y riesgo de reversión del ciclo.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Reportes primarios posteriores muestran generación de caja sostenible, costos
+      controlados y balance robusto.
+    - Evidencia de producción, reservas y expansión rentable mejora materialmente
+      la visibilidad de flujos.
+    id: BEAR
+    key_assumptions:
+    - La mejora de ingresos y caja TTM no se mantiene o resulta parcialmente cíclica.
+    - Persisten incertidumbres sobre costos, balance y necesidades de inversión por
+      falta de información verificable en el expediente.
+    - El mercado asigna a CDE una referencia cercana al límite bajo del rango de analistas
+      observado.
+    rationale: Se usa el límite bajo observado del consenso como ancla de escenario,
+      no como valoración independiente ni como el peor resultado posible. El caso
+      representa una lectura prudente en la que no se sostiene la mejora operativa
+      y el mercado no valida la cotización por encima de esa referencia. La evidencia
+      disponible no permite construir un objetivo fundamental propio.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/cde/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CDE/
+    target_price: 16.0
+  - falsifiers:
+    - La caja o los márgenes se deterioran de forma persistente frente a la observación
+      TTM aportada.
+    - Información primaria revela mayor apalancamiento, necesidades de capital o riesgos
+      operativos que impidan sostener los resultados.
+    - La producción o las reservas publicadas no respaldan continuidad de flujos.
+    id: BULL
+    key_assumptions:
+    - La generación de caja y el margen operativo reportados persisten en períodos
+      futuros.
+    - La operación mantiene resultados favorables y no aparecen deterioros materiales
+      de costos, producción o balance.
+    - El mercado asigna a CDE una referencia cercana al límite alto del rango de analistas
+      observado.
+    rationale: Se usa el límite alto observado del consenso como ancla de escenario,
+      no como valoración independiente ni como pronóstico garantizado. El caso requiere
+      que los resultados operativos y de caja se sostengan y que las expectativas
+      de mercado se acerquen al extremo superior del rango observado. La evidencia
+      disponible no permite justificar un objetivo superior a esa ancla.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/cde/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CDE/
+    target_price: 27.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 52
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T11:47:51.588190-03:00'
+  fuentes:
+    stockanalysis: 21.32
+    yfinance: 21.31818
+  mediana: 21.32
+  n_fuentes: 2
+  promedio: 21.32
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T11:47:51.588190-03:00'
+    observed_date: '2026-11-20'
+    target_price: 21.32
+    url: https://stockanalysis.com/stocks/cde/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T11:47:51.588190-03:00'
+    observed_date: '2026-11-20'
+    target_price: 21.31818
+    url: https://finance.yahoo.com/quote/CDE/
+  target_high: 27.0
+  target_low: 16.0
+tesis_inversion: La tesis potencial es una exposición cíclica a productores de oro
+  y plata cuya valoración podría beneficiarse si se sostienen la caja y los márgenes
+  reportados y si las condiciones de metales y operación resultan favorables. La evidencia
+  disponible no permite distinguir con suficiente confianza la mejora sostenible de
+  un pico cíclico, ni valorar balance, reservas y costos. Por ello, la diferencia
+  entre cotización y consenso de analistas no constituye por sí sola una oportunidad
+  demostrada; la valoración se considera indeterminada, con opinión prudencial de
+  justa hasta contar con diligencia adicional.
+ticker: CDE
+version: '3.0'

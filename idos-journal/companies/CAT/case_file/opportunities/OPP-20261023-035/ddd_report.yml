@@ -1,0 +1,380 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El descuento del precio respecto al consenso refleja una sobrevaloración de riesgos
+    cíclicos.
+  - La diversificación entre equipos, motores y servicios constituye un moat sostenible.
+  - La transición a combustibles más limpios mitigará riesgos regulatorios a medio
+    plazo.
+  preguntas_abiertas:
+  - ¿Cuál es el nivel actual de deuda neta y su ratio deuda/EBITDA?
+  - ¿Qué proporción del CAPEX está destinada a tecnologías de electrificación?
+  - ¿Cuál es la exposición geográfica exacta a mercados emergentes y su impacto en
+    la volatilidad de ingresos?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: compounder_castigado
+  categorias_descartadas: deep_value, distressed, turnaround, special_situation, hype,
+    value_trap, quality_at_fair_price, compounder, ciclica
+  justificacion: Caterpillar posee un negocio de alta calidad con márgenes operativos
+    sólidos (19,13%) y fuerte generación de flujo de caja libre (9,62 MM USD). Sin
+    embargo, su valoración actual (541 USD) está significativamente por debajo del
+    consenso de analistas (media 807 USD), reflejando un descuento derivado de preocupaciones
+    cíclicas que el mercado está sobreponderando. Por ello encaja mejor como un "compounder"
+    temporalmente fuera de favor que como una simple cíclica.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Caterpillar posee una marca líder, una red de servicios post‑venta global
+    y economías de escala que le otorgan un moat sostenible en equipos de construcción
+    y minería. La diversificación entre equipos, motores y servicios refuerza la posición
+    competitiva.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Incremento del gasto de infraestructura pública en EE.UU. tras la aprobación
+    de nuevos paquetes de inversión
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: alto
+  probabilidad_pct: 55
+- descripcion: Recuperación de la demanda minera impulsada por precios de cobre y
+    litio
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 45
+- descripcion: Lanzamiento exitoso de líneas de motores de gas natural y eléctricos
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: medio
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: El negocio depende de motores diésel, lo que implica exposición a regulaciones
+    de emisiones. Sin embargo, la compañía está invirtiendo en motores de gas natural
+    y soluciones eléctricas, mitigando parcialmente el riesgo ESG.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: Genera FCF de 9,62 MM USD (TTM) y mantiene un margen operativo de 19,13 %.
+    La empresa muestra crecimiento de ingresos del 20,26 % TTM, lo que indica capacidad
+    de financiar inversiones y retornos a accionistas sin presión de liquidez.
+  rating: fuerte
+dominio_growth:
+  analisis: El crecimiento de ingresos del 20 % TTM y la expansión de servicios digitales
+    sugieren visibilidad de crecimiento tanto orgánico como inorgánico (adquisiciones
+    estratégicas). La demanda de infraestructura y minería respalda la proyección
+    de ingresos.
+  rating: fuerte
+dominio_management:
+  analisis: El equipo directivo ha demostrado disciplina en asignación de capital
+    mediante dividendos crecientes y recompra de acciones. La estrategia de transición
+    a combustibles más limpios y digitalización está alineada con tendencias de mercado.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Ciclo económico y precios de commodities
+- impacto: medio
+  probabilidad: media
+  riesgo: Regulación de emisiones y transición energética
+- impacto: medio
+  probabilidad: baja
+  riesgo: Disrupciones en la cadena de suministro de componentes críticos
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aceleración del gasto de infraestructura en EE.UU. y recuperación
+      de la demanda minera global impulsada por precios de commodities al alza.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 55
+  conclusion_error_valoracion: SI
+  consenso_actual: El precio de 541 USD implica un descuento de ~33 % respecto al
+    objetivo medio de los analistas (807 USD). Los múltiplos actuales reflejan un
+    escenario de fuerte desaceleración cíclica y presión sobre la demanda de equipos
+    de construcción y minería.
+  hipotesis_contraria: 'El mercado podría estar subestimando la resiliencia del negocio:
+    cartera de pedidos robusta, diversificación geográfica, crecimiento de servicios
+    y soluciones digitales, y potencial de transición a motores de gas natural y electrificación
+    que mitigarán riesgos regulatorios y de emisiones.'
+  razonamiento: La brecha entre precio y objetivo sugiere que el mercado está descontando
+    excesivamente riesgos cíclicos, mientras que los fundamentos operativos y de flujo
+    de caja indican capacidad de generar retornos superiores si la demanda se estabiliza
+    o mejora.
+generated_at: '2026-11-20T11:44:31.848317-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-035
+prompt_inputs:
+  business_model: Caterpillar Inc. provides construction and mining equipment, off-highway
+    diesel and natural gas engines, industrial gas turbines, and diesel-electric locomotives
+    in the United States and internationally. The Construction Industries segment
+    offers asphalt pavers, cold planers, compactors, forestry machines, material handlers,
+    motor graders, pipelayers, road reclaimers, telehandlers, track-type tractors,
+    and track and wheel excavators; backhoe, compact track, skid steer, track-type,
+    and wheel loaders; and related parts and work tools. Its Resource Industries segment
+    provides electric rope and hydraulic shovels, draglines, rotary drills, hard rock
+    vehicles, mining trucks, wheel loaders, off-highway and articulated trucks, wide-body
+    trucks, wheel tractor scrapers and dozers, and landfill and soil compactors; machinery
+    components, and wear and maintenance components; and technology products and services
+    for fleet management, equipment management analytics, autonomous machine capabilities,
+    safety services, and mining performance solutions. The Energy & Transportation
+    segment offers reciprocating engine powered generator sets; reciprocating engines,
+    drivetrain, and integrated systems and solutions; centrifugal gas compressors
+    and related services; and diesel-electric locomotive components, and other rail-related
+    products. Its Financial Products segment provides operating and finance leases,
+    revolving charge accounts, installment sale contracts, repair/rebuild financing,
+    working capital loans, and wholesale financing; and insurance and risk management
+    products and services. The All Other segment offers parts distribution; logistics
+    and distribution services; electronics and control systems; dealer portfolio management;
+    brand management and marketing strategy; and digital investment services. It also
+    provides mining software solutions. The company was formerly known as Caterpillar
+    Tractor Co. Caterpillar Inc. was incorporated in 1925 and is headquartered in
+    Irving, Texas.
+  ceo_tenure: 0
+  debt_to_equity: 0.021
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Caterpillar Inc.
+  operating_margin: 18.76
+  pe_ratio: 21.64
+  products: ''
+  revenue: 77770000000.0
+  revenue_growth: 20.26
+  roic: 19.17
+  sector: Industrials
+  ticker: CAT
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Caterpillar Inc. provides construction and mining equipment, off-highway
+    diesel and natural gas engines, industrial gas turbines, and diesel-electric locomotives
+    in the United States and internationally. The Construction Industries segment
+    offers asphalt pavers, cold planers, compactors, forestry machines, material handlers,
+    motor graders, pipelayers, road reclaimers, telehandlers, track-type tractors,
+    and track and wheel excavators; backhoe, compact track, skid steer, track-type,
+    and wheel loaders; and related parts and work tools. Its Resource Industries segment
+    provides electric rope and hydraulic shovels, draglines, rotary drills, hard rock
+    vehicles, mining trucks, wheel loaders, off-highway and articulated trucks, wide-body
+    trucks, wheel tractor scrapers and dozers, and landfill and soil compactors; machinery
+    components, and wear and maintenance components; and technology products and services
+    for fleet management, equipment management analytics, autonomous machine capabilities,
+    safety services, and mining performance solutions. The Energy & Transportation
+    segment offers reciprocating engine powered generator sets; reciprocating engines,
+    drivetrain, and integrated systems and solutions; centrifugal gas compressors
+    and related services; and diesel-electric locomotive components, and other rail-related
+    products. Its Financial Products segment provides operating and finance leases,
+    revolving charge accounts, installment sale contracts, repair/rebuild financing,
+    working capital loans, and wholesale financing; and insurance and risk management
+    products and services. The All Other segment offers parts distribution; logistics
+    and distribution services; electronics and control systems; dealer portfolio management;
+    brand management and marketing strategy; and digital investment services. It also
+    provides mining software solutions. The company was formerly known as Caterpillar
+    Tractor Co. Caterpillar Inc. was incorporated in 1925 and is headquartered in
+    Irving, Texas.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 541.3300170898438
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.021
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:17.999207+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/CAT/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 9620000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 20.506}, "observed_at": "2026-11-01T10:17:17.999207+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/CAT/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 19.13}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 17.299999999999997}, "observed_at": "2026-11-01T10:17:17.999207+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/cat/financials/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 20.26}}}, "observed_at":
+    "2026-11-19T19:16:06.684518+00:00", "period_end": "2026-09-30", "sources_used":
+    ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Caterpillar Inc.
+  operating_margin: 18.76
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Caterpillar Inc. provides construction and mining equipment, off-highway
+    diesel and natural gas engines, industrial gas turbines, and diesel-electric locomotives
+    in the United States and internationally. The Construction Industries segment
+    offers asphalt pavers, cold planers, compactors, forestry machines, material handlers,
+    motor graders, pipelayers, road reclaimers, telehandlers, track-type tractors,
+    and track and wheel excavators; backhoe, compact track, skid steer, track-type,
+    and wheel load
+  revenue: 77770000000.0
+  revenue_growth: 20.26
+  roic: 19.17
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    1027.0, "low": 575.0, "mean": 807.26, "median": 807.26, "observed_at": "2026-11-20T11:44:21.521241-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T11:44:21.521241-03:00", "observed_date": "2026-11-20", "target_price":
+    807.26, "url": "https://stockanalysis.com/stocks/cat/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T11:44:21.521241-03:00",
+    "observed_date": "2026-11-20", "target_price": 807.2604, "url": "https://finance.yahoo.com/quote/CAT/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 541.3300170898438,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CAT/"}]}}'
+  sector: Industrials
+  ticker: CAT
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 103532a1fe2b1f1a3aee29fb902dc62cf88157eb8226dee59763b54b5520dd9c
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T11:44:31.848317-03:00'
+resumen_ejecutivo: Caterpillar muestra una sólida generación de caja, márgenes operativos
+  saludables y crecimiento de ingresos del 20 % TTM, pero su cotización está muy por
+  debajo del consenso de analistas, lo que indica un posible error de mercado derivado
+  de una visión excesivamente cíclica. La empresa mantiene ventajas competitivas en
+  escala, red de servicios y marca, y cuenta con catalizadores estructurales como
+  el gasto de infraestructura y la transición energética que podrían revalorizarla
+  significativamente.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-12-31'
+  scenarios:
+  - falsifiers:
+    - Reactivación de la inversión en infraestructura
+    - Mejora de márgenes por mayor mix de servicios
+    id: BEAR
+    key_assumptions:
+    - Ciclo económico prolongado de desaceleración
+    - Compresión de margen operativo a 16 %
+    - Capex elevado sin generación inmediata de ingresos
+    rationale: Supone que la demanda de equipos se mantiene débil, los márgenes se
+      comprimen al 16 % y la empresa enfrenta mayores costos de materias primas, manteniendo
+      el precio en el límite inferior del consenso.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/cat/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CAT/
+    target_price: 575
+  - falsifiers:
+    - Persistencia de restricciones regulatorias a motores diésel
+    - Caída de la demanda de equipos por recesión global
+    id: BULL
+    key_assumptions:
+    - Incremento del gasto de infraestructura en EE.UU.
+    - Recuperación de precios de commodities que impulsa la minería
+    - Éxito en la venta de motores de gas natural y eléctricos
+    rationale: Supone una recuperación robusta de la demanda de construcción y minería,
+      expansión de servicios digitales y una mejora de margen operativo al 21 %, impulsando
+      el precio al extremo superior del consenso.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/cat/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CAT/
+    target_price: 1027
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T11:44:21.521241-03:00'
+  fuentes:
+    stockanalysis: 807.26
+    yfinance: 807.2604
+  mediana: 807.26
+  n_fuentes: 2
+  promedio: 807.26
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T11:44:21.521241-03:00'
+    observed_date: '2026-11-20'
+    target_price: 807.26
+    url: https://stockanalysis.com/stocks/cat/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T11:44:21.521241-03:00'
+    observed_date: '2026-11-20'
+    target_price: 807.2604
+    url: https://finance.yahoo.com/quote/CAT/
+  target_high: 1027.0
+  target_low: 575.0
+tesis_inversion: Caterpillar combina un negocio de alta calidad y generación de caja
+  robusta con un descuento de mercado excesivo derivado de percepciones cíclicas.
+  Los catalizadores estructurales de infraestructura y transición energética pueden
+  cerrar la brecha de valoración, ofreciendo un upside significativo.
+ticker: CAT
+version: '3.0'
