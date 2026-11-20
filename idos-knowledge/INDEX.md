@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 38 companies tracked
+Total: 41 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -38,6 +38,8 @@ Total: 38 companies tracked
 - 📄 [[AIG|American International Group, Inc.]]
 - 📄 [[AXP|American Express Company]]
 - 📄 [[BSBR|Banco Santander (Brasil) S.A.]]
+- 📄 [[BX|Blackstone Inc.]]
+- 📄 [[C|Citigroup Inc.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -49,6 +51,7 @@ Total: 38 companies tracked
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
+- 📄 [[CAAP|Corporación América Airports S.A.]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]

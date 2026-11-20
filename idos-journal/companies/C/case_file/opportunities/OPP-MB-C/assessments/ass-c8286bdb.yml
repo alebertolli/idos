@@ -1,0 +1,30 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de crecimiento tipo multibagger.'
+- 'Market error: No se valida un error de valoración; el consenso está por encima
+  de la cotización reportada, pero la diferencia no establece valor intrínseco.'
+- 'Thesis: Citigroup es una entidad financiera diversificada con cinco segmentos descritos
+  en el resumen financiero. Los ingresos TTM reportados al 2026-09-30 superan los
+  de FY 2025, pero la evidencia suministra'
+generated_at: '2026-11-20T11:20:33.965347-03:00'
+id: ass-c8286bdb
+recommendation: REVIEW
+risks:
+- fuente: Resumen financiero; campos financieros suministrados al 2026-09-30.
+  riesgo: La evidencia del paquete no permite estimar retornos sobre capital ni evaluar
+    la rentabilidad por segmento.
+- fuente: StockAnalysis, estados financieros e indicadores, período TTM terminado
+    el 2026-09-30.
+  riesgo: Las medidas de FCF y los datos contables agregados no bastan para evaluar
+    generación de caja económica en una entidad bancaria.
+- fuente: Paquete de investigación y resumen financiero suministrados.
+  riesgo: No se aportan datos verificables sobre cuota de mercado, penetración, ventajas
+    competitivas o erosión competitiva.
+- fuente: StockAnalysis, estadísticas financieras, período TTM terminado el 2026-09-30.
+  riesgo: Las series de deuda y caja no permiten derivar apalancamiento sobre EBITDA
+    porque EBITDA está reportado como n/a.
+score: 43
+status: COMPLETED
+version: '3.0'

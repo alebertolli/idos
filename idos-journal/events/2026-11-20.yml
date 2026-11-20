@@ -229,3 +229,64 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T11:10:03.233806'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 3658151d4d77eb60052954a30f0a971abeb55e215f2c6d0225079599500c29b4
+    opp_id: OPP-20261023-031
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: BX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:18:34.266794'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-C
+    ticker: C
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T11:19:05.182229'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-C
+    ticker: C
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T11:19:05.200802'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de crecimiento tipo multibagger.
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 908428e0e6becf708b4fd1e50bb3b6c05120ed1ab8ec22e377ef7d0f0595e6cf
+    opp_id: OPP-MB-C
+    score: 43
+    strategy_version: '1.5'
+    ticker: C
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:20:34.018288'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b9ed53ac01ee804223bffac60f6a81080b025183c7f624f52786b7408158b877
+    opp_id: OPP-20261023-032
+    score: 51
+    strategy_version: positive_fundamentals_v1
+    ticker: CAAP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T11:22:39.397743'

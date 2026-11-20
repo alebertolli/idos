@@ -1,0 +1,158 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos TTM reportados al 2027-09-30 son inferiores a los del
+      2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento es inferior al 3% con una definición contable comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa deja de reportar información suficiente para construir una
+      comparación TTM consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos TTM reportados al 2027-09-30 son inferiores a los del 2026-09-30.
+  - El crecimiento es inferior al 3% con una definición contable comparable.
+  - La empresa deja de reportar información suficiente para construir una comparación
+    TTM consistente.
+  horizon: medio
+  id: H1-OPP-MB-C
+  opportunity_id: OPP-MB-C
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-15'
+    expected: 3.0
+    met: null
+    metric: Variación de ingresos TTM reportados
+    prediction: Los ingresos TTM reportados al 2027-09-30 serán al menos un 3% superiores
+      a los ingresos TTM reportados al 2026-09-30, comparados con la misma definición
+      contable y moneda de reporte.
+    unit: porcentaje mínimo frente al 2026-09-30
+  priority: important
+  probability: 0.5
+  rationale: Los ingresos TTM al 2026-09-30 superan los de FY 2025, pero esos períodos
+    no son directamente comparables y no se proporcionó un desglose que permita atribuir
+    el aumento a crecimiento orgánico, precios, volúmenes o factores temporales. La
+    diversificación de negocios podría sostener los ingresos, pero esta hipótesis
+    requiere confirmación con resultados posteriores.
+  review_trigger: Dejar de creerla si los ingresos TTM publicados para el 2027-06-30
+    no superan en al menos un 1% el nivel TTM del 2026-09-30, salvo que una reclasificación
+    contable impida la comparación.
+  secondary_hypotheses: []
+  statement: Citigroup mantendrá crecimiento de ingresos durante los próximos cuatro
+    trimestres, aunque la evidencia disponible no permite concluir que el crecimiento
+    reciente sea sostenible.
+  status: ACTIVE
+  ticker: C
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ROTCE del ejercicio fiscal 2027 es inferior al 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica datos suficientes para calcular el ROTCE con
+      una metodología comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El resultado depende de partidas extraordinarias que, excluidas de
+      forma consistente, dejan el ROTCE por debajo del 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ROTCE del ejercicio fiscal 2027 es inferior al 10%.
+  - La empresa no publica datos suficientes para calcular el ROTCE con una metodología
+    comparable.
+  - El resultado depende de partidas extraordinarias que, excluidas de forma consistente,
+    dejan el ROTCE por debajo del 10%.
+  horizon: medio
+  id: H2-OPP-MB-C
+  opportunity_id: OPP-MB-C
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 10.0
+    met: null
+    metric: ROTCE del ejercicio fiscal 2027
+    prediction: El ROTCE reportado para el ejercicio fiscal 2027 será igual o superior
+      al 10%.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La información suministrada no demuestra que el crecimiento de ingresos
+    genere retornos atractivos sobre capital. La conversión de ingresos en rentabilidad
+    depende de gastos, pérdidas crediticias, composición de negocios y capital empleado;
+    por ello, el ROTCE es una prueba directa de la calidad económica del crecimiento.
+  review_trigger: Dejar de creerla si el ROTCE de los primeros nueve meses de 2027,
+    calculado con la metodología divulgada por la empresa, es inferior al 9% y la
+    compañía no eleva su previsión para el cierre del ejercicio.
+  secondary_hypotheses:
+  - H1-OPP-MB-C
+  statement: Citigroup elevará su rentabilidad sobre el capital tangible, pero el
+    crecimiento de ingresos por sí solo no bastará si los costos o las necesidades
+    de capital aumentan.
+  status: ACTIVE
+  ticker: C
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La relación precio/valor contable tangible aumenta menos de 0,10 veces
+      respecto al 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La relación disminuye frente al nivel del 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Un cambio en la definición de valor contable tangible impide una comparación
+      consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La relación precio/valor contable tangible aumenta menos de 0,10 veces respecto
+    al 2026-11-20.
+  - La relación disminuye frente al nivel del 2026-11-20.
+  - Un cambio en la definición de valor contable tangible impide una comparación consistente.
+  horizon: medio
+  id: H3-OPP-MB-C
+  opportunity_id: OPP-MB-C
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 0.1
+    met: null
+    metric: Cambio en la relación precio/valor contable tangible
+    prediction: La relación entre precio de cierre de la acción y valor contable tangible
+      por acción al 2027-11-19 será al menos 0,10 veces superior a la misma relación
+      calculada al 2026-11-20.
+    unit: veces por encima del nivel del 2026-11-20
+  priority: informational
+  probability: 0.5
+  rationale: La evidencia disponible no establece si la valoración de mercado refleja
+    correctamente los beneficios futuros. Una mejora verificable de rentabilidad podría
+    reducir la incertidumbre sobre la capacidad de generar retornos sobre capital
+    y favorecer una revaloración, aunque las condiciones generales del mercado también
+    pueden contrarrestarla.
+  review_trigger: Dejar de creerla si, al 2027-05-20, la relación precio/valor contable
+    tangible está al menos 0,05 veces por debajo del nivel del 2026-11-20 y no hay
+    una mejora observable en el ROTCE reportado.
+  secondary_hypotheses:
+  - H2-OPP-MB-C
+  statement: Si Citigroup demuestra crecimiento de ingresos y mejora de rentabilidad,
+    su valoración relativa al valor contable tangible aumentará; esta hipótesis no
+    presupone que el mercado esté actualmente subestimando sus beneficios.
+  status: ACTIVE
+  ticker: C
+  version: 1

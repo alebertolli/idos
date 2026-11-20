@@ -1,0 +1,198 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento de pasajeros en los doce meses terminados en la fecha
+      objetivo es inferior al 4%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica datos que permitan reconciliar el tráfico entre
+      ambos períodos o el aumento se explica principalmente por cambios de perímetro,
+      sin crecimiento comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento de pasajeros en los doce meses terminados en la fecha objetivo
+    es inferior al 4%.
+  - La compañía no publica datos que permitan reconciliar el tráfico entre ambos períodos
+    o el aumento se explica principalmente por cambios de perímetro, sin crecimiento
+    comparable.
+  horizon: medio
+  id: H1-OPP-20261023-032
+  opportunity_id: OPP-20261023-032
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 4.0
+    met: null
+    metric: Crecimiento de pasajeros en doce meses sobre base comparable
+    prediction: En los doce meses terminados el 2027-11-20, los pasajeros totales
+      de los aeropuertos operados por CAAP aumentarán al menos un 4% frente a los
+      doce meses anteriores, comparando cifras reportadas sobre una base de perímetro
+      comparable.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Las concesiones aeroportuarias pueden beneficiarse de barreras de entrada
+    y de una recuperación o expansión de la demanda de viajes. Sin datos recientes
+    de tráfico por aeropuerto, esta es una hipótesis a verificar, no una tendencia
+    ya confirmada.
+  review_trigger: Dejar de creerla si los pasajeros comparables caen interanualmente
+    durante dos trimestres consecutivos, o si al 2027-11-20 el crecimiento acumulado
+    comparable es inferior al 4%.
+  secondary_hypotheses: []
+  statement: El tráfico de pasajeros de CAAP crecerá en términos orgánicos durante
+    los próximos doce meses, apoyado por la demanda de viajes y la capacidad de sus
+    concesiones aeroportuarias.
+  status: ACTIVE
+  ticker: CAAP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen EBITDA ajustado de los doce meses terminados en la fecha
+      objetivo es inferior al del período precedente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía modifica la definición del EBITDA ajustado y no proporciona
+      una conciliación que permita comparar ambos períodos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen EBITDA ajustado de los doce meses terminados en la fecha objetivo es
+    inferior al del período precedente.
+  - La compañía modifica la definición del EBITDA ajustado y no proporciona una conciliación
+    que permita comparar ambos períodos.
+  horizon: medio
+  id: H2-OPP-20261023-032
+  opportunity_id: OPP-20261023-032
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.0
+    met: null
+    metric: Cambio del margen EBITDA ajustado frente a los doce meses precedentes
+    prediction: En los doce meses terminados el 2027-11-20, el margen EBITDA ajustado
+      consolidado de CAAP será igual o superior al margen de los doce meses precedentes,
+      usando una definición consistente y moneda de reporte comparable.
+    unit: puntos porcentuales o superior
+  priority: important
+  probability: 0.5
+  rationale: Un mayor uso de las instalaciones puede elevar ingresos aeroportuarios
+    y comerciales, mientras que la escala puede repartir costos fijos. La conversión
+    a margen depende de tarifas, costos laborales, inflación, mezcla de ingresos y
+    regulación; la información disponible no permite dar por demostrada esa conversión.
+  review_trigger: Dejar de creerla si el margen EBITDA ajustado cae al menos 1 punto
+    porcentual interanual durante dos trimestres consecutivos, salvo que la compañía
+    demuestre que la causa es transitoria y cuantificada.
+  secondary_hypotheses:
+  - H1-OPP-20261023-032
+  statement: El crecimiento de actividad se traducirá en rentabilidad operativa sostenida,
+    sin una compresión material del margen EBITDA ajustado.
+  status: ACTIVE
+  ticker: CAAP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja operativo menos capex es cero o negativo en los doce
+      meses terminados en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no desglosa suficientemente el capex para distinguir inversiones
+      de mantenimiento y expansión, impidiendo verificar la predicción.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja operativo menos capex es cero o negativo en los doce meses terminados
+    en la fecha objetivo.
+  - La compañía no desglosa suficientemente el capex para distinguir inversiones de
+    mantenimiento y expansión, impidiendo verificar la predicción.
+  horizon: medio
+  id: H3-OPP-20261023-032
+  opportunity_id: OPP-20261023-032
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.0
+    met: null
+    metric: Flujo de caja operativo menos capex en doce meses
+    prediction: La suma del flujo de caja operativo menos capex reportado será positiva
+      en los doce meses terminados el 2027-11-20. La comparación excluirá adquisiciones
+      y mantendrá una definición contable consistente.
+    unit: USD millones, estrictamente positivo
+  priority: critical
+  probability: 0.5
+  rationale: Las concesiones maduras pueden generar caja a través de operaciones aeroportuarias,
+    pero las obligaciones de inversión, mantenimiento, expansión, impuestos, intereses
+    y capital de trabajo pueden reducirla. El FCF TTM informado es un indicio, no
+    prueba suficiente de sostenibilidad ni de holgura financiera.
+  review_trigger: Dejar de creerla si el flujo de caja operativo menos capex es negativo
+    en dos períodos consecutivos de doce meses, o si la cifra positiva depende de
+    ventas de activos o de una reducción no recurrente del capital de trabajo.
+  secondary_hypotheses:
+  - H1-OPP-20261023-032
+  - H2-OPP-20261023-032
+  statement: CAAP generará flujo de caja libre positivo después de inversiones de
+    capital, sin que el capex absorba sistemáticamente la caja operativa.
+  status: ACTIVE
+  ticker: CAAP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de CAAP en USD menos el rendimiento total de IYJ
+      es inferior a 5 puntos porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La diferencia de rendimiento es positiva solo por un cambio de perímetro
+      o un evento extraordinario que no refleje una mejora de la valoración del negocio
+      existente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de CAAP en USD menos el rendimiento total de IYJ es inferior
+    a 5 puntos porcentuales en la fecha objetivo.
+  - La diferencia de rendimiento es positiva solo por un cambio de perímetro o un
+    evento extraordinario que no refleje una mejora de la valoración del negocio existente.
+  horizon: medio
+  id: H4-OPP-20261023-032
+  opportunity_id: OPP-20261023-032
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de CAAP en USD menos rendimiento total de IYJ
+    prediction: Desde el cierre del 2026-11-20 hasta el 2027-11-20, el rendimiento
+      total de CAAP en USD, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      el rendimiento total del ETF iShares U.S. Industrials (IYJ), como señal observable
+      —aunque no concluyente— de una reevaluación relativa favorable.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: La diferencia entre el precio observado y los objetivos de analistas
+    no constituye por sí misma margen de seguridad. La percepción de valor dependerá
+    de resultados, caja, deuda, regulación y divisas, además de las condiciones generales
+    de mercado.
+  review_trigger: Dejar de creerla si CAAP registra un rendimiento total inferior
+    al de IYJ durante seis meses consecutivos y, además, las divulgaciones muestran
+    deterioro del flujo de caja libre o aumento de apalancamiento.
+  secondary_hypotheses:
+  - H1-OPP-20261023-032
+  - H2-OPP-20261023-032
+  - H3-OPP-20261023-032
+  statement: La cotización de CAAP no necesariamente convergerá a los objetivos publicados
+    por analistas; una reevaluación alcista requerirá que el desempeño bursátil confirme
+    que el mercado estaba descontando riesgos excesivos.
+  status: ACTIVE
+  ticker: CAAP
+  version: 1

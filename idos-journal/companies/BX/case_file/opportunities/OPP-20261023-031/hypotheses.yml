@@ -1,0 +1,165 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El AUM de private equity crece menos del 2% interanual al 31 de diciembre
+      de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Blackstone anuncia la cancelación o retraso de al menos un fondo privado
+      planificado para 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El AUM de private equity crece menos del 2% interanual al 31 de diciembre de 2027.
+  - Blackstone anuncia la cancelación o retraso de al menos un fondo privado planificado
+    para 2027.
+  horizon: medio
+  id: H1-OPP-20261023-031
+  opportunity_id: OPP-20261023-031
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 215000000000.0
+    met: null
+    metric: AUM_private_equity
+    prediction: El AUM de private equity alcanzará 215 mil millones de dólares al
+      31 de diciembre de 2027, comparado con 204 mil millones actuales.
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: El historial de Blackstone muestra capacidad para lanzar fondos nuevos
+    en entornos de incertidumbre, respaldado por su fuerte red de inversores institucionales
+    y su reputación de retornos superiores al costo de capital.
+  review_trigger: Si al cierre del Q3 2027 el crecimiento acumulado del AUM es inferior
+    al 1%, se reconsiderará la hipótesis.
+  secondary_hypotheses: []
+  statement: Blackstone incrementará su AUM total en private equity en al menos un
+    5% interanual para finales de 2027.
+  status: ACTIVE
+  ticker: BX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ratio FCF/EBITDA ajustado se sitúa por debajo del 70% al cierre
+      del FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Blackstone reporta una disminución significativa en ingresos por gestión
+      que impacta la generación de efectivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ratio FCF/EBITDA ajustado se sitúa por debajo del 70% al cierre del FY2027.
+  - Blackstone reporta una disminución significativa en ingresos por gestión que impacta
+    la generación de efectivo.
+  horizon: medio
+  id: H2-OPP-20261023-031
+  opportunity_id: OPP-20261023-031
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 82.0
+    met: null
+    metric: FCF_to_EBITDA_ratio
+    prediction: El ratio FCF/EBITDA ajustado será de 82% al 31 de diciembre de 2027.
+    unit: percent
+  priority: important
+  probability: 0.5
+  rationale: El crecimiento de ingresos por comisiones recurrentes y la disciplina
+    en inversiones de capital reducen la necesidad de gasto de capital, mejorando
+    la generación de efectivo.
+  review_trigger: Si al cierre del Q2 2027 el ratio está por debajo del 68%, la hipótesis
+    se descartará.
+  secondary_hypotheses: []
+  statement: El ratio de conversión de flujo de caja libre ajustado sobre EBITDA superará
+    el 80% en el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: BX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El P/FFO se mantiene por encima de 14.0 al 30 de junio de 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El mercado sigue penalizando a Blackstone con un spread de riesgo mayor
+      al promedio del sector.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El P/FFO se mantiene por encima de 14.0 al 30 de junio de 2028.
+  - El mercado sigue penalizando a Blackstone con un spread de riesgo mayor al promedio
+    del sector.
+  horizon: largo
+  id: H3-OPP-20261023-031
+  opportunity_id: OPP-20261023-031
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 11.8
+    met: null
+    metric: P_FFO_multiple
+    prediction: El P/FFO será de 11.8 al 30 de junio de 2028.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: Los analistas revalorarán la estabilidad de los flujos de comisiones
+    recurrentes, reduciendo el descuento de mercado que actualmente sobrevalora la
+    volatilidad percibida.
+  review_trigger: Si al 31 de marzo de 2028 el P/FFO sigue superior a 13.5, la hipótesis
+    será revisada.
+  secondary_hypotheses: []
+  statement: El múltiplo precio/FFO de Blackstone se comprimirá a 12.0 o menos para
+    mediados de 2028.
+  status: ACTIVE
+  ticker: BX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La adquisición no se cierra antes del 30 de septiembre de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El AUM añadido es inferior a 1,000,000,000 USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La adquisición no se cierra antes del 30 de septiembre de 2027.
+  - El AUM añadido es inferior a 1,000,000,000 USD.
+  horizon: corto
+  id: H4-OPP-20261023-031
+  opportunity_id: OPP-20261023-031
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 2000000000.0
+    met: null
+    metric: AUM_added_via_acquisition
+    prediction: La transacción se cerrará y el AUM consolidado de la nueva unidad
+      será ≥2,000,000,000 USD al 30 de septiembre de 2027.
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: La estrategia de crecimiento inorgánico de Blackstone busca diversificar
+    fuentes de ingresos y aprovechar oportunidades de consolidación en el segmento
+    de crédito privado.
+  review_trigger: Si al 31 de julio de 2027 no se ha anunciado la firma del acuerdo
+    definitivo, la hipótesis será descartada.
+  secondary_hypotheses:
+  - H1-OPP-20261023-031
+  statement: Blackstone completará la adquisición de un gestor de crédito de mediano
+    mercado, añadiendo al menos 2 mil millones de dólares en AUM, antes del 30 de
+    septiembre de 2027.
+  status: ACTIVE
+  ticker: BX
+  version: 1
