@@ -1,0 +1,493 @@
+calidad_evidencia:
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 2
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Growth
+  justificacion: La empresa muestra expansión de capacidad y presencia en mercados
+    de acero y minería, aunque con márgenes y cobertura de intereses débiles.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Operaciones diversificadas y buena liquidez corriente, pero alta deuda
+    neta y cobertura de intereses nula.
+  rating: Medium
+dominio_catalizadores:
+- catalyst: Recuperación de demanda de acero
+  description: Incremento de consumo en sectores automotriz y de construcción.
+- catalyst: Mejora de márgenes mineros
+  description: Precios de pellets y hierro pueden subir, elevando la rentabilidad
+    del segmento Mining.
+- catalyst: Reducción de costos operativos
+  description: Iniciativas de eficiencia pueden mejorar el margen bruto.
+- catalyst: Posibles adquisiciones estratégicas
+  description: Expansión de capacidad productiva en la región.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- description: Interest coverage ratio es 0, muy por debajo del umbral de 2.0.
+  risk: Cobertura de intereses insuficiente
+- description: FCF negativo y sin crecimiento positivo impide reinversión sostenible.
+  risk: Flujo de caja libre negativo
+- description: Dependencia del precio del hierro y del acero afecta márgenes.
+  risk: Volatilidad de precios de materias primas
+- description: Ingresos en USD y costos en monedas locales pueden erosionar resultados.
+  risk: Riesgo cambiario
+error_mercado:
+  catalizador_cambio: Reactivación de la industria automotriz y construcción en México
+    y Brasil.
+  conclusion_error_valoracion: Existe una brecha entre el precio actual y el rango
+    superior del consenso que sugiere potencial de revaluación.
+  consenso_actual: 64.25
+  hipotesis_contraria: El mercado podría estar subvalorando la recuperación de la
+    demanda de acero en América Latina.
+  razonamiento: El precio cotiza cerca del extremo bajo del consenso (52) mientras
+    que los analistas proyectan 78 bajo escenarios optimistas.
+generated_at: '2026-11-20T20:09:09.389052-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-TX
+prompt_inputs:
+  business_model: Ternium S.A., together with its subsidiaries, manufactures and distributes
+    steel products in Mexico, Southern Region, Brazil, and internationally. The company
+    operates through two segments, Steel and Mining. The Steel segment offers slabs,
+    heavy plates, hot and cold rolled products, coated products, stamped steel parts
+    for the automotive industry, roll-formed and tubular products, billets, bars,
+    and other products, including sales of energy. Its Mining segment sells iron ore
+    and pellets. It also provides medical and social; scrap; and engineering and other
+    services. In addition, the company engages in the exploration, exploitation, and
+    pelletizing of iron ore. Ternium S.A. was founded in 1961 and is based in Luxembourg,
+    Luxembourg. Ternium S.A. is a subsidiary of Techint Holdings S.à r.l.
+  ceo_tenure: 0
+  debt_to_equity: 0.19
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Ternium S.A.
+  operating_margin: 9.31
+  pe_ratio: 9.46
+  products: ''
+  revenue: 16690000000.000002
+  revenue_growth: 6.26
+  roic: 8.29
+  sector: Basic Materials
+  ticker: TX
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/tx/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TX/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs:
+    fcf_history:
+    - period: TTM
+      value: -84.0
+    - period: FY 2025
+      value: -187.23
+  limitations: FCF negativo en ambos períodos; la definición requiere FCF positivo
+    en ambos.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/tx/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/tx/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TX/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/tx/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TX/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (Diluted Shares_t / Diluted Shares_t-1) - 1
+  inputs: {}
+  limitations: No se dispone de datos de diluted shares ni historial de acciones.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Ternium S.A., together with its subsidiaries, manufactures and distributes
+    steel products in Mexico, Southern Region, Brazil, and internationally. The company
+    operates through two segments, Steel and Mining. The Steel segment offers slabs,
+    heavy plates, hot and cold rolled products, coated products, stamped steel parts
+    for the automotive industry, roll-formed and tubular products, billets, bars,
+    and other products, including sales of energy. Its Mining segment sells iron ore
+    and pellets. It also provides medical and social; scrap; and engineering and other
+    services. In addition, the company engages in the exploration, exploitation, and
+    pelletizing of iron ore. Ternium S.A. was founded in 1961 and is based in Luxembourg,
+    Luxembourg. Ternium S.A. is a subsidiary of Techint Holdings S.à r.l.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 52.77000045776367
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.19
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T23:08:54.079075+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Ternium S.A.
+  operating_margin: 9.31
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Ternium S.A., together with its subsidiaries, manufactures and distributes
+    steel products in Mexico, Southern Region, Brazil, and internationally. The company
+    operates through two segments, Steel and Mining. The Steel segment offers slabs,
+    heavy plates, hot and cold rolled products, coated products, stamped steel parts
+    for the automotive industry, roll-formed and tubular products, billets, bars,
+    and other products, including sales of energy. Its Mining segment sells iron ore
+    and pellets. It also
+  revenue: 16690000000.000002
+  revenue_growth: 6.26
+  roic: 8.29
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TX/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TX/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tx/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    78.0, "low": 52.0, "mean": 64.25, "median": 64.25, "observed_at": "2026-11-20T20:08:57.517585-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T20:08:57.517585-03:00", "observed_date": "2026-11-20", "target_price":
+    64.25, "url": "https://stockanalysis.com/stocks/tx/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T20:08:57.517585-03:00",
+    "observed_date": "2026-11-20", "target_price": 64.25, "url": "https://finance.yahoo.com/quote/TX/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 52.77000045776367,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/TX/"}]}}'
+  sector: Basic Materials
+  ticker: TX
+research_trigger:
+  discovery_snapshot_hash: 6422a76fd71d8b158ef988fae21375313ff38967f1aceb7535c5580f819f750b
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: abc958670192d27eb20742450919e0440b2544cf66e8fcb7ea847ccc3ddada69
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T20:09:09.389052-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- Interest coverage below threshold (0 < 2.0)
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-10-30'
+  scenarios:
+  - falsifiers:
+    - Mejora inesperada de la cobertura de intereses
+    id: BEAR
+    key_assumptions:
+    - Márgenes brutos se mantienen alrededor del 19%
+    - Cobertura de intereses sigue en 0
+    rationale: Precio cercano al extremo bajo del consenso, reflejando presión de
+      márgenes y deuda.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/tx/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/TX/
+    target_price: 52.0
+  - falsifiers:
+    - Persistencia de precios bajos del acero
+    id: BASE
+    key_assumptions:
+    - Crecimiento de ingresos del -1.8% anual
+    - FCF sigue negativo pero se estabiliza
+    rationale: Media del rango de objetivo de analistas, asume recuperación moderada
+      del sector.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/tx/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/TX/
+    target_price: 64.25
+  - falsifiers:
+    - Deterioro de la demanda estructural de acero
+    id: BULL
+    key_assumptions:
+    - Márgenes brutos suben al 22%
+    - EBITDA crece 10% anual
+    rationale: Extremo alto del consenso, basado en una fuerte recuperación de demanda
+      y mejora de márgenes.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/tx/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/TX/
+    target_price: 78.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 80
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T20:08:57.517585-03:00'
+  fuentes:
+    stockanalysis: 64.25
+    yfinance: 64.25
+  mediana: 64.25
+  n_fuentes: 2
+  promedio: 64.25
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T20:08:57.517585-03:00'
+    observed_date: '2026-11-20'
+    target_price: 64.25
+    url: https://stockanalysis.com/stocks/tx/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T20:08:57.517585-03:00'
+    observed_date: '2026-11-20'
+    target_price: 64.25
+    url: https://finance.yahoo.com/quote/TX/
+  target_high: 78.0
+  target_low: 52.0
+tesis_inversion: Ternium podría beneficiarse de la recuperación cíclica del acero,
+  pero enfrenta riesgos de liquidez y cobertura de intereses.
+ticker: TX
+version: '3.0'

@@ -1,0 +1,139 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los despachos de acero en América Latina crecen menos del 5% interanual
+      en cualquiera de esos dos trimestres.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los despachos disminuyen interanualmente en ambos trimestres.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los despachos de acero en América Latina crecen menos del 5% interanual en cualquiera
+    de esos dos trimestres.
+  - Los despachos disminuyen interanualmente en ambos trimestres.
+  horizon: medio
+  id: H1-OPP-MB-TX
+  opportunity_id: OPP-MB-TX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-15'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de los despachos de acero en América Latina, en
+      cada uno de dos trimestres consecutivos
+    prediction: En los dos trimestres consecutivos más recientes reportados hasta
+      el 2027-08-15, los despachos de acero de Ternium en América Latina crecerán
+      al menos un 5% interanual en cada trimestre.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Si la demanda regional se recupera, una mayor actividad de clientes industriales
+    y de construcción debería traducirse en más despachos. Esta hipótesis pone a prueba
+    el principal motor de la tesis sin asumir que la recuperación ya ocurrió.
+  review_trigger: Dejar de creerla si los informes trimestrales disponibles al 2027-08-15
+    muestran que no se alcanzó el crecimiento mínimo del 5% interanual en dos trimestres
+    consecutivos.
+  secondary_hypotheses: []
+  statement: La recuperación de la demanda de acero en América Latina impulsará un
+    crecimiento sostenido de los despachos de acero de Ternium.
+  status: ACTIVE
+  ticker: TX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La cobertura de intereses de los últimos doce meses es inferior a 4,0
+      veces al 2027-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cobertura disminuye en dos informes trimestrales consecutivos y
+      queda por debajo de 3,0 veces.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La cobertura de intereses de los últimos doce meses es inferior a 4,0 veces al
+    2027-06-30.
+  - La cobertura disminuye en dos informes trimestrales consecutivos y queda por debajo
+    de 3,0 veces.
+  horizon: medio
+  id: H2-OPP-MB-TX
+  opportunity_id: OPP-MB-TX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 4.0
+    met: null
+    metric: Cobertura de intereses de los últimos doce meses (EBIT/gasto por intereses)
+    prediction: Al 2027-06-30, la cobertura de intereses de los últimos doce meses,
+      calculada como EBIT dividido por gasto por intereses, será de al menos 4,0 veces.
+    unit: veces mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Un mayor volumen de ventas y una rentabilidad operativa más sólida pueden
+    aumentar los recursos disponibles para cubrir los gastos financieros. La cobertura
+    permite evaluar directamente el riesgo señalado en la tesis, sin presuponer el
+    nivel actual de endeudamiento o de intereses.
+  review_trigger: Dejar de creerla si los estados financieros publicados hasta el
+    2027-06-30 muestran una cobertura de intereses de los últimos doce meses inferior
+    a 4,0 veces.
+  secondary_hypotheses:
+  - H1-OPP-MB-TX
+  statement: La mejora de la actividad y de la rentabilidad operativa permitirá a
+    Ternium mantener una cobertura de intereses suficiente para reducir la preocupación
+    por su riesgo financiero.
+  status: ACTIVE
+  ticker: TX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de TX menos la rentabilidad total del MSCI Latin
+      America es inferior a 10 puntos porcentuales al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: TX obtiene una rentabilidad total inferior a la del índice durante
+      el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de TX menos la rentabilidad total del MSCI Latin America
+    es inferior a 10 puntos porcentuales al 2027-11-20.
+  - TX obtiene una rentabilidad total inferior a la del índice durante el período.
+  horizon: largo
+  id: H3-OPP-MB-TX
+  opportunity_id: OPP-MB-TX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total de TX menos rentabilidad total del MSCI Latin America
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de TX,
+      incluidos dividendos, superará en al menos 10 puntos porcentuales la del índice
+      MSCI Latin America.
+    unit: puntos porcentuales mínimo
+  priority: important
+  probability: 0.5
+  rationale: Si se materializa una mejora verificable en los despachos y la cobertura
+    financiera, una menor percepción de riesgo y mejores expectativas de resultados
+    podrían favorecer la valoración de la acción. La comparación con un índice regional
+    permite distinguir ese desempeño de una subida general del mercado.
+  review_trigger: Dejar de creerla el 2027-11-20 si la rentabilidad total acumulada
+    de TX no supera en al menos 10 puntos porcentuales la del MSCI Latin America.
+  secondary_hypotheses:
+  - H1-OPP-MB-TX
+  - H2-OPP-MB-TX
+  statement: El mercado reconocerá parcialmente la recuperación del negocio y TX superará
+    en rentabilidad total al mercado latinoamericano durante los doce meses posteriores
+    a la fecha de corte.
+  status: ACTIVE
+  ticker: TX
+  version: 1

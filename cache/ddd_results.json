@@ -2,30 +2,26 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-TSM",
-      "ticker": "TSM",
-      "status": "quality_failed",
-      "score": 65,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "opp_id": "OPP-MB-TTE",
-      "ticker": "TTE",
-      "status": "quality_failed",
-      "score": 46,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "opp_id": "OPP-MB-TWLO",
-      "ticker": "TWLO",
+      "opp_id": "OPP-MB-TX",
+      "ticker": "TX",
       "status": "completed",
-      "score": 65.33,
+      "score": 80,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-MB-TXN",
+      "ticker": "TXN",
+      "status": "ddd_failed",
+      "score": null,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-MB-UGP",
+      "ticker": "UGP",
+      "status": "ddd_failed",
+      "score": null,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
@@ -34,26 +30,22 @@
   "assessments": [],
   "errors": [
     {
-      "ticker": "TSM",
-      "opp_id": "OPP-MB-TSM",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "ticker": "TXN",
+      "opp_id": "OPP-MB-TXN",
+      "status": "ddd_failed",
+      "error": "HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=60)",
+      "errors": []
     },
     {
-      "ticker": "TTE",
-      "opp_id": "OPP-MB-TTE",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "ticker": "UGP",
+      "opp_id": "OPP-MB-UGP",
+      "status": "ddd_failed",
+      "error": "400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "errors": []
     }
   ],
   "status": "failed",
-  "deferred_count": 86,
+  "deferred_count": 85,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",
