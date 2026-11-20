@@ -4040,3 +4040,101 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T20:40:42.230825'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-VOD
+    ticker: VOD
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T20:48:01.788841'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de crecimiento compuesto
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: bc3c71d6a8c7ff620c1fdef3a0ead1fe69e6e13db0260df7b257616a38967049
+    opp_id: OPP-MB-VOD
+    score: 58
+    strategy_version: '1.5'
+    ticker: VOD
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T20:49:31.917314'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-VRSN
+    ticker: VRSN
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T20:50:01.608393'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-VRSN
+    ticker: VRSN
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T20:50:01.786136'
+- data:
+    classification: 'Research requerido: infraestructura crítica con generación de
+      caja y crecimiento moderado'
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 2cd6e0222ec7929f27fdee5d0e4a7f45bd191ff3f13ff16d821d4758b9024109
+    opp_id: OPP-MB-VRSN
+    score: 67
+    strategy_version: '1.5'
+    ticker: VRSN
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T20:51:26.359457'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-VRTX
+    ticker: VRTX
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T20:51:58.169098'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-VRTX
+    ticker: VRTX
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T20:51:58.362685'
+- data:
+    classification: Investigación fundamental requerida; oportunidad de crecimiento
+      con evidencia financiera parcial
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 5dc4a34943a33ffc0edc13a364a794abbb92f6ee2f1709dea892e0dd02bdbf55
+    opp_id: OPP-MB-VRTX
+    score: 43
+    strategy_version: '1.5'
+    ticker: VRTX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T20:53:22.208630'

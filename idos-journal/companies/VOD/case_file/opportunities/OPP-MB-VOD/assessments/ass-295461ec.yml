@@ -1,0 +1,36 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de crecimiento compuesto'
+- 'Market error: No se valida un error de valoración: el consenso y la cotización
+  son referencias observadas, no una valoración intrínseca, y faltan datos para contrastar
+  expectativas operativas con una valoración propia.'
+- 'Thesis: La tesis a investigar es si la escala de servicios de conectividad, soluciones
+  empresariales, IoT y servicios financieros descrita en el resumen puede sostener
+  crecimiento rentable y recuperación del '
+generated_at: '2026-11-20T20:49:31.721829-03:00'
+id: ass-295461ec
+recommendation: REVIEW
+risks:
+- evidencia: El ingreso neto TTM al 2026-09-30 fue -6,015 en importe reportado; la
+    fuente no especifica en este paquete la moneda de ese campo.
+  fuente: https://stockanalysis.com/stocks/vod/financials/
+  riesgo: Rentabilidad contable débil en el período reciente.
+- evidencia: El FCF reportado bajó de 13,097 en FY2023 a 9,420 en FY2026; importe
+    reportado y moneda no especificada en el paquete.
+  fuente: https://stockanalysis.com/stocks/vod/financials/
+  riesgo: FCF decreciente en la serie anual disponible.
+- evidencia: La serie de net cash es negativa al 2026-09-30, pero el paquete no permite
+    confirmar compatibilidad de moneda y unidad con EBITDA.
+  fuente: https://stockanalysis.com/stocks/vod/financials/
+  riesgo: La deuda neta y su relación con EBITDA no se pueden validar con unidades
+    monetarias compatibles.
+- evidencia: No se proporcionan una serie de ingresos de tres años completos con los
+    períodos necesarios ni una serie de acciones que permita calcular dilución.
+  fuente: https://stockanalysis.com/stocks/vod/financials/
+  riesgo: Información incompleta para evaluar crecimiento, dilución y calidad del
+    capital.
+score: 58
+status: COMPLETED
+version: '3.0'

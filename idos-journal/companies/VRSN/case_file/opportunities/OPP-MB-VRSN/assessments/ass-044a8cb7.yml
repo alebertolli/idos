@@ -1,0 +1,34 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido: infraestructura crítica con generación de caja
+  y crecimiento moderado'
+- 'Market error: No se valida un error de valoración: los objetivos de analistas son
+  referencias observadas, no una valoración intrínseca propia.'
+- 'Thesis: VeriSign presta servicios de infraestructura de nombres de dominio, incluidos
+  .com y .net, y servicios relacionados con la zona raíz. La tesis favorable depende
+  de que el crecimiento de registros e in'
+generated_at: '2026-11-20T20:51:26.203477-03:00'
+id: ass-044a8cb7
+recommendation: REVIEW
+risks:
+- evidencia: StockAnalysis reporta current ratio de 0.42x al 2026-09-30; la cifra
+    requiere contexto de vencimientos y capital circulante.
+  fuente: https://stockanalysis.com/stocks/VRSN/statistics/
+  riesgo: Liquidez corriente por debajo del umbral configurado de 0.5x.
+- evidencia: Son valores reportados por StockAnalysis; el paquete no incluye calendario
+    de vencimientos ni condiciones de deuda.
+  fuente: https://stockanalysis.com/stocks/vrsn/financials/
+  riesgo: La deuda neta reportada aumentó de USD 871.1 millones en FY 2023 a USD 1,316
+    millones al 2026-09-30.
+- evidencia: La descripción del modelo de negocio identifica esos dominios, pero el
+    paquete no ofrece desglose de ingresos o sensibilidad por dominio.
+  riesgo: La dependencia de servicios asociados a .com y .net concentra la exposición
+    del negocio.
+- evidencia: Estos datos son necesarios para evaluar erosión de la ventaja y continuidad
+    de la economía del negocio.
+  riesgo: No hay evidencia en el paquete sobre regulación, renovaciones contractuales,
+    competencia o evolución de registros.
+score: 67
+status: COMPLETED
+version: '3.0'
