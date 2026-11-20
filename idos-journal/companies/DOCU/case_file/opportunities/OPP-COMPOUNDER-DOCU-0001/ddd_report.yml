@@ -1,0 +1,457 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La oportunidad se clasifica como quality_at_fair_price por la combinación de una
+    actividad de software potencialmente recurrente y la falta de evidencia suficiente
+    para sostener una tesis de descuento o de compounder castigado.
+  - La expansión hacia IAM/CLM podría ampliar monetización y costes de cambio, pero
+    no se ha demostrado su contribución económica con los datos aportados.
+  - La firma electrónica puede enfrentar presión competitiva y comoditización; la
+    magnitud y evolución de ese riesgo no están verificadas.
+  - El FCF y los indicadores operativos comunicados son favorables como señales puntuales,
+    pero no permiten establecer tendencia, calidad del crecimiento ni salud completa
+    del balance.
+  - FCF reportado de 1.200.000.000 USD, TTM con periodo terminado el 2026-07-31; fuente
+    stockanalysis.com, observación directa del campo fcf.
+  - Crecimiento de ingresos reportado de 9,4% con fecha de periodo 2026-07-31; fuente
+    yfinance, observación directa del campo revenue_growth_pct; periodo no especificado
+    por el proveedor.
+  - Margen operativo reportado de 13,430999% con fecha de periodo 2026-07-31; fuente
+    yfinance, observación directa del campo operating_margin_pct; periodo no especificado
+    por el proveedor.
+  - Cotización observada de 81,91999816894531 USD al 2026-10-30; fuente yfinance.
+  - 'Consenso de objetivos observado al 2026-11-20: mínimo 60 USD, máximo 90 USD,
+    media y mediana 73,93 USD; fuentes stockanalysis y yfinance.'
+  preguntas_abiertas:
+  - ¿Cuál es la evolución de retención, expansión neta, churn, adquisición de clientes
+    y gasto por cliente?
+  - ¿Qué proporción de ingresos y crecimiento procede de IAM, CLM, generación documental
+    y firma electrónica?
+  - ¿Cuál es la deuda, caja e inversiones disponibles, y cuáles son sus vencimientos
+    y restricciones?
+  - ¿Qué muestran los estados financieros y presentaciones regulatorias primarias
+    más recientes sobre crecimiento, márgenes, FCF y previsiones?
+  - ¿Qué evidencia cuantitativa existe sobre cuota de mercado, precios, competencia
+    y costes de cambio?
+  - ¿Hay incidentes materiales de ciberseguridad, privacidad, disponibilidad o concentración
+    de proveedores que deban evaluarse?
+  - ¿Qué múltiplos y estimaciones de resultados están implícitos en la cotización
+    observada y cómo se comparan con pares y con la historia de DOCU?
+  - No se verificaron eventos corporativos materiales mediante fuentes primarias en
+    la evidencia suministrada.
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: 'Compounder y compounder_castigado: faltan datos para confirmar
+    excepcionalidad y durabilidad del moat o un castigo temporal. Turnaround: no se
+    presenta evidencia de declive ni de un plan de recuperación. Deep value y value
+    trap: no hay múltiplos ni evidencia de destrucción estructural de valor. Cíclica:
+    el modelo descrito no permite clasificarla como intrínsecamente cíclica. Special
+    situation y distressed: no se aportan eventos de reestructuración ni señales de
+    solvencia problemática. Hype: la información disponible no demuestra que la valoración
+    dependa de crecimiento especulativo sin caja.'
+  justificacion: La evidencia describe un negocio de software de acuerdos con ingresos
+    recurrentes potenciales y generación de caja reportada, pero no aporta métricas
+    suficientes de valoración, retención, cuota de mercado o evolución operativa para
+    justificar una categoría de compounder castigado o una conclusión de infravaloración.
+    La cotización disponible es 81,92 USD al 2026-10-30 y el consenso observado tiene
+    media de 73,93 USD; esto no prueba por sí solo que la acción esté cara, pero tampoco
+    sustenta una oportunidad clara de descuento.
+comparativa_catalizadores:
+- delta_pct: 35
+  descripcion: Resultados futuros que muestren aceleración de ingresos o expansión
+    de clientes atribuible a IAM/CLM, con márgenes y caja sostenibles.
+  estado: nuevo
+  nota_comparacion: No había catalizadores históricos en el contexto previo. Se incorpora
+    como hipótesis prospectiva; no se afirma que haya ocurrido ni que exista evidencia
+    primaria de adopción acelerada.
+  probabilidad_actual: 35
+  probabilidad_anterior: 0
+- delta_pct: 45
+  descripcion: Evidencia de continuidad de crecimiento rentable y generación de FCF,
+    que reduzca la preocupación por madurez del producto principal.
+  estado: nuevo
+  nota_comparacion: No había catalizadores históricos en el contexto previo. La probabilidad
+    es una estimación analítica no calibrada, no una probabilidad derivada de datos
+    históricos.
+  probabilidad_actual: 45
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: La firma electrónica puede integrarse en procesos empresariales y crear
+    costes de cambio, mientras que la gestión de contratos y la generación documental
+    ofrecen una vía plausible para ampliar el valor por cliente. Sin datos aportados
+    sobre retención, expansión neta, cuota de mercado, satisfacción, competencia o
+    resultados de CLM/IAM, la durabilidad del moat y la capacidad de defender precios
+    permanecen sin confirmar. La existencia de productos descritos no demuestra por
+    sí sola una ventaja competitiva sostenible.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Resultados futuros que muestren aceleración de ingresos o expansión
+    de clientes atribuible a IAM/CLM, con márgenes y caja sostenibles.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+- descripcion: Evidencia de continuidad de crecimiento rentable y generación de FCF,
+    que reduzca la preocupación por madurez del producto principal.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+dominio_esg_supply_chain:
+  analisis: El modelo de software reduce la exposición directa a materias primas y
+    manufactura física, pero depende de disponibilidad, seguridad, privacidad e integridad
+    de servicios digitales y de proveedores tecnológicos. La información entregada
+    no incluye auditorías de seguridad, incidentes, concentración de proveedores,
+    indicadores ESG ni evaluaciones de cadena de suministro; los riesgos concretos
+    y su materialidad requieren verificación.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La observación de stockanalysis.com informa FCF de 1.200 millones de USD,
+    TTM terminado el 2026-07-31. Yfinance informa margen operativo de 13,431% y crecimiento
+    de ingresos de 9,4%, ambos con fecha de periodo 2026-07-31, pero periodo no especificado
+    por el proveedor. No se infiere que el FCF esté ajustado. La evidencia entregada
+    no contiene observaciones utilizables de deuda, caja, vencimientos, liquidez o
+    cobertura; no se puede evaluar plenamente el balance ni el perfil de deuda.
+  rating: adecuada
+dominio_growth:
+  analisis: La expansión de firma electrónica hacia CLM, generación documental e inteligencia
+    de acuerdos constituye una oportunidad estratégica plausible. El crecimiento de
+    ingresos reportado es 9,4% con fecha 2026-07-31, pero el tipo de periodo figura
+    como no especificado. No hay desglose de crecimiento por producto, clientes, geografía,
+    precio o volumen, ni evidencia que permita estimar la contribución actual de IAM.
+  rating: moderado
+dominio_management:
+  analisis: No se aportan datos verificables sobre asignación de capital, remuneración,
+    compras o ventas de insiders, cumplimiento de objetivos, rotación directiva ni
+    retorno de inversiones. La calificación refleja insuficiencia de evidencia y no
+    una conclusión negativa sobre la dirección.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Competencia y comoditización de la firma electrónica, con presión sobre
+    precios o retención.
+- impacto: alto
+  probabilidad: media
+  riesgo: La adopción y monetización de IAM/CLM no alcanza para compensar la madurez
+    o desaceleración del negocio principal.
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgos de ciberseguridad, privacidad o disponibilidad que afecten contratos
+    y flujos de firma de clientes.
+- impacto: medio
+  probabilidad: media
+  riesgo: La evidencia financiera incompleta sobre deuda, caja, retención y márgenes
+    puede ocultar deterioro o limitar una valoración fiable.
+- impacto: medio
+  probabilidad: alta
+  riesgo: Los objetivos de analistas observados son referencias no garantizadas y
+    pueden no incorporar cambios recientes en fundamentales.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Evidencia verificable en resultados futuros de aceleración de ingresos
+      atribuible a productos de gestión del ciclo de vida de contratos y acuerdos,
+      acompañada de estabilidad de márgenes y caja. No se ha verificado que este resultado
+      ya esté ocurriendo.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 35
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización observada es 81,92 USD al 2026-10-30. El consenso
+    de objetivos observado al 2026-11-20 indica mínimo de 60 USD, media y mediana
+    de 73,93 USD y máximo de 90 USD. El precio supera la media del consenso, pero
+    está dentro del rango publicado. No se proporcionan múltiplos actuales ni estimaciones
+    de crecimiento, por lo que no es posible inferir de forma sólida qué escenario
+    operativo está descontando el mercado.
+  hipotesis_contraria: El mercado podría infravalorar la posibilidad de que la gestión
+    de acuerdos inteligentes amplíe el producto más allá de la firma electrónica y
+    eleve la monetización por cliente. En sentido contrario, puede estar subestimando
+    la competencia, la sustitución parcial de funciones básicas y la dificultad de
+    convertir una plataforma de firma establecida en una plataforma integral de gestión
+    de acuerdos. Son hipótesis, no hechos confirmados por la evidencia disponible.
+  razonamiento: El objetivo medio observado está por debajo de la cotización disponible,
+    pero el rango de objetivos abarca precios inferiores y superiores a ella. Sin
+    múltiplos, previsiones operativas comparables ni evidencia primaria sobre adopción
+    y retención de IAM, no se puede distinguir entre expectativas demasiado pesimistas
+    y una valoración que ya refleja riesgos reales. Desde una perspectiva de segundo
+    nivel, la narrativa de expansión de plataforma podría estar sobreestimada tanto
+    como el mercado podría estar infravalorando su oportunidad; la evidencia entregada
+    no permite resolverlo.
+generated_at: '2026-11-20T13:45:36.655097-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se aporta evidencia suficiente para afirmar que se haya vulnerado alguna
+    de las categorías de integridad de tesis. La continuidad de la ventaja competitiva
+    y la monetización de IAM siguen siendo preguntas abiertas.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-DOCU-0001
+prompt_inputs:
+  business_model: DocuSign, Inc. provides electronic signature solution in the United
+    States and internationally. The company offers AI-powered intelligent agreement
+    management (IAM) platform to optimize the gain intelligence and automation across
+    the entire agreement lifecycle; and provides e-signature solution that enables
+    sending and signing of agreements on various devices; Contract Lifecycle Management
+    (CLM), which automates workflows across the entire agreement process; and Document
+    Generation streamlines the process of generating new, custom agreements. It also
+    provides Identify, a signer-identification option for checking government-issued
+    IDs; Standards-Based Signatures, which support signatures that involve digital
+    certificates; Monitor that uses advanced analytics; Notary which enables notaries
+    public to conduct remote online notarization transactions; and Web Forms. In addition,
+    the company offers Real Estate for eSignature that provides a way for brokers
+    and agents to manage the entire real estate transaction digitally. eSignature
+    and CLM are Federal Risk and Authorization Management Program (FedRAMP), an authorized
+    version of DocuSign eSignature for U.S. federal government agencies; and life
+    sciences modules that support compliance with the electronic signature practices.
+    The company sells its products through direct and partner-assisted sales, and
+    digital self-service purchasing. DocuSign, Inc. was incorporated in 2003 and is
+    headquartered in San Francisco, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.11
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: DocuSign, Inc.
+  operating_margin: 11.96
+  pe_ratio: 50.55
+  products: ''
+  revenue: 3360000000.0
+  revenue_growth: 8.59
+  roic: 26.08
+  sector: Technology
+  ticker: DOCU
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: DocuSign, Inc. provides electronic signature solution in the United
+    States and internationally. The company offers AI-powered intelligent agreement
+    management (IAM) platform to optimize the gain intelligence and automation across
+    the entire agreement lifecycle; and provides e-signature solution that enables
+    sending and signing of agreements on various devices; Contract Lifecycle Management
+    (CLM), which automates workflows across the entire agreement process; and Document
+    Generation streamlines the process of generating new, custom agreements. It also
+    provides Identify, a signer-identification option for checking government-issued
+    IDs; Standards-Based Signatures, which support signatures that involve digital
+    certificates; Monitor that uses advanced analytics; Notary which enables notaries
+    public to conduct remote online notarization transactions; and Web Forms. In addition,
+    the company offers Real Estate for eSignature that provides a way for brokers
+    and agents to manage the entire real estate transaction digitally. eSignature
+    and CLM are Federal Risk and Authorization Management Program (FedRAMP), an authorized
+    version of DocuSign eSignature for U.S. federal government agencies; and life
+    sciences modules that support compliance with the electronic signature practices.
+    The company sells its products through direct and partner-assisted sales, and
+    digital self-service purchasing. DocuSign, Inc. was incorporated in 2003 and is
+    headquartered in San Francisco, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 81.91999816894531
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.11
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:31.035368+00:00",
+    "period_end_date": "2026-07-31", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-07-31", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/DOCU/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 1200000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:28.224843+00:00", "period_end_date": "2026-07-31", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1785456000, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-07-31", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    13.430999}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:28.224843+00:00",
+    "period_end_date": "2026-07-31", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1785456000,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-07-31", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    9.4}}}, "observed_at": "2026-10-30T16:53:31.035368+00:00", "period_end": "2026-07-31",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: DocuSign, Inc.
+  operating_margin: 11.96
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: DocuSign, Inc. provides electronic signature solution in the United
+    States and internationally. The company offers AI-powered intelligent agreement
+    management (IAM) platform to optimize the gain intelligence and automation across
+    the entire agreement lifecycle; and provides e-signature solution that enables
+    sending and signing of agreements on various devices; Contract Lifecycle Management
+    (CLM), which automates workflows across the entire agreement process; and Document
+    Generation streamlines t
+  revenue: 3360000000.0
+  revenue_growth: 8.59
+  roic: 26.08
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    90.0, "low": 60.0, "mean": 73.93, "median": 73.93, "observed_at": "2026-11-20T13:45:03.544951-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T13:45:03.544951-03:00", "observed_date": "2026-11-20", "target_price":
+    73.93, "url": "https://stockanalysis.com/stocks/docu/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T13:45:03.544951-03:00",
+    "observed_date": "2026-11-20", "target_price": 73.93333, "url": "https://finance.yahoo.com/quote/DOCU/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 81.91999816894531,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/DOCU/"}]}}'
+  sector: Technology
+  ticker: DOCU
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 6b334107031f19aaa0f1f18261492ac9c6ac19c297c27ced149b05d3b26f7058
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T13:45:36.655097-03:00'
+resumen_ejecutivo: 'DocuSign ofrece exposición a firma electrónica y a una posible
+  expansión hacia gestión integral de acuerdos. La evidencia financiera suministrada
+  incluye FCF TTM de 1.200 millones de USD al 2026-07-31, crecimiento de ingresos
+  reportado de 9,4% al mismo periodo y margen operativo reportado de 13,431%, aunque
+  los datos de crecimiento y margen carecen de especificación completa del periodo
+  según el proveedor. Estos datos son favorables, pero insuficientes para concluir
+  sobre tendencias, calidad del crecimiento o valoración. La oportunidad es incierta:
+  el precio observado supera el consenso medio, mientras que los objetivos publicados
+  presentan un rango amplio. No se verifica aquí ninguna noticia corporativa, adopción
+  de IAM ni cambio competitivo mediante evidencia primaria.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados verificables que muestren aceleración sostenida de ingresos y adopción
+      incremental de IAM/CLM.
+    - Expansión de márgenes y generación de caja acompañada de evidencia de retención
+      y crecimiento por cliente.
+    - Revisión al alza verificable de las referencias de consenso por mejora de fundamentales.
+    id: BEAR
+    key_assumptions:
+    - El mercado asigna mayor peso a la madurez del producto principal y a la presión
+      competitiva.
+    - IAM/CLM no muestra evidencia suficiente de crecimiento incremental material
+      dentro del horizonte.
+    - Los objetivos observados continúan siendo referencias pertinentes para el horizonte
+      del escenario.
+    rationale: Ancla bajista en el límite inferior del rango de objetivos observado.
+      Es una referencia de consenso, no una valoración independiente ni una predicción
+      garantizada. El caso representa una reevaluación desfavorable si la firma electrónica
+      madura y la expansión de IAM/CLM no compensa la presión competitiva.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/docu/forecast/
+    target_price: 60
+  - falsifiers:
+    - Desaceleración persistente de ingresos o deterioro material de márgenes y caja.
+    - Evidencia de que IAM/CLM no logra adopción, expansión o monetización relevantes.
+    - Mayor presión competitiva que reduzca retención, precios o diferenciación.
+    id: BULL
+    key_assumptions:
+    - La oferta de IAM/CLM aporta crecimiento y monetización incremental en lugar
+      de limitarse a una extensión narrativa del producto.
+    - La generación de caja y la rentabilidad se sostienen mientras la empresa invierte
+      en crecimiento.
+    - Las referencias de consenso observadas continúan siendo pertinentes y el límite
+      superior funciona como ancla del escenario.
+    rationale: Ancla alcista en el límite superior del rango de objetivos observado.
+      No es una valoración independiente ni una predicción garantizada. El caso requiere
+      que el mercado valore favorablemente la expansión de la plataforma de acuerdos
+      y que los fundamentales confirmen crecimiento rentable; la evidencia suministrada
+      no confirma esos supuestos.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/docu/forecast/
+    target_price: 90
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T13:45:03.544951-03:00'
+  fuentes:
+    stockanalysis: 73.93
+    yfinance: 73.93333
+  mediana: 73.93
+  n_fuentes: 2
+  promedio: 73.93
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T13:45:03.544951-03:00'
+    observed_date: '2026-11-20'
+    target_price: 73.93
+    url: https://stockanalysis.com/stocks/docu/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T13:45:03.544951-03:00'
+    observed_date: '2026-11-20'
+    target_price: 73.93333
+    url: https://finance.yahoo.com/quote/DOCU/
+  target_high: 90.0
+  target_low: 60.0
+tesis_inversion: La tesis depende de que DocuSign conserve la relevancia de su producto
+  de firma electrónica y convierta la gestión integral de acuerdos en una fuente material
+  de crecimiento y monetización. El FCF reportado y el margen operativo observado
+  apoyan la calidad económica del negocio, pero no bastan para demostrar crecimiento
+  durable, moat defendible o infravaloración. Con el precio observado por encima del
+  consenso medio y sin múltiplos completos, la postura prudente es valoración aproximadamente
+  justa e incertidumbre elevada, no una señal concluyente de compra o venta.
+ticker: DOCU
+version: '3.0'

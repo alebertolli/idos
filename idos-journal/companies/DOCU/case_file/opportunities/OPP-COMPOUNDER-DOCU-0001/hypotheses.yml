@@ -1,0 +1,224 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de los ingresos por suscripción en el último
+      trimestre disponible al 2027-11-20 es inferior al 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Ese crecimiento es menor que el del trimestre reportado más reciente
+      disponible al 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa que la gestión de acuerdos no contribuye al crecimiento
+      o que la adopción de sus capacidades no se traduce en ventas recurrentes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de los ingresos por suscripción en el último trimestre
+    disponible al 2027-11-20 es inferior al 8%.
+  - Ese crecimiento es menor que el del trimestre reportado más reciente disponible
+    al 2026-11-20.
+  - La compañía informa que la gestión de acuerdos no contribuye al crecimiento o
+    que la adopción de sus capacidades no se traduce en ventas recurrentes.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-DOCU-0001
+  opportunity_id: OPP-COMPOUNDER-DOCU-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual de ingresos por suscripción en el último trimestre
+      disponible
+    prediction: En los cuatro trimestres reportados hasta el 2027-11-20, el crecimiento
+      interanual de los ingresos por suscripción será de al menos 8% en el último
+      trimestre disponible y no será inferior al crecimiento interanual del trimestre
+      reportado más reciente al 2026-11-20.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La firma electrónica ofrece una base instalada sobre la que DocuSign
+    puede vender capacidades adicionales de gestión de acuerdos, automatización y
+    análisis. Si esas capacidades resuelven necesidades de mayor alcance que la firma
+    por sí sola, deberían contribuir a los ingresos recurrentes; la evidencia disponible
+    al corte, sin embargo, no demuestra todavía que esa conversión sea material.
+  review_trigger: Dejar de creerla si dos trimestres consecutivos reportados antes
+    del 2027-11-20 muestran crecimiento interanual de ingresos por suscripción inferior
+    al 8%, o si la dirección comunica que las nuevas capacidades no están generando
+    ventas incrementales.
+  secondary_hypotheses:
+  - H2-OPP-COMPOUNDER-DOCU-0001
+  - H3-OPP-COMPOUNDER-DOCU-0001
+  statement: DocuSign convertirá la gestión integral de acuerdos en crecimiento incremental,
+    manteniendo o acelerando el crecimiento de sus ingresos por suscripción.
+  status: ACTIVE
+  ticker: DOCU
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre de los cuatro trimestres acumulados
+      hasta la fecha objetivo es inferior al 20%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen cae por debajo del 20% durante dos periodos acumulados consecutivos
+      de cuatro trimestres disponibles antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía atribuye una caída persistente de la generación de caja
+      a mayores costes estructurales de producto, ventas o retención.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre de los cuatro trimestres acumulados hasta la
+    fecha objetivo es inferior al 20%.
+  - El margen cae por debajo del 20% durante dos periodos acumulados consecutivos
+    de cuatro trimestres disponibles antes de la fecha objetivo.
+  - La compañía atribuye una caída persistente de la generación de caja a mayores
+    costes estructurales de producto, ventas o retención.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-DOCU-0001
+  opportunity_id: OPP-COMPOUNDER-DOCU-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 20.0
+    met: null
+    metric: Margen de flujo de caja libre en cuatro trimestres acumulados
+    prediction: Para los cuatro trimestres acumulados hasta el 2027-11-20, el margen
+      de flujo de caja libre será de al menos 20%, calculado como flujo de caja libre
+      dividido por ingresos del mismo periodo.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: El flujo de caja libre y el margen operativo observados respaldan la
+    calidad económica actual del negocio, pero no prueban que esa rentabilidad sea
+    sostenible. La hipótesis es que los ingresos recurrentes y la disciplina de gastos
+    permiten financiar el desarrollo y la comercialización sin deteriorar sustancialmente
+    la generación de caja.
+  review_trigger: Dejar de creerla si un periodo acumulado de cuatro trimestres reportado
+    antes del 2027-11-20 presenta margen de flujo de caja libre inferior al 20% y
+    la dirección no identifica ese deterioro como temporal y cuantificable.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DOCU-0001
+  statement: DocuSign conservará una conversión sólida de ingresos en flujo de caja
+    libre, incluso mientras invierte en ampliar su plataforma de gestión de acuerdos.
+  status: ACTIVE
+  ticker: DOCU
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de ingresos por suscripción alcanza al menos
+      el 10% en el trimestre más reciente disponible al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento interanual aumenta al menos 3 puntos porcentuales frente
+      al trimestre más reciente disponible al 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía divulga mejoras sostenidas en retención o expansión de
+      clientes que atribuye a la gestión de acuerdos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de ingresos por suscripción alcanza al menos el 10%
+    en el trimestre más reciente disponible al 2027-11-20.
+  - El crecimiento interanual aumenta al menos 3 puntos porcentuales frente al trimestre
+    más reciente disponible al 2026-11-20.
+  - La compañía divulga mejoras sostenidas en retención o expansión de clientes que
+    atribuye a la gestión de acuerdos.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-DOCU-0001
+  opportunity_id: OPP-COMPOUNDER-DOCU-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual de ingresos por suscripción en el trimestre más
+      reciente disponible
+    prediction: En el trimestre reportado más reciente disponible al 2027-11-20, el
+      crecimiento interanual de ingresos por suscripción será inferior al 10%, y la
+      compañía no habrá divulgado una aceleración de al menos 3 puntos porcentuales
+      frente al trimestre reportado más reciente disponible al 2026-11-20.
+    unit: porcentaje máximo previsto
+  priority: important
+  probability: 0.5
+  rationale: La firma electrónica es una categoría expuesta a ofertas integradas y
+    alternativas de menor coste. Si la gestión de acuerdos no diferencia suficientemente
+    el producto, DocuSign podría mantener clientes que necesitan flujos especializados,
+    pero tener dificultades para captar nuevas cuentas o ampliar ventas en clientes
+    existentes.
+  review_trigger: Dejar de creerla si, antes del 2027-11-20, la empresa registra crecimiento
+    interanual de ingresos por suscripción de al menos 10% en dos trimestres consecutivos
+    y atribuye parte de la aceleración a una mayor adopción de gestión de acuerdos.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DOCU-0001
+  statement: La competencia y la sustitución de funciones básicas limitarán la capacidad
+    de DocuSign para acelerar el crecimiento de su base de clientes de pago.
+  status: ACTIVE
+  ticker: DOCU
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de DOCU supera en más de 10 puntos porcentuales
+      la del Nasdaq Composite en el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: DOCU registra una rentabilidad total superior a la del Nasdaq Composite
+      en más de 10 puntos porcentuales antes de la fecha objetivo y mantiene esa diferencia
+      al cierre del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de DOCU supera en más de 10 puntos porcentuales la del Nasdaq
+    Composite en el periodo definido.
+  - DOCU registra una rentabilidad total superior a la del Nasdaq Composite en más
+    de 10 puntos porcentuales antes de la fecha objetivo y mantiene esa diferencia
+    al cierre del periodo.
+  horizon: medio
+  id: H4-OPP-COMPOUNDER-DOCU-0001
+  opportunity_id: OPP-COMPOUNDER-DOCU-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total de DOCU menos rentabilidad total del Nasdaq Composite
+    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2027-11-19, la
+      rentabilidad total de DOCU, incluidos dividendos si los hubiera, no superará
+      en más de 10 puntos porcentuales la rentabilidad total del Nasdaq Composite.
+    unit: puntos porcentuales como límite superior
+  priority: informational
+  probability: 0.5
+  rationale: Al corte, el precio observado está por encima del consenso medio disponible
+    y no se dispone de múltiplos completos que permitan establecer con precisión un
+    descuento. Esa combinación justifica tratar la valoración como aproximadamente
+    justa y la incertidumbre como elevada, no asumir una revalorización por la sola
+    expectativa de nuevas capacidades.
+  review_trigger: Dejar de creerla si al cierre del 2027-11-19 DOCU ha superado al
+    Nasdaq Composite por más de 10 puntos porcentuales en rentabilidad total durante
+    el periodo definido.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DOCU-0001
+  - H2-OPP-COMPOUNDER-DOCU-0001
+  - H3-OPP-COMPOUNDER-DOCU-0001
+  statement: La valoración observada al corte no anticipará una revalorización sostenida
+    de DocuSign frente al mercado sin evidencia posterior de aceleración operativa.
+  status: ACTIVE
+  ticker: DOCU
+  version: 1

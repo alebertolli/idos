@@ -1,0 +1,27 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia incompleta para valorar'
+- 'Market error: No se valida un error de valoración. El rango de analistas es una
+  referencia de mercado, no una estimación intrínseca.'
+- 'Thesis: DocuSign ofrece firma electrónica, CLM, generación de documentos y una
+  plataforma IAM, según el resumen financiero. Los datos aportados muestran crecimiento
+  de ingresos y FCF y márgenes brutos estable'
+generated_at: '2026-11-20T13:48:53.380791-03:00'
+id: ass-a50ca6bd
+recommendation: REVIEW
+risks:
+- evidencia: El resumen describe productos y modelo de negocio, pero no ofrece métricas
+    de adopción o mercado.
+  riesgo: La información disponible no cuantifica mercado direccionable, penetración,
+    retención, expansión de clientes ni contribución de IAM/CLM.
+- evidencia: Stockanalysis, período actual y FY 2025 terminados el 2026-07-31 y 2025-01-31,
+    respectivamente.
+  riesgo: La caja e inversiones reportadas bajaron de USD 963.55 millones en FY 2025
+    a USD 777.68 millones en el período actual terminado el 2026-07-31.
+- evidencia: Research Intake Package, datos de yfinance para 2025-10-27/2026-10-26.
+  riesgo: La acción registró volatilidad de 90 días de 49.0885% y momentum de precio
+    a 12 meses de 17.8194%.
+score: 35
+status: COMPLETED
+version: '3.0'
