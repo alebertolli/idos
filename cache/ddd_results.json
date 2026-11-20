@@ -2,30 +2,29 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-PBR",
-      "ticker": "PBR",
-      "status": "quality_failed",
-      "score": 48,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "opp_id": "OPP-MB-PFE",
-      "ticker": "PFE",
-      "status": "quality_failed",
-      "score": 61,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "opp_id": "OPP-MB-PG",
-      "ticker": "PG",
+      "opp_id": "OPP-MB-PM",
+      "ticker": "PM",
       "status": "completed",
-      "score": 59,
+      "score": 87.27,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-MB-PSO",
+      "ticker": "PSO",
+      "status": "hypothesis_validation_failed",
+      "score": null,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "H1: prediction or trigger references an expired year",
+        "H2: prediction or trigger references an expired year"
+      ]
+    },
+    {
+      "opp_id": "OPP-MB-PSX",
+      "ticker": "PSX",
+      "status": "completed",
+      "score": 55,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
@@ -34,26 +33,18 @@
   "assessments": [],
   "errors": [
     {
-      "ticker": "PBR",
-      "opp_id": "OPP-MB-PBR",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
+      "ticker": "PSO",
+      "opp_id": "OPP-MB-PSO",
+      "status": "hypothesis_validation_failed",
+      "error": "H1: prediction or trigger references an expired year; H2: prediction or trigger references an expired year",
       "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "ticker": "PFE",
-      "opp_id": "OPP-MB-PFE",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
+        "H1: prediction or trigger references an expired year",
+        "H2: prediction or trigger references an expired year"
       ]
     }
   ],
   "status": "failed",
-  "deferred_count": 100,
+  "deferred_count": 98,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

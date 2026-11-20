@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 121 companies tracked
+Total: 124 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -30,6 +30,7 @@ Total: 121 companies tracked
 - 📄 [[EA|Electronic Arts Inc]]
 - 📄 [[GOOGL|Alphabet Inc.]]
 - ⏳ [[JOYY|JOYY Inc.]]
+- ⏳ [[PSO|Pearson plc]]
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
@@ -53,6 +54,7 @@ Total: 121 companies tracked
 - 📄 [[KO|The Coca-Cola Company]]
 - ⏳ [[MDLZ|Mondelez International, Inc.]]
 - 📄 [[MO|Altria Group, Inc.]]
+- 📄 [[PM|Philip Morris International Inc.]]
 
 ## Energy
 - 📄 [[BKR|Baker Hughes Company]]
@@ -64,6 +66,7 @@ Total: 121 companies tracked
 - 📄 [[HAL|Halliburton Company]]
 - 📄 [[OXY|Occidental Petroleum Corporation]]
 - 📄 [[PBR|Petróleo Brasileiro S.A. - Petrobras]]
+- 📄 [[PSX|Phillips 66]]
 - 📄 [[TS|Tenaris S.A.]]
 
 ## Financial Services
