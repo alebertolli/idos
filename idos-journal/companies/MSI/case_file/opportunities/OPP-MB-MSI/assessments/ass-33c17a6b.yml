@@ -1,0 +1,31 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Empresa de calidad con crecimiento por verificar'
+- 'Market error: No puede validarse un error de valoración: el rango de analistas
+  es una referencia observada, no una valoración intrínseca, y faltan expectativas
+  de negocio y método de valoración identificable.'
+- 'Thesis: La tesis a contrastar es que la expansión de ingresos y la generación de
+  FCF de Motorola Solutions puedan sostenerse mediante sus soluciones de productos,
+  integración, software y servicios. La evidenc'
+generated_at: '2026-11-20T17:12:52.848176-03:00'
+id: ass-33c17a6b
+recommendation: REVIEW
+risks:
+- analisis: La razón deuda neta/EBITDA calculada es 2.70x al 2026-10-03; queda por
+    debajo del umbral configurado de 4.0x, pero la deuda neta aumentó frente a FY
+    2025.
+  riesgo: Apalancamiento
+- analisis: El proveedor reporta cobertura de intereses de 0x al 2026-10-03, por debajo
+    del umbral de 2.0x; el valor requiere verificación porque no se aportan EBIT e
+    intereses que permitan recalcularlo.
+  riesgo: Cobertura de intereses
+- analisis: El paquete no proporciona múltiplos, expectativas operativas de consenso
+    ni método de valoración; los objetivos de analistas no resuelven esa carencia.
+  riesgo: Expectativas y valoración
+- analisis: No hay datos sobre cuota, retención, competencia, concentración de clientes
+    o contratos que permitan evaluar erosión competitiva.
+  riesgo: Ventaja competitiva y concentración
+score: 72
+status: COMPLETED
+version: '3.0'

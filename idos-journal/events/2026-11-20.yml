@@ -2366,3 +2366,97 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T17:01:56.932668'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-MSFT
+    ticker: MSFT
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T17:09:19.119650'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-MSFT
+    ticker: MSFT
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T17:09:19.343049'
+- data:
+    classification: Investigación requerida; perfil multibaggers
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 88512c91db5cff1ea114eb85c0fe7f8cda8b15d58bf18a22e3ba44cfb8df7cf5
+    opp_id: OPP-MB-MSFT
+    score: 53
+    strategy_version: '1.5'
+    ticker: MSFT
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T17:10:48.473640'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-MSI
+    ticker: MSI
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T17:11:22.778915'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-MSI
+    ticker: MSI
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T17:11:23.053217'
+- data:
+    classification: Empresa de calidad con crecimiento por verificar
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 4f658699d55d8f61bbf721930fab947ac2ce91e8b0c22306225cfcd947aee131
+    opp_id: OPP-MB-MSI
+    score: 72
+    strategy_version: '1.5'
+    ticker: MSI
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T17:12:53.071423'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-MUFG
+    ticker: MUFG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T17:13:22.832888'
+- data:
+    classification: Investigación requerida; evidencia fundamental insuficiente para
+      validar una tesis de multibagger.
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 2826378cc66165d121ead63b1d92242f24c235d488cd6ef5f3b56c0563eafb77
+    opp_id: OPP-MB-MUFG
+    score: 42
+    strategy_version: '1.5'
+    ticker: MUFG
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T17:14:48.385006'

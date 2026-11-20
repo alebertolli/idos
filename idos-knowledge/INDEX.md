@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 105 companies tracked
+Total: 108 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -78,6 +78,7 @@ Total: 105 companies tracked
 - 📄 [[LYG|Lloyds Banking Group plc]]
 - 📄 [[MA|Mastercard Incorporated]]
 - 📄 [[MFG|Mizuho Financial Group, Inc.]]
+- 📄 [[MUFG|Mitsubishi UFJ Financial Group, Inc.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -129,6 +130,8 @@ Total: 105 companies tracked
 - 📄 [[DOCU|DocuSign, Inc.]]
 - 📄 [[GRMN|Garmin Ltd.]]
 - ⏳ [[HPQ|HP Inc.]]
+- 📄 [[MSFT|Microsoft Corporation]]
+- 📄 [[MSI|Motorola Solutions, Inc.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 
 ## Utilities

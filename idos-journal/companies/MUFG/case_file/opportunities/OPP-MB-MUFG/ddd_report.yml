@@ -1,0 +1,510 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La falta de series comparables impide validar la calidad y sostenibilidad del
+    crecimiento a partir del paquete.
+  - La presencia geográfica y la amplitud de segmentos no bastan para establecer una
+    ventaja competitiva.
+  - 'La cotización reportada fue USD 21,56 al 2026-10-30; fuente: yfinance, https://finance.yahoo.com/quote/MUFG/.'
+  - 'El consenso de objetivos observado al 2026-11-20 fue USD 23,77, con extremos
+    USD 21,00 y USD 26,53; fuentes: StockAnalysis y yfinance.'
+  - El resumen empresarial enumera siete segmentos; no proporciona período de referencia
+    para esa descripción.
+  preguntas_abiertas:
+  - ¿Cuáles son los retornos sobre capital, costes de financiación y resultados comparables
+    por segmento?
+  - ¿Qué explica la diferencia de escala entre las series financieras y las métricas
+    TTM reportadas?
+  - ¿Cómo evolucionaron las acciones diluidas y qué política de asignación de capital
+    comunica la dirección?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia fundamental insuficiente para validar
+    una tesis de multibagger.
+  justificacion: El paquete muestra momentum de precio positivo, pero faltan métricas
+    comparables de reinversión, retorno sobre capital y dilución para evaluar la sostenibilidad
+    del crecimiento.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe un grupo financiero con siete segmentos y actividad
+    en varias regiones, pero no ofrece evidencia verificable sobre cuota de mercado,
+    márgenes comparables, retornos sobre capital, coste de financiación, ventaja competitiva
+    o erosión. Las métricas de margen bruto, cobertura de intereses y current ratio
+    reportadas como cero no son interpretables aquí como indicadores válidos de calidad
+    bancaria.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: La actualización de resultados puede aportar una base comparable para
+    revisar ingresos, beneficio, flujo de caja y balance.
+  hito: Obtener estados financieros y métricas de períodos consecutivos con unidades
+    y definiciones conciliadas.
+- catalizador: La divulgación de acciones diluidas históricas permitiría medir la
+    evolución del número de acciones.
+  hito: Verificar acciones diluidas para fechas comparables.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: StockAnalysis, estados financieros; período TTM al 2026-09-30 y ejercicios
+    fiscales indicados.
+  riesgo: Los datos de FCF TTM y de los ejercicios fiscales tienen escalas/unidades
+    no conciliadas en el paquete; no se puede derivar conversión ni crecimiento comparable.
+- fuente: StockAnalysis, estadísticas al 2026-09-30; estados financieros con períodos
+    indicados.
+  riesgo: EBITDA figura como n/a y no hay historia de acciones disponible para calcular
+    deuda neta/EBITDA o dilución.
+- fuente: yfinance, historial de MUFG; período 2025-10-31 a 2026-10-30.
+  riesgo: La variación del precio no demuestra por sí misma mejoras de resultados,
+    retornos sobre capital o crecimiento sostenible.
+error_mercado:
+  catalizador_cambio: La publicación de resultados con datos comparables sobre ganancias,
+    flujo de caja, capital y acciones permitiría contrastar la tesis con evidencia
+    fundamental.
+  conclusion_error_valoracion: 'No validado: el paquete no proporciona un método de
+    valoración intrínseca ni evidencia suficiente para identificar un error de valoración.'
+  consenso_actual: El precio observado fue USD 21,56 al 2026-10-30; el consenso de
+    objetivos observado al 2026-11-20 fue USD 23,77, con rango USD 21,00–26,53.
+  hipotesis_contraria: La evidencia disponible no permite determinar si el mercado
+    subestima o sobreestima el crecimiento sostenible, la rentabilidad del capital
+    o los riesgos de MUFG.
+  razonamiento: Los objetivos de analistas son referencias observadas, no una estimación
+    propia de valor intrínseco. Las inconsistencias de escala y las ausencias en los
+    datos financieros limitan el análisis fundamental.
+generated_at: '2026-11-20T17:13:22.914881-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-MUFG
+prompt_inputs:
+  business_model: 'Mitsubishi UFJ Financial Group, Inc., together with its subsidiaries,
+    provides various financial products and services in Japan, the United States,
+    Europe, the Middle East, Asia, Oceania, and internationally. It operates through
+    seven segments: Retail and Digital Business; Corporate and Wealth Management Business;
+    Corporate Banking Business; Global Commercial Banking Business; Asset Management
+    Business; Global CIB Business; and Market Business. The company offers retail,
+    commercial, digital, corporate, and investment banking; wealth management; loans;
+    settlement services; merger and acquisition; asset management; investor services;
+    pensions; consulting services; bonds; forex and derivatives; equities; market
+    trading; liabilities; treasury and other related operations; and liquidity and
+    cash flow management services. It is also involved in trust banking; securities;
+    leasing; venture capital; renewable energy; factoring; research; software development;
+    information processing and technology; SR and IR support; investment trust and
+    real estate asset management; investment advising; real estate brokering; credit
+    solution business; credit and prepaid cards; loan guarantees; agency services
+    for credit purchases; and servicer activities. The company was formerly known
+    as Mitsubishi Tokyo Financial Group Inc. and changed its name to Mitsubishi UFJ
+    Financial Group, Inc. in October 2005. Mitsubishi UFJ Financial Group, Inc. was
+    founded in 1880 and is headquartered in Chiyoda, Japan.'
+  ceo_tenure: 0
+  debt_to_equity: 0.044199999999999996
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Mitsubishi UFJ Financial Group, Inc.
+  operating_margin: 46.22
+  pe_ratio: 16.59
+  products: ''
+  revenue: 49110000000.0
+  revenue_growth: 36.82
+  roic: 9.15
+  sector: Financial Services
+  ticker: MUFG
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: Serie con FY 2023 al 2023-03-31 y TTM al 2026-09-30, pero los
+      períodos no forman una comparación anual de tres años compatible.
+  limitations: No hay observaciones anuales comparables separadas exactamente por
+    tres años; además, la serie está en source_reported_amount sin moneda indicada.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/mufg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_history: 'FY 2026: -3669323.0; FY 2025: 897112.0, ambos source_reported_amount.'
+  limitations: Los dos períodos consecutivos no son ambos positivos, requisito de
+    la definición; la unidad y moneda de source_reported_amount no se especifican.
+  metric: fcf_growth_pct
+  period_end: null
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/mufg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+  inputs:
+    fcf: 'TTM al 2026-09-30: -23090000000.0, provider_financial_currency.'
+    net_income_history: 'TTM al 2026-09-30: 2067301.0, source_reported_amount.'
+  limitations: Los inputs tienen unidades reportadas distintas y no conciliadas; no
+    se puede calcular una razón válida aunque el período indicado coincida.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/MUFG/statistics/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/mufg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
+    si net_cash = cash - debt
+  inputs:
+    cash_and_investments_history: 'Current al 2026-09-30: 146725899.0, source_reported_amount.'
+    ebitda: n/a al 2026-09-30.
+    total_debt_history: 'Current al 2026-09-30: 107371215.0, source_reported_amount.'
+  limitations: Falta EBITDA numérico; las unidades/moneda de los importes fuente tampoco
+    están especificadas en el paquete.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/mufg/financials/
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/MUFG/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares_history: No proporcionado.
+    shares_outstanding: 11260000000.0 al 2026-09-30; no hay observación anterior comparable.
+  limitations: Falta una serie histórica de acciones diluidas o acciones en circulación
+    para comparar períodos interanuales.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis
+    url: https://stockanalysis.com/stocks/MUFG/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Mitsubishi UFJ Financial Group, Inc., together with its subsidiaries,
+    provides various financial products and services in Japan, the United States,
+    Europe, the Middle East, Asia, Oceania, and internationally. It operates through
+    seven segments: Retail and Digital Business; Corporate and Wealth Management Business;
+    Corporate Banking Business; Global Commercial Banking Business; Asset Management
+    Business; Global CIB Business; and Market Business. The company offers retail,
+    commercial, digital, corporate, and investment banking; wealth management; loans;
+    settlement services; merger and acquisition; asset management; investor services;
+    pensions; consulting services; bonds; forex and derivatives; equities; market
+    trading; liabilities; treasury and other related operations; and liquidity and
+    cash flow management services. It is also involved in trust banking; securities;
+    leasing; venture capital; renewable energy; factoring; research; software development;
+    information processing and technology; SR and IR support; investment trust and
+    real estate asset management; investment advising; real estate brokering; credit
+    solution business; credit and prepaid cards; loan guarantees; agency services
+    for credit purchases; and servicer activities. The company was formerly known
+    as Mitsubishi Tokyo Financial Group Inc. and changed its name to Mitsubishi UFJ
+    Financial Group, Inc. in October 2005. Mitsubishi UFJ Financial Group, Inc. was
+    founded in 1880 and is headquartered in Chiyoda, Japan.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 21.559999465942383
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.044199999999999996
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T20:12:54.568427+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Mitsubishi UFJ Financial Group, Inc.
+  operating_margin: 46.22
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Mitsubishi UFJ Financial Group, Inc., together with its subsidiaries,
+    provides various financial products and services in Japan, the United States,
+    Europe, the Middle East, Asia, Oceania, and internationally. It operates through
+    seven segments: Retail and Digital Business; Corporate and Wealth Management Business;
+    Corporate Banking Business; Global Commercial Banking Business; Asset Management
+    Business; Global CIB Business; and Market Business. The company offers retail,
+    commercial, digital, cor'
+  revenue: 49110000000.0
+  revenue_growth: 36.82
+  roic: 9.15
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mufg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MUFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MUFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MUFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MUFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mufg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mufg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MUFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MUFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mufg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mufg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mufg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MUFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MUFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mufg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    26.53, "low": 21.0, "mean": 23.77, "median": 23.77, "observed_at": "2026-11-20T17:12:58.007189-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T17:12:58.007189-03:00", "observed_date": "2026-11-20", "target_price":
+    23.77, "url": "https://stockanalysis.com/stocks/mufg/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:12:58.007189-03:00",
+    "observed_date": "2026-11-20", "target_price": 23.76532, "url": "https://finance.yahoo.com/quote/MUFG/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 21.559999465942383,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/MUFG/"}]}}'
+  sector: Financial Services
+  ticker: MUFG
+research_trigger:
+  discovery_snapshot_hash: 4d5cb9fcca01f74e9986e36ba7bffa63fc7ba179137c92750c794b9d56bd1f6d
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 2826378cc66165d121ead63b1d92242f24c235d488cd6ef5f3b56c0563eafb77
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T17:13:22.914881-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- assessment: Revisar definición y aplicabilidad; no interpretar el valor reportado
+    como decisión.
+  metric: current_ratio
+  observation: El paquete reporta 0 al 2026-09-30, pero no aporta activos y pasivos
+    corrientes para validar su significado en una entidad bancaria.
+  threshold: below 0.5
+- assessment: Umbral no evaluable.
+  metric: dilution_yoy_pct
+  observation: No calculable por falta de historia comparable de acciones.
+  threshold: above 10 percent
+- assessment: No validado; no sustituir EBIT por EBITDA.
+  metric: interest_coverage
+  observation: El paquete reporta 0 al 2026-09-30, con EBIT n/a.
+  threshold: below 2.0x
+- assessment: Umbral no evaluable.
+  metric: negative_fcf_runway_months
+  observation: 'No calculable: no se proporciona FCF mensual comparable ni un valor
+    de caja conciliado para ese cálculo.'
+  threshold: below 12 months
+- assessment: Umbral no evaluable.
+  metric: net_debt_ebitda
+  observation: No calculable porque EBITDA figura como n/a.
+  threshold: above 4.0x
+- assessment: Umbral no evaluable.
+  metric: share_count_cagr_3y_pct
+  observation: No calculable por falta de serie histórica de acciones.
+  threshold: above 5 percent
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 42
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T17:12:58.007189-03:00'
+  fuentes:
+    stockanalysis: 23.77
+    yfinance: 23.76532
+  mediana: 23.77
+  n_fuentes: 2
+  promedio: 23.77
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T17:12:58.007189-03:00'
+    observed_date: '2026-11-20'
+    target_price: 23.77
+    url: https://stockanalysis.com/stocks/mufg/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T17:12:58.007189-03:00'
+    observed_date: '2026-11-20'
+    target_price: 23.76532
+    url: https://finance.yahoo.com/quote/MUFG/
+  target_high: 26.53
+  target_low: 21.0
+tesis_inversion: La tesis a investigar es que el crecimiento y la rentabilidad de
+  un grupo bancario internacional puedan sostener una expansión del valor; la evidencia
+  suministrada no permite confirmar el mecanismo de crecimiento, la reinversión, los
+  retornos sobre capital ni la penetración de mercado. El paquete describe siete segmentos
+  y presencia geográfica amplia, pero no aporta datos de cuota, ventaja competitiva,
+  asignación de capital o erosión del moat.
+ticker: MUFG
+version: '3.0'

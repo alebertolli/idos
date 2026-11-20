@@ -1,0 +1,28 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia fundamental insuficiente para
+  validar una tesis de multibagger.'
+- 'Market error: No validado: el paquete no proporciona un método de valoración intrínseca
+  ni evidencia suficiente para identificar un error de valoración.'
+- 'Thesis: La tesis a investigar es que el crecimiento y la rentabilidad de un grupo
+  bancario internacional puedan sostener una expansión del valor; la evidencia suministrada
+  no permite confirmar el mecanismo de'
+generated_at: '2026-11-20T17:14:48.180922-03:00'
+id: ass-f4cbc1e9
+recommendation: REVIEW
+risks:
+- fuente: StockAnalysis, estados financieros; período TTM al 2026-09-30 y ejercicios
+    fiscales indicados.
+  riesgo: Los datos de FCF TTM y de los ejercicios fiscales tienen escalas/unidades
+    no conciliadas en el paquete; no se puede derivar conversión ni crecimiento comparable.
+- fuente: StockAnalysis, estadísticas al 2026-09-30; estados financieros con períodos
+    indicados.
+  riesgo: EBITDA figura como n/a y no hay historia de acciones disponible para calcular
+    deuda neta/EBITDA o dilución.
+- fuente: yfinance, historial de MUFG; período 2025-10-31 a 2026-10-30.
+  riesgo: La variación del precio no demuestra por sí misma mejoras de resultados,
+    retornos sobre capital o crecimiento sostenible.
+score: 42
+status: COMPLETED
+version: '3.0'
