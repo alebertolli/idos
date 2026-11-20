@@ -2,43 +2,47 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-UNH",
-      "ticker": "UNH",
+      "opp_id": "OPP-MB-USB",
+      "ticker": "USB",
+      "status": "completed",
+      "score": 56,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-MB-V",
+      "ticker": "V",
       "status": "completed",
       "score": 58,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-UNP",
-      "ticker": "UNP",
-      "status": "ddd_failed",
-      "score": null,
+      "opp_id": "OPP-MB-VIST",
+      "ticker": "VIST",
+      "status": "quality_failed",
+      "score": 56,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-URBN",
-      "ticker": "URBN",
-      "status": "completed",
-      "score": 78,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "UNP",
-      "opp_id": "OPP-MB-UNP",
-      "status": "ddd_failed",
-      "error": "HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=60)",
-      "errors": []
+      "ticker": "VIST",
+      "opp_id": "OPP-MB-VIST",
+      "status": "quality_failed",
+      "error": "Scenario validation status: invalid_pending_revision",
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
     }
   ],
   "status": "failed",
-  "deferred_count": 83,
+  "deferred_count": 81,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

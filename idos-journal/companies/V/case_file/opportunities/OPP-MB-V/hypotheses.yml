@@ -1,0 +1,165 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual del volumen de pagos en FY2027 es inferior
+      al 7%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento interanual del volumen transfronterizo en FY2027 es
+      inferior al 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Visa deja de publicar métricas comparables que permitan comprobar estos
+      umbrales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual del volumen de pagos en FY2027 es inferior al 7%.
+  - El crecimiento interanual del volumen transfronterizo en FY2027 es inferior al
+    8%.
+  - Visa deja de publicar métricas comparables que permitan comprobar estos umbrales.
+  horizon: medio
+  id: H1-OPP-MB-V
+  opportunity_id: OPP-MB-V
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-30'
+    expected: 7.0
+    met: null
+    metric: Crecimiento interanual del volumen de pagos y del volumen transfronterizo
+      en FY2027
+    prediction: En el ejercicio fiscal 2027, el volumen de pagos crecerá al menos
+      un 7% interanual y el volumen transfronterizo al menos un 8%, usando las métricas
+      y definiciones publicadas por Visa.
+    unit: '% mínimo en volumen de pagos; 8% mínimo en volumen transfronterizo'
+  priority: important
+  probability: 0.5
+  rationale: El modelo de Visa depende de procesar pagos y facilitar movimiento de
+    dinero; una expansión sostenida de la actividad de pagos puede respaldar el crecimiento
+    del negocio. La tesis aportada no incluye datos recientes de volúmenes, por lo
+    que esta hipótesis requiere comprobación directa en los informes de la empresa.
+  review_trigger: Dejar de creerla si Visa informa, en sus resultados de FY2027 o
+    en una actualización equivalente publicada antes del 2027-11-30, que cualquiera
+    de los dos umbrales no se alcanzó.
+  secondary_hypotheses: []
+  statement: Visa mantendrá crecimiento de actividad en su red durante el próximo
+    ejercicio fiscal, aunque el contexto disponible no permite validar la magnitud
+    ni la durabilidad de ese crecimiento.
+  status: ACTIVE
+  ticker: V
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de ingresos netos en FY2027 es inferior al
+      7%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento interanual del FCF en FY2027 es inferior al 7%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de FCF de FY2027 cae más de 2 puntos porcentuales respecto
+      de FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de ingresos netos en FY2027 es inferior al 7%.
+  - El crecimiento interanual del FCF en FY2027 es inferior al 7%.
+  - El margen de FCF de FY2027 cae más de 2 puntos porcentuales respecto de FY2026.
+  horizon: medio
+  id: H2-OPP-MB-V
+  opportunity_id: OPP-MB-V
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-30'
+    expected: 7.0
+    met: null
+    metric: Crecimiento anual de ingresos netos y FCF; variación del margen de FCF
+    prediction: En FY2027, los ingresos netos crecerán al menos un 7% interanual y
+      el flujo de caja libre crecerá al menos un 7%; además, el margen de FCF no disminuirá
+      más de 2 puntos porcentuales frente a FY2026.
+    unit: '% mínimo de crecimiento para ingresos y FCF; descenso máximo de 2 puntos
+      porcentuales en margen'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis supone que la expansión del negocio puede sostenerse mediante
+    crecimiento de ingresos y FCF. La conversión de ingresos a FCF permite comprobar
+    si ese crecimiento genera caja, pero el contexto no proporciona cifras recientes
+    para establecer una línea base.
+  review_trigger: Dejar de creerla cuando los resultados de FY2027 muestren que se
+    incumple cualquiera de los tres umbrales, o si Visa modifica de forma que impida
+    compararlos la presentación de ingresos o FCF.
+  secondary_hypotheses:
+  - H1-OPP-MB-V
+  statement: El crecimiento de ingresos de Visa en FY2027 se traducirá en crecimiento
+    de flujo de caja libre, sin deterioro material de la conversión de ingresos a
+    caja.
+  status: ACTIVE
+  ticker: V
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: No se cumple la condición de crecimiento inferior al 7% al 2027-02-28;
+      en ese caso, la predicción condicional no queda activada y no constituye evidencia
+      a favor de la hipótesis.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Si se activa la condición, el múltiplo precio/FCF al 2027-11-30 ha
+      caído menos de un 10% respecto del 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación no puede reproducirse con precios de cierre y FCF de
+      los últimos doce meses calculados con una metodología consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - No se cumple la condición de crecimiento inferior al 7% al 2027-02-28; en ese
+    caso, la predicción condicional no queda activada y no constituye evidencia a
+    favor de la hipótesis.
+  - Si se activa la condición, el múltiplo precio/FCF al 2027-11-30 ha caído menos
+    de un 10% respecto del 2026-11-20.
+  - La comparación no puede reproducirse con precios de cierre y FCF de los últimos
+    doce meses calculados con una metodología consistente.
+  horizon: medio
+  id: H3-OPP-MB-V
+  opportunity_id: OPP-MB-V
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-30'
+    expected: -10.0
+    met: null
+    metric: Variación del múltiplo precio/FCF de los últimos doce meses
+    prediction: Si los resultados publicados hasta el 2027-02-28 muestran crecimiento
+      interanual de ingresos o FCF inferior al 7%, el múltiplo precio/FCF de Visa,
+      calculado con precio de cierre y FCF de los últimos doce meses, caerá al menos
+      un 10% entre el cierre de 2026-11-20 y el 2027-11-30.
+    unit: '% o más de contracción, condicionada a crecimiento inferior al 7%'
+  priority: important
+  probability: 0.5
+  rationale: La tesis plantea que la continuidad del crecimiento podría estar incorporada
+    en el precio, pero no aporta precio, múltiplos ni expectativas de consenso para
+    cuantificarlo. Por tanto, esta hipótesis es condicional y debe contrastarse con
+    métricas de mercado observables y resultados publicados, no tratarse como una
+    valoración ya demostrada.
+  review_trigger: Abandonar la hipótesis si se activa la condición de menor crecimiento
+    y el múltiplo precio/FCF no cae al menos un 10% al 2027-11-30; reevaluarla antes
+    si Visa cambia materialmente su definición de FCF.
+  secondary_hypotheses:
+  - H2-OPP-MB-V
+  statement: Si el crecimiento de ingresos y FCF se mantiene por debajo de los umbrales
+    previstos, el mercado reducirá su valoración relativa de Visa durante los siguientes
+    doce meses.
+  status: ACTIVE
+  ticker: V
+  version: 1
