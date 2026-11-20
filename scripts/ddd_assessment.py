@@ -12,6 +12,8 @@ from idos.data.sqlite import SQLiteStore
 from idos.data.journal import JournalRepository
 from idos.timezone import AR_TZ
 
+MAX_LEGACY_AUTO_PROMOTIONS_PER_RUN = 5
+
 
 def main():
     # Configuration from environment (set by workflow)
@@ -52,6 +54,17 @@ def main():
             item for item in assessments
             if (item.get('ticker', '').upper(), item.get('opp_id')) not in processed_keys
         ]
+        # Migrate a small, bounded number of old human-pending Assessments to
+        # the current deterministic authorization policy on each pipeline run.
+        legacy_pending = [
+            item for item in assessments
+            if item.get('status') == 'decision_pending'
+            and (item.get('ticker', '').upper(), item.get('opp_id')) not in processed_keys
+            and _has_legacy_human_pending_proposal(item.get('ticker', ''), item.get('opp_id', ''), workspace)
+        ][:MAX_LEGACY_AUTO_PROMOTIONS_PER_RUN]
+        known_items = {(item.get('ticker', '').upper(), item.get('opp_id')) for item in items}
+        items.extend(item for item in legacy_pending
+                     if (item.get('ticker', '').upper(), item.get('opp_id')) not in known_items)
 
     if not items:
         print('[ASSESSMENT] No opportunities to assess')
@@ -89,7 +102,12 @@ def main():
             if str(item.get('ticker') or '').upper() == ticker and item.get('opp_id') == opp_id
         ), None)
         is_fresh_research = (ticker, opp_id) in processed_keys if not reassess_existing else False
-        if existing_index is not None and not reassess_existing and not is_fresh_research:
+        legacy_pending = (
+            existing_index is not None
+            and assessments[existing_index].get('status') == 'decision_pending'
+            and _has_legacy_human_pending_proposal(ticker, opp_id, workspace)
+        )
+        if existing_index is not None and not reassess_existing and not is_fresh_research and not legacy_pending:
             print('[ASSESSMENT] Skipping already assessed: {} {}'.format(ticker, opp_id))
             continue
 
@@ -144,6 +162,20 @@ def main():
         len(assessments), len(errors_list)))
 
     # The workflow's final ddd_digest.py step owns the combined digest.
+
+
+def _has_legacy_human_pending_proposal(ticker, opp_id, workspace):
+    if not ticker or not opp_id or any(part in str(opp_id) for part in ('/', '\\', '..')):
+        return False
+    proposal_path = (
+        Path(workspace) / 'idos-journal' / 'companies' / str(ticker).upper()
+        / 'case_file' / 'opportunities' / str(opp_id) / 'decision_proposal.yml'
+    )
+    try:
+        proposal = yaml.safe_load(proposal_path.read_text(encoding='utf-8')) or {}
+        return isinstance(proposal, dict) and proposal.get('status') == 'PENDING_HUMAN_REVIEW'
+    except (OSError, yaml.YAMLError):
+        return False
 
 
 if __name__ == '__main__':

@@ -107,6 +107,33 @@ class MonthlyReassessmentWorker(BaseWorker):
             o for o in sqlite.list_opportunities()
             if o.get("status") in ("ACCUMULATING", "FULL_POSITION", "MONITORING", "REDUCING")
         ]
+        # A public Buy List candidate has an active thesis before it becomes a
+        # private portfolio position. Monitor those opportunities on the same
+        # strategy cadence so invalidation can revoke the public entry too.
+        import yaml
+        buylist_path = sqlite.db_path.parent / "idos-journal" / "portfolio" / "buylist.yml"
+        if buylist_path.exists():
+            try:
+                buylist = yaml.safe_load(buylist_path.read_text(encoding="utf-8")) or {}
+                known = {(str(o.get("ticker", "")).upper(), str(o.get("id", ""))) for o in opportunities}
+                for entry in buylist.get("entries", []) or []:
+                    if not isinstance(entry, dict):
+                        continue
+                    ticker = str(entry.get("ticker", "")).upper().strip()
+                    opp_id = str(entry.get("opp_id", "")).strip()
+                    if not ticker or not opp_id or (ticker, opp_id) in known:
+                        continue
+                    opp = sqlite.get_opportunity(opp_id)
+                    if not opp:
+                        opp = JournalRepository(sqlite.db_path.parent / "idos-journal").load_opportunity(ticker, opp_id)
+                    if opp and opp.get("thesis_active") is not False:
+                        opp.setdefault("id", opp_id)
+                        opp.setdefault("ticker", ticker)
+                        opportunities.append(opp)
+                        known.add((ticker, opp_id))
+            except (OSError, yaml.YAMLError, TypeError, ValueError):
+                # Invalid Buy List data must not prevent portfolio thesis checks.
+                pass
         if tickers is not None:
             opportunities = [o for o in opportunities if str(o.get("ticker", "")).upper() in tickers]
         return opportunities
@@ -265,6 +292,15 @@ class MonthlyReassessmentWorker(BaseWorker):
         if opp.get("thesis_invalidated_reason"):
             journal_opp["thesis_invalidated_reason"] = opp["thesis_invalidated_reason"]
         journal.save_opportunity(opp.get("ticker", ""), journal_opp)
+        if not opp["thesis_active"]:
+            from idos.decision.automatic_buylist import revoke_buylist_on_thesis_invalidation
+            revoke_buylist_on_thesis_invalidation(
+                journal.base.parent,
+                opp.get("ticker", ""),
+                opp["id"],
+                invalidated_at=opp["updated_at"],
+                reason=str(result.get("reason") or "thesis_invalidated"),
+            )
         journal.log_event("thesis:reassessed_monthly", {
             "opp_id": opp["id"], "ticker": opp.get("ticker", ""),
             "thesis_active": opp["thesis_active"],

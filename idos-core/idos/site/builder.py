@@ -499,11 +499,16 @@ class SiteBuilder:
         br = br if isinstance(br, dict) else {}
         decision_author = str(br.get("author") or "").strip()
         decision_resolved_at = br.get("resolved_at")
+        automatic_resolution = (
+            br.get("status") in {"AUTO_APPROVED", "REVOKED_THESIS_INVALIDATED"}
+            and decision_author.startswith("idos:auto-")
+            and _parse_dt(decision_resolved_at) is not None
+        )
         decision_attributable = (
             bool(decision_author)
             and decision_author.lower() not in {"system", "board"}
             and _parse_dt(decision_resolved_at) is not None
-        )
+        ) or automatic_resolution
         ddd = _load_yaml(opp_dir / "ddd_report.yml")
         ddd = ddd if isinstance(ddd, dict) else {}
         hypotheses_doc = _load_yaml(opp_dir / "hypotheses.yml")
@@ -593,8 +598,8 @@ class SiteBuilder:
                 thesis_not_assessed_days = days
                 is_thesis_stale = thesis_review_status == "due"
 
-        # Agent research is published as a provisional decision package. The
-        # first human interaction is the single Decision Board review.
+        # Research and Assessment may be automatically authorized for Buy List
+        # when every configured gate passes; blocked candidates remain explicit.
         evidence_review = ddd.get("evidence_review") or {}
         if not isinstance(evidence_review, dict):
             evidence_review = {}
@@ -641,7 +646,9 @@ class SiteBuilder:
         ddd_summary = {
             "evidence_review": {
                 "status": (
-                    "manager_approved" if review_approved
+                    "automatic_authorization" if dp.get("status") == "AUTO_APPROVED"
+                    else "automatic_blocked" if dp.get("status") == "AUTO_BLOCKED"
+                    else "manager_approved" if review_approved
                     else "systematic_report" if current_systematic_report
                     else "systematic_report_refresh_required" if systematic_report
                     else "board_approved" if decision_attributable and br.get("status") == "approved"
@@ -667,10 +674,16 @@ class SiteBuilder:
             "scenario_analysis": None,
             "board_review": {
                 "status": (
-                    "pending_decision_board"
+                    "automatically_authorized" if dp.get("status") == "AUTO_APPROVED"
+                    else "automatically_blocked" if dp.get("status") == "AUTO_BLOCKED"
+                    else "pending_decision_board"
                 ),
                 "reason": (
-                    "Research y Assessment completaron las validaciones automáticas; la revisión humana ocurre una sola vez en Decision Board."
+                    dp.get("automatic_block_reason") or "Las reglas de autorización y la evidencia vigente habilitaron la admisión automática a Buy List; esto no crea posiciones ni órdenes."
+                    if dp.get("status") == "AUTO_APPROVED"
+                    else dp.get("automatic_block_reason") or "Una o más reglas automáticas no pasaron; la oportunidad no se incorpora a Buy List."
+                    if dp.get("status") == "AUTO_BLOCKED"
+                    else "Research y Assessment completaron las validaciones automáticas; no se requiere una revisión humana para la admisión a Buy List."
                 ),
                 "scenario_hash": scenario_fingerprint(scenario_analysis) if scenario_valid else None,
             },
@@ -851,6 +864,8 @@ class SiteBuilder:
                 "rules_failed": dp.get("rules_failed") or [],
                 "rules_details": dp.get("rules_details") or {},
                 "reasoning": dp.get("reasoning"),
+                "automatic_authorization": dp.get("automatic_authorization") or {},
+                "automatic_block_reason": dp.get("automatic_block_reason"),
             },
             "ddd": ddd_summary,
             "has_wyckoff": bool((opp_dir / "wyckoff").exists()),
@@ -1318,10 +1333,12 @@ class SiteBuilder:
 
         for o in opps:
             proposal_status = (o.get("proposal") or {}).get("status")
-            if proposal_status in {"PENDING_HUMAN_REVIEW", "BLOCKED"}:
-                blocked = proposal_status == "BLOCKED"
+            if proposal_status in {"PENDING_HUMAN_REVIEW", "BLOCKED", "AUTO_BLOCKED"}:
+                blocked = proposal_status in {"BLOCKED", "AUTO_BLOCKED"}
                 message = (
-                    "Propuesta bloqueada por reglas; revisión del gestor pendiente en Decision Board"
+                    "Propuesta bloqueada por las reglas automáticas; no se incorpora a Buy List"
+                    if proposal_status == "AUTO_BLOCKED" else
+                    "Propuesta bloqueada por reglas; no se incorpora a Buy List"
                     if blocked else
                     "Propuesta pendiente de revisión humana en Decision Board"
                 )
@@ -1887,20 +1904,20 @@ function showCase(oppId){
   html += `<div class="card"><div class="muted">${o.decision?.decision_type?'Decisión':'Propuesta'}</div><div style="font-size:18px">${esc(o.decision?.decision_type||o.proposal?.decision||'—')}</div><div class="muted">${esc(o.decision?.author||o.proposal?.status||'')} ${dt(o.decision?.resolved_at)}</div></div>`;
   html += '</div>';
   const reviewStatus=o.proposal?.status;
-  if(['PENDING_HUMAN_REVIEW','BLOCKED'].includes(reviewStatus) && o.proposal?.proposal_hash){
-    const isBlocked=reviewStatus==='BLOCKED';
+  if(['PENDING_HUMAN_REVIEW','BLOCKED','AUTO_BLOCKED'].includes(reviewStatus) && o.proposal?.proposal_hash){
+    const isBlocked=['BLOCKED','AUTO_BLOCKED'].includes(reviewStatus);
     const title=isBlocked?'Propuesta bloqueada por reglas':'Expediente listo para Decision Board';
     const guidance=isBlocked
-      ? 'Puedes registrar un rechazo con justificación en Decision Review. El workflow no permite aprobar propuestas con reglas fallidas; para revisarlas después se necesita nueva evaluación vigente.'
-      : 'En Decision Board, revisa tesis, evidencia, casos Bear/Bull (Base opcional), asimetría y reglas; registra aprobar o rechazar con una justificación. Aprobar sólo agrega a Buy List, nunca crea posiciones ni órdenes.';
-    html += `<div class="card"><b>${title}</b><p>Discovery, Research y Assessment fueron procesados automáticamente. ${guidance} <a href="https://github.com/alebertolli/idos/actions/workflows/decision-review.yml" target="_blank" rel="noopener noreferrer">Abrir Decision Review</a></p><details><summary>Hash de la propuesta completa</summary><code>${esc(o.proposal.proposal_hash)}</code></details></div>`;
+      ? `El motor no la incorpora a Buy List: ${esc(o.proposal?.automatic_block_reason||o.proposal?.reasoning||'hay gates o evidencia que no pasaron')}. Se requiere evidencia nueva para re-evaluar.`
+      : 'Discovery, Research y Assessment están listos para la evaluación automática de reglas; la admisión a Buy List no requiere revisión humana.';
+    html += `<div class="card"><b>${title}</b><p>${guidance}</p><details><summary>Hash de la propuesta completa</summary><code>${esc(o.proposal.proposal_hash)}</code></details></div>`;
   }
   const marketData=o.market_data||by?.market_data||{};
   const sourceNames=(marketData.sources_used||[]).map(esc).join(', ')||'No registrada';
   html += `<h2>Datos de mercado</h2><div class="card"><div>Precio al: ${dt(marketData.price_as_of||o.price_date)}</div><div>Fuentes del cache: ${marketData.source_count??'no disponible'} (${sourceNames})</div>${marketData.refreshed_at?`<div>Cache actualizado: ${dt(marketData.refreshed_at)}</div>`:''}${marketData.source_count===1?'<p class="neg">Fuente única; revisar la cobertura por campo antes de usar el dato.</p>':''}${marketData.conflict_count?`<p class="neg">Conflictos de datos: ${marketData.conflict_count}</p>`:''}<details><summary>Procedencia por campo</summary>${Object.keys(marketData.field_sources||{}).length?`<table><thead><tr><th>Campo</th><th>Fuentes</th></tr></thead><tbody>${Object.entries(marketData.field_sources).map(([field,sources])=>`<tr><td>${esc(field)}</td><td>${sources.map(esc).join(', ')}</td></tr>`).join('')}</tbody></table>`:'<p class="muted">El cache no registra procedencia por campo.</p>'}</details></div>`;
 
   // Tesis e informe
-  const dddReviewed = ['manager_approved','board_approved'].includes(d.evidence_review?.status);
+  const dddReviewed = ['manager_approved','board_approved','automatic_authorization'].includes(d.evidence_review?.status);
   const dddSystematic = d.evidence_review?.status==='systematic_report';
   if(d.evidence_review?.status==='systematic_report_refresh_required'){
     html += `<h2>Reporte sistemático</h2><div class="card"><b>Requiere actualización.</b><p class="muted">Regenerar Research con la política vigente antes de interpretar sus métricas. La señal y su fecha siguen disponibles en la estrategia.</p></div>`;
@@ -1945,7 +1962,7 @@ function showCase(oppId){
       return `<article class="scenario-mobile-card" aria-label="Caso ${esc(s.id)}"><h4>${esc(s.id)}</h4><dl class="scenario-mobile-facts"><div><dt>Precio objetivo</dt><dd>${target}</dd></div></dl>${s.rationale?`<p>${esc(s.rationale)}</p>`:''}${assumptions?`<b>Supuestos</b><ul>${assumptions}</ul>`:''}${falsifiers?`<b>Falsadores</b><ul>${falsifiers}</ul>`:''}<div class="scenario-sources"><b>Fuentes</b><br>${sources||'Sin fuente registrada'}</div></article>`;
     }).join('');
     const qualitative=sa.quantification_status==='not_calibrated';
-    html += `<h3>${qualitative?'Escenarios de señal Bear/Bull · sin rango calibrado':'Asimetría · casos Bear/Bull'}</h3><div class="card"><b>${qualitative?'Casos cualitativos validados · RULE-008 bloqueada':'Validación automática completa · pendiente Decision Board'}</b><p class="muted">Base es opcional. Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table class="scenario-desktop-table"><thead><tr><th>Caso</th><th>${qualitative?'Cuantificación':'Precio objetivo'}</th><th>Lectura, supuestos y falsadores</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><div class="scenario-mobile-list">${scenarioCards}</div><p class="muted">${qualitative?'Los casos describen deterioro y persistencia de la señal mensual con fuentes verificadas. Assessment mantiene RULE-008 bloqueada porque no existe un rango de precios calibrado; estos casos no generan retorno esperado ni autorizan una compra.':'Los agentes validan la estructura, fechas y correspondencia de fuentes con la evidencia de entrada. Assessment compara el upside del caso Bull con el downside del caso Bear sin ponderarlos por probabilidades. No se calcula retorno esperado. En Decision Board, el gestor revisa las fuentes y los supuestos junto con el expediente completo; ningún escenario autoriza por sí solo una compra.'}</p>${d.board_review?.scenario_hash?`<details><summary>Hash de escenarios incluido en la propuesta</summary><code>${esc(d.board_review.scenario_hash)}</code></details>`:''}</div>`;
+    html += `<h3>${qualitative?'Escenarios de señal Bear/Bull · sin rango calibrado':'Asimetría · casos Bear/Bull'}</h3><div class="card"><b>${qualitative?'Casos cualitativos validados · RULE-008 bloqueada':(o.proposal?.status==='AUTO_APPROVED'?'Validación automática completa · admitida en Buy List':'Validación automática completa · reglas restantes determinan la admisión')}</b><p class="muted">Base es opcional. Horizonte: ${dt(sa.horizon_date)} · Fecha de análisis: ${dt(sa.as_of_date)} · Moneda: ${esc(sa.currency||'—')}</p><table class="scenario-desktop-table"><thead><tr><th>Caso</th><th>${qualitative?'Cuantificación':'Precio objetivo'}</th><th>Lectura, supuestos y falsadores</th><th>Fuentes</th></tr></thead><tbody>${scenarioRows}</tbody></table><div class="scenario-mobile-list">${scenarioCards}</div><p class="muted">${qualitative?'Los casos describen deterioro y persistencia de la señal mensual con fuentes verificadas. Assessment mantiene RULE-008 bloqueada porque no existe un rango de precios calibrado; estos casos no generan retorno esperado ni autorizan una compra.':'Los validadores comprueban estructura, fechas y correspondencia de fuentes con la evidencia de entrada. Assessment compara el upside del caso Bull con el downside del caso Bear sin ponderarlos por probabilidades. No se calcula retorno esperado. La admisión a Buy List depende de que también pasen todas las reglas de autorización configuradas; no crea posiciones ni órdenes.'}</p>${d.board_review?.scenario_hash?`<details><summary>Hash de escenarios incluido en la propuesta</summary><code>${esc(d.board_review.scenario_hash)}</code></details>`:''}</div>`;
   } else if(d.scenario_validation?.errors?.length){
     html += `<h3>Casos Bear / Bull (Base opcional)</h3><div class="card"><b class="neg">Propuesta incompleta o inválida; RULE-008 permanece bloqueada.</b><ul>${d.scenario_validation.errors.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`;
   } else if(d.scenario_validation?.status==='not_applicable'){
@@ -2015,7 +2032,7 @@ function showCase(oppId){
   const actionFails = buylistEntryFails(actRow);
   const actionResolved = actionFails.length===0;
   html += `<h2>Indicador de acción</h2>`;
-  html += (o.proposal?.status==='BLOCKED'
+  html += (['BLOCKED','AUTO_BLOCKED'].includes(o.proposal?.status)
     ? `<div class="card"><b>Decisión bloqueada.</b> ${esc(o.proposal?.reason||'Evidencia incompleta o no vigente.')} La señal no autoriza una entrada.</div>`
     : o.proposal?.status==='PENDING_HUMAN_REVIEW'
     ? `<div class="card"><b>Decisión pendiente de revisión humana.</b> La señal no autoriza una entrada.</div>`

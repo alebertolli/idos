@@ -428,7 +428,7 @@ def test_multibaggers_uses_shared_operable_universe_and_profile_asset_filter(tmp
     assert not (tmp_path / "idos.db").exists()
 
 
-def test_manual_review_stops_assessment_before_buy_list(tmp_path, monkeypatch):
+def test_candidate_missing_configured_rules_stays_out_of_buy_list(tmp_path, monkeypatch):
     from types import SimpleNamespace
     import yaml
     from idos.data.sqlite import SQLiteStore
@@ -471,13 +471,13 @@ def test_manual_review_stops_assessment_before_buy_list(tmp_path, monkeypatch):
 
     result = assessment.run_full_pipeline("OPP-MB-TEST", "TEST", tmp_path)
 
-    assert result["status"] == "decision_pending"
+    assert result["status"] == "completed"
     assert result["recommendation"] == "WAIT"
     assert result["board_approved"] is False
     assert not (tmp_path / "idos-journal" / "portfolio" / "buylist.yml").exists()
     proposal = yaml.safe_load((journal / "decision_proposal.yml").read_text(encoding="utf-8"))
     resolution = yaml.safe_load((journal / "board_resolution.yml").read_text(encoding="utf-8"))
-    assert proposal["status"] == "PENDING_HUMAN_REVIEW"
+    assert proposal["status"] == "AUTO_BLOCKED"
     assert resolution["approved"] is False
 
 def test_engine_reads_metric_observations_from_merged_cache_payload():
