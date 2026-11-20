@@ -1,0 +1,29 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Candidato a investigación; tesis de crecimiento no validada'
+- 'Market error: La evidencia disponible no permite concluir que exista un error de
+  valoración; el rango de analistas es una referencia observada, no una valoración
+  intrínseca.'
+- 'Thesis: La tesis a investigar es que Mizuho podría sostener crecimiento mediante
+  sus actividades bancarias, de banca fiduciaria y de valores, apoyado por el aumento
+  histórico reportado de ingresos y beneficio'
+generated_at: '2026-11-20T16:48:57.232303-03:00'
+id: ass-69a19c95
+recommendation: REVIEW
+risks:
+- analisis: StockAnalysis reportó FCF negativo en FY 2025 y FY 2026; no se dispone
+    aquí de una explicación de sus componentes ni de comparabilidad con el dato TTM.
+  riesgo: FCF negativo
+- analisis: No se puede validar deuda neta/EBITDA, dilución ni cobertura de intereses
+    con los campos y datos disponibles.
+  riesgo: Métricas de capital incompletas
+- analisis: El cambio de precio a 12 meses es evidencia histórica de mercado y no
+    demuestra crecimiento futuro de beneficios.
+  riesgo: Extrapolación del momentum
+- analisis: Los valores reportados de ingresos TTM en estadísticas y en historial
+    financiero difieren; no se reconcilian con la evidencia proporcionada.
+  riesgo: Calidad de datos financieros
+score: 63
+status: COMPLETED
+version: '3.0'

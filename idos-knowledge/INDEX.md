@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 99 companies tracked
+Total: 102 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -49,6 +49,7 @@ Total: 99 companies tracked
 - 📄 [[DEO|Diageo plc]]
 - 📄 [[FMX|Fomento Económico Mexicano, S.A.B. de C.V.]]
 - 📄 [[KO|The Coca-Cola Company]]
+- ⏳ [[MDLZ|Mondelez International, Inc.]]
 
 ## Energy
 - 📄 [[BKR|Baker Hughes Company]]
@@ -75,6 +76,7 @@ Total: 99 companies tracked
 - 📄 [[KB|KB Financial Group Inc.]]
 - 📄 [[LYG|Lloyds Banking Group plc]]
 - 📄 [[MA|Mastercard Incorporated]]
+- 📄 [[MFG|Mizuho Financial Group, Inc.]]
 
 ## Healthcare
 - 📄 [[ABBV|AbbVie Inc.]]
@@ -90,6 +92,7 @@ Total: 99 companies tracked
 - 📄 [[GSK|GSK plc]]
 - 📄 [[JNJ|Johnson & Johnson]]
 - 📄 [[LLY|Eli Lilly and Company]]
+- 📄 [[MDT|Medtronic plc]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]

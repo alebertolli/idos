@@ -2,39 +2,6 @@
   "schema_version": 1,
   "pending": [
     {
-      "opp_id": "OPP-MB-MDLZ",
-      "ticker": "MDLZ",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
-      "opp_id": "OPP-MB-MDT",
-      "ticker": "MDT",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
-      "opp_id": "OPP-MB-MFG",
-      "ticker": "MFG",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
       "opp_id": "OPP-MB-MMM",
       "ticker": "MMM",
       "score": 0,
@@ -1274,6 +1241,32 @@
     {
       "opp_id": "OPP-MB-LYG",
       "ticker": "LYG",
+      "score": 0,
+      "current_status": "SCREENED",
+      "reason": "new entry: SCREENED (score=0)",
+      "force_reprocess": true,
+      "trigger_type": null,
+      "event_evidence": null,
+      "next_attempt_date": "2026-11-21",
+      "attempt_count": 1,
+      "last_error": "Scenario validation status: invalid_pending_revision"
+    },
+    {
+      "opp_id": "OPP-MB-MDLZ",
+      "ticker": "MDLZ",
+      "score": 0,
+      "current_status": "SCREENED",
+      "reason": "new entry: SCREENED (score=0)",
+      "force_reprocess": true,
+      "trigger_type": null,
+      "event_evidence": null,
+      "next_attempt_date": "2026-11-21",
+      "attempt_count": 1,
+      "last_error": "Failed to parse JSON at line 151, column 28: Expecting value"
+    },
+    {
+      "opp_id": "OPP-MB-MFG",
+      "ticker": "MFG",
       "score": 0,
       "current_status": "SCREENED",
       "reason": "new entry: SCREENED (score=0)",
