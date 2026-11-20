@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 140 companies tracked
+Total: 143 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -50,6 +50,7 @@ Total: 140 companies tracked
 - 📄 [[RACE|Ferrari N.V.]]
 - 📄 [[ROST|Ross Stores, Inc.]]
 - 📄 [[SBUX|Starbucks Corporation]]
+- 📄 [[TJX|The TJX Companies, Inc.]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
@@ -62,6 +63,7 @@ Total: 140 companies tracked
 - 📄 [[MO|Altria Group, Inc.]]
 - 📄 [[PM|Philip Morris International Inc.]]
 - 📄 [[SYY|Sysco Corporation]]
+- 📄 [[TGT|Target Corporation]]
 
 ## Energy
 - 📄 [[BKR|Baker Hughes Company]]
@@ -116,6 +118,7 @@ Total: 140 companies tracked
 - 📄 [[MDT|Medtronic plc]]
 - 📄 [[MRK|Merck & Co., Inc.]]
 - 📄 [[NVS|Novartis AG]]
+- 📄 [[TMO|Thermo Fisher Scientific Inc.]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]

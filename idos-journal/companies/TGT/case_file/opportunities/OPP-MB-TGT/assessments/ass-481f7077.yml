@@ -1,0 +1,32 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No se demuestra un error de valoración: el consenso observado supera
+  la cotización, pero el rango de analistas no es una valoración intrínseca y faltan
+  datos para validar expectativas fundamentales.'
+- 'Thesis: La tesis a investigar es si la escala y el modelo de venta minorista general
+  de Target pueden sostener una recuperación de márgenes y generación de caja suficiente
+  para respaldar crecimiento rentable.'
+generated_at: '2026-11-20T19:45:19.614372-03:00'
+id: ass-481f7077
+recommendation: REVIEW
+risks:
+- observacion: El historial suministrado contiene filas duplicadas/inconsistentes
+    y no ofrece una fila fechada de ingresos FY 2023.
+  riesgo: La evidencia de crecimiento de ingresos es insuficiente para calcular CAGR
+    a tres años con períodos válidos.
+- observacion: El FCF TTM y el FCF FY 2026 corresponden a períodos distintos; no se
+    debe tratar su diferencia como crecimiento interanual comparable.
+  riesgo: La mejora de FCF no queda establecida como tendencia comparable.
+- observacion: Falta historia de acciones y las unidades/escala de deuda neta y EBITDA
+    no son compatibles en la evidencia entregada.
+  riesgo: No se puede validar la evolución de acciones ni el apalancamiento neto sobre
+    EBITDA.
+- observacion: No permite evaluar cuantitativamente esos componentes ni atribuirles
+    una ventaja sostenible.
+  riesgo: El paquete no documenta penetración de mercado, retornos sobre capital,
+    moat, ni decisiones de asignación de capital.
+score: 58
+status: COMPLETED
+version: '3.0'

@@ -1,0 +1,31 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida'
+- 'Market error: No se puede validar un error de valoración con los datos disponibles.
+  El rango de analistas es una referencia observada, no una valoración fundamental
+  defendible.'
+- 'Thesis: Thermo Fisher ofrece exposición diversificada a soluciones de ciencias
+  de la vida, instrumentos analíticos, diagnóstico especializado y productos y servicios
+  para laboratorios y biofarmacia. La eviden'
+generated_at: '2026-11-20T19:49:27.546010-03:00'
+id: ass-f5b8dc3b
+recommendation: REVIEW
+risks:
+- evidencia: StockAnalysis, financials; ingresos FY 2022 y FY 2025, períodos terminados
+    2022-12-31 y 2025-12-31.
+  riesgo: 'Crecimiento de ingresos débil en la ventana anual comparable disponible:
+    FY 2025 quedó por debajo de FY 2022.'
+- evidencia: StockAnalysis, financials y statistics; datos al 2026-09-26.
+  riesgo: Deuda neta reportada de USD 35.309 mil millones al 2026-09-26 y apalancamiento
+    calculado de aproximadamente 2.91x EBITDA TTM.
+- evidencia: El paquete aporta una observación de acciones en circulación, no una
+    serie histórica.
+  riesgo: No hay historial de acciones diluidas o en circulación que permita evaluar
+    dilución o crecimiento del número de acciones.
+- evidencia: StockAnalysis, statistics; TTM terminado 2026-09-26.
+  riesgo: La cobertura de intereses reportada como cero no permite una lectura fiable
+    sin aclarar metodología o disponibilidad del dato.
+score: 62
+status: COMPLETED
+version: '3.0'

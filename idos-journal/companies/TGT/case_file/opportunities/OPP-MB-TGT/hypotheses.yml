@@ -1,0 +1,198 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas comparables del ejercicio fiscal que termine en 2028 son
+      inferiores al 2%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Las ventas comparables anuales son negativas, aunque el crecimiento
+      nominal de ingresos sea positivo por aperturas u otros cambios de perímetro.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas comparables del ejercicio fiscal que termine en 2028 son inferiores
+    al 2%.
+  - Las ventas comparables anuales son negativas, aunque el crecimiento nominal de
+    ingresos sea positivo por aperturas u otros cambios de perímetro.
+  horizon: medio
+  id: H1-OPP-MB-TGT
+  opportunity_id: OPP-MB-TGT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-15'
+    expected: 2.0
+    met: null
+    metric: crecimiento de ventas comparables del ejercicio fiscal
+    prediction: En el ejercicio fiscal que termine en 2028, las ventas comparables
+      crecerán al menos un 2% frente al ejercicio anterior.
+    unit: '% interanual o superior'
+  priority: important
+  probability: 0.5
+  rationale: Una oferta amplia de categorías y la integración de tiendas con canales
+    digitales podrían favorecer la retención de clientes y el crecimiento de ventas
+    comparables. Sin embargo, el contexto disponible no aporta datos operativos que
+    demuestren que estas ventajas estén produciendo crecimiento estructural; por tanto,
+    la hipótesis requiere validación con resultados publicados.
+  review_trigger: Dejar de creerla si Target informa ventas comparables inferiores
+    al 2% para el ejercicio fiscal que termine en 2028, o si antes de esa fecha publica
+    dos trimestres consecutivos con ventas comparables negativas.
+  secondary_hypotheses: []
+  statement: Target recuperará crecimiento comparable positivo durante el ejercicio
+    fiscal que termine en 2028, señal de que su modelo de venta minorista general
+    puede volver a atraer gasto sin depender únicamente de una mejora contable de
+    márgenes.
+  status: ACTIVE
+  ticker: TGT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre del ejercicio fiscal que termine en 2028 es
+      inferior a 2.500 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF es positivo solo por una reducción de inversiones de capital
+      que venga acompañada de una caída de la inversión total respecto del ejercicio
+      anterior y no de una mejora del flujo de caja operativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre del ejercicio fiscal que termine en 2028 es inferior a
+    2.500 millones de dólares.
+  - El FCF es positivo solo por una reducción de inversiones de capital que venga
+    acompañada de una caída de la inversión total respecto del ejercicio anterior
+    y no de una mejora del flujo de caja operativo.
+  horizon: medio
+  id: H2-OPP-MB-TGT
+  opportunity_id: OPP-MB-TGT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-15'
+    expected: 2500.0
+    met: null
+    metric: flujo de caja libre anual
+    prediction: En el ejercicio fiscal que termine en 2028, el flujo de caja libre,
+      definido como flujo de caja operativo menos inversiones de capital, será de
+      al menos 2.500 millones de dólares.
+    unit: millones de dólares
+  priority: critical
+  probability: 0.5
+  rationale: El paquete indica que el FCF y el margen bruto TTM son positivos, pero
+    no ofrece una trayectoria histórica suficiente ni el detalle de inversiones para
+    juzgar su sostenibilidad. La hipótesis es que la combinación de rentabilidad operativa
+    y control de inversión permitirá convertir beneficios en caja; debe verificarse
+    directamente con el flujo de caja operativo y el gasto de capital publicados.
+  review_trigger: Dejar de creerla si el informe anual del ejercicio fiscal que termine
+    en 2028 muestra FCF inferior a 2.500 millones de dólares, o si Target reduce su
+    previsión anual de flujo de caja operativo por debajo de las inversiones de capital
+    previstas.
+  secondary_hypotheses:
+  - H1-OPP-MB-TGT
+  statement: La recuperación de rentabilidad de Target se traducirá en una generación
+    de caja libre anual sustancial, no limitada a una mejora transitoria del margen
+    bruto TTM.
+  status: ACTIVE
+  ticker: TGT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen operativo anual del ejercicio fiscal que termine en 2028
+      es inferior al 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto mejora, pero el margen operativo no aumenta frente
+      al ejercicio fiscal anterior debido a un crecimiento proporcionalmente mayor
+      de los gastos operativos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen operativo anual del ejercicio fiscal que termine en 2028 es inferior
+    al 5%.
+  - El margen bruto mejora, pero el margen operativo no aumenta frente al ejercicio
+    fiscal anterior debido a un crecimiento proporcionalmente mayor de los gastos
+    operativos.
+  horizon: medio
+  id: H3-OPP-MB-TGT
+  opportunity_id: OPP-MB-TGT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-15'
+    expected: 5.0
+    met: null
+    metric: margen operativo anual
+    prediction: El margen operativo del ejercicio fiscal que termine en 2028 será
+      de al menos el 5%, calculado como beneficio operativo dividido por ingresos.
+    unit: '% de ingresos o superior'
+  priority: critical
+  probability: 0.5
+  rationale: 'Un margen bruto positivo no demuestra por sí solo una recuperación del
+    beneficio operativo: gastos de venta, administración, distribución e inversión
+    pueden absorber la mejora. La hipótesis exige que la recuperación se traslade
+    al resultado operativo publicado, una medida más completa de la economía del negocio.'
+  review_trigger: Dejar de creerla si Target informa para cualquier ejercicio completo
+    anterior o igual al que termine en 2028 un margen operativo inferior al 4%, o
+    si la guía anual publicada sitúa el margen por debajo del 5%.
+  secondary_hypotheses:
+  - H1-OPP-MB-TGT
+  statement: La mejora de márgenes de Target será suficientemente duradera como para
+    elevar el margen operativo anual, y no consistirá únicamente en una mejora del
+    margen bruto TTM.
+  status: ACTIVE
+  ticker: TGT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de TGT queda por debajo de la de XLP durante
+      el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de TGT supera a XLP, pero la diferencia es inferior
+      a 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de TGT queda por debajo de la de XLP durante el periodo.
+  - La rentabilidad total de TGT supera a XLP, pero la diferencia es inferior a 10
+    puntos porcentuales.
+  horizon: medio
+  id: H4-OPP-MB-TGT
+  opportunity_id: OPP-MB-TGT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: rentabilidad total relativa de TGT frente a XLP
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de TGT,
+      incluidos dividendos, superará en al menos 10 puntos porcentuales la rentabilidad
+      total del ETF State Street Consumer Staples Select Sector SPDR Fund (XLP).
+    unit: puntos porcentuales de exceso de rentabilidad en 12 meses
+  priority: informational
+  probability: 0.5
+  rationale: 'Una recuperación verificable de ventas comparables, margen operativo
+    y FCF podría reducir la incertidumbre sobre la sostenibilidad de los beneficios
+    y respaldar una revaloración relativa. Esta hipótesis es condicional: una cotización
+    inferior al sector pese a mejoras operativas indicaría que la recuperación ya
+    estaba descontada o que persisten otros riesgos.'
+  review_trigger: Dejar de creerla si al 2027-11-20 la rentabilidad total de TGT no
+    supera la de XLP en al menos 10 puntos porcentuales, o si antes de esa fecha Target
+    reduce su guía anual de margen operativo y FCF.
+  secondary_hypotheses:
+  - H2-OPP-MB-TGT
+  - H3-OPP-MB-TGT
+  statement: Si la recuperación operativa y financiera se confirma, Target obtendrá
+    una rentabilidad bursátil superior a la del sector durante los próximos doce meses.
+  status: ACTIVE
+  ticker: TGT
+  version: 1
