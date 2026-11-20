@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 78 companies tracked
+Total: 81 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -20,6 +20,7 @@ Total: 78 companies tracked
 - 📄 [[ECL|Ecolab Inc.]]
 - 📄 [[FCX|Freeport-McMoRan Inc.]]
 - 📄 [[GGB|Gerdau S.A.]]
+- 📄 [[HL|Hecla Mining Company]]
 
 ## Communication Services
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
@@ -51,6 +52,7 @@ Total: 78 companies tracked
 - 📄 [[CVX|Chevron Corporation]]
 - 📄 [[E|Eni S.p.A.]]
 - 📄 [[EQNR|Equinor ASA]]
+- 📄 [[HAL|Halliburton Company]]
 - 📄 [[TS|Tenaris S.A.]]
 
 ## Financial Services
@@ -72,6 +74,7 @@ Total: 78 companies tracked
 - 📄 [[CVS|CVS Health Corporation]]
 - 📄 [[DHR|Danaher Corporation]]
 - 📄 [[GILD|Gilead Sciences, Inc.]]
+- 📄 [[GSK|GSK plc]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]

@@ -1,0 +1,144 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos comparables del segmento en el cuarto trimestre de 2027
+      crecen menos de un 5% frente al cuarto trimestre de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica información suficiente para calcular la variación
+      comparable del segmento antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos comparables del segmento en el cuarto trimestre de 2027 crecen menos
+    de un 5% frente al cuarto trimestre de 2026.
+  - La empresa no publica información suficiente para calcular la variación comparable
+    del segmento antes de la fecha objetivo.
+  horizon: medio
+  id: H1-OPP-MB-HAL
+  opportunity_id: OPP-MB-HAL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual comparable de ingresos de Completion and Production
+      en el cuarto trimestre de 2027
+    prediction: En el cuarto trimestre de 2027, los ingresos reportados del segmento
+      Completion and Production serán al menos un 5% superiores a los del cuarto trimestre
+      de 2026, en términos comparables y excluyendo efectos materiales de adquisiciones,
+      desinversiones o divisas.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis plantea que los servicios de terminación y producción pueden
+    sostener o recuperar la rentabilidad. El contexto disponible no aporta datos por
+    segmento ni previsiones operativas que confirmen esa recuperación, por lo que
+    esta hipótesis debe comprobarse con resultados reportados y comparables.
+  review_trigger: Dejar de creerla si el informe del cuarto trimestre de 2027 muestra
+    crecimiento comparable inferior al 5%, o si antes de esa fecha dos informes trimestrales
+    consecutivos reportan una caída interanual comparable del segmento.
+  secondary_hypotheses: []
+  statement: Halliburton recuperará crecimiento en su negocio de terminación y producción,
+    con una mejora que no dependa únicamente de cambios de perímetro o tipo de cambio.
+  status: ACTIVE
+  ticker: HAL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado reportado para 2027 es inferior a
+      1.000 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no divulga datos suficientes para calcular el flujo de caja
+      libre con esa definición antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado reportado para 2027 es inferior a 1.000 millones
+    de dólares.
+  - La empresa no divulga datos suficientes para calcular el flujo de caja libre con
+    esa definición antes de la fecha objetivo.
+  horizon: medio
+  id: H2-OPP-MB-HAL
+  opportunity_id: OPP-MB-HAL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 1000.0
+    met: null
+    metric: Flujo de caja libre acumulado del ejercicio 2027
+    prediction: La compañía generará al menos 1.000 millones de dólares de flujo de
+      caja libre acumulado durante el ejercicio 2027, calculado como flujo de caja
+      operativo menos inversiones de capital.
+    unit: millones de dólares
+  priority: critical
+  probability: 0.5
+  rationale: La tesis depende de que la rentabilidad se traduzca en caja, pero la
+    evidencia disponible solo confirma datos financieros agregados y no permite evaluar
+    conversión de beneficios, capital circulante ni necesidades de inversión. Por
+    ello, la generación de caja debe verificarse directamente en los estados financieros.
+  review_trigger: Dejar de creerla cuando la publicación de resultados anuales de
+    2027 muestre flujo de caja libre inferior a 1.000 millones de dólares, o si dos
+    trimestres consecutivos de 2027 registran flujo de caja libre negativo y la empresa
+    no mejora su previsión anual.
+  secondary_hypotheses:
+  - H1-OPP-MB-HAL
+  statement: Halliburton convertirá la actividad operativa en generación de caja libre
+    positiva y material durante 2027.
+  status: ACTIVE
+  ticker: HAL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de HAL menos el rendimiento total de XLE entre
+      las fechas indicadas es inferior a 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: HAL obtiene un rendimiento total inferior al de XLE durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de HAL menos el rendimiento total de XLE entre las fechas
+    indicadas es inferior a 10 puntos porcentuales.
+  - HAL obtiene un rendimiento total inferior al de XLE durante el periodo.
+  horizon: medio
+  id: H3-OPP-MB-HAL
+  opportunity_id: OPP-MB-HAL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Exceso de rendimiento total de HAL frente a XLE en doce meses
+    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2027-11-20, el
+      rendimiento total de HAL, incluidos dividendos, superará al rendimiento total
+      de XLE en al menos 10 puntos porcentuales.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: El contexto señala momentum positivo en el precio y una divergencia entre
+    cotización y consenso, pero no aporta expectativas detalladas ni evidencia suficiente
+    para atribuirla a una mejora estructural. La hipótesis es que el mercado continuará
+    premiando a HAL frente al sector si la recuperación de negocio y caja se materializa.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la diferencia de rendimiento
+    total frente a XLE es inferior a 10 puntos porcentuales; también revisarla antes
+    si los resultados publicados contradicen simultáneamente las hipótesis H1 y H2.
+  secondary_hypotheses:
+  - H1-OPP-MB-HAL
+  - H2-OPP-MB-HAL
+  statement: La cotización de HAL superará el rendimiento total del ETF Energy Select
+    Sector SPDR (XLE) durante los próximos doce meses, si las expectativas de recuperación
+    operativa se traducen en resultados observables.
+  status: ACTIVE
+  ticker: HAL
+  version: 1

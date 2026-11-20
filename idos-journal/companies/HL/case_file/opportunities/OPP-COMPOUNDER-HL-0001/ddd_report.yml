@@ -1,0 +1,417 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La exposición a metales hace que la oportunidad se describa mejor como cíclica,
+    aunque falta información para cuantificar sensibilidad a precios.
+  - La diferencia entre cotización y objetivos de analistas no prueba infravaloración
+    ni constituye una valoración independiente.
+  - La generación de caja reportada merece investigación, pero la unidad provider_financial_currency
+    limita su interpretación sin aclaración adicional.
+  - Las calificaciones de negocio, gestión y riesgos son provisionales debido a la
+    falta de evidencia operativa y de balance.
+  - La observación de fcf reporta 483990000, periodo TTM terminado el 2026-06-30,
+    fuente seleccionada stockanalysis.com, unidad provider_financial_currency; observado
+    el 2026-10-30.
+  - La observación de operating_margin_pct reporta 44.27 puntos porcentuales, con
+    periodo no especificado por el proveedor y fecha de periodo 2026-06-30; fuente
+    seleccionada yfinance; observado el 2026-11-01.
+  - La observación de revenue_growth_pct reporta 52.4 puntos porcentuales, con periodo
+    no especificado por el proveedor y fecha de periodo 2026-06-30; fuente seleccionada
+    yfinance; observado el 2026-11-01.
+  - La cotización suministrada es 13.541899681091309 USD, con fecha de corte 2026-10-30
+    y fuente yfinance.
+  - El consenso suministrado tiene media y mediana de 21.38 USD, rango de 15 a 32
+    USD y fecha de observación 2026-11-20; las fuentes consignadas son stockanalysis
+    y yfinance.
+  preguntas_abiertas:
+  - ¿Cuáles son los precios realizados, producción, costos unitarios, recuperación
+    y desempeño por mina en los periodos recientes?
+  - ¿Cuál es el efectivo disponible, la deuda bruta y neta, sus vencimientos, covenants
+    y costo de financiación?
+  - ¿Qué unidad y moneda corresponden exactamente al FCF de 483990000 y cómo se concilia
+    con estados financieros primarios?
+  - ¿Qué supuestos de precios de metales, producción, costos y riesgo usan los analistas
+    para sus objetivos?
+  - ¿Cuál es la vida útil de reservas y recursos, el capital de mantenimiento y el
+    gasto de desarrollo requerido?
+  - ¿Qué incidentes ambientales, de seguridad, regulatorios o comunitarios materiales
+    están pendientes o han ocurrido recientemente?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: Deep Value es una alternativa cercana, pero no hay datos
+    suficientes de activos, múltiplos o valor de liquidación que la respalden. Compounder
+    y compounder_castigado se descartan porque no hay evidencia aquí de ventajas competitivas
+    duraderas ni de desempeño compuesto de largo plazo. Turnaround y special_situation
+    no se justifican sin evidencia de deterioro y plan de recuperación, o de un evento
+    corporativo específico. Distressed y value_trap requieren evidencia de solvencia
+    comprometida o destrucción estructural de valor que no está disponible. Quality_at_fair_price
+    no puede sostenerse sin evaluación verificable de calidad y valoración. Hype no
+    está respaldada por evidencia de crecimiento especulativo.
+  justificacion: 'La oportunidad se clasifica principalmente como cíclica: la exposición
+    a metales preciosos y básicos hace que los resultados y la valoración sean sensibles
+    a los precios de los metales, aunque la entrada no aporta datos suficientes para
+    cuantificar esa sensibilidad. La cotización observada es 13,54 USD al 2026-10-30;
+    el consenso de objetivos observado el 2026-11-20 tiene media y mediana de 21,38
+    USD, con un rango de 15 a 32 USD. Esa diferencia no demuestra por sí sola infravaloración:
+    los objetivos no son una valoración independiente y faltan datos operativos y
+    múltiplos comparables.'
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El perfil aportado describe actividad minera de plata, oro, plomo y zinc
+    y venta de concentrados, material carbonoso y doré. Es contexto del usuario, no
+    una verificación independiente en la evidencia estructurada. La actividad minera
+    puede ofrecer exposición a activos y metales, pero la entrada no proporciona costos
+    por mina, reservas, vida útil, recuperación, producción, permisos ni posición
+    competitiva. No es posible confirmar un moat duradero ni la resiliencia del modelo.
+  rating: regular
+dominio_catalizadores:
+- descripcion: Publicación de resultados operativos y financieros futuros que permita
+    verificar producción, costos, generación de caja y posición de balance. No se
+    dispone de evidencia para anticipar su dirección.
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 60
+- descripcion: Mejora sostenida de precios realizados o del entorno de metales, que
+    podría elevar ingresos y expectativas; depende de variables externas no documentadas
+    en esta entrada.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: La minería suele estar expuesta a riesgos ambientales, de seguridad, laborales,
+    regulatorios, de agua, energía, transporte y tratamiento de concentrados. En esta
+    entrada no hay datos específicos sobre incidentes, permisos, emisiones, relaciones
+    comunitarias, proveedores o concentraciones logísticas de Hecla; por tanto, son
+    áreas de diligencia pendiente, no eventos confirmados.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La única observación directa de flujo de caja libre es 483.990.000, periodo
+    TTM terminado el 2026-06-30, fuente stockanalysis.com, con unidad indicada como
+    provider_financial_currency. No se califica como ajustado y no se infiere aquí
+    una moneda específica a partir de la etiqueta de unidad. La entrada no aporta
+    observaciones utilizables de efectivo, deuda, vencimientos, cobertura de intereses
+    o liquidez; por ello no puede emitirse una conclusión sólida sobre solvencia ni
+    perfil de deuda.
+  rating: adecuada
+dominio_growth:
+  analisis: La observación de crecimiento de ingresos es 52,4 puntos porcentuales,
+    con periodo no especificado por el proveedor y fecha de periodo informada como
+    2026-06-30; fuente yfinance. Al no estar especificado el periodo, no debe interpretarse
+    como crecimiento anual ni extrapolarse. No hay información verificable sobre proyectos,
+    expansión, reservas o crecimiento orgánico futuro.
+  rating: moderado
+dominio_management:
+  analisis: No se proporcionan datos verificables sobre asignación de capital, remuneración,
+    propiedad accionaria, historial de adquisiciones, cumplimiento de objetivos o
+    disciplina de costos. La calificación refleja falta de evidencia suficiente, no
+    una conclusión de mala gestión.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Caída de precios de plata, oro o metales básicos, con posible presión sobre
+    ingresos, márgenes y valoración.
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgo de producción, costos, seguridad o ejecución en activos mineros;
+    no hay datos por mina para medir exposición.
+- impacto: alto
+  probabilidad: media
+  riesgo: Balance, vencimientos de deuda y necesidades de capital no evaluables por
+    falta de observaciones específicas.
+- impacto: medio
+  probabilidad: media
+  riesgo: Cambios regulatorios, permisos, obligaciones ambientales o conflictos comunitarios
+    que afecten continuidad o costos.
+- impacto: medio
+  probabilidad: alta
+  riesgo: Riesgo de valoración por usar objetivos de analistas como sustituto de un
+    análisis fundamental independiente.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una mejora sostenida y verificable en los resultados operativos y
+      la generación de caja, acompañada por datos de producción, costos y precios
+      realizados que permitan separar desempeño propio del efecto de los metales,
+      podría modificar la percepción del mercado. Es un catalizador condicional; la
+      entrada no acredita que vaya a ocurrir.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 40
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización observada fue 13,54 USD al 2026-10-30. El consenso
+    de objetivos observado al 2026-11-20 es 21,38 USD de media y mediana, con mínimo
+    de 15 USD y máximo de 32 USD. Estos objetivos sugieren expectativas de apreciación
+    frente a la cotización indicada, pero no revelan por sí solos qué precio de los
+    metales, producción, costos o múltiplos está descontando el mercado. No hay observaciones
+    de múltiplos actuales suficientes para inferir un escenario implícito.
+  hipotesis_contraria: El consenso podría estar equivocado si los analistas subestiman
+    la persistencia de precios débiles de metales, costos operativos, necesidades
+    de inversión o riesgos de ejecución; también podría ser demasiado pesimista si
+    la generación de caja y la producción resultan más resilientes de lo esperado.
+    La entrada no incluye evidencia primaria ni series operativas que permitan decidir
+    entre estas explicaciones. El pensamiento de segundo nivel exige no confundir
+    un precio objetivo consensuado con una ventaja informativa ni asumir que la brecha
+    frente a la cotización es un error de mercado.
+  razonamiento: La cotización y el consenso disponibles muestran una brecha relevante,
+    pero no bastan para establecer que exista una infravaloración aprovechable. Faltan
+    múltiplos, balance, deuda, historial operativo, supuestos de los analistas y evidencia
+    primaria reciente. La conclusión queda incierta, no equivale a una recomendación
+    de compra.
+generated_at: '2026-11-20T15:21:52.500930-03:00'
+integridad_tesis:
+  flags: []
+  reason: No hay evidencia aportada que confirme la vulneración de alguna de las nueve
+    categorías de integridad. La ausencia de datos sobre moat, gestión, solvencia
+    o riesgos operativos no demuestra que la tesis haya sido invalidada; exige diligencia
+    adicional.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-HL-0001
+prompt_inputs:
+  business_model: Hecla Mining Company, together with its subsidiaries, provides precious
+    and base metals in the United States, Canada, Japan, Korea, China, and internationally.
+    The company mines for silver, gold, lead, and zinc concentrates, as well as carbon
+    material containing silver and gold for custom smelters, metal traders, and third-party
+    processors; and unrefined doré containing silver and gold. The company was incorporated
+    in 1891 and is headquartered in Coeur d'Alene, Idaho.
+  ceo_tenure: 0
+  debt_to_equity: 0.01
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Hecla Mining Company
+  operating_margin: 45.6
+  pe_ratio: 27.19
+  products: ''
+  revenue: 1740000000.0
+  revenue_growth: 89.75
+  roic: 26.55
+  sector: Basic Materials
+  ticker: HL
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Hecla Mining Company, together with its subsidiaries, provides precious
+    and base metals in the United States, Canada, Japan, Korea, China, and internationally.
+    The company mines for silver, gold, lead, and zinc concentrates, as well as carbon
+    material containing silver and gold for custom smelters, metal traders, and third-party
+    processors; and unrefined doré containing silver and gold. The company was incorporated
+    in 1891 and is headquartered in Coeur d'Alene, Idaho.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 13.541899681091309
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.01
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:45.544204+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/HL/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 483990000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:40.033410+00:00", "period_end_date": "2026-06-30", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1782777600, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    44.269999999999996}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:40.033410+00:00",
+    "period_end_date": "2026-06-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1782777600,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    52.400000000000006}}}, "observed_at": "2026-10-30T16:53:45.544204+00:00", "period_end":
+    "2026-06-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Hecla Mining Company
+  operating_margin: 45.6
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Hecla Mining Company, together with its subsidiaries, provides precious
+    and base metals in the United States, Canada, Japan, Korea, China, and internationally.
+    The company mines for silver, gold, lead, and zinc concentrates, as well as carbon
+    material containing silver and gold for custom smelters, metal traders, and third-party
+    processors; and unrefined doré containing silver and gold. The company was incorporated
+    in 1891 and is headquartered in Coeur d'Alene, Idaho.
+  revenue: 1740000000.0
+  revenue_growth: 89.75
+  roic: 26.55
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    32.0, "low": 15.0, "mean": 21.38, "median": 21.38, "observed_at": "2026-11-20T15:21:21.367241-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T15:21:21.367241-03:00", "observed_date": "2026-11-20", "target_price":
+    21.38, "url": "https://stockanalysis.com/stocks/hl/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T15:21:21.367241-03:00",
+    "observed_date": "2026-11-20", "target_price": 21.375, "url": "https://finance.yahoo.com/quote/HL/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 13.541899681091309,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/HL/"}]}}'
+  sector: Basic Materials
+  ticker: HL
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: f9e35497ea588de75f00a272cfbf72219143aa67822b9e7767c37a52401b3a7c
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T15:21:52.500930-03:00'
+resumen_ejecutivo: Hecla Mining se analiza como una exposición cíclica a metales.
+  La información disponible permite identificar una cotización de 13,54 USD y objetivos
+  de analistas de 15 a 32 USD, con consenso de 21,38 USD, pero no permite evaluar
+  de manera robusta la calidad de activos, el balance, el desempeño de minas ni la
+  valoración por fundamentales. La observación financiera disponible de FCF es de
+  483.990.000 en la moneda financiera del proveedor, TTM al 2026-06-30; la unidad
+  declarada no permite tratarla como una cifra plenamente comparable sin aclaración
+  adicional. La tesis es provisional y la oportunidad de valoración permanece incierta.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados primarios que demuestren mejora sostenida de producción, costos y
+      generación de caja.
+    - Evidencia verificable de balance robusto y desempeño operativo que invalide
+      la tesis de riesgo elevado.
+    - Actualización del consenso que retire o supere materialmente el objetivo mínimo
+      observado.
+    id: BEAR
+    key_assumptions:
+    - La percepción de riesgo permanece elevada y los resultados no justifican converger
+      al consenso medio.
+    - La sensibilidad cíclica a los metales o la ejecución operativa limita la generación
+      de caja.
+    - El límite inferior de 15 USD del rango observado sigue siendo una referencia
+      pertinente para el horizonte.
+    rationale: Caso bajista anclado al límite bajo observado del rango de objetivos
+      de analistas. Es un punto de referencia, no una valoración independiente ni
+      una garantía de soporte; la falta de datos de balance y operación impide justificar
+      un objetivo más preciso.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos de analistas
+      url: https://stockanalysis.com/stocks/hl/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance, cotización de HL
+      url: https://finance.yahoo.com/quote/HL/
+    target_price: 15
+  - falsifiers:
+    - Caída persistente de ingresos o generación de caja en información financiera
+      primaria.
+    - Aumento material de deuda, costos o necesidades de capital que reduzca el valor
+      para accionistas.
+    - Revisión del rango de objetivos que elimine el extremo alto de 32 USD.
+    id: BULL
+    key_assumptions:
+    - La generación de caja y el desempeño operativo se sostienen o mejoran respecto
+      de lo que sugieren los datos disponibles.
+    - El mercado asigna mayor valoración dentro del rango de objetivos observado.
+    - No se materializan deterioros relevantes de balance, producción, costos o permisos.
+    rationale: Caso alcista anclado al límite alto observado del rango de objetivos
+      de analistas. Requiere que resultados operativos y condiciones de mercado justifiquen
+      la parte superior del rango; la entrada no aporta una valoración independiente
+      que valide ese objetivo.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos de analistas
+      url: https://stockanalysis.com/stocks/hl/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance, cotización de HL
+      url: https://finance.yahoo.com/quote/HL/
+    target_price: 32
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 48
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T15:21:21.367241-03:00'
+  fuentes:
+    stockanalysis: 21.38
+    yfinance: 21.375
+  mediana: 21.38
+  n_fuentes: 2
+  promedio: 21.38
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T15:21:21.367241-03:00'
+    observed_date: '2026-11-20'
+    target_price: 21.38
+    url: https://stockanalysis.com/stocks/hl/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T15:21:21.367241-03:00'
+    observed_date: '2026-11-20'
+    target_price: 21.375
+    url: https://finance.yahoo.com/quote/HL/
+  target_high: 32.0
+  target_low: 15.0
+tesis_inversion: 'Tesis cíclica y condicional: la cotización observada está por debajo
+  del rango de objetivos de analistas suministrado, pero esa brecha no permite concluir
+  que el mercado esté equivocado. El FCF TTM reportado es una señal que merece diligencia
+  adicional, no una valoración autónoma, dado que faltan claridad de unidad, balance,
+  costos, producción y supuestos de consenso. La tesis ganaría respaldo si resultados
+  futuros confirmaran generación de caja sostenible y balance manejable; se debilitaría
+  con deterioro operativo, presión de costos o apalancamiento elevado.'
+ticker: HL
+version: '3.0'

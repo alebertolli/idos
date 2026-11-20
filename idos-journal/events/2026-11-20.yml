@@ -1493,3 +1493,86 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T15:10:20.088633'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-GSK
+    ticker: GSK
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:17:53.960099'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-GSK
+    ticker: GSK
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:17:54.040352'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de multibagger
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: f6de5b758f91fbccfda7fc690edf62955fecf720034c79b7aa9d1c4e01a3b246
+    opp_id: OPP-MB-GSK
+    score: 52
+    strategy_version: '1.5'
+    ticker: GSK
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:19:23.413338'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-HAL
+    ticker: HAL
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:19:53.077434'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HAL
+    ticker: HAL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:19:53.148308'
+- data:
+    classification: Cíclica de servicios petroleros; investigación fundamental requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 290ed843f50ec22f44dfb554863cd12df2901041f57dbd1faf70c2743b620d76
+    opp_id: OPP-MB-HAL
+    score: 55
+    strategy_version: '1.5'
+    ticker: HAL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:21:17.897097'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: f9e35497ea588de75f00a272cfbf72219143aa67822b9e7767c37a52401b3a7c
+    opp_id: OPP-COMPOUNDER-HL-0001
+    score: 48
+    strategy_version: positive_fundamentals_v1
+    ticker: HL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:23:18.336588'

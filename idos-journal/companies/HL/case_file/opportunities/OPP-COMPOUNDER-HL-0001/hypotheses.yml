@@ -1,0 +1,208 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción acumulada de plata en los cuatro trimestres comparables
+      cae más de un 5% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa una interrupción operativa que reduce la producción
+      de plata del periodo acumulado en más de un 5% frente al periodo comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción acumulada de plata en los cuatro trimestres comparables cae más
+    de un 5% interanual.
+  - La compañía informa una interrupción operativa que reduce la producción de plata
+    del periodo acumulado en más de un 5% frente al periodo comparable.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-HL-0001
+  opportunity_id: OPP-COMPOUNDER-HL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Variación interanual de la producción acumulada de plata en cuatro trimestres
+    prediction: En los cuatro trimestres consecutivos más recientes reportados hasta
+      2027-11-20, la producción acumulada de plata será al menos un 5% superior a
+      la de los cuatro trimestres inmediatamente anteriores, según las cifras comparables
+      publicadas por Hecla.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La resiliencia de la producción sería compatible con una tesis de generación
+    de caja duradera, pero la información disponible no aporta series operativas ni
+    evidencia primaria que permita darla por confirmada. La hipótesis depende de que
+    las minas y los proyectos de la compañía cumplan sus planes de operación y no
+    sufran interrupciones relevantes.
+  review_trigger: Dejar de creerla si los resultados publicados hasta 2027-11-20 muestran
+    una caída interanual superior al 5% en la producción acumulada de plata, o antes
+    si la compañía retira su perspectiva de producción por problemas operativos materiales.
+  secondary_hypotheses: []
+  statement: La producción de plata de Hecla se mantendrá resiliente y crecerá durante
+    los próximos cuatro trimestres reportados, en lugar de contraerse de forma sostenida.
+  status: ACTIVE
+  ticker: HL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La suma de flujo de efectivo operativo menos inversiones de capital
+      para los cuatro trimestres comparables es igual o inferior a cero.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica partidas suficientes para reconciliar el flujo
+      operativo y las inversiones de capital del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La suma de flujo de efectivo operativo menos inversiones de capital para los cuatro
+    trimestres comparables es igual o inferior a cero.
+  - La compañía no publica partidas suficientes para reconciliar el flujo operativo
+    y las inversiones de capital del periodo.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-HL-0001
+  opportunity_id: OPP-COMPOUNDER-HL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.0
+    met: null
+    metric: Flujo de efectivo operativo menos inversiones de capital acumulado en
+      cuatro trimestres
+    prediction: La suma del flujo de efectivo operativo menos las inversiones de capital
+      reportados en los cuatro trimestres consecutivos hasta 2027-11-20 será mayor
+      que cero, en dólares estadounidenses y usando las partidas publicadas por la
+      compañía.
+    unit: USD; estrictamente mayor que cero
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM mencionado en el contexto merece diligencia, pero su unidad,
+    composición y sostenibilidad no están aclaradas. Una medición futura con una definición
+    explícita permitiría comprobar si la generación de caja sobrevive a las necesidades
+    de inversión y a la volatilidad operativa, sin tratar una cifra aislada como valoración
+    autónoma.
+  review_trigger: Dejar de creerla cuando los estados publicados hasta 2027-11-20
+    muestren FCF acumulado no positivo para los cuatro trimestres, o si antes de esa
+    fecha se publica una revisión material que convierta en no positivo el cálculo
+    acumulado.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-HL-0001
+  statement: Hecla generará flujo de caja libre positivo en el conjunto de los próximos
+    cuatro trimestres, medido de forma consistente como flujo de efectivo operativo
+    menos inversiones de capital.
+  status: ACTIVE
+  ticker: HL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La deuda neta dividida por el EBITDA ajustado de los últimos doce meses
+      supera 1,5 veces en el último informe disponible.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El EBITDA ajustado de los últimos doce meses es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía requiere una emisión de deuda destinada a cubrir déficits
+      operativos o de capital que eleve la deuda neta por encima del umbral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La deuda neta dividida por el EBITDA ajustado de los últimos doce meses supera
+    1,5 veces en el último informe disponible.
+  - El EBITDA ajustado de los últimos doce meses es cero o negativo.
+  - La compañía requiere una emisión de deuda destinada a cubrir déficits operativos
+    o de capital que eleve la deuda neta por encima del umbral.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-HL-0001
+  opportunity_id: OPP-COMPOUNDER-HL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 1.5
+    met: null
+    metric: Deuda neta / EBITDA ajustado de los últimos doce meses
+    prediction: En el último informe disponible hasta 2027-11-20, la deuda neta no
+      superará 1,5 veces el EBITDA ajustado de los últimos doce meses; si el EBITDA
+      ajustado es cero o negativo, esta condición se considerará incumplida.
+    unit: veces como máximo
+  priority: important
+  probability: 0.5
+  rationale: La tesis reconoce que faltan datos de balance y costos. La capacidad
+    de financiar operaciones e inversiones sin deteriorar sustancialmente el balance
+    es una condición necesaria para que un FCF positivo resulte sostenible y no quede
+    contrarrestado por mayores obligaciones financieras.
+  review_trigger: Dejar de creerla si cualquier informe trimestral publicado antes
+    del 2027-11-20 muestra deuda neta superior a 1,5 veces el EBITDA ajustado de los
+    últimos doce meses, o EBITDA ajustado no positivo. Usar las definiciones de deuda
+    neta y EBITDA divulgadas por la compañía y documentar los ajustes.
+  secondary_hypotheses:
+  - H2-OPP-COMPOUNDER-HL-0001
+  statement: La liquidez y el apalancamiento de Hecla se mantendrán manejables durante
+    los próximos cuatro trimestres, sin que la generación de caja dependa de un aumento
+    material de deuda.
+  status: ACTIVE
+  ticker: HL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de HL menos el rendimiento total de GDX es inferior
+      a 10 puntos porcentuales al cierre del 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se cumplen H1 o H2 durante el periodo, lo que invalida el mecanismo
+      operativo-financiero propuesto, aunque HL supere a GDX por otros factores.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de HL menos el rendimiento total de GDX es inferior a 10
+    puntos porcentuales al cierre del 2027-11-20.
+  - No se cumplen H1 o H2 durante el periodo, lo que invalida el mecanismo operativo-financiero
+    propuesto, aunque HL supere a GDX por otros factores.
+  horizon: medio
+  id: H4-OPP-COMPOUNDER-HL-0001
+  opportunity_id: OPP-COMPOUNDER-HL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total de HL menos rendimiento total de GDX
+    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2027-11-20, el
+      rendimiento total de HL, incluidos dividendos y ajustado por eventos corporativos,
+      superará al de GDX en al menos 10 puntos porcentuales. La predicción se considerará
+      apoyada solo si, además, se cumplen H1 y H2.
+    unit: puntos porcentuales como mínimo
+  priority: important
+  probability: 0.5
+  rationale: Una mejora operativa y financiera verificable podría reducir la percepción
+    de riesgo y respaldar una revalorización relativa. Sin embargo, los objetivos
+    de analistas no demuestran que el mercado esté equivocado, y la cotización también
+    dependerá de los precios de los metales, los costos, las necesidades de inversión
+    y las expectativas ya incorporadas en el precio.
+  review_trigger: Dejar de creerla como tesis condicionada si H1 o H2 queda falsada
+    antes del 2027-11-20. En todo caso, considerarla no confirmada si la diferencia
+    de rendimiento total frente a GDX es inferior a 10 puntos porcentuales en la fecha
+    objetivo.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-HL-0001
+  - H2-OPP-COMPOUNDER-HL-0001
+  statement: Si Hecla confirma producción resiliente y FCF positivo, su acción tendrá
+    un rendimiento total superior al de GDX durante el siguiente año; la diferencia
+    frente a objetivos de analistas, por sí sola, no será evidencia suficiente de
+    infravaloración.
+  status: ACTIVE
+  ticker: HL
+  version: 1
