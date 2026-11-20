@@ -1,0 +1,334 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Evaluación de la calidad del moat basada en efectos de red y reconocimiento de
+    marca
+  - Valoración de la gestión y alineación de incentivos sin datos de compensación
+  - Clasificación de riesgos ESG y de cadena de suministro
+  - Asignación de ratings subjetivos a cada dominio
+  - 'Precio de cierre 121.33 USD al 2026-10-30 (fuente: yfinance https://finance.yahoo.com/quote/EBAY/)'
+  - 'Objetivo medio de analistas 127.11 USD (fuente: stockanalysis https://stockanalysis.com/stocks/ebay/forecast/)'
+  - Objetivo bajo 71.0 USD y alto 153.0 USD (misma fuente)
+  - 'Flujo de caja libre 2.41 B USD TTM al 2026-09-30 (fuente: stockanalysis https://stockanalysis.com/stocks/EBAY/statistics/)'
+  - 'Margen operativo 19.214% al 2026-09-30 (fuente: yfinance https://finance.yahoo.com/quote/EBAY/)'
+  - 'Crecimiento de ingresos 13.7% al 2026-09-30 (fuente: yfinance https://finance.yahoo.com/quote/EBAY/)'
+  preguntas_abiertas:
+  - Nivel de endeudamiento y ratios de liquidez de eBay
+  - Detalle de la estrategia de IA y su calendario de implementación
+  - Impacto esperado de la expansión en mercados emergentes
+  - Política de recompensas accionarias del equipo directivo
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: compounder, compounder_castigado, turnaround, deep_value,
+    ciclica, special_situation, distressed, hype, value_trap
+  justificacion: eBay es una plataforma de marketplace establecida con fuertes efectos
+    de red y márgenes operativos razonables (19,2%). Presenta crecimiento de ingresos
+    del 13,7% y genera flujo de caja libre de 2,41 B USD. El precio actual (121,33
+    USD) está cercano al consenso medio de los analistas (127,11 USD), indicando que
+    el mercado la valora de forma razonable sin gran descuento ni prima.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La plataforma conecta a millones de compradores y vendedores, creando
+    barreras de entrada por efectos de red y reconocimiento de marca. La diversificación
+    geográfica (EE.UU., Reino Unido, China, Alemania y otros) refuerza la posición
+    competitiva, aunque la competencia de Amazon, Walmart y plataformas emergentes
+    sigue siendo intensa.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Implementación de IA para optimizar listados y precios, aumentando
+    la retención de vendedores
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 45
+- descripcion: Expansión de la plataforma en mercados emergentes de Asia y Latinoamérica
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: eBay no depende de proveedores críticos de materias primas y su modelo
+    de marketplace reduce la exposición a riesgos de cadena de suministro. Los riesgos
+    ESG principales están vinculados a la gestión de contenido y a la regulación de
+    comercio electrónico, pero no se observan problemas estructurales.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: eBay reportó un flujo de caja libre de 2,41 B USD (TTM) y un margen operativo
+    del 19,2%, indicando capacidad para financiar inversiones y devolver capital a
+    los accionistas. No se dispone de datos de deuda o liquidez, por lo que la evaluación
+    se basa en la generación de caja y rentabilidad observada.
+  rating: adecuada
+dominio_growth:
+  analisis: El crecimiento de ingresos del 13,7% (TTM) muestra dinamismo, impulsado
+    por la expansión en mercados internacionales y la creciente adopción de compras
+    de segunda mano. Sin embargo, la tasa de crecimiento podría moderarse ante la
+    saturación de mercados desarrollados.
+  rating: moderado
+dominio_management:
+  analisis: El equipo directivo ha mantenido la estrategia de enfoque en el marketplace
+    y ha impulsado iniciativas de mejora de la experiencia de usuario. La alineación
+    de intereses parece adecuada, aunque la evidencia pública sobre recompensas accionarias
+    específicas no está disponible.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Intensificación de la competencia de grandes plataformas de e‑commerce
+- impacto: medio
+  probabilidad: media
+  riesgo: Desaceleración macroeconómica que reduzca el gasto del consumidor
+- impacto: alto
+  probabilidad: baja
+  riesgo: Regulaciones más estrictas sobre comercio en línea y protección de datos
+error_mercado:
+  catalizador_cambio:
+    descripcion: Lanzamiento exitoso de herramientas de IA para personalizar la experiencia
+      de compra y aumentar la retención de vendedores.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El precio de 121,33 USD está ligeramente por debajo del objetivo
+    medio de los analistas (127,11 USD), lo que sugiere que el mercado está descontando
+    parcialmente el potencial de crecimiento futuro y la generación de flujo de caja
+    libre.
+  hipotesis_contraria: Los analistas podrían estar subestimando la capacidad de eBay
+    para capturar mayor cuota de mercado en segmentos de comercio electrónico de segunda
+    mano y en la monetización de servicios de pago, así como la mejora de la rentabilidad
+    mediante iniciativas de IA y reducción de costos.
+  razonamiento: El precio está cerca del consenso, pero la falta de información sobre
+    la ejecución de nuevas iniciativas y la exposición a la competencia hacen que
+    no sea claro si el mercado está subvalorando o no a eBay.
+generated_at: '2026-11-20T14:09:18.482420-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-EBAY-0001
+prompt_inputs:
+  business_model: eBay Inc., together with its subsidiaries, operates marketplace
+    platforms that connect buyers and sellers in the United States, the United Kingdom,
+    China, Germany, and internationally. Its marketplace platform includes its online
+    marketplace at ebay.com, off-platform businesses, and the eBay suite of mobile
+    apps. The company's platforms enable users to list, sell, buy, and pay various
+    products. The company was founded in 1995 and is headquartered in San Jose, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.016
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: eBay Inc.
+  operating_margin: 21.55
+  pe_ratio: 26.42
+  products: ''
+  revenue: 12390000000.0
+  revenue_growth: 15.68
+  roic: 24.68
+  sector: Consumer Cyclical
+  ticker: EBAY
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: eBay Inc., together with its subsidiaries, operates marketplace
+    platforms that connect buyers and sellers in the United States, the United Kingdom,
+    China, Germany, and internationally. Its marketplace platform includes its online
+    marketplace at ebay.com, off-platform businesses, and the eBay suite of mobile
+    apps. The company's platforms enable users to list, sell, buy, and pay various
+    products. The company was founded in 1995 and is headquartered in San Jose, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 121.33000183105469
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.016
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:38.174821+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/EBAY/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 2410000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:29.417497+00:00", "period_end_date": "2026-09-30", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1790726400, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    19.214001}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:29.417497+00:00",
+    "period_end_date": "2026-09-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1790726400,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    13.700000000000001}}}, "observed_at": "2026-10-30T16:53:38.174821+00:00", "period_end":
+    "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: eBay Inc.
+  operating_margin: 21.55
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: eBay Inc., together with its subsidiaries, operates marketplace platforms
+    that connect buyers and sellers in the United States, the United Kingdom, China,
+    Germany, and internationally. Its marketplace platform includes its online marketplace
+    at ebay.com, off-platform businesses, and the eBay suite of mobile apps. The company's
+    platforms enable users to list, sell, buy, and pay various products. The company
+    was founded in 1995 and is headquartered in San Jose, California.
+  revenue: 12390000000.0
+  revenue_growth: 15.68
+  roic: 24.68
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    153.0, "low": 71.0, "mean": 127.11, "median": 127.11, "observed_at": "2026-11-20T14:09:09.672878-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T14:09:09.672878-03:00", "observed_date": "2026-11-20", "target_price":
+    127.11, "url": "https://stockanalysis.com/stocks/ebay/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:09:09.672878-03:00",
+    "observed_date": "2026-11-20", "target_price": 127.11111, "url": "https://finance.yahoo.com/quote/EBAY/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 121.33000183105469,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/EBAY/"}]}}'
+  sector: Consumer Cyclical
+  ticker: EBAY
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 99c4abdef2cbef21fac26ec1eb5ae7b390e1ab73ea67678aac20060db23bc597
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T14:09:18.482420-03:00'
+resumen_ejecutivo: eBay opera un marketplace global con efectos de red sostenidos,
+  márgenes operativos sólidos y crecimiento de ingresos de doble dígito. Genera flujo
+  de caja libre significativo y mantiene una posición financiera estable. El precio
+  actual refleja una valoración razonable, aunque existen oportunidades de upside
+  si se materializan mejoras operativas basadas en IA y expansión internacional.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Publicación de resultados con crecimiento de ingresos >10% y margen >18%
+    - Anuncio de avances significativos en IA
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos cae por debajo del 5% anual
+    - Margen operativo se comprime bajo el 15%
+    rationale: El mercado podría penalizar a eBay si la competencia intensifica su
+      presión y la adopción de IA se retrasa, reduciendo el crecimiento de ingresos
+      y la generación de flujo de caja.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ebay/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/EBAY/
+    target_price: 71.0
+  - falsifiers:
+    - Resultados trimestrales que muestren crecimiento de ingresos <5%
+    - Margen operativo estancado bajo 18% por varios trimestres
+    id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos >15% anual
+    - Margen operativo mejora a >20%
+    - Incremento sostenido del flujo de caja libre
+    rationale: Si eBay ejecuta con éxito su hoja de ruta de IA y expande su presencia
+      en mercados emergentes, el crecimiento de ingresos podría superar el 15% y los
+      márgenes mejorar, impulsando una revaluación significativa.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/ebay/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/EBAY/
+    target_price: 153.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 71
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T14:09:09.672878-03:00'
+  fuentes:
+    stockanalysis: 127.11
+    yfinance: 127.11111
+  mediana: 127.11
+  n_fuentes: 2
+  promedio: 127.11
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T14:09:09.672878-03:00'
+    observed_date: '2026-11-20'
+    target_price: 127.11
+    url: https://stockanalysis.com/stocks/ebay/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T14:09:09.672878-03:00'
+    observed_date: '2026-11-20'
+    target_price: 127.11111
+    url: https://finance.yahoo.com/quote/EBAY/
+  target_high: 153.0
+  target_low: 71.0
+tesis_inversion: eBay ofrece un negocio de marketplace con efectos de red duraderos
+  y generación de flujo de caja libre robusta. La valoración actual es razonable,
+  pero la ejecución de iniciativas de IA y expansión internacional pueden desbloquear
+  upside significativo.
+ticker: EBAY
+version: '3.0'

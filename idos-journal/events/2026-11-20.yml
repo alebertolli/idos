@@ -1029,3 +1029,81 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T14:02:13.745201'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 99c4abdef2cbef21fac26ec1eb5ae7b390e1ab73ea67678aac20060db23bc597
+    opp_id: OPP-COMPOUNDER-EBAY-0001
+    score: 71
+    strategy_version: positive_fundamentals_v1
+    ticker: EBAY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:10:52.663528'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-EBAY
+    ticker: EBAY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T14:11:20.018512'
+- data:
+    classification: Investigación requerida; evidencia de mercado favorable, pero
+      evidencia fundamental incompleta
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 010a7c09c02009ecb32b7f145c4e3d0e7b6214ed56098f67557ffc43c7590adb
+    opp_id: OPP-MB-EBAY
+    score: 45
+    strategy_version: '1.5'
+    ticker: EBAY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:12:46.018000'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 3ba1a5384a3f682eaa1cfb6bcf3a9c1eb4a8aff85c5700bf3a410c340cf0279c
+    opp_id: OPP-COMPOUNDER-ECL-0001
+    score: 58
+    strategy_version: positive_fundamentals_v1
+    ticker: ECL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:14:50.907807'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-ECL
+    ticker: ECL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T14:15:13.664014'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para una conclusión
+      de valoración
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 38117007705096d7382a152c433eb5ebb9ba9244e7b6576bed0d34c8c4305aef
+    opp_id: OPP-MB-ECL
+    score: 42
+    strategy_version: '1.5'
+    ticker: ECL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:17:00.907412'

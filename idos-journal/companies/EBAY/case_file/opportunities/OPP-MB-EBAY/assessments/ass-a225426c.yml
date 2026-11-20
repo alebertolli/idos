@@ -1,0 +1,31 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia de mercado favorable, pero evidencia
+  fundamental incompleta'
+- 'Market error: No se puede validar un error de valoración con la evidencia disponible.'
+- 'Thesis: eBay opera un marketplace que conecta compradores y vendedores y permite
+  listar, vender, comprar y pagar productos. El paquete muestra crecimiento de ingresos
+  y flujo de caja libre en el TTM terminado'
+generated_at: '2026-11-20T14:12:45.946129-03:00'
+id: ass-a225426c
+recommendation: REVIEW
+risks:
+- fuente: Research Intake Package; trusted_source_urls vacío.
+  riesgo: 'Evidencia financiera insuficientemente verificable para los ratios solicitados:
+    trusted_source_urls está vacío.'
+- fuente: Resumen de evidencia financiera, stockanalysis.com, https://stockanalysis.com/stocks/EBAY/statistics/,
+    período terminado el 2026-09-30.
+  riesgo: El current ratio reportado es 0.78x al 2026-09-30, pero no forma parte de
+    los ratios solicitados y no permite por sí solo evaluar liquidez completa.
+- fuente: Resumen de evidencia financiera, stockanalysis.com, https://stockanalysis.com/stocks/EBAY/statistics/,
+    período terminado el 2026-09-30.
+  riesgo: La deuda total reportada supera el efectivo e inversiones reportados al
+    2026-09-30; falta validar el ratio deuda neta/EBITDA conforme a las restricciones
+    de fuente.
+- fuente: Research Intake Package y resumen financiero; no se aportan esos campos.
+  riesgo: No se proporcionan datos sobre cuota de mercado, penetración del mercado
+    direccionable, retención de usuarios ni evolución competitiva.
+score: 45
+status: COMPLETED
+version: '3.0'

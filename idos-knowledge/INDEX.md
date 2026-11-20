@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 65 companies tracked
+Total: 67 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -17,6 +17,7 @@ Total: 65 companies tracked
 - 📄 [[CX|CEMEX, S.A.B. de C.V.]]
 - 📄 [[DD|DuPont de Nemours, Inc.]]
 - 📄 [[DOW|Dow Inc.]]
+- 📄 [[ECL|Ecolab Inc.]]
 
 ## Communication Services
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
@@ -29,6 +30,7 @@ Total: 65 companies tracked
 - 📄 [[BKNG|Booking Holdings Inc.]]
 - 📄 [[CCL|Carnival Corporation Ltd.]]
 - 📄 [[DECK|Deckers Outdoor Corporation]]
+- 📄 [[EBAY|eBay Inc.]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]

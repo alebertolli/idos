@@ -1,0 +1,170 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico de ventas del ejercicio fiscal 2027 es inferior
+      a 4%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa contracción orgánica anual en dos trimestres consecutivos
+      de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La dirección atribuye el crecimiento principalmente a precios o adquisiciones,
+      sin evidencia de demanda de volumen o actividad de servicio.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico de ventas del ejercicio fiscal 2027 es inferior a 4%.
+  - La empresa informa contracción orgánica anual en dos trimestres consecutivos de
+    2027.
+  - La dirección atribuye el crecimiento principalmente a precios o adquisiciones,
+    sin evidencia de demanda de volumen o actividad de servicio.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-ECL-0001
+  opportunity_id: OPP-COMPOUNDER-ECL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 4.0
+    met: null
+    metric: Crecimiento orgánico de ventas del ejercicio fiscal 2027
+    prediction: En los resultados del ejercicio fiscal 2027, Ecolab reportará crecimiento
+      orgánico de ventas de al menos 4% frente al ejercicio fiscal 2026. La comparación
+      debe usar la métrica orgánica publicada por la empresa y excluir los efectos
+      de divisas y adquisiciones cuando estén disponibles.
+    unit: porcentaje mínimo interanual
+  priority: critical
+  probability: 0.5
+  rationale: La presencia en varias industrias y la combinación de productos, conocimiento
+    técnico y servicio podrían favorecer compras repetidas y costes de cambio. Es
+    un mecanismo plausible, no una ventaja competitiva demostrada; la tesis quedaría
+    debilitada si la demanda de los clientes se estanca o se reduce.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos de 2027
+    muestran contracción orgánica de ventas, o si los resultados del ejercicio fiscal
+    2027 publicados antes del 2028-03-31 quedan por debajo del umbral del 4%.
+  secondary_hypotheses: []
+  statement: La cartera especializada y el servicio integrado de Ecolab sostendrán
+    crecimiento orgánico de ventas durante el ejercicio fiscal 2027, aunque la información
+    disponible no permite verificar directamente la recurrencia de los contratos ni
+    la retención de clientes.
+  status: ACTIVE
+  ticker: ECL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen operativo ajustado del ejercicio fiscal 2027 no supera el
+      del ejercicio fiscal 2026 en al menos 0,30 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre del ejercicio fiscal 2027 es inferior al 90%
+      del beneficio neto ajustado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica datos suficientes para calcular métricas comparables;
+      en ese caso la hipótesis queda sin verificar, no confirmada.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen operativo ajustado del ejercicio fiscal 2027 no supera el del ejercicio
+    fiscal 2026 en al menos 0,30 puntos porcentuales.
+  - El flujo de caja libre del ejercicio fiscal 2027 es inferior al 90% del beneficio
+    neto ajustado.
+  - La empresa no publica datos suficientes para calcular métricas comparables; en
+    ese caso la hipótesis queda sin verificar, no confirmada.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-ECL-0001
+  opportunity_id: OPP-COMPOUNDER-ECL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.3
+    met: null
+    metric: Cambio del margen operativo ajustado frente al ejercicio fiscal 2026
+    prediction: En el ejercicio fiscal 2027, el margen operativo ajustado aumentará
+      al menos 0,30 puntos porcentuales frente al ejercicio fiscal 2026 y el flujo
+      de caja libre será como mínimo el 90% del beneficio neto ajustado. Se usarán
+      las definiciones comparables publicadas por Ecolab.
+    unit: puntos porcentuales mínimos; conversión de flujo de caja libre de al menos
+      90% del beneficio neto ajustado
+  priority: critical
+  probability: 0.5
+  rationale: Si la combinación de soluciones especializadas y servicios permite capturar
+    valor y trasladar costes, el crecimiento podría acompañarse de apalancamiento
+    operativo y generación de caja. La información suministrada no verifica los márgenes,
+    la conversión de caja ni la capacidad de trasladar costes, por lo que esta hipótesis
+    requiere comprobación independiente.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 incumplen cualquiera
+    de los dos umbrales, o antes si la empresa revisa a la baja sus objetivos de margen
+    o caja y atribuye el cambio a presiones persistentes de costes o inversión.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-ECL-0001
+  statement: Ecolab convertirá el crecimiento del negocio en expansión de rentabilidad
+    y caja, en lugar de depender únicamente de mayores ventas para sostener su desempeño
+    financiero.
+  status: ACTIVE
+  ticker: ECL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de ECL queda por debajo de la de XLB en la fecha
+      objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de ECL supera a XLB, pero por menos de 5 puntos
+      porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La superioridad relativa depende de una apreciación transitoria que
+      se revierte y deja a ECL por debajo de XLB al cierre de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de ECL queda por debajo de la de XLB en la fecha objetivo.
+  - La rentabilidad total de ECL supera a XLB, pero por menos de 5 puntos porcentuales.
+  - La superioridad relativa depende de una apreciación transitoria que se revierte
+    y deja a ECL por debajo de XLB al cierre de la fecha objetivo.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-ECL-0001
+  opportunity_id: OPP-COMPOUNDER-ECL-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de ECL menos rentabilidad total de XLB
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de ECL, incluidos dividendos, superará la rentabilidad total de XLB en
+      al menos 5 puntos porcentuales.
+    unit: puntos porcentuales mínimos en doce meses
+  priority: important
+  probability: 0.5
+  rationale: Un crecimiento orgánico sostenido y una mejora verificable de márgenes
+    y caja podrían respaldar una revisión favorable de las expectativas de beneficios.
+    Sin datos de valoración intrínseca, precio objetivo fundamentado o múltiplos comparables
+    en el contexto aportado, esto es una hipótesis de rendimiento relativo, no una
+    afirmación de infravaloración.
+  review_trigger: Dejar de creerla si, al cierre del 2027-08-20, ECL acumula una rentabilidad
+    total inferior a XLB en 5 puntos porcentuales o más y no hay evidencia posterior
+    de una recuperación de resultados que justifique mantener la tesis relativa.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-ECL-0001
+  - H2-OPP-COMPOUNDER-ECL-0001
+  statement: La acción de Ecolab obtendrá una rentabilidad total superior a la del
+    ETF sectorial Materials Select Sector SPDR Fund (XLB) durante los próximos doce
+    meses, si el mercado reconoce la resiliencia operativa y la generación de caja
+    descritas en H1 y H2.
+  status: ACTIVE
+  ticker: ECL
+  version: 1

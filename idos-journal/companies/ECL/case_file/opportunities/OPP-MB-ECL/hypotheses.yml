@@ -1,0 +1,184 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos TTM reportados al 2027-09-30 son inferiores a USD 18.241
+      millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos TTM al 2027-09-30 no superan los USD 17.372 millones de
+      la base.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos TTM reportados al 2027-09-30 son inferiores a USD 18.241 millones.
+  - Los ingresos TTM al 2027-09-30 no superan los USD 17.372 millones de la base.
+  horizon: medio
+  id: H1-OPP-MB-ECL
+  opportunity_id: OPP-MB-ECL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 18241.0
+    met: null
+    metric: Ingresos TTM reportados
+    prediction: Los ingresos TTM reportados al 2027-09-30 serán al menos un 5% superiores
+      a los USD 17.372 millones reportados al 2026-09-30, es decir, alcanzarán al
+      menos USD 18.241 millones.
+    unit: USD millones
+  priority: important
+  probability: 0.5
+  rationale: La compañía presta servicios de agua, higiene y prevención de infecciones
+    en varios segmentos, lo que ofrece una posible vía de crecimiento mediante la
+    demanda recurrente y la expansión de servicios. Sin datos de crecimiento orgánico,
+    cuotas de mercado o pedidos, esta hipótesis es provisional y no demuestra que
+    ese mecanismo ya esté ocurriendo.
+  review_trigger: Dejar de creerla cuando Ecolab publique sus resultados correspondientes
+    al 2027-09-30 si los ingresos TTM no alcanzan USD 18.241 millones; reconsiderarla
+    antes si una revisión oficial de resultados reduce la base de ingresos de forma
+    material.
+  secondary_hypotheses: []
+  statement: La demanda de soluciones y servicios de Ecolab permitirá que sus ingresos
+    TTM crezcan al menos un 5% durante los próximos doce meses.
+  status: ACTIVE
+  ticker: ECL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto TTM al 2027-09-30 es inferior al 44,54%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto TTM cae por debajo del 44,04% de la base.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto TTM al 2027-09-30 es inferior al 44,54%.
+  - El margen bruto TTM cae por debajo del 44,04% de la base.
+  horizon: medio
+  id: H2-OPP-MB-ECL
+  opportunity_id: OPP-MB-ECL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 44.54
+    met: null
+    metric: Margen bruto TTM
+    prediction: El margen bruto TTM al 2027-09-30 será de al menos 44,54%, frente
+      al 44,04% informado al 2026-09-30.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: La escala de sus operaciones y la combinación de soluciones y servicios
+    podrían permitir compensar costos de insumos y operación mediante precios, mezcla
+    de productos o eficiencia. La información disponible no cuantifica esos factores
+    ni permite concluir que la expansión de margen esté en curso.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados correspondientes
+    al 2027-09-30 si el margen bruto TTM es inferior al 44,54%; si dos informes trimestrales
+    consecutivos muestran una caída interanual, tratar la hipótesis como debilitada
+    y reevaluarla.
+  secondary_hypotheses:
+  - H1-OPP-MB-ECL
+  statement: Ecolab ampliará su margen bruto TTM en al menos 50 puntos básicos frente
+    al 44,04% informado al 2026-09-30.
+  status: ACTIVE
+  ticker: ECL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre TTM al 2027-09-30 es inferior al 11,2%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre TTM al 2027-09-30 es inferior al 10,8% de los
+      ingresos TTM.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre TTM al 2027-09-30 es inferior al 11,2%.
+  - El flujo de caja libre TTM al 2027-09-30 es inferior al 10,8% de los ingresos
+    TTM.
+  horizon: medio
+  id: H3-OPP-MB-ECL
+  opportunity_id: OPP-MB-ECL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 11.2
+    met: null
+    metric: Margen de flujo de caja libre TTM
+    prediction: El margen de flujo de caja libre TTM al 2027-09-30 será de al menos
+      11,2%, calculado como flujo de caja libre TTM dividido por ingresos TTM.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: El flujo de caja libre TTM de USD 1.870 millones sobre ingresos de USD
+    17.372 millones equivale aproximadamente a un margen del 10,8%. Un aumento moderado
+    de ese margen podría resultar de mayor conversión de beneficios en caja o de una
+    inversión de capital contenida, pero los datos proporcionados no permiten evaluar
+    capital de trabajo, capex ni sostenibilidad de la conversión.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados correspondientes
+    al 2027-09-30 si el margen de flujo de caja libre TTM es inferior al 11,2%; reevaluarla
+    antes si la empresa reporta una caída material del flujo de caja libre atribuida
+    a necesidades estructurales de reinversión.
+  secondary_hypotheses:
+  - H1-OPP-MB-ECL
+  - H2-OPP-MB-ECL
+  statement: Ecolab elevará su margen de flujo de caja libre TTM hasta al menos el
+    11,2% durante los próximos doce meses.
+  status: ACTIVE
+  ticker: ECL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de ECL menos la del S&P 500 durante el periodo
+      es inferior a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: ECL registra una rentabilidad total negativa durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de ECL menos la del S&P 500 durante el periodo es inferior
+    a 5 puntos porcentuales.
+  - ECL registra una rentabilidad total negativa durante el periodo.
+  horizon: medio
+  id: H4-OPP-MB-ECL
+  opportunity_id: OPP-MB-ECL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Ventaja de rentabilidad total de ECL frente al S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, la rentabilidad
+      total de ECL, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      la rentabilidad total del S&P 500.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: Si el crecimiento de ingresos y la conversión de caja cumplen las hipótesis
+    H1 y H3, el mercado podría reconocer una trayectoria operativa más sólida. Sin
+    datos de valoración, expectativas del consenso ni precio de referencia suministrados,
+    no hay evidencia suficiente para afirmar que Ecolab esté infravalorada; esta es
+    una hipótesis de desempeño relativo, no una conclusión de valoración.
+  review_trigger: Evaluar la hipótesis al cierre del 2027-11-19 usando rentabilidad
+    total ajustada por dividendos; abandonarla en esa fecha si la ventaja frente al
+    S&P 500 es inferior a 5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-ECL
+  - H3-OPP-MB-ECL
+  statement: La rentabilidad total de la acción de Ecolab superará a la del S&P 500
+    en al menos 5 puntos porcentuales durante los próximos doce meses.
+  status: ACTIVE
+  ticker: ECL
+  version: 1
