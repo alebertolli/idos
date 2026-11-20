@@ -1,0 +1,32 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia insuficiente para validar una
+  tesis de multibagger'
+- 'Market error: No puede validarse un error de valoración con la evidencia disponible;
+  el rango de analistas no equivale a valor intrínseco.'
+- 'Thesis: TotalEnergies es una compañía energética integrada con actividades en hidrocarburos,
+  LNG, electricidad, renovables y otros segmentos descritos en el resumen financiero.
+  La evidencia disponible registr'
+generated_at: '2026-11-20T19:59:58.509795-03:00'
+id: ass-2b4b7e2d
+recommendation: REVIEW
+risks:
+- evidencia: StockAnalysis reportó FCF de 33,668 para FY2022, 24,201 para FY2023,
+    17,383 para FY2024, 11,587 para FY2025 y 23,822 para TTM al 2026-09-30.
+  riesgo: Exposición a variaciones de resultados y flujo de caja; la serie disponible
+    muestra cambios importantes entre ejercicios.
+- evidencia: StockAnalysis reportó net cash de -25,368 al 2026-09-30 frente a -32,207
+    al 2025-12-31; bajo la convención indicada, valores negativos representan deuda
+    neta.
+  riesgo: La deuda neta reportada aumentó frente a FY2025.
+- evidencia: StockAnalysis, estadísticas TTM al 2026-09-30.
+  riesgo: La fuente reporta cobertura de intereses igual a cero, cifra que requiere
+    validación antes de interpretarse.
+- evidencia: No se proporcionan datos por segmento sobre capital invertido, retornos
+    o penetración de mercado.
+  riesgo: La cobertura de evidencia no permite evaluar erosión competitiva, riesgos
+    de transición energética ni retornos de nuevas inversiones.
+score: 46
+status: COMPLETED
+version: '3.0'

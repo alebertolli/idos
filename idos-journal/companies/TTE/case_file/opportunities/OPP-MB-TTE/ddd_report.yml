@@ -1,0 +1,520 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El FCF TTM reportado supera el FY2025, pero la diferencia entre período TTM y
+    ejercicio fiscal limita la interpretación como crecimiento comparable.
+  - La combinación de deuda neta reportada y efectivo/inversiones no basta para inferir
+    capacidad de servicio de deuda sin unidades y definiciones conciliadas.
+  - StockAnalysis reportó ingresos TTM de 214,397, FCF de 23,822 y utilidad neta de
+    22,417 al 2026-09-30; las series históricas están en importes reportados por el
+    proveedor.
+  - StockAnalysis reportó current ratio de 1.11 y EBITDA TTM de 48,620,000,000 al
+    2026-09-30.
+  - YFinance registró momentum de precio a 12 meses de 53.1652% y volatilidad a 90
+    días de 24.4119% al 2026-10-30.
+  - El resumen financiero registra cotización de 95.33 USD al 2026-10-30 y rango de
+    objetivos de analistas de 91 a 119 USD al 2026-11-20.
+  preguntas_abiertas:
+  - ¿Qué explican los cambios de ingresos, margen y FCF, y cuánto corresponde a precios,
+    volúmenes, mezcla o capital de trabajo?
+  - ¿Cuáles son los retornos sobre capital invertido y la reinversión por segmento,
+    incluidos LNG, electricidad y renovables?
+  - ¿Qué período de inversión representa el consenso de precio objetivo y cuáles son
+    sus supuestos operativos?
+  - ¿Cuál es la serie comparable de acciones diluidas y cuál es la cobertura de intereses
+    verificable?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
+    de multibagger
+  justificacion: El paquete muestra momentum bursátil positivo y métricas financieras
+    relevantes, pero no aporta evidencia suficiente sobre mercado direccionable, penetración,
+    retornos sobre capital, reinversión ni expectativas operativas.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo integrado abarca varias actividades energéticas, pero el paquete
+    no ofrece información suficiente para evaluar moat, calidad de activos, retornos
+    incrementales sobre capital o resiliencia por segmento. El margen bruto TTM reportado
+    fue 39.18% al 2026-09-30; por sí solo no demuestra una ventaja competitiva.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: Verificación de la composición y sostenibilidad del repunte de FCF
+    TTM.
+  hito: Conciliar la cifra TTM al 2026-09-30 con flujos operativos, inversión y cambios
+    de capital de trabajo.
+- catalizador: Información segmentada sobre inversión y retornos.
+  hito: Obtener métricas comparables por segmento y períodos antes de concluir que
+    la reinversión impulsa crecimiento rentable.
+- catalizador: Actualización de las expectativas de mercado.
+  hito: El resumen registra consenso de analistas al 2026-11-20; no aporta estimaciones
+    operativas ni horizonte del precio objetivo.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: StockAnalysis reportó FCF de 33,668 para FY2022, 24,201 para FY2023,
+    17,383 para FY2024, 11,587 para FY2025 y 23,822 para TTM al 2026-09-30.
+  riesgo: Exposición a variaciones de resultados y flujo de caja; la serie disponible
+    muestra cambios importantes entre ejercicios.
+- evidencia: StockAnalysis reportó net cash de -25,368 al 2026-09-30 frente a -32,207
+    al 2025-12-31; bajo la convención indicada, valores negativos representan deuda
+    neta.
+  riesgo: La deuda neta reportada aumentó frente a FY2025.
+- evidencia: StockAnalysis, estadísticas TTM al 2026-09-30.
+  riesgo: La fuente reporta cobertura de intereses igual a cero, cifra que requiere
+    validación antes de interpretarse.
+- evidencia: No se proporcionan datos por segmento sobre capital invertido, retornos
+    o penetración de mercado.
+  riesgo: La cobertura de evidencia no permite evaluar erosión competitiva, riesgos
+    de transición energética ni retornos de nuevas inversiones.
+error_mercado:
+  catalizador_cambio: Una divulgación verificable que detalle crecimiento, inversión
+    y retornos por segmento permitiría contrastar si la mejora financiera observada
+    es sostenible.
+  conclusion_error_valoracion: No puede validarse un error de valoración con la evidencia
+    disponible; el rango de analistas no equivale a valor intrínseco.
+  consenso_actual: La cotización observada fue 95.33 USD al 2026-10-30; el consenso
+    de precio objetivo recopilado al 2026-11-20 fue 100.85 USD, con rango de 91 a
+    119 USD.
+  hipotesis_contraria: La mejora del flujo de caja libre (FCF) TTM y del margen bruto
+    reportados podría ser transitoria; el paquete no permite atribuirla a crecimiento
+    estructural o ventajas competitivas.
+  razonamiento: El momentum a 12 meses reportado fue 53.1652% al 2026-10-30, mientras
+    que el consenso medio al 2026-11-20 supera la cotización observada. Sin estimaciones
+    de beneficios, flujos futuros o método de valoración defendible, no se determina
+    qué expectativas están incorporadas.
+generated_at: '2026-11-20T19:58:34.317044-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-TTE
+prompt_inputs:
+  business_model: TotalEnergies SE, an integrated energy company, produces and markets
+    oil and biofuels, natural gas, biogas and low-carbon hydrogen, renewables, and
+    electricity in France, the United States, Europe, Africa, and internationally.
+    It operates through Exploration & Production, Integrated LNG, Integrated Power,
+    Refining & Chemicals, and Marketing & Services segments. The Exploration & Production
+    segment engages in the activities of exploration and production of oil and natural
+    gas, as well as carbon storage. The Integrated LNG segment is involved in the
+    upstream and midstream LNG activities, as well as biogas and synthetic methane
+    activities, as well as gas trading. The Integrated Power segment engages in the
+    generation, storage, electricity trading, and B2B-B2C distribution of gas and
+    electricity. The Refining & Chemicals segment is involved in the industrial hub
+    activities comprising the activities of refining, petrochemicals and specialty
+    chemicals. This segment also includes the activities of oil supply, trading and
+    marine shipping, as well as hydrogen activities. The Marketing & Services segment
+    engages in the marketing activities in the field of petroleum products, as well
+    as corresponding supply and logistics activities. The company was formerly known
+    as TOTAL SE and changed its name to TotalEnergies SE in June 2021. TotalEnergies
+    SE was incorporated in 1924 and is headquartered in Courbevoie, France.
+  ceo_tenure: 0
+  debt_to_equity: 0.46
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: TotalEnergies SE
+  operating_margin: 17.0
+  pe_ratio: 8.73
+  products: ''
+  revenue: 214400000000.0
+  revenue_growth: 16.82
+  roic: 13.95
+  sector: Energy
+  ticker: TTE
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/tte/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: Variación interanual reportada por el proveedor; la definición exacta no
+    está disponible en el paquete.
+  inputs:
+    fcf_growth_history:
+      FY 2025: -33.34
+  limitations: Se informa el dato de FY2025 reportado; el paquete no especifica la
+    fórmula exacta ni el período comparador.
+  metric: fcf_growth_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/tte/financials/
+  status: reported
+  unit: percent
+  value: -33.34
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/tte/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    net_cash_history:
+      Current al 2026-09-30: -25368.0
+  limitations: Los importes históricos de deuda neta no tienen unidad monetaria explícita
+    en el paquete; no se puede combinar de forma verificable con EBITDA, y la URL
+    de estadísticas disponible no es una de las trusted_source_urls.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/tte/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 2210000000.0
+  limitations: Sólo se proporciona un dato actual de acciones en circulación; falta
+    una observación comparable del período anterior o una serie de acciones diluidas.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TTE/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: TotalEnergies SE, an integrated energy company, produces and markets
+    oil and biofuels, natural gas, biogas and low-carbon hydrogen, renewables, and
+    electricity in France, the United States, Europe, Africa, and internationally.
+    It operates through Exploration & Production, Integrated LNG, Integrated Power,
+    Refining & Chemicals, and Marketing & Services segments. The Exploration & Production
+    segment engages in the activities of exploration and production of oil and natural
+    gas, as well as carbon storage. The Integrated LNG segment is involved in the
+    upstream and midstream LNG activities, as well as biogas and synthetic methane
+    activities, as well as gas trading. The Integrated Power segment engages in the
+    generation, storage, electricity trading, and B2B-B2C distribution of gas and
+    electricity. The Refining & Chemicals segment is involved in the industrial hub
+    activities comprising the activities of refining, petrochemicals and specialty
+    chemicals. This segment also includes the activities of oil supply, trading and
+    marine shipping, as well as hydrogen activities. The Marketing & Services segment
+    engages in the marketing activities in the field of petroleum products, as well
+    as corresponding supply and logistics activities. The company was formerly known
+    as TOTAL SE and changed its name to TotalEnergies SE in June 2021. TotalEnergies
+    SE was incorporated in 1924 and is headquartered in Courbevoie, France.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 95.33000183105469
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.46
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T22:58:07.242734+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: TotalEnergies SE
+  operating_margin: 17.0
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: TotalEnergies SE, an integrated energy company, produces and markets
+    oil and biofuels, natural gas, biogas and low-carbon hydrogen, renewables, and
+    electricity in France, the United States, Europe, Africa, and internationally.
+    It operates through Exploration & Production, Integrated LNG, Integrated Power,
+    Refining & Chemicals, and Marketing & Services segments. The Exploration & Production
+    segment engages in the activities of exploration and production of oil and natural
+    gas, as well as carbon s
+  revenue: 214400000000.0
+  revenue_growth: 16.82
+  roic: 13.95
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tte/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TTE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TTE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TTE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TTE/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tte/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tte/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tte/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TTE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tte/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TTE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tte/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tte/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tte/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TTE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/TTE/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/tte/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    119.0, "low": 91.0, "mean": 100.85, "median": 100.85, "observed_at": "2026-11-20T19:58:10.667146-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T19:58:10.667146-03:00", "observed_date": "2026-11-20", "target_price":
+    100.85, "url": "https://stockanalysis.com/stocks/tte/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T19:58:10.667146-03:00",
+    "observed_date": "2026-11-20", "target_price": 100.85, "url": "https://finance.yahoo.com/quote/TTE/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 95.33000183105469,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/TTE/"}]}}'
+  sector: Energy
+  ticker: TTE
+research_trigger:
+  discovery_snapshot_hash: 4b5fbf9444332d3725669c493de99fa305ae5bdb355dc9615a7131827c3ef483
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: d6c499524f255056483333e3f7e5391af5ef809af2298be36236ce2516c7dd68
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T19:58:34.317044-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.11 al 2026-09-30; no cruza el umbral.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TTE/statistics/
+  threshold: below 0.5
+- metric: interest_coverage
+  observation: 0 reportado TTM al 2026-09-30; cruza el umbral configurado, pero requiere
+    validación de la métrica.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/TTE/statistics/
+  threshold: below 2.0
+- metric: net_debt_ebitda
+  observation: 'No evaluable: ratio unavailable por falta de insumos comparables y
+    unidades verificables.'
+  threshold: above 4.0
+- metric: dilution_yoy_pct / share_count_cagr_3y_pct
+  observation: 'No evaluable: falta una serie histórica comparable de acciones.'
+  threshold: dilution_yoy_pct above 10%; share_count_cagr_3y_pct above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 46
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T19:58:10.667146-03:00'
+  fuentes:
+    stockanalysis: 100.85
+    yfinance: 100.85
+  mediana: 100.85
+  n_fuentes: 2
+  promedio: 100.85
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T19:58:10.667146-03:00'
+    observed_date: '2026-11-20'
+    target_price: 100.85
+    url: https://stockanalysis.com/stocks/tte/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T19:58:10.667146-03:00'
+    observed_date: '2026-11-20'
+    target_price: 100.85
+    url: https://finance.yahoo.com/quote/TTE/
+  target_high: 119.0
+  target_low: 91.0
+tesis_inversion: TotalEnergies es una compañía energética integrada con actividades
+  en hidrocarburos, LNG, electricidad, renovables y otros segmentos descritos en el
+  resumen financiero. La evidencia disponible registra FCF TTM positivo y mayor que
+  el FY2025, pero no permite identificar el mecanismo de esa variación, su sostenibilidad,
+  la reinversión por segmento ni los retornos sobre capital; la tesis de crecimiento
+  de largo plazo queda sin validar.
+ticker: TTE
+version: '3.0'

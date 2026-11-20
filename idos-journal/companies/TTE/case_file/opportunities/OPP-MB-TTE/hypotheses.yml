@@ -1,0 +1,144 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas de LNG de 2027 crecen menos del 5% frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica datos comparables que permitan verificar la
+      variación de ventas de LNG.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas de LNG de 2027 crecen menos del 5% frente a 2026.
+  - La compañía no publica datos comparables que permitan verificar la variación de
+    ventas de LNG.
+  horizon: medio
+  id: H1-OPP-MB-TTE
+  opportunity_id: OPP-MB-TTE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ventas de LNG en 2027
+    prediction: En el ejercicio 2027, las ventas de LNG reportadas por TotalEnergies
+      serán al menos un 5% superiores a las de 2026, según las definiciones comparables
+      de la compañía.
+    unit: '% mínimo frente a 2026'
+  priority: important
+  probability: 0.5
+  rationale: La compañía opera en LNG, pero la información disponible no permite atribuir
+    la mejora reciente del FCF a ese segmento ni confirmar una tendencia de crecimiento.
+    Esta hipótesis pone a prueba directamente si el LNG aporta expansión de volumen,
+    en vez de asumir que el FCF agregado refleja crecimiento estructural.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 publicados por
+    la compañía muestran un crecimiento de ventas de LNG inferior al 5% frente a 2026,
+    o si para 2028-03-31 no hay información comparable verificable.
+  secondary_hypotheses: []
+  statement: El negocio de LNG de TotalEnergies aumentará sus ventas en 2027 frente
+    a 2026, lo que indicaría crecimiento operativo observable en uno de sus negocios
+    energéticos.
+  status: ACTIVE
+  ticker: TTE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF reportado para 2027 es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF de 2027 es inferior al 80% del FCF de FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía modifica la definición o el perímetro del FCF de modo que
+      no pueda hacerse una comparación homogénea.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF reportado para 2027 es cero o negativo.
+  - El FCF de 2027 es inferior al 80% del FCF de FY2026.
+  - La compañía modifica la definición o el perímetro del FCF de modo que no pueda
+    hacerse una comparación homogénea.
+  horizon: medio
+  id: H2-OPP-MB-TTE
+  opportunity_id: OPP-MB-TTE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.8
+    met: null
+    metric: FCF de FY2027 como proporción del FCF de FY2026
+    prediction: El FCF de 2027, según la métrica y el perímetro reportados por TotalEnergies,
+      será positivo y equivaldrá al menos al 80% del FCF de FY2026.
+    unit: veces o más; además, FCF FY2027 positivo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia disponible indica FCF TTM positivo y superior al FY2025,
+    pero no identifica qué explica la diferencia, su sostenibilidad, la reinversión
+    por segmento ni los retornos sobre capital. Por ello, es razonable someter a prueba
+    la persistencia de la generación de caja sin asumir que el aumento reciente es
+    estructural.
+  review_trigger: Dejar de creerla al publicarse los resultados anuales de 2027 si
+    el FCF es negativo o inferior al 80% del de FY2026; si no se publica información
+    comparable antes de 2028-03-31, considerar la hipótesis no verificada.
+  secondary_hypotheses: []
+  statement: TotalEnergies conservará un FCF anual positivo en 2027, pero no necesariamente
+    mantendrá el nivel elevado observado en el FCF TTM disponible a la fecha de corte.
+  status: ACTIVE
+  ticker: TTE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total relativa de TotalEnergies frente al STOXX Europe
+      600 Oil & Gas es inferior a 5 puntos porcentuales en el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden obtener precios ajustados por dividendos comparables para
+      ambas inversiones en las fechas de inicio y cierre.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total relativa de TotalEnergies frente al STOXX Europe 600 Oil
+    & Gas es inferior a 5 puntos porcentuales en el periodo definido.
+  - No se pueden obtener precios ajustados por dividendos comparables para ambas inversiones
+    en las fechas de inicio y cierre.
+  horizon: medio
+  id: H3-OPP-MB-TTE
+  opportunity_id: OPP-MB-TTE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa frente al STOXX Europe 600 Oil & Gas
+    prediction: Entre el cierre del 20 de noviembre de 2026 y el cierre del 20 de
+      noviembre de 2027, la rentabilidad total de la acción ordinaria de TotalEnergies
+      negociada en París, en euros y con dividendos reinvertidos, superará en al menos
+      5 puntos porcentuales la rentabilidad total del STOXX Europe 600 Oil & Gas.
+    unit: puntos porcentuales o más
+  priority: important
+  probability: 0.5
+  rationale: La mejora de FCF TTM y de margen bruto podría ser transitoria, y la información
+    disponible no valida crecimiento de largo plazo ni retornos sobre capital. La
+    hipótesis evalúa si el mercado recompensa a la acción frente a un referente sectorial,
+    sin asumir que la mejora reciente se traduzca automáticamente en una revalorización.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si la rentabilidad total
+    relativa es inferior a 5 puntos porcentuales; si faltan datos comparables, clasificarla
+    como no verificable y no como confirmada.
+  secondary_hypotheses:
+  - H2-OPP-MB-TTE
+  statement: La rentabilidad total para el accionista de TotalEnergies en euros superará
+    a la del STOXX Europe 600 Oil & Gas en el periodo de un año posterior a la fecha
+    de corte.
+  status: ACTIVE
+  ticker: TTE
+  version: 1

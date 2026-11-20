@@ -1,0 +1,196 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento de ingresos del ejercicio fiscal 2027 es inferior al
+      8% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa reporta ingresos del ejercicio fiscal 2027 inferiores a
+      los del ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento de ingresos del ejercicio fiscal 2027 es inferior al 8% interanual.
+  - La empresa reporta ingresos del ejercicio fiscal 2027 inferiores a los del ejercicio
+    fiscal 2026.
+  horizon: medio
+  id: H1-OPP-MB-TWLO
+  opportunity_id: OPP-MB-TWLO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual de ingresos del ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal 2027, los ingresos totales reportados crecerán
+      al menos un 8% respecto al ejercicio fiscal 2026.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis atribuye a Twilio una oferta amplia de APIs y software para
+    comunicaciones, marketing, centros de interacción y autenticación. Si la adopción
+    y el uso de esos productos siguen creciendo, los ingresos deberían expandirse;
+    sin datos cuantificados de mercado direccionable o penetración, esta hipótesis
+    debe validarse mediante resultados reportados.
+  review_trigger: Dejar de creerla si Twilio reporta crecimiento de ingresos inferior
+    al 8% para el ejercicio fiscal 2027 o si, antes de esa fecha, revisa a la baja
+    su perspectiva de crecimiento anual por debajo de ese umbral.
+  secondary_hypotheses: []
+  statement: Twilio mantendrá un crecimiento de ingresos de al menos un dígito alto,
+    señal de que la demanda de sus servicios de comunicaciones e interacción con clientes
+    sigue expandiéndose.
+  status: ACTIVE
+  ticker: TWLO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto GAAP del ejercicio fiscal 2027 cae más de 1 punto porcentual
+      frente al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa atribuye una reducción sostenida del margen a mayores costos
+      de prestación de servicios o a una mezcla de ingresos menos rentable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto GAAP del ejercicio fiscal 2027 cae más de 1 punto porcentual frente
+    al ejercicio fiscal 2026.
+  - La empresa atribuye una reducción sostenida del margen a mayores costos de prestación
+    de servicios o a una mezcla de ingresos menos rentable.
+  horizon: medio
+  id: H2-OPP-MB-TWLO
+  opportunity_id: OPP-MB-TWLO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: -1.0
+    met: null
+    metric: Variación del margen bruto GAAP del ejercicio fiscal 2027 frente al ejercicio
+      fiscal 2026
+    prediction: El margen bruto GAAP del ejercicio fiscal 2027 será como máximo 1
+      punto porcentual inferior al margen bruto GAAP del ejercicio fiscal 2026.
+    unit: puntos porcentuales, como límite inferior
+  priority: critical
+  probability: 0.5
+  rationale: La tesis identifica la compresión reciente del margen bruto como un riesgo
+    para la durabilidad del crecimiento y la mejora del flujo de caja libre. Si la
+    empresa conserva una economía unitaria adecuada, el margen bruto reportado debería
+    mantenerse cerca del nivel de referencia del ejercicio fiscal 2026.
+  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 muestran
+    una caída del margen bruto GAAP superior a 1 punto porcentual respecto al ejercicio
+    fiscal 2026; también si la empresa comunica antes de esa fecha que espera una
+    reducción estructural mayor.
+  secondary_hypotheses:
+  - H1-OPP-MB-TWLO
+  statement: Twilio preservará su margen bruto, evitando que la expansión o composición
+    de sus servicios deteriore materialmente la economía unitaria.
+  status: ACTIVE
+  ticker: TWLO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior
+      al 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre del ejercicio fiscal 2027 es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa deja de reportar una cifra comparable de flujo de caja libre
+      y no proporciona datos suficientes para calcularla.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior al 10%.
+  - El flujo de caja libre del ejercicio fiscal 2027 es negativo.
+  - La empresa deja de reportar una cifra comparable de flujo de caja libre y no proporciona
+    datos suficientes para calcularla.
+  horizon: medio
+  id: H3-OPP-MB-TWLO
+  opportunity_id: OPP-MB-TWLO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: Margen de flujo de caja libre del ejercicio fiscal 2027
+    prediction: El margen de flujo de caja libre del ejercicio fiscal 2027 será al
+      menos del 10%, calculado como flujo de caja libre reportado dividido por ingresos
+      reportados del mismo ejercicio.
+    unit: porcentaje mínimo de los ingresos
+  priority: critical
+  probability: 0.5
+  rationale: La tesis señala una mejora reciente del flujo de caja libre, pero advierte
+    que podría no traducirse en crecimiento duradero si se debilita la economía unitaria
+    o persiste la presión sobre el margen bruto. La conversión de ingresos en caja
+    y la evolución del margen bruto permiten contrastar si la mejora es consistente.
+  review_trigger: Dejar de creerla si los resultados del ejercicio fiscal 2027 muestran
+    un margen de flujo de caja libre inferior al 10% o flujo de caja libre negativo.
+    Si cambia la definición de la métrica, suspender la hipótesis hasta poder reconstruir
+    una serie comparable.
+  secondary_hypotheses:
+  - H1-OPP-MB-TWLO
+  - H2-OPP-MB-TWLO
+  statement: La mejora del flujo de caja libre será sostenible y no dependerá únicamente
+    de recortes o de una contracción de la inversión necesaria para sostener el negocio.
+  status: ACTIVE
+  ticker: TWLO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de TWLO supera al Nasdaq-100 por menos de 10 puntos
+      porcentuales durante el periodo especificado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento total de TWLO es inferior o igual al del Nasdaq-100
+      durante el periodo especificado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de TWLO supera al Nasdaq-100 por menos de 10 puntos porcentuales
+    durante el periodo especificado.
+  - El rendimiento total de TWLO es inferior o igual al del Nasdaq-100 durante el
+    periodo especificado.
+  horizon: medio
+  id: H4-OPP-MB-TWLO
+  opportunity_id: OPP-MB-TWLO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total de TWLO menos rendimiento total del Nasdaq-100
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-19, el rendimiento
+      total de TWLO superará al del Nasdaq-100 en al menos 10 puntos porcentuales.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Una expansión de ingresos acompañada por flujo de caja libre sostenible
+    podría mejorar la percepción del mercado sobre la calidad del crecimiento. Sin
+    evidencia suficiente para afirmar una ventaja competitiva, retornos sobre capital
+    o una valoración intrínseca, la hipótesis se limita a una predicción relativa
+    y medible de rendimiento bursátil.
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si TWLO no ha superado
+    al Nasdaq-100 por al menos 10 puntos porcentuales; abandonarla antes si los resultados
+    publicados hasta entonces falsan H1 o H3.
+  secondary_hypotheses:
+  - H1-OPP-MB-TWLO
+  - H3-OPP-MB-TWLO
+  statement: Si Twilio entrega crecimiento y generación de caja verificables, su acción
+    superará al Nasdaq-100 durante los próximos doce meses.
+  status: ACTIVE
+  ticker: TWLO
+  version: 1
