@@ -140,6 +140,7 @@ def test_research_worker_failure_marks_run_failed_and_returns_nonzero(
     resume_queue = json.loads((tmp_path / "cache" / "ddd_research_resume.json").read_text(encoding="utf-8"))
     assert ramp_state["paused"] is False
     assert ramp_state["next_batch_size"] == 1
+    assert ramp_state["updated_at"] == ramp_state["last_failure"]["at"]
     assert len(resume_queue["pending"]) == 2
     failed = next(item for item in resume_queue["pending"] if item["ticker"] == "TEST")
     assert failed["attempt_count"] == 1

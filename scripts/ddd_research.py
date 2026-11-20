@@ -795,11 +795,13 @@ def main():
         elif rw_errors:
             # Candidate-local errors are retried/quarantined independently; keep
             # the last proven batch size and let the scheduler progress.
+            failure_at = datetime.now(timezone.utc).isoformat()
             hourly_ramp_state['next_batch_size'] = max(1, int(hourly_ramp_state.get('last_successful_batch_size', 0)))
             hourly_ramp_state['paused'] = False
             hourly_ramp_state['pause_reason'] = ''
+            hourly_ramp_state['updated_at'] = failure_at
             hourly_ramp_state['last_failure'] = {
-                'at': datetime.now(timezone.utc).isoformat(),
+                'at': failure_at,
                 'reason': 'Candidate-specific Research errors were deferred or quarantined',
                 'error_count': len(rw_errors),
             }
