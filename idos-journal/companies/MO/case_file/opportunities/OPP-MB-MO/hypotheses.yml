@@ -1,0 +1,188 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El índice de ingresos netos excluidos impuestos especiales queda por
+      debajo de 95.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El índice supera 105, lo que refutaría la hipótesis de estabilidad
+      y mostraría un crecimiento mayor al previsto.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El índice de ingresos netos excluidos impuestos especiales queda por debajo de
+    95.
+  - El índice supera 105, lo que refutaría la hipótesis de estabilidad y mostraría
+    un crecimiento mayor al previsto.
+  horizon: medio
+  id: H1-OPP-MB-MO
+  opportunity_id: OPP-MB-MO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 100.0
+    met: null
+    metric: Ingresos netos excluidos impuestos especiales, índice con base 100 en
+      los doce meses terminados el 2026-09-30
+    prediction: Al 2027-11-20, los ingresos netos excluidos los impuestos especiales
+      de los últimos doce meses serán de entre 95 y 105 respecto de un índice de 100
+      calculado con los ingresos netos excluidos impuestos especiales de los doce
+      meses terminados el 2026-09-30.
+    unit: índice; rango esperado de 95 a 105
+  priority: important
+  probability: 0.5
+  rationale: La información disponible no demuestra crecimiento estructural de ingresos
+    ni permite medir expansión del mercado o penetración. Por ello, la hipótesis más
+    prudente es que la base de ingresos se sostenga dentro de un rango acotado, en
+    vez de asumir una aceleración.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos muestran
+    que los ingresos netos excluidos impuestos especiales están más de un 5% por debajo
+    del nivel del período comparable usado como referencia, o si al 2027-11-20 el
+    índice queda fuera del rango previsto.
+  secondary_hypotheses: []
+  statement: Altria mantendrá una escala de ingresos operativos aproximadamente estable
+    durante los próximos doce meses, sin una aceleración estructural demostrable.
+  status: ACTIVE
+  ticker: MO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM al 2027-09-30 resulta inferior al 90% de la referencia TTM
+      al 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF TTM se vuelve negativo en cualquier período de doce meses reportado
+      antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM al 2027-09-30 resulta inferior al 90% de la referencia TTM al 2026-09-30.
+  - El FCF TTM se vuelve negativo en cualquier período de doce meses reportado antes
+    de la fecha objetivo.
+  horizon: medio
+  id: H2-OPP-MB-MO
+  opportunity_id: OPP-MB-MO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 90.0
+    met: null
+    metric: FCF TTM como proporción del FCF TTM al 2026-09-30
+    prediction: El FCF de los doce meses terminados al 2027-09-30 será al menos el
+      90% del FCF TTM reportado para los doce meses terminados al 2026-09-30.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis parte de FCF TTM positivo al 2026-09-30. Si el negocio y sus
+    márgenes se mantienen razonablemente estables, la generación de caja debería resistir
+    una reducción moderada sin exigir crecimiento de ingresos.
+  review_trigger: Dejar de creerla si un informe publicado antes del 2027-11-20 muestra
+    FCF TTM inferior al 90% de la referencia, o si el FCF TTM se vuelve negativo.
+  secondary_hypotheses:
+  - H1-OPP-MB-MO
+  statement: Altria conservará la mayor parte de su capacidad reciente de generación
+    de flujo de caja libre durante los próximos doce meses.
+  status: ACTIVE
+  ticker: MO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto TTM al 2027-09-30 cae más del 5% en términos relativos
+      frente al margen bruto TTM al 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Dos informes trimestrales consecutivos muestran una disminución interanual
+      del margen bruto sin recuperación en el siguiente informe.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto TTM al 2027-09-30 cae más del 5% en términos relativos frente
+    al margen bruto TTM al 2026-09-30.
+  - Dos informes trimestrales consecutivos muestran una disminución interanual del
+    margen bruto sin recuperación en el siguiente informe.
+  horizon: medio
+  id: H3-OPP-MB-MO
+  opportunity_id: OPP-MB-MO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 95.0
+    met: null
+    metric: Margen bruto TTM relativo al margen bruto TTM al 2026-09-30
+    prediction: El margen bruto TTM al 2027-09-30 será como mínimo el 95% del margen
+      bruto TTM reportado para los doce meses terminados el 2026-09-30, medido en
+      puntos porcentuales relativos al margen de referencia.
+    unit: porcentaje mínimo del nivel de referencia
+  priority: important
+  probability: 0.5
+  rationale: La evidencia disponible señala un margen bruto elevado al 2026-09-30,
+    pero no demuestra que pueda ampliarse. La hipótesis es de conservación, no de
+    expansión, y depende de que los precios y la mezcla de productos compensen los
+    cambios en costos y volumen.
+  review_trigger: Dejar de creerla si se cumple cualquiera de los criterios de falsación,
+    o si la compañía informa una presión persistente de costos o mezcla que haga improbable
+    recuperar el margen antes del 2027-11-20.
+  secondary_hypotheses:
+  - H1-OPP-MB-MO
+  statement: El margen bruto de Altria se mantendrá cerca de su nivel de referencia
+    durante los próximos doce meses, apoyando la resiliencia económica del negocio.
+  status: ACTIVE
+  ticker: MO
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El múltiplo de valor de empresa sobre EBITDA previsto cae por debajo
+      del 85% de su nivel al 2026-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF TTM se vuelve negativo antes de la fecha objetivo, lo que debilitaría
+      el mecanismo de respaldo de la valoración.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El múltiplo de valor de empresa sobre EBITDA previsto cae por debajo del 85% de
+    su nivel al 2026-11-20.
+  - El FCF TTM se vuelve negativo antes de la fecha objetivo, lo que debilitaría el
+    mecanismo de respaldo de la valoración.
+  horizon: medio
+  id: H4-OPP-MB-MO
+  opportunity_id: OPP-MB-MO
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 85.0
+    met: null
+    metric: Múltiplo de valor de empresa sobre EBITDA previsto a doce meses relativo
+      al nivel del 2026-11-20
+    prediction: Al 2027-11-20, el múltiplo de valor de empresa sobre EBITDA previsto
+      para los siguientes doce meses será al menos el 85% del múltiplo calculado al
+      2026-11-20 con la misma fuente de estimaciones y metodología.
+    unit: porcentaje mínimo del nivel de referencia
+  priority: informational
+  probability: 0.5
+  rationale: La generación positiva de FCF y el margen bruto elevado pueden respaldar
+    la percepción de resiliencia, aunque no prueban crecimiento ni determinan por
+    sí solos una valoración atractiva. La hipótesis pone a prueba si el mercado conserva
+    el múltiplo que asigna a la empresa.
+  review_trigger: Dejar de creerla si el múltiplo cae por debajo del umbral del 85%
+    en dos cierres mensuales consecutivos, o si el FCF TTM se vuelve negativo.
+  secondary_hypotheses:
+  - H2-OPP-MB-MO
+  - H3-OPP-MB-MO
+  statement: La valoración relativa de Altria no sufrirá una contracción pronunciada
+    mientras se mantenga la evidencia de generación de caja y márgenes resilientes.
+  status: ACTIVE
+  ticker: MO
+  version: 1

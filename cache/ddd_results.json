@@ -2,26 +2,26 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-MDLZ",
-      "ticker": "MDLZ",
-      "status": "ddd_failed",
-      "score": null,
+      "opp_id": "OPP-MB-MMM",
+      "ticker": "MMM",
+      "status": "completed",
+      "score": 52,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-MDT",
-      "ticker": "MDT",
+      "opp_id": "OPP-MB-MO",
+      "ticker": "MO",
       "status": "completed",
       "score": 58,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-MFG",
-      "ticker": "MFG",
+      "opp_id": "OPP-MB-MRK",
+      "ticker": "MRK",
       "status": "quality_failed",
-      "score": 63,
+      "score": 43,
       "reason": "new entry: SCREENED (score=0)",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
@@ -32,15 +32,8 @@
   "assessments": [],
   "errors": [
     {
-      "ticker": "MDLZ",
-      "opp_id": "OPP-MB-MDLZ",
-      "status": "ddd_failed",
-      "error": "Failed to parse JSON at line 151, column 28: Expecting value",
-      "errors": []
-    },
-    {
-      "ticker": "MFG",
-      "opp_id": "OPP-MB-MFG",
+      "ticker": "MRK",
+      "opp_id": "OPP-MB-MRK",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -49,7 +42,7 @@
     }
   ],
   "status": "failed",
-  "deferred_count": 108,
+  "deferred_count": 106,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",
