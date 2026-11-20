@@ -2,47 +2,180 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-20261023-041",
-      "ticker": "COP",
-      "status": "completed",
-      "score": 68,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-COP",
-      "ticker": "COP",
-      "status": "completed",
-      "score": 42,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-20261023-042",
+      "opp_id": "OPP-MB-COST",
       "ticker": "COST",
-      "status": "quality_failed",
-      "score": 66,
+      "status": "completed",
+      "score": 74.62,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-20261023-001",
+      "ticker": "CRM",
+      "status": "completed",
+      "score": 63,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
+    },
+    {
+      "opp_id": "OPP-MB-CRWD",
+      "ticker": "CRWD",
+      "status": "completed",
+      "score": 66.17,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": []
     }
   ],
   "skipped": [],
-  "assessments": [],
-  "errors": [
+  "assessments": [
     {
       "ticker": "COST",
-      "opp_id": "OPP-20261023-042",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "opp_id": "OPP-MB-COST",
+      "status": "completed",
+      "conviction_score": 55,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "assessments": {
+        "BusinessAssessmentEngine": 56,
+        "ValuationAssessmentEngine": 45,
+        "RecoveryAssessmentEngine": 50,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 56/70",
+        "RULE-003": "Rerating: 50/50",
+        "RULE-004": "Risk: 80/50",
+        "RULE-005": "Conviction: 55/65",
+        "RULE-008": "B/R 0.6:1 \u274c (Bull +17.8% / Bear -31.1%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-08-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
+    },
+    {
+      "ticker": "CRM",
+      "opp_id": "OPP-20261023-001",
+      "status": "completed",
+      "conviction_score": 65,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "assessments": {
+        "BusinessAssessmentEngine": 58,
+        "ValuationAssessmentEngine": 80,
+        "RecoveryAssessmentEngine": 59,
+        "RiskAssessmentEngine": 70,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-005",
+        "RULE-008",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 58/70",
+        "RULE-003": "Rerating: 59/50",
+        "RULE-004": "Risk: 70/50",
+        "RULE-005": "Conviction: 65/65",
+        "RULE-008": "B/R 12.2:1 \u2705 (Bull +152.0% / Bear -12.4%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-07-31",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
+    },
+    {
+      "ticker": "CRWD",
+      "opp_id": "OPP-MB-CRWD",
+      "status": "completed",
+      "conviction_score": 53,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "assessments": {
+        "BusinessAssessmentEngine": 40,
+        "ValuationAssessmentEngine": 55,
+        "RecoveryAssessmentEngine": 52,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 40/70",
+        "RULE-003": "Rerating: 52/50",
+        "RULE-004": "Risk: 80/50",
+        "RULE-005": "Conviction: 53/65",
+        "RULE-008": "B/R 0.9:1 \u274c (Bull +39.7% / Bear -43.3%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-07-31",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
     }
   ],
-  "status": "failed",
-  "deferred_count": 146,
+  "errors": [],
+  "status": "partial_deferred",
+  "deferred_count": 143,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

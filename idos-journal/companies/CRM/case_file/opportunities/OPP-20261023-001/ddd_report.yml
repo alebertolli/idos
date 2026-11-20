@@ -1,0 +1,490 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La plataforma empresarial y la integración con procesos de clientes pueden crear
+    costos de cambio y ventajas de distribución.
+  - La monetización incremental de IA puede ser un impulsor de crecimiento, pero también
+    puede canibalizar licencias existentes.
+  - La cotización por debajo del consenso observado no demuestra infravaloración;
+    las estimaciones de analistas no son una valoración independiente.
+  - La calidad del negocio parece superior a lo que puede inferirse sobre la certeza
+    de su valoración con la evidencia disponible.
+  - 'FCF TTM reportado de 15.150.000.000 en la unidad de moneda financiera del proveedor;
+    fuente stockanalysis.com, observado el 2026-11-01, periodo de reporte TTM sin
+    fecha de corte especificada. Campo: fcf.'
+  - 'Margen operativo TTM de 21,52 puntos porcentuales; fuente stockanalysis.com,
+    observado el 2026-11-01, periodo de reporte TTM sin fecha de corte especificada.
+    Campo: operating_margin_pct.'
+  - 'Crecimiento de ingresos de 10,8 puntos porcentuales para el periodo terminado
+    el 2026-07-31; fuente yfinance, observado el 2026-11-01. Campo: revenue_growth_pct.'
+  preguntas_abiertas:
+  - ¿Qué muestran los estados financieros y presentaciones oficiales más recientes
+    sobre ingresos, márgenes, caja, deuda, vencimientos y dilución?
+  - ¿Cuál es la evolución histórica comparable del crecimiento, margen operativo y
+    FCF, y qué partidas explican sus cambios?
+  - ¿Qué métricas primarias cuantifican clientes de pago, ingresos, consumo, retención
+    y renovación de Agentforce y otros productos de IA?
+  - ¿La adopción de agentes incrementa el gasto total por cliente o sustituye licencias
+    y asientos tradicionales?
+  - ¿Qué valoración se deriva de supuestos explícitos de crecimiento, márgenes, reinversión
+    y costo de capital, y cómo se compara con múltiplos actuales verificables?
+  - ¿Cuál es el perfil actual de deuda, arrendamientos, liquidez, compromisos y exposición
+    a proveedores de nube y modelos de IA?
+  - ¿Qué divulgaciones primarias permiten evaluar ciberseguridad, privacidad, incidentes,
+    gobierno de IA y riesgos ESG?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: compounder
+  categorias_descartadas: 'Compounder castigado: no hay evidencia histórica suficiente
+    en la entrada para determinar que la acción esté temporalmente fuera de favor.
+    Quality at Fair Price: faltan métricas de valoración y una estimación independiente
+    del valor intrínseco para afirmar que el precio sea razonable. Turnaround, deep
+    value, cíclica, special situation y distressed: la información aportada no acredita
+    deterioro operativo severo, infravaloración de activos, exposición cíclica dominante,
+    evento corporativo transformador ni estrés de solvencia. Hype y value trap: tampoco
+    hay evidencia suficiente para sostener crecimiento sin fundamentos o destrucción
+    estructural de valor.'
+  justificacion: Salesforce combina software empresarial de misión crítica, ingresos
+    recurrentes y una amplia plataforma CRM. La información disponible es compatible
+    con generación importante de flujo de caja libre y crecimiento positivo, pero
+    no permite validar la valoración con múltiplos completos ni confirmar una infravaloración.
+    La clasificación describe la calidad y el perfil del negocio, no implica que la
+    acción esté barata.
+comparativa_catalizadores:
+- delta_pct: 40
+  descripcion: Divulgación corporativa y resultados que demuestren monetización pagada
+    y material de Agentforce u otros productos de IA, junto con retención y márgenes
+    sostenibles.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos; se registra como
+    nuevo y no como cambio respecto de una estimación anterior.
+  probabilidad_actual: 40
+  probabilidad_anterior: 0
+- delta_pct: 50
+  descripcion: Crecimiento sostenido de ingresos y caja, con evidencia de ventas cruzadas
+    y resiliencia de suscripciones frente a la transición hacia agentes de IA.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos; se registra como
+    nuevo y no como cambio respecto de una estimación anterior.
+  probabilidad_actual: 50
+  probabilidad_anterior: 0
+- delta_pct: 35
+  descripcion: Una actualización de expectativas del mercado o de analistas que acerque
+    la valoración a la referencia de consenso observada.
+  estado: nuevo
+  nota_comparacion: No se proporcionaron catalizadores históricos; se registra como
+    nuevo y no como cambio respecto de una estimación anterior.
+  probabilidad_actual: 35
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: La propuesta CRM y el software conectado a procesos empresariales pueden
+    generar costos de cambio, integración y valor de plataforma. Es una inferencia
+    sobre la naturaleza del modelo, no una verificación independiente de cuota de
+    mercado, retención, satisfacción de clientes o duración del moat. La competencia
+    de suites empresariales, proveedores especializados y nuevas interfaces basadas
+    en agentes puede erosionar diferenciación o cambiar la unidad de monetización.
+    La descripción de productos incluida en el expediente no sustituye divulgaciones
+    corporativas verificadas.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Divulgación corporativa y resultados que demuestren monetización pagada
+    y material de Agentforce u otros productos de IA, junto con retención y márgenes
+    sostenibles.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+- descripcion: Crecimiento sostenido de ingresos y caja, con evidencia de ventas cruzadas
+    y resiliencia de suscripciones frente a la transición hacia agentes de IA.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 50
+- descripcion: Una actualización de expectativas del mercado o de analistas que acerque
+    la valoración a la referencia de consenso observada.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: La entrada no contiene divulgaciones ESG ni datos sobre emisiones, privacidad,
+    seguridad, prácticas laborales, concentración de proveedores o continuidad de
+    servicios. Como proveedor de software empresarial y tecnología de IA, la compañía
+    está expuesta a riesgos de protección de datos, ciberseguridad, sesgo, cumplimiento
+    regulatorio y disponibilidad de infraestructura de terceros. La evaluación es
+    preliminar y no constituye una constatación de incidentes o incumplimientos.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia estructurada registra FCF TTM de 15.150 millones en moneda
+    financiera del proveedor, sin periodo de corte especificado, y margen operativo
+    TTM de 21,52 puntos porcentuales, también sin fecha de periodo indicada. El crecimiento
+    de ingresos observado es 10,8% para el periodo terminado el 2026-07-31. Estos
+    datos apuntan a capacidad de generación de caja y crecimiento positivo, pero no
+    permiten evaluar por sí solos deuda, vencimientos, liquidez, recompra de acciones
+    ni tendencia. No se interpreta el FCF como ajustado.
+  rating: adecuada
+dominio_growth:
+  analisis: El crecimiento de ingresos observado por yfinance es 10,8% para el periodo
+    terminado el 2026-07-31, sin información suficiente en la entrada para verificar
+    comparabilidad, duración o composición. La expansión de productos, ventas cruzadas,
+    consumo y monetización de IA son posibles impulsores, pero su contribución no
+    está verificada aquí. La incertidumbre central es si la IA amplía el gasto total
+    por cliente o canibaliza licencias y reduce el valor económico de la plataforma.
+  rating: moderado
+dominio_management:
+  analisis: La entrada no incluye evidencia primaria suficiente sobre remuneración,
+    retornos de adquisiciones, recompras, dilución, decisiones de asignación de capital
+    ni cumplimiento de objetivos de la dirección. Por ello no es posible emitir una
+    evaluación firme del track record o de la alineación. La ejecución de la estrategia
+    de IA y la disciplina en costos y capital serán pruebas relevantes.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: La adopción de IA no se convierte en ingresos incrementales suficientes
+    para compensar costos, canibalización o expectativas del mercado.
+- impacto: alto
+  probabilidad: media
+  riesgo: Competencia de plataformas empresariales y herramientas de IA que reduzca
+    diferenciación, poder de fijación de precios o retención.
+- impacto: alto
+  probabilidad: media
+  riesgo: Incidente de ciberseguridad, privacidad o disponibilidad que afecte clientes
+    empresariales y confianza.
+- impacto: medio
+  probabilidad: media
+  riesgo: Asignación de capital o adquisiciones con retornos inferiores al costo de
+    capital.
+- impacto: medio
+  probabilidad: media
+  riesgo: La insuficiencia de información financiera completa impida identificar apalancamiento,
+    compromisos o deterioro de calidad de caja.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Evidencia verificable en resultados y divulgaciones corporativas
+      de que Agentforce y otros productos de IA generan adopción pagada y contribución
+      incremental a ingresos, retención o monetización, sin deterioro significativo
+      de márgenes. No se aporta evidencia primaria que confirme ese resultado a la
+      fecha de análisis.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 40
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización aportada es USD 230,225 al 2026-10-30. El consenso
+    observado el 2026-11-20 es USD 286,14, con rango USD 165-475. El consenso está
+    aproximadamente 24,3% por encima de la cotización indicada, pero no es una valoración
+    independiente ni una garantía de retorno. No se aportan múltiplos actuales completos
+    ni expectativas de crecimiento incorporadas en el precio; por ello no es posible
+    afirmar qué escenario implícito reflejan los múltiplos.
+  hipotesis_contraria: El mercado podría estar subestimando la capacidad de Salesforce
+    de monetizar IA integrada en sus flujos empresariales y de sostener caja mediante
+    una plataforma instalada y costos de cambio. En sentido contrario, el mercado
+    también podría estar sobreestimando la conversión de pilotos de IA en ingresos
+    recurrentes materiales, o subestimando la presión competitiva, los costos de infraestructura
+    y el riesgo de que agentes de IA reduzcan el valor de algunas licencias tradicionales.
+    La evidencia disponible no resuelve cuál de estas fuerzas predomina.
+  razonamiento: La diferencia entre la cotización y el consenso de analistas es una
+    referencia de mercado, no prueba de error de valoración. La dispersión amplia
+    de targets y la ausencia de métricas completas de valoración, series financieras
+    y evidencia primaria sobre monetización de IA impiden concluir que exista una
+    oportunidad explotable. El enfoque de segundo nivel exige considerar tanto el
+    posible optimismo sobre IA como el riesgo de que el mercado esté descontando una
+    erosión del modelo de licencias.
+generated_at: '2026-11-20T12:26:44.687259-03:00'
+integridad_tesis:
+  flags: []
+  reason: No hay evidencia en la información suministrada que demuestre la vulneración
+    de alguno de los nueve indicadores de integridad. La ausencia de evidencia no
+    equivale a descartar riesgos; la evaluación es provisional.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-20261023-001
+prompt_inputs:
+  business_model: Salesforce, Inc. provides customer relationship management technology
+    services that connect companies and customers together in the United States, Europe,
+    and the Asia Pacific. The company offers Agentforce, which enables customers to
+    build, deploy, and manage enterprise-grade, autonomous AI agents at scale, enabling
+    humans and agents to work together; Agentforce Sales, an integrated platform that
+    brings together the power of humans with AI agents to help sales teams for selling,
+    managing, and automating entire sales processes; Agentforce Service, which enables
+    companies in every industry to bring all of their customer, employee, IT, and
+    field service needs onto one integrated AI-powered platform; Data 360, a data
+    engine that gives AI agents their context and serves as the foundation for how
+    customers unify service offerings, making their data actionable for both humans
+    and agents; Informatica, an AI-powered data management platform that enables customers
+    to discover, integrate, govern, and deliver trusted data at scale across hybrid
+    and multi-cloud environments; and Slack, a conversational interface for the agentic
+    enterprise where people and agents work together, connecting knowledge, actions,
+    and data in real time. It also provides marketing platforms; commerce services,
+    which empower shopping experiences across various customer touchpoints; integration
+    and analytics solutions; Salesforce Starter, a suite for small and medium-sized
+    businesses that brings sales, service, marketing, and commerce together; and a
+    field service solution that enables companies to connect service agents, dispatchers,
+    and mobile employees through one centralized platform to schedule and dispatch
+    work, as well as track and manage jobs. It serves financial services, healthcare
+    and life sciences, manufacturing, automotive, and government sectors. Salesforce,
+    Inc. was incorporated in 1999 and is headquartered in San Francisco, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.011000000000000001
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Salesforce, Inc.
+  operating_margin: 21.52
+  pe_ratio: 21.54
+  products: ''
+  revenue: 43940000000.0
+  revenue_growth: 11.23
+  roic: 10.96
+  sector: Technology
+  ticker: CRM
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Salesforce, Inc. provides customer relationship management technology
+    services that connect companies and customers together in the United States, Europe,
+    and the Asia Pacific. The company offers Agentforce, which enables customers to
+    build, deploy, and manage enterprise-grade, autonomous AI agents at scale, enabling
+    humans and agents to work together; Agentforce Sales, an integrated platform that
+    brings together the power of humans with AI agents to help sales teams for selling,
+    managing, and automating entire sales processes; Agentforce Service, which enables
+    companies in every industry to bring all of their customer, employee, IT, and
+    field service needs onto one integrated AI-powered platform; Data 360, a data
+    engine that gives AI agents their context and serves as the foundation for how
+    customers unify service offerings, making their data actionable for both humans
+    and agents; Informatica, an AI-powered data management platform that enables customers
+    to discover, integrate, govern, and deliver trusted data at scale across hybrid
+    and multi-cloud environments; and Slack, a conversational interface for the agentic
+    enterprise where people and agents work together, connecting knowledge, actions,
+    and data in real time. It also provides marketing platforms; commerce services,
+    which empower shopping experiences across various customer touchpoints; integration
+    and analytics solutions; Salesforce Starter, a suite for small and medium-sized
+    businesses that brings sales, service, marketing, and commerce together; and a
+    field service solution that enables companies to connect service agents, dispatchers,
+    and mobile employees through one centralized platform to schedule and dispatch
+    work, as well as track and manage jobs. It serves financial services, healthcare
+    and life sciences, manufacturing, automotive, and government sectors. Salesforce,
+    Inc. was incorporated in 1999 and is headquartered in San Francisco, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 230.22500610351562
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.011000000000000001
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "data_quality_warnings": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "exchange": ["yfinance"], "fcf": ["stockanalysis.com"],
+    "fcf_growth_history": ["stockanalysis.com"], "fcf_history": ["stockanalysis.com"],
+    "fcf_margin_history": ["stockanalysis.com"], "fcf_margin_pct": ["stockanalysis.com"],
+    "fcf_per_share": ["stockanalysis.com"], "fcf_yield_pct": ["stockanalysis.com"],
+    "financial_currency": ["yfinance"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com", "yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com", "yfinance"],
+    "financial_period_end_timestamp": ["yfinance"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"], "ma_200d":
+    ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap": ["stockanalysis.com",
+    "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance": ["yfinance"],
+    "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"], "net_cash_history":
+    ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"], "operating_cash_flow_history":
+    ["stockanalysis.com"], "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["stockanalysis.com"], "p_fcf_ratio":
+    ["stockanalysis.com"], "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio":
+    ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"],
+    "period_end_date": ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"],
+    "price_history": ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates":
+    ["yfinance"], "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date":
+    ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"],
+    "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "size_metric_provenance":
+    ["yfinance"], "size_metric_usd": ["yfinance"], "source": ["stockanalysis.com",
+    "yfinance"], "ticker": ["stockanalysis.com", "yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:24.497802+00:00",
+    "period_end_date": null, "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    null, "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/CRM/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 15150000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 21.375}, "observed_at": "2026-11-01T10:17:24.497802+00:00", "period_end_date":
+    null, "period_status": "PERIOD_UNSPECIFIED", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": null, "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/CRM/statistics/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-07-31", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 21.52}}, "revenue_growth_pct": {"currency": null,
+    "non_comparable_reason": null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:25.172940+00:00",
+    "period_end_date": "2026-07-31", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1785456000,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-07-31", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    10.8}}}, "observed_at": "2026-10-30T16:53:13.054021+00:00", "period_end": "2026-07-31",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Salesforce, Inc.
+  operating_margin: 21.52
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Salesforce, Inc. provides customer relationship management technology
+    services that connect companies and customers together in the United States, Europe,
+    and the Asia Pacific. The company offers Agentforce, which enables customers to
+    build, deploy, and manage enterprise-grade, autonomous AI agents at scale, enabling
+    humans and agents to work together; Agentforce Sales, an integrated platform that
+    brings together the power of humans with AI agents to help sales teams for selling,
+    managing, and a
+  revenue: 43940000000.0
+  revenue_growth: 11.23
+  roic: 10.96
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    475.0, "low": 165.0, "mean": 286.14, "median": 286.14, "observed_at": "2026-11-20T12:26:09.235297-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T12:26:09.235297-03:00", "observed_date": "2026-11-20", "target_price":
+    286.14, "url": "https://stockanalysis.com/stocks/crm/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T12:26:09.235297-03:00",
+    "observed_date": "2026-11-20", "target_price": 286.1402, "url": "https://finance.yahoo.com/quote/CRM/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 230.22500610351562,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CRM/"}]}}'
+  sector: Technology
+  ticker: CRM
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 5e154b719b1edb026d14a11a71f0b84dc810caeb6d779b8b77852fd0246be8ed
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T12:26:44.687259-03:00'
+resumen_ejecutivo: 'Salesforce parece conservar atributos de compounder: software
+  empresarial, plataforma extensa y generación de caja relevante según la observación
+  financiera aportada. Hay crecimiento positivo en la observación disponible, pero
+  no es suficiente para establecer su trayectoria sostenible ni la calidad de ese
+  crecimiento. La tesis de upside depende de que la IA produzca monetización incremental
+  y no solo uso o sustitución de funcionalidades existentes. La cotización y el consenso
+  de analistas ofrecen referencias, no una valoración independiente. Con la evidencia
+  disponible, la valoración y la magnitud del error de mercado son inciertas.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Divulgaciones corporativas que acrediten crecimiento sostenido de ingresos pagados
+      por IA y expansión del gasto por cliente.
+    - Resultados futuros que confirmen crecimiento y generación de caja resistentes
+      sin deterioro relevante de retención o márgenes.
+    id: BEAR
+    key_assumptions:
+    - La adopción de IA no genera ingresos incrementales materiales o sustituye parte
+      del gasto existente.
+    - El crecimiento y la generación de caja se debilitan frente a lo esperado por
+      los inversores.
+    - Los inversores asignan mayor peso a riesgos competitivos y de ejecución.
+    rationale: Se usa el límite bajo del rango de targets observado como ancla de
+      un escenario adverso, no como valoración independiente. Este resultado es plausible
+      si la monetización de IA decepciona, el crecimiento o la retención se debilitan
+      y el mercado mantiene una valoración más conservadora. El target observado puede
+      reflejar supuestos diversos que no están disponibles en la entrada.
+    sources:
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CRM/
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/crm/forecast/
+    target_price: 165
+  - falsifiers:
+    - Evidencia de adopción sin monetización o de canibalización material de suscripciones
+      tradicionales.
+    - Deterioro sostenido de crecimiento, retención, márgenes o generación de caja.
+    - Pruebas de pérdida material de competitividad o aumento de costos que reduzca
+      la economía de los productos de IA.
+    id: BULL
+    key_assumptions:
+    - Los productos de IA y agentes generan ingresos pagados incrementales, no solo
+      actividad o reasignación de gasto.
+    - La base instalada, las ventas cruzadas y la retención sostienen crecimiento
+      y generación de caja.
+    - La competencia no erosiona materialmente el poder de fijación de precios ni
+      la posición de la plataforma.
+    rationale: Se usa el límite alto del rango de targets observado como ancla de
+      un escenario favorable, no como valoración independiente. Requeriría que la
+      monetización de IA fuera sustancial, que el crecimiento y la caja fueran resilientes
+      y que el mercado reconociera mayor valor económico a la plataforma. Es una referencia
+      extrema del consenso observado y no una previsión propia calibrada.
+    sources:
+    - as_of_date: '2026-10-30'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CRM/
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/crm/forecast/
+    target_price: 475
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 63
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T12:26:09.235297-03:00'
+  fuentes:
+    stockanalysis: 286.14
+    yfinance: 286.1402
+  mediana: 286.14
+  n_fuentes: 2
+  promedio: 286.14
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T12:26:09.235297-03:00'
+    observed_date: '2026-11-20'
+    target_price: 286.14
+    url: https://stockanalysis.com/stocks/crm/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T12:26:09.235297-03:00'
+    observed_date: '2026-11-20'
+    target_price: 286.1402
+    url: https://finance.yahoo.com/quote/CRM/
+  target_high: 475.0
+  target_low: 165.0
+tesis_inversion: La tesis potencial es que Salesforce mantenga su plataforma empresarial
+  y convierta la IA en una capa monetizable que eleve el valor por cliente, mientras
+  preserva caja y márgenes. La evidencia aportada respalda únicamente un registro
+  puntual de crecimiento de ingresos, margen operativo y FCF; no acredita por sí sola
+  la durabilidad de esos resultados ni la monetización de IA. La cotización está por
+  debajo del consenso observado, pero el amplio rango de targets y la falta de una
+  valoración independiente impiden sostener que exista un descuento aprovechable.
+  La tesis queda condicionada a verificar resultados, balance, asignación de capital
+  y métricas de adopción y monetización.
+ticker: CRM
+version: '3.0'

@@ -1,0 +1,233 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El ARR de Agentforce divulgado para el cuarto trimestre del ejercicio
+      fiscal 2028 crece menos del 40% frente al cuarto trimestre del ejercicio fiscal
+      2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no divulga métricas comparables de ARR de Agentforce en
+      ambos periodos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa que la adopción o contratación de Agentforce no
+      se traduce en ingresos recurrentes o ventas adicionales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ARR de Agentforce divulgado para el cuarto trimestre del ejercicio fiscal 2028
+    crece menos del 40% frente al cuarto trimestre del ejercicio fiscal 2027.
+  - La empresa no divulga métricas comparables de ARR de Agentforce en ambos periodos.
+  - La empresa informa que la adopción o contratación de Agentforce no se traduce
+    en ingresos recurrentes o ventas adicionales.
+  horizon: medio
+  id: H1-OPP-20261023-001
+  opportunity_id: OPP-20261023-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-15'
+    expected: 40.0
+    met: null
+    metric: Crecimiento interanual del ARR de Agentforce
+    prediction: En los resultados del cuarto trimestre del ejercicio fiscal 2028,
+      Salesforce informará que el ARR de Agentforce es al menos un 40% superior al
+      ARR que la empresa haya comunicado para el cuarto trimestre del ejercicio fiscal
+      2027. La comparación requiere que la empresa divulgue ambos valores con definiciones
+      comparables; si no divulga una base comparable, la hipótesis no se considerará
+      confirmada.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La integración de IA en flujos de trabajo empresariales podría facilitar
+    ventas adicionales a la base instalada y reducir fricciones de adopción. Sin embargo,
+    la evidencia disponible al corte no demuestra que los pilotos se conviertan en
+    contratos recurrentes materiales; por ello, la hipótesis depende de métricas de
+    clientes y de ingresos divulgadas por la empresa.
+  review_trigger: Dejar de creerla si los resultados del cuarto trimestre del ejercicio
+    fiscal 2028 muestran crecimiento interanual del ARR de Agentforce inferior al
+    40%, o si Salesforce deja de divulgar una métrica comparable antes de esa fecha.
+  secondary_hypotheses:
+  - H2-OPP-20261023-001
+  statement: Salesforce convertirá la adopción de sus productos de IA en crecimiento
+    medible de ingresos recurrentes, en lugar de limitarse a pilotos o funciones incluidas
+    en licencias existentes.
+  status: ACTIVE
+  ticker: CRM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de FCF del ejercicio fiscal 2028 es inferior al 25%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen operativo GAAP del ejercicio fiscal 2028 es inferior al 20%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa modifica la presentación de sus métricas de modo que no
+      sea posible calcular ambas razones de forma comparable a partir de sus estados
+      financieros.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de FCF del ejercicio fiscal 2028 es inferior al 25%.
+  - El margen operativo GAAP del ejercicio fiscal 2028 es inferior al 20%.
+  - La empresa modifica la presentación de sus métricas de modo que no sea posible
+    calcular ambas razones de forma comparable a partir de sus estados financieros.
+  horizon: medio
+  id: H2-OPP-20261023-001
+  opportunity_id: OPP-20261023-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-15'
+    expected: 25.0
+    met: null
+    metric: Margen de FCF y margen operativo GAAP
+    prediction: En el ejercicio fiscal 2028, Salesforce reportará un margen de flujo
+      de caja libre de al menos 25% y un margen operativo GAAP de al menos 20%, calculados
+      como FCF e ingreso operativo GAAP, respectivamente, divididos por ingresos del
+      mismo ejercicio.
+    unit: porcentaje mínimo de margen FCF; además, margen operativo GAAP mínimo de
+      20%
+  priority: critical
+  probability: 0.5
+  rationale: La base instalada, los ingresos recurrentes y los costos de cambio pueden
+    respaldar la generación de caja. En sentido contrario, la expansión de infraestructura
+    de IA, la compensación y la competencia podrían presionar los márgenes. El registro
+    puntual de crecimiento de ingresos, margen operativo y FCF mencionado en el contexto
+    no basta para establecer que esos resultados sean duraderos.
+  review_trigger: Dejar de creerla cuando Salesforce publique los resultados auditados
+    del ejercicio fiscal 2028 si cualquiera de los dos márgenes queda por debajo del
+    umbral; también revisar antes si una guía oficial anticipa explícitamente que
+    no se alcanzará.
+  secondary_hypotheses:
+  - H1-OPP-20261023-001
+  statement: Salesforce preservará una conversión sólida de ingresos en caja y sostendrá
+    márgenes operativos, pese a los costos de infraestructura y desarrollo asociados
+    a la IA.
+  status: ACTIVE
+  ticker: CRM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de ingresos del ejercicio fiscal 2028 es
+      inferior al 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa una contracción interanual de ingresos en dos trimestres
+      consecutivos anteriores a la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La dirección atribuye una desaceleración material a menores renovaciones,
+      reducción de licencias o sustitución de productos por soluciones de IA.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de ingresos del ejercicio fiscal 2028 es inferior al
+    8%.
+  - La empresa informa una contracción interanual de ingresos en dos trimestres consecutivos
+    anteriores a la fecha objetivo.
+  - La dirección atribuye una desaceleración material a menores renovaciones, reducción
+    de licencias o sustitución de productos por soluciones de IA.
+  horizon: medio
+  id: H3-OPP-20261023-001
+  opportunity_id: OPP-20261023-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-15'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual de ingresos del ejercicio fiscal 2028
+    prediction: Los ingresos del ejercicio fiscal 2028 aumentarán al menos 8% respecto
+      de los ingresos del ejercicio fiscal 2027, según los estados financieros anuales
+      publicados por la empresa.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La amplitud de la plataforma y los costos de cambio pueden sostener renovaciones
+    y ventas cruzadas en clientes existentes. La hipótesis quedaría debilitada si
+    la competencia, la sustitución de licencias por agentes de IA o una menor demanda
+    empresarial reducen el crecimiento agregado.
+  review_trigger: Dejar de creerla si los resultados anuales del ejercicio fiscal
+    2028 muestran crecimiento inferior al 8%, o antes si la empresa comunica dos trimestres
+    consecutivos de contracción interanual.
+  secondary_hypotheses:
+  - H1-OPP-20261023-001
+  - H2-OPP-20261023-001
+  statement: El crecimiento de la plataforma empresarial de Salesforce seguirá siendo
+    positivo, aunque la IA y la competencia podrían limitar la expansión de las licencias
+    tradicionales.
+  status: ACTIVE
+  ticker: CRM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de CRM menos el rendimiento total de XLK en el
+      periodo es inferior a 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: CRM registra un rendimiento total inferior al de XLK durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción supera a XLK solo por una expansión del múltiplo, mientras
+      los ingresos y el FCF por acción no crecen interanualmente en los últimos cuatro
+      trimestres del periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de CRM menos el rendimiento total de XLK en el periodo es
+    inferior a 10 puntos porcentuales.
+  - CRM registra un rendimiento total inferior al de XLK durante el periodo.
+  - La acción supera a XLK solo por una expansión del múltiplo, mientras los ingresos
+    y el FCF por acción no crecen interanualmente en los últimos cuatro trimestres
+    del periodo.
+  horizon: medio
+  id: H4-OPP-20261023-001
+  opportunity_id: OPP-20261023-001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total de CRM menos rendimiento total de XLK
+    prediction: Desde el cierre del 20 de noviembre de 2026 hasta el cierre del 20
+      de noviembre de 2027, el rendimiento total de CRM, incluidos dividendos, superará
+      en al menos 10 puntos porcentuales el rendimiento total del ETF Technology Select
+      Sector SPDR (XLK).
+    unit: puntos porcentuales de exceso de rendimiento
+  priority: informational
+  probability: 0.5
+  rationale: Una mejora verificable en crecimiento recurrente y caja podría reducir
+    la incertidumbre sobre la monetización de IA y respaldar una revaloración. La
+    diferencia entre la cotización y los precios objetivo de analistas no constituye
+    por sí sola evidencia de descuento, dado el amplio rango de objetivos y la ausencia
+    de una valoración independiente en la información aportada.
+  review_trigger: Dejar de creerla al cierre del 20 de noviembre de 2027 si la diferencia
+    de rendimiento total frente a XLK es inferior a 10 puntos porcentuales; antes,
+    reconsiderar si Salesforce reduce su guía de ingresos o FCF para el ejercicio
+    fiscal 2028.
+  secondary_hypotheses:
+  - H1-OPP-20261023-001
+  - H2-OPP-20261023-001
+  - H3-OPP-20261023-001
+  statement: Si Salesforce demuestra crecimiento de ingresos, monetización de IA y
+    disciplina de márgenes, su acción superará al mercado tecnológico durante los
+    siguientes doce meses; esta hipótesis no presupone que la cotización al corte
+    esté infravalorada.
+  status: ACTIVE
+  ticker: CRM
+  version: 1
