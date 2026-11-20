@@ -1,0 +1,890 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La comparación reportada de FCF sugiere una mejora frente a FY 2025, pero una
+    observación TTM y datos de una sola fuente no establecen su persistencia.
+  - El momentum de precio positivo coexistiendo con drawdown y volatilidad de dos
+    dígitos indica que el desempeño de mercado del período no fue lineal.
+  - 'La ficha de mercado reporta momentum de precio a 12 meses de 20.2146%, drawdown
+    de 19.5924% y volatilidad de 90 días de 31.2102%, para los períodos indicados
+    en el paquete; fuente: yfinance, https://finance.yahoo.com/quote/BKR/history/,
+    hasta 2026-10-26.'
+  - 'La cotización fue USD 46.93 al 2026-11-19; el consenso de precio objetivo fue
+    USD 69.75, con rango USD 51–85, observado el 2026-11-20; fuentes: https://finance.yahoo.com/quote/BKR/
+    y https://stockanalysis.com/stocks/bkr/forecast/.'
+  - Stockanalysis.com reporta ingresos TTM de USD 28.740 mil millones, FCF TTM de
+    USD 3.228 mil millones, ingreso neto TTM de USD 2.898 mil millones y margen bruto
+    TTM de 23.7%, todos con período terminado 2026-09-30; https://stockanalysis.com/stocks/BKR/statistics/.
+  preguntas_abiertas:
+  - ¿Qué partes del negocio impulsan el crecimiento y qué retornos sobre capital obtiene
+    cada una?
+  - ¿Cuáles son el mercado direccionable, la penetración y la posición competitiva,
+    y cómo podrían erosionarse?
+  - ¿Qué explica el cambio reportado en deuda y cuál es la cobertura de intereses
+    económicamente válida?
+  - ¿Qué fechas de hitos, estimaciones futuras y método de valoración permitirían
+    construir escenarios comparables?
+catalizadores_previos: &id001
+- descripcion: Recuperación sostenida del precio del crudo >80 USD/barril
+  generated_at: '2026-11-20T10:49:47.586587-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  opp_id: OPP-20261023-027
+  probabilidad_anterior: 45
+- descripcion: Ejecución exitosa de plan de reducción de costos y mejora operativa
+  generated_at: '2026-11-20T10:49:47.586587-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  opp_id: OPP-20261023-027
+  probabilidad_anterior: 55
+- descripcion: Expansión significativa en servicios de energía renovable
+  generated_at: '2026-11-20T10:49:47.586587-03:00'
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-027
+  probabilidad_anterior: 30
+clasificacion_oportunidad:
+  categoria: Investigación requerida
+  justificacion: El paquete muestra crecimiento de FCF y momentum positivo, pero no
+    ofrece URLs confiables para validar los ratios ni evidencia suficiente para cuantificar
+    retornos sobre capital, mercado direccionable o penetración.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Se informa un portafolio de tecnologías y servicios para los sectores
+    energético e industrial y un margen bruto TTM de 23.7%. No hay datos validados
+    sobre retornos sobre capital, reinversión, cuota de mercado, diferenciación, erosión
+    competitiva o asignación de capital; tampoco evidencia específica para evaluar
+    management.
+  rating: Evidencia insuficiente
+dominio_catalizadores:
+- catalizador: El FCF reportado fue USD 3.228 mil millones en TTM terminado 2026-09-30,
+    frente a USD 2.537 mil millones en FY 2025; la cifra y los períodos proceden de
+    una sola fuente.
+  fuente: Evidencia financiera por campo, stockanalysis.com, https://stockanalysis.com/stocks/BKR/statistics/.
+- catalizador: El margen bruto reportado pasó de 23.68% en FY 2025 a 23.7% en TTM
+    terminado 2026-09-30; la diferencia es pequeña y no establece por sí sola una
+    tendencia futura.
+  fuente: Evidencia financiera por campo, stockanalysis.com, https://stockanalysis.com/stocks/BKR/statistics/.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: Evidencia financiera por campo, stockanalysis.com, https://stockanalysis.com/stocks/BKR/statistics/,
+    período terminado 2026-09-30 y FY 2025.
+  riesgo: La deuda total informada para 2026-09-30 difiere marcadamente de FY 2025;
+    el paquete no aporta contexto que permita explicar el cambio.
+- fuente: Evidencia financiera por campo, stockanalysis.com, https://stockanalysis.com/stocks/BKR/statistics/,
+    TTM terminado 2026-09-30.
+  riesgo: El ratio de cobertura de intereses aparece como cero en el dato suministrado,
+    pero no se aportan interés pagado ni una definición que permitan validar esa observación.
+- fuente: Resumen financiero de contexto, fecha de análisis 2026-11-20.
+  riesgo: El negocio está expuesto a operaciones de servicios y equipos para yacimientos
+    petrolíferos; el paquete no cuantifica su sensibilidad a actividad, precios o
+    inversión del sector.
+error_mercado:
+  catalizador_cambio: Resultados financieros posteriores que confirmen o debiliten
+    la tendencia de FCF y márgenes podrían cambiar la lectura, pero el paquete no
+    especifica fechas ni hitos corporativos.
+  conclusion_error_valoracion: 'No se puede validar un error de valoración: hay cotización
+    y objetivos de analistas, pero faltan estimaciones, método de valoración y horizonte
+    de escenarios defendibles.'
+  consenso_actual: La cotización observada fue USD 46.93 el 2026-11-19; el consenso
+    de precio objetivo informado fue USD 69.75, con rango de USD 51 a USD 85, observado
+    el 2026-11-20.
+  hipotesis_contraria: La diferencia entre cotización y objetivos de analistas podría
+    reflejar expectativas de crecimiento y generación de caja que no se sostengan;
+    el paquete no aporta estimaciones operativas para comprobarlo.
+  razonamiento: El FCF TTM informado supera el de FY 2025, mientras que la evidencia
+    disponible no permite verificar crecimiento futuro, retornos sobre capital ni
+    sostenibilidad de esa mejora. Las cifras de mercado son referencias observadas,
+    no una valoración intrínseca.
+generated_at: '2026-11-20T10:51:27.941967-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MULTIBAGGERS-BKR-0001
+prompt_inputs:
+  business_model: Baker Hughes Company provides a portfolio of technologies and services
+    to energy and industrial value chain. Its Oilfield Services & Equipment segment
+    designs and manufactures exploration, appraisal, development, production, rejuvenation,
+    and decommissioning products and related services for onshore and offshore oilfield
+    operations. This segment also provides drilling services, drill bits, and drilling
+    and completions fluids; completions, intervention, measurements, pressure pumping,
+    and wireline services; artificial lift systems, and oilfield and industrial chemicals;
+    subsea projects and services, flexible pipe systems, and surface pressure control
+    systems; and integrated well services and solutions. It serves oil and natural
+    gas companies; the United States and international independent oil and natural
+    gas companies; national or state-owned oil companies; engineering, procurement,
+    and construction contractors; geothermal companies; and other oilfield service
+    companies. The company's Industrial & Energy Technology segment offers gas technology
+    equipment, such as drivers, driven equipment, and turnkey solutions for the mechanical
+    and electric-drive, compression, and power-generation applications; aftermarket
+    support and uptime gas technology services; non-destructive testing technologies,
+    software, and services; pre-commissioning and maintenance services; flow control
+    and safety solutions; mechanical and electromechanical gear transmission systems;
+    Cordant, a software solution to optimize assets, processes, and energy use; Bently
+    Nevada, a sensing and protection hardware for rack-based vibrating monitoring
+    equipment and sensors; and climate technology solutions. It serves industrial,
+    upstream, midstream, downstream, onshore, offshore, and small-to-large scale customers.
+    The company was formerly known as Baker Hughes, a GE company and changed its name
+    to Baker Hughes Company in October 2019. The company was incorporated in 2016
+    and is based in Houston, Texas.
+  ceo_tenure: 0
+  debt_to_equity: 0.89
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Baker Hughes Company
+  operating_margin: 12.2
+  pe_ratio: 16.13
+  products: ''
+  revenue: 28740000000.0
+  revenue_growth: 3.71
+  roic: 12.12
+  sector: Energy
+  ticker: BKR
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs: {}
+  limitations: Aunque hay ingresos históricos fechados, trusted_source_urls está vacío;
+    no se puede citar una URL verificada que respalde los inputs del ratio.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs: {}
+  limitations: El historial de FCF reportado no tiene una URL copiada en trusted_source_urls;
+    por la regla de fuentes, no se puede validar ni citar el cálculo.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100; no significativo si net_income <= 0
+  inputs: {}
+  limitations: FCF e ingreso neto están reportados, pero no hay URL disponible en
+    trusted_source_urls que respalde los inputs requeridos.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs: {}
+  limitations: No hay URL disponible en trusted_source_urls que respalde deuda, efectivo
+    y EBITDA; no se calcula el ratio.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: El paquete sólo aporta acciones en circulación para un período; falta
+    una serie comparable de acciones diluidas, además de una URL verificada en trusted_source_urls.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Baker Hughes Company provides a portfolio of technologies and services
+    to energy and industrial value chain. Its Oilfield Services & Equipment segment
+    designs and manufactures exploration, appraisal, development, production, rejuvenation,
+    and decommissioning products and related services for onshore and offshore oilfield
+    operations. This segment also provides drilling services, drill bits, and drilling
+    and completions fluids; completions, intervention, measurements, pressure pumping,
+    and wireline services; artificial lift systems, and oilfield and industrial chemicals;
+    subsea projects and services, flexible pipe systems, and surface pressure control
+    systems; and integrated well services and solutions. It serves oil and natural
+    gas companies; the United States and international independent oil and natural
+    gas companies; national or state-owned oil companies; engineering, procurement,
+    and construction contractors; geothermal companies; and other oilfield service
+    companies. The company's Industrial & Energy Technology segment offers gas technology
+    equipment, such as drivers, driven equipment, and turnkey solutions for the mechanical
+    and electric-drive, compression, and power-generation applications; aftermarket
+    support and uptime gas technology services; non-destructive testing technologies,
+    software, and services; pre-commissioning and maintenance services; flow control
+    and safety solutions; mechanical and electromechanical gear transmission systems;
+    Cordant, a software solution to optimize assets, processes, and energy use; Bently
+    Nevada, a sensing and protection hardware for rack-based vibrating monitoring
+    equipment and sensors; and climate technology solutions. It serves industrial,
+    upstream, midstream, downstream, onshore, offshore, and small-to-large scale customers.
+    The company was formerly known as Baker Hughes, a GE company and changed its name
+    to Baker Hughes Company in October 2019. The company was incorporated in 2016
+    and is based in Houston, Texas.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 46.93000030517578
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.89
+  excess_return_roic_wacc: null
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Baker Hughes Company (BKR) es una compañía de tecnologías y servicios para los
+    sectores energético e industrial. Combina equipos y servicios para operaciones
+    de petróleo y gas con tecnologías industriales, soluciones de gas, posventa y
+    software, según la información de investigación proporcionada.
+
+
+    Su actividad cubre varias etapas de la cadena de valor energética: exploración,
+    evaluación, desarrollo, producción, mantenimiento y retiro de activos. Sus clientes
+    incluyen compañías petroleras internacionales e independientes, así como compañías
+    petroleras nacionales o estatales. La información disponible no detalla la distribución
+    geográfica de ingresos.
+
+
+    La exposición a servicios y equipos petroleros hace que parte del negocio sea
+    cíclica y sensible a los precios de hidrocarburos, la actividad de perforación
+    y los presupuestos de inversión de los clientes. La diversificación hacia tecnologías
+    industriales y energéticas puede moderar esa exposición, pero no se dispone de
+    datos segmentados suficientes para cuantificarlo.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    **Productos y servicios descritos en la investigación:**
+
+
+    - Servicios y equipos de perforación, completación, intervención, medición y producción
+    de pozos.
+
+    - Sistemas de levantamiento artificial, productos químicos, wireline y servicios
+    integrados para pozos.
+
+    - Tecnologías y servicios para operaciones energéticas e industriales, además
+    de soporte posventa.
+
+
+    **Drivers de ingresos:** actividad de exploración y producción, precios del petróleo
+    y el gas, presupuestos de los clientes, demanda de servicios durante el ciclo
+    de vida de los activos y ventas de equipos y posventa. No se aportan cifras de
+    ingresos por segmento ni una serie histórica que permita medir la sensibilidad
+    de cada driver.
+
+
+    **Posición competitiva:** la evaluación AOIF clasifica a BKR como líder, pero
+    describe su ventaja competitiva como estrecha. La amplitud tecnológica, la experiencia
+    operativa, la presencia en proyectos complejos y la base instalada podrían favorecer
+    relaciones duraderas, ventas de posventa y costes de cambio; estos puntos son
+    una caracterización analítica y no están cuantificados con evidencia comparativa
+    en los datos suministrados.
+
+
+    La compañía comparte exposición sectorial con [[E]] y [[TS]], mencionadas en la
+    información existente sobre empresas de la misma industria. La lista original
+    incluye [[TS]] dos veces; se conserva una sola referencia.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las cifras de esta tabla provienen de los inputs de investigación y no se acompañan
+    de estados financieros, fechas de corte o enlaces verificables, salvo la fecha
+    de los escenarios. Deben tratarse como datos suministrados pendientes de validación.
+
+
+    | Métrica | Dato suministrado | Observación |
+
+    |---|---:|---|
+
+    | Crecimiento de ingresos TTM | 3,71% | AOIF y DDD lo describen como crecimiento
+    positivo pero moderado. |
+
+    | Margen operativo | 12,2% | Indicador suministrado; DDD lo redondea a 12%. |
+
+    | ROIC | 12,12% | Suministrado por AOIF; no se aporta serie histórica ni metodología.
+    |
+
+    | Flujo de caja libre TTM | USD 3.230 millones | Dato de DDD; AOIF señala que
+    no hay datos suficientes para calcular conversión de FCF. Requiere conciliación.
+    |
+
+    | FCF yield | 0% | Dato de AOIF, sin explicación de cálculo; no es conciliable
+    con el FCF indicado por DDD sin más información. |
+
+    | PER | 16,13 | AOIF; fecha y base de cálculo no especificadas. |
+
+    | EV/EBITDA | 11,99 | AOIF; fecha y base de cálculo no especificadas. |
+
+    | Deuda neta y cobertura | No disponible | Ambos análisis identifican falta de
+    información para evaluar apalancamiento y cobertura. |
+
+
+    La información apunta a rentabilidad operativa positiva y crecimiento moderado,
+    pero no permite confirmar tendencias financieras ni evaluar la estructura de capital.
+    En particular, el FCF de USD 3.230 millones reportado por DDD y el FCF yield de
+    0% de AOIF presentan una discrepancia que debe resolverse antes de utilizarlos
+    en una valoración.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    La evaluación proporcionada califica la calidad del management como buena y señala
+    que la dirección ha comunicado iniciativas de reducción de costes y diversificación
+    hacia energías renovables. AOIF, sin embargo, califica la asignación de capital
+    como neutral y el alineamiento de insiders como moderado.
+
+
+    No se aportan datos concretos sobre resultados de ejecución, remuneración, propiedad
+    accionarial de directivos, historial detallado de adquisiciones ni composición
+    del consejo. Por ello, no es posible valorar de forma independiente los incentivos,
+    el insider ownership o la efectividad del gobierno corporativo.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Caso alcista — hipótesis de inversión, no hecho confirmado:**
+
+
+    - La compañía combina servicios petroleros cíclicos con tecnologías industriales
+    y energéticas; esa diversificación podría reducir la dependencia de la actividad
+    de perforación, aunque no hay datos segmentados para medir su efecto. [AOIF, paso
+    1; DDD, resumen ejecutivo]
+
+    - La base instalada, la experiencia operativa y la oferta de posventa podrían
+    favorecer relaciones recurrentes con clientes y sostener su posición competitiva.
+    [AOIF, paso 3]
+
+    - Los datos suministrados apuntan a un margen operativo de 12,2%, un ROIC de 12,12%
+    y crecimiento de ingresos TTM de 3,71%; estas métricas requieren validación con
+    estados financieros comparables. [AOIF, paso 2]
+
+    - DDD plantea que la generación de flujo de caja y una mejora operativa podrían
+    estar infravaloradas por el mercado. Su argumento depende de validar el FCF reportado
+    y de confirmar la valoración de referencia. [DDD, tesis de inversión y análisis
+    de valoración]
+
+    - En el escenario alcista de DDD/AOIF, el precio objetivo es USD 80 para el horizonte
+    que termina el 20 de noviembre de 2027. El escenario asume petróleo por encima
+    de USD 80/barril durante 12–24 meses, márgenes operativos del 14% o más, reducción
+    de costes y expansión en servicios de energía renovable. Es un escenario modelado,
+    no una previsión confirmada. [DDD y AOIF, análisis de escenarios; fecha de referencia:
+    20-11-2026]
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    - **Ciclo de hidrocarburos:** una caída sostenida de los precios del petróleo
+    y el gas podría reducir la exploración, producción, perforación y gasto de clientes.
+    DDD considera alto el impacto de una caída prolongada del crudo; AOIF identifica
+    este riesgo como macroeconómico. [DDD, dominio de riesgos; AOIF, paso 5]
+
+    - **Compresión de márgenes:** presión competitiva o de costes puede reducir la
+    rentabilidad de equipos y servicios. [AOIF, paso 5]
+
+    - **Deuda y cobertura:** la deuda neta y los ratios de cobertura no están disponibles.
+    La preocupación por una posible carga de deuda elevada aparece como riesgo, pero
+    no está respaldada por cifras. [DDD, preguntas abiertas y dominio de riesgos]
+
+    - **Transición energética y ESG:** la exposición a petróleo y gas genera riesgos
+    relacionados con emisiones y transición energética. La información sobre cadena
+    de suministro es limitada. [DDD, dominio ESG]
+
+    - **Ejecución y diversificación:** no hay datos suficientes para comprobar la
+    ejecución del plan de reducción de costes ni la contribución económica de las
+    actividades de energía renovable. [DDD, dominio de management; AOIF, paso 4]
+
+    - **Valoración:** los múltiplos, el precio de referencia y el consenso de analistas
+    citados por DDD no tienen fuentes ni fechas verificables en los inputs.
+
+
+    **Falsadores del escenario alcista:** que el petróleo permanezca por debajo de
+    USD 70/barril y que los márgenes se deterioren. El escenario alcista de DDD también
+    plantea como falsadores que el margen no mejore y que la recuperación de precios
+    no se materialice. [DDD/AOIF, escenarios al 20-11-2026]
+
+
+    **Falsadores del escenario bajista:** que el petróleo supere USD 80/barril y que
+    los márgenes operativos mejoren por encima del 12%, según los criterios descritos
+    por DDD. [DDD, escenario al 20-11-2026]
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    Los catalizadores y probabilidades siguientes son estimaciones del análisis DDD,
+    no hechos observados ni eventos con calendario corporativo confirmado.
+
+
+    | Catalizador | Horizonte indicado | Probabilidad estimada | Impacto estimado
+    | Evidencia y limitaciones |
+
+    |---|---|---:|---|---|
+
+    | Ejecución de un plan de reducción de costes y mejora operativa | Corto plazo;
+    sin fecha concreta | 55% | Medio | Hipótesis de DDD; no se aportan hitos ni métricas
+    de seguimiento. |
+
+    | Recuperación sostenida del crudo por encima de USD 80/barril | Medio plazo;
+    sin fecha concreta | 45% | Alto | Hipótesis de DDD, sujeta al ciclo de materias
+    primas. |
+
+    | Expansión en servicios vinculados a energía renovable | Sin fecha concreta |
+    No indicada | No indicado | Mencionada como posibilidad en DDD y en el escenario
+    alcista; no se describen proyectos, inversión o ingresos esperados. |
+
+
+    El horizonte de escenarios de valoración es del 20 de noviembre de 2026 al 20
+    de noviembre de 2027; esa fecha no equivale a un calendario de eventos confirmado.
+    [DDD/AOIF, análisis de escenarios]
+
+
+    ## 8. Marco de Valoración
+
+
+    La valoración intrínseca no puede determinarse con rigor a partir de los datos
+    disponibles. AOIF califica el margen de seguridad como insuficiente y señala que
+    faltan precio y fecha de referencia verificables, estimaciones financieras, deuda
+    neta, acciones diluidas y supuestos detallados.
+
+
+    **Metodologías a considerar una vez validados los datos:**
+
+
+    - **Flujo de caja descontado:** exigir una serie consistente de flujo de caja
+    operativo, capex y FCF, además de supuestos explícitos de crecimiento, márgenes,
+    tasa de descuento y valor terminal.
+
+    - **Múltiplos comparables:** utilizar PER y EV/EBITDA únicamente tras confirmar
+    periodo, precio, deuda, acciones diluidas y comparabilidad con empresas del sector,
+    incluidas [[E]] y [[TS]].
+
+    - **Análisis de ciclo:** evaluar escenarios con distintos niveles de precios de
+    hidrocarburos, actividad de perforación y márgenes, evitando extrapolar un único
+    punto del ciclo.
+
+
+    DDD reporta un precio actual de USD 46,93 y un precio objetivo medio de analistas
+    de USD 69,75, con un rango de USD 51–85; estos valores no incluyen fuente ni fecha
+    verificable en el material recibido y no deben tratarse como datos confirmados.
+    [DDD, análisis de error de valoración]
+
+
+    | Escenario suministrado | Supuestos principales | Precio objetivo | Horizonte
+    |
+
+    |---|---|---:|---|
+
+    | Bajista | Crudo por debajo de USD 70/barril durante 12 meses y margen operativo
+    inferior al 10% | USD 45 | 20-11-2027 |
+
+    | Alcista | Crudo por encima de USD 80/barril durante 12–24 meses y margen operativo
+    del 14% o más | USD 80 | 20-11-2027 |
+
+
+    Los precios objetivo son resultados de escenarios proporcionados por DDD/AOIF,
+    no estimaciones independientes verificadas. La sensibilidad central de la tesis
+    es a los precios del petróleo y el gas, los márgenes, la ejecución de costes,
+    la generación de FCF y la deuda neta.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuál es la deuda neta actual y cuáles son los ratios de cobertura, vencimientos
+    y coste de la deuda?
+
+    2. ¿Cómo se concilia el FCF TTM de USD 3.230 millones reportado por DDD con el
+    FCF yield de 0% de AOIF? ¿Qué periodos y definiciones utiliza cada dato?
+
+    3. ¿Cuáles son los ingresos, márgenes y flujos de caja por segmento, región y
+    tipo de cliente?
+
+    4. ¿Qué series históricas comparables sustentan el crecimiento de ingresos, el
+    margen operativo y el ROIC suministrados?
+
+    5. ¿Qué planes concretos existen para diversificar hacia energías renovables y
+    tecnologías industriales, y qué inversión, ingresos o rentabilidad se esperan?
+
+    6. ¿Qué resultados verificables ha producido el plan de reducción de costes y
+    cuáles son sus objetivos y plazos?
+
+    7. ¿Qué datos permiten evaluar remuneración ejecutiva, propiedad accionarial de
+    insiders, desempeño de la dirección y composición del consejo?
+
+    8. ¿Cuáles son la fecha, las fuentes y los supuestos detrás del precio actual,
+    el consenso de analistas y los múltiplos citados?
+
+    9. ¿Qué información de emisiones y cadena de suministro permite medir los riesgos
+    ESG y de transición energética?
+
+    10. ¿Cómo se compara la posición competitiva de BKR con [[E]] y [[TS]] en líneas
+    de producto, márgenes, cuota de mercado y exposición a ciclos?
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[E|Eni S.p.A.]], [[TS|Tenaris S.A.]]
+
+    - **Same Industry**: [[TS|Tenaris S.A.]]'
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-19T19:15:53.298853+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/BKR/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 3230000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 12.196}, "observed_at": "2026-11-19T19:15:53.298853+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/BKR/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 12.2}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 14.499999999999998}, "observed_at": "2026-11-19T19:15:53.298853+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/bkr/financials/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 3.71}}}, "observed_at":
+    "2026-11-19T19:15:53.298853+00:00", "period_end": "2026-09-30", "sources_used":
+    ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Baker Hughes Company
+  operating_margin: 12.2
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Baker Hughes Company provides a portfolio of technologies and services
+    to energy and industrial value chain. Its Oilfield Services & Equipment segment
+    designs and manufactures exploration, appraisal, development, production, rejuvenation,
+    and decommissioning products and related services for onshore and offshore oilfield
+    operations. This segment also provides drilling services, drill bits, and drilling
+    and completions fluids; completions, intervention, measurements, pressure pumping,
+    and wirelin
+  revenue: 28740000000.0
+  revenue_growth: 3.71
+  roic: 12.12
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/BKR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    85.0, "low": 51.0, "mean": 69.75, "median": 69.75, "observed_at": "2026-11-20T10:49:38.988976-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T10:49:38.988976-03:00", "observed_date": "2026-11-20", "target_price":
+    69.75, "url": "https://stockanalysis.com/stocks/bkr/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T10:49:38.988976-03:00",
+    "observed_date": "2026-11-20", "target_price": 69.75, "url": "https://finance.yahoo.com/quote/BKR/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 46.93000030517578,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/BKR/"}]}}'
+  sector: Energy
+  ticker: BKR
+research_trigger:
+  discovery_snapshot_hash: 0aa725f5ac8607a83fc8aba2a36d1ce74b72a00ba47bca9c800f780454668de0
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 158379b94792c629d3eca714c6571ae018596423ee3358eb953e0efb773140f4
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T10:51:27.941967-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- assessment_note: Observación del paquete, no decisión de inversión; no se incluye
+    entre los ratios solicitados y no tiene URL en trusted_source_urls.
+  metric: current_ratio
+  observation: 1.24 para TTM terminado 2026-09-30; no cruza el umbral numérico informado.
+  threshold: below 0.5
+- assessment_note: No puede evaluarse el umbral.
+  metric: dilution_yoy_pct
+  observation: 'No disponible: falta una serie comparable de acciones diluidas.'
+  threshold: above 10%
+- assessment_note: No interpretable sin gasto por intereses y definición verificables;
+    requiere revisión antes de contrastarlo con el umbral.
+  metric: interest_coverage
+  observation: El dato informado es 0 para TTM terminado 2026-09-30.
+  threshold: below 2.0x
+- assessment_note: No se estima runway porque el FCF reportado no es negativo.
+  metric: negative_fcf_runway_months
+  observation: No aplica con el FCF TTM reportado positivo de USD 3.228 mil millones
+    para el período terminado 2026-09-30.
+  threshold: below 12 meses
+- assessment_note: Sin inputs respaldados por una URL permitida, no puede contrastarse
+    el umbral.
+  metric: net_debt_ebitda
+  observation: No disponible; no se calcula el ratio.
+  threshold: above 4.0x
+- assessment_note: No puede evaluarse el umbral.
+  metric: share_count_cagr_3y_pct
+  observation: 'No disponible: el paquete no aporta historia de acciones para tres
+    años.'
+  threshold: above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 42
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T10:49:38.988976-03:00'
+  fuentes:
+    stockanalysis: 69.75
+    yfinance: 69.75
+  mediana: 69.75
+  n_fuentes: 2
+  promedio: 69.75
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T10:49:38.988976-03:00'
+    observed_date: '2026-11-20'
+    target_price: 69.75
+    url: https://stockanalysis.com/stocks/bkr/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T10:49:38.988976-03:00'
+    observed_date: '2026-11-20'
+    target_price: 69.75
+    url: https://finance.yahoo.com/quote/BKR/
+  target_high: 85.0
+  target_low: 51.0
+tesis_inversion: Baker Hughes ofrece tecnologías y servicios para la cadena energética
+  e industrial. La evidencia financiera suministrada muestra FCF TTM superior al de
+  FY 2025 y margen bruto TTM ligeramente superior al de FY 2025; sin datos verificables
+  sobre reinversión, retornos sobre capital, mercado direccionable, penetración o
+  ventaja competitiva, no se puede concluir que esa mejora sea un mecanismo duradero
+  de crecimiento.
+ticker: BKR
+version: '3.0'

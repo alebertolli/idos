@@ -102,3 +102,79 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T10:42:36.203532'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: ee7fce21fe772e498cb6c8f3448c7ccb7a701235669809aac57990e476ddc617
+    opp_id: OPP-20261023-027
+    score: 68
+    strategy_version: positive_fundamentals_v1
+    ticker: BKR
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T10:51:06.502274'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-BKR-0001
+    ticker: BKR
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T10:51:27.938220'
+- data:
+    classification: Investigación requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 158379b94792c629d3eca714c6571ae018596423ee3358eb953e0efb773140f4
+    opp_id: OPP-MULTIBAGGERS-BKR-0001
+    score: 42
+    strategy_version: '1.5'
+    ticker: BKR
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T10:52:57.769498'
+- data:
+    classification: compounder_castigado
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 27eded87a25bc52aeef86c221332087a914a245aa12f57998ce5156d3dbf0638
+    opp_id: OPP-20261023-028
+    score: 56
+    strategy_version: positive_fundamentals_v1
+    ticker: BMY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T10:55:03.338658'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-BMY
+    ticker: BMY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T10:55:34.543347'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: f2c5b8262be178059260fcf2ee3dc73f3770a44b7513f524588b6981e3a5099a
+    opp_id: OPP-MB-BMY
+    score: 48
+    strategy_version: '1.5'
+    ticker: BMY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T10:57:11.199081'

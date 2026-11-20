@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 34 companies tracked
+Total: 36 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -28,6 +28,7 @@ Total: 34 companies tracked
 - 📄 [[ABEV|Ambev S.A.]]
 
 ## Energy
+- 📄 [[BKR|Baker Hughes Company]]
 - 📄 [[E|Eni S.p.A.]]
 - 📄 [[TS|Tenaris S.A.]]
 
@@ -42,6 +43,7 @@ Total: 34 companies tracked
 - 📄 [[AMGN|Amgen Inc.]]
 - 📄 [[AZN|AstraZeneca PLC]]
 - 📄 [[BIIB|Biogen Inc.]]
+- 📄 [[BMY|Bristol-Myers Squibb Company]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]

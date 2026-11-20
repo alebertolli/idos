@@ -1,0 +1,161 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Margen EBIT Q2 2027 < 12.5%
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Reporte de costos operativos que aumente en >5% YoY sin compensación
+      de ingresos
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Margen EBIT Q2 2027 < 12.5%
+  - Reporte de costos operativos que aumente en >5% YoY sin compensación de ingresos
+  horizon: corto
+  id: H1-OPP-20261023-027
+  opportunity_id: OPP-20261023-027
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 13.0
+    met: null
+    metric: Margen EBIT
+    prediction: El margen EBIT reportado en el informe financiero del Q2 2027 será
+      ≥ 13.0%.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: El programa de eficiencia anunciado en Q4 2026 incluye reducción de costos
+    indirectos, optimización de la cadena de suministro y digitalización de procesos,
+    respaldado por iniciativas previas que incrementaron márgenes en 1.5 puntos porcentuales
+    en 2024.
+  review_trigger: Si el reporte financiero del Q2 2027 muestra margen EBIT ≤ 12.5%,
+    la hipótesis se descarta.
+  secondary_hypotheses: []
+  statement: Baker Hughes implementará su programa de eficiencia operativa y logrará
+    elevar el margen EBIT a 13% en el trimestre Q2 2027.
+  status: ACTIVE
+  ticker: BKR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF FY 2027 < 3.2 B USD
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Incremento de CAPEX > $1.0 B USD sin aumento proporcional de ingresos
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF FY 2027 < 3.2 B USD
+  - Incremento de CAPEX > $1.0 B USD sin aumento proporcional de ingresos
+  horizon: medio
+  id: H2-OPP-20261023-027
+  opportunity_id: OPP-20261023-027
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 3.5
+    met: null
+    metric: Flujo de caja libre
+    prediction: FCF reportado para FY 2027 será ≥ 3.5 B USD.
+    unit: billones USD
+  priority: important
+  probability: 0.5
+  rationale: La combinación de precios del crudo superiores a $75/barril, mayor participación
+    en servicios de transición energética y la mejora operativa del H1 impulsarán
+    generación de efectivo superior al histórico de $3.23 B USD TTM.
+  review_trigger: Si el reporte anual 2027 muestra FCF ≤ 3.2 B USD, la hipótesis se
+    invalida.
+  secondary_hypotheses:
+  - H1-OPP-20261023-027
+  statement: El flujo de caja libre (FCF) de Baker Hughes alcanzará $3.5 B USD en
+    el año fiscal 2027.
+  status: ACTIVE
+  ticker: BKR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Precio de cierre < $52 USD en la fecha objetivo
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: EV/EBITDA del último trimestre < 6.5x
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Precio de cierre < $52 USD en la fecha objetivo
+  - EV/EBITDA del último trimestre < 6.5x
+  horizon: medio
+  id: H3-OPP-20261023-027
+  opportunity_id: OPP-20261023-027
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 55.0
+    met: null
+    metric: Precio de acción
+    prediction: Precio de cierre de BKR el 2027-09-29 ≥ $55 USD.
+    unit: USD
+  priority: critical
+  probability: 0.5
+  rationale: El cierre de la brecha de valoración derivada del descuento excesivo,
+    impulsado por la mejora de márgenes (H1) y el aumento del FCF (H2), alineará los
+    múltiplos de BKR con el promedio del sector energético (7.0x vs 6.0x actual).
+  review_trigger: Si el precio de cierre el 2027-09-29 es ≤ $52 USD, la hipótesis
+    se descarta.
+  secondary_hypotheses:
+  - H1-OPP-20261023-027
+  - H2-OPP-20261023-027
+  statement: El precio de la acción de BKR superará los $55 USD antes del 30 de septiembre
+    de 2027, reflejando una revaluación a múltiplos de EV/EBITDA de 7.0x.
+  status: ACTIVE
+  ticker: BKR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: WTI promedio mensual < $75 USD/barril en cualquiera de los tres meses
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Crecimiento de ingresos Q1 2027 ≤ 5% YoY
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - WTI promedio mensual < $75 USD/barril en cualquiera de los tres meses
+  - Crecimiento de ingresos Q1 2027 ≤ 5% YoY
+  horizon: corto
+  id: H4-OPP-20261023-027
+  opportunity_id: OPP-20261023-027
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-04-30'
+    expected: 80.0
+    met: null
+    metric: Precio WTI promedio
+    prediction: WTI promedio mensual ≥ $80 USD/barril en los meses de enero, febrero
+      y marzo 2027; ingresos de BKR Q1 2027 ≥ 12% superior al Q1 2026.
+    unit: USD/barril
+  priority: important
+  probability: 0.5
+  rationale: Factores geopolíticos (restricciones de suministro en Oriente Medio)
+    y la recuperación de la demanda post‑COVID‑19 están alineados con proyecciones
+    de la EIA que indican precios sostenidos > $80/barril en 2027.
+  review_trigger: Si al 30‑04‑2027 el WTI promedio de los tres meses anteriores es
+    < $75 USD/barril, la hipótesis se invalida.
+  secondary_hypotheses: []
+  statement: El precio promedio del WTI superará los $80 USD/barril durante al menos
+    tres meses consecutivos antes del 30 de abril de 2027, impulsando los ingresos
+    de BKR en un 12% YoY en el Q1 2027.
+  status: ACTIVE
+  ticker: BKR
+  version: 1

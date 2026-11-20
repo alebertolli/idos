@@ -1,0 +1,132 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos orgánicos de FY 2027 crecen menos del 1% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa comunica una contracción de ingresos orgánicos para FY 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos orgánicos de FY 2027 crecen menos del 1% interanual.
+  - La empresa comunica una contracción de ingresos orgánicos para FY 2027.
+  horizon: medio
+  id: H1-OPP-MULTIBAGGERS-BKR-0001
+  opportunity_id: OPP-MULTIBAGGERS-BKR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de ingresos orgánicos de FY 2027
+    prediction: En los resultados de FY 2027, los ingresos orgánicos crecerán al menos
+      un 3% frente a FY 2026, excluyendo efectos de divisa y adquisiciones cuando
+      la empresa los desglose.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La compañía presta servicios y suministra tecnología a mercados energéticos
+    e industriales. El contexto disponible indica un margen bruto TTM ligeramente
+    superior al de FY 2025, pero no aporta datos sobre demanda, cartera de pedidos
+    o crecimiento orgánico que justifiquen extrapolar esa mejora.
+  review_trigger: Dejar de creerla si los resultados de FY 2027 muestran crecimiento
+    orgánico inferior al 1%, o si antes de esa fecha la empresa revisa a la baja su
+    perspectiva anual por debilidad persistente de la demanda.
+  secondary_hypotheses: []
+  statement: Baker Hughes mantendrá crecimiento operativo positivo durante 2027, aunque
+    la evidencia disponible no permite concluir que la mejora reciente de márgenes
+    represente una tendencia estructural.
+  status: ACTIVE
+  ticker: BKR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de FCF de FY 2027 es inferior al 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF de FY 2027 es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de FCF de FY 2027 es inferior al 5%.
+  - El FCF de FY 2027 es negativo.
+  horizon: medio
+  id: H2-OPP-MULTIBAGGERS-BKR-0001
+  opportunity_id: OPP-MULTIBAGGERS-BKR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 7.0
+    met: null
+    metric: Margen de FCF de FY 2027
+    prediction: El margen de FCF de FY 2027 será de al menos el 7% de los ingresos,
+      calculado como flujo de caja libre dividido por ingresos del ejercicio.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: 'El contexto señala que el FCF TTM supera al de FY 2025. Esa comparación
+    no demuestra por sí sola una mejora estructural: puede reflejar capital circulante,
+    calendario de cobros o partidas puntuales. El margen de FCF permite evaluar la
+    generación de caja en relación con el tamaño del negocio.'
+  review_trigger: Dejar de creerla si la publicación de FY 2027 muestra un margen
+    de FCF inferior al 5% o FCF negativo.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-BKR-0001
+  statement: La generación de caja de Baker Hughes seguirá siendo sólida en FY 2027,
+    pero no hay evidencia suficiente para afirmar que la mejora de FCF frente a FY
+    2025 sea duradera.
+  status: ACTIVE
+  ticker: BKR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de BKR iguala o supera al del S&P 500 Energy durante
+      el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: BKR supera al índice por 5 puntos porcentuales o más.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de BKR iguala o supera al del S&P 500 Energy durante el periodo.
+  - BKR supera al índice por 5 puntos porcentuales o más.
+  horizon: medio
+  id: H3-OPP-MULTIBAGGERS-BKR-0001
+  opportunity_id: OPP-MULTIBAGGERS-BKR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rendimiento total de BKR menos rendimiento total del S&P 500 Energy
+    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2027-11-20, el
+      rendimiento total de BKR, incluidos dividendos, quedará al menos 5 puntos porcentuales
+      por debajo del rendimiento total del índice S&P 500 Energy.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: El contexto identifica una posible desconexión entre la cotización y
+    los objetivos de analistas, pero no aporta esos valores ni estimaciones operativas
+    para validarla. Sin pruebas de reinversión productiva, retornos sobre capital,
+    mercado direccionable o ventaja competitiva, no se puede justificar una prima
+    de valoración duradera.
+  review_trigger: Dejar de creerla el 2027-11-20 si el rendimiento total de BKR no
+    queda al menos 5 puntos porcentuales por debajo del índice.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-BKR-0001
+  - H2-OPP-MULTIBAGGERS-BKR-0001
+  statement: La incertidumbre sobre la persistencia del crecimiento y de la generación
+    de caja limitará el rendimiento relativo de la acción frente al sector energético
+    durante los próximos doce meses.
+  status: ACTIVE
+  ticker: BKR
+  version: 1

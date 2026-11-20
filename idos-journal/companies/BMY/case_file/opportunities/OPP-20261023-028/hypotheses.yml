@@ -1,0 +1,147 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas de la cartera de crecimiento en 2027 aumentan menos del
+      8% frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía deja de divulgar datos suficientes para calcular una comparación
+      comparable y no ofrece una conciliación verificable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas de la cartera de crecimiento en 2027 aumentan menos del 8% frente a
+    2026.
+  - La compañía deja de divulgar datos suficientes para calcular una comparación comparable
+    y no ofrece una conciliación verificable.
+  horizon: medio
+  id: H1-OPP-20261023-028
+  opportunity_id: OPP-20261023-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual de ventas de la cartera de crecimiento en 2027
+    prediction: En los resultados del ejercicio 2027, las ventas de la cartera de
+      crecimiento, usando la definición y la base comparable que BMY informe, serán
+      al menos un 8% superiores a las de 2026.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis plantea que la amplitud terapéutica y la innovación pueden reemplazar
+    ingresos erosionados. Sin datos recientes por producto ni guía cuantificada en
+    el contexto recibido, esto es una hipótesis de trabajo que debe contrastarse con
+    las ventas y la definición de cartera de crecimiento que publique la compañía.
+  review_trigger: Dejar de creerla si los resultados de 2027 muestran crecimiento
+    inferior al 8% interanual o si una revisión de la definición impide una comparación
+    comparable sin conciliación verificable.
+  secondary_hypotheses: []
+  statement: La cartera de crecimiento de BMY aumentará sus ventas en 2027, compensando
+    parcialmente la erosión de productos maduros.
+  status: ACTIVE
+  ticker: BMY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre de 2027 representa menos del 18% de los ingresos
+      netos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La proporción solo alcanza el umbral al excluir pagos o inversiones
+      recurrentes que normalmente se incluyen en el flujo de caja operativo o en las
+      inversiones de capital.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre de 2027 representa menos del 18% de los ingresos netos
+    de 2027.
+  - La proporción solo alcanza el umbral al excluir pagos o inversiones recurrentes
+    que normalmente se incluyen en el flujo de caja operativo o en las inversiones
+    de capital.
+  horizon: medio
+  id: H2-OPP-20261023-028
+  opportunity_id: OPP-20261023-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 18.0
+    met: null
+    metric: Flujo de caja libre como porcentaje de ingresos netos en 2027
+    prediction: En el ejercicio 2027, el flujo de caja libre —flujo de caja operativo
+      menos inversiones en propiedades, planta y equipo— será igual o superior al
+      18% de los ingresos netos del mismo ejercicio.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La generación de caja podría amortiguar la pérdida de exclusividad y
+    sostener investigación, adquisiciones y servicio de deuda. El contexto no aporta
+    cifras de flujo de caja, inversión ni deuda, por lo que la hipótesis debe validarse
+    con estados financieros publicados y una definición consistente de flujo de caja
+    libre.
+  review_trigger: Dejar de creerla cuando BMY publique los resultados anuales de 2027
+    si el margen de flujo de caja libre es inferior al 18%, calculado con la definición
+    indicada.
+  secondary_hypotheses:
+  - H1-OPP-20261023-028
+  statement: BMY conservará una generación de caja operativa suficiente para financiar
+    inversión y obligaciones financieras pese a la erosión de productos maduros.
+  status: ACTIVE
+  ticker: BMY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de BMY menos la rentabilidad total de XLV es
+      inferior a 8 puntos porcentuales en el periodo indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación no puede reproducirse con precios ajustados y una fuente
+      de datos consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de BMY menos la rentabilidad total de XLV es inferior a
+    8 puntos porcentuales en el periodo indicado.
+  - La comparación no puede reproducirse con precios ajustados y una fuente de datos
+    consistente.
+  horizon: medio
+  id: H3-OPP-20261023-028
+  opportunity_id: OPP-20261023-028
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 8.0
+    met: null
+    metric: Rentabilidad total relativa de BMY frente a XLV
+    prediction: Desde el cierre del 20 de noviembre de 2026 hasta el cierre del 20
+      de noviembre de 2027, la rentabilidad total de BMY, incluidos dividendos reinvertidos,
+      superará en al menos 8 puntos porcentuales la rentabilidad total del ETF XLV,
+      usando precios ajustados comparables.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: La tesis sostiene que el mercado podría descontar en exceso la pérdida
+    de ventas de productos maduros. Si los resultados muestran reposición de ingresos
+    y caja resistente, podría mejorar la valoración relativa; sin embargo, la cotización
+    por debajo de un objetivo medio observado no demuestra infravaloración y no se
+    dispone aquí de datos suficientes para estimar valor intrínseco.
+  review_trigger: Dejar de creerla al cierre del 20 de noviembre de 2027 si la rentabilidad
+    total relativa de BMY frente a XLV es inferior a 8 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-20261023-028
+  - H2-OPP-20261023-028
+  statement: La cotización de BMY ofrecerá una rentabilidad total superior a la del
+    sector sanitario si la generación de caja y el crecimiento de la cartera reducen
+    la percepción de riesgo de erosión.
+  status: ACTIVE
+  ticker: BMY
+  version: 1
