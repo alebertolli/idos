@@ -2,39 +2,6 @@
   "schema_version": 1,
   "pending": [
     {
-      "opp_id": "OPP-20261023-023",
-      "ticker": "BB",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
-      "opp_id": "OPP-20261023-024",
-      "ticker": "BHP",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
-      "opp_id": "OPP-MB-BHP",
-      "ticker": "BHP",
-      "score": 0,
-      "current_status": "SCREENED",
-      "reason": "new entry: SCREENED (score=0)",
-      "force_reprocess": false,
-      "trigger_type": null,
-      "event_evidence": null,
-      "next_attempt_date": "2026-11-19"
-    },
-    {
       "opp_id": "OPP-20261023-025",
       "ticker": "BIIB",
       "score": 0,
@@ -1890,6 +1857,19 @@
       "next_attempt_date": "2026-11-21",
       "attempt_count": 1,
       "last_error": "H2: prediction or trigger references an expired year"
+    },
+    {
+      "opp_id": "OPP-MB-BHP",
+      "ticker": "BHP",
+      "score": 0,
+      "current_status": "SCREENED",
+      "reason": "new entry: SCREENED (score=0)",
+      "force_reprocess": true,
+      "trigger_type": null,
+      "event_evidence": null,
+      "next_attempt_date": "2026-11-21",
+      "attempt_count": 1,
+      "last_error": "Scenario validation status: invalid_pending_revision"
     }
   ]
 }

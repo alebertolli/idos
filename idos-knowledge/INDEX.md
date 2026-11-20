@@ -7,11 +7,12 @@ aliases:
 
 # IDOS Company Index
 
-Total: 30 companies tracked
+Total: 32 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
 - 📄 [[B|Barrick Mining Corporation]]
+- 📄 [[BHP|BHP Group Limited]]
 - 📄 [[DOW|Dow Inc.]]
 
 ## Communication Services
@@ -55,6 +56,7 @@ Total: 30 companies tracked
 - 📄 [[ARM|Arm Holdings plc]]
 - 📄 [[ASML|ASML Holding N.V.]]
 - 📄 [[AVGO|Broadcom Inc.]]
+- 📄 [[BB|BlackBerry Limited]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 
 ---

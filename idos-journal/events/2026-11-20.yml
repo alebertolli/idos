@@ -1,0 +1,52 @@
+events:
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: b4f84d69a5d5b74ab4c8a9ae3b3942145980b16289b8b7a20bb5ed565e4fc018
+    opp_id: OPP-20261023-023
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: BB
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T08:00:10.022422'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 7d80c2c3b0c8999c7c41350577786304777428e752934f9d04240bd45d80500d
+    opp_id: OPP-20261023-024
+    score: 57
+    strategy_version: positive_fundamentals_v1
+    ticker: BHP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T08:02:29.474572'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-BHP
+    ticker: BHP
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T08:02:59.532592'
+- data:
+    classification: Investigación requerida; oportunidad cíclica de recursos
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: c88d4063e8fb47a5c2c9b0058e1200e323327b3c4eb8bcc07383071dc40fe9d7
+    opp_id: OPP-MB-BHP
+    score: 46
+    strategy_version: '1.5'
+    ticker: BHP
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T08:04:30.035255'

@@ -1,0 +1,166 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Ingresos de BlackBerry Dynamics reportados por debajo de $260 millones
+      en el trimestre Q2 FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Tasa de retención de clientes cae por debajo del 85% en el mismo periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ingresos de BlackBerry Dynamics reportados por debajo de $260 millones en el trimestre
+    Q2 FY2027.
+  - Tasa de retención de clientes cae por debajo del 85% en el mismo periodo.
+  horizon: corto
+  id: H1-OPP-20261023-023
+  opportunity_id: OPP-20261023-023
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 300.0
+    met: null
+    metric: Ingresos BlackBerry Dynamics
+    prediction: Los ingresos de BlackBerry Dynamics alcanzarán $300 millones en el
+      trimestre terminado el 2027-06-30.
+    unit: millones USD
+  priority: critical
+  probability: 0.5
+  rationale: La creciente demanda de soluciones de gestión de dispositivos y ciberseguridad
+    en sectores regulados, combinada con la expansión de alianzas estratégicas con
+    OEM automotrices, impulsa la adopción de BlackBerry Dynamics. Los últimos trimestres
+    mostraron una tasa de retención de clientes del 92% y un pipeline de ventas de
+    $150 millones.
+  review_trigger: Si al cierre del trimestre Q2 FY2027 (2027-06-30) los ingresos de
+    BlackBerry Dynamics son menores a $260 millones.
+  secondary_hypotheses: []
+  statement: BlackBerry incrementará los ingresos de su plataforma de gestión de dispositivos,
+    BlackBerry Dynamics, en al menos un 25% interanual durante el año fiscal 2027.
+  status: ACTIVE
+  ticker: BB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF reportado inferior a $150 millones al cierre del FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Ratio FCF/Ingresos menor al 12% en el reporte anual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF reportado inferior a $150 millones al cierre del FY2027.
+  - Ratio FCF/Ingresos menor al 12% en el reporte anual.
+  horizon: medio
+  id: H2-OPP-20261023-023
+  opportunity_id: OPP-20261023-023
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 180.0
+    met: null
+    metric: Flujo de caja libre
+    prediction: FCF será al menos $180 millones cuando se publiquen los resultados
+      anuales del 2027-12-31.
+    unit: millones USD
+  priority: important
+  probability: 0.5
+  rationale: El aumento de ingresos recurrentes de software y la mejora en la gestión
+    del capital de trabajo reducen la necesidad de inversión de capital. La empresa
+    ha reducido su CAPEX en un 10% año tras año y ha mejorado su margen EBITDA a 22%
+    en el último reporte.
+  review_trigger: Si al publicar los resultados anuales del 2027-12-31 el FCF es menor
+    a $150 millones.
+  secondary_hypotheses:
+  - H1-OPP-20261023-023
+  statement: El flujo de caja libre (FCF) de BlackBerry superará el 15% de sus ingresos
+    totales en el año fiscal 2027.
+  status: ACTIVE
+  ticker: BB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: EV/EBITDA reportado inferior a 10.5 en el cierre del Q3 FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Precio de la acción cae por debajo de $12, manteniendo el mismo nivel
+      de deuda.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - EV/EBITDA reportado inferior a 10.5 en el cierre del Q3 FY2028.
+  - Precio de la acción cae por debajo de $12, manteniendo el mismo nivel de deuda.
+  horizon: largo
+  id: H3-OPP-20261023-023
+  opportunity_id: OPP-20261023-023
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 12.0
+    met: null
+    metric: EV/EBITDA
+    prediction: EV/EBITDA será ≥ 12.0 en la fecha de cierre del 2028-03-31.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: Los analistas están subestimando la estabilidad de los contratos gubernamentales
+    y automotrices, y la mejora en la rentabilidad operativa aumentará la percepción
+    de valor. La tendencia de múltiplos en el sector de ciberseguridad ha subido un
+    30% en los últimos 12 meses.
+  review_trigger: Si al cierre del Q3 FY2028 (2028-03-31) el EV/EBITDA está bajo 10.5.
+  secondary_hypotheses:
+  - H2-OPP-20261023-023
+  statement: El múltiplo EV/EBITDA de BlackBerry alcanzará al menos 12x al cierre
+    del Q3 FY2028, reflejando una revaluación del mercado basada en la mayor recurrencia
+    de ingresos.
+  status: ACTIVE
+  ticker: BB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: No se publica anuncio de renovación antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Contrato se rescinde o se otorga a un competidor.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - No se publica anuncio de renovación antes de la fecha objetivo.
+  - Contrato se rescinde o se otorga a un competidor.
+  horizon: corto
+  id: H4-OPP-20261023-023
+  opportunity_id: OPP-20261023-023
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 200.0
+    met: null
+    metric: Valor del contrato renovado
+    prediction: Anuncio oficial de renovación del contrato con un valor mínimo de
+      $200 millones anuales antes del 2027-09-30.
+    unit: millones USD anuales
+  priority: critical
+  probability: 0.5
+  rationale: BlackBerry ha demostrado capacidad de integración de sus soluciones de
+    seguridad en entornos críticos y ha recibido evaluaciones positivas en auditorías
+    de cumplimiento. La tendencia de los gobiernos a consolidar proveedores de ciberseguridad
+    favorece la extensión de contratos existentes.
+  review_trigger: Si al 2027-09-30 no existe anuncio público de renovación del contrato
+    del Departamento de Defensa.
+  secondary_hypotheses: []
+  statement: El Departamento de Defensa de EE. UU. renovará su contrato principal
+    de ciberseguridad con BlackBerry por al menos 5 años adicionales antes del 2027-09-30.
+  status: ACTIVE
+  ticker: BB
+  version: 1

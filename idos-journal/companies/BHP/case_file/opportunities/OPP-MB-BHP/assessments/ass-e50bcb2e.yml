@@ -1,0 +1,33 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; oportunidad cíclica de recursos'
+- 'Market error: No se puede validar un error de valoración con la evidencia disponible;
+  el rango de analistas es una referencia observada, no una estimación intrínseca.'
+- 'Thesis: BHP opera en recursos y el paquete reporta un aumento de ingresos y FCF
+  en FY 2026 frente a FY 2025. La tesis depende de que esos resultados se mantengan;
+  su exposición a segmentos de recursos hace re'
+generated_at: '2026-11-20T08:04:29.990623-03:00'
+id: ass-e50bcb2e
+recommendation: REVIEW
+risks:
+- analisis: El FCF reportado varió entre FY 2023 y FY 2026; el paquete no desglosa
+    cuánto corresponde a precios, volúmenes o cambios operativos.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/BHP/statistics/
+  riesgo: Ciclicidad y volatilidad de resultados
+- analisis: El paquete reporta deuda total y caja para FY 2026, pero no aporta una
+    fuente admitida por la configuración para validar el ratio deuda neta/EBITDA;
+    la cobertura de intereses reportada como 0 requiere aclaración.
+  fuentes:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/BHP/statistics/
+  riesgo: Apalancamiento y costo financiero
+- analisis: No hay datos en el paquete para cuantificar reservas, capacidad, costos
+    por activo, retornos sobre capital, asignación de capital o ventajas competitivas.
+  fuentes: []
+  riesgo: Límites de la evidencia
+score: 46
+status: COMPLETED
+version: '3.0'

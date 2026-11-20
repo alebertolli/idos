@@ -1,0 +1,1 @@
+> **Estado de la evidencia:** La información disponible contiene métricas y conclusiones de análisis sin fuentes verificables ni enlaces a estados financieros. Se presentan como datos reportados por los inputs de investigación, no como hechos corroborados independientemente. Las inferencias y preguntas pendientes se identifican por separado.
