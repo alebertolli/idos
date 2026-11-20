@@ -1,0 +1,430 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El crecimiento de ingresos sugiere potencial de expansión
+  - La falta de cobertura de intereses indica riesgo financiero
+  - El alto nivel de efectivo podría amortiguar parcialmente el déficit de caja
+  - La volatilidad de precios refleja incertidumbre del mercado
+  - Current ratio 1.53 (stockanalysis.com, 2026-09-30)
+  - Cash and investments 51.6M USD (stockanalysis.com, 2026-09-30)
+  - FCF TTM -7.54B USD (stockanalysis.com, 2026-09-30)
+  - Interest coverage ratio 0 (stockanalysis.com, 2026-09-30)
+  preguntas_abiertas:
+  - ¿Cuáles son las proyecciones de EBITDA para los próximos años?
+  - ¿Existe un plan de reestructuración de deuda anunciado?
+  - ¿Qué iniciativas de reducción de costos está implementando la compañía?
+  - ¿Cómo evolucionará la participación de mercado en gestión de patrimonio?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: High Risk / Potential Upside
+  justificacion: La empresa muestra un current ratio sólido (1.53) y efectivo disponible,
+    pero presenta flujo de caja libre negativo y cobertura de intereses nula, lo que
+    indica vulnerabilidad financiera pese a un crecimiento de ingresos del 17.5% CAGR
+    a 3 años.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: NMR posee una posición estable en servicios financieros con crecimiento
+    de ingresos, pero su rentabilidad y generación de efectivo son insuficientes para
+    sostener la valoración actual.
+  rating: Medium
+dominio_catalizadores:
+- catalizador: Recuperación de tarifas de banca de inversión
+  descripcion: Un entorno de mercado favorable podría elevar los ingresos.
+- catalizador: Mejora en eficiencia operativa
+  descripcion: Reducciones de costos podrían convertir ingresos en flujo de caja positivo.
+- catalizador: Expansión de gestión de patrimonio
+  descripcion: Mayor captación de activos bajo gestión impulsaría el margen bruto.
+- catalizador: Reestructuración de deuda
+  descripcion: Reducir la deuda neta mejoraría la ratio net debt/EBITDA.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: FCF TTM de -7.54B USD indica consumo de efectivo que podría erosionar
+    la liquidez.
+  riesgo: Flujo de caja libre negativo
+- descripcion: Interest coverage ratio de 0 sugiere incapacidad para cubrir gastos
+    financieros.
+  riesgo: Cobertura de intereses nula
+- descripcion: Volatilidad 90d de 24.69% refleja precios de acción inestables.
+  riesgo: Alta volatilidad histórica
+- descripcion: El modelo de negocio está expuesto a ciclos de mercado financiero.
+  riesgo: Dependencia de ingresos de inversión
+error_mercado:
+  catalizador_cambio: Una mejora significativa en la generación de efectivo libre
+    o en la cobertura de intereses revertiría la percepción de riesgo y justificaría
+    el precio objetivo actual.
+  conclusion_error_valoracion: Existe una brecha entre la expectativa de precios y
+    la realidad financiera, lo que sugiere una posible sobrevaloración.
+  consenso_actual: 10.64
+  hipotesis_contraria: El mercado podría estar sobrevalorando a NMR al asumir que
+    el crecimiento de ingresos se traducirá en rentabilidad sostenible pese a la falta
+    de cobertura de intereses y al fuerte déficit de flujo de caja.
+  razonamiento: El precio actual (9.38 USD) está por debajo del consenso de 10.64
+    USD, pero los indicadores de solvencia y flujo de caja son débiles, lo que podría
+    no estar plenamente reflejado en el consenso.
+generated_at: '2026-11-20T17:34:38.090779-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-NMR
+prompt_inputs:
+  business_model: 'Nomura Holdings, Inc. engages in the provision of investment, financing,
+    and related services to individual, institutional, and government clients worldwide.
+    It operates through three segments: Wealth Management, Investment Management,
+    and Wholesale. The Wealth Management segment offers asset management services.
+    The Investment Management segment provides investment management services and
+    investment solutions, such as establishing and managing investment trusts, investment
+    and management for investment vehicles, and funds for institutional investors.
+    The Wholesale segment is involved in the sales and trading of debt and equity
+    securities, foreign exchange; offers investment banking services, including underwriting
+    and distribution of debt and equity securities, mergers and acquisitions, and
+    financial advisory services. Nomura Holdings, Inc. was incorporated in 1925 and
+    is headquartered in Tokyo, Japan.'
+  ceo_tenure: 0
+  debt_to_equity: 0.0947
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Nomura Holdings, Inc.
+  operating_margin: 25.07
+  pe_ratio: 10.05
+  products: ''
+  revenue: 15420000000.0
+  revenue_growth: 21.55
+  roic: 1.06
+  sector: Financial Services
+  ticker: NMR
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-03-31'
+  sources:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/nmr/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs: {}
+  limitations: FCF negativo en los periodos requeridos impide calcular crecimiento
+    positivo según la definición.
+  metric: fcf_growth_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/nmr/financials/
+  - as_of_date: '2026-11-20'
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/NMR/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs: {}
+  limitations: EBITDA no reportado, impide calcular el ratio net debt/EBITDA.
+  metric: net_debt_ebitda
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs: {}
+  limitations: Datos de diluted shares no disponibles en el paquete.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Nomura Holdings, Inc. engages in the provision of investment, financing,
+    and related services to individual, institutional, and government clients worldwide.
+    It operates through three segments: Wealth Management, Investment Management,
+    and Wholesale. The Wealth Management segment offers asset management services.
+    The Investment Management segment provides investment management services and
+    investment solutions, such as establishing and managing investment trusts, investment
+    and management for investment vehicles, and funds for institutional investors.
+    The Wholesale segment is involved in the sales and trading of debt and equity
+    securities, foreign exchange; offers investment banking services, including underwriting
+    and distribution of debt and equity securities, mergers and acquisitions, and
+    financial advisory services. Nomura Holdings, Inc. was incorporated in 1925 and
+    is headquartered in Tokyo, Japan.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 9.380000114440918
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0947
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T20:34:24.491101+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Nomura Holdings, Inc.
+  operating_margin: 25.07
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Nomura Holdings, Inc. engages in the provision of investment, financing,
+    and related services to individual, institutional, and government clients worldwide.
+    It operates through three segments: Wealth Management, Investment Management,
+    and Wholesale. The Wealth Management segment offers asset management services.
+    The Investment Management segment provides investment management services and
+    investment solutions, such as establishing and managing investment trusts, investment
+    and management for in'
+  revenue: 15420000000.0
+  revenue_growth: 21.55
+  roic: 1.06
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nmr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NMR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NMR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NMR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NMR/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nmr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nmr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NMR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NMR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nmr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nmr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nmr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NMR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/NMR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/nmr/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    0.0, "low": 0.0, "mean": 10.64, "median": 10.64, "observed_at": "2026-11-20T17:34:26.835223-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:34:26.835223-03:00",
+    "observed_date": "2026-11-20", "target_price": 10.642, "url": "https://finance.yahoo.com/quote/NMR/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 9.380000114440918,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/NMR/"}]}}'
+  sector: Financial Services
+  ticker: NMR
+research_trigger:
+  discovery_snapshot_hash: c49abbbe45bbe7e4f52a24ed98cff8b03243abd90b1ced5127e10040749e0e98
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: b2ec3ad950f4e309c891e632b596045037489e17d7c6faa73c7889e12394a869
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T17:34:38.090779-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- detail: Ratio 0 < 2.0 (stockanalysis.com, 2026-09-30)
+  flag: interest_coverage_ratio below threshold
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 76.06
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T17:34:26.835223-03:00'
+  fuentes:
+    yfinance: 10.642
+  mediana: 10.64
+  n_fuentes: 1
+  promedio: 10.64
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T17:34:26.835223-03:00'
+    observed_date: '2026-11-20'
+    target_price: 10.642
+    url: https://finance.yahoo.com/quote/NMR/
+  target_high: 0.0
+  target_low: 0.0
+tesis_inversion: Nomura muestra crecimiento de ingresos robusto, pero su capacidad
+  de generar efectivo y cubrir sus obligaciones financieras es limitada; la inversión
+  dependerá de la reversión de estos desequilibrios.
+ticker: NMR
+version: '3.0'

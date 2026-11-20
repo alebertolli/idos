@@ -1,0 +1,135 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El margen operativo consolidado de FY 2027 es inferior al 8,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El beneficio operativo de FY 2027 no supera el de FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen operativo consolidado de FY 2027 es inferior al 8,0%.
+  - El beneficio operativo de FY 2027 no supera el de FY 2026.
+  horizon: medio
+  id: H1-OPP-MB-NUE
+  opportunity_id: OPP-MB-NUE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 8.0
+    met: null
+    metric: Margen operativo consolidado de FY 2027
+    prediction: En FY 2027, el margen operativo consolidado será de al menos 8,0%,
+      medido como beneficio operativo dividido por ventas netas.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: Nucor opera en segmentos expuestos al ciclo del acero. Si mejoran la
+    utilización de las plantas, los volúmenes y la diferencia entre los precios de
+    venta y los costes de materias primas, el beneficio operativo debería recuperarse.
+    La información proporcionada señala una mejora reciente del FCF TTM, pero no permite
+    distinguir entre recuperación cíclica y estructural; por ello, la mejora debe
+    comprobarse en resultados futuros.
+  review_trigger: Dejar de creerla cuando Nucor publique los resultados de FY 2027;
+    también si, antes de esa publicación, dos trimestres consecutivos muestran un
+    margen operativo consolidado inferior al 8,0%.
+  secondary_hypotheses: []
+  statement: La recuperación de la demanda y de los márgenes de Nucor se traducirá
+    en una mejora operativa medible durante FY 2027, aunque no implique por sí sola
+    crecimiento estructural.
+  status: ACTIVE
+  ticker: NUE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF acumulado de FY 2027 es inferior a 1.000 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF acumulado de los cuatro trimestres de FY 2027 es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF acumulado de FY 2027 es inferior a 1.000 millones de dólares.
+  - El FCF acumulado de los cuatro trimestres de FY 2027 es negativo.
+  horizon: medio
+  id: H2-OPP-MB-NUE
+  opportunity_id: OPP-MB-NUE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 1000.0
+    met: null
+    metric: FCF de FY 2027
+    prediction: Nucor generará al menos 1.000 millones de dólares de FCF en FY 2027,
+      definido como flujo de caja de operaciones menos gastos de capital.
+    unit: millones de USD
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia disponible indica que el FCF TTM mejoró frente al resultado
+    negativo de FY 2025, pero no identifica si esa mejora procede de márgenes recurrentes,
+    capital circulante, inversión o factores puntuales. Un margen operativo más firme,
+    junto con una inversión de capital compatible con la generación de caja, permitiría
+    sostener FCF positivo.
+  review_trigger: Dejar de creerla al publicarse los resultados de FY 2027; antes
+    de esa fecha, si el FCF acumulado de los tres primeros trimestres de FY 2027 es
+    negativo.
+  secondary_hypotheses:
+  - H1-OPP-MB-NUE
+  statement: La mejora del flujo de caja libre reciente se mantendrá durante FY 2027
+    y no será únicamente un repunte transitorio frente al FCF negativo de FY 2025.
+  status: ACTIVE
+  ticker: NUE
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El retorno total de NUE menos el retorno total del S&P 500 es inferior
+      a 5 puntos porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El retorno total de NUE es inferior al del S&P 500 en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El retorno total de NUE menos el retorno total del S&P 500 es inferior a 5 puntos
+    porcentuales en la fecha objetivo.
+  - El retorno total de NUE es inferior al del S&P 500 en la fecha objetivo.
+  horizon: medio
+  id: H3-OPP-MB-NUE
+  opportunity_id: OPP-MB-NUE
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de NUE frente al S&P 500
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el retorno total de NUE, incluidos
+      dividendos, superará en al menos 5 puntos porcentuales el retorno total del
+      S&P 500.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Si la recuperación operativa se refleja en márgenes y FCF, podría mejorar
+    la percepción del mercado sobre la capacidad de Nucor para sostener sus resultados.
+    Sin evidencia de una ventaja competitiva duradera, esta hipótesis es de revaloración
+    cíclica, no de expansión estructural del múltiplo.
+  review_trigger: Dejar de creerla el 2027-11-20 si la rentabilidad relativa acumulada
+    no alcanza 5 puntos porcentuales; antes, si se publican dos trimestres consecutivos
+    con FCF negativo.
+  secondary_hypotheses:
+  - H1-OPP-MB-NUE
+  - H2-OPP-MB-NUE
+  statement: La mejora de resultados será suficiente para que la acción de Nucor genere
+    un retorno total superior al del mercado estadounidense durante los próximos doce
+    meses.
+  status: ACTIVE
+  ticker: NUE
+  version: 1

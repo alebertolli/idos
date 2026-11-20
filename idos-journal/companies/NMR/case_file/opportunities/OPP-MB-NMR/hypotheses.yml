@@ -1,0 +1,144 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos netos consolidados del ejercicio fiscal 2027 crecen menos
+      del 5% frente al ejercicio fiscal anterior.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de beneficio antes de impuestos del ejercicio fiscal 2027
+      es igual o superior al 10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos netos consolidados del ejercicio fiscal 2027 crecen menos del 5%
+    frente al ejercicio fiscal anterior.
+  - El margen de beneficio antes de impuestos del ejercicio fiscal 2027 es igual o
+    superior al 10%.
+  horizon: medio
+  id: H1-OPP-MB-NMR
+  opportunity_id: OPP-MB-NMR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de ingresos netos consolidados y margen de beneficio
+      antes de impuestos
+    prediction: En los resultados del ejercicio fiscal 2027, los ingresos netos consolidados
+      aumentarán al menos un 5% interanual, mientras que el margen de beneficio antes
+      de impuestos será inferior al 10%.
+    unit: '% de crecimiento mínimo; margen inferior al 10%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis plantea que el crecimiento de ingresos puede estar ocultando
+    una conversión débil a beneficios. En una firma financiera, ingresos de intermediación
+    y negociación pueden crecer sin que ese avance produzca una mejora equivalente
+    de los beneficios si aumentan los costes, la remuneración variable o las pérdidas
+    de negociación.
+  review_trigger: Dejar de creerla cuando Nomura publique sus resultados anuales del
+    ejercicio fiscal 2027 si el margen antes de impuestos alcanza el 10% o más, o
+    si los ingresos crecen menos del 5%.
+  secondary_hypotheses: []
+  statement: Nomura aumentará sus ingresos en el ejercicio fiscal terminado el 2027-03-31,
+    pero el crecimiento no se traducirá en una mejora proporcional de la rentabilidad
+    antes de impuestos.
+  status: ACTIVE
+  ticker: NMR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Nomura informa un ROE consolidado igual o superior al 8% para el ejercicio
+      fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa un ROE inferior al 8% únicamente por un cargo extraordinario
+      identificado, mientras que el ROE excluyendo ese cargo alcanza o supera el 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Nomura informa un ROE consolidado igual o superior al 8% para el ejercicio fiscal
+    2027.
+  - La compañía informa un ROE inferior al 8% únicamente por un cargo extraordinario
+    identificado, mientras que el ROE excluyendo ese cargo alcanza o supera el 8%.
+  horizon: medio
+  id: H2-OPP-MB-NMR
+  opportunity_id: OPP-MB-NMR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-06-30'
+    expected: 8.0
+    met: null
+    metric: ROE consolidado del ejercicio fiscal 2027
+    prediction: El ROE consolidado del ejercicio fiscal terminado el 2027-03-31 será
+      inferior al 8%.
+    unit: '%; inferior al umbral'
+  priority: critical
+  probability: 0.5
+  rationale: Si los ingresos aumentan pero los beneficios no avanzan en la misma proporción,
+    el rendimiento sobre el capital puede permanecer bajo. Esta hipótesis contrasta
+    directamente la capacidad de convertir la actividad del negocio en beneficios
+    atribuibles a los accionistas, sin tratar el flujo de caja operativo —que puede
+    ser muy volátil en una entidad financiera— como una medida aislada de solvencia.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados anuales del
+    ejercicio fiscal 2027 si el ROE reportado y el ROE ajustado por partidas extraordinarias
+    son ambos iguales o superiores al 8%.
+  secondary_hypotheses:
+  - H1-OPP-MB-NMR
+  statement: La rentabilidad sobre el capital de Nomura seguirá por debajo de un nivel
+    que evidencie una conversión sólida del crecimiento en rendimiento para los accionistas.
+  status: ACTIVE
+  ticker: NMR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de NMR desde el 2026-11-20 hasta el 2027-11-20
+      no queda al menos 10 puntos porcentuales por debajo de la rentabilidad total
+      del TOPIX.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: NMR supera al TOPIX en rentabilidad total durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de NMR desde el 2026-11-20 hasta el 2027-11-20 no queda
+    al menos 10 puntos porcentuales por debajo de la rentabilidad total del TOPIX.
+  - NMR supera al TOPIX en rentabilidad total durante el periodo.
+  horizon: medio
+  id: H3-OPP-MB-NMR
+  opportunity_id: OPP-MB-NMR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -10.0
+    met: null
+    metric: Rentabilidad total relativa de NMR frente al TOPIX a doce meses
+    prediction: Desde el cierre del 2026-11-20 hasta el 2027-11-20, la rentabilidad
+      total de NMR, incluidos dividendos, será al menos 10 puntos porcentuales inferior
+      a la del índice TOPIX en yenes.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: La tesis identifica el riesgo de que la valoración incorpore expectativas
+    de que el crecimiento de ingresos se convertirá en rentabilidad sostenible. Una
+    decepción en ROE o en conversión a beneficios puede reducir la prima de valoración
+    y pesar sobre la rentabilidad de la acción frente al mercado. La comparación relativa
+    permite evaluar esta predicción sin depender de un precio objetivo absoluto.
+  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia entre la rentabilidad
+    total de NMR y la del TOPIX es superior a -10 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-NMR
+  - H2-OPP-MB-NMR
+  statement: Si la rentabilidad no alcanza niveles sólidos, el mercado penalizará
+    a Nomura frente al mercado japonés durante los próximos doce meses.
+  status: ACTIVE
+  ticker: NMR
+  version: 1
