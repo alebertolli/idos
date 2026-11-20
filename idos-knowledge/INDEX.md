@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 60 companies tracked
+Total: 63 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -27,11 +27,13 @@ Total: 60 companies tracked
 - 📄 [[AVY|Avery Dennison Corporation]]
 - 📄 [[BKNG|Booking Holdings Inc.]]
 - 📄 [[CCL|Carnival Corporation Ltd.]]
+- 📄 [[DECK|Deckers Outdoor Corporation]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
 - 📄 [[CL|Colgate-Palmolive Company]]
 - 📄 [[COST|Costco Wholesale Corporation]]
+- 📄 [[DEO|Diageo plc]]
 
 ## Energy
 - 📄 [[BKR|Baker Hughes Company]]
@@ -58,6 +60,7 @@ Total: 60 companies tracked
 - 📄 [[BMY|Bristol-Myers Squibb Company]]
 - 📄 [[CAH|Cardinal Health, Inc.]]
 - 📄 [[CVS|CVS Health Corporation]]
+- 📄 [[DHR|Danaher Corporation]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]

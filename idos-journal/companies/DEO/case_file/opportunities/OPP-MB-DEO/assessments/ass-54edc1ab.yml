@@ -1,0 +1,30 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: RESEARCH_REQUIRED'
+- 'Market error: No validado: el consenso de analistas es una referencia observada,
+  no una estimación independiente de valor intrínseco.'
+- 'Thesis: Diageo produce, comercializa y distribuye bebidas alcohólicas y también
+  ofrece bebidas listas para consumir y no alcohólicas, según el resumen de modelo
+  de negocio del paquete, sin período especificad'
+generated_at: '2026-11-20T13:33:54.400721-03:00'
+id: ass-54edc1ab
+recommendation: REVIEW
+risks:
+- evidencia: 'Ingresos: 19,643 en TTM terminado el 2026-06-30 frente a 20,555 en FY
+    2023; beneficio neto: 1,737 en FY 2026 frente a 2,354 en FY 2025.'
+  fuente: https://stockanalysis.com/stocks/deo/financials/
+  riesgo: Ingresos y beneficio neto débiles en los períodos observados.
+- evidencia: 'Net cash reportado: -20,415 al 2026-06-30; la escala y compatibilidad
+    con EBITDA no quedan establecidas de forma suficiente para calcular net_debt_ebitda.'
+  fuente: https://stockanalysis.com/stocks/deo/financials/
+  riesgo: Deuda neta material según los datos reportados.
+- evidencia: El paquete enumera categorías de bebidas y marcas, pero no aporta cuotas,
+    precios, costos de adquisición, fidelidad, competencia ni datos de evolución de
+    marca.
+  fuente: Resumen financiero del Research Intake Package; sin URL ni período especificados.
+  riesgo: La ventaja competitiva y su posible erosión no se pueden evaluar con la
+    evidencia disponible.
+score: 55
+status: COMPLETED
+version: '3.0'

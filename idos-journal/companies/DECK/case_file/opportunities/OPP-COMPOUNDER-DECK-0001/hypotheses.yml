@@ -1,0 +1,145 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de HOKA en el ejercicio fiscal 2027 crecen menos de un
+      12% frente al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Deckers informa que los ingresos anuales de HOKA disminuyeron frente
+      al ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de HOKA en el ejercicio fiscal 2027 crecen menos de un 12% frente
+    al ejercicio fiscal 2026.
+  - Deckers informa que los ingresos anuales de HOKA disminuyeron frente al ejercicio
+    fiscal 2026.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-DECK-0001
+  opportunity_id: OPP-COMPOUNDER-DECK-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-05-31'
+    expected: 12.0
+    met: null
+    metric: Crecimiento interanual de ingresos de HOKA en el ejercicio fiscal 2027
+    prediction: Los ingresos anuales de HOKA en el ejercicio fiscal 2027 serán al
+      menos un 12% superiores a los del ejercicio fiscal 2026, según las cifras que
+      Deckers publique para ambos ejercicios.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis atribuye a HOKA una marca diferenciada y capacidad de ampliar
+    su presencia; si esa preferencia se mantiene, debería traducirse en crecimiento
+    de ventas incluso con consumidores más sensibles al precio. La hipótesis se comprobará
+    con resultados publicados por la compañía, no con indicadores indirectos de popularidad.
+  review_trigger: Dejar de creerla si Deckers informa, en sus resultados del tercer
+    trimestre del ejercicio fiscal 2027 o antes, que los ingresos de HOKA han caído
+    interanualmente durante dos trimestres consecutivos; la conclusión anual se verificará
+    con los resultados del ejercicio fiscal 2027.
+  secondary_hypotheses: []
+  statement: HOKA seguirá creciendo a doble dígito en el ejercicio fiscal 2027, pese
+    a la normalización del consumo y a una base de comparación más alta.
+  status: ACTIVE
+  ticker: DECK
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior
+      al 10% de los ingresos netos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Deckers registra flujo de caja libre negativo en el ejercicio fiscal
+      2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior al 10%
+    de los ingresos netos.
+  - Deckers registra flujo de caja libre negativo en el ejercicio fiscal 2027.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-DECK-0001
+  opportunity_id: OPP-COMPOUNDER-DECK-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-05-31'
+    expected: 10.0
+    met: null
+    metric: Margen de flujo de caja libre del ejercicio fiscal 2027
+    prediction: El flujo de caja libre del ejercicio fiscal 2027, definido como flujo
+      de efectivo de operaciones menos compras de propiedades y equipo, será al menos
+      el 10% de los ingresos netos del mismo ejercicio.
+    unit: '% de ingresos netos'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis sostiene que las marcas premium y los márgenes elevados respaldan
+    una generación de caja consistente. Si esa estructura económica se mantiene y
+    las necesidades de capital circulante no aumentan de forma desproporcionada, el
+    flujo de caja libre debería seguir siendo significativo en relación con las ventas.
+  review_trigger: Dejar de creerla si el informe anual del ejercicio fiscal 2027 muestra
+    un margen de flujo de caja libre inferior al 10%, o si antes de esa fecha Deckers
+    reduce sustancialmente su previsión de generación de caja por deterioro del capital
+    circulante o de la rentabilidad.
+  secondary_hypotheses: []
+  statement: Deckers conservará una elevada capacidad de conversión de ventas en flujo
+    de caja libre durante el ejercicio fiscal 2027, aunque el crecimiento de ingresos
+    se modere.
+  status: ACTIVE
+  ticker: DECK
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de DECK supera a la de XLY en menos de 10 puntos
+      porcentuales durante el período indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: DECK obtiene una rentabilidad total inferior a la de XLY durante el
+      período indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de DECK supera a la de XLY en menos de 10 puntos porcentuales
+    durante el período indicado.
+  - DECK obtiene una rentabilidad total inferior a la de XLY durante el período indicado.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-DECK-0001
+  opportunity_id: OPP-COMPOUNDER-DECK-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Exceso de rentabilidad total de DECK frente a XLY
+    prediction: Entre el cierre del mercado del 20 de noviembre de 2026 y el cierre
+      del 20 de noviembre de 2027, la rentabilidad total de DECK, incluidos dividendos,
+      superará en al menos 10 puntos porcentuales la rentabilidad total del ETF Consumer
+      Discretionary Select Sector SPDR (XLY), usando precios de cierre ajustados.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Si HOKA mantiene un crecimiento de doble dígito y Deckers sostiene un
+    margen de flujo de caja libre elevado, el mercado podría reducir el descuento
+    aplicado a la acción por temor a la sensibilidad cíclica del negocio. La hipótesis
+    requiere que los resultados se traduzcan en rentabilidad bursátil superior, no
+    solo en buenos indicadores operativos.
+  review_trigger: Dejar de creerla si, antes del 20 de noviembre de 2027, DECK acumula
+    una rentabilidad total inferior a XLY en 15 puntos porcentuales o más y Deckers
+    ha reducido sus previsiones de ingresos o márgenes.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DECK-0001
+  - H2-OPP-COMPOUNDER-DECK-0001
+  statement: La combinación de crecimiento de marcas y generación de caja permitirá
+    que las acciones de Deckers superen al sector de consumo discrecional estadounidense
+    durante los siguientes doce meses.
+  status: ACTIVE
+  ticker: DECK
+  version: 1

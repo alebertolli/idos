@@ -867,3 +867,63 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T13:23:19.200816'
+- data:
+    classification: compounder_castigado
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 09b7040dab3dd774ae21d0a4fb562011db16d5cc4ed12efb225e22022085655e
+    opp_id: OPP-COMPOUNDER-DECK-0001
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: DECK
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:31:59.179706'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-DEO
+    ticker: DEO
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T13:32:29.599691'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-DEO
+    ticker: DEO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T13:32:29.670048'
+- data:
+    classification: RESEARCH_REQUIRED
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 1edccd1810d724c0bc8008911215a16674bb07ab028069270329347506a90b75
+    opp_id: OPP-MB-DEO
+    score: 55
+    strategy_version: '1.5'
+    ticker: DEO
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:33:54.534067'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 2dcac34ca7d8dc997a8c055893fffcb8b408471698b30a5ed4ad197bbae0d27f
+    opp_id: OPP-COMPOUNDER-DHR-0001
+    score: 63
+    strategy_version: positive_fundamentals_v1
+    ticker: DHR
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T13:36:08.985569'
