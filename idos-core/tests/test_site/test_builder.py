@@ -210,8 +210,8 @@ def test_failed_decision_rule_does_not_alert_for_terminal_opportunity():
 @pytest.mark.parametrize(
     ("proposal_status", "expected_message"),
     [
-        ("PENDING_HUMAN_REVIEW", "Propuesta pendiente de revisión humana en Decision Board"),
-        ("BLOCKED", "Propuesta bloqueada por reglas; revisión del gestor pendiente en Decision Board"),
+        ("PENDING_HUMAN_REVIEW", "Expediente histórico pendiente de reevaluación automática"),
+        ("BLOCKED", "Propuesta bloqueada por reglas; no se incorpora a Buy List"),
     ],
 )
 def test_board_review_alert_covers_pending_and_blocked_proposals(proposal_status, expected_message):
@@ -294,9 +294,10 @@ def test_public_build_omits_paper_positions(tmp_path: Path):
     assert not (output / "learning.html").exists()
     script = (output / "assets" / "app.js").read_text(encoding="utf-8")
     assert "['portfolio','Portfolio']" not in script
-    assert "Decisión pendiente de revisión humana" in script
+    assert "Expediente listo para Decision Board" not in script
     assert "Propuesta bloqueada por reglas" in script
-    assert "El workflow no permite aprobar propuestas con reglas fallidas" in script
+    assert "La admisión a Buy List depende de que también pasen todas las reglas" in script
+    assert "La primera intervención humana ocurre una sola vez" not in script
 
 
 def _write_ddd_case(tmp_path: Path, review: dict | None) -> None:
@@ -446,7 +447,7 @@ def test_public_site_exposes_unreviewed_ddd_and_hypotheses_as_provisional(tmp_pa
     assert "Afirmación que requiere revisión" in payload
     assert "El crecimiento de ingresos superará 8%." in payload
     assert "Ingresos crecerán 8% para FY2027." in payload
-    assert "Expediente generado automáticamente; pendiente del Decision Board" in app
+    assert "El expediente se resuelve mediante reglas automáticas." in app
     assert "label:'Estrategia'" in app
     assert "Research no registró catalizadores estructurados." in app
     assert "Research no registró riesgos estructurados." in app
@@ -783,7 +784,7 @@ def test_public_site_shows_agent_scenarios_for_single_decision_board_review(tmp_
     styles = (output / "assets" / "style.css").read_text(encoding="utf-8")
     payload = (output / "data.json").read_text(encoding="utf-8")
     assert "Asimetría · casos Bear/Bull" in app
-    assert "Los agentes validan la estructura" in app
+    assert "Los validadores comprueban estructura, fechas y correspondencia de fuentes" in app
     assert "Decision Board" in app
     assert "No se calcula retorno esperado" in app
     assert "Scenario Review" not in app

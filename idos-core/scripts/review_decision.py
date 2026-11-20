@@ -63,6 +63,8 @@ def record_decision_review(
         raise ValueError("Decision proposal does not match the selected opportunity")
     if proposal.get("status") == "INVALIDATED_BY_NEW_RESEARCH":
         raise ValueError("Decision proposal was invalidated by newer Research; run Assessment again")
+    if proposal.get("status") in {"AUTO_APPROVED", "REVOKED_THESIS_INVALIDATED"}:
+        raise ValueError("This proposal already has an automatic authorization or revocation record")
     actual_hash = decision_proposal_fingerprint(proposal)
     if proposal_hash != actual_hash:
         raise ValueError("Decision proposal hash is stale; run Assessment again before review")

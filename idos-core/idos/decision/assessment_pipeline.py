@@ -9,6 +9,7 @@ from idos.data.financial_metrics import normalize_percentage_units
 from idos.data.knowledge import KnowledgeRepository
 from idos.data.journal import JournalRepository
 from idos.decision.orchestrator import DecisionOrchestrator, DecisionProposal
+from idos.decision.automatic_buylist import authorize_buylist_if_eligible
 from idos.decision.scenarios import (
     calculate_scenario_asymmetry,
     scenario_fingerprint,
@@ -791,7 +792,8 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     }.get(snapshot_error, "La señal o su Research no coinciden con la evidencia mensual vigente.")
     proposal = {
         "opportunity_id": opp_id, "strategy_id": strategy_id,
-        "stage": "DECISION", "decision": "WAIT", "status": "PENDING_HUMAN_REVIEW" if passed else "BLOCKED",
+        "stage": "DECISION", "decision": "WAIT",
+        "status": "PENDING_AUTOMATED_AUTHORIZATION" if passed and rule_008_passed else "BLOCKED",
         "rules_passed": ["RULE-008"] if rule_008_passed else [],
         "rules_failed": [] if rule_008_passed else ["RULE-008"],
         "checks": checks, "signal": signal,
@@ -819,11 +821,35 @@ def _assess_systematic(opp_id: str, ticker: str, bp: Path, sqlite: SQLiteStore,
     (case_dir / "decision_proposal.yml").write_text(
         yaml.safe_dump(proposal, allow_unicode=True, sort_keys=False), encoding="utf-8"
     )
+    authorization = (
+        authorize_buylist_if_eligible(
+            bp, ticker, opp_id, proposal, opp, {"RULE-008"},
+        )
+        if passed and rule_008_passed else {"approved": False, "reason": "systematic_checks_not_all_passed"}
+    )
+    if authorization.get("approved"):
+        result_status, recommendation = "auto_approved", "APPROVE"
+        proposal_status = "AUTO_APPROVED"
+    else:
+        result_status, recommendation = "blocked", "WAIT"
+        proposal_status = "AUTO_BLOCKED"
+        proposal["status"] = proposal_status
+        proposal["automatic_block_reason"] = authorization.get("reason")
+        (case_dir / "decision_proposal.yml").write_text(
+            yaml.safe_dump(proposal, allow_unicode=True, sort_keys=False), encoding="utf-8"
+        )
+        (case_dir / "board_resolution.yml").write_text(yaml.safe_dump({
+            "approved": False, "status": proposal_status,
+            "justification": authorization.get("reason", blocked_reason),
+            "author": "idos:auto-authorization",
+        }, allow_unicode=True, sort_keys=False), encoding="utf-8")
     return {"ticker": ticker, "opp_id": opp_id,
-            "status": "decision_pending" if passed else "blocked", "recommendation": "WAIT",
-            "checks": checks, "board_approved": False,
-            "scenario_status": "valid_pending_decision_board" if not scenario_errors else "invalid",
-            "rule_008_passed": rule_008_passed}
+            "status": result_status, "recommendation": recommendation,
+            "checks": checks, "board_approved": bool(authorization.get("approved")),
+            "decision_id": authorization.get("decision_id"),
+            "scenario_status": "automatically_authorized" if authorization.get("approved") else "blocked",
+            "rule_008_passed": rule_008_passed,
+            "automatic_block_reason": authorization.get("reason")}
 
 
 def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_reprocess: bool = False) -> dict[str, Any]:
@@ -862,7 +888,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     if proposal is None:
         return {"ticker": ticker, "opp_id": opp_id, "status": "skipped", "reason": "Pipeline returned None"}
 
-    # Assessment is a proposal. A passing ruleset is not a manager decision.
+    # Buy List admission is automatic only when every configured authorization gate passes.
     opp_dir = bp / "idos-journal" / "companies" / ticker / "case_file" / "opportunities" / opp_id
     opp_dir.mkdir(parents=True, exist_ok=True)
 
@@ -879,7 +905,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         "rules_details": proposal.rules_details,
         "scenario_hash": asymmetry_data.get("scenario_hash") if isinstance(asymmetry_data, dict) else None,
         "financial_data_quality": context.get("financial_data_quality", {}),
-        "status": "PENDING_HUMAN_REVIEW"
+        "status": "PENDING_AUTOMATED_AUTHORIZATION"
         if proposal.recommendation in {"APPROVE", "PENDING_REVIEW"}
         else "BLOCKED" if proposal.recommendation == "BLOCKED" else "NOT_RECOMMENDED",
         "created_at": proposal.created_at,
@@ -891,8 +917,8 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
     resolution_data = {
         "approved": False,
         "status": proposal_data["status"],
-        "justification": "Propuesta pendiente de revisión explícita del gestor."
-        if proposal_data["status"] == "PENDING_HUMAN_REVIEW"
+        "justification": "Evaluación automática de reglas pendiente."
+        if proposal_data["status"] == "PENDING_AUTOMATED_AUTHORIZATION"
         else proposal.reasoning,
         "author": "system",
     }
@@ -921,7 +947,7 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
         sqlite.save_opportunity(opp)
         sqlite.record_transition(
             opp_id, old, new_status.value,
-            cause="assessment:manager_review_pending", worker="assessment_pipeline",
+            cause="assessment:automated_authorization_pending", worker="assessment_pipeline",
         )
 
     yaml_opp = journal.load_opportunity(ticker, opp_id)
@@ -947,18 +973,44 @@ def run_full_pipeline(opp_id: str, ticker: str, base_path: str | Path, force_rep
             yaml_opp["intrinsic_value"] = iv
         journal.save_opportunity(ticker, yaml_opp)
 
+    authorization = authorize_buylist_if_eligible(
+        bp, ticker, opp_id, proposal_data,
+        journal.load_opportunity(ticker, opp_id) or {},
+        _authorization_rule_ids(bp),
+    )
+    proposal_path = opp_dir / "decision_proposal.yml"
+    resolution_path = opp_dir / "board_resolution.yml"
+    if authorization.get("approved"):
+        status = "auto_approved"
+        recommendation = "APPROVE"
+    else:
+        status = "completed"
+        recommendation = "BLOCKED" if proposal.recommendation == "BLOCKED" else "WAIT"
+        if proposal_data["status"] == "PENDING_AUTOMATED_AUTHORIZATION":
+            proposal_data["status"] = "AUTO_BLOCKED"
+            proposal_data["automatic_block_reason"] = authorization.get("reason")
+            proposal_path.write_text(yaml.safe_dump(proposal_data, allow_unicode=True, sort_keys=False), encoding="utf-8")
+            resolution_data.update({
+                "approved": False,
+                "status": "AUTO_BLOCKED",
+                "justification": authorization.get("reason", "Authorization rules not all passed."),
+                "author": "idos:auto-authorization",
+            })
+            resolution_path.write_text(yaml.safe_dump(resolution_data, allow_unicode=True, sort_keys=False), encoding="utf-8")
+
     financial_quality = context.get("financial_data_quality", {})
     data_quality = financial_quality.get("status", "poor")
 
     return {
         "ticker": ticker,
         "opp_id": opp_id,
-        "status": "decision_pending" if proposal_data["status"] == "PENDING_HUMAN_REVIEW" else "completed",
+        "status": status,
         "conviction_score": proposal.conviction_score,
-        "recommendation": "WAIT" if proposal_data["status"] == "PENDING_HUMAN_REVIEW" else proposal.recommendation,
-        "board_approved": False,
-        "decision_type": None,
-        "decision_id": None,
+        "recommendation": recommendation,
+        "board_approved": bool(authorization.get("approved")),
+        "decision_type": "BUY_LIST_ADMISSION" if authorization.get("approved") else None,
+        "decision_id": authorization.get("decision_id"),
+        "automatic_block_reason": authorization.get("reason"),
         "assessments": {k: v.score for k, v in proposal.assessments.items()},
         "rules_passed": proposal.rules_passed,
         "rules_failed": proposal.rules_failed,

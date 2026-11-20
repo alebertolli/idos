@@ -1,6 +1,11 @@
 from pathlib import Path
 from unittest.mock import MagicMock
 
+import yaml
+
+from idos.data.journal import JournalRepository
+from idos.data.sqlite import SQLiteStore
+from idos.models.enums import OpportunityStatus
 from idos.workers.ai.research_worker import ResearchWorker
 from idos.workers.ai.thesis_monitor_worker import ThesisMonitorWorker
 
@@ -43,3 +48,46 @@ def test_research_worker_owns_thesis_review_prompt():
     assert inputs["financial_summary"] == "revenue_growth_pct=8.0"
     assert inputs["conviction"] == 72
     assert inputs["trigger_source"] == "monthly"
+
+
+def test_invalidated_thesis_revokes_buylist_without_touching_positions(tmp_path: Path):
+    db = SQLiteStore(tmp_path / "idos.db")
+    journal = JournalRepository(tmp_path / "idos-journal")
+    opportunity = {
+        "id": "OPP-NVDA", "ticker": "NVDA",
+        "status": OpportunityStatus.UNDER_DEEP_DD.value,
+        "approved_for_buylist": True, "thesis_active": True,
+    }
+    db.save_opportunity(opportunity)
+    journal.save_opportunity("NVDA", opportunity)
+    opp_dir = journal.opportunity_path("NVDA", "OPP-NVDA")
+    (opp_dir / "decision_proposal.yml").write_text(yaml.safe_dump({"status": "AUTO_APPROVED"}), encoding="utf-8")
+    (opp_dir / "board_resolution.yml").write_text(yaml.safe_dump({
+        "approved": True, "status": "AUTO_APPROVED", "author": "idos:auto-authorization",
+    }), encoding="utf-8")
+    buylist_path = journal.base / "portfolio" / "buylist.yml"
+    buylist_path.parent.mkdir(parents=True, exist_ok=True)
+    buylist_path.write_text(yaml.safe_dump({"entries": [
+        {"ticker": "NVDA", "opp_id": "OPP-NVDA"},
+        {"ticker": "MSFT", "opp_id": "OPP-MSFT"},
+    ]}), encoding="utf-8")
+    position_path = journal.base / "portfolio" / "positions" / "NVDA.yml"
+    position_path.parent.mkdir(parents=True, exist_ok=True)
+    position_path.write_text("ticker: NVDA\nshares: 1\n", encoding="utf-8")
+    research = MagicMock()
+    research.reassess_thesis.return_value = {
+        "thesis_active": False, "reason": "La hipótesis quedó falsada.", "confidence": 0.95,
+    }
+
+    result = ThesisMonitorWorker({"research_worker": research}).run({
+        "ticker": "NVDA", "opp_id": "OPP-NVDA", "base_path": str(tmp_path),
+        "trigger_source": "monthly",
+    })
+
+    assert result["thesis_active"] is False
+    assert result["buylist_removed"] is True
+    assert yaml.safe_load(buylist_path.read_text(encoding="utf-8"))["entries"] == [
+        {"ticker": "MSFT", "opp_id": "OPP-MSFT"},
+    ]
+    assert position_path.exists()
+    assert journal.load_opportunity("NVDA", "OPP-NVDA")["approved_for_buylist"] is False

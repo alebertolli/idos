@@ -140,6 +140,49 @@ class TestBuyListRefreshWorker:
         assert not (bp / "idos-journal/portfolio/positions").exists()
         assert journal.load_opportunity("VIST", "OPP-BL-REVIEWED")["status"] == OpportunityStatus.UNDER_DEEP_DD.value
 
+    def test_refresh_preserves_automatically_approved_manual_entry_policy(self, tmp_path: Path):
+        journal = JournalRepository(tmp_path / "idos-journal")
+        journal.save_opportunity("NVDA", {
+            "id": "OPP-NVDA", "ticker": "NVDA",
+            "status": OpportunityStatus.UNDER_DEEP_DD.value,
+            "approved_for_buylist": True,
+            "entry_policy": "MANUAL_REVIEW",
+            "thesis_active": True,
+            "strategy_id": "MULTIBAGGERS",
+            "conviction": {"overall": 69, "intrinsic_value": 246.67, "current_price": 215.52},
+            "intrinsic_value": 246.67, "current_price": 215.52,
+        })
+
+        result = BuyListRefreshWorker().execute({"base_path": str(tmp_path)})
+
+        assert result.status == "success"
+        assert result.output["added"] == 1
+        buylist = yaml.safe_load((tmp_path / "idos-journal/portfolio/buylist.yml").read_text(encoding="utf-8"))
+        assert buylist["entries"][0]["ticker"] == "NVDA"
+        assert buylist["entries"][0]["opp_id"] == "OPP-NVDA"
+        assert not (tmp_path / "idos-journal/portfolio/positions").exists()
+
+    def test_refresh_removes_automatically_approved_opportunity_after_thesis_invalidation(self, tmp_path: Path):
+        journal = JournalRepository(tmp_path / "idos-journal")
+        journal.save_opportunity("NVDA", {
+            "id": "OPP-NVDA", "ticker": "NVDA",
+            "status": OpportunityStatus.UNDER_DEEP_DD.value,
+            "approved_for_buylist": False,
+            "entry_policy": "MANUAL_REVIEW",
+            "thesis_active": False,
+        })
+        buylist_path = tmp_path / "idos-journal/portfolio/buylist.yml"
+        buylist_path.parent.mkdir(parents=True, exist_ok=True)
+        buylist_path.write_text(yaml.safe_dump({"entries": [
+            {"ticker": "NVDA", "opp_id": "OPP-NVDA"},
+        ]}), encoding="utf-8")
+
+        result = BuyListRefreshWorker().execute({"base_path": str(tmp_path)})
+
+        assert result.status == "success"
+        assert result.output["removed"] == 1
+        assert yaml.safe_load(buylist_path.read_text(encoding="utf-8"))["entries"] == []
+
     def test_skips_approved_without_intrinsic(self, buylist_env, tmp_path: Path):
         db, journal, bp = buylist_env
         opp_id = "OPP-BL-NOINTR"
