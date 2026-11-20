@@ -1,0 +1,455 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La combinación de franquicias y servicios puede favorecer recurrencia y costes
+    de cambio, pero no hay métricas aportadas que cuantifiquen esos efectos.
+  - La generación de FCF observada y el margen operativo reportado son indicios favorables,
+    pero una sola observación y períodos no especificados para algunas métricas no
+    permiten establecer tendencias o sostenibilidad.
+  - El consenso de objetivos cerca del precio suministrado no demuestra por sí solo
+    que el mercado haya valorado correctamente la compañía, especialmente porque las
+    fechas de precio y consenso difieren.
+  - Las probabilidades asignadas a catalizadores son estimaciones cualitativas del
+    analista, no probabilidades calibradas ni hechos.
+  - 'La observación seleccionada de StockAnalysis informa FCF TTM de 2.060.000.000
+    en la unidad de moneda financiera del proveedor, con período terminado el 2026-06-30.
+    Fuente: https://stockanalysis.com/stocks/EA/statistics/ ; campo: fcf; fecha: 2026-06-30.'
+  - 'La observación seleccionada de YFinance informa margen operativo de 25,881 puntos
+    porcentuales, con fecha de período 2026-06-30 y período reportado no especificado.
+    Fuente identificada en la entrada: YFinance; campo: operating_margin_pct; fecha:
+    2026-06-30.'
+  - 'La observación seleccionada de YFinance informa crecimiento de ingresos de 18,9
+    puntos porcentuales, con fecha de período 2026-06-30 y período reportado no especificado.
+    Fuente identificada en la entrada: YFinance; campo: revenue_growth_pct; fecha:
+    2026-06-30.'
+  preguntas_abiertas:
+  - ¿Cuál era la cotización de EA al 2026-11-20 y cómo evolucionó desde el cierre
+    suministrado del 2026-08-04?
+  - ¿Cuáles son los múltiplos vigentes, el valor de empresa, el precio/FCF y las hipótesis
+    implícitas de crecimiento y márgenes?
+  - ¿Qué período cubren exactamente las observaciones de margen operativo y crecimiento
+    de ingresos de YFinance?
+  - ¿Cómo se distribuyen ingresos, reservas y rentabilidad entre franquicias, servicios
+    recurrentes, plataformas y geografías?
+  - ¿Qué muestran usuarios activos, retención, gasto por usuario, reservas y ventas
+    de contenido adicional?
+  - ¿Cuál es el balance actualizado, incluyendo efectivo, inversiones, deuda, vencimientos,
+    liquidez y compromisos?
+  - ¿Qué calendario de lanzamientos y guía corporativa están confirmados, y qué dependencias
+    de licencias o plataformas existen?
+  - ¿Cuál es el historial de asignación de capital, compensación ejecutiva, recompras,
+    dividendos y adquisiciones?
+  - ¿Qué exposición concreta tiene EA a riesgos de privacidad, seguridad, moderación,
+    monetización, proveedores y concentración de plataformas?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: 'Compounder: calidad y durabilidad plausibles, pero no hay
+    evidencia suficiente para caracterizarla como compounder de larga data ni para
+    sostener que la valoración sea atractiva. Compounder castigado: no se acredita
+    que esté temporalmente fuera de favor; el consenso observado está cerca de la
+    cotización disponible. Turnaround: no se aporta evidencia de deterioro operativo
+    ni de un plan de recuperación. Deep Value: no hay múltiplos o análisis de activos
+    que respalden un descuento profundo. Cíclica: las ventas de lanzamientos pueden
+    ser volátiles, pero no se acredita que el negocio sea intrínsecamente dependiente
+    del ciclo económico. Special Situation: no se proporciona una operación corporativa
+    o reestructuración. Distressed: no hay evidencia de insolvencia; tampoco hay datos
+    suficientes para evaluar exhaustivamente el balance. Hype: no se acredita que
+    la valoración dependa exclusivamente de crecimiento especulativo sin beneficios.
+    Value Trap: no se demuestra destrucción estructural de valor.'
+  justificacion: La oportunidad se apoya en franquicias reconocibles y en un modelo
+    que combina ventas de juegos con servicios y contenido recurrentes, pero la evidencia
+    aportada no permite demostrar una ventaja competitiva cuantificada ni un descuento
+    de valoración. La cotización disponible de 209,70 USD corresponde al 2026-08-04
+    y el consenso observado posteriormente tiene media y mediana de 205,63 USD, con
+    rango de 168 a 210 USD. Esto no demuestra infravaloración; además, la cotización
+    está desfasada respecto de la fecha del análisis.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El perfil suministrado describe una cartera de juegos en consolas, PC
+    y móviles, junto con servicios, contenido adicional y franquicias deportivas.
+    La combinación de propiedad intelectual, comunidades de jugadores y contenido
+    recurrente puede generar costes de cambio y monetización continuada, pero esto
+    es una inferencia del analista, no una medición directa de retención o poder de
+    precios. La concentración potencial en franquicias de éxito, la competencia por
+    tiempo de juego y la dependencia de plataformas de terceros limitan la certeza
+    sobre la durabilidad del moat. No se aportan datos de cuota, usuarios activos,
+    ingresos por franquicia o retención.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Resultados futuros que confirmen crecimiento sostenido y monetización
+    de servicios y franquicias principales; no se dispone de métricas de reservas
+    ni guía para fijar un evento más específico.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Lanzamientos futuros con recepción comercial y crítica favorable que
+    amplíen la base de jugadores o fortalezcan la actividad recurrente; el calendario
+    y los títulos no están documentados en la evidencia aportada.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: La evidencia aportada no contiene métricas ESG ni información sobre proveedores.
+    Como riesgos sectoriales a investigar —no hechos verificados de EA— se encuentran
+    condiciones laborales en ciclos de producción intensivos, privacidad y seguridad
+    de datos, moderación de comunidades, compras dentro del juego y exposición a políticas
+    de consolas, tiendas digitales, motores de juego y servicios en la nube de terceros.
+    La dependencia de distribuidores y plataformas puede afectar comisiones, acceso
+    al consumidor y condiciones comerciales.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La observación seleccionada de StockAnalysis informa FCF TTM de 2.060
+    millones, con fecha de período 2026-06-30; no consta aquí unidad explícita distinta
+    de la moneda financiera del proveedor y no debe denominarse flujo ajustado. YFinance
+    informa margen operativo de 25,881 puntos porcentuales y crecimiento de ingresos
+    de 18,9 puntos porcentuales para 2026-06-30, pero el período está marcado como
+    no especificado. Estos datos sugieren capacidad de generación de caja y rentabilidad
+    operativa, aunque no bastan para evaluar tendencia, liquidez, deuda, vencimientos,
+    recompras o sostenibilidad. No se dispone de evidencia directa suficiente sobre
+    deuda y efectivo.
+  rating: adecuada
+dominio_growth:
+  analisis: Las franquicias existentes, nuevos lanzamientos, contenido adicional y
+    expansión de servicios son posibles impulsores orgánicos, según el perfil proporcionado.
+    La observación de crecimiento de ingresos de YFinance es 18,9 puntos porcentuales
+    al 2026-06-30, con período no especificado, por lo que no se puede interpretar
+    como crecimiento interanual o sostenido. No se proporcionan calendario de lanzamientos,
+    reservas, previsiones corporativas, crecimiento por segmento ni evidencia de adquisiciones.
+  rating: moderado
+dominio_management:
+  analisis: No se aportan datos sobre decisiones de asignación de capital, compensación,
+    propiedad accionaria, resultados frente a objetivos, adquisiciones o retorno sobre
+    capital. Por ello no es posible evaluar de forma fundada el track record ni la
+    alineación. La calificación refleja falta de evidencia en el expediente, no una
+    afirmación de mala gestión.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Pérdida de relevancia o menor monetización de una franquicia principal,
+    con impacto en ventas y servicios recurrentes.
+- impacto: alto
+  probabilidad: media
+  riesgo: Retrasos, recepción débil o calidad insuficiente de lanzamientos, que pueden
+    concentrar volatilidad en resultados.
+- impacto: medio
+  probabilidad: media
+  riesgo: Cambios en comisiones, reglas de distribución o acceso a plataformas de
+    terceros.
+- impacto: medio
+  probabilidad: alta
+  riesgo: Competencia intensa por tiempo de juego y gasto del consumidor, incluida
+    la sustitución por otros títulos o formas de entretenimiento.
+- impacto: alto
+  probabilidad: media
+  riesgo: Deterioro de reputación, privacidad, seguridad o prácticas de monetización
+    que provoque sanciones o pérdida de confianza.
+- impacto: medio
+  probabilidad: media
+  riesgo: La falta de datos completos sobre deuda, liquidez, flujo de caja histórico
+    y asignación de capital impide descartar riesgos financieros o de ejecución.
+error_mercado:
+  catalizador_cambio:
+    descripcion: 'Evidencia verificable en resultados futuros de crecimiento y monetización
+      sostenidos de los servicios y franquicias principales, sin deterioro de la demanda
+      de los lanzamientos. Es un catalizador condicional: no se proporcionan calendario
+      de lanzamientos, previsiones de la empresa ni indicadores de reservas que permitan
+      afirmar que ocurrirá.'
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: El consenso de analistas observado el 2026-11-20 registra un objetivo
+    medio y mediano de 205,63 USD, con rango de 168 a 210 USD. La cotización suministrada
+    es 209,70 USD, pero su fecha es 2026-08-04; por tanto, no debe tratarse como cotización
+    actual al 2026-11-20. No se proporcionan múltiplos de valoración comparables o
+    series de precio que permitan inferir con rigor qué crecimiento o rentabilidad
+    descuenta el mercado. La cercanía entre el precio disponible y la parte alta del
+    rango observado solo permite una comparación indicativa, no una conclusión sobre
+    valoración actual.
+  hipotesis_contraria: 'El mercado podría subestimar la resiliencia de las franquicias
+    deportivas y el valor de los servicios recurrentes si estos mantienen la participación
+    de los jugadores y el gasto por usuario. En sentido contrario, la tesis puede
+    sobrevalorar esa recurrencia: el éxito depende de mantener la relevancia de cada
+    franquicia, la calidad de los lanzamientos y la disposición de los consumidores
+    a pagar por contenido adicional. Sin datos de retención, reservas, ventas por
+    título o composición de ingresos, no se puede confirmar cuál de estas variables
+    está siendo exagerada o ignorada.'
+  razonamiento: 'La información disponible no basta para concluir que exista un error
+    aprovechable: el consenso está observado en una fecha posterior a la única cotización
+    aportada y no hay múltiplos, valor intrínseco independiente ni datos operativos
+    detallados. La hipótesis de resiliencia del modelo es plausible, pero no está
+    contrastada aquí con métricas de retención, crecimiento por franquicia o reservas.
+    La conclusión depende de datos nuevos y de verificar el precio vigente.'
+generated_at: '2026-11-20T14:00:43.038085-03:00'
+integridad_tesis:
+  flags: []
+  reason: No hay evidencia aportada de que se haya vulnerado alguna de las nueve condiciones
+    de integridad. La tesis permanece activa como hipótesis de diligencia, no como
+    conclusión confirmada; la falta de información no se interpreta como evidencia
+    de deterioro ni de ausencia de riesgo.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-EA-0001
+prompt_inputs:
+  business_model: Electronic Arts Inc. develops, markets, publishes, and delivers
+    games, content, and services for game consoles, PCs, and mobile phones worldwide.
+    It develops and publishes games and experiences across diverse genres, such as
+    sports, racing, first-person shooter, action, role-playing, and simulation; and
+    live services offerings, including extra content and subscription offerings through
+    its global football and American football franchises, such as EA SPORTS College
+    Football and EA SPORTS Madden NFL, as well as based on its IP comprising The Sims,
+    Apex Legends, and Battlefield. The company markets and sells its games and services
+    through digital distribution and retail channels; and directly to mass market
+    retailers, specialty stores, and distribution arrangements. Electronic Arts Inc.
+    was incorporated in 1982 and is headquartered in Redwood City, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.26
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Electronic Arts Inc
+  operating_margin: 17.91
+  pe_ratio: 48.96
+  products: ''
+  revenue: 7850000000.0
+  revenue_growth: 4.98
+  roic: 17.38
+  sector: Communication Services
+  ticker: EA
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Electronic Arts Inc. develops, markets, publishes, and delivers
+    games, content, and services for game consoles, PCs, and mobile phones worldwide.
+    It develops and publishes games and experiences across diverse genres, such as
+    sports, racing, first-person shooter, action, role-playing, and simulation; and
+    live services offerings, including extra content and subscription offerings through
+    its global football and American football franchises, such as EA SPORTS College
+    Football and EA SPORTS Madden NFL, as well as based on its IP comprising The Sims,
+    Apex Legends, and Battlefield. The company markets and sells its games and services
+    through digital distribution and retail channels; and directly to mass market
+    retailers, specialty stores, and distribution arrangements. Electronic Arts Inc.
+    was incorporated in 1982 and is headquartered in Redwood City, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 209.6999969482422
+  current_price_as_of_date: '2026-08-04'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.26
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "analyst_count": ["yfinance"], "asset_type":
+    ["yfinance"], "avg_dollar_volume_usd": ["yfinance"], "avg_volume": ["yfinance"],
+    "beta_5y": ["yfinance"], "capex_history": ["stockanalysis.com"], "cash_and_investments_history":
+    ["stockanalysis.com"], "current_ratio": ["yfinance"], "data_provenance": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["yfinance"], "dividend_yield_pct":
+    ["yfinance"], "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"],
+    "ebitda_margin_pct": ["stockanalysis.com"], "employees": ["yfinance"], "enterprise_value":
+    ["yfinance"], "eps_forward": ["yfinance"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "eps_history": ["stockanalysis.com"], "eps_ttm": ["yfinance"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "exchange": ["yfinance"], "fcf": ["stockanalysis.com"],
+    "fcf_growth_history": ["stockanalysis.com"], "fcf_history": ["stockanalysis.com"],
+    "fcf_margin_history": ["stockanalysis.com"], "fcf_margin_pct": ["stockanalysis.com"],
+    "fcf_per_share": ["stockanalysis.com"], "fcf_yield_pct": ["stockanalysis.com"],
+    "financial_currency": ["yfinance"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["yfinance"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp": ["yfinance"],
+    "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "float_shares": ["yfinance"], "forward_pe": ["yfinance"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["yfinance"], "gross_profit_history": ["stockanalysis.com"],
+    "high_52w": ["yfinance"], "industry": ["yfinance"], "levered_fcf": ["yfinance"],
+    "liquidity_provenance": ["yfinance"], "low_52w": ["yfinance"], "ma_200d": ["yfinance"],
+    "ma_50d": ["yfinance"], "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"],
+    "market_cap_provenance": ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization":
+    ["yfinance"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "net_margin_pct": ["yfinance"], "operating_cash_flow_history":
+    ["stockanalysis.com"], "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["yfinance"], "pe_ratio":
+    ["yfinance"], "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["yfinance"],
+    "period_end_date": ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"],
+    "price": ["yfinance"], "price_history": ["yfinance"], "price_history_basis": ["yfinance"],
+    "price_history_dates": ["yfinance"], "price_target_avg": ["yfinance"], "price_target_high":
+    ["yfinance"], "price_target_low": ["yfinance"], "provider_data_updated_date":
+    ["stockanalysis.com"], "ps_ratio": ["yfinance"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["yfinance"], "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["yfinance"],
+    "roa_pct": ["yfinance"], "roe_pct": ["yfinance"], "roic_pct": ["stockanalysis.com"],
+    "sector": ["yfinance"], "shares_outstanding": ["yfinance"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "size_metric_provenance":
+    ["yfinance"], "size_metric_usd": ["yfinance"], "source": ["yfinance"], "ticker":
+    ["yfinance"], "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"],
+    "volume_avg": ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations":
+    {"fcf": {"currency": null, "non_comparable_reason": null, "non_comparable_values":
+    {}, "observed_at": "2026-10-30T16:53:36.404105+00:00", "period_end_date": "2026-06-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/EA/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 2060000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": null, "non_comparable_values":
+    {}, "observed_at": "2026-11-01T10:17:29.056034+00:00", "period_end_date": "2026-06-30",
+    "period_status": "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "provider_period_end_timestamp": 1782777600, "selected_source": "yfinance", "source_metadata":
+    {"yfinance": {"currency": null, "period_end_date": "2026-06-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"yfinance": 25.881}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:29.056034+00:00",
+    "period_end_date": "2026-06-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1782777600,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    18.9}}}, "observed_at": "2026-10-30T16:53:36.404105+00:00", "period_end": "2026-06-30",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Electronic Arts Inc
+  operating_margin: 17.91
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Electronic Arts Inc. develops, markets, publishes, and delivers games,
+    content, and services for game consoles, PCs, and mobile phones worldwide. It
+    develops and publishes games and experiences across diverse genres, such as sports,
+    racing, first-person shooter, action, role-playing, and simulation; and live services
+    offerings, including extra content and subscription offerings through its global
+    football and American football franchises, such as EA SPORTS College Football
+    and EA SPORTS Madden N
+  revenue: 7850000000.0
+  revenue_growth: 4.98
+  roic: 17.38
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    210.0, "low": 168.0, "mean": 205.63, "median": 205.63, "observed_at": "2026-11-20T14:00:05.063934-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T14:00:05.063934-03:00", "observed_date": "2026-11-20", "target_price":
+    205.79, "url": "https://stockanalysis.com/stocks/ea/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:00:05.063934-03:00",
+    "observed_date": "2026-11-20", "target_price": 205.46153, "url": "https://finance.yahoo.com/quote/EA/"}]},
+    "current_quote": {"as_of_date": "2026-08-04", "currency": "USD", "price": 209.6999969482422,
+    "sources": [{"as_of_date": "2026-08-04", "name": "yfinance", "url": "https://finance.yahoo.com/quote/EA/"}]}}'
+  sector: Communication Services
+  ticker: EA
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: e7ef90dfc8e49abc964cf352d98639ec874147391b603dc5e248bf7d444876ed
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T14:00:43.038085-03:00'
+resumen_ejecutivo: 'EA presenta una tesis plausible de calidad basada en franquicias
+  y servicios recurrentes, pero el expediente aportado es insuficiente para una convicción
+  alta sobre moat, gestión, balance o valoración. Los datos financieros directos disponibles
+  son limitados: FCF TTM de 2.060 millones en la observación de StockAnalysis al 2026-06-30,
+  y cifras de margen operativo y crecimiento de ingresos de YFinance para la misma
+  fecha cuyo período no está especificado. La cotización de 209,70 USD tiene fecha
+  2026-08-04 y el consenso de objetivos está observado el 2026-11-20; no son referencias
+  contemporáneas. Clasificación: Quality at Fair Price, con error de valoración incierto
+  y necesidad de completar diligencia operativa y financiera.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados y guía futuros muestran crecimiento sostenido de reservas y servicios
+      sin deterioro material de márgenes.
+    - Métricas verificables de retención, actividad y monetización mejoran de manera
+      persistente.
+    id: BEAR
+    key_assumptions:
+    - Los servicios o franquicias principales no mantienen el crecimiento o la monetización
+      que el mercado espera.
+    - Los lanzamientos o la competencia presionan las expectativas de ingresos y rentabilidad.
+    - El mercado asigna menor valoración a la perspectiva de crecimiento.
+    rationale: Caso adverso anclado en el límite inferior del rango de objetivos de
+      analistas observado. Representa una contracción de expectativas relativa al
+      consenso, no una valoración independiente ni un precio objetivo calculado mediante
+      un modelo fundamental. La cotización disponible de 209,70 USD es anterior a
+      la fecha de análisis y no se emplea como precio vigente.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/ea/forecast/
+    - as_of_date: '2026-08-04'
+      name: YFinance, cotización suministrada
+      url: https://finance.yahoo.com/quote/EA/
+    target_price: 168
+  - falsifiers:
+    - La guía o los resultados muestran deterioro sostenido de reservas, actividad,
+      ingresos o márgenes.
+    - Una pérdida persistente de relevancia de franquicias o cambios adversos en plataformas
+      reducen la capacidad de monetización.
+    id: BULL
+    key_assumptions:
+    - Las franquicias principales conservan relevancia y sostienen servicios y contenido
+      recurrentes.
+    - Lanzamientos futuros y monetización superan las preocupaciones del caso adverso.
+    - El mercado mantiene expectativas de valoración cercanas al extremo superior
+      del rango de consenso observado.
+    rationale: 'Caso favorable anclado en el límite superior del rango de objetivos
+      de analistas observado. Refleja el extremo favorable de la referencia disponible,
+      no una valoración independiente ni una garantía de precio. La evidencia de precios
+      es temporalmente desigual: el consenso fue observado el 2026-11-20, mientras
+      que la cotización suministrada corresponde al 2026-08-04.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos
+      url: https://stockanalysis.com/stocks/ea/forecast/
+    - as_of_date: '2026-08-04'
+      name: YFinance, cotización suministrada
+      url: https://finance.yahoo.com/quote/EA/
+    target_price: 210
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 57
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T14:00:05.063934-03:00'
+  fuentes:
+    stockanalysis: 205.79
+    yfinance: 205.46153
+  mediana: 205.63
+  n_fuentes: 2
+  promedio: 205.63
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T14:00:05.063934-03:00'
+    observed_date: '2026-11-20'
+    target_price: 205.79
+    url: https://stockanalysis.com/stocks/ea/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T14:00:05.063934-03:00'
+    observed_date: '2026-11-20'
+    target_price: 205.46153
+    url: https://finance.yahoo.com/quote/EA/
+  target_high: 210.0
+  target_low: 168.0
+tesis_inversion: EA puede ser un negocio de calidad razonable si sus franquicias conservan
+  relevancia y sus servicios sostienen ingresos recurrentes. No obstante, los datos
+  disponibles no permiten demostrar una valoración atractiva ni establecer un valor
+  intrínseco independiente. El consenso observado el 2026-11-20 se sitúa cerca de
+  la cotización suministrada, pero esta última es del 2026-08-04 y no constituye una
+  comparación actual. La tesis debe permanecer condicionada a verificar precio, resultados
+  por franquicia, retención, reservas, deuda, caja y decisiones de asignación de capital.
+ticker: EA
+version: '3.0'

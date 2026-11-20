@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 64 companies tracked
+Total: 65 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -20,6 +20,7 @@ Total: 64 companies tracked
 
 ## Communication Services
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
+- 📄 [[EA|Electronic Arts Inc]]
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]

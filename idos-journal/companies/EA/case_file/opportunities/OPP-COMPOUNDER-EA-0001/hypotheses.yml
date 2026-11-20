@@ -1,0 +1,165 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las reservas netas acumuladas del periodo comparable crecen menos del
+      5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía reduce su previsión de reservas netas para el periodo objetivo
+      y los resultados publicados no muestran una recuperación suficiente para alcanzar
+      el umbral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía deja de publicar datos comparables y no proporciona una
+      conciliación que permita evaluar el crecimiento.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las reservas netas acumuladas del periodo comparable crecen menos del 5%.
+  - La compañía reduce su previsión de reservas netas para el periodo objetivo y los
+    resultados publicados no muestran una recuperación suficiente para alcanzar el
+    umbral.
+  - La compañía deja de publicar datos comparables y no proporciona una conciliación
+    que permita evaluar el crecimiento.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-EA-0001
+  opportunity_id: OPP-COMPOUNDER-EA-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de reservas netas acumuladas en doce meses
+    prediction: En el periodo de doce meses terminado el 2027-11-20, las reservas
+      netas acumuladas de EA serán al menos un 5% superiores a las del periodo de
+      doce meses comparable más reciente disponible al 2026-11-20, usando la definición
+      de reservas netas de la compañía y cifras comparables ajustadas por cambios
+      contables si fuera necesario.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Las franquicias deportivas y otros títulos con servicios en vivo pueden
+    generar compras y participación recurrentes entre lanzamientos. Sin datos actuales
+    desglosados por franquicia, reservas o retención, esta hipótesis es una predicción
+    que debe validarse con resultados publicados, no una conclusión demostrada.
+  review_trigger: Dejar de creerla si, antes del 2027-11-20, EA informa que las reservas
+    netas comparables han caído interanualmente en dos informes trimestrales consecutivos,
+    o si su guía oficial para el periodo objetivo implica un crecimiento inferior
+    al 5%.
+  secondary_hypotheses: []
+  statement: La demanda de las franquicias de EA y la actividad de sus servicios en
+    vivo permitirán que las reservas netas de la compañía crezcan durante los próximos
+    doce meses.
+  status: ACTIVE
+  ticker: EA
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre del ejercicio fiscal es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de flujo de caja libre sobre ingresos netos es inferior al
+      10%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los estados financieros publicados no permiten calcular el flujo de
+      caja libre con datos conciliables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre del ejercicio fiscal es negativo.
+  - El margen de flujo de caja libre sobre ingresos netos es inferior al 10%.
+  - Los estados financieros publicados no permiten calcular el flujo de caja libre
+    con datos conciliables.
+  horizon: corto
+  id: H2-OPP-COMPOUNDER-EA-0001
+  opportunity_id: OPP-COMPOUNDER-EA-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-03-31'
+    expected: 10.0
+    met: null
+    metric: Margen de flujo de caja libre sobre ingresos netos en el ejercicio fiscal
+      terminado el 2027-03-31
+    prediction: En el ejercicio fiscal de EA que termina el 2027-03-31, el flujo de
+      caja libre será positivo y equivaldrá al menos al 10% de los ingresos netos
+      del mismo ejercicio. Calcular el flujo de caja libre como flujo de caja de operaciones
+      menos inversiones en propiedades y equipo, usando cifras publicadas por EA.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Una base de ingresos recurrentes y una cartera de franquicias estable
+    podrían sostener la generación de caja. Sin cifras actuales de caja, deuda y flujo
+    de caja, no puede presumirse que la liquidez o la conversión sean adecuadas; deben
+    comprobarse en los estados financieros.
+  review_trigger: Dejar de creerla cuando EA publique resultados del ejercicio fiscal
+    terminado el 2027-03-31 si el flujo de caja libre es negativo o su margen es inferior
+    al 10%; también si una revisión de la guía oficial antes de esa fecha anticipa
+    cualquiera de esos resultados.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-EA-0001
+  statement: EA conservará una generación de caja operativa suficiente para financiar
+    su actividad y retornos de capital sin deteriorar materialmente su conversión
+    de ingresos en flujo de caja libre.
+  status: ACTIVE
+  ticker: EA
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de EA menos la del S&P 500 es inferior a 5 puntos
+      porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No es posible verificar una cotización de cierre de EA y del S&P 500
+      para ambas fechas o calcular las rentabilidades totales con ajustes por dividendos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de EA menos la del S&P 500 es inferior a 5 puntos porcentuales.
+  - No es posible verificar una cotización de cierre de EA y del S&P 500 para ambas
+    fechas o calcular las rentabilidades totales con ajustes por dividendos.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-EA-0001
+  opportunity_id: OPP-COMPOUNDER-EA-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de EA menos rentabilidad total del S&P 500
+    prediction: Entre el precio de cierre del 2026-11-20 y el precio de cierre del
+      2027-11-20, la rentabilidad total de EA, incluidos dividendos reinvertidos,
+      superará en al menos 5 puntos porcentuales la rentabilidad total del S&P 500
+      en el mismo intervalo.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: Un crecimiento comprobable de las reservas podría reducir la incertidumbre
+    sobre la capacidad de las franquicias y los servicios en vivo para sostener ingresos.
+    Sin una cotización contemporánea al corte ni una valoración independiente, no
+    hay base suficiente para afirmar que la acción está barata; esta hipótesis evalúa
+    rendimiento relativo, no valor intrínseco.
+  review_trigger: Dejar de creerla el 2027-11-20 si la rentabilidad relativa observada
+    es inferior a 5 puntos porcentuales. Antes de esa fecha, revisar la hipótesis
+    si EA reduce su guía de reservas netas y la acción registra una rentabilidad total
+    inferior a la del S&P 500 durante seis meses consecutivos.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-EA-0001
+  - H2-OPP-COMPOUNDER-EA-0001
+  statement: Si las reservas netas cumplen la trayectoria prevista, la acción de EA
+    ofrecerá una rentabilidad total superior a la del mercado amplio durante los siguientes
+    doce meses.
+  status: ACTIVE
+  ticker: EA
+  version: 1

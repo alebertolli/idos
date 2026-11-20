@@ -1,0 +1,146 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El margen EBITDA ajustado de los últimos cuatro trimestres aumenta
+      menos de 100 puntos básicos frente al período de referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen EBITDA ajustado se contrae frente al período de referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen EBITDA ajustado de los últimos cuatro trimestres aumenta menos de 100
+    puntos básicos frente al período de referencia.
+  - El margen EBITDA ajustado se contrae frente al período de referencia.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-DOW-0001
+  opportunity_id: OPP-COMPOUNDER-DOW-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 200.0
+    met: null
+    metric: Cambio del margen EBITDA ajustado consolidado de los últimos cuatro trimestres
+      frente al período de referencia
+    prediction: Para el 2027-11-20, el margen EBITDA ajustado consolidado de los últimos
+      cuatro trimestres habrá aumentado al menos 200 puntos básicos frente al margen
+      de los cuatro trimestres inmediatamente anteriores a la fecha de corte, según
+      resultados publicados por la compañía.
+    unit: puntos básicos
+  priority: critical
+  probability: 0.5
+  rationale: La integración y la diversidad de aplicaciones pueden amortiguar la debilidad
+    de mercados individuales. Si la demanda absorbe más capacidad y mejora la disciplina
+    de oferta, una mayor utilización debería elevar los márgenes; sin embargo, el
+    exceso de capacidad y los costos pueden impedir esa recuperación.
+  review_trigger: Dejar de creerla si, al publicarse los resultados correspondientes
+    al tercer trimestre de 2027, el margen EBITDA ajustado de los últimos cuatro trimestres
+    no supera en al menos 100 puntos básicos el período de referencia.
+  secondary_hypotheses: []
+  statement: La recuperación de la utilización y de los márgenes de productos químicos
+    permitirá que mejore la rentabilidad operativa de Dow durante los próximos doce
+    meses.
+  status: ACTIVE
+  ticker: DOW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado de los cuatro trimestres más recientes
+      es inferior a 500 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja libre acumulado es negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado de los cuatro trimestres más recientes es inferior
+    a 500 millones de dólares.
+  - El flujo de caja libre acumulado es negativo.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-DOW-0001
+  opportunity_id: OPP-COMPOUNDER-DOW-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 500.0
+    met: null
+    metric: Flujo de caja libre acumulado en los cuatro trimestres más recientes
+    prediction: Para el 2027-11-20, el flujo de caja libre acumulado de los cuatro
+      trimestres más recientes —flujo de efectivo de operaciones menos inversiones
+      de capital— será de al menos 500 millones de dólares.
+    unit: millones de dólares
+  priority: critical
+  probability: 0.5
+  rationale: La mejora de márgenes y utilización prevista en H1 elevaría el efectivo
+    generado por las operaciones. La generación positiva también depende de que el
+    capital de trabajo no absorba de forma persistente el efectivo y de que la inversión
+    de capital se mantenga controlada.
+  review_trigger: Dejar de creerla si, con la publicación de los resultados del tercer
+    trimestre de 2027, el flujo de caja libre acumulado de los cuatro trimestres más
+    recientes es inferior a cero.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DOW-0001
+  statement: Una recuperación moderada de la generación operativa de efectivo permitirá
+    a Dow cubrir la inversión de capital y generar flujo de caja libre positivo durante
+    los próximos doce meses.
+  status: ACTIVE
+  ticker: DOW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de DOW iguala o supera el del índice de referencia
+      durante el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento total de DOW queda menos de 5 puntos porcentuales por
+      debajo del índice de referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de DOW iguala o supera el del índice de referencia durante
+    el período.
+  - El rendimiento total de DOW queda menos de 5 puntos porcentuales por debajo del
+    índice de referencia.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-DOW-0001
+  opportunity_id: OPP-COMPOUNDER-DOW-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rendimiento total relativo de DOW frente al S&P 500 Materials Select Sector
+      Index
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de DOW,
+      incluidos dividendos, quedará al menos 5 puntos porcentuales por debajo del
+      rendimiento total del S&P 500 Materials Select Sector Index.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: La cotización y el consenso se consideran aproximadamente próximos, con
+    valoración provisionalmente justa y alta incertidumbre. Aunque una recuperación
+    operativa podría respaldar la acción, el exceso de capacidad, la demanda débil
+    y los riesgos de costos o regulación pueden evitar que el mercado anticipe una
+    mejora sostenida.
+  review_trigger: Dejar de creerla el 2027-11-20 si el rendimiento total de DOW no
+    queda al menos 5 puntos porcentuales por debajo del índice de referencia; también
+    reevaluarla si, antes de esa fecha, Dow reporta una mejora sostenida de márgenes
+    y flujo de caja que invalide la premisa de valoración justa sin recuperación demostrada.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-DOW-0001
+  - H2-OPP-COMPOUNDER-DOW-0001
+  statement: La incertidumbre sobre la recuperación cíclica y la ausencia de evidencia
+    suficiente de ganancias normalizadas limitarán la revalorización de las acciones
+    de Dow frente al mercado durante los próximos doce meses.
+  status: ACTIVE
+  ticker: DOW
+  version: 1

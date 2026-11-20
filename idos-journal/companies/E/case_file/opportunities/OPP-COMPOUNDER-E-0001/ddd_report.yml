@@ -1,0 +1,559 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La exposición a commodities hace que la oportunidad se clasifique principalmente
+    como cíclica.
+  - El modelo integrado puede amortiguar parcialmente la volatilidad, pero no se ha
+    demostrado que constituya un moat durable.
+  - La posición de la cotización frente al consenso observado no respalda una infravaloración
+    evidente.
+  - Los riesgos ESG descritos son riesgos sectoriales inferidos y no eventos específicos
+    verificados de Eni.
+  preguntas_abiertas:
+  - ¿Cuál es la moneda efectiva y la unidad del FCF reportado por el proveedor, y
+    cómo se reconcilia con estados financieros auditados?
+  - ¿Cuáles son deuda neta, vencimientos, coste de financiación, liquidez y cobertura
+    de intereses actuales?
+  - ¿Qué proporción de producción, reservas y caja corresponde a cada región y segmento,
+    y cuáles son sus costes y retornos?
+  - ¿Qué supuestos de precios de crudo, gas, LNG y márgenes sustentan las previsiones
+    de la compañía y de los analistas?
+  - ¿Se materializaron los catalizadores históricos de margen, FCF, ingresos de Global
+    Gas & LNG y diversificación? Faltan descripciones, probabilidades previas y datos
+    de seguimiento.
+  - ¿Qué inversiones, desinversiones y retornos de capital recientes respaldan una
+    evaluación del track record de la dirección?
+  - ¿Qué evidencia primaria actualizada existe sobre emisiones, incidentes, litigios,
+    regulación y controles de la cadena de suministro?
+catalizadores_previos: &id001
+- descripcion: ''
+  generated_at: '2026-10-26T11:44:43.913563-03:00'
+  horizonte: ''
+  impacto: Mejora de márgenes y flujo de caja libre.
+  nivel_confianza: ''
+  opp_id: OPP-MB-E
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-10-26T11:44:43.913563-03:00'
+  horizonte: ''
+  impacto: Incremento de ingresos en el segmento Global Gas & LNG.
+  nivel_confianza: ''
+  opp_id: OPP-MB-E
+  probabilidad_anterior: null
+- descripcion: ''
+  generated_at: '2026-10-26T11:44:43.913563-03:00'
+  horizonte: ''
+  impacto: Diversificación de fuentes y potencial de crecimiento a largo plazo.
+  nivel_confianza: ''
+  opp_id: OPP-MB-E
+  probabilidad_anterior: null
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'Deep Value: no se aportan múltiplos ni valoración de activos
+    suficientes para probar infravaloración. Compounder y Compounder castigado: la
+    exposición a commodities impide asumir una composición estable de beneficios y
+    no hay evidencia de una caída temporal de valoración frente a fundamentales. Quality
+    at Fair Price: calidad y precio razonable no quedan demostrados con los datos
+    disponibles. Turnaround: no se aportan pruebas de deterioro operativo ni un plan
+    de recuperación. Special Situation: no se identifica una transacción o reestructuración
+    verificable. Distressed: no hay evidencia suficiente de problemas de solvencia.
+    Value Trap: no hay datos para concluir destrucción estructural de valor. Hype:
+    no corresponde a la naturaleza del negocio descrito.'
+  justificacion: Eni es una energética integrada, pero su generación de resultados
+    y valoración siguen expuestas a los ciclos de precios de crudo y gas, márgenes
+    de refino y condiciones del mercado de LNG. La diversificación de actividades
+    puede amortiguar, pero no elimina, esa ciclicidad. La evidencia financiera aportada
+    es insuficiente para sostener que hoy exista un descuento extraordinario frente
+    al valor intrínseco.
+comparativa_catalizadores:
+- delta_pct: 40
+  descripcion: Mejora de márgenes y flujo de caja libre.
+  estado: vigente
+  nota_comparacion: La entrada histórica no consignaba probabilidad, horizonte ni
+    descripción específica; 0 representa dato previo no disponible, no una probabilidad
+    histórica real. Se mantiene como hipótesis no verificada y no puede marcarse como
+    cumplida.
+  probabilidad_actual: 40
+  probabilidad_anterior: 0
+- delta_pct: 40
+  descripcion: Incremento de ingresos en el segmento Global Gas & LNG.
+  estado: vigente
+  nota_comparacion: La entrada histórica no consignaba probabilidad, horizonte ni
+    descripción específica; 0 representa dato previo no disponible, no una probabilidad
+    histórica real. No se proporcionó evidencia segmentada para confirmar cumplimiento.
+  probabilidad_actual: 40
+  probabilidad_anterior: 0
+- delta_pct: 35
+  descripcion: Diversificación de fuentes y potencial de crecimiento a largo plazo.
+  estado: vigente
+  nota_comparacion: La entrada histórica no consignaba probabilidad, horizonte ni
+    descripción específica; 0 representa dato previo no disponible, no una probabilidad
+    histórica real. Se conserva como hipótesis de largo plazo sin evidencia suficiente
+    para confirmar materialización.
+  probabilidad_actual: 35
+  probabilidad_anterior: 0
+dominio_business_quality:
+  analisis: El modelo integrado cubre exploración y producción, gas y LNG, refino,
+    química y comercialización, lo que potencialmente diversifica fuentes de ingresos
+    y permite capturar valor en distintas partes de la cadena. Sin datos de cuotas
+    de mercado, costes de extracción, reservas, retornos por segmento o ventajas frente
+    a competidores, no es posible demostrar la fortaleza ni durabilidad del moat.
+    La exposición a commodities limita la previsibilidad.
+  rating: regular
+dominio_catalizadores:
+- descripcion: Mejora de márgenes y flujo de caja libre, catalizador histórico descrito
+    de forma genérica y sin evidencia nueva que confirme su materialización.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+- descripcion: Incremento de ingresos en Global Gas & LNG; no se aportaron datos segmentados
+    o anuncios primarios que permitan verificar evolución o cumplimiento.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+- descripcion: Diversificación de fuentes y potencial de crecimiento a largo plazo;
+    la oportunidad depende de ejecución y retornos aún no documentados en la evidencia.
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+dominio_esg_supply_chain:
+  analisis: Como inferencia sectorial, la producción y transformación de hidrocarburos
+    implican exposición a emisiones, regulación climática, accidentes operativos,
+    contaminación, comunidades locales y riesgos de transición. La cadena internacional
+    de suministro y las jurisdicciones de operación pueden añadir riesgos geopolíticos
+    y de cumplimiento. No se aportaron datos específicos de incidentes, emisiones,
+    auditorías de proveedores, litigios ni concentración, por lo que no se atribuye
+    a Eni un evento material concreto.
+  rating: alto_riesgo
+dominio_financial_health:
+  analisis: La evidencia financiera seleccionada informa FCF TTM de 5.990 millones
+    en moneda del proveedor al 2026-09-30, pero no especifica en la entrada la moneda
+    efectiva de ese valor, y reporta margen operativo de 8,581% y crecimiento de ingresos
+    de 26,7% para el mismo cierre, con período no especificado por el proveedor. Estas
+    cifras no permiten determinar tendencia, calidad o sostenibilidad de caja ni evaluar
+    deuda, liquidez, vencimientos o cobertura de intereses. El FCF citado no se considera
+    ajustado.
+  rating: adecuada
+dominio_growth:
+  analisis: Gas y LNG, nuevas inversiones energéticas y el desarrollo de activos podrían
+    sostener crecimiento o diversificación, pero no se proporcionan guías, cartera
+    de proyectos, tasas de crecimiento por segmento ni retornos esperados. El crecimiento
+    de ingresos reportado por el proveedor para el período terminado el 2026-09-30
+    no especifica su período de comparación en la evidencia; no debe extrapolarse.
+  rating: moderado
+dominio_management:
+  analisis: No se aportan datos verificables sobre decisiones de asignación de capital,
+    retornos de proyectos, remuneración, propiedad accionarial o cumplimiento de objetivos.
+    No es posible emitir una conclusión firme sobre alineación o track record. En
+    una compañía energética integrada, la disciplina de inversión durante ciclos favorables
+    y desfavorables es una cuestión clave que requiere revisión de informes y decisiones
+    históricas.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Caída de precios de crudo o gas y compresión de márgenes de refino y comercialización,
+    con impacto en caja y valoración.
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgo geopolítico, contractual y de interrupción de producción o transporte
+    en operaciones internacionales.
+- impacto: alto
+  probabilidad: media
+  riesgo: Cambios regulatorios, litigios o costes de transición ligados a emisiones
+    y activos intensivos en carbono.
+- impacto: alto
+  probabilidad: media
+  riesgo: Asignación de capital deficiente o retornos inferiores a lo previsto en
+    proyectos de hidrocarburos o diversificación.
+- impacto: medio
+  probabilidad: alta
+  riesgo: Volatilidad de resultados y FCF que haga que un dato TTM no represente la
+    capacidad de caja a través del ciclo.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una mejora sostenida y observable de márgenes y flujo de caja, acompañada
+      por evidencia de mayores ingresos del negocio Global Gas & LNG, podría elevar
+      las expectativas; el expediente no incluye resultados segmentados ni anuncios
+      primarios que permitan confirmar que esté ocurriendo.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 40
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización disponible es 60,785 USD al 2026-10-30. El consenso
+    de analistas observado el 2026-11-20 es 57,02 USD, con referencias low/high de
+    49,30/61,00 USD. La cotización está por encima de la media del consenso y cerca
+    de su extremo alto, lo que sugiere que el mercado ya reconoce un escenario relativamente
+    favorable frente al caso central de los analistas. No se proporcionaron múltiplos
+    actuales ni supuestos de los analistas, por lo que no puede inferirse de manera
+    fiable qué escenario de negocio descuentan los múltiplos.
+  hipotesis_contraria: El consenso podría subestimar el potencial de caja o la resiliencia
+    que aporta la integración de Eni y su cartera de gas y LNG; también podría sobrestimar
+    la duración de condiciones favorables de precios y márgenes. Ambas son hipótesis,
+    no hechos demostrados por la evidencia suministrada. En pensamiento de segundo
+    nivel, incluso una mejora operativa no sería necesariamente una sorpresa positiva
+    si ya está reflejada en una cotización próxima al extremo alto del rango de analistas.
+  razonamiento: El precio supera el consenso medio y se encuentra cerca del límite
+    superior observado, lo que no respalda por sí solo una oportunidad de valoración
+    evidente. El rango de analistas es una referencia, no una valoración independiente.
+    Sin estados financieros completos, métricas de valoración comparables, supuestos
+    de commodities y evidencia primaria sobre catalizadores, no puede establecerse
+    si la discrepancia entre precio y valor intrínseco es aprovechable.
+generated_at: '2026-11-20T13:58:34.020692-03:00'
+integridad_tesis:
+  flags: []
+  reason: No se aportó evidencia que demuestre la vulneración de alguna de las categorías
+    de integridad de tesis. La falta de información suficiente para confirmar la tesis
+    no equivale a evidencia de que haya dejado de ser válida.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-E-0001
+prompt_inputs:
+  business_model: Eni S.p.A. operates as an integrated energy company in Italy, Other
+    European Union, Rest of Europe, the United States, Asia, Africa, and internationally.
+    The company engages in exploration, development, extracting, manufacturing, trading,
+    and marketing crude oil and natural gas, oil-based fuels, chemical products, and
+    gas-fired power, as well as energy products from renewable sources. The company
+    operates through Exploration & Production; Global Gas & LNG Portfolio and Power;
+    Refining and Chemicals; Enilive; Plenitude; and Corporate and Other Activities
+    segments. The company engages in research, development, and production of oil,
+    condensates, and natural gas. It is also involved in the supply and sale of wholesale
+    natural gas through pipelines; electricity; and international transport, and purchase
+    and marketing of liquefied natural gas. In addition, the company supplies bio-feedstock
+    and crude oil; and stores, produces, distributes, and markets biofuels, oil products,
+    biomethane, basic chemical and petrochemical products, intermediates, plastics
+    and elastomers, and other chemicals, as well as provides smart mobility solutions
+    and services. Further, the company engages in the retail marketing of gas, power,
+    and related services; production and wholesale sale of electricity from renewable
+    plants; and building and managing a network of charging points for electric vehicles.
+    Eni S.p.A. was founded in 1953 and is headquartered in Rome, Italy.
+  ceo_tenure: 0
+  debt_to_equity: 0.69
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Eni S.p.A.
+  operating_margin: 8.46
+  pe_ratio: 10.93
+  products: ''
+  revenue: 110470000000.0
+  revenue_growth: 20.29
+  roic: 7.33
+  sector: Energy
+  ticker: E
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Eni S.p.A. operates as an integrated energy company in Italy, Other
+    European Union, Rest of Europe, the United States, Asia, Africa, and internationally.
+    The company engages in exploration, development, extracting, manufacturing, trading,
+    and marketing crude oil and natural gas, oil-based fuels, chemical products, and
+    gas-fired power, as well as energy products from renewable sources. The company
+    operates through Exploration & Production; Global Gas & LNG Portfolio and Power;
+    Refining and Chemicals; Enilive; Plenitude; and Corporate and Other Activities
+    segments. The company engages in research, development, and production of oil,
+    condensates, and natural gas. It is also involved in the supply and sale of wholesale
+    natural gas through pipelines; electricity; and international transport, and purchase
+    and marketing of liquefied natural gas. In addition, the company supplies bio-feedstock
+    and crude oil; and stores, produces, distributes, and markets biofuels, oil products,
+    biomethane, basic chemical and petrochemical products, intermediates, plastics
+    and elastomers, and other chemicals, as well as provides smart mobility solutions
+    and services. Further, the company engages in the retail marketing of gas, power,
+    and related services; production and wholesale sale of electricity from renewable
+    plants; and building and managing a network of charging points for electric vehicles.
+    Eni S.p.A. was founded in 1953 and is headquartered in Rome, Italy.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 60.78499984741211
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.69
+  excess_return_roic_wacc: null
+  existing_wiki: "## 1. Visión General de la Compañía  \nEni S.p.A. (ticker **E**)\
+    \ es una compañía energética integrada con sede en Italia que opera a nivel global.\
+    \ Sus actividades abarcan la **exploración y desarrollo** de yacimientos, la **producción\
+    \ y extracción** de crudo y gas natural, el **midstream** (transporte, almacenamiento\
+    \ y LNG), la **refinación y petroquímica**, y la **comercialización** de productos\
+    \ energéticos. Además, la empresa está invirtiendo en **energías renovables**\
+    \ y soluciones de movilidad eléctrica.  \nLa presencia geográfica de Eni incluye\
+    \ Italia, la Unión Europea, el resto de Europa, Estados Unidos, Asia, África y\
+    \ otras regiones internacionales. Su modelo de negocio se basa en la captura de\
+    \ valor a lo largo de toda la cadena energética, desde la extracción hasta la\
+    \ venta al consumidor final.  \n*Fuente: [stockanalysis.com](https://stockanalysis.com/stocks/e/forecast/)*\
+    \  \n\n## 2. Modelo de Negocio y Posición Competitiva  \n**Drivers de ingresos**\
+    \  \n| Segmento | Descripción | % de ingresos (TTM) |\n|----------|-------------|---------------------|\n\
+    | Upstream | Exploración y producción de crudo y gas | 35 % |\n| Midstream | Transporte,\
+    \ almacenamiento y LNG | 20 % |\n| Downstream | Refinación, petroquímica y comercialización\
+    \ | 30 % |\n| Renovables | Energía solar, eólica y movilidad eléctrica | 15 %\
+    \ |\n\nEni combina los tres pilares tradicionales (upstream, midstream, downstream)\
+    \ con una creciente cartera de renovables, lo que le permite diversificar sus\
+    \ fuentes de ingresos y reducir la exposición a la volatilidad de los precios\
+    \ del crudo.  \n\n**Moat**  \n- **Activos integrados** a nivel global que generan\
+    \ economías de escala.  \n- **Contratos a largo plazo** de suministro de gas y\
+    \ LNG que aseguran ingresos estables.  \n- **Capacidad de refinación** de gran\
+    \ escala que permite capturar márgenes de valor añadido.  \n- **Cartera de renovables**\
+    \ en expansión (Plenitude, Enilive) que posiciona a la empresa en la transición\
+    \ energética.  \n\n**Dinámica competitiva**  \nEni compite con grandes integrados\
+    \ como [[Shell]] y [[BP]] en la cadena de valor, y con empresas de energía renovable\
+    \ como [[TotalEnergies]] en el segmento de LNG y renovables. Su ventaja competitiva\
+    \ radica en la integración vertical y la presencia global, aunque enfrenta presión\
+    \ regulatoria y de precios en el mercado de crudo y gas.  \n\n## 3. Perfil Financiero\
+    \  \n| Métrica | Valor | Fuente |\n|---------|-------|--------|\n| Net Debt /\
+    \ EBITDA (TTM) | 1.19× | [stockanalysis.com](https://stockanalysis.com/stocks/e/forecast/)\
+    \ |\n| Current Ratio (TTM) | 1.21 | [stockanalysis.com](https://stockanalysis.com/stocks/e/forecast/)\
+    \ |\n| Interest Coverage | 0 | [stockanalysis.com](https://stockanalysis.com/stocks/e/forecast/)\
+    \ |\n| FCF Growth (TTM) | 20.53 % | [stockanalysis.com](https://stockanalysis.com/stocks/e/financials/)\
+    \ |\n| FCF Conversion | 80.45 % (no disponible) | [stockanalysis.com](https://stockanalysis.com/stocks/E/statistics/)\
+    \ |\n| EV / EBITDA | 6.96× | AOIF |\n| FCF Yield | 2.5 % | AOIF |\n| P/E | 10.86\
+    \ | AOIF |\n| Valor Intrínseco Estimado | USD 55 | AOIF |\n| Precio Actual (USD)\
+    \ | 61.88 | [Yahoo Finance](https://finance.yahoo.com/quote/E/) |\n| Consenso\
+    \ de Precio (USD) | 49.3 – 61.0 (media 55.76) | [stockanalysis.com](https://stockanalysis.com/stocks/e/forecast/)\
+    \ |\n\n> **Nota**: La cobertura de intereses es cero, lo que indica que la empresa\
+    \ no cubre sus gastos financieros con EBIT.  \n\n## 4. Management y Gobierno Corporativo\
+    \  \n- **Alianzas de insiders**: alineación moderada, con incentivos que buscan\
+    \ crear valor a largo plazo.  \n- **Asignación de capital**: se observa una política\
+    \ de creación de valor a través de inversiones estratégicas y dividendos sostenibles.\
+    \  \n- **Gobierno corporativo**: la junta directiva incluye miembros con experiencia\
+    \ en energía y finanzas, aunque la información detallada sobre la composición\
+    \ del board no está disponible en la fuente actual.  \n\n## 5. Tesis de Inversión\
+    \  \nEni posee una posición integrada que le permite capturar valor en toda la\
+    \ cadena energética, con una diversificación que reduce la exposición a la volatilidad\
+    \ de los precios del crudo. Los principales catalizadores que respaldan la tesis\
+    \ alcista son:  \n\n1. **Recuperación del precio del crudo** – Mejora de márgenes\
+    \ y flujo de caja libre.  \n2. **Expansión de LNG** – Incremento de ingresos en\
+    \ el segmento Global Gas & LNG.  \n3. **Transición a renovables** – Diversificación\
+    \ de fuentes y potencial de crecimiento a largo plazo.  \n\nEl modelo integrado\
+    \ y la presencia global aportan estabilidad, mientras que la cobertura de intereses\
+    \ nula y la alta deuda reducen la calidad financiera, lo que debe ser monitoreado.\
+    \  \n\n## 6. Riesgos y Contra‑Tesis  \n| Riesgo | Impacto | Probabilidad | Trigger\
+    \ de Falsación |\n|--------|---------|--------------|----------------------|\n\
+    | Cobertura de intereses insuficiente | Alto | Media | Precio del crudo < 60 USD/bbl,\
+    \ EBIT no mejora |\n| Deuda neta alta | Medio | Media | Deuda neta se mantiene\
+    \ o aumenta |\n| Falta de datos de dilución | Medio | Alta | Emisión de nuevas\
+    \ acciones |\n| Regulación ambiental en Europa | Alto | Alta | Endurecimiento\
+    \ regulatorio de carbono |\n| Caída prolongada del precio del crudo | Alto | Media\
+    \ | Precio del crudo < 60 USD/bbl |\n\n> **Escenario Bear**: Precio bajo presión\
+    \ por precios de crudo débiles, cobertura de intereses cero y posible deterioro\
+    \ de deuda → Target price USD 49.3.  \n> **Escenario Bull**: Recuperación de precios\
+    \ > 80 USD/bbl, mejora operativa > 10 % YoY, reducción de deuda → Target price\
+    \ USD 61.0.  \n\n## 7. Catalizadores y Timeline  \n| Evento | Fecha esperada |\
+    \ Impacto potencial |\n|--------|----------------|-------------------|\n| Recuperación\
+    \ sostenida del precio del crudo > 80 USD/bbl | 2027 | +Márgenes, +FCF |\n| Expansión\
+    \ de capacidad LNG (Plenitude) | 2028 | +Ingresos LNG |\n| Lanzamiento de proyectos\
+    \ renovables (Enilive) | 2029 | Diversificación, reducción de riesgo de carbono\
+    \ |\n| Mejora de cobertura de intereses | 2027 | Reducción de riesgo financiero\
+    \ |\n\n## 8. Marco de Valoración  \n### Metodología  \n- **EV / EBITDA**: 6.96×\
+    \ (AOIF) → Valor de empresa ≈ USD 55.  \n- **FCF Yield**: 2.5 % → Valor de mercado\
+    \ ≈ USD 61.  \n- **P/E**: 10.86 → Valor de acciones ≈ USD 55.  \n- **DCF**: Se\
+    \ proyecta un crecimiento de FCF del 20.53 % en el TTM y se aplica una tasa de\
+    \ descuento del 8 % (considerando el riesgo de cobertura de intereses).  \n\n\
+    ### Supuestos Clave  \n- **Crecimiento de FCF**: 20 % en el próximo año, luego\
+    \ 5 % a largo plazo.  \n- **Tasa de descuento**: 8 % (ajustada por riesgo de cobertura\
+    \ de intereses).  \n- **Margen de seguridad**: 10 % sobre el valor intrínseco\
+    \ estimado.  \n\n### Análisis de Sensibilidad  \n| Variable | Cambio | Impacto\
+    \ en Valor Intrínseco |\n|----------|--------|-----------------------------|\n\
+    | Tasa de descuento | ±1 % | ±5 % |\n| Crecimiento de FCF | ±5 % | ±8 % |\n| EV\
+    \ / EBITDA | ±0.5× | ±4 % |\n\n## 9. Preguntas Abiertas y Agenda de Investigación\
+    \  \n1. **Evolución de ingresos FY 2023** – Necesario para calcular el CAGR de\
+    \ ingresos.  \n2. **Datos de diluted shares** – Para evaluar la dilución YoY y\
+    \ su impacto en EPS.  \n3. **Detalle de la deuda neta** – Desglose por vencimiento\
+    \ y cobertura de intereses.  \n4. **Plan de reducción de deuda** – Estrategia\
+    \ y cronograma.  \n5. **Impacto regulatorio** – Detalles sobre la normativa europea\
+    \ de carbono y sus implicaciones.  \n6. **Progreso de proyectos renovables** –\
+    \ Estado actual y plazos de entrega.  \n\n*Fuentes principales: [stockanalysis.com](https://stockanalysis.com/stocks/e/forecast/),\
+    \ [Yahoo Finance](https://finance.yahoo.com/quote/E/), AOIF.*"
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "EUR", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:34.674921+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/E/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 5990000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:29.194094+00:00", "period_end_date": "2026-09-30", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1790726400, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    8.5810006}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:29.194094+00:00",
+    "period_end_date": "2026-09-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1790726400,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    26.700000000000003}}}, "observed_at": "2026-10-30T16:53:34.674921+00:00", "period_end":
+    "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Eni S.p.A.
+  operating_margin: 8.46
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Eni S.p.A. operates as an integrated energy company in Italy, Other
+    European Union, Rest of Europe, the United States, Asia, Africa, and internationally.
+    The company engages in exploration, development, extracting, manufacturing, trading,
+    and marketing crude oil and natural gas, oil-based fuels, chemical products, and
+    gas-fired power, as well as energy products from renewable sources. The company
+    operates through Exploration & Production; Global Gas & LNG Portfolio and Power;
+    Refining and Chemic
+  revenue: 110470000000.0
+  revenue_growth: 20.29
+  roic: 7.33
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    61.0, "low": 49.3, "mean": 57.02, "median": 57.02, "observed_at": "2026-11-20T13:58:04.862520-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T13:58:04.862520-03:00", "observed_date": "2026-11-20", "target_price":
+    57.02, "url": "https://stockanalysis.com/stocks/e/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T13:58:04.862520-03:00",
+    "observed_date": "2026-11-20", "target_price": 57.016, "url": "https://finance.yahoo.com/quote/E/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 60.78499984741211,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/E/"}]}}'
+  sector: Energy
+  ticker: E
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 87a275e260eef7fde2eaadd0110e6206eb3b5cc2f644e60afd7c1592a39c9a78
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T13:58:34.020692-03:00'
+resumen_ejecutivo: Eni es una energética integrada con exposición material al ciclo
+  de hidrocarburos y una posible amortiguación por sus actividades de gas, LNG y otras
+  líneas de negocio. La información recibida no basta para confirmar un moat durable,
+  evaluar deuda o asignación de capital en profundidad, ni calcular valor intrínseco.
+  La cotización disponible está por encima del consenso medio y cerca de su límite
+  alto, por lo que la asimetría no parece claramente favorable; el juicio sobre error
+  de mercado queda incierto. Los escenarios se limitan al rango observado de analistas
+  y no constituyen objetivos de valoración propios.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - La cotización se mantiene por encima del rango de analistas acompañado de evidencia
+      financiera primaria de mejora sostenible.
+    - Nuevas referencias verificables de analistas o una valoración independiente
+      sustentan un rango distinto.
+    id: BEAR
+    key_assumptions:
+    - El mercado converge hacia el límite bajo del rango observado de analistas.
+    - La exposición cíclica y la incertidumbre sobre márgenes y generación de caja
+      limitan la valoración.
+    rationale: Se utiliza el límite bajo del rango de objetivos observado, no una
+      valoración independiente. Representa el extremo bajista disponible en la referencia
+      de analistas y no implica una probabilidad calibrada.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis, consenso de analistas
+      url: https://stockanalysis.com/stocks/e/forecast/
+    target_price: 49.3
+  - falsifiers:
+    - La cotización cae por debajo del rango observado con evidencia de deterioro
+      operativo o de caja.
+    - Nuevas referencias verificables de analistas o una valoración independiente
+      sustentan un rango distinto.
+    id: BULL
+    key_assumptions:
+    - El mercado converge hacia el límite alto del rango observado de analistas.
+    - Las expectativas favorables sobre caja, márgenes o gas y LNG no se deterioran.
+    rationale: Se utiliza el límite alto del rango de objetivos observado como ancla
+      superior. Es una referencia de analistas y no una valoración independiente ni
+      una garantía de precio.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis, consenso de analistas
+      url: https://stockanalysis.com/stocks/e/forecast/
+    target_price: 61
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 52
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T13:58:04.862520-03:00'
+  fuentes:
+    stockanalysis: 57.02
+    yfinance: 57.016
+  mediana: 57.02
+  n_fuentes: 2
+  promedio: 57.02
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T13:58:04.862520-03:00'
+    observed_date: '2026-11-20'
+    target_price: 57.02
+    url: https://stockanalysis.com/stocks/e/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T13:58:04.862520-03:00'
+    observed_date: '2026-11-20'
+    target_price: 57.016
+    url: https://finance.yahoo.com/quote/E/
+  target_high: 61.0
+  target_low: 49.3
+tesis_inversion: La tesis depende de que la integración y el negocio de gas y LNG
+  amortigüen la volatilidad de los hidrocarburos y de que la asignación de capital
+  sostenga retornos atractivos a lo largo del ciclo. La evidencia disponible no demuestra
+  que esos factores constituyan una ventaja competitiva durable ni permite comparar
+  precio con valor intrínseco. Con el precio observado por encima del consenso medio
+  y próximo a su límite alto, no se aprecia un margen de seguridad verificable; la
+  valoración se considera justa de manera provisional, con alta incertidumbre.
+ticker: E
+version: '3.0'

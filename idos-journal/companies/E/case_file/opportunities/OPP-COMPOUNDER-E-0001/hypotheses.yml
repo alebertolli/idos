@@ -1,0 +1,153 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Si se cumple la condición de caída del Brent, pero el beneficio operativo
+      ajustado de Global Gas & LNG Portfolio cae un 10% o más frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Si Eni deja de publicar cifras comparables del negocio y no proporciona
+      una conciliación que permita calcular la variación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Si se cumple la condición de caída del Brent, pero el beneficio operativo ajustado
+    de Global Gas & LNG Portfolio cae un 10% o más frente a 2026.
+  - Si Eni deja de publicar cifras comparables del negocio y no proporciona una conciliación
+    que permita calcular la variación.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-E-0001
+  opportunity_id: OPP-COMPOUNDER-E-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: -10.0
+    met: null
+    metric: Variación interanual del beneficio operativo ajustado de Global Gas &
+      LNG Portfolio
+    prediction: Si el precio medio del Brent en 2027 resulta al menos un 15% inferior
+      al de 2026, el beneficio operativo ajustado anual del negocio de Global Gas
+      & LNG Portfolio en 2027 caerá menos de un 10% frente a 2026. La comparación
+      se efectuará con las cifras de ambos ejercicios publicadas por Eni.
+    unit: porcentaje como límite inferior de desempeño; caída menor al 10%
+  priority: critical
+  probability: 0.5
+  rationale: La tesis plantea que la integración y la cartera de gas y LNG pueden
+    reducir la exposición de los resultados al ciclo del petróleo. Sin embargo, la
+    información disponible no demuestra que esa protección sea durable; por ello,
+    la hipótesis se limita a una prueba condicional y medible.
+  review_trigger: Dejar de creerla cuando Eni publique los resultados anuales de 2027,
+    o el 2028-03-31 si para entonces no hay información comparable que permita verificarla.
+  secondary_hypotheses: []
+  statement: El negocio de gas y LNG de Eni amortiguará parcialmente una caída de
+    los precios del crudo, manteniendo relativamente estables sus beneficios operativos
+    ajustados.
+  status: ACTIVE
+  ticker: E
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Si el Brent promedio de 2027 está entre 65 y 75 dólares por barril
+      y la razón calculada es inferior a 1,0.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Si Eni cubre el déficit mediante ventas de activos, nueva deuda o reducción
+      de caja y, aun así, la razón de caja generada después de inversiones frente
+      a dividendos ordinarios permanece por debajo de 1,0.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Si el Brent promedio de 2027 está entre 65 y 75 dólares por barril y la razón
+    calculada es inferior a 1,0.
+  - Si Eni cubre el déficit mediante ventas de activos, nueva deuda o reducción de
+    caja y, aun así, la razón de caja generada después de inversiones frente a dividendos
+    ordinarios permanece por debajo de 1,0.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-E-0001
+  opportunity_id: OPP-COMPOUNDER-E-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 1.0
+    met: null
+    metric: Flujo de caja operativo después de gastos de capital dividido por dividendos
+      ordinarios en efectivo
+    prediction: Para el ejercicio 2027, la razón entre flujo de caja operativo y de
+      inversión divulgado por Eni después de gastos de capital, y dividendos ordinarios
+      pagados en efectivo, será igual o superior a 1,0, si el Brent promedio anual
+      se sitúa entre 65 y 75 dólares por barril. Se utilizarán las definiciones y
+      conciliaciones de caja publicadas por Eni y se excluirán recompras de acciones.
+    unit: veces; mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis sostiene que la asignación de capital debe sostener retornos
+    a lo largo del ciclo. La cobertura del dividendo con caja generada después de
+    inversiones ofrece una prueba directa de esa capacidad, aunque la evidencia disponible
+    no permite darla por demostrada.
+  review_trigger: Dejar de creerla cuando Eni publique los resultados anuales de 2027
+    o, como máximo, el 2028-03-31, si la cobertura verificable es inferior a 1,0.
+  secondary_hypotheses: []
+  statement: En 2027, Eni generará suficiente caja operativa después de inversiones
+    para cubrir íntegramente los dividendos ordinarios, siempre que el Brent se mantenga
+    dentro de un rango de 65 a 75 dólares por barril.
+  status: ACTIVE
+  ticker: E
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Si la rentabilidad total de Eni iguala o supera la del STOXX Europe
+      600 Oil & Gas durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Si la diferencia de rentabilidad de Eni frente al índice es superior
+      a -5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Si la rentabilidad total de Eni iguala o supera la del STOXX Europe 600 Oil &
+    Gas durante el periodo.
+  - Si la diferencia de rentabilidad de Eni frente al índice es superior a -5 puntos
+    porcentuales.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-E-0001
+  opportunity_id: OPP-COMPOUNDER-E-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: Rentabilidad total de Eni menos rentabilidad total del STOXX Europe 600
+      Oil & Gas
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de Eni,
+      incluidos dividendos reinvertidos, será al menos 5 puntos porcentuales inferior
+      a la del STOXX Europe 600 Oil & Gas, medida en euros y con precios de cierre
+      ajustados por distribuciones.
+    unit: puntos porcentuales o menos
+  priority: important
+  probability: 0.5
+  rationale: El contexto indica que el precio observado supera el consenso medio y
+    está próximo al límite alto del rango de analistas, pero no aporta datos suficientes
+    para estimar valor intrínseco ni un margen de seguridad. En estas condiciones,
+    una mejora operativa podría no traducirse en rentabilidad relativa superior si
+    ya está incorporada en el precio. Esta es una hipótesis de mercado, no una conclusión
+    de valoración demostrada.
+  review_trigger: Dejar de creerla el 2027-11-20, al calcularse la rentabilidad total
+    de ambos activos para el periodo especificado.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-E-0001
+  - H2-OPP-COMPOUNDER-E-0001
+  statement: La cotización de Eni, al estar por encima del consenso medio y próxima
+    al extremo alto del rango de analistas según el contexto disponible, dejará poco
+    margen para sorpresas positivas y tendrá una rentabilidad total inferior a la
+    de las petroleras integradas europeas durante los próximos doce meses.
+  status: ACTIVE
+  ticker: E
+  version: 1

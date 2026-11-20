@@ -1,0 +1,597 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La exposición a spreads, utilización y demanda industrial hace que la clasificación
+    principal sea cíclica.
+  - La proximidad entre la cotización disponible y el consenso medio no prueba infravaloración
+    y limita la evidencia de un error de mercado.
+  - La recuperación de márgenes es un catalizador plausible, pero no está confirmada
+    por la evidencia proporcionada.
+  - La integración y diversidad de aplicaciones pueden amortiguar riesgos, pero no
+    eliminan la exposición cíclica ni demuestran poder de fijación de precios.
+  - La valoración se considera provisionalmente justa por insuficiencia de datos para
+    estimar ganancias o flujo de caja normalizados.
+  preguntas_abiertas:
+  - ¿Cómo evolucionaron por segmento los volúmenes, precios, utilización, márgenes
+    y spreads, y cuáles son las comparaciones de período homogéneo?
+  - ¿Cuál es la deuda bruta y neta, su calendario de vencimientos, costo, liquidez
+    disponible y cobertura de intereses?
+  - ¿Existe un plan de ventas de activos no estratégicos y se materializó alguna reducción
+    de deuda asociada?
+  - ¿Qué evidencia primaria respalda una mejora de demanda, disciplina de capacidad
+    o recuperación de márgenes?
+  - ¿Qué significan exactamente los períodos y definiciones de las métricas de margen
+    operativo y crecimiento de ingresos reportadas por yfinance?
+  - ¿Cuál es la metodología, cobertura de analistas y fecha de publicación de los
+    objetivos incluidos en el consenso observado?
+  - ¿Qué compromisos de capital, costos de transición, pasivos ambientales y concentraciones
+    de proveedores o instalaciones son materiales?
+catalizadores_previos: &id001
+- descripcion: Recuperación del margen bruto por encima del 12% histórico.
+  generated_at: '2026-10-26T11:42:07.741980-03:00'
+  horizonte: ''
+  impacto: Positivo
+  nivel_confianza: ''
+  opp_id: OPP-MB-DOW
+  probabilidad_anterior: null
+- descripcion: Reducción de deuda neta mediante venta de activos no estratégicos.
+  generated_at: '2026-10-26T11:42:07.741980-03:00'
+  horizonte: ''
+  impacto: Positivo
+  nivel_confianza: ''
+  opp_id: OPP-MB-DOW
+  probabilidad_anterior: null
+- descripcion: Incremento de precios de materias primas que beneficien los ingresos
+    de packaging.
+  generated_at: '2026-10-26T11:42:07.741980-03:00'
+  horizonte: ''
+  impacto: Positivo
+  nivel_confianza: ''
+  opp_id: OPP-MB-DOW
+  probabilidad_anterior: null
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'Deep Value: no se aportan múltiplos completos ni una valoración
+    independiente que demuestre descuento frente al valor de activos o ganancias normalizadas.
+    Turnaround: no hay evidencia primaria suficiente sobre un plan concreto ni sobre
+    deterioro y recuperación operativa. Compounder castigado y Quality at Fair Price:
+    el modelo incluye productos y capacidades diferenciadas, pero la evidencia disponible
+    no demuestra un moat de compounder ni calidad de retornos sostenibles. Distressed:
+    no se aportan señales verificables de insolvencia. Special Situation, Hype y Value
+    Trap no describen mejor la oportunidad con la información disponible.'
+  justificacion: Dow es un productor integrado de materiales y químicos cuyos resultados
+    dependen de la utilización de capacidad, los márgenes entre materias primas y
+    productos, la demanda industrial y el equilibrio de oferta y demanda. La evidencia
+    aportada no permite concluir que el precio actual refleje una recuperación estructural
+    ni una infravaloración demostrada; la exposición cíclica es la característica
+    principal para clasificar la oportunidad.
+comparativa_catalizadores:
+- delta_pct: null
+  descripcion: Recuperación del margen bruto por encima del 12% histórico.
+  estado: vigente
+  nota_comparacion: Catalizador previo retenido como hipótesis, no como hecho. No
+    se aporta observación comparable de margen bruto histórico o actual que permita
+    verificar el umbral del 12% o concluir cumplimiento; probabilidad anterior y delta
+    no disponibles.
+  probabilidad_actual: 40
+  probabilidad_anterior: null
+- delta_pct: null
+  descripcion: Reducción de deuda neta mediante venta de activos no estratégicos.
+  estado: vigente
+  nota_comparacion: Catalizador previo retenido, pero no se aportan datos de ventas
+    de activos, deuda neta ni reducción efectiva. Probabilidad anterior y delta no
+    disponibles; no puede clasificarse como cumplido ni desestimado.
+  probabilidad_actual: 25
+  probabilidad_anterior: null
+- delta_pct: null
+  descripcion: Incremento de precios de materias primas que beneficien los ingresos
+    de packaging.
+  estado: vigente
+  nota_comparacion: 'Catalizador previo retenido con cautela: un aumento de precios
+    de materias primas no implica por sí mismo beneficio, pues depende de spreads,
+    costos y capacidad de traslado. No hay evidencia de evolución de precios o márgenes
+    para verificarlo.'
+  probabilidad_actual: 30
+  probabilidad_anterior: null
+dominio_business_quality:
+  analisis: El perfil descrito combina escala, integración y exposición a múltiples
+    aplicaciones industriales y de consumo, lo que puede aportar ventajas operativas
+    y relaciones comerciales. Sin embargo, el carácter de productos químicos y materiales
+    limita la diferenciación en partes del portafolio y deja la rentabilidad expuesta
+    a capacidad, spreads y ciclo. La información aportada no demuestra cuantitativamente
+    poder de fijación de precios, retornos sobre capital persistentes ni durabilidad
+    del moat; no corresponde extrapolar ventajas competitivas a toda la cartera.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Recuperación sostenida de márgenes por mejora de spreads, utilización
+    y demanda, verificada en resultados y no explicada únicamente por inflación de
+    precios.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 40
+- descripcion: Reducción de deuda neta mediante ventas de activos no estratégicos.
+    Es una posibilidad heredada de la tesis anterior; no se aportó evidencia nueva
+    que confirme ventas, ingresos o reducción efectiva de deuda.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 25
+- descripcion: Mejora del negocio de packaging asociada a precios de materias primas.
+    La relación económica depende de spreads, traslados de precios y costos de insumos;
+    el aumento de materias primas por sí solo no garantiza beneficio.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: La fabricación de químicos y plásticos implica exposición potencial a
+    emisiones, energía, seguridad de procesos, residuos, regulación y transición hacia
+    materiales de menor huella. La integración y el acceso a materias primas también
+    exponen a disponibilidad, precio y logística de hidrocarburos. No se aportan datos
+    primarios sobre incidentes, emisiones, concentraciones de proveedores, dependencia
+    geográfica o cumplimiento regulatorio; los riesgos son inherentes al perfil sectorial,
+    no incidentes verificados.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La observación disponible registra FCF TTM de aproximadamente USD 2,05
+    mil millones, período terminado el 2026-09-30, según StockAnalysis. Es una cifra
+    reportada y no se documenta que sea ajustada. No se proporcionan observaciones
+    directas utilizables de deuda, caja, vencimientos, intereses, liquidez ni evolución
+    histórica comparable. Por ello no es posible concluir que el balance sea fuerte
+    o débil ni verificar reducción de deuda neta.
+  rating: adecuada
+dominio_growth:
+  analisis: Las oportunidades pueden depender de demanda en packaging, infraestructura,
+    movilidad y aplicaciones de consumo, además de proyectos de capacidad y mejoras
+    operativas. No se aportan desgloses verificables de volúmenes, precios, pedidos,
+    cartera, inversiones o crecimiento por segmento que permitan cuantificar visibilidad
+    orgánica. La observación de crecimiento de ingresos de yfinance es de período
+    y definición inespecíficos, por lo que no sustenta una conclusión robusta sobre
+    tendencia.
+  rating: moderado
+dominio_management:
+  analisis: No se incluyen datos primarios suficientes sobre decisiones recientes
+    de asignación de capital, remuneración, compras o ventas de activos, cumplimiento
+    de objetivos o retorno de inversiones. La calidad de gestión y la ejecución de
+    una recuperación quedan sin verificar. No se atribuyen resultados ni intenciones
+    a la dirección sin evidencia.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Persistencia de exceso de oferta o spreads deprimidos en químicos y polímeros,
+    prolongando la debilidad cíclica.
+- impacto: alto
+  probabilidad: media
+  riesgo: Demanda industrial y de packaging más débil de lo esperado, con menor utilización
+    y absorción de costos fijos.
+- impacto: medio
+  probabilidad: media
+  riesgo: Volatilidad de materias primas, energía y costos logísticos que no pueda
+    trasladarse oportunamente a clientes.
+- impacto: alto
+  probabilidad: media
+  riesgo: Presión regulatoria y transición de largo plazo sobre plásticos, emisiones
+    y procesos intensivos en energía.
+- impacto: alto
+  probabilidad: baja
+  riesgo: Balance o necesidades de capital más exigentes de lo supuesto; no evaluable
+    con las observaciones disponibles de deuda y liquidez.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una recuperación sostenida de márgenes y volúmenes, visible en resultados
+      trimestrales y atribuible a mejores spreads y utilización —no sólo a cambios
+      de precios de materias primas— podría modificar la percepción del mercado. No
+      se aporta evidencia primaria que confirme que esta recuperación ya esté ocurriendo.
+    horizonte: medio
+    impacto: alto
+    probabilidad_pct: 40
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización disponible es USD 34,33 al 2026-10-30. El consenso
+    observado al 2026-11-20 tiene objetivo medio y mediano de USD 34,71, con rango
+    de USD 30 a USD 41. La proximidad entre cotización y media sugiere que los analistas,
+    en conjunto, no anticipan una revalorización sustancial desde la referencia de
+    precio disponible. No se aportan múltiplos actuales suficientes para afirmar qué
+    escenario implícito reflejan.
+  hipotesis_contraria: El mercado podría estar ponderando en exceso la debilidad cíclica
+    y subestimando una recuperación de márgenes si mejoran la utilización, la demanda
+    y la disciplina de oferta. También podría estar subestimando la persistencia de
+    exceso de capacidad, costos o demanda débil; con los datos aportados no se puede
+    establecer qué interpretación es más probable. La integración y la amplitud de
+    aplicaciones pueden amortiguar algunos riesgos, pero no eliminan la exposición
+    a ciclos de commodities.
+  razonamiento: La media del consenso está cerca de la cotización observada, pero
+    los precios tienen fechas de observación distintas y el consenso no es una valoración
+    independiente. Faltan series verificables de márgenes, volúmenes, spreads, capacidad,
+    deuda y valoración histórica o normalizada para identificar una discrepancia aprovechable.
+    El pensamiento de segundo nivel exige considerar que una aparente recuperación
+    puede estar anticipada o que una caída cíclica puede resultar más persistente
+    de lo esperado.
+generated_at: '2026-11-20T13:56:31.214584-03:00'
+integridad_tesis:
+  flags: []
+  reason: La información proporcionada no acredita la vulneración de ninguna de las
+    nueve categorías de integridad. La tesis sigue activa como hipótesis cíclica,
+    pero su validación operativa y financiera es incompleta.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-DOW-0001
+prompt_inputs:
+  business_model: Dow Inc., through its subsidiaries, provides various materials science
+    solutions for packaging, infrastructure, mobility, and consumer applications in
+    the United States, Canada, Europe, the Middle East, Africa, India, the Asia Pacific,
+    and Latin America. The company operates through Packaging & Specialty Plastics,
+    Industrial Intermediates & Infrastructure, and Performance Materials & Coatings
+    segments. The Packaging & Specialty Plastics segment provides ethylene, propylene,
+    polyethylene, and aromatics products; and other ethylene derivatives, such as
+    polyolefin elastomers, ethylene vinyl acetate, and ethylene propylene diene monomer
+    rubber. The Industrial Intermediates & Infrastructure segment offers polyurethanes,
+    including propylene oxide, propylene glycol, and polyether polyols; aromatic isocyanates
+    and fully formulated polyurethane systems; and chlor-alkali and vinyl comprising
+    chlorine and caustic soda, ethylene dichloride, and vinyl chloride monomer; and
+    construction chemicals consisting of cellulose ethers, redispersible latex powders,
+    and acrylic emulsions, as well as coatings, adhesives, sealants, elastomers, and
+    composites. The Performance Materials & Coatings segment provides architectural
+    paints and coatings, and industrial coatings; and acrylics-based building blocks,
+    silicon metals, siloxanes, and intermediates. The company also engages in the
+    property and casualty insurance, as well as reinsurance business. The company
+    was founded in 1897 and is headquartered in Midland, Michigan.
+  ceo_tenure: 0
+  debt_to_equity: 0.0108
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Dow Inc.
+  operating_margin: 4.29
+  pe_ratio: 0
+  products: ''
+  revenue: 42610000000.0
+  revenue_growth: 4.15
+  roic: 5.65
+  sector: Basic Materials
+  ticker: DOW
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Dow Inc., through its subsidiaries, provides various materials science
+    solutions for packaging, infrastructure, mobility, and consumer applications in
+    the United States, Canada, Europe, the Middle East, Africa, India, the Asia Pacific,
+    and Latin America. The company operates through Packaging & Specialty Plastics,
+    Industrial Intermediates & Infrastructure, and Performance Materials & Coatings
+    segments. The Packaging & Specialty Plastics segment provides ethylene, propylene,
+    polyethylene, and aromatics products; and other ethylene derivatives, such as
+    polyolefin elastomers, ethylene vinyl acetate, and ethylene propylene diene monomer
+    rubber. The Industrial Intermediates & Infrastructure segment offers polyurethanes,
+    including propylene oxide, propylene glycol, and polyether polyols; aromatic isocyanates
+    and fully formulated polyurethane systems; and chlor-alkali and vinyl comprising
+    chlorine and caustic soda, ethylene dichloride, and vinyl chloride monomer; and
+    construction chemicals consisting of cellulose ethers, redispersible latex powders,
+    and acrylic emulsions, as well as coatings, adhesives, sealants, elastomers, and
+    composites. The Performance Materials & Coatings segment provides architectural
+    paints and coatings, and industrial coatings; and acrylics-based building blocks,
+    silicon metals, siloxanes, and intermediates. The company also engages in the
+    property and casualty insurance, as well as reinsurance business. The company
+    was founded in 1897 and is headquartered in Midland, Michigan.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 34.33000183105469
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0108
+  excess_return_roic_wacc: null
+  existing_wiki: "## 1. Visión General de la Compañía  \n**Dow Inc.** es un proveedor\
+    \ global de productos químicos y materiales de alto desempeño que opera en tres\
+    \ segmentos principales: **Packaging & Specialty Plastics**, **Industrial Intermediates\
+    \ & Infrastructure** y **Performance Materials & Coatings**. Su cadena de valor\
+    \ abarca la extracción de materias primas (petróleo y gas natural), producción\
+    \ de olefinas, polimerización, transformación y formulación, y culmina con la\
+    \ distribución a través de redes logísticas y ventas directas a fabricantes y\
+    \ usuarios finales en América del Norte, Europa, Oriente Medio, África, India,\
+    \ Asia‑Pacífico y Latinoamérica【AOIF‑paso1】.  \n\nEl negocio se orienta a industrias\
+    \ de empaques, construcción, movilidad, consumo y agricultura, ofreciendo productos\
+    \ como etileno, propileno y polietileno【AOIF‑paso1】.  \n\n---\n\n## 2. Modelo\
+    \ de Negocio y Posición Competitiva  \n\n| Aspecto | Detalle |\n|---|---|\n| **Drivers\
+    \ de revenue** | Demanda de materiales sostenibles, precios de materias primas,\
+    \ ciclos de inversión en construcción y automotriz. |\n| **Moat** | Ventajas de\
+    \ escala, integración vertical y cartera diversificada que generan barreras de\
+    \ entrada y lealtad de clientes【AOIF‑paso3】. |\n| **Dinámica competitiva** | Industria\
+    \ química con presión de precios de materias primas y regulaciones medioambientales\
+    \ cada vez más estrictas; tendencia a la consolidación e innovación tecnológica【AOIF‑paso3】.\
+    \ |\n| **Posición competitiva** | Líder de mercado en varios sub‑segmentos, con\
+    \ “amplio” moat y posición de liderazgo reconocida【AOIF‑paso3】. |\n\n---\n\n##\
+    \ 3. Perfil Financiero  \n\n### Métricas clave (2026‑09‑30)  \n\n| Métrica | Valor\
+    \ | Comentario |\n|---|---|---|\n| **Crecimiento de ingresos (3‑a)** | *No disponible*\
+    \ (falta de dato histórico)【DDD‑ratios_investigados】 | |\n| **Margen operativo**\
+    \ | 4.29 %【AOIF‑paso2】 | Estable pero bajo presión. |\n| **ROIC** | 5.65 %【AOIF‑paso2】\
+    \ | Moderado. |\n| **Conversión de FCF** | 0.58 (58 %)【AOIF‑paso2】 | Indica generación\
+    \ de efectivo razonable pese a pérdidas netas. |\n| **Cobertura de intereses**\
+    \ | 0 x (insuficiente)【DDD‑dominio_riesgos】 | Muy por debajo del umbral de 2.0 x\
+    \ (alto riesgo). |\n| **Deuda neta / EBITDA** | 3.2 x (cerca del límite de 4.0 x)【DDD‑dominio_riesgos】\
+    \ | Riesgo moderado. |\n| **Free‑cash‑flow yield** | 3.2 %【AOIF‑paso6】 | Adecuado\
+    \ según criterio interno. |\n| **PER** | 12【AOIF‑paso6】 | Valoración relativa.\
+    \ |\n| **Valor intrínseco estimado** | US $38【AOIF‑paso6】 | Basado en EV/EBITDA\
+    \ y PER. |\n| **Precio consenso (USD)** | Low 30.0 – Mean 34.76 – High 41.0【DDD‑consenso_actual】\
+    \ | Fuente: *stockanalysis* y *yfinance* (26‑Oct‑2026). |\n\n### Estructura de\
+    \ capital (2026)  \n\n| Ítem | Valor | Comentario |\n|---|---|---|\n| **Cobertura\
+    \ de intereses** | 0 x | Riesgo alto. |\n| **Net Debt / EBITDA** | 3.2 x | Moderado,\
+    \ cercano al límite de 4.0 x. |\n| **Current Ratio** | > 1 (por encima del umbral)【DDD‑risk_flags】\
+    \ | Señal de liquidez aceptable. |\n\n---\n\n## 4. Management y Gobierno Corporativo\
+    \  \n\n| Elemento | Evaluación |\n|---|---|\n| **Alineamiento de insiders** |\
+    \ Moderado【AOIF‑paso4】. |\n| **Asignación de capital** | Se percibe como creadora\
+    \ de valor【AOIF‑paso4】. |\n| **Calidad del liderazgo** | Buena【AOIF‑paso4】. |\n\
+    | **Composición del board** | No se dispone de detalle, pero la política de gobierno\
+    \ sigue los estándares de la industria química. |\n\n---\n\n## 5. Tesis de Inversión\
+    \  \n\n- **Clasificación:** *Multibagger* (potencial de alta revalorización)【DDD‑clasificacion_oportunidad】.\
+    \  \n- **Justificación:**  \n  1. **Recuperación del margen bruto** por encima\
+    \ del 12 % histórico (catalizador positivo)【DDD‑dominio_catalizadores】.  \n  2.\
+    \ **Reducción de deuda neta** mediante venta de activos no estratégicos, mejorando\
+    \ la estructura de capital【DDD‑dominio_catalizadores】.  \n  3. **Incremento de\
+    \ precios de materias primas** que favorecen los ingresos de packaging【DDD‑dominio_catalizadores】.\
+    \  \n  4. **Valor intrínseco estimado de US $38** supera el precio medio del consenso\
+    \ (US $34.76), indicando posible subvaloración si se revierten pérdidas netas\
+    \ y se mejora la cobertura de intereses【AOIF‑paso6】【DDD‑error_mercado】.  \n- **Hipótesis\
+    \ clave:** Mejora sostenida del margen bruto y generación de FCF positivo elevarán\
+    \ el precio por encima del rango alto del consenso【DDD‑error_mercado】.  \n\n---\n\
+    \n## 6. Riesgos y Contra‑Tesis  \n\n| Riesgo | Impacto | Triggers de falsación\
+    \ |\n|---|---|---|\n| **Cobertura de intereses insuficiente** (0 x < 2.0) | Alto【DDD‑dominio_riesgos】\
+    \ | Cobertura de intereses cae < 1 x. |\n| **Flujo de caja libre negativo** en\
+    \ FY 2024‑2025 | Alto【DDD‑dominio_riesgos】 | FCF sigue negativo o se vuelve más\
+    \ negativo. |\n| **Deuda neta elevada** (3.2 x, riesgo de subir > 5 x) | Moderado【DDD‑dominio_riesgos】\
+    \ | Deuda neta > 5 x EBITDA. |\n| **Márgenes brutos bajos** (< 10 % por 12 meses\
+    \ consecutivos) | Alto (falsador)【DDD‑falsadores】 | Margen bruto se mantiene < 10 %\
+    \ durante un año. |\n| **Volatilidad de precios de materias primas** (petróleo,\
+    \ gas) | Alto (macro)【AOIF‑paso5】 | Aumento sostenido de precios que erosione\
+    \ márgenes. |\n| **Regulaciones medioambientales más estrictas** | Alto (regulatorio)【AOIF‑paso5】\
+    \ | Nuevas normas que requieran inversiones de capital significativas. |\n\n**Contra‑tesis:**\
+    \ El precio actual (~US $32.60) ya refleja gran parte de estos riesgos; la recuperación\
+    \ de márgenes y la reducción de deuda podrían estar sobrevaloradas, limitando\
+    \ el upside.  \n\n---\n\n## 7. Catalizadores y Timeline  \n\n| Catalizador | Fecha\
+    \ esperada | Impacto | Fuente |\n|---|---|---|---|\n| **Recuperación del margen\
+    \ bruto > 12 %** | H1 2027 | Positivo (mejora de rentabilidad) | 【DDD‑dominio_catalizadores】\
+    \ |\n| **Venta de activos no estratégicos y reducción de deuda neta** | H2 2027\
+    \ | Positivo (mejora de balance) | 【DDD‑dominio_catalizadores】 |\n| **Incremento\
+    \ de precios de materias primas que beneficien ingresos de packaging** | 2027‑2028\
+    \ | Positivo (top‑line) | 【DDD‑dominio_catalizadores】 |\n| **Publicación de resultados\
+    \ FY 2027 con FCF positivo** | Q1 2028 | Positivo (confirma turnaround) | — |\n\
+    | **Implementación de iniciativas de eficiencia operativa** | 2027‑2029 | Positivo\
+    \ (reducción de costos) | — |\n\n---\n\n## 8. Marco de Valoración  \n\n1. **Método\
+    \ principal:** múltiplos de **EV/EBITDA** y **PER**.  \n   - EV/EBITDA implícito\
+    \ en el precio objetivo *BULL* (US $41) ≈ 8.45× (valor dado en AOIF‑paso6).  \n\
+    \   - PER implícito ≈ 12× (valor dado en AOIF‑paso6).  \n\n2. **Supuestos clave**\
+    \  \n   - Margen bruto ≥ 13 % (escenario BULL).  \n   - Cobertura de intereses\
+    \ mejora a 1 x (escenario BASE).  \n   - Net Debt/EBITDA ≤ 3 x (escenario BULL).\
+    \  \n\n3. **Análisis de sensibilidad**  \n\n| Variable | Valor BULL | Valor BASE\
+    \ | Valor BEAR |\n|---|---|---|---|\n| **Margen bruto** | 13 %+ | ≈ 11 % | < 10 %\
+    \ |\n| **Cobertura de intereses** | 1 x | 0 x (mejora) | < 1 x |\n| **Net Debt/EBITDA**\
+    \ | < 3 x | 3.2 x | > 5 x |\n| **Precio objetivo (USD)** | 41.0 | 34.76 | 30.0\
+    \ |\n\n4. **Valor intrínseco** estimado en **US $38** (media ponderada de los\
+    \ múltiplos y PER)【AOIF‑paso6】, lo que sitúa al precio actual (~US $32.60) por\
+    \ debajo de su valor razonable bajo supuestos de mejora operativa.\n\n---\n\n\
+    ## 9. Preguntas Abiertas y Agenda de Investigación  \n\n| Área | Pregunta | Necesidad\
+    \ de investigación |\n|---|---|---|\n| **Márgenes** | ¿Podrá Dow sostener un margen\
+    \ bruto > 12 % durante al menos 12 meses? | Seguimiento de reportes trimestrales\
+    \ y precios de materias primas. |\n| **Deuda** | ¿Cuál es el calendario y la magnitud\
+    \ de la venta de activos no estratégicos? | Detalle de planes de desinversión\
+    \ y uso de los recursos. |\n| **Cobertura de intereses** | ¿Qué acciones específicas\
+    \ tomará la compañía para elevar la cobertura a ≥ 1 x? | Análisis de refinanciamiento\
+    \ y reducción de gastos financieros. |\n| **Flujo de caja libre** | ¿Cuándo se\
+    \ espera que el FCF vuelva a ser positivo y sostenible? | Proyecciones de cash‑flow\
+    \ en modelos internos. |\n| **Regulación** | ¿Qué impactos cuantitativos tendrán\
+    \ las nuevas regulaciones medioambientales en CAPEX y OPEX? | Evaluación de normativa\
+    \ pendiente en EE. UU. y UE. |\n| **Insiders** | ¿Cuál es el nivel exacto de insider\
+    \ ownership y su evolución reciente? | Revisión de filings de 13‑D/G. |\n| **Competencia**\
+    \ | ¿Cómo se comparan los múltiplos de Dow con sus pares (p.ej., [[DuPont]], [[BASF]])\
+    \ en el mismo periodo? | Benchmarking sectorial. |\n\n*Esta agenda debe revisarse\
+    \ trimestralmente a medida que se publiquen nuevos resultados y datos de mercado.*"
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:32.846267+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/DOW/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 2049999999.9999998}}, "operating_margin_pct":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:28.550339+00:00", "period_end_date": "2026-09-30",
+    "period_status": "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "provider_period_end_timestamp": 1790726400, "selected_source": "yfinance", "source_metadata":
+    {"yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"yfinance": 6.781}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:28.550339+00:00",
+    "period_end_date": "2026-09-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1790726400,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    13.0}}}, "observed_at": "2026-10-30T16:53:32.846267+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Dow Inc.
+  operating_margin: 4.29
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Dow Inc., through its subsidiaries, provides various materials science
+    solutions for packaging, infrastructure, mobility, and consumer applications in
+    the United States, Canada, Europe, the Middle East, Africa, India, the Asia Pacific,
+    and Latin America. The company operates through Packaging & Specialty Plastics,
+    Industrial Intermediates & Infrastructure, and Performance Materials & Coatings
+    segments. The Packaging & Specialty Plastics segment provides ethylene, propylene,
+    polyethylene, and aro
+  revenue: 42610000000.0
+  revenue_growth: 4.15
+  roic: 5.65
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    41.0, "low": 30.0, "mean": 34.71, "median": 34.71, "observed_at": "2026-11-20T13:55:53.737510-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T13:55:53.737510-03:00", "observed_date": "2026-11-20", "target_price":
+    34.71, "url": "https://stockanalysis.com/stocks/dow/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T13:55:53.737510-03:00",
+    "observed_date": "2026-11-20", "target_price": 34.70588, "url": "https://finance.yahoo.com/quote/DOW/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 34.33000183105469,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/DOW/"}]}}'
+  sector: Basic Materials
+  ticker: DOW
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 1ac6621e8f66960cae5d50527f859b3eeffc47f4ee293ed472fa4adff9927d6d
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T13:56:31.214584-03:00'
+resumen_ejecutivo: 'Dow debe analizarse principalmente como una compañía química cíclica,
+  integrada y expuesta a spreads, demanda industrial y equilibrio de capacidad. La
+  referencia de precio disponible y el consenso de analistas están próximos, lo que
+  no acredita por sí solo una oportunidad de valor. La información financiera incluida
+  es escasa: permite observar una cifra de FCF TTM reportada y dos métricas cuya definición
+  de período es inespecífica, pero no evaluar de forma completa balance, márgenes
+  o evolución. La tesis de recuperación es plausible, no verificada; la valoración
+  y la asimetría permanecen inciertas.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados trimestrales comparables muestran mejoras sostenidas de márgenes,
+      volúmenes y utilización.
+    - La compañía comunica transacciones consumadas de activos y evidencia verificable
+      de reducción de deuda neta.
+    - La demanda y los spreads se recuperan de forma persistente y en más de un segmento.
+    id: BEAR
+    key_assumptions:
+    - La debilidad de demanda o el exceso de capacidad mantienen presión sobre márgenes
+      y utilización durante el horizonte.
+    - No se verifica una recuperación sostenida de spreads ni un catalizador de reducción
+      de deuda.
+    - El límite bajo del consenso observado, USD 30, se usa como referencia disponible,
+      no como estimación propia del valor intrínseco.
+    rationale: Se utiliza el límite bajo observado del rango de objetivos de analistas
+      como ancla de un resultado adverso plausible, no como valoración independiente
+      ni como precio garantizado. El escenario representa una recuperación cíclica
+      débil o retrasada; la evidencia disponible no permite sustentar un objetivo
+      inferior al rango observado.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos de analistas
+      url: https://stockanalysis.com/stocks/dow/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance, cotización histórica proporcionada
+      url: https://finance.yahoo.com/quote/DOW/
+    target_price: 30.0
+  - falsifiers:
+    - Los márgenes y volúmenes se estancan o deterioran en períodos comparables.
+    - La recuperación depende únicamente de precios de materias primas sin mejora
+      de spreads o rentabilidad.
+    - Surgen necesidades de liquidez, deuda o inversión que impiden capturar la mejora
+      operativa.
+    id: BULL
+    key_assumptions:
+    - Mejoran de manera sostenida la demanda, la utilización y los spreads en los
+      negocios relevantes.
+    - La expansión de márgenes se confirma en resultados comparables y no se explica
+      solamente por cambios nominales de precios.
+    - El límite alto del consenso observado, USD 41, se usa como referencia disponible,
+      no como estimación propia del valor intrínseco.
+    rationale: Se utiliza el límite alto observado del rango de objetivos de analistas
+      como ancla de un resultado favorable plausible, no como valoración independiente
+      ni precio garantizado. El caso requiere recuperación operativa verificable.
+      No se propone un precio superior al máximo observado porque la evidencia proporcionada
+      no contiene una valoración independiente que sustente tal desviación.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: StockAnalysis, consenso de objetivos de analistas
+      url: https://stockanalysis.com/stocks/dow/forecast/
+    - as_of_date: '2026-10-30'
+      name: yfinance, cotización histórica proporcionada
+      url: https://finance.yahoo.com/quote/DOW/
+    target_price: 41.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 53
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T13:55:53.737510-03:00'
+  fuentes:
+    stockanalysis: 34.71
+    yfinance: 34.70588
+  mediana: 34.71
+  n_fuentes: 2
+  promedio: 34.71
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T13:55:53.737510-03:00'
+    observed_date: '2026-11-20'
+    target_price: 34.71
+    url: https://stockanalysis.com/stocks/dow/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T13:55:53.737510-03:00'
+    observed_date: '2026-11-20'
+    target_price: 34.70588
+    url: https://finance.yahoo.com/quote/DOW/
+  target_high: 41.0
+  target_low: 30.0
+tesis_inversion: La tesis es una recuperación cíclica potencial, no un compounder
+  de crecimiento probado ni una situación de valor profundo demostrada. La integración,
+  escala y diversidad de aplicaciones podrían sostener una recuperación si los spreads
+  y la utilización mejoran; en contra, exceso de capacidad, demanda débil y regulación
+  pueden mantener retornos deprimidos. Con la cotización y el consenso próximos y
+  sin métricas suficientes para estimar ganancias normalizadas, la valoración parece
+  aproximadamente justa de manera provisional, con alta incertidumbre.
+ticker: DOW
+version: '3.0'
