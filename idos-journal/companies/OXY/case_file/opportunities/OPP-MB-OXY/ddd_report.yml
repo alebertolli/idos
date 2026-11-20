@@ -1,0 +1,533 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm: []
+  preguntas_abiertas:
+  - ¿Cuál es el crecimiento comparable de ingresos a tres años y cuánto corresponde
+    a precios, volúmenes, adquisiciones u otros factores?
+  - ¿Qué retornos obtienen los nuevos proyectos y el capital reinvertido, y cómo se
+    comparan con el costo de capital?
+  - ¿Cuál es la cobertura de intereses correcta según estados financieros primarios
+    y una definición compatible con EBIT?
+  - ¿Qué reservas, vida de activos, inversiones de mantenimiento y obligaciones de
+    retiro sustentan la generación de caja?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación fundamental requerida; evidencia incompleta para validar
+    la tesis multibagger
+  justificacion: El paquete registra un momentum de precio positivo a 12 meses, pero
+    no aporta una serie suficiente para calcular crecimiento de ingresos a tres años
+    ni dilución, y no contiene evidencia de retornos sobre capital, mercado direccionable
+    o ventaja competitiva.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo incluye actividades de upstream y midstream/marketing, pero
+    no se aporta evidencia suficiente para evaluar moat, calidad de activos, retorno
+    sobre capital invertido o eficiencia de reinversión. El margen bruto reportado
+    no sustituye esos análisis y la serie financiera no permite atribuir cambios a
+    volúmenes, precios, costos o transacciones.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: El FCF TTM reportado al 2026-09-30 supera el FCF de FY 2025, aunque
+    esos períodos no son comparables como años completos.
+  evidencia: FCF TTM 5.575 y FY 2025 3.825, en unidades reportadas por el proveedor;
+    Stock Analysis.
+- catalizador: La deuda neta reportada disminuyó frente al cierre de FY 2025.
+  evidencia: Deuda neta reportada de -8.733 al 2026-09-30 frente a -21.383 al 2025-12-31;
+    Stock Analysis.
+- catalizador: El rango de objetivos de analistas ofrece referencias observadas para
+    seguimiento, no catalizadores operativos ni valores intrínsecos.
+  evidencia: Rango USD 60–83 observado al 2026-11-20; Stock Analysis.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: Descripción del modelo de negocio en el resumen financiero, con fecha
+    de análisis 2026-11-20; no se aporta análisis de sensibilidad.
+  riesgo: Exposición económica a petróleo, condensado, NGL y gas; el paquete no cuantifica
+    sensibilidad de resultados a precios de commodities.
+- evidencia: FCF de FY 2023, FY 2024, FY 2025 y TTM al 2026-09-30, Stock Analysis.
+  riesgo: 'El FCF histórico disponible es volátil: cayó en FY 2024 y FY 2025 según
+    la serie reportada, antes del dato TTM más reciente.'
+- evidencia: Stock Analysis, estadísticas de OXY, período TTM terminado 2026-09-30.
+  riesgo: La cobertura de intereses reportada aparece como 0 para TTM al 2026-09-30;
+    el dato requiere validación y no permite concluir por sí solo que la cobertura
+    económica sea nula.
+- evidencia: Información no disponible en las fuentes y campos aportados.
+  riesgo: No hay datos en el paquete para cuantificar reservas, vida de activos, obligaciones
+    de retiro, inversión de mantenimiento o retornos incrementales del capital.
+error_mercado:
+  catalizador_cambio: La evidencia disponible no identifica catalizadores corporativos
+    fechados; sería necesario contrastar futuros resultados y decisiones de capital
+    con la tesis del mercado.
+  conclusion_error_valoracion: 'No validado: los objetivos de analistas son referencias
+    observadas, no una valoración intrínseca, y el paquete no aporta un método de
+    valoración con inputs suficientes.'
+  consenso_actual: 'Al 2026-11-20, el consenso de precio objetivo reportado es USD
+    71,11, con rango de USD 60 a USD 83; la cotización de referencia es USD 64 al
+    2026-10-30. Fuentes: Stock Analysis y Yahoo Finance.'
+  hipotesis_contraria: Los datos disponibles no permiten establecer que el mercado
+    esté valorando incorrectamente los activos, la trayectoria de caja o la deuda
+    de OXY.
+  razonamiento: La acción registró momentum de 12 meses de 55,3398% hasta 2026-10-30,
+    pero ese dato no demuestra infravaloración ni permite explicar las expectativas
+    de beneficios o de materias primas.
+generated_at: '2026-11-20T17:49:13.113782-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-OXY
+prompt_inputs:
+  business_model: Occidental Petroleum Corporation, together with its subsidiaries,
+    engages in the acquisition, exploration, and development of oil and gas properties
+    in the United States and internationally. It operates through Oil and Gas and
+    Midstream and Marketing. The Oil and Gas segment explores for, develops, and produces
+    oil and condensate, natural gas liquids (NGLs), and natural gas. This segment
+    also optimizes its transportation and storage capacity and invests in entities.
+    The Midstream and Marketing segment purchases, markets, gathers, processes, transports
+    and stores oil, condensate, NGLs, natural gas, carbon dioxide, and power. Occidental
+    Petroleum Corporation was founded in 1920 and is headquartered in Houston, Texas.
+  ceo_tenure: 0
+  debt_to_equity: 0.29
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Occidental Petroleum Corporation
+  operating_margin: 29.31
+  pe_ratio: 7.28
+  products: ''
+  revenue: 24970000000.0
+  revenue_growth: 34.74
+  roic: 10.38
+  sector: Energy
+  ticker: OXY
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: null
+    revenue_ttm: 24970000000
+  limitations: La serie revenue_history aportada no incluye una observación fechada
+    para el período t-3 requerido; las filas duplicadas de TTM y FY no permiten completar
+    el dato faltante.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/oxy/financials/
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/OXY/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: Crecimiento de FCF reportado por el proveedor; definición exacta del proveedor
+    no disponible en el paquete.
+  inputs:
+    fcf_growth_history: 9.36
+  limitations: El proveedor reporta 9,36% para TTM, pero no se especifica la fórmula
+    ni el período de comparación. No se recalcula con FY 2025 porque TTM y año fiscal
+    completo no son períodos comparables.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/oxy/financials/
+  status: reported
+  unit: percent
+  value: 9.36
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/oxy/financials/
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/OXY/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/oxy/financials/
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/OXY/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares: null
+    diluted_shares_history: null
+    shares_outstanding: 999890000
+    shares_outstanding_history: null
+  limitations: Sólo se aporta un valor actual de acciones en circulación; faltan acciones
+    diluidas o en circulación de un período comparable anterior para calcular crecimiento
+    interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/OXY/statistics/
+  - name: Stock Analysis
+    url: https://stockanalysis.com/stocks/oxy/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Occidental Petroleum Corporation, together with its subsidiaries,
+    engages in the acquisition, exploration, and development of oil and gas properties
+    in the United States and internationally. It operates through Oil and Gas and
+    Midstream and Marketing. The Oil and Gas segment explores for, develops, and produces
+    oil and condensate, natural gas liquids (NGLs), and natural gas. This segment
+    also optimizes its transportation and storage capacity and invests in entities.
+    The Midstream and Marketing segment purchases, markets, gathers, processes, transports
+    and stores oil, condensate, NGLs, natural gas, carbon dioxide, and power. Occidental
+    Petroleum Corporation was founded in 1920 and is headquartered in Houston, Texas.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 64.0
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.29
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T20:48:44.292342+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Occidental Petroleum Corporation
+  operating_margin: 29.31
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Occidental Petroleum Corporation, together with its subsidiaries,
+    engages in the acquisition, exploration, and development of oil and gas properties
+    in the United States and internationally. It operates through Oil and Gas and
+    Midstream and Marketing. The Oil and Gas segment explores for, develops, and produces
+    oil and condensate, natural gas liquids (NGLs), and natural gas. This segment
+    also optimizes its transportation and storage capacity and invests in entities.
+    The Midstream and Marketing s
+  revenue: 24970000000.0
+  revenue_growth: 34.74
+  roic: 10.38
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/oxy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/OXY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/OXY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/OXY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/OXY/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/oxy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/oxy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/oxy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/OXY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/oxy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/OXY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/oxy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/oxy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/oxy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/OXY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/OXY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/oxy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    83.0, "low": 60.0, "mean": 71.11, "median": 71.11, "observed_at": "2026-11-20T17:48:47.430582-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T17:48:47.430582-03:00", "observed_date": "2026-11-20", "target_price":
+    71.11, "url": "https://stockanalysis.com/stocks/oxy/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:48:47.430582-03:00",
+    "observed_date": "2026-11-20", "target_price": 71.11111, "url": "https://finance.yahoo.com/quote/OXY/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 64.0,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/OXY/"}]}}'
+  sector: Energy
+  ticker: OXY
+research_trigger:
+  discovery_snapshot_hash: 380576f2b0a5e554f25f7d5a6d16713774ec8d5b217992def46180cefa7b7091
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 63485f14b2a45e299e69ed1476eb820c9d6e92d1d19aad55ebbd09766fe0717c
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T17:49:13.113782-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.38
+  period_end: '2026-09-30'
+  source:
+    name: Stock Analysis
+    url: https://stockanalysis.com/stocks/OXY/statistics/
+  status: observed; no cruza el umbral configurado
+  threshold: 0.5
+  threshold_condition: below
+  unit: x
+- metric: interest_coverage
+  observation: 0
+  period_end: '2026-09-30'
+  source:
+    name: Stock Analysis
+    url: https://stockanalysis.com/stocks/OXY/statistics/
+  status: observed; por debajo del umbral configurado; requiere validación de la métrica
+    reportada
+  threshold: 2.0
+  threshold_condition: below
+  unit: x
+- metric: net_debt_ebitda
+  observation: 0.59
+  period_end: '2026-09-30'
+  source:
+    name: Stock Analysis
+    url: https://stockanalysis.com/stocks/OXY/statistics/
+  status: calculado con inputs reportados; no cruza el umbral configurado
+  threshold: 4.0
+  threshold_condition: above
+  unit: x
+- metric: dilution_yoy_pct
+  observation: null
+  period_end: '2026-09-30'
+  source:
+    name: Stock Analysis
+    url: https://stockanalysis.com/stocks/OXY/statistics/
+  status: no evaluable; falta un recuento comparable de acciones diluidas o en circulación
+  threshold: 10
+  threshold_condition: above
+  unit: percent
+- metric: share_count_cagr_3y_pct
+  observation: null
+  period_end: '2026-09-30'
+  source:
+    name: Stock Analysis
+    url: https://stockanalysis.com/stocks/OXY/statistics/
+  status: no evaluable; falta una serie fechada de acciones para el período de tres
+    años
+  threshold: 5
+  threshold_condition: above
+  unit: percent
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 52
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T17:48:47.430582-03:00'
+  fuentes:
+    stockanalysis: 71.11
+    yfinance: 71.11111
+  mediana: 71.11
+  n_fuentes: 2
+  promedio: 71.11
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T17:48:47.430582-03:00'
+    observed_date: '2026-11-20'
+    target_price: 71.11
+    url: https://stockanalysis.com/stocks/oxy/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T17:48:47.430582-03:00'
+    observed_date: '2026-11-20'
+    target_price: 71.11111
+    url: https://finance.yahoo.com/quote/OXY/
+  target_high: 83.0
+  target_low: 60.0
+tesis_inversion: OXY combina exploración, desarrollo y producción de petróleo y gas
+  con actividades de midstream y marketing. La evidencia reporta FCF TTM positivo
+  y deuda neta menor que en FY 2025, pero no basta para evaluar retornos sobre capital,
+  reinversión, crecimiento estructural, mercado direccionable ni sostenibilidad de
+  la mejora; la tesis queda condicionada a verificar esos elementos.
+ticker: OXY
+version: '3.0'

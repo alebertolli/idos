@@ -1,0 +1,204 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de ingresos de los últimos doce meses es
+      inferior al 8% en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Una reformulación de estados financieros reduce el crecimiento calculado
+      por debajo del 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de ingresos de los últimos doce meses es inferior al
+    8% en la fecha objetivo.
+  - Una reformulación de estados financieros reduce el crecimiento calculado por debajo
+    del 8%.
+  horizon: medio
+  id: H1-OPP-MB-PAGS
+  opportunity_id: OPP-MB-PAGS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 8.0
+    met: null
+    metric: Crecimiento interanual de ingresos de últimos doce meses
+    prediction: A 2027-11-20, los ingresos de los últimos doce meses serán al menos
+      un 8% superiores a los ingresos de los doce meses previos, medidos en reales
+      y con la misma definición contable.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: Los datos disponibles muestran crecimiento de ingresos entre FY 2022
+    y FY 2025, lo que respalda una hipótesis de continuidad, aunque no permite identificar
+    sus motores ni extrapolar la tasa histórica. La hipótesis se limita a un umbral
+    moderado y verificable.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    antes de 2027-11-20 muestran ingresos interanuales decrecientes, o si la compañía
+    comunica una contracción estructural de su actividad principal.
+  secondary_hypotheses: []
+  statement: PAGS mantendrá el crecimiento de ingresos durante los próximos doce meses,
+    sin depender únicamente de una comparación favorable con FY 2025.
+  status: ACTIVE
+  ticker: PAGS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF acumulado de los últimos doce meses es igual o inferior a cero
+      en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de FCF de últimos doce meses cae más de 2 puntos porcentuales
+      frente al valor calculado con datos comparables al corte.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La positividad del FCF depende de partidas no recurrentes o de una
+      reducción de inversión que la compañía no pueda sostener.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF acumulado de los últimos doce meses es igual o inferior a cero en la fecha
+    objetivo.
+  - El margen de FCF de últimos doce meses cae más de 2 puntos porcentuales frente
+    al valor calculado con datos comparables al corte.
+  - La positividad del FCF depende de partidas no recurrentes o de una reducción de
+    inversión que la compañía no pueda sostener.
+  horizon: medio
+  id: H2-OPP-MB-PAGS
+  opportunity_id: OPP-MB-PAGS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 0.0
+    met: null
+    metric: FCF de últimos doce meses y cambio del margen de FCF frente al corte
+    prediction: A 2027-11-20, el FCF acumulado de los últimos doce meses será positivo
+      y su margen sobre ingresos no estará más de 2 puntos porcentuales por debajo
+      del margen de FCF TTM observado al 2026-11-20.
+    unit: FCF positivo; caída del margen no superior a 2 puntos porcentuales
+  priority: critical
+  probability: 0.5
+  rationale: El paquete reporta FCF TTM positivo y un margen bruto TTM de 51,75%,
+    señales compatibles con generación de caja, pero no aporta el valor del FCF, su
+    margen ni su composición. Por ello, la prueba compara el margen futuro con el
+    margen TTM observado al corte, en vez de asumir una cifra absoluta no disponible.
+  review_trigger: Dejar de creerla si el FCF de últimos doce meses se vuelve negativo
+    en dos informes trimestrales consecutivos o si la compañía atribuye la conversión
+    positiva a factores no recurrentes que desaparecen.
+  secondary_hypotheses:
+  - H1-OPP-MB-PAGS
+  statement: PAGS conservará una conversión positiva de sus operaciones en flujo de
+    caja libre durante los próximos doce meses, sin deterioro material de su margen
+    de FCF.
+  status: ACTIVE
+  ticker: PAGS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto de últimos doce meses es inferior al 50% en la fecha
+      objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía cambia la definición de margen bruto y, al recalcularla
+      con una base comparable, el resultado queda por debajo del 50%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto de últimos doce meses es inferior al 50% en la fecha objetivo.
+  - La compañía cambia la definición de margen bruto y, al recalcularla con una base
+    comparable, el resultado queda por debajo del 50%.
+  horizon: medio
+  id: H3-OPP-MB-PAGS
+  opportunity_id: OPP-MB-PAGS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 50.0
+    met: null
+    metric: Margen bruto de últimos doce meses
+    prediction: A 2027-11-20, el margen bruto de los últimos doce meses será igual
+      o superior al 50%, calculado de forma consistente con el 51,75% reportado al
+      corte.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: El margen bruto TTM informado es 51,75%. Ese dato ofrece una referencia
+    reciente, pero por sí solo no prueba estabilidad futura ni una ventaja competitiva.
+    La predicción contrasta directamente el margen reportado con un umbral cercano
+    al nivel actual.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos publicados
+    antes de la fecha objetivo muestran margen bruto TTM inferior al 50%, o si una
+    modificación de precios, mezcla de productos o costes produce una caída estructural
+    por debajo de ese umbral.
+  secondary_hypotheses:
+  - H1-OPP-MB-PAGS
+  statement: El margen bruto de PAGS se mantendrá por encima del 50% durante los próximos
+    doce meses, indicando que el crecimiento no exige una erosión marcada de la rentabilidad
+    bruta.
+  status: ACTIVE
+  ticker: PAGS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de PAGS menos la del Ibovespa es inferior a 5
+      puntos porcentuales en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: PAGS supera al índice únicamente por un efecto cambiario o una acción
+      corporativa no recurrente, mientras sus resultados no confirman crecimiento
+      de ingresos y FCF positivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de PAGS menos la del Ibovespa es inferior a 5 puntos porcentuales
+    en el periodo.
+  - PAGS supera al índice únicamente por un efecto cambiario o una acción corporativa
+    no recurrente, mientras sus resultados no confirman crecimiento de ingresos y
+    FCF positivo.
+  horizon: medio
+  id: H4-OPP-MB-PAGS
+  opportunity_id: OPP-MB-PAGS
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de PAGS menos rentabilidad total del Ibovespa
+    prediction: Entre 2026-11-20 y 2027-11-20, la rentabilidad total de PAGS, incluyendo
+      distribuciones y expresada en dólares estadounidenses, superará en al menos
+      5 puntos porcentuales la rentabilidad total del Ibovespa, convertida a dólares
+      con una fuente de tipo de cambio consistente.
+    unit: puntos porcentuales mínimos en dólares estadounidenses
+  priority: informational
+  probability: 0.5
+  rationale: 'El paquete no contiene precio de corte, valoración, estimaciones operativas
+    de analistas ni fundamentos suficientes para afirmar infravaloración. La hipótesis
+    comprobable es relativa: una mejora fundamental verificable debería acompañarse
+    de mejor desempeño bursátil que el índice brasileño, aunque el resultado también
+    depende de condiciones de mercado.'
+  review_trigger: Dejar de creerla si, antes de 2027-11-20, los resultados de últimos
+    doce meses incumplen simultáneamente H1 y H2 durante dos informes consecutivos;
+    evaluar definitivamente el desempeño relativo en la fecha objetivo.
+  secondary_hypotheses:
+  - H1-OPP-MB-PAGS
+  - H2-OPP-MB-PAGS
+  statement: Si PAGS sostiene el crecimiento de ingresos y el FCF positivo, su acción
+    ofrecerá una rentabilidad total superior a la del Ibovespa durante los próximos
+    doce meses; esta es una hipótesis de mercado, no una conclusión derivada de objetivos
+    de analistas.
+  status: ACTIVE
+  ticker: PAGS
+  version: 1

@@ -2665,3 +2665,88 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T17:39:56.114372'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-O
+    ticker: O
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T17:47:15.208453'
+- data:
+    classification: Research requerido; evidencia fundamental incompleta
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: afffcf56c73ff86ae2c9715ea7fbad929805fec87cf0295331b1dc1a3fdd8175
+    opp_id: OPP-MB-O
+    score: 38
+    strategy_version: '1.5'
+    ticker: O
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T17:48:42.635826'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-OXY
+    ticker: OXY
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T17:49:12.887507'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-OXY
+    ticker: OXY
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T17:49:13.022002'
+- data:
+    classification: Investigación fundamental requerida; evidencia incompleta para
+      validar la tesis multibagger
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 63485f14b2a45e299e69ed1476eb820c9d6e92d1d19aad55ebbd09766fe0717c
+    opp_id: OPP-MB-OXY
+    score: 52
+    strategy_version: '1.5'
+    ticker: OXY
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T17:50:40.369095'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-PAGS
+    ticker: PAGS
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T17:51:10.707286'
+- data:
+    classification: Investigación requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 2e51a021e385cb12d765e52f4a2f46f3d25a06fd95acf80db18d58a2d04a7650
+    opp_id: OPP-MB-PAGS
+    score: 55
+    strategy_version: '1.5'
+    ticker: PAGS
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T17:52:34.354740'

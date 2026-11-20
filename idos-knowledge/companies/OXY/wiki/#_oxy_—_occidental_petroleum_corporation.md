@@ -1,0 +1,1 @@
+> **Estado de la evidencia:** evaluación preliminar basada únicamente en los datos y fuentes incluidos en los inputs de investigación. Varias métricas carecen de período, definición o datos comparables; no deben interpretarse como cifras auditadas ni como una valoración concluyente.

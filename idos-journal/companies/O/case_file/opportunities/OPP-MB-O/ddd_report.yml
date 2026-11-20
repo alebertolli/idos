@@ -1,0 +1,510 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La escala y diversificación geográfica podrían apoyar crecimiento por inversión
+    inmobiliaria, pero el paquete no demuestra la rentabilidad de esa reinversión.
+  - La divergencia entre valores de FCF requiere reconciliación antes de utilizar
+    FCF para evaluar dividendos, crecimiento o financiación.
+  - 'La compañía reporta más de 15,500 propiedades en 50 estados de EE. UU., Reino
+    Unido y otros ocho países europeos al 2026-06-30; fuente: resumen financiero de
+    contexto.'
+  - 'La cotización observada fue USD 56.93 al 2026-10-30; fuente: yfinance, https://finance.yahoo.com/quote/O/.'
+  - 'Los objetivos de analistas reportados al 2026-11-20 tienen rango USD 59–74 y
+    media/mediana USD 63.77; fuentes: stockanalysis y yfinance consignadas en el resumen
+    financiero.'
+  preguntas_abiertas:
+  - ¿Cuáles son las tendencias de ocupación, rentas comparables, retención de inquilinos
+    y concentración por arrendatario?
+  - ¿Qué retornos sobre capital obtiene en adquisiciones y cómo se comparan con el
+    coste de financiación?
+  - ¿Cuál es la definición, moneda y escala de las dos observaciones incompatibles
+    de FCF?
+  - ¿Qué metas, incentivos y criterios de asignación de capital emplea el management?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Research requerido; evidencia fundamental incompleta
+  justificacion: El paquete documenta escala inmobiliaria, una cotización y objetivos
+    de analistas, pero no permite validar los ratios fundamentales solicitados ni
+    construir escenarios de negocio con supuestos suficientes.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La cartera amplia y la presencia multinacional son hechos reportados,
+    pero no bastan para validar moat, calidad de arrendatarios, poder de fijación
+    de rentas o retornos incrementales. La evidencia disponible no permite evaluar
+    la asignación de capital del management ni la erosión competitiva.
+  rating: Indeterminado
+dominio_catalizadores:
+- analisis: La cartera reportada supera 15,500 propiedades en EE. UU., Reino Unido
+    y otros ocho países europeos al 2026-06-30; no se incluyen metas de crecimiento
+    o adquisiciones futuras.
+  catalizador: Evolución de la cartera
+- analisis: Los siguientes informes podrían aclarar tendencias de ingresos, deuda
+    y flujo de caja, pero el paquete no proporciona fechas ni guía futura.
+  catalizador: Actualizaciones financieras
+- analisis: La compañía declara una misión de dividendos mensuales crecientes; faltan
+    importes, cobertura y compromisos cuantificados en la evidencia suministrada.
+  catalizador: Dividendos
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- analisis: La deuda total reportada asciende a 32,110.0 en unidades del proveedor
+    al 2026-09-30; la falta de compatibilidad de unidades con EBITDA impide validar
+    deuda neta/EBITDA.
+  riesgo: Apalancamiento y coste de financiación
+- analisis: El FCF TTM en estadísticas aparece como -3,160,000,000, mientras que la
+    serie financiera muestra 4,149.0 al 2026-09-30; la discrepancia de valores y unidades
+    impide una conclusión sobre conversión o financiación.
+  riesgo: FCF y financiación de crecimiento
+- analisis: El momentum de precio a 12 meses fue -1.811% y el drawdown reportado fue
+    15.734% al 2026-10-30; son datos de mercado, no evidencia causal del negocio.
+  riesgo: Tendencia de mercado
+- analisis: No se aportan métricas de ocupación, renovaciones, escaladores de renta,
+    concentración de arrendatarios o retornos sobre capital para evaluar deterioro
+    o resiliencia.
+  riesgo: Evidencia operacional incompleta
+error_mercado:
+  catalizador_cambio: Resultados financieros futuros que aclaren crecimiento, financiación
+    y capacidad de sostener la política de dividendos; no hay fechas de hitos en la
+    evidencia disponible.
+  conclusion_error_valoracion: No se valida un error de valoración con la evidencia
+    disponible.
+  consenso_actual: La cotización observada es USD 56.93 al 2026-10-30; el consenso
+    de objetivos reportado al 2026-11-20 tiene media y mediana de USD 63.77, con rango
+    USD 59–74.
+  hipotesis_contraria: 'Los objetivos de analistas no prueban infravaloración: el
+    paquete no aporta sus supuestos ni evidencia operativa suficiente para contrastar
+    el consenso.'
+  razonamiento: La cotización y los objetivos son referencias de mercado, no una valoración
+    intrínseca. La serie de momentum a 12 meses muestra -1.811% al 2026-10-30, pero
+    no identifica por sí misma una discrepancia fundamental.
+generated_at: '2026-11-20T17:47:15.255255-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-O
+prompt_inputs:
+  business_model: Realty Income Corporation, an S&P 500 company, is real estate partner
+    to the world's leading companies. Founded in 1969, they serve their clients as
+    a full-service real estate capital provider. As of June 30, 2026, they have a
+    portfolio of over 15,500 properties in all 50 U.S. states, the U.K., and eight
+    other countries in Europe. They are known as (The Monthly Dividend Company) and
+    have a mission to invest in people and places to deliver dependable monthly dividends
+    that increase over time. Since their founding, they have declared 676 consecutive
+    monthly dividends and are a member of the S&P 500 Dividend Aristocrats index for
+    having increased dividend for over 31 consecutive years. Realty Income Corporation
+    was founded in 1969 and was incorporated in Maryland.
+  ceo_tenure: 0
+  debt_to_equity: 0.75
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Realty Income Corporation
+  operating_margin: 46.78
+  pe_ratio: 40.14
+  products: ''
+  revenue: 6220000000.0
+  revenue_growth: 10.71
+  roic: 3.68
+  sector: Real Estate
+  ticker: O
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: null
+  limitations: La serie disponible incluye TTM y FY 2024/FY 2025, pero no una observación
+    fechada de FY 2023 en revenue_history; no se puede formar un intervalo anual comparable
+    de tres años.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/o/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf: null
+    fcf_history: null
+    free_cash_flow: null
+  limitations: La serie histórica muestra FCF TTM 4,149.0 y FY 2025 3,995.0 en unidades
+    reportadas por el proveedor, mientras que las estadísticas reportan FCF TTM -3,160,000,000;
+    la discrepancia de signo y escala impide validar una serie comparable.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/o/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/O/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+  inputs:
+    fcf_history: null
+    free_cash_flow: null
+    net_income_history:
+      TTM_2026-09-30: 1356.0
+    net_income_ttm: null
+  limitations: El ingreso neto TTM está reportado como 1,356.0 en unidades del proveedor,
+    pero las observaciones de FCF disponibles son incompatibles en signo y escala;
+    no se puede calcular una conversión verificable.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/o/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/O/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    net_cash_history:
+      Current_2026-09-30: -31707.0
+    net_debt: null
+    total_debt: null
+    total_debt_history:
+      Current_2026-09-30: 32110.0
+  limitations: El paquete no ofrece EBITDA dentro de los campos configurados para
+    este ratio y las cifras de deuda/caja están en unidades reportadas por el proveedor;
+    no hay inputs compatibles y verificables para calcularlo.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/o/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares: null
+    diluted_shares_history: null
+    shares_outstanding: 953680000.0
+    shares_outstanding_history: null
+  limitations: Sólo se aporta shares_outstanding de 953,680,000 al 2026-09-30; falta
+    el recuento comparable del período anterior y no se aporta serie histórica de
+    acciones.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/O/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Realty Income Corporation, an S&P 500 company, is real estate partner
+    to the world's leading companies. Founded in 1969, they serve their clients as
+    a full-service real estate capital provider. As of June 30, 2026, they have a
+    portfolio of over 15,500 properties in all 50 U.S. states, the U.K., and eight
+    other countries in Europe. They are known as (The Monthly Dividend Company) and
+    have a mission to invest in people and places to deliver dependable monthly dividends
+    that increase over time. Since their founding, they have declared 676 consecutive
+    monthly dividends and are a member of the S&P 500 Dividend Aristocrats index for
+    having increased dividend for over 31 consecutive years. Realty Income Corporation
+    was founded in 1969 and was incorporated in Maryland.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 56.93000030517578
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.75
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "cash_and_investments_history":
+    ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"], "debt_ebitda":
+    ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"],
+    "ebitda": ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "fcf": ["stockanalysis.com"],
+    "fcf_growth_history": ["stockanalysis.com"], "fcf_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["stockanalysis.com"], "p_fcf_ratio":
+    ["stockanalysis.com"], "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio":
+    ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"],
+    "period_end_date": ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "total_debt_history": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]},
+    "observations": {}, "observed_at": "2026-11-20T20:46:45.334746+00:00", "period_end":
+    "2026-09-30", "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Realty Income Corporation
+  operating_margin: 46.78
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Realty Income Corporation, an S&P 500 company, is real estate partner
+    to the world's leading companies. Founded in 1969, they serve their clients as
+    a full-service real estate capital provider. As of June 30, 2026, they have a
+    portfolio of over 15,500 properties in all 50 U.S. states, the U.K., and eight
+    other countries in Europe. They are known as (The Monthly Dividend Company) and
+    have a mission to invest in people and places to deliver dependable monthly dividends
+    that increase over time. Sin
+  revenue: 6220000000.0
+  revenue_growth: 10.71
+  roic: 3.68
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/o/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/O/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/O/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/O/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/O/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/o/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/o/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/O/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/O/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/o/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/o/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/o/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/O/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/O/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/o/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    74.0, "low": 59.0, "mean": 63.77, "median": 63.77, "observed_at": "2026-11-20T17:46:49.313250-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T17:46:49.313250-03:00", "observed_date": "2026-11-20", "target_price":
+    63.77, "url": "https://stockanalysis.com/stocks/o/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T17:46:49.313250-03:00",
+    "observed_date": "2026-11-20", "target_price": 63.77381, "url": "https://finance.yahoo.com/quote/O/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 56.93000030517578,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/O/"}]}}'
+  sector: Real Estate
+  ticker: O
+research_trigger:
+  discovery_snapshot_hash: 847411b0376e284111bf40ae856dab9144c03f130c3d43852b4ec0f597b02eb9
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: afffcf56c73ff86ae2c9715ea7fbad929805fec87cf0295331b1dc1a3fdd8175
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T17:47:15.255255-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 2.17x al 2026-09-30, por encima del umbral configurado.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/O/statistics/
+  threshold: below 0.5
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30; debe verificarse la definición y
+    los inputs antes de interpretarlo como cobertura económica.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/O/statistics/
+  threshold: below 2.0x
+- metric: net_debt_ebitda
+  observation: 'No evaluable: faltan inputs compatibles y verificables para calcular
+    el ratio.'
+  threshold: above 4.0x
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta un recuento de acciones comparable del período
+    anterior.'
+  threshold: above 10%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 38
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T17:46:49.313250-03:00'
+  fuentes:
+    stockanalysis: 63.77
+    yfinance: 63.77381
+  mediana: 63.77
+  n_fuentes: 2
+  promedio: 63.77
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T17:46:49.313250-03:00'
+    observed_date: '2026-11-20'
+    target_price: 63.77
+    url: https://stockanalysis.com/stocks/o/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T17:46:49.313250-03:00'
+    observed_date: '2026-11-20'
+    target_price: 63.77381
+    url: https://finance.yahoo.com/quote/O/
+  target_high: 74.0
+  target_low: 59.0
+tesis_inversion: Realty Income opera una cartera inmobiliaria diversificada y declara
+  una misión centrada en dividendos mensuales que aumentan con el tiempo. La escala
+  y la recurrencia de rentas pueden sustentar crecimiento mediante adquisiciones y
+  financiación, pero el paquete no acredita rendimientos sobre capital, términos de
+  reinversión, crecimiento comparable ni ventaja competitiva; por tanto, no permite
+  concluir que la expansión cree valor. La penetración y el mercado direccionable
+  tampoco están cuantificados. El FCF reportado en estadísticas y la serie histórica
+  presentan cifras incompatibles, por lo que no se usan para inferir capacidad de
+  reinversión. La evidencia disponible no describe management, remuneración, adquisiciones,
+  disciplina de capital, vacancia, concentración de inquilinos ni erosión competitiva.
+ticker: O
+version: '3.0'

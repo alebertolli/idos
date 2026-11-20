@@ -1,0 +1,159 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción promedio del tercer trimestre de 2027 resulta inferior
+      a 102% de la producción del tercer trimestre de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El gasto de capital orgánico acumulado de los cuatro trimestres terminados
+      en 2027-09-30 supera en más de 10% el periodo comparable terminado en 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción promedio del tercer trimestre de 2027 resulta inferior a 102% de
+    la producción del tercer trimestre de 2026.
+  - El gasto de capital orgánico acumulado de los cuatro trimestres terminados en
+    2027-09-30 supera en más de 10% el periodo comparable terminado en 2026-09-30.
+  horizon: medio
+  id: H1-OPP-MB-OXY
+  opportunity_id: OPP-MB-OXY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-15'
+    expected: 2.0
+    met: null
+    metric: Crecimiento interanual de la producción total promedio en el tercer trimestre
+    prediction: En el tercer trimestre de 2027, la producción total promedio, medida
+      en barriles equivalentes de petróleo por día, será al menos un 2% superior a
+      la del tercer trimestre de 2026, mientras el gasto de capital orgánico de los
+      cuatro trimestres terminados en 2027-09-30 no excederá en más de 10% el de los
+      cuatro trimestres terminados en 2026-09-30.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La integración de exploración, desarrollo y producción con midstream
+    puede facilitar la ejecución y comercialización de nuevos volúmenes. Sin datos
+    suficientes para confirmar crecimiento estructural o retornos sobre capital, esta
+    hipótesis somete a prueba si la actividad operativa convierte la reinversión en
+    mayor producción.
+  review_trigger: Dejar de creerla si el informe del tercer trimestre de 2027 muestra
+    que no se alcanzó el crecimiento de producción del 2%, o si un informe anterior
+    confirma que el gasto de capital orgánico ya excede el límite del 10%.
+  secondary_hypotheses: []
+  statement: OXY aumentará moderadamente su producción de petróleo y gas sin que el
+    crecimiento dependa de un incremento desproporcionado del capital orgánico.
+  status: ACTIVE
+  ticker: OXY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La deuda neta al 2027-12-31 no es al menos 1.000 millones de dólares
+      inferior a la del 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF acumulado de los cuatro trimestres terminados en 2027-12-31
+      es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La reducción de deuda neta depende principalmente de ventas de activos
+      y no de FCF después de inversiones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La deuda neta al 2027-12-31 no es al menos 1.000 millones de dólares inferior
+    a la del 2026-09-30.
+  - El FCF acumulado de los cuatro trimestres terminados en 2027-12-31 es cero o negativo.
+  - La reducción de deuda neta depende principalmente de ventas de activos y no de
+    FCF después de inversiones.
+  horizon: medio
+  id: H2-OPP-MB-OXY
+  opportunity_id: OPP-MB-OXY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-15'
+    expected: 1000.0
+    met: null
+    metric: Reducción de deuda neta frente al 2026-09-30
+    prediction: Al 2027-12-31, la deuda neta será al menos 1.000 millones de dólares
+      inferior a la deuda neta reportada al 2026-09-30. El FCF acumulado de los cuatro
+      trimestres terminados en 2027-12-31 será positivo y la reducción de deuda neta
+      no se explicará principalmente por ventas de activos.
+    unit: millones de dólares como mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia disponible indica FCF TTM positivo y deuda neta menor que
+    en FY 2025, pero no establece si la mejora es sostenible. Una reducción adicional
+    de deuda neta, acompañada de FCF positivo y sin desinversiones materiales, permitiría
+    comprobar que la generación de caja contribuye a fortalecer el balance.
+  review_trigger: Dejar de creerla cuando OXY publique el balance del 2027-12-31 si
+    no cumple la reducción de deuda neta, o antes si un informe trimestral muestra
+    FCF acumulado negativo y un aumento de deuda neta frente al 2026-09-30.
+  secondary_hypotheses:
+  - H1-OPP-MB-OXY
+  statement: OXY reducirá su deuda neta mediante generación de caja y asignación disciplinada
+    del capital, sin depender de una venta extraordinaria de activos.
+  status: ACTIVE
+  ticker: OXY
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de OXY es igual o inferior al de XLE durante el
+      periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La ventaja de rendimiento total de OXY frente a XLE es inferior a 5
+      puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: OXY recorta o suspende su dividendo ordinario durante el periodo y,
+      aun así, no supera a XLE por el margen previsto.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de OXY es igual o inferior al de XLE durante el periodo.
+  - La ventaja de rendimiento total de OXY frente a XLE es inferior a 5 puntos porcentuales.
+  - OXY recorta o suspende su dividendo ordinario durante el periodo y, aun así, no
+    supera a XLE por el margen previsto.
+  horizon: medio
+  id: H3-OPP-MB-OXY
+  opportunity_id: OPP-MB-OXY
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de OXY menos rendimiento total de XLE
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de OXY,
+      incluidos dividendos, superará el rendimiento total de XLE en al menos 5 puntos
+      porcentuales.
+    unit: puntos porcentuales como mínimo
+  priority: important
+  probability: 0.5
+  rationale: 'Una mejora verificable de producción y balance podría reducir la percepción
+    de riesgo financiero y respaldar el rendimiento de la acción frente al sector.
+    Sin evidencia suficiente para concluir que existe una valoración incorrecta, esta
+    hipótesis no presupone infravaloración: pone a prueba si la ejecución se traduce
+    en rendimiento relativo superior.'
+  review_trigger: Dejar de creerla el 2027-11-20 si la diferencia de rendimiento total
+    frente a XLE es inferior a 5 puntos porcentuales; reconsiderarla antes si se incumplen
+    conjuntamente las predicciones de producción y deuda neta de H1 y H2.
+  secondary_hypotheses:
+  - H1-OPP-MB-OXY
+  - H2-OPP-MB-OXY
+  statement: La acción de OXY superará el rendimiento total del ETF sectorial Energy
+    Select Sector SPDR Fund (XLE) durante los próximos doce meses, si la generación
+    de caja y la reducción de deuda se confirman.
+  status: ACTIVE
+  ticker: OXY
+  version: 1
