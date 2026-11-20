@@ -1,0 +1,180 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción media diaria de 2027 resulta inferior a la de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La producción media diaria de 2027 crece menos del 2% respecto de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción media diaria de 2027 resulta inferior a la de 2026.
+  - La producción media diaria de 2027 crece menos del 2% respecto de 2026.
+  horizon: medio
+  id: H1-OPP-20261023-041
+  opportunity_id: OPP-20261023-041
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 2.0
+    met: null
+    metric: Crecimiento interanual de la producción media diaria
+    prediction: La producción media diaria de 2027 será al menos un 2% superior a
+      la producción media diaria reportada para 2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La expansión de proyectos puede elevar los volúmenes y compensar los
+    descensos naturales de los activos maduros. La hipótesis se centra en producción
+    reportada por la compañía, no en anuncios de capacidad, para que el resultado
+    sea verificable.
+  review_trigger: Dejar de creerla si la guía oficial para 2027, una vez publicada,
+    prevé producción media inferior a la de 2026, o si los resultados de los tres
+    primeros trimestres de 2027 muestran una caída interanual acumulada.
+  secondary_hypotheses: []
+  statement: La producción de ConocoPhillips crecerá en 2027 frente a 2026, apoyada
+    por la puesta en marcha y el aumento de producción de sus proyectos.
+  status: ACTIVE
+  ticker: COP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Las distribuciones de 2027 representan menos del 30% del flujo de caja
+      operativo menos el gasto de capital cuando este último saldo es positivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El flujo de caja operativo menos el gasto de capital es nulo o negativo
+      en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las distribuciones de 2027 representan menos del 30% del flujo de caja operativo
+    menos el gasto de capital cuando este último saldo es positivo.
+  - El flujo de caja operativo menos el gasto de capital es nulo o negativo en 2027.
+  horizon: medio
+  id: H2-OPP-20261023-041
+  opportunity_id: OPP-20261023-041
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 40.0
+    met: null
+    metric: Distribuciones a accionistas como proporción del flujo de caja operativo
+      menos el gasto de capital
+    prediction: En el ejercicio 2027, dividendos pagados más recompras de acciones
+      serán al menos el 40% del flujo de caja operativo menos el gasto de capital,
+      siempre que esa diferencia sea positiva.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: Una generación sólida de efectivo y una política de retornos de capital
+    pueden sostener dividendos y recompras. Medir las distribuciones como proporción
+    del efectivo disponible permite comprobar si ese retorno persiste sin asumir un
+    precio concreto del petróleo.
+  review_trigger: Dejar de creerla si la compañía reduce formalmente su política de
+    retorno de capital o si, en dos trimestres consecutivos de 2027, las distribuciones
+    acumuladas anualizadas quedan por debajo del 30% del flujo de caja operativo menos
+    el gasto de capital.
+  secondary_hypotheses:
+  - H1-OPP-20261023-041
+  statement: ConocoPhillips mantendrá una distribución significativa de efectivo a
+    accionistas en 2027, siempre que genere flujo de caja operativo superior al gasto
+    de capital.
+  status: ACTIVE
+  ticker: COP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de COP no supera al de XLE en el periodo indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad relativa de COP frente a XLE es inferior a 8 puntos
+      porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de COP no supera al de XLE en el periodo indicado.
+  - La rentabilidad relativa de COP frente a XLE es inferior a 8 puntos porcentuales.
+  horizon: medio
+  id: H3-OPP-20261023-041
+  opportunity_id: OPP-20261023-041
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 8.0
+    met: null
+    metric: Rendimiento total relativo de COP frente a XLE
+    prediction: Desde el cierre del 20 de noviembre de 2026 hasta el cierre del 19
+      de noviembre de 2027, el rendimiento total de COP, incluidos dividendos, superará
+      al rendimiento total de XLE en al menos 8 puntos porcentuales.
+    unit: puntos porcentuales
+  priority: critical
+  probability: 0.5
+  rationale: Si el crecimiento operativo y la generación de efectivo se sostienen,
+    los inversores podrían asignar una valoración mayor a COP. Comparar el rendimiento
+    total con un índice sectorial permite evaluar la tesis de revalorización sin depender
+    de un precio objetivo de consenso que puede cambiar.
+  review_trigger: Dejar de creerla si, al cierre del 31 de mayo de 2027, COP acumula
+    un rendimiento total inferior al de XLE en 10 puntos porcentuales o más desde
+    el cierre del 20 de noviembre de 2026.
+  secondary_hypotheses:
+  - H1-OPP-20261023-041
+  - H2-OPP-20261023-041
+  statement: La acción de COP reducirá parte de la brecha de valoración frente al
+    mercado y ofrecerá un rendimiento total superior al del ETF Energy Select Sector
+    SPDR (XLE) durante los próximos doce meses.
+  status: ACTIVE
+  ticker: COP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El gasto de capital de 2027 es igual o inferior al de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El gasto de capital de 2027 aumenta menos del 15% frente a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El gasto de capital de 2027 es igual o inferior al de 2026.
+  - El gasto de capital de 2027 aumenta menos del 15% frente a 2026.
+  horizon: medio
+  id: H4-OPP-20261023-041
+  opportunity_id: OPP-20261023-041
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 15.0
+    met: null
+    metric: Aumento interanual del gasto de capital, excluidas adquisiciones
+    prediction: El gasto de capital reportado para 2027, excluyendo adquisiciones
+      de empresas, superará en al menos un 15% el gasto de capital reportado para
+      2026.
+    unit: '%'
+  priority: informational
+  probability: 0.5
+  rationale: La declinación de activos existentes, nuevos proyectos y mayores exigencias
+    regulatorias o de transición energética podrían requerir inversión adicional.
+    Un aumento pronunciado del gasto de capital sería observable en los desembolsos
+    reportados y pondría a prueba la expectativa de fuerte flujo de caja.
+  review_trigger: Dejar de creerla si la guía oficial para 2027 fija gasto de capital
+    inferior al 115% del gasto de capital reportado para 2026 y se mantiene sin cambios
+    materiales durante el año.
+  secondary_hypotheses:
+  - H2-OPP-20261023-041
+  statement: El gasto de capital de ConocoPhillips aumentará en 2027 respecto de 2026
+    lo suficiente para presionar la generación de efectivo y limitar la tesis alcista.
+  status: ACTIVE
+  ticker: COP
+  version: 1

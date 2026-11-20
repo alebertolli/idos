@@ -1,0 +1,357 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El negocio es cíclico debido a su exposición a precios de commodities.
+  - El moat es moderado porque la diversificación y la integración vertical aportan
+    ventaja competitiva limitada.
+  - El management muestra disciplina de capital basada en la continuidad de proyectos
+    LNG y en la optimización de costos.
+  - Precio de mercado USD 134.27 al 2026-11-19 (fuente yfinance)
+  - Precio objetivo medio USD 153, rango 122‑185 al 2026-11-20 (fuente stockanalysis.com
+    y yfinance)
+  - Flujo de caja libre TTM USD 10.06 B al 2026-06-30 (fuente stockanalysis.com)
+  - Margen operativo TTM 23.08 % al 2026-06-30 (fuente stockanalysis.com)
+  - Crecimiento de ingresos TTM 8.54 % al 2026-06-30 (fuente stockanalysis.com)
+  preguntas_abiertas:
+  - ¿Cuál es el nivel actual de deuda neta y el ratio deuda/EBITDA de COP?
+  - ¿Qué planes específicos tiene la compañía para reducir su intensidad de carbono
+    en los próximos 5 años?
+  - ¿Cuál es la exposición exacta de COP a regulaciones de precios de carbono en EE.UU.
+    y Europa?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: compounder, compounder_castigado, turnaround, deep_value,
+    special_situation, distressed, quality_at_fair_price, hype, value_trap
+  justificacion: ConocoPhillips es una compañía integrada de energía cuya rentabilidad
+    depende fuertemente de los precios internacionales del crudo y del gas, factores
+    cíclicos. No muestra características de compounder, deep value o turnaround, y
+    su valoración actual (USD 134) está ligeramente por debajo del consenso medio
+    (USD 153), lo que indica una exposición cíclica más que una infravaloración estructural.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: COP posee una cartera diversificada geográficamente y en tipos de activos
+    (crudo, gas, LNG, arenas petrolíferas). Su ventaja competitiva radica en la experiencia
+    operativa y en la integración vertical, aunque la naturaleza de commodity limita
+    la durabilidad del moat.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Aumento sostenido del precio del crudo > USD 85/barril
+  horizonte: corto
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 45
+- descripcion: Finalización exitosa de proyectos de LNG en Asia Pacífico
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 35
+- descripcion: Reducción de costos operativos mediante iniciativas de eficiencia
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: Como productor de hidrocarburos, COP enfrenta riesgos ESG significativos
+    (emisiones de CO₂, presión regulatoria, transición a energía limpia). La cadena
+    de suministro está expuesta a riesgos geopolíticos y a la disponibilidad de infraestructura
+    de transporte.
+  rating: alto_riesgo
+dominio_financial_health:
+  analisis: Flujo de caja libre de USD 10.06 B (TTM) y margen operativo de 23.08 %
+    indican generación de efectivo robusta. No se dispone de métricas de deuda, pero
+    la capacidad de generar cash flow sugiere una posición de balance adecuada para
+    sostener inversiones y dividendos.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento de ingresos del 8.54 % (TTM) es sólido pero dependiente de
+    precios de commodities. Las oportunidades de crecimiento orgánico provienen de
+    proyectos de LNG y de mejora de eficiencia; la expansión inorgánica es limitada.
+  rating: moderado
+dominio_management:
+  analisis: El equipo directivo ha mantenido disciplina de capital, enfocándose en
+    la optimización de costos y en proyectos de LNG de largo plazo. No se observan
+    señales de mala asignación de capital, aunque la exposición a la transición energética
+    requiere decisiones estratégicas críticas.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Volatilidad de precios del petróleo y gas
+- impacto: alto
+  probabilidad: media
+  riesgo: Regulación ambiental y transición energética
+- impacto: medio
+  probabilidad: media
+  riesgo: Costos de capital y ejecución de proyectos LNG
+- impacto: medio
+  probabilidad: media
+  riesgo: Geopolítica en regiones productoras (Oriente Medio, Rusia)
+error_mercado:
+  catalizador_cambio:
+    descripcion: Un repunte sostenido del precio del crudo (ej. > USD 85 por barril)
+      impulsado por recortes de producción de la OPEP+ o tensiones geopolíticas.
+    horizonte: corto
+    impacto: alto
+    probabilidad_pct: 45
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas tienen un precio objetivo medio de USD 153 (rango
+    122‑185) frente al precio de mercado de USD 134, lo que sugiere que el mercado
+    está descontando riesgos de precios de commodities, regulaciones ESG y posibles
+    deterioros operativos.
+  hipotesis_contraria: El consenso podría estar subestimando la volatilidad prolongada
+    de los precios del petróleo, la presión regulatoria sobre la producción de hidrocarburos
+    y la necesidad de mayores inversiones de capital para transicionar a energía limpia,
+    lo que podría limitar la generación de flujo de caja futuro.
+  razonamiento: El precio actual está por debajo del objetivo medio de los analistas,
+    indicando que el mercado está penalizando a COP más de lo justificado por sus
+    fundamentos de flujo de caja libre (USD 10.06B TTM) y márgenes operativos (23.08%).
+generated_at: '2026-11-20T12:11:46.721841-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-041
+prompt_inputs:
+  business_model: 'ConocoPhillips explores for, produces, transports, and markets
+    crude oil, bitumen, natural gas, liquefied natural gas (LNG), and natural gas
+    liquids. It operates in five segments: Alaska; Lower 48; Canada; Europe, Middle
+    East and North Africa; and Asia Pacific. The company''s portfolio includes unconventional
+    plays in North America; conventional assets in North America, Europe, Asia, and
+    Australia; global LNG developments; oil sands assets in Canada; and an inventory
+    of global exploration prospects. It serves in the United States, Canada, China,
+    Equatorial Guinea, Libya, Malaysia, Norway, Singapore, the United Kingdom, and
+    internationally. ConocoPhillips was founded in 1917 and is headquartered in Houston,
+    Texas.'
+  ceo_tenure: 0
+  debt_to_equity: 0.35
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: ConocoPhillips
+  operating_margin: 25.88
+  pe_ratio: 14.13
+  products: ''
+  revenue: 68970000000.0
+  revenue_growth: 12.54
+  roic: 14.56
+  sector: Energy
+  ticker: COP
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'ConocoPhillips explores for, produces, transports, and markets
+    crude oil, bitumen, natural gas, liquefied natural gas (LNG), and natural gas
+    liquids. It operates in five segments: Alaska; Lower 48; Canada; Europe, Middle
+    East and North Africa; and Asia Pacific. The company''s portfolio includes unconventional
+    plays in North America; conventional assets in North America, Europe, Asia, and
+    Australia; global LNG developments; oil sands assets in Canada; and an inventory
+    of global exploration prospects. It serves in the United States, Canada, China,
+    Equatorial Guinea, Libya, Malaysia, Norway, Singapore, the United Kingdom, and
+    internationally. ConocoPhillips was founded in 1917 and is headquartered in Houston,
+    Texas.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 134.27000427246094
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.35
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:22.599571+00:00", "period_end_date": "2026-06-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/COP/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 10060000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 31.509999999999998}, "observed_at": "2026-11-01T10:17:22.599571+00:00",
+    "period_end_date": "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/COP/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-06-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 23.08}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 35.5}, "observed_at": "2026-11-01T10:17:22.599571+00:00", "period_end_date":
+    "2026-06-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-06-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/cop/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-06-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 8.54}}}, "observed_at": "2026-11-19T19:16:16.383965+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: ConocoPhillips
+  operating_margin: 25.88
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'ConocoPhillips explores for, produces, transports, and markets crude
+    oil, bitumen, natural gas, liquefied natural gas (LNG), and natural gas liquids.
+    It operates in five segments: Alaska; Lower 48; Canada; Europe, Middle East and
+    North Africa; and Asia Pacific. The company''s portfolio includes unconventional
+    plays in North America; conventional assets in North America, Europe, Asia, and
+    Australia; global LNG developments; oil sands assets in Canada; and an inventory
+    of global exploration prospec'
+  revenue: 68970000000.0
+  revenue_growth: 12.54
+  roic: 14.56
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    185.0, "low": 122.0, "mean": 153.0, "median": 153.0, "observed_at": "2026-11-20T12:11:37.549471-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T12:11:37.549471-03:00", "observed_date": "2026-11-20", "target_price":
+    153.0, "url": "https://stockanalysis.com/stocks/cop/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T12:11:37.549471-03:00",
+    "observed_date": "2026-11-20", "target_price": 153.0, "url": "https://finance.yahoo.com/quote/COP/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 134.27000427246094,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/COP/"}]}}'
+  sector: Energy
+  ticker: COP
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 4452a0c16d816d07d3030f42ebcbbda4fa5e94d41b99a795ae81aaa18e7b13c3
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T12:11:46.721841-03:00'
+resumen_ejecutivo: ConocoPhillips es una empresa energética diversificada con exposición
+  cíclica a los precios del crudo y gas. Presenta sólidos flujos de caja libre y márgenes
+  operativos, pero enfrenta riesgos ESG y regulatorios. El mercado parece estar subvalorando
+  la compañía, ofreciendo una posible oportunidad de inversión si los precios de los
+  commodities se mantienen o mejoran.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Precio del crudo supera USD 80/barril
+    - Lanzamiento exitoso de LNG dentro de 6 meses
+    id: BEAR
+    key_assumptions:
+    - Precio del crudo < USD 70/barril
+    - Incremento de costos regulatorios > 5 %
+    - Retraso > 12 meses en proyectos LNG
+    rationale: El precio del crudo se mantiene bajo USD 70/barril durante más de un
+      año, combinada con mayores costos regulatorios y retrasos en proyectos LNG,
+      reduciendo los flujos de caja y presionando la valoración al extremo inferior
+      del consenso.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/cop/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/COP/
+    target_price: 122
+  - falsifiers:
+    - Precio del crudo cae por debajo de USD 70/barril
+    - Cancelación o retraso significativo de proyectos LNG
+    id: BULL
+    key_assumptions:
+    - Precio del crudo > USD 85/barril
+    - Contratos LNG entregados y operativos
+    - Mejora de margen operativo en 2 puntos porcentuales
+    rationale: Un repunte sostenido del precio del crudo > USD 85/barril, junto con
+      la puesta en marcha de nuevos contratos de LNG y mejoras de eficiencia que elevan
+      el flujo de caja libre en un 20 %, impulsa la valoración al extremo superior
+      del consenso.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/cop/forecast/
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/COP/
+    target_price: 185
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 68
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T12:11:37.549471-03:00'
+  fuentes:
+    stockanalysis: 153.0
+    yfinance: 153.0
+  mediana: 153.0
+  n_fuentes: 2
+  promedio: 153.0
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T12:11:37.549471-03:00'
+    observed_date: '2026-11-20'
+    target_price: 153.0
+    url: https://stockanalysis.com/stocks/cop/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T12:11:37.549471-03:00'
+    observed_date: '2026-11-20'
+    target_price: 153.0
+    url: https://finance.yahoo.com/quote/COP/
+  target_high: 185.0
+  target_low: 122.0
+tesis_inversion: El precio actual de COP está por debajo del consenso medio de los
+  analistas, pese a su fuerte generación de flujo de caja y márgenes operativos. Un
+  entorno de precios de commodities favorable o la materialización de proyectos de
+  LNG podrían cerrar la brecha de valoración, ofreciendo upside potencial.
+ticker: COP
+version: '3.0'
