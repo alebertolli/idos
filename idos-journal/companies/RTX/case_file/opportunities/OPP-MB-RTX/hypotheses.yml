@@ -1,0 +1,142 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico de ingresos de FY 2027 es inferior al 5% frente
+      a FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los resultados publicados atribuyen el crecimiento reportado principalmente
+      a divisas o adquisiciones y muestran crecimiento orgánico inferior al umbral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico de ingresos de FY 2027 es inferior al 5% frente a FY 2026.
+  - Los resultados publicados atribuyen el crecimiento reportado principalmente a
+    divisas o adquisiciones y muestran crecimiento orgánico inferior al umbral.
+  horizon: medio
+  id: H1-OPP-MB-RTX
+  opportunity_id: OPP-MB-RTX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 5.0
+    met: null
+    metric: Crecimiento orgánico de ingresos de FY 2027 frente a FY 2026
+    prediction: Los ingresos orgánicos de FY 2027 crecerán al menos un 5% frente a
+      FY 2026, excluyendo efectos de divisas y cambios de perímetro, según los resultados
+      anuales publicados a más tardar el 2028-02-15.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: Los ingresos crecieron entre FY 2022 y FY 2025, según el contexto disponible.
+    La exposición de RTX a aeroespacial y defensa ofrece una base para que la actividad
+    continúe expandiéndose, aunque el paquete no permite confirmar la magnitud ni
+    la composición de ese crecimiento.
+  review_trigger: Dejar de creerla si RTX reduce su previsión de crecimiento orgánico
+    de FY 2027 por debajo del 5% o si los resultados anuales de FY 2027 muestran un
+    crecimiento inferior al umbral.
+  secondary_hypotheses: []
+  statement: El crecimiento de los ingresos de RTX continuará durante el ejercicio
+    fiscal 2027, impulsado por la demanda de servicios aeroespaciales y de defensa.
+  status: ACTIVE
+  ticker: RTX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre de FY 2027 es inferior al 7,5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: RTX no publica una conciliación que permita calcular el flujo de caja
+      libre de forma consistente con FY 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre de FY 2027 es inferior al 7,5%.
+  - RTX no publica una conciliación que permita calcular el flujo de caja libre de
+    forma consistente con FY 2026.
+  horizon: medio
+  id: H2-OPP-MB-RTX
+  opportunity_id: OPP-MB-RTX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 7.5
+    met: null
+    metric: Margen de flujo de caja libre de FY 2027
+    prediction: El margen de flujo de caja libre de FY 2027 —flujo de caja libre dividido
+      por ingresos reportados— será de al menos el 7,5%, calculado con la definición
+      de flujo de caja libre utilizada por RTX en sus informes anuales, a más tardar
+      el 2028-02-15.
+    unit: porcentaje mínimo de los ingresos
+  priority: critical
+  probability: 0.5
+  rationale: El contexto indica que el flujo de caja libre de los últimos doce meses
+    es positivo. Sin datos sobre conversión de beneficios, capital circulante o inversión
+    incremental, la hipótesis comprobable es que la generación de caja se mantenga
+    en un nivel mínimo frente a los ingresos.
+  review_trigger: Dejar de creerla si una actualización de previsiones sitúa el margen
+    esperado de FY 2027 por debajo del 7,5%, o si el informe anual de FY 2027 confirma
+    un resultado inferior.
+  secondary_hypotheses:
+  - H1-OPP-MB-RTX
+  statement: RTX mantendrá una generación de flujo de caja libre suficiente para respaldar
+    sus necesidades de inversión y sus compromisos financieros durante FY 2027.
+  status: ACTIVE
+  ticker: RTX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de RTX menos la rentabilidad total del S&P 500
+      es inferior a 5 puntos porcentuales en el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción de RTX obtiene una rentabilidad total inferior a la del S&P
+      500 durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de RTX menos la rentabilidad total del S&P 500 es inferior
+    a 5 puntos porcentuales en el periodo definido.
+  - La acción de RTX obtiene una rentabilidad total inferior a la del S&P 500 durante
+    el periodo.
+  horizon: medio
+  id: H3-OPP-MB-RTX
+  opportunity_id: OPP-MB-RTX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de RTX frente al S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de RTX, incluidos dividendos reinvertidos, superará la rentabilidad total
+      del S&P 500 en al menos 5 puntos porcentuales.
+    unit: puntos porcentuales de exceso mínimo
+  priority: informational
+  probability: 0.5
+  rationale: El crecimiento de ingresos entre FY 2022 y FY 2025 y el flujo de caja
+    libre TTM positivo son señales compatibles con continuidad operativa y generación
+    de caja. Sin embargo, no se dispone aquí de una valoración actual, de retornos
+    sobre capital ni de una estimación cuantificada de riesgos; por ello, la ventaja
+    de mercado es una hipótesis que debe probarse frente a un índice amplio, no una
+    conclusión sobre infravaloración.
+  review_trigger: Abandonar la hipótesis al cierre del 2027-11-20 si la rentabilidad
+    relativa acumulada es inferior a 5 puntos porcentuales; reevaluarla antes si RTX
+    anuncia una reducción material de previsiones de ingresos o flujo de caja libre.
+  secondary_hypotheses:
+  - H1-OPP-MB-RTX
+  - H2-OPP-MB-RTX
+  statement: La acción de RTX obtendrá una rentabilidad total superior a la del S&P
+    500 durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: RTX
+  version: 1

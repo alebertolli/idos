@@ -1,0 +1,30 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental pendiente'
+- 'Market error: No puede validarse un error de valoración: no hay método de valoración
+  ni inputs suficientes para estimar valor intrínseco.'
+- 'Thesis: RTX opera en aeroespacial y defensa mediante Collins Aerospace, Pratt &
+  Whitney y Raytheon. La evidencia disponible muestra FCF TTM positivo y crecimiento
+  de ingresos entre FY 2022 y FY 2025, pero no '
+generated_at: '2026-11-20T18:52:30.547252-03:00'
+id: ass-1953b944
+recommendation: REVIEW
+risks:
+- fuente: Stockanalysis, financials, período Current al 2026-09-30.
+  riesgo: 'Apalancamiento: net cash reportado negativo al 2026-09-30; el ratio net
+    debt/EBITDA no puede calcularse con los campos permitidos para ese ratio.'
+- fuente: Resumen financiero de contexto, fecha de análisis 2026-11-20.
+  riesgo: Concentración potencial en la continuidad de operaciones aeroespaciales
+    y de defensa; el paquete no aporta datos de concentración por cliente, programa
+    o segmento.
+- fuente: Stockanalysis, statistics, TTM al 2026-09-30.
+  riesgo: La observación reportada de interest coverage es cero, pero no se aportan
+    EBIT e interest expense como inputs verificables por separado para revisar esa
+    cifra.
+- fuente: Evidencia financiera por campo, observada al 2026-11-20.
+  riesgo: Sin historial de acciones diluidas no se puede evaluar dilución interanual
+    ni crecimiento compuesto de acciones.
+score: 58
+status: COMPLETED
+version: '3.0'

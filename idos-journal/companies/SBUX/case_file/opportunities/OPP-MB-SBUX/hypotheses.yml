@@ -1,0 +1,187 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento de ventas comparables globales de FY2027 es inferior
+      a 3,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Las ventas comparables globales son positivas en menos de tres de los
+      cuatro trimestres de FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento de ventas comparables globales de FY2027 es inferior a 3,0%.
+  - Las ventas comparables globales son positivas en menos de tres de los cuatro trimestres
+    de FY2027.
+  horizon: medio
+  id: H1-OPP-MB-SBUX
+  opportunity_id: OPP-MB-SBUX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-30'
+    expected: 3.0
+    met: null
+    metric: Crecimiento de ventas comparables globales en FY2027
+    prediction: En FY2027, las ventas comparables globales crecerán al menos 3,0%
+      frente a FY2026, y serán positivas en al menos tres de los cuatro trimestres
+      reportados de FY2027.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La escala de la red y la combinación de tiendas, productos y canales
+    podrían sostener el crecimiento si aumentan las transacciones y la propuesta resulta
+    atractiva para los clientes. Sin embargo, los datos aportados no prueban una mejora
+    de la penetración ni una ventaja competitiva sostenible; por eso, la hipótesis
+    requiere confirmación en los resultados comparables y transacciones.
+  review_trigger: Dejar de creerla si el informe anual de FY2027, o un anuncio de
+    resultados anterior que cubra los cuatro trimestres, muestra crecimiento comparable
+    inferior a 3,0% o crecimiento positivo en menos de tres trimestres.
+  secondary_hypotheses: []
+  statement: Starbucks logrará recuperar el crecimiento de las ventas comparables
+    durante FY2027, apoyándose en la demanda de sus tiendas y canales existentes.
+  status: ACTIVE
+  ticker: SBUX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto reportado de FY2027 es inferior a 23,5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto reportado de FY2027 no supera el de FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto reportado de FY2027 es inferior a 23,5%.
+  - El margen bruto reportado de FY2027 no supera el de FY2026.
+  horizon: medio
+  id: H2-OPP-MB-SBUX
+  opportunity_id: OPP-MB-SBUX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-30'
+    expected: 23.5
+    met: null
+    metric: Margen bruto reportado de FY2027
+    prediction: El margen bruto reportado de FY2027 será al menos 23,5%, calculado
+      como beneficio bruto dividido por ingresos, y superará el margen bruto reportado
+      de FY2026.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El margen bruto reportado bajó de 27,43% en FY2023 a 22,56% TTM al 2026-09-27,
+    mientras que la recuperación reciente del flujo de caja libre no demuestra por
+    sí sola una mejora estructural de rentabilidad. La hipótesis es que la escala
+    y la gestión de tiendas y productos permitirán mejorar el margen, pero debe comprobarse
+    en los estados financieros.
+  review_trigger: Dejar de creerla cuando Starbucks publique resultados anuales de
+    FY2027 si el margen bruto no alcanza 23,5% o no mejora frente a FY2026.
+  secondary_hypotheses:
+  - H1-OPP-MB-SBUX
+  statement: La compresión del margen bruto se moderará y dará paso a una recuperación
+    durante FY2027.
+  status: ACTIVE
+  ticker: SBUX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre de FY2027 es inferior a 1,05 veces el de FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Las inversiones de capital de FY2027 caen más de 10% frente a FY2026,
+      lo que impide atribuir el aumento del FCF a una mejora sostenible de la generación
+      de caja.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre de FY2027 es inferior a 1,05 veces el de FY2026.
+  - Las inversiones de capital de FY2027 caen más de 10% frente a FY2026, lo que impide
+    atribuir el aumento del FCF a una mejora sostenible de la generación de caja.
+  horizon: medio
+  id: H3-OPP-MB-SBUX
+  opportunity_id: OPP-MB-SBUX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-30'
+    expected: 5.0
+    met: null
+    metric: Crecimiento del flujo de caja libre de FY2027 frente a FY2026
+    prediction: El flujo de caja libre de FY2027, definido como flujo de caja operativo
+      menos inversiones de capital, será al menos 5% superior al de FY2026 y las inversiones
+      de capital de FY2027 no serán más de 10% inferiores a las de FY2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: El contexto indica recuperación del FCF frente a FY2025, pero también
+    un deterioro prolongado del margen bruto. Para sostener la tesis de crecimiento
+    rentable, el efectivo generado debe aumentar sin que el resultado se explique
+    solo por una contracción marcada del gasto de capital.
+  review_trigger: Dejar de creerla al publicarse el informe anual de FY2027 si no
+    se cumplen ambos umbrales; también si un informe trimestral revisado muestra que
+    el FCF acumulado de FY2027 está por debajo del ritmo requerido y la empresa no
+    actualiza favorablemente su perspectiva.
+  secondary_hypotheses:
+  - H2-OPP-MB-SBUX
+  statement: La recuperación del flujo de caja libre continuará en FY2027 y no dependerá
+    únicamente de una reducción temporal de la inversión.
+  status: ACTIVE
+  ticker: SBUX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de SBUX menos el rendimiento total de XLY entre
+      las fechas especificadas es inferior a 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: SBUX obtiene un rendimiento total inferior al de XLY en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de SBUX menos el rendimiento total de XLY entre las fechas
+    especificadas es inferior a 10 puntos porcentuales.
+  - SBUX obtiene un rendimiento total inferior al de XLY en el periodo.
+  horizon: largo
+  id: H4-OPP-MB-SBUX
+  opportunity_id: OPP-MB-SBUX
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-05-20'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total acumulado de SBUX menos rendimiento total acumulado
+      de XLY
+    prediction: Entre 2026-11-20 y 2028-05-20, el rendimiento total de SBUX, incluidos
+      dividendos reinvertidos, superará al rendimiento total de XLY en al menos 10
+      puntos porcentuales.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: Si la mejora operativa se traduce en crecimiento comparable, recuperación
+    del margen y generación de caja, el mercado podría valorar más favorablemente
+    la capacidad de Starbucks para reinvertir. La hipótesis es deliberadamente independiente
+    de un múltiplo objetivo y puede contrastarse con precios y dividendos observados;
+    el rendimiento relativo también podría ser negativo si los resultados decepcionan.
+  review_trigger: Dejar de creerla al 2028-05-20 si la diferencia de rendimiento total
+    entre SBUX y XLY es inferior a 10 puntos porcentuales; abandonar antes si la empresa
+    comunica que no espera recuperar ventas comparables o margen bruto en FY2027.
+  secondary_hypotheses:
+  - H1-OPP-MB-SBUX
+  - H2-OPP-MB-SBUX
+  - H3-OPP-MB-SBUX
+  statement: La acción de Starbucks superará al ETF Consumer Discretionary Select
+    Sector SPDR (XLY) en rendimiento total durante los 18 meses posteriores a la fecha
+    de corte.
+  status: ACTIVE
+  ticker: SBUX
+  version: 1

@@ -1,0 +1,551 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El FCF negativo y la deuda reportada justifican investigar la capacidad de financiar
+    reinversión y atender obligaciones, pero por sí solos no determinan solvencia
+    ni valor.
+  - El resumen describe a SABESP como prestador de servicios de agua y saneamiento
+    en el estado de São Paulo; el resumen no indica período para esta descripción.
+  - Stockanalysis reporta FCF de -1.770 millones, deuda total de 46.437 millones y
+    EBITDA de 3.110 millones para TTM terminado el 2026-09-30; la moneda y escala
+    no se reconcilian entre campos en el paquete.
+  - Yfinance reporta momentum de precio a 12 meses de 28,8533%, drawdown de 11,4657%
+    y volatilidad de 90 días de 42,7817%, para períodos terminados el 2026-10-23.
+  preguntas_abiertas:
+  - ¿Cuáles son la moneda, escala y definición contable de cada serie financiera,
+    y cómo se reconcilian con estados financieros primarios?
+  - ¿Qué penetración, crecimiento de clientes, tarifas, capex, retornos incrementales
+    y objetivos operativos respaldan la tesis de crecimiento?
+  - ¿Qué evidencia existe sobre regulación, concesiones, calidad del servicio, competencia,
+    gobierno corporativo y asignación de capital?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación fundamental incompleta; infraestructura regulada con señales
+    financieras mixtas
+  justificacion: El paquete describe un proveedor de agua y saneamiento en São Paulo,
+    pero no aporta evidencia suficiente para cuantificar crecimiento orgánico, penetración,
+    retornos sobre capital ni ventaja competitiva.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El negocio descrito presta servicios esenciales de agua y saneamiento
+    en São Paulo, pero el paquete no documenta penetración, poder de fijación de precios,
+    retornos sobre capital ni economía por unidad. El FCF negativo y las limitaciones
+    de comparabilidad impiden afirmar que el crecimiento o la reinversión creen valor.
+  rating: No concluyente
+dominio_catalizadores:
+- fuente: stockanalysis.com, financials; https://stockanalysis.com/stocks/sbs/financials/
+  observacion: Una reversión del FCF negativo sería un hito relevante para evaluar
+    la capacidad de financiar inversiones y atender obligaciones; el paquete no contiene
+    guía ni calendario para ello.
+- fuente: stockanalysis; https://stockanalysis.com/stocks/sbs/forecast/
+  observacion: Los objetivos de analistas observados al 2026-11-20 tienen rango USD
+    5,80–6,40; son referencias de consenso, no hitos operativos ni valor intrínseco.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: stockanalysis.com, financials; https://stockanalysis.com/stocks/sbs/financials/
+  observacion: El FCF reportado para TTM terminado el 2026-09-30 fue -1.770 millones
+    en moneda financiera del proveedor; la serie histórica también muestra FCF negativo
+    para FY 2025 y FY 2024.
+- fuente: stockanalysis.com, financials; https://stockanalysis.com/stocks/sbs/financials/
+  observacion: La deuda total reportada pasó de 40.142 millones en FY 2025 a 46.437
+    millones al 2026-09-30; la unidad y moneda de la serie no están explicitadas en
+    el paquete.
+- fuente: stockanalysis.com, statistics; https://stockanalysis.com/stocks/SBS/statistics/
+  observacion: La cobertura de intereses reportada es 0 para TTM terminado el 2026-09-30;
+    hace falta verificar la definición y los datos subyacentes del proveedor.
+- fuente: Research Intake Package y resumen financiero; evidencia específica no disponible.
+  observacion: El paquete no aporta datos verificables sobre regulación, tarifas,
+    concentración de clientes, calidad del servicio, gobierno corporativo ni competencia.
+error_mercado:
+  catalizador_cambio: La evidencia de mejoras verificables en flujo de caja libre,
+    apalancamiento y ejecución de inversiones podría cambiar la lectura; no se incluye
+    un calendario de hitos.
+  conclusion_error_valoracion: 'No se puede establecer un error de valoración frente
+    al valor intrínseco: los objetivos de analistas son anclas de consenso, no una
+    valoración propia.'
+  consenso_actual: La cotización observada fue USD 6,27 al 2026-10-23; el consenso
+    de precio objetivo observado al 2026-11-20 fue USD 6,14, con rango USD 5,80–6,40.
+  hipotesis_contraria: La expansión de infraestructura y una mejora sostenible de
+    caja podrían sostener resultados mejores; el paquete no documenta planes, contratos
+    ni métricas operativas para validar esa hipótesis.
+  razonamiento: La acción mostró momentum de 12 meses de 28,85% y volatilidad de 90
+    días de 42,78% al 2026-10-23, mientras que el FCF TTM reportado fue negativo al
+    2026-09-30; las métricas usan fuentes y períodos distintos.
+generated_at: '2026-11-20T18:55:08.895780-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-SBS
+prompt_inputs:
+  business_model: Companhia de Saneamento Básico do Estado de São Paulo - SABESP provides
+    basic and environmental sanitation services in the São Paulo State, Brazil. It
+    supplies treated water and sewage services on a wholesale basis. Companhia de
+    Saneamento Básico do Estado de São Paulo - SABESP was founded in 1954 and is headquartered
+    in São Paulo, Brazil.
+  ceo_tenure: 0
+  debt_to_equity: 0.99
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Companhia de Saneamento Básico do Estado de São Paulo - SABESP
+  operating_margin: 32.83
+  pe_ratio: 13.21
+  products: ''
+  revenue: 8029999999.999999
+  revenue_growth: 20.02
+  roic: 9.99
+  sector: Utilities
+  ticker: SBS
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue: null
+    revenue_history: null
+    revenue_ttm: null
+  limitations: La serie de ingresos incluye puntos TTM duplicados para 2026-09-30
+    y no aporta una fila fechada FY 2023; tampoco se reconcilian moneda y escala.
+    No hay extremos comparables de tres años.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/sbs/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SBS/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf: null
+    fcf_growth_history: null
+    fcf_history: null
+    free_cash_flow: null
+  limitations: El FCF reportado es negativo tanto en TTM terminado 2026-09-30 como
+    en FY 2025; además, las magnitudes de las dos fuentes del paquete no son reconciliables.
+    No se cumple el requisito de períodos comparables y positivos.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/sbs/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SBS/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100; no significativo si net_income <= 0
+  inputs:
+    fcf_history: null
+    free_cash_flow: null
+    net_income_history: null
+    net_income_ttm: null
+  limitations: Hay ingresos netos positivos reportados para TTM terminado 2026-09-30,
+    pero el FCF de la fuente statistics difiere del valor TTM de financials y las
+    unidades/moneda no se reconcilian; falta un input compatible.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/sbs/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SBS/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
+    si net_cash = cash - deuda
+  inputs:
+    net_cash_history: null
+    net_debt: null
+    net_debt_ebitda: null
+    total_debt: null
+    total_debt_history: null
+  limitations: Se reporta deuda total de 46.437 millones y net cash de -37.254 millones
+    al 2026-09-30, pero no se reconcilian moneda y escala con EBITDA de 3.110 millones
+    TTM ni se aporta EBITDA histórico comparable.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/sbs/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SBS/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares: null
+    diluted_shares_history: null
+    dilution_yoy_pct: null
+    shares_outstanding: null
+    shares_outstanding_history: null
+  limitations: Sólo hay acciones en circulación reportadas para el período terminado
+    2026-09-30; falta una observación comparable del período anterior y una serie
+    de acciones diluidas.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SBS/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Companhia de Saneamento Básico do Estado de São Paulo - SABESP provides
+    basic and environmental sanitation services in the São Paulo State, Brazil. It
+    supplies treated water and sewage services on a wholesale basis. Companhia de
+    Saneamento Básico do Estado de São Paulo - SABESP was founded in 1954 and is headquartered
+    in São Paulo, Brazil.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 6.269999980926514
+  current_price_as_of_date: '2026-10-23'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.99
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T21:54:34.799803+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Companhia de Saneamento Básico do Estado de São Paulo - SABESP
+  operating_margin: 32.83
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Companhia de Saneamento Básico do Estado de São Paulo - SABESP provides
+    basic and environmental sanitation services in the São Paulo State, Brazil. It
+    supplies treated water and sewage services on a wholesale basis. Companhia de
+    Saneamento Básico do Estado de São Paulo - SABESP was founded in 1954 and is headquartered
+    in São Paulo, Brazil.
+  revenue: 8029999999.999999
+  revenue_growth: 20.02
+  roic: 9.99
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/sbs/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SBS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SBS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SBS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SBS/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/sbs/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/sbs/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SBS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SBS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/sbs/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/sbs/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/sbs/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SBS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SBS/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/sbs/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    6.4, "low": 5.8, "mean": 6.14, "median": 6.14, "observed_at": "2026-11-20T18:54:37.971302-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T18:54:37.971302-03:00", "observed_date": "2026-11-20", "target_price":
+    6.14, "url": "https://stockanalysis.com/stocks/sbs/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T18:54:37.971302-03:00",
+    "observed_date": "2026-11-20", "target_price": 6.14333, "url": "https://finance.yahoo.com/quote/SBS/"}]},
+    "current_quote": {"as_of_date": "2026-10-23", "currency": "USD", "price": 6.269999980926514,
+    "sources": [{"as_of_date": "2026-10-23", "name": "yfinance", "url": "https://finance.yahoo.com/quote/SBS/"}]}}'
+  sector: Utilities
+  ticker: SBS
+research_trigger:
+  discovery_snapshot_hash: f63139cccd17f7f62b41d972f5bad3c9084de6b0ba6fe242b0ba2d7514e8f432
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 20a6946793fca45aae11b45cc596ed24579885d21b54b3fd4bb5b37482c3b1b7
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T18:55:08.895780-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.22 al 2026-09-30; el valor reportado no está por debajo del umbral
+    configurado.
+  source: https://stockanalysis.com/stocks/SBS/statistics/
+  threshold: below 0.5
+- metric: interest_coverage
+  observation: 0 reportado para TTM terminado el 2026-09-30; queda por debajo del
+    umbral y requiere validar definición y dato subyacente.
+  source: https://stockanalysis.com/stocks/SBS/statistics/
+  threshold: below 2.0
+- metric: net_debt_ebitda
+  observation: No calculable con inputs compatibles; no se puede evaluar el umbral.
+  source: https://stockanalysis.com/stocks/sbs/financials/
+  threshold: above 4.0
+- metric: dilution_yoy_pct
+  observation: No calculable por falta de acciones comparables entre períodos; no
+    se puede evaluar el umbral.
+  source: https://stockanalysis.com/stocks/SBS/statistics/
+  threshold: above 10%
+- metric: share_count_cagr_3y_pct
+  observation: No hay historia de acciones para tres años; no se puede evaluar el
+    umbral configurado.
+  source: https://stockanalysis.com/stocks/SBS/statistics/
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Datos financieros posteriores verificables que muestren FCF positivo sostenido
+      y reducción de deuda.
+    - Una revisión documentada del rango de consenso que invalide el objetivo bajo
+      observado.
+    id: BEAR
+    key_assumptions:
+    - Se mantiene como ancla observada el objetivo bajo del consenso de USD 5,80 al
+      2026-11-20.
+    - No se presume una mejora operativa o financiera no respaldada por evidencia
+      del paquete.
+    rationale: Ancla baja del rango de objetivos de analistas observados, no valoración
+      intrínseca propia. Es consistente con un resultado adverso en el que persisten
+      el FCF negativo y la presión financiera observada, aunque el paquete no permite
+      cuantificar su efecto sobre el precio.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/sbs/forecast/
+    - as_of_date: '2026-09-30'
+      name: stockanalysis.com, financials
+      url: https://stockanalysis.com/stocks/sbs/financials/
+    target_price: 5.8
+  - falsifiers:
+    - Reducción documentada del rango de consenso por debajo del objetivo alto observado.
+    - Evidencia financiera posterior de deterioro sostenido de caja o aumento material
+      de deuda.
+    id: BULL
+    key_assumptions:
+    - Se mantiene como ancla observada el objetivo alto del consenso de USD 6,40 al
+      2026-11-20.
+    - El escenario no presupone cifras de crecimiento, márgenes o caja que no estén
+      en el paquete.
+    rationale: Ancla alta del rango de objetivos de analistas observados, no valoración
+      intrínseca propia. Representa el extremo favorable de ese consenso, pero no
+      hay evidencia aportada de mejoras operativas, crecimiento rentable o conversión
+      de inversiones en caja que explique o valide dicho extremo.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/sbs/forecast/
+    - as_of_date: '2026-10-23'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/SBS/
+    target_price: 6.4
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 38
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T18:54:37.971302-03:00'
+  fuentes:
+    stockanalysis: 6.14
+    yfinance: 6.14333
+  mediana: 6.14
+  n_fuentes: 2
+  promedio: 6.14
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T18:54:37.971302-03:00'
+    observed_date: '2026-11-20'
+    target_price: 6.14
+    url: https://stockanalysis.com/stocks/sbs/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T18:54:37.971302-03:00'
+    observed_date: '2026-11-20'
+    target_price: 6.14333
+    url: https://finance.yahoo.com/quote/SBS/
+  target_high: 6.4
+  target_low: 5.8
+tesis_inversion: SABESP presta servicios de agua y saneamiento en el estado de São
+  Paulo, según el resumen financiero sin fecha de período. La tesis por investigar
+  es si la inversión en infraestructura puede traducirse en crecimiento rentable y
+  mayor generación de caja; la evidencia suministrada no permite verificar el mercado
+  direccionable, la penetración, retornos incrementales sobre capital, ventajas competitivas
+  ni la asignación de capital de la dirección. El FCF negativo y el aumento reportado
+  de deuda son señales que requieren reconciliación con estados financieros primarios
+  antes de concluir sobre la calidad del negocio.
+ticker: SBS
+version: '3.0'

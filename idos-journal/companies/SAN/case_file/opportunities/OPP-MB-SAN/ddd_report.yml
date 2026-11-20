@@ -1,0 +1,590 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La cotización inferior al rango de objetivos es una diferencia observable, pero
+    no valida por sí sola una infravaloración.
+  - La falta de datos comparables de caja y capital limita la evaluación de calidad
+    y sostenibilidad del crecimiento.
+  - El precio de USD 12,365 corresponde al 2026-10-26, según yfinance.
+  - El momentum de precio a 12 meses fue 25,2786%, el drawdown 17,8405% y la volatilidad
+    a 90 días 29,3121%, con período terminado el 2026-10-26, según yfinance.
+  - StockAnalysis reporta ingresos TTM de 49.632 y beneficio neto TTM de 15.514 al
+    2026-09-30.
+  - El consenso de objetivos reportado es USD 14,56, con rango USD 13,00–15,57, observado
+    el 2026-11-20.
+  preguntas_abiertas:
+  - ¿Qué períodos, moneda y definiciones utiliza cada serie financiera reportada?
+  - ¿Cuáles son los retornos sobre capital, necesidades de reinversión y factores
+    de crecimiento por segmento y geografía?
+  - ¿Qué horizonte corresponde a los objetivos de analistas y qué supuestos respaldan
+    sus extremos?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia insuficiente para validar una tesis
+    de multibagger
+  justificacion: El paquete aporta métricas de mercado y datos financieros resumidos,
+    pero no evidencia suficiente sobre retornos sobre capital, ventaja competitiva,
+    penetración de mercado o asignación de capital.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo descrito abarca banca minorista y comercial, banca digital de
+    consumo, banca corporativa y de inversión, gestión patrimonial y pagos. El paquete
+    no permite evaluar de forma verificable penetración de mercado, ventaja competitiva,
+    erosión, reinversión ni retornos sobre capital.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: Publicación de resultados que confirme si el crecimiento de ingresos
+    y beneficio TTM continúa.
+  evidencia: Ingresos reportados de 49.632 y beneficio neto de 15.514 para TTM al
+    2026-09-30; las unidades son las reportadas por el proveedor.
+  fuente: https://stockanalysis.com/stocks/san/financials/
+- catalizador: Datos financieros comparables que aclaren la conversión a caja y la
+    trayectoria del FCF.
+  evidencia: La serie de FCF incluye observaciones positivas y negativas y el paquete
+    no aporta reconciliación de moneda o escala.
+  fuente: https://stockanalysis.com/stocks/san/financials/
+- catalizador: Revisión de los objetivos de analistas con fecha y horizonte explícitos.
+  evidencia: El resumen ofrece consenso, mínimo y máximo observados el 2026-11-20,
+    pero no indica el horizonte de esos objetivos.
+  fuente: https://stockanalysis.com/stocks/san/forecast/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: StockAnalysis reporta FCF de 49,0 para TTM al 2026-09-30 y valores negativos
+    para FY2025, FY2024 y FY2023; la serie no permite validar crecimiento comparable.
+  fuente: https://stockanalysis.com/stocks/san/financials/
+  riesgo: La generación de caja reportada es muy volátil entre períodos y las unidades
+    o monedas de distintas observaciones no están suficientemente conciliadas.
+- evidencia: El resumen presenta deuda total y net cash, pero EBITDA figura como n/a;
+    no se puede validar net debt/EBITDA.
+  fuente: https://stockanalysis.com/stocks/san/financials/
+  riesgo: La estructura de financiación bancaria impide interpretar deuda y caja con
+    ratios corporativos genéricos sin definiciones y datos comparables.
+- evidencia: El resumen describe segmentos y servicios, pero deja geografía y descripción
+    del moat vacías.
+  fuente: https://stockanalysis.com/stocks/san/financials/
+  riesgo: La evidencia sobre competencia, regulación, geografía, calidad de activos
+    y concentración de ingresos no está desarrollada en el paquete.
+error_mercado:
+  catalizador_cambio: Resultados financieros posteriores al 2026-09-30 que permitan
+    verificar la evolución de ingresos, beneficio y generación de caja.
+  conclusion_error_valoracion: La cotización está por debajo del rango de objetivos
+    observado, pero la evidencia no permite concluir que exista un error de valoración.
+  consenso_actual: El consenso de analistas informado es USD 14,56, con rango USD
+    13,00–15,57, observado el 2026-11-20; la cotización reportada fue USD 12,365 al
+    2026-10-26.
+  hipotesis_contraria: El rango de objetivos puede no capturar deterioro del negocio
+    o riesgos que no están detallados en el paquete; tampoco demuestra por sí mismo
+    infravaloración.
+  razonamiento: La diferencia entre cotización y consenso es observable, no una estimación
+    de valor intrínseco. El paquete no proporciona método de valoración ni supuestos
+    de negocio suficientes para validar el consenso.
+generated_at: '2026-11-20T18:53:01.506013-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-SAN
+prompt_inputs:
+  business_model: 'Banco Santander, S.A. provides various financial products and services
+    to individuals, small and medium-sized enterprises, large corporations, and public
+    entities worldwide. The company operates through five segments: Retail & Commercial
+    Banking, Digital Consumer Bank, Corporate & Investment Banking, Wealth Management
+    & Insurance, and Payments. It offers demand and time deposits, mutual funds, and
+    current and savings accounts; mortgages, consumer finance, loans, and various
+    financing solutions; and project finance, debt capital markets, global transaction
+    banking, and corporate finance services. The company also provides credit and
+    debit cards, real estate loans, microfinance, and auto loans; corporate and investment
+    banking services; advice on mergers and acquisitions; wealth, asset, and risk
+    management services; and digital payments and technology solutions. In addition,
+    it is involved in the securitization, leasing, management of portfolios, e-commerce,
+    air transport, aircraft rental, software, consulting, fund and investment management,
+    renewable energy, vehicle rental, insurance, advertising, marketing, telemarketing,
+    automotive, agricultural, factoring, securities brokerage and investment, pension
+    fund management, trade intermediary, venture capital fund, renting, restaurant,
+    electricity production, IT, internet, and financial advisory and other activities;
+    management, and other real estate activities; and purchase and sale of vehicles.
+    Further, the company offers mobile and online banking services. Banco Santander,
+    S.A. was formerly known as Banco Santander Central Hispano SA and changed its
+    name to Banco Santander, S.A. in February 2007. The company was incorporated in
+    1856 and is headquartered in Madrid, Spain.'
+  ceo_tenure: 0
+  debt_to_equity: 0.035699999999999996
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Banco Santander, S.A.
+  operating_margin: 42.14
+  pe_ratio: 9.64
+  products: ''
+  revenue: 56360000000.0
+  revenue_growth: 3.89
+  roic: 12.61
+  sector: Financial Services
+  ticker: SAN
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/san/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_history:
+    - period: TTM
+      period_end: '2026-09-30'
+      value: 49.0
+    - period: FY 2025
+      period_end: '2025-12-31'
+      value: -20689.0
+    - period: FY 2024
+      period_end: '2024-12-31'
+      value: -32649.0
+    - period: FY 2023
+      period_end: '2023-12-31'
+      value: -6431.0
+    - period: FY 2022
+      period_end: '2022-12-31'
+      value: 18640.0
+  limitations: 'No hay dos períodos consecutivos, comparables y positivos: el dato
+    TTM no tiene la misma duración que los FY cercanos y los valores FY2023–FY2025
+    son negativos.'
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/san/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100
+  inputs:
+    fcf: 53810000.0
+    fcf_history:
+      TTM: 49.0
+    net_income_history:
+      TTM: 15514.0
+  limitations: El paquete presenta FCF TTM de 49,0 en la serie histórica y 53.810.000
+    en estadísticas, sin unidad o moneda reconciliada; no se puede emparejar de forma
+    verificable con el beneficio neto TTM.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/san/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SAN/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    ebitda: n/a
+    net_cash_history:
+      Current: -77294.0
+      period_end: '2026-09-30'
+    total_debt_history:
+      Current: 423243.0
+      period_end: '2026-09-30'
+  limitations: EBITDA figura como n/a para TTM al 2026-09-30; sin denominador no se
+    puede calcular el ratio. Las series de deuda y net cash no especifican moneda
+    o escala en el paquete.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/san/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SAN/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 14170000000.0
+  limitations: Sólo hay una observación de acciones en circulación; falta una observación
+    comparable del período anterior o un historial de acciones diluidas.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SAN/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Banco Santander, S.A. provides various financial products and services
+    to individuals, small and medium-sized enterprises, large corporations, and public
+    entities worldwide. The company operates through five segments: Retail & Commercial
+    Banking, Digital Consumer Bank, Corporate & Investment Banking, Wealth Management
+    & Insurance, and Payments. It offers demand and time deposits, mutual funds, and
+    current and savings accounts; mortgages, consumer finance, loans, and various
+    financing solutions; and project finance, debt capital markets, global transaction
+    banking, and corporate finance services. The company also provides credit and
+    debit cards, real estate loans, microfinance, and auto loans; corporate and investment
+    banking services; advice on mergers and acquisitions; wealth, asset, and risk
+    management services; and digital payments and technology solutions. In addition,
+    it is involved in the securitization, leasing, management of portfolios, e-commerce,
+    air transport, aircraft rental, software, consulting, fund and investment management,
+    renewable energy, vehicle rental, insurance, advertising, marketing, telemarketing,
+    automotive, agricultural, factoring, securities brokerage and investment, pension
+    fund management, trade intermediary, venture capital fund, renting, restaurant,
+    electricity production, IT, internet, and financial advisory and other activities;
+    management, and other real estate activities; and purchase and sale of vehicles.
+    Further, the company offers mobile and online banking services. Banco Santander,
+    S.A. was formerly known as Banco Santander Central Hispano SA and changed its
+    name to Banco Santander, S.A. in February 2007. The company was incorporated in
+    1856 and is headquartered in Madrid, Spain.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 12.364999771118164
+  current_price_as_of_date: '2026-10-26'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.035699999999999996
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T21:52:32.238545+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Banco Santander, S.A.
+  operating_margin: 42.14
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Banco Santander, S.A. provides various financial products and services
+    to individuals, small and medium-sized enterprises, large corporations, and public
+    entities worldwide. The company operates through five segments: Retail & Commercial
+    Banking, Digital Consumer Bank, Corporate & Investment Banking, Wealth Management
+    & Insurance, and Payments. It offers demand and time deposits, mutual funds, and
+    current and savings accounts; mortgages, consumer finance, loans, and various
+    financing solutions; '
+  revenue: 56360000000.0
+  revenue_growth: 3.89
+  roic: 12.61
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/san/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SAN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SAN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SAN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SAN/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/san/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/san/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SAN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SAN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/san/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/san/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/san/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SAN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SAN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/san/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    15.57, "low": 13.0, "mean": 14.56, "median": 14.56, "observed_at": "2026-11-20T18:52:35.159953-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T18:52:35.159953-03:00", "observed_date": "2026-11-20", "target_price":
+    14.56, "url": "https://stockanalysis.com/stocks/san/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T18:52:35.159953-03:00",
+    "observed_date": "2026-11-20", "target_price": 14.55667, "url": "https://finance.yahoo.com/quote/SAN/"}]},
+    "current_quote": {"as_of_date": "2026-10-26", "currency": "USD", "price": 12.364999771118164,
+    "sources": [{"as_of_date": "2026-10-26", "name": "yfinance", "url": "https://finance.yahoo.com/quote/SAN/"}]}}'
+  sector: Financial Services
+  ticker: SAN
+research_trigger:
+  discovery_snapshot_hash: 9350e6cd11b8a3893558bcd6921e68b9868cacb409653ebc663008ee417da144
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: d700ec35fd77b9e53063298c0655890606d8fcec98dba681beef1f8c00df8327
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T18:53:01.506013-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: La fuente reporta 0 al 2026-09-30; no se interpreta como señal comparable
+    para un banco sin validar definición y aplicabilidad.
+  status: observación para Assessment
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No disponible: falta historial comparable de acciones.'
+  status: no evaluable
+  threshold: above 10 percent
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30, pero EBIT y expense de intereses
+    no están disponibles para validar el cálculo.
+  status: no evaluable
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No evaluado: la definición requiere FCF negativo y los datos TTM y
+    anuales no forman una serie comparable para establecerlo.'
+  status: no evaluable
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 'No disponible: EBITDA figura como n/a.'
+  status: no evaluable
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No disponible: falta historial comparable de acciones.'
+  status: no evaluable
+  threshold: above 5 percent
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: null
+  scenarios:
+  - falsifiers:
+    - Objetivos de analistas actualizados que sitúen el extremo bajo por encima o
+      por debajo de USD 13,00.
+    - Resultados comparables que validen o contradigan la sostenibilidad del crecimiento
+      y la generación de caja.
+    id: BEAR
+    key_assumptions:
+    - Se usa el mínimo de objetivos de analistas observado el 2026-11-20 como ancla,
+      no como resultado garantizado.
+    - El paquete no permite verificar crecimiento sostenible ni conversión de beneficios
+      en caja.
+    - El horizonte del objetivo no está informado en la evidencia.
+    rationale: Ancla baja observada del consenso de analistas, no valoración intrínseca
+      propia. Representa el extremo adverso del rango publicado; el paquete no aporta
+      supuestos cuantitativos de negocio que justifiquen una cifra inferior.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/san/forecast/
+    target_price: 13.0
+  - falsifiers:
+    - Objetivos de analistas actualizados que sitúen el extremo alto por debajo o
+      por encima de USD 15,57.
+    - Resultados comparables que contradigan la continuidad del crecimiento de ingresos
+      y beneficio.
+    id: BULL
+    key_assumptions:
+    - Se usa el máximo de objetivos de analistas observado el 2026-11-20 como ancla,
+      no como resultado garantizado.
+    - La tesis favorable requeriría que el crecimiento reportado se mantenga, algo
+      no validado por el paquete.
+    - El horizonte del objetivo no está informado en la evidencia.
+    rationale: Ancla alta observada del consenso de analistas, no valoración intrínseca
+      propia. Representa el extremo favorable del rango publicado; el paquete no aporta
+      supuestos cuantitativos de negocio que permitan justificar una desviación al
+      alza.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/san/forecast/
+    target_price: 15.57
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors:
+  - horizon_date debe ser una fecha ISO válida
+  status: invalid_pending_revision
+score_general: 48
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T18:52:35.159953-03:00'
+  fuentes:
+    stockanalysis: 14.56
+    yfinance: 14.55667
+  mediana: 14.56
+  n_fuentes: 2
+  promedio: 14.56
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T18:52:35.159953-03:00'
+    observed_date: '2026-11-20'
+    target_price: 14.56
+    url: https://stockanalysis.com/stocks/san/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T18:52:35.159953-03:00'
+    observed_date: '2026-11-20'
+    target_price: 14.55667
+    url: https://finance.yahoo.com/quote/SAN/
+  target_high: 15.57
+  target_low: 13.0
+tesis_inversion: La tesis a investigar es si el crecimiento de ingresos y beneficio
+  reportado puede sostenerse y convertirse en generación de caja duradera. La evidencia
+  disponible no permite validar el mecanismo de crecimiento, la reinversión, los retornos
+  sobre capital ni una ventaja competitiva; los escenarios usan únicamente anclas
+  observadas de analistas, no una valoración propia.
+ticker: SAN
+version: '3.0'
