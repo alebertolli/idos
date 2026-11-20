@@ -1,0 +1,150 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos TTM al 2027-09-30 son inferiores a USD 265.485 mil millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa informa una contracción de ingresos TTM frente al nivel
+      de USD 257.752 mil millones al 2026-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos TTM al 2027-09-30 son inferiores a USD 265.485 mil millones.
+  - La empresa informa una contracción de ingresos TTM frente al nivel de USD 257.752
+    mil millones al 2026-09-30.
+  horizon: medio
+  id: H1-OPP-MB-CAH
+  opportunity_id: OPP-MB-CAH
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 265.485
+    met: null
+    metric: Ingresos TTM
+    prediction: Los ingresos TTM para el período terminado el 2027-09-30 serán iguales
+      o superiores a USD 265.485 mil millones, un aumento de al menos 3% frente a
+      USD 257.752 mil millones al 2026-09-30.
+    unit: USD mil millones
+  priority: important
+  probability: 0.5
+  rationale: La empresa opera en la distribución de productos farmacéuticos y médicos
+    y presta servicios a participantes del sistema sanitario. La escala de ingresos
+    reportada —USD 257.752 mil millones TTM al 2026-09-30— es compatible con un negocio
+    de gran volumen, pero la información disponible no permite verificar crecimiento
+    orgánico, cuota de mercado ni ventajas competitivas; por ello, la hipótesis requiere
+    confirmación en resultados futuros.
+  review_trigger: Dejar de creerla si un informe financiero publicado antes o en la
+    fecha objetivo muestra ingresos TTM inferiores al umbral de USD 265.485 mil millones,
+    o si la empresa reduce sus perspectivas de ingresos por deterioro de la demanda
+    o pérdida de negocio.
+  secondary_hypotheses: []
+  statement: Los ingresos TTM de Cardinal Health crecerán al menos un 3% durante los
+    próximos doce meses, reflejando la continuidad de la demanda de distribución y
+    servicios sanitarios.
+  status: ACTIVE
+  ticker: CAH
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre TTM al 2027-09-30 es inferior a USD 4.901 mil
+      millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La generación de caja depende de una reducción temporal del capital
+      circulante que la empresa identifique como no recurrente, y el flujo de caja
+      libre normalizado queda por debajo del umbral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre TTM al 2027-09-30 es inferior a USD 4.901 mil millones.
+  - La generación de caja depende de una reducción temporal del capital circulante
+    que la empresa identifique como no recurrente, y el flujo de caja libre normalizado
+    queda por debajo del umbral.
+  horizon: medio
+  id: H2-OPP-MB-CAH
+  opportunity_id: OPP-MB-CAH
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 4.901
+    met: null
+    metric: Flujo de caja libre TTM
+    prediction: El flujo de caja libre TTM al 2027-09-30 será igual o superior a USD
+      4.901 mil millones, usando de forma consistente la definición de flujo de caja
+      operativo menos inversiones de capital.
+    unit: USD mil millones
+  priority: critical
+  probability: 0.5
+  rationale: El flujo de caja libre TTM informado es de USD 4.901 mil millones al
+    2026-09-30. La generación de caja es relevante para evaluar la capacidad de financiar
+    operaciones, inversión y asignación de capital, pero el dato aislado no demuestra
+    que sea recurrente ni permite evaluar necesidades de capital circulante. La hipótesis
+    pone a prueba la persistencia de esa generación de caja.
+  review_trigger: Dejar de creerla si una publicación financiera disponible al 2027-09-30
+    o después, que informe ese período, muestra flujo de caja libre TTM inferior a
+    USD 4.901 mil millones o evidencia que el nivel de referencia no es sostenible
+    por cambios estructurales en capital circulante o inversión.
+  secondary_hypotheses:
+  - H1-OPP-MB-CAH
+  statement: Cardinal Health mantendrá su flujo de caja libre TTM en al menos el nivel
+    reportado al 2026-09-30 durante los próximos doce meses.
+  status: ACTIVE
+  ticker: CAH
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de CAH menos el rendimiento total del S&P 500
+      es inferior a 5 puntos porcentuales en el período definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: CAH obtiene un rendimiento total negativo durante el período, aunque
+      supere al índice.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de CAH menos el rendimiento total del S&P 500 es inferior
+    a 5 puntos porcentuales en el período definido.
+  - CAH obtiene un rendimiento total negativo durante el período, aunque supere al
+    índice.
+  horizon: medio
+  id: H3-OPP-MB-CAH
+  opportunity_id: OPP-MB-CAH
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-19'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de CAH menos rendimiento total del S&P 500
+    prediction: Entre el cierre del mercado del 2026-11-20 y el del 2027-11-19, el
+      rendimiento total de CAH, incluidos dividendos reinvertidos, superará al rendimiento
+      total del S&P 500 en al menos 5 puntos porcentuales.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: 'La escala del negocio y el flujo de caja libre reportado podrían respaldar
+    la valoración de la acción si se mantienen, pero la evidencia disponible no incluye
+    precio, expectativas de analistas, valoración independiente ni datos sobre asignación
+    de capital. Por tanto, no se afirma que la acción esté infravalorada: se plantea
+    una prueba de rendimiento relativo que permita evaluar si el mercado recompensa
+    la continuidad del negocio y la generación de caja.'
+  review_trigger: Dejar de creerla al cierre del 2027-11-19 si CAH no supera al S&P
+    500 por al menos 5 puntos porcentuales; también revisar anticipadamente la hipótesis
+    si la empresa reduce materialmente sus perspectivas o si se deterioran de forma
+    sostenida los ingresos y el flujo de caja libre.
+  secondary_hypotheses:
+  - H1-OPP-MB-CAH
+  - H2-OPP-MB-CAH
+  statement: La acción de Cardinal Health ofrecerá un rendimiento total superior al
+    del S&P 500 durante los doce meses posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: CAH
+  version: 1

@@ -1,0 +1,172 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: En cualquiera de esos dos trimestres, los ingresos por día de alquiler
+      en Norteamérica crecen menos del 3% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no publica datos comparables suficientes para evaluar la
+      predicción antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El avance de ingresos por día se explica por un cambio de definición
+      contable que impide una comparación homogénea.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - En cualquiera de esos dos trimestres, los ingresos por día de alquiler en Norteamérica
+    crecen menos del 3% interanual.
+  - La compañía no publica datos comparables suficientes para evaluar la predicción
+    antes de la fecha objetivo.
+  - El avance de ingresos por día se explica por un cambio de definición contable
+    que impide una comparación homogénea.
+  horizon: medio
+  id: H1-OPP-20261023-034
+  opportunity_id: OPP-20261023-034
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-08-31'
+    expected: 3.0
+    met: null
+    metric: Crecimiento interanual de ingresos por día de alquiler en Norteamérica
+      en cada uno de dos trimestres consecutivos
+    prediction: En cada uno de los dos trimestres consecutivos más recientes publicados
+      hasta 2027-08-31, los ingresos por día de alquiler en Norteamérica, según la
+      definición de la compañía, serán al menos un 3% superiores a los del mismo trimestre
+      del año anterior. La comparación se considerará no verificable si la compañía
+      deja de publicar una métrica comparable.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Una mayor demanda frente a la capacidad disponible puede aumentar los
+    ingresos por día; una gestión disciplinada de la flota puede evitar que ese avance
+    dependa de incorporar vehículos en exceso. El contexto plantea estos mecanismos
+    como hipótesis, pero no aporta datos recientes que los confirmen.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2027-08-31
+    muestra crecimiento interanual inferior al 3% en ingresos por día en Norteamérica,
+    o si la compañía deja de divulgar una métrica comparable.
+  secondary_hypotheses: []
+  statement: La mejora de precios y utilización permitirá que Avis Budget eleve sus
+    ingresos por día de alquiler en Norteamérica de forma sostenida, no solo por efectos
+    de mezcla o estacionalidad.
+  status: ACTIVE
+  ticker: CAR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: En cualquiera de los dos trimestres comparables, el margen de EBITDA
+      ajustado mejora menos de 2 puntos porcentuales interanuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El EBITDA ajustado cae interanualmente en ambos trimestres, aunque
+      aumenten los ingresos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Cambios en la definición de EBITDA ajustado impiden una comparación
+      consistente y la compañía no facilita una conciliación suficiente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - En cualquiera de los dos trimestres comparables, el margen de EBITDA ajustado
+    mejora menos de 2 puntos porcentuales interanuales.
+  - El EBITDA ajustado cae interanualmente en ambos trimestres, aunque aumenten los
+    ingresos.
+  - Cambios en la definición de EBITDA ajustado impiden una comparación consistente
+    y la compañía no facilita una conciliación suficiente.
+  horizon: largo
+  id: H2-OPP-20261023-034
+  opportunity_id: OPP-20261023-034
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 2.0
+    met: null
+    metric: Mejora interanual del margen de EBITDA ajustado consolidado en cada uno
+      de dos trimestres consecutivos
+    prediction: El margen de EBITDA ajustado consolidado será al menos 2 puntos porcentuales
+      superior interanualmente en dos trimestres consecutivos publicados hasta 2027-11-20.
+      El margen se calculará como EBITDA ajustado dividido por ingresos, usando cifras
+      y definiciones divulgadas por la compañía para ambos periodos.
+    unit: puntos porcentuales
+  priority: critical
+  probability: 0.5
+  rationale: Una combinación favorable de tarifas, utilización y disciplina en la
+    adquisición y venta de vehículos podría aumentar el beneficio por unidad de ingresos.
+    Sin embargo, el contexto advierte que los costos de renovación y los valores residuales
+    pueden contrarrestar ese efecto; no hay datos suficientes para determinar el punto
+    de partida financiero.
+  review_trigger: Dejar de creerla ante la publicación de dos trimestres consecutivos
+    comparables en los que la expansión del margen sea inferior a 2 puntos porcentuales
+    interanuales, o ante la falta de datos conciliables al 2027-11-20.
+  secondary_hypotheses:
+  - H1-OPP-20261023-034
+  statement: La mejora operacional se traducirá en una expansión de la rentabilidad
+    ajustada, y no quedará absorbida por depreciación de vehículos, costos de flota
+    u otros gastos.
+  status: ACTIVE
+  ticker: CAR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de CAR supera al del S&P 500 por menos de 10 puntos
+      porcentuales durante el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: CAR obtiene un rendimiento total inferior o igual al del S&P 500.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No es posible calcular rendimientos totales comparables por falta de
+      datos de precio ajustado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de CAR supera al del S&P 500 por menos de 10 puntos porcentuales
+    durante el periodo.
+  - CAR obtiene un rendimiento total inferior o igual al del S&P 500.
+  - No es posible calcular rendimientos totales comparables por falta de datos de
+    precio ajustado.
+  horizon: largo
+  id: H3-OPP-20261023-034
+  opportunity_id: OPP-20261023-034
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total de CAR menos rendimiento total del S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, el rendimiento
+      total de CAR, incluidos dividendos si los hubiera, superará en al menos 10 puntos
+      porcentuales el rendimiento total del S&P 500. Se usarán precios ajustados y
+      la misma fuente de datos para ambas series.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Una mejora persistente de ingresos por día y márgenes puede reducir la
+    percepción de riesgo sobre la generación de beneficios. El contexto disponible
+    no permite verificar múltiplos, deuda ni valor intrínseco; por ello, la hipótesis
+    se limita a una predicción de rendimiento relativo y no afirma que exista infravaloración.
+  review_trigger: Dejar de creerla el 2027-11-20 si la ventaja de rendimiento total
+    de CAR frente al S&P 500 es inferior a 10 puntos porcentuales. Si H1 o H2 se falsifican
+    antes de esa fecha, reducir la convicción, pero evaluar la predicción de mercado
+    en su fecha objetivo.
+  secondary_hypotheses:
+  - H1-OPP-20261023-034
+  - H2-OPP-20261023-034
+  statement: Si la mejora operacional y de rentabilidad se confirma, el mercado reconocerá
+    una mejora en las expectativas de CAR y la acción superará al mercado, aunque
+    esto no demuestra por sí solo que esté infravalorada.
+  status: ACTIVE
+  ticker: CAR
+  version: 1

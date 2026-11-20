@@ -1,0 +1,195 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de pasajeros en el primer semestre de 2027
+      es inferior al 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica una cifra comparable de pasajeros para ambos
+      períodos antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de pasajeros en el primer semestre de 2027 es inferior
+    al 5%.
+  - La empresa no publica una cifra comparable de pasajeros para ambos períodos antes
+    de la fecha objetivo.
+  horizon: corto
+  id: H1-OPP-MB-CAAP
+  opportunity_id: OPP-MB-CAAP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de pasajeros en el primer semestre
+    prediction: El número total de pasajeros reportado por CAAP para el primer semestre
+      de 2027 será al menos un 5% superior al reportado para el primer semestre de
+      2026.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: Una cartera diversificada de aeropuertos puede beneficiarse de la recuperación
+    y expansión de la demanda de viajes. Un aumento sostenido de pasajeros elevaría
+    el uso de las concesiones y respaldaría la tesis de resiliencia operativa, aunque
+    no garantiza por sí solo mayores márgenes.
+  review_trigger: Dejar de creerla si el informe de tráfico del segundo trimestre
+    de 2027 muestra crecimiento interanual inferior al 5% para el primer semestre.
+  secondary_hypotheses: []
+  statement: El crecimiento de la actividad de las concesiones permitirá que CAAP
+    registre más pasajeros durante el primer semestre de 2027 que en el mismo período
+    de 2026.
+  status: ACTIVE
+  ticker: CAAP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La diferencia entre el flujo de efectivo de actividades operativas
+      y las adquisiciones de propiedad, planta y equipo del ejercicio 2027 es igual
+      o inferior a cero.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La información publicada no permite calcular esa diferencia con partidas
+      comparables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La diferencia entre el flujo de efectivo de actividades operativas y las adquisiciones
+    de propiedad, planta y equipo del ejercicio 2027 es igual o inferior a cero.
+  - La información publicada no permite calcular esa diferencia con partidas comparables.
+  horizon: medio
+  id: H2-OPP-MB-CAAP
+  opportunity_id: OPP-MB-CAAP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-04-30'
+    expected: 0.0
+    met: null
+    metric: Flujo de caja libre del ejercicio 2027
+    prediction: Para el ejercicio terminado el 2027-12-31, el flujo de caja libre,
+      definido como flujo de efectivo de actividades operativas menos adquisiciones
+      de propiedad, planta y equipo, será mayor que cero.
+    unit: USD, estrictamente mayor que 0
+  priority: critical
+  probability: 0.5
+  rationale: La tesis sostiene que el flujo de caja libre está creciendo y que los
+    márgenes operativos son estables. Si los ingresos de concesión y la disciplina
+    de inversión compensan los costos operativos y el gasto de capital, la generación
+    de efectivo debería ser positiva; el endeudamiento elevado hace especialmente
+    importante verificarlo.
+  review_trigger: Dejar de creerla cuando los estados financieros auditados del ejercicio
+    2027 muestren flujo de caja libre igual o inferior a cero; la fecha límite de
+    evaluación es 2028-04-30.
+  secondary_hypotheses:
+  - H1-OPP-MB-CAAP
+  statement: CAAP generará flujo de caja libre positivo en el ejercicio 2027, lo que
+    respaldaría que el crecimiento operativo se convierte en efectivo disponible después
+    de inversiones.
+  status: ACTIVE
+  ticker: CAAP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La reducción de deuda neta/EBITDA respecto de la última cifra comparable
+      divulgada antes del 2026-11-20 es inferior a 0,2 veces.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no divulga datos suficientes para calcular deuda neta y
+      EBITDA con definiciones comparables.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La reducción de deuda neta/EBITDA respecto de la última cifra comparable divulgada
+    antes del 2026-11-20 es inferior a 0,2 veces.
+  - La empresa no divulga datos suficientes para calcular deuda neta y EBITDA con
+    definiciones comparables.
+  horizon: medio
+  id: H3-OPP-MB-CAAP
+  opportunity_id: OPP-MB-CAAP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-04-30'
+    expected: 0.2
+    met: null
+    metric: Reducción de deuda neta/EBITDA frente a la última cifra comparable divulgada
+      antes del 2026-11-20
+    prediction: La razón deuda neta/EBITDA reportada para el cierre de 2027 será al
+      menos 0,2 veces menor que la última razón comparable divulgada por CAAP a la
+      fecha de corte de 2026-11-20.
+    unit: veces, como mínimo
+  priority: important
+  probability: 0.5
+  rationale: Si CAAP convierte el flujo de caja operativo en efectivo y mantiene bajo
+    control la inversión, podrá destinar recursos a reducir deuda o limitar su crecimiento
+    frente al EBITDA. La predicción evalúa el apalancamiento relativo, no presupone
+    un nivel absoluto de deuda que no está especificado en el contexto.
+  review_trigger: Dejar de creerla si los resultados anuales de 2027 muestran una
+    reducción inferior a 0,2 veces o un aumento de la razón respecto de la cifra de
+    referencia; evaluar a más tardar el 2028-04-30.
+  secondary_hypotheses:
+  - H2-OPP-MB-CAAP
+  statement: La reducción de deuda neta en relación con la capacidad de generación
+    de EBITDA será verificable al cierre de 2027, aunque la deuda elevada siga siendo
+    un riesgo.
+  status: ACTIVE
+  ticker: CAAP
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El precio de cierre del 2027-11-20 es inferior a 27,46 USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cotización no puede compararse con el precio de referencia por una
+      operación corporativa que altere el número de acciones o la base de cotización
+      y no se dispone de una serie ajustada verificable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El precio de cierre del 2027-11-20 es inferior a 27,46 USD.
+  - La cotización no puede compararse con el precio de referencia por una operación
+    corporativa que altere el número de acciones o la base de cotización y no se dispone
+    de una serie ajustada verificable.
+  horizon: medio
+  id: H4-OPP-MB-CAAP
+  opportunity_id: OPP-MB-CAAP
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 27.46
+    met: null
+    metric: Precio de cierre de la acción ordinaria
+    prediction: El precio de cierre de CAAP en la bolsa donde cotice la acción ordinaria,
+      expresado en USD, será igual o superior a 27,46 USD al 2027-11-20, un 20% por
+      encima del precio de referencia de 22,88 USD.
+    unit: USD por acción
+  priority: informational
+  probability: 0.5
+  rationale: El precio de referencia indicado, 22,88 USD, podría no reflejar plenamente
+    el valor económico de los contratos de concesión. Una mejora observable en pasajeros,
+    flujo de caja y apalancamiento podría reducir la percepción de riesgo y apoyar
+    una valoración superior; la predicción sigue expuesta a factores de mercado ajenos
+    a la empresa.
+  review_trigger: Dejar de creerla si el precio de cierre no alcanza 27,46 USD el
+    2027-11-20; antes de esa fecha, una caída no constituye por sí sola una falsación
+    definitiva.
+  secondary_hypotheses:
+  - H1-OPP-MB-CAAP
+  - H2-OPP-MB-CAAP
+  - H3-OPP-MB-CAAP
+  statement: El mercado revalorizará las acciones de CAAP al alza si los resultados
+    y la reducción de riesgos financieros respaldan el valor de sus concesiones.
+  status: ACTIVE
+  ticker: CAAP
+  version: 1

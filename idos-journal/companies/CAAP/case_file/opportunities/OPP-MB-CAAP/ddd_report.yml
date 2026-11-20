@@ -1,0 +1,818 @@
+calidad_evidencia:
+  hechos_verificados: 15
+  inferencias_llm: 5
+  preguntas_abiertas: 2
+catalizadores_previos: &id001
+- descripcion: Confirmación en resultados futuros de crecimiento de tráfico e ingresos
+    con conversión sostenible a caja y divulgación suficiente de deuda y capex.
+  generated_at: '2026-11-20T11:21:11.354183-03:00'
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-032
+  probabilidad_anterior: 45
+- descripcion: Mejora de percepción de valor si la empresa demuestra que el crecimiento
+    y la generación de caja son sostenibles y que los riesgos de concesiones y monedas
+    están contenidos.
+  generated_at: '2026-11-20T11:21:11.354183-03:00'
+  horizonte: largo
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-20261023-032
+  probabilidad_anterior: 35
+clasificacion_oportunidad:
+  categoria: Growth
+  justificacion: La empresa opera 52 aeropuertos y muestra fuerte generación de flujo
+    de caja libre, aunque enfrenta alta volatilidad de precios.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Modelo de negocio basado en concesiones estables, pero depende de factores
+    macroeconómicos y regulatorios.
+  rating: Medium
+dominio_catalizadores:
+- catalizador: Nuevas concesiones en Europa y Eurasia
+  descripcion: Incrementaría ingresos y margen operativo.
+- catalizador: Recuperación del tráfico de pasajeros
+  descripcion: Mejoraría los ingresos por servicios aeroportuarios.
+- catalizador: Reestructuración de deuda
+  descripcion: Podría reducir el costo financiero y mejorar la cobertura de intereses.
+- catalizador: Alianzas estratégicas con operadores
+  descripcion: Aumentaría la eficiencia y la rentabilidad de los aeropuertos gestionados.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: El ratio de cobertura de intereses es 0, indicando incapacidad de cubrir
+    gastos financieros con EBIT.
+  riesgo: Cobertura de intereses insuficiente
+- descripcion: Aunque el net debt/EBITDA es bajo, la deuda total supera los 1 bn USD.
+  riesgo: Elevado nivel de deuda neta
+- descripcion: Los contratos de concesión pueden ser revisados o revocados por autoridades
+    locales.
+  riesgo: Exposición regulatoria
+- descripcion: La volatilidad 90‑días supera 33 %.
+  riesgo: Volatilidad de precios
+error_mercado:
+  catalizador_cambio: Expansión de nuevas concesiones y recuperación del tráfico aéreo
+    post‑pandemia.
+  conclusion_error_valoracion: El mercado podría estar valorando conservadoramente
+    los flujos futuros.
+  consenso_actual: 32.4
+  hipotesis_contraria: El precio actual de 22.88 USD subestima el valor de los contratos
+    de concesión.
+  razonamiento: Los múltiplos implícitos del consenso son superiores al precio actual,
+    indicando potencial de revaluación.
+generated_at: '2026-11-20T11:29:29.175064-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-CAAP
+prompt_inputs:
+  business_model: Corporación América Airports S.A., through its subsidiaries, acquires,
+    develops, and operates airport concessions. It operates 52 airports in Latin America,
+    Europe, and Eurasia. The company was formerly known as A.C.I. Airports International
+    S.à r.l. and changed its name to Corporación América Airports S.A. in September
+    2017. The company was founded in 1998 and is based in Luxembourg, Luxembourg.
+    Corporación América Airports S.A. operates as a subsidiary of A.C.I. Airports
+    S.à r.l.
+  ceo_tenure: 0
+  debt_to_equity: 0.56
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Corporación América Airports S.A.
+  operating_margin: 23.06
+  pe_ratio: 12.21
+  products: ''
+  revenue: 2230000000.0
+  revenue_growth: 16.65
+  roic: 18.24
+  sector: Industrials
+  ticker: CAAP
+ratios_investigados:
+- formula: null
+  inputs: {}
+  limitations: Falta de datos de ingresos para FY 2022 impide calcular el CAGR de
+    3 años.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: null
+  inputs:
+    fcf_growth_history: TTM
+  limitations: null
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/CAAP/statistics/
+  status: reported
+  unit: percent
+  value: 27.82
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/CAAP/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/CAAP/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: null
+  inputs: {}
+  limitations: No se dispone de historial de acciones diluidas para calcular la dilución
+    YoY.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Corporación América Airports S.A., through its subsidiaries, acquires,
+    develops, and operates airport concessions. It operates 52 airports in Latin America,
+    Europe, and Eurasia. The company was formerly known as A.C.I. Airports International
+    S.à r.l. and changed its name to Corporación América Airports S.A. in September
+    2017. The company was founded in 1998 and is based in Luxembourg, Luxembourg.
+    Corporación América Airports S.A. operates as a subsidiary of A.C.I. Airports
+    S.à r.l.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 22.8799991607666
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.56
+  excess_return_roic_wacc: null
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    Corporación América Airports S.A. (CAAP) adquiere, desarrolla y opera aeropuertos
+    mediante concesiones. La actividad combina servicios aeroportuarios y cargos asociados
+    a pasajeros y aerolíneas con servicios comerciales y concesiones dentro de los
+    aeropuertos. Sus principales clientes son aerolíneas y pasajeros.
+
+
+    La compañía opera en el sector aeroportuario, una industria intensiva en capital
+    y regulada. Su modelo está expuesto al tráfico aéreo, el turismo y la actividad
+    económica, así como a las monedas y a las condiciones regulatorias de los países
+    donde mantiene concesiones. Los materiales disponibles describen una cartera internacional,
+    pero no especifican países, aeropuertos ni la duración de las concesiones.
+
+
+    La wiki existente describe a CAAP como operadora de aeropuertos a través de subsidiarias
+    y señala como compañías del mismo sector a [[ASR]]. Esa referencia aparece duplicada
+    en el material original; no se aportan comparaciones operativas o financieras
+    con dicha compañía.
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    CAAP obtiene o mantiene concesiones, financia y ejecuta inversiones aeroportuarias,
+    y opera terminales e infraestructura. Los ingresos dependen principalmente del
+    tráfico de pasajeros y de la actividad de las aerolíneas, además de los servicios
+    comerciales y las concesiones aeroportuarias.
+
+
+    Las concesiones pueden crear barreras de entrada debido a la escasez de ubicaciones
+    viables, los requisitos de inversión y la regulación. Sin embargo, la evidencia
+    aportada permite describir ese moat como **estrecho**, no como una ventaja competitiva
+    duradera demostrada. La actividad también exige capital y está sujeta a condiciones
+    específicas de cada concesión.
+
+
+    La evaluación AOIF califica la posición competitiva como líder, pero no incluye
+    datos sobre cuota de mercado, aeropuertos concretos o comparaciones con pares
+    que permitan verificar esa conclusión. La dinámica sectorial depende del tráfico
+    aéreo, el turismo, la actividad económica y la capacidad operativa.
+
+
+    ## 3. Perfil Financiero
+
+
+    Las métricas siguientes proceden de las observaciones incluidas en DDD y AOIF.
+    Los materiales no identifican de forma completa la fuente, el periodo comparable
+    o la moneda de todas las métricas; por tanto, no deben interpretarse como una
+    serie financiera reconciliada.
+
+
+    | Métrica | Observación | Periodo o referencia | Limitaciones |
+
+    |---|---:|---|---|
+
+    | Crecimiento de ingresos | 15,01% | TTM terminado el 2026-06-30 (DDD) | No se
+    aporta metodología ni base de comparación. |
+
+    | Crecimiento de ingresos | 16,65% | Periodo no especificado (AOIF) | No se indica
+    si coincide con el periodo de DDD. |
+
+    | Margen operativo | 23,06% | Periodo no especificado (AOIF) | Sin serie histórica
+    o conciliación. |
+
+    | ROIC | 18,24% | Periodo no especificado (AOIF) | No se especifican fórmula,
+    periodo ni comparabilidad. |
+
+    | FCF TTM | 457.070.000 | TTM; moneda del proveedor no especificada (DDD) | No
+    se aportan flujo operativo, capex ni cálculo del FCF. |
+
+    | FCF yield | 0 | Periodo no especificado (AOIF) | No se explica la metodología;
+    no es posible reconciliarlo con el FCF TTM informado por DDD. |
+
+    | EV/EBITDA | 5,39x | Periodo no especificado (AOIF) | No se proporcionan componentes
+    ni fecha de cálculo. |
+
+    | P/E | 12,21x | Periodo no especificado (AOIF) | No se especifican fecha ni base
+    de beneficios. |
+
+
+    AOIF describe la tendencia financiera como estable, pero no aporta series temporales
+    que permitan comprobarla. DDD califica la salud financiera como adecuada, aunque
+    faltan los datos necesarios para evaluar la deuda y la liquidez. **No hay información
+    verificable en los materiales sobre deuda bruta o neta, caja, vencimientos, covenants,
+    liquidez o cobertura de intereses.** Tampoco se puede distinguir el capex de mantenimiento
+    del capex de expansión.
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    Los materiales identifican a CAAP como subsidiaria de A.C.I. Airports S.à r.l.
+    No aportan evidencia verificable sobre la trayectoria del equipo directivo, resultados
+    de asignación de capital, propiedad accionaria de insiders, incentivos, composición
+    del consejo o prácticas de gobierno corporativo.
+
+
+    AOIF califica la calidad del management como regular, la asignación de capital
+    como neutral y el alineamiento de insiders como moderado. Estas evaluaciones no
+    vienen acompañadas de datos que permitan corroborarlas. La calidad del liderazgo
+    y el alineamiento deben considerarse, por tanto, **no concluyentes**.
+
+
+    ## 5. Tesis de Inversión
+
+
+    **Tesis:** CAAP puede beneficiarse de la operación de aeropuertos bajo concesión,
+    un modelo que combina activos de larga duración y posibles barreras de entrada
+    con oportunidades de crecimiento asociadas al tráfico y a la actividad comercial
+    aeroportuaria. La tesis depende de que ese crecimiento se traduzca de manera sostenible
+    en caja y de que las obligaciones de concesión y las necesidades de inversión
+    permitan retornos adecuados a través del ciclo.
+
+
+    **Evidencia y puntos favorables reportados:**
+
+
+    - AOIF informa crecimiento de ingresos de 16,65%, margen operativo de 23,06% y
+    ROIC de 18,24%, aunque sin fechas o metodología suficientes para evaluar comparabilidad.
+
+    - DDD informa crecimiento de ingresos TTM de 15,01% al 2026-06-30 y FCF TTM de
+    457.070.000 en la moneda del proveedor, que no está especificada.
+
+    - El negocio de concesiones puede ofrecer barreras de entrada por la escasez de
+    ubicaciones viables, la inversión requerida y la regulación.
+
+    - AOIF caracteriza la posición competitiva como líder, pero la información disponible
+    no incluye respaldo comparativo independiente.
+
+
+    La calificación general de calidad del negocio es **regular** y la oportunidad
+    se clasifica como **cíclica**. Los indicadores citados son observaciones aisladas;
+    no demuestran por sí solos la sostenibilidad de los retornos ni la conversión
+    recurrente de beneficios en caja.
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    **Caso bajista:** el mercado podría estar valorando la compañía de forma razonable
+    frente a riesgos que no se pueden cuantificar con los datos disponibles. Una caída
+    del tráfico, condiciones desfavorables de concesión, necesidades elevadas de inversión
+    o exposición cambiaria podrían limitar la generación de caja y los retornos. La
+    falta de información sobre deuda, capex y concesiones impide medir la capacidad
+    de resistencia ante esos escenarios.
+
+
+    | Riesgo | Impacto | Probabilidad informada | Implicación |
+
+    |---|---|---|---|
+
+    | Cambios regulatorios, renegociación o términos desfavorables de concesión, incluidos
+    límites tarifarios u obligaciones | Alto | Media | Pueden reducir ingresos, retornos
+    o flexibilidad operativa. |
+
+    | Recesión, menor demanda de viajes, interrupciones operativas o dificultades
+    de aerolíneas | Alto | Media | Pueden reducir tráfico y actividad comercial aeroportuaria.
+    |
+
+    | Exposición a tipos de cambio | No cuantificado | No especificada | Puede afectar
+    resultados y caja; faltan datos por moneda y país. |
+
+    | Inversión y capex | No cuantificado | No especificada | La falta de desglose
+    entre mantenimiento y expansión dificulta estimar el FCF sostenible. |
+
+    | Endeudamiento y liquidez | No evaluable | No especificada | No se informan deuda,
+    caja, vencimientos, covenants ni cobertura de intereses. |
+
+
+    **Triggers de falsación o deterioro de la tesis:**
+
+
+    - Caídas persistentes del tráfico o de los ingresos, sin recuperación compatible
+    con la economía de las concesiones.
+
+    - Deterioro de la conversión de resultados en caja, una vez disponibles series
+    verificables de flujo operativo y capex.
+
+    - Cambios, renegociaciones o límites regulatorios que reduzcan sustancialmente
+    los retornos de las concesiones.
+
+    - Evidencia de que la deuda, los vencimientos o las obligaciones de inversión
+    restringen la liquidez o la capacidad de financiar operaciones.
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    No se proporcionan eventos corporativos concretos ni fechas confirmadas de anuncios
+    futuros. Los siguientes son catalizadores condicionales, no eventos programados:
+
+
+    | Catalizador | Horizonte | Fecha esperada | Impacto potencial | Confianza |
+
+    |---|---|---|---|---|
+
+    | Resultados futuros que confirmen crecimiento de tráfico e ingresos y conversión
+    sostenible a caja, con divulgación suficiente | Medio plazo | No especificada
+    | Medio | Baja; probabilidad indicada: 45% |
+
+    | Mayor reconocimiento del valor si se demuestra que el crecimiento y la generación
+    de caja son sostenibles y que las concesiones mantienen retornos atractivos |
+    Largo plazo | No especificada | Medio | Baja; probabilidad indicada: 35% |
+
+
+    Las probabilidades son estimaciones de los materiales de investigación y no deben
+    interpretarse como frecuencias históricas o garantías.
+
+
+    ## 8. Marco de Valoración
+
+
+    No es posible determinar un valor intrínseco con la información disponible. AOIF
+    informa EV/EBITDA de 5,39x y P/E de 12,21x, pero faltan la fecha de cálculo, la
+    base financiera y comparables que permitan contextualizar esos múltiplos. AOIF
+    califica el margen de seguridad como insuficiente y el valor intrínseco como no
+    determinable.
+
+
+    DDD informa una cotización de **USD 22,88 al 2026-11-19** y un rango de precios
+    objetivo observado de **USD 27,40–36,00 al 2026-11-20**. El análisis señala que
+    esos objetivos no constituyen una valoración independiente. La opinión de valoración
+    registrada es **justo**, mientras que la conclusión sobre un posible error de
+    valoración es **incierto**.
+
+
+    Como referencia de escenarios, DDD propone los siguientes precios objetivo a un
+    horizonte de doce meses, hasta el 2027-11-20:
+
+
+    | Escenario | Precio objetivo | Interpretación |
+
+    |---|---:|---|
+
+    | Bajista | USD 27,40 | Ancla basada en el extremo inferior del rango observado
+    de objetivos; no es una valoración independiente. |
+
+    | Alcista | USD 36,00 | Ancla basada en el extremo superior del rango observado
+    de objetivos; no es un precio garantizado ni un valor intrínseco. |
+
+
+    La diferencia entre la cotización observada y esos objetivos no basta para establecer
+    infravaloración. Para construir una valoración propia se requieren, como mínimo,
+    flujos de caja por periodo, capex de mantenimiento y expansión, deuda neta, monedas,
+    vencimientos y supuestos por concesión. La sensibilidad debería centrarse en tráfico,
+    tarifas y condiciones de concesión, márgenes, inversión, tipo de cambio y coste
+    de capital, pero los datos aportados no permiten cuantificarla.
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. **Deuda y liquidez:** ¿Cuáles son la deuda bruta y neta, la caja, los vencimientos,
+    los covenants, la liquidez disponible y la cobertura de intereses? ¿En qué fecha
+    y moneda se expresan?
+
+    2. **Flujo de caja:** ¿Cómo se calcula el FCF TTM de 457.070.000 informado por
+    DDD? ¿Cuál fue el flujo de caja operativo y qué periodo y moneda corresponden
+    a la cifra?
+
+    3. **Capex:** ¿Cuánto corresponde a mantenimiento y cuánto a expansión? ¿Qué obligaciones
+    de inversión existen bajo cada concesión?
+
+    4. **Concesiones:** ¿En qué países y aeropuertos opera CAAP, cuáles son las condiciones
+    tarifarias y regulatorias, y cuáles son la duración, las obligaciones y los mecanismos
+    de renovación o renegociación?
+
+    5. **Ingresos y tráfico:** ¿Qué proporción de ingresos proviene de cargos aeroportuarios
+    y de servicios comerciales? ¿Cómo evolucionan pasajeros, carga, ingresos por pasajero
+    y tarifas por aeropuerto?
+
+    6. **Comparabilidad financiera:** ¿A qué periodos corresponden el crecimiento
+    de ingresos de 16,65%, el margen operativo de 23,06%, el ROIC de 18,24%, EV/EBITDA
+    de 5,39x y P/E de 12,21x? ¿Cómo se reconcilian con las cifras de DDD?
+
+    7. **Exposición cambiaria:** ¿Qué monedas generan ingresos, gastos y deuda? ¿Qué
+    mecanismos de cobertura o indexación existen?
+
+    8. **Management y gobierno:** ¿Cuál es la composición del consejo, la propiedad
+    de insiders, la estructura de incentivos y el historial de asignación de capital?
+
+    9. **Sostenibilidad y riesgos operativos:** ¿Qué exposición cuantificada existe
+    a emisiones, consumo energético, ruido, uso de suelo, seguridad y continuidad
+    operativa?
+
+    10. **Comparación sectorial:** ¿Cómo se comparan las concesiones, los márgenes,
+    el endeudamiento y la valoración de CAAP con [[ASR]] y otros operadores aeroportuarios
+    relevantes?
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
+
+    - **Same Industry**: [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]'
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-19T19:16:01.716452+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/CAAP/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 452730000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 23.065001}, "observed_at": "2026-11-19T19:16:01.716452+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/CAAP/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 23.06}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 16.6}, "observed_at": "2026-11-19T19:16:01.716452+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/caap/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 16.65}}}, "observed_at": "2026-11-19T19:16:01.716452+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Corporación América Airports S.A.
+  operating_margin: 23.06
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Corporación América Airports S.A., through its subsidiaries, acquires,
+    develops, and operates airport concessions. It operates 52 airports in Latin America,
+    Europe, and Eurasia. The company was formerly known as A.C.I. Airports International
+    S.à r.l. and changed its name to Corporación América Airports S.A. in September
+    2017. The company was founded in 1998 and is based in Luxembourg, Luxembourg.
+    Corporación América Airports S.A. operates as a subsidiary of A.C.I. Airports
+    S.à r.l.
+  revenue: 2230000000.0
+  revenue_growth: 16.65
+  roic: 18.24
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/CAAP/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    36.0, "low": 27.4, "mean": 32.4, "median": 32.4, "observed_at": "2026-11-20T11:29:19.199397-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T11:29:19.199397-03:00", "observed_date": "2026-11-20", "target_price":
+    32.4, "url": "https://stockanalysis.com/stocks/caap/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T11:29:19.199397-03:00",
+    "observed_date": "2026-11-20", "target_price": 32.4, "url": "https://finance.yahoo.com/quote/CAAP/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 22.8799991607666,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/CAAP/"}]}}'
+  sector: Industrials
+  ticker: CAAP
+research_trigger:
+  discovery_snapshot_hash: bbc4065a22349605bf12542826912f36e1c2e37c8d1ad65c54621da61cac39d6
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: a3bb00632067c79b45e2b86850622af7c39d927b217bfa6e2aa721cfe292eab2
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T11:29:29.175064-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- Interest coverage ratio below threshold (0 < 2.0)
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Mejora inesperada de cobertura de intereses
+    - Reducción significativa de deuda
+    id: BEAR
+    key_assumptions:
+    - Crecimiento de ingresos < 3 % anual
+    - Margen bruto estable en 30 %
+    - Deuda neta no se reduce
+    rationale: Precio bajo del consenso refleja riesgos de deuda y cobertura de intereses
+      insuficiente.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/caap/forecast
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CAAP/
+    target_price: 27.4
+  - falsifiers:
+    - Deterioro del entorno regulatorio
+    - Estancamiento del tráfico aéreo
+    id: BULL
+    key_assumptions:
+    - Crecimiento de ingresos > 8 % anual
+    - Margen bruto mejora a 35 %
+    - Reestructuración de deuda reduce carga financiera
+    rationale: Precio alto del consenso asume expansión de concesiones y recuperación
+      robusta del tráfico.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/caap/forecast
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/CAAP/
+    target_price: 36.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 68
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T11:29:19.199397-03:00'
+  fuentes:
+    stockanalysis: 32.4
+    yfinance: 32.4
+  mediana: 32.4
+  n_fuentes: 2
+  promedio: 32.4
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T11:29:19.199397-03:00'
+    observed_date: '2026-11-20'
+    target_price: 32.4
+    url: https://stockanalysis.com/stocks/caap/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T11:29:19.199397-03:00'
+    observed_date: '2026-11-20'
+    target_price: 32.4
+    url: https://finance.yahoo.com/quote/CAAP/
+  target_high: 36.0
+  target_low: 27.4
+tesis_inversion: CAAP posee una cartera diversificada de concesiones aeroportuarias
+  con margen bruto estable y flujo de caja libre creciente, pero su alta deuda neta
+  y cobertura de intereses nula generan riesgos que el mercado aún no refleja completamente.
+ticker: CAAP
+version: '3.0'

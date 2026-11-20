@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 41 companies tracked
+Total: 43 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -48,10 +48,12 @@ Total: 41 companies tracked
 - 📄 [[AZN|AstraZeneca PLC]]
 - 📄 [[BIIB|Biogen Inc.]]
 - 📄 [[BMY|Bristol-Myers Squibb Company]]
+- 📄 [[CAH|Cardinal Health, Inc.]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
 - 📄 [[CAAP|Corporación América Airports S.A.]]
+- 📄 [[CAR|Avis Budget Group, Inc.]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]
