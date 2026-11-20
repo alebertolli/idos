@@ -1,0 +1,173 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La tasa de utilización promedio de LNG se mantiene por debajo del 80%
+      en el trimestre terminado el 30‑06‑2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Chevron reporta una reducción de capacidad operativa neta de LNG superior
+      al 5% antes de esa fecha.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La tasa de utilización promedio de LNG se mantiene por debajo del 80% en el trimestre
+    terminado el 30‑06‑2028.
+  - Chevron reporta una reducción de capacidad operativa neta de LNG superior al 5%
+    antes de esa fecha.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-CVX-0001
+  opportunity_id: OPP-COMPOUNDER-CVX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 85.0
+    met: null
+    metric: tasa_utilizacion_LNG
+    prediction: La tasa de utilización promedio de los activos de LNG de Chevron superará
+      el 85% en el trimestre terminado el 30‑06‑2028.
+    unit: porcentaje
+  priority: critical
+  probability: 0.5
+  rationale: La compañía ha anunciado inversiones de $3.2 bn en expansión de terminales
+    LNG y contratos de suministro a largo plazo con Asia, lo que reduce la exposición
+    a la volatilidad del gas y mejora la tasa de ocupación.
+  review_trigger: Si al 30‑06‑2028 la utilización promedio está ≤80% o si la compañía
+    anuncia la venta de más del 10% de su capacidad LNG.
+  secondary_hypotheses: []
+  statement: Chevron incrementará la utilización promedio de sus activos de LNG a
+    nivel global por encima del 85% en el periodo 2027-2028.
+  status: ACTIVE
+  ticker: CVX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF del FY2028 es < $11.5 bn o muestra una caída real respecto al
+      FY2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Chevron reconoce una pérdida operativa neta en al menos dos trimestres
+      consecutivos en 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF del FY2028 es < $11.5 bn o muestra una caída real respecto al FY2027.
+  - Chevron reconoce una pérdida operativa neta en al menos dos trimestres consecutivos
+    en 2028.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-CVX-0001
+  opportunity_id: OPP-COMPOUNDER-CVX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 12.5
+    met: null
+    metric: flujo_caja_libre
+    prediction: El FCF reportado para el año fiscal 2028 será ≥ $12.5 bn, lo que representa
+      un crecimiento real ≥ 6% respecto al FY2027.
+    unit: miles_de_millones_USD
+  priority: important
+  probability: 0.5
+  rationale: La disciplina de generación de caja libre de Chevron, combinada con márgenes
+    operativos estables y la monetización de activos de captura de carbono, debería
+    impulsar un crecimiento sostenido del FCF pese a la presión regulatoria.
+  review_trigger: Si al 31‑12‑2028 el FCF reportado es inferior a $11.5 bn o si la
+    compañía anuncia una reducción permanente del gasto de capital superior al 15%
+    de su nivel actual.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-CVX-0001
+  statement: El flujo de caja libre (FCF) de Chevron crecerá al menos un 6% anual
+    en dólares reales durante 2027 y 2028.
+  status: ACTIVE
+  ticker: CVX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El P/E al 30‑06‑2028 se mantiene ≤ 11.5.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El precio de la acción cae más del 20% respecto al nivel de 2026‑11‑20
+      sin una caída proporcional en EPS.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El P/E al 30‑06‑2028 se mantiene ≤ 11.5.
+  - El precio de la acción cae más del 20% respecto al nivel de 2026‑11‑20 sin una
+    caída proporcional en EPS.
+  horizon: corto
+  id: H3-OPP-COMPOUNDER-CVX-0001
+  opportunity_id: OPP-COMPOUNDER-CVX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 13.5
+    met: null
+    metric: PE_ratio
+    prediction: El P/E de Chevron al cierre del 30‑06‑2028 será ≥ 13.5.
+    unit: ratio
+  priority: important
+  probability: 0.5
+  rationale: Los analistas están subestimando la capacidad de Chevron para generar
+    dividendos sostenibles y capturar oportunidades en LNG y captura de carbono, lo
+    que debería traducirse en una mayor valoración cuando se publiquen los resultados
+    de 2027‑2028.
+  review_trigger: Si al 30‑06‑2028 el P/E está ≤ 11.5 o si la empresa reduce su dividendo
+    anual en más del 30% respecto a 2026.
+  secondary_hypotheses:
+  - H2-OPP-COMPOUNDER-CVX-0001
+  statement: El múltiplo precio‑utilidad (P/E) de Chevron superará 13,5 para finales
+    del primer semestre de 2028, reflejando una revaluación del mercado ante la menor
+    percepción de riesgo de transición.
+  status: ACTIVE
+  ticker: CVX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos CCS en 2028 son < $0.9 bn.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Chevron anuncia la cancelación o retraso > 12 meses de una de sus instalaciones
+      CCS previstas para 2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos CCS en 2028 son < $0.9 bn.
+  - Chevron anuncia la cancelación o retraso > 12 meses de una de sus instalaciones
+    CCS previstas para 2028.
+  horizon: largo
+  id: H4-OPP-COMPOUNDER-CVX-0001
+  opportunity_id: OPP-COMPOUNDER-CVX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 1.2
+    met: null
+    metric: ingresos_CCS
+    prediction: Los ingresos reportados bajo la línea 'CCS y créditos de carbono'
+      en el 10‑K de 2028 serán ≥ $1.2 bn.
+    unit: miles_de_millones_USD
+  priority: informational
+  probability: 0.5
+  rationale: Chevron ha firmado acuerdos de venta de créditos de carbono y está construyendo
+    dos instalaciones CCS en Texas y Louisiana, con capacidad combinada de 2 MtCO₂/año,
+    lo que debería generar ingresos significativos una vez operativas.
+  review_trigger: Si al 31‑12‑2028 los ingresos CCS son < $0.9 bn o si la compañía
+    declara que ninguna instalación CCS estará operativa antes de 2029.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-CVX-0001
+  statement: Los ingresos de Chevron provenientes de proyectos de captura y almacenamiento
+    de carbono (CCS) superarán los $1.2 bn anuales a partir de 2028.
+  status: ACTIVE
+  ticker: CVX
+  version: 1
