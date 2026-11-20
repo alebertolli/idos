@@ -1,0 +1,510 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El crecimiento histórico reportado justifica investigar su persistencia, pero
+    no basta para atribuir una ventaja competitiva o retornos atractivos sobre capital.
+  - El FCF negativo es una señal de diligencia, pero por sí solo no identifica si
+    responde a inversión, movimientos propios de la actividad financiera u otra causa.
+  - 'El precio de cierre observado fue USD 9,66 al 2026-10-30; fuente: yfinance, https://finance.yahoo.com/quote/MFG/,
+    período/fecha 2026-10-30.'
+  - 'El momentum de precio a 12 meses fue 43,5364% y el drawdown informado fue 15,6332%;
+    fuente: yfinance, https://finance.yahoo.com/quote/MFG/history/, período 2025-10-31/2026-10-30.'
+  - 'StockAnalysis reporta ingresos de 4.399.734 para FY 2026 y 2.779.216 para FY
+    2023, y beneficio neto de 1.248.632 para FY 2026; fuente: https://stockanalysis.com/stocks/mfg/financials/,
+    período FY terminado 2026-03-31 y FY terminado 2023-03-31.'
+  preguntas_abiertas:
+  - ¿Cuál es la evolución de capital regulatorio, calidad de activos, provisiones
+    y retornos sobre capital en períodos comparables?
+  - ¿Qué explica el FCF negativo y cuál es la definición y moneda de las magnitudes
+    financieras reportadas?
+  - ¿Qué supuestos, horizonte y cobertura sustentan los objetivos de analistas?
+  - ¿Qué evidencia verificable existe sobre mercado direccionable, penetración, moat,
+    reinversión y asignación de capital?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Candidato a investigación; tesis de crecimiento no validada
+  justificacion: El paquete muestra momentum de precio a 12 meses y crecimiento histórico
+    de ingresos y beneficio neto reportados, pero también FCF negativo y datos insuficientes
+    para validar varias métricas clave de capital.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La descripción del negocio identifica actividades bancarias, fiduciarias,
+    de valores y otras finanzas, y el historial financiero reportado muestra crecimiento
+    de ingresos y beneficio neto. No hay datos suficientes para evaluar retornos sobre
+    capital, ventaja competitiva, erosión, reinversión, mercado direccionable o asignación
+    de capital.
+  rating: Inconcluso
+dominio_catalizadores:
+- analisis: Los próximos datos financieros comparables permitirían comprobar si el
+    crecimiento reportado de ingresos y beneficio neto persiste.
+  catalizador: Actualización de resultados
+- analisis: Una serie futura comparable permitiría evaluar si el FCF negativo de FY
+    2025 y FY 2026 se revierte o continúa.
+  catalizador: Evolución del FCF
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- analisis: StockAnalysis reportó FCF negativo en FY 2025 y FY 2026; no se dispone
+    aquí de una explicación de sus componentes ni de comparabilidad con el dato TTM.
+  riesgo: FCF negativo
+- analisis: No se puede validar deuda neta/EBITDA, dilución ni cobertura de intereses
+    con los campos y datos disponibles.
+  riesgo: Métricas de capital incompletas
+- analisis: El cambio de precio a 12 meses es evidencia histórica de mercado y no
+    demuestra crecimiento futuro de beneficios.
+  riesgo: Extrapolación del momentum
+- analisis: Los valores reportados de ingresos TTM en estadísticas y en historial
+    financiero difieren; no se reconcilian con la evidencia proporcionada.
+  riesgo: Calidad de datos financieros
+error_mercado:
+  catalizador_cambio: Resultados futuros que permitan comprobar si el crecimiento
+    de ingresos y beneficio neto continúa y si el FCF mejora.
+  conclusion_error_valoracion: La evidencia disponible no permite concluir que exista
+    un error de valoración; el rango de analistas es una referencia observada, no
+    una valoración intrínseca.
+  consenso_actual: La cotización observada fue USD 9,66 al 2026-10-30; el consenso
+    de precio objetivo informado el 2026-11-20 fue USD 11,64 de media, con rango USD
+    10,20–13,07.
+  hipotesis_contraria: 'El momentum observado puede no anticipar la capacidad de sostener
+    beneficios y financiar crecimiento: el FCF reportado fue negativo en FY 2025 y
+    FY 2026.'
+  razonamiento: El precio avanzó 43,5364% entre 2025-10-31 y 2026-10-30, mientras
+    que las cifras históricas reportadas muestran mayor ingreso y beneficio neto.
+    No hay evidencia suficiente sobre retornos sobre capital, supuestos del consenso
+    ni valoración fundamental para determinar si esas expectativas están justificadas.
+generated_at: '2026-11-20T16:47:38.252216-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-MFG
+prompt_inputs:
+  business_model: Mizuho Financial Group, Inc., together with its subsidiaries, engages
+    in banking, trust banking, securities, and other businesses related to financial
+    services in Japan, the Americas, Europe, Asia/Oceania, and internationally. The
+    company offers finance solutions, including corporate, syndicated, acquisition,
+    real estate, project, ECA, and other structured finance solutions; financing and
+    advisory solutions for capital markets comprising debt, loan, and equity capital
+    markets; corporate finance advisory services; treasury solutions that include
+    deposit, cash management, and trade finance; and market solutions for foreign
+    exchange, derivatives, futures, equities, and fixed income. It also provides asset
+    management services; research services, such as industry, macroeconomic, equity,
+    and fixed income research; and institutional services, including markets, JPY
+    clearing, custody, fund administration, and securities lending services. The company
+    was founded in 1873 and is headquartered in Chiyoda, Japan.
+  ceo_tenure: 0
+  debt_to_equity: 0.0718
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Mizuho Financial Group, Inc.
+  operating_margin: 40.04
+  pe_ratio: 12.17
+  products: ''
+  revenue: 31440000000.0
+  revenue_growth: 24.79
+  roic: 12.2
+  sector: Financial Services
+  ticker: MFG
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-03-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mfg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_history:
+    - period: FY 2026
+      period_end: '2026-03-31'
+      unit: source_reported_amount
+      value: -6089212
+    - period: FY 2025
+      period_end: '2025-03-31'
+      unit: source_reported_amount
+      value: -5843117
+  limitations: Ambos FCF son negativos; la definición configurada requiere valores
+    positivos en ambos períodos.
+  metric: fcf_growth_pct
+  period_end: '2026-03-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mfg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-03-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mfg/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    ebitda: n/a
+    net_cash_history:
+      period: Current
+      period_end: '2026-09-30'
+      unit: source_reported_amount
+      value: 59795236
+    total_debt_history:
+      period: Current
+      period_end: '2026-09-30'
+      unit: source_reported_amount
+      value: 80861962
+  limitations: EBITDA está reportado como n/a; no se puede calcular el denominador
+    requerido. La evidencia no establece además que las definiciones de caja y deuda
+    sean compatibles con la fórmula.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mfg/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MFG/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding:
+      period_end: '2026-09-30'
+      value: 2410000000
+  limitations: Sólo hay un dato de acciones en circulación; falta una observación
+    comparable del período anterior y no se proporciona historia de acciones diluidas.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MFG/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Mizuho Financial Group, Inc., together with its subsidiaries, engages
+    in banking, trust banking, securities, and other businesses related to financial
+    services in Japan, the Americas, Europe, Asia/Oceania, and internationally. The
+    company offers finance solutions, including corporate, syndicated, acquisition,
+    real estate, project, ECA, and other structured finance solutions; financing and
+    advisory solutions for capital markets comprising debt, loan, and equity capital
+    markets; corporate finance advisory services; treasury solutions that include
+    deposit, cash management, and trade finance; and market solutions for foreign
+    exchange, derivatives, futures, equities, and fixed income. It also provides asset
+    management services; research services, such as industry, macroeconomic, equity,
+    and fixed income research; and institutional services, including markets, JPY
+    clearing, custody, fund administration, and securities lending services. The company
+    was founded in 1873 and is headquartered in Chiyoda, Japan.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 9.65999984741211
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0718
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T19:47:09.659182+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Mizuho Financial Group, Inc.
+  operating_margin: 40.04
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Mizuho Financial Group, Inc., together with its subsidiaries, engages
+    in banking, trust banking, securities, and other businesses related to financial
+    services in Japan, the Americas, Europe, Asia/Oceania, and internationally. The
+    company offers finance solutions, including corporate, syndicated, acquisition,
+    real estate, project, ECA, and other structured finance solutions; financing and
+    advisory solutions for capital markets comprising debt, loan, and equity capital
+    markets; corporate finance '
+  revenue: 31440000000.0
+  revenue_growth: 24.79
+  roic: 12.2
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mfg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mfg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mfg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mfg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mfg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mfg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MFG/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mfg/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    13.07, "low": 10.2, "mean": 11.64, "median": 11.64, "observed_at": "2026-11-20T16:47:12.636478-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T16:47:12.636478-03:00", "observed_date": "2026-11-20", "target_price":
+    11.64, "url": "https://stockanalysis.com/stocks/mfg/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:47:12.636478-03:00",
+    "observed_date": "2026-11-20", "target_price": 11.63623, "url": "https://finance.yahoo.com/quote/MFG/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 9.65999984741211,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/MFG/"}]}}'
+  sector: Financial Services
+  ticker: MFG
+research_trigger:
+  discovery_snapshot_hash: 9f914ea619dd04c405b82aae7192cd2113eb6fec39063f401b91c56aba56ac8a
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 9f861e30c9b85801dfa17c25c2560ef7429205fcd505bb23ad9eb4a56c86d53a
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T16:47:38.252216-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: El proveedor reporta 0 para 2026-09-30; el dato no está validado como
+    ratio utilizable y no hay activos y pasivos corrientes que permitan comprobarlo.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MFG/statistics/
+  threshold: below 0.5 x
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta una serie de acciones diluidas o acciones en circulación
+    para comparar períodos.'
+  threshold: above 10 percent
+- metric: interest_coverage
+  observation: 'No evaluable: EBIT está reportado como n/a y no se aporta gasto por
+    intereses compatible.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MFG/statistics/
+  threshold: below 2.0 x
+- metric: negative_fcf_runway_months
+  observation: 'No evaluable: el FCF TTM es negativo, pero no hay dato de caja en
+    moneda y período compatibles ni una medida mensual de consumo validada.'
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 'No evaluable: EBITDA está reportado como n/a.'
+  threshold: above 4.0 x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta una serie de acciones con observaciones comparables
+    separadas por tres años.'
+  threshold: above 5 percent
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 63
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T16:47:12.636478-03:00'
+  fuentes:
+    stockanalysis: 11.64
+    yfinance: 11.63623
+  mediana: 11.64
+  n_fuentes: 2
+  promedio: 11.64
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T16:47:12.636478-03:00'
+    observed_date: '2026-11-20'
+    target_price: 11.64
+    url: https://stockanalysis.com/stocks/mfg/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T16:47:12.636478-03:00'
+    observed_date: '2026-11-20'
+    target_price: 11.63623
+    url: https://finance.yahoo.com/quote/MFG/
+  target_high: 13.07
+  target_low: 10.2
+tesis_inversion: La tesis a investigar es que Mizuho podría sostener crecimiento mediante
+  sus actividades bancarias, de banca fiduciaria y de valores, apoyado por el aumento
+  histórico reportado de ingresos y beneficio neto; la contratesis es que ese crecimiento
+  no se traduzca en FCF sostenible o retornos adecuados sobre capital. La evidencia
+  aportada no permite medir mercado direccionable, penetración, moat, reinversión
+  ni calidad de asignación de capital.
+ticker: MFG
+version: '3.0'

@@ -1,0 +1,180 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La ganancia bruta consolidada de FY2027 crece menos del 3% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento consolidado se obtiene pese a una caída interanual de
+      la ganancia bruta en al menos dos de las tres actividades principales reportadas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La ganancia bruta consolidada de FY2027 crece menos del 3% interanual.
+  - El crecimiento consolidado se obtiene pese a una caída interanual de la ganancia
+    bruta en al menos dos de las tres actividades principales reportadas.
+  horizon: medio
+  id: H1-OPP-MB-MFG
+  opportunity_id: OPP-MB-MFG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-05-31'
+    expected: 3.0
+    met: null
+    metric: Variación interanual de la ganancia bruta consolidada en FY2027
+    prediction: La ganancia bruta consolidada de FY2027 aumentará al menos un 3% frente
+      a FY2026, según los resultados anuales publicados antes de la fecha objetivo.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La tesis plantea que las tres actividades pueden aportar crecimiento,
+    pero la evidencia disponible no demuestra su persistencia ni identifica qué segmentos
+    lo impulsan. El crecimiento interanual de la ganancia bruta consolidada en FY2027
+    permitiría comprobar si el impulso continúa en el negocio operativo.
+  review_trigger: Dejar de creerla si los resultados anuales de FY2027 muestran un
+    crecimiento de la ganancia bruta consolidada inferior al 3%, o si la empresa informa
+    que al menos dos de las tres actividades principales redujeron su ganancia bruta
+    interanual.
+  secondary_hypotheses: []
+  statement: Mizuho sostendrá el crecimiento de su actividad bancaria, fiduciaria
+    y de valores durante el ejercicio fiscal 2027, en lugar de depender únicamente
+    del crecimiento histórico observado.
+  status: ACTIVE
+  ticker: MFG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La ganancia neta atribuible a los accionistas de la matriz en FY2027
+      aumenta menos del 5% frente a FY2026 o disminuye.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Excluidas las partidas extraordinarias identificadas por la empresa,
+      la ganancia neta recurrente de FY2027 no supera la de FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La ganancia neta atribuible a los accionistas de la matriz en FY2027 aumenta menos
+    del 5% frente a FY2026 o disminuye.
+  - Excluidas las partidas extraordinarias identificadas por la empresa, la ganancia
+    neta recurrente de FY2027 no supera la de FY2026.
+  horizon: medio
+  id: H2-OPP-MB-MFG
+  opportunity_id: OPP-MB-MFG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-05-31'
+    expected: 5.0
+    met: null
+    metric: Variación interanual de la ganancia neta atribuible en FY2027
+    prediction: La ganancia neta atribuible a los accionistas de la matriz en FY2027
+      será al menos un 5% superior a la de FY2026.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El contexto señala aumentos históricos de ingresos y beneficio neto,
+    pero no acredita que puedan sostenerse. Comparar la ganancia neta de FY2027 con
+    FY2026 prueba si el crecimiento del negocio llega al resultado final; la separación
+    de partidas extraordinarias ayuda a evaluar su calidad.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados anuales de FY2027
+    si el crecimiento de la ganancia neta atribuible es inferior al 5%, o si la empresa
+    atribuye el aumento reportado principalmente a partidas no recurrentes.
+  secondary_hypotheses:
+  - H1-OPP-MB-MFG
+  statement: El crecimiento operativo de Mizuho se traducirá en un aumento de la ganancia
+    neta anual, sin que el resultado dependa exclusivamente de partidas extraordinarias.
+  status: ACTIVE
+  ticker: MFG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El ROE de FY2027 es inferior al 8%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El ROE de FY2027 cae más de 0,5 puntos porcentuales frente a FY2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El ROE de FY2027 es inferior al 8%.
+  - El ROE de FY2027 cae más de 0,5 puntos porcentuales frente a FY2026.
+  horizon: medio
+  id: H3-OPP-MB-MFG
+  opportunity_id: OPP-MB-MFG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-05-31'
+    expected: 8.0
+    met: null
+    metric: ROE de FY2027
+    prediction: El ROE de FY2027, calculado con la definición que Mizuho utilice y
+      revele para ambos ejercicios, será al menos del 8% y no quedará más de 0,5 puntos
+      porcentuales por debajo del ROE de FY2026.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: El contexto identifica como contratesis que el crecimiento no genere
+    retornos adecuados sobre capital. La rentabilidad sobre el capital reportada por
+    la compañía ofrece una prueba directa, aunque por sí sola no demuestra que la
+    asignación de capital sea óptima.
+  review_trigger: Dejar de creerla al publicarse los resultados anuales de FY2027
+    si se cumple cualquiera de los dos criterios de falsación.
+  secondary_hypotheses:
+  - H2-OPP-MB-MFG
+  statement: Mizuho mantendrá una rentabilidad sobre el capital suficiente para respaldar
+    la tesis de crecimiento, sin deterioro material frente al nivel de FY2026.
+  status: ACTIVE
+  ticker: MFG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de Mizuho menos el rendimiento total del TOPIX
+      Banks es inferior a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento total de Mizuho es inferior al del TOPIX Banks.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de Mizuho menos el rendimiento total del TOPIX Banks es inferior
+    a 5 puntos porcentuales.
+  - El rendimiento total de Mizuho es inferior al del TOPIX Banks.
+  horizon: medio
+  id: H4-OPP-MB-MFG
+  opportunity_id: OPP-MB-MFG
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de Mizuho frente al TOPIX Banks
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de Mizuho,
+      incluidos dividendos y expresado en yenes, superará al del índice TOPIX Banks
+      en al menos 5 puntos porcentuales.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: 'Si el crecimiento operativo se convierte en mayores beneficios y se
+    sostiene la rentabilidad sobre el capital, el mercado podría reconocer esa mejora
+    en el precio y los dividendos. Sin datos de valoración actuales, esta hipótesis
+    no presupone que la acción esté barata: contrasta directamente su rendimiento
+    con un referente sectorial.'
+  review_trigger: Dejar de creerla el 2027-11-20 si el rendimiento total relativo
+    acumulado desde el 2026-11-20 es inferior a 5 puntos porcentuales.
+  secondary_hypotheses:
+  - H2-OPP-MB-MFG
+  - H3-OPP-MB-MFG
+  statement: La acción de Mizuho tendrá un rendimiento total superior al del índice
+    TOPIX Banks durante los doce meses siguientes al corte de investigación.
+  status: ACTIVE
+  ticker: MFG
+  version: 1

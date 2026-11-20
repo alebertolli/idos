@@ -1,0 +1,578 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El FCF positivo y el margen bruto reportado son señales financieras descriptivas,
+    pero no validan por sí solos una ventaja competitiva durable.
+  - Los objetivos de analistas sirven aquí solo como anclas observadas de escenarios,
+    no como valor intrínseco.
+  - 'FCF reportado: 6,132 para TTM al 2026-07-31; fuente: https://stockanalysis.com/stocks/mdt/financials/.'
+  - 'Margen bruto reportado: 65.27% para TTM al 2026-07-31; fuente: https://stockanalysis.com/stocks/MDT/statistics/.'
+  - 'Cotización observada: USD 96.54 al 2026-10-30; fuente: https://finance.yahoo.com/quote/MDT/.'
+  - 'Rango de objetivos de analistas: USD 92–121 al 2026-11-20; fuente: https://stockanalysis.com/stocks/mdt/forecast/.'
+  preguntas_abiertas:
+  - ¿Cuál es el crecimiento orgánico, el mercado direccionable y la penetración por
+    producto o segmento?
+  - ¿Cuáles son los retornos sobre capital y las necesidades de reinversión por segmento?
+  - ¿Qué inversiones, adquisiciones, recompras o dividendos determinan la asignación
+    de capital y la evolución de acciones diluidas?
+  - ¿Cuáles son EBIT e intereses comparables, y qué unidades y períodos concilian
+    deuda, caja y EBITDA?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación fundamental pendiente de validación
+  justificacion: La evidencia proporcionada muestra crecimiento reciente del flujo
+    de caja libre y métricas de mercado, pero no permite validar varios ratios clave
+    ni cuantificar el mercado direccionable, la penetración o los retornos sobre capital.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El resumen describe un negocio de dispositivos y terapias con tres segmentos,
+    pero no aporta datos verificables sobre mercado direccionable, penetración, crecimiento
+    por producto, retornos sobre capital, reinversión o asignación de capital. El
+    margen bruto reportado para TTM al 2026-07-31 fue 65.27%, pero esa métrica por
+    sí sola no valida la calidad o durabilidad del negocio.
+  rating: Inconcluso
+dominio_catalizadores:
+- catalizador: Crecimiento adicional del FCF.
+  evidencia: El FCF reportado para FY 2026 fue 5,426 frente a 5,185 para FY 2025,
+    bajo la serie de la fuente.
+  fuente: https://stockanalysis.com/stocks/mdt/financials/
+- catalizador: Evaluación de la continuidad de los márgenes.
+  evidencia: El margen bruto reportado fue 65.27% para TTM al 2026-07-31; falta evidencia
+    de márgenes por segmento y de sus impulsores.
+  fuente: https://stockanalysis.com/stocks/mdt/financials/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: La fuente reporta net cash de -19,171 para Current al 2026-07-31; no
+    se puede validar net debt/EBITDA con unidades y campos compatibles.
+  fuente: https://stockanalysis.com/stocks/mdt/financials/
+  riesgo: Deuda neta significativa en la serie reportada.
+- evidencia: El FCF reportado fue 6,132 para TTM al 2026-07-31; la serie anual muestra
+    variación entre FY 2023 y FY 2026.
+  fuente: https://stockanalysis.com/stocks/mdt/financials/
+  riesgo: El FCF depende de que se sostengan los resultados operativos y la conversión
+    de ingresos en caja.
+- evidencia: Se reporta una observación de acciones en circulación, pero no una serie
+    histórica comparable.
+  fuente: https://stockanalysis.com/stocks/MDT/statistics/
+  riesgo: No se puede determinar la dilución ni el cambio del número de acciones con
+    la información proporcionada.
+error_mercado:
+  catalizador_cambio: Resultados financieros posteriores que permitan evaluar crecimiento
+    orgánico, conversión de caja y evolución de márgenes; no se proporcionaron fechas
+    ni hitos corporativos específicos.
+  conclusion_error_valoracion: No es posible validar un error de valoración con la
+    evidencia disponible.
+  consenso_actual: La cotización observada fue USD 96.54 al 2026-10-30; el consenso
+    de precio objetivo recopilado al 2026-11-20 tiene media y mediana de USD 106.96
+    y rango de USD 92 a USD 121.
+  hipotesis_contraria: 'Los extremos del consenso no demuestran por sí solos infravaloración
+    ni sobrevaloración: la evidencia entregada no incluye estimaciones de crecimiento
+    futuro, valoración intrínseca ni expectativas detalladas del mercado.'
+  razonamiento: El precio objetivo consensuado y la cotización son observaciones de
+    mercado en fechas distintas; no constituyen un método de valoración propio ni
+    una previsión garantizada.
+generated_at: '2026-11-20T16:45:43.144167-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-MDT
+prompt_inputs:
+  business_model: 'Medtronic plc develops, manufactures, and sells device-based medical
+    therapies to healthcare systems, physicians, clinicians, and patients in the United
+    States, Ireland, and internationally. It operates through three segments: The
+    Cardiovascular Portfolio, Neuroscience Portfolio, and Medical Surgical Portfolio.
+    The Cardiovascular Portfolio segment offers implantable cardiac pacemakers, cardioverter
+    defibrillators, and cardiac resynchronization therapy devices; cardiac ablation
+    products; insertable cardiac monitor systems; TYRX products; and remote monitoring
+    and patient-centered software. It also provides aortic valves, surgical valve
+    replacement and repair products, endovascular stent grafts and accessories, and
+    transcatheter pulmonary valves, left atrial appendage exclusion systems, extracorporeal
+    membrane oxygenation (ECMO) systems and percutaneous coronary intervention products,
+    percutaneous angioplasty balloons, and endovenous products. The Neuroscience Portfolio
+    segment offers medical devices and implants, biologic solutions, spinal cord stimulation
+    and brain modulation systems, implantable drug infusion systems, and interventional
+    products, as well as nerve ablation system under the Accurian name. This segment
+    offers its products for spinal surgeons, neurosurgeons, neurologists, pain management
+    specialists, anesthesiologists, orthopedic surgeons, urologists, urogynecologists,
+    and interventional radiologists, as well as ear, nose, and throat specialists,
+    and energy surgical instruments. The Medical Surgical Portfolio segment offers
+    surgical stapling devices, vessel sealing instruments, wound closure and electrosurgery
+    products, AI-powered surgical video and analytics platform, robotic-assisted surgery
+    products, hernia mechanical devices, mesh implants, gynecology products, gastrointestinal
+    and hepatologic diagnostics and therapies, and therapies to treat diseases and
+    conditions, and patient monitoring and airway management products, as well as
+    insulin pumps and consumables, continuous glucose monitoring systems, and sensors.
+    Medtronic plc was founded in 1949 and is headquartered in Galway, Ireland.'
+  ceo_tenure: 0
+  debt_to_equity: 0.55
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Medtronic plc
+  operating_margin: 20.05
+  pe_ratio: 24.98
+  products: ''
+  revenue: 37540000000.0
+  revenue_growth: 9.77
+  roic: 8.57
+  sector: Healthcare
+  ticker: MDT
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: La serie disponible incluye FY 2024, FY 2025 y FY 2026, pero
+      no una fila FY 2023.
+  limitations: Falta un ingreso FY 2023 fechado para calcular el CAGR de tres años
+    conforme a la fórmula requerida.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mdt/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2026-04-24'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mdt/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-07-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mdt/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    cash_and_investments_history: Disponible para Current al 2026-07-31, pero no se
+      proporciona EBITDA con unidad conciliable.
+    total_debt_history: Disponible para Current al 2026-07-31, pero el ratio_input_fields
+      no proporciona un campo EBITDA.
+  limitations: Falta un input de EBITDA permitido y verificable en una unidad compatible;
+    no se deriva el ratio con valores de escala no conciliada.
+  metric: net_debt_ebitda
+  period_end: '2026-07-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/mdt/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MDT/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: Una observación al 2026-07-31, sin observación del período
+      comparable anterior.
+    shares_outstanding_history: No está disponible en la evidencia proporcionada.
+  limitations: Falta el número de acciones del período anterior comparable; una observación
+    aislada no permite calcular dilución interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-07-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/MDT/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Medtronic plc develops, manufactures, and sells device-based medical
+    therapies to healthcare systems, physicians, clinicians, and patients in the United
+    States, Ireland, and internationally. It operates through three segments: The
+    Cardiovascular Portfolio, Neuroscience Portfolio, and Medical Surgical Portfolio.
+    The Cardiovascular Portfolio segment offers implantable cardiac pacemakers, cardioverter
+    defibrillators, and cardiac resynchronization therapy devices; cardiac ablation
+    products; insertable cardiac monitor systems; TYRX products; and remote monitoring
+    and patient-centered software. It also provides aortic valves, surgical valve
+    replacement and repair products, endovascular stent grafts and accessories, and
+    transcatheter pulmonary valves, left atrial appendage exclusion systems, extracorporeal
+    membrane oxygenation (ECMO) systems and percutaneous coronary intervention products,
+    percutaneous angioplasty balloons, and endovenous products. The Neuroscience Portfolio
+    segment offers medical devices and implants, biologic solutions, spinal cord stimulation
+    and brain modulation systems, implantable drug infusion systems, and interventional
+    products, as well as nerve ablation system under the Accurian name. This segment
+    offers its products for spinal surgeons, neurosurgeons, neurologists, pain management
+    specialists, anesthesiologists, orthopedic surgeons, urologists, urogynecologists,
+    and interventional radiologists, as well as ear, nose, and throat specialists,
+    and energy surgical instruments. The Medical Surgical Portfolio segment offers
+    surgical stapling devices, vessel sealing instruments, wound closure and electrosurgery
+    products, AI-powered surgical video and analytics platform, robotic-assisted surgery
+    products, hernia mechanical devices, mesh implants, gynecology products, gastrointestinal
+    and hepatologic diagnostics and therapies, and therapies to treat diseases and
+    conditions, and patient monitoring and airway management products, as well as
+    insulin pumps and consumables, continuous glucose monitoring systems, and sensors.
+    Medtronic plc was founded in 1949 and is headquartered in Galway, Ireland.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 96.54000091552734
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.55
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T19:45:07.402725+00:00", "period_end": "2026-07-31",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Medtronic plc
+  operating_margin: 20.05
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Medtronic plc develops, manufactures, and sells device-based medical
+    therapies to healthcare systems, physicians, clinicians, and patients in the United
+    States, Ireland, and internationally. It operates through three segments: The
+    Cardiovascular Portfolio, Neuroscience Portfolio, and Medical Surgical Portfolio.
+    The Cardiovascular Portfolio segment offers implantable cardiac pacemakers, cardioverter
+    defibrillators, and cardiac resynchronization therapy devices; cardiac ablation
+    products; insertab'
+  revenue: 37540000000.0
+  revenue_growth: 9.77
+  roic: 8.57
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mdt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MDT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MDT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MDT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MDT/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mdt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mdt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mdt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MDT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mdt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MDT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mdt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mdt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mdt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MDT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/MDT/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/mdt/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    121.0, "low": 92.0, "mean": 106.96, "median": 106.96, "observed_at": "2026-11-20T16:45:10.388143-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T16:45:10.388143-03:00", "observed_date": "2026-11-20", "target_price":
+    106.96, "url": "https://stockanalysis.com/stocks/mdt/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T16:45:10.388143-03:00",
+    "observed_date": "2026-11-20", "target_price": 106.96154, "url": "https://finance.yahoo.com/quote/MDT/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 96.54000091552734,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/MDT/"}]}}'
+  sector: Healthcare
+  ticker: MDT
+research_trigger:
+  discovery_snapshot_hash: 3bd2fd566c9e28671e579b91f5b507d7b862d9c306999c48e1a7cc65a690e3cd
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: b1313b41c6eaa3ba85e6b2487ceb4b9187b0e06f38ff7fcde2d1b213c5d20612
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T16:45:43.144167-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 2.07x para TTM al 2026-07-31; no cruza el umbral configurado.
+  source: https://stockanalysis.com/stocks/MDT/statistics/
+  threshold: below 0.5x
+- metric: dilution_yoy_pct
+  observation: No disponible; faltan acciones de un período comparable anterior.
+  source: https://stockanalysis.com/stocks/MDT/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 para TTM al 2026-07-31, pero no hay inputs EBIT
+    e interés verificables que permitan validar ese ratio.
+  source: https://stockanalysis.com/stocks/MDT/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No aplica a la observación disponible: FCF reportado positivo para
+    TTM al 2026-07-31.'
+  source: https://stockanalysis.com/stocks/MDT/statistics/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: No disponible con inputs y unidades compatibles.
+  source: https://stockanalysis.com/stocks/mdt/financials/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: No disponible; falta una serie histórica de acciones de tres años.
+  source: https://stockanalysis.com/stocks/MDT/statistics/
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados futuros que muestren crecimiento y generación de caja sostenidos
+      podrían contradecir la lectura adversa.
+    id: BEAR
+    key_assumptions:
+    - El extremo bajo del consenso es una referencia de mercado, no un pronóstico
+      propio.
+    - La evidencia disponible no permite cuantificar deterioros de ingresos, márgenes
+      o valoración.
+    rationale: Ancla en el extremo bajo del consenso observado al 2026-11-20, no valoración
+      intrínseca. Representa un resultado adverso plausible si el crecimiento y la
+      generación de caja no sostienen las expectativas reflejadas en los objetivos
+      de analistas.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/mdt/forecast/
+    target_price: 92
+  - falsifiers:
+    - Una caída sostenida del FCF o de los márgenes reportados debilitaría esta lectura
+      favorable.
+    id: BULL
+    key_assumptions:
+    - El extremo alto del consenso es una referencia de mercado, no un pronóstico
+      propio.
+    - El FCF reportado para FY 2026 supera al de FY 2025; no se dispone de evidencia
+      suficiente para extrapolar esa variación.
+    rationale: Ancla en el extremo alto del consenso observado al 2026-11-20, no valoración
+      intrínseca. Representa un resultado favorable plausible si se sostienen el crecimiento
+      reciente del FCF y los márgenes reportados; la evidencia no demuestra que ese
+      resultado vaya a ocurrir.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/mdt/forecast/
+    - as_of_date: '2026-07-31'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/mdt/financials/
+    target_price: 121
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T16:45:10.388143-03:00'
+  fuentes:
+    stockanalysis: 106.96
+    yfinance: 106.96154
+  mediana: 106.96
+  n_fuentes: 2
+  promedio: 106.96
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T16:45:10.388143-03:00'
+    observed_date: '2026-11-20'
+    target_price: 106.96
+    url: https://stockanalysis.com/stocks/mdt/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T16:45:10.388143-03:00'
+    observed_date: '2026-11-20'
+    target_price: 106.96154
+    url: https://finance.yahoo.com/quote/MDT/
+  target_high: 121.0
+  target_low: 92.0
+tesis_inversion: Medtronic vende terapias y dispositivos médicos a sistemas de salud,
+  profesionales y pacientes, según el resumen financiero proporcionado. La evidencia
+  financiera muestra FCF positivo y margen bruto relativamente estable en los períodos
+  reportados, pero no basta para establecer la magnitud del crecimiento sostenible,
+  la reinversión necesaria, los retornos sobre capital o una ventaja competitiva durable.
+ticker: MDT
+version: '3.0'

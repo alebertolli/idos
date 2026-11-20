@@ -1,0 +1,29 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental pendiente de validación'
+- 'Market error: No es posible validar un error de valoración con la evidencia disponible.'
+- 'Thesis: Medtronic vende terapias y dispositivos médicos a sistemas de salud, profesionales
+  y pacientes, según el resumen financiero proporcionado. La evidencia financiera
+  muestra FCF positivo y margen bruto r'
+generated_at: '2026-11-20T16:47:08.079179-03:00'
+id: ass-12557c98
+recommendation: REVIEW
+risks:
+- evidencia: La fuente reporta net cash de -19,171 para Current al 2026-07-31; no
+    se puede validar net debt/EBITDA con unidades y campos compatibles.
+  fuente: https://stockanalysis.com/stocks/mdt/financials/
+  riesgo: Deuda neta significativa en la serie reportada.
+- evidencia: El FCF reportado fue 6,132 para TTM al 2026-07-31; la serie anual muestra
+    variación entre FY 2023 y FY 2026.
+  fuente: https://stockanalysis.com/stocks/mdt/financials/
+  riesgo: El FCF depende de que se sostengan los resultados operativos y la conversión
+    de ingresos en caja.
+- evidencia: Se reporta una observación de acciones en circulación, pero no una serie
+    histórica comparable.
+  fuente: https://stockanalysis.com/stocks/MDT/statistics/
+  riesgo: No se puede determinar la dilución ni el cambio del número de acciones con
+    la información proporcionada.
+score: 58
+status: COMPLETED
+version: '3.0'

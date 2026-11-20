@@ -1,0 +1,143 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico acumulado de los cuatro trimestres es inferior
+      al 4%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía reporta crecimiento orgánico negativo en dos trimestres
+      consecutivos dentro del período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico acumulado de los cuatro trimestres es inferior al 4%.
+  - La compañía reporta crecimiento orgánico negativo en dos trimestres consecutivos
+    dentro del período.
+  horizon: medio
+  id: H1-OPP-MB-MDT
+  opportunity_id: OPP-MB-MDT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 4.0
+    met: null
+    metric: Crecimiento orgánico acumulado de ingresos en cuatro trimestres
+    prediction: En los cuatro trimestres reportados más recientes al 2027-11-20, el
+      crecimiento orgánico acumulado de ingresos será igual o superior al 4%, calculado
+      con la métrica orgánica definida por Medtronic y comparando con los mismos trimestres
+      del año anterior.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La empresa vende terapias y dispositivos médicos a sistemas de salud,
+    profesionales y pacientes; esa actividad puede sostener la demanda. Sin embargo,
+    la información disponible no confirma la tasa de crecimiento ni permite atribuirla
+    a productos o segmentos concretos, por lo que esta hipótesis debe comprobarse
+    con resultados futuros.
+  review_trigger: Dejar de creerla si dos reportes trimestrales consecutivos muestran
+    crecimiento orgánico negativo, o si el cálculo acumulado de los cuatro trimestres
+    queda por debajo del 4% al 2027-11-20.
+  secondary_hypotheses: []
+  statement: Medtronic mantendrá crecimiento orgánico positivo y alcanzará al menos
+    un 4% de crecimiento orgánico acumulado en los cuatro trimestres reportados hasta
+    la fecha objetivo.
+  status: ACTIVE
+  ticker: MDT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado de los doce meses es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de flujo de caja libre de los doce meses es inferior al 15%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado de los doce meses es cero o negativo.
+  - El margen de flujo de caja libre de los doce meses es inferior al 15%.
+  horizon: medio
+  id: H2-OPP-MB-MDT
+  opportunity_id: OPP-MB-MDT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 15.0
+    met: null
+    metric: Margen de flujo de caja libre en doce meses
+    prediction: Para los doce meses terminados el 2027-11-20, el flujo de caja libre
+      será positivo y representará al menos el 15% de los ingresos del mismo período.
+      Calcular flujo de caja libre como flujo de efectivo de operaciones menos inversiones
+      de capital.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia financiera proporcionada indica flujo de caja libre positivo
+    y margen bruto relativamente estable en los períodos examinados. Esto respalda
+    una hipótesis de continuidad de generación de caja, pero no demuestra que el nivel
+    sea sostenible ni cuánto capital requiere el negocio. El umbral propuesto es una
+    condición de prueba, no una cifra histórica atribuida a la compañía.
+  review_trigger: Dejar de creerla si un período móvil de doce meses reportado antes
+    de la fecha objetivo presenta flujo de caja libre negativo, o si el margen queda
+    por debajo del 15% en dos reportes trimestrales consecutivos.
+  secondary_hypotheses: []
+  statement: Medtronic conservará una generación de flujo de caja libre positiva y
+    un margen de flujo de caja libre de al menos el 15% durante los doce meses terminados
+    en la fecha objetivo.
+  status: ACTIVE
+  ticker: MDT
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El exceso de rentabilidad total de MDT frente al índice es inferior
+      a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de MDT es inferior a la del índice durante el
+      período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El exceso de rentabilidad total de MDT frente al índice es inferior a 5 puntos
+    porcentuales.
+  - La rentabilidad total de MDT es inferior a la del índice durante el período.
+  horizon: medio
+  id: H3-OPP-MB-MDT
+  opportunity_id: OPP-MB-MDT
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Exceso de rentabilidad total de MDT frente al MSCI U.S. Health Care
+    prediction: La rentabilidad total de MDT, incluidos dividendos reinvertidos, excederá
+      en al menos 5 puntos porcentuales la rentabilidad total del MSCI U.S. Health
+      Care entre el cierre del 2026-11-20 y el cierre del 2027-11-20.
+    unit: puntos porcentuales
+  priority: informational
+  probability: 0.5
+  rationale: La evidencia disponible no establece infravaloración, expectativas del
+    mercado ni valor intrínseco, así que no permite fundamentar una tesis de revalorización.
+    Esta hipótesis convierte la posibilidad de que la generación de caja y el desempeño
+    operativo se reflejen en el precio en una prueba observable; el diferencial frente
+    a un índice sectorial controla parcialmente los movimientos generales del sector.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si el exceso de rentabilidad
+    total es inferior a 5 puntos porcentuales; no inferir infravaloración o sobrevaloración
+    únicamente a partir del resultado.
+  secondary_hypotheses:
+  - H1-OPP-MB-MDT
+  - H2-OPP-MB-MDT
+  statement: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de MDT superará
+    en al menos 5 puntos porcentuales la del índice MSCI U.S. Health Care, medido
+    en dólares y con dividendos reinvertidos.
+  status: ACTIVE
+  ticker: MDT
+  version: 1

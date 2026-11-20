@@ -2180,3 +2180,81 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T16:38:04.751976'
+- data:
+    error: 'Failed to parse JSON at line 151, column 28: Expecting value'
+    event_evidence: null
+    event_type: monthly
+    forced: false
+    opp_id: OPP-MB-MDLZ
+    ticker: MDLZ
+  event_type: research:failed
+  source: research_worker
+  timestamp: '2026-11-20T16:45:06.163271'
+- data:
+    metrics:
+    - fcf_growth_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-MDT
+    ticker: MDT
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T16:45:43.014584'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-MDT
+    ticker: MDT
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T16:45:43.109195'
+- data:
+    classification: Investigación fundamental pendiente de validación
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: b1313b41c6eaa3ba85e6b2487ceb4b9187b0e06f38ff7fcde2d1b213c5d20612
+    opp_id: OPP-MB-MDT
+    score: 58
+    strategy_version: '1.5'
+    ticker: MDT
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T16:47:08.170115'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-MFG
+    ticker: MFG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T16:47:38.121013'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-MFG
+    ticker: MFG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T16:47:38.215496'
+- data:
+    classification: Candidato a investigación; tesis de crecimiento no validada
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 9f861e30c9b85801dfa17c25c2560ef7429205fcd505bb23ad9eb4a56c86d53a
+    opp_id: OPP-MB-MFG
+    score: 63
+    strategy_version: '1.5'
+    ticker: MFG
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T16:48:57.385666'
