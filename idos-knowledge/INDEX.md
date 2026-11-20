@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 116 companies tracked
+Total: 118 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -114,6 +114,7 @@ Total: 116 companies tracked
 - 📄 [[JCI|Johnson Controls International plc]]
 - 📄 [[LMT|Lockheed Martin Corporation]]
 - 📄 [[MMM|3M Company]]
+- 📄 [[PAM|Pampa Energía S.A.]]
 
 ## Real Estate
 - 📄 [[O|Realty Income Corporation]]
@@ -141,6 +142,7 @@ Total: 116 companies tracked
 - 📄 [[MSFT|Microsoft Corporation]]
 - 📄 [[MSI|Motorola Solutions, Inc.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
+- 📄 [[PANW|Palo Alto Networks, Inc.]]
 
 ## Utilities
 - 📄 [[CEG|Constellation Energy Corporation]]

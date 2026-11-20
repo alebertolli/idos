@@ -2,18 +2,8 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-O",
-      "ticker": "O",
-      "status": "quality_failed",
-      "score": 38,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "opp_id": "OPP-MB-OXY",
-      "ticker": "OXY",
+      "opp_id": "OPP-MB-PAM",
+      "ticker": "PAM",
       "status": "quality_failed",
       "score": 52,
       "reason": "new entry: SCREENED (score=0)",
@@ -22,20 +12,32 @@
       ]
     },
     {
-      "opp_id": "OPP-MB-PAGS",
-      "ticker": "PAGS",
-      "status": "completed",
-      "score": 55,
+      "opp_id": "OPP-MB-PANW",
+      "ticker": "PANW",
+      "status": "quality_failed",
+      "score": 58,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": []
+      "errors": [
+        "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "opp_id": "OPP-MB-PBI",
+      "ticker": "PBI",
+      "status": "hypothesis_validation_failed",
+      "score": null,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "H1: prediction or trigger references an expired year"
+      ]
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "O",
-      "opp_id": "OPP-MB-O",
+      "ticker": "PAM",
+      "opp_id": "OPP-MB-PAM",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
@@ -43,12 +45,21 @@
       ]
     },
     {
-      "ticker": "OXY",
-      "opp_id": "OPP-MB-OXY",
+      "ticker": "PANW",
+      "opp_id": "OPP-MB-PANW",
       "status": "quality_failed",
       "error": "Scenario validation status: invalid_pending_revision",
       "errors": [
         "Scenario validation status: invalid_pending_revision"
+      ]
+    },
+    {
+      "ticker": "PBI",
+      "opp_id": "OPP-MB-PBI",
+      "status": "hypothesis_validation_failed",
+      "error": "H1: prediction or trigger references an expired year",
+      "errors": [
+        "H1: prediction or trigger references an expired year"
       ]
     }
   ],
