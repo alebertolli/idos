@@ -1,0 +1,205 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción neta media de 2027 resulta inferior a la de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El aumento interanual de la producción neta media de 2027 es inferior
+      al 2%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica datos comparables que permitan calcular ambas
+      medias.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción neta media de 2027 resulta inferior a la de 2026.
+  - El aumento interanual de la producción neta media de 2027 es inferior al 2%.
+  - La empresa no publica datos comparables que permitan calcular ambas medias.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-EQNR-0001
+  opportunity_id: OPP-COMPOUNDER-EQNR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 2.0
+    met: null
+    metric: Crecimiento interanual de la producción neta media anual
+    prediction: En el ejercicio 2027, la producción neta media anual será al menos
+      un 2% superior a la media de 2026, según las definiciones de producción publicadas
+      por Equinor.
+    unit: porcentaje
+  priority: important
+  probability: 0.5
+  rationale: La continuidad de la producción de los activos existentes y la entrada
+    en operación de proyectos pueden sostener el volumen, aunque la evidencia disponible
+    no permite verificar los niveles de partida, el calendario de proyectos ni las
+    tasas de declive. La hipótesis requiere contrastar las cifras comunicadas por
+    la empresa.
+  review_trigger: Dejar de creerla cuando Equinor publique resultados comparables
+    de 2027 y estos muestren un crecimiento inferior al 2%; si antes de esa fecha
+    la empresa revisa a la baja su previsión de producción para 2027, reevaluarla
+    inmediatamente.
+  secondary_hypotheses: []
+  statement: La producción neta de Equinor se mantendrá en crecimiento durante 2027,
+    señal de que los activos en operación y las nuevas puestas en marcha compensarán
+    el declive natural de los yacimientos.
+  status: ACTIVE
+  ticker: EQNR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El cociente entre flujo de caja de las operaciones e inversiones de
+      capital más dividendos pagados es inferior a 1,0 en 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El cálculo requiere excluir desembolsos materiales o cambiar definiciones
+      publicadas, y no puede reconciliarse con los estados financieros auditados.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El cociente entre flujo de caja de las operaciones e inversiones de capital más
+    dividendos pagados es inferior a 1,0 en 2027.
+  - El cálculo requiere excluir desembolsos materiales o cambiar definiciones publicadas,
+    y no puede reconciliarse con los estados financieros auditados.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-EQNR-0001
+  opportunity_id: OPP-COMPOUNDER-EQNR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 1.0
+    met: null
+    metric: Cobertura de inversiones de capital y dividendos por el flujo de caja
+      de las operaciones
+    prediction: Para el ejercicio 2027, el flujo de caja de las operaciones dividido
+      por la suma de las inversiones de capital y los dividendos efectivamente pagados
+      será igual o superior a 1,0, usando cifras consolidadas de los estados financieros
+      de Equinor.
+    unit: veces
+  priority: critical
+  probability: 0.5
+  rationale: Si los activos operativos generan caja suficiente, la compañía podrá
+    financiar inversiones y dividendos sin depender necesariamente de nueva deuda
+    o de la venta de activos. La tesis es especialmente sensible a los precios de
+    petróleo y gas, los costes, los impuestos y las decisiones de inversión; la información
+    proporcionada no permite medir esta cobertura actualmente.
+  review_trigger: Dejar de creerla cuando los resultados anuales de 2027 muestren
+    una cobertura inferior a 1,0; reevaluarla antes si la empresa reduce su previsión
+    de flujo de caja o aumenta sustancialmente su presupuesto de inversión para 2027.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-EQNR-0001
+  statement: La caja generada por las operaciones en 2027 cubrirá al menos una vez
+    los desembolsos por inversiones y distribuciones a accionistas.
+  status: ACTIVE
+  ticker: EQNR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón de deuda neta sobre EBITDA ajustado al cierre de 2027 es igual
+      o superior a 1,5 veces.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Equinor no publica los componentes necesarios para calcular una razón
+      comparable y no ofrece una conciliación verificable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón de deuda neta sobre EBITDA ajustado al cierre de 2027 es igual o superior
+    a 1,5 veces.
+  - Equinor no publica los componentes necesarios para calcular una razón comparable
+    y no ofrece una conciliación verificable.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-EQNR-0001
+  opportunity_id: OPP-COMPOUNDER-EQNR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 1.5
+    met: null
+    metric: Deuda neta sobre EBITDA ajustado al cierre del ejercicio
+    prediction: La razón de deuda neta sobre EBITDA ajustado reportada por Equinor
+      para el cierre de 2027 será inferior a 1,5 veces.
+    unit: veces; límite superior
+  priority: important
+  probability: 0.5
+  rationale: Una deuda neta contenida frente al EBITDA ajustado reduciría la necesidad
+    de priorizar el desapalancamiento sobre la inversión o las distribuciones. El
+    resultado dependerá de la caja operativa, las inversiones, las distribuciones
+    y las condiciones de mercado; la evidencia entregada no permite establecer el
+    nivel actual de esta métrica.
+  review_trigger: Dejar de creerla al publicarse una razón igual o superior a 1,5
+    veces para el cierre de 2027; reevaluarla antes si la empresa anuncia adquisiciones,
+    inversiones extraordinarias o cambios de política financiera que eleven materialmente
+    el endeudamiento previsto.
+  secondary_hypotheses:
+  - H2-OPP-COMPOUNDER-EQNR-0001
+  statement: Equinor conservará una posición financiera compatible con el mantenimiento
+    de su flexibilidad de capital al cierre de 2027.
+  status: ACTIVE
+  ticker: EQNR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de Equinor supera la del índice de referencia
+      en 5 puntos porcentuales o más durante el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No es posible calcular ambas rentabilidades con precios ajustados por
+      dividendos en la misma moneda y para las mismas fechas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de Equinor supera la del índice de referencia en 5 puntos
+    porcentuales o más durante el periodo definido.
+  - No es posible calcular ambas rentabilidades con precios ajustados por dividendos
+    en la misma moneda y para las mismas fechas.
+  horizon: medio
+  id: H4-OPP-COMPOUNDER-EQNR-0001
+  opportunity_id: OPP-COMPOUNDER-EQNR-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total de Equinor menos rentabilidad total del índice sectorial
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de la acción
+      de Equinor, incluidos dividendos y calculada en coronas noruegas, superará la
+      del STOXX Europe 600 Oil & Gas Net Return Index en menos de 5 puntos porcentuales.
+    unit: puntos porcentuales; límite superior de la predicción
+  priority: informational
+  probability: 0.5
+  rationale: La información disponible indica que el precio observado está por encima
+    del consenso medio y dentro del rango de objetivos, lo cual no demuestra un descuento.
+    Además, los objetivos de analistas pueden compartir supuestos sobre materias primas.
+    Comparar la rentabilidad total con un índice sectorial permite una prueba observable,
+    aunque no constituye por sí sola una estimación de valor intrínseco.
+  review_trigger: Dejar de creerla si, al cierre del 2027-11-20, la rentabilidad total
+    de Equinor supera la del índice en 5 puntos porcentuales o más; si hay suspensión
+    de cotización o una operación corporativa que impida una comparación homogénea,
+    invalidar la prueba y reformularla.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-EQNR-0001
+  - H2-OPP-COMPOUNDER-EQNR-0001
+  - H3-OPP-COMPOUNDER-EQNR-0001
+  statement: La acción de Equinor no ofrecerá una rentabilidad total superior en al
+    menos cinco puntos porcentuales a la del sector europeo de petróleo y gas durante
+    los próximos doce meses, por lo que la hipótesis de que el mercado infravalora
+    la continuidad de su caja no quedará confirmada solo por el desempeño relativo
+    de la acción.
+  status: ACTIVE
+  ticker: EQNR
+  version: 1

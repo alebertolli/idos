@@ -1,0 +1,428 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La clasificación como cíclica se infiere del perfil de negocio de petróleo y gas
+    proporcionado, no de una serie de sensibilidad a precios.
+  - La cotización informada de 48,7802 USD al 2026-10-30 y las referencias de consenso
+    de 37, 41,69 y 51 USD al 2026-11-20 describen observaciones suministradas, pero
+    no acreditan valor intrínseco.
+  - La amplitud de segmentos descrita podría diversificar actividades, pero no demuestra
+    ventaja competitiva ni estabilidad de caja.
+  - El FCF reportado y los indicadores de margen y crecimiento son observaciones puntuales
+    con limitaciones de unidad o periodo; no bastan para concluir tendencias o solvencia.
+  - Los riesgos de materias primas, transición energética y ejecución se derivan del
+    tipo de negocio descrito y no son eventos materiales verificados para la empresa.
+  preguntas_abiertas:
+  - ¿Cuáles son las cifras reportadas y auditadas más recientes de deuda, caja, vencimientos,
+    liquidez y compromisos de capital?
+  - ¿Cuál es la moneda y unidad exacta del FCF de 11.300 millones, y cómo se reconcilia
+    con estados financieros primarios?
+  - ¿A qué periodo corresponde el margen operativo y el crecimiento de ingresos informados
+    por yfinance?
+  - ¿Qué resultados, guía y cambios operativos recientes pueden verificarse mediante
+    presentaciones, comunicados regulatorios o informes primarios?
+  - ¿Cuál es el costo de producción, la vida de reservas y la rentabilidad por segmento
+    y geografía?
+  - ¿Qué historial y métricas documentan la asignación de capital, dividendos, recompras
+    e inversiones en renovables?
+  - ¿Qué objetivos de reducción de emisiones, litigios, incidentes ambientales, permisos
+    y riesgos de proveedores son materiales?
+  - ¿Qué supuestos fundamentan los objetivos de analistas y cuándo se publicaron?
+    Las fechas disponibles son fechas de observación de proveedores, no fechas de
+    publicación de analistas.
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: ciclica
+  categorias_descartadas: 'Deep Value: no hay evidencia suficiente sobre activos,
+    múltiplos o balance que demuestre un descuento frente al valor intrínseco. Quality
+    at Fair Price: no se dispone de evidencia operativa y competitiva suficiente para
+    establecer calidad excepcional a precio razonable. Compounder o Compounder castigado:
+    el perfil de negocio y la sensibilidad potencial a materias primas no acreditan
+    por sí solos composición de valor duradera ni un castigo temporal. Turnaround,
+    Special Situation, Distressed, Hype y Value Trap: no se aportan hechos que acrediten
+    respectivamente recuperación, evento corporativo, tensión de solvencia, valoración
+    especulativa por crecimiento, o destrucción estructural de valor.'
+  justificacion: 'La categoría principal es cíclica: el perfil proporcionado describe
+    una empresa integrada de petróleo y gas, cuya generación económica suele estar
+    expuesta a precios de materias primas y condiciones de mercado. La evidencia cuantitativa
+    disponible aquí es limitada: no basta para afirmar que la acción esté infravalorada
+    ni para evaluar por completo la resiliencia del negocio. La cotización observada
+    de 48,78 USD está por encima del consenso medio de analistas de 41,69 USD y por
+    debajo del máximo observado de 51 USD; esas referencias no son una valoración
+    independiente.'
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El perfil entregado describe una empresa con actividades integradas de
+    exploración y producción, procesamiento, comercialización y renovables. Esa amplitud
+    puede aportar diversificación, pero no demuestra por sí misma un moat durable
+    ni resiliencia de márgenes. Faltan datos verificables sobre costos de producción,
+    reservas, vida de activos, concentración geográfica, contratos, ventajas de infraestructura
+    y rentabilidad por segmento.
+  rating: regular
+dominio_catalizadores:
+- descripcion: Resultados y actualización de perspectivas que aporten evidencia sobre
+    generación de caja y desempeño operativo frente a expectativas.
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 45
+- descripcion: Evolución de las expectativas del mercado sobre materias primas y su
+    reflejo en los objetivos de analistas; dirección y magnitud no verificables con
+    la información disponible.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 50
+dominio_esg_supply_chain:
+  analisis: Como inferencia general a partir del perfil energético suministrado, la
+    exposición a hidrocarburos puede implicar riesgos de emisiones, regulación y transición,
+    y los proyectos energéticos pueden depender de proveedores y cadenas de suministro
+    especializadas. No se aportan datos de emisiones, incidentes, litigios, permisos,
+    concentración de proveedores ni cumplimiento; estos riesgos no quedan cuantificados
+    ni verificados para la compañía.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La evidencia financiera seleccionada registra FCF de 11.300 millones en
+    moneda financiera del proveedor, periodo TTM terminado el 2026-09-30, fuente stockanalysis.com;
+    la unidad no está especificada en el registro más allá de provider_financial_currency.
+    También registra margen operativo de 36,995998 puntos porcentuales y crecimiento
+    de ingresos de 26,6 puntos porcentuales, ambos con periodo no especificado por
+    el proveedor, fecha de periodo 2026-09-30 y fuente yfinance. Estos datos puntuales
+    no permiten establecer tendencia, cobertura de deuda, liquidez, necesidades de
+    inversión, distribución a accionistas ni calidad del flujo de caja. No se atribuye
+    al FCF un ajuste que la evidencia no documenta.
+  rating: adecuada
+dominio_growth:
+  analisis: El perfil incluye actividades de petróleo y gas y renovables, pero no
+    ofrece una guía de producción, cartera de proyectos, crecimiento por segmento,
+    inversión comprometida ni retornos esperados. El crecimiento de ingresos registrado
+    por yfinance es 26,6 puntos porcentuales al 2026-09-30, pero el periodo no está
+    especificado; no es suficiente para inferir crecimiento orgánico sostenible.
+  rating: moderado
+dominio_management:
+  analisis: No se aportan datos primarios sobre decisiones de asignación de capital,
+    rentabilidad de inversiones, remuneración, compras o ventas de activos, cumplimiento
+    de objetivos ni alineación de la dirección. La calificación es provisional y refleja
+    insuficiencia de evidencia, no una conclusión de desempeño deficiente.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: alta
+  riesgo: Exposición a fluctuaciones de precios de petróleo y gas, inferida del modelo
+    de negocio descrito; sensibilidad concreta no cuantificada.
+- impacto: alto
+  probabilidad: media
+  riesgo: Cambios regulatorios, climáticos o de política energética que afecten proyectos
+    y activos de hidrocarburos; exposición específica no verificada.
+- impacto: medio
+  probabilidad: media
+  riesgo: Ejecución de proyectos y necesidades de capital en actividades energéticas;
+    cartera y compromisos concretos no disponibles.
+- impacto: medio
+  probabilidad: media
+  riesgo: 'Riesgo de valoración: el precio observado supera el consenso medio disponible,
+    aunque permanece dentro del rango observado; los objetivos no son una valoración
+    independiente.'
+- impacto: alto
+  probabilidad: media
+  riesgo: Falta de información verificable sobre deuda, vencimientos y liquidez, que
+    impide descartar o confirmar vulnerabilidad financiera.
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una actualización de resultados y perspectivas que muestre generación
+      de caja y desempeño operativo mejores o peores de lo que esperaba el mercado
+      podría modificar las expectativas; no se aporta una fecha de resultados ni evidencia
+      de que tal sorpresa vaya a producirse.
+    horizonte: corto
+    impacto: medio
+    probabilidad_pct: 45
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: La cotización disponible es 48,7802 USD al 2026-10-30. El consenso
+    observado al 2026-11-20 tiene mínimo de 37 USD, media y mediana de 41,69 USD,
+    y máximo de 51 USD. Por tanto, el precio informado supera la media del consenso
+    y está dentro de su rango. No se proporcionan múltiplos actuales numéricos ni
+    estimaciones de beneficios que permitan inferir qué escenario operativo descuentan.
+  hipotesis_contraria: 'Una hipótesis contraria sería que el mercado esté asignando
+    demasiado peso a la volatilidad de corto plazo de los hidrocarburos y poco valor
+    a la continuidad de caja de los activos existentes. Sin embargo, los datos entregados
+    no permiten comprobar esta hipótesis ni identificar una variable concreta que
+    el mercado esté exagerando. El razonamiento de segundo nivel es que un consenso
+    de analistas no constituye una valoración independiente: tanto el precio como
+    los objetivos pueden depender de supuestos comunes sobre materias primas.'
+  razonamiento: La cotización supera el consenso medio, pero permanece dentro del
+    rango observado de objetivos. No hay evidencia suficiente sobre valoración intrínseca,
+    resultados esperados, múltiplos o variables de mercado para identificar un error
+    aprovechable. Las referencias disponibles permiten acotar escenarios observados,
+    no probar que exista una oportunidad.
+generated_at: '2026-11-20T14:26:24.701598-03:00'
+integridad_tesis:
+  flags: []
+  reason: No hay evidencia aportada que confirme la vulneración de alguna de las nueve
+    categorías de integridad. La falta de evidencia sobre ciertos riesgos no equivale
+    a evidencia de que no existan.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-EQNR-0001
+prompt_inputs:
+  business_model: Equinor ASA operates as an energy company in Norway and internationally.
+    It operates through Exploration & Production Norway; Exploration & Production
+    International; Exploration & Production USA; Marketing, Midstream & Processing;
+    and Renewables segments. The company engages in the discovery and appraisal of
+    new resources, as well as commercial development and operation of the oil and
+    gas portfolios; oil and gas field development, well deliveries, and sourcing;
+    research, technology development, specialist advisory services, digitalization,
+    IT, improvement, innovation, and ventures and future business; and developing,
+    exploring, investing in, and operating areas within renewable energy, such as
+    offshore wind, green hydrogen, storage solutions, and solar power. It is also
+    involved in the marketing, trading, processing, and transportation of crude oil
+    and condensate, natural gas, NGL and refined products, including refineries, terminals,
+    and processing plant operation; power and emissions trading; development of transportation
+    solutions for natural gas, liquids, and crude oil, including pipelines, shipping,
+    trucking, and rail; and provision of low carbon solutions. The company was formerly
+    known as Statoil ASA and changed its name to Equinor ASA in May 2018. Equinor
+    ASA was incorporated in 1972 and is headquartered in Stavanger, Norway.
+  ceo_tenure: 0
+  debt_to_equity: 0.66
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Equinor ASA
+  operating_margin: 32.11
+  pe_ratio: 9.75
+  products: ''
+  revenue: 120570000000.0
+  revenue_growth: 12.62
+  roic: 22.34
+  sector: Energy
+  ticker: EQNR
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Equinor ASA operates as an energy company in Norway and internationally.
+    It operates through Exploration & Production Norway; Exploration & Production
+    International; Exploration & Production USA; Marketing, Midstream & Processing;
+    and Renewables segments. The company engages in the discovery and appraisal of
+    new resources, as well as commercial development and operation of the oil and
+    gas portfolios; oil and gas field development, well deliveries, and sourcing;
+    research, technology development, specialist advisory services, digitalization,
+    IT, improvement, innovation, and ventures and future business; and developing,
+    exploring, investing in, and operating areas within renewable energy, such as
+    offshore wind, green hydrogen, storage solutions, and solar power. It is also
+    involved in the marketing, trading, processing, and transportation of crude oil
+    and condensate, natural gas, NGL and refined products, including refineries, terminals,
+    and processing plant operation; power and emissions trading; development of transportation
+    solutions for natural gas, liquids, and crude oil, including pipelines, shipping,
+    trucking, and rail; and provision of low carbon solutions. The company was formerly
+    known as Statoil ASA and changed its name to Equinor ASA in May 2018. Equinor
+    ASA was incorporated in 1972 and is headquartered in Stavanger, Norway.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 48.78020095825195
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.66
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:43.664278+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/EQNR/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 11330000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:31.214847+00:00", "period_end_date": "2026-09-30", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1790726400, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    36.995998}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:31.214847+00:00",
+    "period_end_date": "2026-09-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1790726400,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    26.6}}}, "observed_at": "2026-10-30T16:53:43.664278+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Equinor ASA
+  operating_margin: 32.11
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Equinor ASA operates as an energy company in Norway and internationally.
+    It operates through Exploration & Production Norway; Exploration & Production
+    International; Exploration & Production USA; Marketing, Midstream & Processing;
+    and Renewables segments. The company engages in the discovery and appraisal of
+    new resources, as well as commercial development and operation of the oil and
+    gas portfolios; oil and gas field development, well deliveries, and sourcing;
+    research, technology development, '
+  revenue: 120570000000.0
+  revenue_growth: 12.62
+  roic: 22.34
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    51.0, "low": 37.0, "mean": 41.69, "median": 41.69, "observed_at": "2026-11-20T14:25:58.227241-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T14:25:58.227241-03:00", "observed_date": "2026-11-20", "target_price":
+    41.69, "url": "https://stockanalysis.com/stocks/eqnr/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:25:58.227241-03:00",
+    "observed_date": "2026-11-20", "target_price": 41.68571, "url": "https://finance.yahoo.com/quote/EQNR/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 48.78020095825195,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/EQNR/"}]}}'
+  sector: Energy
+  ticker: EQNR
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: e63cb1a5c890358d0a0524c66a4669102379586df582e8cf9a4043f6a06466ca
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T14:26:24.701598-03:00'
+resumen_ejecutivo: 'Clasificación: cíclica. El perfil suministrado corresponde a una
+  empresa integrada de energía con actividades de exploración y producción, comercialización
+  y renovables, pero no se aporta evidencia primaria reciente para validar desarrollos,
+  calidad de activos, gobierno corporativo o perspectivas de producción. La cotización
+  disponible de 48,78 USD está por encima del consenso medio de 41,69 USD y debajo
+  del máximo de 51 USD. La evidencia no permite concluir que haya un error de valoración;
+  la conclusión es INCIERTO. La evaluación de los dominios es provisional y no debe
+  interpretarse como confirmación independiente de hechos operativos.'
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Una actualización verificable de resultados y perspectivas que respalde un valor
+      superior al límite inferior observado.
+    - Una revisión al alza del rango de objetivos de analistas sustentada por información
+      nueva.
+    id: BEAR
+    key_assumptions:
+    - La cotización converge al límite inferior del rango observado de objetivos de
+      analistas.
+    - Las condiciones operativas o de mercado no justifican sostener la cotización
+      observada por encima del consenso medio.
+    - El horizonte es el 2027-11-20; la evidencia disponible no permite cuantificar
+      la sensibilidad de beneficios o caja que llevaría a este resultado.
+    rationale: Caso bajista anclado en el límite inferior del rango de objetivos de
+      analistas observado. No es una valoración independiente ni una predicción de
+      precio; representa una referencia de mercado bajo una evolución menos favorable.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/eqnr/forecast/
+    target_price: 37
+  - falsifiers:
+    - Resultados o perspectivas verificables que deterioren la expectativa de caja
+      y lleven a reducir objetivos.
+    - Una revisión a la baja del rango de objetivos de analistas sustentada por información
+      nueva.
+    id: BULL
+    key_assumptions:
+    - La cotización alcanza el límite superior del rango observado de objetivos de
+      analistas.
+    - Los resultados y las expectativas de mercado no invalidan esa referencia durante
+      el horizonte considerado.
+    - No se presupone un múltiplo, precio de materias primas ni crecimiento no documentado
+      en la evidencia.
+    rationale: Caso alcista anclado en el límite superior del rango de objetivos de
+      analistas observado. No es una valoración independiente ni implica que se alcance
+      dicho precio; la evidencia suministrada no permite justificar un objetivo fuera
+      de ese rango.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/eqnr/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/EQNR/
+    target_price: 51
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 48
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T14:25:58.227241-03:00'
+  fuentes:
+    stockanalysis: 41.69
+    yfinance: 41.68571
+  mediana: 41.69
+  n_fuentes: 2
+  promedio: 41.69
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T14:25:58.227241-03:00'
+    observed_date: '2026-11-20'
+    target_price: 41.69
+    url: https://stockanalysis.com/stocks/eqnr/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T14:25:58.227241-03:00'
+    observed_date: '2026-11-20'
+    target_price: 41.68571
+    url: https://finance.yahoo.com/quote/EQNR/
+  target_high: 51.0
+  target_low: 37.0
+tesis_inversion: La tesis provisional es la de una compañía energética cíclica cuyo
+  resultado para el accionista dependería de la generación de caja de sus actividades
+  y de las condiciones de mercado, pero la evidencia entregada no permite medir de
+  forma independiente el valor intrínseco. El precio observado está por encima del
+  consenso medio y dentro del rango de objetivos, lo que no confirma un descuento
+  aprovechable. Se requiere validar con fuentes primarias resultados, balance, activos,
+  asignación de capital y perspectivas antes de elevar la convicción.
+ticker: EQNR
+version: '3.0'

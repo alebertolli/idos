@@ -1,0 +1,958 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La diferencia entre cotización y consenso medio es una divergencia observable,
+    no prueba de error de valoración.
+  - La falta de datos de retornos sobre capital y reinversión impide validar una tesis
+    de crecimiento estructural.
+  - La cotización reportada fue USD 48,78 al 30-10-2026, según yfinance.
+  - El FCF reportado fue USD 11.329 millones TTM al 30-09-2026, según stockanalysis.com.
+  - El rango de objetivos de analistas reportado fue USD 37–51 y la media USD 41,69
+    al 20-11-2026.
+  preguntas_abiertas:
+  - ¿Qué inversión, flujos de caja y retornos sobre capital corresponden a cada segmento
+    y período comparable?
+  - ¿Qué gasto por intereses y EBIT sustentan la cobertura de intereses reportada
+    como cero?
+  - ¿Cuál es la serie anual completa y consistente de ingresos y acciones diluidas?
+catalizadores_previos: &id001
+- descripcion: Resultados y actualización de perspectivas que aporten evidencia sobre
+    generación de caja y desempeño operativo frente a expectativas.
+  generated_at: '2026-11-20T14:26:24.701598-03:00'
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: bajo
+  opp_id: OPP-COMPOUNDER-EQNR-0001
+  probabilidad_anterior: 45
+- descripcion: Evolución de las expectativas del mercado sobre materias primas y su
+    reflejo en los objetivos de analistas; dirección y magnitud no verificables con
+    la información disponible.
+  generated_at: '2026-11-20T14:26:24.701598-03:00'
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  opp_id: OPP-COMPOUNDER-EQNR-0001
+  probabilidad_anterior: 50
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia fundamental incompleta
+  justificacion: El paquete muestra fuerte momentum bursátil a 12 meses, pero no aporta
+    evidencia suficiente para validar ratios clave ni una valoración intrínseca. La
+    cotización supera el promedio del consenso de analistas reportado.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El paquete describe una compañía integrada con operaciones en petróleo,
+    gas, comercialización, procesamiento y renovables. Los datos disponibles no bastan
+    para medir retornos sobre capital, calidad de reinversión, escala de mercado direccionable,
+    penetración ni durabilidad de una ventaja competitiva; tampoco permiten evaluar
+    la asignación de capital de management.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: La persistencia del FCF TTM reportado podría ser evaluada con nuevos
+    períodos financieros comparables.
+  evidencia: FCF TTM de USD 11.329 millones al 30-09-2026 y crecimiento TTM reportado
+    de 77,21%.
+- catalizador: La evolución del margen bruto puede ayudar a comprobar si la mejora
+    TTM frente a FY 2025 se mantiene.
+  evidencia: Margen bruto de 43,18% TTM al 30-09-2026 y 36,94% FY 2025.
+- catalizador: Nuevos datos sobre inversión y desempeño de segmentos permitirían evaluar
+    la conversión de proyectos en crecimiento y retornos.
+  evidencia: El paquete describe segmentos operativos, pero no proporciona inversión
+    por segmento ni retornos sobre capital.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: El modelo de negocio incluye exploración, desarrollo y operación de carteras
+    de petróleo y gas.
+  riesgo: La exposición a actividades de petróleo y gas puede hacer que resultados
+    y caja sean sensibles a condiciones de mercado; el paquete no cuantifica esa sensibilidad.
+- evidencia: La serie de ingresos señala puntos omitidos y no incluye una fila FY
+    2023.
+  riesgo: 'No se puede evaluar la trayectoria de ingresos a tres años con la serie
+    entregada: faltan observaciones anuales completas y hay valores duplicados para
+    TTM y FY 2025.'
+- evidencia: La observación de cobertura de intereses es 0 al 30-09-2026 TTM.
+  riesgo: La cobertura de intereses reportada como 0x requiere aclaración; no se aportan
+    EBIT e interés del mismo cálculo ni el gasto por intereses.
+- evidencia: Métricas de precio de yfinance para 31-10-2025 a 30-10-2026.
+  riesgo: La cotización registró volatilidad a 90 días de 37,75% y drawdown de 0,14%
+    en los períodos reportados; son métricas históricas, no medidas de riesgo futuro.
+error_mercado:
+  catalizador_cambio: Resultados financieros futuros que permitan comprobar la persistencia
+    del FCF y la rentabilidad operativa; el paquete no aporta un calendario de catalizadores.
+  conclusion_error_valoracion: No se valida un error de valoración. La cotización
+    excede el consenso medio reportado, pero no hay método de valoración ni estimaciones
+    operativas suficientes para concluir sobre valor intrínseco.
+  consenso_actual: El consenso de precio objetivo reportado es USD 41,69 (20-11-2026),
+    frente a una cotización de USD 48,78 (30-10-2026); el rango de objetivos es USD
+    37–51.
+  hipotesis_contraria: El desempeño de precio a 12 meses fue +103,46% (30-10-2025
+    a 30-10-2026), mientras que el FCF TTM reportado es USD 11.329 millones al 30-09-2026;
+    ninguno de esos datos demuestra por sí solo una infravaloración o sobrevaloración.
+  razonamiento: Los objetivos de analistas son observaciones de mercado, no una valoración
+    propia. La evidencia fundamental disponible es puntual y no permite atribuir el
+    momentum a crecimiento estructural, retornos sobre capital o cambios duraderos
+    en expectativas.
+generated_at: '2026-11-20T14:28:23.561171-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-EQNR
+prompt_inputs:
+  business_model: Equinor ASA operates as an energy company in Norway and internationally.
+    It operates through Exploration & Production Norway; Exploration & Production
+    International; Exploration & Production USA; Marketing, Midstream & Processing;
+    and Renewables segments. The company engages in the discovery and appraisal of
+    new resources, as well as commercial development and operation of the oil and
+    gas portfolios; oil and gas field development, well deliveries, and sourcing;
+    research, technology development, specialist advisory services, digitalization,
+    IT, improvement, innovation, and ventures and future business; and developing,
+    exploring, investing in, and operating areas within renewable energy, such as
+    offshore wind, green hydrogen, storage solutions, and solar power. It is also
+    involved in the marketing, trading, processing, and transportation of crude oil
+    and condensate, natural gas, NGL and refined products, including refineries, terminals,
+    and processing plant operation; power and emissions trading; development of transportation
+    solutions for natural gas, liquids, and crude oil, including pipelines, shipping,
+    trucking, and rail; and provision of low carbon solutions. The company was formerly
+    known as Statoil ASA and changed its name to Equinor ASA in May 2018. Equinor
+    ASA was incorporated in 1972 and is headquartered in Stavanger, Norway.
+  ceo_tenure: 0
+  debt_to_equity: 0.66
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Equinor ASA
+  operating_margin: 32.11
+  pe_ratio: 9.75
+  products: ''
+  revenue: 120570000000.0
+  revenue_growth: 12.62
+  roic: 22.34
+  sector: Energy
+  ticker: EQNR
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: null
+  limitations: No hay una fila FY 2023 fechada en revenue_history y trusted_source_urls
+    está vacío; no puede validarse una serie comparable de tres años ni citarse una
+    URL autorizada.
+  metric: revenue_cagr_3y_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1; requiere FCF comparable y positivo en ambos períodos
+  inputs:
+    fcf_history: null
+  limitations: Hay importes históricos reportados, pero no hay URL en trusted_source_urls
+    para respaldar el ratio según las instrucciones; además, TTM y FY no son períodos
+    equivalentes.
+  metric: fcf_growth_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF / net_income * 100
+  inputs:
+    fcf_history: null
+    net_income_history: null
+  limitations: Los importes TTM están disponibles, pero no existe URL autorizada en
+    trusted_source_urls que respalde el cálculo.
+  metric: fcf_conversion_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA; equivalente a -net_cash/EBITDA
+    cuando net_cash = cash - debt
+  inputs:
+    net_cash_history: null
+    total_debt_history: null
+  limitations: Hay deuda, net cash y EBITDA reportados para el período, pero trusted_source_urls
+    está vacío y no se puede citar una URL autorizada para el ratio.
+  metric: net_debt_ebitda
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares: null
+    diluted_shares_history: null
+    shares_outstanding: null
+    shares_outstanding_history: null
+  limitations: El paquete sólo incluye shares_outstanding para un período, no una
+    serie comparable interanual; tampoco hay URL autorizada en trusted_source_urls.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Equinor ASA operates as an energy company in Norway and internationally.
+    It operates through Exploration & Production Norway; Exploration & Production
+    International; Exploration & Production USA; Marketing, Midstream & Processing;
+    and Renewables segments. The company engages in the discovery and appraisal of
+    new resources, as well as commercial development and operation of the oil and
+    gas portfolios; oil and gas field development, well deliveries, and sourcing;
+    research, technology development, specialist advisory services, digitalization,
+    IT, improvement, innovation, and ventures and future business; and developing,
+    exploring, investing in, and operating areas within renewable energy, such as
+    offshore wind, green hydrogen, storage solutions, and solar power. It is also
+    involved in the marketing, trading, processing, and transportation of crude oil
+    and condensate, natural gas, NGL and refined products, including refineries, terminals,
+    and processing plant operation; power and emissions trading; development of transportation
+    solutions for natural gas, liquids, and crude oil, including pipelines, shipping,
+    trucking, and rail; and provision of low carbon solutions. The company was formerly
+    known as Statoil ASA and changed its name to Equinor ASA in May 2018. Equinor
+    ASA was incorporated in 1972 and is headquartered in Stavanger, Norway.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 48.78020095825195
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.66
+  excess_return_roic_wacc: null
+  existing_wiki: '## 1. Visión General de la Compañía
+
+
+    **Equinor ASA (EQNR)** es una compañía energética integrada, con actividades de
+    exploración, desarrollo y producción de petróleo y gas, además de procesamiento,
+    transporte y comercialización. El perfil suministrado también menciona actividades
+    en energías renovables, pero no aporta cifras sobre su escala o contribución financiera.
+    Su cadena de valor abarca desde la evaluación de recursos y el desarrollo de campos
+    hasta la venta de hidrocarburos y productos procesados. [AOIF, fecha no especificada]
+
+
+    La compañía opera en una industria intensiva en capital y cíclica. El desempeño
+    depende, entre otros factores, de los precios y volúmenes de petróleo y gas, los
+    costos operativos y la ejecución de proyectos. En el conjunto de compañías relacionadas
+    para esta wiki figuran [[BKR]], [[BP]], [[COP]], [[CVX]], [[E]] y [[TS]]; el material
+    proporcionado no incluye una comparación cuantitativa con ellas.
+
+
+    **Clasificación de oportunidad:** cíclica. Esta clasificación es una inferencia
+    basada en el perfil de negocio y no en un análisis de sensibilidad cuantitativo.
+    [DDD, fecha de corte 2026-11-20]
+
+
+    ## 2. Modelo de Negocio y Posición Competitiva
+
+
+    Los ingresos se relacionan principalmente con la producción y venta de petróleo
+    crudo, condensado, gas natural y líquidos de gas natural. Entre los clientes indicados
+    están compradores mayoristas y comercializadores de hidrocarburos y productos
+    refinados, así como empresas de servicios públicos y generadores de electricidad.
+    [AOIF, fecha no especificada]
+
+
+    La integración entre producción, procesamiento, transporte y comercialización
+    podría aportar ventajas operativas y de infraestructura. El análisis disponible
+    identifica como ventajas potenciales los activos de producción, la experiencia
+    operativa, la escala y la integración; califica el moat como **estrecho** y la
+    posición competitiva como **líder**. Estas valoraciones no vienen acompañadas
+    de métricas comparativas ni de evidencia primaria suficiente para verificarlas
+    independientemente. [AOIF, fecha no especificada]
+
+
+    La industria es intensiva en capital y sensible a los precios internacionales,
+    la oferta y la demanda de petróleo y gas. La exposición a renovables amplía el
+    perfil del negocio, pero la información disponible no permite determinar cuánto
+    contribuye al crecimiento o a la diversificación de resultados. [AOIF, fecha no
+    especificada; DDD, fecha de corte 2026-11-20]
+
+
+    ## 3. Perfil Financiero
+
+
+    Las métricas siguientes son cifras reportadas por los inputs de investigación,
+    pero no se proporcionan fuentes primarias, períodos completos, unidades o metodologías
+    para todas ellas. Deben considerarse **pendientes de verificación**.
+
+
+    | Métrica | Valor informado | Período / base | Observación |
+
+    |---|---:|---|---|
+
+    | Crecimiento de ingresos | 12,62 % | No especificado | Fuente y ventana de medición
+    no indicadas. [AOIF] |
+
+    | Margen operativo | 32,11 % | No especificado | Metodología y período por verificar.
+    [AOIF] |
+
+    | ROIC | 22,34 % | No especificado | Definición y período por verificar. [AOIF]
+    |
+
+    | PER | 9,75 | No especificado | Precio y período de beneficios de referencia
+    no indicados. [AOIF] |
+
+    | EV/EBITDA | 2,45 | No especificado | Fecha de cálculo y componentes del EV no
+    indicados. [AOIF] |
+
+    | FCF yield | 0 | No especificado | No se aporta cálculo ni metodología. [AOIF]
+    |
+
+    | FCF | 11.300 millones | TTM terminado el 30-09-2026, según DDD | Moneda y unidad
+    exactas no confirmadas; falta reconciliación con estados financieros primarios.
+    [DDD] |
+
+
+    El análisis AOIF califica la tendencia financiera como **estable**, pero señala
+    que no hay cifras suficientes de flujo de caja operativo, capex y FCF para calcular
+    la conversión de caja. DDD también advierte que el FCF informado requiere aclaración
+    sobre moneda, unidad y conciliación. [AOIF, fecha no especificada; DDD, fecha
+    de corte 2026-11-20]
+
+
+    | Aspecto de capital y liquidez | Estado de la evidencia |
+
+    |---|---|
+
+    | Deuda, caja y deuda neta | No aportadas con cifras verificables. |
+
+    | Vencimientos y liquidez disponible | No aportados. |
+
+    | Capex y compromisos de inversión | No aportados con detalle suficiente. |
+
+    | Estructura de capital | No evaluable rigurosamente con la información suministrada.
+    |
+
+
+    El perfil financiero fue calificado como **adecuado** en DDD, pero esta evaluación
+    es provisional por la falta de información verificable sobre deuda, liquidez y
+    compromisos de capital. [DDD, fecha de corte 2026-11-20]
+
+
+    ## 4. Management y Gobierno Corporativo
+
+
+    AOIF califica la calidad del management como **buena**, la asignación de capital
+    como **neutral** y el alineamiento de insiders como **débil**. No se aportan datos
+    sobre directivos, remuneración, propiedad accionarial interna, rentabilidad de
+    inversiones, composición del board ni decisiones concretas de asignación de capital.
+    Por ello, estas calificaciones no pueden validarse de manera independiente. [AOIF,
+    fecha no especificada]
+
+
+    **Evaluación provisional:** no hay evidencia suficiente para emitir una conclusión
+    robusta sobre la calidad del gobierno corporativo. La titularidad de insiders,
+    los incentivos y la composición del board requieren investigación adicional.
+
+
+    ## 5. Tesis de Inversión
+
+
+    La tesis provisional es la de una compañía energética integrada y cíclica. El
+    caso alcista depende de que Equinor sostenga una generación de caja sólida, ejecute
+    sus proyectos y mantenga un desempeño operativo competitivo frente a las condiciones
+    del mercado de hidrocarburos.
+
+
+    **Elementos favorables reportados:**
+
+
+    - El modelo integrado comprende exploración, producción, procesamiento y comercialización,
+    con posibles ventajas de infraestructura y experiencia operativa. [AOIF, fecha
+    no especificada]
+
+    - AOIF informa un margen operativo de 32,11 % y un ROIC de 22,34 %, aunque los
+    períodos y metodologías necesitan confirmación.
+
+    - DDD registra un FCF de 11.300 millones para el TTM terminado el 30-09-2026,
+    pero la moneda, la unidad y la conciliación con estados financieros primarios
+    no están confirmadas.
+
+    - El perfil incluye actividades de renovables además de petróleo y gas, aunque
+    no se ofrecen datos que permitan valorar su escala o rentabilidad. [AOIF, fecha
+    no especificada]
+
+
+    Estas observaciones no bastan para establecer valor intrínseco ni una ventaja
+    competitiva duradera. La recomendación permanece **pendiente de decisión** en
+    AOIF, y la tesis sigue siendo provisional. [AOIF, fecha no especificada; DDD,
+    fecha de corte 2026-11-20]
+
+
+    ## 6. Riesgos y Contra-Tesis
+
+
+    **Caso bajista:** la exposición a petróleo y gas puede traducirse en volatilidad
+    de ingresos y caja; una caída de precios, una ejecución de proyectos deficiente
+    o cambios regulatorios y de política energética podrían deteriorar los resultados.
+    La información disponible no cuantifica sensibilidades, costos de equilibrio ni
+    exposición por segmento.
+
+
+    | Riesgo | Impacto indicado | Probabilidad indicada | Base y limitaciones |
+
+    |---|---|---|---|
+
+    | Volatilidad o caída de precios de petróleo, gas y productos refinados | Alto
+    | Alta | Riesgo macro identificado por AOIF; la sensibilidad concreta no está
+    aportada. |
+
+    | Interrupciones operativas, retrasos, sobrecostos o menor productividad | Alto
+    | Media | Riesgo de negocio identificado por AOIF; no se detallan proyectos o
+    activos específicos. |
+
+    | Regulación, clima y cambios de política energética | Alto | No cuantificada
+    | Riesgo inferido en DDD a partir del perfil energético; exposición específica
+    no verificada. |
+
+    | Concentración en actividades de hidrocarburos | No cuantificado | No cuantificada
+    | Inferencia basada en el perfil de negocio; no se aportan datos de mezcla de
+    ingresos o activos. |
+
+
+    [AOIF, fecha no especificada; DDD, fecha de corte 2026-11-20]
+
+
+    **Triggers de falsación o deterioro de tesis:**
+
+
+    - Resultados que muestren deterioro sostenido de producción, márgenes o generación
+    de caja frente a las expectativas.
+
+    - Evidencia de sobrecostos, retrasos o interrupciones que reduzcan la rentabilidad
+    de los proyectos.
+
+    - Una caída de precios de hidrocarburos que revele una sensibilidad de caja mayor
+    de la que pueda soportar el balance.
+
+    - Verificación de deuda, liquidez o compromisos de inversión que indique una posición
+    financiera más débil de lo supuesto.
+
+    - Cambios regulatorios o de política energética que afecten materialmente la viabilidad
+    de proyectos o activos.
+
+
+    No se reporta que la tesis haya sido vulnerada; DDD la mantiene activa, señalando
+    que la ausencia de evidencia no confirma por sí sola su integridad. [DDD, fecha
+    de corte 2026-11-20]
+
+
+    ## 7. Catalizadores y Timeline
+
+
+    Los catalizadores identificados son condicionales; no se proporcionan fechas concretas
+    para publicaciones de resultados o eventos corporativos.
+
+
+    | Catalizador | Fecha / horizonte esperado | Impacto potencial | Confianza / probabilidad
+    reportada |
+
+    |---|---|---|---|
+
+    | Resultados y actualización de perspectivas que permitan evaluar caja y desempeño
+    operativo | Corto plazo; fecha específica no aportada | Medio | Confianza baja;
+    probabilidad 45 %. [DDD, fecha de corte 2026-11-20] |
+
+    | Evolución de expectativas sobre materias primas y reflejo en los objetivos de
+    analistas | Medio plazo; fecha específica no aportada | Alto | Confianza baja;
+    probabilidad 50 %. [DDD, fecha de corte 2026-11-20] |
+
+
+    Los catalizadores compartidos relevantes para el sector incluyen los precios de
+    petróleo y gas y la ejecución de proyectos, factores que pueden afectar también
+    a compañías como [[BP]], [[COP]] y [[CVX]]. Esta relación sectorial no implica
+    que sus exposiciones o resultados sean equivalentes.
+
+
+    ## 8. Marco de Valoración
+
+
+    El material no permite estimar rigurosamente el valor intrínseco: faltan una referencia
+    verificable de deuda neta, precio y número de acciones, metodología de las métricas
+    y una conciliación del FCF. AOIF califica el margen de seguridad como **insuficiente**
+    y no estima valor intrínseco. [AOIF, fecha no especificada]
+
+
+    **Enfoques apropiados para una investigación posterior:**
+
+
+    - **Valoración por escenarios de flujo de caja:** modelar producción, precios
+    realizados, costos operativos, impuestos, capex y capital de trabajo bajo escenarios
+    de ciclo.
+
+    - **Valoración por activos o segmentos:** separar las actividades de hidrocarburos
+    y renovables si se obtienen datos segmentados verificables.
+
+    - **Múltiplos comparables:** usar PER y EV/EBITDA solo tras verificar período,
+    precio de referencia, deuda neta y comparabilidad con pares como [[BP]], [[COP]]
+    y [[CVX]].
+
+
+    DDD presenta una referencia de mercado y un rango de objetivos de analistas:
+
+
+    | Referencia | Valor | Fecha indicada | Interpretación |
+
+    |---|---:|---|---|
+
+    | Cotización informada | USD 48,7802 | 2026-10-30 | Fecha anterior a la fecha
+    de corte de consenso. |
+
+    | Objetivo mínimo observado | USD 37 | 2026-11-20 | Usado como ancla del escenario
+    bajista; no es una valoración independiente. |
+
+    | Objetivo medio observado | USD 41,69 | 2026-11-20 | La cotización informada
+    supera esta referencia. |
+
+    | Objetivo máximo observado | USD 51 | 2026-11-20 | Usado como ancla del escenario
+    alcista; no es una valoración independiente. |
+
+
+    [DDD, fecha de corte 2026-11-20]
+
+
+    Los escenarios de DDD usan un horizonte al 2027-11-20 y valores de USD 37 y USD
+    51 para los casos bajista y alcista, respectivamente. Son límites del rango de
+    objetivos observados, no precios objetivo derivados de un modelo financiero propio.
+    La conclusión de error de valoración es **incierta**: el precio informado supera
+    el consenso medio, pero se mantiene dentro del rango indicado. [DDD, fecha de
+    corte 2026-11-20]
+
+
+    ## 9. Preguntas Abiertas y Agenda de Investigación
+
+
+    1. ¿Cuáles son las cifras más recientes y verificables de deuda, caja, deuda neta,
+    vencimientos, liquidez disponible y compromisos de capital?
+
+    2. ¿Cuál es la moneda y unidad exactas del FCF de 11.300 millones para el TTM
+    terminado el 30-09-2026, y cómo se reconcilia con los estados financieros primarios?
+
+    3. ¿Qué período, fuente y metodología sustentan las cifras de crecimiento de ingresos,
+    margen operativo, ROIC, PER, EV/EBITDA y FCF yield?
+
+    4. ¿Cómo se distribuyen ingresos, beneficios, inversiones y generación de caja
+    entre producción de petróleo y gas, procesamiento, comercialización y renovables?
+
+    5. ¿Qué sensibilidad tienen el flujo de caja y los resultados a los precios de
+    petróleo y gas, los volúmenes, los costos y los tipos de cambio?
+
+    6. ¿Qué proyectos concentran los riesgos de ejecución, retrasos, sobrecostos o
+    menor productividad?
+
+    7. ¿Qué evidencia respalda las calificaciones de liderazgo competitivo, moat estrecho,
+    calidad del management y alineamiento débil de insiders?
+
+    8. ¿Cuál es la composición del board, qué incentivos recibe la dirección y cómo
+    se evalúa el retorno de las decisiones de asignación de capital?
+
+    9. ¿Qué cobertura, metodología y fecha tienen los objetivos de analistas incluidos
+    en el consenso de noviembre de 2026?
+
+    10. ¿Qué información permite construir una valoración independiente y una sensibilidad
+    frente a precios de hidrocarburos, capex, producción y costo de capital?
+
+
+    ---
+
+
+    ## Related Companies
+
+
+    - **Same Sector**: [[BKR|Baker Hughes Company]], [[BP|BP p.l.c.]], [[COP|ConocoPhillips]],
+    [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]], [[TS|Tenaris S.A.]]
+
+    - **Same Industry**: [[BP|BP p.l.c.]], [[CVX|Chevron Corporation]], [[E|Eni S.p.A.]]'
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-10-30T16:53:43.664278+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/EQNR/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 11330000000.0}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 36.016998}, "observed_at": "2026-10-30T16:53:43.664278+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/EQNR/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 32.11}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 27.6}, "observed_at": "2026-10-30T16:53:43.664278+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/eqnr/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 12.62}}}, "observed_at": "2026-10-30T16:53:43.664278+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Equinor ASA
+  operating_margin: 32.11
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Equinor ASA operates as an energy company in Norway and internationally.
+    It operates through Exploration & Production Norway; Exploration & Production
+    International; Exploration & Production USA; Marketing, Midstream & Processing;
+    and Renewables segments. The company engages in the discovery and appraisal of
+    new resources, as well as commercial development and operation of the oil and
+    gas portfolios; oil and gas field development, well deliveries, and sourcing;
+    research, technology development, '
+  revenue: 120570000000.0
+  revenue_growth: 12.62
+  roic: 22.34
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_growth_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: USD
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/EQNR/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    51.0, "low": 37.0, "mean": 41.69, "median": 41.69, "observed_at": "2026-11-20T14:25:58.227241-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T14:25:58.227241-03:00", "observed_date": "2026-11-20", "target_price":
+    41.69, "url": "https://stockanalysis.com/stocks/eqnr/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:25:58.227241-03:00",
+    "observed_date": "2026-11-20", "target_price": 41.68571, "url": "https://finance.yahoo.com/quote/EQNR/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 48.78020095825195,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/EQNR/"}]}}'
+  sector: Energy
+  ticker: EQNR
+research_trigger:
+  discovery_snapshot_hash: 824e44df65ac8d53edaf49201a8a505a52b531b95706b67961654e2b36f4d16e
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 350b339439c607874e1956202cf346da128b9d6642b28b1c19a810ec7654b1f5
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T14:28:23.561171-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.18 al 30-09-2026 TTM; no cruza el umbral configurado.
+  period_end: '2026-09-30'
+  source: stockanalysis.com, https://stockanalysis.com/stocks/EQNR/statistics/
+  threshold: below 0.5
+- metric: net_debt_ebitda
+  observation: Ratio no validado; hay net cash reportado de -USD 5.667 millones y
+    EBITDA de USD 48.080 millones al 30-09-2026, pero falta URL autorizada para calcularlo
+    y citarlo.
+  period_end: '2026-09-30'
+  source: stockanalysis.com, https://stockanalysis.com/stocks/EQNR/statistics/
+  threshold: above 4.0x
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 30-09-2026 TTM; se señala para revisión, sin
+    tratarlo como medición validada porque no se aporta el gasto por intereses.
+  period_end: '2026-09-30'
+  source: stockanalysis.com, https://stockanalysis.com/stocks/EQNR/statistics/
+  threshold: below 2.0x
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta serie comparable de acciones diluidas.'
+  period_end: null
+  source: null
+  threshold: above 10%
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta serie histórica de acciones para tres años.'
+  period_end: null
+  source: null
+  threshold: above 5%
+- metric: negative_fcf_runway_months
+  observation: No aplica al FCF TTM reportado, que es positivo; no se calcula runway.
+  period_end: '2026-09-30'
+  source: stockanalysis.com, https://stockanalysis.com/stocks/EQNR/statistics/
+  threshold: below 12 months
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Un método de valoración documentado con inputs fechados que justifique un valor
+      distinto.
+    - Nuevos datos comparables que permitan validar supuestos operativos y de caja.
+    id: BEAR
+    key_assumptions:
+    - El precio objetivo bajo del consenso es una referencia de mercado, no una previsión
+      validada por este análisis.
+    - La evidencia disponible no permite asociar ese extremo a supuestos cuantificados
+      de negocio.
+    rationale: 'Ancla observada: extremo bajo del rango de objetivos de analistas.
+      Representa el peor extremo del rango disponible; no implica una estimación propia
+      ni un valor intrínseco.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/eqnr/forecast/
+    target_price: 37
+  - falsifiers:
+    - Un método de valoración documentado con inputs fechados que justifique un valor
+      distinto.
+    - Nuevos datos comparables que permitan validar supuestos operativos y de caja.
+    id: BULL
+    key_assumptions:
+    - El precio objetivo alto del consenso es una referencia de mercado, no una previsión
+      validada por este análisis.
+    - La evidencia disponible no permite asociar ese extremo a supuestos cuantificados
+      de negocio.
+    rationale: 'Ancla observada: extremo alto del rango de objetivos de analistas.
+      Representa el mejor extremo del rango disponible; no implica una estimación
+      propia ni un valor intrínseco.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/eqnr/forecast/
+    target_price: 51
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 52
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T14:25:58.227241-03:00'
+  fuentes:
+    stockanalysis: 41.69
+    yfinance: 41.68571
+  mediana: 41.69
+  n_fuentes: 2
+  promedio: 41.69
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T14:25:58.227241-03:00'
+    observed_date: '2026-11-20'
+    target_price: 41.69
+    url: https://stockanalysis.com/stocks/eqnr/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T14:25:58.227241-03:00'
+    observed_date: '2026-11-20'
+    target_price: 41.68571
+    url: https://finance.yahoo.com/quote/EQNR/
+  target_high: 51.0
+  target_low: 37.0
+tesis_inversion: Equinor combina operaciones de exploración y producción, comercialización,
+  midstream, procesamiento y renovables, según el resumen financiero. El FCF TTM y
+  el margen bruto reportados ofrecen evidencia de generación de caja y rentabilidad
+  bruta en ese período, pero faltan datos verificables sobre reinversión, retornos
+  sobre capital, penetración de mercados y ventaja competitiva para sostener una tesis
+  de crecimiento de largo plazo.
+ticker: EQNR
+version: '3.0'
