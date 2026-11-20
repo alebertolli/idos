@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 53 companies tracked
+Total: 55 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -54,6 +54,7 @@ Total: 53 companies tracked
 - 📄 [[BIIB|Biogen Inc.]]
 - 📄 [[BMY|Bristol-Myers Squibb Company]]
 - 📄 [[CAH|Cardinal Health, Inc.]]
+- 📄 [[CVS|CVS Health Corporation]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
@@ -77,6 +78,7 @@ Total: 53 companies tracked
 - 📄 [[CLS|Celestica Inc.]]
 - 📄 [[CRM|Salesforce, Inc.]]
 - 📄 [[CRWD|CrowdStrike Holdings, Inc.]]
+- 📄 [[CSCO|Cisco Systems, Inc.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 
 ## Utilities

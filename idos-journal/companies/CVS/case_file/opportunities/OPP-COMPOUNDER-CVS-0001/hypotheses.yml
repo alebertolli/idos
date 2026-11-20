@@ -1,0 +1,206 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El MBR del ejercicio fiscal 2027 supera el 89,5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía deja de divulgar un MBR comparable y no proporciona una
+      reconciliación que permita verificar el umbral.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El MBR del ejercicio fiscal 2027 supera el 89,5%.
+  - La compañía deja de divulgar un MBR comparable y no proporciona una reconciliación
+    que permita verificar el umbral.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-CVS-0001
+  opportunity_id: OPP-COMPOUNDER-CVS-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-29'
+    expected: 89.5
+    met: null
+    metric: MBR del ejercicio fiscal 2027
+    prediction: El ratio de beneficios médicos (Medical Benefit Ratio, MBR) de CVS
+      para el ejercicio fiscal 2027 será igual o inferior al 89,5%, según la definición
+      reportada por la compañía.
+    unit: '% máximo'
+  priority: critical
+  probability: 0.5
+  rationale: Una recuperación coordinada del operador integrado requiere que el segmento
+    de seguros deje de absorber presión por costes médicos. La tesis disponible plantea
+    esta mejora como posibilidad, pero no aporta datos suficientes para confirmar
+    que ya esté ocurriendo; por ello, la hipótesis se somete a prueba mediante el
+    ratio de beneficios médicos publicado por la compañía.
+  review_trigger: Dejar de creerla cuando CVS publique sus resultados del ejercicio
+    fiscal 2027 si el MBR reportado supera el 89,5%; también si antes de esa fecha
+    la compañía revisa al alza su perspectiva de costes médicos y declara que la presión
+    persistirá durante el resto del ejercicio.
+  secondary_hypotheses: []
+  statement: La rentabilidad del negocio de seguros de CVS mejorará durante 2027,
+    reflejando una mejor correspondencia entre precios, utilización médica y costes
+    de siniestros.
+  status: ACTIVE
+  ticker: CVS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La caja libre reportada para el ejercicio fiscal 2027 es inferior a
+      5.000 millones de dólares.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cifra solo alcanza el umbral mediante ajustes no incluidos en la
+      definición de caja libre previamente publicada por CVS.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La caja libre reportada para el ejercicio fiscal 2027 es inferior a 5.000 millones
+    de dólares.
+  - La cifra solo alcanza el umbral mediante ajustes no incluidos en la definición
+    de caja libre previamente publicada por CVS.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-CVS-0001
+  opportunity_id: OPP-COMPOUNDER-CVS-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-29'
+    expected: 5000.0
+    met: null
+    metric: Caja libre consolidada del ejercicio fiscal 2027
+    prediction: CVS reportará caja libre consolidada de al menos 5.000 millones de
+      dólares en el ejercicio fiscal 2027, usando la definición de caja libre publicada
+      por la compañía y conciliándola con el flujo de caja operativo y las inversiones
+      de capital.
+    unit: millones de dólares, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis identifica la caja y la capacidad de soportar obligaciones e
+    inversiones como condiciones centrales para que la recuperación sea sostenible.
+    La caja libre consolidada permite contrastar esas condiciones con un resultado
+    observable, aunque por sí sola no demuestra que el descuento de la acción sea
+    excesivo.
+  review_trigger: Dejar de creerla cuando CVS publique los resultados del ejercicio
+    fiscal 2027 si la caja libre comparable es inferior a 5.000 millones de dólares,
+    o antes si la compañía reduce su previsión anual de caja libre por debajo de ese
+    importe.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-CVS-0001
+  statement: La recuperación operativa se traducirá en generación suficiente de caja
+    libre para financiar inversiones y obligaciones sin depender de una mejora meramente
+    contable de los beneficios.
+  status: ACTIVE
+  ticker: CVS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón deuda neta/EBITDA ajustado al cierre del ejercicio fiscal
+      2027 disminuye menos de 0,25 veces respecto al cierre del ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La razón aumenta frente al cierre del ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La comparación solo puede alcanzarse mediante cambios de definición
+      no reconciliados por CVS.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón deuda neta/EBITDA ajustado al cierre del ejercicio fiscal 2027 disminuye
+    menos de 0,25 veces respecto al cierre del ejercicio fiscal 2026.
+  - La razón aumenta frente al cierre del ejercicio fiscal 2026.
+  - La comparación solo puede alcanzarse mediante cambios de definición no reconciliados
+    por CVS.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-CVS-0001
+  opportunity_id: OPP-COMPOUNDER-CVS-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-29'
+    expected: 0.25
+    met: null
+    metric: Reducción de deuda neta/EBITDA ajustado frente al cierre del ejercicio
+      fiscal 2026
+    prediction: Al cierre del ejercicio fiscal 2027, la deuda neta dividida por EBITDA
+      ajustado será al menos 0,25 veces inferior a la razón calculada con las cifras
+      de cierre del ejercicio fiscal 2026, utilizando definiciones comparables de
+      deuda neta y EBITDA ajustado.
+    unit: veces, mínimo
+  priority: important
+  probability: 0.5
+  rationale: Una mejora de márgenes que no se convierta en reducción de deuda dejaría
+    sin validar una parte esencial de la tesis de recuperación. La reducción del apalancamiento
+    neto ofrece una prueba independiente de que la caja disponible alcanza para atender
+    obligaciones además de sostener la operación y las inversiones.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados del ejercicio
+    fiscal 2027 si la reducción comparable es inferior a 0,25 veces; también si CVS
+    anuncia antes una adquisición, distribución de capital u otra decisión que eleve
+    la deuda neta y haga inalcanzable el umbral.
+  secondary_hypotheses:
+  - H2-OPP-COMPOUNDER-CVS-0001
+  statement: La generación de caja y la disciplina financiera permitirán reducir el
+    apalancamiento neto de CVS durante el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: CVS
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El retorno total de CVS durante el período es igual o inferior al del
+      índice de referencia más 8 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El retorno relativo es negativo, aunque CVS haya subido en términos
+      absolutos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El retorno total de CVS durante el período es igual o inferior al del índice de
+    referencia más 8 puntos porcentuales.
+  - El retorno relativo es negativo, aunque CVS haya subido en términos absolutos.
+  horizon: medio
+  id: H4-OPP-COMPOUNDER-CVS-0001
+  opportunity_id: OPP-COMPOUNDER-CVS-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 8.0
+    met: null
+    metric: Exceso de retorno total de CVS frente al S&P 500 Health Care
+    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2027-11-20, el
+      retorno total de CVS, incluidos dividendos, superará en al menos 8 puntos porcentuales
+      el retorno total del índice S&P 500 Health Care, o de su sucesor si el índice
+      deja de existir.
+    unit: puntos porcentuales, mínimo
+  priority: important
+  probability: 0.5
+  rationale: 'La tesis plantea que el precio observado podría no reflejar una recuperación
+    potencial, pero el consenso de analistas no constituye por sí mismo una medida
+    de valor intrínseco y no se dispone aquí de datos suficientes para validar las
+    expectativas implícitas en la valoración. Por ello, esta hipótesis no presupone
+    un precio objetivo basado en el consenso: contrasta el desempeño de la acción
+    con un índice sectorial observable.'
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si CVS no supera al índice
+    de referencia por al menos 8 puntos porcentuales; abandonar antes la hipótesis
+    si CVS comunica que suspende o reduce sustancialmente su dividendo y, a la vez,
+    rebaja sus previsiones de caja o rentabilidad para el ejercicio fiscal 2027.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-CVS-0001
+  - H2-OPP-COMPOUNDER-CVS-0001
+  statement: Si las señales operativas y financieras de recuperación se materializan,
+    la acción de CVS superará al mercado sanitario estadounidense durante los 12 meses
+    posteriores a la fecha de corte.
+  status: ACTIVE
+  ticker: CVS
+  version: 1

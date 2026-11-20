@@ -613,3 +613,80 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T12:30:37.165030'
+- data:
+    classification: compounder_castigado
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 35be117dd3f66e4ba6e29ab88940c13868fcc56f0a42760b192f30e47ef944a6
+    opp_id: OPP-COMPOUNDER-CSCO-0001
+    score: 78
+    strategy_version: positive_fundamentals_v1
+    ticker: CSCO
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:39:16.957682'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CSCO
+    ticker: CSCO
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T12:39:41.350210'
+- data:
+    classification: Investigación fundamental requerida; evidencia incompleta para
+      validar una tesis de crecimiento multibagger.
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 7777c1da7a16233b2ff7d10f225411b8bd49ab1d9ebe75f141d43ef260d8aac5
+    opp_id: OPP-MB-CSCO
+    score: 54
+    strategy_version: '1.5'
+    ticker: CSCO
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:41:07.553925'
+- data:
+    classification: turnaround
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 762c1fd251e0bd03b058d6aac735fe4162c75ccda29ca3c6ae7e2d8d8c20780a
+    opp_id: OPP-COMPOUNDER-CVS-0001
+    score: 47
+    strategy_version: positive_fundamentals_v1
+    ticker: CVS
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:43:22.388629'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-CVS
+    ticker: CVS
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T12:43:43.987393'
+- data:
+    classification: Investigación requerida; oportunidad multibagger no validada
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: c1f24e3376649a11a86a5b2148f7a438061c8efb991bf5f3fbb20ca71d0f4d1b
+    opp_id: OPP-MB-CVS
+    score: 35
+    strategy_version: '1.5'
+    ticker: CVS
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T12:45:12.764250'
