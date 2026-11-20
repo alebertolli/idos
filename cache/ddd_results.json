@@ -2,49 +2,183 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-PM",
-      "ticker": "PM",
+      "opp_id": "OPP-MB-RACE",
+      "ticker": "RACE",
       "status": "completed",
-      "score": 87.27,
+      "score": 67,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-PSO",
-      "ticker": "PSO",
-      "status": "hypothesis_validation_failed",
-      "score": null,
+      "opp_id": "OPP-MB-ROKU",
+      "ticker": "ROKU",
+      "status": "completed",
+      "score": 68,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "H1: prediction or trigger references an expired year",
-        "H2: prediction or trigger references an expired year"
-      ]
+      "errors": []
     },
     {
-      "opp_id": "OPP-MB-PSX",
-      "ticker": "PSX",
+      "opp_id": "OPP-MB-ROST",
+      "ticker": "ROST",
       "status": "completed",
-      "score": 55,
+      "score": 68,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     }
   ],
   "skipped": [],
-  "assessments": [],
-  "errors": [
+  "assessments": [
     {
-      "ticker": "PSO",
-      "opp_id": "OPP-MB-PSO",
-      "status": "hypothesis_validation_failed",
-      "error": "H1: prediction or trigger references an expired year; H2: prediction or trigger references an expired year",
-      "errors": [
-        "H1: prediction or trigger references an expired year",
-        "H2: prediction or trigger references an expired year"
-      ]
+      "ticker": "RACE",
+      "opp_id": "OPP-MB-RACE",
+      "status": "completed",
+      "conviction_score": 60,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "automatic_block_reason": "authorization_rules_not_all_passed",
+      "assessments": {
+        "BusinessAssessmentEngine": 68,
+        "ValuationAssessmentEngine": 55,
+        "RecoveryAssessmentEngine": 52,
+        "RiskAssessmentEngine": 70,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005",
+        "RULE-008"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 68/70",
+        "RULE-003": "Rerating: 52/50",
+        "RULE-004": "Risk: 70/50",
+        "RULE-005": "Conviction: 60/65",
+        "RULE-008": "Asimetr\u00eda provisional; autorizaci\u00f3n bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
+    },
+    {
+      "ticker": "ROKU",
+      "opp_id": "OPP-MB-ROKU",
+      "status": "completed",
+      "conviction_score": 65,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "automatic_block_reason": "authorization_rules_not_all_passed",
+      "assessments": {
+        "BusinessAssessmentEngine": 68,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 57,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-005",
+        "RULE-008",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 68/70",
+        "RULE-003": "Rerating: 57/50",
+        "RULE-004": "Risk: 80/50",
+        "RULE-005": "Conviction: 65/65",
+        "RULE-008": "B/R 5.6:1 \u2705 (Bull +27.7% / Bear -5.0%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
+    },
+    {
+      "ticker": "ROST",
+      "opp_id": "OPP-MB-ROST",
+      "status": "completed",
+      "conviction_score": 61,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "automatic_block_reason": "authorization_rules_not_all_passed",
+      "assessments": {
+        "BusinessAssessmentEngine": 64,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 52,
+        "RiskAssessmentEngine": 70,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-008",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 64/70",
+        "RULE-003": "Rerating: 52/50",
+        "RULE-004": "Risk: 70/50",
+        "RULE-005": "Conviction: 61/65",
+        "RULE-008": "B/R 3.5:1 \u2705 (Bull +43.8% / Bear -12.4%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-10-31",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
     }
   ],
-  "status": "failed",
-  "deferred_count": 98,
+  "errors": [],
+  "status": "partial_deferred",
+  "deferred_count": 95,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

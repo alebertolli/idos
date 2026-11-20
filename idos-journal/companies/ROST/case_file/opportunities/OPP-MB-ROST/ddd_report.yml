@@ -1,0 +1,538 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El avance simultáneo de ingresos, margen bruto y FCF es consistente con una mejora
+    operativa, pero no identifica causalidad ni persistencia.
+  - La divergencia entre los escenarios depende de la continuidad o reversión de esa
+    trayectoria; no se dispone de un modelo fundamental para cuantificarla.
+  - 'Ingresos: USD 25,167 millones TTM al 2026-10-31; margen bruto: 34.19% en el mismo
+    período. Fuente: https://stockanalysis.com/stocks/rost/financials/.'
+  - 'FCF: USD 2,536 millones y utilidad neta: USD 2,753 millones TTM al 2026-10-31.
+    Fuente: https://stockanalysis.com/stocks/rost/financials/.'
+  - 'Precio: USD 228.28 al 2026-10-30; consenso de objetivos recopilado al 2026-11-20:
+    rango USD 187–307. Fuentes: https://finance.yahoo.com/quote/ROST/ y https://stockanalysis.com/stocks/rost/forecast/.'
+  preguntas_abiertas:
+  - ¿Cuál es la penetración del formato off-price y cuánto crecimiento queda disponible
+    por mercado, tienda y canal?
+  - ¿Qué retornos sobre capital genera la expansión y cómo se asigna el capital entre
+    tiendas, recompras, dividendos y balance?
+  - ¿Qué datos de tráfico, ventas comparables, inventario, proveedores y competencia
+    sustentan la durabilidad de la ventaja?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Research requerido; evidencia parcial
+  justificacion: El paquete muestra crecimiento histórico de ingresos y FCF, pero
+    no aporta suficiente evidencia sobre penetración de mercado, retornos sobre capital,
+    ventajas competitivas o expectativas incorporadas para establecer una tesis de
+    compounder con alta confianza.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El negocio combina dos formatos off-price y el registro financiero muestra
+    expansión histórica de ingresos, margen bruto y FCF. No hay evidencia suficiente
+    para valorar retornos sobre capital, ventajas competitivas, reinversión incremental
+    o calidad de la asignación de capital.
+  rating: Prometedora pero incompletamente validada
+dominio_catalizadores:
+- catalizador: La continuidad del crecimiento de ingresos y del margen bruto sería
+    evidencia favorable para la tesis operativa.
+  hito: Contrastar próximos períodos reportados con la trayectoria histórica; el paquete
+    no proporciona fechas de próximos resultados.
+- catalizador: La capacidad de convertir resultados en FCF y mantener caja disponible
+    puede respaldar la flexibilidad financiera.
+  hito: Verificar FCF, necesidades de inversión y balance en períodos comparables
+    futuros.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: El resumen identifica operación de tiendas en Estados Unidos, pero no
+    incluye estimaciones de mercado o penetración.
+  riesgo: La evidencia no cuantifica el mercado direccionable, la penetración de Ross
+    ni la evolución de participación; por ello, el espacio de crecimiento no queda
+    validado.
+- evidencia: La descripción del modelo y los resultados financieros agregados no aíslan
+    esos mecanismos.
+  riesgo: La ventaja competitiva y su posible erosión no pueden evaluarse con datos
+    de precios, tráfico, rotación, proveedores o competencia incluidos en el paquete.
+- evidencia: El paquete no incluye ROIC, capex histórico desglosado, recompras ni
+    dividendos.
+  riesgo: La asignación de capital y los retornos sobre capital no están suficientemente
+    documentados; caja e inversiones y deuda agregadas no sustituyen datos de reinversión
+    o retorno incremental.
+- evidencia: El momentum a 12 meses fue 43.6446% en el período 2025-10-31/2026-10-30,
+    según yfinance.
+  riesgo: El crecimiento observado del precio no permite inferir expectativas de beneficios
+    ni descartar riesgo de valoración.
+error_mercado:
+  catalizador_cambio: Los datos disponibles no documentan catalizadores corporativos
+    fechados; la evidencia de resultados operativos futuros sería necesaria para validar
+    un cambio de expectativas.
+  conclusion_error_valoracion: 'No se puede validar un error de valoración con la
+    evidencia disponible: los objetivos de analistas son referencias observadas, no
+    una valoración intrínseca independiente.'
+  consenso_actual: El precio observado fue USD 228.28 al 2026-10-30. El consenso recopilado
+    al 2026-11-20 presenta objetivo medio/mediano de USD 267.79 y rango de USD 187
+    a USD 307.
+  hipotesis_contraria: El precio podría subestimar la capacidad del modelo off-price
+    de sostener crecimiento y márgenes; también podría sobrestimar su persistencia
+    si se deterioran la demanda, la disponibilidad de mercancía atractiva o la rentabilidad.
+  razonamiento: El precio y el rango de objetivos son observaciones de mercado en
+    USD, pero faltan expectativas de beneficios, múltiplos comparables y un método
+    de valoración con inputs fechados. El impulso de precio a 12 meses fue positivo,
+    aunque no demuestra infravaloración.
+generated_at: '2026-11-20T18:42:03.496152-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-ROST
+prompt_inputs:
+  business_model: Ross Stores, Inc., together with its subsidiaries, operates off-price
+    retail apparel and home fashion stores under the Ross Dress for Less and dd's
+    DISCOUNTS brands in the United States. The company offers designer apparel, accessories,
+    footwear, and home-fashioned products for the entire family. It sells its products
+    to middle income households and households with lower to more moderate incomes.
+    Ross Stores, Inc. was incorporated in 1957 and is headquartered in Dublin, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.71
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Ross Stores, Inc.
+  operating_margin: 13.86
+  pe_ratio: 25.2
+  products: ''
+  revenue: 25170000000.0
+  revenue_growth: 14.25
+  roic: 36.15
+  sector: Consumer Cyclical
+  ticker: ROST
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-01-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/rost/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_growth_pct
+  period_end: '2026-01-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/rost/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-10-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/rost/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs: {}
+  limitations: La definición requiere EBITDA, pero EBITDA no figura entre los campos
+    permitidos para este ratio; no se calcula el cociente aunque exista una observación
+    de EBITDA en otro campo.
+  metric: net_debt_ebitda
+  period_end: '2026-10-31'
+  sources: []
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 319450000
+  limitations: Falta el recuento de acciones comparable del período anterior; una
+    sola observación no permite calcular dilución interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-10-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ROST/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Ross Stores, Inc., together with its subsidiaries, operates off-price
+    retail apparel and home fashion stores under the Ross Dress for Less and dd's
+    DISCOUNTS brands in the United States. The company offers designer apparel, accessories,
+    footwear, and home-fashioned products for the entire family. It sells its products
+    to middle income households and households with lower to more moderate incomes.
+    Ross Stores, Inc. was incorporated in 1957 and is headquartered in Dublin, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 228.27999877929688
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.71
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T21:41:28.519888+00:00", "period_end": "2026-10-31",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Ross Stores, Inc.
+  operating_margin: 13.86
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Ross Stores, Inc., together with its subsidiaries, operates off-price
+    retail apparel and home fashion stores under the Ross Dress for Less and dd's
+    DISCOUNTS brands in the United States. The company offers designer apparel, accessories,
+    footwear, and home-fashioned products for the entire family. It sells its products
+    to middle income households and households with lower to more moderate incomes.
+    Ross Stores, Inc. was incorporated in 1957 and is headquartered in Dublin, California.
+  revenue: 25170000000.0
+  revenue_growth: 14.25
+  roic: 36.15
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/rost/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ROST/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ROST/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ROST/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ROST/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/rost/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/rost/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/rost/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ROST/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/rost/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ROST/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/rost/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/rost/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/rost/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ROST/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ROST/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-10-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/rost/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    307.0, "low": 187.0, "mean": 267.79, "median": 267.79, "observed_at": "2026-11-20T18:41:31.936364-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T18:41:31.936364-03:00", "observed_date": "2026-11-20", "target_price":
+    265.11, "url": "https://stockanalysis.com/stocks/rost/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T18:41:31.936364-03:00",
+    "observed_date": "2026-11-20", "target_price": 270.4737, "url": "https://finance.yahoo.com/quote/ROST/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 228.27999877929688,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ROST/"}]}}'
+  sector: Consumer Cyclical
+  ticker: ROST
+research_trigger:
+  discovery_snapshot_hash: 1d8729b72866b442ff54097b3c39f076ed8b4e57c2458e372e691a69dff88971
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 73e453e31fd2b98fa4784b1b2ee0ea158f45fda2c2087363686ba062a0dd15f3
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T18:42:03.496152-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.58x al 2026-10-31; no está por debajo del umbral.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ROST/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta recuento comparable del período anterior.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ROST/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-10-31; no se puede determinar si representa
+    cobertura nula o dato no disponible.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ROST/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No aplica al FCF TTM reportado, que es positivo: USD 2,536 millones
+    al 2026-10-31.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/rost/financials/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: No evaluable con los campos permitidos para el ratio; falta un input
+    de EBITDA autorizado en ratio_input_fields.
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/rost/financials/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: no se proporciona una serie histórica de acciones comparable.'
+  source:
+    name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/ROST/statistics/
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Crecimiento y márgenes sostenidos en períodos posteriores debilitarían la premisa
+      operativa adversa.
+    id: BEAR
+    key_assumptions:
+    - El negocio no mantiene la trayectoria reciente de ingresos, margen bruto y FCF.
+    - El objetivo bajo recopilado constituye una referencia de escenario, no un precio
+      garantizado.
+    rationale: Ancla inferior observada del rango de objetivos de analistas, no valoración
+      intrínseca. Representa el resultado adverso dentro de ese rango si el crecimiento
+      y la mejora de márgenes recientes no se sostienen.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/rost/forecast/
+    target_price: 187
+  - falsifiers:
+    - Una reversión sostenida del crecimiento, margen bruto o FCF debilitaría la premisa
+      favorable.
+    id: BULL
+    key_assumptions:
+    - Los resultados posteriores respaldan la continuidad de la trayectoria financiera
+      reciente.
+    - El objetivo alto recopilado constituye una referencia de escenario, no un precio
+      garantizado.
+    rationale: Ancla superior observada del rango de objetivos de analistas, no valoración
+      intrínseca. Representa el resultado favorable dentro de ese rango si se sostienen
+      el crecimiento y la mejora de márgenes y FCF observados.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/rost/forecast/
+    target_price: 307
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 68
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T18:41:31.936364-03:00'
+  fuentes:
+    stockanalysis: 265.11
+    yfinance: 270.4737
+  mediana: 267.79
+  n_fuentes: 2
+  promedio: 267.79
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T18:41:31.936364-03:00'
+    observed_date: '2026-11-20'
+    target_price: 265.11
+    url: https://stockanalysis.com/stocks/rost/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T18:41:31.936364-03:00'
+    observed_date: '2026-11-20'
+    target_price: 270.4737
+    url: https://finance.yahoo.com/quote/ROST/
+  target_high: 307.0
+  target_low: 187.0
+tesis_inversion: Ross opera tiendas off-price de ropa y artículos para el hogar en
+  Estados Unidos bajo Ross Dress for Less y dd’s DISCOUNTS. El crecimiento histórico
+  de ingresos, FCF y margen bruto respalda investigar la capacidad de reinversión
+  y la resiliencia del formato, pero el paquete no permite medir penetración, retornos
+  incrementales sobre capital ni la durabilidad de su ventaja competitiva.
+ticker: ROST
+version: '3.0'

@@ -1,0 +1,191 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas comparables del ejercicio fiscal terminado en enero de 2028
+      son inferiores al 2%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa comunica ventas comparables negativas durante dos trimestres
+      consecutivos antes del cierre del ejercicio.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas comparables del ejercicio fiscal terminado en enero de 2028 son inferiores
+    al 2%.
+  - La empresa comunica ventas comparables negativas durante dos trimestres consecutivos
+    antes del cierre del ejercicio.
+  horizon: medio
+  id: H1-OPP-MB-ROST
+  opportunity_id: OPP-MB-ROST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 2.0
+    met: null
+    metric: Crecimiento de ventas comparables del ejercicio fiscal terminado en enero
+      de 2028
+    prediction: En el ejercicio fiscal que termine en enero de 2028, las ventas comparables
+      crecerán al menos un 2% frente al ejercicio anterior.
+    unit: porcentaje interanual mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La oferta de ropa y artículos para el hogar a precios reducidos puede
+    captar demanda de consumidores sensibles al precio. El crecimiento histórico de
+    ingresos mencionado en el contexto respalda investigar esta posibilidad, pero
+    no demuestra que la tendencia vaya a continuar.
+  review_trigger: Dejar de creerla si Ross reporta dos trimestres consecutivos de
+    ventas comparables negativas antes del 2028-03-31, o si el resultado anual queda
+    por debajo del 2%.
+  secondary_hypotheses: []
+  statement: Ross sostendrá crecimiento de ventas comparables positivo durante el
+    próximo ejercicio fiscal completo, señal de que la propuesta de valor off-price
+    sigue atrayendo clientes.
+  status: ACTIVE
+  ticker: ROST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto del ejercicio terminado en enero de 2028 cae más de
+      0,5 puntos porcentuales interanuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Ross atribuye una caída material del margen a menor disponibilidad
+      de mercancía atractiva, exceso de rebajas o presión persistente sobre los costes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto del ejercicio terminado en enero de 2028 cae más de 0,5 puntos
+    porcentuales interanuales.
+  - Ross atribuye una caída material del margen a menor disponibilidad de mercancía
+    atractiva, exceso de rebajas o presión persistente sobre los costes.
+  horizon: medio
+  id: H2-OPP-MB-ROST
+  opportunity_id: OPP-MB-ROST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: -0.5
+    met: null
+    metric: Variación interanual del margen bruto
+    prediction: El margen bruto del ejercicio fiscal terminado en enero de 2028 no
+      caerá más de 0,5 puntos porcentuales frente al margen bruto del ejercicio fiscal
+      terminado en enero de 2027.
+    unit: puntos porcentuales; límite inferior
+  priority: important
+  probability: 0.5
+  rationale: El formato off-price puede beneficiarse de oportunidades de compra de
+    inventario a precios convenientes, pero su margen depende de la calidad y disponibilidad
+    de la mercancía, así como de la capacidad de venderla sin descuentos excesivos.
+    El crecimiento histórico del margen bruto indicado en el contexto motiva comprobar
+    su persistencia, no asumirla.
+  review_trigger: Dejar de creerla si un informe anual o una revisión de resultados
+    confirma una caída interanual superior a 0,5 puntos porcentuales para el ejercicio
+    terminado en enero de 2028.
+  secondary_hypotheses:
+  - H1-OPP-MB-ROST
+  statement: Ross conservará una rentabilidad bruta estable, pese a posibles cambios
+    en la demanda y en la disponibilidad de mercancía atractiva.
+  status: ACTIVE
+  ticker: ROST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El número total de tiendas en la fecha objetivo ha aumentado menos
+      del 5% respecto de la cifra disponible al corte.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa anuncia una pausa de aperturas o cierres netos que impiden
+      alcanzar ese crecimiento.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El número total de tiendas en la fecha objetivo ha aumentado menos del 5% respecto
+    de la cifra disponible al corte.
+  - La empresa anuncia una pausa de aperturas o cierres netos que impiden alcanzar
+    ese crecimiento.
+  horizon: largo
+  id: H3-OPP-MB-ROST
+  opportunity_id: OPP-MB-ROST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 5.0
+    met: null
+    metric: Crecimiento del número total de tiendas
+    prediction: Al 2028-11-20, el número total de tiendas Ross Dress for Less y dd’s
+      DISCOUNTS será al menos un 5% superior al número reportado al 2026-11-20.
+    unit: porcentaje acumulado mínimo
+  priority: important
+  probability: 0.5
+  rationale: La expansión de tiendas puede sostener el crecimiento de ingresos y extender
+    la presencia del modelo, siempre que existan ubicaciones viables y que la economía
+    de las nuevas tiendas justifique el capital invertido. El contexto identifica
+    la reinversión como una cuestión pendiente, por lo que esta hipótesis prueba expansión,
+    no su rentabilidad incremental.
+  review_trigger: Dejar de creerla si la cifra de tiendas comunicada en un informe
+    trimestral posterior al 2028-05-20 deja el crecimiento acumulado por debajo de
+    la trayectoria necesaria para alcanzar el 5% al 2028-11-20, o si Ross cancela
+    su plan de expansión.
+  secondary_hypotheses:
+  - H1-OPP-MB-ROST
+  statement: Ross continuará ampliando su base de tiendas en Estados Unidos sin detener
+    la reinversión en el formato durante los próximos dos años.
+  status: ACTIVE
+  ticker: ROST
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de ROST es igual o inferior a la del S&P 500
+      en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de ROST supera a la del índice por menos de 5
+      puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de ROST es igual o inferior a la del S&P 500 en el periodo.
+  - La rentabilidad total de ROST supera a la del índice por menos de 5 puntos porcentuales.
+  horizon: medio
+  id: H4-OPP-MB-ROST
+  opportunity_id: OPP-MB-ROST
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rentabilidad total relativa de ROST frente al S&P 500
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de ROST,
+      incluidos dividendos, superará la rentabilidad total del S&P 500 en al menos
+      5 puntos porcentuales.
+    unit: puntos porcentuales de exceso de rentabilidad
+  priority: informational
+  probability: 0.5
+  rationale: Un crecimiento comparable positivo y márgenes estables podrían respaldar
+    las expectativas de beneficios y el apetito por la acción. Sin datos de valoración
+    al corte no se puede afirmar que el título esté barato; esta hipótesis pone a
+    prueba el resultado de mercado, no presupone una infravaloración.
+  review_trigger: Dejar de creerla al 2027-11-20 si la rentabilidad total acumulada
+    de ROST no supera al S&P 500 por al menos 5 puntos porcentuales, o antes si un
+    deterioro operativo sostenido invalida H1 y H2.
+  secondary_hypotheses:
+  - H1-OPP-MB-ROST
+  - H2-OPP-MB-ROST
+  statement: La acción de ROST generará una rentabilidad total superior a la del S&P
+    500 durante los 12 meses posteriores al corte, si los inversores reconocen la
+    resiliencia operativa del formato.
+  status: ACTIVE
+  ticker: ROST
+  version: 1

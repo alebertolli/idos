@@ -1,0 +1,196 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos de plataforma de 2027 crecen menos de 10% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos de plataforma disminuyen interanualmente en dos trimestres
+      consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos de plataforma de 2027 crecen menos de 10% interanual.
+  - Los ingresos de plataforma disminuyen interanualmente en dos trimestres consecutivos
+    de 2027.
+  horizon: medio
+  id: H1-OPP-MB-ROKU
+  opportunity_id: OPP-MB-ROKU
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual de ingresos de plataforma en el ejercicio fiscal
+      2027
+    prediction: En el ejercicio fiscal 2027, los ingresos de plataforma crecerán al
+      menos 10% interanual.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La tesis y la evidencia disponible indican expansión reciente de ingresos
+    de plataforma. Una base creciente de usuarios, horas de streaming y monetización
+    publicitaria puede mantener el crecimiento, pero la información proporcionada
+    no permite cuantificar penetración ni economía unitaria; por eso la hipótesis
+    exige confirmar el resultado en ingresos, no asumirlo.
+  review_trigger: Dejar de creerla si los resultados publicados de dos trimestres
+    consecutivos de 2027 muestran una caída interanual de los ingresos de plataforma,
+    o si el crecimiento anual de 2027 resulta inferior al 10%.
+  secondary_hypotheses: []
+  statement: Roku sostendrá el crecimiento de su negocio de plataforma durante 2027,
+    aunque el ritmo pueda moderarse respecto de periodos recientes.
+  status: ACTIVE
+  ticker: ROKU
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre acumulado de 2027 es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de FCF de 2027 es inferior a 3%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF positivo depende principalmente de una liberación puntual de
+      capital de trabajo que no se refleja en la conversión de caja operativa antes
+      de variaciones de capital de trabajo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre acumulado de 2027 es cero o negativo.
+  - El margen de FCF de 2027 es inferior a 3%.
+  - El FCF positivo depende principalmente de una liberación puntual de capital de
+    trabajo que no se refleja en la conversión de caja operativa antes de variaciones
+    de capital de trabajo.
+  horizon: medio
+  id: H2-OPP-MB-ROKU
+  opportunity_id: OPP-MB-ROKU
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Margen de flujo de caja libre sobre ingresos totales en 2027
+    prediction: El flujo de caja libre de 2027 será positivo y representará al menos
+      3% de los ingresos totales de ese ejercicio.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La evidencia descrita señala generación reciente de FCF y expansión de
+    ingresos, pero no demuestra que la mejora sea sostenible. La hipótesis se considera
+    respaldada solo si el FCF acumulado del ejercicio es positivo y alcanza un margen
+    mínimo sobre ingresos.
+  review_trigger: Dejar de creerla si el FCF acumulado de los primeros nueve meses
+    de 2027 es negativo y la empresa no genera FCF positivo en el cuarto trimestre,
+    o si los resultados anuales muestran un margen inferior a 3%.
+  secondary_hypotheses:
+  - H1-OPP-MB-ROKU
+  statement: Roku convertirá una parte recurrente del crecimiento de su plataforma
+    en flujo de caja libre positivo durante 2027, sin depender únicamente de una mejora
+    puntual del capital de trabajo.
+  status: ACTIVE
+  ticker: ROKU
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La deuda financiera total supera el efectivo, equivalentes e inversiones
+      de corto plazo al 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa incurre en deuda neta durante dos cierres trimestrales consecutivos
+      de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La deuda financiera total supera el efectivo, equivalentes e inversiones de corto
+    plazo al 2027-12-31.
+  - La empresa incurre en deuda neta durante dos cierres trimestrales consecutivos
+    de 2027.
+  horizon: medio
+  id: H3-OPP-MB-ROKU
+  opportunity_id: OPP-MB-ROKU
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-28'
+    expected: 1.0
+    met: null
+    metric: Caja neta al 2027-12-31
+    prediction: Al 2027-12-31, el efectivo y equivalentes más inversiones de corto
+      plazo superarán la deuda financiera total.
+    unit: mayor que cero
+  priority: important
+  probability: 0.5
+  rationale: La tesis identifica una posición actual de caja neta y una generación
+    reciente de FCF. Mantenerla depende de que las inversiones, obligaciones financieras
+    y otras salidas de caja no superen los recursos líquidos disponibles; el contexto
+    no aporta datos suficientes para estimar esos flujos con precisión.
+  review_trigger: Dejar de creerla si un balance trimestral de 2027 muestra deuda
+    neta y la compañía no vuelve a caja neta en el siguiente cierre, o si el balance
+    al 2027-12-31 confirma deuda neta.
+  secondary_hypotheses:
+  - H2-OPP-MB-ROKU
+  statement: Roku conservará una posición de caja neta hasta el cierre de 2027, preservando
+    flexibilidad financiera mientras invierte en su plataforma.
+  status: ACTIVE
+  ticker: ROKU
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de ROKU no supera la de XLC por al menos 10 puntos
+      porcentuales en el periodo definido.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de ROKU es inferior a la de XLC durante el periodo
+      definido, aun cuando la compañía alcance las predicciones de crecimiento y FCF
+      de H1 y H2.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de ROKU no supera la de XLC por al menos 10 puntos porcentuales
+    en el periodo definido.
+  - La rentabilidad total de ROKU es inferior a la de XLC durante el periodo definido,
+    aun cuando la compañía alcance las predicciones de crecimiento y FCF de H1 y H2.
+  horizon: medio
+  id: H4-OPP-MB-ROKU
+  opportunity_id: OPP-MB-ROKU
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Exceso de rentabilidad total de ROKU frente a XLC entre 2026-11-20 y 2027-11-20
+    prediction: Entre 2026-11-20 y 2027-11-20, la rentabilidad total de ROKU superará
+      en al menos 10 puntos porcentuales la del índice sectorial Communication Services
+      Select Sector SPDR Fund (XLC), incluidos dividendos.
+    unit: puntos porcentuales mínimo
+  priority: informational
+  probability: 0.5
+  rationale: El crecimiento de ingresos, la conversión en FCF y la caja neta podrían
+    reducir la percepción de riesgo y respaldar una revaloración relativa. Sin datos
+    de valoración, precio objetivo ni expectativas del mercado a la fecha de corte,
+    esta hipótesis se formula como una comparación de rendimiento observable, no como
+    una afirmación de infravaloración.
+  review_trigger: Dejar de creerla al cierre del 2027-11-20 si el exceso de rentabilidad
+    total de ROKU frente a XLC es inferior a 10 puntos porcentuales; revisar antes
+    si los resultados de 2027 invalidan H1 o H2.
+  secondary_hypotheses:
+  - H1-OPP-MB-ROKU
+  - H2-OPP-MB-ROKU
+  - H3-OPP-MB-ROKU
+  statement: Si Roku mantiene crecimiento de plataforma y generación de caja, sus
+    acciones ofrecerán una rentabilidad total superior a la del sector de servicios
+    de comunicación durante los próximos doce meses.
+  status: ACTIVE
+  ticker: ROKU
+  version: 1
