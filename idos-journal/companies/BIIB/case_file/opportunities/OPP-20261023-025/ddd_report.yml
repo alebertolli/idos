@@ -1,0 +1,371 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Biogen genera flujo de caja libre de ~2.07 B USD (TTM) según stockanalysis.com.
+  - El margen operativo es 23.5% (TTM) según stockanalysis.com.
+  - El crecimiento de ingresos TTM es 2.3% según stockanalysis.com.
+  - El precio de cierre al 2026-11-19 es 247.46 USD (yfinance).
+  - El consenso de analistas indica un objetivo medio de 268.26 USD (stockanalysis.com,
+    yfinance).
+  preguntas_abiertas:
+  - ¿Cuál es el nivel de deuda neta y la razón deuda/EBITDA de Biogen?
+  - ¿Cuáles son los hitos exactos y fechas esperadas para SKYCLARYS y QALSODY?
+  - ¿Qué participación de mercado tienen los biosimilares de Biogen frente a competidores?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: compounder,compounder_castigado,turnaround,deep_value,ciclica,special_situation,distressed,hype,value_trap
+  justificacion: Biogen posee un portafolio de terapias establecidas en esclerosis
+    múltiple y enfermedades raras, genera flujo de caja libre sólido (≈2.07 B USD)
+    y mantiene márgenes operativos altos (≈23.5%). No muestra señales de distress
+    ni de sobrevaloración extrema; el consenso de analistas indica un upside moderado
+    (~8%). Por tanto encaja como un negocio de alta calidad a precio razonable.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Biogen cuenta con marcas establecidas (TEC­FIDERA, AVONEX, TYSABRI) que
+    generan ingresos recurrentes y barreras de entrada por patentes y experiencia
+    clínica. El moat está basado en la profundidad del pipeline y relaciones con pagadores,
+    aunque la presión de biosimilares y terapias genéricas reduce gradualmente la
+    exclusividad.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Aprobación FDA de SKYCLARYS para Friedreich's Ataxia
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 30
+- descripcion: Resultados positivos de fase 3 de QALSODY (ALS)
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: medio
+  probabilidad_pct: 25
+- descripcion: Lanzamiento exitoso de biosimilares BENEPALI e IMRALDI con alta adopción
+  horizonte: corto
+  impacto: medio
+  nivel_confianza: alto
+  probabilidad_pct: 40
+dominio_esg_supply_chain:
+  analisis: Biogen mantiene políticas ESG públicas y no depende de proveedores críticos
+    únicos. Los riesgos principales son regulatorios y de precios de medicamentos,
+    no de la cadena de suministro.
+  rating: bajo_riesgo
+dominio_financial_health:
+  analisis: Flujo de caja libre reportado de 2.07 B USD (TTM) y margen operativo de
+    23.5% indican capacidad de financiar R&D y retornos a accionistas. No se dispone
+    de datos de deuda, pero la generación de caja sugiere solvencia adecuada.
+  rating: fuerte
+dominio_growth:
+  analisis: Crecimiento de ingresos TTM del 2.3% indica expansión limitada. El impulso
+    futuro dependerá de aprobaciones regulatorias (SKYCLARYS, QALSODY) y del éxito
+    de biosimilares como BENEPALI e IMRALDI.
+  rating: moderado
+dominio_management:
+  analisis: El equipo directivo ha demostrado disciplina en la asignación de capital,
+    enfocándose en terapias de alto valor y biosimilares. La alineación de intereses
+    parece razonable, aunque la ejecución del pipeline sigue siendo un punto crítico.
+  rating: bueno
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Riesgo de aprobación regulatoria del pipeline
+- impacto: medio
+  probabilidad: media
+  riesgo: Competencia de biosimilares y terapias genéricas
+- impacto: medio
+  probabilidad: alta
+  riesgo: Presión de precios por pagadores y gobiernos
+error_mercado:
+  catalizador_cambio:
+    descripcion: Aprobación FDA de SKYCLARYS (tratamiento para ataxia de Friedreich)
+      o resultados positivos de fase 3 de QALSODY (ALS).
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 30
+  conclusion_error_valoracion: SI
+  consenso_actual: Los analistas promedian un precio objetivo de 268.26 USD (rango
+    175‑350 USD), lo que implica que el mercado está descontando parcialmente el potencial
+    de crecimiento futuro de la cartera de Biogen, especialmente de sus pipelines
+    en ALS y ataxia.
+  hipotesis_contraria: El mercado podría estar sobreestimando los riesgos regulatorios
+    y de adopción de los nuevos productos, subvalorando la capacidad de Biogen para
+    monetizar sus biosimilares y terapias de enfermedades raras, lo que genera un
+    sesgo a la baja en la valoración.
+  razonamiento: El precio actual (247 USD) está por debajo del promedio de los objetivos
+    y la empresa muestra fundamentos financieros sólidos. La falta de reconocimiento
+    completo del potencial de sus pipelines sugiere un error de mercado aprovechable.
+generated_at: '2026-11-20T10:37:21.168149-03:00'
+integridad_tesis:
+  flags: []
+  reason: ''
+  thesis_active: true
+opinion_valoracion: infravalorado
+opp_id: OPP-20261023-025
+prompt_inputs:
+  business_model: Biogen Inc. discovers, develops, manufactures, and delivers therapies
+    in the United States, Europe, Germany, Asia, and internationally. The company
+    provides TECFIDERA, VUMERITY, AVONEX, PLEGRIDY, and TYSABRI for multiple sclerosis
+    (MS); SPINRAZA for spinal muscular atrophy; SKYCLARYS to treat Friedreich's Ataxia;
+    QALSODY for treating amyotrophic lateral sclerosis; FUMADERM to treat plaque psoriasis;
+    BENEPALI, an etanercept biosimilar referencing ENBREL; IMRALDI, an adalimumab
+    biosimilar referencing HUMIRA; FLIXABI, an infliximab biosimilar referencing REMICADE.
+    It offers LEQEMBI for the treatment of Alzheimer's disease; ZURZUVAE for the treatment
+    of postpartum depression; RITUXAN to treat non-Hodgkin's lymphoma, chronic lymphocytic
+    leukemia (CLL), rheumatoid arthritis, two forms of ANCA-associated vasculitis,
+    and pemphigus vulgaris; RITUXAN HYCELA for non-Hodgkin's lymphoma and CLL; GAZYVA
+    to treat CLL and follicular lymphoma; OCREVUS for relapsing MS and primary progressive
+    MS; LUNSUMIO to treat relapsed or refractory follicular lymphoma; glofitamab for
+    aRelapsed or refractory diffuse large B-cell lymphoma; and other anti-CD20 therapies.
+    Biogen Inc. has collaboration and license agreements with Merz Therapeutics; Alkermes
+    Pharma Ireland Limited; Denali Therapeutics Inc.; UCB; Eisai Co., Ltd.; Genentech,
+    Inc.; Neurimmune SubOne AG; Ionis Pharmaceuticals, Inc.; Samsung Bioepis; and
+    Sage Therapeutics, Inc., as well as collaborations with Stoke Therapeutics, Inc.
+    for the development and commercialization of zorevunersen, a disease modifying
+    medicine for the treatment of Dravet syndrome; Dayra Therapeutics, Inc. to develop
+    oral macrocyclic peptides; Vanqua Bio, Inc. for developing Vanqua's preclinical
+    oral C5aR1 antagonist compound; City Therapeutics, Inc. to develop select novel
+    RNAi therapies; and ALTEOGEN Inc. to develop subcutaneous (SC) formulations of
+    biologics utilizing ALT-B4. The company was founded in 1978 and is headquartered
+    in Cambridge, Massachusetts.
+  ceo_tenure: 0
+  debt_to_equity: 0.41
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Biogen Inc.
+  operating_margin: 23.5
+  pe_ratio: 105.18
+  products: ''
+  revenue: 10300000000.0
+  revenue_growth: 2.3
+  roic: 7.36
+  sector: Healthcare
+  ticker: BIIB
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Biogen Inc. discovers, develops, manufactures, and delivers therapies
+    in the United States, Europe, Germany, Asia, and internationally. The company
+    provides TECFIDERA, VUMERITY, AVONEX, PLEGRIDY, and TYSABRI for multiple sclerosis
+    (MS); SPINRAZA for spinal muscular atrophy; SKYCLARYS to treat Friedreich's Ataxia;
+    QALSODY for treating amyotrophic lateral sclerosis; FUMADERM to treat plaque psoriasis;
+    BENEPALI, an etanercept biosimilar referencing ENBREL; IMRALDI, an adalimumab
+    biosimilar referencing HUMIRA; FLIXABI, an infliximab biosimilar referencing REMICADE.
+    It offers LEQEMBI for the treatment of Alzheimer's disease; ZURZUVAE for the treatment
+    of postpartum depression; RITUXAN to treat non-Hodgkin's lymphoma, chronic lymphocytic
+    leukemia (CLL), rheumatoid arthritis, two forms of ANCA-associated vasculitis,
+    and pemphigus vulgaris; RITUXAN HYCELA for non-Hodgkin's lymphoma and CLL; GAZYVA
+    to treat CLL and follicular lymphoma; OCREVUS for relapsing MS and primary progressive
+    MS; LUNSUMIO to treat relapsed or refractory follicular lymphoma; glofitamab for
+    aRelapsed or refractory diffuse large B-cell lymphoma; and other anti-CD20 therapies.
+    Biogen Inc. has collaboration and license agreements with Merz Therapeutics; Alkermes
+    Pharma Ireland Limited; Denali Therapeutics Inc.; UCB; Eisai Co., Ltd.; Genentech,
+    Inc.; Neurimmune SubOne AG; Ionis Pharmaceuticals, Inc.; Samsung Bioepis; and
+    Sage Therapeutics, Inc., as well as collaborations with Stoke Therapeutics, Inc.
+    for the development and commercialization of zorevunersen, a disease modifying
+    medicine for the treatment of Dravet syndrome; Dayra Therapeutics, Inc. to develop
+    oral macrocyclic peptides; Vanqua Bio, Inc. for developing Vanqua's preclinical
+    oral C5aR1 antagonist compound; City Therapeutics, Inc. to develop select novel
+    RNAi therapies; and ALTEOGEN Inc. to develop subcutaneous (SC) formulations of
+    biologics utilizing ALT-B4. The company was founded in 1978 and is headquartered
+    in Cambridge, Massachusetts.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 247.4550018310547
+  current_price_as_of_date: '2026-11-19'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.41
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["stockanalysis.com", "yfinance"],
+    "financial_history": ["stockanalysis.com"], "financial_metric_metadata": ["stockanalysis.com",
+    "yfinance"], "financial_period_end_timestamp": ["yfinance"], "financial_period_type":
+    ["stockanalysis.com"], "financials_data_updated_date": ["stockanalysis.com"],
+    "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"], "gross_margin_history":
+    ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history":
+    ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance": ["yfinance"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com", "yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_history": ["yfinance"], "price_history_basis":
+    ["yfinance"], "price_history_dates": ["yfinance"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "quote_currency": ["yfinance"], "revenue_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct":
+    ["stockanalysis.com"], "revenue_history": ["stockanalysis.com"], "revenue_ttm":
+    ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"],
+    "roic_pct": ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"],
+    "short_pct_of_float": ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"],
+    "size_metric_provenance": ["yfinance"], "size_metric_usd": ["yfinance"], "source":
+    ["stockanalysis.com", "yfinance"], "ticker": ["stockanalysis.com", "yfinance"],
+    "total_debt_history": ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg":
+    ["stockanalysis.com"], "volume_history": ["yfinance"]}, "observations": {"fcf":
+    {"currency": null, "non_comparable_reason": null, "non_comparable_values": {},
+    "observed_at": "2026-11-01T10:17:08.389727+00:00", "period_end_date": "2026-09-30",
+    "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/BIIB/statistics/", "unit": "provider_financial_currency"}},
+    "unit": "provider_financial_currency", "values": {"stockanalysis.com": 2069999999.9999998}},
+    "operating_margin_pct": {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff",
+    "non_comparable_values": {"yfinance": 24.118000000000002}, "observed_at": "2026-11-01T10:17:08.389727+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/BIIB/statistics/",
+    "unit": "percentage_points"}, "yfinance": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}},
+    "unit": "percentage_points", "values": {"stockanalysis.com": 23.5}}, "revenue_growth_pct":
+    {"currency": null, "non_comparable_reason": "missing_period_unit_or_cutoff", "non_comparable_values":
+    {"yfinance": 10.6}, "observed_at": "2026-11-01T10:17:08.389727+00:00", "period_end_date":
+    "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type": "TTM", "provider_period_end_timestamp":
+    null, "selected_source": "stockanalysis.com", "source_metadata": {"stockanalysis.com":
+    {"currency": null, "period_end_date": "2026-09-30", "period_type": "TTM", "source_url":
+    "https://stockanalysis.com/stocks/biib/financials/", "unit": "percentage_points"},
+    "yfinance": {"currency": null, "period_end_date": "2026-09-30", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "unit": "percentage_points"}}, "unit": "percentage_points",
+    "values": {"stockanalysis.com": 2.3}}}, "observed_at": "2026-11-19T19:15:50.167335+00:00",
+    "period_end": "2026-09-30", "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Biogen Inc.
+  operating_margin: 23.5
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Biogen Inc. discovers, develops, manufactures, and delivers therapies
+    in the United States, Europe, Germany, Asia, and internationally. The company
+    provides TECFIDERA, VUMERITY, AVONEX, PLEGRIDY, and TYSABRI for multiple sclerosis
+    (MS); SPINRAZA for spinal muscular atrophy; SKYCLARYS to treat Friedreich's Ataxia;
+    QALSODY for treating amyotrophic lateral sclerosis; FUMADERM to treat plaque psoriasis;
+    BENEPALI, an etanercept biosimilar referencing ENBREL; IMRALDI, an adalimumab
+    biosimilar referenc
+  revenue: 10300000000.0
+  revenue_growth: 2.3
+  roic: 7.36
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    350.0, "low": 175.0, "mean": 268.26, "median": 268.26, "observed_at": "2026-11-20T10:37:12.522450-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T10:37:12.522450-03:00", "observed_date": "2026-11-20", "target_price":
+    268.26, "url": "https://stockanalysis.com/stocks/biib/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T10:37:12.522450-03:00",
+    "observed_date": "2026-11-20", "target_price": 268.2603, "url": "https://finance.yahoo.com/quote/BIIB/"}]},
+    "current_quote": {"as_of_date": "2026-11-19", "currency": "USD", "price": 247.4550018310547,
+    "sources": [{"as_of_date": "2026-11-19", "name": "yfinance", "url": "https://finance.yahoo.com/quote/BIIB/"}]}}'
+  sector: Healthcare
+  ticker: BIIB
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 9c6b20b2957bca8a9e6e05e235d5ee17306fdab916bfcbe3e65d866aa5999556
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T10:37:21.168149-03:00'
+resumen_ejecutivo: Biogen es una compañía biofarmacéutica con productos líderes en
+  esclerosis múltiple y una creciente cartera en enfermedades raras. Genera fuerte
+  flujo de caja libre y mantiene márgenes operativos robustos, aunque el crecimiento
+  de ingresos es moderado (2.3% TTM). El consenso de analistas indica un upside moderado,
+  pero la valoración parece no reflejar plenamente el potencial de sus próximos lanzamientos
+  y biosimilares. El riesgo principal radica en la ejecución del pipeline y la competencia
+  en el segmento de biosimilares.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2028-11-20'
+  scenarios:
+  - falsifiers:
+    - Aprobación regulatoria de cualquiera de los productos clave.
+    - Incremento significativo de ingresos por biosimilares.
+    id: BEAR
+    key_assumptions:
+    - No se aprueban SKYCLARYS ni QALSODY en los próximos 24 meses.
+    - Los biosimilares enfrentan fuerte competencia y bajas tasas de adopción.
+    rationale: El precio cae al límite inferior del consenso si el pipeline no logra
+      aprobaciones y la presión de precios de pagadores reduce los márgenes.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/biib/forecast
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BIIB/
+    target_price: 175
+  - falsifiers:
+    - Rechazo regulatorio de SKYCLARYS o QALSODY.
+    - Problemas de fabricación o suministro que retrasen los biosimilares.
+    id: BULL
+    key_assumptions:
+    - Aprobación FDA de SKYCLARYS y resultados positivos de QALSODY.
+    - Lanzamiento exitoso y rápido de BENEPALI e IMRALDI con alta adopción.
+    rationale: El precio alcanza el límite superior del consenso si Biogen obtiene
+      aprobaciones clave y sus biosimilares capturan cuota de mercado, impulsando
+      ingresos y margen.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis.com
+      url: https://stockanalysis.com/stocks/biib/forecast
+    - as_of_date: '2026-11-19'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/BIIB/
+    target_price: 350
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 71
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T10:37:12.522450-03:00'
+  fuentes:
+    stockanalysis: 268.26
+    yfinance: 268.2603
+  mediana: 268.26
+  n_fuentes: 2
+  promedio: 268.26
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T10:37:12.522450-03:00'
+    observed_date: '2026-11-20'
+    target_price: 268.26
+    url: https://stockanalysis.com/stocks/biib/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T10:37:12.522450-03:00'
+    observed_date: '2026-11-20'
+    target_price: 268.2603
+    url: https://finance.yahoo.com/quote/BIIB/
+  target_high: 350.0
+  target_low: 175.0
+tesis_inversion: Biogen ofrece un negocio de alta calidad con flujo de caja robusto
+  y un pipeline que puede desbloquear ingresos significativos. La valoración actual
+  no refleja plenamente este potencial, creando una oportunidad de inversión con upside
+  moderado a alto.
+ticker: BIIB
+version: '3.0'

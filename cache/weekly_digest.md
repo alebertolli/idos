@@ -1,6 +1,6 @@
 # IDOS DDD Research Digest
 
-_Generado: 2026-11-19 19:26 AR _
+_Generado: 2026-11-20 10:42 AR _
 
 ## Resumen
 
@@ -12,30 +12,35 @@ _Generado: 2026-11-19 19:26 AR _
 
 ### STEP 2 - Research (DDD + AOIF + Hypothesis)
 
-- ✅ **AVGO** (OPP-20261023-018): score=78, class=?
-- ✅ **AVY** (OPP-20261023-020): score=58, class=?
-- ✅ **AVY** (OPP-MB-AVY): score=48, class=?
+- ✅ **BIIB** (OPP-20261023-025): score=71, class=?
+- ✅ **BIIB** (OPP-MB-BIIB): score=56, class=?
+- ✅ **BKNG** (OPP-20261023-026): score=57, class=?
 
 ### STEP 3-7 - Assessment Pipeline
 
-- ⚠️ **AVGO**
-  - Opp: [OPP-20261023-018]
-  - Conviction: 68/100 | Rec: WAIT
-  - Scores: Business: 76 | Valuation: 70 | Recovery: 60 | Risk: 70 | Portfolio: 50
-- ⚠️ **AVY**
-  - Opp: [OPP-20261023-020]
-  - Conviction: 61/100 | Rec: BLOCKED
-  - Scores: Business: 55 | Valuation: 65 | Recovery: 58 | Risk: 80 | Portfolio: 50
+- ⚠️ **BIIB**
+  - Opp: [OPP-20261023-025]
+  - Conviction: 60/100 | Rec: BLOCKED
+  - Scores: Business: 54 | Valuation: 65 | Recovery: 60 | Risk: 70 | Portfolio: 50
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 55/70
-    - 🚫 RULE-005: Conviction: 61/65
-- ⚠️ **AVY**
-  - Opp: [OPP-MB-AVY]
-  - Conviction: 61/100 | Rec: BLOCKED
-  - Scores: Business: 55 | Valuation: 65 | Recovery: 56 | Risk: 80 | Portfolio: 50
+    - 🚫 RULE-001: Business quality: 54/70
+    - 🚫 RULE-005: Conviction: 60/65
+    - 🚫 RULE-008: B/R 1.4:1 ❌ (Bull +41.6% / Bear -29.2%)
+- ⚠️ **BIIB**
+  - Opp: [OPP-MB-BIIB]
+  - Conviction: 59/100 | Rec: BLOCKED
+  - Scores: Business: 54 | Valuation: 65 | Recovery: 53 | Risk: 70 | Portfolio: 50
   - Rules BLOCKED:
-    - 🚫 RULE-001: Business quality: 55/70
-    - 🚫 RULE-005: Conviction: 61/65
+    - 🚫 RULE-001: Business quality: 54/70
+    - 🚫 RULE-005: Conviction: 59/65
+    - 🚫 RULE-008: B/R 1.4:1 ❌ (Bull +41.6% / Bear -29.2%)
+- ⚠️ **BKNG**
+  - Opp: [OPP-20261023-026]
+  - Conviction: 69/100 | Rec: BLOCKED
+  - Scores: Business: 68 | Valuation: 80 | Recovery: 60 | Risk: 80 | Portfolio: 50
+  - Rules BLOCKED:
+    - 🚫 RULE-001: Business quality: 68/70
+    - 🚫 RULE-008: Asimetría provisional; autorización bloqueada: Bear debe mostrar downside y Bull upside frente al precio actual
 
 ---
 
