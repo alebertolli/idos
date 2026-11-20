@@ -1576,3 +1576,98 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T15:23:18.336588'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MB-HMC
+    ticker: HMC
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:30:43.717933'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HMC
+    ticker: HMC
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:30:43.864503'
+- data:
+    classification: Investigación requerida; evidencia insuficiente para validar una
+      tesis de crecimiento multibagger
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 355a4107811a27654880a55edeb2c8d7ef1d96d9fc30a88d9badb225b62f03c8
+    opp_id: OPP-MB-HMC
+    score: 48
+    strategy_version: '1.5'
+    ticker: HMC
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:32:12.399634'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_growth_pct
+    opp_id: OPP-MB-HOG
+    ticker: HOG
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:32:44.666949'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HOG
+    ticker: HOG
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:32:44.815370'
+- data:
+    errors:
+    - 'H3: prediction or trigger references an expired year'
+    event_evidence: null
+    event_type: monthly
+    opp_id: OPP-MB-HOG
+    ticker: HOG
+  event_type: research:hypothesis_validation_failed
+  source: research_worker
+  timestamp: '2026-11-20T15:33:37.950307'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-HPQ
+    ticker: HPQ
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:34:08.355173'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-HPQ
+    ticker: HPQ
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:34:08.505974'
+- data:
+    errors:
+    - 'H2: prediction or trigger references an expired year'
+    event_evidence: null
+    event_type: monthly
+    opp_id: OPP-MB-HPQ
+    ticker: HPQ
+  event_type: research:hypothesis_validation_failed
+  source: research_worker
+  timestamp: '2026-11-20T15:34:54.190133'

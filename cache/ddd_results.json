@@ -2,47 +2,58 @@
   "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-MB-GSK",
-      "ticker": "GSK",
-      "status": "completed",
-      "score": 52,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": []
-    },
-    {
-      "opp_id": "OPP-MB-HAL",
-      "ticker": "HAL",
-      "status": "quality_failed",
-      "score": 55,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "opp_id": "OPP-COMPOUNDER-HL-0001",
-      "ticker": "HL",
+      "opp_id": "OPP-MB-HMC",
+      "ticker": "HMC",
       "status": "completed",
       "score": 48,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
+    },
+    {
+      "opp_id": "OPP-MB-HOG",
+      "ticker": "HOG",
+      "status": "hypothesis_validation_failed",
+      "score": null,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "H3: prediction or trigger references an expired year"
+      ]
+    },
+    {
+      "opp_id": "OPP-MB-HPQ",
+      "ticker": "HPQ",
+      "status": "hypothesis_validation_failed",
+      "score": null,
+      "reason": "new entry: SCREENED (score=0)",
+      "errors": [
+        "H2: prediction or trigger references an expired year"
+      ]
     }
   ],
   "skipped": [],
   "assessments": [],
   "errors": [
     {
-      "ticker": "HAL",
-      "opp_id": "OPP-MB-HAL",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
+      "ticker": "HOG",
+      "opp_id": "OPP-MB-HOG",
+      "status": "hypothesis_validation_failed",
+      "error": "H3: prediction or trigger references an expired year",
       "errors": [
-        "Scenario validation status: invalid_pending_revision"
+        "H3: prediction or trigger references an expired year"
+      ]
+    },
+    {
+      "ticker": "HPQ",
+      "opp_id": "OPP-MB-HPQ",
+      "status": "hypothesis_validation_failed",
+      "error": "H2: prediction or trigger references an expired year",
+      "errors": [
+        "H2: prediction or trigger references an expired year"
       ]
     }
   ],
   "status": "failed",
-  "deferred_count": 115,
+  "deferred_count": 114,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",
