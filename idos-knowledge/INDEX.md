@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 67 companies tracked
+Total: 69 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -44,6 +44,7 @@ Total: 67 companies tracked
 - 📄 [[COP|ConocoPhillips]]
 - 📄 [[CVX|Chevron Corporation]]
 - 📄 [[E|Eni S.p.A.]]
+- 📄 [[EQNR|Equinor ASA]]
 - 📄 [[TS|Tenaris S.A.]]
 
 ## Financial Services
@@ -72,6 +73,7 @@ Total: 67 companies tracked
 - 📄 [[CAT|Caterpillar Inc.]]
 - 📄 [[DAL|Delta Air Lines, Inc.]]
 - 📄 [[DE|Deere & Company]]
+- 📄 [[EFX|Equifax Inc.]]
 
 ## Technology
 - 📄 [[AAPL|Apple Inc.]]

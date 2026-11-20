@@ -1107,3 +1107,54 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T14:17:00.907412'
+- data:
+    classification: quality_at_fair_price
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 81131bebedbf4ce6e649ea2615338440932b3f2bf9abd446732397acd7ab9973
+    opp_id: OPP-COMPOUNDER-EFX-0001
+    score: 61
+    strategy_version: positive_fundamentals_v1
+    ticker: EFX
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:25:55.110244'
+- data:
+    classification: ciclica
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: e63cb1a5c890358d0a0524c66a4669102379586df582e8cf9a4043f6a06466ca
+    opp_id: OPP-COMPOUNDER-EQNR-0001
+    score: 48
+    strategy_version: positive_fundamentals_v1
+    ticker: EQNR
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:27:54.234723'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-EQNR
+    ticker: EQNR
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T14:28:23.533975'
+- data:
+    classification: Investigación requerida; evidencia fundamental incompleta
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 350b339439c607874e1956202cf346da128b9d6642b28b1c19a810ec7654b1f5
+    opp_id: OPP-MB-EQNR
+    score: 52
+    strategy_version: '1.5'
+    ticker: EQNR
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T14:29:48.899928'

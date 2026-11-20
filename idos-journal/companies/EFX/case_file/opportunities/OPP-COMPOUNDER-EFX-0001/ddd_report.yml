@@ -1,0 +1,466 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El perfil proporcionado describe a Equifax como una compañía de datos, analítica
+    y tecnología con los segmentos Workforce Solutions, U.S. Information Solutions
+    e International; se trata de información de contexto suministrada, no de una verificación
+    independiente.
+  - El FCF observado es 1.100 millones en USD del proveedor, TTM con fecha de período
+    2026-09-30, seleccionado de stockanalysis.com; no se especifica que sea ajustado.
+  - Yfinance reporta crecimiento de ingresos de 9,6% y margen operativo de 20,993%,
+    ambos con fecha de período 2026-09-30 y período no especificado.
+  - La cotización estructurada es 184,4250030517578 USD al 2026-10-30. El consenso
+    observado al 2026-11-20 tiene low 169 USD, mean y median 205 USD, y high 245 USD.
+  - La posible existencia de efectos de red, costes de cambio y reutilización de datos
+    como fuentes de moat es una hipótesis que requiere verificación.
+  - Las probabilidades de catalizadores y los ratings de dominios son estimaciones
+    del analista, no resultados de un modelo calibrado ni hechos observados.
+  preguntas_abiertas:
+  - ¿Qué muestran los informes regulatorios y resultados primarios más recientes sobre
+    crecimiento, márgenes, FCF, deuda, liquidez y vencimientos?
+  - ¿Cuál es la contribución y tendencia de cada segmento, y qué parte del crecimiento
+    es orgánica, por volumen, precio o adquisiciones?
+  - ¿Qué indicadores verificables de retención, cuota de mercado, costes de cambio
+    y competencia sostienen la durabilidad del moat?
+  - ¿Qué incidentes, litigios, sanciones o cambios regulatorios recientes afectan
+    privacidad, exactitud, consentimiento, ciberseguridad o uso de datos?
+  - ¿Cómo se comparan los objetivos de analistas con estimaciones verificables y con
+    una valoración independiente basada en supuestos explícitos?
+  - ¿Cuál es el período exacto de las observaciones de crecimiento de ingresos y margen
+    operativo reportadas por yfinance?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: quality_at_fair_price
+  categorias_descartadas: 'Compounder: podría describir la calidad del negocio, pero
+    no se aportan series verificables suficientes para sustentar su desempeño compuesto
+    de largo plazo. Compounder castigado: no hay evidencia de un deterioro temporal
+    ni de una discrepancia demostrada entre precio y valor. Turnaround: no se documenta
+    un declive operativo con plan de recuperación. Deep Value: no hay evidencia de
+    activos infravalorados o múltiplos bajos. Cíclica: el perfil descrito no acredita
+    que el negocio esté intrínsecamente ligado al ciclo, aunque la actividad crediticia
+    podría tener sensibilidad económica. Special Situation: no se aporta una operación
+    corporativa o reestructuración. Distressed: no se aportan señales verificables
+    de insolvencia. Hype: no hay evidencia de ausencia de beneficios que justifique
+    esa clasificación. Value Trap: no hay evidencia suficiente de destrucción estructural
+    de valor.'
+  justificacion: La información disponible describe un negocio de datos y analítica
+    con servicios de verificación y segmentos diversificados, rasgos compatibles con
+    una franquicia de calidad. Sin embargo, la evidencia aportada no permite confirmar
+    por sí sola la durabilidad del moat ni calcular una valoración intrínseca. La
+    cotización observada y el consenso de analistas ofrecen referencias, no una demostración
+    de infravaloración; por ello, la categoría más prudente es Quality at Fair Price.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El perfil de compañía describe tres segmentos —Workforce Solutions, U.S.
+    Information Solutions e International— y servicios que aprovechan datos y analítica
+    para verificaciones y decisiones de clientes. Una base de datos acumulada, procesos
+    de integración y costes de cambio podrían apoyar una ventaja competitiva; esta
+    es una inferencia y no está demostrada por métricas de retención, cuota, precios
+    o rendimiento de clientes en la evidencia aportada. La resiliencia dependería
+    también de la confianza en la precisión y seguridad de los datos.
+  rating: buena
+dominio_catalizadores:
+- descripcion: Confirmación en resultados y divulgaciones corporativas de crecimiento
+    de ingresos y generación de caja sostenibles, con detalle suficiente para separar
+    desempeño orgánico de otros factores.
+  horizonte: medio
+  impacto: medio
+  nivel_confianza: bajo
+  probabilidad_pct: 50
+- descripcion: Deterioro de crecimiento, márgenes o caja, o un evento material de
+    privacidad, ciberseguridad o regulación que obligue a revisar expectativas de
+    riesgo y valor.
+  horizonte: medio
+  impacto: alto
+  nivel_confianza: bajo
+  probabilidad_pct: 30
+dominio_esg_supply_chain:
+  analisis: La actividad descrita implica tratamiento de datos personales y sensibles,
+    por lo que privacidad, consentimiento, exactitud, sesgo, ciberseguridad y cumplimiento
+    son exposiciones relevantes. La operación también puede depender de fuentes externas
+    de datos, integraciones y proveedores tecnológicos. No se aportaron informes ESG,
+    incidentes verificados, detalles de proveedores ni auditorías; la calificación
+    es preliminar.
+  rating: medio_riesgo
+dominio_financial_health:
+  analisis: La observación de FCF reporta 1.100 millones en USD del proveedor para
+    TTM terminado el 2026-09-30. Yfinance reporta margen operativo de 20,993% y crecimiento
+    de ingresos de 9,6% para 2026-09-30, pero el período de ambas métricas figura
+    como no especificado. Estos datos aislados no permiten evaluar tendencia, cobertura
+    de deuda, vencimientos, liquidez, conversión de beneficios ni calidad recurrente
+    del flujo. No se debe interpretar el FCF como ajustado, pues la evidencia no documenta
+    ese ajuste.
+  rating: adecuada
+dominio_growth:
+  analisis: La observación de yfinance reporta crecimiento de ingresos de 9,6% con
+    fecha de período 2026-09-30, pero su período está especificado como no determinado.
+    El perfil sugiere oportunidades asociadas a verificaciones de empleo, ingresos
+    y otros datos, pero faltan desglose por segmento, crecimiento orgánico, volumen,
+    precios, previsiones y evidencia sobre productos nuevos para estimar la visibilidad
+    y sostenibilidad.
+  rating: moderado
+dominio_management:
+  analisis: No se aportaron datos verificables sobre asignación de capital, remuneración,
+    propiedad de insiders, retorno sobre adquisiciones, gobierno corporativo o historial
+    de ejecución. La calificación refleja insuficiencia de evidencia para una valoración
+    positiva o negativa, no una conclusión de mala gestión.
+  rating: regular
+dominio_riesgos:
+- impacto: alto
+  probabilidad: media
+  riesgo: Incidente cibernético, acceso no autorizado o interrupción que afecte datos,
+    operaciones o confianza de clientes.
+- impacto: alto
+  probabilidad: media
+  riesgo: Cambios regulatorios, litigios o decisiones sobre privacidad, consentimiento,
+    uso de datos y exactitud de informes.
+- impacto: medio
+  probabilidad: media
+  riesgo: Sensibilidad de ciertos productos a originación de crédito, empleo y actividad
+    económica.
+- impacto: alto
+  probabilidad: media
+  riesgo: Errores, sesgos o pérdida de cobertura en datos propios o de terceros que
+    reduzcan la utilidad de los productos.
+- impacto: medio
+  probabilidad: media
+  riesgo: Valoración que incorpore expectativas de crecimiento o márgenes no respaldadas
+    por las observaciones disponibles.
+- impacto: alto
+  probabilidad: baja
+  riesgo: 'Apalancamiento, liquidez y vencimientos: no evaluables con los campos financieros
+    concretos aportados; un deterioro material sería un riesgo permanente para el
+    capital.'
+error_mercado:
+  catalizador_cambio:
+    descripcion: Una secuencia de resultados y divulgaciones corporativas que confirme
+      crecimiento sostenido de ingresos, conversión a caja y resiliencia de márgenes
+      podría reforzar la percepción de durabilidad del negocio; un deterioro de esos
+      indicadores o un evento regulatorio material podría debilitarla. No se aporta
+      un calendario de resultados ni evidencia primaria de un evento próximo.
+    horizonte: medio
+    impacto: medio
+    probabilidad_pct: 50
+  conclusion_error_valoracion: INCIERTO
+  consenso_actual: 'La cotización de referencia es 184,43 USD al 2026-10-30. El consenso
+    observado al 2026-11-20 presenta un objetivo medio y mediano de 205 USD, con rango
+    de 169 a 245 USD. Esto apunta a una expectativa central de apreciación frente
+    a la cotización indicada, pero no permite inferir qué crecimiento, márgenes o
+    múltiplos están implícitos: no se proporcionaron múltiplos ni una valoración independiente.
+    Las observaciones financieras disponibles reportan FCF TTM de 1.100 millones en
+    USD del proveedor al 2026-09-30, y crecimiento de ingresos de 9,6% y margen operativo
+    de 20,993% al 2026-09-30; el período de estas dos últimas métricas está especificado
+    por el proveedor como no determinado.'
+  hipotesis_contraria: El consenso podría estar equivocado si extrapola la monetización
+    de datos y verificaciones sin ponderar suficientemente los riesgos de privacidad,
+    regulación, calidad de datos, competencia o sensibilidad a la actividad crediticia.
+    En sentido contrario, el mercado podría subestimar la persistencia de la demanda
+    por verificaciones y la capacidad de reutilizar activos de datos y tecnología
+    entre productos. Estas son hipótesis, no hechos confirmados por la evidencia entregada.
+  razonamiento: 'La diferencia entre la cotización y el consenso de objetivos no demuestra
+    un error de mercado: los objetivos son referencias de analistas, no una valoración
+    independiente. La información disponible carece de series financieras suficientes,
+    múltiplos completos utilizables, expectativas verificables y evidencia primaria
+    sobre catalizadores o riesgos recientes. Puede existir una oportunidad si la calidad
+    y el crecimiento se sostienen a un precio razonable, pero no está demostrada con
+    el expediente proporcionado.'
+generated_at: '2026-11-20T14:24:23.243002-03:00'
+integridad_tesis:
+  flags: []
+  reason: No hay evidencia aportada que confirme la vulneración de una de las nueve
+    categorías de invalidación. La falta de información sobre riesgos, deuda y gestión
+    limita la convicción, pero no equivale a evidencia de deterioro.
+  thesis_active: true
+opinion_valoracion: justo
+opp_id: OPP-COMPOUNDER-EFX-0001
+prompt_inputs:
+  business_model: 'Equifax Inc. operates as a data, analytics, and technology company.
+    The company operates through three segments: Workforce Solutions, U.S. Information
+    Solutions (USIS), and International. The Workforce Solutions segment offers services
+    that enables customers to verify income, employment, educational history, criminal
+    justice data, healthcare professional licensure, and sanctions of people in the
+    United States; and employer customers with services that assist them in complying
+    with and automating certain payroll-related and human resource management processes
+    throughout the entire cycle of the employment relationship. The U.S. Information
+    Solutions segment provides consumer and commercial information services, such
+    as credit information and credit scoring, credit modeling and portfolio analytics,
+    locate, fraud detection and prevention, identity verification, and other consulting
+    services; mortgage services; financial marketing services; identity management
+    services; and credit monitoring products. The International segment offers information
+    service products, which include consumer and commercial services comprising credit
+    and financial information, and credit scoring and modeling; and credit and other
+    marketing products and services, as well as information, technology, and services
+    to support debt collections and recovery management. The company also provides
+    information solutions for businesses, governments and consumers; and human resources
+    business process automation and outsourcing services for employers. It operates
+    in Argentina, Australia, Brazil, Canada, Chile, Costa Rica, Dominican Republic,
+    Ecuador, El Salvador, Honduras, India, Ireland, Mexico, New Zealand, Paraguay,
+    Peru, Portugal, Spain, the United Kingdom, Uruguay, and the United States. The
+    company was founded in 1899 and is headquartered in Atlanta, Georgia.'
+  ceo_tenure: 0
+  debt_to_equity: 0.0113
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Equifax Inc.
+  operating_margin: 19.23
+  pe_ratio: 29.63
+  products: ''
+  revenue: 6590000000.0
+  revenue_growth: 10.92
+  roic: 9.54
+  sector: Industrials
+  ticker: EFX
+ratios_investigados: []
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'Equifax Inc. operates as a data, analytics, and technology company.
+    The company operates through three segments: Workforce Solutions, U.S. Information
+    Solutions (USIS), and International. The Workforce Solutions segment offers services
+    that enables customers to verify income, employment, educational history, criminal
+    justice data, healthcare professional licensure, and sanctions of people in the
+    United States; and employer customers with services that assist them in complying
+    with and automating certain payroll-related and human resource management processes
+    throughout the entire cycle of the employment relationship. The U.S. Information
+    Solutions segment provides consumer and commercial information services, such
+    as credit information and credit scoring, credit modeling and portfolio analytics,
+    locate, fraud detection and prevention, identity verification, and other consulting
+    services; mortgage services; financial marketing services; identity management
+    services; and credit monitoring products. The International segment offers information
+    service products, which include consumer and commercial services comprising credit
+    and financial information, and credit scoring and modeling; and credit and other
+    marketing products and services, as well as information, technology, and services
+    to support debt collections and recovery management. The company also provides
+    information solutions for businesses, governments and consumers; and human resources
+    business process automation and outsourcing services for employers. It operates
+    in Argentina, Australia, Brazil, Canada, Chile, Costa Rica, Dominican Republic,
+    Ecuador, El Salvador, Honduras, India, Ireland, Mexico, New Zealand, Paraguay,
+    Peru, Portugal, Spain, the United Kingdom, Uruguay, and the United States. The
+    company was founded in 1899 and is headquartered in Atlanta, Georgia.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 184.4250030517578
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0113
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": "USD", "field_sources":
+    {"analyst_consensus": ["stockanalysis.com"], "asset_type": ["yfinance"], "avg_dollar_volume_usd":
+    ["yfinance"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "data_provenance": ["stockanalysis.com"], "debt_ebitda": ["stockanalysis.com"],
+    "debt_equity_ratio": ["stockanalysis.com"], "ebit": ["stockanalysis.com"], "ebitda":
+    ["stockanalysis.com"], "ebitda_margin_pct": ["stockanalysis.com"], "enterprise_value":
+    ["stockanalysis.com"], "eps_growth_forecast_3y_pct": ["stockanalysis.com"], "eps_history":
+    ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"], "ev_ebitda": ["stockanalysis.com"],
+    "ev_fcf": ["stockanalysis.com"], "ev_sales": ["stockanalysis.com"], "exchange":
+    ["yfinance"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_currency": ["yfinance"], "financial_data_as_of_date":
+    ["stockanalysis.com"], "financial_data_observed_at": ["yfinance"], "financial_history":
+    ["stockanalysis.com"], "financial_metric_metadata": ["yfinance"], "financial_period_end_timestamp":
+    ["yfinance"], "financial_period_type": ["stockanalysis.com"], "financials_data_updated_date":
+    ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"], "forward_ps": ["stockanalysis.com"],
+    "gross_margin_history": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "gross_profit_history": ["stockanalysis.com"], "levered_fcf": ["yfinance"], "liquidity_provenance":
+    ["yfinance"], "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"],
+    "market_cap": ["yfinance"], "market_cap_currency": ["yfinance"], "market_cap_provenance":
+    ["yfinance"], "market_cap_usd": ["yfinance"], "market_data_normalization": ["yfinance"],
+    "net_cash_history": ["stockanalysis.com"], "net_income_history": ["stockanalysis.com"],
+    "next_earnings_date": ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"],
+    "operating_income_history": ["stockanalysis.com"], "operating_margin_history":
+    ["stockanalysis.com"], "operating_margin_pct": ["yfinance"], "p_fcf_ratio": ["stockanalysis.com"],
+    "payout_ratio_pct": ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"],
+    "pe_ratio_ttm": ["stockanalysis.com"], "peg_ratio": ["stockanalysis.com"], "period_end_date":
+    ["stockanalysis.com"], "pretax_margin_pct": ["stockanalysis.com"], "price_history":
+    ["yfinance"], "price_history_basis": ["yfinance"], "price_history_dates": ["yfinance"],
+    "price_target_avg": ["stockanalysis.com"], "provider_data_updated_date": ["stockanalysis.com"],
+    "ps_ratio_ttm": ["stockanalysis.com"], "quick_ratio": ["stockanalysis.com"], "quote_currency":
+    ["yfinance"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"], "revenue_growth_history":
+    ["stockanalysis.com"], "revenue_growth_pct": ["yfinance"], "revenue_history":
+    ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"], "roa_pct": ["stockanalysis.com"],
+    "roe_pct": ["stockanalysis.com"], "roic_pct": ["stockanalysis.com"], "shares_outstanding":
+    ["stockanalysis.com"], "short_pct_of_float": ["stockanalysis.com"], "short_ratio":
+    ["stockanalysis.com"], "size_metric_provenance": ["yfinance"], "size_metric_usd":
+    ["yfinance"], "source": ["yfinance"], "ticker": ["yfinance"], "total_debt_history":
+    ["stockanalysis.com"], "url": ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"],
+    "volume_history": ["yfinance"]}, "observations": {"fcf": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-10-30T16:53:41.831145+00:00",
+    "period_end_date": "2026-09-30", "period_status": "SINGLE_SOURCE", "period_type":
+    "TTM", "provider_period_end_timestamp": null, "selected_source": "stockanalysis.com",
+    "source_metadata": {"stockanalysis.com": {"currency": null, "period_end_date":
+    "2026-09-30", "period_type": "TTM", "source_url": "https://stockanalysis.com/stocks/EFX/statistics/",
+    "unit": "provider_financial_currency"}}, "unit": "provider_financial_currency",
+    "values": {"stockanalysis.com": 1100000000.0}}, "operating_margin_pct": {"currency":
+    null, "non_comparable_reason": null, "non_comparable_values": {}, "observed_at":
+    "2026-11-01T10:17:30.991821+00:00", "period_end_date": "2026-09-30", "period_status":
+    "PERIOD_UNSPECIFIED", "period_type": "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp":
+    1790726400, "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency":
+    null, "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    20.993000000000002}}, "revenue_growth_pct": {"currency": null, "non_comparable_reason":
+    null, "non_comparable_values": {}, "observed_at": "2026-11-01T10:17:30.991821+00:00",
+    "period_end_date": "2026-09-30", "period_status": "PERIOD_UNSPECIFIED", "period_type":
+    "PROVIDER_REPORTED_UNSPECIFIED", "provider_period_end_timestamp": 1790726400,
+    "selected_source": "yfinance", "source_metadata": {"yfinance": {"currency": null,
+    "period_end_date": "2026-09-30", "period_type": "PROVIDER_REPORTED_UNSPECIFIED",
+    "unit": "percentage_points"}}, "unit": "percentage_points", "values": {"yfinance":
+    9.6}}}, "observed_at": "2026-10-30T16:53:41.831145+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com", "yfinance"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Equifax Inc.
+  operating_margin: 19.23
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'Equifax Inc. operates as a data, analytics, and technology company.
+    The company operates through three segments: Workforce Solutions, U.S. Information
+    Solutions (USIS), and International. The Workforce Solutions segment offers services
+    that enables customers to verify income, employment, educational history, criminal
+    justice data, healthcare professional licensure, and sanctions of people in the
+    United States; and employer customers with services that assist them in complying
+    with and automating'
+  revenue: 6590000000.0
+  revenue_growth: 10.92
+  roic: 9.54
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    245.0, "low": 169.0, "mean": 205.0, "median": 205.0, "observed_at": "2026-11-20T14:23:50.802065-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T14:23:50.802065-03:00", "observed_date": "2026-11-20", "target_price":
+    205.0, "url": "https://stockanalysis.com/stocks/efx/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:23:50.802065-03:00",
+    "observed_date": "2026-11-20", "target_price": 205.0, "url": "https://finance.yahoo.com/quote/EFX/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 184.4250030517578,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/EFX/"}]}}'
+  sector: Industrials
+  ticker: EFX
+research_trigger:
+  discovery_snapshot_hash: null
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 81131bebedbf4ce6e649ea2615338440932b3f2bf9abd446732397acd7ab9973
+  strategy_id: COMPOUNDER
+  strategy_version: positive_fundamentals_v1
+  trigger_type: monthly
+  triggered_at: '2026-11-20T14:24:23.243002-03:00'
+resumen_ejecutivo: Equifax parece, según el perfil suministrado, una compañía de datos,
+  analítica y tecnología con actividades de verificación de identidad, empleo, ingresos
+  y crédito. La evidencia financiera estructurada incluye FCF TTM de 1.100 millones
+  al 2026-09-30, además de crecimiento de ingresos de 9,6% y margen operativo de 20,993%
+  para un período que el proveedor no especifica. La cotización disponible es 184,43
+  USD al 2026-10-30 y el consenso observado al 2026-11-20 tiene media y mediana de
+  205 USD, con rango de 169 a 245 USD. Esas referencias no bastan para establecer
+  valor intrínseco ni para concluir que el mercado comete un error. La tesis depende
+  de la persistencia de la demanda, la protección de los activos de datos y la gestión
+  de riesgos regulatorios, cibernéticos y de calidad de información; dichos puntos
+  requieren verificación adicional.
+risk_flags: []
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Resultados y divulgaciones primarias muestran crecimiento orgánico sostenido
+      y conversión estable a caja durante el horizonte.
+    - La empresa demuestra resiliencia de márgenes y ausencia de deterioro material
+      en riesgos regulatorios, cibernéticos o de calidad de datos.
+    id: BEAR
+    key_assumptions:
+    - El crecimiento de ingresos observado no se mantiene o su período no especificado
+      impide que el mercado lo trate como tendencia sostenible.
+    - La generación de caja pierde impulso o se deteriora la percepción de su calidad
+      y recurrencia.
+    - El mercado aplica una valoración más prudente por riesgos de privacidad, seguridad,
+      regulación o sensibilidad económica.
+    rationale: Caso adverso anclado al límite bajo del rango de objetivos observado,
+      no a una valoración independiente. Representa una revisión a la baja de expectativas
+      por desaceleración, presión sobre márgenes o mayor percepción de riesgo regulatorio,
+      de datos o ciberseguridad. El límite observado no garantiza que el precio no
+      pueda caer por debajo.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis, consenso de analistas
+      url: https://stockanalysis.com/stocks/efx/forecast/
+    - as_of_date: '2026-10-30'
+      name: Yahoo Finance, cotización EFX
+      url: https://finance.yahoo.com/quote/EFX/
+    target_price: 169
+  - falsifiers:
+    - Divulgaciones primarias muestran desaceleración persistente, caída de márgenes
+      o contracción de flujo de caja.
+    - Se materializa un evento adverso significativo de privacidad, ciberseguridad,
+      regulación o pérdida de confianza de clientes.
+    - El consenso observado deja de ser una referencia pertinente por cambios materiales
+      en el negocio o en las condiciones de valoración.
+    id: BULL
+    key_assumptions:
+    - El crecimiento de ingresos resulta sostenible cuando se aclara el período y
+      se confirma con divulgaciones corporativas primarias.
+    - El FCF reportado se mantiene sólido y la compañía conserva márgenes operativos
+      resilientes.
+    - La demanda por los servicios de verificación y datos se mantiene, sin un evento
+      regulatorio, cibernético o de calidad de datos que altere la tesis.
+    rationale: Caso favorable anclado al límite alto del rango de objetivos observado,
+      no a una valoración independiente. Requiere que el mercado reconozca crecimiento
+      y generación de caja sostenibles y que no se materialice un deterioro relevante
+      en los riesgos principales. El límite observado no garantiza que el precio no
+      pueda superarlo.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: Stock Analysis, consenso de analistas
+      url: https://stockanalysis.com/stocks/efx/forecast/
+    - as_of_date: '2026-10-30'
+      name: Yahoo Finance, cotización EFX
+      url: https://finance.yahoo.com/quote/EFX/
+    target_price: 245
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 61
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T14:23:50.802065-03:00'
+  fuentes:
+    stockanalysis: 205.0
+    yfinance: 205.0
+  mediana: 205.0
+  n_fuentes: 2
+  promedio: 205.0
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T14:23:50.802065-03:00'
+    observed_date: '2026-11-20'
+    target_price: 205.0
+    url: https://stockanalysis.com/stocks/efx/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T14:23:50.802065-03:00'
+    observed_date: '2026-11-20'
+    target_price: 205.0
+    url: https://finance.yahoo.com/quote/EFX/
+  target_high: 245.0
+  target_low: 169.0
+tesis_inversion: 'La tesis potencial es la de una empresa de información y analítica
+  con servicios críticos para decisiones de clientes y posibilidades de reutilizar
+  datos, tecnología y relaciones comerciales. La evidencia recibida ofrece indicios
+  financieros favorables, pero no suficientes para probar la duración del moat, la
+  calidad del flujo o el valor intrínseco. Al precio de referencia disponible, el
+  consenso de analistas apunta a un valor central superior, aunque sus objetivos no
+  son una valoración independiente. La postura adecuada es neutral y condicionada
+  a verificar resultados segmentados, deuda, conversión de caja, riesgos regulatorios
+  y cibernéticos, y la evolución de los productos. El segundo nivel: el riesgo es
+  tanto pagar de más por una franquicia aparentemente defensiva como infravalorar
+  la persistencia de sus activos de información; el expediente no permite resolver
+  cuál domina.'
+ticker: EFX
+version: '3.0'

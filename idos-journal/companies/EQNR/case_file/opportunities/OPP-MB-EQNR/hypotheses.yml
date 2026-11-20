@@ -1,0 +1,145 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: La producción media anual total de 2027 es inferior a la de 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no publica datos comparables que permitan comprobar la variación
+      de producción.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La producción media anual total de 2027 es inferior a la de 2026.
+  - La empresa no publica datos comparables que permitan comprobar la variación de
+    producción.
+  horizon: medio
+  id: H1-OPP-MB-EQNR
+  opportunity_id: OPP-MB-EQNR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 2.0
+    met: null
+    metric: Variación de producción media anual total de petróleo y gas frente a 2026
+    prediction: En el informe anual de 2027, la producción media anual total de petróleo
+      y gas será al menos un 2% superior a la media anual de 2026, comparadas con
+      la misma metodología de la empresa.
+    unit: '% mínimo'
+  priority: important
+  probability: 0.5
+  rationale: La producción de hidrocarburos es una fuente central de actividad y caja
+    para una empresa integrada como Equinor. El FCF TTM reportado de USD 11.329 millones
+    al 30-09-2026 muestra generación de caja en ese período, pero no demuestra por
+    sí solo que la producción vaya a crecer; la hipótesis pone a prueba la capacidad
+    de sostener el negocio operativo.
+  review_trigger: Dejar de creerla si un informe trimestral publicado antes del 2028-03-31
+    indica que la producción acumulada de 2027 va al menos un 2% por debajo del ritmo
+    comparable de 2026 y la empresa no guía a una recuperación suficiente para el
+    conjunto del año.
+  secondary_hypotheses: []
+  statement: Equinor mantendrá o aumentará su producción total de petróleo y gas en
+    2027 frente a 2026, apoyada por la continuidad de sus operaciones de exploración
+    y producción.
+  status: ACTIVE
+  ticker: EQNR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF de 2027 publicado por la empresa es inferior a USD 8.000 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se publica una conciliación suficiente para evaluar el FCF de 2027
+      con una definición consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF de 2027 publicado por la empresa es inferior a USD 8.000 millones.
+  - No se publica una conciliación suficiente para evaluar el FCF de 2027 con una
+    definición consistente.
+  horizon: medio
+  id: H2-OPP-MB-EQNR
+  opportunity_id: OPP-MB-EQNR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 8000.0
+    met: null
+    metric: Flujo de caja libre de 2027
+    prediction: El flujo de caja libre de 2027, calculado con la definición que Equinor
+      reporte para ese ejercicio, será de al menos USD 8.000 millones.
+    unit: millones de USD mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El FCF TTM de USD 11.329 millones al 30-09-2026 aporta evidencia de generación
+    de caja reciente. La producción, los precios realizados, los costes, los impuestos
+    y el gasto de capital pueden alterar el resultado; por eso, la hipótesis se prueba
+    contra un umbral anual y no extrapola mecánicamente el dato TTM.
+  review_trigger: Dejar de creerla si los resultados acumulados de 2027 publicados
+    por Equinor implican un FCF anual inferior a USD 8.000 millones y la empresa no
+    presenta una guía creíble de recuperación para el resto del ejercicio.
+  secondary_hypotheses:
+  - H1-OPP-MB-EQNR
+  statement: Equinor conservará una generación anual de flujo de caja libre significativa
+    en 2027, aunque el FCF TTM reportado al 30-09-2026 no garantiza que ese nivel
+    sea sostenible.
+  status: ACTIVE
+  ticker: EQNR
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de EQNR en USD no supera al del MSCI World Energy
+      Index en al menos 5 puntos porcentuales durante el período indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: No se pueden comparar rendimientos totales con dividendos reinvertidos
+      y la misma moneda para ambos activos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de EQNR en USD no supera al del MSCI World Energy Index en
+    al menos 5 puntos porcentuales durante el período indicado.
+  - No se pueden comparar rendimientos totales con dividendos reinvertidos y la misma
+    moneda para ambos activos.
+  horizon: medio
+  id: H3-OPP-MB-EQNR
+  opportunity_id: OPP-MB-EQNR
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de EQNR frente al MSCI World Energy Index
+    prediction: Desde el 20-11-2026 hasta el 20-11-2027, el rendimiento total de EQNR,
+      incluidos dividendos y medido en USD, superará en al menos 5 puntos porcentuales
+      al rendimiento total del MSCI World Energy Index en USD.
+    unit: puntos porcentuales de exceso de rendimiento
+  priority: informational
+  probability: 0.5
+  rationale: 'El alza de precio reportada de 103,46% entre el 30-10-2025 y el 30-10-2026
+    no demuestra por sí sola infravaloración ni predice rendimientos futuros. Esta
+    hipótesis evalúa una afirmación distinta y observable: que Equinor superará a
+    un índice sectorial en adelante. La producción y el FCF son posibles catalizadores,
+    pero la valoración y el precio de la energía pueden contrarrestarlos.'
+  review_trigger: Dejar de creerla si, al 2027-08-20, el rendimiento total acumulado
+    de EQNR queda al menos 10 puntos porcentuales por debajo del índice y no existe
+    una mejora observable en la producción o en la guía de flujo de caja que justifique
+    mantener la tesis.
+  secondary_hypotheses:
+  - H1-OPP-MB-EQNR
+  - H2-OPP-MB-EQNR
+  statement: La acción de Equinor tendrá un rendimiento total superior al del sector
+    energético global durante los 12 meses posteriores a la fecha de corte, si el
+    mercado reconoce la capacidad de la empresa para sostener producción y generación
+    de caja.
+  status: ACTIVE
+  ticker: EQNR
+  version: 1

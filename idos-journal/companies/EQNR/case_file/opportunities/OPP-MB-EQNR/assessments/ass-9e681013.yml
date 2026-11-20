@@ -1,0 +1,32 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia fundamental incompleta'
+- 'Market error: No se valida un error de valoración. La cotización excede el consenso
+  medio reportado, pero no hay método de valoración ni estimaciones operativas suficientes
+  para concluir sobre valor intrínseco.'
+- 'Thesis: Equinor combina operaciones de exploración y producción, comercialización,
+  midstream, procesamiento y renovables, según el resumen financiero. El FCF TTM y
+  el margen bruto reportados ofrecen evidencia'
+generated_at: '2026-11-20T14:29:48.811027-03:00'
+id: ass-9e681013
+recommendation: REVIEW
+risks:
+- evidencia: El modelo de negocio incluye exploración, desarrollo y operación de carteras
+    de petróleo y gas.
+  riesgo: La exposición a actividades de petróleo y gas puede hacer que resultados
+    y caja sean sensibles a condiciones de mercado; el paquete no cuantifica esa sensibilidad.
+- evidencia: La serie de ingresos señala puntos omitidos y no incluye una fila FY
+    2023.
+  riesgo: 'No se puede evaluar la trayectoria de ingresos a tres años con la serie
+    entregada: faltan observaciones anuales completas y hay valores duplicados para
+    TTM y FY 2025.'
+- evidencia: La observación de cobertura de intereses es 0 al 30-09-2026 TTM.
+  riesgo: La cobertura de intereses reportada como 0x requiere aclaración; no se aportan
+    EBIT e interés del mismo cálculo ni el gasto por intereses.
+- evidencia: Métricas de precio de yfinance para 31-10-2025 a 30-10-2026.
+  riesgo: La cotización registró volatilidad a 90 días de 37,75% y drawdown de 0,14%
+    en los períodos reportados; son métricas históricas, no medidas de riesgo futuro.
+score: 52
+status: COMPLETED
+version: '3.0'

@@ -1,67 +1,179 @@
 {
-  "total": 4,
+  "total": 3,
   "processed": [
     {
-      "opp_id": "OPP-COMPOUNDER-EBAY-0001",
-      "ticker": "EBAY",
+      "opp_id": "OPP-COMPOUNDER-EFX-0001",
+      "ticker": "EFX",
       "status": "completed",
-      "score": 71,
+      "score": 61,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-EBAY",
-      "ticker": "EBAY",
-      "status": "quality_failed",
-      "score": 45,
-      "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
-    },
-    {
-      "opp_id": "OPP-COMPOUNDER-ECL-0001",
-      "ticker": "ECL",
+      "opp_id": "OPP-COMPOUNDER-EQNR-0001",
+      "ticker": "EQNR",
       "status": "completed",
-      "score": 58,
+      "score": 48,
       "reason": "new entry: SCREENED (score=0)",
       "errors": []
     },
     {
-      "opp_id": "OPP-MB-ECL",
-      "ticker": "ECL",
-      "status": "quality_failed",
-      "score": 42,
+      "opp_id": "OPP-MB-EQNR",
+      "ticker": "EQNR",
+      "status": "completed",
+      "score": 52,
       "reason": "new entry: SCREENED (score=0)",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "errors": []
     }
   ],
   "skipped": [],
-  "assessments": [],
-  "errors": [
+  "assessments": [
     {
-      "ticker": "EBAY",
-      "opp_id": "OPP-MB-EBAY",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "ticker": "EFX",
+      "opp_id": "OPP-COMPOUNDER-EFX-0001",
+      "status": "completed",
+      "conviction_score": 62,
+      "recommendation": "BLOCKED",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "assessments": {
+        "BusinessAssessmentEngine": 58,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 56,
+        "RiskAssessmentEngine": 80,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-003",
+        "RULE-004",
+        "RULE-008",
+        "RULE-010"
+      ],
+      "rules_failed": [
+        "RULE-001",
+        "RULE-005"
+      ],
+      "rules_details": {
+        "RULE-001": "Business quality: 58/70",
+        "RULE-003": "Rerating: 56/50",
+        "RULE-004": "Risk: 80/50",
+        "RULE-005": "Conviction: 62/65",
+        "RULE-008": "B/R 4.7:1 \u2705 (Bull +34.4% / Bear -7.3%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
     },
     {
-      "ticker": "ECL",
-      "opp_id": "OPP-MB-ECL",
-      "status": "quality_failed",
-      "error": "Scenario validation status: invalid_pending_revision",
-      "errors": [
-        "Scenario validation status: invalid_pending_revision"
-      ]
+      "ticker": "EQNR",
+      "opp_id": "OPP-COMPOUNDER-EQNR-0001",
+      "status": "decision_pending",
+      "conviction_score": 65,
+      "recommendation": "WAIT",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "assessments": {
+        "BusinessAssessmentEngine": 72,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 58,
+        "RiskAssessmentEngine": 70,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-001",
+        "RULE-003",
+        "RULE-004",
+        "RULE-005",
+        "RULE-008",
+        "RULE-010"
+      ],
+      "rules_failed": [],
+      "rules_details": {
+        "RULE-001": "Business quality: 72/70",
+        "RULE-003": "Rerating: 58/50",
+        "RULE-004": "Risk: 70/50",
+        "RULE-005": "Conviction: 65/65",
+        "RULE-008": "B/R 4.8:1 \u2705 (Bull +29.3% / Bear -6.2%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
+    },
+    {
+      "ticker": "EQNR",
+      "opp_id": "OPP-MB-EQNR",
+      "status": "decision_pending",
+      "conviction_score": 65,
+      "recommendation": "WAIT",
+      "board_approved": false,
+      "decision_type": null,
+      "decision_id": null,
+      "assessments": {
+        "BusinessAssessmentEngine": 72,
+        "ValuationAssessmentEngine": 65,
+        "RecoveryAssessmentEngine": 56,
+        "RiskAssessmentEngine": 70,
+        "PortfolioAssessmentEngine": 50
+      },
+      "rules_passed": [
+        "RULE-001",
+        "RULE-003",
+        "RULE-004",
+        "RULE-005",
+        "RULE-008",
+        "RULE-010"
+      ],
+      "rules_failed": [],
+      "rules_details": {
+        "RULE-001": "Business quality: 72/70",
+        "RULE-003": "Rerating: 56/50",
+        "RULE-004": "Risk: 70/50",
+        "RULE-005": "Conviction: 65/65",
+        "RULE-008": "B/R 4.8:1 \u2705 (Bull +29.3% / Bear -6.2%)",
+        "RULE-010": "Fuente y fecha de corte verificadas; cobertura 5/5"
+      },
+      "data_quality": "good",
+      "financial_data_quality": {
+        "status": "good",
+        "core_metric_coverage": "5/5",
+        "missing_core_metrics": [],
+        "source": "stockanalysis.com",
+        "as_of_date": "2026-09-30",
+        "as_of_basis": "period_end_date",
+        "as_of_date_source": "stockanalysis.com",
+        "missing_provenance": [],
+        "conflicting_core_metrics": [],
+        "unreconciled_core_metrics": []
+      }
     }
   ],
-  "status": "failed",
-  "deferred_count": 127,
+  "errors": [],
+  "status": "partial_deferred",
+  "deferred_count": 124,
   "quarantined_count": 0,
   "capacity_failure": null,
   "event_type": "monthly",

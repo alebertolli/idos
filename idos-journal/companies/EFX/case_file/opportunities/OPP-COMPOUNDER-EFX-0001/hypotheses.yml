@@ -1,0 +1,205 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento orgánico acumulado de Workforce Solutions en esos cuatro
+      trimestres es inferior a 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía atribuye el crecimiento del segmento principalmente a adquisiciones,
+      divisas o partidas no recurrentes, sin crecimiento orgánico comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento orgánico acumulado de Workforce Solutions en esos cuatro trimestres
+    es inferior a 5%.
+  - La compañía atribuye el crecimiento del segmento principalmente a adquisiciones,
+    divisas o partidas no recurrentes, sin crecimiento orgánico comparable.
+  horizon: medio
+  id: H1-OPP-COMPOUNDER-EFX-0001
+  opportunity_id: OPP-COMPOUNDER-EFX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Crecimiento orgánico acumulado de ingresos de Workforce Solutions en cuatro
+      trimestres
+    prediction: En los cuatro trimestres consecutivos terminados el 2027-11-20, Workforce
+      Solutions registrará crecimiento orgánico acumulado de ingresos de al menos
+      5% frente a los cuatro trimestres comparables previos, excluyendo efectos de
+      divisas y adquisiciones cuando la compañía los informe por separado.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Las verificaciones pueden responder a necesidades de contratación, identidad
+    e ingresos además de las relacionadas con el crédito. Si los activos de datos
+    y las relaciones con clientes se reutilizan entre productos, el crecimiento del
+    segmento debería resistir mejor una desaceleración de la actividad crediticia.
+    La información disponible plantea esta posibilidad, pero no demuestra todavía
+    su duración ni su magnitud.
+  review_trigger: Dejar de creerla si dos trimestres consecutivos muestran contracción
+    orgánica en Workforce Solutions o si la compañía informa que una pérdida de clientes
+    o una reducción estructural de demanda está limitando el uso de sus productos.
+  secondary_hypotheses: []
+  statement: La reutilización de datos, tecnología y relaciones comerciales permitirá
+    que Workforce Solutions mantenga un crecimiento orgánico de ingresos superior
+    al de una empresa expuesta únicamente al ciclo de originación crediticia.
+  status: ACTIVE
+  ticker: EFX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El cociente entre flujo de caja libre y beneficio neto ajustado del
+      ejercicio fiscal 2027 es inferior a 70%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía no divulga datos suficientes para conciliar el flujo de
+      caja libre con los estados financieros o cambia su definición de manera que
+      impida una comparación razonable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El cociente entre flujo de caja libre y beneficio neto ajustado del ejercicio
+    fiscal 2027 es inferior a 70%.
+  - La compañía no divulga datos suficientes para conciliar el flujo de caja libre
+    con los estados financieros o cambia su definición de manera que impida una comparación
+    razonable.
+  horizon: medio
+  id: H2-OPP-COMPOUNDER-EFX-0001
+  opportunity_id: OPP-COMPOUNDER-EFX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-15'
+    expected: 70.0
+    met: null
+    metric: Flujo de caja libre dividido por beneficio neto ajustado
+    prediction: Para el ejercicio fiscal 2027, el flujo de caja libre reportado por
+      Equifax será al menos el 70% de su beneficio neto ajustado reportado para el
+      mismo ejercicio. Se utilizarán las definiciones de flujo de caja libre y beneficio
+      neto ajustado divulgadas por la compañía, identificando cualquier cambio de
+      definición.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis depende no solo de los ingresos, sino de que los productos y
+    activos de información generen caja después de inversiones y necesidades operativas.
+    El contexto disponible considera insuficiente la evidencia sobre conversión de
+    caja; por ello, la hipótesis debe verificarse directamente en los estados financieros.
+  review_trigger: Dejar de creerla al publicarse los resultados anuales del ejercicio
+    fiscal 2027 si la conversión es inferior a 70%, o antes si la compañía comunica
+    una revisión sustancial de sus expectativas de generación de caja por inversiones,
+    capital circulante o costes de integración.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-EFX-0001
+  statement: Equifax convertirá una proporción suficiente de sus beneficios en flujo
+    de caja libre, señal de que el crecimiento y las inversiones en tecnología y datos
+    no deterioran de forma persistente la calidad de las ganancias.
+  status: ACTIVE
+  ticker: EFX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La deuda neta sobre EBITDA ajustado al cierre del ejercicio fiscal
+      2027 supera 3,0 veces.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El apalancamiento mejora únicamente por cambios de definición, exclusiones
+      crecientes o ajustes no recurrentes que impidan una comparación consistente.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La deuda neta sobre EBITDA ajustado al cierre del ejercicio fiscal 2027 supera
+    3,0 veces.
+  - El apalancamiento mejora únicamente por cambios de definición, exclusiones crecientes
+    o ajustes no recurrentes que impidan una comparación consistente.
+  horizon: medio
+  id: H3-OPP-COMPOUNDER-EFX-0001
+  opportunity_id: OPP-COMPOUNDER-EFX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-15'
+    expected: 3.0
+    met: null
+    metric: Deuda neta sobre EBITDA ajustado
+    prediction: Al cierre del ejercicio fiscal 2027, la deuda neta dividida por EBITDA
+      ajustado de los últimos doce meses será igual o inferior a 3,0 veces, usando
+      deuda neta y EBITDA ajustado conforme a las definiciones divulgadas por Equifax.
+    unit: veces como máximo
+  priority: important
+  probability: 0.5
+  rationale: El contexto identifica la deuda como una cuestión pendiente de verificación
+    y advierte del riesgo de pagar demasiado por una franquicia aparentemente defensiva.
+    Una trayectoria de apalancamiento que no mejore limitaría la flexibilidad financiera
+    y podría reducir el valor atribuible al crecimiento.
+  review_trigger: Dejar de creerla si la métrica supera 3,0 veces en los resultados
+    anuales del ejercicio fiscal 2027 o si la compañía informa antes de esa fecha
+    de una adquisición, recompra u otro uso de capital que eleve materialmente el
+    apalancamiento sin una reducción compensatoria de deuda.
+  secondary_hypotheses:
+  - H2-OPP-COMPOUNDER-EFX-0001
+  statement: El crecimiento y la conversión de caja no bastarán para justificar una
+    valoración creciente si la deuda neta permanece elevada o aumenta respecto de
+    la capacidad de generación de beneficios.
+  status: ACTIVE
+  ticker: EFX
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de EFX menos el rendimiento total del S&P 500
+      entre ambas fechas es inferior a 5 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El rendimiento relativo es negativo, aun si durante el periodo se mantienen
+      recomendaciones o precios objetivo de analistas superiores al precio de la acción.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de EFX menos el rendimiento total del S&P 500 entre ambas
+    fechas es inferior a 5 puntos porcentuales.
+  - El rendimiento relativo es negativo, aun si durante el periodo se mantienen recomendaciones
+    o precios objetivo de analistas superiores al precio de la acción.
+  horizon: largo
+  id: H4-OPP-COMPOUNDER-EFX-0001
+  opportunity_id: OPP-COMPOUNDER-EFX-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total de EFX menos rendimiento total del S&P 500
+    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2028-11-20, el
+      rendimiento total de EFX, incluidos dividendos, superará en al menos 5 puntos
+      porcentuales el rendimiento total del S&P 500 durante el mismo periodo.
+    unit: puntos porcentuales mínimos
+  priority: important
+  probability: 0.5
+  rationale: El contexto señala que el consenso de analistas presenta un valor central
+    superior al precio de referencia disponible, pero sus objetivos no constituyen
+    una valoración independiente. La hipótesis comprobable no es que esos objetivos
+    sean correctos, sino que los resultados observables se traduzcan en rendimiento
+    relativo positivo durante un horizonte definido.
+  review_trigger: Dejar de creerla si, al 2027-11-20, EFX acumula un rendimiento total
+    inferior al del S&P 500 en 10 puntos porcentuales o más y, además, incumple la
+    predicción operacional de H1 o la financiera de H2.
+  secondary_hypotheses:
+  - H1-OPP-COMPOUNDER-EFX-0001
+  - H2-OPP-COMPOUNDER-EFX-0001
+  - H3-OPP-COMPOUNDER-EFX-0001
+  statement: Si Equifax confirma crecimiento orgánico y conversión de caja, el mercado
+    reconocerá parte de la persistencia de su franquicia y la acción superará al mercado
+    amplio; si no lo hace, la tesis de valoración no quedará validada.
+  status: ACTIVE
+  ticker: EFX
+  version: 1
