@@ -1,0 +1,568 @@
+calidad_evidencia:
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 2
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: alto potencial
+  justificacion: Crecimiento de ingresos del 3.6% CAGR y generación de flujo de caja
+    libre positivo del 11.4% respaldan una oportunidad de revalorización, aunque la
+    cobertura de intereses es insuficiente.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Ingresos en crecimiento moderado (CAGR 3.6%) y márgenes brutos estables
+    (~16.6%). Sin embargo, la cobertura de intereses nula y la alta deuda neta limitan
+    la solidez financiera.
+  rating: moderado
+dominio_catalizadores:
+- descripcion: Recuperación del precio del petróleo impulsa el gasto de capital de
+    clientes
+  fuente:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/SLB/financials/
+- descripcion: Creciente demanda de soluciones de gestión de carbono y energía renovable
+  fuente:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/SLB/statistics/
+- descripcion: Expansión de servicios digitales y de integración de datos
+  fuente:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/SLB/financials/
+- descripcion: Posibles alianzas estratégicas o adquisiciones en el sector de energía
+    limpia
+  fuente:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/SLB/financials/
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: Cobertura de intereses insuficiente (0x) por debajo del umbral de 2.0
+  fuente:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/SLB/statistics/
+- descripcion: Volatilidad 90 días del 37.35% indica alta incertidumbre de precios
+  fuente:
+  - as_of_date: '2026-10-30'
+    name: yfinance
+    url: https://finance.yahoo.com/quote/SLB/history/
+- descripcion: Drawdown máximo del 10.58% en el último año
+  fuente:
+  - as_of_date: '2026-10-30'
+    name: yfinance
+    url: https://finance.yahoo.com/quote/SLB/history/
+- descripcion: Deuda neta elevada (9.212B) frente a EBITDA (7.39B) genera un ratio
+    1.25x
+  fuente:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/slb/financials/
+error_mercado:
+  catalizador_cambio: Una mejora sostenida del precio del petróleo que eleve los márgenes
+    de SLB podría cerrar la brecha de valoración.
+  conclusion_error_valoracion: El rango de consenso podría estar sesgado a la baja
+    por no incorporar plenamente los riesgos de cobertura de intereses.
+  consenso_actual:
+    currency: USD
+    high: 71.0
+    low: 44.0
+    mean: 62.21
+    source:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/slb/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/SLB/
+  hipotesis_contraria: El consenso subestima la presión de liquidez derivada del bajo
+    interés coverage (0x) y el alto nivel de deuda neta.
+  razonamiento: Los analistas usan múltiplos de mercado sin ajustar por la debilidad
+    de la cobertura de intereses, lo que puede llevar a una subvaloración.
+generated_at: '2026-11-20T19:18:14.686619-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-SLB
+prompt_inputs:
+  business_model: 'SLB N.V. engages in the provision of technology for the energy
+    industry worldwide. The company operates through four divisions: Digital & Integration,
+    Reservoir Performance, Well Construction, and Production Systems. The company
+    provides field development and hydrocarbon production, carbon management, and
+    integration of adjacent energy systems; reservoir interpretation and data processing
+    services for exploration data; and well construction and production improvement
+    services and products. It also offers subsurface geology and fluids evaluation
+    information; stimulation services to restore or enhance well productivity through
+    hydraulic fracturing, matrix stimulation, and water treatment; and intervention
+    services to oil and gas operators. In addition, the company offers mud logging,
+    directional drilling, measurement-while-drilling, and logging-while-drilling services,
+    as well as engineering support services; supplies drilling fluid systems; designs,
+    manufactures, and markets roller cone and fixed cutter drill bits; bottom-hole-assembly
+    and borehole enlargement technologies; well planning, well drilling, engineering,
+    supervision, logistics, procurement, and contracting of third parties, as well
+    as drilling rig management solutions; and drilling equipment and services, as
+    well as land drilling rigs and related services. Further, it provides artificial
+    lift; supplies packers, safety valves, sand control technology, and various intelligent
+    systems; midstream production systems; valves, chokes, actuators, and surface
+    trees; and OneSubsea, an integrated solutions, products, systems, and services,
+    including wellheads, subsea trees, manifolds and flowline connectors, control
+    systems, connectors, and services. SLB N.V. was formerly known as Schlumberger
+    Limited and change its name to SLB N.V. in October 2025. The company was founded
+    in 1926 and is based in Houston, Texas.'
+  ceo_tenure: 0
+  debt_to_equity: 0.47
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: SLB N.V.
+  operating_margin: 13.81
+  pe_ratio: 22.5
+  products: ''
+  revenue: 36890000000.0
+  revenue_growth: 4.65
+  roic: 11.29
+  sector: Energy
+  ticker: SLB
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/slb/financials/
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/SLB/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: valor reportado en fcf_growth_history TTM
+  inputs:
+    fcf_growth_pct: fcf_growth_history
+  limitations: N/A
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/slb/financials/
+  status: reported
+  unit: percent
+  value: 11.41
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/slb/financials/
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/slb/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/slb/financials/
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/SLB/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    diluted_shares_t: diluted_shares_history
+    diluted_shares_t-1: diluted_shares_history
+  limitations: Falta información de diluted_shares_history en el paquete.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'SLB N.V. engages in the provision of technology for the energy
+    industry worldwide. The company operates through four divisions: Digital & Integration,
+    Reservoir Performance, Well Construction, and Production Systems. The company
+    provides field development and hydrocarbon production, carbon management, and
+    integration of adjacent energy systems; reservoir interpretation and data processing
+    services for exploration data; and well construction and production improvement
+    services and products. It also offers subsurface geology and fluids evaluation
+    information; stimulation services to restore or enhance well productivity through
+    hydraulic fracturing, matrix stimulation, and water treatment; and intervention
+    services to oil and gas operators. In addition, the company offers mud logging,
+    directional drilling, measurement-while-drilling, and logging-while-drilling services,
+    as well as engineering support services; supplies drilling fluid systems; designs,
+    manufactures, and markets roller cone and fixed cutter drill bits; bottom-hole-assembly
+    and borehole enlargement technologies; well planning, well drilling, engineering,
+    supervision, logistics, procurement, and contracting of third parties, as well
+    as drilling rig management solutions; and drilling equipment and services, as
+    well as land drilling rigs and related services. Further, it provides artificial
+    lift; supplies packers, safety valves, sand control technology, and various intelligent
+    systems; midstream production systems; valves, chokes, actuators, and surface
+    trees; and OneSubsea, an integrated solutions, products, systems, and services,
+    including wellheads, subsea trees, manifolds and flowline connectors, control
+    systems, connectors, and services. SLB N.V. was formerly known as Schlumberger
+    Limited and change its name to SLB N.V. in October 2025. The company was founded
+    in 1926 and is based in Houston, Texas.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 53.7400016784668
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.47
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T22:17:59.937166+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: SLB N.V.
+  operating_margin: 13.81
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'SLB N.V. engages in the provision of technology for the energy industry
+    worldwide. The company operates through four divisions: Digital & Integration,
+    Reservoir Performance, Well Construction, and Production Systems. The company
+    provides field development and hydrocarbon production, carbon management, and
+    integration of adjacent energy systems; reservoir interpretation and data processing
+    services for exploration data; and well construction and production improvement
+    services and products. It al'
+  revenue: 36890000000.0
+  revenue_growth: 4.65
+  roic: 11.29
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/slb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SLB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SLB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SLB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SLB/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/slb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/slb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/slb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SLB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/slb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SLB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/slb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/slb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/slb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SLB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SLB/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/slb/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    71.0, "low": 44.0, "mean": 62.21, "median": 62.21, "observed_at": "2026-11-20T19:18:02.976247-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T19:18:02.976247-03:00", "observed_date": "2026-11-20", "target_price":
+    62.21, "url": "https://stockanalysis.com/stocks/slb/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T19:18:02.976247-03:00",
+    "observed_date": "2026-11-20", "target_price": 62.2069, "url": "https://finance.yahoo.com/quote/SLB/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 53.7400016784668,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/SLB/"}]}}'
+  sector: Energy
+  ticker: SLB
+research_trigger:
+  discovery_snapshot_hash: e43e49a9a4f8e0f21929d24a93e5634b42dcc0143d39da30f3226b61d7bfa638
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 71b3c39cea73d5eec7b10a921e8f274a06b923651c694242620e5c7fadc912dd
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T19:18:14.686619-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- detail: Interest coverage ratio = 0x, por debajo del umbral de 2.0x
+  flag: interest_coverage_below
+  source:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/SLB/statistics/
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-10-30'
+  scenarios:
+  - falsifiers:
+    - Incremento sostenido del precio del petróleo
+    - Mejora de la cobertura de intereses
+    id: BEAR
+    key_assumptions:
+    - Precio del petróleo < $70/bbl
+    - Márgenes brutos caen a <15%
+    - EBIT no mejora
+    rationale: Presión prolongada en precios del petróleo reduce el gasto de capital,
+      manteniendo márgenes bajos y agravando la cobertura de intereses.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/slb/forecast/
+    target_price: 44.0
+  - falsifiers:
+    - Caída abrupta del precio del petróleo
+    - Deterioro de márgenes por costos operativos
+    id: BASE
+    key_assumptions:
+    - Precio del petróleo alrededor de $80/bbl
+    - Márgenes brutos ~17%
+    - Cobertura de intereses mejora a >1x
+    rationale: Escenario medio basado en el consenso de analistas, asume recuperación
+      parcial del mercado energético y estabilidad operativa.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/slb/forecast/
+    target_price: 62.21
+  - falsifiers:
+    - Recesión global que reduzca la demanda de energía
+    - Problemas regulatorios en proyectos de carbono
+    id: BULL
+    key_assumptions:
+    - Precio del petróleo > $90/bbl
+    - Márgenes brutos >18%
+    - Cobertura de intereses >2x
+    rationale: Recuperación robusta del sector energético, adopción acelerada de soluciones
+      digitales y mejora de la rentabilidad.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/slb/forecast/
+    target_price: 71.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 78
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T19:18:02.976247-03:00'
+  fuentes:
+    stockanalysis: 62.21
+    yfinance: 62.2069
+  mediana: 62.21
+  n_fuentes: 2
+  promedio: 62.21
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T19:18:02.976247-03:00'
+    observed_date: '2026-11-20'
+    target_price: 62.21
+    url: https://stockanalysis.com/stocks/slb/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T19:18:02.976247-03:00'
+    observed_date: '2026-11-20'
+    target_price: 62.2069
+    url: https://finance.yahoo.com/quote/SLB/
+  target_high: 71.0
+  target_low: 44.0
+tesis_inversion: SLB presenta un perfil de crecimiento moderado impulsado por la digitalización
+  de servicios energéticos, pero su vulnerabilidad financiera (interest coverage 0x)
+  genera incertidumbre; los escenarios de precios del petróleo y la recuperación del
+  gasto de capital son determinantes.
+ticker: SLB
+version: '3.0'

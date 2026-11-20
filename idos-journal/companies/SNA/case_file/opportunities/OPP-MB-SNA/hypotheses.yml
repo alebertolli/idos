@@ -1,0 +1,189 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las ventas orgánicas acumuladas de los doce meses terminados en la
+      fecha objetivo son iguales o inferiores a las del período comparable anterior.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa una contracción de ventas orgánicas durante dos
+      trimestres consecutivos antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las ventas orgánicas acumuladas de los doce meses terminados en la fecha objetivo
+    son iguales o inferiores a las del período comparable anterior.
+  - La compañía informa una contracción de ventas orgánicas durante dos trimestres
+    consecutivos antes de la fecha objetivo.
+  horizon: medio
+  id: H1-OPP-MB-SNA
+  opportunity_id: OPP-MB-SNA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 2.0
+    met: null
+    metric: crecimiento de ventas orgánicas acumuladas interanual
+    prediction: En el período de doce meses que termine el 2027-11-20, las ventas
+      orgánicas acumuladas crecerán aproximadamente un 2% frente a los doce meses
+      comparables anteriores.
+    unit: '%'
+  priority: important
+  probability: 0.5
+  rationale: La compañía vende herramientas, equipos, diagnóstico e información a
+    usuarios profesionales, lo que puede sostener la demanda mediante reposición y
+    necesidades de reparación. Sin embargo, el contexto no aporta crecimiento histórico
+    de ingresos ni datos de penetración de mercado, por lo que esta hipótesis es de
+    confianza limitada.
+  review_trigger: Dejar de creerla si Snap-on comunica dos trimestres consecutivos
+    de contracción de ventas orgánicas o si, en el informe anual más reciente publicado
+    antes del 2027-11-20, las ventas orgánicas acumuladas no muestran crecimiento.
+  secondary_hypotheses: []
+  statement: Snap-on mantendrá crecimiento positivo de ventas orgánicas durante los
+    próximos doce meses, aunque la evidencia disponible no permite validar una trayectoria
+    de crecimiento compuesto a largo plazo.
+  status: ACTIVE
+  ticker: SNA
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen bruto TTM cae por debajo del 50,0% en un informe publicado
+      antes de la fecha objetivo y no se recupera por encima de ese nivel en el siguiente
+      informe.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen bruto TTM al cierre del horizonte es inferior al 50,0%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen bruto TTM cae por debajo del 50,0% en un informe publicado antes de
+    la fecha objetivo y no se recupera por encima de ese nivel en el siguiente informe.
+  - El margen bruto TTM al cierre del horizonte es inferior al 50,0%.
+  horizon: medio
+  id: H2-OPP-MB-SNA
+  opportunity_id: OPP-MB-SNA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 50.0
+    met: null
+    metric: margen bruto TTM
+    prediction: El margen bruto de los doce meses terminados el 2027-11-20 será de
+      al menos 50,0%.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: El margen bruto TTM disponible es 51,87% al 2026-10-03, lo que proporciona
+    una referencia observable de rentabilidad del producto y los servicios. La hipótesis
+    supone que la mezcla de ventas, precios y costes no deteriorará sustancialmente
+    esa rentabilidad; el contexto no aporta datos para atribuir el margen a factores
+    concretos.
+  review_trigger: Dejar de creerla ante dos informes consecutivos con margen bruto
+    TTM inferior al 50,0%, o ante una reducción explícita de la previsión de margen
+    atribuida a presiones persistentes de costes o mezcla.
+  secondary_hypotheses: []
+  statement: Snap-on conservará una proporción elevada de su margen bruto y cerrará
+    el horizonte de análisis con un margen bruto TTM de al menos 50%.
+  status: ACTIVE
+  ticker: SNA
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre de los doce meses terminados en la fecha objetivo
+      es de 900 millones de dólares o menos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía registra flujo de caja libre negativo en dos trimestres
+      consecutivos antes de la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre de los doce meses terminados en la fecha objetivo es de
+    900 millones de dólares o menos.
+  - La compañía registra flujo de caja libre negativo en dos trimestres consecutivos
+    antes de la fecha objetivo.
+  horizon: medio
+  id: H3-OPP-MB-SNA
+  opportunity_id: OPP-MB-SNA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 900.0
+    met: null
+    metric: flujo de caja libre acumulado de doce meses
+    prediction: El flujo de caja libre acumulado durante los doce meses terminados
+      el 2027-11-20 será superior a 900 millones de dólares, sujeto a verificar que
+      la unidad del proveedor corresponde a millones de dólares.
+    unit: millones de dólares
+  priority: important
+  probability: 0.5
+  rationale: 'El flujo de caja libre TTM reportado es 1.074,0 en las unidades del
+    proveedor al 2026-10-03. La hipótesis plantea una moderación frente a esa referencia,
+    pero no presupone crecimiento: el contexto no proporciona datos sobre conversión
+    de beneficios, necesidades de capital circulante ni inversión de capital.'
+  review_trigger: Dejar de creerla si los informes publicados muestran flujo de caja
+    libre TTM inferior o igual a 900 millones de dólares, o si una revisión de la
+    fuente confirma que la cifra de referencia no está expresada en millones de dólares.
+  secondary_hypotheses: []
+  statement: Snap-on mantendrá una generación anual de flujo de caja libre superior
+    a 900 millones de dólares durante el siguiente horizonte de doce meses.
+  status: ACTIVE
+  ticker: SNA
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de SNA menos la rentabilidad total del S&P 500
+      es inferior a 5 puntos porcentuales durante el período indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de SNA es inferior a la del S&P 500 durante el
+      período indicado.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de SNA menos la rentabilidad total del S&P 500 es inferior
+    a 5 puntos porcentuales durante el período indicado.
+  - La rentabilidad total de SNA es inferior a la del S&P 500 durante el período indicado.
+  horizon: medio
+  id: H4-OPP-MB-SNA
+  opportunity_id: OPP-MB-SNA
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: rentabilidad total relativa frente al S&P 500
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de SNA, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      la rentabilidad total del S&P 500.
+    unit: puntos porcentuales de exceso de rentabilidad
+  priority: informational
+  probability: 0.5
+  rationale: La evidencia disponible indica un margen bruto TTM elevado y flujo de
+    caja libre positivo, factores que podrían respaldar la percepción de calidad y
+    la generación de efectivo. No se dispone de valoración actual, expectativas de
+    analistas ni precio objetivo; por tanto, esta es una hipótesis de mercado contrastable,
+    no una conclusión sobre infravaloración.
+  review_trigger: Dejar de creerla si, al cierre del 2027-05-20, SNA acumula un rendimiento
+    inferior al S&P 500 por más de 10 puntos porcentuales; la evaluación definitiva
+    se realizará el 2027-11-20.
+  secondary_hypotheses:
+  - H1-OPP-MB-SNA
+  - H2-OPP-MB-SNA
+  - H3-OPP-MB-SNA
+  statement: La rentabilidad total de la acción de Snap-on superará a la del S&P 500
+    en el período de doce meses posterior a la fecha de corte.
+  status: ACTIVE
+  ticker: SNA
+  version: 1

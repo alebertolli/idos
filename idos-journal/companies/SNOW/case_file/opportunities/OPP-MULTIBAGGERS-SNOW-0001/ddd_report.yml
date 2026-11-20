@@ -1,0 +1,540 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El crecimiento histórico de ingresos y FCF es compatible con expansión del negocio,
+    pero no demuestra por sí solo una ventaja competitiva durable.
+  - Las pérdidas contables y la falta de datos de retornos sobre capital impiden concluir
+    que el crecimiento ya genere rentabilidad económica.
+  - 'Ingresos: USD 2.066bn en FY 2023 y USD 4.684bn en FY 2026; fuente StockAnalysis,
+    estados financieros, https://stockanalysis.com/stocks/snow/financials/.'
+  - 'FCF: USD 1.195bn TTM terminado el 2026-07-31; fuente StockAnalysis, estadísticas,
+    https://stockanalysis.com/stocks/SNOW/statistics/.'
+  - 'Margen bruto: 67.03% TTM terminado el 2026-07-31; fuente StockAnalysis, estadísticas,
+    https://stockanalysis.com/stocks/SNOW/statistics/.'
+  - 'Precio: USD 332.325 al 2026-10-26; consenso de objetivos recopilado el 2026-11-20,
+    rango USD 280–540.'
+  preguntas_abiertas:
+  - ¿Cuál es el mercado direccionable cuantificado y qué penetración tiene Snowflake?
+  - ¿Cómo evolucionan la retención, el consumo por cliente, la concentración y los
+    ingresos atribuibles a IA?
+  - ¿Qué explica la brecha entre FCF positivo y EBIT y utilidad neta negativos?
+  - ¿Cómo evolucionan las acciones diluidas y qué política de compensación y asignación
+    de capital aplica la dirección?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida; evidencia financiera parcial
+  justificacion: El paquete registra impulso de precio positivo a 12 meses, pero la
+    evidencia financiera aportada no permite validar todos los ratios solicitados
+    ni construir escenarios empresariales fechados.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La descripción del negocio plantea una plataforma para consolidar, analizar
+    y compartir datos, y la serie aportada muestra crecimiento de ingresos y FCF.
+    Sin embargo, EBIT y utilidad neta son negativos en TTM al 2026-07-31; no hay datos
+    suficientes para valorar retornos sobre capital, mercado direccionable, penetración,
+    moat, erosión competitiva o calidad de la asignación de capital.
+  rating: Mixto; evidencia insuficiente
+dominio_catalizadores:
+- catalizador: Crecimiento de ingresos
+  evidencia: Ingresos de USD 5.435bn TTM al 2026-07-31 frente a USD 4.684bn en FY
+    2026.
+  hito: Verificar en períodos posteriores si el crecimiento se mantiene; el paquete
+    no aporta guía ni fechas de resultados.
+- catalizador: Crecimiento del FCF
+  evidencia: FCF reportado de USD 1.195bn TTM al 2026-07-31; el proveedor reporta
+    crecimiento TTM de 59.09%.
+  hito: Comprobar comparabilidad y persistencia del crecimiento con períodos futuros.
+- catalizador: Monetización de capacidades de datos e IA
+  evidencia: La descripción del negocio menciona AI Data Cloud, aplicaciones de datos
+    e intercambio de productos de datos.
+  hito: El paquete no aporta métricas de adopción, ingresos atribuibles ni penetración
+    para evaluar la monetización.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: EBIT de -USD 1.22bn y utilidad neta de -USD 1.091bn, ambos TTM al 2026-07-31.
+  implicacion: La evidencia disponible no demuestra que el crecimiento se traduzca
+    en rentabilidad contable.
+  riesgo: Rentabilidad contable negativa
+- evidencia: Current ratio reportado de 0.94 al 2026-07-31; el umbral configurado
+    es menor a 0.5.
+  implicacion: No cruza el umbral configurado; requiere contexto sobre composición
+    y vencimientos.
+  riesgo: Liquidez corriente bajo umbral
+- evidencia: El EBITDA TTM es negativo y las unidades de los datos de net cash y EBITDA
+    no están conciliadas en el paquete.
+  implicacion: No se puede interpretar un múltiplo calculado con esos datos.
+  riesgo: Deuda y caja no permiten calcular net debt/EBITDA comparable
+- evidencia: Sólo se incluye una observación de acciones en circulación, sin serie
+    histórica comparable.
+  implicacion: No se puede contrastar la dilución con los umbrales configurados.
+  riesgo: Dilución no evaluable
+error_mercado:
+  catalizador_cambio: Resultados financieros posteriores que permitan comprobar crecimiento
+    de ingresos y FCF, junto con evidencia sobre rentabilidad y evolución de la base
+    accionaria.
+  conclusion_error_valoracion: No se puede validar un error de valoración con la evidencia
+    disponible.
+  consenso_actual: El consenso de analistas recopilado el 2026-11-20 tiene media y
+    mediana de USD 431.53, con rango de USD 280 a USD 540; la cotización incluida
+    es USD 332.325 al 2026-10-26.
+  hipotesis_contraria: El rango de objetivos observado no demuestra que el precio
+    incorpore expectativas equivocadas; el paquete no proporciona estimaciones de
+    crecimiento futuro ni un método de valoración con inputs verificables.
+  razonamiento: La diferencia entre cotización y consenso no es por sí sola evidencia
+    de infravaloración o sobrevaloración. Los objetivos y la cotización corresponden
+    a fechas distintas.
+generated_at: '2026-11-20T19:22:11.770878-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MULTIBAGGERS-SNOW-0001
+prompt_inputs:
+  business_model: Snowflake Inc. provides a cloud-based data platform for various
+    organizations in the United States and internationally. The company's platform
+    includes artificial intelligence (AI) Data Cloud, which enables customers to consolidate
+    data into a single source of truth to drive meaningful business insights, build
+    data applications, and share data and data products, as well as applies AI for
+    solving business problems. It serves financial services, advertising, media and
+    entertainment, retail and consumer goods, healthcare and life sciences, manufacturing,
+    technology, telecom, travel and hospitality, and government and defense industries,
+    as well as the public sector. the company has a collaboration with OpenAI, L.L.C.
+    for the development of AI solutions for joint enterprise customers that deliver
+    tangible return on investment. The company was formerly known as Snowflake Computing,
+    Inc. and changed its name to Snowflake Inc. in April 2019. Snowflake Inc. was
+    incorporated in 2012 and is based in Menlo Park, California.
+  ceo_tenure: 0
+  debt_to_equity: 0.0129
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Snowflake Inc.
+  operating_margin: -22.43
+  pe_ratio: 0
+  products: ''
+  revenue: 5430000000.0
+  revenue_growth: 32.04
+  roic: -15.26
+  sector: Technology
+  ticker: SNOW
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-01-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/snow/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: Crecimiento TTM reportado por la fuente; no recalculado
+  inputs:
+    fcf_growth_history:
+      TTM: 59.09
+  limitations: El paquete no detalla en este campo la base exacta de comparación;
+    no se recalcula con períodos potencialmente solapados.
+  metric: fcf_growth_pct
+  period_end: '2026-07-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/snow/financials/
+  status: reported
+  unit: percent
+  value: 59.09
+- formula: FCF / net_income * 100; informar no significativo si net_income <= 0
+  inputs:
+    fcf_history:
+      TTM: 1195.0
+    net_income_history:
+      TTM: -1091.0
+  limitations: 'No significativo: el net income TTM es negativo; no se reporta un
+    porcentaje de conversión interpretable.'
+  metric: fcf_conversion_pct
+  period_end: '2026-07-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/snow/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    ebitda: -1040000000.0
+    net_cash_history:
+      Current: 1573.0
+  limitations: EBITDA es negativo y el paquete no permite conciliar unidades entre
+    EBITDA y net cash; no se calcula un múltiplo comparable.
+  metric: net_debt_ebitda
+  period_end: '2026-07-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SNOW/statistics/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/snow/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 352460000.0
+  limitations: Falta una observación anterior comparable de acciones diluidas o en
+    circulación; una cifra puntual no permite calcular variación interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-07-31'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SNOW/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Snowflake Inc. provides a cloud-based data platform for various
+    organizations in the United States and internationally. The company's platform
+    includes artificial intelligence (AI) Data Cloud, which enables customers to consolidate
+    data into a single source of truth to drive meaningful business insights, build
+    data applications, and share data and data products, as well as applies AI for
+    solving business problems. It serves financial services, advertising, media and
+    entertainment, retail and consumer goods, healthcare and life sciences, manufacturing,
+    technology, telecom, travel and hospitality, and government and defense industries,
+    as well as the public sector. the company has a collaboration with OpenAI, L.L.C.
+    for the development of AI solutions for joint enterprise customers that deliver
+    tangible return on investment. The company was formerly known as Snowflake Computing,
+    Inc. and changed its name to Snowflake Inc. in April 2019. Snowflake Inc. was
+    incorporated in 2012 and is based in Menlo Park, California.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 332.32501220703125
+  current_price_as_of_date: '2026-10-26'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0129
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T22:21:42.602122+00:00", "period_end": "2026-07-31",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Snowflake Inc.
+  operating_margin: -22.43
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Snowflake Inc. provides a cloud-based data platform for various organizations
+    in the United States and internationally. The company's platform includes artificial
+    intelligence (AI) Data Cloud, which enables customers to consolidate data into
+    a single source of truth to drive meaningful business insights, build data applications,
+    and share data and data products, as well as applies AI for solving business problems.
+    It serves financial services, advertising, media and entertainment, retail and
+    con
+  revenue: 5430000000.0
+  revenue_growth: 32.04
+  roic: -15.26
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/snow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SNOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SNOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SNOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SNOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/snow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/snow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/snow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SNOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/snow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SNOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/snow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/snow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/snow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SNOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/SNOW/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-07-31'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/snow/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    540.0, "low": 280.0, "mean": 431.53, "median": 431.53, "observed_at": "2026-11-20T19:21:45.605448-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T19:21:45.605448-03:00", "observed_date": "2026-11-20", "target_price":
+    431.53, "url": "https://stockanalysis.com/stocks/snow/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T19:21:45.605448-03:00",
+    "observed_date": "2026-11-20", "target_price": 431.53214, "url": "https://finance.yahoo.com/quote/SNOW/"}]},
+    "current_quote": {"as_of_date": "2026-10-26", "currency": "USD", "price": 332.32501220703125,
+    "sources": [{"as_of_date": "2026-10-26", "name": "yfinance", "url": "https://finance.yahoo.com/quote/SNOW/"}]}}'
+  sector: Technology
+  ticker: SNOW
+research_trigger:
+  discovery_snapshot_hash: e8c35d5a03ee65534bfad48e39425ec98fa9c3c44030251cc290c4bbb31977a2
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: d7a7765e3431fd041d3681dd31b03f7f8a74cf9667f823b5b721f6cb030fc54e
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T19:22:11.770878-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 0.94x al 2026-07-31; no cruza el umbral.
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SNOW/statistics/
+  threshold: below 0.5x
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta una observación histórica comparable.'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SNOW/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-07-31; EBIT reportado es -USD 1.22bn en
+    TTM, por lo que se requiere aclarar la definición del dato de cobertura.
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SNOW/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: 'No aplica al dato disponible: FCF TTM reportado positivo, USD 1.195bn
+    al 2026-07-31.'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SNOW/statistics/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: 'No evaluable: EBITDA negativo y unidades no conciliables en los campos
+    disponibles.'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SNOW/statistics/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/snow/financials/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: no se aporta una serie histórica de acciones.'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/SNOW/statistics/
+  threshold: above 5%
+scenario_analysis: null
+scenario_validation:
+  errors:
+  - scenario_analysis ausente
+  status: invalid_pending_revision
+score_general: 65.2
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T19:21:45.605448-03:00'
+  fuentes:
+    stockanalysis: 431.53
+    yfinance: 431.53214
+  mediana: 431.53
+  n_fuentes: 2
+  promedio: 431.53
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T19:21:45.605448-03:00'
+    observed_date: '2026-11-20'
+    target_price: 431.53
+    url: https://stockanalysis.com/stocks/snow/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T19:21:45.605448-03:00'
+    observed_date: '2026-11-20'
+    target_price: 431.53214
+    url: https://finance.yahoo.com/quote/SNOW/
+  target_high: 540.0
+  target_low: 280.0
+tesis_inversion: Snowflake ofrece una plataforma cloud de datos que, según la descripción
+  del paquete, combina consolidación de datos, aplicaciones, intercambio de productos
+  de datos y capacidades de IA. La evidencia financiera muestra crecimiento histórico
+  de ingresos y FCF positivo, pero también pérdidas netas y EBIT negativos en el período
+  TTM terminado el 2026-07-31; el paquete no permite verificar mercado direccionable,
+  penetración, retornos sobre capital ni sostenibilidad de la ventaja competitiva.
+ticker: SNOW
+version: '3.0'

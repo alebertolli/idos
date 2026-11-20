@@ -1,0 +1,37 @@
+confidence: HIGH
+engine: ResearchWorker
+findings:
+- 'Classification: alto potencial'
+- 'Market error: El rango de consenso podría estar sesgado a la baja por no incorporar
+  plenamente los riesgos de cobertura de intereses.'
+- 'Thesis: SLB presenta un perfil de crecimiento moderado impulsado por la digitalización
+  de servicios energéticos, pero su vulnerabilidad financiera (interest coverage 0x)
+  genera incertidumbre; los escenarios d'
+generated_at: '2026-11-20T19:19:46.759826-03:00'
+id: ass-dd18e38a
+recommendation: REVIEW
+risks:
+- descripcion: Cobertura de intereses insuficiente (0x) por debajo del umbral de 2.0
+  fuente:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/SLB/statistics/
+- descripcion: Volatilidad 90 días del 37.35% indica alta incertidumbre de precios
+  fuente:
+  - as_of_date: '2026-10-30'
+    name: yfinance
+    url: https://finance.yahoo.com/quote/SLB/history/
+- descripcion: Drawdown máximo del 10.58% en el último año
+  fuente:
+  - as_of_date: '2026-10-30'
+    name: yfinance
+    url: https://finance.yahoo.com/quote/SLB/history/
+- descripcion: Deuda neta elevada (9.212B) frente a EBITDA (7.39B) genera un ratio
+    1.25x
+  fuente:
+  - as_of_date: '2026-09-30'
+    name: stockanalysis
+    url: https://stockanalysis.com/stocks/slb/financials/
+score: 78
+status: COMPLETED
+version: '3.0'

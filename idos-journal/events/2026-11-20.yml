@@ -3389,3 +3389,105 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T19:11:06.134068'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-SLB
+    ticker: SLB
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:18:14.398981'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-SLB
+    ticker: SLB
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:18:14.577994'
+- data:
+    classification: alto potencial
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 71b3c39cea73d5eec7b10a921e8f274a06b923651c694242620e5c7fadc912dd
+    opp_id: OPP-MB-SLB
+    score: 78
+    strategy_version: '1.5'
+    ticker: SLB
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:19:46.923929'
+- data:
+    metrics:
+    - fcf_conversion_pct
+    opp_id: OPP-MB-SNA
+    ticker: SNA
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:20:15.772988'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-SNA
+    ticker: SNA
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:20:15.951653'
+- data:
+    classification: Investigación fundamental requerida; evidencia insuficiente para
+      validar una tesis de multibagger.
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 4
+    input_snapshot_sha256: 3c462f77a2371428492d55acd789f6c4f6f66c93da3b3ecfe58987c5f0c7861e
+    opp_id: OPP-MB-SNA
+    score: 56
+    strategy_version: '1.5'
+    ticker: SNA
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:21:41.339312'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    opp_id: OPP-MULTIBAGGERS-SNOW-0001
+    ticker: SNOW
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T19:22:11.524225'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MULTIBAGGERS-SNOW-0001
+    ticker: SNOW
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T19:22:11.706846'
+- data:
+    classification: Investigación requerida; evidencia financiera parcial
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: d7a7765e3431fd041d3681dd31b03f7f8a74cf9667f823b5b721f6cb030fc54e
+    opp_id: OPP-MULTIBAGGERS-SNOW-0001
+    score: 65.2
+    strategy_version: '1.5'
+    ticker: SNOW
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T19:23:34.903814'
