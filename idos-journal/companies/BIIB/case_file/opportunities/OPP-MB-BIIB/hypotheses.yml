@@ -1,0 +1,136 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Ingresos TTM inferiores a USD 10.000 millones al 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Ingresos TTM inferiores a USD 10.297 millones al 2027-09-30, indicando
+      que no se sostuvo siquiera el nivel de referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ingresos TTM inferiores a USD 10.000 millones al 2027-09-30.
+  - Ingresos TTM inferiores a USD 10.297 millones al 2027-09-30, indicando que no
+    se sostuvo siquiera el nivel de referencia.
+  horizon: medio
+  id: H1-OPP-MB-BIIB
+  opportunity_id: OPP-MB-BIIB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-05'
+    expected: 10300.0
+    met: null
+    metric: Ingresos TTM
+    prediction: En la publicación de resultados correspondiente al tercer trimestre
+      de 2027, los ingresos TTM serán de al menos USD 10.300 millones, aproximadamente
+      el nivel de USD 10.297 millones informado al 2026-09-30.
+    unit: USD millones
+  priority: critical
+  probability: 0.5
+  rationale: La cartera de terapias existentes y los productos en desarrollo podrían
+    compensar parcialmente la debilidad reciente si mantienen su demanda y contribuyen
+    al crecimiento. Sin embargo, la información disponible no incluye ventas por producto,
+    penetración ni datos de erosión, por lo que el mecanismo aún no está confirmado.
+  review_trigger: Dejar de creerla si los resultados publicados para el tercer trimestre
+    de 2027 muestran ingresos TTM inferiores a USD 10.000 millones.
+  secondary_hypotheses: []
+  statement: Biogen estabilizará sus ingresos consolidados durante los próximos cuatro
+    trimestres, evitando que la debilidad reciente se traduzca en una nueva contracción
+    material.
+  status: ACTIVE
+  ticker: BIIB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Beneficio neto TTM inferior a USD 700 millones al 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Beneficio neto TTM negativo en cualquiera de los dos últimos trimestres
+      publicados antes de la fecha objetivo, sin que el TTM alcance USD 1.000 millones.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Beneficio neto TTM inferior a USD 700 millones al 2027-09-30.
+  - Beneficio neto TTM negativo en cualquiera de los dos últimos trimestres publicados
+    antes de la fecha objetivo, sin que el TTM alcance USD 1.000 millones.
+  horizon: medio
+  id: H2-OPP-MB-BIIB
+  opportunity_id: OPP-MB-BIIB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-05'
+    expected: 1000.0
+    met: null
+    metric: Beneficio neto TTM
+    prediction: El beneficio neto TTM será de al menos USD 1.000 millones al 2027-09-30,
+      según los resultados publicados para ese trimestre.
+    unit: USD millones
+  priority: critical
+  probability: 0.5
+  rationale: La estabilización de los ingresos podría permitir que el beneficio se
+    recupere si los costes no crecen más rápido que las ventas y la mezcla de productos
+    mejora. El beneficio neto TTM de USD 347,5 millones constituye una referencia
+    baja, pero no se dispone de datos de costes, márgenes, partidas extraordinarias
+    ni flujo de caja que permitan atribuirle una causa concreta.
+  review_trigger: Dejar de creerla si la publicación de resultados del tercer trimestre
+    de 2027 informa un beneficio neto TTM inferior a USD 700 millones.
+  secondary_hypotheses:
+  - H1-OPP-MB-BIIB
+  statement: Biogen recuperará rentabilidad neta suficiente para que el beneficio
+    neto TTM supere ampliamente el nivel reducido informado al 2026-09-30.
+  status: ACTIVE
+  ticker: BIIB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total de BIIB queda por debajo del de XLV durante el
+      periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La ventaja de rendimiento total de BIIB frente a XLV es inferior a
+      5 puntos porcentuales al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total de BIIB queda por debajo del de XLV durante el periodo.
+  - La ventaja de rendimiento total de BIIB frente a XLV es inferior a 5 puntos porcentuales
+    al 2027-11-20.
+  horizon: medio
+  id: H3-OPP-MB-BIIB
+  opportunity_id: OPP-MB-BIIB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Rendimiento total relativo de BIIB frente a XLV
+    prediction: Entre el 2026-11-20 y el 2027-11-20, el rendimiento total de BIIB,
+      incluidos dividendos, superará en al menos 5 puntos porcentuales el rendimiento
+      total del ETF de salud XLV, medido en USD.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: Una mejora de cotización podría reflejar expectativas de estabilización
+    y de contribución futura de la cartera. No obstante, el material disponible no
+    incluye precio, valoración, consenso, retornos ni catalizadores clínicos; por
+    tanto, no permite validar que la mejora observada anticipe una recuperación fundamental.
+  review_trigger: Dejar de creerla el 2027-11-20 si la ventaja de rendimiento total
+    de BIIB frente a XLV es inferior a 5 puntos porcentuales.
+  secondary_hypotheses:
+  - H1-OPP-MB-BIIB
+  - H2-OPP-MB-BIIB
+  statement: La cotización de Biogen superará el rendimiento del mercado amplio de
+    salud durante los doce meses posteriores al corte, consistente con una mejora
+    de expectativas sobre la estabilización del negocio.
+  status: ACTIVE
+  ticker: BIIB
+  version: 1

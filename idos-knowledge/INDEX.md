@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 32 companies tracked
+Total: 34 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -22,6 +22,7 @@ Total: 32 companies tracked
 - 📄 [[ABNB|Airbnb, Inc.]]
 - 📄 [[ANF|Abercrombie & Fitch Co.]]
 - 📄 [[AVY|Avery Dennison Corporation]]
+- 📄 [[BKNG|Booking Holdings Inc.]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
@@ -40,6 +41,7 @@ Total: 32 companies tracked
 - 📄 [[ABT|Abbott Laboratories]]
 - 📄 [[AMGN|Amgen Inc.]]
 - 📄 [[AZN|AstraZeneca PLC]]
+- 📄 [[BIIB|Biogen Inc.]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]

@@ -1,0 +1,199 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de noches reservadas en el ejercicio 2027
+      es inferior al 5%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía informa una caída interanual de noches reservadas en dos
+      trimestres consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de noches reservadas en el ejercicio 2027 es inferior
+    al 5%.
+  - La compañía informa una caída interanual de noches reservadas en dos trimestres
+    consecutivos de 2027.
+  horizon: medio
+  id: H1-OPP-20261023-026
+  opportunity_id: OPP-20261023-026
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 5.0
+    met: null
+    metric: Crecimiento interanual de noches reservadas en el ejercicio 2027
+    prediction: En el ejercicio 2027, las noches reservadas aumentarán al menos un
+      5% frente al ejercicio 2026, según las cifras comparables que publique la compañía.
+    unit: '% mínimo'
+  priority: critical
+  probability: 0.5
+  rationale: Una plataforma con alcance global y reconocimiento de marca puede atraer
+    viajeros y alojamientos, generar efectos de escala y sostener el volumen de transacciones.
+    El contexto disponible no demuestra que estas ventajas persistan; por eso, la
+    hipótesis se limita a una predicción de volumen observable.
+  review_trigger: Dejar de creerla si los resultados del ejercicio 2027, publicados
+    hasta 2028-03-31, muestran un crecimiento de noches reservadas inferior al 5%,
+    o si dos informes trimestrales consecutivos de 2027 informan una caída interanual.
+  secondary_hypotheses: []
+  statement: La escala y la marca de Booking Holdings permitirán que el volumen de
+    reservas siga creciendo durante los próximos doce meses, incluso con competencia
+    intensa.
+  status: ACTIVE
+  ticker: BKNG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El gasto de marketing dividido por ingresos en el ejercicio 2027 supera
+      en más de 1 punto porcentual la proporción del ejercicio 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos crecen menos que las noches reservadas y, al mismo tiempo,
+      aumenta la proporción de gasto de marketing sobre ingresos en más de 1 punto
+      porcentual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El gasto de marketing dividido por ingresos en el ejercicio 2027 supera en más
+    de 1 punto porcentual la proporción del ejercicio 2026.
+  - Los ingresos crecen menos que las noches reservadas y, al mismo tiempo, aumenta
+    la proporción de gasto de marketing sobre ingresos en más de 1 punto porcentual.
+  horizon: medio
+  id: H2-OPP-20261023-026
+  opportunity_id: OPP-20261023-026
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 1.0
+    met: null
+    metric: Aumento del gasto de marketing como porcentaje de los ingresos, ejercicio
+      2027 frente a 2026
+    prediction: En el ejercicio 2027, el gasto de marketing como porcentaje de los
+      ingresos no superará en más de 1 punto porcentual la proporción correspondiente
+      al ejercicio 2026.
+    unit: puntos porcentuales máximo
+  priority: important
+  probability: 0.5
+  rationale: Si la marca, el tráfico directo y la escala aportan una ventaja de adquisición,
+    la empresa debería poder sostener el crecimiento con una carga de marketing relativamente
+    estable. La evidencia disponible no permite confirmar esa eficiencia; la evolución
+    del gasto reportado frente a los ingresos ofrece una prueba directa, aunque imperfecta,
+    del mecanismo.
+  review_trigger: Dejar de creerla si el informe anual del ejercicio 2027, publicado
+    hasta 2028-03-31, muestra que el gasto de marketing sobre ingresos aumentó más
+    de 1 punto porcentual frente a 2026.
+  secondary_hypotheses:
+  - H1-OPP-20261023-026
+  statement: Booking Holdings podrá aumentar las reservas sin que el gasto de marketing
+    crezca desproporcionadamente respecto a los ingresos.
+  status: ACTIVE
+  ticker: BKNG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La razón entre flujo de caja libre y beneficio neto del ejercicio 2027
+      es inferior a 0,90.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La conversión queda por debajo de 0,90 después de excluir únicamente
+      partidas extraordinarias identificables y conciliables, sin atribuir automáticamente
+      la diferencia a partidas no recurrentes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La razón entre flujo de caja libre y beneficio neto del ejercicio 2027 es inferior
+    a 0,90.
+  - La conversión queda por debajo de 0,90 después de excluir únicamente partidas
+    extraordinarias identificables y conciliables, sin atribuir automáticamente la
+    diferencia a partidas no recurrentes.
+  horizon: medio
+  id: H3-OPP-20261023-026
+  opportunity_id: OPP-20261023-026
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 0.9
+    met: null
+    metric: Flujo de caja libre del ejercicio 2027 dividido por beneficio neto atribuible
+      del ejercicio 2027
+    prediction: En el ejercicio 2027, el flujo de caja libre será al menos el 90%
+      del beneficio neto atribuible a Booking Holdings, usando las definiciones reportadas
+      por la compañía y conciliando partidas no recurrentes identificables.
+    unit: veces mínimo
+  priority: critical
+  probability: 0.5
+  rationale: El FCF reportado es una señal favorable, pero una observación aislada
+    no demuestra persistencia ni calidad de conversión. Comparar flujo de caja libre
+    con beneficio neto en un ejercicio completo permite comprobar si el efectivo acompaña
+    a las ganancias, aunque también requiere revisar capital circulante, pagos de
+    impuestos e inversiones.
+  review_trigger: Dejar de creerla si el informe anual del ejercicio 2027, publicado
+    hasta 2028-03-31, muestra una conversión de flujo de caja libre a beneficio neto
+    inferior a 0,90.
+  secondary_hypotheses:
+  - H1-OPP-20261023-026
+  statement: La conversión de beneficios en caja se mantendrá sólida en el ejercicio
+    2027, respaldando la calidad financiera del negocio.
+  status: ACTIVE
+  ticker: BKNG
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total acumulada de BKNG menos la del S&P 500 es inferior
+      a 10 puntos porcentuales al cierre del 2028-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La rentabilidad total de BKNG es inferior a la del S&P 500 al cierre
+      del 2028-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total acumulada de BKNG menos la del S&P 500 es inferior a 10
+    puntos porcentuales al cierre del 2028-11-20.
+  - La rentabilidad total de BKNG es inferior a la del S&P 500 al cierre del 2028-11-20.
+  horizon: largo
+  id: H4-OPP-20261023-026
+  opportunity_id: OPP-20261023-026
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total de BKNG menos rentabilidad total del S&P 500 entre
+      2026-11-20 y 2028-11-20
+    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2028-11-20, la
+      rentabilidad total de BKNG en dólares estadounidenses, incluidos dividendos,
+      superará en al menos 10 puntos porcentuales la rentabilidad total del S&P 500
+      en el mismo intervalo.
+    unit: puntos porcentuales mínimo
+  priority: important
+  probability: 0.5
+  rationale: Si el volumen de reservas y la conversión de caja cumplen las hipótesis
+    operativas y financieras, los resultados podrían respaldar una mejora relativa
+    de la cotización. Sin embargo, el contexto no aporta valoración, expectativas
+    de consenso ni precio objetivo verificables; por ello, esta hipótesis prueba el
+    resultado de mercado, no afirma que exista ya una infravaloración demostrada.
+  review_trigger: Dejar de creerla el 2028-11-20 si la rentabilidad total acumulada
+    de BKNG no supera la del S&P 500 en al menos 10 puntos porcentuales; revisar antes
+    si H1 o H3 se falsan.
+  secondary_hypotheses:
+  - H1-OPP-20261023-026
+  - H3-OPP-20261023-026
+  statement: La combinación de crecimiento operativo y conversión de caja se traducirá
+    en un rendimiento bursátil superior al del mercado amplio, lo que sería compatible
+    con una valoración que no refleja plenamente la calidad del negocio.
+  status: ACTIVE
+  ticker: BKNG
+  version: 1

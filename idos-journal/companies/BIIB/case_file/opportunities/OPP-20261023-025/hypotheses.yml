@@ -1,0 +1,162 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Ventas netas < 150 millones USD en el primer año.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El lanzamiento se retrasa más de 6 meses después de la fecha prevista
+      de aprobación.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Ventas netas < 150 millones USD en el primer año.
+  - El lanzamiento se retrasa más de 6 meses después de la fecha prevista de aprobación.
+  horizon: medio
+  id: H1-OPP-20261023-025
+  opportunity_id: OPP-20261023-025
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 250.0
+    met: null
+    metric: ventas netas
+    prediction: Ventas netas de BIIB-AD ≥ 250 millones USD en el primer año post‑lanzamiento.
+    unit: millones USD
+  priority: critical
+  probability: 0.5
+  rationale: El pipeline de biosimilares de Biogen está avanzado, con datos de fase
+    III positivos y una estrategia de precios competitiva que le permite capturar
+    cuota de mercado rápidamente, respaldado por la creciente demanda de terapias
+    de bajo costo en el segmento de enfermedades autoinmunes.
+  review_trigger: Si la FDA no aprueba el biosimilar antes del 2027-06-30.
+  secondary_hypotheses: []
+  statement: Biogen lanzará su biosimilar de adalimumab (BIIB-AD) en EE.UU. y alcanzará
+    ventas netas de al menos 250 millones de dólares en los 12 meses posteriores al
+    lanzamiento.
+  status: ACTIVE
+  ticker: BIIB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: FCF reportado < 800 millones USD en FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Biogen reporta una pérdida de efectivo operativa en cualquier trimestre
+      de FY2028.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - FCF reportado < 800 millones USD en FY2028.
+  - Biogen reporta una pérdida de efectivo operativa en cualquier trimestre de FY2028.
+  horizon: largo
+  id: H2-OPP-20261023-025
+  opportunity_id: OPP-20261023-025
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-12-31'
+    expected: 1.2
+    met: null
+    metric: flujo de caja libre
+    prediction: FCF ≥ 1.2 mil millones USD en FY2028.
+    unit: mil millones USD
+  priority: important
+  probability: 0.5
+  rationale: El aumento de ingresos por biosimilares y la mejora en la gestión del
+    capital de trabajo reducen los gastos operativos, mientras que la cartera de productos
+    de enfermedades raras mantiene márgenes altos, impulsando la generación de efectivo.
+  review_trigger: Si el reporte 10‑K de FY2028 muestra un FCF negativo.
+  secondary_hypotheses:
+  - H1-OPP-20261023-025
+  statement: El flujo de caja libre (FCF) de Biogen superará los 1.2 mil millones
+    de dólares en el ejercicio fiscal 2028.
+  status: ACTIVE
+  ticker: BIIB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Precio de la acción < 300 USD al 2028-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: EV/EBITDA < 10x al 2028-06-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Precio de la acción < 300 USD al 2028-06-30.
+  - EV/EBITDA < 10x al 2028-06-30.
+  horizon: medio
+  id: H3-OPP-20261023-025
+  opportunity_id: OPP-20261023-025
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-06-30'
+    expected: 340.0
+    met: null
+    metric: precio acción
+    prediction: Precio de la acción ≥ 340 USD y EV/EBITDA ≥ 12x al 2028-06-30.
+    unit: USD
+  priority: important
+  probability: 0.5
+  rationale: La mejora en el FCF y la percepción de menor riesgo regulatorio aumentarán
+    la valoración de mercado, mientras que la comparativa con peers del sector sugiere
+    una revaluación pendiente.
+  review_trigger: Si el índice S&P Healthcare cae más del 15% y Biogen registra un
+    rendimiento inferior al promedio del sector durante los seis meses previos a la
+    fecha objetivo.
+  secondary_hypotheses:
+  - H1-OPP-20261023-025
+  - H2-OPP-20261023-025
+  statement: El múltiplo EV/EBITDA de Biogen alcanzará al menos 12x, elevando el precio
+    de la acción a 340 dólares antes del 30 de junio de 2028.
+  status: ACTIVE
+  ticker: BIIB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La FDA emite una decisión negativa o pospone la aprobación más allá
+      del 2027-09-30.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Ingresos en los 12 meses posteriores a la aprobación < 80 millones
+      USD.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La FDA emite una decisión negativa o pospone la aprobación más allá del 2027-09-30.
+  - Ingresos en los 12 meses posteriores a la aprobación < 80 millones USD.
+  horizon: medio
+  id: H4-OPP-20261023-025
+  opportunity_id: OPP-20261023-025
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-09-30'
+    expected: 150.0
+    met: null
+    metric: ingresos
+    prediction: Aprobación FDA antes del 2027-09-30 y ingresos ≥ 150 millones USD
+      en el primer año post‑aprobación.
+    unit: millones USD
+  priority: critical
+  probability: 0.5
+  rationale: Los resultados de los ensayos fase III mostraron una mejora clínica significativa
+    y la FDA ha mostrado una tendencia a aprobar terapias de enfermedades raras con
+    datos robustos, lo que sugiere una alta probabilidad de autorización.
+  review_trigger: Si la FDA publica una decisión de rechazo antes del 2027-09-30.
+  secondary_hypotheses: []
+  statement: La terapia génica para atrofia muscular espinal (AME) de Biogen obtendrá
+    aprobación de la FDA antes del 30 de septiembre de 2027 y generará ingresos de
+    al menos 150 millones de dólares en los 12 meses posteriores.
+  status: ACTIVE
+  ticker: BIIB
+  version: 1
