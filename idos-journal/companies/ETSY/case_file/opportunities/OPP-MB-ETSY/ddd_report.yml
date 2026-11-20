@@ -1,0 +1,535 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - El FCF TTM positivo es evidencia de generación de caja en el período, pero no
+    establece por sí solo su sostenibilidad.
+  - La falta de métricas operativas impide estimar penetración, economía unitaria
+    y retornos sobre capital.
+  - Ingresos TTM de USD 3,010 millones y FCF TTM de USD 592.49 millones al 2026-09-30,
+    según StockAnalysis financials.
+  - 'FCF histórico reportado: USD 678.03 millones en FY 2025 y USD 738.26 millones
+    en FY 2024, según StockAnalysis financials.'
+  - Cotización de USD 88.96 al 2026-10-30, según yfinance; consenso de objetivos con
+    rango USD 78–115 al 2026-11-20, según stockanalysis.
+  preguntas_abiertas:
+  - ¿Cómo evolucionan compradores activos, vendedores, retención, volumen bruto de
+    mercancías y monetización por segmento?
+  - ¿Qué explica la variación del FCF y del ingreso neto en los períodos reportados?
+  - ¿Cuál es la guía empresarial y el horizonte temporal de los objetivos de analistas?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Research requerido
+  justificacion: La señal de mercado del paquete es 76.57, pero la evidencia fundamental
+    disponible no permite validar varios ratios clave ni construir una valoración
+    intrínseca.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: El modelo de mercado de dos lados y el margen bruto TTM reportado de 71.42%
+    son elementos observables, pero no bastan para validar un moat, su durabilidad
+    o retornos sobre capital. Faltan métricas operativas de escala, retención, adquisición
+    y economía unitaria.
+  rating: No concluyente
+dominio_catalizadores:
+- catalizador: Una recuperación verificable del crecimiento de ingresos o FCF podría
+    mejorar la lectura del mecanismo de crecimiento; el paquete no aporta calendario
+    ni guía para ese evento.
+  estado: por observar
+- catalizador: La información futura sobre desempeño separado de Etsy y Depop ayudaría
+    a evaluar la contribución de cada segmento.
+  estado: por observar
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- riesgo: La ausencia de datos sobre compradores, vendedores, volumen bruto de mercancías,
+    retención y penetración limita la evaluación del mercado direccionable y del mecanismo
+    de crecimiento.
+  tipo: evidencia insuficiente
+- riesgo: El FCF TTM reportado es inferior al del FY 2025 y el crecimiento de FCF
+    TTM reportado es negativo; se requiere entender los factores subyacentes.
+  tipo: fundamental
+- riesgo: La deuda total reportada supera el efectivo e inversiones reportados al
+    2026-09-30; la métrica deuda neta/EBITDA calculada no cruza el umbral configurado
+    de 4.0x.
+  tipo: balance
+- riesgo: No hay evidencia aportada para juzgar erosión competitiva, ejecución de
+    management ni asignación de capital más allá de los datos financieros incluidos.
+  tipo: evidencia insuficiente
+error_mercado:
+  catalizador_cambio: La evolución futura de ingresos y flujo de caja libre podría
+    modificar la evaluación, pero el paquete no aporta guía empresarial ni fechas
+    de hitos.
+  conclusion_error_valoracion: No validable con la evidencia disponible; los objetivos
+    de analistas son referencias observadas, no una estimación intrínseca propia.
+  consenso_actual: La cotización era USD 88.96 al 2026-10-30; el consenso de precio
+    objetivo reportado el 2026-11-20 tenía media USD 98.48 y rango USD 78–115.
+  hipotesis_contraria: El rango de analistas no demuestra por sí mismo un error de
+    valoración; el material no incluye expectativas operativas detalladas que permitan
+    contrastarlo.
+  razonamiento: La evidencia permite comparar cotización y objetivos observados, pero
+    no aporta un método de valoración y supuestos suficientes para concluir que el
+    mercado está equivocado.
+generated_at: '2026-11-20T14:37:18.845515-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-ETSY
+prompt_inputs:
+  business_model: Etsy, Inc., together with its subsidiaries, operates two-sided online
+    marketplaces that connect buyers and sellers in the United States, the United
+    Kingdom, and internationally. It operates through Etsy and Depop segments. The
+    company operates Etsy marketplace that connects artisans with various consumers;
+    and Depop, a fashion resale marketplace. It also provides marketplace activities,
+    including transaction offsite advertising, payments processing, and listing fees,
+    as well as from optional seller services, which include on-site advertising and
+    shipping labels. The company was formerly known as Indieco, Inc changed its name
+    to Etsy, Inc. in June 2006. Etsy, Inc. was founded in 2005 and is headquartered
+    in Brooklyn, New York.
+  ceo_tenure: 0
+  debt_to_equity: 0
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Etsy, Inc.
+  operating_margin: 15.13
+  pe_ratio: 7.6
+  products: ''
+  revenue: 3010000000.0
+  revenue_growth: 10.76
+  roic: 30.78
+  sector: Consumer Cyclical
+  ticker: ETSY
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: Disponible con observaciones FY 2023 y TTM al 2026-09-30, pero
+      no se valida que sean períodos comparables separados exactamente por tres años.
+  limitations: La serie incluye FY 2023 y TTM al 2026-09-30, no un período t-3 de
+    cierre comparable; no se calcula el CAGR requerido.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis financials
+    url: https://stockanalysis.com/stocks/etsy/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (FCF_t / FCF_t-1) - 1
+  inputs:
+    fcf_growth_history: TTM reportado
+  limitations: Se usa el crecimiento TTM reportado por la fuente; el paquete no aporta
+    el valor de FCF del período TTM precedente para recalcularlo.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis financials
+    url: https://stockanalysis.com/stocks/etsy/financials/
+  status: reported
+  unit: percent
+  value: -12.01
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis financials
+    url: https://stockanalysis.com/stocks/etsy/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis financials
+    url: https://stockanalysis.com/stocks/etsy/financials/
+  - name: StockAnalysis statistics
+    url: https://stockanalysis.com/stocks/ETSY/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 86210000, TTM
+  limitations: Falta una observación histórica comparable de acciones diluidas o en
+    circulación para el período anterior; un único dato no permite calcular dilución
+    interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: StockAnalysis statistics
+    url: https://stockanalysis.com/stocks/ETSY/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Etsy, Inc., together with its subsidiaries, operates two-sided online
+    marketplaces that connect buyers and sellers in the United States, the United
+    Kingdom, and internationally. It operates through Etsy and Depop segments. The
+    company operates Etsy marketplace that connects artisans with various consumers;
+    and Depop, a fashion resale marketplace. It also provides marketplace activities,
+    including transaction offsite advertising, payments processing, and listing fees,
+    as well as from optional seller services, which include on-site advertising and
+    shipping labels. The company was formerly known as Indieco, Inc changed its name
+    to Etsy, Inc. in June 2006. Etsy, Inc. was founded in 2005 and is headquartered
+    in Brooklyn, New York.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 88.95999908447266
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T17:36:46.653406+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Etsy, Inc.
+  operating_margin: 15.13
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Etsy, Inc., together with its subsidiaries, operates two-sided online
+    marketplaces that connect buyers and sellers in the United States, the United
+    Kingdom, and internationally. It operates through Etsy and Depop segments. The
+    company operates Etsy marketplace that connects artisans with various consumers;
+    and Depop, a fashion resale marketplace. It also provides marketplace activities,
+    including transaction offsite advertising, payments processing, and listing fees,
+    as well as from optional sel
+  revenue: 3010000000.0
+  revenue_growth: 10.76
+  roic: 30.78
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/etsy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ETSY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ETSY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ETSY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ETSY/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/etsy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/etsy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/etsy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ETSY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/etsy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ETSY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/etsy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/etsy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/etsy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ETSY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/ETSY/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/etsy/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    115.0, "low": 78.0, "mean": 98.48, "median": 98.48, "observed_at": "2026-11-20T14:36:50.279313-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T14:36:50.279313-03:00", "observed_date": "2026-11-20", "target_price":
+    98.48, "url": "https://stockanalysis.com/stocks/etsy/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T14:36:50.279313-03:00",
+    "observed_date": "2026-11-20", "target_price": 98.48148, "url": "https://finance.yahoo.com/quote/ETSY/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 88.95999908447266,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/ETSY/"}]}}'
+  sector: Consumer Cyclical
+  ticker: ETSY
+research_trigger:
+  discovery_snapshot_hash: 54b1ebf0b5752af972563f7b44eb494a5d60110b648a7d90ce0f34d246b2f374
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 905548366daafb50e7bd8eb15ee1536b45e539fbb86ac356a223fc061070f052
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T14:37:18.845515-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 1.36x al 2026-09-30; no está por debajo del umbral configurado de 0.5x.
+  source: https://stockanalysis.com/stocks/ETSY/statistics/
+  threshold: current_ratio_below 0.5
+- metric: interest_coverage
+  observation: La fuente reporta 0x al 2026-09-30, por debajo del umbral configurado
+    de 2.0x; debe verificarse, pues el paquete no aporta interés expense ni una explicación
+    del valor.
+  source: https://stockanalysis.com/stocks/ETSY/statistics/
+  threshold: interest_coverage_below 2.0
+- metric: net_debt_ebitda
+  observation: 1.51x calculado para el período terminado el 2026-09-30; no excede
+    el umbral configurado de 4.0x.
+  source: https://stockanalysis.com/stocks/ETSY/financials/
+  threshold: net_debt_ebitda_above 4.0
+- metric: dilution_yoy_pct
+  observation: 'No evaluable frente al umbral de 10%: falta el dato comparable del
+    período anterior.'
+  source: https://stockanalysis.com/stocks/ETSY/statistics/
+  threshold: dilution_yoy_above_pct 10
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Mejora sostenida y documentada de ingresos y FCF, junto con evidencia de retención
+      y fortaleza competitiva.
+    id: BEAR
+    key_assumptions:
+    - El objetivo bajo de analistas sigue siendo una referencia pertinente para el
+      horizonte indicado, aunque su horizonte propio no está especificado en el paquete.
+    - La evidencia disponible no demuestra una recuperación de FCF ni una ventaja
+      competitiva duradera.
+    rationale: 'Ancla observada: extremo bajo del rango de objetivos de analistas.
+      Es un resultado adverso plausible si la debilidad del FCF TTM continúa y el
+      mercado no observa recuperación operativa; el paquete no permite cuantificar
+      esos efectos.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/etsy/forecast/
+    - as_of_date: '2026-09-30'
+      name: StockAnalysis financials
+      url: https://stockanalysis.com/stocks/etsy/financials/
+    target_price: 78.0
+  - falsifiers:
+    - Deterioro persistente de ingresos o FCF, o evidencia de erosión competitiva
+      que impida sostener la generación de caja.
+    id: BULL
+    key_assumptions:
+    - El objetivo alto de analistas sigue siendo una referencia pertinente para el
+      horizonte indicado, aunque su horizonte propio no está especificado en el paquete.
+    - La generación de FCF TTM positivo se mantiene y la trayectoria operativa mejora.
+    rationale: 'Ancla observada: extremo alto del rango de objetivos de analistas.
+      Es un resultado favorable plausible si el mercado reconoce una mejora operativa
+      y la capacidad de generar caja; los datos del paquete no prueban que esos supuestos
+      vayan a materializarse.'
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/etsy/forecast/
+    - as_of_date: '2026-09-30'
+      name: StockAnalysis financials
+      url: https://stockanalysis.com/stocks/etsy/financials/
+    target_price: 115.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 55
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T14:36:50.279313-03:00'
+  fuentes:
+    stockanalysis: 98.48
+    yfinance: 98.48148
+  mediana: 98.48
+  n_fuentes: 2
+  promedio: 98.48
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T14:36:50.279313-03:00'
+    observed_date: '2026-11-20'
+    target_price: 98.48
+    url: https://stockanalysis.com/stocks/etsy/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T14:36:50.279313-03:00'
+    observed_date: '2026-11-20'
+    target_price: 98.48148
+    url: https://finance.yahoo.com/quote/ETSY/
+  target_high: 115.0
+  target_low: 78.0
+tesis_inversion: Etsy opera mercados en línea de dos lados, incluidos Etsy y Depop.
+  El caso favorable depende de que esos mercados sostengan ingresos y generación de
+  caja; los datos aportados muestran FCF TTM positivo, pero crecimiento de FCF TTM
+  negativo y no permiten evaluar penetración, reinversión ni retornos sobre capital
+  con profundidad. La tesis queda condicionada a verificar la trayectoria operativa
+  y las ventajas competitivas.
+ticker: ETSY
+version: '3.0'

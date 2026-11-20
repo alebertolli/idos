@@ -1,0 +1,30 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación fundamental requerida'
+- 'Market error: No se valida un error de valoración con los datos disponibles.'
+- 'Thesis: La evidencia muestra crecimiento reciente del FCF reportado y margen bruto
+  estable, pero no permite atribuirlos a mecanismos duraderos de crecimiento, reinversión
+  o retornos sobre capital. La escala g'
+generated_at: '2026-11-20T14:42:44.890766-03:00'
+id: ass-799f8484
+recommendation: REVIEW
+risks:
+- evidencia: Al 2026-05-31, Stock Analysis reporta net cash de -29.393 y un interest
+    coverage ratio de 0.
+  fuente: https://stockanalysis.com/stocks/fdx/financials/ y https://stockanalysis.com/stocks/FDX/statistics/
+  riesgo: La deuda neta reportada y la falta de una medida de cobertura de intereses
+    validable limitan la evaluación del balance.
+- evidencia: El paquete aporta acciones en circulación de 234,2 millones al 2026-05-31,
+    sin serie histórica comparable.
+  fuente: https://stockanalysis.com/stocks/FDX/statistics/
+  riesgo: No hay datos de acciones históricos suficientes para evaluar dilución o
+    evolución plurianual del recuento de acciones.
+- evidencia: El resumen financiero no aporta métricas de mercado, clientes, segmentos
+    o retornos sobre capital.
+  fuente: Resumen financiero de contexto, análisis al 2026-11-20.
+  riesgo: El negocio de transporte y servicios está descrito de forma general; faltan
+    datos de concentración, sensibilidad cíclica, competencia y costos.
+score: 55
+status: COMPLETED
+version: '3.0'
