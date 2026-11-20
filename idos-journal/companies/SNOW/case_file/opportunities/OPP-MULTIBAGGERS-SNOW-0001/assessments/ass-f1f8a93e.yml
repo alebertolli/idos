@@ -1,0 +1,32 @@
+confidence: MEDIUM
+engine: ResearchWorker
+findings:
+- 'Classification: Investigación requerida; evidencia financiera parcial'
+- 'Market error: No se puede validar un error de valoración con la evidencia disponible.'
+- 'Thesis: Snowflake ofrece una plataforma cloud de datos que, según la descripción
+  del paquete, combina consolidación de datos, aplicaciones, intercambio de productos
+  de datos y capacidades de IA. La evidencia '
+generated_at: '2026-11-20T19:23:34.752878-03:00'
+id: ass-f1f8a93e
+recommendation: REVIEW
+risks:
+- evidencia: EBIT de -USD 1.22bn y utilidad neta de -USD 1.091bn, ambos TTM al 2026-07-31.
+  implicacion: La evidencia disponible no demuestra que el crecimiento se traduzca
+    en rentabilidad contable.
+  riesgo: Rentabilidad contable negativa
+- evidencia: Current ratio reportado de 0.94 al 2026-07-31; el umbral configurado
+    es menor a 0.5.
+  implicacion: No cruza el umbral configurado; requiere contexto sobre composición
+    y vencimientos.
+  riesgo: Liquidez corriente bajo umbral
+- evidencia: El EBITDA TTM es negativo y las unidades de los datos de net cash y EBITDA
+    no están conciliadas en el paquete.
+  implicacion: No se puede interpretar un múltiplo calculado con esos datos.
+  riesgo: Deuda y caja no permiten calcular net debt/EBITDA comparable
+- evidencia: Sólo se incluye una observación de acciones en circulación, sin serie
+    histórica comparable.
+  implicacion: No se puede contrastar la dilución con los umbrales configurados.
+  riesgo: Dilución no evaluable
+score: 65.2
+status: COMPLETED
+version: '3.0'

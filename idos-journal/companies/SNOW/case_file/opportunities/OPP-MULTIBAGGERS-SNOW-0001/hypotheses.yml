@@ -1,0 +1,152 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: El crecimiento interanual de ingresos de producto del trimestre es
+      inferior al 25%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La empresa no divulga ingresos de producto comparables que permitan
+      verificar el crecimiento.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El crecimiento interanual de ingresos de producto del trimestre es inferior al
+    25%.
+  - La empresa no divulga ingresos de producto comparables que permitan verificar
+    el crecimiento.
+  horizon: corto
+  id: H1-OPP-MULTIBAGGERS-SNOW-0001
+  opportunity_id: OPP-MULTIBAGGERS-SNOW-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-03-31'
+    expected: 25.0
+    met: null
+    metric: Crecimiento interanual de ingresos de producto
+    prediction: En los resultados del trimestre fiscal terminado el 31 de enero de
+      2027, Snowflake comunicará crecimiento interanual de ingresos de producto de
+      al menos el 25%.
+    unit: porcentaje mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La plataforma descrita integra consolidación de datos, aplicaciones,
+    intercambio de datos y capacidades de IA, lo que podría sostener el consumo de
+    sus servicios. Sin embargo, la información disponible no confirma la demanda futura
+    ni la penetración de mercado; por ello, esta hipótesis exige comprobar que el
+    crecimiento sigue siendo elevado.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados del trimestre
+    terminado el 31 de enero de 2027 si el crecimiento de ingresos de producto es
+    inferior al 25%; si no se publican antes del 31 de marzo de 2027, considerar la
+    hipótesis no verificada.
+  secondary_hypotheses: []
+  statement: El crecimiento de los ingresos de producto de Snowflake se mantendrá
+    por encima del 25% interanual en el trimestre fiscal que termina el 31 de enero
+    de 2027.
+  status: ACTIVE
+  ticker: SNOW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El flujo de caja libre de los doce meses terminados el 31 de julio
+      de 2027 es cero o negativo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de flujo de caja libre de ese período es inferior al 15%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La información publicada no permite calcular de forma consistente flujo
+      de caja libre e ingresos del período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El flujo de caja libre de los doce meses terminados el 31 de julio de 2027 es
+    cero o negativo.
+  - El margen de flujo de caja libre de ese período es inferior al 15%.
+  - La información publicada no permite calcular de forma consistente flujo de caja
+    libre e ingresos del período.
+  horizon: medio
+  id: H2-OPP-MULTIBAGGERS-SNOW-0001
+  opportunity_id: OPP-MULTIBAGGERS-SNOW-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-09-30'
+    expected: 15.0
+    met: null
+    metric: Margen de flujo de caja libre en doce meses
+    prediction: Para los doce meses terminados el 31 de julio de 2027, el flujo de
+      caja libre será positivo y equivaldrá al menos al 15% de los ingresos del mismo
+      período.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La evidencia proporcionada señala flujo de caja libre positivo históricamente,
+    pese a pérdidas netas y EBIT negativos en el TTM terminado el 31 de julio de 2026.
+    La hipótesis plantea que esa generación de caja se sostendrá y conservará una
+    escala material; no presupone que las pérdidas contables hayan desaparecido.
+  review_trigger: Dejar de creerla cuando se publiquen los resultados correspondientes
+    al trimestre terminado el 31 de julio de 2027 si el flujo de caja libre es negativo
+    o su margen es inferior al 15%; si la información no está disponible el 2027-09-30,
+    dejarla como no verificada.
+  secondary_hypotheses: []
+  statement: Snowflake mantendrá generación positiva de flujo de caja libre y alcanzará
+    un margen de flujo de caja libre de al menos el 15% en los doce meses terminados
+    el 31 de julio de 2027.
+  status: ACTIVE
+  ticker: SNOW
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de SNOW menos la rentabilidad total del Nasdaq-100
+      durante el período es inferior a 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cotización de SNOW o los datos del índice no permiten calcular rentabilidades
+      comparables ajustadas por eventos corporativos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de SNOW menos la rentabilidad total del Nasdaq-100 durante
+    el período es inferior a 10 puntos porcentuales.
+  - La cotización de SNOW o los datos del índice no permiten calcular rentabilidades
+    comparables ajustadas por eventos corporativos.
+  horizon: medio
+  id: H3-OPP-MULTIBAGGERS-SNOW-0001
+  opportunity_id: OPP-MULTIBAGGERS-SNOW-0001
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Rentabilidad total relativa de SNOW frente al Nasdaq-100
+    prediction: Entre el 20 de noviembre de 2026 y el 20 de noviembre de 2027, la
+      rentabilidad total de SNOW, incluidos dividendos si los hubiera, superará la
+      del Nasdaq-100 en al menos 10 puntos porcentuales. La predicción se considerará
+      especialmente respaldada si se cumple H1.
+    unit: puntos porcentuales de exceso de rentabilidad
+  priority: informational
+  probability: 0.5
+  rationale: 'La integración de datos, aplicaciones, intercambio de datos y capacidades
+    de IA podría favorecer la demanda y apoyar una reevaluación del valor de la acción.
+    Esta tesis de mercado es condicional: el paquete no ofrece estimaciones de crecimiento
+    futuro, valoración, expectativas implícitas en el precio ni evidencia suficiente
+    para concluir que SNOW esté infravalorada.'
+  review_trigger: Dejar de creerla el 2027-11-20 si SNOW no supera al Nasdaq-100 por
+    al menos 10 puntos porcentuales, con independencia de que se haya cumplido H1.
+  secondary_hypotheses:
+  - H1-OPP-MULTIBAGGERS-SNOW-0001
+  statement: Durante los doce meses posteriores al corte, SNOW obtendrá una rentabilidad
+    total superior a la del Nasdaq-100 por al menos 10 puntos porcentuales, si el
+    crecimiento de ingresos de producto se mantiene en el rango previsto.
+  status: ACTIVE
+  ticker: SNOW
+  version: 1

@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 134 companies tracked
+Total: 137 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -73,6 +73,7 @@ Total: 134 companies tracked
 - 📄 [[PBR|Petróleo Brasileiro S.A. - Petrobras]]
 - 📄 [[PSX|Phillips 66]]
 - 📄 [[SHEL|Shell plc]]
+- 📄 [[SLB|SLB N.V.]]
 - 📄 [[TS|Tenaris S.A.]]
 
 ## Financial Services
@@ -129,6 +130,7 @@ Total: 134 companies tracked
 - ⏳ [[PBI|Pitney Bowes Inc.]]
 - 📄 [[RTX|RTX Corporation]]
 - 📄 [[SIEGY|Siemens Aktiengesellschaft]]
+- 📄 [[SNA|Snap-on Incorporated]]
 
 ## Other
 - 📄 [[PG|The Procter & Gamble Company]]
@@ -160,6 +162,7 @@ Total: 134 companies tracked
 - 📄 [[MSI|Motorola Solutions, Inc.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 - 📄 [[PANW|Palo Alto Networks, Inc.]]
+- 📄 [[SNOW|Snowflake Inc.]]
 
 ## Utilities
 - 📄 [[CEG|Constellation Energy Corporation]]

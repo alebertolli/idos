@@ -1,0 +1,216 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos digitales comparables de 2027 crecen menos del 10% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El crecimiento digital de 2027 iguala o queda por debajo del crecimiento
+      de los ingresos totales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: SLB deja de divulgar datos suficientes para verificar el crecimiento
+      digital comparable.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos digitales comparables de 2027 crecen menos del 10% interanual.
+  - El crecimiento digital de 2027 iguala o queda por debajo del crecimiento de los
+    ingresos totales.
+  - SLB deja de divulgar datos suficientes para verificar el crecimiento digital comparable.
+  horizon: medio
+  id: H1-OPP-MB-SLB
+  opportunity_id: OPP-MB-SLB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 10.0
+    met: null
+    metric: crecimiento interanual de ingresos digitales comparables en 2027
+    prediction: En los resultados del ejercicio 2027, publicados no más tarde del
+      2028-03-31, los ingresos digitales comparables de SLB crecerán al menos un 10%
+      interanual y superarán el crecimiento de los ingresos totales de la compañía.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La digitalización de operaciones energéticas puede impulsar la demanda
+    de software, automatización y análisis de datos, y la tesis plantea ese negocio
+    como motor de crecimiento moderado. La hipótesis exige que SLB comunique ingresos
+    digitales comparables para poder separar ese efecto del crecimiento general.
+  review_trigger: Dejar de creerla si los resultados de 2027, o una actualización
+    anual anterior, muestran crecimiento digital inferior al 10% interanual.
+  secondary_hypotheses: []
+  statement: El negocio digital de SLB crecerá más rápido que el conjunto de la compañía
+    y aportará una fuente de crecimiento diferenciada del gasto tradicional en servicios
+    petroleros.
+  status: ACTIVE
+  ticker: SLB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La cobertura de intereses de los cuatro trimestres terminados el 2027-12-31
+      es inferior a 3,0x.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La cobertura de intereses es igual o inferior a 1,0x en dos trimestres
+      consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La deuda neta/EBITDA al cierre de 2027 supera 2,0x.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La cobertura de intereses de los cuatro trimestres terminados el 2027-12-31 es
+    inferior a 3,0x.
+  - La cobertura de intereses es igual o inferior a 1,0x en dos trimestres consecutivos
+    de 2027.
+  - La deuda neta/EBITDA al cierre de 2027 supera 2,0x.
+  horizon: medio
+  id: H2-OPP-MB-SLB
+  opportunity_id: OPP-MB-SLB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: cobertura de intereses de los cuatro trimestres terminados el 2027-12-31
+    prediction: En los cuatro trimestres terminados el 2027-12-31, la cobertura calculada
+      como EBIT dividido por gasto por intereses será al menos 3,0x y la deuda neta/EBITDA
+      será como máximo 2,0x.
+    unit: veces como mínimo
+  priority: critical
+  probability: 0.5
+  rationale: Una cobertura de intereses de 0x, junto con deuda neta elevada según
+    la tesis, implicaría una vulnerabilidad financiera importante. Sin datos detallados
+    sobre la definición y el periodo usados para esa métrica, es necesario contrastarla
+    con estados financieros publicados y distinguir una posible anomalía de datos
+    de un deterioro real. Una cobertura positiva sostenida reduciría, aunque no eliminaría,
+    el riesgo.
+  review_trigger: Dejar de creerla en cuanto un informe trimestral de 2027 muestre
+    cobertura igual o inferior a 1,0x durante dos trimestres consecutivos, o si el
+    cálculo verificable al cierre de 2027 incumple cualquiera de los umbrales previstos.
+  secondary_hypotheses: []
+  statement: La cobertura de intereses reportada como 0x no reflejará una incapacidad
+    persistente para cubrir el gasto financiero; SLB mostrará cobertura positiva y
+    reducirá el riesgo de presión de liquidez.
+  status: ACTIVE
+  ticker: SLB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos totales comparables de 2027 crecen menos del 3% interanual.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: SLB informa una contracción interanual de ingresos durante dos trimestres
+      consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La compañía atribuye una reducción de ingresos en 2027 a recortes de
+      presupuestos de capital de clientes.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos totales comparables de 2027 crecen menos del 3% interanual.
+  - SLB informa una contracción interanual de ingresos durante dos trimestres consecutivos
+    de 2027.
+  - La compañía atribuye una reducción de ingresos en 2027 a recortes de presupuestos
+    de capital de clientes.
+  horizon: medio
+  id: H3-OPP-MB-SLB
+  opportunity_id: OPP-MB-SLB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: crecimiento interanual de ingresos totales comparables en 2027
+    prediction: Los ingresos totales de SLB para el ejercicio 2027 crecerán al menos
+      un 3% interanual en base comparable, según los resultados publicados no más
+      tarde del 2028-03-31.
+    unit: porcentaje mínimo
+  priority: important
+  probability: 0.5
+  rationale: La demanda de servicios y equipos de SLB depende de los presupuestos
+    de capital y de la actividad de sus clientes. La tesis identifica los precios
+    del petróleo y la recuperación del gasto de capital como determinantes; por ello,
+    un crecimiento moderado de ingresos es verificable, pero vulnerable a retrasos
+    o recortes de inversión.
+  review_trigger: Dejar de creerla si los resultados de dos trimestres consecutivos
+    de 2027 muestran caída interanual de ingresos o si una actualización de SLB reduce
+    su perspectiva anual por menor gasto de capital de clientes.
+  secondary_hypotheses:
+  - H1-OPP-MB-SLB
+  - H2-OPP-MB-SLB
+  statement: La recuperación del gasto de capital de clientes en exploración y producción
+    sostendrá el crecimiento de los ingresos de SLB durante 2027, siempre que no se
+    produzca una contracción material de la actividad internacional.
+  status: ACTIVE
+  ticker: SLB
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de SLB iguala o supera la rentabilidad total
+      de XLE en el periodo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: SLB supera a XLE en al menos 5 puntos porcentuales al 2027-11-20.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: SLB alcanza los umbrales de cobertura y deuda neta de H2 antes del
+      2027-11-20 y aun así no presenta el rezago relativo previsto.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de SLB iguala o supera la rentabilidad total de XLE en el
+    periodo.
+  - SLB supera a XLE en al menos 5 puntos porcentuales al 2027-11-20.
+  - SLB alcanza los umbrales de cobertura y deuda neta de H2 antes del 2027-11-20
+    y aun así no presenta el rezago relativo previsto.
+  horizon: medio
+  id: H4-OPP-MB-SLB
+  opportunity_id: OPP-MB-SLB
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: -5.0
+    met: null
+    metric: rentabilidad total de SLB menos rentabilidad total de XLE entre 2026-11-20
+      y 2027-11-20
+    prediction: Entre el 2026-11-20 y el 2027-11-20, la rentabilidad total de SLB,
+      incluidos dividendos, quedará al menos 5 puntos porcentuales por debajo de la
+      del ETF Energy Select Sector SPDR (XLE).
+    unit: puntos porcentuales como máximo
+  priority: important
+  probability: 0.5
+  rationale: La tesis sostiene que el consenso subestima el riesgo de liquidez asociado
+    con la baja cobertura de intereses y la deuda neta elevada. Si los resultados
+    no despejan esa incertidumbre, los inversores podrían exigir una prima de riesgo
+    mayor y SLB podría quedar rezagada frente al sector, incluso si el negocio mantiene
+    crecimiento moderado.
+  review_trigger: Dejar de creerla si, en cualquier fecha de cierre mensual desde
+    el 2026-11-20, SLB supera a XLE en rentabilidad total acumulada por al menos 5
+    puntos porcentuales, o si al 2027-11-20 no existe el rezago previsto.
+  secondary_hypotheses:
+  - H2-OPP-MB-SLB
+  - H3-OPP-MB-SLB
+  statement: La incertidumbre sobre la cobertura de intereses y la deuda neta pesará
+    sobre la rentabilidad bursátil relativa de SLB si las métricas financieras no
+    alcanzan los umbrales previstos.
+  status: ACTIVE
+  ticker: SLB
+  version: 1
