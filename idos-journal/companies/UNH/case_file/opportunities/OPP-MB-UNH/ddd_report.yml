@@ -1,0 +1,537 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - La conversión de FCF calculada es aproximadamente 143.8%, usando importes TTM
+    reportados por el mismo proveedor y período; no demuestra por sí sola sostenibilidad.
+  - Las anclas de analistas no constituyen una valoración intrínseca ni evidencia
+    de un error de mercado.
+  - 'El paquete reporta cotización de USD 406.97 al 2026-10-30 y momentum de precio
+    a 12 meses de 19.1504% para 2025-10-31/2026-10-30; fuente: yfinance, https://finance.yahoo.com/quote/UNH/history/.'
+  - Stock Analysis reporta ingresos TTM de USD 450.06 mil millones, FCF de USD 22.83
+    mil millones y beneficio neto TTM de USD 15.884 mil millones, con período terminado
+    el 2026-09-30; https://stockanalysis.com/stocks/UNH/statistics/ y https://stockanalysis.com/stocks/unh/financials/.
+  - 'El consenso de objetivos reportado al 2026-11-20 tiene rango USD 385–531 y media/mediana
+    USD 478.48; fuentes: https://stockanalysis.com/stocks/unh/forecast/ y https://finance.yahoo.com/quote/UNH/.'
+  preguntas_abiertas:
+  - ¿Qué expectativas de crecimiento, márgenes, costos médicos y beneficios están
+    incorporadas en la cotización y en los objetivos de analistas?
+  - ¿Cuáles son los retornos incrementales sobre capital, la reinversión necesaria
+    y la penetración de mercado por segmento?
+  - ¿Cuál es la trayectoria de acciones diluidas y qué factores regulatorios, competitivos
+    o de ejecución podrían modificarla?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Investigación requerida
+  justificacion: El paquete clasifica UNH como RESEARCH_REQUIRED y perfil MULTIBAGGERS.
+    La evidencia disponible permite revisar algunos indicadores financieros y anclas
+    de consenso, pero no basta para validar una valoración intrínseca ni varias métricas
+    clave.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: 'El resumen describe cuatro segmentos: Optum Health, Optum Insight, Optum
+    Rx y UnitedHealthcare. El TTM al 2026-09-30 muestra ingresos reportados de USD
+    450.06 mil millones y FCF de USD 22.83 mil millones, pero no se suministran retornos
+    sobre capital, desglose de reinversión, cuota de mercado ni datos suficientes
+    para evaluar ventaja competitiva o su erosión.'
+  rating: Inconcluso
+dominio_catalizadores:
+- catalizador: Actualización de resultados financieros posteriores al 2026-09-30 que
+    permita contrastar ingresos, beneficio neto y FCF con los períodos reportados.
+  estado: Hito de seguimiento; no consta una fecha futura en el paquete.
+- catalizador: Actualización de objetivos de analistas respecto del rango observado
+    de USD 385–531 al 2026-11-20.
+  estado: Hito de seguimiento; no consta un evento fechado.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- fuente: Stock Analysis, financials, período Current al 2026-09-30.
+  riesgo: 'Endeudamiento: el net cash reportado es negativo al 2026-09-30; no se puede
+    calcular una razón net debt/EBITDA compatible con los inputs disponibles.'
+- fuente: Stock Analysis, financials, TTM al 2026-09-30.
+  riesgo: La conversión de FCF calculada supera 100% para TTM al 2026-09-30; requiere
+    comprobar comparabilidad de cifras y sostenibilidad.
+- fuente: Stock Analysis, statistics, período TTM al 2026-09-30.
+  riesgo: El current ratio reportado es inferior a 1 al 2026-09-30; el paquete no
+    aporta activos y pasivos corrientes desglosados para validación independiente.
+- riesgo: El paquete no aporta evidencia suficiente sobre regulación, costos médicos,
+    litigios, concentración, ciberseguridad o erosión competitiva; son áreas abiertas,
+    no riesgos verificados aquí.
+error_mercado:
+  catalizador_cambio: La evidencia disponible no identifica catalizadores corporativos
+    fechados; revisar futuras publicaciones financieras y cambios documentados en
+    las estimaciones de analistas.
+  conclusion_error_valoracion: No validado. Las anclas de consenso describen precios
+    objetivo observados, no valor intrínseco ni una expectativa propia.
+  consenso_actual: El consenso de precio objetivo reportado es USD 478.48, con rango
+    USD 385–531; la cotización observada fue USD 406.97 al 2026-10-30.
+  hipotesis_contraria: 'Los datos suministrados no permiten establecer que el mercado
+    esté equivocado: faltan expectativas operativas detalladas, estimaciones de beneficios
+    y una valoración con inputs verificables.'
+  razonamiento: La cotización y los objetivos están expresados en USD, pero el paquete
+    no aporta un método de valoración ni evidencia suficiente para explicar fundamentalmente
+    los extremos del rango.
+generated_at: '2026-11-20T20:23:21.569317-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-UNH
+prompt_inputs:
+  business_model: 'UnitedHealth Group Incorporated operates as a health care company
+    in the United States and internationally. It operates through four segments: Optum
+    Health, Optum Insight, Optum Rx; and UnitedHealthcare. The Optum Health segment
+    provides care delivery, care management, wellness and consumer engagement, and
+    health financial services with patients, consumers, care delivery systems, providers,
+    employers, payers, and public-sector entities. The Optum Insight segment offers
+    software and information products, advisory consulting arrangements, and managed
+    services outsourcing contracts to hospital systems, physicians, health plans,
+    public entities, life sciences companies and other organizations. The Optum Rx
+    segment provides pharmacy care services and programs, including retail network
+    contracting, home delivery, specialty and community health pharmacy services,
+    infusion, and purchasing and clinical capabilities, as well as develops programs
+    in the areas of step therapy, formulary management, drug adherence, and disease
+    and drug therapy management. The UnitedHealthcare segment offers consumer-oriented
+    health benefit plans and services for national employers, public sector employers,
+    mid-sized employers, small businesses, and individuals; Medicaid plans, including
+    Temporary Assistance to Needy Families; Children''s Health Insurance Programs;
+    Dual SNPs; Long-Term Services and Supports; Aged, Blind and Disabled; and other
+    federal, state, and community health care programs. and health care benefits products
+    and services to state programs caring for the economically disadvantaged, medically
+    underserved, and those without the benefit of employer-funded health care coverage.
+    UnitedHealth Group Incorporated was founded in 1974 and is based in Eden Prairie,
+    Minnesota.'
+  ceo_tenure: 0
+  debt_to_equity: 0.7
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: UnitedHealth Group Incorporated
+  operating_margin: 5.85
+  pe_ratio: 19.42
+  products: ''
+  revenue: 450060000000.0
+  revenue_growth: 3.42
+  roic: 12.39
+  sector: Healthcare
+  ticker: UNH
+ratios_investigados:
+- formula: (revenue_t / revenue_t-3)^(1/3) - 1
+  inputs:
+    revenue_history: No hay una observación FY 2023 fechada en revenue_history.
+  limitations: La serie incluye FY 2024 y FY 2025, pero no FY 2023; los puntos TTM
+    duplicados no sustituyen el dato anual requerido.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/unh/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF growth reportado por la fuente; definición exacta del proveedor no
+    especificada en el paquete
+  inputs:
+    fcf_growth_history: 'TTM: 31.39%'
+  limitations: Se reproduce el valor reportado; el paquete no documenta la base comparativa
+    ni la metodología del proveedor.
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/unh/financials/
+  status: reported
+  unit: percent
+  value: 31.39
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/unh/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    ebitda: 'TTM al 2026-09-30: 28900000000.0'
+    net_cash_history: 'Current al 2026-09-30: -48486.0'
+  limitations: Los inputs tienen escalas/unidades reportadas distintas y el paquete
+    no ofrece reconciliación monetaria verificable; no se deriva un ratio.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/unh/financials/
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/UNH/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 896020000.0 al 2026-09-30; falta una observación comparable
+      del período anterior.
+  limitations: El paquete proporciona acciones en circulación actuales, pero no una
+    serie histórica comparable ni acciones diluidas para calcular el cambio interanual.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis.com
+    url: https://stockanalysis.com/stocks/UNH/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: 'UnitedHealth Group Incorporated operates as a health care company
+    in the United States and internationally. It operates through four segments: Optum
+    Health, Optum Insight, Optum Rx; and UnitedHealthcare. The Optum Health segment
+    provides care delivery, care management, wellness and consumer engagement, and
+    health financial services with patients, consumers, care delivery systems, providers,
+    employers, payers, and public-sector entities. The Optum Insight segment offers
+    software and information products, advisory consulting arrangements, and managed
+    services outsourcing contracts to hospital systems, physicians, health plans,
+    public entities, life sciences companies and other organizations. The Optum Rx
+    segment provides pharmacy care services and programs, including retail network
+    contracting, home delivery, specialty and community health pharmacy services,
+    infusion, and purchasing and clinical capabilities, as well as develops programs
+    in the areas of step therapy, formulary management, drug adherence, and disease
+    and drug therapy management. The UnitedHealthcare segment offers consumer-oriented
+    health benefit plans and services for national employers, public sector employers,
+    mid-sized employers, small businesses, and individuals; Medicaid plans, including
+    Temporary Assistance to Needy Families; Children''s Health Insurance Programs;
+    Dual SNPs; Long-Term Services and Supports; Aged, Blind and Disabled; and other
+    federal, state, and community health care programs. and health care benefits products
+    and services to state programs caring for the economically disadvantaged, medically
+    underserved, and those without the benefit of employer-funded health care coverage.
+    UnitedHealth Group Incorporated was founded in 1974 and is based in Eden Prairie,
+    Minnesota.'
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 406.9700012207031
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.7
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_pct": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T23:22:19.989159+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: UnitedHealth Group Incorporated
+  operating_margin: 5.85
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: 'UnitedHealth Group Incorporated operates as a health care company
+    in the United States and internationally. It operates through four segments: Optum
+    Health, Optum Insight, Optum Rx; and UnitedHealthcare. The Optum Health segment
+    provides care delivery, care management, wellness and consumer engagement, and
+    health financial services with patients, consumers, care delivery systems, providers,
+    employers, payers, and public-sector entities. The Optum Insight segment offers
+    software and information p'
+  revenue: 450060000000.0
+  revenue_growth: 3.42
+  roic: 12.39
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unh/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNH/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNH/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNH/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNH/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unh/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unh/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNH/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNH/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unh/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unh/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unh/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNH/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/UNH/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/unh/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    531.0, "low": 385.0, "mean": 478.48, "median": 478.48, "observed_at": "2026-11-20T20:22:23.328214-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T20:22:23.328214-03:00", "observed_date": "2026-11-20", "target_price":
+    478.48, "url": "https://stockanalysis.com/stocks/unh/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T20:22:23.328214-03:00",
+    "observed_date": "2026-11-20", "target_price": 478.48, "url": "https://finance.yahoo.com/quote/UNH/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 406.9700012207031,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/UNH/"}]}}'
+  sector: Healthcare
+  ticker: UNH
+research_trigger:
+  discovery_snapshot_hash: 3232d5c833bc6b9d324dafdc969953ca574ebbdd9152c270a828900404fbd701
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 6fbbac5949182b93cdeefb13b466aa29a261d269148b067361b0df30e691a384
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T20:23:21.569317-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 0.74x reportado al 2026-09-30; no cruza el umbral configurado.
+  source: https://stockanalysis.com/stocks/UNH/statistics/
+  threshold: below 0.5
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-30; no se sustituye EBIT por EBITDA
+    y el paquete no permite validar por separado el gasto por intereses.
+  source: https://stockanalysis.com/stocks/UNH/statistics/
+  threshold: below 2.0x
+- metric: net_debt_ebitda
+  observation: 'No evaluable: los importes disponibles no tienen escala/unidad compatible
+    verificable.'
+  threshold: above 4.0x
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta una serie comparable de acciones diluidas.'
+  threshold: above 10%
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: faltan observaciones históricas comparables de acciones.'
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Una revisión verificable del rango o de sus estimaciones subyacentes cambiaría
+      la pertinencia de esta ancla.
+    id: BEAR
+    key_assumptions:
+    - Se usa el objetivo bajo de analistas reportado al 2026-11-20 como ancla, sin
+      extrapolarlo como resultado garantizado.
+    rationale: Ancla inferior observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. No hay datos operativos en el paquete que permitan atribuir
+      ese extremo a un resultado de negocio concreto.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/unh/forecast/
+    target_price: 385
+  - falsifiers:
+    - Una revisión verificable del rango o de sus estimaciones subyacentes cambiaría
+      la pertinencia de esta ancla.
+    id: BULL
+    key_assumptions:
+    - Se usa el objetivo alto de analistas reportado al 2026-11-20 como ancla, sin
+      presentarlo como pronóstico propio.
+    rationale: Ancla superior observada del rango de objetivos de analistas, no valoración
+      intrínseca propia. La evidencia suministrada no explica qué supuestos operativos
+      respaldan ese extremo.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/unh/forecast/
+    target_price: 531
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 58
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T20:22:23.328214-03:00'
+  fuentes:
+    stockanalysis: 478.48
+    yfinance: 478.48
+  mediana: 478.48
+  n_fuentes: 2
+  promedio: 478.48
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T20:22:23.328214-03:00'
+    observed_date: '2026-11-20'
+    target_price: 478.48
+    url: https://stockanalysis.com/stocks/unh/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T20:22:23.328214-03:00'
+    observed_date: '2026-11-20'
+    target_price: 478.48
+    url: https://finance.yahoo.com/quote/UNH/
+  target_high: 531.0
+  target_low: 385.0
+tesis_inversion: La tesis a investigar es si el modelo diversificado de UnitedHealth
+  puede sostener generación de efectivo y crecimiento rentable. El paquete describe
+  sus segmentos y aporta datos financieros históricos y TTM, pero no permite validar
+  mercado direccionable, penetración, retornos sobre capital, reinversión, ventaja
+  competitiva o asignación de capital.
+ticker: UNH
+version: '3.0'

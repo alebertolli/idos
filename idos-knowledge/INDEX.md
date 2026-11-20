@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 147 companies tracked
+Total: 152 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -52,6 +52,7 @@ Total: 147 companies tracked
 - 📄 [[ROST|Ross Stores, Inc.]]
 - 📄 [[SBUX|Starbucks Corporation]]
 - 📄 [[TJX|The TJX Companies, Inc.]]
+- 📄 [[URBN|Urban Outfitters, Inc.]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
@@ -81,6 +82,7 @@ Total: 147 companies tracked
 - 📄 [[SLB|SLB N.V.]]
 - 📄 [[TS|Tenaris S.A.]]
 - 📄 [[TTE|TotalEnergies SE]]
+- ⏳ [[UGP|Ultrapar Participações S.A.]]
 
 ## Financial Services
 - 📄 [[AEG|Aegon Ltd.]]
@@ -121,6 +123,7 @@ Total: 147 companies tracked
 - 📄 [[MRK|Merck & Co., Inc.]]
 - 📄 [[NVS|Novartis AG]]
 - 📄 [[TMO|Thermo Fisher Scientific Inc.]]
+- 📄 [[UNH|UnitedHealth Group Incorporated]]
 
 ## Industrials
 - 📄 [[ASR|Grupo Aeroportuario del Sureste, S. A. B. de C. V.]]
@@ -139,6 +142,7 @@ Total: 147 companies tracked
 - 📄 [[RTX|RTX Corporation]]
 - 📄 [[SIEGY|Siemens Aktiengesellschaft]]
 - 📄 [[SNA|Snap-on Incorporated]]
+- ⏳ [[UNP|Union Pacific Corporation]]
 
 ## Other
 - 📄 [[PG|The Procter & Gamble Company]]
@@ -173,6 +177,7 @@ Total: 147 companies tracked
 - 📄 [[SNOW|Snowflake Inc.]]
 - 📄 [[TSM|Taiwan Semiconductor Manufacturing Company Limited]]
 - 📄 [[TWLO|Twilio Inc.]]
+- ⏳ [[TXN|Texas Instruments Incorporated]]
 
 ## Utilities
 - 📄 [[CEG|Constellation Energy Corporation]]
