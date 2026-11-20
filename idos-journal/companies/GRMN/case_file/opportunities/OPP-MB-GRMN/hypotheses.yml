@@ -1,0 +1,144 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Menos de 3 segmentos registran crecimiento de ingresos interanual de
+      al menos 5% en el ejercicio fiscal 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos consolidados del ejercicio fiscal 2027 disminuyen respecto
+      del ejercicio fiscal 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Menos de 3 segmentos registran crecimiento de ingresos interanual de al menos
+    5% en el ejercicio fiscal 2027.
+  - Los ingresos consolidados del ejercicio fiscal 2027 disminuyen respecto del ejercicio
+    fiscal 2026.
+  horizon: medio
+  id: H1-OPP-MB-GRMN
+  opportunity_id: OPP-MB-GRMN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 3.0
+    met: null
+    metric: Número de segmentos con crecimiento de ingresos interanual de al menos
+      5%
+    prediction: En el ejercicio fiscal 2027, al menos 3 de los 5 segmentos reportados
+      por Garmin —Fitness, Outdoor, Aviation, Marine y Auto OEM— registrarán crecimiento
+      de ingresos interanual de al menos 5%.
+    unit: segmentos de 5
+  priority: critical
+  probability: 0.5
+  rationale: La tesis atribuye la continuidad del crecimiento a productos y servicios
+    diferenciados, pero la información disponible no permite medir la durabilidad
+    de esa ventaja. El crecimiento simultáneo en varios segmentos sería evidencia
+    observable de que no depende únicamente de una categoría o lanzamiento aislado.
+  review_trigger: Dejar de creerla cuando Garmin publique los resultados del ejercicio
+    fiscal 2027 si menos de 3 segmentos cumplen el umbral de crecimiento del 5%, o
+    antes si en dos informes trimestrales consecutivos al menos 3 segmentos presentan
+    una caída interanual de ingresos.
+  secondary_hypotheses: []
+  statement: Garmin mantendrá crecimiento amplio en sus líneas de negocio durante
+    el ejercicio fiscal 2027, lo que sería consistente con una demanda sostenida por
+    productos diferenciados.
+  status: ACTIVE
+  ticker: GRMN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior
+      al 15%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La caja neta al cierre del ejercicio fiscal 2027 es cero o negativa.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen de flujo de caja libre del ejercicio fiscal 2027 es inferior al 15%.
+  - La caja neta al cierre del ejercicio fiscal 2027 es cero o negativa.
+  horizon: medio
+  id: H2-OPP-MB-GRMN
+  opportunity_id: OPP-MB-GRMN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-03-31'
+    expected: 15.0
+    met: null
+    metric: Margen de flujo de caja libre en el ejercicio fiscal 2027
+    prediction: En el ejercicio fiscal 2027, Garmin generará un margen de flujo de
+      caja libre de al menos 15% de los ingresos y cerrará el ejercicio con caja neta
+      positiva, definida como efectivo, equivalentes e inversiones negociables menos
+      deuda financiera.
+    unit: porcentaje de ingresos, mínimo
+  priority: critical
+  probability: 0.5
+  rationale: La tesis señala generación de FCF y caja neta positiva, pero no cuantifica
+    su estabilidad ni las necesidades de inversión. La persistencia de un margen de
+    FCF significativo junto con caja neta positiva permitiría comprobar si el crecimiento
+    se sostiene sin deteriorar la posición financiera.
+  review_trigger: Dejar de creerla al publicarse los resultados del ejercicio fiscal
+    2027 si se incumple cualquiera de los dos umbrales; revisar la hipótesis antes
+    si dos trimestres consecutivos muestran flujo de caja libre negativo.
+  secondary_hypotheses: []
+  statement: Garmin conservará una conversión sólida de ventas en flujo de caja libre
+    y mantendrá caja neta positiva durante el ejercicio fiscal 2027.
+  status: ACTIVE
+  ticker: GRMN
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El rendimiento total acumulado de GRMN no supera al del S&P 500 en
+      el período por al menos 10 puntos porcentuales.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: GRMN obtiene un rendimiento total acumulado inferior al del S&P 500
+      durante el período.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El rendimiento total acumulado de GRMN no supera al del S&P 500 en el período
+    por al menos 10 puntos porcentuales.
+  - GRMN obtiene un rendimiento total acumulado inferior al del S&P 500 durante el
+    período.
+  horizon: medio
+  id: H3-OPP-MB-GRMN
+  opportunity_id: OPP-MB-GRMN
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-11-20'
+    expected: 10.0
+    met: null
+    metric: Rendimiento total acumulado de GRMN menos rendimiento total acumulado
+      del S&P 500
+    prediction: Desde el cierre del 2026-11-20 hasta el cierre del 2028-11-20, el
+      rendimiento total de GRMN, incluidos dividendos, superará en al menos 10 puntos
+      porcentuales el rendimiento total del S&P 500.
+    unit: puntos porcentuales, mínimo
+  priority: important
+  probability: 0.5
+  rationale: Si los productos diferenciados sostienen el crecimiento y la empresa
+    preserva su conversión de caja, el mercado podría estar infravalorando la durabilidad
+    de esos resultados. Esta hipótesis pone a prueba esa interpretación mediante rendimiento
+    relativo, sin asumir un múltiplo de valoración inicial no proporcionado.
+  review_trigger: Dejar de creerla el 2028-11-20 si la diferencia de rendimiento total
+    entre GRMN y el S&P 500 es inferior a 10 puntos porcentuales; no atribuir la diferencia
+    a la tesis operativa si H1 o H2 quedan falsadas antes.
+  secondary_hypotheses:
+  - H1-OPP-MB-GRMN
+  - H2-OPP-MB-GRMN
+  statement: La capacidad de Garmin para mantener crecimiento amplio y generación
+    de caja se reflejará en un rendimiento bursátil superior al del mercado durante
+    los próximos dos años.
+  status: ACTIVE
+  ticker: GRMN
+  version: 1

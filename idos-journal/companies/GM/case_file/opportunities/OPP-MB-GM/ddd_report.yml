@@ -1,0 +1,504 @@
+calidad_evidencia:
+  hechos_verificados: 12
+  inferencias_llm: 5
+  preguntas_abiertas: 2
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: Cautela
+  justificacion: 'Evidencia mixta: crecimiento de ingresos sólido pero alta deuda
+    y cobertura de intereses nula.'
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: Ingresos crecientes (186.95B USD TTM) y margen bruto estable (11.44%).
+    Sin embargo, alta deuda neta y cobertura de intereses nula limitan la calidad.
+  rating: Media
+dominio_catalizadores:
+- impacto: Potencial de aumento de márgenes y cuota de mercado.
+  nombre: Transición a vehículos eléctricos
+- impacto: Reducción de pérdidas crediticias y generación de ingresos netos.
+  nombre: Mejora operativa en GM Financial
+- impacto: Incremento del gross margin.
+  nombre: Reducción de costos de materias primas
+- impacto: Apoyo a la demanda de modelos eléctricos.
+  nombre: Políticas gubernamentales de incentivos EV
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- descripcion: Interest coverage ratio = 0 (stockanalysis, 2026-09-30) está por debajo
+    del umbral 2.0.
+  nombre: Cobertura de intereses
+- descripcion: Net debt/EBITDA = 5.47x supera el límite de 4.0.
+  nombre: Apalancamiento neto
+- descripcion: Datos de dilución no disponibles; no se puede evaluar contra el umbral
+    del 10%.
+  nombre: Dilución de acciones
+- descripcion: CAGR 3 años de ingresos = 6.05% muestra desaceleración respecto a años
+    previos.
+  nombre: Crecimiento de ingresos
+error_mercado:
+  catalizador_cambio: Aceleración de adopción de vehículos eléctricos y mejora de
+    márgenes operativos.
+  conclusion_error_valoracion: El mercado podría estar subvalorando la capacidad de
+    GM para generar flujo de caja libre positivo.
+  consenso_actual:
+    currency: USD
+    high: 132.0
+    low: 75.0
+    mean: 101.17
+  hipotesis_contraria: El precio actual (87.40 USD) subestima el potencial de recuperación
+    tras la transición eléctrica.
+  razonamiento: El rango de analistas es amplio y el precio está por debajo del promedio,
+    indicando posible sesgo bajista.
+generated_at: '2026-11-20T15:04:57.614175-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-GM
+prompt_inputs:
+  business_model: General Motors Company designs, builds, and sells trucks, crossovers,
+    cars, and automobile parts worldwide. It operates through GM North America, GM
+    International, and GM Financial segments. The company markets its vehicles primarily
+    under the Buick, Cadillac, Chevrolet, GMC, Baojun, and Wuling brand names. In
+    addition, it sells trucks, crossovers, cars, and automobile parts through retail
+    dealers, distributors and dealers, as well as to fleet customers, including daily
+    rental car companies, commercial fleet customers, leasing companies, and governments.
+    Further, the company offers various range of after-sale services through dealer
+    network, such as maintenance, light repairs, collision repairs, vehicle accessories,
+    and extended service warranties. Additionally, it provides automotive financing;
+    and software-enabled services and subscriptions. General Motors Company was founded
+    in 1908 and is based in Detroit, Michigan.
+  ceo_tenure: 0
+  debt_to_equity: 0.0203
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: General Motors Company
+  operating_margin: 6.83
+  pe_ratio: 19.34
+  products: ''
+  revenue: 186950000000.0
+  revenue_growth: -0.26
+  roic: 6.9
+  sector: Consumer Cyclical
+  ticker: GM
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/gm/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: Valor reportado en fcf_growth_history TTM
+  inputs:
+    fcf_growth_TTM: -3.36
+  limitations: null
+  metric: fcf_growth_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/gm/financials/
+  status: reported
+  unit: percent
+  value: -3.36
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/GM/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: net_debt_ebitda
+  period_end: '2026-09-30'
+  sources:
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/gm/financials/
+  - name: stockanalysis
+    url: https://stockanalysis.com/stocks/GM/statistics/
+  status: unavailable
+  unit: x
+  value: null
+- formula: null
+  inputs: {}
+  limitations: No se dispone de series históricas de diluted_shares ni shares_outstanding.
+  metric: dilution_yoy_pct
+  period_end: null
+  sources: []
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: General Motors Company designs, builds, and sells trucks, crossovers,
+    cars, and automobile parts worldwide. It operates through GM North America, GM
+    International, and GM Financial segments. The company markets its vehicles primarily
+    under the Buick, Cadillac, Chevrolet, GMC, Baojun, and Wuling brand names. In
+    addition, it sells trucks, crossovers, cars, and automobile parts through retail
+    dealers, distributors and dealers, as well as to fleet customers, including daily
+    rental car companies, commercial fleet customers, leasing companies, and governments.
+    Further, the company offers various range of after-sale services through dealer
+    network, such as maintenance, light repairs, collision repairs, vehicle accessories,
+    and extended service warranties. Additionally, it provides automotive financing;
+    and software-enabled services and subscriptions. General Motors Company was founded
+    in 1908 and is based in Detroit, Michigan.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 87.4000015258789
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.0203
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T18:04:43.806960+00:00", "period_end": "2026-09-30",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: General Motors Company
+  operating_margin: 6.83
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: General Motors Company designs, builds, and sells trucks, crossovers,
+    cars, and automobile parts worldwide. It operates through GM North America, GM
+    International, and GM Financial segments. The company markets its vehicles primarily
+    under the Buick, Cadillac, Chevrolet, GMC, Baojun, and Wuling brand names. In
+    addition, it sells trucks, crossovers, cars, and automobile parts through retail
+    dealers, distributors and dealers, as well as to fleet customers, including daily
+    rental car companies, com
+  revenue: 186950000000.0
+  revenue_growth: -0.26
+  roic: 6.9
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/gm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GM/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/gm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/gm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/gm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/gm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/gm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/gm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/gm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GM/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-30'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/gm/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    132.0, "low": 75.0, "mean": 101.17, "median": 101.17, "observed_at": "2026-11-20T15:04:47.519953-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T15:04:47.519953-03:00", "observed_date": "2026-11-20", "target_price":
+    101.17, "url": "https://stockanalysis.com/stocks/gm/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T15:04:47.519953-03:00",
+    "observed_date": "2026-11-20", "target_price": 101.17391, "url": "https://finance.yahoo.com/quote/GM/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 87.4000015258789,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/GM/"}]}}'
+  sector: Consumer Cyclical
+  ticker: GM
+research_trigger:
+  discovery_snapshot_hash: bccd46ee5b854b4670b9883304455520e0800e5ebb49dff4ee37327f2cc06081
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 720b439e41dc8ea9df1d622604b3981df4a9af5d24150e14402e6c05c4fd15e8
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T15:04:57.614175-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- Interest coverage ratio 0 < 2.0 (threshold breached)
+- Net debt/EBITDA 5.47 > 4.0 (threshold breached)
+- Dilution yoy data unavailable (cannot assess threshold 10%)
+- Share count CAGR unavailable (cannot assess threshold 5%)
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Mejora de margen bruto
+    - Reducción de deuda neta
+    id: BEAR
+    key_assumptions:
+    - Ingresos CAGR < 4%
+    - Gross margin cae bajo 10%
+    - FCF negativo
+    - Sin mejora en cobertura de intereses
+    rationale: Supone deterioro de márgenes y mayor presión de deuda.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/gm/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/GM/
+    target_price: 75.0
+  - falsifiers:
+    - Crecimiento de ingresos superior al 7% anual
+    - Reducción de deuda neta >10%
+    id: BASE
+    key_assumptions:
+    - Ingresos estables
+    - Margen bruto mantiene 11-12%
+    - FCF positivo moderado
+    - Deuda neta estable
+    rationale: Refleja el consenso medio de analistas.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/gm/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/GM/
+    target_price: 101.17
+  - falsifiers:
+    - Recesión del mercado automotriz
+    - Aumento de costos de materias primas
+    id: BULL
+    key_assumptions:
+    - CAGR ingresos > 8%
+    - Gross margin > 13%
+    - FCF crecimiento > 10% anual
+    - Deuda neta disminuye >15%
+    rationale: Supone éxito en EV y mejora de rentabilidad.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/gm/forecast/
+    - as_of_date: '2026-11-20'
+      name: yfinance
+      url: https://finance.yahoo.com/quote/GM/
+    target_price: 132.0
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 76.06
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T15:04:47.519953-03:00'
+  fuentes:
+    stockanalysis: 101.17
+    yfinance: 101.17391
+  mediana: 101.17
+  n_fuentes: 2
+  promedio: 101.17
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T15:04:47.519953-03:00'
+    observed_date: '2026-11-20'
+    target_price: 101.17
+    url: https://stockanalysis.com/stocks/gm/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T15:04:47.519953-03:00'
+    observed_date: '2026-11-20'
+    target_price: 101.17391
+    url: https://finance.yahoo.com/quote/GM/
+  target_high: 132.0
+  target_low: 75.0
+tesis_inversion: GM posee una posición competitiva en el mercado automotriz con oportunidades
+  de crecimiento en EV, pero enfrenta riesgos de alta deuda y cobertura de intereses
+  insuficiente.
+ticker: GM
+version: '3.0'
