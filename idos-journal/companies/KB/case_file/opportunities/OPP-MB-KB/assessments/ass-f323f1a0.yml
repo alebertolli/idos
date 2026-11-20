@@ -1,0 +1,31 @@
+confidence: LOW
+engine: ResearchWorker
+findings:
+- 'Classification: Research requerido; oportunidad no validada'
+- 'Market error: No se puede establecer si existe un error de valoración con la evidencia
+  disponible.'
+- 'Thesis: KB Financial Group presta servicios financieros, incluidos depósitos y
+  préstamos, en Corea del Sur y otros mercados internacionales (resumen financiero,
+  análisis al 2026-11-20). La serie reportada de '
+generated_at: '2026-11-20T16:21:17.027061-03:00'
+id: ass-f323f1a0
+recommendation: REVIEW
+risks:
+- fuente: 'StockAnalysis, observaciones al 2026-09-30: https://stockanalysis.com/stocks/KB/statistics/
+    y https://stockanalysis.com/stocks/kb/financials/.'
+  riesgo: 'Métricas clave insuficientes o no comparables: no se pueden calcular los
+    cinco ratios solicitados con los campos, períodos y unidades disponibles.'
+- fuente: 'StockAnalysis, período TTM terminado el 2026-09-30: https://stockanalysis.com/stocks/KB/statistics/.'
+  riesgo: 'La evidencia sobre liquidez y cobertura de intereses no es interpretable:
+    el proveedor muestra current ratio e interest coverage como 0 y EBIT como n/a.'
+- fuente: 'StockAnalysis, períodos TTM terminado el 2026-09-30 y FY 2022–FY 2025:
+    https://stockanalysis.com/stocks/kb/financials/.'
+  riesgo: La serie de FCF reportada es negativa en TTM y en FY 2022–FY 2025; no hay
+    FCF positivo comparable para evaluar crecimiento bajo la definición indicada.
+- fuente: 'yfinance, períodos 2025-10-31/2026-10-30: https://finance.yahoo.com/quote/KB/history/.'
+  riesgo: 'El momentum de precio observado no elimina el riesgo de fluctuación: el
+    paquete informa volatilidad a 90 días de 36.6524% y drawdown de 15.1866% para
+    el período indicado.'
+score: 38
+status: COMPLETED
+version: '3.0'
