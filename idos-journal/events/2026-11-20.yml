@@ -1388,3 +1388,108 @@ events:
   event_type: research:completed
   source: research_worker
   timestamp: '2026-11-20T14:57:51.722568'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    - net_debt_ebitda
+    opp_id: OPP-MB-GM
+    ticker: GM
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:04:57.491420'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-GM
+    ticker: GM
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:04:57.581176'
+- data:
+    classification: Cautela
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 720b439e41dc8ea9df1d622604b3981df4a9af5d24150e14402e6c05c4fd15e8
+    opp_id: OPP-MB-GM
+    score: 76.06
+    strategy_version: '1.5'
+    ticker: GM
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:06:24.380106'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-GOOGL
+    ticker: GOOGL
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:06:53.926199'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-GOOGL
+    ticker: GOOGL
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:06:54.017974'
+- data:
+    classification: Investigación requerida
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 970f959fc0121c9f8dcf2f8d1c9300ff70e67a5713d133a563cea71bc5ca3903
+    opp_id: OPP-MB-GOOGL
+    score: 68.03
+    strategy_version: '1.5'
+    ticker: GOOGL
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:08:17.848701'
+- data:
+    metrics:
+    - revenue_cagr_3y_pct
+    - fcf_conversion_pct
+    opp_id: OPP-MB-GRMN
+    ticker: GRMN
+  event_type: research:ratio_calculation_discarded
+  source: research_worker
+  timestamp: '2026-11-20T15:08:50.788587'
+- data:
+    metrics:
+    - share_count_cagr_3y_pct
+    - current_ratio
+    - interest_coverage
+    - fcf_runway_months
+    - gross_margin_pct
+    opp_id: OPP-MB-GRMN
+    ticker: GRMN
+  event_type: research:ratio_disposition_omitted
+  source: research_worker
+  timestamp: '2026-11-20T15:08:50.966973'
+- data:
+    classification: 'Research requerido: negocio rentable con crecimiento financiero
+      observado, pero faltan datos para validar retornos sobre capital y varios ratios
+      clave.'
+    event_evidence: null
+    event_type: monthly
+    hypotheses: 3
+    input_snapshot_sha256: 56add31c8d6fbe4fc039dc15150b40e41c3bb9f05800fd5768c2bcb554813221
+    opp_id: OPP-MB-GRMN
+    score: 69
+    strategy_version: '1.5'
+    ticker: GRMN
+  event_type: research:completed
+  source: research_worker
+  timestamp: '2026-11-20T15:10:20.088633'

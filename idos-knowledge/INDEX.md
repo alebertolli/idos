@@ -7,7 +7,7 @@ aliases:
 
 # IDOS Company Index
 
-Total: 75 companies tracked
+Total: 78 companies tracked
 
 ## Basic Materials
 - 📄 [[AEM|Agnico Eagle Mines Limited]]
@@ -24,6 +24,7 @@ Total: 75 companies tracked
 ## Communication Services
 - 📄 [[AMX|América Móvil, S.A.B. de C.V.]]
 - 📄 [[EA|Electronic Arts Inc]]
+- 📄 [[GOOGL|Alphabet Inc.]]
 
 ## Consumer Cyclical
 - 📄 [[ABNB|Airbnb, Inc.]]
@@ -34,6 +35,7 @@ Total: 75 companies tracked
 - 📄 [[DECK|Deckers Outdoor Corporation]]
 - 📄 [[EBAY|eBay Inc.]]
 - 📄 [[ETSY|Etsy, Inc.]]
+- 📄 [[GM|General Motors Company]]
 
 ## Consumer Defensive
 - 📄 [[ABEV|Ambev S.A.]]
@@ -99,6 +101,7 @@ Total: 75 companies tracked
 - 📄 [[CRWD|CrowdStrike Holdings, Inc.]]
 - 📄 [[CSCO|Cisco Systems, Inc.]]
 - 📄 [[DOCU|DocuSign, Inc.]]
+- 📄 [[GRMN|Garmin Ltd.]]
 - 📄 [[NVDA|NVIDIA Corporation]]
 
 ## Utilities

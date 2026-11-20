@@ -1,0 +1,573 @@
+calidad_evidencia:
+  hechos_verificados: []
+  inferencias_llm:
+  - Los datos de margen bruto, FCF y caja neta son compatibles con una posición financiera
+    sólida, pero por sí solos no prueban moat ni retornos sobre capital atractivos.
+  - El rango de objetivos de analistas se usa como ancla de escenarios observada y
+    no como estimación independiente de valor intrínseco.
+  - 'Ingresos TTM: 7.887 millones; período terminado el 2026-09-26. Fuente: https://stockanalysis.com/stocks/grmn/financials/'
+  - 'FCF TTM: 1.468 millones; beneficio neto TTM: 2.017 millones; período terminado
+    el 2026-09-26. Fuente: https://stockanalysis.com/stocks/grmn/financials/'
+  - 'Caja neta: 3.842 millones; período terminado el 2026-09-26. Fuente: https://stockanalysis.com/stocks/grmn/financials/'
+  - 'Cotización de USD 272,67 al 2026-10-30 y rango de objetivos de USD 230–370 reportado
+    al 2026-11-20. Fuentes: https://finance.yahoo.com/quote/GRMN/ y https://stockanalysis.com/stocks/grmn/forecast/'
+  preguntas_abiertas:
+  - ¿Qué segmentos, geografías y mercados explican el crecimiento y qué penetración
+    tienen?
+  - ¿Cuáles son los retornos sobre capital y las necesidades de reinversión por segmento?
+  - ¿Cómo evolucionan cuota, retención y presión competitiva?
+  - ¿Qué historial de dilución y qué políticas de asignación de capital pueden verificarse?
+catalizadores_previos: &id001 []
+clasificacion_oportunidad:
+  categoria: 'Research requerido: negocio rentable con crecimiento financiero observado,
+    pero faltan datos para validar retornos sobre capital y varios ratios clave.'
+  justificacion: El paquete observa crecimiento de ingresos y FCF, margen bruto TTM
+    de 60,44% y caja neta positiva; no aporta evidencia suficiente sobre mercado direccionable,
+    penetración, retorno sobre capital ni ventaja competitiva.
+comparativa_catalizadores: []
+dominio_business_quality:
+  analisis: La evidencia muestra margen bruto TTM de 60,44%, FCF TTM de 1.468 millones,
+    ratio corriente de 3,05 y caja neta de 3.842 millones al 2026-09-26. Son señales
+    financieras favorables, pero no sustituyen evidencia sobre retornos sobre capital,
+    moat, mercado direccionable o asignación de capital.
+  rating: Calidad financiera observada; calidad del negocio no plenamente validada
+dominio_catalizadores:
+- catalizador: Verificar la continuidad del crecimiento de ingresos en próximos períodos.
+  evidencia: Ingresos TTM de 7.887 millones en el período terminado el 2026-09-26,
+    frente a 7.246 millones en FY 2025.
+- catalizador: Comprobar si el margen bruto reciente se sostiene.
+  evidencia: Margen bruto TTM de 60,44% al 2026-09-26; FY 2025 reportó 58,74%.
+- catalizador: Comprobar la conversión continuada de resultados en FCF.
+  evidencia: FCF TTM de 1.468 millones y beneficio neto TTM de 2.017 millones, al
+    2026-09-26.
+- catalizador: Resultados futuros pueden aclarar la divergencia entre los extremos
+    del rango de objetivos de analistas.
+  evidencia: Rango de consenso USD 230–370 observado el 2026-11-20.
+dominio_esg_supply_chain: {}
+dominio_financial_health: {}
+dominio_growth: {}
+dominio_management: {}
+dominio_riesgos:
+- evidencia: El resumen describe categorías de productos y servicios, pero no aporta
+    tamaño de mercado ni penetración.
+  riesgo: No hay datos de segmentos, mercado direccionable o penetración que permitan
+    evaluar cuánto espacio queda para crecer.
+- evidencia: La evidencia disponible incluye ingresos, beneficio neto y FCF, pero
+    no una serie de capital invertido o retornos sobre capital.
+  riesgo: No se aportan medidas de retorno sobre capital ni inversión desglosada que
+    permitan juzgar la productividad de la reinversión.
+- evidencia: El resumen no contiene descripción de moat ni datos de cuota, retención
+    o competencia.
+  riesgo: La ventaja competitiva y su posible erosión no pueden verificarse con la
+    información entregada.
+- evidencia: Yfinance reporta momentum a 12 meses de 27,4516% y volatilidad a 90 días
+    de 38,389%, ambos al 2026-10-30.
+  riesgo: El impulso de precio observado puede coexistir con variabilidad significativa.
+error_mercado:
+  catalizador_cambio: Resultados financieros posteriores que permitan comprobar si
+    continúan el crecimiento de ingresos, la expansión del margen bruto y el crecimiento
+    del FCF.
+  conclusion_error_valoracion: No se valida un error de valoración. Los objetivos
+    de analistas son anclas observadas, no una valoración intrínseca independiente.
+  consenso_actual: La cotización observada fue USD 272,67 al 2026-10-30; el consenso
+    de precio objetivo reportado el 2026-11-20 fue USD 299, con rango USD 230–370.
+  hipotesis_contraria: La evidencia financiera disponible es compatible con crecimiento
+    y liquidez, pero no permite concluir si el mercado sobrestima su persistencia
+    o infravalora la capacidad de reinversión.
+  razonamiento: El precio observado y el consenso están en USD, pero el paquete no
+    ofrece múltiplos, previsiones operativas ni un método de valoración con inputs
+    fechados para justificar una conclusión propia.
+generated_at: '2026-11-20T15:08:51.001790-03:00'
+integridad_tesis: {}
+opinion_valoracion: ''
+opp_id: OPP-MB-GRMN
+prompt_inputs:
+  business_model: Garmin Ltd. designs, develops, manufactures, markets, and distributes
+    a diverse range of GPS-enabled products and navigation, communications, sensor-based,
+    and information products and services worldwide. It offers running; cycling products;
+    smartwatch devices; scales and monitors; and sports timing and performance analysis;
+    Garmin Connect and Garmin Connect Mobile, which are web and mobile platforms where
+    users can track and analyze their fitness, activities and workouts, and wellness
+    data; and Connect IQ, which enables third parties to create applications that
+    run on Garmin devices. It also provides adventure watches; outdoor handhelds and
+    satellite communicators; golf devices; consumer automotive; dog devices; InReach
+    and Garmin Response; and dive devices. In addition, it designs, manufactures,
+    and markets various aircraft avionics solutions, including integrated flight decks,
+    electronic flight displays and instrumentation, navigation and communication products,
+    automatic flight control systems and safety-enhancing technologies, audio control
+    systems, engine indication systems, traffic awareness and avoidance solutions,
+    ADS-B and transponders, weather information and avoidance solutions, datalink
+    and connectivity solutions, and portable GPS navigators and wearables, as well
+    as service products to the aviation market. Further, it offers chartplotters and
+    multi-function displays, cartography, fishfinders, sonar, autopilot systems, radars,
+    compliant instrument displays and sensors, VHF communication radios, handhelds
+    and wearable devices, sailing, audio, digital switching, trolling motors, and
+    lighting; and domain controllers and infotainment units, as well as software,
+    map database, camera, wearable, and automotive solutions. The company sells its
+    products through independent retailers, dealers, distributors, installation and
+    repair shops, OEM, and online webshop. Garmin Ltd. was founded in 1989 and is
+    based in Schaffhausen, Switzerland.
+  ceo_tenure: 0
+  debt_to_equity: 0.02
+  fcf_adjusted: null
+  insider_ownership: 0
+  name: Garmin Ltd.
+  operating_margin: 28.14
+  pe_ratio: 25.91
+  products: ''
+  revenue: 7890000000.0
+  revenue_growth: 13.59
+  roic: 26.38
+  sector: Technology
+  ticker: GRMN
+ratios_investigados:
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: revenue_cagr_3y_pct
+  period_end: '2025-12-27'
+  sources:
+  - name: StockAnalysis financials
+    url: https://stockanalysis.com/stocks/grmn/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: FCF growth reportado por la fuente para TTM
+  inputs:
+    fcf_growth_history: 10.17
+  limitations: La fuente reporta crecimiento TTM; el paquete no especifica en este
+    campo la base comparativa exacta.
+  metric: fcf_growth_pct
+  period_end: '2026-09-26'
+  sources:
+  - name: StockAnalysis financials
+    url: https://stockanalysis.com/stocks/grmn/financials/
+  status: reported
+  unit: percent
+  value: 10.17
+- limitations: Se descartó el cálculo porque Research no identificó referencias explícitas
+    a sus inputs de evidencia.
+  metric: fcf_conversion_pct
+  period_end: '2026-09-26'
+  sources:
+  - name: StockAnalysis financials
+    url: https://stockanalysis.com/stocks/grmn/financials/
+  status: unavailable
+  unit: percent
+  value: null
+- formula: (total_debt - cash_and_equivalents) / EBITDA
+  inputs:
+    net_cash_history: 3842
+    total_debt_history: 224.49
+  limitations: Falta una fuente URL exacta de trusted_source_urls que respalde el
+    EBITDA requerido; no se calcula el ratio con inputs incompletos.
+  metric: net_debt_ebitda
+  period_end: '2026-09-26'
+  sources:
+  - name: StockAnalysis financials
+    url: https://stockanalysis.com/stocks/grmn/financials/
+  status: unavailable
+  unit: x
+  value: null
+- formula: (diluted_shares_t / diluted_shares_t-1) - 1
+  inputs:
+    shares_outstanding: 192700000
+  limitations: Sólo se proporciona un dato actual de acciones en circulación; falta
+    una serie comparable del período anterior o acciones diluidas.
+  metric: dilution_yoy_pct
+  period_end: '2026-09-26'
+  sources:
+  - name: StockAnalysis statistics
+    url: https://stockanalysis.com/stocks/GRMN/statistics/
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: share_count_cagr_3y_pct
+  status: unavailable
+  unit: percent
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: current_ratio
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: interest_coverage
+  status: unavailable
+  unit: x
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: fcf_runway_months
+  status: unavailable
+  unit: months
+  value: null
+- limitations: El modelo de Research omitió este ratio; no se infiere un valor y queda
+    pendiente de evidencia verificable.
+  metric: gross_margin_pct
+  status: unavailable
+  unit: percent
+  value: null
+research_input_snapshot:
+  analysis_as_of_date: '2026-11-20'
+  business_model: Garmin Ltd. designs, develops, manufactures, markets, and distributes
+    a diverse range of GPS-enabled products and navigation, communications, sensor-based,
+    and information products and services worldwide. It offers running; cycling products;
+    smartwatch devices; scales and monitors; and sports timing and performance analysis;
+    Garmin Connect and Garmin Connect Mobile, which are web and mobile platforms where
+    users can track and analyze their fitness, activities and workouts, and wellness
+    data; and Connect IQ, which enables third parties to create applications that
+    run on Garmin devices. It also provides adventure watches; outdoor handhelds and
+    satellite communicators; golf devices; consumer automotive; dog devices; InReach
+    and Garmin Response; and dive devices. In addition, it designs, manufactures,
+    and markets various aircraft avionics solutions, including integrated flight decks,
+    electronic flight displays and instrumentation, navigation and communication products,
+    automatic flight control systems and safety-enhancing technologies, audio control
+    systems, engine indication systems, traffic awareness and avoidance solutions,
+    ADS-B and transponders, weather information and avoidance solutions, datalink
+    and connectivity solutions, and portable GPS navigators and wearables, as well
+    as service products to the aviation market. Further, it offers chartplotters and
+    multi-function displays, cartography, fishfinders, sonar, autopilot systems, radars,
+    compliant instrument displays and sensors, VHF communication radios, handhelds
+    and wearable devices, sailing, audio, digital switching, trolling motors, and
+    lighting; and domain controllers and infotainment units, as well as software,
+    map database, camera, wearable, and automotive solutions. The company sells its
+    products through independent retailers, dealers, distributors, installation and
+    repair shops, OEM, and online webshop. Garmin Ltd. was founded in 1989 and is
+    based in Schaffhausen, Switzerland.
+  capital_allocation: N/A
+  ceo_tenure: 0
+  current_price: 272.6700134277344
+  current_price_as_of_date: '2026-10-30'
+  current_price_source: yfinance
+  debt_maturity_profile: N/A
+  debt_to_equity: 0.02
+  excess_return_roic_wacc: null
+  existing_wiki: ''
+  fcf_adjusted: null
+  financial_data_evidence: '{"conflicts": [], "currency": null, "field_sources": {"analyst_consensus":
+    ["stockanalysis.com"], "beta_5y": ["stockanalysis.com"], "capex_history": ["stockanalysis.com"],
+    "cash_and_investments_history": ["stockanalysis.com"], "current_ratio": ["stockanalysis.com"],
+    "debt_ebitda": ["stockanalysis.com"], "debt_equity_ratio": ["stockanalysis.com"],
+    "ebit": ["stockanalysis.com"], "ebitda": ["stockanalysis.com"], "ebitda_margin_pct":
+    ["stockanalysis.com"], "enterprise_value": ["stockanalysis.com"], "eps_growth_forecast_3y_pct":
+    ["stockanalysis.com"], "eps_history": ["stockanalysis.com"], "ev_ebit": ["stockanalysis.com"],
+    "ev_ebitda": ["stockanalysis.com"], "ev_fcf": ["stockanalysis.com"], "ev_sales":
+    ["stockanalysis.com"], "fcf": ["stockanalysis.com"], "fcf_growth_history": ["stockanalysis.com"],
+    "fcf_history": ["stockanalysis.com"], "fcf_margin_history": ["stockanalysis.com"],
+    "fcf_margin_pct": ["stockanalysis.com"], "fcf_per_share": ["stockanalysis.com"],
+    "fcf_yield_pct": ["stockanalysis.com"], "financial_data_as_of_date": ["stockanalysis.com"],
+    "financial_data_observed_at": ["stockanalysis.com"], "financial_history": ["stockanalysis.com"],
+    "financial_metric_metadata": ["stockanalysis.com"], "financial_period_type": ["stockanalysis.com"],
+    "financials_data_updated_date": ["stockanalysis.com"], "forward_pe": ["stockanalysis.com"],
+    "forward_ps": ["stockanalysis.com"], "gross_margin_history": ["stockanalysis.com"],
+    "gross_margin_pct": ["stockanalysis.com"], "gross_profit_history": ["stockanalysis.com"],
+    "ma_200d": ["stockanalysis.com"], "ma_50d": ["stockanalysis.com"], "market_cap":
+    ["stockanalysis.com"], "net_cash_history": ["stockanalysis.com"], "net_income_history":
+    ["stockanalysis.com"], "operating_cash_flow_history": ["stockanalysis.com"], "operating_income_history":
+    ["stockanalysis.com"], "operating_margin_history": ["stockanalysis.com"], "operating_margin_pct":
+    ["stockanalysis.com"], "p_fcf_ratio": ["stockanalysis.com"], "payout_ratio_pct":
+    ["stockanalysis.com"], "pb_ratio": ["stockanalysis.com"], "pe_ratio_ttm": ["stockanalysis.com"],
+    "peg_ratio": ["stockanalysis.com"], "period_end_date": ["stockanalysis.com"],
+    "pretax_margin_pct": ["stockanalysis.com"], "price_target_avg": ["stockanalysis.com"],
+    "provider_data_updated_date": ["stockanalysis.com"], "ps_ratio_ttm": ["stockanalysis.com"],
+    "quick_ratio": ["stockanalysis.com"], "revenue_growth_forecast_3y_pct": ["stockanalysis.com"],
+    "revenue_growth_history": ["stockanalysis.com"], "revenue_growth_pct": ["stockanalysis.com"],
+    "revenue_history": ["stockanalysis.com"], "revenue_ttm": ["stockanalysis.com"],
+    "roa_pct": ["stockanalysis.com"], "roe_pct": ["stockanalysis.com"], "roic_pct":
+    ["stockanalysis.com"], "shares_outstanding": ["stockanalysis.com"], "short_pct_of_float":
+    ["stockanalysis.com"], "short_ratio": ["stockanalysis.com"], "total_debt_history":
+    ["stockanalysis.com"], "volume_avg": ["stockanalysis.com"]}, "observations": {},
+    "observed_at": "2026-11-20T18:08:19.349444+00:00", "period_end": "2026-09-26",
+    "sources_used": ["stockanalysis.com"]}'
+  geography: ''
+  insider_ownership: 0
+  interest_coverage_ratio: N/D (sin dato verificado)
+  moat_description: ''
+  name: Garmin Ltd.
+  operating_margin: 28.14
+  prior_catalysts: *id001
+  products: ''
+  quote_currency: USD
+  recent_events: Garmin Ltd. designs, develops, manufactures, markets, and distributes
+    a diverse range of GPS-enabled products and navigation, communications, sensor-based,
+    and information products and services worldwide. It offers running; cycling products;
+    smartwatch devices; scales and monitors; and sports timing and performance analysis;
+    Garmin Connect and Garmin Connect Mobile, which are web and mobile platforms where
+    users can track and analyze their fitness, activities and workouts, and wellness
+    data; and
+  revenue: 7890000000.0
+  revenue_growth: 13.59
+  roic: 26.38
+  scenario_financial_evidence:
+    source_observations:
+      cash_and_investments_history:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/grmn/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      current_ratio:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GRMN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebit:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GRMN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      ebitda:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GRMN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GRMN/statistics
+        sources:
+        - stockanalysis.com
+        unit: provider_financial_currency
+      fcf_growth_history:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/grmn/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      fcf_history:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/grmn/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_history:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/grmn/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_margin_pct:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GRMN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      gross_profit_history:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/grmn/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      interest_coverage_ratio:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GRMN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_cash_history:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/grmn/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      net_income_history:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/grmn/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_history:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/grmn/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+      revenue_ttm:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GRMN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      shares_outstanding:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/GRMN/statistics
+        sources:
+        - stockanalysis.com
+        unit: null
+      total_debt_history:
+        currency: null
+        period_end: '2026-09-26'
+        period_type: TTM
+        source_url: https://stockanalysis.com/stocks/grmn/financials
+        sources:
+        - stockanalysis.com
+        unit: null
+    validated_metric_observations: {}
+  scenario_market_evidence: '{"analyst_target_consensus": {"currency": "USD", "high":
+    370.0, "low": 230.0, "mean": 299.0, "median": 299.0, "observed_at": "2026-11-20T15:08:22.575664-03:00",
+    "sources": [{"as_of_date": "2026-11-20", "name": "stockanalysis", "observed_at":
+    "2026-11-20T15:08:22.575664-03:00", "observed_date": "2026-11-20", "target_price":
+    299.0, "url": "https://stockanalysis.com/stocks/grmn/forecast/"}, {"as_of_date":
+    "2026-11-20", "name": "yfinance", "observed_at": "2026-11-20T15:08:22.575664-03:00",
+    "observed_date": "2026-11-20", "target_price": 299.0, "url": "https://finance.yahoo.com/quote/GRMN/"}]},
+    "current_quote": {"as_of_date": "2026-10-30", "currency": "USD", "price": 272.6700134277344,
+    "sources": [{"as_of_date": "2026-10-30", "name": "yfinance", "url": "https://finance.yahoo.com/quote/GRMN/"}]}}'
+  sector: Technology
+  ticker: GRMN
+research_trigger:
+  discovery_snapshot_hash: 47920c0d68e7f51da29e2d91e6f4d9aa1ee4f2abdc7b4f32f4ae9910d3f0a555
+  event_evidence: null
+  input_snapshot_ref:
+    path: research_input_snapshot
+    sha256: 56add31c8d6fbe4fc039dc15150b40e41c3bb9f05800fd5768c2bcb554813221
+  strategy_id: MULTIBAGGERS
+  strategy_version: '1.5'
+  trigger_type: monthly
+  triggered_at: '2026-11-20T15:08:51.001790-03:00'
+resumen_ejecutivo: ''
+risk_flags:
+- metric: current_ratio
+  observation: 3.05x al 2026-09-26; no está por debajo del umbral.
+  source: https://stockanalysis.com/stocks/GRMN/statistics/
+  threshold: below 0.5
+- metric: dilution_yoy_pct
+  observation: 'No evaluable: falta dato comparable de acciones para el período anterior.'
+  source: https://stockanalysis.com/stocks/GRMN/statistics/
+  threshold: above 10%
+- metric: interest_coverage
+  observation: La fuente reporta 0 al 2026-09-26; dato potencialmente no significativo
+    y sin gasto por intereses disponible para validarlo.
+  source: https://stockanalysis.com/stocks/GRMN/statistics/
+  threshold: below 2.0x
+- metric: negative_fcf_runway_months
+  observation: No aplica al FCF TTM positivo reportado de 1.468 millones al 2026-09-26.
+  source: https://stockanalysis.com/stocks/GRMN/statistics/
+  threshold: below 12 months
+- metric: net_debt_ebitda
+  observation: No evaluable con una URL permitida que respalde el EBITDA y el cálculo
+    compatible.
+  source: https://stockanalysis.com/stocks/grmn/financials/
+  threshold: above 4.0x
+- metric: share_count_cagr_3y_pct
+  observation: 'No evaluable: falta historia de acciones en circulación o acciones
+    diluidas para tres años.'
+  source: https://stockanalysis.com/stocks/GRMN/statistics/
+  threshold: above 5%
+scenario_analysis:
+  as_of_date: '2026-11-20'
+  currency: USD
+  horizon_date: '2027-11-20'
+  scenarios:
+  - falsifiers:
+    - Crecimiento posterior de ingresos y FCF acompañado de márgenes sostenidos debilitaría
+      este caso.
+    id: BEAR
+    key_assumptions:
+    - El extremo bajo de USD 230 es un objetivo de analistas observado, no una valoración
+      intrínseca propia.
+    - La evidencia financiera disponible no demuestra que el crecimiento de ingresos
+      o margen reciente sea sostenible.
+    rationale: Ancla en el extremo bajo del rango de objetivos de analistas observado;
+      representa el peor resultado plausible dentro del rango si el crecimiento y
+      la expansión reciente del margen no se sostienen.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/grmn/forecast/
+    - as_of_date: '2026-09-26'
+      name: StockAnalysis financials
+      url: https://stockanalysis.com/stocks/grmn/financials/
+    target_price: 230
+  - falsifiers:
+    - Una desaceleración de ingresos, contracción del margen bruto o deterioro persistente
+      del FCF debilitaría este caso.
+    id: BULL
+    key_assumptions:
+    - El extremo alto de USD 370 es un objetivo de analistas observado, no una valoración
+      intrínseca propia.
+    - Los datos TTM disponibles continúan siendo representativos del desempeño futuro.
+    rationale: Ancla en el extremo alto del rango de objetivos de analistas observado;
+      representa el mejor resultado plausible dentro del rango si se mantienen el
+      crecimiento de ingresos, la mejora del margen bruto y la generación de FCF.
+    sources:
+    - as_of_date: '2026-11-20'
+      name: stockanalysis
+      url: https://stockanalysis.com/stocks/grmn/forecast/
+    - as_of_date: '2026-09-26'
+      name: StockAnalysis financials
+      url: https://stockanalysis.com/stocks/grmn/financials/
+    target_price: 370
+  schema_version: bear_bull_v2
+scenario_validation:
+  errors: []
+  status: valid_pending_decision_board
+score_general: 69
+strategy_context: {}
+target_consensus:
+  calculado_at: '2026-11-20T15:08:22.575664-03:00'
+  fuentes:
+    stockanalysis: 299.0
+    yfinance: 299.0
+  mediana: 299.0
+  n_fuentes: 2
+  promedio: 299.0
+  source_references:
+  - as_of_date: '2026-11-20'
+    name: stockanalysis
+    observed_at: '2026-11-20T15:08:22.575664-03:00'
+    observed_date: '2026-11-20'
+    target_price: 299.0
+    url: https://stockanalysis.com/stocks/grmn/forecast/
+  - as_of_date: '2026-11-20'
+    name: yfinance
+    observed_at: '2026-11-20T15:08:22.575664-03:00'
+    observed_date: '2026-11-20'
+    target_price: 299.0
+    url: https://finance.yahoo.com/quote/GRMN/
+  target_high: 370.0
+  target_low: 230.0
+tesis_inversion: Garmin presenta crecimiento financiero observado y generación de
+  FCF junto con caja neta positiva; la tesis depende de que esos resultados puedan
+  sostenerse mediante productos y servicios diferenciados. El paquete no permite cuantificar
+  mercado direccionable, penetración, retornos sobre capital, reinversión necesaria
+  ni erosión competitiva, por lo que la durabilidad del crecimiento sigue abierta.
+ticker: GRMN
+version: '3.0'

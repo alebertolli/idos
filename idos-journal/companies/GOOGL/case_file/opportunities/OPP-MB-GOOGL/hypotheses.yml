@@ -1,0 +1,148 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Los ingresos crecen menos del 10% interanual en dos o más de los cuatro
+      próximos trimestres.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: Los ingresos consolidados disminuyen interanualmente en dos trimestres
+      consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Los ingresos crecen menos del 10% interanual en dos o más de los cuatro próximos
+    trimestres.
+  - Los ingresos consolidados disminuyen interanualmente en dos trimestres consecutivos.
+  horizon: medio
+  id: H1-OPP-MB-GOOGL
+  opportunity_id: OPP-MB-GOOGL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 10.0
+    met: null
+    metric: Crecimiento interanual de ingresos consolidados
+    prediction: En al menos tres de los cuatro próximos informes trimestrales disponibles
+      al 2027-11-20, los ingresos consolidados crecerán al menos un 10% interanual.
+    unit: '% o más en al menos 3 de 4 trimestres'
+  priority: important
+  probability: 0.5
+  rationale: El contexto suministrado señala crecimiento de ingresos y mejora del
+    margen bruto. Si la demanda de los negocios principales continúa expandiéndose,
+    esa tendencia debería reflejarse en el crecimiento interanual de los ingresos
+    consolidados; el paquete, sin embargo, no aporta datos para identificar qué segmentos
+    o productos explican el avance.
+  review_trigger: Dejar de creerla cuando se publiquen dos trimestres consecutivos
+    con crecimiento interanual inferior al 10%, o, como máximo, al 2027-11-20 si no
+    se cumple el umbral en tres de los cuatro trimestres.
+  secondary_hypotheses: []
+  statement: El crecimiento de ingresos de Alphabet se mantendrá resiliente durante
+    los próximos cuatro trimestres, pese a la presión observada sobre el flujo de
+    caja libre.
+  status: ACTIVE
+  ticker: GOOGL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El FCF TTM al 2027-11-20 es inferior al 120% del FCF TTM de referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El margen de FCF TTM aumenta menos de 2 puntos porcentuales respecto
+      de la referencia.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: El FCF TTM cae por debajo de la referencia en dos informes trimestrales
+      consecutivos.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El FCF TTM al 2027-11-20 es inferior al 120% del FCF TTM de referencia.
+  - El margen de FCF TTM aumenta menos de 2 puntos porcentuales respecto de la referencia.
+  - El FCF TTM cae por debajo de la referencia en dos informes trimestrales consecutivos.
+  horizon: medio
+  id: H2-OPP-MB-GOOGL
+  opportunity_id: OPP-MB-GOOGL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 20.0
+    met: null
+    metric: Cambio del FCF TTM y del margen de FCF frente al último informe disponible
+      al 2026-11-20
+    prediction: Al 2027-11-20, el FCF TTM será al menos un 20% superior al FCF TTM
+      del último informe disponible a la fecha de corte, y su margen sobre ingresos
+      habrá aumentado al menos 2 puntos porcentuales respecto de ese mismo informe.
+    unit: '% de aumento del FCF TTM y 2 puntos porcentuales de aumento del margen'
+  priority: critical
+  probability: 0.5
+  rationale: El contexto indica que el FCF TTM reportado cayó marcadamente frente
+    al FY 2025, mientras que los ingresos y el margen bruto mejoraron. Si esa divergencia
+    responde a un desfase temporal de inversión o capital circulante, la generación
+    de caja debería recuperarse al madurar esas inversiones o normalizarse el capital
+    circulante. El paquete no permite confirmar cuál de esos mecanismos opera.
+  review_trigger: Dejar de creerla si dos informes trimestrales consecutivos muestran
+    FCF TTM inferior al valor de referencia; si no ocurre antes, la hipótesis queda
+    falsada el 2027-11-20 si no se alcanzan ambos umbrales.
+  secondary_hypotheses:
+  - H1-OPP-MB-GOOGL
+  statement: El flujo de caja libre TTM se recuperará parcialmente y la divergencia
+    frente al crecimiento de ingresos se reducirá durante los próximos doce meses.
+  status: ACTIVE
+  ticker: GOOGL
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La rentabilidad total de GOOGL no supera la del índice de referencia
+      por al menos 5 puntos porcentuales en la fecha objetivo.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: GOOGL registra una rentabilidad total inferior a la del índice en el
+      período de medición.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La rentabilidad total de GOOGL no supera la del índice de referencia por al menos
+    5 puntos porcentuales en la fecha objetivo.
+  - GOOGL registra una rentabilidad total inferior a la del índice en el período de
+    medición.
+  horizon: medio
+  id: H3-OPP-MB-GOOGL
+  opportunity_id: OPP-MB-GOOGL
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-11-20'
+    expected: 5.0
+    met: null
+    metric: Exceso de rentabilidad total frente al índice de referencia
+    prediction: Entre el cierre del 2026-11-20 y el cierre del 2027-11-20, la rentabilidad
+      total de GOOGL, incluidos dividendos, superará en al menos 5 puntos porcentuales
+      la rentabilidad total del Nasdaq Communication Services Select Sector Index.
+    unit: puntos porcentuales
+  priority: important
+  probability: 0.5
+  rationale: 'Si el crecimiento de ingresos se mantiene y el FCF se recupera, el mercado
+    podría reducir el descuento asociado a la incertidumbre sobre la conversión de
+    resultados en caja. Esta hipótesis no presupone que la valoración intrínseca esté
+    demostrada: el paquete no aporta datos suficientes para estimarla.'
+  review_trigger: Dejar de creerla antes de la fecha objetivo si, al cierre de un
+    trimestre posterior al corte, GOOGL acumula una desventaja de al menos 10 puntos
+    porcentuales frente al índice y el FCF TTM también está por debajo de su referencia.
+    Evaluación final el 2027-11-20.
+  secondary_hypotheses:
+  - H1-OPP-MB-GOOGL
+  - H2-OPP-MB-GOOGL
+  statement: Alphabet obtendrá una rentabilidad total superior a la del índice Nasdaq
+    Communication Services Select Sector durante los doce meses posteriores al corte.
+  status: ACTIVE
+  ticker: GOOGL
+  version: 1

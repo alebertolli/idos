@@ -1,0 +1,139 @@
+hypotheses:
+- confidence: 0.0
+  falsification:
+  - condition: Las entregas de EV en Norteamérica en 2027 crecen menos de un 10% frente
+      a 2026.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: GM informa de una caída interanual de las entregas de EV en dos trimestres
+      consecutivos de 2027.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - Las entregas de EV en Norteamérica en 2027 crecen menos de un 10% frente a 2026.
+  - GM informa de una caída interanual de las entregas de EV en dos trimestres consecutivos
+    de 2027.
+  horizon: medio
+  id: H1-OPP-MB-GM
+  opportunity_id: OPP-MB-GM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 25.0
+    met: null
+    metric: Crecimiento interanual de las entregas de EV de GM en Norteamérica en
+      2027
+    prediction: En el ejercicio 2027, las entregas de EV de GM en Norteamérica serán
+      al menos un 25% superiores a las de 2026, según los datos anuales publicados
+      por la compañía.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: Una mayor utilización de la capacidad, la ampliación de la oferta y la
+    reducción de costes por unidad pueden impulsar el volumen. La hipótesis parte
+    de la oportunidad de crecimiento en EV indicada en la tesis, pero requiere comprobar
+    las entregas reportadas por GM, no asumir que la oportunidad ya se materializó.
+  review_trigger: Dejar de creerla si GM informa, antes del 2027-12-31, que las entregas
+    acumuladas de EV en Norteamérica están por debajo del nivel comparable de 2026.
+  secondary_hypotheses: []
+  statement: GM aumentará sus entregas de vehículos eléctricos en Norteamérica durante
+    2027, señal de que la transición eléctrica está ganando escala.
+  status: ACTIVE
+  ticker: GM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: El margen EBIT ajustado automotriz de 2027 es inferior al 6%.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: GM reduce su previsión anual de EBIT ajustado automotriz por presión
+      persistente de costes, precios o pérdidas de EV.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - El margen EBIT ajustado automotriz de 2027 es inferior al 6%.
+  - GM reduce su previsión anual de EBIT ajustado automotriz por presión persistente
+    de costes, precios o pérdidas de EV.
+  horizon: medio
+  id: H2-OPP-MB-GM
+  opportunity_id: OPP-MB-GM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2028-02-15'
+    expected: 8.0
+    met: null
+    metric: Margen EBIT ajustado automotriz de GM en 2027
+    prediction: El margen EBIT ajustado del segmento automotriz de GM será de al menos
+      el 8% en el ejercicio 2027, de acuerdo con la definición y conciliación que
+      utilice la compañía en sus resultados.
+    unit: '%'
+  priority: critical
+  probability: 0.5
+  rationale: La actividad automotriz puede aportar recursos para inversión y servicio
+    de deuda si mantiene márgenes sólidos. La hipótesis es especialmente relevante
+    porque la tesis identifica deuda elevada y cobertura de intereses insuficiente
+    como riesgos; no presupone que los beneficios de la transición ya compensen esos
+    riesgos.
+  review_trigger: Dejar de creerla si GM comunica una previsión de margen EBIT ajustado
+    automotriz inferior al 6% para 2027, o si el resultado anual de 2027 queda por
+    debajo de ese umbral.
+  secondary_hypotheses:
+  - H1-OPP-MB-GM
+  statement: GM preservará una rentabilidad operativa automotriz suficiente para financiar
+    la transición eléctrica sin depender de una mejora sustancial del apalancamiento.
+  status: ACTIVE
+  ticker: GM
+  version: 1
+- confidence: 0.0
+  falsification:
+  - condition: La acción no alcanza un cierre de 100 USD durante el periodo que termina
+      el 2027-12-31.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  - condition: La acción registra un cierre inferior a 75 USD antes de la fecha objetivo
+      y GM no revisa al alza sus previsiones operativas.
+    metric: ''
+    threshold: 0.0
+    triggered: false
+  falsification_conditions:
+  - La acción no alcanza un cierre de 100 USD durante el periodo que termina el 2027-12-31.
+  - La acción registra un cierre inferior a 75 USD antes de la fecha objetivo y GM
+    no revisa al alza sus previsiones operativas.
+  horizon: medio
+  id: H3-OPP-MB-GM
+  opportunity_id: OPP-MB-GM
+  parent_id: ''
+  predictions:
+  - actual: null
+    deadline: '2027-12-31'
+    expected: 100.0
+    met: null
+    metric: Precio de cierre de la acción ordinaria de GM
+    prediction: El precio de cierre de la acción ordinaria de GM será de al menos
+      100 USD en una sesión de negociación no posterior al 2027-12-31.
+    unit: USD por acción
+  priority: important
+  probability: 0.5
+  rationale: Si GM combina crecimiento de entregas eléctricas con rentabilidad automotriz
+    resiliente, los resultados podrían respaldar una revaloración desde el precio
+    de referencia de 87,40 USD. La predicción depende de que la ejecución se traduzca
+    en resultados y de que las condiciones generales del mercado no contrarresten
+    esa mejora.
+  review_trigger: Dejar de creerla si la acción cierra por debajo de 75 USD y, en
+    el mismo periodo, GM mantiene o recorta sus previsiones de EBIT ajustado automotriz;
+    abandonar también al cierre del 2027-12-31 si no se ha alcanzado el objetivo.
+  secondary_hypotheses:
+  - H1-OPP-MB-GM
+  - H2-OPP-MB-GM
+  statement: La cotización de GM superará los 100 USD por acción antes de finalizar
+    2027, al reducirse el descuento que refleja el mercado sobre su potencial de recuperación.
+  status: ACTIVE
+  ticker: GM
+  version: 1
